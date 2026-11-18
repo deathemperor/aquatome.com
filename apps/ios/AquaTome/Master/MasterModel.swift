@@ -252,13 +252,13 @@ final class MasterModel {
           continue
         }
       } else if let key = switcher.outlet(c)?.key {
-        // Whether the step went isn't known (its answer lost, the outlet not read after it): said so, not that a hand
-        // changed it (Codex, 17 Nov).
+        // Whether the step went isn't known (its answer lost or not reported, the outlet not read after it as switched):
+        // said so, not that a hand changed it (Codex, 17 Nov).
         let changed = b.guessed == true
           ? String(localized: "Không rõ lệnh đã tới ổ \(name) chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.")
           : String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
-        // Back already; switched since the last press left it (a hand, its schedule) or made a heater: left; CO2: never
-        // on; not read: stays owed, for Trả lại.
+        // Back already; switched since the last press left it (a hand, its schedule): left; made a heater: left, and said
+        // so (Fable, 18 Nov); CO2: never on; not read: stays owed, for Trả lại.
         let end = MasterRun.end(b, now: read ? board.on(key) : nil, left: b.left ?? kept[c.target], role: role(c))
         if end == .unread {
           r.back[i].failed(Switcher.unreached(name), mayHaveSent: false, notKnown: switcher.notKnown(c), before: r.back[i].earlier)
@@ -272,7 +272,9 @@ final class MasterModel {
           // something else changed it and AquaTome left it.
           case .already: if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
           case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
-          default: tell(changed)
+          case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là ổ sưởi nên AquaTome để nguyên. Bạn xem lại ổ này."))
+          case .leave: tell(changed)
+          case .unread, .send: break
           }
           continue
         }
@@ -289,6 +291,8 @@ final class MasterModel {
       case .done:
         r.back[i].done = true
         r.back[i].problem = nil
+        // Whether the press's step went wasn't known: what the end did, and to look (the chief, 18 Nov).
+        if b.guessed == true { tell(String(localized: "AquaTome đã trả ổ \(name) về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.")) }
         // Kept as each goes back: the app closed meanwhile doesn't send it again when it next opens.
         var kept = r
         kept.ended = endedBefore

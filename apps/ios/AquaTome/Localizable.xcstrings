@@ -21033,6 +21033,28 @@
         }
       }
     },
+    "AquaTome đã trả ổ %@ về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome sudah mengembalikan stopkontak %@ seperti semula: saat tombol ditekan, stopkontak belum melaporkan perubahan. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome telah mengembalikan soket %@ seperti asal: semasa butang ditekan, soket belum melaporkan perubahan. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome คืนปลั๊ก %@ กลับเป็นเหมือนเดิมแล้ว: ตอนกดปุ่ม ปลั๊กยังไม่รายงานว่าเปลี่ยนแล้ว ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
     "Bật với màu": {
       "localizations": {
         "id": {
@@ -22173,6 +22195,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลั๊ก %@ ถูกเปลี่ยนระหว่างที่ปุ่มทำงาน AquaTome จึงปล่อยไว้ตามนั้น"
+          }
+        }
+      }
+    },
+    "Ổ %@ giờ được ghi là ổ sưởi nên AquaTome để nguyên. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sekarang dicatat sebagai pemanas, jadi AquaTome membiarkannya. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ kini direkodkan sebagai pemanas, jadi AquaTome membiarkannya. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ถูกบันทึกเป็นฮีตเตอร์แล้ว AquaTome จึงปล่อยไว้ตามเดิม ตรวจดูปลั๊กนี้"
           }
         }
       }

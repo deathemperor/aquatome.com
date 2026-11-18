@@ -70,7 +70,7 @@ let masterCardList = #"""
 - start · `failed.append(.init(target: step.target, line: Self.signedOut))` · said not sent, and nothing of it went.
 - start · `await switcher.send(step` · Sends the step (Switcher, below).
 - start · `failed.append(.init(target: step.target, line: line))` · The step's own line, from `Switcher.send`; one that may have gone is marked uncertain for `settle`.
-- start · `if mayHaveSent { uncertain.insert(step.target) }` · Marked: `settle` notes how it left the outlet as read after it, or as asked when not read, never as it was.
+- start · `if mayHaveSent { uncertain.insert(step.target) }` · Marked: `settle` counts it gone, as asked, however it reads after, and keeps its put-back for the end.
 - start · `MasterRun.Failed(target: $0.target` · The steps refused at the press: never sent, said so.
 - start · `let halfSent = switcher.lamp.mayHaveGone > lampSent` · A lamp recording sent or cut during this press: the lamp goes back at the end, whatever its line.
 - start · `r.settle(` · The press's lines and what goes back (`MasterRun.settle`, below).
@@ -83,6 +83,7 @@ let masterCardList = #"""
 - sendLamp · `await switcher.setByButton(s` · The lamp's own line, from `Switcher.send`.
 - signedOut · `static var signedOut: String { String(localized:` · "Chưa gửi vì bạn đã đăng xuất.": written only where nothing of it went (the two above, Switcher's withdrawals).
 - finish · `let away = r.ended == nil` · The end come while the app was away (in the background, or closed at its time): the lamp waits for Trả lại.
+- finish · `if r.ended == nil { r.ended = t }` · The run shown ends now; a run saved before the end is done keeps the end as it was (below), so a close meanwhile brings the end again.
 - finish · `r.failed = []` · The press's lines go at the end; each put-back owed keeps its own.
 - finish · `if let unread = switcher.unreadTanks {` · The tanks on this phone not read: nothing goes back, and
 - finish · `.problem = unread } }` · each owed put-back's line is the tank list's words (nothing on what went); `mayHaveGone` is kept.
@@ -90,7 +91,8 @@ let masterCardList = #"""
 - finish · `keep()` · Saved.
 - finish · `let read = board.listError == nil` · The list not read again: no outlet's state now is known, so none is sent (`.unread`).
 - finish · `if let gone = switcher.gone(c) {` · Its device deleted from the tanks:
-- finish · `r.back[i].problem = nil` · done, nothing sent now;
+- finish · `r.back[i].done = true` · done, nothing sent now;
+- finish · `r.back[i].problem = nil` · its line goes;
 - finish · `tell(gone)` · the note says the device is gone, not that nothing went.
 - finish · `if away && !byReader {` · The lamp, the end come while away and not Trả lại:
 - finish · `r.back[i].failed(String(localized:` · nothing sent now; says the lamp isn't back, or, a try before it may have gone, that it's not known (`Back.failed`).
@@ -101,18 +103,25 @@ let masterCardList = #"""
 - finish · `if end == .unread {` · Not read:
 - finish · `r.back[i].failed(Switcher.unreached(name)` · nothing sent now; says it wasn't reached, or, a try before it may have gone, that it's not known.
 - finish · `if end != .send {` · Nothing to send:
-- finish · `r.back[i].problem = nil` · done.
+- finish · `r.back[i].done = true` · done;
+- finish · `r.back[i].problem = nil` · its line goes.
 - finish · `case .already: if !b.earlier` · Back already: no note when a try of its own may be what put it back; else, if the press had changed it, that something else did and AquaTome left it.
 - finish · `case .hold: tell(` · CO2 left off: AquaTome never switches CO2 on.
-- finish · `default: tell(changed)` · Switched since the press left it, or a heater: this end sends nothing.
+- finish · `case .heater: tell(` · Made a heater since the press: left, and says so (the button never switches one; Fable, 18 Nov).
+- finish · `case .leave: tell(changed)` · Switched since the press left it: this end sends nothing, and says so.
 - finish · `.trying(notKnown:` · Before it goes: counted as one that may have gone, and a line it had reads as not known.
+- finish · `going.ended = endedBefore` · The run saved before it goes keeps the end as it was:
 - finish · `store(going)` · Saved before it goes, with the end as it was: closed meanwhile, it reloads as one that may have gone, and the end comes again.
 - finish · `run = r` · Shown before it goes.
 - finish · `await switcher.send(c` · Sends it (Switcher, below).
-- finish · `r.back[i].problem = nil` · Back: done.
-- finish · `store(kept)` · Saved at once.
+- finish · `r.back[i].done = true` · Back: done;
+- finish · `r.back[i].problem = nil` · its line goes;
+- finish · `if b.guessed == true { tell(` · the press's step not known to have gone (its answer lost or not reported): says AquaTome put the outlet back, and to look at it (the chief, 18 Nov).
+- finish · `kept.ended = endedBefore` · Saved with the end as it was,
+- finish · `store(kept)` · at once.
 - finish · `r.back[i].failed(line, mayHaveSent:` · Failed: its line when it may have gone or no try before it may have; else not known (`Back.failed`).
-- finish · `store(kept)` · Saved at once.
+- finish · `kept.ended = endedBefore` · Saved with the end as it was,
+- finish · `store(kept)` · at once.
 - finish · `run = r` · Shown.
 - finish · `run = r.pending.isEmpty ? nil : r` · Dropped only when nothing is owed.
 - finish · `keep()` · Saved.
@@ -222,18 +231,19 @@ let masterCardList = #"""
 - init · `return Back(command: DeviceCommand(device: step.device, outlet: step.outlet, on: !step.on))` · Else back the other way.
 - settle · `self.failed = failed` · The press's lines, as Switcher wrote them.
 - settle · `back.removeAll { b in` · Nothing goes back for
-- settle · `guard missed.contains(b.command.target), !keeping.contains(b.command.target) else { return false }` · a step that failed, unless owed by an earlier press or a lamp step that may have gone,
-- settle · `return b.command.isLamp || now(b.command) == b.command.on` · when it is the lamp's (none of it went), or an outlet read after it as it was. An outlet not read after it stays owed (known and open, the second).
-- settle · `let left: Bool? = !missed.contains(t) ? step.on : uncertain.contains(t) ? (now(step) ?? step.on)` · How the press left each outlet: as asked when it went; one that may have gone, as read after it, or as asked when not read (counted gone);
+- settle · `guard missed.contains(b.command.target), !keeping.contains(b.command.target), !uncertain.contains(b.command.target) else` · a step that failed, unless owed by an earlier press, a lamp step that may have gone, or one whose command may have reached the plug (counted gone, however it reads after: a plug can switch late; the chief, 18 Nov),
+- settle · `return b.command.isLamp || now(b.command) == b.command.on` · when it is the lamp's (none of it went), or an outlet read after it as it was. An outlet not read after it stays owed.
+- settle · `let left: Bool? = !missed.contains(t) || uncertain.contains(t) ? step.on` · How the press left each outlet: as asked when it went or may have (counted gone);
 - settle · `: keeping.contains(t) ? nil : back.first(where:` · one refused before anything went, as it was (an earlier press's, when it owes it).
 - settle · `if let left, let i = back.firstIndex(where:` · Noted with its put-back:
 - settle · `back[i].left = left` · how it was left,
-- settle · `back[i].guessed = uncertain.contains(t) && now(step) == nil ? true : nil` · and whether only guessed (the end's note then says not known whether the command reached it).
+- settle · `back[i].guessed = uncertain.contains(t) && now(step) != step.on ? true : nil` · and whether only guessed: it may have gone, and wasn't read after it as switched (the end's note then says not known whether the command reached it, and what the end did).
 - settle · `if missed.isSuperset(of: steps.map(\.target)), back.isEmpty { ended = t }` · Every step failed and nothing goes back: it ends now.
+- End · `case heater` · Made a heater since the press: the end's own case, with its own note (Fable, 18 Nov).
 - end · `if now == c.on { return .already }` · Reads as it goes back: nothing to send.
 - end · `if let now, let left, now != left { return .leave }` · Switched since the press left it: left, and said so.
 - end · `if c.on && (b.held == true || role == "co2") { return .hold }` · CO2 never switched on.
-- end · `if role == "heater" { return .leave }` · A heater never switched.
+- end · `if role == "heater" { return .heater }` · A heater never switched.
 - end · `if now == nil { return .unread }` · Not read: nothing sent, owed for Trả lại.
 - end · `return .send` · Else it goes.
 - pending · `public var pending: [Back] { back.filter { !$0.done } }` · What is still owed: its lines on the card, Trả lại, and the run kept while any is.
@@ -327,7 +337,7 @@ private let walked: [(file: String, finds: [String], in: Set<String>?)] = [
                                          "switcher.setByButton(", "sendLamp(", "mayHaveGone", "String(localized:", "still()", "MasterButton.allows(",
                                          "held = true", "listError", "unreadTanks", "switcher.gone(", "let away", "away &&", "MasterRun.end(",
                                          "guessed", "end == .", "end != .", "uncertain", "owner() == true", "session += 1",
-                                         "session == s"], nil),
+                                         "session == s", "done = true", ".ended = "], nil),
   ("AquaTome/Master/Switcher.swift", [".failed(", "CommandEnd.lamp(", "CommandEnd.plug(", "lamp.send(", "board.set(", "nothingSent",
                                       "String(localized:", "MasterModel.signedOut", ": .done", "await set(", "await send(", "return .signedOut",
                                       "return .role", "MasterButton.allows("], nil),

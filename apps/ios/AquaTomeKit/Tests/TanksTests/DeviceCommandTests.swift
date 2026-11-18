@@ -138,7 +138,7 @@ func whatIsOwed() {
   #expect(run.back[1].held == true && run.back[1].problem == nil)
 }
 
-@Test("A failed step that reads as it was has nothing to put back, nor a lamp step that failed; one not known stays owed")
+@Test("A failed step that reads as it was has nothing to put back, nor a lamp step that failed; one not known, or that may have gone, stays owed")
 func whatFailed() {
   let b = MasterButton(name: "x", steps: [lampWhite, fanOff], minutes: 60)
   let all = [MasterRun.Failed(target: lampWhite.target, line: "a"), .init(target: fanOff.target, line: "b")]
@@ -168,10 +168,16 @@ func whatFailed() {
   var some = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
   some.settle([all[0]], now: { _ in false }, keeping: [], at: m0)
   #expect(some.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && some.isRunning)
+  // The fan's answer lost or not reported, read after it as it was: counted gone, as a plug can switch late (the chief,
+  // 18 Nov). It stays owed, as asked and only guessed, and it runs on: the end reads it again.
+  var late = MasterRun(b, at: m0, before: { _ in true }, lamp: nil)
+  late.settle(all, now: { _ in true }, keeping: [], at: m0, uncertain: [fanOff.target])
+  #expect(late.back.map(\.command) == [DeviceCommand(device: plug, outlet: "switch_3", on: true)] && late.isRunning)
+  #expect(late.back[0].left == false && late.back[0].guessed == true)
 }
 
 @Test("At the end an outlet no longer as this press left it is left, whatever an earlier press owes; CO2 never back on")
-func whatTheEndDoes() {
+func whatTheEndDoes() throws {
   let fanOn = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_3", on: true))
   // This press's own put-back: the fan it switched off goes back on; one found on already needs nothing.
   #expect(MasterRun.end(fanOn, now: false, left: false, role: "fan") == .send)
@@ -184,15 +190,34 @@ func whatTheEndDoes() {
   #expect(MasterRun.end(fanOn, now: nil, left: nil, role: "fan") == .unread)
   // Its step didn't go, or this press didn't set it: as the put-back says.
   #expect(MasterRun.end(fanOn, now: false, left: nil, role: "fan") == .send)
-  // CO2 back on, held at the press or CO2 now: never sent. A heater now: left.
+  // CO2 back on, held at the press or CO2 now: never sent. A heater now: left, its own case (Fable, 18 Nov).
   var held = MasterRun.Back(command: DeviceCommand(device: plug, outlet: "switch_2", on: true))
   #expect(MasterRun.end(held, now: false, left: false, role: "co2") == .hold)
   held.held = true
   #expect(MasterRun.end(held, now: false, left: false, role: "light") == .hold)
-  #expect(MasterRun.end(fanOn, now: false, left: false, role: "heater") == .leave)
+  #expect(MasterRun.end(fanOn, now: false, left: false, role: "heater") == .heater)
+  #expect(MasterRun.end(fanOn, now: nil, left: false, role: "heater") == .heater)
+  // CO2 switched off by a step whose answer was lost, read after it as still on: counted gone (the chief, 18 Nov), so
+  // it stays owed. Found off at the end, or not read: held, never sent on, whether held at the press or CO2 now; found
+  // on, nothing to send.
+  let co2Off = DeviceCommand(device: plug, outlet: "switch_2", on: false)
+  var lost = MasterRun(MasterButton(name: "x", steps: [co2Off], minutes: 60), at: m0, before: { _ in true }, lamp: nil)
+  lost.back[0].held = true
+  lost.settle([.init(target: co2Off.target, line: "b")], now: { _ in true }, keeping: [], at: m0, uncertain: [co2Off.target])
+  let co2 = try #require(lost.back.first)
+  #expect(co2.command.on && co2.left == false && co2.guessed == true && lost.isRunning)
+  for role in ["co2", "light", nil] as [String?] {
+    #expect(MasterRun.end(co2, now: false, left: co2.left, role: role) == .hold)
+    #expect(MasterRun.end(co2, now: nil, left: co2.left, role: role) == .hold)
+    #expect(MasterRun.end(co2, now: true, left: co2.left, role: role) == .already)
+  }
+  var unheld = co2
+  unheld.held = nil
+  #expect(MasterRun.end(unheld, now: false, left: unheld.left, role: "co2") == .hold)
+  #expect(MasterRun.end(unheld, now: nil, left: unheld.left, role: "co2") == .hold)
 }
 
-@Test("How a press left each outlet goes with what it owes: as asked; lost, as read after or as asked; refused, as it was")
+@Test("How a press left each outlet goes with what it owes: as asked; lost or not reported, as asked (counted gone); refused, as it was")
 func howAPressLeftEach() {
   let lightOff = DeviceCommand(device: plug, outlet: "switch_1", on: false)
   let fanOn = DeviceCommand(device: plug, outlet: "switch_3", on: true)
@@ -206,11 +231,16 @@ func howAPressLeftEach() {
   var went = run()
   went.settle([], now: { _ in nil }, keeping: [owedFan.command.target], at: m0)
   #expect(left(went, lightOff) == false && left(went, fanOn) == true)
-  // The fan's answer lost: as read after it (a hand may switch it later; the end compares with this).
+  // The fan's answer lost or not reported, read after it as not switched: counted gone, as asked, since a plug can
+  // switch late (the chief, 18 Nov); only guessed.
   let fanFailed = [MasterRun.Failed(target: fanOn.target, line: "b")]
   var lost = run()
   lost.settle(fanFailed, now: { $0.target == fanOn.target ? false : nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
-  #expect(left(lost, fanOn) == false && lost.back[0].guessed == nil)
+  #expect(left(lost, fanOn) == true && lost.back[0].guessed == true)
+  // Read after it as switched: it went, not guessed.
+  var seen = run()
+  seen.settle(fanFailed, now: { $0.target == fanOn.target ? true : nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
+  #expect(left(seen, fanOn) == true && seen.back[0].guessed == nil)
   // Lost and not read after it: counted gone, as asked (the end leaves an outlet found otherwise, rather than undo a hand).
   var unread = run()
   unread.settle(fanFailed, now: { _ in nil }, keeping: [owedFan.command.target], at: m0, uncertain: [fanOn.target])
@@ -226,9 +256,11 @@ func howAPressLeftEach() {
   let light = ownRefused.back.first { $0.command.target == lightOff.target }!
   #expect(light.left == true && light.guessed == nil)
   #expect(MasterRun.end(light, now: false, left: light.left, role: "light") == .leave)
-  // The end then, the fan found on: where the lost step was read off after it, a hand switched it since, so it's left;
-  // where this press left it on, it goes back off, as owed.
-  #expect(MasterRun.end(lost.back[0], now: true, left: left(lost, fanOn), role: "fan") == .leave)
+  // The end then: the lost step counted gone, so the fan found on (it switched late) goes back off, as owed, as where
+  // this press's step went; found off, nothing to send (the end's note says it isn't known whether the command reached
+  // it).
+  #expect(MasterRun.end(lost.back[0], now: true, left: left(lost, fanOn), role: "fan") == .send)
+  #expect(MasterRun.end(lost.back[0], now: false, left: left(lost, fanOn), role: "fan") == .already)
   #expect(MasterRun.end(went.back[0], now: true, left: left(went, fanOn), role: "fan") == .send)
 }
 
