@@ -289,6 +289,84 @@
       "kept": true
     }
   ],
+  "vi/glossary/la-bang": [
+    {
+      "at": "2026-11-18T02:28:32Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho khoảng 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho khoảng 20–30 lít.\" The 15 cm dose table (fact 18) has to go, and so does its 'start conservatively'. This se…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Tiệm thứ hai cũng ghi: muốn làm nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla tới khi được màu ưng ý.\": Rules 3 and 12: \"Tiệm thứ hai cũng ghi: muốn làm nước đen (blackwa…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Châm quá tay nước lá bàng, tức nước nấu từ lá khô.\" (not \"Châm quá tay nước lá bàng.\": Rule 12: \"Châm quá tay nước lá bàng.\" The required wording is \"Châm quá tay nước lá bàng, tức nước nấu từ lá khô.\" The explanation of what the leaf water is (facts 30, 31: two pages) has been dropped. / it drops the adv…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:28:32Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Lá nhả tanin làm nước ngả màu trà và hạ pH chậm.\": THIS TERM says the definition ends at \"hạ pH\". The word \"chậm\" comes only from the US shop (facts 1 and 15 are both source 0), so it has to go. The sentence should read exactly \"Lá nhả tanin làm nước ngả màu trà và hạ pH.\"",
+        "Rule 12: \"Chọn lá khô đã rụng hoặc đã ngả vàng.\": only one news report (fact 8, source 5) says the leaves are yellowed, and here that claim is written as plain fact. THIS TERM says \"hoặc đã ngả vàng\" goes, and the step should read exactly \"Chọn lá khô đã rụng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:19:41Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu dè dặt với một lá cho 20–30 lít.\" This comes from the 15 cm dose table (fact 18), which THIS TERM removes, along with its \"start conserva…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Muốn làm nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla, cho tới khi được màu ưng ý.\": Rules 3 and 12: \"Muốn làm nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:19:41Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Một tiệm ghi: ngâm lá 24–48 giờ trong nước đã khử clo thì đợt ra màu đầu nhẹ hơn.\" must be written word for word as \"Một tiệm ghi: ngâm lá 24–48 giờ trong nước đã khử clo thì lúc mới thả, nước ra màu nhẹ hơn.\"",
+        "Rules 10 and 12: \"Một tiệm khác ghi: đừng luộc lá trước khi thả, vì luộc làm lá nhả hết tanin ra nồi.\" adds \"ra nồi\", but fact 23 doesn't say where the tannin goes. The required wording ends at \"nhả hết tanin.\"",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi: thay lá sau khoảng 2–3 tuần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\" must be written word for word as \"Tiệm thứ nhất cũng ghi: cứ 2–3 tuần thay lá một lần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\"",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi: lá ở đường đông xe có thể dính khói xe.\" must be written word for word as \"Tiệm thứ nhất cũng ghi: lá cây ven đường đông xe có thể dính khói xe.\" Fact 37 says roadsides.",
+        "Rule 12: \"Chuyện lá diệt được ký sinh trùng và vi khuẩn mà người bán hay kể chưa được kiểm chứng.\" keeps \"mà người bán hay kể\", which must go. That sellers tell it comes from the news report alone (fact 48). The required wording is \"Chuyện lá diệt được ký sinh trùng và vi khuẩn chưa được kiểm chứng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:11:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Bắt đầu với một lá cho khoảng 20–30 lít.\" (not \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu với một lá cho khoảng 20–30 lít.\": Rule 12: \"Với lá cỡ vừa (khoảng 15 cm), bắt đầu với một lá cho khoảng 20–30 lít.\" uses the 15 cm dose table (fact 18), which this term drops. The rules require the exact sentence \"Bắt đ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ hai cũng ghi: muốn nước màu trà đậm hơn thì thêm lá dần tới khi được màu ưng ý.\" (not \"Tiệm thứ hai cũng ghi: muốn nước đen (blackwater) thì thêm lá cùng các loại gỗ mềm như lũa Malaysia hay gỗ cholla, tới khi được màu ưng ý.\": Rules 3 and 12: \"muốn nước đen (blackwater)\" in \"Tiệm thứ hai cũng gh…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:11:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Thay lá sau khoảng 2–3 tuần. Tiệm thứ nhất cũng ghi: trong bể tép có thể để lá đến khi chỉ còn bộ gân.\" states the 2–3-week replacement as plain fact. Only the first shop gives this for whole leaves (fact 28), so it must sit under that shop's credit. The required wording is \"Tiệm thứ nhất cũng ghi: thay lá sau khoảng 2–3 tuần; trong bể tép có thể để lá đến khi chỉ còn bộ gân.\"",
+        "Rules 10 and 12: \"Chuyện lá diệt được ký sinh trùng và vi khuẩn mà người bán hay kể chưa có gì chứng minh.\" Saying \"chưa có gì chứng minh\" claims more than the facts, which call the sellers' claims untested or unsourced (facts 42, 48, 49). The required sentence ends \"chưa được kiểm chứng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
   "vi/glossary/lua": [
     {
       "at": "2026-11-14T04:29:50Z",
