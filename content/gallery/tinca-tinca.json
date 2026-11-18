@@ -12,8 +12,7 @@
       "caption": "Hai cá tench bơi cạnh nhau trong nước hồ xanh",
       "best": true,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/ad75ce9102222319.webp",
@@ -38,8 +37,7 @@
       "caption": "Cá tench bơi trong nước xanh trong tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/10c2b266bcdf35ff.webp",
@@ -132,18 +130,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/b7a4f28906b8c63f.webp",
-      "thumb": "https://media.aquatome.com/commons/b7a4f28906b8c63f-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Kacpi007",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Czterocentymetrowy_lin.jpg",
-      "caption": "Cá tench non bơi trong bể thủy sinh nền sỏi",
-      "best": false,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/commons/116f171bc2f7776b.webp",
       "thumb": "https://media.aquatome.com/commons/116f171bc2f7776b-480.webp",
       "width": 1200,
@@ -154,18 +140,6 @@
       "caption": "Cá tench màu xanh vàng, cận cảnh đầu và râu",
       "best": false,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f8b161587656e45a.webp",
-      "thumb": "https://media.aquatome.com/commons/f8b161587656e45a-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 2.5",
-      "author": "Viridiflavus",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:JuvenileTenchTincaTinca.JPG",
-      "caption": "Cá tench non bơi trong bể nước trong",
-      "best": false,
-      "kind": "juvenile"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/208309754.webp",
@@ -264,6 +238,30 @@
       "kind": "juvenile",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b7a4f28906b8c63f.webp",
+      "thumb": "https://media.aquatome.com/commons/b7a4f28906b8c63f-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "Kacpi007",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Czterocentymetrowy_lin.jpg",
+      "caption": "Cá tench non bơi trong bể thủy sinh nền sỏi",
+      "best": false,
+      "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/f8b161587656e45a.webp",
+      "thumb": "https://media.aquatome.com/commons/f8b161587656e45a-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 2.5",
+      "author": "Viridiflavus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:JuvenileTenchTincaTinca.JPG",
+      "caption": "Cá tench non bơi trong bể nước trong",
+      "best": false,
+      "kind": "juvenile"
     }
   ],
   "seen": 125,

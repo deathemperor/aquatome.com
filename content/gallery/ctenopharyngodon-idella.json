@@ -2,30 +2,6 @@
   "id": "ctenopharyngodon-idella",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/21488323.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/21488323-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Pedro Henrique Maloso Ramos",
-      "sourceUrl": "https://www.inaturalist.org/photos/21488323",
-      "caption": "Cá trắm cỏ màu vàng kem (dạng bạch tạng) bơi trong ao",
-      "best": true,
-      "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/294602684.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/294602684-480.webp",
-      "width": 1200,
-      "height": 1147,
-      "licence": "CC0",
-      "author": "buriedanimal",
-      "sourceUrl": "https://www.inaturalist.org/photos/294602684",
-      "caption": "Cá trắm cỏ bơi gần mặt nước phủ tảo xanh",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/2a099bb17ea7170a.webp",
       "thumb": "https://media.aquatome.com/commons/2a099bb17ea7170a-480.webp",
       "width": 1200,
@@ -62,6 +38,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/commons/d9e98cf7605dd5ec.webp",
+      "thumb": "https://media.aquatome.com/commons/d9e98cf7605dd5ec-480.webp",
+      "width": 1040,
+      "height": 1080,
+      "licence": "Public domain",
+      "author": "User:JoJan(original) derivative work by த*உழவன்",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grass_carp.jpg",
+      "caption": "Cá trắm cỏ bơi trong nước có rong rêu",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/4352646.webp",
       "thumb": "https://media.aquatome.com/inaturalist/4352646-480.webp",
       "width": 1024,
@@ -86,18 +74,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/d9e98cf7605dd5ec.webp",
-      "thumb": "https://media.aquatome.com/commons/d9e98cf7605dd5ec-480.webp",
-      "width": 1040,
-      "height": 1080,
-      "licence": "Public domain",
-      "author": "User:JoJan(original) derivative work by த*உழவன்",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grass_carp.jpg",
-      "caption": "Cá trắm cỏ bơi trong nước có rong rêu",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/10825749.webp",
       "thumb": "https://media.aquatome.com/inaturalist/10825749-480.webp",
       "width": 1024,
@@ -120,6 +96,18 @@
       "caption": "Cá trắm cỏ bơi gần mặt nước có lá rụng",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/21488323.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/21488323-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Pedro Henrique Maloso Ramos",
+      "sourceUrl": "https://www.inaturalist.org/photos/21488323",
+      "caption": "Cá trắm cỏ màu vàng kem (dạng bạch tạng) bơi trong ao",
+      "best": true,
+      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/commons/c44e6f18b43c878a.webp",
@@ -276,6 +264,18 @@
       "caption": "Cá trắm cỏ bơi gần mặt nước đục",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/294602684.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/294602684-480.webp",
+      "width": 1200,
+      "height": 1147,
+      "licence": "CC0",
+      "author": "buriedanimal",
+      "sourceUrl": "https://www.inaturalist.org/photos/294602684",
+      "caption": "Cá trắm cỏ bơi gần mặt nước phủ tảo xanh",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 108,

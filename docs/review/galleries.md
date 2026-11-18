@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-18). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 733 | 31 | 9 | 24 | 749 |
-| rest | 20 | 1812 | 79 | 0 | 103 | 1788 |
+| covered | 30 | 741 | 31 | 9 | 24 | 757 |
+| rest | 20 | 1826 | 79 | 0 | 106 | 1799 |
 
-## Short of target: every source read (664)
+## Short of target: every source read (665)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -363,6 +363,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-commbrae | covered | 1 | 30 |
 | species/apistogramma-elizabethae | covered | 0 | 30 |
 | species/apistogramma-eunotus | covered | 0 | 30 |
+| species/apistogramma-gibbiceps | covered | 0 | 30 |
 | species/apistogramma-macmasteri | covered | 3 | 30 |
 | species/apistogramma-mendezi | covered | 1 | 30 |
 | species/apistogramma-panduro | covered | 3 | 30 |

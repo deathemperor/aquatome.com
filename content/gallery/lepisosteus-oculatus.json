@@ -80,6 +80,34 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/14211225.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/14211225-480.webp",
+      "width": 1024,
+      "height": 649,
+      "licence": "CC BY-SA",
+      "author": "Nodnarb Nedloh",
+      "sourceUrl": "https://www.inaturalist.org/photos/14211225",
+      "caption": "Cá sấu hỏa tiễn đốm nổi gần mặt nước tối",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/7315718.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/7315718-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Elspeth Pierce",
+      "sourceUrl": "https://www.inaturalist.org/photos/7315718",
+      "caption": "Cá sấu hỏa tiễn đốm bơi trong nước suối trong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/4a3100facd03bd31.webp",
       "thumb": "https://media.aquatome.com/commons/4a3100facd03bd31-480.webp",
       "width": 1200,
@@ -116,42 +144,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/9665ed72792d04da.webp",
-      "thumb": "https://media.aquatome.com/commons/9665ed72792d04da-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY 2.0",
-      "author": "úlfhams_víkingur",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_gar.jpg",
-      "caption": "Cá sấu hỏa tiễn đốm màu cam vàng giữa cây thủy sinh",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/5e4293b5c94c8c97.webp",
-      "thumb": "https://media.aquatome.com/commons/5e4293b5c94c8c97-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 2.0",
-      "author": "Cliff from Arlington, Virginia, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Gar_(Lepisosteus_oculatus)_(3148927599).jpg",
-      "caption": "Cá sấu hỏa tiễn đốm nằm gần đáy cát sỏi",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/54ca7a69e439dc22.webp",
-      "thumb": "https://media.aquatome.com/commons/54ca7a69e439dc22-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 2.0",
-      "author": "Cliff from Arlington, Virginia, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Gar_(Lepisosteus_oculatus)_(3149758934).jpg",
-      "caption": "Cá sấu hỏa tiễn đốm bơi trên nền cát sỏi",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/0fd38281285c86c0.webp",
       "thumb": "https://media.aquatome.com/commons/0fd38281285c86c0-480.webp",
       "width": 1200,
@@ -160,18 +152,6 @@
       "author": "Wolfgang Sauber",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salzburg_Haus_der_Natur_-_Gefleckter_Knochenhecht.jpg",
       "caption": "Cá sấu hỏa tiễn đốm bơi giữa cây thủy sinh trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a5e4bc37f138d9b1.webp",
-      "thumb": "https://media.aquatome.com/commons/a5e4bc37f138d9b1-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 2.0",
-      "author": "NOAA Great Lakes Environmental Research Laboratory",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Gar_(8741579854).jpg",
-      "caption": "Cá sấu hỏa tiễn đốm bơi gần mặt nước trong bể kính",
       "best": false,
       "kind": "other"
     },
@@ -236,6 +216,30 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/commons/9665ed72792d04da.webp",
+      "thumb": "https://media.aquatome.com/commons/9665ed72792d04da-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY 2.0",
+      "author": "úlfhams_víkingur",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_gar.jpg",
+      "caption": "Cá sấu hỏa tiễn đốm màu cam vàng giữa cây thủy sinh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a5e4bc37f138d9b1.webp",
+      "thumb": "https://media.aquatome.com/commons/a5e4bc37f138d9b1-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 2.0",
+      "author": "NOAA Great Lakes Environmental Research Laboratory",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_Gar_(8741579854).jpg",
+      "caption": "Cá sấu hỏa tiễn đốm bơi gần mặt nước trong bể kính",
+      "best": false,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/a6a0524ef9857600.webp",
       "thumb": "https://media.aquatome.com/commons/a6a0524ef9857600-480.webp",
       "width": 1200,
@@ -248,7 +252,7 @@
       "kind": "other"
     }
   ],
-  "seen": 68,
-  "updatedAt": "2026-11-17",
-  "builtAt": "2026-11-17"
+  "seen": 88,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }
