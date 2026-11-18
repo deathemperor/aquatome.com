@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules: docs/governance.md, "Photos".
-12141 verdicts. Shows it: 7457; its habitat (asked again): 3; something else: 446; not a photo of it: 326; dead or as food: 534; a person in it: 172; a logo on it: 142; can't tell: 2223.
+12254 verdicts. Shows it: 7551; its habitat (asked again): 3; something else: 447; not a photo of it: 326; dead or as food: 539; a person in it: 173; a logo on it: 142; can't tell: 2235.
 
 ## Left with no photo (101)
 
@@ -107,7 +107,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (2223)
+## Can't tell: still shown (2235)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -122,6 +122,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | breeds/balloon-molly | [photo](https://media.aquatome.com/commons/479c1b9bb3a309cc.webp) | subject unsure |
 | breeds/black-moor-goldfish | [photo](https://images.unsplash.com/photo-1642136331165-08690beed14b?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8YmxhY2slMjBtb29yJTIwZ29sZGZpc2h8ZW58MXx8fHwxNzkzNDAwNDU5fDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
 | breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/7836d3540215c861.webp) | subject unsure |
+| breeds/blood-parrot-cichlid | [photo](https://media.aquatome.com/commons/0e033dbac5698d52.webp) | subject unsure |
 | breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826086983-79d8d2d8cd4f?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
 | breeds/blue-velvet-shrimp | [photo](https://images.unsplash.com/photo-1676826127537-3523045b0cd4?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8M3x8Ymx1ZSUyMHZlbHZldCUyMHNocmltcHxlbnwxfHx8fDE3OTMzNzk0MTl8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
 | breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1603546609526-2fc9c4cf48c1?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject unsure |
@@ -2033,11 +2034,14 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/ptychochromis-oligacanthus | [photo](https://media.aquatome.com/commons/24e8c3ecf6c24c8b.webp) | subject unsure |
 | species/ptychochromis-oligacanthus | [photo](https://media.aquatome.com/commons/88aaa42b520e5ac5.webp) | subject unsure |
 | species/ptychochromis-oligacanthus | [photo](https://media.aquatome.com/commons/da9acb3af4189a40.webp) | subject unsure |
+| species/puntius | [photo](https://media.aquatome.com/commons/17e0de9a0913b1ee.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/2e756fc771513cee.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/2fb9dd25d0d5ed3f.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/3e141ae373bb0030.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/510cd5e0d7e889a1.webp) | subject unsure |
+| species/puntius | [photo](https://media.aquatome.com/commons/5fe256ad6f097ef0.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/9aebbf52454c96c6.webp) | subject unsure |
+| species/puntius | [photo](https://media.aquatome.com/commons/a0039a169b32058f.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/a72137099492ebf2.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/b794c9dfbeeb197e.webp) | subject unsure |
 | species/puntius | [photo](https://media.aquatome.com/commons/ccfc1d092116b208.webp) | subject unsure |
@@ -2208,6 +2212,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/trachydoras-steindachneri | [photo](https://media.aquatome.com/scotcat/e4533468d36a4562.webp) | subject unsure; person |
 | species/triops-cancriformis | [photo](https://media.aquatome.com/commons/2edc740447ec2550.webp) | subject unsure |
 | species/triops-cancriformis | [photo](https://media.aquatome.com/commons/4f023d34d2734c17.webp) | subject unsure |
+| species/triops-cancriformis | [photo](https://media.aquatome.com/commons/7eab23c83c73cd72.webp) | subject unsure |
 | species/triportheus-albus | [photo](https://media.aquatome.com/glaser/8ad7a6b01b40e778.webp) | subject unsure; logo |
 | species/triportheus-angulatus | [photo](https://media.aquatome.com/commons/39797de1e687cba2.webp) | subject unsure |
 | species/tropheops-tropheops | [photo](https://media.aquatome.com/commons/dd9d6f243fb451f1.webp) | subject unsure |
@@ -2253,9 +2258,12 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/zacco-platypus | [photo](https://media.aquatome.com/inaturalist/394785788.webp) | subject unsure |
 | species/zaireichthys-wamiensis | [photo](https://media.aquatome.com/scotcat/774cd72d49181dbf.webp) | subject unsure |
 | species/zenarchopterus-dunckeri | [photo](https://media.aquatome.com/commons/032533e6a2cde605.webp) | subject unsure |
+| plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/0589c7b27c53acbc.webp) | subject unsure |
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/17c5801b857e8a54.webp) | subject unsure |
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/313bb8071bcc26e0.webp) | subject unsure |
+| plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/66328bcbe8c50c9b.webp) | subject unsure |
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/80f811205c8ca816.webp) | subject unsure |
+| plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/898acc68e6647b63.webp) | subject unsure |
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/b164cdc131fcb3fb.webp) | subject unsure |
 | plants/alternanthera-bettzickiana | [photo](https://media.aquatome.com/commons/e44b2cefccbf0728.webp) | subject unsure |
 | plants/ammannia-crassicaulis | [photo](https://media.aquatome.com/tropica/31380b8faaf74ed2.webp) | subject unsure |
@@ -2304,7 +2312,11 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | plants/limnophila-aquatica | [photo](https://media.aquatome.com/commons/72f11539e6593890.webp) | subject unsure |
 | plants/limnophila-aquatica | [photo](https://media.aquatome.com/commons/8e1a3633ad95d1a4.webp) | subject unsure |
 | plants/lindernia-rotundifolia | [photo](https://media.aquatome.com/commons/615e1d7561236290.webp) | subject unsure |
+| plants/lindernia-rotundifolia | [photo](https://media.aquatome.com/commons/a942fa8bab351930.webp) | subject unsure |
+| plants/lindernia-rotundifolia | [photo](https://media.aquatome.com/commons/e9d311f187d5eb1d.webp) | subject unsure |
 | plants/ludwigia-palustris | [photo](https://media.aquatome.com/commons/903e42c0c8b76e0a.webp) | subject unsure |
+| plants/ludwigia-palustris | [photo](https://media.aquatome.com/commons/b6061de9d35c6f98.webp) | subject unsure |
+| plants/ludwigia-palustris | [photo](https://media.aquatome.com/commons/d5a80c8e806ba752.webp) | subject unsure |
 | plants/microsorum-pteropus-trident | [photo](https://media.aquatome.com/tropica/fbd58f0b8734c9ae.webp) | subject unsure |
 | plants/microsorum-sp | [photo](https://media.aquatome.com/commons/bcbe21d807b34343.webp) | subject unsure |
 | plants/myriophyllum-elatinoides | [photo](https://media.aquatome.com/aquariumbreeder/79618826a0bf172a.webp) | subject unsure |
@@ -2335,9 +2347,9 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (1595)
+## Removed (1602)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -2357,6 +2369,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | breeds/butterfly-koi | [photo](https://images.unsplash.com/photo-1695145752654-1830d43f43a8?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTl8fGJ1dHRlcmZseSUyMGtvaXxlbnwxfHx8fDE3OTM0MDA1MTF8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject other |
 | breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/5d63636767678801.webp) | subject other |
 | breeds/butterfly-koi | [photo](https://media.aquatome.com/commons/661ca6d53217c897.webp) | subject other |
+| breeds/flowerhorn-cichlid | [photo](https://images.unsplash.com/photo-1602226534254-cd13d1255761?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fGZsb3dlcmhvcm4lMjBjaWNobGlkfGVufDF8fHx8MTc5MzQxMDI3N3ww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject yes; person |
 | breeds/flowerhorn-cichlid | [photo](https://media.aquatome.com/commons/2a7afa5526087613.webp) | subject yes; person |
 | breeds/full-red-guppy | [photo](https://images.unsplash.com/photo-1781694348959-10cfe53f6ea7?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8OHx8ZnVsbCUyMHJlZCUyMGd1cHB5fGVufDF8fHx8MTc5MzQxMDI5NHww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | subject other |
 | breeds/glofish | [photo](https://media.aquatome.com/commons/68fd6ed56b869e47.webp) | subject yes; person |
@@ -3518,12 +3531,14 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/enneacanthus-gloriosus | [photo](https://media.aquatome.com/inaturalist/627706297.webp) | subject other; person |
 | species/enteromius-sublineatus | [photo](https://media.aquatome.com/commons/8755302533559a16.webp) | subject dead |
 | species/epalzeorhynchos-frenatus | [photo](https://media.aquatome.com/seriouslyfish/98ddbcd2e5f5e4de.webp) | subject other |
+| species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/5237ee2e3a2770cb.webp) | subject dead |
 | species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/62083dfd64c169b4.webp) | subject dead |
 | species/eriocheir-sinensis | [photo](https://media.aquatome.com/commons/7c3febf17c689373.webp) | subject dead |
 | species/esomus-longimanus | [photo](https://media.aquatome.com/seriouslyfish/6f4498949638c14c.webp) | subject none |
 | species/etheostoma-caeruleum | [photo](https://media.aquatome.com/inaturalist/8477129.webp) | subject yes; person |
 | species/etheostoma-fusiforme | [photo](https://media.aquatome.com/commons/f9a491a62ab2857c.webp) | subject dead |
 | species/etroplus-suratensis | [photo](https://media.aquatome.com/commons/80e33505f6a740e9.webp) | subject yes; person |
+| species/etroplus-suratensis | [photo](https://media.aquatome.com/inaturalist/741614835.webp) | subject dead |
 | species/etroplus-suratensis | [photo](https://media.aquatome.com/seriouslyfish/edf9372194a92a4b.webp) | subject dead |
 | species/etroplus-suratensis | [photo](https://media.aquatome.com/seriouslyfish/f76f99de0c45a7d7.webp) | subject dead; person |
 | species/eutropiichthys-burmannicus | [photo](https://media.aquatome.com/scotcat/7d261282eeefc7e8.webp) | subject dead |
@@ -3741,6 +3756,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/potamorrhaphis-guianensis | [photo](https://media.aquatome.com/commons/5228ea4373b15285.webp) | subject dead |
 | species/potamotrygon-motoro | [photo](https://media.aquatome.com/commons/e2eb853b63bea64a.webp) | subject dead |
 | species/potamotrygon-motoro | [photo](https://media.aquatome.com/commons/f0086979670a5669.webp) | subject dead |
+| species/procambarus-clarkii | [photo](https://media.aquatome.com/commons/78daebfffaecdcc5.webp) | subject dead |
 | species/procambarus-clarkii | [photo](https://media.aquatome.com/commons/cf9c4d113f343da8.webp) | subject yes; person |
 | species/procambarus-milleri | [photo](https://media.aquatome.com/commons/cedc995a3729a67e.webp) | subject yes; logo |
 | species/pseudocrenilabrus-nicholsi | [photo](https://media.aquatome.com/commons/3b63ff9931dd11b0.webp) | subject other |
@@ -3765,6 +3781,7 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/ptychochromis-oligacanthus | [photo](https://media.aquatome.com/glaser/fb8d8cdeddc24fd4.webp) | subject yes; logo |
 | species/puntius | [photo](https://media.aquatome.com/commons/1679bc586fd557d2.webp) | subject other |
 | species/puntius | [photo](https://media.aquatome.com/commons/2acbe75adfb6de40.webp) | subject other |
+| species/puntius | [photo](https://media.aquatome.com/commons/377731580c236970.webp) | subject other |
 | species/puntius | [photo](https://media.aquatome.com/commons/3ffb4d380b1214e0.webp) | subject other |
 | species/puntius | [photo](https://media.aquatome.com/commons/6fd661700931add3.webp) | subject other |
 | species/puntius | [photo](https://media.aquatome.com/commons/9a8b1b422bec8eee.webp) | subject other |
@@ -3879,6 +3896,8 @@ Written by `pnpm engine check-photos` (2026-11-18), most-read pages first. Rules
 | species/toxotes-chatareus | [photo](https://media.aquatome.com/panitvong/inat-233051271.webp) | subject none |
 | species/toxotes-chatareus | [photo](https://media.aquatome.com/panitvong/inat-617945147.webp) | subject none |
 | species/trachelyichthys-exilis | [photo](https://media.aquatome.com/scotcat/19b1b04edca3e20f.webp) | subject other |
+| species/triops-cancriformis | [photo](https://media.aquatome.com/inaturalist/205759967.webp) | subject dead |
+| species/triops-cancriformis | [photo](https://media.aquatome.com/inaturalist/259118757.webp) | subject dead |
 | species/triportheus-albus | [photo](https://media.aquatome.com/commons/b32a30ba763fec25.webp) | subject dead |
 | species/triportheus-angulatus | [photo](https://media.aquatome.com/commons/26dcd185dc18b4e4.webp) | subject dead |
 | species/tropheops-tropheops | [photo](https://media.aquatome.com/commons/4afc96a4b14db4ff.webp) | subject other |

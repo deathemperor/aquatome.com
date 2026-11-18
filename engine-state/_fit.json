@@ -69844,7 +69844,7 @@
    }
   ],
   "products": [],
-  "mendTried": "2026-11-15"
+  "mendTried": "2026-11-18"
  },
  "vi/guides/youtube-3OYP0CMIcf0": {
   "at": "2026-11-10",
@@ -73710,7 +73710,7 @@
    }
   ],
   "products": [],
-  "mendTried": "2026-11-15"
+  "mendTried": "2026-11-18"
  },
  "vi/guides/youtube-ahKKqSGy0Mw": {
   "at": "2026-11-17",
@@ -74559,7 +74559,7 @@
    }
   ],
   "products": [],
-  "mendTried": "2026-11-15"
+  "mendTried": "2026-11-18"
  },
  "vi/guides/youtube-b8TXICWpT2g": {
   "at": "2026-11-08",
@@ -88701,37 +88701,23 @@
   "products": []
  },
  "vi/guides/youtube-nZM7Tkolvtw": {
-  "at": "2026-11-15",
-  "hash": "fa2c074b9382e1dd",
+  "at": "2026-11-18",
+  "hash": "3012f5f19bad745d",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
+    "check": "words",
     "part": "P1",
-    "quote": "Ở bể này, phải hai tuần sau mới thả tép.",
-    "why": "Bare 'bể này' refers to the source's own tank as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Đàn chuyển sang bể mới ở đây có cả đực lẫn cái, thêm hai con cái lớn.",
-    "why": "'ở đây' describes the source creator's own colony and tank.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "L14",
-    "quote": "Bể này để hai tuần mới thả tép",
-    "why": "Refers to the source's own tank as if the reader knew it.",
-    "by": "model"
+    "quote": "Chọn loại lá nhỏ cho hợp cỡ bể, ví dụ pearlweed. Pearlweed mọc rất nhanh và lan mạnh.",
+    "why": "English plant name; Vietnamese keepers call it cỏ ngọc trai.",
+    "by": "model",
+    "fix": "cỏ ngọc trai"
    }
   ],
   "products": [
    "Dennerle"
-  ],
-  "mendTried": "2026-11-15"
+  ]
  },
  "vi/guides/youtube-O3u6GuClWi0": {
   "at": "2026-11-08",

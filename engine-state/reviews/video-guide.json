@@ -8013,6 +8013,19 @@
   ],
   "vi/guides/youtube-B8fj1mf64yE": [
     {
+      "at": "2026-11-18T05:55:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.7,
+      "notes": [
+        "\"Phần tốn công nhất là gắn từng mảnh thủy tinh lên đá\": the video only calls the silicone gluing tedious and worth the effort. It does not say it is the most laborious part. Remove the superlative and say it is tedious (\"khá mất công\").",
+        "\"có lẽ không hợp để đặt trong bể cá\": the video only says the creator doesn't think real citrine is a good option. It gives no reason about aquarium suitability. Drop the \"trong bể cá\" reasoning and keep it as a hedged personal view that real citrine isn't a good choice."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-15T16:12:07Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -33724,6 +33737,23 @@
     }
   ],
   "vi/guides/youtube-nZM7Tkolvtw": [
+    {
+      "at": "2026-11-18T05:56:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.7,
+      "notes": [
+        "\"Thả thêm bèo nổi như bèo Nhật\": the video names Amazon frogbit, and bèo Nhật is water hyacinth, a different plant. Name it as Amazon frogbit (bèo Amazon) or just \"bèo nổi\".",
+        "\"nhất là khi trại nuôi bằng nước RO, khác hẳn nước máy nhà mình\": the creator only says \"apparently\" they use RO water and that it is \"quite a bit different\". Hedge it with \"có thể\" and drop \"khác hẳn\"; say only that it differs from their own water.",
+        "\"Mỗi người khuyên một khoảng thời gian khác nhau, nhưng làm càng chậm thì càng tốt\" (also repeated in the FAQ): the video says \"apparently the slower the better\". Hedge it as \"nghe nói càng chậm càng tốt\" or \"có thể\", not a firm rule.",
+        "\"Đổ thêm phân nền cũng không làm cây lớn nhanh hơn, vì cây chỉ lấy đủ phần nó cần. Muốn cây ăn nhiều hơn thì phải có CO2\": the speakers only guess this (\"I wouldn't have thought so\", \"I would assume so\"). Hedge it with \"có lẽ\" or \"nhiều khả năng\"; don't present it as fact.",
+        "\"Dán keo từng nhánh lũa ngay khi đặt xong, để lỡ đụng tay không làm đổ cả bố cục\": this is the creator's own habit, written as a general instruction. Make it one person's choice, e.g. \"nếu muốn thì có thể dán keo từng nhánh\".",
+        "\"Kính hai bên hông cứ để rêu bám\": this is the creator's preference (\"I'm quite happy to have the sidewalls with a bit of algae on\"). Hedge it, e.g. \"có thể để chút rêu trên kính hông\", not a command."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
     {
       "at": "2026-11-15T16:13:19Z",
       "model": "sonnet",
