@@ -703,6 +703,33 @@
   ],
   "vi/glossary/thuc-an-dong-lanh": [
     {
+      "at": "2026-11-18T02:33:46Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi cho ăn.\": Rule 12: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút rồi cho ăn.\" leaves out \"tráng mồi\". The line…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rule 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\" lets one page's figure stand alone. The pages give 2–3 minutes (fact 30) and, for bloodworm, 3–5 minutes (fact 31). The line requires \"trong v…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Đồ đông lạnh thường cho ăn vài lần mỗi tuần, xen với thức ăn khác.\" (not \"Với cá ăn tạp và cá nuôi chung thông thường, đồ đông lạnh có thể cho ăn từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\": Rule 12: \"Với cá ăn tạp và cá nuôi chung thông thường, đồ đông lạnh có thể cho ăn từ một lần đến vài lầ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn quá nhiều đồ đông lạnh làm bẩn nước.\" (not \"Cần kiểm soát khẩu phần đồ đông lạnh để tránh làm bẩn nước bể.\": Rule 12: In the mistakes list, \"Cần kiểm soát khẩu phần đồ đông lạnh để tránh làm bẩn nước bể.\" gives overfeeding as advice. The line says never \"Cần kiểm soát lượng …\" and requires this wor…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:33:46Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"Betta\" in \"Tiệm thứ nhất cũng ghi: loại này hợp với cá ăn thịt như Betta.\": the fish has a page, and the line under THIS TERM requires the bloodworm item to say \"cá betta\" word for word: \"Tiệm thứ nhất cũng ghi: loại này hợp với cá ăn thịt như cá betta.\" It must never say \"như Betta\".",
+        "Rule 12: \"Một tiệm khác ghi: tép chỉ nên thỉnh thoảng mới ăn đồ đông lạnh.\" does not follow the required wording \"Một tiệm khác ghi: chỉ nên thỉnh thoảng cho tép ăn đồ đông lạnh.\" The rule asks for that wording so that nobody reads \"tép chỉ\".",
+        "Rule 12: the allergy paragraph says \"người nuôi tự phòng bằng găng tay, kẹp gắp, loại đã chia sẵn từng viên và khẩu trang\". The required wording has \"mồi đã chia sẵn từng viên\", not \"loại đã chia sẵn từng viên\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T02:24:05Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -754,32 +781,6 @@
         "Rule 12: \"con artemia lớn, dài khoảng 1 cm. Tiệm thứ nhất cũng ghi: vỏ kitin của nó là chất xơ, giúp cá vàng, cá betta (cá xiêm), Apistogramma đỡ sình bụng và táo bón.\" The artemia item must be one sentence, word for word: \"Tiệm thứ nhất cũng ghi: con artemia dài khoảng 1 cm, có vỏ kitin là chất xơ, giúp cá vàng, cá betta (cá xiêm), Apistogramma đỡ sình bụng và táo bón.\" \"lớn\" is not allowed. The…",
         "Rule 12: \"Cá ăn tạp và cá nuôi chung ăn đồ đông lạnh từ một lần đến vài lần mỗi tuần, xen với thức ăn khác.\" \"Once a week\" (\"từ một lần\") and \"omnivores and community fish\" (\"Cá ăn tạp và cá nuôi chung\") come only from fact 32 and must go. The line must read word for word: \"Đồ đông lạnh thường cho ăn vài lần mỗi tuần, xen với thức ăn khác.\"",
         "Rule 12: \"Một tạp chí ghi: một số người nuôi bị dị ứng trùng huyết, từ nổi mẩn tới có ca phải đi cấp cứu. Theo các trường hợp người nuôi kể lại, loại sấy khô gắn với nhiều ca dị ứng hơn, ... Người nuôi tự phòng bằng găng tay, kẹp gắp, loại đã chia sẵn từng viên và khẩu trang. Ai đã có triệu chứng thì nên đi khám.\" The allergy warning must be the two given sentences, word for word: \"Một tạp chí gh…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T01:33:06Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai, theo tiệm thứ hai, là rã riêng một phần mồi trong cốc nhỏ nước bể hoặc nước đã khử clo, tráng mồi rồi cho ăn từng ít một.\": Rule 12: \"Cách thứ hai, theo tiệm thứ hai, là rã riêng một phần mồi t…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rule 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\" THIS TERM says the general feeding step uses \"trong vài phút\". The pages give 2–3 minutes (fact 30) and, for bloodworm, 3–5 minutes (fact 31),…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T01:33:06Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, đổ bỏ nước rã đông, tráng mồi rồi cho ăn.\" Throwing away the thaw water comes only from the Singapore shop (fact 27), but the entry gives it as plain fact. It belongs under that shop's credit: \"…tráng mồi rồi cho ăn. Tiệm thứ hai cũng ghi: đổ bỏ nước rã đông.\"",
-        "Rules 4 and 12: \"Cách thứ nhất là thả thẳng viên hoặc một mẩu vào bể cho mồi tự rã.\" Dropping food straight into the tank is first given as an ordinary way. The same step then says \"Hai tiệm ghi khác nhau về chuyện thả thẳng viên mồi vào bể…\". So direct dropping is covered twice, and the first sentence takes one shop's side. The entry should only say once that the two shops differ.",
-        "Rule 12: \"loại đã chia sẵn thành viên\". THIS TERM requires \"loại đã chia sẵn từng viên\", because \"thành viên\" reads as \"members\".",
-        "Rule 12: \"Nó cũng có thể thích trùng huyết hơn cám viên.\" The fish must be named: \"Cá cũng có thể thích trùng huyết hơn cám viên.\""
       ],
       "attempt": "rewrite",
       "kept": false
