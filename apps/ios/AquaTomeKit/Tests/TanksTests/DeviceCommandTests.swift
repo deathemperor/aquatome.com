@@ -141,6 +141,27 @@ func anyCopysRoleCounts() throws {
   #expect(s.strictestRole(device: bare.id, outlet: "switch_4") == "fan" && s.strictestRole(device: marked.id, outlet: "switch_4") == nil)
 }
 
+@Test("A record that lists an outlet's code twice: a heater or CO2 on any entry counts, whichever comes first")
+func aCodeListedTwice() throws {
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể 60", now: m0)
+  let p = try s.addPlug(tankId: t.id, brand: "tuya", remoteId: "fake-strip-1", name: "Ổ cắm bể 60",
+                        outlets: [("switch_1", nil), ("switch_1", nil), ("switch_2", nil), ("switch_2", nil), ("switch_3", nil)], now: m0)
+  // Each code's first entry bare; its second a heater (switch_1), CO2 (switch_2).
+  try s.updateDevice(p.id, now: m0) { d in
+    var o = d.outlets
+    o[1].role = "heater"
+    o[3].role = "co2"
+    d.outlets = o
+  }
+  #expect(s.strictestRole(device: p.id, outlet: "switch_1") == "heater")
+  #expect(s.strictestRole(device: p.id, outlet: "switch_2") == "co2")
+  #expect(!MasterButton.allows(DeviceCommand(device: p.id, outlet: "switch_1", on: false), role: s.strictestRole(device: p.id, outlet: "switch_1")))
+  #expect(!MasterButton.allows(DeviceCommand(device: p.id, outlet: "switch_2", on: true), role: s.strictestRole(device: p.id, outlet: "switch_2")))
+  // A code listed once reads as before.
+  #expect(s.strictestRole(device: p.id, outlet: "switch_3") == nil)
+}
+
 @Test("The master button's press, its CO2 held, its end, its sheet and the countdown test's offer read an outlet's role through TankStore.strictestRole")
 func theButtonReadsEveryCopysRole() throws {
   // apps/ios/AquaTomeKit/Tests/TanksTests/this file → apps/ios/AquaTome/Master.

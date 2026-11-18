@@ -46,15 +46,16 @@ extension TankStore {
   }
 
   /// The role the master button goes by for one outlet of a plug. A strip saved twice (two phones each adding it, or a
-  /// copy a sync brought back) has two records, each with its own roles: any live record of the same strip (maker,
-  /// maker's id, outlet code) that marks the outlet a heater makes it one, else any that marks it CO2; otherwise the
-  /// record's own role (the chief, 18 Nov). Nil for a device that isn't live.
+  /// copy a sync brought back) has two records, each with its own roles, and a record may list a code twice: any entry
+  /// with the code on any live record of the same strip (maker, maker's id) that marks the outlet a heater makes it one,
+  /// else any that marks it CO2; otherwise the record's own role, its first entry's (the chief, 18 Nov). Nil for a
+  /// device that isn't live.
   public func strictestRole(device id: String, outlet code: String) -> String? {
     guard let d = device(id) else { return nil }
     let own = d.outlets.first { $0.code == code }?.role
-    guard d.kind == "plug", let brand = d.brand, let remote = d.remoteId else { return own }
-    let roles = liveDevices.filter { $0.kind == "plug" && $0.brand == brand && $0.remoteId == remote }
-      .compactMap { $0.outlets.first { $0.code == code }?.role }
+    let copies = d.kind == "plug" && d.brand != nil && d.remoteId != nil
+      ? liveDevices.filter { $0.kind == "plug" && $0.brand == d.brand && $0.remoteId == d.remoteId } : [d]
+    let roles = copies.flatMap { $0.outlets.filter { $0.code == code }.compactMap(\.role) }
     if roles.contains("heater") { return "heater" }
     if roles.contains("co2") { return "co2" }
     return own
