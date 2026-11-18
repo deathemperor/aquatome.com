@@ -2,6 +2,78 @@
   "id": "cnidoglanis-macrocephalus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/99748796.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/99748796-480.webp",
+      "width": 1024,
+      "height": 781,
+      "licence": "CC BY",
+      "author": "Niki Hubbard",
+      "sourceUrl": "https://www.inaturalist.org/photos/99748796",
+      "caption": "Cá da trơn cửa sông Úc trên đáy nông, nước trong",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/263647027.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/263647027-480.webp",
+      "width": 1024,
+      "height": 599,
+      "licence": "CC BY",
+      "author": "Belinda Forbes",
+      "sourceUrl": "https://www.inaturalist.org/photos/263647027",
+      "caption": "Cá da trơn cửa sông bơi trên cát, thân dài rõ nét",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/331609802.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/331609802-480.webp",
+      "width": 1024,
+      "height": 877,
+      "licence": "CC0",
+      "author": "marsyd",
+      "sourceUrl": "https://www.inaturalist.org/photos/331609802",
+      "caption": "Cá da trơn cửa sông màu vàng nhạt trên nền cát",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/463032721.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/463032721-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Lawrence Hylton",
+      "sourceUrl": "https://www.inaturalist.org/photos/463032721",
+      "caption": "Cá da trơn cửa sông Úc bơi trên đáy cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/481742002.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/481742002-480.webp",
+      "width": 1024,
+      "height": 948,
+      "licence": "CC BY",
+      "author": "Belinda Forbes",
+      "sourceUrl": "https://www.inaturalist.org/photos/481742002",
+      "caption": "Cá da trơn cửa sông Úc màu nâu trên cát",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/331609825.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/331609825-480.webp",
+      "width": 1024,
+      "height": 738,
+      "licence": "CC0",
+      "author": "marsyd",
+      "sourceUrl": "https://www.inaturalist.org/photos/331609825",
+      "caption": "Cá da trơn cửa sông uốn mình bên rạn rong",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/169306254.webp",
       "thumb": "https://media.aquatome.com/inaturalist/169306254-480.webp",
       "width": 475,
@@ -50,18 +122,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/99748796.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/99748796-480.webp",
-      "width": 1024,
-      "height": 781,
-      "licence": "CC BY",
-      "author": "Niki Hubbard",
-      "sourceUrl": "https://www.inaturalist.org/photos/99748796",
-      "caption": "Cá da trơn cửa sông Úc trên đáy nông, nước trong",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/242434367.webp",
       "thumb": "https://media.aquatome.com/inaturalist/242434367-480.webp",
       "width": 1024,
@@ -86,18 +146,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/263647027.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/263647027-480.webp",
-      "width": 1024,
-      "height": 599,
-      "licence": "CC BY",
-      "author": "Belinda Forbes",
-      "sourceUrl": "https://www.inaturalist.org/photos/263647027",
-      "caption": "Cá da trơn cửa sông bơi trên cát, thân dài rõ nét",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/263647256.webp",
       "thumb": "https://media.aquatome.com/inaturalist/263647256-480.webp",
       "width": 1024,
@@ -106,42 +154,6 @@
       "author": "Belinda Forbes",
       "sourceUrl": "https://www.inaturalist.org/photos/263647256",
       "caption": "Cá da trơn cửa sông nhìn từ trên, gần rạn đá ngầm",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/331609802.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/331609802-480.webp",
-      "width": 1024,
-      "height": 877,
-      "licence": "CC0",
-      "author": "marsyd",
-      "sourceUrl": "https://www.inaturalist.org/photos/331609802",
-      "caption": "Cá da trơn cửa sông màu vàng nhạt trên nền cát",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/463032721.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/463032721-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Lawrence Hylton",
-      "sourceUrl": "https://www.inaturalist.org/photos/463032721",
-      "caption": "Cá da trơn cửa sông Úc bơi trên đáy cát ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/481742002.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/481742002-480.webp",
-      "width": 1024,
-      "height": 948,
-      "licence": "CC BY",
-      "author": "Belinda Forbes",
-      "sourceUrl": "https://www.inaturalist.org/photos/481742002",
-      "caption": "Cá da trơn cửa sông Úc màu nâu trên cát",
       "best": true,
       "kind": "habitat"
     },
@@ -202,18 +214,6 @@
       "author": "Belinda Forbes",
       "sourceUrl": "https://www.inaturalist.org/photos/263647262",
       "caption": "Cá da trơn cửa sông bơi gần đá và rong biển",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/331609825.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/331609825-480.webp",
-      "width": 1024,
-      "height": 738,
-      "licence": "CC0",
-      "author": "marsyd",
-      "sourceUrl": "https://www.inaturalist.org/photos/331609825",
-      "caption": "Cá da trơn cửa sông uốn mình bên rạn rong",
       "best": false,
       "kind": "habitat"
     },

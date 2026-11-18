@@ -23,7 +23,7 @@ under `<lang>/<path>`.
 | places | 7032 | 4307 (id 1476, ms 1473, th 1259, vi 99) | 1206 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
-| species | 16 | 0 | 0 |
+| species | 18 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
@@ -646,7 +646,7 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 16 pages under the bar.
+0 of 18 pages under the bar.
 
 ## material: hobby materials' pages (lũa, đá, nền), against their research
 
