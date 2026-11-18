@@ -195,13 +195,15 @@ test('album: Back pressed while the viewer loads opens nothing once it arrives',
   const found = await albumPage(request, 'ca')
   test.skip(!found, 'no fish album in this build')
   const { path } = found!
-  let release = () => {}
+  let release = () => {}, asked = () => {}
   const held = new Promise<void>(r => { release = r })
-  await page.route(/\/_astro\/photo-viewer\.[^/]*\.js$/, async route => { await held; await route.continue() })
+  const requested = new Promise<void>(r => { asked = r })
+  await page.route(/\/_astro\/photo-viewer\.[^/]*\.js$/, async route => { asked(); await held; await route.continue() })
   await page.goto('/')
   await page.goto(path)
   await page.waitForLoadState()
   await page.evaluate(() => { location.hash = 'a3' })
+  await requested // the viewer's code asked for, and held
   await page.goBack()
   await expect(page).toHaveURL(at(path))
   const arrived = page.waitForResponse(/\/_astro\/photo-viewer\.[^/]*\.js$/)
