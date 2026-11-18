@@ -1157,5 +1157,42 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/ca-bot": [
+    {
+      "at": "2026-11-18T17:53:44Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Miệng và dạ dày cá bột rất nhỏ, nên chúng cần ăn nhiều bữa nhỏ mỗi ngày.\": Rule 4: the advice to feed several small meals a day is given twice: once in the definition (\"chúng cần ăn nhiều bữa nhỏ mỗi ngày\") and again in the second shop's list (\"Ch…",
+        "Loose, reworded and still loose: \"Tách cá bột khỏi cá lớn để khỏi bị ăn.\" → \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" (loose, loose, loose)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" (not \"Cá bột rất nhỏ của các loài đẻ trứng như killifish, cá cầu vồng và tetra lúc đầu chưa nuốt nổi artemia mới nở.\": Rule 6: \"killifish\" in \"Cá bột rất nhỏ của các loài đẻ trứng như killifish, cá cầu vồng và tetra lúc đầu chưa…",
+        "Rule 12: in \"Theo tiệm thứ hai ở trên, cho ăn quá tay làm bẩn nước và có thể làm chết cá bột. Bể ương ít nước mà cho ăn dày thì nước xuống cấp rất nhanh.\", two claims in a row come from the same shop's page (source 1). The opening only covers the first sentence, so the second, \"Bể ương ít nước mà cho ăn dày thì nước xuống cấp rất nhanh\", reads as plain fact. Both claims should sit under one openi…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T17:53:44Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: The yolk sac is explained twice. The definition says \"Lúc đầu chúng sống nhờ túi noãn hoàng, hết noãn hoàng mới tìm mồi\" and the body says it again: \"Chúng sống nhờ noãn hoàng cho tới khi hấp thu hết, sau đó mới bắt đầu tìm mồi\". THIS TERM says to explain the yolk sac once.",
+        "Rule 4: Small meals through the day are said three times: in the definition (\"chia nhiều bữa nhỏ trong ngày\"), in the body (\"nên chúng cần nhiều bữa nhỏ mỗi ngày\") and in the second shop's list (\"Cho ăn 3–5 bữa nhỏ mỗi ngày\"). It should be said once.",
+        "Rule 12: \"Miệng và bụng chúng rất nhỏ, nên cần thức ăn vừa miệng, chia nhiều bữa nhỏ trong ngày, và nước phải sạch\" uses \"nên\" to tie tiny mouths to food that fits the mouth and to clean water. No fact joins these.",
+        "Rule 12: \"Miệng và bụng cá bột đều rất nhỏ, nên chúng cần nhiều bữa nhỏ mỗi ngày\" and \"chưa tự bơi đi kiếm ăn được\" each come from only one shop. They are written as plain fact with no credit.",
+        "Rule 12: \"Loài không giữ con thì vớt cá bố mẹ ra sau khi đẻ, còn loài biết chăm con thì để chung với con được\" comes from only the magazine. It is written as plain fact with no credit.",
+        "Rule 12: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở. Chúng ăn trùng cỏ trước, đủ lớn mới chuyển sang artemia\" comes from only one shop. It is written as plain fact with no credit.",
+        "Rule 12: \"Thay nước ít một và thường xuyên cho nước ổn định\" comes from only one shop, and \"Cá bột được cho ăn nhiều nên thải nhiều\" comes from only the other shop. Both are written as plain fact with no credit.",
+        "Rule 12: \"Bể ương chảy yếu thì lọc kém hơn, càng phải giữ thông số nước ổn định\" is the magazine's claim with no credit. It also uses \"càng phải\" to join weaker filtration and stable water as cause and result. The fact gives them as two separate statements.",
+        "Rule 4: Gentle filtration is said twice: \"Dùng lọc nhẹ và giữ dòng chảy yếu\" in the steps and \"Dùng lọc mút và vệ sinh lọc đều đặn\" in the first shop's list.",
+        "Rule 4: Infusoria as food for very small fry is said twice: in step 2 (\"Chúng ăn trùng cỏ trước\") and in the first shop's list (\"Cá bột rất nhỏ ăn được nước xanh, trùng cỏ…\")."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
