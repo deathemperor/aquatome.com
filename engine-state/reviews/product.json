@@ -128,6 +128,44 @@
       "kept": false
     }
   ],
+  "vi/products/chihiros-45b-series": [
+    {
+      "at": "2026-11-18T08:24:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.82,
+      "notes": [
+        "\"Dải LED RGB\" – the facts say 9 RGB 3-in-1 LEDs, not a strip; minor wording.",
+        "\"Một số bản đèn chỉnh sáng qua bộ Bluetooth Commander 1 bán riêng\" – the facts say the module is separate, but \"bán riêng\" (sold separately) is only supported for the non-Bluetooth B45, not for all versions.",
+        "\"thanh gương phản quang (mua riêng)\" – the facts say the mirror strips are optional, not that they are bought separately; minor.",
+        "\"Nếu không cần RGB thì đây là lựa chọn ngang hàng, đơn giản hơn\" – the facts say \"a simple step sideways\"; \"ngang hàng\" is a slight stretch.",
+        "\"Chihiros A II 451 ... làm cho bể thủy sinh 45 cm\" and \"Week Aqua ... đứng cùng phân khúc\" are supported.",
+        "\"Khoảng bể của các cỡ gối lên nhau ở hai đầu. Chẳng hạn bể 60 cm nằm trong khoảng của cả B45 lẫn B60\" – this is derived from the ranges and is correct, but it is an added recommendation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T08:24:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.8,
+      "notes": [
+        "\"xem bảng phiên bản phía trên\" refers to a table that does not exist on the page.",
+        "\"Dòng B có cỡ cho bể từ 20 cm đến 140 cm\" is an inference from the variants. The facts give 20–30 cm up to 120–140 cm, so this is roughly supported.",
+        "\"Khoảng bể của các cỡ gối lên nhau... bể 60 cm nằm trong khoảng của cả B45 lẫn B60\" is the page's own inference. The B45 and B60 ranges do overlap at 60 cm, so this is fine, but the page never recommends one over the other.",
+        "\"Hãng làm B45 cho bể dài khoảng 45–65 cm\" and \"Hãng ghi B45 dùng cho bể 45–65 cm\" attribute the range to the manufacturer. The facts do not say who published it.",
+        "\"Có bản đèn không có Bluetooth trong thân. Bản đó chỉnh sáng qua bộ Commander 1 bán riêng, và app sẽ ghép với bộ này\" blends two facts. The facts say some versions are dimmed through the Commander 1. They do not say these are the non-Bluetooth versions.",
+        "\"Đèn này hợp bể trồng dày cây, đèn mạnh, có châm CO2\" matches the facts.",
+        "\"Nếu không cần RGB thì đây là lựa chọn ngang hàng, đơn giản hơn\" is a mild rewording of \"simple step sideways\", so it is acceptable.",
+        "\"Bảo hành 6 tháng qua nhà phân phối trong nước\" matches the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-a2-series": [
     {
       "at": "2026-11-11T04:45:26Z",
