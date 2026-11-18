@@ -18,9 +18,9 @@ under `<lang>/<path>`.
 | product | 21 | 1 (vi 1) | 1 |
 | product-reviews | 17 | 0 | 0 |
 | summary | 2450 | 127 (vi 127) | 127 |
-| localize | 2474 | 891 (id 392, ms 65, th 434) | 891 |
+| localize | 2518 | 895 (id 391, ms 67, th 437) | 895 |
 | glossary | 15 | 0 | 0 |
-| places | 7215 | 4399 (id 1497, ms 1498, th 1305, vi 99) | 1257 |
+| places | 7295 | 4439 (id 1517, ms 1518, th 1305, vi 99) | 1280 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 19 | 0 | 0 |
@@ -32,31 +32,31 @@ under `<lang>/<path>`.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 621 | 1608 |
-| States as certain what the source hedges, or what garbled captions only hint at | 620 | 1851 |
-| Says what the source doesn't (invented, added) | 525 | 1255 |
+| States as certain what the source hedges, or what garbled captions only hint at | 621 | 1854 |
+| Other | 620 | 1604 |
+| Says what the source doesn't (invented, added) | 525 | 1256 |
 | Wording: unnatural, literal, stiff or chatty | 303 | 432 |
 | A number, unit, dose or price | 233 | 340 |
-| Repeats itself (intro, summary, steps and FAQ) | 141 | 167 |
-| Meaning changed or wrong | 123 | 140 |
+| Repeats itself (intro, summary, steps and FAQ) | 142 | 167 |
+| Meaning changed or wrong | 122 | 139 |
+| Leaves out what the source says | 50 | 52 |
 | Hobby terms and names | 50 | 51 |
-| Leaves out what the source says | 49 | 51 |
 | Names or points to the video, channel, creator or source | 35 | 39 |
 | Off the title's topic | 25 | 25 |
 | Copied from the transcript or source | 24 | 26 |
 | Text left in another language | 6 | 6 |
-
-### Other
-
-- "là cách nhiều người chơi dùng để ươm cá, nhân cây và giải phóng chỗ trong nhà": the speaker only describes his own plan (and wholesale facilities using tubs); rewrite as one person's: "có thể dùng thùng ngoài trời vào mùa nắng để nuôi cá,… — vi/guides/youtube-bZn6Bx67-L8, 0.30
-- "Bài này nối tiếp bản còi báo nước từ chuông báo khói. Nếu chưa làm phần còi đó thì bạn nên làm trước" and the 'Bắt đầu từ đâu' step 1: the video only says to watch the original video; remove the advice to build the siren first / rephrase … — vi/guides/youtube-HLrQzpFLI5U, 0.30
-- The table row "Sát kính trước hoặc lệch hẳn sang một bên | Dễ quẹt vào tán, làm xô rêu" and "Tán rêu buộc lên rồi mà bị chạm nhiều lần thì dễ xô lệch": the video says nothing about other positions or moss shifting. Remove the second row an… — vi/guides/youtube-MLuT3K5yg44, 0.30
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - "Loại thùng cỡ lớn bị rò nước khi đổ đầy ở nhiều nơi đã dùng thử" and "Loại nửa cỡ thì đến giờ chưa thấy gặp vấn đề" / "Thùng nửa cỡ thường giữ nước ổn hơn": the leak of larger tubs was found at multiple facilities and the half-size ones a… — vi/guides/youtube-bZn6Bx67-L8, 0.30
 - "Cách dễ nhất là nhờ thợ mộc cắt thanh ... và bào luôn cạnh": a superlative the video doesn't give; the speaker only says he had his carpenter cut and shave the wood. Hedge to "một cách là nhờ thợ mộc...". — vi/guides/youtube-gUa7q5RVW4A, 0.30
 - Table cell "Báo nước bốc hơi hoặc rò rỉ làm mực nước hạ thấp" and "tránh tràn bể": evaporation and leak causes are not in the video; remove. Also "Dùng núm hít... là đơn giản nhất" in the FAQ and "Cách đơn giản nhất" state a superlative th… — vi/guides/youtube-HLrQzpFLI5U, 0.30
+
+### Other
+
+- "là cách nhiều người chơi dùng để ươm cá, nhân cây và giải phóng chỗ trong nhà": the speaker only describes his own plan (and wholesale facilities using tubs); rewrite as one person's: "có thể dùng thùng ngoài trời vào mùa nắng để nuôi cá,… — vi/guides/youtube-bZn6Bx67-L8, 0.30
+- "Bài này nối tiếp bản còi báo nước từ chuông báo khói. Nếu chưa làm phần còi đó thì bạn nên làm trước" and the 'Bắt đầu từ đâu' step 1: the video only says to watch the original video; remove the advice to build the siren first / rephrase … — vi/guides/youtube-HLrQzpFLI5U, 0.30
+- The table row "Sát kính trước hoặc lệch hẳn sang một bên | Dễ quẹt vào tán, làm xô rêu" and "Tán rêu buộc lên rồi mà bị chạm nhiều lần thì dễ xô lệch": the video says nothing about other positions or moss shifting. Remove the second row an… — vi/guides/youtube-MLuT3K5yg44, 0.30
 
 ### Says what the source doesn't (invented, added)
 
@@ -88,17 +88,17 @@ under `<lang>/<path>`.
 - "Đèn đang để ở 80%" and "mặt cát sáng gần gấp đôi": the creator said the lights read 80% and the sand is 'doubly light'. Also the bullet "Giảm đèn khoảng 40% vì nền cát sáng màu hắt ánh sáng gấp đôi" is wrong, because the lights were made … — vi/guides/youtube-AZKwyFdqe50, 0.40
 - "Nên dùng nhiều cách cùng lúc, vì mỗi cách đơn lẻ đều có lúc sai": the video says polarized glasses depend on conditions, and that one indicator is usually enough. Remove the claim that every method can be wrong, and the advice to use seve… — vi/guides/youtube-C4W86NMP3CU, 0.40
 
-### Hobby terms and names
-
-- Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
-- "Dân chơi gọi hiện tượng này là cây "thở" (pearling)": the "dân chơi gọi" generalisation and the English term "pearling" are not in the video; remove the English and say it neutrally, e.g. the creator describes the plants as "thở". — vi/guides/youtube-H-A6KwMSa9s, 0.50
-- "Bể đẹp tới đâu còn tùy bố cục, và với paludarium thì chuyện này càng quan trọng": reword to hedge and follow the video, a build is only as good as its scape, especially a paludarium. Also "dây nhỏ giọt" for "drip vine" is a clumsy term; u… — vi/guides/youtube-HK0vWQGwNOE, 0.50
-
 ### Leaves out what the source says
 
 - "Lắp từ dưới lên thì hợp lý hơn" / "Thứ tự đó khó theo" and "Nhà sản xuất có làm video hướng dẫn lắp, nên xem qua trước khi bắt tay vào": he said the manual made no sense to him and that he would watch the tutorial, but then dropped the ma… — vi/guides/youtube-JpAXeFEVws8, 0.40
 - "Nên dùng mica thay cho kính vì mica dễ cắt, dễ phay và dễ dán hơn nhiều" (also in FAQ and the summary): the video only says he chose acrylic because it is much easier to machine; no comparison on cutting/gluing and no recommendation. Redu… — vi/guides/youtube-seBch2HWlZs, 0.40
 - Remove "Hiểu sai một lần là mất luôn một mùa sinh sản". The video only says no babies were made because there were no plants. It never says a whole breeding season was lost. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+
+### Hobby terms and names
+
+- Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+- "Dân chơi gọi hiện tượng này là cây "thở" (pearling)": the "dân chơi gọi" generalisation and the English term "pearling" are not in the video; remove the English and say it neutrally, e.g. the creator describes the plants as "thở". — vi/guides/youtube-H-A6KwMSa9s, 0.50
+- "Bể đẹp tới đâu còn tùy bố cục, và với paludarium thì chuyện này càng quan trọng": reword to hedge and follow the video, a build is only as good as its scape, especially a paludarium. Also "dây nhỏ giọt" for "drip vine" is a clumsy term; u… — vi/guides/youtube-HK0vWQGwNOE, 0.50
 
 ### Names or points to the video, channel, creator or source
 
@@ -479,20 +479,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-891 of 2474 pages under the bar.
+895 of 2518 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 820 | 2313 |
-| Wording: unnatural, literal, stiff or chatty | 764 | 1588 |
-| Says what the source doesn't (invented, added) | 517 | 741 |
-| Meaning changed or wrong | 490 | 745 |
-| A number, unit, dose or price | 485 | 617 |
-| Hobby terms and names | 472 | 615 |
-| Text left in another language | 325 | 413 |
+| Other | 826 | 2318 |
+| Wording: unnatural, literal, stiff or chatty | 761 | 1580 |
+| Says what the source doesn't (invented, added) | 518 | 742 |
+| Meaning changed or wrong | 489 | 748 |
+| A number, unit, dose or price | 485 | 618 |
+| Hobby terms and names | 474 | 619 |
+| Text left in another language | 323 | 412 |
 | Leaves out what the source says | 264 | 304 |
-| Repeats itself (intro, summary, steps and FAQ) | 245 | 274 |
-| States as certain what the source hedges, or what garbled captions only hint at | 198 | 221 |
+| Repeats itself (intro, summary, steps and FAQ) | 243 | 272 |
+| States as certain what the source hedges, or what garbled captions only hint at | 201 | 224 |
 | Copied from the transcript or source | 28 | 28 |
 | Off the title's topic | 2 | 2 |
 
@@ -573,14 +573,14 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4399 of 7215 pages under the bar.
+4439 of 7295 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1130 | 1220 |
-| Meaning changed or wrong | 70 | 70 |
-| Leaves out what the source says | 54 | 54 |
-| Wording: unnatural, literal, stiff or chatty | 25 | 25 |
+| Other | 1149 | 1239 |
+| Meaning changed or wrong | 71 | 71 |
+| Leaves out what the source says | 57 | 57 |
+| Wording: unnatural, literal, stiff or chatty | 26 | 26 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 9 | 9 |
 | Text left in another language | 8 | 8 |
@@ -602,7 +602,7 @@ under `<lang>/<path>`.
 
 - 'เจ้าพระยา' for 'chao-praya': the region/river type is missing and the form is incomplete; 'แม่น้ำเจ้าพระยา' is standard. — th/places/chao-praya, 0.30
 - "Kayan" for kajan-river: the river is the Kajan/Kayan in Borneo. Indonesian atlases write Sungai Kayan, but the answer omits the 'Sungai' generic. — id/places/kajan-river, 0.30
-- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/rio-orinoco, 0.30
+- "Manacapuru" (rio-manacapuru): drops the word for river; should be "Sungai Manacapuru" — ms/places/rio-manacapuru, 0.30
 
 ### Wording: unnatural, literal, stiff or chatty
 
@@ -618,9 +618,9 @@ under `<lang>/<path>`.
 
 ### Hobby terms and names
 
-- sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/siem-reap-river, 0.40
-- sông Siem Reap → Siem Reap: the Indonesian name for the river would be "Sungai Siem Reap", and "Siem Reap" alone drops the river type — id/places/ve, 0.40
-- venezuelan-llanos → 'Llanos Venezuela' is not proper Malay; it should be 'Llanos Venezuela' with a term such as 'Dataran Llanos Venezuela' — ms/places/venezuelan-llanos, 0.50
+- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/rio-orinoco, 0.30
+- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/river-congo, 0.30
+- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/sadong-river, 0.30
 
 ### Text left in another language
 

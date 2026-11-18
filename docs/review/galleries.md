@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-18). Targets: packages/engine/src/gall
 | covered | 30 | 749 | 31 | 9 | 24 | 765 |
 | rest | 20 | 1832 | 79 | 0 | 106 | 1805 |
 
-## Short of target: every source read (675)
+## Short of target: every source read (691)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -354,6 +354,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ancistrus-macrophthalmus | covered | 0 | 30 |
 | species/ancistrus-ranunculus | covered | 0 | 30 |
 | species/annamia-normani | covered | 0 | 30 |
+| species/anostomus-anostomus | covered | 2 | 30 |
 | species/anostomus-ternetzi | covered | 0 | 30 |
 | species/aphyosemion-gabunense | covered | 1 | 30 |
 | species/apistogramma-agassizii | covered | 4 | 30 |
@@ -690,4 +691,19 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/limia-melanogaster | covered | 0 | 30 |
 | species/limia-nigrofasciata | covered | 4 | 30 |
 | species/liobagrus-mediadiposalis | covered | 0 | 30 |
+| species/liobagrus-reinii | covered | 5 | 30 |
 | species/listrura-nematopteryx | covered | 0 | 30 |
+| species/lithoxus-lithoides | covered | 0 | 30 |
+| species/loricaria-cataphracta | covered | 0 | 30 |
+| species/luciocephalus-pulcher | covered | 1 | 30 |
+| species/luciosoma-setigerum | covered | 3 | 30 |
+| species/macropodus-erythropterus | covered | 4 | 30 |
+| species/macropodus-spechti | covered | 0 | 30 |
+| species/malapterurus-beninensis | covered | 0 | 30 |
+| species/malapterurus-oguensis | covered | 0 | 30 |
+| species/malpulutta-kretseri | covered | 0 | 30 |
+| species/marisa-cornuarietis | covered | 8 | 30 |
+| species/maylandia-callainos | covered | 5 | 30 |
+| species/maylandia-greshakei | covered | 0 | 30 |
+| species/megalancistrus-barrae | covered | 0 | 30 |
+| species/megalonema-platycephalum | covered | 0 | 30 |
