@@ -213,6 +213,45 @@
   ],
   "vi/glossary/dong-chay": [
     {
+      "at": "2026-11-18T03:40:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ nhất cũng ghi: khi cúp điện, bơm ngừng vài tiếng là vi khuẩn kỵ khí sinh độc, oxy tụt và vi khuẩn trong lọc yếu đi, nên cá có thể căng thẳng rất nhanh, nhất là khi trời nóng hoặc bể nuôi dày; có điện lại mà đo nước thấy chất độc tăng thì thay một phần nước bằng nước đã khử clo, chứ đừng chỉ bật l…",
+        "Rule 4: The point that a filter's real flow is lower than its rated flow appears twice. It is first made in \"Tiệm thứ nhất cũng ghi: lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn…\" and then repeated in \"…cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn.\" It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:40:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Tiệm thứ nhất cũng ghi: nên chọn lọc có lưu lượng ghi trên hộp cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn.\" the advice \"vì dòng thật yếu hơn\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 10: \"cá nhỏ, bơi yếu cần dòng nhẹ hơn hết, còn cá betta cần dòng rất nhẹ\" can be read as saying small, weak-swimming fish need the gentlest flow of all, gentler than bettas. The FACTS make no such comparison. Fact 41 only says weak flow is the top priority for small, weak-swimming fish."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:40:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Khi dòng quá mạnh, cá bơi vất vả hoặc nép vào chỗ trốn.\" states the signs of too strong a flow as plain fact, without the first shop's credit. The required wording, word for word, is \"Một tiệm ghi: khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\"",
+        "Rule 12: \"cá bơi vất vả hoặc nép vào chỗ trốn\" takes the betta signs (swimming with difficulty, looking for hiding places; fact 17, betta page only) and applies them to fish in general. Fact 17 names only bettas.",
+        "Rule 12: \"Một tiệm ghi: lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn…\" opens with the wrong credit. Once the signs of too strong a flow open the first shop's credit, this claim must open \"Tiệm thứ nhất cũng ghi: lưu lượng thật giảm 20–30% …\".",
+        "Rule 4: the point that real flow falls below the rated flow, with the figure 20–30%, is made twice: in \"lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn\" and again in \"cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn\". It should be said once.",
+        "Rule 12: \"altNames\":[] leaves out the English name \"Water flow\". The THIS TERM line says other names are given with \"Water flow\", and the FACTS give it as the term's English name."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T03:31:57Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -252,50 +291,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-18T03:19:16Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, left as written (the definition's first sentence): \"Dòng chảy là chuyển động của nước trong bể.\"",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi dòng quá mạnh, cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\" (not \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\": Rule 12: \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\" The signs of too strong a f…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T03:19:16Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 12: altNames is empty. THIS TERM says the only other name is \"Water flow\", so it should be listed.",
-        "Rule 12: \"Dòng quá mạnh thì nhìn cá là biết: cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\" THIS TERM bans \"nhìn cá là biết\". The sign should be given word for word: \"Khi dòng quá mạnh, cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\"",
-        "Rule 12: \"Lưu lượng của lọc ghi bằng L/h hoặc GPH/LPH, hay bằng số lần thể tích bể mỗi giờ.\" THIS TERM bans \"GPH\" and gives this sentence word for word: \"Lưu lượng của lọc ghi bằng L/h, hay bằng số lần thể tích bể mỗi giờ.\"",
-        "Rule 12: \"Một tiệm ghi lưu lượng thật giảm 20–30%…\" The first shop's opening should be \"Một tiệm ghi:\", with the colon.",
-        "Rule 12: \"Cũng tiệm đó tính lưu lượng lọc (L/h)…\" THIS TERM bans \"Cũng tiệm đó\". It should be \"Tiệm thứ nhất cũng ghi:\".",
-        "Rule 12: \"Tiệm này khuyên chọn lọc có lưu lượng ghi trên hộp cao hơn mức tính ra 20–30%…\" THIS TERM bans \"Tiệm này\". It should be \"Tiệm thứ nhất cũng ghi:\".",
-        "Rule 12: \"Tiệm cũng cảnh báo chuyện cúp điện. Bơm ngừng vài tiếng là oxy tụt, vi khuẩn kỵ khí sinh độc, vi khuẩn trong lọc yếu đi và cá căng thẳng rất nhanh, nhất là khi trời nóng hoặc bể nuôi dày. Có điện lại thì đừng chỉ bật lọc lên rồi thôi: nếu đo thấy chỉ số độc tăng thì thay một phần nước bằng nước đã khử clo.\" THIS TERM bans \"Tiệm cũng\". The power-cut claim is also split over three sentenc…",
-        "Rule 12: \"Cũng tiệm đó ghi cá nhỏ, bơi yếu cần dòng nhẹ hơn hết…\" THIS TERM bans \"Cũng tiệm đó\". It should be \"Tiệm thứ nhất cũng ghi:\".",
-        "Rule 12: \"Một tiệm khác gợi ý cho bể cá betta khoảng 2–4 lần thể tích bể mỗi giờ…\" The second shop's first credit should read \"Một tiệm khác ghi:\".",
-        "Rule 12: \"Cách giảm dòng tiệm này đưa ra:\" THIS TERM bans \"tiệm này\". It should be \"Tiệm thứ hai cũng ghi:\"."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T03:08:40Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Dòng quá mạnh thì nhìn cá là biết: cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\" (not \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc cá nép vào một góc bể.\": Rule 12: \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc cá nép vào một góc bể.\" The s…",
-        "Loose, reworded: \"Dù vậy, cá đĩa không chịu được dòng mạnh xả thẳng vào người.\" → \"Dù vậy, nên tránh để dòng mạnh xả thẳng vào cá đĩa.\" (supported)"
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ],
   "vi/glossary/gh": [
