@@ -1166,6 +1166,33 @@
   ],
   "vi/glossary/oxy-hoa-tan": [
     {
+      "at": "2026-11-18T18:22:59Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, reworded and still loose: \"Muốn khỏe, cá cần khoảng 5 mg/L oxy hòa tan trở lên.\" → \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" (loose, loose, loose)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" (not \"Oxy thường xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\": it drops the advice \"Trong bể\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tăng sục khí ngay: bật máy sủi.\" (not \"Chạy máy sủi có đá sủi để thêm oxy cho nước.\": Rule 12: The first step must open with the set sentence \"Tăng sục khí ngay: bật máy sủi.\" word for word. The entry opens it with \"Chạy máy sủi có đá sủi để thêm oxy cho nước.\" instead. / it drops the advice \"Tăng sục khí…",
+        "Rule 4: \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" repeats the timing that the required definition already gives (\"thường vào lúc gần sáng\"). The early-morning low should be said once, and the definition's wording is fixed.",
+        "Rule 4: \"Ban ngày cây và tảo nhả oxy\" says again what the first paragraph already says (\"cây và tảo quang hợp\" as a way oxygen gets into the water). Keep it in one place, and keep only the new point that plants use oxygen at night."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T18:22:59Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The causes sentence must be written word for word as \"Oxy có thể tụt do nuôi quá đông cá, cho ăn dư, chất hữu cơ thối rữa, tảo chết hàng loạt, dùng thuốc hay hóa chất quá liều, mặt nước phẳng lặng, lọc hỏng, và mất điện làm máy sủi ngưng.\" The entry adds \"sản phẩm diệt tảo\", which only a maker's page gives (fact 25). It also writes \"lọc hỏng hoặc bẩn\", but a dirty filter comes only from …",
+        "Rules 12 and 10: \"Gắn quá nhiều thiết bị sục khí. Cá bị stress, bể ồn mà oxy không tăng thêm bao nhiêu.\" says the devices do stress fish. Fact 47 only says they can. The line must be written word for word as \"Gắn quá nhiều thiết bị sục khí: có thể làm cá stress và làm bể ồn mà oxy không tăng thêm bao nhiêu.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T18:11:37Z",
       "model": "sonnet",
       "cli": "2.1.327",
