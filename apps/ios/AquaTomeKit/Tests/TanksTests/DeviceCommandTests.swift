@@ -126,12 +126,22 @@ func anyCopysRoleCounts() throws {
   // outlet of this one's.
   #expect(s.strictestRole(device: marked.id, outlet: "switch_3") == "fan" && s.strictestRole(device: bare.id, outlet: "switch_3") == nil)
   #expect(s.strictestRole(device: bare.id, outlet: "switch_1") == nil && s.strictestRole(device: other.id, outlet: "switch_1") == "heater")
-  // A copy taken off its tank no longer counts.
+  // The chat's list goes by it too: the second copy now marks the heater's outlet a fan, and it isn't offered from either
+  // copy; the CO2 outlet is, from both.
+  try s.updateDevice(bare.id, now: m0) { d in
+    var o = d.outlets
+    o[3].role = "fan"
+    d.outlets = o
+  }
+  let chat = DeviceCommand.offerable(s, lamp: false)
+  #expect(!chat.contains(DeviceTarget(device: bare.id, outlet: "switch_4")) && !chat.contains(DeviceTarget(device: marked.id, outlet: "switch_4")))
+  #expect(chat.contains(DeviceTarget(device: bare.id, outlet: "switch_2")) && chat.contains(DeviceTarget(device: marked.id, outlet: "switch_2")))
+  // A copy taken off its tank no longer counts: the second copy's own role is left.
   try s.deleteDevice(marked.id, now: m0.addingTimeInterval(60))
-  #expect(s.strictestRole(device: bare.id, outlet: "switch_4") == nil && s.strictestRole(device: marked.id, outlet: "switch_4") == nil)
+  #expect(s.strictestRole(device: bare.id, outlet: "switch_4") == "fan" && s.strictestRole(device: marked.id, outlet: "switch_4") == nil)
 }
 
-@Test("The master button's press, its CO2 held, its end and its sheet read an outlet's role through TankStore.strictestRole")
+@Test("The master button's press, its CO2 held, its end, its sheet and the countdown test's offer read an outlet's role through TankStore.strictestRole")
 func theButtonReadsEveryCopysRole() throws {
   // apps/ios/AquaTomeKit/Tests/TanksTests/this file → apps/ios/AquaTome/Master.
   let master = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
@@ -146,6 +156,9 @@ func theButtonReadsEveryCopysRole() throws {
   // The two reads, through the lookup: the role the press, CO2 held and the end go by, and the sheet's list.
   #expect(code.components(separatedBy: "strictestRole(device: c.device, outlet: code)").count - 1 == 1)
   #expect(code.components(separatedBy: "role: store.strictestRole(device: p.id, outlet: o.code))").count - 1 == 1)
+  // The countdown test's offer, which it reads again before it switches: not CO2 or a heater on any copy.
+  #expect(!code.contains("$0.role != \"co2\""))
+  #expect(code.contains("let r = switcher.tanks.store.strictestRole(device: p.id, outlet: $0.code); return r != \"co2\" && r != \"heater\""))
 }
 
 @Test("At the end each outlet goes back to how it was; one already as asked, nowhere; one not known, the other way")
