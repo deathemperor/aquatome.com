@@ -34,6 +34,8 @@ test('album viewer: an Unsplash photo\'s credit links its photographer and Unspl
     if (p.b) await expect(credit.getByRole('link', { name: 'Xem ảnh gốc ↗' })).toHaveAttribute('href', p.s)
     await page.keyboard.press('Escape')
     await expect(credit).toBeHidden()
+    // Closed by going back past its entry: the page's own address again, before the next photo's.
+    await expect(page).toHaveURL(new RegExp(`${path}$`))
   }
   expect(errors).toEqual([])
 })
