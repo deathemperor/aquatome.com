@@ -539,6 +539,32 @@
   ],
   "vi/glossary/thuc-an-kho": [
     {
+      "at": "2026-11-18T01:19:44Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rules 4 and 12: \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\" give…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:19:44Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rules 5 and 12: \"altNames\":[] is empty. The FACTS give the English name \"Dry food\", and THIS TERM puts \"cám\" and \"dry food\" among the other names.",
+        "Rule 12: \"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ đạm, chất béo, vitamin và khoáng.\" uses the list of nutrients, which THIS TERM forbids. It should say \"có đủ các chất cá cần\" (facts 58, 60).",
+        "Rule 12: \"Theo PetMD, loại này không đủ dinh dưỡng, chỉ cho ăn thêm một hai lần mỗi tuần, và chỉ khi nước từ khoảng 18 °C.\" gives 18 °C alone. It should be \"từ khoảng 18 °C (65 °F)\".",
+        "Rule 12: In the freeze-dried item, \"Theo PetMD, loại này không đủ dinh dưỡng…\" comes before \"Tiệm này cũng ghi: đông khô hút ẩm trong không khí và có thể mốc nhanh.\" THIS TERM says the item must end with the shop's sentence first and then PetMD's. In this order, \"Tiệm này\" directly follows PetMD and could be read as PetMD.",
+        "Rule 12: \"mỗi lần chỉ lượng cá ăn hết trong vài phút, khoảng từ hai phút trở xuống tới 5 phút\" uses wording THIS TERM bans (\"never 'khoảng từ hai phút trở xuống tới 5 phút'\"). It should read \"thường là 2–5 phút hoặc ít hơn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T00:12:02Z",
       "model": "sonnet",
       "cli": "2.1.326",
@@ -594,38 +620,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-17T23:59:16Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"dễ cất, để được lâu và cho ăn nhanh\" in the meaning: \"cho ăn nhanh\" (fact 7, one page) has to go, and the sentence should end \"dễ cất, để được lâu và tiện dùng\".",
-        "Rules 5 and 12: altNames is empty. It should give \"cám\" and the English name the FACTS give, \"dry food\".",
-        "Rule 12: \"Bể nuôi nhiều loài thì chắc là phải dùng vài loại thức ăn khác nhau, vì một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" The mixed-tank caution must be two sentences, never joined by \"vì\". It should also say \"rất có thể cần\", not \"chắc là phải\".",
-        "Rules 4 and 12: \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi thức ăn khô hỏng…\": the humidity belongs only in the vitamin C sentence, never on the spoilage signs (fact 20 gives none). It is also said twice, here and in the storage list.",
-        "Rule 12: \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\" This repeats the Singapore shop's opening. Later mentions must be \"Tiệm này cũng ghi …\", with the humidity worded as \"ở độ ẩm 75–90%, hộp đã mở mất…\".",
-        "Rule 12: \"Cũng theo tiệm ở Singapore nói trên, đông khô hút ẩm…\" and \"tiệm ở Singapore này khuyên…\": later mentions of the Singapore shop must be \"Tiệm này cũng ghi …\".",
-        "Rule 12: \"mảnh mỏng và mềm, nổi trên mặt rồi chìm dần xuống cho cá tầng giữa và tầng đáy\": the flakes' item gives only what two pages give (thin, floats, then sinks slowly). \"mềm\" and reaching the bottom are each on one page only.",
-        "Rule 12: \"Bóp vụn ra là cho cá bột và cá nano ăn được.\" Nano fish (fact 10 alone) go. The line should be \"Bóp vụn ra là cho cá bột ăn được.\"",
-        "Rule 12: \"tấm chìm chậm xuống đáy\": \"chìm chậm\" is never used for wafers, because one page says they sink at once. Write that they sink to the bottom.",
-        "Rule 12: \"que tan chậm, hợp với cá hay gặm. Que nổi dành cho cá tầng mặt, que chìm cho cá đáy.\" Sticks dissolving slowly, suiting grazers and sinking sticks for bottom fish are each on one page and go. Only floating sticks for fish feeding at the top stays."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-17T18:41:16Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, khoảng từ dưới 2 phút đến 5 phút.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong khoảng 2 đến 5 phút.\": Rules 4 and 12: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong khoảng 2 đến 5 phút.\" give…",
-        "Rules 4 and 12: The Singapore shop's full opening appears twice, in \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi thức ăn khô hỏng có mùi ôi…\" and again in \"Một tiệm ở Singapore (độ ẩm 75–90%) ghi hộp đã mở mất khoảng một nửa vitamin C sau 8–12 tuần.\" THIS TERM gives each credited page one opening for all its claims, and the vitamin C sentence must keep that opening word for word. The spoiled-food sig…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ]
 }
