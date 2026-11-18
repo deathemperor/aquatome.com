@@ -2078,5 +2078,72 @@
       "notes:aquariumbreeder": "b2b9641be888",
       "references:aquariumbreeder": "20db22c67908"
     }
+  },
+  "lysimachia-parvifolia": {
+    "at": "2026-11-18",
+    "from": "2026-10-30",
+    "name": "Lysimachia parvifolia 'Red'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"di bahagian tengah atau belakang tangki\": \"tangki\" is added, and \"midground\" is rendered as just \"tengah\". Use \"di bahagian tengah atau latar belakang akuarium\" instead.",
+      "\"warna daunnya menjadi semakin terang\": \"intense\" means \"pekat\" or \"menyerlah\", and \"terang\" suggests brightness instead. Use \"semakin pekat\" or \"semakin menyerlah\".",
+      "\"ia mudah hidup apabila keratan pucuknya ditanam semula\": this is loose. \"Responds well to replanting\" means it takes well. Use \"bertindak balas dengan baik\" or \"tumbuh dengan baik apabila pucuk yang dipangkas ditanam semula\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3b76f9e9eeab",
+      "maintenance:tropica": "38916c999585",
+      "notes:tropica": "9b90d62291e2"
+    }
+  },
+  "marsilea-hirsuta": {
+    "at": "2026-11-18",
+    "from": "2026-10-30",
+    "name": "Marsilea hirsuta",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b8d9de9acc06",
+      "quickFacts:tropica": "348edb78dccd",
+      "distribution:aquariumbreeder": "4d5b738eaf1b",
+      "habitat:aquariumbreeder": "728070194eb0",
+      "aquariumSize:aquariumbreeder": "97bbf810332b",
+      "maintenance:aquariumbreeder": "e9ffa5ed6318",
+      "waterConditions:aquariumbreeder": "d4415093d0dd",
+      "equipment:aquariumbreeder": "dbf25a23c3e1",
+      "notes:aquariumbreeder": "02626e743301",
+      "notes:tropica": "894a4ae7a0da"
+    }
+  },
+  "marsilea-minuta": {
+    "at": "2026-11-18",
+    "from": "2026-11-07",
+    "name": "Marsilea Minuta",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "5ce58698d804",
+      "maintenance:aquatome": "a4aa0fb3fd0b",
+      "maintenance:tropica": "4fb186e63550",
+      "notes:tropica": "3741e460e5b4"
+    }
+  },
+  "mayaca-fluviatilis": {
+    "at": "2026-11-18",
+    "from": "2026-10-31",
+    "name": "Mayaca fluviatilis",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"dibekalkan sebagai seikat batang atau anak pokok yang dihimpunkan dalam pemberat\": acceptable but \"anchor\" (pemberat/pengikat) could be clearer, e.g. \"pengikat berat plumbum\"; minor.",
+      "\"ikan yang sensitif\": the English says \"delicate fish\"; \"ikan yang halus/sensitif\" is fine, though \"tapak semaian sendiri milik syarikat pengeluar\" is wordy; consider \"tapak semaian Tropica sendiri\" or \"tapak semaian syarikat\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "cbdeb00cf786",
+      "maintenance:tropica": "57325dab85a2",
+      "notes:tropica": "3fcb2949a833"
+    }
   }
 }

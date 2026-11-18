@@ -4804,6 +4804,26 @@
       "#8: \"ขนาดใหญ่ที่สุดของปลาในสกุลนี้ ยกเว้น B. vegrandis\" makes the sentence ambiguous. The English says the largest sizes of the species (the other Bagarius species). Rephrase it to make clear that the 52–140 cm SL range applies to the species other than B. vegrandis."
     ]
   },
+  "bagre-bagre": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "โคโค่ซีแคทฟิช",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 4: the phrase \"เป็นเวลาไม่กี่วัน\" is at the end of the sentence and can be read as modifying \"เมื่อมีอันตราย\". Move it next to \"อาจหลบเข้าไปซ่อน\", or write \"ในช่วงไม่กี่วันแรก\".",
+      "Item 4: \"หลังจากนั้น\" was added. The English does not say the newborn hide after hatching. It says they may hide for a few days. Reword to avoid implying a sequence that is not in the source.",
+      "Item 5: \"ก้านครีบแข็งของครีบอกมีเส้นรยางค์ยาว ยาวถึง...\" is awkward because \"ยาว\" is repeated. Use \"มีเส้นเส้นใยยาวต่อจากก้านครีบแข็งของครีบอก ยาวไปถึงจุดเริ่มต้นของครีบก้น\"."
+    ],
+    "parts": {
+      "distribution:scotcat": "1c815a11db3c",
+      "habitat:scotcat": "533dda999a12",
+      "diet:scotcat": "56f336656cdc",
+      "reproduction:scotcat": "e879696e2481",
+      "notes:scotcat": "00c3f9d26f08",
+      "references:scotcat": "45d06ec4803a"
+    }
+  },
   "bagre-marinus": {
     "at": "2026-11-17",
     "from": "2026-11-17",
@@ -4832,6 +4852,45 @@
       "diet:scotcat": "6a2064aeeb75",
       "notes:scotcat": "7357a3e39ddd",
       "references:scotcat": "17cfff554f6c"
+    }
+  },
+  "bagre-panamensis": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ชิลฮุยล์ซีแคทฟิช",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "#2: \"พบทางเหนือของตอนใต้ของคาบสมุทรบาฮาแคลิฟอร์เนียได้น้อยมาก\" is clumsy with repeated \"ของ\". Rephrase, e.g. \"พบน้อยมากทางเหนือของตอนใต้ของบาฮาแคลิฟอร์เนีย\".",
+      "#2: \"Santa Ana\" is left in Latin script. Consider the Thai form \"ซานตาอานา\" for a general reader.",
+      "#1: The common name \"ชิลฮุยล์ซีแคทฟิช\" is a transliteration. Consider a plainer form such as \"ปลากดทะเลชิลฮุยล์ (Chilhuil sea catfish)\" to match the Thai term \"ปลากดทะเล\" used in the next sentence."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "a55444781da4",
+      "distribution:scotcat": "47b8bd315500",
+      "habitat:scotcat": "3cc195363fb8",
+      "notes:scotcat": "b1512e58309a",
+      "references:scotcat": "18626e931752"
+    }
+  },
+  "bagre-pinnimaculatus": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "เรดซีแคทฟิช",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 4: \"ด้านข้างสีขาวเงินอมชมพู\" is fine, but \"หลังสีน้ำเงินอมเทาแบบเหล็ก\" is slightly awkward for \"steel blue\"; consider \"สีน้ำเงินเหล็ก\" or \"น้ำเงินเข้มเหมือนสีเหล็ก\".",
+      "Item 1: \"ปลากดทะเล\" is fine, but the English name \"long-barbeled sea catfish\" is left untranslated; consider adding a Thai rendering such as \"ปลากดทะเลหนวดยาว\" before the English in brackets.",
+      "Item 3: \"demersal\" rendered as \"ปลาหากินบริเวณพื้นท้องน้ำ\" is acceptable, but \"Marine; freshwater; brackish\" as \"อาศัยในน้ำทะเล\" is slightly loose; consider \"ปลาทะเล น้ำจืด น้ำกร่อย\".",
+      "Item 2: the type locality \"Westküste von CostaRica\" is left in German; acceptable as a quoted original, but consider adding a Thai gloss (ชายฝั่งตะวันตกของคอสตาริกา)."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "4aa6f200fec0",
+      "distribution:scotcat": "63854f059804",
+      "habitat:scotcat": "86a7c687c522",
+      "notes:scotcat": "9e16e525f077",
+      "references:scotcat": "677eb754bb0f"
     }
   },
   "bagrichthys-hypselopterus": {
@@ -5478,6 +5537,29 @@
       "Item 1: \"ขนาดใหญ่สุด 100 ซม. (SL)\" – clarify that SL is standard length (ความยาวมาตรฐาน), e.g. \"100 ซม. (ความยาวมาตรฐาน, SL)\"."
     ]
   },
+  "batrachocephalus-mino": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ปลากดหัวกบ",
+    "confidence": "low",
+    "score": 0.72,
+    "notes": [
+      "Item 1: \"ปลาหนัง\" for catfish order is imprecise; Ariidae are sea catfish—use \"ปลาดุกทะเล/ปลากด\" (\"ปลากดทะเล\" is fine, but \"ปลาหนัง\" is a non-standard rendering of \"catfish\" and should be \"ปลาในอันดับ Siluriformes (ปลาดุก/ปลากด)\").",
+      "Item 1: \"ปลากดทะเลไม่มีหนวด\" is wrong for a catfish with barbels: the name \"beardless\" is inaccurate as literal; keep, but the English name left untranslated in the \"ชื่อสามัญ\" line—add a Thai name there or keep consistent.",
+      "Item 2: \"มหาสมุทรอินเดียและแปซิฟิกตะวันตก\" fine, but \"ปากแม่น้ำ\" for \"estuaries\" and again for \"Upper part of estuaries\" loses \"upper part\" sense; \"ปากแม่น้ำ [คงคา] ตอนบน\" is contradictory (mouth vs upper)—use \"บริเวณตอนบนของเขตปากแม่น้ำ [คงคา]\".",
+      "Item 2: \"lower reaches of rivers\" and \"แปซิฟิกตะวันตกตอนกลาง\" acceptable; \"แหล่งที่พบตัวอย่างต้นแบบ\" is OK.",
+      "Item 5: \"ปากแม่น้ำคงคาตอนบน\" same issue—use \"เขตปากแม่น้ำคงคาตอนบน\".",
+      "Item 6: reference list left untranslated—fine."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "fc43a33c944f",
+      "distribution:scotcat": "1aba3d719604",
+      "habitat:scotcat": "a762a5bced38",
+      "diet:scotcat": "e07b91960478",
+      "notes:scotcat": "0ee45aed382e",
+      "references:scotcat": "1cc0033b167f"
+    }
+  },
   "batrochoglanis-raninus": {
     "at": "2026-11-07",
     "from": "2026-11-06",
@@ -5703,6 +5785,25 @@
       "Item 1: \"จับคู่อยู่ด้วยกันเป็นคู่\" is redundant. Use \"จับคู่กันเป็นคู่ผสมพันธุ์\" or just \"จับคู่\".",
       "Item 2: \"gruff\" is rendered as \"ดุ\". This is acceptable. No fix needed beyond a possible \"ก้าวร้าว\" for aggression."
     ]
+  },
+  "benitochromis-nigrodorsalis": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "Benitochromis nigrodorsalis",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 4: \"cave brooders\" rendered as \"วางไข่ในโพรง\" — acceptable, but \"ปลาอมไข่แบบพ่อแม่ช่วยกันเลี้ยง\" is clumsy; prefer \"ปลาอมไข่ที่พ่อและแม่ช่วยกันดูแล\".",
+      "Item 4: \"ovophilous\" is repeated and the first mention reads as a stray clause; make the explanation flow, e.g. \"อมไข่ทันทีหลังวางไข่ (ovophilous)\" once.",
+      "Item 1: \"บรรยายทางวิทยาศาสตร์\" is stiff; \"ตั้งชื่อ/อธิบายลักษณะเป็นชนิดใหม่ทางวิทยาศาสตร์\" or \"ได้รับการจัดจำแนกและตั้งชื่อ\" is more natural in Thai.",
+      "Item 2: \"เกาะเฟร์นันโดโป\" — the common Thai spelling is \"เกาะเฟร์นันโดโป/บิโอโก\"; consider noting Bioko, the current name."
+    ],
+    "parts": {
+      "quickFacts:glaser": "4370aad610da",
+      "distribution:glaser": "ef0210b9af13",
+      "behaviour:glaser": "7f34fd21268b",
+      "reproduction:glaser": "10221c246bca"
+    }
   },
   "benitochromis-riomuniensis": {
     "at": "2026-11-10",
@@ -7836,6 +7937,17 @@
       "Item 3: \"สัญญาณรบกวนทางไฟฟ้า\" for 'electro-smog' loses the quoted term; consider keeping 'อิเล็กโทรสม็อก' in quotes."
     ]
   },
+  "brochiloricaria-macrodon": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Brochiloricaria macrodon",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [],
+    "parts": {
+      "diet:glaser": "176175ed2a99"
+    }
+  },
   "brochis-multiradiatus": {
     "at": "2026-11-08",
     "from": "2026-11-06",
@@ -7904,6 +8016,25 @@
       "Item 8: 'ปลาหนัง' is a good Thai term for catfish. 'cyprinids' as 'ปลาตระกูลปลาตะเพียน' is acceptable. 'ว่องไว' for 'dynamic' is acceptable.",
       "Item 7: 'กินได้แทบทุกอย่างที่หาได้' is fine."
     ]
+  },
+  "brycon-hilarii": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ปลาไบรคอน",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "#3 \"อดไม่ได้ที่จะงับกินเป็นของว่าง\" is a bit colloquial/ambiguous; consider \"คงไม่พลาดกินเป็นอาหารเรียกน้ำย่อย\" or a plainer phrasing.",
+      "#4 \"ปลาเศรษฐกิจ\" for \"food fish\" is slightly off; \"ปลาเพื่อการบริโภค\" is more precise.",
+      "#4 \"ปล่อยเป็นปลาเศรษฐกิจ\" for \"stocked\" is awkward; use \"ปล่อยเลี้ยง\".",
+      "#1 \"เข้ามาแล้ว\" after the long subject is slightly clumsy; consider \"ถึงแล้ว\"."
+    ],
+    "parts": {
+      "beforeYouBuy:glaser": "040d8b70ea32",
+      "diet:glaser": "99e3d741a62c",
+      "behaviour:glaser": "4e4d09ed99aa",
+      "notes:glaser": "dc2597363ad8"
+    }
   },
   "bryconaethiops-boulengeri": {
     "at": "2026-11-08",
@@ -8143,6 +8274,38 @@
       "Item 9: 'เก้งก้าง' for 'awkward' is a little odd for crayfish feeding. 'งุ่มง่าม' would read more naturally."
     ]
   },
+  "cambarellus-texanus": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "กุ้งแคระเท็กซัส",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Section 4: \"Brazos Dwarf Crayfish\" rendered only as \"กุ้งแคระชนิดนี้\" – the common name is lost, and the name differs from the \"Dwarf Texan Crayfish\" in section 1. Give the name (e.g. เครฟิชแคระบราโซส) at first mention.",
+      "Section 10: \"Only ill and weak specimens can be caught\" is rendered as \"ปลาที่ถูกจับได้มีเพียงตัวที่ป่วยและอ่อนแอเท่านั้น\"; this is acceptable, but \"Shrimp are not too fast for them\" becomes a confusing double negative (\"ไม่ได้ว่องไวเกินกว่าที่มันจะจับได้\"). Rephrase more clearly, e.g. \"กุ้งว่องไวไม่พอที่จะหนีได้\".",
+      "Section 10: \"Despite their small size they are quite territorial\" and \"they are not social and prefer to be alone\" are fine, but \"Keeping them well fed reduces their hunting instinct\" is rendered as \"การให้อาหารอิ่ม\"; make the subject clear (ให้เครฟิชกินอิ่ม).",
+      "Section 9: \"Algae wafers\" is translated as \"อาหารแผ่นสาหร่ายจมน้ำ\", with \"จมน้ำ\" added. \"shrimp granules\" becomes \"อาหารกุ้งแบบเกล็ดเล็ก\" and \"TetraMin flakes\" becomes \"อาหารแผ่น\". Use อาหารเกล็ด for flakes and อาหารเม็ดเล็ก for granules.",
+      "Section 9: \"prefer organic food\" is rendered as \"ชอบอาหารสด\" (fresh food), which changes the meaning. Use something like \"ชอบอาหารที่มาจากสิ่งมีชีวิต/อินทรีย์\".",
+      "Section 12: \"Babies are also very aggressive, especially larger ones towards smaller ones\" is rendered \"โดยเฉพาะตัวใหญ่กับตัวเล็ก\", which drops the direction of the aggression. Write \"โดยเฉพาะตัวใหญ่ที่ทำร้ายตัวเล็ก\".",
+      "Section 12: \"Once these wear off, the young are better off far from their mother\" is acceptable. In section 6, \"ลอกคราบไม่เกินปีละห้าครั้ง\" and \"ตัวเล็ก\" for a juvenile are fine. Section 6: \"กุ้งแคระกินได้\" is ambiguous, and it is not clear whether the crayfish or the shrimp eat. Write \"ถูกเครฟิชตัวอื่นหรือแม้แต่กุ้งแคระกินได้\" as a clear passive, or restructure.",
+      "Section 8: \"Matten filters ... highly recommended for any dwarf crayfish or shrimp tank\" is rendered \"ตู้กุ้งแคระหรือตู้กุ้งเล็ก\". Use ตู้เครฟิชแคระหรือตู้กุ้งแคระ, since \"dwarf crayfish\" became \"กุ้งแคระ\", which is ambiguous."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "0f1d6c0f4bee",
+      "beforeYouBuy:aquariumbreeder": "dd422ea1b6d2",
+      "distribution:aquariumbreeder": "5ca29fb721a6",
+      "habitat:aquariumbreeder": "8d94b5d3ed2f",
+      "aquariumSize:aquariumbreeder": "87740da1cde2",
+      "maintenance:aquariumbreeder": "2e81d96b742d",
+      "waterConditions:aquariumbreeder": "912ba2105589",
+      "equipment:aquariumbreeder": "e4eb87220ef6",
+      "diet:aquariumbreeder": "91faa53cbe01",
+      "behaviour:aquariumbreeder": "0166cbe2d122",
+      "dimorphism:aquariumbreeder": "462e6bcee69b",
+      "reproduction:aquariumbreeder": "9354a4a6287d",
+      "notes:aquariumbreeder": "249a336ae538"
+    }
+  },
   "cambarus-bartonii": {
     "at": "2026-11-08",
     "from": "2026-11-01",
@@ -8286,6 +8449,30 @@
       "Item 9: \"ปลาทองขับของเสียออกมามากกว่าปลาสวยงามอีกหลายชนิด\" drops \"pet fish\" and \"fantail\" as subjects, but the meaning is intact.",
       "Item 14: \"กุ้งกั้งปู\" for crustaceans, and \"ไรแดง\" for moina, are fine. \"หนอนแดง\" for bloodworms, and \"ไส้เดือนน้ำ\" for tubifex, are acceptable but could be more specific, for example \"หนอนแดง (bloodworm)\" and \"หนอนน้ำ/ไส้เดือนน้ำ (tubifex)\"."
     ]
+  },
+  "caridina-babaulti": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "กุ้งบาบาวติ",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "\"จุลชีพ\" is stiff. Hobbyists would say \"จุลินทรีย์\".",
+      "\"เปลือกหัว\" for the carapace (vỏ đầu ngực) is non-standard. Use \"กระดองส่วนหัว\" or \"กระดองหัว\".",
+      "\"ไรแดง\" for \"bo bo\" is acceptable. Consider \"ไรน้ำ/ไรแดง\" to stay unambiguous."
+    ],
+    "parts": {
+      "beforeYouBuy:aquatome": "09ebccf398fd",
+      "distribution:aquatome": "a56b9eb898f4",
+      "habitat:aquatome": "bef2ca0c5c50",
+      "aquariumSize:aquatome": "ad2d626bfa16",
+      "waterConditions:aquatome": "ebd0706ab6b0",
+      "diet:aquatome": "f4ef06435e5c",
+      "behaviour:aquatome": "404b375abf9f",
+      "dimorphism:aquatome": "f34f1bd9d669",
+      "reproduction:aquatome": "510853dae38d",
+      "notes:aquatome": "4726124b67e0"
+    }
   },
   "caridina-dennerli": {
     "at": "2026-11-08",
@@ -8455,6 +8642,26 @@
       "Item 38: 'ขุนฝูง' for 'condition the group' is odd; 'ติดสัด' for amorous male is unnatural for fish."
     ]
   },
+  "carlarius-heudelotii": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "Carlarius heudelotii",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 4: \"ในน้ำเปิดบริเวณเหนือพื้น\" is a stiff calque of \"open water\". Use \"กลางน้ำ\" or \"ในแนวน้ำเหนือพื้น\".",
+      "Item 6: \"ซึ่งเป็นชนิดที่รู้จักทั้งหมดจากชายฝั่งแอฟริกาตะวันตก\" is slightly clumsy. Reword it to say the genus includes the seven known species from the west African coast that were formerly placed in Arius."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "ce4ac38aeb78",
+      "distribution:scotcat": "865c3b4dac9b",
+      "habitat:scotcat": "39f389d208c0",
+      "diet:scotcat": "244e9f3641a2",
+      "reproduction:scotcat": "7c2b3ef1a0fa",
+      "notes:scotcat": "ae63f4731423",
+      "references:scotcat": "9bc31830ac02"
+    }
+  },
   "carnegiella-marthae": {
     "at": "2026-11-08",
     "from": "2026-11-03",
@@ -8541,6 +8748,75 @@
       "behaviour:aquariumbreeder": "c4640ee1a1bb",
       "reproduction:aquariumbreeder": "3a7df148184f",
       "notes:aquariumbreeder": "f7529b6d37c7"
+    }
+  },
+  "catathyridium-jenynsii": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ปลาลิ้นหมาน้ำจืด",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 2: ปลาซีกเดียว is a rather odd/ambiguous term for flatfish (usually ปลาลิ้นหมา/ปลาตัวแบน); acceptable with bracket but consider a more standard hobby term.",
+      "Item 5: \"cirrhi\" in brackets is fine; the attribution to Kai Arendt was dropped neutrally, which is allowed."
+    ],
+    "parts": {
+      "quickFacts:glaser": "d7c9dc7dbe68",
+      "equipment:glaser": "af2299e1a918",
+      "diet:glaser": "c2af036b9357",
+      "behaviour:glaser": "d1a2698e4837",
+      "notes:glaser": "28d823993617"
+    }
+  },
+  "cathorops-arenatus": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Yellow sea catfish",
+    "confidence": "low",
+    "score": 0.92,
+    "notes": [],
+    "parts": {
+      "quickFacts:scotcat": "1fc3f8ee17e1",
+      "distribution:scotcat": "b7d85a33c806",
+      "habitat:scotcat": "260b4265adcf",
+      "diet:scotcat": "7c3c8950590f",
+      "notes:scotcat": "bd2d09ba4735"
+    }
+  },
+  "cathorops-dasycephalus": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Cathorops dasycephalus",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 1: \"ปลากดทะเล (Bigbelly sea catfish)\" is a generic name that does not specifically render \"Bigbelly\"; consider a more specific local name or a literal rendering such as \"ปลากดทะเลท้องใหญ่\".",
+      "Item 4: \"ตาเป็น 1 ใน 4.9–6.0 ส่วนของความยาวหัว\" is awkward; use the standard form \"ความยาวหัวเป็น 4.9–6.0 เท่าของเส้นผ่านศูนย์กลางตา\" or similar. \"eye 4.9-6.0 in head\" means head length contains the eye diameter 4.9-6.0 times.",
+      "Item 4: \"ฟันบนเพดานปากเป็นฟันแบบเรียบง่าย\" is stiff for \"simple\" teeth; \"ฟันบนเพดานปากไม่มีลักษณะพิเศษ\" would read more naturally. \"ซี่กรองเหงือก\" and \"โค้งเหงือก\" are fine, but \"ผิวด้านหลัง\" for \"posterior surface\" is ambiguous; use \"ด้านท้าย\" or \"ด้านหลังของโค้งเหงือก\" with care."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "965506a8dc74",
+      "distribution:scotcat": "a3452be385d9",
+      "habitat:scotcat": "f42a9227d233",
+      "notes:scotcat": "790887484827"
+    }
+  },
+  "cathorops-fuerthii": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Congo sea catfish",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"ชื่อสามัญ: Congo sea catfish\" left in English; consider adding a Thai name or transliteration (e.g. ปลากดทะเลคองโก) alongside it.",
+      "\"ลากูน Agua Brava\": \"Agua Brava lagoons complex\" is rendered loosely as \"กลุ่มลากูน\"; consider \"ระบบลากูน Agua Brava\", and use the more common \"ทะเลสาบน้ำกร่อย\" or \"ลากูน\" consistently.",
+      "\"ก้านครีบหลัง I, 7\" and similar: in 'dorsal spine short ... thinner than pectoral spine', \"ก้านครีบแข็ง\" is fine, but \"แหล่งที่พบตัวอย่างต้นแบบ\" for \"Type locality\" is wordy; \"ถิ่นต้นแบบ\" is the more common term."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "3498c744dc6b",
+      "distribution:scotcat": "8a78e19c704a",
+      "habitat:scotcat": "cd6dcf02d9b1",
+      "notes:scotcat": "788220e5d9b2"
     }
   },
   "catlocarpio-siamensis": {
@@ -8694,6 +8970,28 @@
       "diet:scotcat": "0e012e8fadc7",
       "notes:scotcat": "cb89365b48d4",
       "references:scotcat": "80ba766a37e3"
+    }
+  },
+  "cephalocassis-jatia": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ปลากดแม่น้ำ",
+    "confidence": "low",
+    "score": 0.72,
+    "notes": [
+      "Item 4: \"No teeth on plate\" was translated as \"ไม่มีฟันบนแผ่นฟันที่เพดานปาก\". This adds \"ที่เพดานปาก\" (on the palate), which is not in the English. Use \"ไม่มีฟันบนแผ่นฟัน\".",
+      "Item 4: \"ทำให้เป็นรูปภาษาละติน\" is awkward and unclear for \"a latinisation of Jat\". Use \"เป็นการแปลงคำว่า Jat ให้เป็นรูปภาษาละติน\".",
+      "Item 4: \"คำนามที่วางประกอบกัน\" is a literal rendering of \"noun in apposition\". Use the standard term \"คำนามคู่ขนาน (noun in apposition)\" or \"คำนามในตำแหน่งขยาย\".",
+      "Item 4: \"ปลาหนังชนิดนี้\" for \"catfish\" is inconsistent with item 1, which uses ปลากด. Hobbyists more commonly say \"ปลากด\" or \"ปลาแขยง\" depending on the group; use ปลากด consistently.",
+      "Item 2: \"แคว้นเบงกอล\" for \"Estuaries of Bengal\" adds \"แคว้น\" (region), which is not in the English. \"ปากแม่น้ำเบงกอล\" or \"ปากแม่น้ำในเบงกอล\" is closer.",
+      "Item 4: \"ความไม่แน่นอนเรื่องสถานะทางอนุกรมวิธาน... รวมถึงการขาดข้อมูล\" is acceptable. \"Marceniuk et al (2007) จัดปลาชนิดนี้ไว้ในสกุล Arius\" is wrong in direction. The English says the species was placed in Arius even though it lacks the accessory tooth plates, so the \"แม้ว่า\" clause is fine, but \"เส้นข้างลำตัวแยกเป็นสองแฉก\" would be more natural as \"เส้นข้างลำตัวแตกเป็นสองง่ามที่บริเวณโคนหาง\"."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "798b12938ecc",
+      "distribution:scotcat": "ca9a9a9102ee",
+      "habitat:scotcat": "0f168151f95d",
+      "notes:scotcat": "a4befbabe65c",
+      "references:scotcat": "234ee38518cc"
     }
   },
   "cephalocassis-melanochir": {
@@ -9530,6 +9828,24 @@
       "behaviour:glaser": "61447dd78088"
     }
   },
+  "chelonodon-patoca": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ปักเป้ามิลค์สปอต",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: 'ว่ายทวนน้ำขึ้นไปไกล' omits 'upstream' meaning river; consider 'ว่ายทวนน้ำขึ้นไปตามแม่น้ำไกล ๆ' (minor).",
+      "Item 2: 'This stock was received from Thailand' is rendered 'นำเข้ามาจากประเทศไทย' — for Thai readers it is odd, but meaning intact; consider 'ปลาล็อตนี้ได้มาจากประเทศไทย'."
+    ],
+    "parts": {
+      "quickFacts:glaser": "049f93f3b5a2",
+      "distribution:glaser": "4833399e9071",
+      "habitat:glaser": "ce1ad164c86d",
+      "equipment:glaser": "efe759ca7a3e",
+      "behaviour:glaser": "073966147d46"
+    }
+  },
   "cherax-boesemani": {
     "at": "2026-11-04",
     "from": "2026-11-04",
@@ -9582,6 +9898,24 @@
       "diet:glaser": "eeea33b0ea65",
       "behaviour:glaser": "bb078b0263f4",
       "reproduction:glaser": "0b0d117f74d1"
+    }
+  },
+  "cherax-peknyi": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "กุ้งเครฟิชซีบร้า",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"zebra lobster\" left in Latin letters; add a Thai trade name such as \"กุ้งเครย์ฟิชลายม้าลาย\" or give it in brackets after the Thai term.",
+      "Item 2: \"ใบไม้แห้งที่ร่วงจากต้นไม้\" is acceptable, but \"กินอาหารปลาที่ปลาสวยงามกินได้\" is a bit clumsy; \"อาหารปลาสวยงามแทบทุกชนิด\" is more natural.",
+      "Item 4: \"การระบุชนิด\" for \"determination\" is stiff; \"การจัดจำแนกชนิด\" is the usual term. \"เครฟิช\" is also commonly written \"เครย์ฟิช\" in the Thai hobby."
+    ],
+    "parts": {
+      "quickFacts:glaser": "08fb90acd075",
+      "diet:glaser": "2050be90e498",
+      "behaviour:glaser": "f4f2a28dbd23",
+      "notes:glaser": "dce14c3d47fe"
     }
   },
   "cherax-pulcher": {
@@ -10077,6 +10411,25 @@
       "Item 3: \"ไม่ทราบว่าจะทนสภาพเช่นนั้นได้...\" fine."
     ]
   },
+  "cinetodus-froggatti": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "ปลากดทะเลปากเล็ก",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: the four fin-ray counts run together with no separator (e.g. \"1 ก้าน ก้านครีบอ่อน...\"). Use semicolons or separate them as in the English.",
+      "Item 5: \"จนกว่าจะฟัก\" (until hatching) is not in the English. This is a minor addition and could be dropped."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "e573d781db77",
+      "distribution:scotcat": "f4022d5516ba",
+      "habitat:scotcat": "07c011d2f34b",
+      "diet:scotcat": "743dec1abd65",
+      "reproduction:scotcat": "485902f4293b",
+      "notes:scotcat": "72d129df0015"
+    }
+  },
   "cirrhinus-caudimaculatus": {
     "at": "2026-11-10",
     "from": "2026-11-08",
@@ -10436,6 +10789,25 @@
       "#3 \"โดยไม่เลือก\" and \"ทุกชนิด\" slightly overstate; \"any type of usual fishfood\" means common foods, so use \"อาหารปลาทั่วไปทุกประเภท\" without \"โดยไม่เลือก\"/\"ทุกชนิด\" redundancy.",
       "#5 Quoted common name \"Largespotted Spiny Loach\" left in English with no Thai name; add a Thai rendering, e.g. \"ปลาหมูหนามจุดใหญ่\", with the English in brackets."
     ]
+  },
+  "cochlefelis-burmanicus": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "Cochlefelis burmanicus",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"มณฑลตะนาวศรี\" – Tenasserim is a region/division (ภาคตะนาวศรี/เขตตะนาวศรี), not a \"มณฑล\"; also \"พม่า\" vs \"เมียนมา\" used inconsistently within the same item.",
+      "Item 2: \"เขตพะสิม\" – Bassein district is more commonly rendered as \"เขตพะสิม/ปะเตง\"; consider adding the original name in brackets for clarity.",
+      "Item 3: \"amphidromous\" rendered as \"ย้ายถิ่นระหว่างน้ำจืดกับน้ำทะเล\" is slightly imprecise (amphidromous is non-breeding migration); consider \"อพยพระหว่างน้ำจืดและน้ำเค็มในช่วงชีวิตที่ไม่เกี่ยวกับการสืบพันธุ์\"."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "9a7e52005408",
+      "distribution:scotcat": "30fe508a1e4b",
+      "habitat:scotcat": "7dc1e34a8f7c",
+      "notes:scotcat": "dd8ccb3560a7",
+      "references:scotcat": "3dd0953c5bd1"
+    }
   },
   "colomesus-asellus": {
     "at": "2026-11-10",
@@ -11124,7 +11496,6 @@
       "\"เวอร์ชันจมูกยาว\" is a bit colloquial; \"ฉบับจมูกยาว\" or \"ปลาจมูกยาวที่คล้ายกับ ...\" reads more naturally."
     ],
     "parts": {
-      "quickFacts:glaser": "d6526cb610aa",
       "distribution:glaser": "06bd8ffb88af",
       "notes:glaser": "b70c5ce6bf09"
     }
@@ -13544,6 +13915,24 @@
       "diet:scotcat": "6fe1efb640b9",
       "notes:scotcat": "0e9b853e5cd2",
       "references:scotcat": "5f9633682d9d"
+    }
+  },
+  "cryptarius-daugueti": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Cryptarius daugueti",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"Arius ที่ซ่อนตัวอยู่\" is slightly loose for \"a cryptic Arius\"; use \"Arius ที่ถูกมองข้าม/ลึกลับ (cryptic Arius)\" for clarity.",
+      "\"แบบยังไม่เป็นข้อยุติ\" is a bit stiff for \"tentatively\"; \"เบื้องต้น\" or \"ชั่วคราว\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "d64a19d1091d",
+      "distribution:scotcat": "dcbd931172fd",
+      "habitat:scotcat": "6e7a9866e1d7",
+      "notes:scotcat": "a6f3a25a1ec5",
+      "references:scotcat": "e2c61cb30618"
     }
   },
   "cryptarius-truncatus": {
@@ -21076,7 +21465,7 @@
     "from": "2026-10-31",
     "name": "ไบเคอร์เซเนกัล",
     "confidence": "medium",
-    "score": 0.6,
+    "score": 0.9,
     "notes": [
       "Item 9: \"ปลาสลาด/ปลากราย (Knife Fish)\" is fine, but \"ปลากลุ่ม Datnoides\" is left in Latin only. Use the Thai name \"ปลาไทเกอร์\" or \"ปลาลาย/ปลาเสือ\" in brackets, since hobbyists in Thailand know Datnoides as ปลาไทเกอร์/ตะกรับ.",
       "Item 9: \"ไม่ควรไว้ใจให้อยู่ร่วมกับปลาที่มีขนาดพอจะเข้าปากได้\" is awkward. Say \"ไม่ควรเลี้ยงรวมกับปลาที่เล็กพอจะกินได้\".",
@@ -22355,7 +22744,7 @@
     "from": "2026-10-31",
     "name": "โทรเฟียส ดูบอยซี่",
     "confidence": "medium",
-    "score": 0.6,
+    "score": 0.85,
     "notes": [
       "Item 1: \"ปลาหมอจุดขาว\" is an invented common name for T. duboisi, and ปลาหมอ usually means climbing perch/Anabas. Use Tropheus duboisi or the trade name \"โทรเฟอุส ดูบัวซี\".",
       "Item 4: \"110 ลิตร\" is kept but the 48\" x 12\" x 12\" tank is only about 43 L. This is a source inconsistency; consider flagging it. The translation is faithful.",

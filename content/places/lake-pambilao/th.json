@@ -1,8 +1,13 @@
 {
   "slug": "lake-pambilao",
-  "name": "ปัมบีเลา",
+  "name": "ทะเลสาบปัมบีเลา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-18T18:16:35.868Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

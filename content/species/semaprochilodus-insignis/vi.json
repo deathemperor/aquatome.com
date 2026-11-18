@@ -10,7 +10,7 @@
     "distribution:seriouslyfish": "<p>Có ở Ecuador, Peru, Colombia, Guyana và Brazil.</p>",
     "habitat:seriouslyfish": "<p>Loài này di cư và đẻ trứng ở dòng chính của sông, nhưng chủ yếu kiếm ăn ở vùng đồng bằng ngập lũ. Ngoài ra còn gặp chúng ở các hồ trong vùng ngập lũ (dân địa phương gọi là \"várzeas\") và ở suối trong rừng.</p>",
     "aquariumSize:seriouslyfish": "<p>Một con trưởng thành cần bể ít nhất 150 × 60 × 60 cm, tức khoảng 540 lít.</p>",
-    "maintenance:seriouslyfish": "<p>Loài này không kén cách trang trí. Nếu muốn set bể giống nơi sống tự nhiên của nó thì cũng rất đơn giản. Rải nền cát sông, thêm vài cành lũa và ít rễ cây xoắn. Không tìm được lũa đúng dáng mình muốn thì dùng gỗ dẻ gai thường cũng an toàn, miễn là gỗ đã phơi thật khô và bóc hết vỏ. Cứ để rêu mọc, vì cá sẽ gặm nó. Loài này không hợp với bể thủy sinh. Cây lá mềm nào nó cũng ăn sạch, còn những cây khó ăn hơn chắc cũng bị rỉa.</p>",
+    "maintenance:seriouslyfish": "<p>Loài này không kén cách trang trí. Nếu muốn set bể giống nơi sống tự nhiên của nó thì cũng rất đơn giản. Rải nền cát sông, thêm vài cành lũa và ít rễ cây xoắn. Cứ để rêu mọc, vì cá sẽ gặm nó. Loài này không hợp với bể thủy sinh. Cây lá mềm nào nó cũng ăn sạch, còn những cây khó ăn hơn chắc cũng bị rỉa.</p>",
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 23–29 °C</li><li>pH: 5,5–7,2</li><li>Độ cứng: 1–15 dGH</li></ul>",
     "diet:seriouslyfish": "<p>Loài này ăn tạp nhưng chủ yếu ăn rau. Cho ăn nhiều rau củ chần sơ như rau bina, xà lách, dưa chuột, bí ngòi, thêm viên tảo và những thứ tương tự. Chúng cũng ăn hầu hết các loại thức ăn khô tốt, và đồ đông lạnh cỡ nhỏ như trùng huyết hay bo bo.</p>",
     "behaviour:seriouslyfish": "<p>Nuôi ít con thì chúng dữ với đồng loại, nhưng bể lớn thì nuôi được nhóm từ sáu con trở lên. Không thì tốt nhất chỉ nuôi một con, thả chung với cá cỡ vừa đến lớn. Cá nuôi chung hợp gồm các loài characin cỡ lớn khác, cá lau kiếng, cá Doradidae, cichlid hiền, cá dao, cá rồng và cá đuối nước ngọt.</p>",
@@ -25,11 +25,5 @@
       "seriouslyfish": 0.6
     },
     "reason": "score"
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-10"
   }
 }

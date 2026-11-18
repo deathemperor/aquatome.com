@@ -95,6 +95,12 @@
       "Item 5: 'ปลาหนังน้ำเค็ม' is a non-standard gloss for 'Salt-water Catfish'; consider the established name 'ปลาสังกะวาดทะเล' or just keep the English name."
     ]
   },
+  "batrachocephalus-mino": {
+    "hash": "e5604f7986d42d200f3da3662204bb55f08a78dd6ffd667518f19c299a14e3b0",
+    "at": "2026-11-18T18:11:09.929Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "boraras-brigittae": {
     "hash": "5758ad122dcbd1aba352b423b817b078f2c1e3d2d1d5483f764b3d659b20a746",
     "at": "2026-11-18T00:35:12.784Z",
@@ -107,11 +113,30 @@
     "sonnet": 0.55,
     "back": false
   },
+  "cambarellus-texanus": {
+    "hash": "8a4e2708e5539821e35c1d98a4b24c985d29d1e261d83280a57574e6e105dbe9",
+    "at": "2026-11-18T18:12:10.398Z",
+    "sonnet": 0.8,
+    "opus": 0.7,
+    "back": false,
+    "held": [
+      "#6: \"ควรปรับสภาพน้ำก่อนปล่อยลงตู้\" reads like treating tap water. The source means acclimating the animals, so use \"ควรค่อย ๆ ปรับกุ้งให้คุ้นกับน้ำในตู้ (acclimate) ก่อนปล่อย\"."
+    ]
+  },
   "caquetaia-kraussii": {
     "hash": "7a01309fb8226beef0e5b61f93421b63c1e20a3a659a547e14edc86293bbc8a8",
     "at": "2026-11-17T11:29:43.846Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "carassius-auratus": {
+    "hash": "13ae4d65ea846b765772fd898ac6d34bf7c0e6816576a1f4268182cda0a6b608",
+    "at": "2026-11-18T18:13:34.149Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "Item 1: 'Nitrate: less than 100' has no unit in the English either, so it is fine. 'เลี้ยงในที่เลี้ยง' is redundant; use 'เมื่อเลี้ยงในตู้/บ่อ'."
+    ]
   },
   "caridina-multidentata": {
     "hash": "65b9761b14b3d0bb0a4b1dbc04104ed18939e6b4e7402d78125ec4656b03456b",
@@ -127,6 +152,12 @@
     "held": [
       "Item 6: 'quarantine medication trio' translated 'ชุดยากักโรคสามตัว' is vague/awkward; 'pet store chains' as 'ร้านสัตว์เลี้ยงแบบเครือข่าย' awkward."
     ]
+  },
+  "cephalocassis-jatia": {
+    "hash": "405ffb3520757a3da914aa808d9902f923789dace6ef6254cd4c2c89b0c4feab",
+    "at": "2026-11-18T18:12:21.755Z",
+    "sonnet": 0.7,
+    "back": false
   },
   "ceylonthelphusa-kandambyi": {
     "hash": "10f7b9a62e224ea584069b73df7077674b9832b360b4128b8554c96ad9612fa0",
@@ -313,6 +344,19 @@
       "Item 4: \"จำนวนหนึ่ง\" for \"some\" is OK, but \"ปลาไหลมอเรย์\" aside, the main issue is item 3: \"ซึ่งหลายครั้งทำให้ปลาตาย\" – the English says \"often with a fatal consequence\"; fine, but \"ลอดออกไป\" adds \"out\" (acceptable). Item 1: \"โดยทั่วไปไม่พบชนิดนี้ไกลจากชายฝั่งเกิน 30-40 กม. แต่ส่วนใหญ่มักพบในน้ำจืดล้วน\" – contrast is lost/ambiguous; reword as \"ปกติไม่พบไกลจากชายฝั่งเกิน 30–40 กม. แต่มักพบในน้ำจืดล้วน ๆ\" and keep the English meaning of 'pure freshwater'."
     ]
   },
+  "hasemania-nana": {
+    "hash": "2e9974316d8312694924dbacfae53007072d779c6ca5b0c70306a9203ac46956",
+    "at": "2026-11-18T18:16:15.056Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
+  "hemigrammus-bleheri": {
+    "hash": "327ae590d67c92e89eddc4411c8cbd1b097d79e28113d40a3cba058ce76a64f3",
+    "at": "2026-11-18T18:16:33.594Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "hyphessobrycon-amandae": {
     "hash": "d8e8db18290368c818909c6371590cbc32aa60b0e8ae2c0b144328d37b39f4df",
     "at": "2026-11-18T00:37:49.503Z",
@@ -332,6 +376,12 @@
     "opus": 0.7,
     "back": false
   },
+  "melanotaenia-boesemani": {
+    "hash": "d10e9290027b95a5706c4fe6715b08892fd8dbd793caa22bedef256b23ea9549",
+    "at": "2026-11-18T18:15:09.393Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "melanotaenia-praecox": {
     "hash": "031659a78f9cbaf8272423d0c64ff1601db9c8e26667b6a82d3af4c30b76dd91",
     "at": "2026-11-18T00:38:05.211Z",
@@ -345,10 +395,22 @@
     "opus": 0.85,
     "back": true
   },
-  "nemapteryx-nenga": {
-    "hash": "4ed86204a607d7bf684ce2c9937140ed7c334f4b77fb798f891a9c1914bd9b11",
-    "at": "2026-11-18T12:15:40.793Z",
+  "monopterus-albus": {
+    "hash": "db99a6a8ca8b2aa75da2e89c27fe54667b57f189d8c2057f587ca2f2c5207649",
+    "at": "2026-11-18T18:13:26.370Z",
     "sonnet": 0.7,
+    "back": false
+  },
+  "myxocyprinus-asiaticus": {
+    "hash": "6d42eb6c040f1c9247f115ac991dde22a4d6cb518b3be622fb287eba006e87c6",
+    "at": "2026-11-18T18:14:07.455Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "nemapteryx-nenga": {
+    "hash": "44dd3aab8c0a3a95a40002e5dc1ec39051da59e0b054a52abce61bd92e7d8260",
+    "at": "2026-11-18T18:12:31.409Z",
+    "sonnet": 0.6,
     "back": false
   },
   "neocaridina-davidi": {
@@ -382,6 +444,15 @@
     "sonnet": 0.4,
     "back": false
   },
+  "parambassis-ranga": {
+    "hash": "eabdf0f343d3063194a56216a1fa2c1f96ceed61eb36a1bfe97374793b9a5964",
+    "at": "2026-11-18T18:15:25.915Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 10: \"หรือยาที่คล้ายกัน\" and \"ความเข้มข้นต่ำ\" do not tell the reader the dose. Say \"สารละลายเจือจาง\" to match \"weak solution\"."
+    ]
+  },
   "phenacogrammus-interruptus": {
     "hash": "a94e49c5b86dbd018cac09f18ff1532fe9a1ac5ada5fee46f1af76cfacb3d14a",
     "at": "2026-11-18T05:51:38.744Z",
@@ -394,6 +465,13 @@
     "sonnet": 0.9,
     "opus": 0.7,
     "back": false
+  },
+  "polypterus-senegalus": {
+    "hash": "174922fdbe9345f4c20835a5771acb51ca76c2cd277e35a37e806783f6367502",
+    "at": "2026-11-18T18:14:48.813Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
   },
   "pristella-maxillaris": {
     "hash": "3e1a0afc19b01f1185e3b15d9912de2cdc95b307dd14d7cb0f6266213440dce2",
@@ -431,6 +509,15 @@
       "#23: \"สีน้ำตาลทองแดง\" means copper-brown. The source says bronze-brown, so use \"สีน้ำตาลอมทองสัมฤทธิ์\" or \"สีน้ำตาลบรอนซ์\"."
     ]
   },
+  "trichogaster-lalius": {
+    "hash": "1efae1455298c7df6e5cf9a8a94fe0d391149cf5377b0eb10059acbdf35488a5",
+    "at": "2026-11-18T18:13:52.074Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Items 3 and 16: the unit \"มก./ล.\" was added to \"Nitrate: less than 60\", which the source does not give. Keep the number as in the source or note the unit is assumed."
+    ]
+  },
   "trigonostigma-espei": {
     "hash": "8d583db31463fa01d3400dc41a732b9d201355b5b5778c97f12048292c723f9a",
     "at": "2026-11-18T00:39:37.280Z",
@@ -443,10 +530,26 @@
     "sonnet": 0.4,
     "back": false
   },
+  "tropheus-duboisi": {
+    "hash": "ee33bc0e5c1137a20122b837750a6f7bb1ba7b9d50d6c6fdfce18da7c5fdbb30",
+    "at": "2026-11-18T18:13:09.252Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
   "vittina-waigiensis": {
     "hash": "55d30185a4d127f0393a2866597798fd8d295daa98f8240a9cf58790bd1e2566",
     "at": "2026-11-18T12:16:12.828Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "xiphophorus-hellerii": {
+    "hash": "6d76e375d8b29d7573110e5e7575f5cc98930bb07cc3e94a08e34980699ffa1d",
+    "at": "2026-11-18T18:14:00.173Z",
+    "sonnet": 0.4,
+    "back": false,
+    "held": [
+      "Item 3: 'ไนเตรต: ต่ำกว่า 60' drops the unit. Add 'มก./ล.' or 'ppm' if the source implies one."
+    ]
   }
 }

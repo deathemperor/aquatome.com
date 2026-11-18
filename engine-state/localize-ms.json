@@ -3980,6 +3980,200 @@
       "notes:seriouslyfish": "90174f054df2"
     }
   },
+  "aphyosemion-decorsei": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Decorse's Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: 'Decorse's lyretail' left untranslated; acceptable as a trade name, but could add a Malay gloss, e.g. 'lyretail Decorse'.",
+      "Item 1: 'killifish' is not italicised or bracketed; consider 'ikan killifish' with consistent usage.",
+      "Item 1/2: 'menganjur hingga ke utara' is slightly awkward; 'merebak hingga ke utara' or 'meluas hingga ke' reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "3fde53800a99",
+      "distribution:seriouslyfish": "1eeab8674ee3",
+      "notes:seriouslyfish": "3fb6b376b430"
+    }
+  },
+  "aphyosemion-elberti": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Red-barred Lyretail",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"Red-barred lyretail\" left in English with no local gloss; consider adding a Malay descriptor or marking it as a trade name.",
+      "Item 1: \"killifish\" is left in English; it is acceptable as a hobby term, but could be given as \"ikan killifish\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "bf2b45747919",
+      "distribution:seriouslyfish": "fc32d36d8fe0",
+      "waterConditions:seriouslyfish": "d8cce8848f89",
+      "notes:seriouslyfish": "befd85b20e50"
+    }
+  },
+  "aphyosemion-erythron": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Reddish Lyretail",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"25 mm SL (panjang piawai)\" – the English gives \"SL\" with the length in mm; the bracket \"panjang piawai\" is fine, but the metric figure is correct. The imperial figure was dropped as allowed, so this is OK. Real issue: \"Reddish lyretail\" is left in English with no local or descriptive rendering; add a Malay gloss, e.g. \"Reddish lyretail (killi ekor lira kemerahan)\", or keep it as a trade name.",
+      "Item 1: \"dikumpul\" is non-standard; use \"dikutip\" or \"disampel\" (or \"dikumpulkan\"). The same applies to \"dikumpul\" in item 2.",
+      "Items 1 and 2: \"lembangan\" for \"drainages\" is acceptable, but \"sistem saliran\" or \"lembangan saliran\" is closer to the source."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "dacaac2e37a2",
+      "distribution:seriouslyfish": "f38c76b61589",
+      "notes:seriouslyfish": "d6abad58827e"
+    }
+  },
+  "aphyosemion-gabunense": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Gabon Lyretail",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 14: \"sama ada ada perbezaan\" is a clumsy repetition; rephrase, e.g. \"sama ada terdapat perbezaan\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "c19b11bdbe67",
+      "beforeYouBuy:seriouslyfish": "77b4f483c826",
+      "distribution:seriouslyfish": "896398c5311f",
+      "habitat:seriouslyfish": "c48ceb4ccfc0",
+      "aquariumSize:seriouslyfish": "182f4bf822c2",
+      "maintenance:seriouslyfish": "87199646169b",
+      "waterConditions:seriouslyfish": "b457f0244d8a",
+      "diet:seriouslyfish": "00e013c705c4",
+      "behaviour:seriouslyfish": "5597c55421a2",
+      "dimorphism:seriouslyfish": "37c774e855ab",
+      "reproduction:seriouslyfish": "0c5eb9489cf9",
+      "reproduction:glaser": "a7036c3b65db",
+      "notes:seriouslyfish": "0538de683785",
+      "notes:glaser": "ce81ba969cfa"
+    }
+  },
+  "aphyosemion-hanneloreae": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Hannelore's Lyretail",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"dekat dengan sempadan Republik Congo\" adds \"sempadan\"; English says close to the Republic of the Congo itself. Use \"dekat dengan Republik Congo\".",
+      "Item 1: \"jadi spesies ini mungkin juga terdapat\" adds causal \"jadi\" not in the source; use \"dan spesies ini mungkin juga terdapat\".",
+      "Item 2: \"jadi spesies ini\" adds causal link not in the source; use \"dan\".",
+      "Item 3: \"pengarang kedua\" is ambiguous; \"pengarang kedua\" (second author) of the species description is better as \"pengarang kedua penerangan spesies\", though minor.",
+      "Item 3: \"lira\" is non-standard in hobby text; \"berbentuk kecapi (lyre)\" is clearer."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "9a1bb3832db5",
+      "distribution:seriouslyfish": "297c1c98bba2",
+      "notes:seriouslyfish": "9b049b80889d"
+    }
+  },
+  "aphyosemion-herzogi": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Herzog's lyretail",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"lembangan Ivindo dan Okano\": 'drainages' is better rendered 'sistem sungai' or 'lembangan saliran'; 'lembangan' alone is acceptable but in #1 'anak sungai sistem Ogooué' for basins is slightly loose.",
+      "\"dideskripsikan\": prefer the more standard Malay \"diperihalkan\" (or \"dikenal pasti secara saintifik\").",
+      "\"Kekerasan air (GH): 0–5 dGH\": the label says GH but the unit dGH; use \"Kekerasan: 0–5 dGH\" for consistency with the source."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "6af010e6c09b",
+      "distribution:seriouslyfish": "9df5f1950f33",
+      "waterConditions:seriouslyfish": "06f139efb826",
+      "notes:seriouslyfish": "6b98cb05d19d"
+    }
+  },
+  "aphyosemion-loennbergii": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Lönnberg's Lyretail",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 1/3: \"Kekerasan air (GH): 1–5 dGH\" mixes GH label with dGH unit; \"Kekerasan air: 1–5 dGH\" is cleaner.",
+      "\"dihuraikan daripada sungai Kienké\": \"diperihalkan dari sungai Kienké\" is more natural for 'described from' (taxonomy), and \"huraikan\" is slightly awkward.",
+      "\"lembangan sungai\" for drainages is acceptable but \"sistem sungai\" could be clearer.",
+      "Item 1: \"killifish\" left untranslated without a local term; consider \"ikan killifish\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "66a43bf1f42e",
+      "distribution:seriouslyfish": "71d6b2f9f17c",
+      "waterConditions:seriouslyfish": "f3a8ebe88026",
+      "notes:seriouslyfish": "fe2a8e514c71"
+    }
+  },
+  "aphyosemion-mimbon": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Aphyosemion mimbon",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 4: Greek 'aphúe' is rendered as 'ἀφúη' in the MS, with a Latin 'ú' in the Greek word. Restore the original 'ἀφύη'.",
+      "Item 1: 'Kekerasan air (GH)' is used for a 'dGH' value. This is slightly inconsistent; 'Kekerasan: 0–5 dGH' is closer to the source.",
+      "Items 1 and 3: 'killifish' is left in English in item 1. Consider 'ikan killi' or 'killifish' in italics or brackets, as used locally.",
+      "Item 1: 'diperihalkan daripada satu anak sungai Sungai Mvé' is awkward. Use 'anak sungai kepada Sungai Mvé'."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "69ace085b2e9",
+      "distribution:seriouslyfish": "8f4c3673e94d",
+      "waterConditions:seriouslyfish": "b405c134fd38",
+      "notes:seriouslyfish": "8247431dde8e"
+    }
+  },
+  "aphyosemion-ogoense": {
+    "at": "2026-11-18",
+    "from": "2026-10-29",
+    "name": "Broken-line Lyretail",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 11: \"tangki tidak perlu diberi lampu\" is weaker than the English \"should be unlit\". Use \"tangki hendaklah dibiarkan gelap/tanpa pencahayaan\".",
+      "Item 5: \"(seekor jantan dan dua betina)\" is added after \"tiga ekor\". The English only says \"trio\", so use \"trio\" or keep the gloss neutral.",
+      "Item 9: \"ketika berebut makanan\" is not in the English (\"outcompete\"). Remove it or make it more general."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "a7e9dd172632",
+      "beforeYouBuy:seriouslyfish": "9370e4fcface",
+      "distribution:seriouslyfish": "236bd5ad798e",
+      "habitat:seriouslyfish": "6223cd6b3d9b",
+      "aquariumSize:seriouslyfish": "a48f5e8a9433",
+      "maintenance:seriouslyfish": "c591f12dd1b6",
+      "waterConditions:seriouslyfish": "ee32f27b37e9",
+      "diet:seriouslyfish": "b5e8d67ba9da",
+      "behaviour:seriouslyfish": "5c57eb9456c2",
+      "dimorphism:seriouslyfish": "37c774e855ab",
+      "reproduction:seriouslyfish": "94aecd575bda",
+      "notes:seriouslyfish": "10c9ca7ea572"
+    }
+  },
+  "aphyosemion-punctatum": {
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Aphyosemion punctatum",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"4.5 cm\": Malay uses a decimal comma in standard writing (4,5 cm), though the decimal point is common in Malaysia; optional.",
+      "\"Ikan ini boleh membesar sehingga 4.5 cm panjang\": consider the more natural \"sepanjang 4.5 cm\" or \"mencapai panjang 4.5 cm\"; the meaning is intact."
+    ],
+    "parts": {
+      "quickFacts:glaser": "30ee88002bd2",
+      "distribution:glaser": "9e8e26931983",
+      "notes:glaser": "2292dcee82a5"
+    }
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-16",
     "from": "2026-11-16",

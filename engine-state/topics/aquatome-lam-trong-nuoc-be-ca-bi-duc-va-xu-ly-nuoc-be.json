@@ -1,0 +1,463 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://www.aquariadise.com/cloudy-aquarium-water-causes-solutions-prevention/",
+      "title": "Cloudy Aquarium Water: Causes, Solutions, and Prevention",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_aquarium_cloudy-water",
+      "title": "Water Turbidities in the Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.seachem.com/clarity.php",
+      "title": "Seachem - Clarity",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.seachem.com/prime.php",
+      "title": "Seachem - Prime",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/environmental-diseases-in-aquatic-systems",
+      "title": "Environmental Diseases of Aquatic Animals in Aquatic Systems",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/how-to-treat-tap-water",
+      "title": "Water Dechlorinator: How It Works and How Much to Use in Aquariums",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/uv-sterilizer",
+      "title": "What are UV sterilizers in aquariums used for?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://news.tuoitre.vn/tap-water-in-ho-chi-minh-city-fails-to-meet-chlorine-standards-10337506.htm",
+      "title": "Tap water in Ho Chi Minh City fails to meet chlorine standards",
+      "kind": "news"
+    },
+    {
+      "url": "https://www.seachem.com/purigen.php",
+      "title": "Seachem - Purigen",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cach-lam-trong-nuoc-ho-ca",
+      "title": "Cách làm trong nước hồ cá theo đúng nguyên nhân",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cach-xu-ly-reu-hai-voi-chi-phi-cuc-re-______________.368240/",
+      "title": "cách xử lý rêu hại với chi phí cực rẻ",
+      "kind": "forum"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Milky white cloudiness is usually a bloom of free-floating bacteria, often linked to an ammonia spike.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Milky white cloudiness is a normal part of fishless cycling in a new tank, but in an established tank it is a warning sign.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Green cloudiness is a bloom of free-floating algae driven by excess light and nutrients.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Green water is caused by tiny free-floating algae. It blocks the view into the tank and can keep light from reaching plants.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Brownish water comes from humic substances released by fresh driftwood or soil. At the levels driftwood releases they are usually not harmful to fish.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Poor water quality is the most common cause of environmentally induced disease in aquatic animals, so assessing water quality is essential.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Dust cloudiness in a new tank comes from unrinsed substrate and usually clears within a few days.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Visible suspended particles come from disturbed bottom muck, fine substrate, burrowing fish or redecorating. New setups release many fine particles from substrate and decor.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Persistent murky water in an established tank points to a more serious problem with equipment, stocking, feeding or maintenance.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Sudden cloudiness can mean a filter or powerhead has failed or is clogged.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of ammonia poisoning: lethargy, loss of appetite, spinning, convulsive swimming and darkened skin.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of nitrite poisoning: piping at the surface and chocolate-brown gills and blood (brown blood disease).",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of low oxygen: piping at the surface, flared gills and deaths in the early morning.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of chronic chlorine exposure: ragged fins, excess mucus, cloudy corneas and lethargy.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Overfeeding adds nutrients and waste that cloud the water. Fish need less protein-rich food than many keepers give.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Overstocked tanks produce more waste and ammonia than even a large filter can handle. Goldfish are singled out as heavy waste producers.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Algal or bacterial blooms can appear suddenly, sometimes with seasonal changes.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "In new tank syndrome, ammonia rises during the first 2–3 weeks, and the biofilter takes about 6 weeks to become fully established.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Dosing vinegar or carbon in an established tank is listed as a cause of bacterial blooms.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "When cloudiness appears in an established tank, test all water parameters at once. Then do partial water changes until the water clears and the readings return to normal.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "As soon as high ammonia is detected, change at least 50% of the water. Check first that the new water is free of ammonia and chloramine.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "With high ammonia, stop feeding or cut it back substantially. Test ammonia and nitrite daily until the biofilter has cycled.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "If total ammonia exceeds 5 mg/L and pH is below 7, move the fish to a clean, temperature-matched system. A water change there could shift the ammonia suddenly to its toxic NH3 form.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Check equipment at once if the water clouds suddenly.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Clarity dose: 1 capful (5 mL) per 80 L (20 US gallons), repeatable every 24 hours as needed.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Clarity: in soft or lightly buffered water use a 1/4 to 1/2 dose first, because it may lower pH.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "After a Seachem Clarity dose, cloudiness may briefly increase, then clear in about 1–2 hours. Mechanical filtration such as filter floss is needed to remove the clumped particles.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem labels Clarity as safe for reefs and plants when used as directed.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "For suspended particles, a flocculant clumps them so they sink or go into the filter. Afterwards, hose off large clumps from the substrate and clean the filter media.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "JBL Symec Micro fine filter fleece can clear a newly set-up tank in about a day. It slows flow, so it is meant for short-term use.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For milky or green water, a UVC clarifier can be run short-term.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "A UV sterilizer damages the genetic material of free-floating algae so they cannot reproduce. Several water changes are then needed to remove the dead algae.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Green water is easy to treat, so a very large UV sterilizer is not needed. UV affects beneficial bacteria less, because most of them live on filters and surfaces.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "In extreme algal blooms, a blackout of a few days can be used. Fish are fine, but some plants may be lost.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "For brown water from driftwood or soil, use an adsorbent medium such as Seachem Purigen or do several large water changes.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Purigen: one 250 mL unit treats up to 1,000 L (250 US gallons) for up to six months. It turns dark brown or black when exhausted.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Purigen does not directly remove nitrate. High nitrate needs a water change.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "To regenerate Seachem Purigen, soak it for 24 hours in 1:1 plain 8.25% bleach and water. Rinse, then soak it for 8 hours in 4 tablespoons of Prime per cup of water. Do not reuse it while it still smells of bleach.",
+      "source": 8
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime normal dose: 5 mL per 200 L (50 US gallons) of new water.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime: when ammonia or nitrite is above 2 ppm, up to 5 times the normal dose can be used. It can be re-dosed every 24 hours.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime binds ammonia and nitrite for up to 48 hours without removing them. It does not stop cycling.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime: use a half dose above 30 °C (86 °F) when chlorine or ammonia levels are low. A double dose is safe for exceptionally high chloramine.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Seachem Prime makes Nessler-based ammonia test kits read wrongly. Salicylate kits should be read right away, or test about 24 hours after dosing.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Easy Dechlorinator dose: 1 ml per 10 gallons. Dechlorinators react in about 2 to 5 minutes.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Dechlorinators use up dissolved oxygen. For high doses (up to 5 times normal for heavy chloramine or nitrite), run an air stone for 3 to 4 hours.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Chloride reduces how much nitrite fish absorb. Residual salt of 1–3 ppt is common in ponds and aquaria, and salt can halt deaths during a sudden nitrite rise.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt calculation: 1 g/L equals 1 ppt, so gallons × 3.8 gives the grams of salt needed per 1 ppt.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Nitrifying bacteria products can be dosed to speed recovery from a bacterial bloom, following product directions.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Sodium thiosulfate removes chlorine from chloramine-treated water but releases ammonia. Dechlorinators made for chloramine also bind that ammonia.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Rinse new substrate in a bucket, pour off the cloudy water and repeat several times. Pre-washed substrate is an alternative.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "If cloudiness from new substrate lasts more than a few days, do a small water change and check the filter.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "If overfeeding caused the cloudiness, do a partial water change and replace the filter pad.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "To let chlorine off-gas, let water sit for 1 to 5 days, aerate it for 12 to 24 hours, or boil it for 15 to 20 minutes. Then test to confirm no chlorine remains.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Follow the dechlorinator's package directions, because chlorine levels vary by water supplier. Test the water and use the least amount that removes chlorine completely.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Cycle a new aquarium fully before adding fish or invertebrates, and add fish gradually.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Choose a filter that can handle more than the current bioload. Never turn it off for more than an hour, and never replace all media at once.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Siphon the substrate and do partial water changes weekly or every two weeks.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep the tank out of direct sunlight and limit how long and how strongly the light runs. Live plants compete with algae for nutrients.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Check that a medication is safe for the biological filter before using it. If it is not, treat the fish in a quarantine tank.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Disturb substrate and decor as little as possible, and clean or replace fine filter media on schedule.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Targets: 0 mg/L for total and free chlorine, ammonia and nitrite. Dissolved oxygen above 5 mg/L is optimal, and below 5 mg/L stresses fish.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Freshwater fish usually tolerate total ammonia below 1 mg/L. Un-ionized ammonia below 0.05 mg/L is not considered harmful, and above that it damages the gills.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Nitrite is toxic above 0.1 mg/L NO2. Most kits report nitrite-nitrogen, which must be multiplied by 3.3 to get NO2.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Dissolved oxygen is typically lowest in the early morning.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "The freshwater pH target is 6.5–9.0. A rising pH increases the toxic NH3 share of ammonia.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using an untreated chlorinated or chloraminated water supply is harmful. Fish show harm at chlorine levels as low as 0.02 mg/L.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Skipping dechlorinator can burn fish gills, which makes them gasp.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Changing water early in the morning, when oxygen is lowest, is listed as a mistake, especially in planted tanks with CO2 injection.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding large amounts of dechlorinator to water that is already low in oxygen is a mistake.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Listed mistakes: overstocking, overfeeding, not rinsing substrate, and adding fish before the tank has cycled.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "After using a flocculant, the trapped particles still have to be cleaned out of the filter.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "A flocculant removes particles, not dissolved nutrients.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: letting tap water stand removes chloramine. Aquarium Co-Op says chloramine does not evaporate easily and must be neutralized with dechlorinator.",
+      "source": 5
+    },
+    {
+      "section": "myths",
+      "fact": "Myth: a clarifier or UV unit is a cure. The aquarium shop page says cloudy water is a symptom, so the cause must be found.",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "In a Tuổi Trẻ report from 2015, Vietnam's safe chlorine level for tap water is given as 0.3 to 0.5 mg per liter.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "In 2015, SAWACO added chlorine at 0.9 to 1.1 mg/L at the start of its Ho Chi Minh City pipes, aiming to meet the standard at the pipe ends.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "A 2015 Ministry of Health check found Ho Chi Minh City tap water above the maximum chlorine level near reservoirs and below the minimum farther away. One Thu Duc reading was 0.73 mg/L.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names for types of cloudy water: đục trắng (milky white), nước xanh (green water from free-floating algae), nước vàng / nâu trà (yellow or tea-brown water, often from tannin).",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Product names used in Vietnam: men vi sinh (bacterial culture), chất kết bông (flocculant), bông lọc (filter floss), đèn UV (UV lamp), vật liệu hấp phụ (adsorbent media).",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese names for an algae scrubber: lọc bẫy rong, or bộ lọc màn tảo. Nuisance algae is called rêu hại, and hair algae tảo tóc.",
+      "source": 10
+    }
+  ]
+}

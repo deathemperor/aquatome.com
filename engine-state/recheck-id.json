@@ -90,6 +90,92 @@
     "opus": 0.95,
     "back": true
   },
+  "aguarunichthys-tocantinsensis": {
+    "hash": "3da98d1828e5560fec2e03f67229b661ee3bdefc18d04e5faadf6ddac7757327",
+    "at": "2026-11-18T18:06:43.711Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "akysis-brachybarbatus": {
+    "hash": "b8293ab3a017e50406673b3003bfadde3c5efefe9c511d33472a2eeca466ce74",
+    "at": "2026-11-18T18:06:54.090Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "akysis-variegatus": {
+    "hash": "19195cbc84d92e2373e00e22c7029fe51b09fd78718938541e8b8f61703b2f03",
+    "at": "2026-11-18T18:07:05.869Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "akysis-varius": {
+    "hash": "e765bdc8bed51d86287db4aec238090a717f0d817aff8152dbe9346a1cfdd14a",
+    "at": "2026-11-18T18:07:18.387Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 17: \"alat bisa (venom)\" is awkward. \"Kelenjar bisa\" or \"struktur penyuntik bisa\" is more natural."
+    ]
+  },
+  "akysis-vespertinus": {
+    "hash": "51e12a429478d808371d4f99c14cab973f50f81aead67fb25460e84e23d48e95",
+    "at": "2026-11-18T18:07:55.460Z",
+    "sonnet": 0.85,
+    "opus": 0.88,
+    "back": false,
+    "held": [
+      "Item 11: \"body depth at anus 135-16.0 % SL\" – the source typo is copied; \"kulit ... kamuflase\" fine, but \"sungut rahang atas\" and \"kelenjar bisa\" for venom apparatus okay. \"sirip ekor rata atau sedikit berlekuk\" fine. Also 'Pseudobagarius' group text is OK."
+    ]
+  },
+  "alcolapia-alcalica": {
+    "hash": "28dde55dd511d53a30b696658fe56ec0da5cea5799aed4875d0ad72902bb7a11",
+    "at": "2026-11-18T18:08:08.809Z",
+    "sonnet": 0.72,
+    "back": false,
+    "held": [
+      "Item 10: 'sg reading of 1.2+' became 'Berat jenis (SG) airnya juga 1,2+'. This is fine, but 'kH 7000+' has no unit. Check whether the source's unit (ppm) is missing, and use the standard 'KH'."
+    ]
+  },
+  "alcolapia-grahami": {
+    "hash": "ad8c5f4c1914fd1372b42425a81bcce258174ea27c975f59706686a720d10be6",
+    "at": "2026-11-18T18:08:41.687Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "alestopetersius-caudalis": {
+    "hash": "8cb816ce0552d19d542df7e31c6c601e312b8b4cb91a6a429b48f8845251adbc",
+    "at": "2026-11-18T18:08:52.479Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "amaralia-hypsiura": {
+    "hash": "92210296fa61853ec74c714b3f1ee83ea337d2384a2a36e94e1398a80d7194a7",
+    "at": "2026-11-18T18:09:03.739Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "amatitlania-nanolutea": {
+    "hash": "9add2364c0c5cff07e754aef03987351771861d8b13a50033c52c5ea87544920",
+    "at": "2026-11-18T18:09:31.178Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "amatitlania-nigrofasciata": {
+    "hash": "603ff5aecc6e0a0b376391573f4c4a1180e28ea58e01b5ce8ec6ec32a92b6951",
+    "at": "2026-11-18T18:09:59.791Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "amblydoras-nauticus": {
+    "hash": "63897e2ec72b3f1d6608ac55cff7d9a4859eaf0ebddc4e751f9c877b7b96689e",
+    "at": "2026-11-18T18:10:30.280Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
   "ambystoma-mexicanum": {
     "hash": "9aad3e8e75ec0eea53223600fb90fa0dc4469440500250f43c2d3a8f13747de5",
     "at": "2026-11-18T05:43:38.638Z",
@@ -98,6 +184,13 @@
     "held": [
       "Item 4: \"treated as a delicacy\" became \"hidangan istimewa\"; better \"dijadikan santapan/makanan lezat\" – minor."
     ]
+  },
+  "ameca-splendens": {
+    "hash": "7c18105b8f505ffbbf1bf40e002249be413809c194571ff8b902d2c19cfaa3a2",
+    "at": "2026-11-18T18:10:54.841Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": true
   },
   "arius-oetik": {
     "hash": "94dd834488a22919ed08b92e8fc88cc09c0ba1aec8f77c8e7cea8de78cedbeae",
@@ -163,6 +256,12 @@
   "carassius-auratus": {
     "hash": "afb77d4fdf7ad3685ec20026dc1e45a14d973a30f621c1b7e6af899b62110fc2",
     "at": "2026-11-18T00:30:52.098Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "cathorops-dasycephalus": {
+    "hash": "ccf665a3527aaedadbb19de441af33797979c67dfb401ca26361c46196006603",
+    "at": "2026-11-18T18:06:10.697Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -408,9 +507,10 @@
     "back": true
   },
   "nemapteryx-nenga": {
-    "hash": "f500fc1494cedfaee7f1e061e28aa44117a3875e1e47694e99a59d406b28246b",
-    "at": "2026-11-18T12:09:22.310Z",
-    "sonnet": 0.6,
+    "hash": "fef8b23e43367f4a31b70b1d754be3faf7f30e1e27efe166f352c0868768e7cd",
+    "at": "2026-11-18T18:06:33.409Z",
+    "sonnet": 0.96,
+    "opus": 0.8,
     "back": false,
     "held": [
       "Item 9: the English says \"Nemapteryx nenga\" is an older name for this species. The ID is faithful, but the species is named Nemapteryx nenga in item 1 while item 9 treats it as the outdated name Kyataphisa nenga. That is a source inconsistency, not a translation error."

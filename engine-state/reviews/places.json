@@ -10185,6 +10185,18 @@
       "kept": true
     }
   ],
+  "id/places/mussi": [
+    {
+      "at": "2026-11-18T17:33:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/muthi-river": [
     {
       "at": "2026-11-14T16:53:34Z",
@@ -29700,6 +29712,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "ms/places/mussi": [
+    {
+      "at": "2026-11-18T17:59:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.9
+      ]
     }
   ],
   "ms/places/muthi-river": [
@@ -49756,6 +49785,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mussi": [
+    {
+      "at": "2026-11-18T17:39:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "มูซี — Mussi is most likely Mu Si, a subdistrict of Pak Chong in Nakhon Ratchasima. An atlas would write it as หมูสี, not มูซี."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -71325,6 +71368,19 @@
       "notes": [
         "I found no wrong places. Every name is either the standard Vietnamese form or the source's name, sometimes with its generic word put into Vietnamese.",
         "The country codes listed for 'Musi River' (LA, VN, KH, TH, MY) look wrong, since the Musi is in Sumatra, Indonesia. The Vietnamese name 'sông Musi' itself is fine."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mussi": [
+    {
+      "at": "2026-11-18T17:32:45Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Mussi\" keeps the source's spelling of the proper name. That is acceptable, and I know of no other Vietnamese name for this region."
       ],
       "attempt": "first",
       "kept": true

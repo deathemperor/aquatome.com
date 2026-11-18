@@ -362,6 +362,34 @@
   ],
   "id/guides/aquatome-ca-betta-cach-nuoi-thuc-an-benh-va-nuoi-chung": [
     {
+      "at": "2026-11-18T17:35:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T17:35:58Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Amati ikan setiap hari untuk melihat tanda-tanda sakit\" – the facts give no daily-observation instruction. This is a small generality.",
+        "\"Cek suhu secara rutin dengan termometer\" – the facts only say to check the temperature with a thermometer, not to do so routinely as a step. This is a small generality."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.9,
+        0.92,
+        0.9
+      ]
+    },
+    {
       "at": "2026-11-18T00:05:19Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -938,6 +966,44 @@
         0.7,
         0.72,
         0.72
+      ]
+    }
+  ],
+  "id/guides/aquatome-chon-ca-nuoi-chung-va-tranh-ca-danh-nhau": [
+    {
+      "at": "2026-11-18T17:38:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"Tiger barb (sumatra)\": the facts never give \"sumatra\" as a name for the tiger barb. This is a small unsupported addition."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.92,
+        0.95
+      ]
+    },
+    {
+      "at": "2026-11-18T17:38:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Mencampur penggigit sirip dengan ikan bersirip panjang seperti guppy atau cupang\": the facts name guppies as long-finned fish. They never call bettas a long-finned fish to keep away from fin nippers.",
+        "\"perhatikan apakah kejar-kejaran berkurang, apakah korban sudah mau keluar dari persembunyian dan makan\": this monitoring advice is not in the facts. It is a generic addition.",
+        "\"Coba tata ulang dekorasi sebelum mengembalikannya supaya wilayah lamanya hilang\": the facts give rearranging decor and isolating the aggressor as separate steps. Combining them before the fish is returned is an inference."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.86,
+        0.85
       ]
     }
   ],
@@ -1916,6 +1982,45 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-ca-betta-cach-nuoi-thuc-an-benh-va-nuoi-chung": [
+    {
+      "at": "2026-11-18T18:02:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Air yang bersih ialah langkah pertama untuk mencegah kebanyakan masalah\" is a general claim that the facts do not state.",
+        "\"Tambah batu udara (dengan pam udara)\" adds an air pump, which the facts do not mention. This is a minor addition."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.92,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-18T18:02:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Reput sirip yang semakin teruk walaupun air sudah dibaiki juga memerlukan tangki rawatan dan nasihat doktor haiwan\" – this trigger (worsening despite water fixes) is not in the facts; they only tie the hospital tank to moderate fin rot.",
+        "\"panjang standard, tidak termasuk ekor\" – the SL definition is not in the facts.",
+        "Velvet row \"Ubat velvet komersial, dos ikut label\" replaces the lab product and dose (Proform C 30 µL/L) with a generic product; this is a small generalisation."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.82,
+        0.8
+      ]
+    }
+  ],
   "ms/guides/aquatome-ca-bi-lech-bong-bong-boi-nghieng-chui-dau-noi-bung-nguyen-nhan-va-cach-xu-ly": [
     {
       "at": "2026-11-06T23:08:26Z",
@@ -2686,6 +2791,44 @@
       ]
     }
   ],
+  "ms/guides/aquatome-cach-lam-trong-nuoc-be-ca-bi-duc": [
+    {
+      "at": "2026-11-18T18:04:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"2.5 cm panjang ikan dewasa bagi setiap 3.8 liter air bersih\": one US gallon should be rounded to a whole 4 litres, not 3.8. \"Net gallon\" is also rendered loosely as \"air bersih\".",
+        "\"Ikan tercungap-cungap di permukaan... tingkatkan pengudaraan, tukar air dan segera hubungi doktor haiwan\": this bundles several actions into one emergency instruction. The facts give them separately, and the water change applies only when ammonia or nitrite is high."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.9,
+        0.88
+      ]
+    },
+    {
+      "at": "2026-11-18T18:04:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Tambah pengudaraan (contohnya dengan pam udara)\": the facts only say to increase aeration. They don't name an air pump, so this is a small unsupported addition.",
+        "\"Perang seperti teh\": the facts only say brown-tinted water. The tea comparison is a minor unsupported embellishment."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.93,
+        0.9
+      ]
+    }
+  ],
   "ms/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": [
     {
       "at": "2026-11-10T10:11:17Z",
@@ -3280,6 +3423,37 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/guides/aquatome-ca-betta-cach-nuoi-thuc-an-benh-va-nuoi-chung": [
+    {
+      "at": "2026-11-18T17:44:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T17:44:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"ปลาที่แข็งแรงจะว่ายปกติ กางครีบ และกินอาหารดี\" is not in the facts. They only list signs of poor health.",
+        "\"ให้วัดค่าน้ำก่อนเป็นอย่างแรก\" is an invented instruction. The facts give no such priority.",
+        "\"ปรับสภาพน้ำประปาก่อนใช้\" is not stated in the facts. They only say chlorine and chloramine are harmful and that the filter should not be rinsed in tap water."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong": [
@@ -3957,6 +4131,47 @@
         0.85,
         0.9,
         0.88
+      ]
+    }
+  ],
+  "th/guides/aquatome-chon-ca-nuoi-chung-va-tranh-ca-danh-nhau": [
+    {
+      "at": "2026-11-18T17:46:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"ว่ายในน้ำกลางตู้\" (swim in the middle of the tank): the facts say only \"open water\". This is a small narrowing, not a real error.",
+        "The \"ตรวจดูหลังแก้ไข\" section tells the reader to keep watching for the old signs after the fix. This is generic advice that the facts do not state."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.96
+      ]
+    },
+    {
+      "at": "2026-11-18T17:46:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"ซึ่งดีกว่ามาตามแก้หลังปลากัดกันแล้ว\" is a general comparison that the facts do not state.",
+        "\"ปลากลุ่มกระดี่ (ปลาที่มีอวัยวะช่วยหายใจ)\" adds an explanation of anabantoids that the facts do not give.",
+        "\"คิดขนาดตู้จากขนาดตัวเต็มวัยของปลา ไม่ใช่ขนาดตอนซื้อ\" is an inference. The facts only list a tank too small for the fishes' adult size as a cause of fighting.",
+        "\"วัดแอมโมเนีย ไนไตรท์ ไนเตรท และอุณหภูมิทุกครั้งที่เห็นปลาเริ่มกัดกัน\" adds a rule to test every time. The facts only say to test.",
+        "\"ปลาที่มีแผลรุนแรงต้องเฝ้าดูใกล้ชิด\" is an added monitoring recommendation. The facts only describe fluid loss from serious wounds."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.85,
+        0.9,
+        0.86
       ]
     }
   ],
@@ -5531,6 +5746,83 @@
         0.82,
         0.86,
         0.85
+      ]
+    }
+  ],
+  "vi/guides/aquatome-lam-trong-nuoc-be-ca-bi-duc-va-xu-ly-nuoc-be": [
+    {
+      "at": "2026-11-18T18:51:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Muốn phân biệt thì xem mang... Đo nitrit sẽ biết chắc\": this way of telling nitrite poisoning from low oxygen is the guide's own inference. The facts only list the signs separately.",
+        "\"Vì vậy nước máy ở đây luôn phải khử clo... đo nước là chắc nhất\": the guide's own conclusion from the Vietnamese chlorine figures. The facts do not state it."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.92,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-18T18:51:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"Thay nước trong bể đó có thể làm pH lên\": the facts only say a water change could suddenly shift ammonia to toxic NH3. They don't say the pH rises.",
+        "\"Tắt đèn, che bể vài ngày\": the facts only mention a blackout of a few days. Covering the tank is an added detail.",
+        "\"Vẫn phải thay nước và đo nitrit mỗi ngày\" (in the salt FAQ): the facts give no such instruction for a nitrite spike. Daily testing is only advised for high ammonia."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.85,
+        0.88,
+        0.86
+      ]
+    }
+  ],
+  "vi/guides/aquatome-loc-thung-loc-treo-loc-tran-chon-va-lap-dat": [
+    {
+      "at": "2026-11-18T18:58:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"Lọc tràn hay dùng cho bể lớn\": the facts never say overflow filters are mostly used on large tanks.",
+        "\"nhưng phải chống nước chảy ngược khi mất điện\": the facts give the siphon-back risk only for a sump, so applying it to overflow filters in general is a broadening."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.88,
+        0.88
+      ]
+    },
+    {
+      "at": "2026-11-18T18:58:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"lọc đặt dưới tủ gọi là lọc thùng\": the facts only say shops call the canister filter \"lọc thùng\". They don't say it sits under the cabinet. This is a small added detail.",
+        "\"Mất điện lâu thì làm theo thứ tự sau\": the facts give no ordering for the outage steps. The sequence is the guide's own, a small generality."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.93,
+        0.92
       ]
     }
   ],

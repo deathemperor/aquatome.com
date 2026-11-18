@@ -3,6 +3,12 @@
   "name": "หลีเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:16:53.034Z",
+    "why": "หลีเจียง is a fair Thai rendering of Li Jiang (漓江, Li River), but it leaves out the kind word แม่น้ำ that a Thai atlas would put in front of a river's name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

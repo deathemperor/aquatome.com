@@ -3,6 +3,12 @@
   "name": "น้ำมาด",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T18:22:28.684Z",
+    "why": "The Thai \"น้ำมาด\" transliterates Nam Mat correctly, but it omits a river or region kind word, and the source names Nam Mat as a river system, so Thai would write \"แม่น้ำน้ำมาด\" or at least \"น้ำมาด\" with a kind word."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

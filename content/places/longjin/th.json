@@ -3,6 +3,12 @@
   "name": "หลงจิน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:17:43.003Z",
+    "why": "หลงจิน is a plausible Thai transliteration of Longjin (龙津/龙进), but the place is a region and the name has no kind word, and no source confirms the exact place or the Thai form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

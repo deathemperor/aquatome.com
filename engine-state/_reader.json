@@ -15327,6 +15327,31 @@
     ],
     "ruled": "885d5ea49cfd0812"
   },
+  "vi/guides/youtube-_ByGYB5GtLo": {
+    "at": "2026-11-18",
+    "hash": "875871a91b90c63f",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Có thể lục trong nhà xem còn cục sạc điện thoại cũ nào không dùng nữa, nếu có thì cắt bỏ đầu cắm vào điện thoại.",
+        "problem": "Most phone chargers put out 5 V, not 12 V. A reader who cuts one up for a 12 V fan will get a fan that runs weakly or not at all, unless the page tells them to check the output voltage on the label first.",
+        "fix": "Có thể lục trong nhà xem còn cục sạc cũ nào không dùng nữa. Xem nhãn trên cục sạc, ghi đầu ra 12 V thì mới dùng được, rồi cắt bỏ đầu cắm. Sạc điện thoại thường chỉ ra 5 V.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L8",
+        "quote": "Cục sạc điện thoại cũ không dùng nữa có thể dùng được, chỉ cần cắt bỏ đầu cắm vào điện thoại.",
+        "problem": "This FAQ answer repeats the advice to use an old phone charger, which is usually 5 V, and says nothing about checking that its output is 12 V.",
+        "fix": "Cục sạc cũ không dùng nữa cũng được, miễn là nhãn ghi đầu ra 12 V, rồi cắt bỏ đầu cắm. Sạc điện thoại thường chỉ ra 5 V.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "875871a91b90c63f"
+  },
   "vi/guides/youtube-_cadRIECpmo": {
     "at": "2026-11-02",
     "hash": "261b20775997fc9f",
@@ -15397,6 +15422,31 @@
       }
     ],
     "ruled": "413b19bc1d128479"
+  },
+  "vi/guides/youtube-_jOnulN5myE": {
+    "at": "2026-11-18",
+    "hash": "78ead2cd23b6c5af",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ví dụ bể rộng 90 cm thì thanh ngắn chỉ còn khoảng 87,5 cm.",
+        "problem": "The two long bars are 1.9 cm thick each, so the page itself says to subtract about 3.8 cm. A 90 cm width gives about 86.2 cm, not 87.5 cm, so this example contradicts the page's own rule.",
+        "fix": "Ví dụ bể rộng 90 cm thì thanh ngắn chỉ còn khoảng 86,2 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhưng bể sâu thì gần như bắt buộc phải chấp nhận.",
+        "problem": "The sentence has no clear object, so it reads as an awkward translation and the reader can't tell what has to be accepted.",
+        "fix": "Nhưng với bể sâu thì gần như phải làm cao như vậy mới đủ chỗ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "78ead2cd23b6c5af"
   },
   "vi/guides/youtube-_ZxeBxNRdPU": {
     "at": "2026-11-01",
@@ -15801,6 +15851,12 @@
     ],
     "ruled": "40a5086540662bfa"
   },
+  "vi/guides/youtube-0PC86KyBZmQ": {
+    "at": "2026-11-18",
+    "hash": "812e17d5b1579c8c",
+    "findings": [],
+    "ruled": "812e17d5b1579c8c"
+  },
   "vi/guides/youtube-0PZCQT-99qg": {
     "at": "2026-11-12",
     "hash": "f63eaa53595dfb9e",
@@ -15849,6 +15905,12 @@
       }
     ],
     "ruled": "86fd6604776470e7"
+  },
+  "vi/guides/youtube-0SQjE8svImY": {
+    "at": "2026-11-18",
+    "hash": "2a5e9864566c94ea",
+    "findings": [],
+    "ruled": "2a5e9864566c94ea"
   },
   "vi/guides/youtube-0sRRk-LEl9E": {
     "at": "2026-11-07",
@@ -16602,6 +16664,48 @@
     ],
     "ruled": "1dc5c4c48c382d1c"
   },
+  "vi/guides/youtube-4EkqRWcCjk0": {
+    "at": "2026-11-18",
+    "hash": "813aa483c5049321",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có loại bể 120 cm cao chỉ khoảng 600 bảng",
+        "problem": "The word order reads as a tank 120 cm tall, when 120 cm is the length.",
+        "fix": "có loại bể dài 120 cm, cao hơn bể này, mà chỉ khoảng 600 bảng",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chịu được ít nhất gấp năm lần sức nặng đang đặt lên nó",
+        "problem": "Nothing is standing on the freshly built cabinet yet, so 'the weight now on it' makes no sense; the load meant is the tank it will hold.",
+        "fix": "chịu được ít nhất gấp năm lần sức nặng của bể sẽ đặt lên",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Để dán acrylic, có thể dùng dây đàn guitar kê giữa hai tấm cho hở một khe nhỏ",
+        "problem": "The page says gluing comes in a later step, yet this gluing tip sits under the heading about receiving the delivery and keeping acrylic from scratching.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Hạng mục\n| Giá (bảng Anh)",
+        "problem": "The cost table is broken: each cell is on its own line, so items and prices read as one long list instead of rows.",
+        "rule": "Table lines with only one cell each, where a header row with several cells should be.",
+        "field": "body"
+      }
+    ],
+    "ruled": "813aa483c5049321"
+  },
   "vi/guides/youtube-4GFdgPkH4WI": {
     "at": "2026-11-04",
     "hash": "c14cc77769b73745",
@@ -17099,6 +17203,12 @@
     "findings": [],
     "ruled": "a04a5768ce0d7372"
   },
+  "vi/guides/youtube-6FDUfglurns": {
+    "at": "2026-11-18",
+    "hash": "ac49d05c5db5b3a5",
+    "findings": [],
+    "ruled": "ac49d05c5db5b3a5"
+  },
   "vi/guides/youtube-6GyKUmf6gqY": {
     "at": "2026-11-10",
     "hash": "ebee5333836cdf1b",
@@ -17267,6 +17377,40 @@
     ],
     "ruled": "bf5f605be891eea3"
   },
+  "vi/guides/youtube-7nEatEnYWH8": {
+    "at": "2026-11-18",
+    "hash": "7f6f347c6d1adbbe",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bể mica khoảng 400 lít",
+        "problem": "The title says 380 litres and the body says about 400, but 120 x 60 x 50 cm works out to about 360 litres.",
+        "fix": "bể mica khoảng 360 lít",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L1",
+        "quote": "cao khoảng 51 cm",
+        "problem": "The summary gives the height as 51 cm, but the body gives 50 cm.",
+        "fix": "cao 50 cm",
+        "field": "summary.0"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hai thanh này đỡ chiều dài nhất của bể",
+        "problem": "\"Đỡ chiều dài nhất\" is an awkward literal phrasing that reads as translated.",
+        "fix": "Hai thanh này chạy dọc hai cạnh dài nhất của bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "7f6f347c6d1adbbe"
+  },
   "vi/guides/youtube-7UaAsA16woY": {
     "at": "2026-11-07",
     "hash": "09683967a45d74da",
@@ -17392,6 +17536,22 @@
       }
     ],
     "ruled": "73f9cc757791f0ce"
+  },
+  "vi/guides/youtube-8j3tBq_SQs0": {
+    "at": "2026-11-18",
+    "hash": "484a20e04c2bb9e4",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "khổ 240 x 120 cm",
+        "problem": "The sheet is given as 120 cm wide, but the back panel is later cut 122 cm tall, which cannot come from a 120 cm sheet (the standard sheet is 244 x 122 cm).",
+        "fix": "khổ khoảng 244 x 122 cm",
+        "field": "body"
+      }
+    ],
+    "ruled": "484a20e04c2bb9e4"
   },
   "vi/guides/youtube-8kjsLDxIvw8": {
     "at": "2026-11-17",
@@ -18088,6 +18248,22 @@
       }
     ],
     "ruled": "5a6579cd57492639"
+  },
+  "vi/guides/youtube-AIQYex-S3e4": {
+    "at": "2026-11-18",
+    "hash": "4497eb86e5d8f7a1",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L14",
+        "quote": "nên nhiều khả năng gần như không phải vệ sinh",
+        "problem": "The same stacked hedges that read as translated appear again in the FAQ answer.",
+        "fix": "nên chắc là hầu như không phải vệ sinh",
+        "field": "faq.3.a"
+      }
+    ],
+    "ruled": "4497eb86e5d8f7a1"
   },
   "vi/guides/youtube-aj_iGo-D6GY": {
     "at": "2026-11-07",
@@ -20938,6 +21114,64 @@
     ],
     "ruled": "6975ca556ad73e77"
   },
+  "vi/guides/youtube-gUa7q5RVW4A": {
+    "at": "2026-11-18",
+    "hash": "f5cf388b14f74778",
+    "findings": [],
+    "ruled": "f5cf388b14f74778"
+  },
+  "vi/guides/youtube-GuXMgWdTEfM": {
+    "at": "2026-11-18",
+    "hash": "caf7f81d4e7e7514",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cánh thứ hai chỉ cần nối thêm một miếng rộng 30 cm là cạnh ngoài của nó cũng đủ 61 cm.",
+        "problem": "The example tanks are 60 x 30 x 30 cm, so a 30 cm piece added to a 30 cm base gives 60 cm, not 61 cm. The 61 cm figure looks left over from a 24-inch tank.",
+        "fix": "Cánh thứ hai chỉ cần nối thêm một miếng rộng 30 cm là cạnh ngoài của nó cũng đủ 60 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mỗi cạnh ngoài của chữ L dài 61 cm.",
+        "problem": "With 60 cm tanks, each outer edge of the L is 60 cm. The page uses 61 cm instead.",
+        "fix": "Mỗi cạnh ngoài của chữ L dài 60 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lý do là tấm đáy nguyên của bể thứ nhất đã chiếm luôn ô vuông ở góc chữ L.",
+        "problem": "\"Lý do là\" reads as translated wording, not the way Vietnamese hobbyists write.",
+        "fix": "Đó là vì tấm đáy nguyên của bể thứ nhất đã chiếm luôn ô vuông ở góc chữ L.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mặt bàn không cần cân thủy bình nhưng bắt buộc phải phẳng",
+        "problem": "\"Bắt buộc phải\" sounds stiff and translated. Plain \"phải\" is enough here.",
+        "fix": "Mặt bàn không cần cân thủy bình nhưng phải phẳng",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nếu bơm keo kỹ như các bước trên thì nhiều khả năng bể không rỉ.",
+        "problem": "\"Nhiều khả năng\" reads as translated wording.",
+        "fix": "Nếu bơm keo kỹ như các bước trên thì chắc là bể không rỉ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "caf7f81d4e7e7514"
+  },
   "vi/guides/youtube-gv63IUL4MsQ": {
     "at": "2026-11-14",
     "hash": "1c95fd1e15e045a6",
@@ -21598,6 +21832,32 @@
       }
     ],
     "ruled": "433d319777a4925f"
+  },
+  "vi/guides/youtube-HYlaY4msnK0": {
+    "at": "2026-11-18",
+    "hash": "8c0d36e1be4667dc",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "dài 60 cm, rộng 30,5 cm, cao 30,5 cm",
+        "problem": "P1 gives the tank length as 60 cm, but the cut list and summary L1 both give 61 cm.",
+        "fix": "dài 61 cm, rộng 30,5 cm, cao 30,5 cm",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể này là bể mica nano khoảng 60 lít",
+        "problem": "The title says 57 litres, and the stated dimensions (61 × 30,5 × 30,5 cm ≈ 57 L) agree, but the body, summary and FAQ round it to 60 litres.",
+        "fix": "Bể này là bể mica nano khoảng 57 lít",
+        "rule": "Flag a page whose title gives a litre figure that differs from the litre figure in the body.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8c0d36e1be4667dc"
   },
   "vi/guides/youtube-i_juW-Tmwcs": {
     "at": "2026-11-09",
@@ -22396,6 +22656,64 @@
     ],
     "ruled": "b5ec849d79324fd1"
   },
+  "vi/guides/youtube-jN4Y9AYuwcQ": {
+    "at": "2026-11-18",
+    "hash": "f095f7e6a780ba5c",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "84 cm, bằng chiều rộng bể trừ hai lần bề dày gỗ",
+        "problem": "The page says the tank is 90 cm wide, so 90 − 2 × 3.8 = 82.4 cm, not 84 cm. The next paragraph then gives a total of 91 cm instead of 90.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "122 cm, bằng chiều dài bể",
+        "problem": "The long bar is said to equal the tank length, but the sample tank is 120 cm long, not 122 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "nên làm khung rộng hơn bể khoảng 2,5 cm cho dễ xoay xở, ví dụ bể 120 cm thì làm khung 124,5 cm",
+        "problem": "The example doesn't match the rule: 120 + 2.5 = 122.5 cm, not 124.5 cm.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L5",
+        "quote": "Bể dài từ 1,8 m trở lên cần thêm cột đỡ ở giữa",
+        "problem": "The body says middle supports are needed for tanks from 1.5 m to 2.4 m long, but the summary puts the starting point at 1.8 m.",
+        "fix": "Bể dài từ 1,5 m trở lên cần thêm cột đỡ ở giữa",
+        "field": "summary.4"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là quan điểm riêng, ai thích chắc thêm thì vẫn có thể bôi keo",
+        "problem": "The sentence calls this someone's 'own view' without saying whose, which points back to an unnamed author.",
+        "fix": "Ai thích chắc thêm thì vẫn có thể bôi keo, chỉ tốn công và bẩn.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể dài 2,1 đến 2,4 m: nhiều khả năng cần hai cụm ở giữa.",
+        "problem": "The body hedges this as 'likely needs', while FAQ L15 gives it as plain advice ('nên thêm hai cụm'), and 'nhiều khả năng' is a phrase the site's style guide flags.",
+        "fix": "Bể dài 2,1 đến 2,4 m: chắc là cần hai cụm ở giữa.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f095f7e6a780ba5c"
+  },
   "vi/guides/youtube-jOktp87MxK0": {
     "at": "2026-11-13",
     "hash": "015b808d2446e073",
@@ -22946,6 +23264,48 @@
       }
     ],
     "ruled": "4e9b0f4f8919f3e2"
+  },
+  "vi/guides/youtube-KhxHJd5O7_4": {
+    "at": "2026-11-18",
+    "hash": "4c271ac8fc619fa6",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Cắt một tấm 240 × 30 cm thành ba đoạn. Đoạn 183 cm làm đáy, hai đoạn 30 cm làm hai vách hông.",
+        "problem": "183 + 30 + 30 = 243 cm, more than the 240 cm sheet, even before the saw cuts take their share.",
+        "rule": "Pieces cut from a sheet whose lengths add up to more than the sheet's length.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tấm dài 183 cm khi lật lên sẽ võng ở giữa.",
+        "problem": "The panel flipped at this step is the 180 cm front or back panel. The 183 cm piece is the bottom, which is glued later.",
+        "fix": "Tấm dài 180 cm khi lật lên sẽ võng ở giữa.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nếu các mặt trước đã vuông thì bước này lại dễ nhất.",
+        "problem": "\"các mặt trước\" reads as \"the front panels\" when it means \"the panels glued earlier\".",
+        "fix": "Nếu các mối dán trước đó đã vuông thì bước này lại dễ nhất.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "L8",
+        "quote": "Mica mỏng thì dán mao dẫn vẫn ổn. Với mica dày cỡ 19 mm",
+        "problem": "The FAQ asks at what thickness to switch to the pin method, but the answer gives no threshold.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "4c271ac8fc619fa6"
   },
   "vi/guides/youtube-KjUE_aid3BI": {
     "at": "2026-11-04",
@@ -24932,6 +25292,31 @@
       }
     ]
   },
+  "vi/guides/youtube-nvA3c_8w77I": {
+    "at": "2026-11-18",
+    "hash": "9e9908486aa5f895",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nếu định ốp ván bên ngoài thì nhớ tính thêm độ dày ván vào kích thước tổng, để mép ván cũng khớp với thành bể.",
+        "problem": "If the frames are cut to exactly the tank's footprint, cladding adds 1.9 cm on each side and the stand ends up wider than the tank; for a flush edge the frame has to be cut smaller by the board thickness on each side, and 'tính thêm' suggests adding instead.",
+        "fix": "Nếu định ốp ván bên ngoài thì cắt khung nhỏ hơn đáy bể đúng bằng độ dày ván ở mỗi bên (khoảng 1,9 cm mỗi bên), để mặt ván ốp khớp với thành bể.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "các cạnh của chân bể được phay bo bằng đúng mũi phay đã dùng cho bể",
+        "problem": "This mentions a router bit 'used for the tank', which only makes sense for the source's own home-built plywood tank, so a reader with a glass tank will be confused.",
+        "fix": "các cạnh của chân bể được phay bo cho góc bo giống với viền bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "9e9908486aa5f895"
+  },
   "vi/guides/youtube-nvG0MbTO3Co": {
     "at": "2026-11-10",
     "hash": "509d72325fdab3e9",
@@ -24953,6 +25338,31 @@
       }
     ],
     "ruled": "adbe9e53e8d5e3fc"
+  },
+  "vi/guides/youtube-NwZwN9LvxLc": {
+    "at": "2026-11-18",
+    "hash": "05addf666b6ad341",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ngày thường bạn mở tủ dưới chừng một lần, để xem lọc và thiết bị có chạy bình thường không.",
+        "problem": "The sentence says 'about once' but never says how often (per day, per week), so it makes no sense as written.",
+        "fix": "Tủ dưới thường ít khi phải mở, chủ yếu chỉ để xem lọc và thiết bị có chạy bình thường không.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nắp tự đóng thường bị lỏng, đóng không khít.",
+        "problem": "'Nắp tự đóng' reads as 'self-closing lid', not 'a home-built lid', which confuses the meaning.",
+        "fix": "Nắp tự làm ở nhà thường bị lỏng, đóng không khít.",
+        "field": "body"
+      }
+    ],
+    "ruled": "05addf666b6ad341"
   },
   "vi/guides/youtube-nXDe9QF-Gu8": {
     "at": "2026-11-09",
@@ -25456,6 +25866,22 @@
       }
     ],
     "ruled": "311177110bb86968"
+  },
+  "vi/guides/youtube-PflID7JtZ3U": {
+    "at": "2026-11-18",
+    "hash": "5becfad375666cb8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Làm trước mặt sẽ thành đáy chân tủ.",
+        "problem": "The word order makes \"trước mặt\" read as \"in front of\" rather than \"do this face first\", so readers stumble on the sentence.",
+        "fix": "Làm mặt sẽ thành đáy chân tủ trước.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5becfad375666cb8"
   },
   "vi/guides/youtube-Pfm2p0p8KFM": {
     "at": "2026-11-04",
@@ -27126,6 +27552,22 @@
     "findings": [],
     "ruled": "0d25ccae740e0ad6"
   },
+  "vi/guides/youtube-T2W_g09jCc4": {
+    "at": "2026-11-18",
+    "hash": "bc5ff0ed8d490c68",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cả việc này làm mất khoảng một tuần nếu ngày nào cũng làm một ít.",
+        "problem": "\"Cả việc này\" reads awkwardly; a native writer would say \"Toàn bộ việc này\" or \"Làm hết\".",
+        "fix": "Làm hết chỗ này mất khoảng một tuần nếu ngày nào cũng làm một ít.",
+        "field": "body"
+      }
+    ],
+    "ruled": "bc5ff0ed8d490c68"
+  },
   "vi/guides/youtube-T5Vf6PGipG4": {
     "at": "2026-11-07",
     "hash": "ffcdc20eee8b43fa",
@@ -27312,6 +27754,22 @@
       }
     ],
     "ruled": "ac2f5fbbefa7dd4b"
+  },
+  "vi/guides/youtube-ThOjHe6THNg": {
+    "at": "2026-11-18",
+    "hash": "921bb209c419c07a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Quang học hơi tốt hơn kính",
+        "problem": "\"Quang học hơi tốt hơn\" is a word-for-word rendering of \"slightly better optics\" and reads unnaturally in Vietnamese.",
+        "fix": "Trong hơn kính một chút",
+        "field": "body"
+      }
+    ],
+    "ruled": "921bb209c419c07a"
   },
   "vi/guides/youtube-TifXGwMgZAc": {
     "at": "2026-11-16",
@@ -28384,6 +28842,22 @@
       }
     ],
     "ruled": "0eccd89951635e94"
+  },
+  "vi/guides/youtube-wPMn0xXjZF4": {
+    "at": "2026-11-18",
+    "hash": "caefca800d903dd2",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Một bể khoảng 1.420 lít, dài 244 cm, rộng và cao 91 cm",
+        "problem": "A tank 244 × 91 × 91 cm holds about 2,020 litres, not 1,420. The stated volume fits a height of about 61 cm.",
+        "fix": "Một bể khoảng 1.420 lít, dài 244 cm, rộng 91 cm, cao khoảng 61 cm",
+        "field": "body"
+      }
+    ],
+    "ruled": "caefca800d903dd2"
   },
   "vi/guides/youtube-WTIWljtUFxc": {
     "at": "2026-11-16",

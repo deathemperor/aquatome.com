@@ -1,8 +1,13 @@
 {
   "slug": "rakhine",
-  "name": "ยะไข่",
+  "name": "รัฐยะไข่",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T18:26:04.642Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false
