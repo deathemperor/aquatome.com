@@ -166,6 +166,28 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm's top")
   }
 
+  /// A fish's page above a group's: a push, which keeps the mark at the group's page, so the switch cuts both (a fresh read,
+  /// 19 Nov: a push the path's equality took for a replacement would hand v1 the group's page).
+  func testSwitchingBackWithAFishOpenFromAGroupsPageLeavesTimAtItsTop() {
+    let app = launch()
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    app.openTab("Khám phá")
+    let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 5), "no Cá nhỏ chip on Khám phá")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Cá nhỏ's page")
+    neon.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "Cá neon's page didn't open")
+    app.openTab("Hôm nay")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "Tìm isn't at its top")
+    XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm's top")
+  }
+
   /// A group's page at Khám phá's root, then the sheet's kept row, which replaces the path with the kept shelf (the same
   /// length, one): switched back, Tìm shows that shelf, which the old look draws, not its top (a fresh read, 19 Nov).
   func testSwitchingBackAfterTheKeptRowReplacedAGroupsPageLeavesTheShelf() {

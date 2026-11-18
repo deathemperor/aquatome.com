@@ -72,7 +72,7 @@ struct V2Root: View {
     // From another tab this stack changes only by a link (the kept pages' row replaces it, whatever its length).
     .onChange(of: handbookPath) { old, new in
       if !new.isEmpty { selection = .browse }
-      // Popped to it, or replaced by a link (the kept pages' row, from another tab, whatever its length): what was v2's own
+      // Popped to where v2's own began or below, or replaced by a link (the kept pages' row, from another tab, whatever its length): what was v2's own
       // isn't on the path now, where a group's page at its root would leave the same count.
       if let f = ownFrom, new.count <= f || !(Self.starts(new, with: old) || Self.starts(old, with: new)) { ownFrom = nil }
     }
