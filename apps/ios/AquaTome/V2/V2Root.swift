@@ -17,8 +17,8 @@ struct V2Root: View {
   @State private var todayPath = NavigationPath()
   @State private var searchPath = NavigationPath()
   @Environment(HandbookModel.self) private var handbook
-  /// Where the first of v2's own screens (FullPage) sits on `handbookPath`, which v1 shares, and on Hôm nay's: v1 has no
-  /// screen for it, so switching back cuts the path there.
+  /// Where the first of v2's own screens (FullPage, a group's page) sits on `handbookPath`, which v1 shares, and on Hôm
+  /// nay's: v1 has no screen for it, so switching back cuts the path there.
   @State private var ownFrom: Int?
   @State private var todayOwnFrom: Int?
 
@@ -40,6 +40,8 @@ struct V2Root: View {
             if ownFrom == nil { ownFrom = handbookPath.count }
             handbookPath.append(FullPage(item: item, at: at))
           }
+          // A group's page as it appears, the path's last: pushed by a chip's own link, not through here.
+          .environment(\.v2OwnScreen) { if ownFrom == nil { ownFrom = max(handbookPath.count - 1, 0) } }
           .v2ClearUnderTabBar()
       }
       // v1's screens: a fade of a set height, as their ends have no room for one that grows with the text.
@@ -242,6 +244,9 @@ extension EnvironmentValues {
   /// A fish's or plant's page as v1 draws it (FullPage), pushed on the stack in front where v2's holds a part it can't draw
   /// ("Xem phần này ở trang đầy đủ"), counted for switching back to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item, _ at: String?) -> Void = { _, _ in }
+  /// A screen of v2's own that v1 has no screen for (a group's page), on Khám phá's stack: it calls this as it appears,
+  /// so switching back to v1 cuts the path there (V2Root's `ownFrom`).
+  @Entry var v2OwnScreen: () -> Void = {}
   /// On v2's search tab, whose screen is v1's (HandbookView): a fish's or plant's page opens as v2 draws it there too.
   @Entry var v2Pages = false
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).

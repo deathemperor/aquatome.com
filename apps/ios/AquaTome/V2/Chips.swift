@@ -73,6 +73,8 @@ struct ChipPage: View {
   let shelf: HandbookShelves.ChipShelf
   /// From this many pages, the grid.
   static let grid = 6
+  /// v1 has no screen for this one: switching back cuts Khám phá's stack here (V2Root's `ownFrom`).
+  @Environment(\.v2OwnScreen) private var ownScreen
 
   var body: some View {
     Group {
@@ -96,6 +98,7 @@ struct ChipPage: View {
     .background(OpensAtTop())
     .navigationTitle(shelf.chip.name)
     .accessibilityIdentifier("v2-chip-page")
+    .onAppear { ownScreen() }
   }
 
   /// "153 trang", or "1 trang · 4 bài viết" when guides are about it; under it, whose photo the chip shows, "Ảnh đại
