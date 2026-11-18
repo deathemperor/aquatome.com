@@ -1,49 +1,4 @@
 {
-  "id/glossary/nen-be": [
-    {
-      "at": "2026-11-17T04:48:27Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.9,
-      "notes": [
-        "Minor: \"soil\" is left in English; Indonesian hobbyists do commonly say \"soil\" (aqua soil), but consider \"tanah/soil aquascape\" on first use, e.g. \"soil (tanah substrat)\".",
-        "Minor: \"batu lava\" is fine for sỏi núi lửa, but \"kerikil vulkanik\" is also used; optional."
-      ],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "ms/glossary/nen-be": [
-    {
-      "at": "2026-11-17T05:06:21Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.9,
-      "notes": [
-        "\"batu kelikir\" is slightly awkward for \"sỏi\" (gravel). \"kerikil\" is the more common Malaysian term.",
-        "\"batu lava\" for \"sỏi núi lửa\" (volcanic gravel) is understandable. \"batu volkanik\" or \"kerikil volkanik\" is more natural."
-      ],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
-  "th/glossary/nen-be": [
-    {
-      "at": "2026-11-17T04:51:21Z",
-      "model": "sonnet",
-      "ran": "claude-sonnet-5-5",
-      "cli": "2.1.322",
-      "score": 0.95,
-      "notes": [
-        "Optional: Thai hobbyists often say 'วัสดุปูพื้น' or just 'พื้นตู้'; current wording is fine.",
-        "Optional: 'หินภูเขาไฟ' is understood; 'ดินปลูกไม้น้ำ' is the common term for aqua soil, so this is OK."
-      ],
-      "attempt": "first",
-      "kept": true
-    }
-  ],
   "vi/glossary/artemia": [
     {
       "at": "2026-11-16T17:21:56Z",
@@ -491,87 +446,6 @@
       "kept": false
     }
   ],
-  "vi/glossary/mang-sinh-hoc": [
-    {
-      "at": "2026-11-18T02:01:16Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trên lũa mới thả thường xuất hiện một lớp lông tơ trắng, nhầy.\" (not \"Trên lũa mới thả, màng sinh học hiện ra thành một lớp lông tơ màu trắng hoặc xám.\": Rules 12 and 7: \"Trên lũa mới thả, màng sinh học hiện ra thành một lớp lông tơ màu trắng hoặc xám.\" does not follow the required wording, \"Trên lũa mới …"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T02:01:16Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: in the definition, \"Nó gồm vi khuẩn, nấm và các vi sinh vật khác, dính với nhau bằng chất keo do chúng tự tiết ra.\" uses \"dính với nhau\", which the THIS TERM line forbids, and \"chất keo\" in place of \"chất nhầy\". The line asks for this wording exactly: \"Nó gồm vi khuẩn, nấm, các vi sinh vật khác và lớp chất nhầy do chúng tự tiết ra.\"",
-        "Rules 12 and 4: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" The line asks for this wording exactly, with no time: \"Trên lũa mới thả thường xuất hiện một lớp lông tơ trắng, nhầy.\" This sentence adds a time (\"vài ngày\") and writes \"lông\" instead of \"lông tơ\". The added \"vài ngày\" also repeats the time given later in \"màng cần vài ngày để bắt đầu mọc\".",
-        "Rule 12: \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" is not the required wording: \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, không bắn tung tóe.\"",
-        "Rule 12: \"Lắp skimmer hút váng nếu muốn hết lâu dài.\" is not the required wording: \"Muốn hết váng lâu dài thì lắp skimmer hút váng.\"",
-        "Rule 12: \"Thả tép khi bể chưa chạy xong chu trình.\" is forbidden by name in THIS TERM, because it joins facts 35 and 36. The cycled-tank mistake should be one sentence from fact 39 only.",
-        "Rule 12: \"Nguồn người nuôi này cũng ghi: nhiều màng không có nghĩa là bể đã chạy xong chu trình, đo nước rồi mới thả tép.\" is not the required wording: \"Nguồn người nuôi này cũng ghi: thấy nhiều màng chưa có nghĩa là bể đã chạy xong chu trình, nên đo nước rồi mới thả tép.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T01:23:52Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" (not \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\": Rule 12: \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\" must be written word for word as \"Lũa mới thả vài ngày thường xuất h…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định đủ thời gian.\": Rule 12: \"Thả tép khi bể chưa ổn định đủ thời gian.\" must be written word for word as \"Thả tép khi bể chưa chạy xong chu trình.\". This keeps the mistake tied to the film and to the cycle. \"ổn định đủ thời gian\" is …"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T01:23:52Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"tép con mới nở sống gần như chỉ nhờ nó trong mấy tuần đầu\" uses \"tép con mới nở\". THIS TERM requires \"tép con\" here because fact 24 says baby shrimp, not newly hatched shrimp.",
-        "Rule 12: \"Màng trên lũa thường cứ để yên là được.\" should be removed. Leaving the film on wood alone is a claim from only one page (fact 31), and the entry doesn't name that page. As written, it reads as plain fact with no credit.",
-        "Rule 12: In \"Nên làm gì\", the required line \"Tiệm thứ nhất cũng ghi: không cần cọ lớp màng trắng trên lũa mới, vì nó sẽ mọc lại.\" (fact 33) is missing. It should replace the 'leave it alone' sentence, word for word, and come before \"Có thể hút bớt màng trên lũa bằng ống xi phông.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T01:15:05Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\": Rule 12: \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\" should read word for word \"Thả tép khi bể chưa chạy xong chu trình.\", as THIS TERM says. The \"6 đến 8 t…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T01:15:05Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"Nó phủ trên kính, lũa, đá nham thạch và cây trong bể.\": the meaning must say word for word \"Nó phủ trên lũa, đá và các bề mặt khác trong bể.\" Glass (fact 12) and plants (fact 13) each come from only one page, so they can't be named here. \"Đá nham thạch\" should be \"đá\", and \"các bề mặt khác\" is missing.",
-        "Rule 12: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng hoặc xám, nhầy, có khi thành sợi.\": this must read word for word \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" Grey (\"hoặc xám\", fact 10) and stringy (\"có khi thành sợi\", fact 11) each come from only one page and must be left out.",
-        "Rule 12: \"Tiệm thứ nhất cũng ghi: màu xanh là tảo, còn màu nâu có thể là tảo nâu hoặc màng có lẫn tảo nâu. Vi khuẩn nở rộ làm đục cả nước bể, còn màng sinh học bám trên bề mặt.\": the full stop ends the credit, so the bloom sentence, which comes from only one page (fact 15), stands as plain fact. It must be joined with a semicolon: \"…màng có lẫn tảo nâu; vi khuẩn nở rộ làm đục cả nước bể, còn màng…",
-        "Rule 12: \"Mảng nào bong ra thì hút bằng ống xi phông.\": this must read \"Có thể hút bớt màng trên lũa bằng ống xi phông.\" \"Bong ra\" (loose bits) comes from only one page (fact 31) and must go.",
-        "Rule 12: \"Nguồn người nuôi này cũng ghi: muốn màng mọc nhiều hơn, … cho màng bám vào rễ. Màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\": the full stop ends the credit, so fact 30, which comes from only one page, stands as plain fact. It must be joined with a semicolon: \"…cho màng bám vào rễ; màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\"",
-        "Rule 12: \"Cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng. Nguồn người nuôi này cũng ghi: làm vậy sẽ đẩy amoniac, nitrit, nitrat lên…\": the mistake itself comes from only one page (fact 37), so it can't stand as a plain sentence before the credit. It must read word for word \"Nguồn người nuôi này cũng ghi: cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng sẽ đẩy amoniac, nitrit, nitrat…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    }
-  ],
   "vi/glossary/nen-be": [
     {
       "at": "2026-11-16T17:12:30Z",
@@ -744,6 +618,205 @@
       ],
       "attempt": "rewrite",
       "kept": true
+    }
+  ],
+  "vi/glossary/thuc-an-kho": [
+    {
+      "at": "2026-11-18T03:04:26Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rules 4 and 12: \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": sev…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:04:26Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rules 8 and 12: \"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\" names the brands Tetra and sera. The makers' sentence must name no one and must match word for word (\"...để làm thức ăn hằng ngày.\"). Naming them also puts more than three pages in the entry.",
+        "Rules 5 and 12: altNames is empty. The other names must include \"cám\" (two shops' pages, so no credit) and the English name the FACTS give, \"dry food\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:50:07Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [
+        "\"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\": the facts don't carry it (unsupported, unsupported, loose): States as a general rule what Tetra and sera say about their own flakes; drops the JBL and UK Pet Food warnings that a community tank needs more than one food / drops caveat: one complete food may not suffice in community ta…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:50:07Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rules 4 and 12: \"mỗi lần chỉ lượng cá ăn hết trong 2–5 phút\" gives 2–5 minutes alone as the rule. The rules forbid this…",
+        "Rule 12: The first paragraph under \"Trong bể của bạn\" still has \"Bể nuôi nhiều loài thì rất có thể cần vài loại thức ăn khác nhau. Một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" These two sentences come from UK Pet Food's page (fact 62). THIS TERM says they go and must not appear anywhere in the entry. The paragraph should be the makers' sentence alone, word for word.",
+        "Rule 12: The other names are missing because altNames is empty. THIS TERM says the other names for dry food as a whole are \"cám\" (on two shops' pages, no credit) and the English \"dry food\". Both should be listed among the other names."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:45:40Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút.\": Rules 4 and 12: \"mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút\" gives 2–5 minutes alone as the rule, which…",
+        "Rule 12: \"Tetra và sera ghi loại mảnh của họ là đầy đủ dinh dưỡng, để cho cá ăn hằng ngày.\" must be the makers' sentence word for word: \"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\"",
+        "Rule 12: \"Bể nuôi nhiều loài thì rất có thể cần vài loại thức ăn khác nhau. Một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" must be removed. The first paragraph under \"Trong bể của bạn\" is the makers' sentence alone, and no sentence anywhere in the entry may say that a mixed tank needs different foods or that one complete food may not suit every fish (the chief of staff's rulin…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:45:40Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [
+        "\"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\": the facts don't carry it (unsupported, loose, unsupported): States maker claim as fact; drops JBL/UK Pet Food caveat that one food isn't enough in community tanks / States makers' claim as general fact; drops the caveat that one food may not suit a community tank / States the maker c…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "id/glossary/nen-be": [
+    {
+      "at": "2026-11-17T04:48:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Minor: \"soil\" is left in English; Indonesian hobbyists do commonly say \"soil\" (aqua soil), but consider \"tanah/soil aquascape\" on first use, e.g. \"soil (tanah substrat)\".",
+        "Minor: \"batu lava\" is fine for sỏi núi lửa, but \"kerikil vulkanik\" is also used; optional."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/glossary/nen-be": [
+    {
+      "at": "2026-11-17T05:06:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"batu kelikir\" is slightly awkward for \"sỏi\" (gravel). \"kerikil\" is the more common Malaysian term.",
+        "\"batu lava\" for \"sỏi núi lửa\" (volcanic gravel) is understandable. \"batu volkanik\" or \"kerikil volkanik\" is more natural."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/glossary/nen-be": [
+    {
+      "at": "2026-11-17T04:51:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "Optional: Thai hobbyists often say 'วัสดุปูพื้น' or just 'พื้นตู้'; current wording is fine.",
+        "Optional: 'หินภูเขาไฟ' is understood; 'ดินปลูกไม้น้ำ' is the common term for aqua soil, so this is OK."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/glossary/mang-sinh-hoc": [
+    {
+      "at": "2026-11-18T02:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trên lũa mới thả thường xuất hiện một lớp lông tơ trắng, nhầy.\" (not \"Trên lũa mới thả, màng sinh học hiện ra thành một lớp lông tơ màu trắng hoặc xám.\": Rules 12 and 7: \"Trên lũa mới thả, màng sinh học hiện ra thành một lớp lông tơ màu trắng hoặc xám.\" does not follow the required wording, \"Trên lũa mới …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T02:01:16Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: in the definition, \"Nó gồm vi khuẩn, nấm và các vi sinh vật khác, dính với nhau bằng chất keo do chúng tự tiết ra.\" uses \"dính với nhau\", which the THIS TERM line forbids, and \"chất keo\" in place of \"chất nhầy\". The line asks for this wording exactly: \"Nó gồm vi khuẩn, nấm, các vi sinh vật khác và lớp chất nhầy do chúng tự tiết ra.\"",
+        "Rules 12 and 4: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" The line asks for this wording exactly, with no time: \"Trên lũa mới thả thường xuất hiện một lớp lông tơ trắng, nhầy.\" This sentence adds a time (\"vài ngày\") and writes \"lông\" instead of \"lông tơ\". The added \"vài ngày\" also repeats the time given later in \"màng cần vài ngày để bắt đầu mọc\".",
+        "Rule 12: \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, tránh bắn tung tóe mạnh.\" is not the required wording: \"Tiệm thứ hai cũng ghi: chỉnh đầu ra của lọc cho mặt nước gợn nhẹ, không bắn tung tóe.\"",
+        "Rule 12: \"Lắp skimmer hút váng nếu muốn hết lâu dài.\" is not the required wording: \"Muốn hết váng lâu dài thì lắp skimmer hút váng.\"",
+        "Rule 12: \"Thả tép khi bể chưa chạy xong chu trình.\" is forbidden by name in THIS TERM, because it joins facts 35 and 36. The cycled-tank mistake should be one sentence from fact 39 only.",
+        "Rule 12: \"Nguồn người nuôi này cũng ghi: nhiều màng không có nghĩa là bể đã chạy xong chu trình, đo nước rồi mới thả tép.\" is not the required wording: \"Nguồn người nuôi này cũng ghi: thấy nhiều màng chưa có nghĩa là bể đã chạy xong chu trình, nên đo nước rồi mới thả tép.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:23:52Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" (not \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\": Rule 12: \"Lũa mới thả vài ngày đến một tuần có thể xuất hiện một lớp màng trắng, nhầy.\" must be written word for word as \"Lũa mới thả vài ngày thường xuất h…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định đủ thời gian.\": Rule 12: \"Thả tép khi bể chưa ổn định đủ thời gian.\" must be written word for word as \"Thả tép khi bể chưa chạy xong chu trình.\". This keeps the mistake tied to the film and to the cycle. \"ổn định đủ thời gian\" is …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:23:52Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"tép con mới nở sống gần như chỉ nhờ nó trong mấy tuần đầu\" uses \"tép con mới nở\". THIS TERM requires \"tép con\" here because fact 24 says baby shrimp, not newly hatched shrimp.",
+        "Rule 12: \"Màng trên lũa thường cứ để yên là được.\" should be removed. Leaving the film on wood alone is a claim from only one page (fact 31), and the entry doesn't name that page. As written, it reads as plain fact with no credit.",
+        "Rule 12: In \"Nên làm gì\", the required line \"Tiệm thứ nhất cũng ghi: không cần cọ lớp màng trắng trên lũa mới, vì nó sẽ mọc lại.\" (fact 33) is missing. It should replace the 'leave it alone' sentence, word for word, and come before \"Có thể hút bớt màng trên lũa bằng ống xi phông.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:15:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Thả tép khi bể chưa chạy xong chu trình.\" (not \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\": Rule 12: \"Thả tép khi bể chưa ổn định, trong khi bể cần 6 đến 8 tuần để ổn định.\" should read word for word \"Thả tép khi bể chưa chạy xong chu trình.\", as THIS TERM says. The \"6 đến 8 t…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T01:15:05Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nó phủ trên kính, lũa, đá nham thạch và cây trong bể.\": the meaning must say word for word \"Nó phủ trên lũa, đá và các bề mặt khác trong bể.\" Glass (fact 12) and plants (fact 13) each come from only one page, so they can't be named here. \"Đá nham thạch\" should be \"đá\", and \"các bề mặt khác\" is missing.",
+        "Rule 12: \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng hoặc xám, nhầy, có khi thành sợi.\": this must read word for word \"Lũa mới thả vài ngày thường xuất hiện một lớp lông trắng, nhầy.\" Grey (\"hoặc xám\", fact 10) and stringy (\"có khi thành sợi\", fact 11) each come from only one page and must be left out.",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi: màu xanh là tảo, còn màu nâu có thể là tảo nâu hoặc màng có lẫn tảo nâu. Vi khuẩn nở rộ làm đục cả nước bể, còn màng sinh học bám trên bề mặt.\": the full stop ends the credit, so the bloom sentence, which comes from only one page (fact 15), stands as plain fact. It must be joined with a semicolon: \"…màng có lẫn tảo nâu; vi khuẩn nở rộ làm đục cả nước bể, còn màng…",
+        "Rule 12: \"Mảng nào bong ra thì hút bằng ống xi phông.\": this must read \"Có thể hút bớt màng trên lũa bằng ống xi phông.\" \"Bong ra\" (loose bits) comes from only one page (fact 31) and must go.",
+        "Rule 12: \"Nguồn người nuôi này cũng ghi: muốn màng mọc nhiều hơn, … cho màng bám vào rễ. Màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\": the full stop ends the credit, so fact 30, which comes from only one page, stands as plain fact. It must be joined with a semicolon: \"…cho màng bám vào rễ; màng cần vài ngày để bắt đầu mọc và vài tuần mới dày.\"",
+        "Rule 12: \"Cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng. Nguồn người nuôi này cũng ghi: làm vậy sẽ đẩy amoniac, nitrit, nitrat lên…\": the mistake itself comes from only one page (fact 37), so it can't stand as a plain sentence before the credit. It must read word for word \"Nguồn người nuôi này cũng ghi: cho ăn nhiều hoặc rắc quá tay thức ăn bột để nuôi màng sẽ đẩy amoniac, nitrit, nitrat…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
     }
   ],
   "vi/glossary/thuc-an-dong-lanh": [
