@@ -38,6 +38,9 @@ test('a term\'s other names never repeat its English line, nor print its link ph
   const gh = c.glossary.find(x => x.id === 'gh')!
   const p = glossaryParts('vi', c, term(gh, { altNames: ['General hardness', 'dGH'], linkNames: ['độ cứng của nước'], definition: 'Đo độ cứng của nước bằng dGH.' }, 'General Hardness'))
   expect(p.otherNames).toEqual(['dGH'])
+  // Nor in the singular: "tannin" beside "Tiếng Anh: Tannins", "Bloodworms" beside "Bloodworm".
+  expect(glossaryParts('vi', c, term(gh, { altNames: ['tannin', 'trà lá'] }, 'Tannins')).otherNames).toEqual(['trà lá'])
+  expect(glossaryParts('vi', c, term(gh, { altNames: ['Bloodworms', 'giun đỏ'] }, 'Bloodworm')).otherNames).toEqual(['giun đỏ'])
   const ph = c.glossary.find(x => x.id === 'ph')!
   const withPhrase = { ...c, glossary: c.glossary.map(x => (x.id === 'gh' ? term(x, { linkNames: ['độ cứng của nước'] }) : x)) }
   expect(glossaryParts('vi', withPhrase, term(ph, { definition: 'pH khác với độ cứng của nước.' })).definition).toContain('<a href="/vi/thuat-ngu/gh/" class="gl"')
