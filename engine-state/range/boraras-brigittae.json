@@ -1,8 +1,8 @@
 {
   "id": "boraras-brigittae",
   "native": {
-    "input": "055f9d7a1c7796e6",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "ab065dc2201fffb0",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "ID",
@@ -41,6 +41,19 @@
         "name": "Jelai Bila",
         "source": "seriouslyfish",
         "quote": "The type locality is 'Bandjarmasin', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), and following Kottelat (1991) its range extends westwards as far as the Jelai Bila river basin, near the town of Sukamara, where it is said to occur sympatrically with the congener B. merah (but see 'Notes').",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Appears to be endemic to southwestern Borneo though occurrence records are scant.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "aquariumcoop",
+        "quote": "Chili rasboras are found in the rainforests of Borneo, Indonesia.",
+        "country": "ID",
         "ok": true
       }
     ],

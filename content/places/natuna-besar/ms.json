@@ -3,6 +3,12 @@
   "name": "Natuna Besar",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:08:14.531Z",
+    "why": "Malaysian atlases write the island as \"Pulau Natuna Besar\" (the Natuna Besar archipelago is often called \"Kepulauan Natuna\"), so the bare \"Natuna Besar\" omits the Malay kind word \"Pulau\" and doesn't match the source's \"archipelago\" sense well."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

@@ -1,8 +1,8 @@
 {
   "id": "etroplus-canarensis",
   "native": {
-    "input": "11e71254bc04f6a9",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "ac153cb60c0cf867",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "IN",
@@ -15,20 +15,19 @@
     ],
     "regions": [
       {
-        "name": "Kumaradhara-Netravati river system",
+        "name": "Kumaradhara-Netravati",
         "source": "seriouslyfish",
         "quote": "Appears locally endemic to southern Karnataka state, southwestern India where it's known only from the Kumaradhara-Netravati river system.",
-        "country": "IN",
         "ok": true
       },
       {
-        "name": "Kumaradhara",
+        "name": "Netravati",
         "source": "seriouslyfish",
         "quote": "It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.",
         "ok": true
       },
       {
-        "name": "Netravati",
+        "name": "Kumaradhara",
         "source": "seriouslyfish",
         "quote": "It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.",
         "ok": true

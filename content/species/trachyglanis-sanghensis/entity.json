@@ -1,0 +1,178 @@
+{
+  "id": "trachyglanis-sanghensis",
+  "scientificName": "Trachyglanis sanghensis",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Trachyglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "republic-of-the-congo",
+    "sangha-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CG"
+      ],
+      "regions": [
+        "Sangha River",
+        "Congo River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Known only from the type locality: Ouesso, Sangha River (middle Congo River basin), Republic of Congo.",
+          "countries": [
+            "CG"
+          ],
+          "regions": [
+            "Sangha River",
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340846,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.2,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<ul><li>Similar looking to the Phractura genus.</li><li>Quite rare in imports.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<p>Africa: Known only from the type locality: Ouesso, Sangha River (middle Congo River basin), Republic of Congo. The species may be more widespread than is currently known.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<p>Found in the banks of rivers with floating and hanging vegetation. They will hide at the river banks among leaves and twigs.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<p>This genus prefers water with a bit of movement as they are found at the margins of swift-flowing streams. Provide floating plants with long stems and branches. Not an easy species to keep due to their high maintenance and their specialised diet.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<p>Temperature: 24–28°C. pH: 6.2–7.2.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<p>Small live foods such as sifted Daphnia, Rotifers and Artemia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<p>Etymology: The specific name sanghensis: -ensis, suffix denoting place: Sangha River, Ouésso, Republic of the Congo, where it is endemic.</p><p>There are four species in this genus: T. ineac, T. intermedius, T. minutus and T. sanghensis. Similar looking to T. minutus, of which a few ichthyologists (Pellegrin &amp; Matthes) think T. sanghensis may be a synonym, but the holotype of T. minutus was not in good enough condition to make a definite decision.</p><p>IUCN Red List: Data Deficient, but needs updating (IUCN 2010). More information is needed on the species distribution before an assessment can be made.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org (12/2019). Moelants, T. 2010. Trachyglanis sanghensis. The IUCN Red List of Threatened Species 2010. Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p. Skelton, P.H. and G.G. Teugels, 1986. Amphiliidae. p. 54-65. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/30f6b8edf342f0e7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/30f6b8edf342f0e7-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "John Stel / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "caption": "Trachyglanis sanghensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4cec83daa71401e8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4cec83daa71401e8-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "John Stel / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_sanghensis.htm",
+      "caption": "Trachyglanis sanghensis: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "BV_u4nbzGQ8",
+      "title": "00001464",
+      "durationSec": 27,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

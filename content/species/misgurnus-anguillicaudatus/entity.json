@@ -1469,6 +1469,13 @@
           "min": 18,
           "max": 23
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 4,
+          "max": 30
+        }
       }
     ],
     "sizeCm": [
@@ -1483,6 +1490,10 @@
       {
         "source": "seriouslyfish",
         "value": 28
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -1575,6 +1586,12 @@
       "html": "<ul><li>Difficulty: Moderate. Rated moderate because it needs a well-established tank and stable water.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/misgurnus-anguillicaudatus-2/",
+      "html": "<p>Weather loaches become 15-20 cm long. The genus is characterized by the existence of ten barbels around the mouth.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
@@ -1599,6 +1616,12 @@
       "html": "<p>Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia. This continuing range expansion is largely attributed to the aquarium fish industry although its use as a food fish or live angling bait are also thought to be contributing factors.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/misgurnus-anguillicaudatus-2/",
+      "html": "<p>Misgurnus anguillicaudatus originates from China and can survive in Central Europe the whole year through under outdoor conditions. So it is important to take care that these fish cannot escape.</p>"
+    },
+    {
       "key": "habitat",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
@@ -1615,6 +1638,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
       "html": "<p>Most commonly found in shallow, slow-moving sections of rivers and streams or calm habitats such as swamps, oxbows, backwaters and paddy fields. These are often heavily-vegetated or littered with submerged roots, branches and leaf litter, with substrates composed of soft mud or silt.</p><p>Water clarity and depth vary on a seasonal basis across much of its range, and at certain times of year it probably enters temporarily-flooded zones. Conversely during dry periods some habitats may become stagnant with blooms of macrophytic algae and resultant hypoxia (oxygen depletion). Under such conditions members of this genus are able to use the posterior portion of the intestine and skin as supplementary breathing organs and often dart to the surface to gulp atmospheric air whilst simultaneously expelling intestinal gases from the vent. Some species have even been recorded to survive periods in moist sand or mud in the absence of water.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/misgurnus-anguillicaudatus-2/",
+      "html": "<p>Typical habitats of Misgurnus are stagnant waters with a high amount of dirt. When the air pressure sinks before bad weather, these waters begin to stink because the oxygen content sinks.</p>"
     },
     {
       "key": "aquariumSize",
@@ -1671,6 +1700,12 @@
       "html": "<ul><li>Temperature: 18–23°C. Can apparently tolerate a range of 5–25°C but for general care a value between 18–23°C is recommended. This is not a tropical species and should not be maintained as such for extended periods of time.</li><li>pH: 6.0–8.0</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/misgurnus-anguillicaudatus-2/",
+      "html": "<p>Misgurnus have an enormous tolerance for water temperatures. Over the year they bear temperatures between 4 and 30°C.</p>"
+    },
+    {
       "key": "equipment",
       "source": "loachesonline",
       "sourceUrl": "https://www.loaches.com/articles/weather-report",
@@ -1711,6 +1746,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
       "html": "<p>Misgurnus spp. are peaceful both with one another and other species though they may prey on eggs/fry/very small fishes. They can be kept singly but seem more at ease/active when in the presence of conspecifics.</p><p>M. anguillicaudatus does best alongside medium-to-large sized, active fishes that swim higher up in the water column than itself. It's often upsold as a good companion for the ornamental forms of Carassius auratus (goldfish) and while that may be true of comets, shubunkins, etc., it can bother the slower-moving 'fancy' types when active e.g. at feeding times. Research your choices thoroughly before purchase paying particular attention to adult size and temperature requirements.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/misgurnus-anguillicaudatus-2/",
+      "html": "<p>Misgurnus are very peaceful. The name \"weather loach\" was given in medieval times, when these loaches were kept in captivity as weather prophets. These fish breathe not only via gills but have an additional breathing technique: when the oxygen content of the water is low, the loaches take air from the water surface and press it through the intestine, where the oxygen is extracted from the air. When the oxygen content sinks before bad weather, the weather loaches become nervous and often come to the water surface to take a breath. In clean aquaria this effect does not appear, so the fish are of no use as weather prophets there.</p>"
     },
     {
       "key": "dimorphism",
@@ -1765,6 +1806,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/misgurnus-anguillicaudatus",
       "html": "<p>An exceptionally hardy and adaptable species tolerant of a wide range of physiological variables and flexible of diet, factors which have allowed it to become established as an alien species around the globe. Its high reproductive potential and low vulnerability to predation have made it a cause for concern to conservation scientists although as yet there remains no proof of it exerting a negative effect on native fishes in countries outside its natural range.</p><p>Though usually traded as 'weather loach' in Europe it's commonly known as 'dojo loach' ('dojo' being the Japanese word for 'loach') in the United States and is one of the most ubiquitously available species in the hobby. This has proven unfortunate not only in terms of its status as an invasive species but also because years of mass-production have taken their toll on the quality of stock available with health and morphological issues now common. It has also been hybridised with M. mizolepis for research purposes and hybridises naturally with Paramisgurnus dabryanus in China so the possibility that such hybrids have found their way into the aquarium market cannot be discounted. Its adult size should also be considered prohibitive but is rarely taken into account. Xanthic 'golden' and leucistic 'pink' or 'piebald' forms are also available and have proven popular; aquarium care is the same as described above.</p><p>Provided you can obtain healthy stock and own a suitably-sized tank M. anguillicaudatus makes an excellent aquarium resident. Individuals often develop real 'personality', becoming tame enough to hand feed, for example. The common name is derived from a reported sensitivity to changes in barometric pressure which cause it to become more active. In China it has long been used in folk medicine to treat hepatitis, cancer and other ailments and it's an important food fish in several countries.</p><p>The exact number of species in the genus is unknown with much study required, but as things stand there are at least seven with the majority native to China and/or Russia. They can be told apart from similar-looking relatives such as Cobitis spp. by the fact that the suborbital spine is concealed beneath a layer of muscle and not externally visible. M. anguillicaudatus is the only member common in the aquatic trade although M. fossilis is occasionally available in some European countries (an import licence is necessary in the UK). These two are easy to identify as M. anguillicaudatus exhibits a spotted patterning, males possess a lamina circularis and the caudal peduncle sports a thickened structure usually referred to as an 'adipose crest' whereas M. fossilis has a dark midlateral stripe on each flank and lacks the two structures. Another similar-looking species is Paramisgurnus dabryanus which is most easily differentiated by its noticeably higher adipose crest and the fact it doesn't possess a dark spot on the upper part of the caudal fin base. This species is exported for the hobby but usually sold as M. anguillicaudatus.</p><p>The family Cobitidae, often referred to as 'true' loaches, is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity. As things stand there are around 20 genera, with recent phylogenetic analyses by Tang et al. (2006) and Šlechtová et al. (2007, 2008) revealing that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae). In the most recent study Misgurnus was found to group most closely with Paramisgurnus and Koreocobitis, and these genera may prove to represent a monophyletic clade with further research.</p><p>All cobitids possess sharp, motile, suborbital (below the eye) spines which are normally concealed within a pouch of skin but erected when an individual is stressed e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/misgurnus-anguillicaudatus-2/",
+      "html": "<p>Freshly caught fish are pretty sensitive, which is typical for fish from waters with a high content of organic waste, but once they have adapted to life in clean aquaria they are hardy and long-living inhabitants.</p>"
     },
     {
       "key": "references",
@@ -1858,5 +1905,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

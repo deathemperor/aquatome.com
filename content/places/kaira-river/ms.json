@@ -1,8 +1,13 @@
 {
   "slug": "kaira-river",
-  "name": "Kaira",
+  "name": "Sungai Kaira",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T00:04:25.948Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

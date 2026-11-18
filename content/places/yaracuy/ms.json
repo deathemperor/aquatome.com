@@ -3,6 +3,12 @@
   "name": "Yaracuy",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T00:40:24.236Z",
+    "why": "Malay atlases normally mark a Venezuelan state with the kind word \"Negeri\" or \"Wilayah\", so bare \"Yaracuy\" leaves out the kind word; the proper name's spelling itself is correct."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

@@ -137,6 +137,59 @@ test('species-videos: while Wikimedia rests, a new page waits: the run stops and
   await expect(readFile(join(r, 'content/species/nanosphronemus-gemma/entity.json'), 'utf8')).rejects.toThrow()
 })
 
+// The chief of staff, 17 Nov 2026, on FishLoft's profiles: a new page opens only under a Vietnamese name that passes the
+// naming rule; with none it waits for the Writing Lead, and nothing is written. Another channel's still opens under the
+// scientific name, as before.
+test('species-videos: a FishLoft profile makes a new page only under a Vietnamese name that passes the naming rule', async () => {
+  expect(PROFILE_CHANNELS).toContain('fishloft')
+  const run = async (viNames: string[], channel = 'FishLoft', channelUrl = '', enNames: string[] = []) => {
+    const r = await root()
+    const d = deps([])
+    // Each name as research gives it: from a Vietnamese page among its sources.
+    const vn = { url: 'https://cacanh.vn/sac-ngoc', title: 'Cá sặc ngọc', kind: 'article' as const }
+    const found = { ...research, sources: [...research.sources, vn], viNames: viNames.map(name => ({ name, source: research.sources.length })), enNames: enNames.map(name => ({ name, source: 0 })) }
+    const fl = { ...d, research: (async () => found) as Llm, yt: { ...d.yt, video: async (id: string) => ({ ...(await d.yt.video(id)), channel, channelUrl }) } }
+    await speciesVideos(r, fl, { only: ['G'] })
+    const s = JSON.parse(await readFile(join(r, 'engine-state/_species-videos.json'), 'utf8')) as Record<string, SpeciesVideo>
+    const vi = await readFile(join(r, 'content/species/nanosphronemus-gemma/vi.json'), 'utf8').then(x => JSON.parse(x) as { name: string }, () => null)
+    return { g: s.G, vi }
+  }
+  const waits = { done: 'skipped', reason: 'Nanosphronemus gemma: no Vietnamese name that passes the naming rule; the page waits for the Writing Lead' }
+  expect(await run([])).toMatchObject({ g: waits, vi: null })
+  // A shrimp's word for a gourami fails the rule.
+  expect(await run(['Tép ngọc'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page', page: 'species/nanosphronemus-gemma' }, vi: { name: 'Cá sặc ngọc' } })
+  // The first name fails and a later one passes: the page opens under the one that passes.
+  expect(await run(['Tép ngọc', 'Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá sặc ngọc' } })
+  // The scientific name, bare or after "Cá", or one of its English names isn't a Vietnamese name, though a Vietnamese page
+  // gives it and no kind word fails it. It's left out, so a Vietnamese name after it names the page.
+  expect(await run(['Nanosphronemus gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá nanosphronemus gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['jewel gourami'], 'FishLoft', '', ['Jewel Gourami'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá Nanosphronemus gemma', 'Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá sặc ngọc' } })
+  // A doubled or no-break space doesn't let either through (the Codex read, 17 Nov).
+  expect(await run(['Cá Nanosphronemus  gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá Nanosphronemus gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Jewel  Gourami'], 'FishLoft', '', ['Jewel Gourami'])).toMatchObject({ g: waits, vi: null })
+  // Nor a zero-width space or a hyphen (the second Codex read, 17 Nov).
+  expect(await run(['Cá Nanosphronemus​ gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá Nanosphronemus​gemma'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Cá Nanosphronemus-gemma'])).toMatchObject({ g: waits, vi: null })
+  // A name no kind word begins isn't a Vietnamese name, whether or not research gave it as English: "Jewel Gourami" from a
+  // .vn page, with the English spelled with a doubled space (so the video's title didn't hold it) or not given at all.
+  expect(await run(['Jewel Gourami'], 'FishLoft', '', ['Jewel  Gourami'])).toMatchObject({ g: waits, vi: null })
+  expect(await run(['Jewel Gourami'])).toMatchObject({ g: waits, vi: null })
+  // Left out before a name that passes, so the page never opens under it.
+  expect(await run(['Jewel Gourami', 'Cá sặc ngọc'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá sặc ngọc' } })
+  // "Cá" before a borrowed word stays a name, as keepers say "Cá platy".
+  expect(await run(['Cá Jewel Gourami'])).toMatchObject({ g: { done: 'new page' }, vi: { name: 'Cá Jewel Gourami' } })
+  // The channel by its address as either reader gives it, whatever its name now.
+  expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/channel/UC2pjf0shuwySmKTDsALixBw')).g).toMatchObject(waits)
+  expect((await run([], 'Fish Loft Aquatics', 'https://www.youtube.com/@FishLoft')).g).toMatchObject(waits)
+  expect((await run([], 'fishloft ')).g).toMatchObject(waits)
+  expect((await run([], 'CHRIS LUKHAUP')).g).toMatchObject({ done: 'new page' })
+})
+
 test('a video tried again (the owner\'s pick) after its part fell under the bar: the writer starts from that review\'s notes', async () => {
   const r = await root()
   const prompts: string[] = []

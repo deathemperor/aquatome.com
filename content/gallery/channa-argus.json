@@ -170,14 +170,14 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/commons/19459c552f052da7.webp",
-      "thumb": "https://media.aquatome.com/commons/19459c552f052da7-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/645023616.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/645023616-480.webp",
       "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 2.0",
-      "author": "harum.koh from Kobe city, Japan",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Northern_Snakehead_(Channa_argus)_(30511683140).jpg",
-      "caption": "Cá lóc Amur trong nước đục ngoài tự nhiên",
+      "height": 1600,
+      "licence": "CC BY",
+      "author": "Vladislav Isaev",
+      "sourceUrl": "https://www.inaturalist.org/photos/645023616",
+      "caption": "Cá lóc Amur nằm cạnh tảng đá trên nền cát",
       "best": false,
       "kind": "habitat"
     },
@@ -206,18 +206,6 @@
       "kind": "juvenile"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/645023616.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/645023616-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY",
-      "author": "Vladislav Isaev",
-      "sourceUrl": "https://www.inaturalist.org/photos/645023616",
-      "caption": "Cá lóc Amur nằm cạnh tảng đá trên nền cát",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/45664567.webp",
       "thumb": "https://media.aquatome.com/inaturalist/45664567-480.webp",
       "width": 1024,
@@ -238,6 +226,18 @@
       "author": "Mila C.",
       "sourceUrl": "https://www.inaturalist.org/photos/207783405",
       "caption": "Cá lóc Amur bơi trong ao có bèo",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/19459c552f052da7.webp",
+      "thumb": "https://media.aquatome.com/commons/19459c552f052da7-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 2.0",
+      "author": "harum.koh from Kobe city, Japan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Northern_Snakehead_(Channa_argus)_(30511683140).jpg",
+      "caption": "Cá lóc Amur trong nước đục ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
     }

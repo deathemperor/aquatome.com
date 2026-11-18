@@ -3,11 +3,11 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
+import { GALLERY_POST, LANGS, loadAll, mayPublish, RETIRED_GUIDES, resolveDataCard, retiredTo, slugify, tankKeywordFits, WRITTEN_LANGS, type Translation } from '@aq/schema'
 import { checkPages, countMismatch, hasEmail, isLink, isMediaFile, mayHoldEmail, photoCaptions, RATCHETED, ratcheted, refCredits, RULES, SWEPT_KINDS, thanksLines } from '../src/content-rules'
 import { englishOf } from '../src/english'
 import { tilapiaUnnamed } from '../src/kind-words'
-import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames } from '../src/names'
+import { droppedName, FISH_NAMES, KIND_PASSAGES, oldNames, renamings } from '../src/names'
 import { altKey, NOT_ITS } from '../src/alt-names'
 import { GROUP_ORDERS, MISMATCHED } from '../src/gbif'
 import { productOf } from '../src/fit'
@@ -129,6 +129,10 @@ const KEPT_ADDRESS: Record<string, string> = {
   'aphyosemion-gabunense': 'ca-killi-duoi-dan-lia-gabon-gabon-lyretail',
   'boulengerella-cuvieri': 'ca-cuvieri-boulengerella-cuvieri',
   'myriophyllum-elatinoides': 'cay-rong-duoi-chon-nuoc-myriophyllum-elatinoides',
+  // Its row only says its own words; its address waits for the owner's answer on addresses.
+  'trichopsis-pumila': 'ca-sac-lun-trichopsis',
+  'trichopodus-leerii': 'ca-sac-ngoc-trai',
+  'symphysodon-aequifasciatus': 'ca-dia',
 }
 test("the chief of staff's fish and plant names stay, each guarded, the old name kept for search or dropped, the address as it was or forwarding", () => {
   const content = fileURLToPath(new URL('../../../content', import.meta.url))
@@ -149,18 +153,81 @@ test("the chief of staff's fish and plant names stay, each guarded, the old name
     // An old name is this one's alone (Astra, 2026-11-13): no other page is called by it, or by a name it begins, but for
     // another species' longer name the row lists, which the text rename leaves whole ("Cá platy variatus").
     const theirs = (n: string) => (r.longer ?? []).some(l => `${n.toLowerCase()} `.startsWith(`${l.toLowerCase()} `))
-    for (const was of oldNames(r)) expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => old(was).test(n) && !theirs(n))).map(p => p.page), was).toEqual([])
+    for (const { was } of renamings(r)) expect(others.filter(p => [p.t.name, ...p.t.altNames].some(n => old(was).test(n) && !theirs(n))).map(p => p.page), was).toEqual([])
   }
   const files = [...readdirSync(join(content, 'summaries')).map(f => `summaries/${f}`), ...readdirSync(join(content, 'captions')).map(f => `captions/${f}`)]
   // Less the longer names the rows list, which keep their words ("Cá platy variatus (Xiphophorus variatus) dễ nuôi").
   const longer = FISH_NAMES.flatMap(r => r.longer ?? []).map(l => new RegExp(old(l).source, 'giu'))
   const holdsOld = (f: string) => {
     const words = longer.reduce((s, l) => s.replace(l, ''), readFileSync(join(content, f), 'utf8').normalize('NFC'))
-    return FISH_NAMES.some(r => oldNames(r).some(was => old(was).test(words)))
+    return FISH_NAMES.some(r => renamings(r).some(({ was }) => old(was).test(words)))
   }
   expect(files.filter(holdsOld)).toEqual([])
   // The passages a person found read as they said (names.ts KIND_PASSAGES).
   for (const r of KIND_PASSAGES) expect(readFileSync(join(content, r.page, 'vi.json'), 'utf8').normalize('NFC'), r.page).not.toContain(r.was)
+})
+
+// The naming rule's caption check (the chief of staff, 17 Nov): a caption is also its picture's alt text everywhere on the
+// site, so it names its animal as the pages do. No caption, on a fish's, plant's, breed's or guide's photos, their
+// albums or a video's stills, keeps a renamed fish's old name (names.ts FISH_NAMES, which the sweep renames); and no
+// fish's own photos carry a name a person found is another fish's (alt-names.ts NOT_ITS).
+test('no caption keeps a renamed fish\'s old name, and no fish\'s photos carry another fish\'s name', () => {
+  const content = fileURLToPath(new URL('../../../content', import.meta.url))
+  const old = (was: string) => new RegExp(`(?<!\\p{L})${was.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s+')}(?!\\p{L})`, 'iu')
+  const longer = FISH_NAMES.flatMap(r => r.longer ?? []).map(l => new RegExp(old(l).source, 'giu'))
+  const renamed = FISH_NAMES.flatMap(r => renamings(r).map(({ was }) => ({ was, re: old(was) })))
+  type Photo = { caption?: string }
+  type Figure = { photo?: Photo; moments?: Photo[] }
+  const captionsOf = (f: string) => {
+    const e = JSON.parse(readFileSync(f, 'utf8').normalize('NFC')) as { photos?: Photo[]; video?: { figures?: Figure[] } }
+    return [...(e.photos ?? []), ...(e.video?.figures ?? []).flatMap(x => [...(x.photo ? [x.photo] : []), ...(x.moments ?? [])])].map(p => p.caption ?? '').filter(Boolean)
+  }
+  const files = [
+    ...readdirSync(join(content, 'gallery')).filter(f => f.endsWith('.json')).map(f => join(content, 'gallery', f)),
+    ...['species', 'plants', 'breeds', 'guides'].flatMap(k => readdirSync(join(content, k)).map(id => join(content, k, id, 'entity.json')).filter(f => existsSync(f))),
+  ]
+  const left: string[] = []
+  for (const f of files) for (const c of captionsOf(f)) {
+    const words = longer.reduce((s, l) => s.replace(l, ''), c)
+    for (const r of renamed) if (r.re.test(words)) left.push(`${f.slice(content.length + 1)}: "${c}" (${r.was})`)
+  }
+  // Another fish's name on a fish's own photos: its album and its page. Read without the fish's own names, which can hold
+  // the other's ("Cá molly vây buồm" holds "Cá molly", "Cá tetra Congo cam" holds "Cá tetra Congo").
+  for (const id of readdirSync(join(content, 'species'))) {
+    const e = JSON.parse(readFileSync(join(content, 'species', id, 'entity.json'), 'utf8')) as { scientificName: string }
+    const off = NOT_ITS[e.scientificName]
+    if (!off) continue
+    const page = JSON.parse(readFileSync(join(content, 'species', id, 'vi.json'), 'utf8').normalize('NFC')) as { name: string; altNames?: string[] }
+    const own = [page.name, ...(page.altNames ?? [])].sort((a, b) => b.length - a.length).map(n => new RegExp(old(n).source, 'giu'))
+    for (const f of [join(content, 'gallery', `${id}.json`), join(content, 'species', id, 'entity.json')].filter(x => existsSync(x)))
+      for (const c of captionsOf(f)) {
+        const words = own.reduce((s, n) => s.replace(n, ' '), c)
+        for (const x of off) if (old(x.name).test(words)) left.push(`${f.slice(content.length + 1)}: "${c}" (${x.name})`)
+      }
+  }
+  expect(left).toEqual([])
+})
+
+// Two fish pages' photos kept a name their page had dropped (the Writing Lead's count of 17 Nov, 6 of 10,654 captions):
+// Abbottina rivularis's "cá gudgeon giả Trung Quốc" and Mystus leucophasis's "cá nheo ngửa châu Á". A caption is also its
+// photo's alt text, so they say the page's name.
+test('two fish pages\' photos say the name their page has, not the one it dropped', () => {
+  const gallery = fileURLToPath(new URL('../../../content/gallery', import.meta.url))
+  const captions = (id: string) => (JSON.parse(readFileSync(join(gallery, `${id}.json`), 'utf8')) as { photos: { caption?: string }[] }).photos.map(p => p.caption ?? '')
+  expect(captions('abbottina-rivularis').filter(c => /gudgeon giả/iu.test(c))).toEqual([])
+  expect(captions('mystus-leucophasis').filter(c => /nheo ngửa/iu.test(c))).toEqual([])
+})
+
+// Three plecos' L numbers, settled from the saved sources (the Writing Lead's read, 16 Nov): Glaser and ScotCat give
+// Spectracanthicus zuanoni L20 as well as L354; ScotCat calls L165 the true P. gibbiceps and lists L83; and of the two fish
+// sold as L200, Glaser's stock list and Seriously Fish give Baryancistrus demantoides "L200a", Hemiancistrus subviridis
+// keeping L200. The record is kept as it is (merge.ts), and each head shows its first number.
+test('three plecos carry the L numbers their saved sources give, and each head shows the first', () => {
+  const content = fileURLToPath(new URL('../../../content/species', import.meta.url))
+  const read = (id: string, f: string) => JSON.parse(readFileSync(join(content, id, f), 'utf8')) as { lNumber?: string; name?: string }
+  expect(['spectracanthicus-zuanoni', 'pterygoplichthys-gibbiceps', 'baryancistrus-demantoides', 'hemiancistrus-subviridis'].map(id => read(id, 'entity.json').lNumber))
+    .toEqual(['L354, L20', 'L165, L83', 'L200a', 'L200'])
+  for (const lang of ['vi', 'id', 'th']) expect(read('baryancistrus-demantoides', `${lang}.json`).name, lang).toMatch(/ L200a$/)
 })
 
 // Two plant names a person fixed lose the scientific name in brackets and keep their address (the naming plan, 14 Nov);
@@ -326,6 +393,28 @@ test('the gill fluke guide gives praziquantel in food by the fish\'s weight, and
     expect(t.body, lang).toMatch(/<td>40 (?:mg|มก)/u)
     expect(t.body, `${lang}: Florida's warning beside its food dose`).toMatch(/nghiên cứu|diteliti|dikaji|วิจัย/u)
   }
+})
+
+// The chief of staff, 17 Nov 2026: a US seller's three quarantine medicines (sold there, with their doses per 10 US gallons)
+// came off the site with the video guide built on them. The general guide had the same protocol in every language, and its
+// Thai page printed the writer's source numbers ("(แหล่งที่ 0)"). Its saved facts no longer name the medicines, and the copy
+// writer doesn't save a copy that prints source numbers (topics.ts sourceNumbers), so no rewrite brings either back.
+test('the quarantine guide names no US seller\'s medicine in any language, nor its saved facts, and Thai prints no source number', async () => {
+  const id = 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh'
+  const dir = fileURLToPath(new URL(`../../../content/guides/${id}/`, import.meta.url))
+  const brands = /Maracyn|ParaCleanse|Ich-X|PraziPro|ParaGuard|quarantine trio|bộ ba thuốc/iu
+  // The protocol unnamed too (Codex's read of #1588: Malay gave it as "a combination of" three medicines): its seven
+  // days without food, in each language's words on main before, and Malay's combination.
+  const protocol = /7 ngày[^.]*không cho ăn|7 hari tanpa (?:diberi pakan|memberi makan)|7 วันโดยไม่ให้อาหาร|gabungan ubat antibakteria/u
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
+    expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(brands)
+    expect(JSON.stringify([t.body, t.summary, t.faq]), lang).not.toMatch(protocol)
+  }
+  expect((JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation).bodyFixed).toBe(true)
+  expect((JSON.parse(await readFile(join(dir, 'th.json'), 'utf8')) as Translation).body).not.toMatch(/แหล่งที่\s*\d/u)
+  const facts = await readFile(fileURLToPath(new URL(`../../../engine-state/topics/${id}.json`, import.meta.url)), 'utf8')
+  expect(facts).not.toMatch(brands)
 })
 
 // University of Florida's angelfish paper: "50mg/kg body weight for five consecutive days". A dose per kilo says a kilo of what.
@@ -676,7 +765,7 @@ test('every guide taken off for good is one the content has, and forwards to a p
     expect(existsSync(join(content, 'guides', id, 'vi.json')), id).toBe(true)
     if (to !== 'guides') expect(existsSync(join(content, to.kind, to.id, 'vi.json')), `${id} → ${to.kind}/${to.id}`).toBe(true)
   }
-  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(31)
+  expect(Object.keys(RETIRED_GUIDES)).toHaveLength(34)
   expect(readdirSync(join(content, 'guides')).filter(id => GALLERY_POST.test(id)).length).toBeGreaterThanOrEqual(66)
 })
 
@@ -751,6 +840,28 @@ test('the care facts a product\'s sentence carried are back without the product,
   // None names the products the cut took them off for.
   const all = [...species.map(([id, key]) => part(id, key, 'aquariumcoop').vi), ...guides.map(([id]) => read<{ body: string }>(`guides/${id}/vi.json`).body)].join(' ')
   expect(all).not.toMatch(/Wonder Shell|Equilibrium|ParaCleanse|Flourish Excel|Easy Carbo|Easy Green/)
+})
+
+// The Glossary lead, the Writing lead and the chief of staff, 17 Nov 2026: six live guides said a Singapore shop's figures, or research's own
+// "relevant to Vietnam", as if of Vietnam (the research prompt filed other countries' pages under its Vietnam section). Each
+// figure keeps the place its page measured, a line no page supports goes, and each body is a person's (bodyFixed), so no
+// writer puts one back.
+const PLACE_KEPT: Record<string, { gone: string[]; said: string[] }> = {
+  'aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong': { gone: ['Ở xứ nóng, phòng không máy lạnh'], said: ['Ở Singapore, phòng không máy lạnh có thể lên 28–31 °C.'] },
+  'aquatome-ca-bo-an-khong-chiu-an-nguyen-nhan-va-cach-xu-ly': {
+    gone: ['gần giống miền Nam', '<li>Bể đặt trong phòng không máy lạnh', '<li>Phòng có máy lạnh lúc bật lúc tắt', 'nhanh. Rủi ro chính về nhiệt độ'],
+    said: ['Ở Singapore, rủi ro chính về nhiệt độ là nước quá nóng chứ không phải quá lạnh.', 'Một cửa hàng cá ở Singapore ghi: bể đặt trong phòng không máy lạnh có thể vượt 32°C', 'Một cửa hàng cá ở Singapore khuyên: phòng có máy lạnh lúc bật lúc tắt thì cài sưởi ở 25–26°C'],
+  },
+  'aquatome-san-dep-planaria-va-thuy-tuc-hydra-trong-be-ca-be-tep-nhan-biet-va-cach-diet': { gone: ['Nước ở vùng nhiệt đới thường ở mức 28–32', 'ở đây cho ăn cẩn thận'], said: ['Một cửa hàng cá ở Singapore ghi: trong nước nhiệt đới 28–32 °C, chất hữu cơ phân hủy rất nhanh, vì vậy cho ăn cẩn thận'] },
+  'aquatome-cach-lam-trong-nuoc-be-ca-bi-duc': { gone: ['mùa nóng ở nước mình'], said: ['Bể đã chạy lâu mà tự dưng đục trắng thì có thể là do những tháng nóng, hoặc do bể đón ánh sáng ban ngày quá lâu.'] },
+  'aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly': { gone: ['mùa nóng ở Việt Nam', 'nguy hiểm nhất'], said: ['nên nước càng ấm thì đêm thiếu oxy càng nguy hiểm.'] },
+  'aquatome-nuoi-ca-trong-binh-chau-khong-loc-khong-sui-oxy-loai-nao-song-duoc-va-cach-cham': { gone: ['không riêng Việt Nam', 'mùa hè ở mình'], said: ['Nước càng ấm thì càng giữ được ít oxy. Vì vậy vào mùa nóng, bình đặt trong nhà dễ cần sủi thêm hơn.'] },
+}
+test.each(Object.entries(PLACE_KEPT))('advice for elsewhere: %s keeps each figure\'s place and says nothing of Vietnam its pages don\'t', (id, { gone, said }) => {
+  const t = JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as { body: string; bodyFixed?: boolean }
+  expect(t.bodyFixed).toBe(true)
+  for (const g of gone) expect(t.body).not.toContain(g)
+  for (const x of said) expect(t.body).toContain(x)
 })
 
 test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {
@@ -920,6 +1031,22 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
   const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
   expect(langs).toContain('vi.json')
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
+// The chief of staff, 17 Nov 2026: three pages a foreign seller's products or medicines make up go off for good. The
+// shopping list goes to the guides list, the iron fertiliser to the guide on choosing a fertiliser, and the quarantine video
+// built on three medicines sold abroad to our general quarantine guide. Each target is a page and stays.
+test('the two kits and the quarantine video are off for good, each to the page it names', () => {
+  expect(retiredTo('aquariumcoop-blogs-aquarium-aquarium-shopping-list')).toBe('guides')
+  const want = {
+    'aquariumcoop-blogs-aquarium-iron-fertilizer': 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you',
+    'youtube-LrRhfOYfXns': 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh',
+  }
+  for (const [id, target] of Object.entries(want)) {
+    expect(retiredTo(id), id).toEqual({ kind: 'guides', id: target })
+    expect(retiredTo(target), target).toBeUndefined()
+    expect(existsSync(fileURLToPath(new URL(`../../../content/guides/${target}/vi.json`, import.meta.url))), target).toBe(true)
+  }
 })
 
 // The Writing Lead's answer of 15 Nov 2026 on 60 findings in 17 held video guides (the source talking, units, prices),

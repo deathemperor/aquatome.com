@@ -1,8 +1,8 @@
 {
   "id": "garra-flavatra",
   "native": {
-    "input": "22e4adcabbc5d57f",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "5e26c069801c4eea",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "MM",
@@ -19,11 +19,26 @@
         "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
         "words": "Myanmar",
         "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The Panda Garra is native to the Rakhine mountain range in Western Myanmar.",
+        "words": "Myanmar",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Rakhine Yoma",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Arakan",
         "source": "seriouslyfish",
         "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
         "country": "MM",

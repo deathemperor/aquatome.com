@@ -121,6 +121,9 @@ export const NOT_ITS: Readonly<Record<string, readonly { name: string; of: strin
   'Corydoras trilineatus': of('corydoras-julii', 'Cá chuột julii', 'Julii cory', 'Julii corydoras'),
   'Ambastaia sidthimunki': of('corydoras-pygmaeus', 'Cá chuột lùn'),
   'Trichopsis pumila': of('trichogaster-lalius', 'Cá sặc lùn'),
+  // The chief of staff, 17 Nov: BW Aquatics' "Betta Antuta" sale pages, filed under Betta antoni, are a fish of the
+  // unimaculata group (Seriously Fish puts antoni in the akarensis group, with a page of its own for Betta sp. 'Antuta').
+  'Betta antoni': of("Betta sp. 'Antuta' (no page)", 'Betta Antuta LB', 'Betta antuta'),
 }
 
 /**
@@ -158,10 +161,15 @@ export function cleanAltNames(page: { name: string; sci: string; altNames: strin
   // gladiator" is its old name, not a copy of its scientific name. A name the row drops is no name it kept.
   const must = new Set(fishNames.filter(r => r.sci === page.sci).flatMap(r => [r.was, ...(r.alts ?? [])].filter(n => !droppedName(r, n))).map(altKey).filter(k => k && k !== altKey(page.name)))
   const required: string[] = []
+  // A spelling a row keeps that reads as the page's own name but for a letter: "Cá dĩa" beside "Cá đĩa", where đ and d are
+  // two letters and the south and the shops write "dĩa" (the Site Lead's spellings, 16 Nov). Kept as written; an unaccented
+  // copy ("Ca noc dau") still folds into its accented name.
+  const spelled = new Set(fishNames.filter(r => r.sci === page.sci).flatMap(r => r.alts ?? []).map(n => n.normalize('NFC')).filter(n => n !== page.name.normalize('NFC')))
   for (const raw of page.altNames) {
     const name = raw.replace(/\s+/g, ' ').trim()
     const key = altKey(name)
     if (!key) continue
+    if (spelled.has(name.normalize('NFC'))) { if (!required.includes(name)) required.push(name); continue }
     if (must.has(key)) { if (!required.some(n => altKey(n) === key)) required.push(name); continue }
     const breed = breedOf.get(key)
     if (breed) { off.push({ name: raw, why: 'breed', of: breed }); continue }

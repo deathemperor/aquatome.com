@@ -1,8 +1,13 @@
 {
   "slug": "santee",
-  "name": "Santee",
+  "name": "Sungai Santee",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T11:37:24.718Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

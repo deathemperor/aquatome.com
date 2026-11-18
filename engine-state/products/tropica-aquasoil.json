@@ -1,0 +1,266 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Origin",
+      "value": "Denmark",
+      "source": 1
+    },
+    {
+      "key": "Package size",
+      "value": "9 L bag",
+      "source": 1
+    },
+    {
+      "key": "Grain size",
+      "value": "2–3 mm",
+      "source": 1
+    },
+    {
+      "key": "Colour",
+      "value": "Black granules",
+      "source": 1
+    },
+    {
+      "key": "Type",
+      "value": "Complete substrate, can be used on its own without another layer",
+      "source": 2
+    },
+    {
+      "key": "Water chemistry",
+      "value": "Lowers pH and has a mild effect on other water parameters",
+      "source": 2
+    },
+    {
+      "key": "Nutrient lifespan (shop claim)",
+      "value": "More than 1 year of steady nutrient release",
+      "source": 0
+    },
+    {
+      "key": "Nutrient lifespan (review test)",
+      "value": "About 10–12 months before root tabs are needed",
+      "source": 7
+    },
+    {
+      "key": "Volume formula",
+      "value": "Length × width × depth (cm) ÷ 1000 = litres needed",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "Tropica Aquarium Soil (normal) 9 L",
+      "specs": [
+        {
+          "key": "Grain size",
+          "value": "2–3 mm",
+          "source": 1
+        },
+        {
+          "key": "Volume",
+          "value": "9 L",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Tropica Aquarium Soil Powder (3 L / 9 L)",
+      "specs": [
+        {
+          "key": "Grain size",
+          "value": "About 1–1.5 mm, finer than the normal grade, for foreground plants",
+          "source": 5
+        },
+        {
+          "key": "Bag sizes",
+          "value": "3 L and 9 L",
+          "source": 6
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Marine Aqua",
+      "url": "https://marine-aqua.vn/san-pham/phan-nen-thuy-sinh-tropica-aquarium-soil-9l/",
+      "vnd": 820000,
+      "variant": "Normal 9 L (listed in stock)",
+      "source": 0
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/tropica-aquarium-soil-9l-phan-nen-dat-nen-thuy-sinh",
+      "vnd": 790000,
+      "variant": "Normal 9 L",
+      "source": 1
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/phan-nen-tropica-aquarium-soil-bao-9l",
+      "vnd": 800000,
+      "variant": "Normal 9 L (stock not stated)",
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/phan-nen-tropica-aquarium-soil-9l",
+      "vnd": 650250,
+      "variant": "Normal 9 L (sale price, sold out)",
+      "source": 3
+    }
+  ],
+  "fits": [
+    {
+      "fact": "The shop says it suits both shrimp tanks and planted tanks, and the hard grains make planting easy",
+      "source": 1
+    },
+    {
+      "fact": "Sold as suitable for fish, shrimp and plants in newly set-up tanks",
+      "source": 2
+    },
+    {
+      "fact": "For easy plants like Anubias and Bucephalandra, it is enough on its own and needs almost no extra fertiliser",
+      "source": 3
+    },
+    {
+      "fact": "The shop says it helps red plants show stronger colour",
+      "source": 0
+    },
+    {
+      "fact": "For heavily planted Dutch or Nature-style tanks, the shop suggests adding Tropica Substrate or a Vietnamese mixed base layer underneath",
+      "source": 1
+    },
+    {
+      "fact": "The powder grade's finer grain suits foreground planting and small tanks",
+      "source": 5
+    },
+    {
+      "fact": "A comparison review sees it as best for hobbyists who want easier cycling at a lower price than ADA. pH settled around 6.5 in its tests",
+      "source": 7
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Work out how much you need: length × width × depth in cm, divided by 1000, gives litres",
+      "source": 1
+    },
+    {
+      "fact": "For the first 4 weeks, change 30–50% of the water twice a week",
+      "source": 1
+    },
+    {
+      "fact": "Another shop says to change 25–50% of the water at least twice a week for the first 4 weeks",
+      "source": 2
+    },
+    {
+      "fact": "Frequent water changes in the first month help prevent algae",
+      "source": 0
+    },
+    {
+      "fact": "The shop says the water clears quickly after the tank is filled",
+      "source": 1
+    },
+    {
+      "fact": "Nutrients can run low after about 10–12 months, so root tabs should be added from then on",
+      "source": 7
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Releases some ammonia after setup. One forum user measured about 0.5 mg/l and cleared it over a few weeks with big water changes and a mature filter",
+      "source": 8
+    },
+    {
+      "fact": "The ammonia release is milder and the cycle shorter than ADA Amazonia, but the nutrients run out sooner",
+      "source": 7
+    },
+    {
+      "fact": "Buyers report bags turning partly to dust in shipping and some grains crumbling when the tank is filled, which clouds the water",
+      "source": 9
+    },
+    {
+      "fact": "Costs more than budget substrates",
+      "source": 3
+    },
+    {
+      "fact": "Stock in Vietnam is patchy. Some shops list the 9 L bag as sold out",
+      "source": 3
+    },
+    {
+      "fact": "The Marine Aqua product page mentions another brand (Chihiros) in its description, so check with the shop that you are getting genuine Tropica",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "ADA",
+      "model": "Aqua Soil Amazonia Ver.2 (9 L)",
+      "why": "Better choice for long-running planted or shrimp-breeding tanks: harder grains and pH buffering that lasts longer. The trade-offs are a strong ammonia spike, the need for a fishless cycle, and a higher price",
+      "source": 7
+    },
+    {
+      "brand": "GEX",
+      "model": "Aqua soil (8 L)",
+      "why": "Cheaper option that buffers pH well, but the grains are softer and compact sooner. Suits tanks you plan to rescape within 12–18 months",
+      "source": 7
+    },
+    {
+      "brand": "Vietnamese mixed substrates (Vũ Aqua, Cibi Aqua, 5S, Nuphar)",
+      "model": "Mixed base layer",
+      "why": "Low-cost local base layers that one shop recommends under Tropica Soil for heavily planted tanks",
+      "source": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://marine-aqua.vn/san-pham/phan-nen-thuy-sinh-tropica-aquarium-soil-9l/",
+      "title": "Phân nền thủy sinh Tropica - Aquarium Soil 9L - Marine Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/tropica-aquarium-soil-9l-phan-nen-dat-nen-thuy-sinh",
+      "title": "TROPICA AQUARIUM SOIL 9L - PHÂN NỀN - Thủy Sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/phan-nen-tropica-aquarium-soil-bao-9l",
+      "title": "Phân nền Tropica Aquarium Soil - bao 9L - Bách Khoa Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/phan-nen-tropica-aquarium-soil-9l",
+      "title": "Phân nền TROPICA Aquarium Soil 9L - Thủy Sinh 4U",
+      "kind": "shop"
+    },
+    {
+      "url": "https://marine-aqua.vn/danh-muc/thuong-hieu/tropica/",
+      "title": "TROPICA - Marine Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquascaperoom.ca/tropica-aquarium-soil-powder",
+      "title": "Tropica Aquarium Soil Powder - Aquascape Room",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thewetleaf.ca/products/tropica-aquarium-soil-1",
+      "title": "Tropica Aquarium Soil Powder - The Wet Leaf",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=23951",
+      "title": "Best Aqua Soil Brands Compared: ADA, Tropica, GEX and More",
+      "kind": "review"
+    },
+    {
+      "url": "https://ukaps.org/forum/goto/post?id=601985",
+      "title": "UKAPS forum thread on Tropica soil ammonia",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.desertcart.co.za/products/252050740-tropica-aquarium-soil-9-litres",
+      "title": "Tropica Aquarium Soil 9 litres - buyer reviews (Desertcart)",
+      "kind": "review"
+    }
+  ]
+}

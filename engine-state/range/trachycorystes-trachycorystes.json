@@ -1,14 +1,53 @@
 {
   "id": "trachycorystes-trachycorystes",
   "native": {
-    "input": "fb390ae1059a53d2",
-    "at": "2026-11-16T17:28:41.839Z",
-    "claims": [],
+    "input": "5920a943c7c24cd6",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Essequibo River basin, Guyana, and Orinoco River basin, Venezuela.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Essequibo River basin, Guyana, and Orinoco River basin, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
     "regions": [
       {
         "name": "Amazon",
         "source": "glaser",
         "quote": "It is widely distributed in the whole Amazon basin.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Essequibo River basin, Guyana, and Orinoco River basin, Venezuela.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin, Essequibo River basin, Guyana, and Orinoco River basin, Venezuela.",
+        "country": "VE",
         "ok": true
       }
     ],
@@ -93,8 +132,12 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-16T17:28:41.839Z"
+    "native": [
+      "GY",
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T00:14:47.070Z"
   }
 }

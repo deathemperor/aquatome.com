@@ -1,0 +1,19 @@
+{
+  "id": "arius-venosus",
+  "input": "01ad9eb5c923647e",
+  "at": "2026-11-18T01:04:30.434Z",
+  "claims": [
+    {
+      "kind": "marine",
+      "source": "scotcat",
+      "quote": "It inhabits tropical marine and brackish waters in the Indo-western Pacific region, including the Mozambique Channel, Myanmar, Indonesia and southern China.",
+      "ok": true
+    },
+    {
+      "kind": "brackish",
+      "source": "scotcat",
+      "quote": "It inhabits tropical marine and brackish waters in the Indo-western Pacific region, including the Mozambique Channel, Myanmar, Indonesia and southern China.",
+      "ok": true
+    }
+  ]
+}

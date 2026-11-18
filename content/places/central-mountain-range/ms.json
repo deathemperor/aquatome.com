@@ -3,6 +3,12 @@
   "name": "Banjaran Tengah",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-17T11:34:04.463Z",
+    "why": "The name \"Banjaran Tengah\" is a loose translation of \"Central Range\"; Malaysian atlases write the Taiwan range as \"Banjaran Tengah\" rarely, and the usual form is \"Banjaran Zhongyang\" (Pergunungan Pusat), keeping the proper name \"Zhongyang/Chungyang\" with the kind word \"Banjaran\"."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

@@ -658,7 +658,24 @@
       "html": "<p>Most specimens are peaceful, but one should always keep in mind that puffers in general have an individual temper. Every now and then, even among peaceful species, single specimens exist that love to bite the fins of their tankmates.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/58561943.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58561943-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Zygy",
+      "sourceUrl": "https://www.inaturalist.org/photos/58561943",
+      "caption": "Cá nóc vằn trắng bơi trong nước biển trong",
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/58561943-large.webp",
+        "width": 1105,
+        "height": 1105
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "Tuq3SAXaSVE",

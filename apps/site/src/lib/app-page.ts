@@ -3,7 +3,8 @@ import { PAGE_VERSION, pageShard, shardCount, type Block, type Image, type Inlin
 import { videoAbout } from './video-about'
 import { appBreeds, appEquipment, appGlossary, appGuideImage, appGuides, appIndex, appPlants, appSeries, appSeriesImage, appSpecies, headPhoto, photoBox, type AppIndex } from './app-index'
 import { breedParts } from './breed-page'
-import { BREED_KIND, type Breed } from './breeds'
+import { breedIsFish, breedKind, type Breed } from './breeds'
+import { isFish } from './taxa-places'
 import { photoCredit } from './cite'
 import { dmy } from './products'
 import { VN_WATER, vnClimate } from './climate'
@@ -201,7 +202,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
   // "Nuôi chung" (Companions.astro): the fish to keep with it and away from it; with neither, the tool's link alone.
-  const why = avoidWhy(t, p.mates.self.name)
+  const why = (x: Localized<SpeciesEntity>) => avoidWhy(t, p.mates.self.name, isFish(x))
   const mate = (x: Localized<SpeciesEntity>) => { const img = image(lang, cleanPhoto(x.photos), undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, ...(img ? { img } : {}) } }
   const tool = { text: t('Kiểm tra nuôi chung với loài khác →'), href: at(p.tool) }
   const { good, avoid } = p.mates
@@ -209,7 +210,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     ? {
       t: 'mates', title: t('Nuôi chung'),
       ...(good.length ? { good: { title: t('Hợp với'), items: good.map(({ s }) => mate(s)) } } : {}),
-      ...(avoid.length ? { avoid: { title: t('Tránh'), items: avoid.map(({ s, item, reason }) => ({ ...mate(s), why: why[reason].split('{size}').join(`${num(item.sizeCm!)} cm`) })) } } : {}),
+      ...(avoid.length ? { avoid: { title: t('Tránh'), items: avoid.map(({ s, item, reason }) => ({ ...mate(s), why: why(s)[reason].split('{size}').join(`${num(item.sizeCm!)} cm`) })) } } : {}),
       ...(good.length || avoid.length ? { note: t('Gợi ý theo nhiệt độ, pH, kích thước và tính cách của từng loài.') } : {}),
       tool,
     }
@@ -220,8 +221,8 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
     by: t('AquaTome tóm tắt từ các nguồn bên dưới.'),
   }] : []
   const breeds: Block[] = p.breeds.length ? [{
-    t: 'cards', title: t('Các dòng và cá lai từ {name}', { name: s.t.name }),
-    items: p.breeds.map((b, i) => { const img = image(lang, p.breedPhotos[i], undefined, true); return { path: at(`/vi/ca/${b.t.slug}/`), name: b.t.name, sub: t(BREED_KIND[b.kind]), ...(img ? { img } : {}) } }),
+    t: 'cards', title: t(isFish(s) ? 'Các dòng và cá lai từ {name}' : 'Các dòng và con lai từ {name}', { name: s.t.name }),
+    items: p.breeds.map((b, i) => { const img = image(lang, p.breedPhotos[i], undefined, true); return { path: at(`/vi/ca/${b.t.slug}/`), name: b.t.name, sub: t(breedKind(b.kind, isFish(s))), ...(img ? { img } : {}) } }),
   }] : []
   const videos: Block[] = p.videos.length ? [{
     t: 'videos', title: 'Video',
@@ -264,7 +265,8 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   const at = (viPath: string) => appPath(lang, viPath)
   const p = breedParts(lang, c, b)
   const lead = headImage(lang, headPhoto(b.photos), b.t.name)
-  const kind = t(BREED_KIND[b.kind])
+  const fish = breedIsFish(c, b)
+  const kind = t(breedKind(b.kind, fish))
   const parents: Block[] = p.parents.length ? [{
     t: 'p', c: [`${t('Lai từ:')} `, ...p.parents.flatMap((x, i): Inline[] => [
       ...(i > 0 ? [', '] : []),
@@ -274,7 +276,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
   }] : []
   const lines: Block[] = p.lines.length ? [{
     t: 'cards', title: t('Các dòng'),
-    items: p.lines.map((x, i) => { const img = image(lang, p.linePhotos[i], undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, sub: t(BREED_KIND[x.kind]), ...(img ? { img } : {}) } }),
+    items: p.lines.map((x, i) => { const img = image(lang, p.linePhotos[i], undefined, true); return { path: at(`/vi/ca/${x.t.slug}/`), name: x.t.name, sub: t(breedKind(x.kind, fish)), ...(img ? { img } : {}) } }),
   }] : []
   return {
     v: PAGE_VERSION,

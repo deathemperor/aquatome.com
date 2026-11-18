@@ -1,0 +1,17 @@
+{
+  "slug": "ca-noc-arothron-firmamentum",
+  "name": "Cá nóc Arothron firmamentum",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Đây là một loài cá nóc biển, nhưng đã có người bắt được nó ở vùng nước ngọt hoàn toàn tại Miến Điện (Myanmar).</p>",
+    "notes:glaser": "<p>Đây là lần đầu tiên người ta thấy Arothron firmamentum sống trong nước ngọt. Hy vọng là sẽ sớm có thêm thông tin.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

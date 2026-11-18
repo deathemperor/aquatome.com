@@ -17,7 +17,8 @@
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -82,6 +83,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -105,6 +110,12 @@
       "html": "<p>Betta simplex is a mouthbrooding labyrinth fish known only from Krabi province in southern (peninsular) Thailand. Its habitats lie in a karstic area of limestone sinkholes with clear, neutral to alkaline water at pH 7.0 to 7.4. It is most abundant in a small ditch draining the pools that often dries out, leaving some fish in shallow remnant pools. A population from near Ao Luek has appeared in the hobby as B. simplex 'type 2'.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta-simplex-2/",
+      "html": "<p>A small (5-6 cm) mouthbrooding species from Thailand. Betta simplex is a very close relative of Betta picta from Java, Betta falx from Sumatra and Betta taeniata from Borneo. All these species share the same ancestor.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-simplex",
@@ -115,6 +126,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-simplex",
       "html": "<p>This species' habitats are located in a karstic area and contain neutral to alkaline water with a pH of 7.0-7.4.</p><p>The type locality consists of a series of deep limestone sinkholes forming pools at the surface, plus a small ditch which acts as an overflow from the pools. The water is very clear and has a distinctive bright blue-green colour due to the high proportion of dissolved calcium carbonate.</p><p>According to reports B. simplex is most abundant in the small ditch draining the pools. This often dries out with some of the fish surviving in shallow remnant pools for part of the year. Marginal vegetation grows densely around the ditch although aquatic vegetation is mainly confined to the pools where large beds of Cryptocoryne cordata can be found. Sympatric species in the pool system include Striuntius lateristriga and Trigonostigma espei.</p><p>The Ao Luek population inhabits a flowing stream with limestone rocks and gravel, overhanging marginal vegetation, and clear water. Channa lucius and a Danio sp. were also recorded there.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta-simplex-2/",
+      "html": "<p>In contrast to many other mouthbrooding Betta species, B. simplex is not adapted to soft, acidic water, because its natural habitat (near the town of Krabi in the south of Thailand) is characterised by limestone hills.</p>"
     },
     {
       "key": "aquariumSize",
@@ -153,6 +170,12 @@
       "html": "<p>Males grow larger, possess a greater extent of iridescent scaling on the head, a broader head shape, and more extended fins than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta-simplex-2/",
+      "html": "<p>The males have a broad green to blue (reddish in B. falx) seam in the anal and the caudal fin. Males that are not yet fully grown but already sexually ripe already show how beautiful they will become when adult.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-simplex",
@@ -177,15 +200,15 @@
       "thumb": "https://media.aquatome.com/commons/d801d51d652a3bce-480.webp",
       "width": 1200,
       "height": 595,
-      "licence": "CC BY-SA 3.0",
-      "author": "Andrewbogott",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_simplex.jpg",
-      "caption": "Cá betta simplex nâu đỏ bơi trong bể thủy sinh có cây xanh",
       "large": {
         "url": "https://media.aquatome.com/commons/d801d51d652a3bce-large.webp",
         "width": 1493,
         "height": 741
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Andrewbogott",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Betta_simplex.jpg",
+      "caption": "Cá betta simplex nâu đỏ bơi trong bể thủy sinh có cây xanh"
     }
   ],
   "videos": [
@@ -245,5 +268,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-17"
 }

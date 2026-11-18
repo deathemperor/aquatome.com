@@ -71,6 +71,21 @@
       "kept": false
     }
   ],
+  "vi/guides/aquariumbreeder-crayfish-and-molting-process#body": [
+    {
+      "at": "2026-11-17T18:17:43Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.93,
+      "notes": [
+        "\"Vài ngày đầu sau khi lột\" adds \"đầu\" (first few days), slightly more specific than \"vài ngày sau khi lột\"; minor nuance.",
+        "\"ăn hết lớp vỏ đó để lấy lại khoáng chất\" became \"ăn lại lớp vỏ đó\"; \"hết\" moved to the end clause, meaning essentially kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-how-to-choose-aquarium-plants-for-beginners#body": [
     {
       "at": "2026-11-09T13:57:24Z",
@@ -100,6 +115,22 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-set-up-a-caridina-shrimp-tank#body": [
+    {
+      "at": "2026-11-17T05:32:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Said more surely than before: \"Bể cỡ này lỡ có sai sót về nước thì cũng ít hại tép hơn, nhất là với người mới.\" (was: \"Cỡ bể này dễ dung thứ nhất cho những lỗi thỉnh thoảng mắc phải về nước, nhất là lỗi của người mới.\")",
+        "\"dễ dung thứ nhất\" (most forgiving) became \"ít hại tép hơn\": the superlative is weakened, and \"hại tép\" (harm to shrimp) is a small addition.",
+        "\"những lỗi thỉnh thoảng mắc phải\" became \"lỡ có sai sót\": the \"occasional\" frequency nuance is turned into a conditional."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",
@@ -127,6 +158,21 @@
         "\"Thay nước... Nhớ hút cặn luôn\" became \"Mỗi lần thay thì nhớ hút cặn luôn\": this adds a condition (do it at each water change) that BEFORE does not state.",
         "\"để phosphat không tích lại\" became \"thì phosphat không tích lại trong bể\": the purpose is now stated as a certain result, which is slightly stronger.",
         "\"cần cây ăn rễ\" became \"phải trồng cây ăn rễ\": a mild strengthening of the requirement."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon#body": [
+    {
+      "at": "2026-11-17T05:33:35Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.62,
+      "notes": [
+        "Added content: \"thổi luồng đặt chìm, chỉ đẩy nước quanh bể mà không khuấy mặt nước\" is not in BEFORE, which only says \"máy bơm tạo dòng\".",
+        "\"máy bơm tạo dòng\" became \"thổi luồng đặt chìm\", which changes the item named and adds a mechanism explanation the source did not give."
       ],
       "attempt": "first",
       "kept": false
@@ -174,6 +220,20 @@
       "kept": true
     }
   ],
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-beautiful-new-varieties-of-liverbearers-arrived-en#body": [
+    {
+      "at": "2026-11-17T05:34:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "\"tất cả các dòng trên\" became \"dòng nào\", which loses the reference to the strains listed above. This is a very slight change."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/glaser-en-25-perchlike-fishes-25g-perchlike-fishes-7-remaining-groups-sunfish-special-en#body": [
     {
       "at": "2026-11-10T21:53:00Z",
@@ -183,6 +243,22 @@
         "\"cá bản địa ở châu Âu\" -> \"cá sống hoang ở châu Âu\": arguably a more accurate wording, but the meaning shifts slightly",
         "\"Ngoài môi trường gốc\" -> \"Ở môi trường gốc tại Bắc Mỹ\": adds \"Bắc Mỹ\", which is consistent with the later sentence",
         "\"các quần thể pumpkinseed hoang dã\" -> \"pumpkinseed hoang dã\": minor"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-a-little-sensation-the-first-documented-ob-discus#body": [
+    {
+      "at": "2026-11-18T01:13:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Bị động\" became \"bị quấy hoặc giật mình\": small addition/nuance shift.",
+        "\"Gần như chắc chắn\" kept; fine.",
+        "\"Thích nghi rất tốt\" became \"quen bể rất nhanh\": slight shift from adaptation quality to speed."
       ],
       "attempt": "first",
       "kept": true
@@ -365,6 +441,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-37GntJo93ec#body": [
+    {
+      "at": "2026-11-17T11:56:14Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "AFTER adds \"Cây dán trên đá\" (plants glued on rock), which BEFORE never mentions. BEFORE only talks about not gluing plants to driftwood (lũa), so this is an added or changed fact.",
+        "\"Nhìn từ mỗi phía\" replaces \"nhìn quanh bể\", a slight shift in meaning.",
+        "BEFORE's \"vì…\" reason clause is split into a separate sentence, and the invented rock detail changes its logic."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
     {
       "at": "2026-11-06T21:51:26Z",
@@ -389,6 +481,38 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-BDqjtjoLvUM#body": [
+    {
+      "at": "2026-11-17T00:27:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "Added content: 'Tảo nâu hay đi kèm giai đoạn lọc chưa đủ vi sinh, lúc nước dễ lên amoniac và nitrit' is not in BEFORE (new claim about biofilter and ammonia/nitrite).",
+        "'hội chứng bể mới' originally was a general name people give to this phase; AFTER ties it to ammonia/nitrite spikes, changing meaning.",
+        "'Người ta hay gọi' became 'người chơi gọi', which drops the hedge 'hay'; the English term (new tank syndrome) was also dropped.",
+        "'hay bị phủ' is kept in the first sentence; 'có thể gặp' is kept."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-BsRyej3Zte8#body": [
+    {
+      "at": "2026-11-17T18:19:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "BEFORE: hẹ must 'bám chặt nền trong dòng nước chảy' (stay firmly rooted in the current); AFTER: 'đung đưa như ở sông' (sway like in a river) changes the meaning, and the rooting idea is lost.",
+        "AFTER adds 'dòng chảy đủ mạnh' (strong enough current), which BEFORE does not state."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-C3jPFBWzK68#body": [
@@ -419,6 +543,47 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-DeGF0oCnqus#body": [
+    {
+      "at": "2026-11-17T00:27:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-FVElZJMaBeo#body": [
+    {
+      "at": "2026-11-18T01:10:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"con cá bị hại nhiều hơn được\" (fish does more harm than good) became \"con cá phá nhiều hơn là đáng giữ\" (does more damage than is worth keeping): shifts the meaning toward whether to keep the fish, which adds a suggestion BEFORE does not state.",
+        "\"cá lau kiếng ăn cây\" -> \"gặm cây\" and \"hay bị gặm\" -> \"hay bị nó ăn\": wording swapped, fine, hedge \"hay\" kept."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-G2iSTDzETi0#body": [
+    {
+      "at": "2026-11-17T18:21:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"lọc thùng (sump)\" changed to \"lọc tràn (sump)\": different term for the same sump, minor terminology shift."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-HUa1u8usS5w#body": [
@@ -501,6 +666,18 @@
         "\"không chịu nước\" became \"không chạm nước\": this changes the reason given. The original says the pieces are not water-resistant. The rewrite says they don't touch water, which is a small nuance shift.",
         "The polycarbonate option is kept as a hedge (\"có thể\"), and the drawback is kept."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-Ox-PCTr1E-s#body": [
+    {
+      "at": "2026-11-17T11:58:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -684,6 +861,22 @@
         "\"2 giọt mỗi giây\" became \"2 bọt mỗi giây\": the dosing unit changed from drops to bubbles.",
         "\"Cây trồng nổi\" became \"Cây trồng cạn\": the plant category was changed.",
         "\"phần thân lá thì vươn lên khỏi mặt nước\" is a slight restructuring that adds the detail of stems and leaves."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-hENX7VGbPUA#body": [
+    {
+      "at": "2026-11-17T11:56:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Added advice not in BEFORE: \"nên lau ngay từ bây giờ\". BEFORE only says wiping once there is water is also easy, but reaching the back is hard when the tank is full.",
+        "Nuance changed: \"lau cũng dễ\" became \"lau dễ hơn\". BEFORE says it is also easy, while AFTER makes it a comparison.",
+        "\"Một cách là đắp...\" became \"Có thể đắp...\". This is minor, but it turns one example method into a general possibility."
       ],
       "attempt": "first",
       "kept": false

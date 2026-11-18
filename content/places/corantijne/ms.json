@@ -3,6 +3,12 @@
   "name": "Corantijn",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T17:56:43.371Z",
+    "why": "The source's \"Corantijne\" refers to the river's drainage, and a Malaysian atlas would write \"Sungai Corantijn\" with the kind word, whereas the bare \"Corantijn\" omits \"Sungai\" and so is cut short."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

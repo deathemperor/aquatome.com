@@ -3,6 +3,12 @@
   "name": "Sungai Mutiara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-17T00:09:53.727Z",
+    "why": "The Pearl River is the Zhujiang in China, and Malay atlases write it as Sungai Mutiara or Sungai Zhujiang. \"Sungai Mutiara\" is a word-for-word translation of the English name. Malaysian usage normally keeps the Chinese name, so it is \"Sungai Zhujiang\" (or \"Sungai Pearl\")."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

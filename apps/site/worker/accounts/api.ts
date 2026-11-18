@@ -9,6 +9,7 @@ import { addPasskey, checkPasskey, loginOptions, registrationOptions, type Rp } 
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
+import { TESTER_ADDRESS } from './tester'
 import { deleteUser, InUse, methodsOf, removeMethod, signInWith } from './users'
 import PICTURES from '../../../../protocols/profile-pictures.json' with { type: 'json' }
 
@@ -126,6 +127,12 @@ const rpOf = (env: Live, url: URL): Rp | undefined =>
 
 /** The pictures an account may choose (protocols/profile-pictures.json): it keeps the id alone, never a photo of its own. */
 const PICTURE_IDS = new Set(PICTURES.pictures.map(p => p.id))
+
+/** Whether this account is the chat's test account: it holds a sign-in with the tester's address (tester.ts). */
+async function isTester(db: D1Database, env: Live, userId: string): Promise<boolean> {
+  if (!TESTER_ADDRESS) return false
+  return !!(await db.prepare(`SELECT 1 FROM credentials WHERE user_id = ? AND email_hash = ?`).bind(userId, await emailHash(env.ACCOUNT_HMAC_KEY, TESTER_ADDRESS)).first())
+}
 
 async function userView(db: D1Database, userId: string) {
   const u = await db.prepare(`SELECT created_at, picture FROM users WHERE id = ?`).bind(userId).first<{ created_at: string; picture: string | null }>()
@@ -246,6 +253,9 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     const adding = body.link === true ? session : undefined
     if (body.link === true && !session) return fail('signed_out', 401)
     if (adding && !recent(adding, now)) return fail('reauth_needed', 403)
+    // The chat's test account takes no other way in (tester.ts): signed in by its own code, it links no Google, Apple or
+    // other address, whatever address that one carries (Codex's read of #1606).
+    const toTester = adding ? await isTester(db, env, adding.userId) : false
 
     if (path === '/api/v1/auth/google' || path === '/api/v1/auth/apple') {
       const provider = path.slice('/api/v1/auth/'.length) as Provider
@@ -258,6 +268,11 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!claims) return fail('bad_token', 401)
       if (claims.nonce !== body.nonce && claims.nonce !== (await sha256(body.nonce))) return fail('bad_nonce', 401)
       const email = claims.emailVerified ? normalEmail(claims.email) : undefined
+      // The chat's test account signs in by its own email sign-in alone (tester.ts): Apple or Google vouching for its
+      // address neither makes an account nor joins one, linked or not, so the address never reaches another account
+      // through them (Codex's read of the chat gate, 17 Nov). Refused before any account or credential is written; the
+      // nonce is used up, as for any answer.
+      if ((email && email === TESTER_ADDRESS) || toTester) return fail('credential_in_use', 409)
       // One Apple ID per account: deleting the account revokes it from one fresh Apple sign-in.
       if (provider === 'apple' && adding && (await db.prepare(`SELECT 1 FROM credentials WHERE user_id = ? AND kind = 'apple' AND subject != ?`).bind(adding.userId, claims.sub).first())) return fail('apple_already_linked', 409)
       try {
@@ -273,6 +288,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!providers(env, deps).email) return fail('provider_off', 503)
       const email = normalEmail(body.email)
       if (!email) return fail('bad_email', 400)
+      // Nor is it added to an account signed in here: refused before a code goes out (tester.ts).
+      if (adding && (email === TESTER_ADDRESS || toTester)) return fail('bad_email', 400)
       const lang = LANGS.find(l => l === body.lang) ?? 'vi'
       if (typeof body.turnstile !== 'string' || !(await deps.siteverify(env.TURNSTILE_SECRET!, body.turnstile, req.headers.get('cf-connecting-ip'), url.hostname))) return fail('turnstile', 403)
       const k = env.ACCOUNT_HMAC_KEY
@@ -289,6 +306,10 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!started) return fail('bad_code', 401)
       // Started to add the address to an account: only for that account, signed in here. Otherwise: a sign-in.
       if (started.userId && started.userId !== session?.userId) return fail('bad_code', 401)
+      // Nor at the code, for a flow started to add it before that check (tester.ts).
+      if (started.userId && TESTER_ADDRESS && started.value === (await emailHash(env.ACCOUNT_HMAC_KEY, TESTER_ADDRESS))) return fail('credential_in_use', 409)
+      // Nor another address for the test account, from a flow started before the start refused it.
+      if (started.userId && (await isTester(db, env, started.userId))) return fail('credential_in_use', 409)
       const toAccount = started.userId ? session : undefined
       try {
         const userId = await signInWith(db, { kind: 'email', subject: started.value, emailHash: started.value, ...(toAccount ? { signedIn: toAccount.userId } : {}) }, now)
@@ -316,6 +337,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
     const body = await bodyOf(req, 16_384)
     if (body === 'too_large') return fail('too_large', 413)
     if (!body) return fail('bad_request', 400)
+    // Nor a passkey for the chat's test account (tester.ts): its own email code is its one way in.
+    if (await isTester(db, env, session.userId)) return fail('credential_in_use', 409)
     const added = await addPasskey(db, rp, session.userId, body.response, now)
     if (added !== 'ok') return added === 'in_use' ? fail('credential_in_use', 409) : fail('bad_passkey', 400)
     return json({ user: await userView(db, session.userId) })

@@ -142,7 +142,23 @@
       "html": "<p>The tank must always be absolutely densely covered, for all Rivulus are perfect jumpers.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/520583804.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/520583804-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Stephanie Tran",
+      "sourceUrl": "https://www.inaturalist.org/photos/520583804",
+      "caption": "Cá Rivulus hartii bơi trên nền đá ở suối nhỏ",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/520583804-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
+    }
+  ],
   "videos": [
     {
       "youtubeId": "uPWN4uj7SpI",

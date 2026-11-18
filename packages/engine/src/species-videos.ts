@@ -21,9 +21,19 @@ const WRITE = withTanks(readFileSync(new URL('./prompts/species-video.md', impor
  * Channels with a regular series of species profiles (the species' scientific name in the title), by YouTube handle, each
  * a keeper's or an expert's own: their profile videos feed species and plant pages (a new species page, or what a video
  * adds to a page), never guides, which come from the teaching channels (video-discovery.ts CHANNELS). Their tank tours,
- * builds and vlogs are left by the vet. Chosen by the owner (2026-11-06).
+ * builds and vlogs are left by the vet. Chosen by the owner (2026-11-06); FishLoft from the owner's link (16 Nov), its
+ * profiles giving a common name in the title and the scientific one in the description.
  */
-export const PROFILE_CHANNELS = ['chrislukhaup', 'Aquadiction', 'SteenfottAquatics', 'undersurfacechannel', 'DanielKeepingFish', 'Fishtory', 'TerryL263']
+export const PROFILE_CHANNELS = ['chrislukhaup', 'Aquadiction', 'SteenfottAquatics', 'undersurfacechannel', 'DanielKeepingFish', 'Fishtory', 'TerryL263', 'fishloft']
+/**
+ * Channels whose profile makes a new species page only under a Vietnamese name that passes the naming rule; with none, the
+ * page waits for the Writing Lead to settle one (the chief of staff, 17 Nov 2026, on FishLoft). By the channel's id or
+ * handle in its address, as each reader gives it (the API /channel/<id>, yt-dlp /@<handle>), else its name in any case:
+ * a renamed channel still holds to the rule.
+ */
+const NAMED_PAGES_ONLY = [{ id: 'UC2pjf0shuwySmKTDsALixBw', handle: 'fishloft', name: 'fishloft' }]
+const namedOnly = (m: { channel: string; channelUrl: string }) => NAMED_PAGES_ONLY.some(c =>
+  new RegExp(`/(channel/${c.id}|@${c.handle})(/|$)`, 'i').test(m.channelUrl) || m.channel.trim().toLowerCase() === c.name)
 
 /**
  * What became of one upload (engine-state/_species-videos.json): vetted by its title once (`kind`), then, for a profile,
@@ -186,7 +196,7 @@ async function fromVideo(root: string, d: SpeciesVideosDeps, id: string, o: { re
     return { ...base, species, page: `${kind}/${page}`, done: r.done, ...(r.score !== undefined ? { score: r.score } : {}), ...(r.reason ? { reason: r.reason } : {}) }
   }
   if (kind === 'plants') return { ...base, species, done: 'skipped', reason: 'no plant page: a plant page comes from a licensed source' }
-  const r = await makeSpecies(root, d, { name: species, videos: [v] }, o)
+  const r = await makeSpecies(root, d, { name: species, videos: [v] }, { ...o, namedOnly: namedOnly(meta) })
   return 'skipped' in r ? { ...base, species, done: 'skipped', reason: r.skipped } : { ...base, species, page: `species/${r.id}`, done: 'new page', score: r.score }
 }
 

@@ -1,0 +1,77 @@
+{
+  "id": "macrobrachium-idae",
+  "native": {
+    "input": "42a0ef523ee322c2",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Sri Lanka – Australia.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Sri Lanka – Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macrobrachium idae",
+    "status": "ACCEPTED",
+    "taxonKey": 2224652,
+    "datasets": [
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        22
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        12
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        11
+      ],
+      [
+        "3dbd76b0-31c9-4402-aa41-2f1102d74d45",
+        11
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "LK",
+      "AU"
+    ],
+    "requests": 14,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

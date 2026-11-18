@@ -2,20 +2,6 @@
   "id": "goniopsis-pelii",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/94948011.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/94948011-480.webp",
-      "width": 1024,
-      "height": 616,
-      "licence": "CC BY",
-      "author": "Lucy Keith-Diagne",
-      "sourceUrl": "https://www.inaturalist.org/photos/94948011",
-      "caption": "Cua Goniopsis pelii mai sẫm, chân đỏ trên bãi bùn rừng ngập mặn",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/344871991.webp",
       "thumb": "https://media.aquatome.com/inaturalist/344871991-480.webp",
       "width": 1024,
@@ -26,8 +12,7 @@
       "caption": "Cua Goniopsis pelii chân đỏ đốm vàng trên rễ gỗ ven rừng ngập mặn",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/616337080.webp",
@@ -40,8 +25,20 @@
       "caption": "Cua Goniopsis pelii mai sẫm, chân đỏ cam, trên mặt nước nông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/94948011.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/94948011-480.webp",
+      "width": 1024,
+      "height": 616,
+      "licence": "CC BY",
+      "author": "Lucy Keith-Diagne",
+      "sourceUrl": "https://www.inaturalist.org/photos/94948011",
+      "caption": "Cua Goniopsis pelii mai sẫm, chân đỏ trên bãi bùn rừng ngập mặn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 22,

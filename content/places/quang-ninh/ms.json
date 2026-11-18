@@ -3,6 +3,12 @@
   "name": "Quang Ninh",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:35:31.336Z",
+    "why": "Malay atlases in Malaysia would write the province as \"Wilayah Quang Ninh\" or \"Provinsi Quang Ninh\"; the bare name omits the kind word, though the spelling without diacritics is acceptable."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

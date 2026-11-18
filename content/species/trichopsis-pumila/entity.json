@@ -14,6 +14,146 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Distributed throughout the lower Mekong River basin in Laos, Vietnam, Cambodia, and Thailand, and in watersheds across central and southern (peninsular) Thailand.",
+          "countries": [
+            "TH",
+            "LA",
+            "VN",
+            "KH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211204,
+      "total": 110,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TH",
+          96
+        ],
+        [
+          "KH",
+          12
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          12,
+          12
+        ],
+        [
+          99.84375,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          15.46875,
+          37,
+          37
+        ],
+        [
+          101.25,
+          11.25,
+          14,
+          14
+        ],
+        [
+          101.25,
+          12.65625,
+          24,
+          24
+        ],
+        [
+          102.65625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          6,
+          6
+        ],
+        [
+          104.0625,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -178,17 +318,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/ce73ec5ca5c3f01c.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/ce73ec5ca5c3f01c-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
-      "caption": "Detail of head and anterior portion of body.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/8d81ea240370e70a.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/8d81ea240370e70a-480.webp",
       "width": 891,
@@ -197,6 +326,17 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
       "caption": "Adult female from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ce73ec5ca5c3f01c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ce73ec5ca5c3f01c-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/trichopsis-pumila",
+      "caption": "Detail of head and anterior portion of body.",
       "source": "seriouslyfish"
     }
   ],

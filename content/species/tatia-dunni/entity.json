@@ -18,33 +18,48 @@
   "range": {
     "native": {
       "countries": [
-        "CO",
         "BR",
         "EC",
+        "CO",
         "PE"
       ],
-      "regions": [],
+      "regions": [
+        "Amazon",
+        "Caquetá River",
+        "Purus"
+      ],
       "sources": [
+        "scotcat",
         "glaser"
       ],
       "quotes": [
-        {
-          "source": "glaser",
-          "quote": "Tatia dunni was described in 1945 from Colombia.",
-          "countries": [
-            "CO"
-          ],
-          "regions": []
-        },
         {
           "source": "glaser",
           "quote": "T. dunni is widely distributed: there are records of the species from Brazil, Ecuador, Colombia and Peru.",
           "countries": [
             "BR",
             "EC",
+            "CO",
             "PE"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Amazon in Ecuador and Colombia; central Amazon in Brazil; Caquetá River drainage in Colombia.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Caquetá River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Large specimens from the Purus river, in central Amazonia, usually have a completely dark body or a lightly spotted colouration.",
+          "countries": [],
+          "regions": [
+            "Purus"
+          ]
         }
       ]
     },

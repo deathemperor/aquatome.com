@@ -1,0 +1,43 @@
+{
+  "id": "ceylonthelphusa-kandambyi",
+  "native": {
+    "input": "8eb7f53ed4c975f8",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from Sri Lanka, where it is found in the Bentota river system.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bentota",
+        "source": "glaser",
+        "quote": "The species originates from Sri Lanka, where it is found in the Bentota river system.",
+        "country": "LK",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ceylonthelphusa kandambyi",
+    "status": "ACCEPTED",
+    "taxonKey": 5790917,
+    "datasets": [],
+    "native": [
+      "LK"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

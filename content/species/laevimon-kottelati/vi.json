@@ -1,0 +1,27 @@
+{
+  "slug": "cua-nuoc-ngot-laevimon-kottelati",
+  "name": "Cua nước ngọt Laevimon kottelati",
+  "altNames": [
+    "Freshwater crab"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Laevimon kottelati là một loài cua nước ngọt, mai rộng khoảng 4,5 cm. Loài này chỉ có ở Việt Nam.</p>",
+    "distribution:glaser": "<p>Loài này chỉ có ở Việt Nam. Người ta phát hiện nó ở đây vào năm 1998. Đến năm 2005, nó được mô tả khoa học là loài mới, thuộc một chi cũng mới.</p>",
+    "habitat:glaser": "<p>Cua sống nửa nước nửa cạn, ở chỗ nước nông sát bờ các con sông nhỏ.</p>",
+    "notes:glaser": "<p>Theo những gì biết được đến nay, các ảnh chụp cua sống của loài này là những ảnh duy nhất từng có.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

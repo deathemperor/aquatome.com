@@ -31,19 +31,10 @@
       ],
       "quotes": [
         {
-          "source": "bwaquatics",
-          "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
-          "countries": [
-            "TH"
-          ],
-          "regions": [
-            "Mae Khlong"
-          ]
-        },
-        {
           "source": "seriouslyfish",
           "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
           "countries": [
+            "TH",
             "MM"
           ],
           "regions": [
@@ -64,6 +55,14 @@
           "countries": [],
           "regions": [
             "Suriya"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+          "countries": [],
+          "regions": [
+            "Mae Khlong"
           ]
         }
       ]
@@ -136,7 +135,8 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 4
+        "value": 4,
+        "overruled": "BW Aquatics' 2.5 to 4 cm; Seriously Fish gives 20 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       },
       {
         "source": "seriouslyfish",
@@ -174,7 +174,8 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>Microdevario kubotai, commonly known as Kubotai Rasbora or Microrasbora kubotai, is a small and colorful freshwater fish of the family Cyprinidae. It grows to a maximum size of around 2.5 to 4 cm (1 to 1.5 inches). Its small size makes it suitable for nano and small community aquariums.</p><p>Difficulty: intermediate. They are easy to keep once the aquarium is stable, but their small, delicate nature can make them difficult at times.</p><p>Appearance: the body is clear with a neon green glow that makes them stand out against the background.</p>"
+      "html": "<p>Microdevario kubotai, commonly known as Kubotai Rasbora or Microrasbora kubotai, is a small and colorful freshwater fish of the family Cyprinidae. Its small size makes it suitable for nano and small community aquariums.</p><p>Difficulty: intermediate. They are easy to keep once the aquarium is stable, but their small, delicate nature can make them difficult at times.</p><p>Appearance: the body is clear with a neon green glow that makes them stand out against the background.</p>",
+      "fixed": true
     },
     {
       "key": "quickFacts",

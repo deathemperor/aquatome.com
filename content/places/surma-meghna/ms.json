@@ -3,6 +3,12 @@
   "name": "Surma-Meghna",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T05:11:02.615Z",
+    "why": "Surma-Meghna is a river system, and a Malay atlas would write \"Sungai Surma-Meghna\" or \"Sistem Sungai Surma-Meghna\"; the bare name omits the kind word \"Sungai\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

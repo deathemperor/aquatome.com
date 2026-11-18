@@ -1,0 +1,79 @@
+{
+  "id": "youtube-zHlGqBJiU1U",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=zHlGqBJiU1U",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "nymphoides-hydrophylla",
+    "hydrocotyle-tripartita",
+    "mikrogeophagus-altispinosus",
+    "mikrogeophagus-ramirezi",
+    "corydoras-panda",
+    "carassius-auratus"
+  ],
+  "updatedAt": "2026-11-17",
+  "video": {
+    "youtubeId": "zHlGqBJiU1U",
+    "title": "ADDING BOLIVIAN RAM CICHLIDS TO AMAZON RIO NEGRO AQUARIUM | MD FISH TANKS",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 995,
+    "publishedAt": "2021-08-26",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvYQz79ssY7hvUuZkaFK4xj",
+      "position": 16
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/zHlGqBJiU1U/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Nymphoides hydrophylla",
+      "Hydrocotyle tripartita",
+      "Mikrogeophagus altispinosus",
+      "Mikrogeophagus ramirezi",
+      "Corydoras panda",
+      "Otocinclus sp.",
+      "Apistogramma sp.",
+      "Monstera sp.",
+      "Carassius auratus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 100
+      },
+      {
+        "category": "den",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "treo"
+      },
+      {
+        "category": "loc",
+        "type": "suc-khi"
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien"
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 319
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 227
+      }
+    ]
+  }
+}

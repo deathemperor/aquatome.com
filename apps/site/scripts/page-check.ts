@@ -7,11 +7,14 @@ import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { HTMLElement, parse } from 'node-html-parser'
-import { headingSubject, loadAll, PictureSet, pictureOf, type LinkTarget, type Photo, type PictureHashes } from '@aq/schema'
-import { LANGS, langOf, LINK_MARK, localizePath, type Lang } from '../src/lib/i18n'
+import { headingSubject, loadAll, PictureSet, pictureOf, type Content, type LinkTarget, type Photo, type PictureHashes } from '@aq/schema'
+import { LANGS, langOf, LINK_MARK, localizePath, translator, type Lang } from '../src/lib/i18n'
 import { saysSci, sciWords } from '../src/lib/sci'
 import { linkTargets } from '../src/lib/mentions'
 import { smallSrc } from '../src/lib/img'
+import { isFish } from '../src/lib/taxa-places'
+import { pageIsFish } from '../src/lib/breeds'
+import { PAGE } from '../src/scripts/filter-list'
 
 export const CHECKS = {
   repeat: 'the same picture twice',
@@ -23,6 +26,7 @@ export const CHECKS = {
   'link-mark': 'a marker localizeLinks left in the page, which no page may ship with',
   'name-twice': "a scientific name said twice: a fish's or plant's title, description, photo text or structured data, or a name with the scientific name printed beside it that the name says already",
   uncredited: 'a photo shown without its credit anywhere on the page',
+  'not-fish': 'a crab\'s, a shrimp\'s or a snail\'s page (its photos\', its group\'s, its lines\') that calls it a fish: "Loài cá" at the head of its trail, or any line of the site\'s own words that says fish; or a reason to keep a crab, a shrimp or a snail away that calls it one, on any page',
 } as const
 export type Check = keyof typeof CHECKS
 export type Problem = { check: Check; detail: string }
@@ -43,11 +47,29 @@ export type Facts = {
   /** Every photo the content holds, by its picture (its address, a small copy's too) → the links its records credit it
    * to: one photo in two guides' records can carry two. An AI picture is labelled, not credited, so it isn't here. */
   credits: Map<string, Set<string>>
+  /** Pages (by path, in every language) of a species that isn't a fish (lib/taxa-places.ts isFish), its photos' page,
+   * and the shrimp's and snails' group pages: their trails don't say "Loài cá". */
+  notFish: Set<string>
+}
+
+/**
+ * A crab's, a shrimp's or a snail's pages in this language: its page and its photos page, a line's too, and a group's that
+ * holds no fish, with each of its numbered pages (PAGE species a page; Codex's read, 17 Nov: the shrimp's second page).
+ */
+export function notFishPaths(c: Pick<Content, 'species' | 'breeds'>, lang: Lang): string[] {
+  const groups = [...new Set(c.species.map(s => s.group))].filter(g => !isFish({ group: g, order: '' }))
+  return [
+    ...[...c.species, ...c.breeds].filter(s => !pageIsFish(c, s)).flatMap(s => ['', 'anh/'].map(p => localizePath(lang, `/vi/ca/${s.t.slug}/${p}`))),
+    ...groups.flatMap(g => {
+      const pages = Math.ceil(c.species.filter(s => s.group === g).length / PAGE)
+      return [`/vi/nhom/${g}/`, ...Array.from({ length: Math.max(pages - 1, 0) }, (_, i) => `/vi/nhom/${g}/trang/${i + 2}/`)].map(p => localizePath(lang, p))
+    }),
+  ]
 }
 
 /** The site's facts from the content a build was made from. */
 export async function loadFacts(root: string): Promise<Facts> {
-  const facts: Facts = { hashes: {}, byPath: new Map(), living: new Map(), owner: new Map(), targets: {} as Record<Lang, LinkTarget[]>, genera: new Set(), credits: new Map() }
+  const facts: Facts = { hashes: {}, byPath: new Map(), living: new Map(), owner: new Map(), targets: {} as Record<Lang, LinkTarget[]>, genera: new Set(), credits: new Map(), notFish: new Set() }
   for (const lang of LANGS) {
     const c = await loadAll({ root, lang, publicBuild: false })
     facts.hashes = c.pictureHashes
@@ -63,6 +85,7 @@ export async function loadFacts(root: string): Promise<Facts> {
     for (const s of c.species) add(`species:${s.id}`, `/vi/ca/${s.t.slug}/`, [s.scientificName, s.t.name, ...s.t.altNames], s.photos, s.scientificName)
     for (const p of c.plants) add(`plant:${p.id}`, `/vi/cay/${p.t.slug}/`, [p.scientificName, ...(p.synonyms ?? []), p.t.name, ...p.t.altNames], p.photos, p.scientificName)
     for (const b of c.breeds) add(`breed:${b.id}`, `/vi/ca/${b.t.slug}/`, [b.t.name, ...b.t.altNames], b.photos)
+    for (const p of notFishPaths(c, lang)) facts.notFish.add(p)
     addCredits(facts.credits, c)
   }
   return facts
@@ -95,6 +118,42 @@ function addCredits(credits: Facts['credits'], content: unknown) {
 }
 
 const text = (el: HTMLElement) => el.textContent.replace(/\s+/g, ' ').trim()
+
+/**
+ * The site's own lines that say fish, as each language writes them (every key of a language's file is one of the site's
+ * Vietnamese lines; a translation can say fish where the Vietnamese doesn't). Each is cut at its blanks ({name}, {cm})
+ * into the parts a page prints as they are, and a part counts where it says fish in the page's language: "cá" (not "cá
+ * nhân", personal), "ikan", "ปลา" (not in "ตู้ปลา", an aquarium). Two say fish without calling the page's animal one: the
+ * aquarium (an equipment kind, "Bể cá") and the list of all three kinds. "Loài cá" is the trail's (checked there, with
+ * its structured data).
+ */
+const FISH_WORD: Record<Lang, RegExp> = { vi: /(?<![\p{L}\p{M}])cá(?![\p{L}\p{M}])(?! nhân)/iu, id: /\bikan\b/i, ms: /\bikan\b/i, th: /ปลา/ }
+export const saysFish = (lang: Lang, s: string) => FISH_WORD[lang].test(lang === 'th' ? s.replaceAll('ตู้ปลา', '') : s)
+const NOT_ABOUT_IT = new Set(['Bể cá', 'Cá, tép hoặc ốc', 'Loài cá'])
+/**
+ * Owed: the "Vì sao?" panel's size line and its lead in Thai still call a crab, a shrimp or a snail a fish. Its words are
+ * shared with the app (protocols/care-needs-vectors.json), which changes only in the 00:00-07:00 window: they change
+ * there, in their own change, on Wed 18 Nov, and leave this list then.
+ */
+const OWED = new Set(['cá dài {cm}', 'Điều làm loài này dễ hay khó nuôi, đọc từ bảng:'])
+const UI_KEYS = Object.keys(JSON.parse(readFileSync(fileURLToPath(new URL('../src/i18n/id.json', import.meta.url)), 'utf8')) as Record<string, string>)
+const fishLinesOf = new Map<Lang, { line: string; part: string }[]>()
+const fishLines = (lang: Lang) => fishLinesOf.get(lang) ?? fishLinesOf.set(lang, UI_KEYS.filter(k => !NOT_ABOUT_IT.has(k) && !OWED.has(k)).flatMap(k =>
+  translator(lang)(k).split(/\{\w+\}/).map(p => p.replace(/\s+/g, ' ').trim()).filter(p => saysFish(lang, p)).map(part => ({ line: k, part })))).get(lang)!
+/** A short line's words as a label prints them: no spaces, punctuation or figures at either end (", cá dài 4 cm"). */
+const bare = (s: string) => s.replace(/^[\s\p{P}\p{N}]+|[\s\p{P}\p{N}]+$/gu, '')
+/** The words a reader sees in an element, as text nodes, leaving out scripts, styles and the parts `skip` names. */
+function shownText(el: HTMLElement, skip: (e: HTMLElement) => boolean): string[] {
+  const out: string[] = []
+  const walk = (n: HTMLElement) => {
+    for (const c of n.childNodes) {
+      if (c instanceof HTMLElement) { if (!['script', 'style'].includes(c.rawTagName?.toLowerCase()) && !skip(c)) walk(c) }
+      else { const s = c.text.replace(/\s+/g, ' ').trim(); if (s) out.push(s) }
+    }
+  }
+  walk(el)
+  return out
+}
 /** The text of what `el` sits in, without `el`'s own. */
 const around = (el: HTMLElement) => el.parentNode ? el.parentNode.childNodes.filter(n => n !== el).map(n => n.textContent).join('').replace(/\s+/g, ' ').trim() : ''
 const BRACKETED = /^\s*\(\s*([A-Z][a-z]+ [a-z]{3,}(?: [a-z]{3,})?)\s*\)/
@@ -152,6 +211,44 @@ export function checkPage(path: string, html: string, facts: Facts): Problem[] {
     const name = named ? text(named) : around(el)
     const sci = text(el).replace(/^\((.*)\)$/, '$1')
     if (name && sci && saysSci(name, sci)) out.push({ check: 'name-twice', detail: `"${name}" over "${sci}"` })
+  }
+
+  // A crab's, a shrimp's or a snail's page under "Loài cá": its trail, or its structured data's. The owner's report of 15 Nov,
+  // the fiddler crab's page; about 100 species then, every one of them so. A group's numbered pages are its page's, in
+  // every language's word for them.
+  if (facts.notFish.has(path) || facts.notFish.has(path.replace(/(?:trang|halaman|page)\/\d+\/$/, ''))) {
+    const fishList = translator(lang)('Loài cá')
+    const crumbs = root.querySelectorAll('nav.crumb a').map(a => text(a))
+    const data = root.querySelectorAll('script[type="application/ld+json"]')
+      .flatMap(ld => [JSON.parse(ld.rawText) as { '@type'?: string; itemListElement?: { name?: string }[] }].flat())
+      .filter(d => d['@type'] === 'BreadcrumbList').flatMap(d => d.itemListElement?.map(i => i.name ?? '') ?? [])
+    for (const [where, names] of [['trail', crumbs], ['structured data\'s trail', data]] as const) {
+      if (names.includes(fishList)) out.push({ check: 'not-fish', detail: `${where}: "${fishList}"` })
+    }
+    // Every line of the site's own words in the page that says fish (the range's "có thể là cá do người thả ra", the size
+    // line's "cá dài", a line's kind "Dòng cá cảnh"): a long one anywhere in the page's text; a short one as a label of its
+    // own, outside the text the engine wrote (its sections, the summary), where "cá dài" can be a sentence's. The reasons to
+    // keep another species away are that species' (below). The page's title and description, a search result's words, too.
+    const main = root.querySelector('main')
+    if (main) {
+      const reason = (e: HTMLElement) => e.hasAttribute('data-reason')
+      const head = [text(root.querySelector('title') ?? parse('')), ...root.querySelectorAll('meta[name="description"], meta[property="og:description"]').map(m => m.getAttribute('content') ?? '')]
+      // A label's tip on tap (data-tip, GlossaryTip) is words a reader sees too: the size tip's "Chiều dài của cá" (Codex's read).
+      const tips = main.querySelectorAll('[data-tip]').map(e => e.getAttribute('data-tip') ?? '')
+      const all = [...head, ...tips, ...shownText(main, reason)].join(' ')
+      const own = shownText(main, e => reason(e) || ['body', 'qs'].some(c => e.classList.contains(c)))
+      const labels = new Set(own.map(bare))
+      for (const { line, part } of fishLines(lang)) {
+        if (part.length < 12 ? labels.has(bare(part)) : all.includes(part)) out.push({ check: 'not-fish', detail: `line "${line}": "${part}"` })
+      }
+    }
+  }
+  // A reason to keep a crab, a shrimp or a snail away (Companions.astro) is about it: it doesn't call it a fish. The page's
+  // own fish named in it ("có thể bị Cá apisto ăn") is that fish's name.
+  const self = text(root.querySelector('h1') ?? parse(''))
+  for (const why of root.querySelectorAll('.mates [data-reason]')) {
+    const href = why.closest('a')?.getAttribute('href') ?? ''
+    if (facts.notFish.has(href) && saysFish(lang, self ? text(why).replaceAll(self, '') : text(why))) out.push({ check: 'not-fish', detail: `reason for ${href}: "${text(why)}"` })
   }
 
   // The same picture twice, whatever its file. A picture hidden from screen readers is a backdrop (a whole tile's blurred

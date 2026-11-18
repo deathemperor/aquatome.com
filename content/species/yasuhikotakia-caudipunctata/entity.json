@@ -10,6 +10,87 @@
     "laos",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Mekong river drainage in Laos with the type series collected from close to the city of Pakse, Champasak province and further north near the capital city of Vientiane, Vientiane province.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Both localities are situated close to the border with eastern Thailand so the species presumably occurs in some Mekong tributaries there, but specific details have not been obtained to date.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367787,
+      "total": 12,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "LA",
+          8
+        ],
+        [
+          "KH",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          12.65625,
+          2,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -139,6 +220,17 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/5a038511735d422d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5a038511735d422d-480.webp",
+      "width": 655,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-caudipunctata",
+      "caption": "Well-conditioned adult female.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/seriouslyfish/5a9b9961e9da63fc.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/5a9b9961e9da63fc-480.webp",
       "width": 700,
@@ -158,17 +250,6 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-caudipunctata",
       "caption": "Detail of head and anterior portion of body.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/5a038511735d422d.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/5a038511735d422d-480.webp",
-      "width": 655,
-      "height": 312,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-caudipunctata",
-      "caption": "Well-conditioned adult female.",
       "source": "seriouslyfish"
     },
     {

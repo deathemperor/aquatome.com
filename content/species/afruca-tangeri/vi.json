@@ -1,0 +1,25 @@
+{
+  "slug": "cua-dan-uca-tangeri",
+  "name": "Cua đàn Uca tangeri",
+  "altNames": [
+    "Cua càng vĩ cầm",
+    "Cua chơi đàn",
+    "Fiddler crab",
+    "West African fiddler crab"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Cua đàn Uca tangeri có nguồn gốc ở vùng đông Đại Tây Dương, từ Bồ Đào Nha xuống tới Angola. Ngoài tự nhiên, chúng sống ở các bờ biển cát và rừng ngập mặn.</p>",
+    "habitat:glaser": "<p>Nơi chúng sống bị nước ngập theo con nước. Chúng đào hang trong bùn để ở và chỉ ra khỏi hang kiếm ăn lúc thủy triều rút.</p>",
+    "maintenance:glaser": "<p>Khi nuôi, cố làm bể giống nơi chúng sống ngoài tự nhiên. Bể cần có một phần cạn trải cát và sỏi, phần còn lại là nước lợ. Đặt thêm vài chỗ trốn để chúng có nơi rút vào.</p>",
+    "diet:glaser": "<p>Loài này ăn tạp và không kén ăn. Ngoài tự nhiên, biển đưa tới chất hữu cơ gì là chúng ăn gần như được hết. Nuôi trong bể thì cho ăn thức ăn đông lạnh, thức ăn dạng hạt, thêm các loại trái cây và rau củ.</p>",
+    "dimorphism:glaser": "<p>Con đực có một càng lớn mọc to khác thường. Chúng dùng càng này để thu hút con cái và để đánh nhau với các con đực khác.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

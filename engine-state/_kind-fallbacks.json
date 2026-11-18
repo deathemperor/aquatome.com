@@ -1,4 +1,10 @@
 {
+  "species/aegla-platensis": {
+    "name": "Cua nước ngọt Aegla platensis",
+    "word": "cua",
+    "took": "Aegla platensis",
+    "at": "2026-11-17"
+  },
   "species/amphilius-platychir": {
     "name": "Cá trê núi",
     "word": "trê",
@@ -11,11 +17,23 @@
     "took": "Cá Arius latiscutatus",
     "at": "2026-11-15"
   },
+  "species/cochlefelis-burmanicus": {
+    "name": "Cá trê biển Arius burmanicus",
+    "word": "trê",
+    "took": "Cá Cochlefelis burmanicus",
+    "at": "2026-11-17"
+  },
   "species/etroplus-canarensis": {
     "name": "Cá rô Canara",
     "word": "rô",
     "took": "Cá rô Canara",
     "at": "2026-11-16"
+  },
+  "species/euryrhynchus-amazoniensis": {
+    "name": "Tép zebra Peru",
+    "word": "tép",
+    "took": "Euryrhynchus amazoniensis",
+    "at": "2026-11-17"
   },
   "species/galeocharax-gulo": {
     "name": "Cá chó nước barracuda",
@@ -29,8 +47,14 @@
     "took": "Cá hải hồ megasema",
     "at": "2026-11-16"
   },
+  "species/gogo-brevibarbis": {
+    "name": "Cá trê Vaona",
+    "word": "trê",
+    "took": "Cá Gogo brevibarbis",
+    "at": "2026-11-17"
+  },
   "species/ompok-fumidus": {
-    "name": "Cá trê Ompok fumidus",
+    "name": "Cá trê trắng khói Ompok fumidus",
     "word": "trê",
     "took": "Cá Ompok fumidus",
     "at": "2026-11-16"
@@ -40,6 +64,12 @@
     "word": "chuột",
     "took": "Cá nheo biết hót Orinocodoras eigenmanni",
     "at": "2026-11-15"
+  },
+  "species/palaemon-concinnus": {
+    "name": "Tép ngón trắng",
+    "word": "tép",
+    "took": "Tôm Palaemon concinnus",
+    "at": "2026-11-17"
   },
   "species/parauchenoglanis-punctatus": {
     "name": "Cá trê Parauchenoglanis punctatus",
@@ -65,6 +95,12 @@
     "took": "Cá trê ong nghệ châu Á",
     "at": "2026-11-16"
   },
+  "species/rineloricaria-teffeana": {
+    "name": "Cá chuột đuôi roi Tefé",
+    "word": "chuột",
+    "took": "Cá chổi Rineloricaria teffeana",
+    "at": "2026-11-17"
+  },
   "species/synodontis-granulosus": {
     "name": "Cá chuột bụng đốm Synodontis granulosus",
     "word": "chuột",
@@ -76,5 +112,17 @@
     "word": "mèo",
     "took": "Cá Tatia dunni",
     "at": "2026-11-16"
+  },
+  "species/trachelyopterus-galeatus": {
+    "name": "Cá mèo gỗ",
+    "word": "mèo",
+    "took": "Cá da trơn lũa",
+    "at": "2026-11-16"
+  },
+  "species/zaireichthys-pallidus": {
+    "name": "Cá trê cát nhạt",
+    "word": "trê",
+    "took": "Cá Zaireichthys pallidus",
+    "at": "2026-11-17"
   }
 }

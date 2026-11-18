@@ -1,8 +1,13 @@
 {
   "slug": "shweli-river",
-  "name": "Shweli",
+  "name": "Sungai Shweli",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T05:10:23.380Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

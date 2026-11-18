@@ -3,6 +3,12 @@
   "name": "Congo Hilir",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-17T00:06:57.391Z",
+    "why": "Malay atlases in Malaysia write the province as \"Kongo Tengah\" (formerly Bas-Congo), using the Malay spelling \"Kongo\", and \"Congo Hilir\" is a word-by-word translation that isn't an established name."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

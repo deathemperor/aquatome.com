@@ -1,0 +1,31 @@
+{
+  "slug": "amphilius-zairensis",
+  "name": "Amphilius zairensis",
+  "altNames": [
+    "แคทฟิชแอมฟิเลียส",
+    "African loach catfish",
+    "Zaire mountain catfish"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<ul><li>บัญชีแดงของ IUCN: กลุ่มที่มีความกังวลน้อยที่สุด (Least Concern) (ข้อมูลควรได้รับการปรับปรุง)</li></ul>",
+    "distribution:scotcat": "<p>แอฟริกา: แม่น้ำคองโกตอนล่างทั้งลำน้ำสายหลักและแม่น้ำสาขา เช่น แม่น้ำ Inkisi และ Lufu นอกจากนี้ยังมีรายงานพบในแม่น้ำ Aruwimi แม่น้ำคองโกตอนกลาง น้ำตก Wagenia และแม่น้ำ Lualaba ในสาธารณรัฐประชาธิปไตยคองโก แหล่งที่พบตัวอย่างต้นแบบ: แม่น้ำ Lufu ห่างจากจุดบรรจบกับแม่น้ำซาอีร์ประมาณ 2 กม. ใกล้เขื่อนไฟฟ้าพลังน้ำ Inga พิกัด 5º31.5'S, 13º37.5'E</p>",
+    "habitat:scotcat": "<p>Amphilius zairensis เป็นปลาที่อาศัยอยู่บริเวณพื้นท้องน้ำ พบได้ทั้งในลำน้ำสายหลักและแม่น้ำสาขาที่มีความลาดชันสูง (Skelton 1986) โดยเฉพาะอย่างยิ่งพบในบริเวณแก่งน้ำเชี่ยว</p><p>ปลาในภาพถูกจับโดยผู้ให้ภาพที่น้ำตก Wagenia เมืองคิซันกานี จังหวัดโอเรียนตาล สาธารณรัฐประชาธิปไตยคองโก</p>",
+    "maintenance:scotcat": "<p>สามารถเลี้ยงในตู้ปลาที่ปูพื้นด้วยกรวดเม็ดเล็กหรือทราย ปลูกไม้น้ำหนาแน่น และมีกระแสน้ำเล็กน้อยเพื่อให้ใกล้เคียงกับแหล่งอาศัยตามธรรมชาติ ควรจัดวางหินและโพรงให้ด้วย ปลาในสกุลนี้ชอบอุณหภูมิที่ค่อนข้างเย็นในตู้ปลา</p>",
+    "diet:scotcat": "<p>ลูกน้ำ ไส้เดือนน้ำ ไซคลอปส์ ไรแดง หนอนกรินดัล อาหารประเภทผัก อาหารเม็ดแบบอัดแผ่น และอาหารแผ่น</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด zairensis มาจากแม่น้ำซาอีร์ ทวีปแอฟริกา</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2015.FishBase. World Wide Web electronic publication. www.fishbase.org, ( 10/2015 ). Moelants, T. 2010. Amphilius zairensis. The IUCN Red List of Threatened Species 2010.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "scotcat": 0.7
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

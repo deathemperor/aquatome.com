@@ -1,0 +1,42 @@
+{
+  "id": "xiurenbagrus-dorsalis",
+  "native": {
+    "input": "9063935c0f4921a7",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species only occurs in one county and underground cave system in Guangxi Province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pearl River",
+        "source": "scotcat",
+        "quote": "All three species of the genus are distributed in the Pearl River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiurenbagrus dorsalis",
+    "status": "ACCEPTED",
+    "taxonKey": 7540286,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

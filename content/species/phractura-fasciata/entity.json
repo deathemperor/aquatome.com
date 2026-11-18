@@ -1,0 +1,183 @@
+{
+  "id": "phractura-fasciata",
+  "scientificName": "Phractura fasciata",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Phractura",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "stanley-falls",
+    "republic-of-the-congo",
+    "niari"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Stanley Falls"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Stanley Falls (=Wagenia Falls) in the Democratic Republic of the Congo; possibly also in the Niari basin in the Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Stanley Falls"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340814,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CD",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          23.90625,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 11
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "html": "<ul><li>Common name: none; the group is known as 'African Whiptails'</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "html": "<p>Africa: Stanley Falls (=Wagenia Falls) in the Democratic Republic of the Congo; possibly also in the Niari basin in the Republic of Congo. Type locality: Stanley Falls.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "html": "<p>These catfish inhabit fast flowing waters and spend a lot of their time clinging to aquatic leaves. If you provide long stemmed plants, such as Vallisneria, you will see this habit.</p><p>The species shown was captured by the image contributor in the Wagenia rapids, Kisangani, Province Orientale, D.R. Congo.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "html": "<p>To keep this species and other members of this African hillstream family you will have to provide a well oxygenated planted aquarium and keep up your water changes, as they are not as hardy as the South American equivalents.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "html": "<p>Similar looking to P. bovei except that the dorsal and anal fins have one ray fewer. At first glance they look superficially like South American whiptails, such as those of the Rineloricaria/Hemiloricaria genus. Etymology: the specific name fasciata means banded.</p><p>IUCN Red List: Phractura fasciata is only known from the type locality Wagenia Falls (Stanley Falls). The species may be more widespread than is currently known. More information is needed on the species distribution before an assessment can be made. Data Deficient (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2016. FishBase. www.fishbase.org (06/2016).</li><li>Moelants, T. 2010. Phractura fasciata. The IUCN Red List of Threatened Species 2010.</li><li>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/58bd83dd6a02eeb4.webp",
+      "thumb": "https://media.aquatome.com/scotcat/58bd83dd6a02eeb4-480.webp",
+      "width": 500,
+      "height": 160,
+      "licence": "dùng với sự cho phép",
+      "author": "John P. Sullivan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "caption": "Phractura fasciata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0f18393d5e479141.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0f18393d5e479141-480.webp",
+      "width": 500,
+      "height": 182,
+      "licence": "dùng với sự cho phép",
+      "author": "John P. Sullivan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "caption": "Phractura fasciata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/ed81ae65a4312e06.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ed81ae65a4312e06-480.webp",
+      "width": 500,
+      "height": 183,
+      "licence": "dùng với sự cho phép",
+      "author": "John P. Sullivan / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_fasciata.htm",
+      "caption": "Phractura fasciata: ventral view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "máy sục khí bể cá"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây Vallisneria",
+        "cây thủy sinh thân dài"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

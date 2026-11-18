@@ -3,6 +3,12 @@
   "name": "Dong Jiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T05:13:04.382Z",
+    "why": "\"Dong Jiang\" is the Chinese name with \"Jiang\" (river) left as a kind word; Indonesian atlases write \"Sungai Dong\" (or \"Sungai Dongjiang\"), so the river word is missing or untranslated."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

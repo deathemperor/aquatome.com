@@ -2,14 +2,14 @@
   "id": "xiphophorus-variatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/83891b7996528c3d.webp",
-      "thumb": "https://media.aquatome.com/commons/83891b7996528c3d-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Livebearerguy",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_La_laguna_(3).jpg",
-      "caption": "Cá platy variatus đực đốm đen đuôi đỏ trong bể",
+      "url": "https://media.aquatome.com/inaturalist/125611833.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/125611833-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Adriana Nelly Correa Sandoval",
+      "sourceUrl": "https://www.inaturalist.org/photos/125611833",
+      "caption": "Cá platy variatus đực vàng cam đuôi đỏ trong túi nước",
       "best": true,
       "kind": "male"
     },
@@ -50,14 +50,14 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/commons/610bbf23cd63f32a.webp",
-      "thumb": "https://media.aquatome.com/commons/610bbf23cd63f32a-480.webp",
-      "width": 1200,
-      "height": 1302,
-      "licence": "CC BY-SA 4.0",
-      "author": "Ireallylovefish",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wilbur_charlotte_and_fern_the_best_platies.jpg",
-      "caption": "Ba cá platy variatus màu vàng cam đốm trong bể",
+      "url": "https://media.aquatome.com/inaturalist/504514508.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/504514508-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/504514508",
+      "caption": "Hai cá variatus thân đen đuôi đỏ trong bể nền xanh",
       "best": true,
       "kind": "group"
     },
@@ -96,18 +96,6 @@
       "caption": "Cá platy variatus màu cam vàng trên lưới, bắt ngoài tự nhiên",
       "best": true,
       "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/504514508.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/504514508-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/504514508",
-      "caption": "Hai cá variatus thân đen đuôi đỏ trong bể nền xanh",
-      "best": true,
-      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/558230312.webp",
@@ -182,14 +170,14 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/558230326.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/558230326-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/558230280.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/558230280-480.webp",
       "width": 1024,
       "height": 768,
       "licence": "CC BY",
       "author": "geosesarma",
-      "sourceUrl": "https://www.inaturalist.org/photos/558230326",
-      "caption": "Cá variatus đực vây đuôi đen, thân đỏ cam",
+      "sourceUrl": "https://www.inaturalist.org/photos/558230280",
+      "caption": "Cá variatus đực trong hộp trong suốt, thân nâu đỏ",
       "best": false,
       "kind": "male"
     },
@@ -206,6 +194,18 @@
       "kind": "female"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/715576853.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/715576853-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Fishes of Texas team",
+      "sourceUrl": "https://www.inaturalist.org/photos/715576853",
+      "caption": "Cá platy variatus nhỏ màu vàng nâu bơi trong bể chụp ảnh",
+      "best": false,
+      "kind": "juvenile"
+    },
+    {
       "url": "https://media.aquatome.com/commons/2b58f7bf8d93818a.webp",
       "thumb": "https://media.aquatome.com/commons/2b58f7bf8d93818a-480.webp",
       "width": 1200,
@@ -214,6 +214,30 @@
       "author": "Livebearerguy",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_La_laguna_(1).jpg",
       "caption": "Cá platy variatus đốm xám bơi gần kính bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/558230326.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/558230326-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/558230326",
+      "caption": "Cá variatus đực vây đuôi đen, thân đỏ cam",
+      "best": false,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/558230290.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/558230290-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/558230290",
+      "caption": "Cá variatus màu vàng ô liu cạnh thước đo",
       "best": false,
       "kind": "other"
     },
@@ -266,6 +290,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/595632376.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/595632376-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Kai Murphy",
+      "sourceUrl": "https://www.inaturalist.org/photos/595632376",
+      "caption": "Cá platy variatus đực màu cam vàng trong hộp trong suốt",
+      "best": false,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/715579508.webp",
       "thumb": "https://media.aquatome.com/inaturalist/715579508-480.webp",
       "width": 1024,
@@ -274,6 +310,18 @@
       "author": "Fishes of Texas team",
       "sourceUrl": "https://www.inaturalist.org/photos/715579508",
       "caption": "Cá platy variatus có vằn thân và cuống đuôi đen, đuôi vàng",
+      "best": false,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/715579542.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/715579542-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Fishes of Texas team",
+      "sourceUrl": "https://www.inaturalist.org/photos/715579542",
+      "caption": "Cá platy variatus đuôi vàng, cuống đuôi đen trong bể chụp ảnh",
       "best": false,
       "kind": "male"
     },
@@ -290,76 +338,28 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/125611833.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/125611833-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Adriana Nelly Correa Sandoval",
-      "sourceUrl": "https://www.inaturalist.org/photos/125611833",
-      "caption": "Cá platy variatus đực vàng cam đuôi đỏ trong túi nước",
+      "url": "https://media.aquatome.com/commons/83891b7996528c3d.webp",
+      "thumb": "https://media.aquatome.com/commons/83891b7996528c3d-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Livebearerguy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_variatus_La_laguna_(3).jpg",
+      "caption": "Cá platy variatus đực đốm đen đuôi đỏ trong bể",
       "best": true,
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/558230280.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/558230280-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "geosesarma",
-      "sourceUrl": "https://www.inaturalist.org/photos/558230280",
-      "caption": "Cá variatus đực trong hộp trong suốt, thân nâu đỏ",
-      "best": false,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/715576853.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/715576853-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Fishes of Texas team",
-      "sourceUrl": "https://www.inaturalist.org/photos/715576853",
-      "caption": "Cá platy variatus nhỏ màu vàng nâu bơi trong bể chụp ảnh",
-      "best": false,
-      "kind": "juvenile"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/558230290.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/558230290-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "geosesarma",
-      "sourceUrl": "https://www.inaturalist.org/photos/558230290",
-      "caption": "Cá variatus màu vàng ô liu cạnh thước đo",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/595632376.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/595632376-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Kai Murphy",
-      "sourceUrl": "https://www.inaturalist.org/photos/595632376",
-      "caption": "Cá platy variatus đực màu cam vàng trong hộp trong suốt",
-      "best": false,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/715579542.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/715579542-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Fishes of Texas team",
-      "sourceUrl": "https://www.inaturalist.org/photos/715579542",
-      "caption": "Cá platy variatus đuôi vàng, cuống đuôi đen trong bể chụp ảnh",
-      "best": false,
-      "kind": "male"
+      "url": "https://media.aquatome.com/commons/610bbf23cd63f32a.webp",
+      "thumb": "https://media.aquatome.com/commons/610bbf23cd63f32a-480.webp",
+      "width": 1200,
+      "height": 1302,
+      "licence": "CC BY-SA 4.0",
+      "author": "Ireallylovefish",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wilbur_charlotte_and_fern_the_best_platies.jpg",
+      "caption": "Ba cá platy variatus màu vàng cam đốm trong bể",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 97,

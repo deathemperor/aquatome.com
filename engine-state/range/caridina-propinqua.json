@@ -1,14 +1,23 @@
 {
   "id": "caridina-propinqua",
   "native": {
-    "input": "a23ca4135586190c",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "d88ddf24886ef484",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "The shrimp originate from the island of Sulawesi.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "ID"
+      ],
       "sourcesOnly": []
     }
   },

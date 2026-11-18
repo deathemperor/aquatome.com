@@ -2,7 +2,9 @@
   "slug": "ca-distichodus-mui-dai",
   "name": "Cá distichodus mũi dài",
   "altNames": [
-    "Long-nosed Distichodus"
+    "Long-nosed Distichodus",
+    "Cá distichodus mõm dài",
+    "Longsnout distichodus"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá distichodus mũi dài (Distichodus lusosso) thuộc họ Citharinidae, sống ở các sông tại Cameroon, Cộng hòa Congo và Cộng hòa Dân chủ Congo. Trong giới chơi cá, chỉ có vài loài Distichodus là gặp khá thường xuyên, và đây là một trong số đó. Lúc còn nhỏ cá có màu và hoa văn đẹp, nhưng lớn lên thì mất gần hết. Nhìn qua cá giống D. sexfasciatus, nhưng đầu hẹp và nhọn hơn. Một số con càng già càng trở nên rất hung dữ.</p><ul><li>Cần bể rất lớn</li></ul>",
@@ -15,13 +17,18 @@
     "behaviour:seriouslyfish": "<p>Tính nết loài này khá khó đoán. Có con vẫn hiền với những bạn cùng bể to cỡ nó, nhưng cũng có con lớn lên thì trở nên rất hung dữ. Dứt khoát đừng nuôi chung nó với những loài nhỏ hơn nhiều hoặc nhút nhát. Nếu bể đủ rộng, nuôi theo đàn có thể làm bớt phần nào tính hung hăng. Trong bể lớn, bạn có thể nuôi chung với cá bichir (cá khủng long), cá characin cỡ lớn, cá họ Cyprinidae, cá da trơn và cá họ Loricariidae (cá tỳ bà).</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có ghi nhận nào về việc cá sinh sản trong bể nuôi.</p>",
-    "notes:seriouslyfish": "<p>Trong giới chơi cá, chỉ có vài loài Distichodus là gặp khá thường xuyên, và đây là một trong số đó. Lúc còn nhỏ cá đẹp thật. Tiếc là khi lớn lên nó mất gần hết màu sắc và hoa văn. Nhìn qua cá giống D. sexfasciatus, loài phổ biến hơn. Tuy vậy, khi trưởng thành loài này nhỏ hơn nhiều, và đầu nó hẹp, nhọn.</p>"
+    "notes:seriouslyfish": "<p>Trong giới chơi cá, chỉ có vài loài Distichodus là gặp khá thường xuyên, và đây là một trong số đó. Lúc còn nhỏ cá đẹp thật. Tiếc là khi lớn lên nó mất gần hết màu sắc và hoa văn. Nhìn qua cá giống D. sexfasciatus, loài phổ biến hơn. Tuy vậy, khi trưởng thành loài này nhỏ hơn nhiều, và đầu nó hẹp, nhọn.</p>",
+    "distribution:glaser": "<p>Cá distichodus mõm dài sống ở khắp lưu vực sông Congo, vùng phân bố rất rộng.</p>",
+    "quickFacts:glaser": "<p>Loài này dài tới 40 cm.</p>",
+    "diet:glaser": "<p>D. lusosso là cá ăn tạp, và thức ăn của nó phần nhiều là thực vật. Vì vậy bể nuôi loài này thường không trồng cây được.</p>",
+    "behaviour:glaser": "<p>D. lusosso nên nuôi đàn lớn từ 10 con trở lên, hoặc nuôi một con riêng. Thả đàn quá ít thì chúng thường đánh nhau dữ với đồng loại.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.8
     }
   }
 }

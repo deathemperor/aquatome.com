@@ -229,7 +229,8 @@
   },
   "id/apistogramma-elizabethae": {
     "Apisto elizabethae super red": "a variety's name, 2026-11-06",
-    "Apistogramma elizabethae": "its scientific name, 2026-11-06"
+    "Apistogramma elizabethae": "its scientific name, 2026-11-06",
+    "Apisto Elizabethae Super Red": "a variety's name, 2026-11-17"
   },
   "id/apistogramma-gibbiceps": {
     "Apistogramma gibbiceps": "its scientific name, 2026-11-06"
@@ -471,6 +472,9 @@
     "Udang Crystal Red": "a breed's name: breeds/crystal-red-shrimp, 2026-11-08",
     "Crystal Red Shrimp": "a breed's name: breeds/crystal-red-shrimp, 2026-11-08"
   },
+  "id/caridina-propinqua": {
+    "Caridina propinqua": "its name, 2026-11-17"
+  },
   "id/catoprion-mento": {
     "Catoprion mento": "its scientific name, 2026-11-08"
   },
@@ -521,6 +525,9 @@
   },
   "id/cherax-boesemani": {
     "Cherax boesemani": "its scientific name, 2026-11-04"
+  },
+  "id/cherax-lorentzi": {
+    "Cherax lorentzi": "its scientific name, 2026-11-17"
   },
   "id/cherax-pulcher": {
     "Cherax pulcher": "its scientific name, 2026-11-04"
@@ -789,9 +796,33 @@
   "id/dicrossus-maculatus": {
     "Dicrossus maculatus": "its scientific name, 2026-11-16"
   },
+  "id/distichodus-affinis": {
+    "Distichodus affinis": "its scientific name, 2026-11-17"
+  },
+  "id/distichodus-sexfasciatus": {
+    "Distichodus sexfasciatus": "its scientific name, 2026-11-17"
+  },
+  "id/dormitator-lebretonis": {
+    "Dormitator lebretonis": "its scientific name, 2026-11-17"
+  },
+  "id/ectodus-descampsii": {
+    "Ectodus descampsii": "its scientific name, 2026-11-17"
+  },
   "id/eirmotus-insignis": {
     "Eirmotus insignis": "its scientific name, 2026-11-06",
     "False Eight Banded Barb": "its name, 2026-11-06"
+  },
+  "id/elassoma-zonatum": {
+    "Elassoma zonatum": "its scientific name, 2026-11-17"
+  },
+  "id/electrophorus-electricus": {
+    "Ikan belut listrik": "its name, 2026-11-17"
+  },
+  "id/enteromius-candens": {
+    "Enteromius candens": "its scientific name, 2026-11-17"
+  },
+  "id/enteromius-holotaenia": {
+    "Enteromius holotaenia": "its scientific name, 2026-11-17"
   },
   "id/epalzeorhynchos-kalopterus": {
     "Ikan flying fox": "its name, 2026-11-04"
@@ -927,6 +958,9 @@
   "id/ompok-bimaculatus": {
     "Lais": "written twice: \"Ikan lais\", 2026-11-08"
   },
+  "id/ompok-fumidus": {
+    "Lais": "written twice: \"Ikan lais\", 2026-11-17"
+  },
   "id/oryzias-eversi": {
     "Oryzias eversi": "its scientific name, 2026-11-09"
   },
@@ -984,6 +1018,9 @@
   },
   "id/poecilia-sphenops": {
     "Ikan molly": "its name, 2026-11-04"
+  },
+  "id/poecilia-wingei": {
+    "Ikan Endler": "its name, 2026-11-18"
   },
   "id/polypterus-senegalus": {
     "Polypterus Senegalus": "its scientific name, 2026-11-04"
@@ -1247,6 +1284,45 @@
   "ms/anablepsoides-ornatus": {
     "Anablepsoides ornatus": "its scientific name, 2026-11-16"
   },
+  "ms/anatolichthys-saldae": {
+    "Anatolichthys saldae": "its scientific name, 2026-11-17"
+  },
+  "ms/anatolichthys-villwocki": {
+    "Anatolichthys villwocki": "its scientific name, 2026-11-17"
+  },
+  "ms/ancharius-fuscus": {
+    "Ancharius fuscus": "its scientific name, 2026-11-17"
+  },
+  "ms/ancistrus-cryptophthalmus": {
+    "Ancistrus cryptophthalmus": "its scientific name, 2026-11-17"
+  },
+  "ms/ancistrus-formoso": {
+    "Ancistrus formoso": "its scientific name, 2026-11-17"
+  },
+  "ms/annamia-normani": {
+    "Annamia normani": "its scientific name, 2026-11-17"
+  },
+  "ms/anomalochromis-thomasi": {
+    "Anomalochromis thomasi": "its scientific name, 2026-11-17"
+  },
+  "ms/anostomus-ternetzi": {
+    "Anostomus Ternetzi": "its scientific name, 2026-11-17"
+  },
+  "ms/aphanius-apodus": {
+    "Aphanius apodus": "its scientific name, 2026-11-17"
+  },
+  "ms/aphanius-dispar": {
+    "Aphanius dispar": "its scientific name, 2026-11-17"
+  },
+  "ms/aphanius-farsicus": {
+    "Aphanius farsicus": "its scientific name, 2026-11-17"
+  },
+  "ms/aphanius-sirhani": {
+    "Aphanius sirhani": "its scientific name, 2026-11-18"
+  },
+  "ms/aphanotorulus-unicolor": {
+    "Aphanotorulus unicolor": "its scientific name, 2026-11-18"
+  },
   "ms/astronotus-ocellatus": {
     "Ikan Oscar": "its name, 2026-11-06",
     "Oscar": "its name, 2026-11-10"
@@ -1255,7 +1331,8 @@
     "Betta pugnax": "its scientific name, 2026-11-14"
   },
   "ms/betta-splendens": {
-    "Plakat": "a variety's name, 2026-11-06"
+    "Plakat": "a variety's name, 2026-11-06",
+    "betta": "written twice: \"ikan betta\", 2026-11-18"
   },
   "ms/boraras-brigittae": {
     "Boraras brigittae": "its scientific name, 2026-11-07"
@@ -1642,6 +1719,9 @@
   "th/apistogramma-paulmuelleri": {
     "Apistogramma paulmuelleri": "its scientific name, 2026-11-06"
   },
+  "th/apistogramma-personata": {
+    "Apistogramma personata": "its scientific name, 2026-11-17"
+  },
   "th/apistogramma-rupununi": {
     "Apistogramma rupununi": "its scientific name, 2026-11-10"
   },
@@ -1809,6 +1889,12 @@
   },
   "th/belodontichthys-dinema": {
     "Belodontichthys dinema": "its scientific name, 2026-11-04"
+  },
+  "th/belonoglanis-brieni": {
+    "Belonoglanis brieni": "its scientific name, 2026-11-17"
+  },
+  "th/belonoglanis-tenuis": {
+    "Belonoglanis tenuis": "its scientific name, 2026-11-17"
   },
   "th/benitochromis-finleyi": {
     "Benitochromis finleyi": "its scientific name, 2026-11-10"
@@ -2132,6 +2218,9 @@
   "th/ceratoglanis-scleronema": {
     "Ceratoglanis scleronema": "its scientific name, 2026-11-04"
   },
+  "th/chaetobranchopsis-australis": {
+    "Chaetobranchopsis australis": "its scientific name, 2026-11-17"
+  },
   "th/chaetobranchopsis-orbicularis": {
     "Chaetobranchopsis orbicularis": "its scientific name, 2026-11-11"
   },
@@ -2211,6 +2300,9 @@
   "th/cherax-holthuisi": {
     "เครฟิชส้มปาปัว": "its name, 2026-11-05"
   },
+  "th/cherax-lorentzi": {
+    "Cherax lorentzi": "its scientific name, 2026-11-17"
+  },
   "th/cherax-pulcher": {
     "กุ้งเครฟิชพัลเชอร์": "its name, 2026-11-04",
     "Cherax pulcher": "its scientific name, 2026-11-04"
@@ -2268,6 +2360,9 @@
   },
   "th/clupisoma-prateri": {
     "Clupisoma prateri": "its scientific name, 2026-11-10"
+  },
+  "th/clypeobarbus-congicus": {
+    "ปลาคองโกบาร์บ": "its name, 2026-11-17"
   },
   "th/colomesus-asellus": {
     "ปักเป้าอเมซอน": "its name, 2026-11-10"
@@ -2338,6 +2433,9 @@
   "th/corydoras-bicolor": {
     "ปลาแพะไบคัลเลอร์": "its name, 2026-11-16",
     "Corydoras bicolor": "its scientific name, 2026-11-16"
+  },
+  "th/corydoras-bifasciatus": {
+    "Corydoras bifasciatus": "its scientific name, 2026-11-17"
   },
   "th/corydoras-boesemani": {
     "Corydoras boesemani": "its scientific name, 2026-11-10"
@@ -2716,6 +2814,33 @@
   "th/dichotomyctere-fluviatilis": {
     "ปักเป้าเขียว": "written twice: \"ปลาปักเป้าเขียว\", 2026-11-04"
   },
+  "th/discherodontus-ashmeadi": {
+    "Discherodontus ashmeadi": "its scientific name, 2026-11-17"
+  },
+  "th/distichodus-sexfasciatus": {
+    "Distichodus sexfasciatus": "its scientific name, 2026-11-17"
+  },
+  "th/distichodus-teugelsi": {
+    "Distichodus teugelsi": "its scientific name, 2026-11-17"
+  },
+  "th/doumea-typica": {
+    "Doumea typica": "its scientific name, 2026-11-17"
+  },
+  "th/elassoma-gilberti": {
+    "พิกมี่ซันฟิช": "written twice: \"ปลาพิกมี่ซันฟิช\", 2026-11-17"
+  },
+  "th/elopichthys-bambusa": {
+    "เยลโลว์ชีค": "its name, 2026-11-17"
+  },
+  "th/enteromius-callipterus": {
+    "Enteromius callipterus": "its scientific name, 2026-11-17"
+  },
+  "th/enteromius-candens": {
+    "Enteromius candens": "its scientific name, 2026-11-17"
+  },
+  "th/enteromius-holotaenia": {
+    "สปอตสเกล บาร์บ": "its name, 2026-11-17"
+  },
   "th/epalzeorhynchos-bicolor": {
     "ฉลามหางแดง": "written twice: \"ปลาฉลามหางแดง\", 2026-11-04"
   },
@@ -2730,7 +2855,8 @@
     "Eutropiichthys burmannicus": "its scientific name, 2026-11-04"
   },
   "th/garra-flavatra": {
-    "ปลาการ์ร่าแพนด้า": "its name, 2026-11-04"
+    "ปลาการ์ร่าแพนด้า": "its name, 2026-11-04",
+    "ปลาแพนด้าการ์ร่า": "its name, 2026-11-17"
   },
   "th/glossolepis-dorityi": {
     "เรนโบว์ดอริตี้": "its name, 2026-11-11",
@@ -2850,6 +2976,9 @@
   "th/nanobagrus-armatus": {
     "Nanobagrus armatus": "its scientific name, 2026-11-04"
   },
+  "th/nanobagrus-stellatus": {
+    "Nanobagrus stellatus": "its scientific name, 2026-11-17"
+  },
   "th/nemacheilus-selangoricus": {
     "Nemacheilus selangoricus": "its scientific name, 2026-11-04"
   },
@@ -2861,6 +2990,15 @@
   },
   "th/nematabramis-everetti": {
     "Nematabramis everetti": "its scientific name, 2026-11-05"
+  },
+  "th/nematobrycon-lacortei": {
+    "ปลาเรนโบว์เตตร้า": "its name, 2026-11-17"
+  },
+  "th/nomorhamphus-rex": {
+    "Nomorhamphus rex": "its scientific name, 2026-11-18"
+  },
+  "th/ompok-fumidus": {
+    "Ompok fumidus": "its scientific name, 2026-11-18"
   },
   "th/oryzias-eversi": {
     "Oryzias eversi": "its scientific name, 2026-11-09"
@@ -2931,6 +3069,9 @@
   },
   "th/poecilia-reticulata": {
     "กัปปี้": "written twice: \"ปลากัปปี้\", 2026-11-04"
+  },
+  "th/poecilia-wingei": {
+    "เอ็นด์เลอร์": "its name, 2026-11-18"
   },
   "th/pseudeutropius-brachypopterus": {
     "Pseudeutropius brachypopterus": "its scientific name, 2026-11-05"
@@ -3011,6 +3152,9 @@
   },
   "th/trichogaster-lalius": {
     "กระดี่แคระ": "its name, 2026-11-04"
+  },
+  "th/trichopodus-leerii": {
+    "กระดี่มุก": "its name, 2026-11-18"
   },
   "th/trigonostigma-espei": {
     "ซิวข้างขวานเล็ก": "its name, 2026-11-04"
@@ -3271,7 +3415,9 @@
     "Cá betta anabatoides": "its scientific name, 2026-11-04"
   },
   "vi/betta-antoni": {
-    "Cá betta Antuta": "written twice: \"Betta antuta\", 2026-11-04"
+    "Cá betta Antuta": "written twice: \"Betta antuta\", 2026-11-04",
+    "Betta Antuta LB": "a species' name: species/Betta sp. 'Antuta' (no page), 2026-11-17",
+    "Betta antuta": "a species' name: species/Betta sp. 'Antuta' (no page), 2026-11-17"
   },
   "vi/betta-balunga": {
     "Betta Balunga": "its name, 2026-11-04",

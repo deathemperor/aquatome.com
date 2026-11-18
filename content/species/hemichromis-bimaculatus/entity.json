@@ -31,7 +31,7 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Rubricatochromis bimaculatus, the jewel cichlid, is a cichlid from Africa's western coast, between southern Guinea and central Liberia.",
+          "quote": "Widespread down Africa's western coast from South Guinea to Central Liberia.",
           "countries": [
             "GN",
             "LR"
@@ -862,7 +862,8 @@
       },
       {
         "source": "glaser",
-        "value": 7
+        "value": 7,
+        "overruled": "Glaser's 7 cm is from its page for Hemichromis cf. cristatus 'Benue', another fish; Seriously Fish gives 15 cm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       }
     ],
     "tankCm": [
@@ -889,7 +890,8 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cf_cristatus_benue__en/",
-      "html": "<p>This beautiful cichlid comes from the Benue river. The females grow to at least 5 cm, while the males reach a maximum size of 7 cm.</p>"
+      "html": "<p>This beautiful cichlid comes from the Benue river.</p>",
+      "fixed": true
     },
     {
       "key": "distribution",

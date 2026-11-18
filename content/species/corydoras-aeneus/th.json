@@ -23,11 +23,11 @@
     "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Fuller, I. A. M., and H-G. Evers (2005). Identifying Corydoradinae Catfish. Verlag A.C.S. GmbH, 1-384</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Gill, T. N. (1858). Synopsis of the fresh water fishes of the western portion of the island of Trinidad, W. I. Annals of the Lyceum of Natural History of New York v. 6 (nos 10-13), 363-430</li><li>Phillip, D. A. T., D. C. Taphorn, E. Holm, J. F. Gilliam, B. A. Lamphere and H. López-Fernández (2013). Annotated list and key to the stream fishes of Trinidad &amp; Tobago. Zootaxa 3711(1), 1-64</li><li>Espíndola, V. C., M. R. S. Spencer, L. R. Rocha and M. R. Britto (2014). A new species of Corydoras Lacépède (Siluriformes: Callichthyidae) from the Rio Tapajós basin and its phylogenetic implications. Papéis Avulsos de Zoologia, São Paulo 54(3), 25-32</li><li>Nijssen, H. and I. J. H. Isbrücker (1980). A review of the genus Corydoras Lacépède, 1803 (Pisces, Siluriformes, Callichthyidae). Bijdragen tot de Dierkunde 50(1), 190-220</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.7,
-      "seriouslyfish": 0.7
+      "glaser": 0.9,
+      "seriouslyfish": 0.9
     }
   }
 }

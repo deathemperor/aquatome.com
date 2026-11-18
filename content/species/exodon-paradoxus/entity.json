@@ -303,7 +303,8 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 7.5
+        "value": 7.5,
+        "overruled": "Glaser's 'about 7.5 cm'; Seriously Fish gives 150 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       },
       {
         "source": "seriouslyfish",
@@ -355,7 +356,8 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
-      "html": "<p>For many aquarists the Bucktooth tetra, Exodon paradoxus, is simply the most beautiful tetra from South America. The splendid fish glitter and glimmer like diamonds and they never stay still. E. paradoxus attains a maximum length of about 7.5 cm. Keeping this fish is not complicated, but the tank should be large and the fish should be kept in a school as large as possible.</p>"
+      "html": "<p>For many aquarists the Bucktooth tetra, Exodon paradoxus, is simply the most beautiful tetra from South America. The splendid fish glitter and glimmer like diamonds and they never stay still. Keeping this fish is not complicated, but the tank should be large and the fish should be kept in a school as large as possible.</p>",
+      "fixed": true
     },
     {
       "key": "quickFacts",

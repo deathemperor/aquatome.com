@@ -3,6 +3,12 @@
   "name": "United Kingdom",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-17T18:01:24.435Z",
+    "why": "Malay atlases in Malaysia write \"United Kingdom\" as \"Kerajaan Bersatu\" (commonly \"UK\" or \"Britain/Great Britain\" as \"Britain Raya\"), so the English name is not the Malay form."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

@@ -1,0 +1,219 @@
+{
+  "id": "dimidiochromis-strigatus",
+  "scientificName": "Dimidiochromis strigatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Dimidiochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi",
+    "mozambique",
+    "shire-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Lake Malombe",
+        "Shire"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species occurs not exclusively in Lake Malawi, but also in Lake Malombe and the River Shire that connects the two lakes.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi",
+            "Lake Malombe",
+            "Shire"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369863,
+      "total": 6,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MW",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -15.46875,
+          2
+        ],
+        [
+          33.75,
+          -14.0625,
+          3
+        ],
+        [
+          33.75,
+          -9.84375,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "html": "<p>Dimidiochromis strigatus attains a maximum length of about 25 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "html": "<p>The genus Dimidiochromis comprises currently four accepted species. Only one of them, D. compressiceps, is found in the trade on a regular basis and has become an ornamental fish so far. D. strigatus can still be considered a rarity in the trade. The fish offered are German bred ones.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "html": "<p>The species occurs not exclusively in Lake Malawi, but also in Lake Malombe and the River Shire that connects the two lakes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "html": "<p>These cichlids do not live in rocky shores, but among reed and underwater weeds like Vallisneria over soft bottom.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "html": "<p>All species of Dimidiochromis are predators that feed in the wild almost exclusively on small fish. In the aquarium they feed readily on any usual fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "html": "<p>These predators do not inhabit territories outside the breeding season and thus they can be considered as very peaceful fish as long as accompanying fish are too large to be eaten. One should never choose the always hectic and aggressive rock cichlids from Lake Malawi (Mbunas) as tankmates, for they would be a continuous disturbance for the calm and cautious Dimidiochromis.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "html": "<p>As almost all cichlids from Lake Malawi it is a female mouthbrooder.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/90949ef27a257924.webp",
+      "thumb": "https://media.aquatome.com/glaser/90949ef27a257924-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/02c2c1984dc5cb85.webp",
+      "thumb": "https://media.aquatome.com/glaser/02c2c1984dc5cb85-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bad9e98704c56eff.webp",
+      "thumb": "https://media.aquatome.com/glaser/bad9e98704c56eff-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/829ef4746396dc67.webp",
+      "thumb": "https://media.aquatome.com/glaser/829ef4746396dc67-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/dimidiochromis-strigatus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hD_uH22W-B0",
+      "title": "A BEAUTIFUL FISH! The Dimidiochromis Strigatus! PLUS A Stock Update!",
+      "durationSec": 483,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vF2dL-qWmho",
+      "title": "Malawi Eye Biter || DIMIDIOCHROMIS STRIGATUS  || Cichlid Breeding Farm || #aquarium #fish #cichlid",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "flDVaFa7Qm4",
+      "title": "Species Spotlight Dimidiochromis strigatus",
+      "durationSec": 680,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LxmLu7n8KHQ",
+      "title": "Dimidiochromis strigatus",
+      "durationSec": 79,
+      "lang": "es"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc ngoài bể lớn",
+        "máy lọc thùng"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "thức ăn cá săn mồi"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn hồ Malawi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

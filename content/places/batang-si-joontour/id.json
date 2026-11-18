@@ -3,6 +3,12 @@
   "name": "Batang Si Joontour",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T00:46:46.062Z",
+    "why": "\"Batang Si Joontour\" looks like a Batak/Sumatran river name (batang = river/stream) and is likely a real Indonesian toponym, but it is unverified and an atlas would normally write \"Sungai\" or leave the name as a bare local form, so it is uncertain."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

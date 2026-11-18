@@ -31,7 +31,7 @@ import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
 import { gate, heldMendsOf, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
-import { fitRewrite } from './fit-rewrite'
+import { fitRewrite, foreignProduct } from './fit-rewrite'
 import { unitsMend } from './units-mend'
 import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
@@ -128,6 +128,7 @@ import { ArchiveFetcher } from './archive'
 import { researchedPage } from './cycle-only'
 import { localizeCards } from './cards-intl'
 import { heroesWithout, localizeGlossary, localizePlaces, localizeSpecies, speciesOrder, TARGETS, type TargetLang } from './localize'
+import { RECHECK_LANGS, recheckLocalized } from './localize-recheck'
 import { judgePlaces } from './place-judge'
 import { addShopNames, makeShopList, popularFirst, type ShopLang } from './shops'
 import { abNamespace, listReaderWants } from './readers-wanted'
@@ -650,7 +651,7 @@ if (cmd === 'photo-privacy') {
   // way has a random sample; rules with no model run on every page. docs/review/fit.md has the counts, no page lists.
   // pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…: these alone,
   // the most-read first before a rewrite] [--front: the front list's pages only, in its order (fit-front.json), the ones
-  // due a read; nothing before the list's `first`]. FIT_MODEL: the reading model. Opus by
+  // due a read, then the Vietnamese pages with a foreign product still on them that are due one; nothing before the list's `first`]. FIT_MODEL: the reading model. Opus by
   // default: on a test sample Sonnet missed about half of what's written for elsewhere and a quarter of the source talk.
   if (values.front && frontEarly(fitFront, new Date())) {
     console.log(`fit: the front list waits until ${fitFront.first}`)
@@ -667,8 +668,12 @@ if (cmd === 'photo-privacy') {
     // runFit reads the pages it is given in its own order. One page a call keeps the front list's order under --limit.
     // A page not due a read (fitDue) is not passed, so it costs no call and does not use a place in the limit.
     const want = new Set(fitFront.front)
-    const chosen = orderFront(fitFront, filtered).filter(p => want.has(fitKey(p)))
     const prior = JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}')) as FitState
+    // Then the Vietnamese pages whose saved read found a foreign product still on them, read again once their text has
+    // changed, so the rewrite can take them (the chief of staff, 17 Nov 2026: 11 of the 54 left had a read of older text).
+    // Only the kinds the rewrite takes: a product or equipment page's read could lead to no rewrite.
+    const products = values.lang || values.only ? [] : filtered.filter(p => p.lang === 'vi' && ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && !want.has(fitKey(p)) && !(p.kind === 'guides' && retiredTo(p.id)) && foreignProduct(p, prior[fitKey(p)]))
+    const chosen = [...orderFront(fitFront, filtered).filter(p => want.has(fitKey(p))), ...products]
     const stale = fitDue(chosen, prior)
     r = { read: 0, failed: [], left: 0 }
     state = prior
@@ -722,13 +727,20 @@ if (cmd === 'photo-privacy') {
         if (h) marks.set(fitKey(p), h)
       }
     }
-    // A page with a foreign product or medicine on it, as its saved read found (the owner's complaint): first, with the lane.
-    const product = (p: (typeof ranked)[number]) => fitFindings(p, state[fitKey(p)]).some(f => f.check === 'product')
-    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks, product) : { held: false, order: ranked, lane: new Set<string>(), mend: new Set<string>() }
-    if (values.front && !only) console.log(`fit-rewrite: lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'}${plan.mend.size > plan.lane.size ? ` and ${plan.mend.size - plan.lane.size} with a foreign product` : ''} first${plan.held ? ', front list held' : ''}`)
-    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.mend })
+    // A page with a foreign product or medicine still on it, as its saved read found (the owner's complaint): first, with
+    // the lane, or ahead of it (fit-front.json products).
+    const product = (p: (typeof ranked)[number]) => foreignProduct(p, state[fitKey(p)])
+    const plan = values.front && !only ? frontPlan(fitFront, last, ranked, marks, product) : { held: false, order: ranked, lane: new Set<string>(), mend: new Set<string>(), products: new Set<string>() }
+    if (values.front && !only) console.log(`fit-rewrite: ${plan.products.size} with a foreign product${fitFront.products === 'ahead' ? ', then' : ' and'} lane ${plan.lane.size} page${plan.lane.size === 1 ? '' : 's'} first${plan.held ? ', front list held' : ''}`)
+    const r = await fitRewrite(ROOT, plan.order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only, mend: plan.mend, products: plan.products })
     for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.gone.map(x => `gone: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    // The pages with a foreign product, for the day's line to the chief of staff (17 Nov 2026): tried, kept, cut by code.
+    if (plan.products.size) {
+      const of = (xs: string[]) => new Set(xs.map(x => x.split(' ')[0]!.replace(/:$/, '')).filter(k => plan.products.has(k)))
+      const kept = of(r.rewritten), tried = of([...r.rewritten, ...r.notKept, ...r.skipped, ...r.failed])
+      console.log(`fit-rewrite: foreign product pages: ${tried.size} tried, ${kept.size} with a part kept (${of(r.rewritten.filter(x => x.includes('cut whole by code'))).size} cut by code), ${plan.products.size} on the list before this run`)
+    }
     // The run on file: the front list's and live pages' outcomes, never the lane's alone (fit-front.ts offLane).
     const ran = values.front && !only && !plan.held ? firstRun(offLane(r, plan.lane), new Date().toISOString()) : undefined
     if (ran) await writeFile(lastFile, `${JSON.stringify(ran, null, 1)}\n`)
@@ -1240,6 +1252,14 @@ if (cmd === 'photo-privacy') {
   const limit = values.only || values.top ? undefined : Number(values.limit ?? 10)
   const r = await localizeSpecies(ROOT, claudeCli, lang, ids, { redo: values.redo, model: 'opus', now: () => new Date(), english: sci => englishName(sci, http), limit, kind })
   console.log(`localize ${lang}: ${r.done.length} done, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.done, ...r.failed].join('\n')}`)
+} else if (cmd === 'recheck') {
+  // Indonesian and Thai fish pages out of search for their score, read afresh on two models (localize-recheck.ts): back
+  // when both pass. --limit N pages a model is called for (default 15); --max-minutes M starts no page after M minutes;
+  // --dry-run says which would be read.
+  const lang = values.lang as TargetLang
+  if (!RECHECK_LANGS.includes(lang)) throw new Error(`usage: pnpm engine recheck --lang ${RECHECK_LANGS.join('|')} [--limit N] [--max-minutes M] [--dry-run]`)
+  const r = await recheckLocalized(ROOT, claudeCli, lang, await speciesOrder(ROOT, lang), { limit: Number(values.limit ?? 15), ...(values['max-minutes'] ? { maxMinutes: Number(values['max-minutes']) } : {}), dry: values['dry-run'], now: () => new Date() })
+  console.log(`recheck ${lang}: ${r.back.length} back, ${r.failed.length} failed, ${r.held.length} held on a dose or harm note${r.stopped ? `, stopped (${r.stopped})` : ''}\n${[...r.back, ...r.failed, ...r.held, ...r.skipped].join('\n')}`)
 } else if (cmd === 'localize-cards') {
   // The app's short cards in another language, translated from the Vietnamese card (cards-intl.ts): each not yet in it, or
   // --only ids; --redo writes them again.
@@ -1390,6 +1410,6 @@ if (cmd === 'photo-privacy') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine source-kinds [--only id,id] [--dry-run] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine frame-sheet --out <folder> --only <videoId>:<species id>,… [--per N] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] [--retry-blocked] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] [--only id,id] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine tropica-photos [--limit N] | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine photo-boxes [--limit N] | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--fill N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…] [--front] | pnpm engine fit-rewrite [--limit N] [--only vi/species/<id>,…] [--kind species,guides] [--front] | pnpm engine units-mend [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures --record | pnpm engine metric | pnpm engine ungarble [--limit N] | pnpm engine redo-unread | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine judge-places [--limit N] [--jobs N] [--only lang/id,…] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
+  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine source-kinds [--only id,id] [--dry-run] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine frame-sheet --out <folder> --only <videoId>:<species id>,… [--per N] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] [--retry-blocked] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] [--only id,id] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine tropica-photos [--limit N] | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine photo-boxes [--limit N] | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--fill N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine fit [--limit N] [--jobs N] [--kind guides,species] [--lang id,th] [--only vi/species/<id>,…] [--front] | pnpm engine fit-rewrite [--limit N] [--only vi/species/<id>,…] [--kind species,guides] [--front] | pnpm engine units-mend [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures [--limit N] [--first lang/kind/id,…] [--dry-run] | pnpm engine source-figures --record | pnpm engine metric | pnpm engine ungarble [--limit N] | pnpm engine redo-unread | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine recheck --lang ${RECHECK_LANGS.join('|')} [--limit N] [--max-minutes M] [--dry-run] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine judge-places [--limit N] [--jobs N] [--only lang/id,…] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
   process.exitCode = 1
 }

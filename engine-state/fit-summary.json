@@ -1,5 +1,5 @@
 {
- "day": "2026-11-17",
+ "day": "2026-11-18",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4450,
-   "read": 3746,
-   "wrong": 1535,
+   "pages": 4660,
+   "read": 3954,
+   "wrong": 1607,
    "pct": 41,
-   "held": 530
+   "held": 576
   },
   "id": {
-   "pages": 1486,
-   "read": 1311,
-   "wrong": 372,
-   "pct": 28,
-   "held": 121
+   "pages": 1546,
+   "read": 1372,
+   "wrong": 395,
+   "pct": 29,
+   "held": 141
   },
   "th": {
-   "pages": 1475,
-   "read": 1280,
-   "wrong": 343,
+   "pages": 1536,
+   "read": 1343,
+   "wrong": 362,
    "pct": 27,
-   "held": 107
+   "held": 123
   },
   "ms": {
-   "pages": 364,
-   "read": 322,
-   "wrong": 90,
-   "pct": 28,
-   "held": 50
+   "pages": 421,
+   "read": 378,
+   "wrong": 109,
+   "pct": 29,
+   "held": 69
   }
  },
  "labels": {
@@ -59,23 +59,23 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/fish/esomus-metallicus/",
-   "url": "https://aquatome.com/th/fish/esomus-metallicus/",
-   "title": "ปลาซิวหนวดยาว",
+   "path": "/th/fish/pangio-piperata/",
+   "url": "https://aquatome.com/th/fish/pangio-piperata/",
+   "title": "ปลาหมูงู",
+   "wrong": []
+  },
+  {
+   "lang": "th",
+   "path": "/th/fish/eirmotus-insignis/",
+   "url": "https://aquatome.com/th/fish/eirmotus-insignis/",
+   "title": "False Eight-banded Barb",
    "wrong": []
   },
   {
    "lang": "id",
-   "path": "/id/ikan/bulldog-pleco/",
-   "url": "https://aquatome.com/id/ikan/bulldog-pleco/",
-   "title": "Bulldog Pleco",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/nemacheilus-saravacensis/",
-   "url": "https://aquatome.com/id/ikan/nemacheilus-saravacensis/",
-   "title": "Nemacheilus saravacensis",
+   "path": "/id/tanaman/amazon-sword/",
+   "url": "https://aquatome.com/id/tanaman/amazon-sword/",
+   "title": "Amazon Sword",
    "wrong": []
   }
  ]

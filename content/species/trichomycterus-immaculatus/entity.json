@@ -10,6 +10,158 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Paraíbuna River",
+        "Rio Doce"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio São Matheos, Rio Doce basin, Espírito Santo, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Doce"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Paraíbuna River, Paraíba do Sul River basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul",
+            "Paraíbuna River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343068,
+      "total": 112,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          112
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          3,
+          3
+        ],
+        [
+          -45,
+          -23.90625,
+          10,
+          10
+        ],
+        [
+          -45,
+          -22.5,
+          8,
+          8
+        ],
+        [
+          -45,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -22.5,
+          19,
+          19
+        ],
+        [
+          -43.59375,
+          -21.09375,
+          15,
+          15
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          12,
+          12
+        ],
+        [
+          -42.1875,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          7,
+          7
+        ],
+        [
+          -42.1875,
+          -19.6875,
+          7,
+          7
+        ],
+        [
+          -42.1875,
+          -18.28125,
+          7,
+          7
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          -40.78125,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          11,
+          11
+        ],
+        [
+          -40.78125,
+          -16.875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -8,7 +8,10 @@
   "File:Hemigrammus rhodostomus.jpg",
   "File:Petitella rhodostomus (Hemigrammus rhodostomus), 2013.jpg",
   "File:Petitella rhodostoma, Bernat Arlandis, 2013.jpg",
-  "File:Hemigrammus Rhodostomus - Petitella Rhodostomus - Tetra Testa Rossa - Rummy-Nose.jpg"
+  "File:Hemigrammus Rhodostomus - Petitella Rhodostomus - Tetra Testa Rossa - Rummy-Nose.jpg",
+  "flickr:30775417143",
+  "flickr:8917150972",
+  "flickr:8917256154"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumcoop/28833217bf576b7d.webp": "c7565c3165cfcbcb",
@@ -18,7 +21,10 @@
   "https://media.aquatome.com/commons/893f16efff06e634.webp": "3b1b4f3f0e462496",
   "https://media.aquatome.com/commons/61f277b28873fa96.webp": "80c1c0c8181959e6",
   "https://media.aquatome.com/commons/16f72b06740945c7.webp": "694c7b5eeee5b273",
-  "https://media.aquatome.com/commons/5c5aa9250bdff345.webp": "8e064e6c66cc9c38"
+  "https://media.aquatome.com/commons/5c5aa9250bdff345.webp": "8e064e6c66cc9c38",
+  "https://live.staticflickr.com/758/30775417143_838e6420e5_b.jpg": "cc3c130f1d1b5919",
+  "https://live.staticflickr.com/3711/8917150972_8c776b6ac1_b.jpg": "1b233206091b3398",
+  "https://live.staticflickr.com/8545/8917256154_a838ab5278_b.jpg": "8e4e1e2c4c0c1c5f"
  },
  "inat": {
   "taxon": 1538831,
@@ -32,5 +38,9 @@
  "gbif": {
   "key": 2354397,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-17"
 }

@@ -1,0 +1,332 @@
+{
+  "id": "bagre-pinnimaculatus",
+  "scientificName": "Bagre pinnimaculatus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Bagre",
+  "group": "catfish",
+  "places": [
+    "north-america",
+    "mexico",
+    "guatemala",
+    "el-salvador",
+    "honduras",
+    "nicaragua",
+    "costa-rica",
+    "panama",
+    "south-america",
+    "colombia",
+    "ecuador",
+    "peru"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "CR",
+        "EC",
+        "SV",
+        "GT",
+        "HN",
+        "MX",
+        "NI",
+        "PA",
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "It occurs in both brackish and freshwater habitats, with the countries within its range being Colombia, Costa Rica, Ecuador, El Salvador, Guatemala, Honduras, Mexico, Nicaragua, Panama and Peru.",
+          "countries": [
+            "CO",
+            "CR",
+            "EC",
+            "SV",
+            "GT",
+            "HN",
+            "MX",
+            "NI",
+            "PA",
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202984,
+      "total": 76,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "CO",
+          21
+        ],
+        [
+          "MX",
+          21
+        ],
+        [
+          "PA",
+          20
+        ],
+        [
+          "EC",
+          6
+        ],
+        [
+          "SV",
+          4
+        ],
+        [
+          "US",
+          2
+        ],
+        [
+          "CR",
+          1
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -119.53125,
+          33.75,
+          2,
+          0
+        ],
+        [
+          -112.5,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -112.5,
+          28.125,
+          2,
+          2
+        ],
+        [
+          -111.09375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          -111.09375,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          -109.6875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          -108.28125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -106.875,
+          21.09375,
+          6,
+          6
+        ],
+        [
+          -106.875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          -105.46875,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          -102.65625,
+          16.875,
+          4,
+          4
+        ],
+        [
+          -88.59375,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          -85.78125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -80.15625,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -80.15625,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -80.15625,
+          8.4375,
+          10,
+          10
+        ],
+        [
+          -78.75,
+          1.40625,
+          8,
+          8
+        ],
+        [
+          -78.75,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -78.75,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -77.34375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 70
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm",
+      "html": "<p>The red sea catfish, also called the long-barbeled sea catfish, is a species of sea catfish in the family Ariidae. It was described by Franz Steindachner in 1876, originally under the genus Aelurichthys.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm",
+      "html": "<p>North, Central and South America: Gulf of California to northern Peru. Type locality: Panama, Altata, Westküste von CostaRica.</p><p>This species is endemic to the Eastern Pacific, and is found from the Gulf of California to northern Peru. It occurs in both brackish and freshwater habitats, with the countries within its range being Colombia, Costa Rica, Ecuador, El Salvador, Guatemala, Honduras, Mexico, Nicaragua, Panama and Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm",
+      "html": "<p>Common in coastal seas and estuaries. Marine; freshwater; brackish; demersal. Tropical; 32°N - 3°S, 114°W - 77°W.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm",
+      "html": "<p>Body robust, rounded anteriorly and compressed posteriorly; mouth sub-terminal and wide; teeth villiform, arranged in a narrow band followed by four narrow continuous bands across the palate; two pairs of barbels, the maxillary barbels long and ribbon-like; dorsal and pectoral fin spines long.</p><p>Colouration: steel blue to nearly black on back, silvery white with a pink cast on sides and white on belly; fins generally pale.</p><p>Etymology: the specific name pinnimaculatus: pinnis, fin; maculatus, spotted, referring to the oval blackish spot on anal, ventral and caudal fins.</p><p>The species is abundant in many parts of its range, despite being commercially fished and facing pollution in some areas. It is assessed as Least Concern by the IUCN, though more information is required on its population trend, habitat preferences, threats and ecological role.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm",
+      "html": "<p>Cooke, R., Acero, A., Betancur-R, R., Rojas, P., Cotto, A. &amp; Daniels, A. 2019. Bagre pinnimaculatus. The IUCN Red List of Threatened Species 2019.</p><p>D R Robertson and Gerald R Allen. 2015. Shorefishes of the Tropical Eastern Pacific: online information system. Version 2.0 Smithsonian Tropical Research Institute, Balboa, Panamá.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org, (12/2019).</p><p>Kailola, P.J. and W.A. Bussing, 1995. Ariidae. Bagres marinos. p. 860-886. In W. Fischer et al. (eds.) Guia FAO para Identification de Especies para lo Fines de la Pesca. Pacifico Centro-Oriental. 3 Vols. FAO, Rome.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ae446a870295ade5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ae446a870295ade5-480.webp",
+      "width": 500,
+      "height": 341,
+      "licence": "dùng với sự cho phép",
+      "author": "D. Ross Robertson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm",
+      "caption": "Bagre pinnimaculatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3a708f09a7c50688.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3a708f09a7c50688-480.webp",
+      "width": 500,
+      "height": 341,
+      "licence": "dùng với sự cho phép",
+      "author": "D. Ross Robertson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/bagre_pinnimaculatus.htm",
+      "caption": "Bagre pinnimaculatus: dorsal head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "5hBevdsyKhw",
+      "title": "8K Ultra HD Video Striped red sea catfish #shorts #animal",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mEmEiu8CxLw",
+      "title": "Cat fish",
+      "durationSec": 58,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

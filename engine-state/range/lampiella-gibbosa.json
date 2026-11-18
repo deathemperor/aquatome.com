@@ -1,0 +1,109 @@
+{
+  "id": "lampiella-gibbosa",
+  "native": {
+    "input": "2ffdf9b27ee99912",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Maximum size: 5 cm. Origin: Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species occurs in the Brazilian state of Sao Paulo in the Rio Betari.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Ribeira de Iguape River basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Lampiella gibbosa is endemic to Brazil, occurring in the Ribeira do Iguape river basin.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Betari",
+        "source": "glaser",
+        "quote": "The species occurs in the Brazilian state of Sao Paulo in the Rio Betari.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Ribeira de Iguape",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Ribeira de Iguape River basin.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Bethary",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Bethary.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lampiella gibbosa",
+    "status": "ACCEPTED",
+    "taxonKey": 2340029,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        45
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

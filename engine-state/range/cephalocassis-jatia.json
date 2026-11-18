@@ -1,0 +1,83 @@
+{
+  "id": "cephalocassis-jatia",
+  "native": {
+    "input": "ce2f4d33c8adf192",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Sri Lanka and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Sri Lanka and Bangladesh.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South and southeast Asia: India, Sri Lanka and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "scotcat",
+        "quote": "Although this species is known to be common for part of its range (Irrawaddy River drainage), uncertainties regarding the taxonomic status of the Ganges-Brahmaputra and Irrawaddy populations and the lack of population information in the Ganges-Brahmaputra system make it impossible to accurately assess this species.",
+        "ok": true
+      },
+      {
+        "name": "Ganges-Brahmaputra",
+        "source": "scotcat",
+        "quote": "Although this species is known to be common for part of its range (Irrawaddy River drainage), uncertainties regarding the taxonomic status of the Ganges-Brahmaputra and Irrawaddy populations and the lack of population information in the Ganges-Brahmaputra system make it impossible to accurately assess this species.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cephalocassis jatia",
+    "status": "ACCEPTED",
+    "taxonKey": 2344794,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "878298f7-6182-4a72-bdf6-9dd480d89713",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "LK",
+      "BD"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

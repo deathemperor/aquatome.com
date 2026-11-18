@@ -265,6 +265,12 @@
       "html": "<p>The firemouth cichlid, Thorichthys meeki, is a Central American cichlid from Mexico's Atlantic slope and the Yucatán south into Belize and Guatemala. A popular aquarium fish for a long time, it is almost always commercially raised. It is easily identified by the bright red or orange underside of the head, which is more pronounced in adults. It is not especially aggressive but becomes territorial when breeding.</p><ul><li>Max size: 120 mm SL (5 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–32°C (68–90°F)</li><li>pH: 6.5–8.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-2/",
+      "html": "<p>The Firemouth (Thorichthys meeki, formerly Cichlasoma meeki) originates from Mexico and belongs to the most popular cichlids at all. This popularity is not least due to the impressive face mask of the species.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thorichthys-meeki",
@@ -307,6 +313,12 @@
       "html": "<p>Not especially aggressive, though territorial when breeding and may eat much smaller fishes. It can be kept with similarly-sized Central American cichlids but provide enough space to allow each species to form an adequate territory.</p><p>Groups of peaceful upper-water dwelling fishes can also be included with the genera Poecilia and Xiphophorus particularly suitable since they have representatives in Mexico.</p><p>Unless spawning, Thorichthys species are quite gregarious and do best when maintained in groups of 8 or more individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-2/",
+      "html": "<p>No other species of cichlid shows in such perfection the bottom of the mouth and the deep red skin that covers the gills. The Firemouth acts that way to look much bigger for a potential aggressor. Another trick of the Firemouth are the spots on the operculum that look like eyes.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thorichthys-meeki",
@@ -337,18 +349,43 @@
       "thumb": "https://media.aquatome.com/commons/384ebc03e62438cd-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thorichthys_meeki_-_Feuermaulbuntbarsch.jpg",
-      "caption": "Cá cichlid miệng lửa đực họng đỏ, đuôi xanh trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/384ebc03e62438cd-large.webp",
         "width": 1801,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thorichthys_meeki_-_Feuermaulbuntbarsch.jpg",
+      "caption": "Cá cichlid miệng lửa đực họng đỏ, đuôi xanh trong bể"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "t7H-LPz0w9o",
+      "title": "Cichlid Parents Guard Their Eggs! | Firemouth Fish Nest | 4K Aquarium | Fish World 4K",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8JCNlPOUZnI",
+      "title": "Firemouth Cichlid | Care Guide & Species Profile",
+      "durationSec": 387,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "clYQuIh2Jz4",
+      "title": "Biotope aquarium - Rio Usumacinta, Mexico - meeki and P. velifera tank",
+      "durationSec": 138,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "BZbgexi50wM",
+      "title": "Feuermaulbuntbarsch I Thorichthys meeki  I TAX",
+      "durationSec": 487,
+      "lang": "de"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -378,5 +415,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-18"
 }

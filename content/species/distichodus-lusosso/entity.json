@@ -11,7 +11,8 @@
     "republic-of-the-congo",
     "democratic-republic-of-the-congo",
     "angola",
-    "central-african-republic"
+    "central-african-republic",
+    "congo"
   ],
   "range": {
     "native": {
@@ -396,6 +397,10 @@
       {
         "source": "seriouslyfish",
         "value": 37.5
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "tankCm": [
@@ -419,10 +424,22 @@
       "html": "<p>The long-nosed distichodus, Distichodus lusosso, is a citharinid from rivers in Cameroon, the Republic of Congo and Democratic Republic of Congo. One of only a handful of Distichodus seen with any regularity in the hobby, it loses much of its juvenile colour and patterning as it matures. It resembles D. sexfasciatus but has a narrow, pointed head, and some specimens become very spiteful with age.</p><ul><li>Needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "html": "<p>The species attains a length of up to 40 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
       "html": "<p>Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "html": "<p>The longsnout distichodus has a very wide distribution in the Congo basin.</p>"
     },
     {
       "key": "habitat",
@@ -455,10 +472,22 @@
       "html": "<p>Omnivorous and will accept most foods offered. It should be fed a decent proportion of vegetable matter to keep it in the best of health. A diet of live and frozen foods such as earthworms, prawn and mussel, along with frozen peas (remove the shells), Spirulina flake and blanched spinach would provide the desired balance.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "html": "<p>D. lusosso is an omnivorous fish; a great part of the food is plant material, so a planting of the tank is usually not possible.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/distichodus-lusosso",
       "html": "<p>Somewhat unpredictable. While some specimens remain peaceful with similarly-sized tankmates, others can become very spiteful as they mature. Certainly don't attempt to keep one of these with much smaller or shy species. Some of this potential aggression can be removed by keeping it in a group, provided enough space is available. Other tankmates in a big tank could include bichirs, large characins, cyprinids, catfish and Loricariids.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "html": "<p>One should keep D. lusosso either in larger groups (10 or more specimens) or solitary. If the longsnout distichodus is kept in too small groups the fish are usually very pugnacious against conspecifics.</p>"
     },
     {
       "key": "dimorphism",
@@ -479,7 +508,48 @@
       "html": "<p>One of only a handful of Distichodus seen with any regularity in the hobby. This species is undeniably attractive when juvenile, but unfortunately loses much of its colour and patterning as it matures. It is superficially similar to the more commonly seen D. sexfasciatus but has a much smaller adult size and a narrow, pointed head.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b32b92464d506cc4.webp",
+      "thumb": "https://media.aquatome.com/glaser/b32b92464d506cc4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/887c2000c5a78a9a.webp",
+      "thumb": "https://media.aquatome.com/glaser/887c2000c5a78a9a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/50c12e9e5bc188b3.webp",
+      "thumb": "https://media.aquatome.com/glaser/50c12e9e5bc188b3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b2ab65652ece0b4d.webp",
+      "thumb": "https://media.aquatome.com/glaser/b2ab65652ece0b4d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/distichodus-lusosso-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "ZxdX8gXm0A4",
@@ -545,5 +615,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-18"
 }

@@ -3,7 +3,7 @@
   "name": "Cá Arius latiscutatus",
   "altNames": [
     "Gambian Sea Catfish",
-    "Rough-head Sea Catfish"
+    "Rough-head sea catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Carlarius latiscutatus (Günther, 1864)</li><li><strong>Tên thường gọi:</strong> Gambian Sea Catfish (cá trê biển Gambia), Rough-head Sea Catfish (cá trê biển đầu nhám), Ruhovedet Havmalle (Đan Mạch)</li><li><strong>Nơi thu mẫu chuẩn:</strong> đảo Fernando Póo [đảo Bioco], Guinea Xích Đạo, vịnh Guinea.</li><li><strong>Tên đồng nghĩa:</strong> Arius lagoensis, Arius latiscutatus, Tachysurus lagoensis</li></ul>",
@@ -11,14 +11,20 @@
     "habitat:planetcatfish": "<p>Loài này chủ yếu sống ở biển nhưng hay gặp ở các cửa sông nước lợ, đôi khi còn vào cả nước ngọt.</p>",
     "diet:planetcatfish": "<p>Loài này ăn cá, các loài động vật nhỏ sống ở đáy, động vật phù du và mùn bã hữu cơ.</p>",
     "reproduction:planetcatfish": "<p>Chưa có báo cáo nào về chuyện sinh sản của loài này.</p>",
-    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 151, Fig.</p>"
+    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 151, Fig.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá da trơn biển đầu nhám</li></ul>",
+    "distribution:scotcat": "<p>Tây Phi: Senegal, Guinea-Bissau, Guinea Xích Đạo, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola và Namibia. Nơi thu mẫu chuẩn: đảo Fernando Póo, Guinea Xích Đạo, vịnh Guinea.</p><p>Loài này sống dọc bờ biển từ Mauritania xuống Namibia, chủ yếu ở các cửa sông. Có nơi chúng rất nhiều.</p>",
+    "habitat:scotcat": "<p>Loài này chủ yếu sống ngoài biển, nhưng hay vào các cửa sông nước lợ và đôi khi lên cả nước ngọt. Mùa đông thì gặp nhiều.</p>",
+    "diet:scotcat": "<p>Chúng ăn cá, các con vật nhỏ sống ở đáy, động vật phù du và mùn bã hữu cơ.</p>",
+    "notes:scotcat": "<p>Loài này có giá trị làm cảnh và đôi khi được nuôi trong bể. Nhưng nó có nọc độc và có thể gây nguy hiểm cho người.</p><p>Nguồn gốc tên: tên loài latiscutatus ghép từ latis (rộng) và scutatus (có khiên), chỉ mấu chẩm của cá rộng hơn dài.</p><p>Marceniuk và cộng sự (2007) đã chuyển loài này (Arius latiscutatus) sang giống mới Carlarius. Tên giống đặt theo Carl Ferraris, để tôn vinh đóng góp của ông cho hiểu biết về cá bộ Siluriformes. Giống này gồm bảy loài Arius đã biết ở bờ biển Tây Phi, với loài điển hình là Arius heudeloti Valenciennes, 1840. Đến nay cách xếp giống mới này đã được chấp nhận.</p><p>Danh lục đỏ IUCN: Loài này bị đánh bắt khắp vùng phân bố, cả bằng nghề cá thủ công lẫn công nghiệp. Hiện chưa có số liệu đánh bắt riêng cho loài này. Sản lượng chung của họ Ariidae mà khu vực báo cáo hiện chưa cho thấy dấu hiệu suy giảm, nên loài được xếp vào mức Ít quan tâm. Tuy nhiên, vẫn cần theo dõi kỹ loài này, vì khi các loài cá đáy khác bị khai thác quá mức thì nó có thể ngày càng bị đánh bắt nhiều hơn (IUCN 2020).</p>",
+    "references:scotcat": "<p>Carpenter, K.E., Camara, K.D., Djiman, R., Nunoo, F., Sagna, A., Sidibé, A, de Morais, L. &amp; Olaosebikan, B.D. 2020. Carlarius latiscutatus. The IUCN Red List of Threatened Species 2020. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009). Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

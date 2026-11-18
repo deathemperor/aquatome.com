@@ -3,6 +3,12 @@
   "name": "Paraguay",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T05:08:26.047Z",
+    "why": "Malay atlases write the river as \"Sungai Paraguay\"; bare \"Paraguay\" omits the kind word \"Sungai\" and so reads as the country, not the river."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

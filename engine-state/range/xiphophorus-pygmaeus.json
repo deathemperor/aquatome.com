@@ -1,0 +1,115 @@
+{
+  "id": "xiphophorus-pygmaeus",
+  "native": {
+    "input": "8a21d66beafee3a3",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Xiphophorus pygmaeus is a freshwater species endemic to Mexico and occurs exclusively in the Rio Axtla and its tributaries (Rio Tancuilin and Rio Huichihuayan) within the Pánuco River system.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pánuco River",
+        "source": "aquariumbreeder",
+        "quote": "Xiphophorus pygmaeus is a freshwater species endemic to Mexico and occurs exclusively in the Rio Axtla and its tributaries (Rio Tancuilin and Rio Huichihuayan) within the Pánuco River system.",
+        "country": "MX",
+        "ok": true
+      },
+      {
+        "name": "Rio Axtla",
+        "source": "aquariumbreeder",
+        "quote": "Xiphophorus pygmaeus is a freshwater species endemic to Mexico and occurs exclusively in the Rio Axtla and its tributaries (Rio Tancuilin and Rio Huichihuayan) within the Pánuco River system.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus pygmaeus",
+    "status": "ACCEPTED",
+    "taxonKey": 2350195,
+    "datasets": [
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        40
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        17
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        12
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50efc135-cd5f-4282-b38b-1f73be8affe1",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "e56a116e-0cfc-4382-a772-162ac2a44a7c",
+        1
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

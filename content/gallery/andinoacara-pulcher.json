@@ -14,42 +14,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/211396173.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/211396173-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Luis Ángel Niño Barreat",
-      "sourceUrl": "https://www.inaturalist.org/photos/211396173",
-      "caption": "Cá Blue Acara bơi trong nước xanh ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6c29712efd5784de.webp",
-      "thumb": "https://media.aquatome.com/commons/6c29712efd5784de-480.webp",
-      "width": 1200,
-      "height": 635,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_pulcher_spec._neonblue.jpg",
-      "caption": "Cá blue acara màu xanh lam ánh kim, cận cảnh thân",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/409260096.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/409260096-480.webp",
-      "width": 918,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/409260096",
-      "caption": "Hai cá Blue Acara ánh xanh óng trong bể nuôi",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/commons/eccea64005fb3c8e.webp",
       "thumb": "https://media.aquatome.com/commons/eccea64005fb3c8e-480.webp",
       "width": 1200,
@@ -84,6 +48,30 @@
       "caption": "Cá blue acara bơi gần đá, cá bột nhỏ xung quanh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/409260096.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/409260096-480.webp",
+      "width": 918,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/409260096",
+      "caption": "Hai cá Blue Acara ánh xanh óng trong bể nuôi",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/211396173.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/211396173-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Luis Ángel Niño Barreat",
+      "sourceUrl": "https://www.inaturalist.org/photos/211396173",
+      "caption": "Cá Blue Acara bơi trong nước xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 14,

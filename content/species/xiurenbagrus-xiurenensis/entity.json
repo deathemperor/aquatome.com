@@ -10,6 +10,47 @@
     "china",
     "zhujiang-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Zhujiang River",
+        "Xiuren River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: China, Zhujiang River.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Zhujiang River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The specific name xiurenensis refers to the Xiuren River, Pearl River drainage, Guangxi Province, China, the type locality.",
+          "countries": [],
+          "regions": [
+            "Xiuren River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342876,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -81,17 +122,6 @@
       "height": 243,
       "licence": "dùng với sự cho phép",
       "author": "Zhou Hang / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
-      "caption": "Xiurenbagrus xiurenensis",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/6c70835c98f037a1.webp",
-      "thumb": "https://media.aquatome.com/scotcat/6c70835c98f037a1-480.webp",
-      "width": 500,
-      "height": 333,
-      "licence": "dùng với sự cho phép",
-      "author": "Drake Shaw / ScotCat",
       "sourceUrl": "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm",
       "caption": "Xiurenbagrus xiurenensis",
       "source": "scotcat"

@@ -1,16 +1,13 @@
 {
   "id": "chromobotia-macracanthus",
-  "summary": "Hợp với người có chỗ đặt bể dài ít nhất 180 cm và nuôi được đàn ít nhất 5 hoặc 6 con, tốt nhất là từ 10 con trở lên. Cá dài tới 40 cm và sống 10–25 năm nên phải tính chuyện lâu dài. Nước cần 24–30 °C, pH 5–7, độ cứng 1–12 dGH, sạch và giàu oxy. Độ khó 4/8, khó nhất là bể lớn, đàn đông và giữ nước thật sạch.",
+  "summary": "Hợp với người có bể dài từ 180 cm (đáy 180 × 60 cm), muốn nuôi cả đàn cá lớn tới 40 cm và theo được 10–25 năm. Cá cần nước sạch, giàu oxy, 24–30 °C, pH 5–7, độ cứng 1–12 dGH, và nên thay 30–50% nước mỗi tuần. Độ khó 4/8. Khó nhất là giữ nước thật sạch và hạn chế stress, vì cá stress rất dễ bị đốm trắng.",
   "mistakes": [
-    "Mua một vài con thả bể nhỏ thì nên nuôi đàn ít nhất 5 hoặc 6 con trong bể dài ít nhất 180 cm, vì nuôi lẻ thì cá nhút nhát hoặc hung hăng, còn mua hai hoặc ba con thì con đầu đàn có thể chèn ép những con còn lại đến mức bỏ ăn.",
-    "Thả cá vào bể mới set chưa có hệ vi sinh thì nên chờ bể chạy ổn định rồi mới thả, sau đó thay 30–50% nước mỗi tuần vì cá không chịu được chất thải hữu cơ tích tụ.",
-    "Để bể hở hoặc có vật cạnh sắc thì nên đậy nắp thật khít vì cá hay nhảy, và bỏ vật sắc cạnh vì cá thích lách vào khe hẹp."
+    "Mua một vài con cho bể nhỏ: nên nuôi ít nhất 5 hoặc 6 con, tốt nhất từ 10 con trở lên, trong bể đáy tối thiểu 180 × 60 cm.",
+    "Thả cá vào bể mới set chưa có hệ vi sinh: chỉ thả vào bể đã chạy lâu và ổn định, vì cá không chịu được chất thải hữu cơ tích tụ.",
+    "Để bể hở: cá thỉnh thoảng vẫn nhảy, nên dùng nắp đậy khít."
   ],
-  "speciesUpdatedAt": "2026-11-10",
-  "writtenFrom": "7ebb93dcb7780652",
-  "generatedAt": "2026-11-15T11:07:14.276Z",
-  "review": "pending",
-  "problems": [
-    "Mistake 1: \"nuôi lẻ thì cá nhút nhát hoặc hung hăng\" drops the page's hedge. The page says a single fish \"có thể trở nên nhút nhát, lầm lì hoặc hung hăng\", so this turns a possibility into a certainty."
-  ]
+  "speciesUpdatedAt": "2026-11-17",
+  "writtenFrom": "11f77bcea1c295e0",
+  "generatedAt": "2026-11-17T07:55:57.424Z",
+  "review": "approved"
 }

@@ -3,6 +3,12 @@
   "name": "Perbukitan Tenasserim",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T05:14:39.027Z",
+    "why": "Indonesian usage normally calls this range \"Pegunungan Tenasserim\", so \"Perbukitan\" is a word-for-word translation of \"Hills\"; the spelling \"Tenasserim\" is fine."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

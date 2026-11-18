@@ -10,6 +10,58 @@
     "brazil",
     "rio-doce"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Jucuruçu",
+        "Rio Doce"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from a handful of minor river basins draining the eastern Brazilian coastal plains between the rio Jucuruçu, southern Bahia state, and rio Doce, Espírito Santo state.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Jucuruçu",
+            "Rio Doce"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7667820,
+      "total": 13,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -40.78125,
+          -19.6875,
+          12,
+          12
+        ],
+        [
+          -40.78125,
+          -18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -142,17 +194,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/479278b899201de1.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/479278b899201de1-480.webp",
-      "width": 800,
-      "height": 545,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
-      "caption": "Fry at 2 days of age, feeding on Artemia nauplii. Size 6 mm TL.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/0eb778bc881b4caf.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/0eb778bc881b4caf-480.webp",
       "width": 1024,
@@ -172,6 +213,17 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
       "caption": "Adult female at 96 days of age and 25 mm TL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/479278b899201de1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/479278b899201de1-480.webp",
+      "width": 800,
+      "height": 545,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "caption": "Fry at 2 days of age, feeding on Artemia nauplii. Size 6 mm TL.",
       "source": "seriouslyfish"
     }
   ],

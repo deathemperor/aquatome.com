@@ -1,0 +1,35 @@
+{
+  "id": "papuligobius-uniporus",
+  "native": {
+    "input": "345071b45d07b932",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Papuligobius uniporus",
+    "status": "ACCEPTED",
+    "taxonKey": 2376384,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "777dddfc-9b3a-4a68-a2a2-464275f52197",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

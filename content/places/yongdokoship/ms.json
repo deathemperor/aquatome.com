@@ -3,6 +3,12 @@
   "name": "Yongdokoship",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T05:12:12.358Z",
+    "why": "\"Yongdokoship\" is a garbled form of the Korean county Yeongdeok (\"Yongdok\" + English \"-ship\" for county/gun), so it keeps a foreign administrative suffix and an atlas in Malaysia would write \"Daerah Yeongdeok\" or \"Yeongdeok\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

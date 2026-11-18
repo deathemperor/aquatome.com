@@ -1,0 +1,67 @@
+{
+  "id": "mastacembelus-greshoffi",
+  "native": {
+    "input": "6be8af30cdeacc6e",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Congo, Cingo River.",
+        "words": "Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cingo River",
+        "source": "glaser",
+        "quote": "Congo, Cingo River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mastacembelus greshoffi",
+    "status": "ACCEPTED",
+    "taxonKey": 2351776,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        31
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

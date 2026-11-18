@@ -1,8 +1,13 @@
 {
   "slug": "barito",
-  "name": "Barito",
+  "name": "Sungai Barito",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-18T00:46:44.652Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

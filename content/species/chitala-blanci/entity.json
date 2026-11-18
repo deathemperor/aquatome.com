@@ -14,14 +14,99 @@
     "vietnam",
     "tonle-sap"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "VN",
+        "KH"
+      ],
+      "regions": [
+        "Mekong",
+        "Tonlé Sap"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The royal featherback, Chitala blanci, is a very large notopterid endemic to the Mekong drainage in Laos, Thailand, Vietnam and Cambodia.",
+          "countries": [
+            "LA",
+            "TH",
+            "VN",
+            "KH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Mekong river drainage in Laos, Thailand, Vietnam, and Cambodia, including the Mekong delta region and Tonlé Sap lake system.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Tonlé Sap"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2402266,
+      "total": 14,
+      "fetched": "2026-11-07",
+      "countries": [
+        [
+          "KH",
+          6
+        ],
+        [
+          "LA",
+          6
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          7,
+          7
+        ],
+        [
+          105.46875,
+          14.0625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 120
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 120
       }
     ],
@@ -70,8 +155,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
-      "html": "<p>The Asian featherbacks, which have a well developed dorsal fin, have been placed in the genus Notopterus for a long time. Nowadays the genus Notopterus is seen monotypic (it contains only the single species N. notopterus) and the high-backed forms have been placed in another genus, namely Chitala.</p><p>Chitala blanci can attain a maximum length of about 120 cm. The fish are gorgeous inhabitants for large aquaria.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
+      "html": "<p>The Asian featherbacks, which have a well developed dorsal fin, have been placed in the genus Notopterus for a long time. Nowadays the genus Notopterus is seen as monotypic (it contains only the single species N. notopterus) and the high-backed forms have been placed in another genus, namely Chitala.</p><p>Chitala blanci can attain a maximum length of about 120 cm. The fish are gorgeous inhabitants for large aquaria.</p>"
     },
     {
       "key": "quickFacts",
@@ -82,7 +167,7 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
       "html": "<p>Chitala blanci originates from the basin of the Mekong river in Thailand, Laos, and Cambodia.</p>"
     },
     {
@@ -94,7 +179,7 @@
     {
       "key": "habitat",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
       "html": "<p>Chitala blanci prefers waters with a strong current and avoids quiet water or swamps.</p>"
     },
     {
@@ -124,7 +209,7 @@
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
       "html": "<p>All species of Chitala are predatory fish that have to be fed with beefy (frozen) food. Of course small fish are also eaten.</p>"
     },
     {
@@ -136,8 +221,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
-      "html": "<p>Against conspecifics and other tankmates that cannot be eaten, featherbacks are very peaceful.</p><p>Chitala species are able to breath atmospheric air when necessary. So they can survive even in oxygen-poor water for quite a long time.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
+      "html": "<p>Against conspecifics and other tankmates that cannot be eaten, featherbacks are very peaceful.</p><p>Chitala species are able to breathe atmospheric air when necessary. So they can survive even in oxygen-poor water for quite a long time.</p>"
     },
     {
       "key": "behaviour",
@@ -148,7 +233,7 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
       "html": "<p>The sexes cannot be distinguished externally.</p>"
     },
     {
@@ -160,7 +245,7 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
       "html": "<p>During breeding season the fish form pairs and spawn on rocks, wood etc. The spawn is guarded by the parents.</p>"
     },
     {
@@ -172,8 +257,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala_blanci_en/",
-      "html": "<p>Chitala species are much sought-after market fish in the countries where they occur. However, the flesh is full of small bones, so the meat is usually chopped, pressed through a sieve and used for meatballs.</p><p>Text &amp; photos: Frank Schäfer</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/03-bony-tongues/chitala-blanci-2/",
+      "html": "<p>Their ability to breathe air makes them much sought-after market fish in the countries where they occur. However, the flesh is full of small bones, so the meat is usually chopped, pressed through a sieve and used for meatballs.</p>"
     },
     {
       "key": "notes",
@@ -194,15 +279,15 @@
       "thumb": "https://media.aquatome.com/commons/9d6904b7f2d7a98e-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY 3.0",
-      "author": "This illustration was made by Peter Potrowl. Please credit this with : © Peter Potrowl in the immediate vicinity of the image. A link to my website sitemai.eu would be much appreciated but isn't mandatory. An email to Peter Potrowl would be appreciated too. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me Peter Potrowl to negotiate terms. More free pictures in my website. Donations are accepted here and here.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Ocean_Aquarium_-_Chitala_blanci_1.jpg",
-      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium",
       "large": {
         "url": "https://media.aquatome.com/commons/9d6904b7f2d7a98e-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 3.0",
+      "author": "This illustration was made by Peter Potrowl. Please credit this with : © Peter Potrowl in the immediate vicinity of the image. A link to my website sitemai.eu would be much appreciated but isn't mandatory. An email to Peter Potrowl would be appreciated too. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me Peter Potrowl to negotiate terms. More free pictures in my website. Donations are accepted here and here.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Ocean_Aquarium_-_Chitala_blanci_1.jpg",
+      "caption": "Royal knifefish (Chitala blanci) in Shanghai Ocean Aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/f4b642e1c1311797.webp",
@@ -265,97 +350,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02",
-  "range": {
-    "native": {
-      "countries": [
-        "LA",
-        "TH",
-        "VN",
-        "KH"
-      ],
-      "regions": [
-        "Mekong",
-        "Tonlé Sap"
-      ],
-      "sources": [
-        "glaser",
-        "seriouslyfish"
-      ],
-      "quotes": [
-        {
-          "source": "seriouslyfish",
-          "quote": "The royal featherback, Chitala blanci, is a very large notopterid endemic to the Mekong drainage in Laos, Thailand, Vietnam and Cambodia.",
-          "countries": [
-            "LA",
-            "TH",
-            "VN",
-            "KH"
-          ],
-          "regions": []
-        },
-        {
-          "source": "glaser",
-          "quote": "Chitala blanci originates from the basin of the Mekong river in Thailand, Laos, and Cambodia.",
-          "countries": [],
-          "regions": [
-            "Mekong"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Endemic to the Mekong river drainage in Laos, Thailand, Vietnam, and Cambodia, including the Mekong delta region and Tonlé Sap lake system.",
-          "countries": [],
-          "regions": [
-            "Tonlé Sap"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2402266,
-      "total": 14,
-      "fetched": "2026-11-07",
-      "countries": [
-        [
-          "KH",
-          6
-        ],
-        [
-          "LA",
-          6
-        ],
-        [
-          "TH",
-          2
-        ]
-      ],
-      "cells": [
-        [
-          102.65625,
-          16.875,
-          2,
-          2
-        ],
-        [
-          104.0625,
-          14.0625,
-          1,
-          1
-        ],
-        [
-          105.46875,
-          12.65625,
-          7,
-          7
-        ],
-        [
-          105.46875,
-          14.0625,
-          4,
-          4
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-17"
 }

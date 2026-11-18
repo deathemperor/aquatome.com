@@ -10,6 +10,65 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Itatiaia mountains"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: rivers in the Itatiaia mountains, upper reaches of the Paraíba do Sul River basin in Brazil, Rio de Janeiro State.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Paraíba do Sul",
+            "Itatiaia mountains"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343023,
+      "total": 47,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          47
+        ]
+      ],
+      "cells": [
+        [
+          -46.40625,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -45,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -22.5,
+          44,
+          44
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

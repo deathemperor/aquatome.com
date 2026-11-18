@@ -175,6 +175,12 @@
       "html": "<p>Known from the Rio Branco and middle Rio Negro basins in the Brazilian states of Roraima and Amazonas.</p><p>Type locality is 'Brasilien, wahrscheinlich Gebiet des Rio Negro' (Brazil, probably the Rio Negro region). The type specimens were aquarium imports donated in 1967 by Willi Schwartz, an exporter in Manaus, and no collecting site was recorded.</p><p>The Rio Branco records come from fish collected near Boa Vista and described as Apistogramma roraimae. That name is now treated as a synonym of this species.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/",
+      "html": "<p>This dwarf cichlid comes from the Rio Negro basin. In the wild it is a typical companion of the cardinal tetra.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
@@ -211,10 +217,22 @@
       "html": "<p>Peaceful towards other fish but territorial when breeding, and a male can harass a female that is not ready to spawn. It can be kept with small, peaceful fish that swim in the upper water, such as pencilfish or small tetras, and their presence helps it settle. Avoid keeping other Apistogramma or other bottom-dwelling cichlids with it.</p><p>It can also be kept as one male with three or more females in a species tank, so the male's attention is spread across them. Space the caves out so each female can hold a territory of her own.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/",
+      "html": "<p>Apistogramma gibbiceps cannot be confused with any other Apistogramma species when it shows the species-specific vertical bars on the belly. Sadly these bars are not visible at all times. Depending on mood, the fish sometimes show only a horizontal stripe or even only a round spot in the centre of the body. The very conspicuous bar under the eye is visible only when the fish are in an aggressive mood.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-gibbiceps",
       "html": "<p>Males grow larger, are more colourful and have longer dorsal and anal fins. The male caudal fin has a streamer near the middle of each lobe. Females are smaller and plainer.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/",
+      "html": "<p>As in so many Apistogramma species, the males show obvious polychromatism. This means different colour morphs occur together in the natural habitat. The most obvious morphs in the current stock are blue-headed and yellow-headed fish. Experience has shown that it is possible to breed even red-headed males from yellow-headed ancestors in a few generations by selection.</p>"
     },
     {
       "key": "reproduction",
@@ -235,8 +253,74 @@
       "html": "<ul><li>Kullander, S. O. (1980). A taxonomical study of the genus Apistogramma Regan, with a revision of Brazilian and Peruvian species (Teleostei: Percoidei: Cichlidae). Bonner Zoologische Monographien No. 14, 1-152</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li><li>Baensch, H. A. and R. Riehl (1985). Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany, 1-1216</li><li>Meinken, H. (1969). Apistogramma gibbiceps n. sp. aus Brasilien (Pisces, Teleostei, Cichlidae) Senckenbergiana Biologica 50(1-2), 91-96</li><li>Staeck, W. (2003). Cichliden-Lexikon, Teil 3: Südamerikanische Zwergbuntbarsche Dähne Verlag, Ettlingen, 1-219</li><li>Apistogramma gibbiceps summary page FishBase fishbase.se/summary/Apistogramma-gibbiceps.html</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/b23d55b83d8c18f1.webp",
+      "thumb": "https://media.aquatome.com/glaser/b23d55b83d8c18f1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8a0742315de54f92.webp",
+      "thumb": "https://media.aquatome.com/glaser/8a0742315de54f92-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1b09bcbcad63d65e.webp",
+      "thumb": "https://media.aquatome.com/glaser/1b09bcbcad63d65e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7043f01c59ffeb37.webp",
+      "thumb": "https://media.aquatome.com/glaser/7043f01c59ffeb37-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-gibbiceps-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "FzJhX369GJc",
+      "title": "04 - WC Apistogramma Gibbiceps Male",
+      "durationSec": 48,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kO8C8MzhiE8",
+      "title": "03 - WC Apistogramma Gibbiceps Eggs",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wpWeWeESoII",
+      "title": "Apistogramma gibbiceps WF z narybkiem",
+      "durationSec": 242,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jdDlYk01JqM",
+      "title": "Apistogramma gibbiceps spawning",
+      "durationSec": 73,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -265,5 +349,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-18"
 }

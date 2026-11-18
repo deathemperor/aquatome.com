@@ -1,14 +1,22 @@
 {
   "id": "rhinogobius-formosanus",
   "native": {
-    "input": "a0a0ea947e7003ba",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "041e8408cb8a49ab",
+    "at": "2026-11-17T00:14:47.070Z",
     "claims": [
       {
         "code": "TW",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "This species is endemic to river systems of northern and northeastern Taiwan.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This freshwater goby from Taiwan becomes about 8 cm long.",
         "words": "Taiwan",
         "ok": true
       }
