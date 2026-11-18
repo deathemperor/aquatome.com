@@ -50,9 +50,10 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
 
   // A button with no arrow, there only when the strip doesn't show every photo (the Design Lead, 18 Nov).
   test(`${what} album: "Xem tất cả" opens its first photo over the page, and Back closes it there`, async ({ page, request, errors }) => {
-    // An album of 40 or more: more than any strip shows, so every screen has it (found by the album, not by the button).
-    const found = await albumPage(request, section, a => a.photos.length >= 40)
-    test.skip(!found, `no ${what} album of 40 photos or more in this build`)
+    // Found by the album, not by the button: past a wrapped strip's 8 (a plant's, a breed's), or 40 or more for a
+    // fish's column, more than a tall screen's column shows: every screen has it.
+    const found = await albumPage(request, section, (a, html) => (/class="strip wrap/.test(html) ? a.photos.length > 8 : a.photos.length >= 40))
+    test.skip(!found, `no ${what} album past its strip in this build`)
     const { path, album } = found!
     await page.goto(path)
     await page.waitForLoadState()
@@ -363,6 +364,69 @@ test('album, a phone: closed with the strip off the screen, the page stays, focu
   await expect(viewer).toBeHidden()
   await expect(chip).toBeFocused()
   expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
+  expect(errors).toEqual([])
+})
+
+// The row partly on the screen, at its foot: closed on the thumb beside the one tapped, that thumb takes focus where it
+// is, and the page stays where it was (Codex's read, 18 Nov).
+test('album, a phone: the row partly on the screen, closed on the thumb beside the one tapped, focus there, the page still', async ({ page, request, errors, isMobile }) => {
+  test.skip(!isMobile, 'the photo column is a sideways row on a phone')
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html))
+  test.skip(!found, 'no fish page with a photo row in this build')
+  await page.goto(found!.path)
+  await page.waitForLoadState()
+  const row = page.locator('section.strip.column ul')
+  // Two thumbs side by side, both in the row's view, the second the next photo.
+  const k = await row.evaluate(ul => {
+    const v = ul.getBoundingClientRect(), on = (a: Element) => a.getBoundingClientRect().right <= v.right + 1
+    const as = [...ul.querySelectorAll<HTMLElement>('li a[data-i]')]
+    return as.find((a, j) => on(a) && as[j + 1] && on(as[j + 1]!) && Number(as[j + 1]!.dataset.i) === Number(a.dataset.i) + 1)?.dataset.i
+  })
+  test.skip(k === undefined, 'no two thumbs of photos side by side in the row')
+  // The row's top 30 px above the screen's foot.
+  await page.evaluate(() => scrollTo({ top: scrollY + document.querySelector('section.strip.column ul')!.getBoundingClientRect().top - innerHeight + 30, behavior: 'instant' }))
+  const [tapped, next] = [row.locator(`a[data-i="${k}"]`), row.locator(`a[data-i="${Number(k) + 1}"]`)]
+  const [box, high] = [(await tapped.boundingBox())!, await page.evaluate(() => innerHeight)]
+  test.skip(box.y < high - 31 || box.y > high - 29, 'the page too short to put the row there')
+  const y = await page.evaluate(() => scrollY)
+  await page.touchscreen.tap(box.x + box.width / 2, high - 15)
+  const viewer = page.locator('dialog.lb')
+  await expect(page).toHaveURL(at(found!.path, `#a${Number(k) + 1}`))
+  await page.keyboard.press('ArrowRight')
+  await expect(page).toHaveURL(at(found!.path, `#a${Number(k) + 2}`))
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(next).toBeFocused()
+  expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
+  expect(errors).toEqual([])
+})
+
+// "Xem tất cả" tapped while the album's script loads, then Back, then the jump row's chip: the chip opened the viewer,
+// so focus doesn't go back to the button (Codex's read, 18 Nov).
+test('album: an early tap, Back, then the chip: closing gives focus to no stale button', async ({ page, request, errors }) => {
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 40 && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  test.skip(!found, 'no fish album of 40 photos or more with a jump row in this build')
+  const { path, album } = found!
+  let release = () => {}
+  const held = new Promise<void>(r => { release = r })
+  await page.route(/\/_astro\/GalleryStrip\.astro_astro_type_script[^/]*\.js$/, async route => { await held; await route.continue() })
+  await page.goto(path, { waitUntil: 'commit' })
+  await page.locator('footer.foot').waitFor({ state: 'attached' }) // the page's HTML read; the album's script held back
+  const all = page.locator('section.strip [data-all]:visible')
+  await all.click()
+  await expect(page).toHaveURL(at(path, '#a1'))
+  await page.evaluate(() => history.back())
+  await expect(page).toHaveURL(at(path))
+  await page.locator('nav.jump a[href="#a1"]').click()
+  await expect(page).toHaveURL(at(path, '#a1'))
+  release()
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(`1/${album.photos.length}`)
+  await page.keyboard.press('ArrowLeft') // round to the last photo, past every thumb
+  await expect(viewer.getByRole('status')).toHaveText(`${album.photos.length}/${album.photos.length}`)
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(all).not.toBeFocused()
   expect(errors).toEqual([])
 })
 

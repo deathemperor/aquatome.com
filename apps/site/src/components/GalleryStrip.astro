@@ -2,7 +2,7 @@
 import type { Photo } from '@aq/schema'
 import AiPhotoLabel from './AiPhotoLabel.astro'
 import { albumJson, albumPhotos } from '../lib/album'
-import { GALLERY_STRIP } from '../lib/gallery'
+import { GALLERY_STRIP, seeAll } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
 import { i18n } from '../lib/i18n'
 /**
@@ -24,15 +24,9 @@ const { t } = i18n(Astro.url)
 const { photos, name, column, more = [] } = Astro.props
 const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
 // "Xem tất cả": a button opening the viewer on the first photo, with no arrow (it said "to another page"), and none when
-// the strip shows every photo (the Design Lead, 18 Nov): each is a thumb, or a photo the page shows already (null in
-// `shown`). A phone's wrapped strip shows only 6 thumbs (the styles below), so one of 7 or 8 keeps it there alone.
-const every = photos.length <= shown.length
-const phone = every && !column && shown.filter(Boolean).length > 6
-const all = !every || phone
+// the strip shows every photo (the Design Lead, 18 Nov; lib/gallery.ts seeAll).
+const { all, phone, fit } = seeAll(photos.length, shown, more, !!column)
 const see = t('Xem tất cả {n} ảnh', { n: photos.length })
-// The tall screen's column shows `more` thumbs, as many whole rows as fit: the album's script hides "Xem tất cả" when
-// they are every photo there (scripts/album.ts), given the photos the page shows already (their places, null here).
-const fit = all && column && more.some(Boolean) ? [...shown, ...more].flatMap((p, i) => (p ? [] : [i])).join(' ') : undefined
 const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đã chỉnh sửa'), photos: albumPhotos(photos) })
 ---
 <section class:list={['strip', column ? 'column' : 'wrap']} aria-labelledby="gal-h" data-album data-fit={fit}>
@@ -44,9 +38,9 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
   </ul>
   {/* A thumb or "Xem tất cả" tapped before the album's script has run (a slow phone): its photo's address, #aN, which
       that script opens once it runs, in place of the bare photo; a second tap takes the first one's entry, so one Back
-      still closes it. What was tapped is marked (data-tapped), for focus to go back to. Once the script runs
-      (data-ready), its own handler takes the taps. */}
-  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i],[data-all]');if(!a||this.hasAttribute('data-ready')||a.tagName=='A'&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;e.preventDefault();var o=this.querySelector('[data-tapped]');if(o)o.removeAttribute('data-tapped');a.setAttribute('data-tapped','');var h='#a'+(+(a.dataset.i||0)+1);if(/^#a\d+$/.test(location.hash))location.replace(h);else location.hash=h})</script>
+      still closes it. What was tapped is marked with its address (data-tapped), for focus to go back to, until the
+      address moves on (Back). Once the script runs (data-ready), its own handler takes the taps. */}
+  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i],[data-all]');if(!a||this.hasAttribute('data-ready')||a.tagName=='A'&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;e.preventDefault();var h='#a'+(+(a.dataset.i||0)+1),o=this.querySelector('[data-tapped]');if(o)o.removeAttribute('data-tapped');a.setAttribute('data-tapped',h);if(/^#a\d+$/.test(location.hash))location.replace(h);else location.hash=h});addEventListener('hashchange',function(){var t=document.querySelector('[data-album] [data-tapped]');if(t&&t.getAttribute('data-tapped')!=location.hash)t.removeAttribute('data-tapped')})</script>
   {column && all && <button type="button" class="all" data-all aria-haspopup="dialog">{see}</button>}
   <script type="application/json" set:html={data}></script>
   <script>

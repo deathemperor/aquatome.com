@@ -94,7 +94,7 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
       zoom(1, { x: 0, y: 0 }, false)
       points.clear()
       hist.close()
-      tile(at)?.focus()
+      tile(at)?.focus({ preventScroll: true }) // the page stays where it was left
     })
     track.addEventListener('transitionend', e => { if (e.target === track) finish() })
     new ResizeObserver(layout).observe(stage)
