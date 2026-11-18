@@ -1,5 +1,12 @@
 [
   {
+    "date": "2026-11-18",
+    "kind": "species",
+    "id": "paracheirodon-axelrodi",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
     "date": "2026-11-17",
     "kind": "species",
     "id": "caridina-babaulti",
@@ -3489,13 +3496,6 @@
     "date": "2026-11-15",
     "kind": "species",
     "id": "pterosturisoma-microps",
-    "source": "scotcat",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-15",
-    "kind": "species",
-    "id": "pseudecheneis-sulcata",
     "source": "scotcat",
     "action": "updated"
   }
