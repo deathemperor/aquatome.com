@@ -254,8 +254,9 @@ final class MasterModel {
       } else if let key = switcher.outlet(c)?.key {
         // Whether the step went isn't known (its answer lost or not reported, the outlet not read after it as switched):
         // said so, not that a hand changed it (Codex, 17 Nov).
+        let unknown = String(localized: "Không rõ lệnh đã tới ổ \(name) chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.")
         let changed = b.guessed == true
-          ? String(localized: "Không rõ lệnh đã tới ổ \(name) chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.")
+          ? unknown
           : String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
         // Only guessed, found back after a put-back try of its own that may have gone: that try may be what put it back,
         // so it says AquaTome put it back, not that it left it (Fable, 18 Nov).
@@ -278,6 +279,8 @@ final class MasterModel {
           case .already: if b.guessed == true { tell(b.earlier ? putBack : changed) } else if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
           case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
           case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là ổ sưởi nên AquaTome để nguyên. Bạn xem lại ổ này."))
+          // Made a heater after a put-back try that may have gone: that try could still land (the chief, 18 Nov).
+          case .heaterAfterTry: tell(unknown)
           case .leave: tell(changed)
           case .unread, .send: break
           }

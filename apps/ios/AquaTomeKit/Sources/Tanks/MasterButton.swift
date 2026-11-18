@@ -160,6 +160,9 @@ public struct MasterRun: Sendable, Equatable, Codable {
     /// Made a heater since the press: the button never switches one, so left as it is, and said so (Fable, 18 Nov); before
     /// CO2's hold, so the note says what the outlet is now (Codex, 18 Nov).
     case heater
+    /// The same, after a put-back try of its own that may have gone (`Back.earlier`): that try could still land on the
+    /// heater's outlet, so the note says it isn't known whether the command reached it, and to look (the chief, 18 Nov).
+    case heaterAfterTry
     /// CO2 back on, which the phone never sends: left off, and said so.
     case hold
     /// Not read at the end: nothing sent, and it stays owed for Trả lại (Codex, 17 Nov: the phone sends no state it only
@@ -177,7 +180,7 @@ public struct MasterRun: Sendable, Equatable, Codable {
     let c = b.command
     if now == c.on { return .already }
     if let now, let left, now != left, b.guessed != true { return .leave }
-    if role == "heater" { return .heater }
+    if role == "heater" { return b.earlier ? .heaterAfterTry : .heater }
     if c.on && (b.held == true || role == "co2") { return .hold }
     if now == nil { return .unread }
     return .send

@@ -197,6 +197,13 @@ func whatTheEndDoes() throws {
   #expect(MasterRun.end(held, now: false, left: false, role: "light") == .hold)
   #expect(MasterRun.end(fanOn, now: false, left: false, role: "heater") == .heater)
   #expect(MasterRun.end(fanOn, now: nil, left: false, role: "heater") == .heater)
+  // After a put-back try that may have gone (its answer lost): that try could still land on the heater's outlet, so
+  // its own case, for the note that it isn't known (the chief, 18 Nov). Nothing sent either way.
+  var tried = fanOn
+  tried.mayHaveGone = true
+  #expect(MasterRun.end(tried, now: false, left: false, role: "heater") == .heaterAfterTry)
+  #expect(MasterRun.end(tried, now: nil, left: false, role: "heater") == .heaterAfterTry)
+  #expect(MasterRun.end(tried, now: false, left: false, role: "fan") == .send)
   // CO2 switched off by a step whose answer was lost, read after it as still on: counted gone (the chief, 18 Nov), so
   // it stays owed. Found off at the end, or not read: held, never sent on, whether held at the press or CO2 now; found
   // on, nothing to send.
