@@ -146,8 +146,10 @@ jobs:
       - name: Lighthouse, one page at a time
         id: lighthouse
         working-directory: apps/site
-        # A page that misses here is measured again below, and that measure is the job's result.
+        # A page that misses here is measured again below, and that measure is the job's result. Each round has its own
+        # time limit, so both fit in the job's 45 minutes with room to hand the results on: a round cut off fails.
         continue-on-error: true
+        timeout-minutes: 20
         run: pnpm e2e --grep @lighthouse --workers=1
         env:
           E2E_LIGHTHOUSE: '1'
@@ -162,7 +164,15 @@ jobs:
       - name: Lighthouse again on the pages that missed, five minutes later
         if: steps.lighthouse.outcome == 'failure'
         working-directory: apps/site
-        run: sleep 300 && pnpm e2e --grep @lighthouse --workers=1 --last-failed
+        timeout-minutes: 15
+        # Only after a first round that finished, with its results and its list of the pages that missed: without the
+        # list, --last-failed would measure every page again, and the first round's failure would go unseen.
+        run: |
+          if [ ! -s lighthouse-results.json ] || ! node -e 'const r = JSON.parse(require("fs").readFileSync("test-results/.last-run.json", "utf8")); process.exit(r.status === "failed" && r.failedTests?.length ? 0 : 1)'; then
+            echo "::error::Lighthouse's first round ended without its results or its list of the pages that missed: nothing to measure again"
+            exit 1
+          fi
+          sleep 300 && pnpm e2e --grep @lighthouse --workers=1 --last-failed
         env:
           E2E_LIGHTHOUSE: '1'
           E2E_BASE_URL: https://aquatome.com
@@ -211,4 +221,9 @@ jobs:
           path: apps/site
       - name: Turn the results into issues
         # Lighthouse's second measure, when there was one, decides the pages it measured again (site-watch.mjs merged).
-        run: node scripts/site-watch.mjs report "apps/site/e2e-results.json,apps/site/lighthouse-results.json$(test -f apps/site/lighthouse-again.json && echo ,apps/site/lighthouse-again.json)" "$RUN_URL"
+        # The script is the deployed version's: one from before merged() would read the second file after the first,
+        # opening an issue for a page and closing it again, so it gets the first round's results alone, as it always has.
+        run: |
+          again=""
+          if [ -f apps/site/lighthouse-again.json ] && grep -q '^export function merged' scripts/site-watch.mjs; then again=",apps/site/lighthouse-again.json"; fi
+          node scripts/site-watch.mjs report "apps/site/e2e-results.json,apps/site/lighthouse-results.json$again" "$RUN_URL"
