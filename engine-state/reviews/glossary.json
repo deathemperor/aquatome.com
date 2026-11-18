@@ -213,6 +213,47 @@
   ],
   "vi/glossary/dong-chay": [
     {
+      "at": "2026-11-18T03:31:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Khi dòng quá mạnh, cá bơi vất vả hoặc nép vào chỗ trốn.\" (not \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\": Rule 12: \"Khi dòng quá mạnh, cá phải bơi ngược dòng liên tục, đuôi bị cuốn đi, hoặc nép vào một góc bể.\" breaks the line for this term on signs of …",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tiệm thứ nhất cũng ghi: khi cúp điện, bơm ngừng vài tiếng là vi khuẩn kỵ khí sinh độc, oxy tụt và vi khuẩn trong lọc yếu đi, nên cá có thể căng thẳng rất nhanh, nhất là khi trời nóng hoặc bể nuôi dày; có điện lại mà đo nước thấy chất độc tăng thì thay một phần nước bằng nước đã khử clo, chứ đừng chỉ bật l…",
+        "Rule 4: The entry warns twice that a filter's real flow is lower than its rated flow. It says so in \"Một tiệm ghi: lưu lượng thật giảm 20–30% khi vật liệu lọc bẩn, và bông lọc nghẹt có thể cắt mất 50–70% mà người nuôi không để ý.\" under \"Trong bể của bạn\", and again in \"nên chọn lọc có lưu lượng ghi trên hộp cao hơn mức tính ra 20–30%, vì dòng thật yếu hơn.\" under \"Nên làm gì\". The same figure, \"…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T03:31:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nó đưa oxy đi khắp bể, đẩy chất bẩn về phía lọc và giữ nhiệt độ đều.\" the advice \"đẩy chất bẩn về phía lọc\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rules 10 and 1: \"cá nhỏ, bơi yếu cần dòng nhẹ hơn hết\" says small, weak-swimming fish need the gentlest flow of all. Fact 40 only says weak flow is the top priority for them; it never compares them with other fish. The claim also clashes with the entry's own figures: planted tanks with small fish get \"5–8 lần thể tích bể mỗi giờ\", while betta tanks get \"khoảng 2–4 lần thể tích bể mỗi giờ\" and bet…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T03:31:57Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"đẩy chất bẩn về phía lọc\" in the definition is a claim from only one page (source 3, fact 7), but it is written as plain fact. The entry already names three pages, so this claim should be dropped rather than credited as a fourth.",
+        "Rule 12: \"Cặn bẩn hay đọng ở đó và ở các góc bể.\" adds the tank's corners, which come from one page only (fact 18). The line must read word for word \"Cặn bẩn hay đọng ở đó.\"",
+        "Rule 12: \"Khi dòng quá mạnh, cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\" uses \"một góc\", which is from fact 15 alone. The line must read word for word \"Khi dòng quá mạnh, cá bơi vất vả hoặc nép vào chỗ trốn.\"",
+        "Rule 12: \"Cá lớn hoặc bơi nhanh, như cá đĩa: 8–12 lần thể tích bể mỗi giờ. Dù vậy, nên tránh để dòng mạnh xả thẳng vào cá đĩa.\" is split at a full stop, which leaves the second half as plain fact outside the first shop's credit. It must be one sentence, word for word: \"Cá lớn hoặc bơi nhanh, như cá đĩa: 8–12 lần thể tích bể mỗi giờ, nhưng nên tránh để dòng mạnh xả thẳng vào cá đĩa.\"",
+        "Rule 12: \"Tiệm thứ hai cũng ghi: có thể giảm dòng theo các cách sau:\" leaves out the betta, which fact 31 names. It must read word for word \"Tiệm thứ hai cũng ghi: có thể giảm dòng cho cá betta theo các cách sau:\"",
+        "Rule 12: altNames is empty, so the English name \"Water flow\" that the FACTS give is missing. The other-names line asks for it alongside any new names."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T03:19:16Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -255,48 +296,6 @@
       ],
       "attempt": "rewrite",
       "kept": true
-    },
-    {
-      "at": "2026-11-18T03:08:40Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 0.96,
-      "notes": [
-        "\"Một tài liệu tham khảo ghi cá tỳ bà bướm hổ (Sewellia lineolata) cần dòng mạnh và nước nhiều oxy, và lọc cho loài này tốt nhất là đảo nước 15–20 lần thể tích bể mỗi giờ.\": the facts don't carry it (unsupported, unsupported, unsupported): Vietnamese common name not in facts / Vietnamese common name not given in facts",
-        "Rule 12: \"Dòng quá mạnh thì nhìn cá là biết: cá phải bơi ngược dòng suốt, bị cuốn trôi, hoặc nép vào chỗ trốn.\" does not use the required wording (\"Dòng quá mạnh thì nhìn cá là biết: cá bơi vất vả và hay nép vào một góc hoặc chỗ trốn.\"). It also says \"bị cuốn trôi\" of all fish, but being swept adrift comes only from the betta page (fact 17). And \"bơi ngược dòng suốt\" is a one-page claim (source 1…",
-        "Rule 12: \"Một tài liệu tham khảo ghi cá tỳ bà bướm hổ (Sewellia lineolata) cần dòng mạnh và nước nhiều oxy, và lọc cho loài này tốt nhất là đảo nước 15–20 lần thể tích bể mỗi giờ.\" uses the trade name \"cá tỳ bà bướm hổ\", which THIS TERM forbids. The fish must be called \"loài chạch suối Sewellia lineolata\", and the sentence must match word for word: \"Một tài liệu tham khảo ghi: loài chạch suối Sew…",
-        "Rule 12: \"Trong bể thủy sinh, dòng chảy còn đưa phân và CO2 tới cây.\" states as plain fact that flow carries CO2 to plants, but only one page (source 3, a shop) says this, and the line doesn't say whose claim it is. With the three pages the entry already names, it is also over the three-page limit. Adding the attribution would make a fourth page, so the CO2 part should be dropped.",
-        "Rule 6: \"betta\" in \"Một tiệm khác gợi ý cho bể betta khoảng 2–4 lần thể tích bể mỗi giờ\": the fish is called \"betta\" instead of its page name with the kind word, \"cá betta\" (also Rule 12, which asks for the site's name with its kind word)."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T02:59:58Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"Dòng quá mạnh thì nhìn cá là biết: cá phải bơi ngược dòng suốt, đuôi bị cuốn, hoặc cá nép vào một góc bể.\" Only one shop (source 1) gives these signs, but the sentence states them as plain fact. It needs an opening such as \"Một tiệm ghi …\". The entry already names three pages, so this warning should wait for a second page or be left out.",
-        "Rule 10: \"cá nhỏ, bơi yếu cần dòng nhẹ hơn hết\" says small fish need the gentlest flow of all. The fact only says weak flow is the top priority for small, weak-swimming fish and does not compare them with other fish. The comparison also clashes with the next clause, which says cá betta need flow that is \"rất nhẹ\".",
-        "Rule 6: \"Sewellia lineolata\" in \"Một tài liệu tham khảo ghi Sewellia lineolata, một loài cá tỳ bà bướm gốc Việt Nam, cần dòng mạnh và nước nhiều oxy\": this fish has a page, so it must be called by the page's name, \"cá tỳ bà bướm hổ\", not by its scientific name.",
-        "Rule 6: \"cá tỳ bà bướm\" in \"Một tài liệu tham khảo ghi Sewellia lineolata, một loài cá tỳ bà bướm gốc Việt Nam, cần dòng mạnh và nước nhiều oxy\": this is a Vietnamese name for a group (the facts' \"hillstream loach\") that has no page. The writer made it up, and the facts give no scientific name for the group. Drop it and use the page name \"cá tỳ bà bướm hổ\"."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T02:59:58Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 0.96,
-      "notes": [
-        "\"Một tài liệu tham khảo ghi cá tỳ bà bướm hổ (Sewellia lineolata) cần dòng mạnh và nước nhiều oxy, và lọc cho loài này tốt nhất là đảo nước 15–20 lần thể tích bể mỗi giờ.\": the facts don't carry it (unsupported, unsupported, unsupported): Vietnamese common name not in facts / Vietnamese common name 'cá tỳ bà bướm hổ' not in facts",
-        "Rule 12: \"cá phải bơi ngược dòng suốt, bị cuốn trôi, hoặc nép vào chỗ trốn\" applies to all fish signs that only the betta fact gives (betta that 'are pushed adrift' and 'keep looking for hiding places'). The general fact says only that tails get swept and fish shelter in one corner of the tank. A betta-only fact is carried to a group the fact doesn't name. Keep the general signs as the fact gives…"
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "32b43e4649ddf669de17b406692b348dd5dc2c59be1ff84d961b753121e277e3"
     }
   ],
   "vi/glossary/gh": [
