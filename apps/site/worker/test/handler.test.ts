@@ -287,6 +287,8 @@ test('an old /vi/… address answers 301 to the same path without /vi, query kep
     ['/vi/ca/ca-neon-vua', '/ca/ca-neon-vua/'], // with the slash the page has: no second hop
     ['/vi/cong-cu/nuoi-chung/?ca=ca-neon-vua:10', '/cong-cu/nuoi-chung/?ca=ca-neon-vua:10'],
     ['/vi/ca/ca-dia/index.md', '/ca/ca-dia/index.md'],
+    // An old photo page: its page, not /ca/…/anh/ and then the page.
+    ['/vi/ca/ca-neon-vua/anh/', '/ca/ca-neon-vua/'], ['/vi/cay/cryptocoryne-wendtii/anh/?x=1', '/cay/cryptocoryne-wendtii/?x=1'],
   ]) {
     const r = await handle(get(from!), e)
     expect([r.status, r.headers.get('location')], from).toEqual([301, to])

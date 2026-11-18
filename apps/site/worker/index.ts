@@ -158,7 +158,9 @@ async function fromVi(url: URL, env: Env): Promise<Response> {
   let path = withoutVi(url.pathname).replace(/^[/\\]+/, '/')
   if (!path.endsWith('/') && !/\.[a-z0-9]+$/i.test(path)) path += '/'
   const renamed = await redirectFor(env.ASSETS, url.origin, path)
-  const location = !renamed ? `${path}${url.search}` : url.search ? `${renamed}${renamed.includes('?') ? '&' : '?'}${url.search.slice(1)}` : renamed
+  // An old photo page's address goes straight to its page too (galleryParent), not to its root form first.
+  const page = galleryParent(path) ?? path
+  const location = !renamed ? `${page}${url.search}` : url.search ? `${renamed}${renamed.includes('?') ? '&' : '?'}${url.search.slice(1)}` : renamed
   return new Response(null, { status: 301, headers: { location } })
 }
 

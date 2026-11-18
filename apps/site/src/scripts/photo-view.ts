@@ -66,10 +66,12 @@ export function viewerHistory(h: Hist, id: string) {
     /**
      * Opened from the page. `url`: the address while photo `i` is open (a gallery's #aN), or the page's own. `under`:
      * the address for the entry below, when the page was opened on a photo's own address (#a5): Back then shows the
-     * gallery, not the photo again.
+     * gallery, not the photo again. `adopt`: the current entry is the photo's already, over the page's own (a #aN link
+     * followed before the viewer had loaded, or typed into the address bar): it becomes the viewer's, so Back closes the
+     * viewer onto the page and no entry is added.
      */
-    open(i: number, url?: string, under?: string) {
-      if (mine(h.state) !== null) return step(i, url)
+    open(i: number, url?: string, under?: string, adopt?: boolean) {
+      if (mine(h.state) !== null || adopt) return step(i, url)
       if (under !== undefined) h.replaceState(h.state, '', under)
       h.pushState({ viewer: id, photo: i }, '', url)
     },

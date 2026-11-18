@@ -100,6 +100,20 @@ test('a page opened on a photo\'s own address (#a5) gets an entry under it, so B
   expect(t.here()).toBe('/ca/x/')
 })
 
+test('a photo\'s address followed on the page (a tap while it loaded, or typed) is taken as the viewer\'s: Back shows the page, then leaves', () => {
+  const t = tab('/')
+  t.h.pushState(null, '', '/ca/x/')
+  t.h.pushState(null, '', '/ca/x/#a2') // the browser's own entry for the #a2 followed before the viewer loaded
+  const v = viewerHistory(t.h, 'album')
+  v.open(1, '#a2', undefined, true)
+  expect(t.urls()).toEqual(['/', '/ca/x/', '/ca/x/#a2'])
+  expect(v.current()).toBe(1)
+  v.close()
+  expect(t.here()).toBe('/ca/x/')
+  t.h.back()
+  expect(t.here()).toBe('/')
+})
+
 test('reloaded with the viewer open, its entry is still its own: opening it again adds none', () => {
   const t = tab('/ca/x/')
   const first = viewerHistory(t.h, 'album')

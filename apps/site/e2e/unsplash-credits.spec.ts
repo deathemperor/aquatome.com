@@ -31,6 +31,8 @@ test('album viewer: an Unsplash photo\'s credit links its photographer and Unspl
     const credit = page.locator('dialog.lb .by')
     await expect(credit).toBeVisible()
     await line(credit, p.a, p.b ?? p.s)
+    // Its licence, linking the licence's page, as the footer's credits list does.
+    await expect(credit.getByRole('link', { name: p.l!, exact: true })).toHaveAttribute('href', p.lu!)
     if (p.b) await expect(credit.getByRole('link', { name: 'Xem ảnh gốc ↗' })).toHaveAttribute('href', p.s)
     await page.keyboard.press('Escape')
     await expect(credit).toBeHidden()

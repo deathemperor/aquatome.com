@@ -32,8 +32,8 @@ export type ViewerOptions = {
 }
 
 export type Viewer = {
-  /** Open on photo i. `from`: the tile tapped, which the photo grows from; `under`: see viewerHistory().open. */
-  open(i: number, o?: { from?: HTMLElement; under?: string }): void
+  /** Open on photo i. `from`: the tile tapped, which the photo grows from; `under`, `adopt`: see viewerHistory().open. */
+  open(i: number, o?: { from?: HTMLElement; under?: string; adopt?: boolean }): void
   /** Open on the photo the current history entry had open (a reload, Forward), if it is this viewer's. */
   restore(): boolean
 }
@@ -295,14 +295,14 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
     ], { duration: 280, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' })
   }
 
-  function open(i: number, o: { from?: HTMLElement; under?: string } = {}) {
+  function open(i: number, o: { from?: HTMLElement; under?: string; adopt?: boolean } = {}) {
     if (!d) build()
     d!.classList.toggle('pv-one', n() < 2)
     const first = !d!.open
     if (first) d!.showModal()
     layout()
     show(i)
-    hist.open(i, address?.(i), o.under)
+    hist.open(i, address?.(i), o.under, o.adopt)
     if (first && o.from) grow(o.from)
   }
 

@@ -122,10 +122,90 @@ test('a fish with no album has no photos chip: its photo is right above the row'
   }
   test.skip(!found, 'no fish with a photo, a jump row and no album in this build')
   const row = page.locator('nav.jump')
-  await expect(row.locator('a[href="#a1"], a[href="#anh"], a[href$="/anh/"]')).toHaveCount(0)
+  // No photo's address (#a1, #a2…), no old album section or page.
+  const hrefs = await row.locator('a').evaluateAll(as => as.map(a => a.getAttribute('href') ?? ''))
+  expect(hrefs.filter(h => /^#a\d+$|^#anh$|\/anh\/$/.test(h))).toEqual([])
   await expect(page.locator('#anh img')).toBeVisible()
   // The row's lower rule is the text's first: no second line right under it.
   await expect(page.locator('nav.jump ~ .body > :first-child')).toHaveCSS('border-top-width', '0px')
+  expect(errors).toEqual([])
+})
+
+// A slow phone: a thumb tapped before the album's script has run goes to the photo's address on the page, not to the bare
+// photo, and the photo opens there once the script runs. Its entry is the viewer's: Back closes it, the next Back leaves.
+test('album: a thumb tapped while the album\'s script loads opens its photo over the page once it runs', async ({ page, request, errors }) => {
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album in this build')
+  const { path, album } = found!
+  let release = () => {}
+  const held = new Promise<void>(r => { release = r })
+  await page.route(/\/_astro\/GalleryStrip\.astro_astro_type_script[^/]*\.js$/, async route => { await held; await route.continue() })
+  await page.goto('/')
+  await page.goto(path, { waitUntil: 'commit' })
+  await page.locator('footer.foot').waitFor({ state: 'attached' }) // the page's HTML read; the album's script held back
+  const thumb = page.locator('section.strip li a[data-i]:visible').first()
+  const i = Number(await thumb.getAttribute('data-i'))
+  await thumb.click()
+  await expect(page).toHaveURL(at(path, `#a${i + 1}`))
+  release()
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(`${i + 1}/${album.photos.length}`)
+  await page.goBack()
+  await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path))
+  await page.goBack()
+  expect(new URL(page.url()).pathname).toBe('/')
+  expect(errors).toEqual([])
+})
+
+// A photo's address typed into the address bar on the page: the photo opens on that entry, Back closes it on the page,
+// and the next Back leaves (no second copy of the page in the history).
+test('album: a photo\'s address typed on the page opens it there; Back closes it, the next Back leaves', async ({ page, request, errors }) => {
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album in this build')
+  const { path, album } = found!
+  await page.goto('/')
+  await page.goto(path)
+  await page.waitForLoadState()
+  await page.evaluate(() => { location.hash = 'a3' })
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(`3/${album.photos.length}`)
+  await page.goBack()
+  await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path))
+  await page.goBack()
+  expect(new URL(page.url()).pathname).toBe('/')
+  expect(errors).toEqual([])
+})
+
+// On a tall computer screen the photo column clips the strip's rows past its last whole one: closed on a photo whose
+// thumb is clipped, focus goes back to the thumb tapped, not to the hidden one.
+test('album, a tall computer screen: closed on a photo the column clips, focus goes back to the thumb tapped', async ({ page, request, errors, isMobile }) => {
+  test.skip(isMobile, 'the column clips its rows on a tall computer screen')
+  await page.setViewportSize({ width: 1280, height: 1000 })
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 20) // rows past the column's
+  test.skip(!found, 'no fish album in this build')
+  const { path, album } = found!
+  await page.goto(path)
+  await page.waitForLoadState()
+  const clipped = await page.evaluate(() => {
+    const ul = document.querySelector('section.strip ul')!.getBoundingClientRect()
+    return [...document.querySelectorAll<HTMLElement>('section.strip li a[data-i]')]
+      .filter(a => { const r = a.getBoundingClientRect(); return a.checkVisibility() && r.height > 0 && (r.bottom > ul.bottom + 1 || r.top < ul.top - 1) })
+      .map(a => Number(a.dataset.i))
+  })
+  test.skip(!clipped.length, 'no thumb the column clips in this build')
+  const thumb = page.locator('section.strip li a[data-i]:visible').first()
+  const i = Number(await thumb.getAttribute('data-i'))
+  const k = clipped.find(c => c > i)!
+  await thumb.click()
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(`${i + 1}/${album.photos.length}`)
+  for (let s = i; s < k; s++) await page.keyboard.press('ArrowRight')
+  await expect(viewer.getByRole('status')).toHaveText(`${k + 1}/${album.photos.length}`)
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  await expect(thumb).toBeFocused()
   expect(errors).toEqual([])
 })
 
