@@ -1077,6 +1077,28 @@
   ],
   "vi/glossary/luu-vuc": [
     {
+      "at": "2026-11-18T19:00:46Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T19:00:46Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The meaning \"Lưu vực là cả một hệ sông, như sông Amazon hay lưu vực Rio Negro ở Brazil, xét như một vùng địa lý. Bể biotope chép theo một nơi như vậy ngoài tự nhiên: cá, cây và đồ trang trí đều lấy từ một nơi.\" is not the required wording. It must read word for word: \"Trong nuôi cá cảnh, lưu vực, hay hệ sông, được xét như một vùng địa lý mà bể biotope chép theo: cá, cây và đồ trang trí đ…",
+        "Rule 12: \"Bể dài từ 120 cm trở lên, nền cát sông mịn kèm sỏi và đá cuội tròn.\" uses \"dài\" and \"tròn\", and it drops \"nhẵn\". THIS TERM bans both words. The sentence must read word for word: \"Bể từ 120 cm trở lên, nền cát sông mịn kèm sỏi nhẵn và đá cuội.\"",
+        "Rule 12: The mistake \"Thả chung cá từ các châu lục hay nơi sống khác nhau trong một bể biotope.\" keeps the continents, which only the keeper's page gives, so they must come out. It must read word for word: \"Thả chung cá từ những nơi sống khác nhau trong một bể biotope.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T18:26:24Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1124,30 +1146,6 @@
         "Rule 12: The required mistake \"Thả chung cá từ các châu lục hay nơi sống khác nhau trong một bể biotope.\" (facts 20, 22) is missing from \"Sai lầm hay gặp\".",
         "Rule 12: The steps guide opening \"Một tiệm hướng dẫn set bể biotope theo các bước sau:\" calls source 1 a shop. It must be \"Một bài hướng dẫn khác ghi các bước sau:\".",
         "Rule 12: Only four of the steps guide's seven steps are given. Step 3 is missing (\"60-80 litres suggested for a first biotope\" and checking that the floor can bear the weight). So are step 6 (adjust the water before adding fish, and test pH, GH and KH weekly while cycling) and step 7 (cycle for four to six weeks, then add livestock gradually, hardiest first). All seven must appear in the page's o…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T18:00:27Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 0.95,
-      "notes": [
-        "\"Một bài khác của tiệm này hướng dẫn set bể biotope theo các bước sau:\": the facts don't carry it (unsupported, unsupported, unsupported): steps come from a different shop, not the Mekong guide's shop / steps come from a different shop (source 1), not the Mekong guide's shop (source 8)",
-        "Rule 12: \"Bài này còn khuyên thêm một điều. Nếu được thì tìm đúng nơi bắt cá, vì loài ở các nhánh khác nhau của cùng một hệ sông có thể không bao giờ gặp nhau ngoài tự nhiên.\" This claim comes from the steps guide (source 1), the same page that opens with \"Một bài khác của tiệm này hướng dẫn set bể biotope theo các bước sau:\". It sits right after that list but gets a second opening of its own. Cl…"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T18:00:27Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 0.95,
-      "notes": [
-        "The rewrite dropped from \"Nếu được thì tìm đúng nơi bắt cá, vì loài ở các nhánh khác nhau của cùng một hệ sông có thể không bao giờ gặp nhau ngoài tự nhiên.\" the advice \"Nếu được thì tìm đúng nơi bắt cá\", the advice \"vì loài ở các nhánh khác nhau của cùng một hệ sông có thể không bao giờ gặp nhau ngoài tự nhiên\", and nothing lets that sentence go: write it as it was, word for word.",
-        "\"Một bài khác của tiệm này hướng dẫn set bể biotope theo các bước sau:\": the facts don't carry it (unsupported, unsupported, unsupported): steps come from a different shop source, not the same shop / steps come from a different shop, not the Mekong guide's shop / steps come from a different shop (source 1), not the Mekong guide's shop (source 8)"
       ],
       "attempt": "rewrite",
       "kept": false
