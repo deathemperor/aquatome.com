@@ -3,7 +3,7 @@ import lighthouse from 'lighthouse'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
 import { loadPolicy, onlyMonitorBreaks, policyNames, scoreWith } from './lighthouse-edge'
 import { documentHeaders, headerLines } from './lighthouse-headers'
-import { lighthouseFlags, retryPause } from './lighthouse-flags'
+import { lighthouseFlags } from './lighthouse-flags'
 import { indexed, LIVE, onePerKind, sourcePages, templateOf } from './pages'
 
 // Lighthouse (what PageSpeed Insights runs) on one page of each kind readers open most: the phone run is PageSpeed's
@@ -47,10 +47,7 @@ test.describe.configure({ retries: 2 })
 for (const path of pages) {
   test(`lighthouse ${path}`, { tag: '@lighthouse' }, async ({ baseURL }, info) => {
     test.skip(!ON, 'E2E_LIGHTHOUSE=1 turns Lighthouse on')
-    // A failed measure on the live site is taken again after a pause, not straight away (retryPause).
-    const pause = retryPause(!!LIVE, info.retry)
-    test.setTimeout(180_000 + pause)
-    if (pause) await new Promise(r => setTimeout(r, pause))
+    test.setTimeout(180_000)
     const form = info.project.name === 'desktop' ? 'desktop' : 'phone'
     const budget = { ...BUDGET[form], ...(KNOWN[path] ?? KNOWN[templateOf(path.replace(/\?.*/, ''))]) }
     const own = new URL(baseURL!).origin
