@@ -35,8 +35,9 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
     ))}
   </ul>
   {/* A thumb tapped before the album's script has run (a slow phone): its photo's address, #aN, which that script opens
-      once it runs, in place of the bare photo. Once it runs (data-ready), its own handler takes the taps. */}
-  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i]');if(!a||this.hasAttribute('data-ready')||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();location.hash='a'+(+a.dataset.i+1)})</script>
+      once it runs, in place of the bare photo; a second tap takes the first one's entry, so one Back still closes it.
+      Once the script runs (data-ready), its own handler takes the taps. */}
+  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i]');if(!a||this.hasAttribute('data-ready')||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();var h='#a'+(+a.dataset.i+1);if(/^#a\d+$/.test(location.hash))location.replace(h);else location.hash=h})</script>
   {column && all && <a class="all" href="#a1">{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}
   <script type="application/json" set:html={data}></script>
   <script>

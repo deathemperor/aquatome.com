@@ -26,8 +26,7 @@ if (box && json) {
     return [...unsplashParts(ct('Ảnh: {author} trên {site}'), p.a, p.b ? { authorUrl: p.b } : { photo: p.s }).map(x => (x.href ? link(x.href, x.text) : x.text)), ...lic, ...(p.b ? [' · ', link(p.s, ct('Xem ảnh gốc ↗'))] : [])]
   }
   const photos: ViewerPhoto[] = album.photos.map(p => ({ src: p.u, thumb: p.t, width: p.w, height: p.h, alt: p.c ?? album.name, ...(p.c ? { caption: p.c } : {}), credit: credit(p) }))
-  // Focus goes back to the photo's thumb, and the photo shrinks into it, when the thumb is whole in the strip's view;
-  // else to what opened the viewer. The phone's row scrolls its thumbs out of view sideways, the tall screen's column
+  // Focus goes back to the photo's thumb when the thumb is whole in the strip's view; else to what opened the viewer. The phone's row scrolls its thumbs out of view sideways, the tall screen's column
   // clips the rows past its last whole one, and most of an album has no thumb.
   let opener: HTMLElement | undefined
   const inView = (a: HTMLElement) => {
@@ -61,11 +60,14 @@ if (box && json) {
   // Reloaded with a photo open: that photo again. Loaded on a photo's address (#a5): that photo, the page put under it
   // for Back. A #aN followed while the page loaded (a thumb, "Xem tất cả", the photo chip), or typed into the address
   // bar since: its entry is over the page's already, and the viewer takes it.
-  if (mine()) void view().then(v => v.restore(), () => {})
-  else if (at() !== null) void view().then(v => v.open(at()!, arrived() ? { under: location.pathname + location.search } : { adopt: true }), () => {})
-  addEventListener('hashchange', () => {
+  // Once the viewer's code is here, the address may have moved on (Back pressed while it loaded): the photo the address
+  // asks for then, if any, and none when the viewer holds the entry already.
+  const openHere = (how: () => { under?: string; adopt?: boolean }) => void view().then(v => {
     const i = at()
-    if (i !== null && !mine()) void view().then(v => v.open(i, { adopt: true }), () => {})
-  })
+    if (i !== null && !mine()) v.open(i, how())
+  }, () => {})
+  if (mine()) void view().then(v => v.restore(), () => {})
+  else if (at() !== null) openHere(() => (arrived() ? { under: location.pathname + location.search } : { adopt: true }))
+  addEventListener('hashchange', () => { if (at() !== null && !mine()) openHere(() => ({ adopt: true })) })
   box.setAttribute('data-ready', '')
 }

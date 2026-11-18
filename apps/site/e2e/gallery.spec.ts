@@ -158,6 +158,63 @@ test('album: a thumb tapped while the album\'s script loads opens its photo over
   expect(errors).toEqual([])
 })
 
+// Two thumbs tapped before the album's script has run: the second photo opens once it runs, on one entry: one Back
+// closes it, the next leaves.
+test('album: two thumbs tapped while the album\'s script loads open the second, and one Back closes it', async ({ page, request, errors }) => {
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album in this build')
+  const { path, album } = found!
+  let release = () => {}
+  const held = new Promise<void>(r => { release = r })
+  await page.route(/\/_astro\/GalleryStrip\.astro_astro_type_script[^/]*\.js$/, async route => { await held; await route.continue() })
+  await page.goto('/')
+  await page.goto(path, { waitUntil: 'commit' })
+  await page.locator('footer.foot').waitFor({ state: 'attached' })
+  const thumbs = page.locator('section.strip li a[data-i]:visible')
+  const [a, b] = [thumbs.nth(0), thumbs.nth(1)]
+  const j = Number(await b.getAttribute('data-i'))
+  const entries = await page.evaluate(() => history.length)
+  await a.click()
+  await b.click()
+  await expect(page).toHaveURL(at(path, `#a${j + 1}`))
+  // One entry for both taps. Chrome skips a second such entry on Back, so the count is what shows it.
+  expect(await page.evaluate(() => history.length)).toBe(entries + 1)
+  release()
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer.getByRole('status')).toHaveText(`${j + 1}/${album.photos.length}`)
+  await page.goBack()
+  await expect(viewer).toBeHidden()
+  await expect(page).toHaveURL(at(path))
+  await page.goBack()
+  expect(new URL(page.url()).pathname).toBe('/')
+  expect(errors).toEqual([])
+})
+
+// Back pressed while the viewer's code is still on its way: nothing opens once it arrives, and the page stays as it was.
+test('album: Back pressed while the viewer loads opens nothing once it arrives', async ({ page, request, errors }) => {
+  const found = await albumPage(request, 'ca')
+  test.skip(!found, 'no fish album in this build')
+  const { path } = found!
+  let release = () => {}
+  const held = new Promise<void>(r => { release = r })
+  await page.route(/\/_astro\/photo-viewer\.[^/]*\.js$/, async route => { await held; await route.continue() })
+  await page.goto('/')
+  await page.goto(path)
+  await page.waitForLoadState()
+  await page.evaluate(() => { location.hash = 'a3' })
+  await page.goBack()
+  await expect(page).toHaveURL(at(path))
+  const arrived = page.waitForResponse(/\/_astro\/photo-viewer\.[^/]*\.js$/)
+  release()
+  await arrived
+  await page.waitForTimeout(300) // the open it had queued, had it run
+  await expect(page.locator('dialog.lb')).toHaveCount(0)
+  await expect(page).toHaveURL(at(path))
+  await page.goBack()
+  expect(new URL(page.url()).pathname).toBe('/')
+  expect(errors).toEqual([])
+})
+
 // A photo's address typed into the address bar on the page: the photo opens on that entry, Back closes it on the page,
 // and the next Back leaves (no second copy of the page in the history).
 test('album: a photo\'s address typed on the page opens it there; Back closes it, the next Back leaves', async ({ page, request, errors }) => {
