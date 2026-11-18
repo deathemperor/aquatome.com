@@ -16,6 +16,7 @@ struct TankVolumeView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Environment(\.openScreen) private var openScreen
+  @Environment(\.v2InPost) private var inPost
   /// The site's choice of unit ("metric", "imperial"), remembered as its pages remember it.
   @AppStorage("units") private var units = "metric"
   @State private var form = VolumeForm()
@@ -66,7 +67,7 @@ struct TankVolumeView: View {
     }
     .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle("Bể bao nhiêu lít?")
-    .navigationDestination(item: $web) { WebScreen(url: $0) }
+    .navigationDestination(item: $web) { WebScreen(url: $0).v2InPost(inPost) }
     .onAppear {
       guard !started else { return }
       started = true

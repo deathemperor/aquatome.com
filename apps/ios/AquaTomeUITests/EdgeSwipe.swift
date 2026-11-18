@@ -98,10 +98,9 @@ extension XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults",
                            "-v2", "YES", "-plan", "-today", "2026-11-13", "-long-part"]
     app.launch()
-    // A Hôm nay post is iOS's zoom, whose swipe from the edge closes it only at an unhurried speed: across the screen in
-    // 250 or 300 ms, 6 of 6; in 100 to 200 ms, 0 of 18 (27.2, 13 Nov). Its fast swipe is 300 ms until the post is a pushed
-    // page (the chief of staff, 13 Nov: the zoom stays in this build, the next pushes the post).
-    let (tried, missed) = edgeMisses(app, each: each, at: [dy], fast: page == .homNayPost ? 0.3 : 0.1) { openForSwipe(page, app) }
+    // A Hôm nay post is pushed as any page (spec-post-push.md), so its fast swipe is a page's: the zoom it replaced closed
+    // only at an unhurried speed, 0 of 18 in 100 to 200 ms (27.2, 13 Nov).
+    let (tried, missed) = edgeMisses(app, each: each, at: [dy]) { openForSwipe(page, app) }
     print("EDGE \(page) \(Int(dy * 100))%: \(tried - missed.count)/\(tried) went back; missed \(Dictionary(grouping: missed) { $0 }.mapValues(\.count))")
     XCTAssertEqual(missed, [], "edge swipes on \(page) that didn't go back, of \(each) of each pace")
   }

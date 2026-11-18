@@ -37,7 +37,7 @@ struct V2Photo: View {
   @State private var again = 0
 
   /// What this address shows: what was decoded here, or what's in memory at any size, the full photo first, so a page
-  /// zooming out of a card has it in its first frame.
+  /// opened from a card has it in its first frame.
   private var image: UIImage? {
     if let picture, picture.src == src { return picture.image }
     return src.flatMap { PageImages.cached(V2Photo.full($0)) ?? PageImages.cached($0) }

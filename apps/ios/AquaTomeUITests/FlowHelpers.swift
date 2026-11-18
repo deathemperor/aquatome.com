@@ -28,9 +28,9 @@ extension XCUIApplication {
   /// from the left edge goes with it (the owner, 12 Nov).
   var pageBack: XCUIElement { navigationBars.buttons["BackButton"].firstMatch }
 
-  /// Off a page: iOS's back button, or a Hôm nay post's ✕ (a page a Hôm nay card opens has no back button).
+  /// Off a page: iOS's back button (a Hôm nay post's ✕ is iOS's back, drawn as ✕).
   func leavePage() {
-    if pageBack.exists { pageBack.tap() } else { buttons["v2-close-post"].firstMatch.tap() }
+    pageBack.tap()
   }
 
   /// Tìm's home has the handbook: its first shelf's chips, on the first screen under the tools.

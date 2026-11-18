@@ -9,16 +9,26 @@ extension XCUIApplication {
     tab.tap()
   }
 
+  /// From a fish's post on Hôm nay, which has no tab bar, to Bể của tôi by its "Thêm vào bể" and "Xem trong Bể của tôi →"
+  /// (`-seed-tanks litres`: one tank, "Bể cũ"), then back from the tank to the tab's first screen. The post stays open
+  /// behind it, as every tab keeps its place (spec-post-push.md, Design, 17 Nov).
+  func toTanksFromAPost(file: StaticString = #filePath, line: UInt = #line) {
+    let add = buttons["v2-add"], save = buttons["put-save"], open = buttons["put-open"]
+    XCTAssertTrue(add.waitForExistence(timeout: 5), "no Thêm vào bể on the post", file: file, line: line)
+    add.tap()
+    XCTAssertTrue(save.waitForExistence(timeout: 5), "no Thêm vào bể sheet", file: file, line: line)
+    save.tap()
+    XCTAssertTrue(open.waitForExistence(timeout: 5), "no Xem trong Bể của tôi", file: file, line: line)
+    open.tap()
+    XCTAssertTrue(navigationBars["Bể cũ"].waitForExistence(timeout: 5), "Xem trong Bể của tôi didn't open the tank", file: file, line: line)
+    XCTAssertTrue(tabBars.buttons["Bể của tôi"].isSelected, "the tank opened off its tab", file: file, line: line)
+    pageBack.tap()
+    XCTAssertTrue(navigationBars["Bể cũ"].waitForNonExistence(timeout: 5), "not back from the tank", file: file, line: line)
+  }
+
   /// Flung to the end of the screen, until its lowest words stop moving, then whether they end above the tab bar.
   func endsAboveTheTabBar(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
-    var low = -1.0
-    for _ in 0..<30 {
-      swipeUp()
-      _ = XCTWaiter.wait(for: [XCTestExpectation(description: "still")], timeout: 0.8)
-      let now = lowestWords()
-      if abs(now - low) < 0.5 { break }
-      low = now
-    }
+    flungToTheEnd()
     let bar = tabBars.firstMatch
     XCTAssertTrue(bar.exists, "\(screen): no tab bar", file: file, line: line)
     XCTAssertLessThanOrEqual(lowestWords(), bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar", file: file, line: line)
@@ -139,6 +149,18 @@ extension XCUIApplication {
       }
     }
     return sharp
+  }
+
+  /// Up until the screen's lowest words stop moving.
+  func flungToTheEnd() {
+    var low = -1.0
+    for _ in 0..<30 {
+      swipeUp()
+      _ = XCTWaiter.wait(for: [XCTestExpectation(description: "still")], timeout: 0.8)
+      let now = lowestWords()
+      if abs(now - low) < 0.5 { break }
+      low = now
+    }
   }
 
   /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a

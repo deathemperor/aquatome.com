@@ -292,7 +292,7 @@ final class PageShotsFlowTests: XCTestCase {
 
   /// v2's glass tab bar over a page's text (the owner's report of 15 Nov: the fiddler crab's page, opened from Tìm, had its
   /// summary under the bar, bent by the glass): a page opened from each of the five tabs, each scrolled until its text
-  /// reaches the bar. Hôm nay's fish of the day, Khám phá's first guide, Bể của tôi's tank, the Đèn tab itself, and the
+  /// reaches the bar. Hôm nay's own feed (a post has no tab bar), Khám phá's first guide, Bể của tôi's tank, the Đèn tab itself, and the
   /// neon's page from a search. A shot where a page didn't open shows where it stopped, for the shots to say so.
   private func shootBarOverText(_ name: String, dark: Bool = false) {
     let app = launch(dark: dark, size: nil, ["-seed-tanks", "life"], look: .v2)
@@ -312,11 +312,8 @@ final class PageShotsFlowTests: XCTestCase {
       add(a)
     }
     let page = app.descendants(matching: .any)["v2-species"]
-    let fish = app.buttons["v2-fish-of-the-day"]
-    if fish.waitForExistence(timeout: 10) {
-      fish.tap()
-      _ = page.waitForExistence(timeout: 5)
-    }
+    // Hôm nay's own feed: a post has no tab bar (spec-post-push.md).
+    _ = app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10)
     shot("hom-nay")
     app.openTab("Khám phá")
     let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch

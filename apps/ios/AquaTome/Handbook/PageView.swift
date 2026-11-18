@@ -17,7 +17,6 @@ struct PageView: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(ChatStore.self) private var chat
-  @Environment(\.v2PostClose) private var closePost
   @Environment(AccountModel.self) private var account
   @Environment(\.colorScheme) private var scheme
   @Environment(\.dynamicTypeSize) private var size
@@ -114,18 +113,6 @@ struct PageView: View {
       // page in the back button's list.
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
-      // A Hôm nay post's ✕ (v2), after the page's buttons: a toolbar applied inside theirs comes after them. On the lighter
-      // top, on its dark disc over the photo (a fish post's is in iOS's glass at rest from iOS 26).
-      .v2PostCloseButton(lighter ? nil : closePost)
-      .toolbar(when: lighter && closePost != nil) {
-        ToolbarItem(placement: .topBarTrailing) {
-          Button { closePost?() } label: { round("xmark") }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text("Đóng"))
-            .accessibilityIdentifier("v2-close-post")
-        }
-        .v2Glass(scrolled)
-      }
       .toolbar {
         if lighter {
           lighterBar
@@ -295,20 +282,6 @@ struct PageView: View {
     if item.kind == .fish, let card = item.card, card.any { return FactsCard(facts: card, inPage: inPage) }
     if item.kind == .plant, let plant = item.plant, plant.any { return FactsCard(facts: .init(), plant: plant, inPage: inPage) }
     return nil
-  }
-}
-
-private extension View {
-  /// A toolbar's items only when `on`, after the view's other toolbars' items; on iOS 26 a fixed space first, so the bar's
-  /// glass doesn't draw them in one capsule with the others (as a fish post's ✕, `Species.swift`).
-  @ViewBuilder func toolbar<C: ToolbarContent>(when on: Bool, @ToolbarContentBuilder _ content: () -> C) -> some View {
-    if !on {
-      self
-    } else if #available(iOS 26, *) {
-      toolbar { ToolbarSpacer(.fixed, placement: .topBarTrailing); content() }
-    } else {
-      toolbar(content: content)
-    }
   }
 }
 
