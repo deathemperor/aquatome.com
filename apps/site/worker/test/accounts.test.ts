@@ -3,9 +3,10 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { exportJWK, generateKeyPair, SignJWT, createLocalJWKSet } from 'jose'
 import { accounts, type AccountDeps, type AccountsEnv } from '../accounts/api'
-import type { Mail } from '../accounts/email'
+import { startEmail, type Mail } from '../accounts/email'
 import { idTokenVerifier, type IdClaims } from '../accounts/idtoken'
 import { COOKIE } from '../accounts/session'
+import { TESTER_ADDRESS } from '../accounts/tester'
 import { testD1 } from './d1'
 import { slow } from '@aq/schema/test-time'
 
@@ -282,6 +283,72 @@ test('signed in, a sign-in method joins the account only when asked to (link); o
   const other = await google('g-2')
   expect((await google('g-1', { cookie: other.cookie, link: true })).status).toBe(409)
   expect((await google('g-3', { link: true })).status).toBe(401) // nothing to add it to
+})
+
+// The chat's test account (accounts/tester.ts) signs in by its own email sign-in alone: its address never joins another
+// account, added from a signed-in account or vouched for by Google or Apple, and each refusal writes no account or
+// credential and sends no mail (Codex's read of the chat gate, 17 Nov). Before the fix, a reader adding it would have made
+// their account the tester's.
+test('the test account\'s address: its own email sign-in only, never added to an account, never through Google or Apple', async () => {
+  const { db, env, mails, call, google, emailIn } = setup()
+  const tester = TESTER_ADDRESS!
+  const reader = await emailIn('reader@example.com')
+  const methods = async () => (await call('GET', '/api/v1/session', { cookie: reader.cookie })).json.user.methods.map((m: { kind: string }) => m.kind)
+  const users = async () => (await db.prepare('SELECT COUNT(*) AS n FROM users').first<{ n: number }>())!.n
+  // Added to an account signed in here: refused before a code goes out.
+  const sent = mails.length
+  expect((await call('POST', '/api/v1/auth/email/start', { body: { email: tester, turnstile: 't', link: true }, cookie: reader.cookie })).json).toEqual({ error: 'bad_email' })
+  expect(mails.length).toBe(sent)
+  // A flow started to add it before that check: refused at the code.
+  const { flow, mail } = await startEmail(db, env.ACCOUNT_HMAC_KEY!, tester, 'vi', ORIGIN, reader.json.user.id, NOW)
+  const code = /(?:#ma=|: )(\d{6})/.exec(mail.text)![1]!
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code }, cookie: reader.cookie })).json).toEqual({ error: 'credential_in_use' })
+  // Google or Apple vouching for it: refused, linked or not, and no account is made.
+  const n = await users()
+  expect((await google('g-t', { email: tester })).json).toEqual({ error: 'credential_in_use' })
+  expect((await google('g-t', { email: tester, cookie: reader.cookie, link: true })).json).toEqual({ error: 'credential_in_use' })
+  const { json: { nonce } } = await call('POST', '/api/v1/auth/nonce', { body: {} })
+  expect((await call('POST', '/api/v1/auth/apple', { body: { idToken: `a-t|${nonce}|${tester}`, nonce, client: 'web' } })).json).toEqual({ error: 'credential_in_use' })
+  expect(await users()).toBe(n)
+  expect(await methods()).toEqual(['email'])
+  // Its own email sign-in, by a code to its address: an account of its own.
+  const own = await emailIn(tester)
+  expect(own.status).toBe(200)
+  expect(own.json.user.id).not.toBe(reader.json.user.id)
+  expect(own.json.user.methods).toMatchObject([{ kind: 'email' }])
+  // Another address, added as before.
+  expect((await emailIn('second@example.com', { cookie: reader.cookie, link: true })).status).toBe(200)
+  expect(await methods()).toEqual(['email', 'email'])
+})
+
+// Codex's read of #1606: signed in by its own code, the test account could link Google or Apple carrying another address
+// or none, and later sign in through it. It links nothing: no Google, no Apple, no other address, no flow started for it
+// before (a passkey: passkey.test.ts). A reader's account still does.
+test('the test account, signed in by its own code, adds no other way in, whatever address that one carries', async () => {
+  const { db, env, mails, call, google, emailIn } = setup()
+  const own = await emailIn(TESTER_ADDRESS!)
+  const mine = async () => (await call('GET', '/api/v1/session', { cookie: own.cookie })).json.user.methods.map((m: { kind: string }) => m.kind)
+  const credentials = async () => (await db.prepare('SELECT COUNT(*) AS n FROM credentials').first<{ n: number }>())!.n
+  const before = await credentials()
+  expect((await google('g-other', { email: 'other@example.com', cookie: own.cookie, link: true })).json).toEqual({ error: 'credential_in_use' })
+  expect((await google('g-none', { cookie: own.cookie, link: true })).json).toEqual({ error: 'credential_in_use' })
+  const { json: { nonce } } = await call('POST', '/api/v1/auth/nonce', { body: {} })
+  expect((await call('POST', '/api/v1/auth/apple', { body: { idToken: `a-other|${nonce}|other@example.com`, nonce, client: 'web', link: true }, cookie: own.cookie })).json).toEqual({ error: 'credential_in_use' })
+  const sent = mails.length
+  expect((await call('POST', '/api/v1/auth/email/start', { body: { email: 'other@example.com', turnstile: 't', link: true }, cookie: own.cookie })).json).toEqual({ error: 'bad_email' })
+  expect(mails.length).toBe(sent)
+  const { flow, mail } = await startEmail(db, env.ACCOUNT_HMAC_KEY!, 'other@example.com', 'vi', ORIGIN, own.json.user.id, NOW)
+  const code = /(?:#ma=|: )(\d{6})/.exec(mail.text)![1]!
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code }, cookie: own.cookie })).json).toEqual({ error: 'credential_in_use' })
+  expect(await credentials()).toBe(before)
+  expect(await mine()).toEqual(['email'])
+  // Google's own sign-in with that other address, not linked: an account of its own, not the tester's.
+  const other = await google('g-other', { email: 'other@example.com' })
+  expect(other.json.user.id).not.toBe(own.json.user.id)
+  // Its own code still signs it in; and a reader's account still links Google.
+  expect((await emailIn(TESTER_ADDRESS!)).json.user.id).toBe(own.json.user.id)
+  const reader = await emailIn('reader@example.com')
+  expect((await google('g-reader', { cookie: reader.cookie, link: true })).status).toBe(200)
 })
 
 test('signing in as someone else on a signed-in browser switches accounts: never joins them (a shared computer)', async () => {
