@@ -65,6 +65,48 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/363787827.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/363787827-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Wolfgang Ahlmer",
+      "sourceUrl": "https://www.inaturalist.org/photos/363787827",
+      "caption": "Cá thòi lòi trên bãi bùn ngập mặn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/384804543.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/384804543-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Jiro Iguchi",
+      "sourceUrl": "https://www.inaturalist.org/photos/384804543",
+      "caption": "Cá thòi lòi nhìn từ trên xuống, mắt lồi rõ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/455532205.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/455532205-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Heijnen",
+      "sourceUrl": "https://www.inaturalist.org/photos/455532205",
+      "caption": "Cá thòi lòi đậu trên tảng đá giữa nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/23792.webp",
       "thumb": "https://media.aquatome.com/inaturalist/23792-480.webp",
       "width": 1000,
@@ -164,6 +206,90 @@
       "caption": "Cá thòi lòi trong vùng nước nông ven bờ",
       "best": false,
       "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/344294368.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/344294368-480.webp",
+      "width": 1024,
+      "height": 648,
+      "licence": "CC BY",
+      "author": "Jan Ebr &amp; Ivana Ebrová",
+      "sourceUrl": "https://www.inaturalist.org/photos/344294368",
+      "caption": "Cá thòi lòi nổi đầu trên mặt nước bùn",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/344294372.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/344294372-480.webp",
+      "width": 786,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jan Ebr &amp; Ivana Ebrová",
+      "sourceUrl": "https://www.inaturalist.org/photos/344294372",
+      "caption": "Cá thòi lòi bám trên thân gỗ ven rừng ngập mặn",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/353542373.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/353542373-480.webp",
+      "width": 1024,
+      "height": 984,
+      "licence": "CC0",
+      "author": "Ben Keen",
+      "sourceUrl": "https://www.inaturalist.org/photos/353542373",
+      "caption": "Cá thòi lòi nằm trên bùn cạnh ốc ở bãi triều",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/364875834.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/364875834-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Wolfgang Ahlmer",
+      "sourceUrl": "https://www.inaturalist.org/photos/364875834",
+      "caption": "Cá thòi lòi trên nền bùn xám",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/384789416.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/384789416-480.webp",
+      "width": 1024,
+      "height": 760,
+      "licence": "CC BY",
+      "author": "Lucy Keith-Diagne",
+      "sourceUrl": "https://www.inaturalist.org/photos/384789416",
+      "caption": "Cá thòi lòi nằm trên cát bùn ven triều",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/455490327.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/455490327-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Heijnen",
+      "sourceUrl": "https://www.inaturalist.org/photos/455490327",
+      "caption": "Cá thòi lòi trên bùn cam ẩm ướt",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
       "unchecked": true
     },
     {
@@ -275,7 +401,7 @@
       "kind": "other"
     }
   ],
-  "seen": 65,
-  "updatedAt": "2026-11-11",
-  "builtAt": "2026-11-11"
+  "seen": 85,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

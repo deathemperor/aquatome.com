@@ -102,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn thanh mảnh gắn trên bể nhỏ trồng cây.",
-            "sharpness": 965.8
+            "sharpness": 965.8,
+            "person": false
           },
           {
             "t": 100,
@@ -110,28 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tảng đá lớn đặt giữa bể, xung quanh là cây thủy sinh.",
-            "sharpness": 455.7
-          }
-        ]
-      },
-      {
-        "heading": "Tháo bể: giữ lại gì, bỏ gì",
-        "moments": [
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/XYjtpXJY_Hk/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể còn đá phủ rêu và cây trước khi tháo.",
-            "sharpness": 561.5
-          },
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/XYjtpXJY_Hk/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã rút hết nước, chỉ còn lớp sỏi nền để giữ lại.",
-            "sharpness": 1550.6
+            "sharpness": 455.7,
+            "person": false
           }
         ]
       },
@@ -144,15 +125,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp sỏi đã được rải đều trong bể kính trống.",
-            "sharpness": 4350.1
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/XYjtpXJY_Hk/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sỏi phủ lên nền, nhìn rõ độ dày của lớp nền.",
-            "sharpness": 4793.1
+            "sharpness": 4350.1,
+            "person": false
           }
         ],
         "photo": {
@@ -170,41 +144,13 @@
         "heading": "Nâng cấp đèn và giảm sáng bằng bèo tấm",
         "moments": [
           {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/XYjtpXJY_Hk/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thanh LED gác ngang miệng bể, đẩy sát về phía sau.",
-            "sharpness": 1269.1
-          },
-          {
             "t": 840,
             "url": "https://media.aquatome.com/video/XYjtpXJY_Hk/at840-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể nature có lớp bèo tấm phủ mặt nước, đèn LED gác sau miệng bể.",
-            "sharpness": 1433.1
-          }
-        ]
-      },
-      {
-        "heading": "Bố cục đá nham thạch và lũa cho bể nhỏ",
-        "moments": [
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/XYjtpXJY_Hk/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá nham thạch và lũa dồn về phía sau bể cube, tiền cảnh trống.",
-            "sharpness": 3379.5
-          },
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/XYjtpXJY_Hk/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh cụm đá đen và lũa phía sau, cát vàng rắc sỏi phía trước.",
-            "sharpness": 4110.5
+            "sharpness": 1433.1,
+            "person": false
           }
         ]
       },
@@ -217,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa nhiều nhánh có cây bám, bên cạnh là tuýp keo 502 và rêu.",
-            "sharpness": 676.5
+            "sharpness": 676.5,
+            "person": false
           },
           {
             "t": 650,
@@ -225,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa đã gắn rêu và cây, đặt cạnh phần rêu còn lại.",
-            "sharpness": 1120.3
+            "sharpness": 1120.3,
+            "person": false
           }
         ]
       },
@@ -238,7 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tiền cảnh trải cát trắng với vài cụm cây rêu, không cần phân nền.",
-            "sharpness": 1814.2
+            "sharpness": 1814.2,
+            "person": false
           },
           {
             "t": 930,
@@ -246,7 +195,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Anubias gắn trên lũa và đá, tiền cảnh cát trắng có rêu mô.",
-            "sharpness": 2345.5
+            "sharpness": 2345.5,
+            "person": false
           }
         ],
         "photo": {
@@ -269,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục đá và lũa cao gần sát lớp bèo tấm trên mặt nước.",
-            "sharpness": 868.9
+            "sharpness": 868.9,
+            "person": false
           },
           {
             "t": 880,
@@ -277,7 +228,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc nhìn bể từ bên cạnh, thấy độ cao của đá và lũa.",
-            "sharpness": 1790.6
+            "sharpness": 1790.6,
+            "person": false
           }
         ],
         "photo": {

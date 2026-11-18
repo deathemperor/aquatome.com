@@ -254,18 +254,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/356232985.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/356232985-480.webp",
-      "width": 1024,
-      "height": 662,
-      "licence": "CC BY",
-      "author": "renjus box",
-      "sourceUrl": "https://www.inaturalist.org/photos/356232985",
-      "caption": "Dương xỉ Java mọc trên đá rêu ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/356233676.webp",
       "thumb": "https://media.aquatome.com/inaturalist/356233676-480.webp",
       "width": 1024,
@@ -384,6 +372,18 @@
       "caption": "Cận cảnh lá Dương xỉ Java với gân lá rõ",
       "best": true,
       "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/356232985.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/356232985-480.webp",
+      "width": 1024,
+      "height": 662,
+      "licence": "CC BY",
+      "author": "renjus box",
+      "sourceUrl": "https://www.inaturalist.org/photos/356232985",
+      "caption": "Dương xỉ Java mọc trên đá rêu ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
     }
   ],
   "seen": 77,

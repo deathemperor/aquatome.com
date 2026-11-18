@@ -2,19 +2,6 @@
   "id": "triops-cancriformis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/136057895.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/136057895-480.webp",
-      "width": 1024,
-      "height": 670,
-      "licence": "CC0",
-      "author": "Sashko",
-      "sourceUrl": "https://www.inaturalist.org/photos/136057895",
-      "caption": "Ba con tôm nòng nọc cùng nhau trong vũng nước ven đường",
-      "best": true,
-      "kind": "group",
-      "setup": false
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/148325558.webp",
       "thumb": "https://media.aquatome.com/inaturalist/148325558-480.webp",
       "width": 1024,
@@ -23,31 +10,6 @@
       "author": "Alexis Tinker-Tsavalas",
       "sourceUrl": "https://www.inaturalist.org/photos/148325558",
       "caption": "Tôm nòng nọc trưởng thành trên bùn ướt, thấy rõ đuôi",
-      "best": true,
-      "kind": "habitat",
-      "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c68142fe5203a575.webp",
-      "thumb": "https://media.aquatome.com/commons/c68142fe5203a575-480.webp",
-      "width": 1200,
-      "height": 1052,
-      "licence": "CC BY 2.0",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triops_longicaudatus2.jpg",
-      "caption": "Tôm nòng nọc Triops trong bể, nhìn rõ mắt và mai",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/197238368.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/197238368-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC0",
-      "author": "Liubov Ilminska",
-      "sourceUrl": "https://www.inaturalist.org/photos/197238368",
-      "caption": "Tôm nòng nọc trong nước nông trên nền đất",
       "best": true,
       "kind": "habitat",
       "setup": false
@@ -74,18 +36,6 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triops_cancriformis,_New_Forest_2_(53059532765).jpg",
       "caption": "Tôm nòng nọc Triops còn sống bò trên nền cát trong bể",
       "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/4c84c5fb653d2603.webp",
-      "thumb": "https://media.aquatome.com/commons/4c84c5fb653d2603-480.webp",
-      "width": 1200,
-      "height": 494,
-      "licence": "CC BY-SA 3.0",
-      "author": "Matthias Wilke",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triopscancriformis.jpg",
-      "caption": "Tôm nòng nọc Triops vằn nâu bò trên sỏi trong bể",
-      "best": false,
       "kind": "other"
     },
     {
@@ -193,18 +143,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/7b853269fa9c0c42.webp",
-      "thumb": "https://media.aquatome.com/commons/7b853269fa9c0c42-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Dat doris",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triops_cancriformis_spain_green_06_Telson.jpg",
-      "caption": "Thân phân đốt và đuôi đôi của tôm nòng nọc Triops",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/320260827.webp",
       "thumb": "https://media.aquatome.com/inaturalist/320260827-480.webp",
       "width": 1024,
@@ -217,6 +155,68 @@
       "kind": "pair",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/136057895.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/136057895-480.webp",
+      "width": 1024,
+      "height": 670,
+      "licence": "CC0",
+      "author": "Sashko",
+      "sourceUrl": "https://www.inaturalist.org/photos/136057895",
+      "caption": "Ba con tôm nòng nọc cùng nhau trong vũng nước ven đường",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/197238368.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/197238368-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Liubov Ilminska",
+      "sourceUrl": "https://www.inaturalist.org/photos/197238368",
+      "caption": "Tôm nòng nọc trong nước nông trên nền đất",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/c68142fe5203a575.webp",
+      "thumb": "https://media.aquatome.com/commons/c68142fe5203a575-480.webp",
+      "width": 1200,
+      "height": 1052,
+      "licence": "CC BY 2.0",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triops_longicaudatus2.jpg",
+      "caption": "Tôm nòng nọc Triops trong bể, nhìn rõ mắt và mai",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4c84c5fb653d2603.webp",
+      "thumb": "https://media.aquatome.com/commons/4c84c5fb653d2603-480.webp",
+      "width": 1200,
+      "height": 494,
+      "licence": "CC BY-SA 3.0",
+      "author": "Matthias Wilke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triopscancriformis.jpg",
+      "caption": "Tôm nòng nọc Triops vằn nâu bò trên sỏi trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/7b853269fa9c0c42.webp",
+      "thumb": "https://media.aquatome.com/commons/7b853269fa9c0c42-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dat doris",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Triops_cancriformis_spain_green_06_Telson.jpg",
+      "caption": "Thân phân đốt và đuôi đôi của tôm nòng nọc Triops",
+      "best": false,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/320260796.webp",

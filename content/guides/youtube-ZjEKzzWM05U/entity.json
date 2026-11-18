@@ -66,27 +66,6 @@
     ],
     "figures": [
       {
-        "heading": "Chọn đá gì và cần bao nhiêu",
-        "moments": [
-          {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/ZjEKzzWM05U/at90-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá bày ra bàn cho dễ chọn, mỗi cục một hình dáng khác nhau.",
-            "sharpness": 2664.7
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/ZjEKzzWM05U/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhiều cục đá Seiryu bày trên bàn để chọn, vân trắng và mặt đá thô.",
-            "sharpness": 2016.7
-          }
-        ]
-      },
-      {
         "heading": "Có cần tính toán từng góc đá không",
         "moments": [
           {
@@ -95,15 +74,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá được bốc đặt tự nhiên trên nền cát trong bể trống.",
-            "sharpness": 3073.5
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/ZjEKzzWM05U/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm đá xếp theo một dáng chung, chưa có lũa và cây.",
-            "sharpness": 3282.3
+            "sharpness": 3073.5,
+            "person": false
           }
         ],
         "photo": {
@@ -126,15 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dải đá xếp thấp dần về một phía, có chỗ lồi lõm tự nhiên.",
-            "sharpness": 3301
-          },
-          {
-            "t": 590,
-            "url": "https://media.aquatome.com/video/ZjEKzzWM05U/at590-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá xếp một bên cao, một bên thấp hơn, tạo đường lượn trong bể.",
-            "sharpness": 2761.9
+            "sharpness": 3301,
+            "person": false
           }
         ]
       },
@@ -147,15 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp đá lava được đắp cao phía sau, sát vào lưng hàng đá.",
-            "sharpness": 1549.6
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/ZjEKzzWM05U/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh nền đắp sau lưng đá, phân nền chui qua khe đá.",
-            "sharpness": 2456
+            "sharpness": 1549.6,
+            "person": false
           }
         ]
       },
@@ -168,15 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá vụn rải dày sát chân vách đá, thưa dần ra phía trước.",
-            "sharpness": 4837.9
-          },
-          {
-            "t": 700,
-            "url": "https://media.aquatome.com/video/ZjEKzzWM05U/at700-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay nhét đá vụn vào khe nứt của vách đá.",
-            "sharpness": 3718.9
+            "sharpness": 4837.9,
+            "person": false
           }
         ]
       },
@@ -189,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phần lõm phía trước còn trống, chưa xếp thêm cụm đá nhỏ.",
-            "sharpness": 3706.1
+            "sharpness": 3706.1,
+            "person": false
           },
           {
             "t": 760,
@@ -197,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm đá nhỏ thấp đặt riêng phía trước, không che tầm nhìn chính.",
-            "sharpness": 3192.5
+            "sharpness": 3192.5,
+            "person": false
           }
         ]
       }

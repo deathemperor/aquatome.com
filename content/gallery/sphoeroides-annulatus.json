@@ -67,32 +67,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/51451521.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/51451521-480.webp",
-      "width": 1024,
-      "height": 732,
-      "licence": "CC BY",
-      "author": "John G. Phillips",
-      "sourceUrl": "https://www.inaturalist.org/photos/51451521",
-      "caption": "Cá nóc vằn bơi gần nhím biển trên rạn đá",
-      "best": true,
-      "kind": "habitat",
-      "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/58561943.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/58561943-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Zygy",
-      "sourceUrl": "https://www.inaturalist.org/photos/58561943",
-      "caption": "Cá nóc vằn trắng bơi trong nước biển trong",
-      "best": true,
-      "kind": "habitat",
-      "setup": false
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/66758291.webp",
       "thumb": "https://media.aquatome.com/inaturalist/66758291-480.webp",
       "width": 1024,
@@ -115,32 +89,6 @@
       "sourceUrl": "https://www.inaturalist.org/photos/108059254",
       "caption": "Cá nóc nhìn từ trên xuống, vằn trắng rõ trên lưng",
       "best": true,
-      "kind": "habitat",
-      "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/10337243.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/10337243-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://www.inaturalist.org/photos/10337243",
-      "caption": "Cá nóc sọc vằn bơi trên đáy đá ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/10380864.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/10380864-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://www.inaturalist.org/photos/10380864",
-      "caption": "Cá nóc vằn nâu bơi giữa các tảng đá dưới biển",
-      "best": false,
       "kind": "habitat",
       "setup": false
     },
@@ -184,6 +132,70 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/51451521.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/51451521-480.webp",
+      "width": 1024,
+      "height": 732,
+      "licence": "CC BY",
+      "author": "John G. Phillips",
+      "sourceUrl": "https://www.inaturalist.org/photos/51451521",
+      "caption": "Cá nóc vằn bơi gần nhím biển trên rạn đá",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2b1347da9a7feb97.webp",
+      "thumb": "https://media.aquatome.com/commons/2b1347da9a7feb97-480.webp",
+      "width": 1200,
+      "height": 663,
+      "licence": "CC BY-SA 3.0",
+      "author": "D. Gordon E. Robertson",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bullseye_Puffer.jpg",
+      "caption": "Cá nóc Sphoeroides annulatus với vòng đốm nâu bơi dưới nước",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58561943.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58561943-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Zygy",
+      "sourceUrl": "https://www.inaturalist.org/photos/58561943",
+      "caption": "Cá nóc vằn trắng bơi trong nước biển trong",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/10337243.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/10337243-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Michael Bakker Paiva",
+      "sourceUrl": "https://www.inaturalist.org/photos/10337243",
+      "caption": "Cá nóc sọc vằn bơi trên đáy đá ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/10380864.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/10380864-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Michael Bakker Paiva",
+      "sourceUrl": "https://www.inaturalist.org/photos/10380864",
+      "caption": "Cá nóc vằn nâu bơi giữa các tảng đá dưới biển",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/89759175.webp",
       "thumb": "https://media.aquatome.com/inaturalist/89759175-480.webp",
       "width": 1024,
@@ -221,18 +233,6 @@
       "best": false,
       "kind": "habitat",
       "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2b1347da9a7feb97.webp",
-      "thumb": "https://media.aquatome.com/commons/2b1347da9a7feb97-480.webp",
-      "width": 1200,
-      "height": 663,
-      "licence": "CC BY-SA 3.0",
-      "author": "D. Gordon E. Robertson",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bullseye_Puffer.jpg",
-      "caption": "Cá nóc Sphoeroides annulatus với vòng đốm nâu bơi dưới nước",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/55570321.webp",

@@ -80,16 +80,7 @@
     "figures": [
       {
         "heading": "Cần bao nhiêu cây",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh trồng nhiều cây xanh tươi, mọc dày từ đầu.",
-            "sharpness": 2028.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/i1ajPb5qWD4/p0-ha3Zhcml1bS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/i1ajPb5qWD4/p0-ha3Zhcml1bS5qcGc-480.webp",
@@ -110,15 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây đã trồng trong bể còn khô, đặt cạnh lũa.",
-            "sharpness": 2473.8
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang sơ chế và tỉa cây thủy sinh trong bồn rửa.",
-            "sharpness": 1147.2
+            "sharpness": 2473.8,
+            "person": false
           }
         ],
         "photo": {
@@ -133,46 +117,8 @@
         }
       },
       {
-        "heading": "Xếp dương xỉ Java và Bucephalandra trên lũa",
-        "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm dương xỉ Java bên trái xếp xen giữa lũa và đá.",
-            "sharpness": 2424.9
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm cụm dương xỉ Java trên tay trước khi gắn vào lũa.",
-            "sharpness": 752.6
-          }
-        ]
-      },
-      {
         "heading": "Trồng nền giữa và phía sau",
-        "moments": [
-          {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at610-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm bó cây crypt lá xanh đã tách khỏi chậu để chuẩn bị trồng.",
-            "sharpness": 1571.3
-          },
-          {
-            "t": 640,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cụm cây trồng trong bể, người trồng đang đặt thêm cây vào nền.",
-            "sharpness": 227.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/i1ajPb5qWD4/p3-QMTA3MDk1OS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/i1ajPb5qWD4/p3-QMTA3MDk1OS5qcGc-480.webp",
@@ -193,15 +139,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai lọc thùng đặt trong tủ dưới bể, một lọc lớn và một lọc nhỏ.",
-            "sharpness": 189.5
-          },
-          {
-            "t": 860,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at860-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây thủy sinh và lũa trong bể, nơi dòng chảy nhẹ lướt qua.",
-            "sharpness": 1983.6
+            "sharpness": 189.5,
+            "person": false
           }
         ],
         "photo": {
@@ -224,15 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh nước trong, cây và lũa bố trí gọn gàng.",
-            "sharpness": 1851.4
-          },
-          {
-            "t": 980,
-            "url": "https://media.aquatome.com/video/i1ajPb5qWD4/at980-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh đã đầy nước, cây vươn lên xanh tốt dưới đèn.",
-            "sharpness": 2338.3
+            "sharpness": 1851.4,
+            "person": false
           }
         ]
       },
@@ -245,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai đèn pha LED chiếu điểm phía trên bể thủy sinh cây xanh.",
-            "sharpness": 1923.2
+            "sharpness": 1923.2,
+            "person": false
           },
           {
             "t": 1050,
@@ -253,7 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống lily pipe trong suốt đặt ở thành bể, mặt nước gợn.",
-            "sharpness": 306.3
+            "sharpness": 306.3,
+            "person": false
           }
         ]
       }

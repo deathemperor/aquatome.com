@@ -31,6 +31,22 @@
     ],
     "swaps": []
   },
+  "vi/guides/youtube-5yH835oMU04 2026-11-18T23:13:30.090Z": {
+    "key": "vi/guides/youtube-5yH835oMU04",
+    "at": "2026-11-18T23:13:30.090Z",
+    "read": "e99c5071629d259b",
+    "cuts": [
+      {
+        "field": "body",
+        "before": "",
+        "html": "Bể nuôi cá thần tiên theo kiểu rừng rậm đã có sẵn nền và đá.",
+        "check": "source",
+        "why": "Treats the source video's own tank as one the reader already knows.",
+        "quote": "Bể nuôi cá thần tiên theo kiểu rừng rậm đã có sẵn nền và đá."
+      }
+    ],
+    "swaps": []
+  },
   "vi/guides/youtube-6MVlcgTchtE 2026-11-16T13:21:54.405Z": {
     "key": "vi/guides/youtube-6MVlcgTchtE",
     "at": "2026-11-16T13:21:54.405Z",
@@ -59,6 +75,22 @@
         "check": "price",
         "why": "a foreign price or shipping cost",
         "quote": "5–10 USD"
+      }
+    ],
+    "swaps": []
+  },
+  "vi/guides/youtube-efVHn6juO-4 2026-11-18T23:13:30.090Z": {
+    "key": "vi/guides/youtube-efVHn6juO-4",
+    "at": "2026-11-18T23:13:30.090Z",
+    "read": "c3702b2db4b39548",
+    "cuts": [
+      {
+        "field": "body",
+        "before": "Nó không rẻ, nhưng đáng tiền vì cây lên tốt ngay từ đầu.",
+        "html": "Bể nền đất trong lần so sánh này cũng cho cây lên tốt ngay từ đầu như vậy.",
+        "check": "source",
+        "why": "Refers to the source video's own experiment as 'this time', a run the reader never saw.",
+        "quote": "Bể nền đất trong lần so sánh này cũng cho cây lên tốt ngay từ đầu như vậy."
       }
     ],
     "swaps": []
@@ -171,6 +203,38 @@
         "check": "source",
         "why": "Refers to the original writer's own tanks as if the reader knew them.",
         "quote": "Cá vàng đã để yên cây này ở hai bể liên tiếp."
+      }
+    ],
+    "swaps": []
+  },
+  "vi/guides/youtube-n48zc1KSUx0 2026-11-18T23:13:30.090Z": {
+    "key": "vi/guides/youtube-n48zc1KSUx0",
+    "at": "2026-11-18T23:13:30.090Z",
+    "read": "5d5205ab4fcd0f00",
+    "cuts": [
+      {
+        "field": "body",
+        "before": "Đổ nước từ bể đã chạy lâu thì bể mới có thể khởi đầu tốt hơn.",
+        "html": "Hôm sau nhìn lại toàn bể, bể đã lên khá đẹp.",
+        "check": "source",
+        "why": "Tells the source creator's own tank story as if the reader knew it.",
+        "quote": "Hôm sau nhìn lại toàn bể, bể đã lên khá đẹp."
+      }
+    ],
+    "swaps": []
+  },
+  "vi/guides/youtube-nzNkqajWZ3s 2026-11-18T23:13:30.090Z": {
+    "key": "vi/guides/youtube-nzNkqajWZ3s",
+    "at": "2026-11-18T23:13:30.090Z",
+    "read": "26ce31f4198f3495",
+    "cuts": [
+      {
+        "field": "body",
+        "before": "Rêu phủ kín đáy sẽ giữ chất bẩn lại, nên tỉa bớt mang sang bể mới là vừa đẹp.",
+        "html": "Số cây này để trong xô hai tuần không có đèn mà vẫn còn tốt.",
+        "check": "source",
+        "why": "Refers to the original maker's own plants as if the reader knew them, a story from the source build.",
+        "quote": "Số cây này để trong xô hai tuần không có đèn mà vẫn còn tốt."
       }
     ],
     "swaps": []

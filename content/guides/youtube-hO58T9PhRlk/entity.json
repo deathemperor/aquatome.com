@@ -79,7 +79,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm hẹ lùn lá rất dài vươn lên khỏi mặt nước.",
-            "sharpness": 268.2
+            "sharpness": 268.2,
+            "person": false
           },
           {
             "t": 270,
@@ -87,7 +88,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cây mọc dày đặc, thân dưới trụi lá, lá dồn lên sát mặt nước.",
-            "sharpness": 1761.4
+            "sharpness": 1761.4,
+            "person": false
           }
         ],
         "photo": {
@@ -110,15 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bèo tấm phủ kín mặt nước, mắc vào đám cây trong hồ.",
-            "sharpness": 4175.6
-          },
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/hO58T9PhRlk/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mặt nước sát đám cây, bèo mắc lại ở mép trên hồ.",
-            "sharpness": 1146.1
+            "sharpness": 4175.6,
+            "person": false
           }
         ],
         "photo": {
@@ -134,24 +129,7 @@
       },
       {
         "heading": "Nhổ bớt cây và tận dụng cây thừa",
-        "moments": [
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/hO58T9PhRlk/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mảng hẹ nhổ ra vẫn còn khỏe, để trong khay chờ trồng sang bể khác.",
-            "sharpness": 1051.7
-          },
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/hO58T9PhRlk/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang nhổ cả mảng cây ở phía sau bể thủy sinh.",
-            "sharpness": 2120.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hO58T9PhRlk/p2-NlZWRsaW5nLkpQRw.webp",
           "thumb": "https://media.aquatome.com/video/hO58T9PhRlk/p2-NlZWRsaW5nLkpQRw-480.webp",
@@ -167,20 +145,13 @@
         "heading": "Dọn các khu còn lại",
         "moments": [
           {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/hO58T9PhRlk/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm dương xỉ Java phía sau mọc um tùm, cần tỉa bớt.",
-            "sharpness": 1461.4
-          },
-          {
             "t": 355,
             "url": "https://media.aquatome.com/video/hO58T9PhRlk/at355-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đám cây phía sau mọc lỏng lẻo, cần sửa lại cho gọn.",
-            "sharpness": 2503.5
+            "sharpness": 2503.5,
+            "person": false
           }
         ],
         "photo": {
@@ -203,7 +174,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đang thay nước bể, ống nước chảy vào làm mặt nước gợn.",
-            "sharpness": 1404.5
+            "sharpness": 1404.5,
+            "person": false
           },
           {
             "t": 465,
@@ -211,7 +183,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh sau khi dọn cây, nước trong và cây gọn gàng.",
-            "sharpness": 1088.6
+            "sharpness": 1088.6,
+            "person": false
           }
         ],
         "photo": {
@@ -227,24 +200,7 @@
       },
       {
         "heading": "Làm lại nền sau bằng cây mọc chậm",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/hO58T9PhRlk/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể với hai cụm cây lá to và khoảng trống ở giữa.",
-            "sharpness": 2341.6
-          },
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/hO58T9PhRlk/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những cây Amazon đã tách, xếp trên khăn giấy, sẵn sàng đem trồng.",
-            "sharpness": 1257.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hO58T9PhRlk/p5-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/hO58T9PhRlk/p5-ydS1JbmRpYS5qcGc-480.webp",

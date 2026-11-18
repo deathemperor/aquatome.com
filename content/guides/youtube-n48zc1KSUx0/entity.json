@@ -101,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nano cây um tùm, xanh tốt dù chạy lâu không lọc.",
-            "sharpness": 2276.5
+            "sharpness": 2276.5,
+            "person": false
           },
           {
             "t": 220,
@@ -109,7 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền đất cũ sau khi dỡ bể, còn giữ lại để dùng tiếp.",
-            "sharpness": 1127.5
+            "sharpness": 1127.5,
+            "person": false
           }
         ],
         "photo": {
@@ -124,36 +126,16 @@
         }
       },
       {
-        "heading": "Lót phân trước khi đổ nền",
-        "moments": [
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/n48zc1KSUx0/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống đang set mới, tay cầm lọ đựng viên phân nhét.",
-            "sharpness": 483.6
-          }
-        ]
-      },
-      {
         "heading": "Chọn đá: bể nhỏ thì bố cục đơn giản",
         "moments": [
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/n48zc1KSUx0/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các viên đá được bày hết ra sàn để chọn viên hợp nhau.",
-            "sharpness": 1088.5
-          },
           {
             "t": 540,
             "url": "https://media.aquatome.com/video/n48zc1KSUx0/at540-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ba viên đá xếp kiểu iwagumi trong bể nhỏ, bố cục đơn giản.",
-            "sharpness": 5412.7
+            "sharpness": 5412.7,
+            "person": false
           }
         ],
         "photo": {
@@ -176,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ đầy các loại cây thủy sinh xanh để chọn và cắm.",
-            "sharpness": 2928.8
+            "sharpness": 2928.8,
+            "person": false
           },
           {
             "t": 600,
@@ -184,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể bên cạnh có cây rậm rạp, bể kia mới bày đá và nền.",
-            "sharpness": 5038.7
+            "sharpness": 5038.7,
+            "person": false
           }
         ],
         "photo": {
@@ -200,16 +184,7 @@
       },
       {
         "heading": "Đổ nước: dùng nước từ bể đã chạy ổn định",
-        "moments": [
-          {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/n48zc1KSUx0/at760-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cá đĩa chạy ổn định, cây xanh tốt, nước trong.",
-            "sharpness": 1984.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/n48zc1KSUx0/p4-llXy1fMDA1LkpQRw.webp",
           "thumb": "https://media.aquatome.com/video/n48zc1KSUx0/p4-llXy1fMDA1LkpQRw-480.webp",
@@ -230,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc bể có lũa và cây thủy sinh, cá con bơi lẫn trong cây.",
-            "sharpness": 1115
+            "sharpness": 1115,
+            "person": false
           },
           {
             "t": 880,

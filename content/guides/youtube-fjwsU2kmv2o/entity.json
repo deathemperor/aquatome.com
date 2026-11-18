@@ -99,19 +99,6 @@
     ],
     "figures": [
       {
-        "heading": "Tận dụng nền cũ để bể mới có vi sinh ngay",
-        "moments": [
-          {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/fjwsU2kmv2o/at10-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính mới còn trống, sẵn sàng để đổ phân nền cũ vào.",
-            "sharpness": 476.5
-          }
-        ]
-      },
-      {
         "heading": "Treo đèn giấu phía trên để mặt bể trống trơn",
         "moments": [],
         "photo": {
@@ -134,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể bên phải um cây cắt cắm xanh đỏ, bể bên trái còn trống.",
-            "sharpness": 1724.3
+            "sharpness": 1724.3,
+            "person": false
           }
         ],
         "photo": {

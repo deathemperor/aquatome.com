@@ -153,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống lọc trong hồ đặt sát kính, cạnh các bụi cây thủy sinh.",
-            "sharpness": 1221
+            "sharpness": 1221,
+            "person": false
           }
         ]
       },
@@ -166,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh mới set với nhiều loại cây xanh um quanh lũa.",
-            "sharpness": 755.7
+            "sharpness": 755.7,
+            "person": false
           },
           {
             "t": 335,
@@ -174,7 +176,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bụi cây trong bể đang phát triển, lá còn non và tươi.",
-            "sharpness": 910.8
+            "sharpness": 910.8,
+            "person": false
           }
         ]
       },
@@ -182,20 +185,13 @@
         "heading": "Cắt rêu sao cho dày và gọn",
         "moments": [
           {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/S4htujhM4p0/at365-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kéo nhỏ tỉa rêu mọc trên thân lũa trong hồ.",
-            "sharpness": 279.3
-          },
-          {
             "t": 395,
             "url": "https://media.aquatome.com/video/S4htujhM4p0/at395-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Mảng rêu trên lũa sau khi cắt tỉa trông gọn và đều hơn.",
-            "sharpness": 1160.4
+            "sharpness": 1160.4,
+            "person": false
           }
         ],
         "photo": {
@@ -218,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh với cây thân mọc um tùm ở hậu cảnh.",
-            "sharpness": 2362.6
+            "sharpness": 2362.6,
+            "person": false
           },
           {
             "t": 605,
@@ -226,7 +223,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thân mọc cao gần sát mặt nước, sắp đến lúc cắt ngọn.",
-            "sharpness": 1573.6
+            "sharpness": 1573.6,
+            "person": false
           }
         ],
         "photo": {
@@ -243,14 +241,6 @@
       {
         "heading": "Hút cặn và thay nước",
         "moments": [
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/S4htujhM4p0/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống siphon hút cặn dưới đáy bể giữa đá và cây.",
-            "sharpness": 1531.5
-          },
           {
             "t": 600,
             "url": "https://media.aquatome.com/video/S4htujhM4p0/at600-hd.webp",

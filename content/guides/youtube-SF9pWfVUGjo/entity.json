@@ -116,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc nằm nép sát đá lũa và cây thủy sinh trong bể.",
-            "sharpness": 1431.1
+            "sharpness": 1431.1,
+            "person": false
           }
         ]
       },
@@ -129,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây gắn trên đá trong bể, nền cát trắng.",
-            "sharpness": 1303.3
+            "sharpness": 1303.3,
+            "person": false
           }
         ]
       },
@@ -142,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp nền sỏi đen rải trong bể, bên cạnh những tảng đá.",
-            "sharpness": 8821.1
+            "sharpness": 8821.1,
+            "person": false
           }
         ],
         "photo": {
@@ -165,7 +168,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trồng dày đặc phủ kín đá và lũa trong bể.",
-            "sharpness": 3158.8
+            "sharpness": 3158.8,
+            "person": false
           },
           {
             "t": 520,
@@ -173,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới set với cụm cây xanh mọc dày trên đá.",
-            "sharpness": 3638
+            "sharpness": 3638,
+            "person": false
           }
         ],
         "photo": {
@@ -191,20 +196,13 @@
         "heading": "Châm nước và dọn váng",
         "moments": [
           {
-            "t": 670,
-            "url": "https://media.aquatome.com/video/SF9pWfVUGjo/at670-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cốc nhỏ hớt váng trên mặt nước trong bể thủy sinh.",
-            "sharpness": 714.6
-          },
-          {
             "t": 710,
             "url": "https://media.aquatome.com/video/SF9pWfVUGjo/at710-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Mặt nước đầy gần bể, còn mảnh cây nổi cần vớt sạch.",
-            "sharpness": 961.4
+            "sharpness": 961.4,
+            "person": false
           }
         ]
       },
@@ -226,20 +224,13 @@
         "heading": "Thả cá nóc mini",
         "moments": [
           {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/SF9pWfVUGjo/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh đã lên cây xanh, sẵn sàng để thả cá.",
-            "sharpness": 1871.4
-          },
-          {
             "t": 860,
             "url": "https://media.aquatome.com/video/SF9pWfVUGjo/at860-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Góc bể có đá và cây xanh ổn định, đủ điều kiện thả cá.",
-            "sharpness": 1051.4
+            "sharpness": 1051.4,
+            "person": false
           }
         ]
       }

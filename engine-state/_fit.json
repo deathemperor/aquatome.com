@@ -29080,25 +29080,10 @@
  },
  "th/guides/aquatome-chon-ca-nuoi-chung-va-tranh-ca-danh-nhau": {
   "at": "2026-11-18",
-  "hash": "58e9e4e12301790a",
+  "hash": "999c11ff58043f12",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "คู่มือการเลี้ยงปลาแนะนำตู้ขนาดมากกว่า 76 ลิตรถ้าจะเลี้ยงปลากัดรวมกับปลาชนิดอื่น",
-    "why": "76 litres is a converted 20-gallon tank size no Thai keeper would use.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "L6",
-    "quote": "คู่มือการเลี้ยงปลาแนะนำตู้มากกว่า 76 ลิตรถ้าจะเลี้ยงรวม",
-    "why": "76 litres is a converted 20-gallon tank size no Thai keeper would use.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "th/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
@@ -72807,21 +72792,11 @@
  },
  "vi/guides/youtube-5yH835oMU04": {
   "at": "2026-11-18",
-  "hash": "e99c5071629d259b",
+  "hash": "546630a0e20ee279",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bể nuôi cá thần tiên theo kiểu rừng rậm đã có sẵn nền và đá.",
-    "why": "Treats the source video's own tank as one the reader already knows.",
-    "by": "model"
-   }
-  ],
-  "products": [
-   "keo 502"
-  ]
+  "findings": [],
+  "products": []
  },
  "vi/guides/youtube-609KjgRjavo": {
   "at": "2026-11-16",
@@ -79632,18 +79607,10 @@
  },
  "vi/guides/youtube-efVHn6juO-4": {
   "at": "2026-11-18",
-  "hash": "c3702b2db4b39548",
+  "hash": "ea8b4ee54e7c05dc",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bể nền đất trong lần so sánh này cũng cho cây lên tốt ngay từ đầu như vậy.",
-    "why": "Refers to the source video's own experiment as 'this time', a run the reader never saw.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/guides/youtube-EIjUVVFcNmo": {
@@ -89519,18 +89486,10 @@
  },
  "vi/guides/youtube-n48zc1KSUx0": {
   "at": "2026-11-18",
-  "hash": "5d5205ab4fcd0f00",
+  "hash": "4363c5a2a539ba53",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Hôm sau nhìn lại toàn bể, bể đã lên khá đẹp.",
-    "why": "Tells the source creator's own tank story as if the reader knew it.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "Tropica Nutrition Capsules"
   ]
@@ -90842,20 +90801,13 @@
  },
  "vi/guides/youtube-nzNkqajWZ3s": {
   "at": "2026-11-18",
-  "hash": "26ce31f4198f3495",
+  "hash": "39d54becdad4717a",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P9",
-    "quote": "Số cây này để trong xô hai tuần không có đèn mà vẫn còn tốt.",
-    "why": "Refers to the original maker's own plants as if the reader knew them, a story from the source build.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
-   "Oase BioMaster Thermo 250"
+   "Oase BioMaster Thermo 250",
+   "power sand"
   ]
  },
  "vi/guides/youtube-O3u6GuClWi0": {
