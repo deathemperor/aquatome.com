@@ -337,6 +337,10 @@
       {
         "source": "seriouslyfish",
         "value": 20
+      },
+      {
+        "source": "glaser",
+        "value": 18
       }
     ],
     "tankCm": [
@@ -358,6 +362,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
       "html": "<p>The striped headstander, Anostomus anostomus, is an anostomid from the Amazon and Orinoco river systems in Peru, Brazil, Venezuela and Guyana. It lives along rocky shores of fast-flowing rivers, grazing algae and small invertebrates from the rocks. Although it shoals in nature, it is very quarrelsome with conspecifics when only a few are kept, so it is best kept singly or in a group of 6 or more in a larger tank.</p><ul><li>Max size: 200 mm SL (8 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–18 dGH</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anostomus-anostomus-2/",
+      "html": "<p>The Striped Headstander is one of the most beautiful species of tetra from South America. It really looks like the big brother of the Threestripe pencilfish, Nannostomus trifasciatus. Anostomus anostomus attains a maximum length of about 15-18 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anostomus-anostomus-2/",
+      "html": "<p>Sadly there are hardly ever exportations of ornamental fish from Guyana currently, so the beauty became rare in the hobby. But now a good number of young adults, about 9-12 cm long, could once again be imported.</p>"
     },
     {
       "key": "distribution",
@@ -420,6 +436,12 @@
       "html": "<p>Anostomus currently contains five valid species though only A. anostomus and A. ternetzi are well-known in the aquarium hobby.</p><p>A phylogentic study by Sidlauskas and Vari (2008)[2] demonstrated the genus as recognised at the time to represent a polyphyletic lineage.</p><p>Three species, A. intermedius, A. plicatus and A. spiloclistron, were found to be more closely-related to the genera Gnathodolus, Sartor and Synaptolaemus than to other congeners and therefore placed into the new genus Petulanos, with P. plicatus as type species.</p><p>The family Anostomidae is distributed throughout much of tropical and subtropical South America from northwestern Colombia to central Argentina.</p><p>The majority of species are moderately-elongate and somewhat rounded in shape although there are some exceptions, e.g., the relatively deep-bodied Abramites.</p><p>Greater diversity is apparent in the range of oral morphology, however, and members exhibit a wide range of adaptations in dentition and jaw structure.</p><p>A number of anostomids tend to swim at an oblique 'head-down' angle which has given rise to them being referred to by the generalised vernacular term 'headstanders'.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/anostomus-anostomus-2/",
+      "html": "<p>One of the most famous aquarium books in German, the Aquarien Atlas, says: who never kept this fish is not an aquarist at all!</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/anostomus-anostomus",
@@ -429,28 +451,38 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/3f8ecb26598c9b2d.webp",
+      "thumb": "https://media.aquatome.com/commons/3f8ecb26598c9b2d-480.webp",
       "width": 960,
       "height": 719,
       "licence": "CC BY 4.0",
       "author": "Julien Renoult",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anostomus_brevior_5587780.jpg",
-      "caption": "Anostomus brevior in French Guiana",
-      "thumb": "https://media.aquatome.com/commons/3f8ecb26598c9b2d-480.webp"
+      "caption": "Anostomus brevior in French Guiana"
     },
     {
       "url": "https://media.aquatome.com/commons/771436b49c537f28.webp",
+      "thumb": "https://media.aquatome.com/commons/771436b49c537f28-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY 2.0",
-      "author": "Brian Gratwicke",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anostomus_anostomus,_striped_headstander.jpg",
-      "caption": "Anostomus anostomus, striped headstander",
-      "thumb": "https://media.aquatome.com/commons/771436b49c537f28-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/771436b49c537f28-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anostomus_anostomus,_striped_headstander.jpg",
+      "caption": "Anostomus anostomus, striped headstander"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/46be9829d001592f.webp",
+      "thumb": "https://media.aquatome.com/commons/46be9829d001592f-480.webp",
+      "width": 960,
+      "height": 265,
+      "licence": "CC BY-SA 2.0",
+      "author": "Jonathan (Jon) Armbruster",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anostomus_anostomus_Armbruster.jpg",
+      "caption": "Anostomus anostomus GUY14-26 AUFT2073 88mm"
     }
   ],
   "videos": [],
@@ -482,5 +514,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-18"
 }

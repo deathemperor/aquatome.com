@@ -1149,6 +1149,56 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm": {
+    "entityIds": [
+      "species/arius-latiscutatus"
+    ],
+    "updatedAt": "2026-11-18T00:13:37.724Z",
+    "hash": "5cc591a64079ae83a8cf67ba5bbd7b2529321b1f449b5422495ac03e1e68aa23",
+    "processedHash": "5cc591a64079ae83a8cf67ba5bbd7b2529321b1f449b5422495ac03e1e68aa23",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/cathorops_arenatus.htm": {
+    "entityIds": [
+      "species/cathorops-arenatus"
+    ],
+    "updatedAt": "2026-11-18T00:16:30.782Z",
+    "hash": "6d8afce97647877845628e570b3516ef37ed0d6252520e7e27bf0d2ad058fe6d",
+    "processedHash": "6d8afce97647877845628e570b3516ef37ed0d6252520e7e27bf0d2ad058fe6d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/cathorops_dasycephalus.htm": {
+    "entityIds": [
+      "species/cathorops-dasycephalus"
+    ],
+    "updatedAt": "2026-11-18T00:19:27.225Z",
+    "hash": "bb53a5abc8667c6f1b4f780c0fe8d80a37c589dfeb2004780a9e2ba71bbef095",
+    "processedHash": "bb53a5abc8667c6f1b4f780c0fe8d80a37c589dfeb2004780a9e2ba71bbef095",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/cathorops_fuerthii.htm": {
+    "entityIds": [
+      "species/cathorops-fuerthii"
+    ],
+    "updatedAt": "2026-11-18T00:21:28.789Z",
+    "hash": "8a7e7181a2aec280767d5b4735fb30bc387b2ba66b7e99d5eea50a9f0ff1c971",
+    "processedHash": "8a7e7181a2aec280767d5b4735fb30bc387b2ba66b7e99d5eea50a9f0ff1c971",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm": {
+    "entityIds": [
+      "species/cinetodus-froggatti"
+    ],
+    "updatedAt": "2026-11-18T00:24:13.645Z",
+    "hash": "8e7e049abb331c03fa264766e5a0d65704d241459033a8435449896413959c66",
+    "processedHash": "8e7e049abb331c03fa264766e5a0d65704d241459033a8435449896413959c66",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/ariidae/cryptarius_truncatus.htm": {
     "entityIds": [
       "species/cryptarius-truncatus"
@@ -2574,6 +2624,16 @@
     "updatedAt": "2026-11-01T00:28:12.420Z",
     "hash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
     "processedHash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm": {
+    "entityIds": [
+      "species/pterygoplichthys-scrophus"
+    ],
+    "updatedAt": "2026-11-18T00:11:06.791Z",
+    "hash": "975856bf916ef2a3f9aa07aea31a90b688da847d52733de21861983afefebb61",
+    "processedHash": "975856bf916ef2a3f9aa07aea31a90b688da847d52733de21861983afefebb61",
     "status": "processed",
     "attempts": 0
   },

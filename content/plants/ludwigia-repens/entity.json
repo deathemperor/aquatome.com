@@ -7,7 +7,7 @@
   "difficulty": 1,
   "light": "medium",
   "co2": "optional",
-  "growth": "medium",
+  "growth": "fast",
   "placement": [
     "midground",
     "background"
@@ -20,48 +20,118 @@
       "html": "<ul><li><strong>Type:</strong> Stem plant</li><li><strong>Origin:</strong> North America</li><li><strong>Growth rate:</strong> Medium</li><li><strong>Height:</strong> 20-30+ cm (average height after two months in the tank)</li><li><strong>Light demand:</strong> Medium</li><li><strong>CO2:</strong> Low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Other names: Creeping primrose-willow</li><li>Difficulty: easy</li><li>Lighting: low to medium</li><li>Optimal pH: 6.0–8.0</li><li>Optimal GH: soft to hard</li><li>Temperature: 20–28 °C</li><li>Substrate: nutrient-rich</li><li>Growth form: stem</li><li>Growth rate: fast</li><li>Placement: mid-ground and background</li><li>Size: up to 50 cm without trimming</li><li>Fertilizers: not needed to low</li><li>CO2: not needed to low</li><li>Propagation: cut off the top shoots</li><li>Colour: green to reddish</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Ludwigia repens is affordable and widely available in local pet stores, often in pots of about 5–7 specimens. Look for healthy leaves with a reddish hue. Avoid plants with cut or damaged leaves, since you cannot tell whether they are diseased. Young plants with healthy roots and stems give the best results.</p><p>Quarantine: unless you are sure the plant is safe (for example grown in vitro in an undamaged, unopened pot), quarantine and disinfect it first. Do not introduce a new plant to the tank right after buying it. It can carry parasites, pests such as snails, or even predators (dragonfly and damselfly nymphs, etc.), and may contain pesticide residues that are extremely poisonous to fish, shrimp and other invertebrates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>This plant is native to the southern United States and Mexico. It is commonly found in the tropical waters of North and Central America. It is also distributed in Asia, Africa and Australia, where it grows abundantly in shallow waters of ditches, ponds, rivers, streams and lakes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Ludwigia repens forms dense trailing or creeping populations in shallow water, with its shoot tips growing over the water surface.</p><p>It is a dense mat-forming perennial herb with creeping stems 30–50 cm long and a width of 4–6 cm depending on average leaf growth. The leaves are oppositely arranged on red stalks; the top of the leaves is usually olive green while the undersides are reddish (this changes depending on light intensity). The plant sprouts aerial roots from the internodes of the stems. It also bears small flowers with four yellow petals (about 3 mm long) on a base of four pointed sepals.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Ludwigia repens can thrive in a variety of tank sizes, even nano tanks if properly maintained. The recommended tank size is 40 litres.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ludwigiarepens'Rubin'(033D)/4450",
       "html": "<p>Plant in large groups to enhance the decorative effect, and prune regularly to encourage bushy growth. The plant has few demands, but if light is insufficient the lower leaves tend to fall off. In strong light the colour becomes more intense.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Planting: it is ideal for the mid-ground or background. Plant four to five healthy cuttings or stems with roots in the substrate (2.5 cm deep) and space them out; do not bunch them too close, otherwise the bottom leaves are deprived of light and die off.</p><p>Propagation: as with other stem plants, cut off the top shoots and replant in the substrate. Remove the lower leaves before planting for a firm hold. Even if cut back to 2 nodes above the substrate, it will regrow. If allowed to grow out of the water, it can reproduce in an emersed state during the warm season, forming inconspicuous yellow flowers at the surface; the seeds drop to the substrate and grow into new plants.</p><p>Care: it is one of the easiest plants to maintain. In nature it is often considered an invasive plant that threatens local waterways. In aquariums it grows fast once its needs are met and needs trimming at least twice a month or whenever shoots near the water surface. Use scissors to snip off the top shoots; they develop many side shoots that make the plant bushier. At the same time, remove dead, broken or damaged leaves. When trimming, leave at least 5 cm of the plant with at least 2 nodes. Cuttings can be replanted, discarded or given to other hobbyists.</p><p>Its biggest requirements are sufficient light and nutrients. For a reddish tint, maintain moderate lighting for at least 8–10 hours. With insufficient light the plant only grows taller and more slender, and the leaves show little red. Regular dosing of CO2, micronutrients and iron-rich fertilisers greatly enhances growth and colour.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Temperature: 20–28 °C; the plant can tolerate slightly lower temperatures.</p><p>pH: 6.0–8.0.</p><p>Hardness: it tolerates soft or hard water but does best in soft to moderate water, 3–8 GH.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: it tolerates low to high light. Originally it was described as an evergreen plant, but its colour varies with light, from green under low light to reddish (yellow or even purple hue) under moderate light. Under strong light and a full colour spectrum (red/blue) it can become deep red. It is a good choice for low-tech tanks.</p><p>Hobbyists have created several varieties with bright red foliage (\"Red\", \"Super Red\", \"Rubin\", etc.). Their requirements do not differ from the original species, except that they need more light. In low light their leaves tend to fall off and the colour fades; they need at least moderate lighting.</p><p>Substrate: plant it in a well-fertilised, nutrient-rich substrate that promotes a healthy root system, such as Seachem Fluorite, Carib Sea Eco-Complete or Fluval Plant &amp; Shrimp Stratum. There are reports that it may have problems in sand substrate, which can suffocate the roots because it is so compact. It can even be left floating but does best planted.</p><p>CO2 and fertilisation: it does not need a lot of light for good colour and large leaves. With a nutrient-rich substrate it will grow in lower light even without fertiliser or root tabs. If using CO2 injection, provide more light and make sure fertilisation needs are met.</p><p>If you keep shrimp with it, note that a high level of CO2 and copper (most fertilisers contain copper) is extremely dangerous to shrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Benefits: it is one of the best choices for aquascapes; as a fast-growing plant it helps remove excess nutrients and nitrates; it helps break up anaerobic pockets in the substrate (hydrogen sulfide pockets can be dangerous to fish and shrimp); it provides a place for biofilm to grow, an ideal first food for newly hatched fry and shrimplets; it provides shelter for shy fish and shrimp; and it oxygenates the water.</p><p>Compatible with other plants such as Java moss, Rotala rotundifolia, Java fern, Cryptocoryne and Amazon sword. Compatible with peaceful fish (Otocinclus, pygmy corydoras, neon tetras, guppies, cherry barbs, green swordtails, rasboras), with shrimp (Neocaridina and Caridina, Amano, ghost, bamboo and vampire shrimp) and with snails (ramshorn, nerite, Malaysian trumpet, Japanese trapdoor, mystery snails), though care is needed with snails that may harm or devour the plant.</p><p>Avoid hostile, aggressive and plant-eating fish; goldfish, oscars and rainbowfish are likely to nibble the leaves. Do not keep it with crayfish or crabs, which will eat and uproot plants.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ludwigiarepens'Rubin'(033D)/4450",
       "html": "<p>Variety of Ludwigia repens from North America with striking dark red leaves and stalk. Stems from 20-50 cm and 4-6 cm wide. It provides a great colour contrast to the green shades in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Problems: loss of lower leaves when the plant gets tall or in very low light (replant healthy tops, discard dying growth, provide more light and an 8–10 hour photoperiod); white new leaves can indicate iron deficiency; holes in leaves are usually caused by potassium deficiency; plants grown emersed may shed old leaves before adapting to submersed growth and then regrow new ones.</p><p>Ludwigia repens is most sought after by hobbyists who want a variety of colours in their tank, especially fans of Dutch-style aquascapes.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/ef73c202d075beff.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/ef73c202d075beff-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/ludwigia-repens-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/04d467f6e85383b8.webp",
+      "thumb": "https://media.aquatome.com/commons/04d467f6e85383b8-480.webp",
       "width": 960,
       "height": 720,
       "licence": "Public domain",
       "author": "Show_ryu",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_repens.JPG",
-      "caption": "Ludwigia repens(Red Ludwigia)",
-      "thumb": "https://media.aquatome.com/commons/04d467f6e85383b8-480.webp"
+      "caption": "Ludwigia repens(Red Ludwigia)"
     },
     {
       "url": "https://media.aquatome.com/commons/8d926fbb674d1645.webp",
+      "thumb": "https://media.aquatome.com/commons/8d926fbb674d1645-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Agnieszka Kwiecień, Nova",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_repens_Ludwigia_2023-07-30_01.jpg",
-      "caption": "Creeping primrose-willow (Ludwigia repens), plant cultivated in a greenhouse of the Wrocław University Botanical Garden, Wrocław, Poland.",
-      "thumb": "https://media.aquatome.com/commons/8d926fbb674d1645-480.webp"
+      "caption": "Creeping primrose-willow (Ludwigia repens), plant cultivated in a greenhouse of the Wrocław University Botanical Garden, Wrocław, Poland."
     },
     {
       "url": "https://media.aquatome.com/commons/23fa2a7f827ea675.webp",
+      "thumb": "https://media.aquatome.com/commons/23fa2a7f827ea675-480.webp",
       "width": 960,
       "height": 686,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ludwigia_natans_kz02.jpg",
-      "caption": "Ludwigia natans in botanical garden in Kraków",
-      "thumb": "https://media.aquatome.com/commons/23fa2a7f827ea675-480.webp"
+      "caption": "Ludwigia natans in botanical garden in Kraków"
     }
   ],
   "productSlots": [
@@ -93,5 +163,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-18"
 }

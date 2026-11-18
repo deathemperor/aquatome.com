@@ -1,0 +1,110 @@
+{
+  "id": "cinetodus-froggatti",
+  "scientificName": "Cinetodus froggatti",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cinetodus",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "papua-new-guinea",
+    "strickland-river",
+    "australia",
+    "roper-river"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 48
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "html": "<ul><li>Dorsal spines: 1; dorsal soft rays: 7; anal spines: 0; anal soft rays: 17–19.</li><li>IUCN Red List: Least Concern, because it is widespread, common and there are no major threats at present (IUCN 2019).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "html": "<p>Oceania: southern New Guinea and the Roper River system, northern Australia; in coastal waters, estuaries and into fresh water. Type locality: Strickland River, New Guinea.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "html": "<p>Inhabits slow-flowing, often turbid rivers and coastal waters. Also occurs in slow-moving freshwater streams, favours turbid coastal shallows and brackish estuaries.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "html": "<p>Feeds on gastropod and bivalve mollusks. The food is swallowed whole.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "html": "<p>Spawns from October to February in the lower reaches of rivers; males incubate the eggs in their mouth.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "html": "<p>Etymology: the specific name froggatti honours Austrian entomologist Walter Wilson Froggatt (1858–1937), \"on whom the whole burden of collecting the zoological specimens obtained during the late expedition of the Bonito [which explored New Guinea] seems to have fallen\".</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6f3ff40ec1683b0d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6f3ff40ec1683b0d-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Allen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "caption": "Cinetodus froggatti: Holotype-Strickland River, New Guinea",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/43a26b71b20b2bc1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/43a26b71b20b2bc1-480.webp",
+      "width": 500,
+      "height": 287,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Allen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "caption": "Cinetodus froggatti: Holotype-dorsal view, Strickland River, New Guinea",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a48d7a847e032614.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a48d7a847e032614-480.webp",
+      "width": 500,
+      "height": 287,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Allen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "caption": "Cinetodus froggatti: Holotype-ventral view, Strickland River, New Guinea",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/30c02ece88f6d101.webp",
+      "thumb": "https://media.aquatome.com/scotcat/30c02ece88f6d101-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Dave Wilson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/cinetodus_froggatti.htm",
+      "caption": "Cinetodus froggatti",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

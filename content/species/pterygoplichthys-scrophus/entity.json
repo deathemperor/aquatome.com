@@ -7,13 +7,36 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "maranon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 28
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -25,10 +48,40 @@
       "html": "<p>The rhino sailfin pleco, G. scrophus, from Peru, is a rarity in the hobby. It is a peaceful fish and reaches a length of about 30 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern, because it is not affected by major threats, but the assessment needs updating (IUCN 2016).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>Peru: Marañón and Ucayali River basins.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-scrophus-2/",
       "html": "<p>The rhino pleco attains a length of about 30 cm and so it should be kept in larger tanks, like its better known congeners.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>A reasonably peaceful but large species which needs a good sized aquarium, starting with a 3 footer (about 90 cm) when small.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>Good external filtration is needed to provide a good oxygen content, as it excretes copious amounts of waste if fed properly on vegetable matter. If water quality is not maintained, small holes can appear in the fin membranes. You will notice when water quality is not up to the mark as the fish \"hang\" in the water just off their fins, away from the substrate, which means a water change is due.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>Temperature: 23–28°C. pH: 6.5–7.2.</p>"
     },
     {
       "key": "diet",
@@ -37,10 +90,34 @@
       "html": "<p>They feed, among other things, on algae, so they are not only nice but also useful.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>Mostly vegetarian, with algae the main source of food, but keeping a large fish on algae alone is impossible, so you can also feed spinach, blanched lettuce, cucumber and courgette (zucchini), as well as non-vegetable foods such as tablets and prawns.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-scrophus-2/",
       "html": "<p>G. scrophus are peaceful fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>It is kind to plants in the aquarium; the only problem is that when it gets bigger it can uproot them as it moves around the tank.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>Identification: a Pterygoplichthys species can be told from Hypostomus by the many more rays in the dorsal fin, which can be up to 10 or over, and by the nasal flutes on the nose.</p><p>Etymology: the specific name scrophus is not explained, possibly from scrofa (Latin), a breeding sow, perhaps referring to its \"much more robust\" appearance compared with Liposarcus jeanesianus (=Pterygoplichthys pardalis).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "html": "<p>All L-Numbers Datz Special. Hidalgo del Aguila, M. &amp; Chocano, L. 2016. Pterygoplichthys scrophus. The IUCN Red List of Threatened Species 2016.</p>"
     }
   ],
   "photos": [
@@ -83,6 +160,39 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/glyptoperichthys-scrophus-2/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/59e9d7c16a213313.webp",
+      "thumb": "https://media.aquatome.com/scotcat/59e9d7c16a213313-480.webp",
+      "width": 500,
+      "height": 302,
+      "licence": "dùng với sự cho phép",
+      "author": "Kent Cannon / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "caption": "Pterygoplichthys scrophus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/22663328e3a2ce03.webp",
+      "thumb": "https://media.aquatome.com/scotcat/22663328e3a2ce03-480.webp",
+      "width": 500,
+      "height": 301,
+      "licence": "dùng với sự cho phép",
+      "author": "Kent Cannon / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "caption": "Pterygoplichthys scrophus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/613be2870a842856.webp",
+      "thumb": "https://media.aquatome.com/scotcat/613be2870a842856-480.webp",
+      "width": 500,
+      "height": 305,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pterygoplichthys_scrophus.htm",
+      "caption": "Pterygoplichthys scrophus",
+      "source": "scotcat"
     }
   ],
   "videos": [
@@ -133,5 +243,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17"
+  "updatedAt": "2026-11-18"
 }

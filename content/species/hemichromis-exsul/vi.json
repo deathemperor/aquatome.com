@@ -1,0 +1,27 @@
+{
+  "slug": "ca-cichlid-ngoc-do-turkana",
+  "name": "Cá cichlid ngọc đỏ Turkana",
+  "altNames": [
+    "Cá ngọc đỏ Hemichromis exsul",
+    "Red jewel cichlid"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Cichlid ngọc đỏ là nhóm cá nuôi bể rất đẹp, dù thỉnh thoảng có con rất dữ, hay gây sự. Với giới khoa học, nhóm loài này đến giờ vẫn còn rối. Nhiều đặc điểm đếm được (meristic) của các loài trùng lên nhau. Thêm vào đó, nhiều loài có màu thay đổi rất mạnh giữa các con.</p><p>Hemichromis exsul khác mọi loài Hemichromis đã biết tới nay ở chỗ viền vây sẫm, gần như đen. Đốm bên thân mà các cichlid ngọc đỏ hay có thì đa số con thuộc loài này lại không có. Loài này khá nhỏ con và rất hiền, ít nhất là so với một con cichlid ngọc đỏ.</p>",
+    "distribution:glaser": "<p>Hemichromis exsul có mô tả khoa học từ năm 1933, lúc đó mang tên Pelmatochromis exsul. Nơi thu mẫu chuẩn (type locality) là hồ Rudolf, nay là hồ Turkana, ở Kenya.</p>",
+    "beforeYouBuy:glaser": "<p>Về sau, các nhà nghiên cứu xếp H. exsul thành tên đồng nghĩa của Hemichromis letourneauxi. Cách xếp này bắt đầu bị nghi ngờ khi năm 1998 Lothar Seegers công bố ảnh một con Hemichromis ông bắt ở hồ Turkana. Con cá đó trông khác hẳn mọi con Hemichromis letourneauxi mà người ta biết tới lúc ấy. Tiếc là cá nước ngọt từ Kenya hầu như không được xuất khẩu, nên H. exsul vẫn là loài chỉ nghe tên mà không thấy cá.</p><p>Năm nay, lần đầu có người nhập được cá loài này. Cá đã đẻ được, và lứa Hemichromis exsul đầu tiên cho đẻ ở Đức nay đã có.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-18"
+  }
+}

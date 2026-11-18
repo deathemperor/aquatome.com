@@ -85,6 +85,7 @@
     "Cobitis choirorhynchos",
     "Cobitis macrorhynchos"
   ],
+  "Acantopsis rungthipae": [],
   "Acarichthys heckelii": [
     "Acara heckelii",
     "Acara subocularis",
@@ -452,6 +453,23 @@
     "Amblypharyngodon chulabornae"
   ],
   "Amblyrhynchichthys micracanthus": [],
+  "Ambystoma mexicanum": [
+    "Amblystoma weismanni",
+    "Axolotes guttata",
+    "Axolotus pisciformis",
+    "Gyrinus mexicanus",
+    "Hemitriton mexicanum",
+    "Hypochton pisciformis",
+    "Philhydrus pisciformis",
+    "Siredon axolotl",
+    "Siredon edule",
+    "Siren axolotl",
+    "Siren pisciformis",
+    "Sirenodon pisciformis",
+    "Stegoporus mexicanum",
+    "Stegoporus pisciformis",
+    "Triton mexicanus"
+  ],
   "Ameca splendens": [],
   "Ameiurus brunneus": [
     "Amiurus brunneus",
@@ -858,6 +876,7 @@
   "Aphyosemion ogoense": [
     "Aphyosemion pyrophore"
   ],
+  "Aphyosemion punctatum": [],
   "Aphyosemion rectogoense": [],
   "Aphyosemion splendopleure": [
     "Fundulopanchax splendopleuris"
@@ -2084,6 +2103,10 @@
     "Mormyrus niger",
     "Pollimyrus lhuysi"
   ],
+  "Brochiloricaria macrodon": [
+    "Brochyloricaria macrodon",
+    "Loricaria macrodon"
+  ],
   "Brochis multiradiatus": [
     "Chaenothorax multiradiatus",
     "Corydoras multiradiatus"
@@ -2315,6 +2338,29 @@
     "Achirus jenynsi",
     "Achirus trichospilus",
     "Solea jenynsii"
+  ],
+  "Cathorops arenatus": [
+    "Arius arenatus",
+    "Arius fissus",
+    "Cathorops fissus"
+  ],
+  "Cathorops dasycephalus": [
+    "Ariopsis dasycephalus",
+    "Arius dasycephalus",
+    "Galeichthys dasycephalus",
+    "Galeichthys longicephalus",
+    "Hexanematichthys dasycephalus",
+    "Hexanematichthys longicephalus",
+    "Tachisurus dasycephalus",
+    "Tachisurus longicephalus"
+  ],
+  "Cathorops fuerthii": [
+    "Arius fuerthii",
+    "Arius furthii",
+    "Galeichthys furthii",
+    "Tachisurus furthii",
+    "Tachysurus evermanni",
+    "Tachysurus furthii"
   ],
   "Catlocarpio siamensis": [],
   "Catoprion mento": [
@@ -2766,6 +2812,10 @@
   "Cincelichthys pearsei": [
     "Cichlasoma pearsei",
     "Herichthys pearsei"
+  ],
+  "Cinetodus froggatti": [
+    "Arius froggatti",
+    "Septobranchus johannae"
   ],
   "Cirrhinus caudimaculatus": [
     "Cirrhinus caudiguttatus",
@@ -4591,6 +4641,9 @@
     "Garra taeniatops"
   ],
   "Garra ceylonensis": [],
+  "Garra culiciphaga": [
+    "Hemigrammocapoeta culiciphaga"
+  ],
   "Garra dampaensis": [],
   "Garra fasciacauda": [
     "Garra spinosa"
@@ -5060,6 +5113,9 @@
   "Hemichromis elongatus": [
     "Chromichthys elongatus",
     "Hemichromis auritus"
+  ],
+  "Hemichromis exsul": [
+    "Pelmatochromis exsul"
   ],
   "Hemichromis letourneuxi": [
     "Hemichromis letourneauxi",
@@ -5605,6 +5661,7 @@
   ],
   "Hyphessobrycon melanostichos": [],
   "Hyphessobrycon metae": [],
+  "Hyphessobrycon paepkei": [],
   "Hyphessobrycon pando": [],
   "Hyphessobrycon peruvianus": [],
   "Hyphessobrycon pulchripinnis": [],
@@ -5816,6 +5873,9 @@
     "Cephaloxys flabellata",
     "Juncus subincurvus",
     "Tristemon repens"
+  ],
+  "Kneria stappersii": [
+    "Kneria stappesii"
   ],
   "Knodus borki": [],
   "Kottelatia brittani": [
@@ -6713,6 +6773,10 @@
     "Palaemon spec",
     "Palaemon whitei"
   ],
+  "Macrobrachium scabriculum": [
+    "Palaemon dubius",
+    "Palaemon scabriculus"
+  ],
   "Macrochirichthys macrochirus": [
     "Leuciscus macrochirus",
     "Leuciscus uranoscopus",
@@ -6905,6 +6969,7 @@
     "Caecomastacembelus plagiostomus"
   ],
   "Mastacembelus tinwini": [],
+  "Mastacembelus unicolor": [],
   "Mastiglanis asopos": [],
   "Mayaca fluviatilis": [
     "Biaslia vandelli",
@@ -7002,6 +7067,7 @@
     "Tarpon atlanticus"
   ],
   "Mekongina erythrospila": [],
+  "Melanocharacidium dispilomma": [],
   "Melanochromis auratus": [
     "Chromis auratus",
     "Pseudotropheus auratus",
@@ -7197,6 +7263,9 @@
   ],
   "Microdevario nana": [
     "Microrasbora nana"
+  ],
+  "Micromussa lordhowensis": [
+    "Acanthastrea lordhowensis"
   ],
   "Micropercops swinhonis": [
     "Eleotris swinhonis",
@@ -7396,6 +7465,15 @@
     "Synbranchus grammicus",
     "Synbranchus xanthognathus",
     "Unibranchapertura laevis"
+  ],
+  "Monopterus cuchia": [
+    "Amphinous cuchia",
+    "Amphipnous cuchia",
+    "Ophichthys punctatus",
+    "Pneumabranchus albinus",
+    "Pneumabranchus leprosus",
+    "Pneumabranchus striatus",
+    "Unibranchapertura cuchia"
   ],
   "Monosolenium tenerum": [
     "Dumortieropsis liukiuensis"
@@ -7798,6 +7876,17 @@
     "Neritina marmorata",
     "Neritina upolensis",
     "Neritina vespertina"
+  ],
+  "Nerita polita": [
+    "Nerita arriaca",
+    "Nerita bidens",
+    "Nerita bifasciata",
+    "Nerita flava",
+    "Nerita flavescens",
+    "Nerita hieroglyphica",
+    "Nerita larva",
+    "Nerita lineolata",
+    "Nerita opaca"
   ],
   "Neritina pulligera": [
     "Nerita bruguierei",
@@ -10724,6 +10813,7 @@
     "Thiara torulosa",
     "Tiara crenulata"
   ],
+  "Sternarchogiton preto": [],
   "Sternarchorhynchus goeldii": [],
   "Stigmatogobius sadanundio": [
     "Gobius apogonius",
@@ -10929,6 +11019,7 @@
     "Synodontis smithii"
   ],
   "Synodontis schoutedeni": [],
+  "Synodontis soloni": [],
   "Synodontis sorex": [],
   "Synodontis tourei": [],
   "Synodontis waterloti": [],
@@ -11123,6 +11214,17 @@
     "Tinca vulgaris"
   ],
   "Tometes makue": [],
+  "Tor putitora": [
+    "Barbus macrocephalus",
+    "Barbus mosal",
+    "Barbus progeneius",
+    "Barbus putitora",
+    "Cyprinus mosal",
+    "Cyprinus putitora",
+    "Puntius putuitora",
+    "Tor mosal",
+    "Tor progeneius"
+  ],
   "Toxotes blythii": [],
   "Toxotes chatareus": [
     "Coius chatareus",
