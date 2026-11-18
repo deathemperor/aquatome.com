@@ -19,3 +19,12 @@ export const lighthouseFlags = (form: 'phone' | 'desktop', port: number, live: b
   // Live, the page as readers get it.
   blockedUrlPatterns: ['*/_e', ...(live ? [] : ['https://*', '*/_p?*', '*/_c?*', '*/_aff/*', '*/api/v1/*', '*/api/fish-id'])],
 })
+
+/**
+ * How long a retry on the live site waits before it measures again. The link between GitHub's runner and Cloudflare
+ * slows for a while at a time, and a retry right away met the same slow link: watch run 44222512607 (18 Nov 2026)
+ * measured a guide's desktop load at 1,553 to 1,568 ms on three tries in 25 s, against 1,500, and 907 ms 35 minutes later;
+ * runs 44156973782 and 44169287926 (17 Nov) failed on desktop load the same way. A minute between tries keeps the job
+ * inside its 45 minutes however many pages a slow spell catches. The build served on the runner itself needs no wait.
+ */
+export const retryPause = (live: boolean, retry: number) => (live && retry > 0 ? 60_000 : 0)
