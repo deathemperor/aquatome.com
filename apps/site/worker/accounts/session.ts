@@ -1,3 +1,5 @@
+import { TESTER_ID } from './tester'
+
 /**
  * Sessions: a random token the browser keeps in an HttpOnly cookie, or the app sends as a bearer token. Only its SHA-256
  * is stored (sessions.id), so a copy of the database can't sign anyone in.
@@ -20,11 +22,13 @@ export async function hmac(key: string, s: string): Promise<string> {
 export const cookieFor = (token: string, client: Client) => `${COOKIE}=${token}; Path=/; Max-Age=${SESSION_DAYS[client] * 86_400}; HttpOnly; Secure; SameSite=Lax`
 export const CLEAR_COOKIE = `${COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax`
 
-export async function createSession(db: D1Database, userId: string, client: Client, now: Date): Promise<string> {
+/** `minutes`: a session that ends that soon, used or not (the chat's test account's, tester.ts). */
+export async function createSession(db: D1Database, userId: string, client: Client, now: Date, minutes?: number): Promise<string> {
   const token = randomToken()
   const at = now.toISOString()
+  const ms = minutes ? minutes * 60_000 : SESSION_DAYS[client] * DAY_MS
   await db.prepare(`INSERT INTO sessions (id, user_id, client, created_at, expires_at, last_seen_at) VALUES (?, ?, ?, ?, ?, ?)`)
-    .bind(await sha256(token), userId, client, at, new Date(now.getTime() + SESSION_DAYS[client] * DAY_MS).toISOString(), at).run()
+    .bind(await sha256(token), userId, client, at, new Date(now.getTime() + ms).toISOString(), at).run()
   return token
 }
 
@@ -42,14 +46,18 @@ export function tokenOf(req: Request): { token: string; via: 'bearer' | 'cookie'
 /** `createdAt`: when this client signed in (adding a way to sign in keeps the session, and its time). */
 export type Session = { id: string; userId: string; client: Client; via: 'bearer' | 'cookie'; createdAt: string }
 
-/** The request's live session, if any. A session used on a new day is extended (sliding expiry). */
-export async function sessionOf(req: Request, db: D1Database, now: Date): Promise<Session | undefined> {
+/**
+ * The request's live session, if any. A session used on a new day is extended (sliding expiry). The chat's test account's
+ * is no session here unless `tester` (tester.ts): only the chat asks for it, while the tester is on.
+ */
+export async function sessionOf(req: Request, db: D1Database, now: Date, { tester = false } = {}): Promise<Session | undefined> {
   const t = tokenOf(req)
   if (!t) return undefined
   const id = await sha256(t.token)
   const row = await db.prepare(`SELECT user_id, client, created_at, expires_at, last_seen_at FROM sessions WHERE id = ?`).bind(id)
     .first<{ user_id: string; client: Client; created_at: string; expires_at: string; last_seen_at: string }>()
   if (!row || row.expires_at <= now.toISOString()) return undefined
+  if (row.user_id === TESTER_ID && !tester) return undefined
   // A cookie only signs in a browser session, a bearer token only an app session.
   if ((t.via === 'cookie') !== (row.client === 'web')) return undefined
   if (now.getTime() - Date.parse(row.last_seen_at) > DAY_MS) {

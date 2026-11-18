@@ -1,9 +1,10 @@
-import { sameSiteOk, sessionOf, tokenOf } from '../accounts/session'
+import { sameSiteOk, tokenOf } from '../accounts/session'
+import { TESTER_ID } from '../accounts/tester'
 import { DEFAULT_MODEL } from '../fishid/claude'
 import { ledgerClient } from '../fishid/ledger'
 import type { Start } from './agent'
 import { linkedOf } from './answer'
-import { askable, assetSource, charsOf, CONVERSATION_MS, json, limit, live, MAX_TURNS, roleOf, UUID, type ChatDeps, type ChatEnv, type Conversation, type Kept, type KeptTurn, type Turn } from './api'
+import { askable, assetSource, charsOf, chatSession, CONVERSATION_MS, json, limit, live, MAX_TURNS, roleOf, UUID, type ChatDeps, type ChatEnv, type Conversation, type Kept, type KeptTurn, type Turn } from './api'
 import { handbookOf, type Handbook, type Lang } from './handbook'
 import { chatAccount, conversationKey, importedKey, listAll, reportKey, retryKey, secs, stopKey } from './store'
 
@@ -31,7 +32,7 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
   if (!live(env)) return json({ error: 'unavailable' }, 503)
   const bearer = req.headers.has('authorization')
   if (req.method === 'POST' && !bearer && tokenOf(req)?.via === 'cookie' && !sameSiteOk(req, true)) return json({ error: 'cross-origin' }, 403)
-  const session = await sessionOf(req, env.DB, now)
+  const session = await chatSession(req, env, now)
   // Who asks, looked up only where it counts: the gate while chat is the owner's, and a report.
   const role = env.CHAT === 'owner' ? await roleOf(env, session?.userId) : undefined
   if (role && !askable(env, role)) return json({ error: 'unavailable' }, 503)
@@ -111,6 +112,8 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
   }
 
   const report = async (id: string) => {
+    // The test account asks and does nothing else (accounts/tester.ts): its report finds no session, as anywhere else.
+    if (session.userId === TESTER_ID) return json({ error: 'session' }, 401)
     const b = await req.json().catch(() => null) as Record<string, unknown> | null
     if (!b || typeof b !== 'object' || Array.isArray(b) || Object.keys(b).some(k => k !== 'turn' && k !== 'reason')) return json({ error: 'bad request' }, 400)
     const n = b.turn

@@ -9,7 +9,8 @@ import { addPasskey, checkPasskey, loginOptions, registrationOptions, type Rp } 
 import { allow, ipOf } from './ratelimit'
 import { CLEAR_COOKIE, cookieFor, createSession, randomToken, sameSiteOk, sessionOf, sha256, tokenOf, type Client, type Session } from './session'
 import { loadStore, syncStore } from './tanks'
-import { TESTER_ADDRESS } from './tester'
+import { TESTER_ADDRESS, TESTER_ID, TESTER_SESSION_MINUTES, testerOn } from './tester'
+import { testerAccount, testerCode } from './tester-sign-in'
 import { deleteUser, InUse, methodsOf, removeMethod, signInWith } from './users'
 import PICTURES from '../../../../protocols/profile-pictures.json' with { type: 'json' }
 
@@ -39,6 +40,9 @@ export type AccountsEnv = {
   PASSKEYS?: string
   /** This site's host: a passkey's relying party, answered only on it. */
   CANONICAL_HOST?: string
+  /** The Mac's bearer, and "on" while the chat's test account is (tester.ts, tester-sign-in.ts). */
+  AB_DASH_TOKEN?: string
+  CHAT_TESTER?: string
   /** Readers' photos (worker/photos.ts): deleting an account deletes the files of the photos it sent. */
   UPLOADS?: R2Bucket
   MEDIA?: R2Bucket
@@ -199,6 +203,8 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
   if (path === '/api/v1/session' && req.method === 'GET' && !on) return json({ accounts: false })
   if (!on) return fail('accounts_off', 404)
   const db = env.DB
+  // The Mac's, before any session is read from its bearer: anyone else finds no such path.
+  if (path === '/api/v1/chat-tester/code') return testerCode(req, url, env, now, () => fail('not_found', 404))
   const session = await sessionOf(req, db, now)
   const route = `${req.method} ${path}`
 
@@ -288,8 +294,9 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       if (!providers(env, deps).email) return fail('provider_off', 503)
       const email = normalEmail(body.email)
       if (!email) return fail('bad_email', 400)
-      // Nor is it added to an account signed in here: refused before a code goes out (tester.ts).
-      if (adding && (email === TESTER_ADDRESS || toTester)) return fail('bad_email', 400)
+      // No code is mailed to the test account's address: it signs in by the Mac's alone (tester-sign-in.ts). Nor is
+      // another address added to it.
+      if (email === TESTER_ADDRESS || (adding && toTester)) return fail('bad_email', 400)
       const lang = LANGS.find(l => l === body.lang) ?? 'vi'
       if (typeof body.turnstile !== 'string' || !(await deps.siteverify(env.TURNSTILE_SECRET!, body.turnstile, req.headers.get('cf-connecting-ip'), url.hostname))) return fail('turnstile', 403)
       const k = env.ACCOUNT_HMAC_KEY
@@ -311,8 +318,15 @@ export async function accounts(req: Request, url: URL, env: AccountsEnv, now: Da
       // Nor another address for the test account, from a flow started before the start refused it.
       if (started.userId && (await isTester(db, env, started.userId))) return fail('credential_in_use', 409)
       const toAccount = started.userId ? session : undefined
+      // The test account's code (tester-sign-in.ts): while the tester is on, a session of minutes, for the app's way only.
+      const tester = started.value === (await emailHash(env.ACCOUNT_HMAC_KEY, TESTER_ADDRESS))
+      if (tester && (!testerOn(env) || !(await testerAccount(db, env.ACCOUNT_HMAC_KEY, now)))) return fail('bad_code', 401)
       try {
         const userId = await signInWith(db, { kind: 'email', subject: started.value, emailHash: started.value, ...(toAccount ? { signedIn: toAccount.userId } : {}) }, now)
+        if (tester) {
+          if (userId !== TESTER_ID) return fail('bad_code', 401)
+          return json({ user: await userView(db, userId), token: await createSession(db, userId, 'app', now, TESTER_SESSION_MINUTES) })
+        }
         return done(env, userId, client, toAccount, session, now)
       } catch (e) {
         if (e instanceof InUse) return fail('credential_in_use', 409)

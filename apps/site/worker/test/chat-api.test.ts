@@ -3,7 +3,8 @@ import { fileURLToPath } from 'node:url'
 import { describe, expect, test } from 'vitest'
 import { emailHash, normalEmail } from '../accounts/email'
 import { COOKIE, createSession, type Client } from '../accounts/session'
-import { TESTER_ADDRESS } from '../accounts/tester'
+import { TESTER_ADDRESS, TESTER_ID } from '../accounts/tester'
+import { testerAccount } from '../accounts/tester-sign-in'
 import { signInWith } from '../accounts/users'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
@@ -193,36 +194,70 @@ async function signInAs(db: D1Database, address: string) {
   return { id, token: await createSession(db, id, 'app', new Date()) }
 }
 
+/** The test account (accounts/tester.ts), as the Mac's code signs it in: its fixed id and a session of 15 minutes. */
+async function testerIn(db: D1Database) {
+  expect(await testerAccount(db, 'k', new Date())).toBe(true)
+  return { id: TESTER_ID, token: await createSession(db, TESTER_ID, 'app', new Date(), 15) }
+}
+
 test('the test account: its address is fixed in the form sign-in compares, and on our own domain', () => {
-  expect(TESTER_ADDRESS).toBeDefined()
   expect(normalEmail(TESTER_ADDRESS)).toBe(TESTER_ADDRESS)
-  expect(TESTER_ADDRESS!.endsWith('@aquatome.com')).toBe(true)
+  expect(TESTER_ADDRESS.endsWith('@aquatome.com')).toBe(true)
 })
 
-test('on for the owner only (CHAT "owner") lets in the test account too: a sign-in with its address finds it on and is answered; another address finds it off and nothing counts', async () => {
-  const { e, db, ledger } = env({ CHAT: 'owner' })
-  const tester = await signInAs(db, TESTER_ADDRESS!)
+test('on for the owner only (CHAT "owner") lets in the test account too, while it is on: it finds it on and is answered; another account finds it off and nothing counts', async () => {
+  const { e, db, ledger } = env({ CHAT: 'owner', CHAT_TESTER: 'on' })
+  const tester = await testerIn(db)
   const other = await signInAs(db, 'someone-else@aquatome.com')
   const get = async (token: string) => (await run(new Request('https://x.test/api/chat', { headers: bearer(token) }), e, {})).body
-  expect(await get(tester.token)).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 1500 })
+  expect(await get(tester.token)).toEqual({ on: true, resting: false, perAccount: 20, maxTurns: 20, maxChars: 1500 })
   expect(await get(other.token)).toEqual({ on: false })
-  // The site's session as much as the app's.
-  const web = await createSession(db, tester.id, 'web', new Date())
-  expect((await run(new Request('https://x.test/api/chat', { headers: { cookie: `${COOKIE}=${web}` } }), e, {})).body).toMatchObject({ on: true })
   const c = claude(NEON)
   expect((await run(ask(bearer(other.token)), e, deps(c.fetch))).body).toEqual({ error: 'chat_off' })
   expect([c.bodies.length, ledger.day()]).toEqual([0, undefined])
   expect((await run(ask(bearer(tester.token)), e, deps(c.fetch))).body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
-  // The same address vouched for by Google later joins the same account: still the tester, not a second one.
-  const hash = await emailHash('k', TESTER_ADDRESS!)
-  expect(await signInWith(db, { kind: 'google', subject: 'g-1', emailHash: hash }, new Date())).toBe(tester.id)
+  // Off, it finds chat off like anyone else, and on open chat its session is none.
+  const off = { ...e, CHAT_TESTER: 'off' }
+  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), off, {})).body).toEqual({ on: false })
+  expect((await run(ask(bearer(tester.token)), off, deps(c.fetch))).body).toEqual({ error: 'chat_off' })
+  expect((await run(ask(bearer(tester.token)), { ...off, CHAT: '1' }, deps(c.fetch))).body).toEqual({ error: 'session' })
+})
+
+// Codex's read of #1440: a Google or Apple sign-in carrying the tester's address (an old one, from before #1606 refused
+// them) kept the tester's role, read from any sign-in's address. The role is the account's fixed id alone now.
+test('an account whose sign-in carries the tester\'s address, by Google or by its own email, isn\'t the tester: chat on for the owner is off for it', async () => {
+  const { e, db } = env({ CHAT: 'owner', CHAT_TESTER: 'on' })
+  const hash = await emailHash('k', TESTER_ADDRESS)
+  for (const kind of ['google', 'email'] as const) {
+    const d = testD1()
+    const id = await signInWith(d, { kind, subject: kind === 'email' ? hash : 'g-1', emailHash: hash }, new Date())
+    const token = await createSession(d, id, 'app', new Date())
+    expect((await run(new Request('https://x.test/api/chat', { headers: bearer(token) }), { ...e, DB: d }, {})).body, kind).toEqual({ on: false })
+  }
+  void db
+})
+
+test('the test account asks 20 a day, under everyone\'s 30: its 21st is refused as a reader\'s 31st is', async () => {
+  const { e, db } = env({ CHAT_TESTER: 'on' })
+  const tester = await testerIn(db)
+  const reader = await signIn(db)
+  const asks = async (token: string, n: number) => {
+    const out: unknown[] = []
+    for (let i = 0; i < n; i++) out.push((await run(ask(bearer(token), { conversation: crypto.randomUUID() }), e, deps(claude(NEON).fetch))).body)
+    return out
+  }
+  const t = await asks(tester.token, 21)
+  expect(t.slice(0, 20).every(b => (b as { n?: number }).n === 1)).toBe(true)
+  const r = await asks(reader.token, 31)
+  expect(r.slice(0, 30).every(b => (b as { n?: number }).n === 1)).toBe(true)
+  expect([t[20], r[30]]).toEqual([{ error: 'rate', limit: 20 }, { error: 'rate', limit: 30 }])
 })
 
 test('every question is counted and kept with who asked, the owner, the test account or a reader, and none of them hears it', async () => {
-  const { e, db, ledger, store } = env()
+  const { e, db, ledger, store } = env({ CHAT_TESTER: 'on' })
   const owner = await signIn(db, 'app')
   e.OWNER_ACCOUNTS = owner.id
-  const tester = await signInAs(db, TESTER_ADDRESS!)
+  const tester = await testerIn(db)
   const reader = await signIn(db, 'app')
   const bodies: string[] = []
   for (const who of [owner, tester, reader]) {
@@ -244,18 +279,6 @@ test('every question is counted and kept with who asked, the owner, the test acc
     return store.read<ChatRunRecord>(key)!.role
   }
   expect([await roleOf(owner), await roleOf(tester), await roleOf(reader)]).toEqual(['owner', 'tester', 'reader'])
-})
-
-test('a lookup of the tester that fails reads as a reader\'s: open chat still answers, tagged reader; chat on for the owner is off for the tester until it works', async () => {
-  const { e, db, store } = env()
-  const tester = await signInAs(db, TESTER_ADDRESS!)
-  const failing = { ...db, prepare: (sql: string) => (sql.includes('FROM credentials') ? { bind: () => ({ first: async () => { throw new Error('D1 down') } }) } : db.prepare(sql)) } as unknown as D1Database
-  const open = { ...e, DB: failing }
-  expect((await run(ask(bearer(tester.token)), open, deps(claude(NEON).fetch))).body).toMatchObject({ n: 1 })
-  const key = [...store.m.keys()].find(k => k.startsWith('chat-run/'))!
-  expect(store.read<ChatRunRecord>(key)!.role).toBe('reader')
-  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), { ...open, CHAT: 'owner' }, {})).body).toEqual({ on: false })
-  expect((await run(new Request('https://x.test/api/chat', { headers: bearer(tester.token) }), { ...e, CHAT: 'owner' }, {})).body).toMatchObject({ on: true })
 })
 
 test('who may ask: an app session as a bearer, or a site session from the site\'s own pages; nothing else, and nothing malformed', async () => {
