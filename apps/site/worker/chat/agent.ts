@@ -364,7 +364,10 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
     if (repeatsKey(raw)) throw new Error('chat: the answer names a key twice')
     if (!shown) return m
     const kept = readAnswer(m)
-    if (kept && (kept.offTopic || kept.text !== said)) throw new Error('chat: the answer kept isn\'t the one shown')
+    // The answer kept is the one that streamed, its picks too: not another block's (Codex, 18 Nov).
+    const sameAs = (a: string, b: string) => { try { return JSON.stringify(JSON.parse(a)) === JSON.stringify(JSON.parse(b)) } catch { return false } }
+    const keptRaw = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
+    if (kept && (kept.offTopic || kept.text !== said || !sameAs(raw, keptRaw))) throw new Error('chat: the answer kept isn\'t the one shown')
     return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
   }
 }

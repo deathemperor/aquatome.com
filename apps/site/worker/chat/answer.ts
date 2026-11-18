@@ -91,8 +91,9 @@ export const answerTool = {
 
 /**
  * Which block of a message is its answer: the first that answers, a text block of the answer's JSON or a send_answer call.
- * Words before a tool call ("Now I'll send the answer.") aren't one. The stream shows that block (`answerFeed`) and the
- * run reads it (`answered`), so the reader reads what is kept.
+ * Words before a tool call ("Now I'll send the answer.") aren't one. The stream shows the first block that begins as one
+ * (`answerFeed`) and the run reads the first that is one (`answered`): when they differ, as text cut short before a
+ * send_answer, a run that showed any of it fails rather than keep another (`streaming`, agent.ts).
  */
 const json = (text: string) => text.trimStart().startsWith('{')
 const answers = (b: Anthropic.ContentBlock) => (b.type === 'text' && json(b.text)) || (b.type === 'tool_use' && b.name === SEND_ANSWER)
@@ -116,9 +117,9 @@ const whole = (text: string) => {
  * or false is no answer, never one on topic.
  */
 export function answered(m: Anthropic.Message): Anthropic.Message {
-  // Words that only begin like an answer don't hide send_answer's after them (Codex, 18 Nov): its answer is the answer.
+  // Text that doesn't read as an answer, cut short or another object, doesn't hide send_answer's after it (Codex, 18 Nov).
   const sent = m.content.some(b => b.type === 'tool_use' && b.name === SEND_ANSWER)
-  const first = m.content.find(b => answers(b) && !(sent && b.type === 'text' && !whole(b.text)))
+  const first = m.content.find(b => answers(b) && !(sent && b.type === 'text' && !answerOf(b.text)))
   if (!first) return m
   const ended = m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason
   if (first.type === 'text') {
@@ -176,7 +177,11 @@ export const MIN_TEXT = 10
 /** The answer in Claude's message: its JSON (the schema's), or undefined for a refusal, one cut short, or one with no text. */
 export function readAnswer(m: Anthropic.Message): Answer | undefined {
   if (m.stop_reason === 'refusal' || m.stop_reason === 'max_tokens') return undefined
-  const text = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
+  return answerOf(m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join(''))
+}
+
+/** An answer's JSON as text, read: undefined for text that isn't one. */
+function answerOf(text: string): Answer | undefined {
   try {
     const a = JSON.parse(text) as Answer
     if (a.offTopic === true) return { offTopic: true, text: '', covered: true, blocks: [], suggestions: [], clashes: [] }

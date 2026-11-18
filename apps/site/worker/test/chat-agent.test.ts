@@ -1247,6 +1247,33 @@ describe('the answer read is the one written (Codex, 17 Nov)', () => {
     expect([calls, out.stopped, out.answer?.text]).toEqual([1, 'answer', text])
     const m = answered(message([{ type: 'text', text: '{"blocks":[' }, sendAnswer(JSON.parse(json))], 'tool_use'))
     expect([m.content.length, m.stop_reason, readAnswer(m)?.text]).toEqual([1, 'end_turn', text])
+    // A whole object that isn't an answer gives way too.
+    const other = await turn(async () => message([{ type: 'text', text: '{"blocks":[]}' }, sendAnswer(JSON.parse(json))], 'tool_use'))
+    expect([other.calls, other.stopped, other.answer?.text]).toEqual([1, 'answer', text])
+    // Streamed: the feed shows the block cut short, which holds no text, so the tool's answer comes whole at the end.
+    const said: string[] = []
+    const cut = '{"blocks":[{"t":"species"'
+    const fed = await turn(async (_b, o) => {
+      const feed = answerFeed()
+      const events = [{ type: 'content_block_start', index: 0, content_block: { type: 'text', text: '' } }, { type: 'content_block_delta', index: 0, delta: { type: 'text_delta', text: cut } },
+        { type: 'content_block_start', index: 1, content_block: { type: 'tool_use', id: 'ta', name: 'send_answer', input: {} } },
+        ...json.match(/.{1,9}/gs)!.map(partial_json => ({ type: 'content_block_delta', index: 1, delta: { type: 'input_json_delta', partial_json } }))] as Anthropic.MessageStreamEvent[]
+      for (const e of events) { const piece = feed(e); if (piece !== undefined) o.onText?.(piece) }
+      return message([{ type: 'text', text: cut }, sendAnswer(JSON.parse(json))], 'tool_use')
+    }, said)
+    expect([fed.calls, fed.stopped, fed.answer?.text, said.join('')]).toEqual([1, 'answer', text, ''])
+  })
+
+  test('text shown from a block cut short, then send_answer with the same text and another card: the run fails, never keeps a card the reader wasn\'t shown (Codex, 18 Nov)', async () => {
+    const card = (l: number) => ({ t: 'tool', tool: 'tank-volume', ids: [], path: null, heading: null, fish: [], tank: { l, w: 30, h: 30 }, tankId: null })
+    const shown = JSON.stringify({ offTopic: false, text, covered: true, blocks: [card(60)] }).slice(0, -1)
+    const said: string[] = []
+    const out = await turn(async (_b, o) => {
+      for (let i = 0; i < shown.length; i += 7) o.onText?.(shown.slice(i, i + 7))
+      return message([{ type: 'text', text: shown }, sendAnswer({ offTopic: false, text, ...rest, blocks: [card(90)] })], 'tool_use')
+    }, said)
+    expect(said.join('')).toBe(text)
+    expect([out.stopped, out.answer]).toEqual(['error', undefined])
   })
 
   test('send_answer\'s offTopic is true or false: any other flag, or none, is no answer, never one on topic', async () => {
