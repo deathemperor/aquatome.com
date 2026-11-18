@@ -539,73 +539,72 @@
   ],
   "vi/glossary/thuc-an-kho": [
     {
-      "at": "2026-11-18T02:38:43Z",
+      "at": "2026-11-18T03:04:26Z",
       "model": "sonnet",
       "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rule 12: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\" gives 2–5 minutes alone as the rule…"
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rules 4 and 12: \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": sev…"
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-18T02:38:43Z",
+      "at": "2026-11-18T03:04:26Z",
       "model": "sonnet",
       "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Rule 12: \"Thức ăn khô ghi là đầy đủ dinh dưỡng thì có đủ các chất cá cần. Các hãng làm loại này để cho cá ăn hằng ngày.\": THIS TERM says to drop these two sentences. Use this sentence, word for word: \"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\"",
-        "Rule 12: \"Một nguồn người nuôi ghi: cá betta mỗi lần ăn 2–4 viên.\": THIS TERM gives the betta line word for word as \"Một nguồn người nuôi ghi: cá betta mỗi lần ăn 2–4 viên, ngày một hai lần.\" The entry leaves out how often to feed (fact 28).",
-        "Rules 5 and 12: altNames is empty (\"altNames\":[]). The other names should list \"cám\" (named by two shops) and the English \"dry food\", which the FACTS give."
+        "Rules 8 and 12: \"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\" names the brands Tetra and sera. The makers' sentence must name no one and must match word for word (\"...để làm thức ăn hằng ngày.\"). Naming them also puts more than three pages in the entry.",
+        "Rules 5 and 12: altNames is empty. The other names must include \"cám\" (two shops' pages, so no credit) and the English name the FACTS give, \"dry food\"."
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-18T01:47:11Z",
+      "at": "2026-11-18T02:50:07Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 0.97,
+      "notes": [
+        "\"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\": the facts don't carry it (unsupported, unsupported, loose): States as a general rule what Tetra and sera say about their own flakes; drops the JBL and UK Pet Food warnings that a community tank needs more than one food / drops caveat: one complete food may not suffice in community ta…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T02:50:07Z",
       "model": "sonnet",
       "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rule 12: \"Theo PetMD, cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\" gives 2–5 m…"
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong 2–5 phút.\": Rules 4 and 12: \"mỗi lần chỉ lượng cá ăn hết trong 2–5 phút\" gives 2–5 minutes alone as the rule. The rules forbid this…",
+        "Rule 12: The first paragraph under \"Trong bể của bạn\" still has \"Bể nuôi nhiều loài thì rất có thể cần vài loại thức ăn khác nhau. Một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" These two sentences come from UK Pet Food's page (fact 62). THIS TERM says they go and must not appear anywhere in the entry. The paragraph should be the makers' sentence alone, word for word.",
+        "Rule 12: The other names are missing because altNames is empty. THIS TERM says the other names for dry food as a whole are \"cám\" (on two shops' pages, no credit) and the English \"dry food\". Both should be listed among the other names."
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-18T01:47:11Z",
+      "at": "2026-11-18T02:45:40Z",
       "model": "sonnet",
       "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Rule 12: \"altNames\":[] is empty. THIS TERM says the other names for dry food as a whole are \"cám\" (on two shops' pages) and the English \"dry food\", and both belong among the other names.",
-        "Rule 12: \"viên lên màu trông xỉn hoặc bạc màu\" in the spoiled-food sentence must be given word for word as \"các viên giúp cá lên màu trông xỉn hoặc bạc màu\". As written, it reads as if every pellet fades.",
-        "Rule 12: \"Loại nổi dành cho cá tầng mặt, loại chìm chậm cho cá tầng giữa, loại chìm cho cá đáy.\" The slow-sinking pellet for midwater fish comes from one page only (fact 14) and has to go. The sentence should read word for word \"Loại nổi dành cho cá tầng mặt, loại chìm cho cá đáy.\"",
-        "Rule 12: \"que nổi dành cho cá ăn ở tầng mặt\" in the sticks item writes as if every stick floats, and it says who sticks are for, which has to go. The line must read word for word \"có loại que nổi trên mặt nước.\""
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong vài phút, thường là 2–5 phút hoặc ít hơn.\" (not \"Cho ăn ngày một đến hai lần, mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút.\": Rules 4 and 12: \"mỗi lần chỉ lượng cá ăn hết trong hai đến năm phút\" gives 2–5 minutes alone as the rule, which…",
+        "Rule 12: \"Tetra và sera ghi loại mảnh của họ là đầy đủ dinh dưỡng, để cho cá ăn hằng ngày.\" must be the makers' sentence word for word: \"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\"",
+        "Rule 12: \"Bể nuôi nhiều loài thì rất có thể cần vài loại thức ăn khác nhau. Một loại đầy đủ dinh dưỡng chưa chắc hợp với mọi con cá trong bể.\" must be removed. The first paragraph under \"Trong bể của bạn\" is the makers' sentence alone, and no sentence anywhere in the entry may say that a mixed tank needs different foods or that one complete food may not suit every fish (the chief of staff's rulin…"
       ],
       "attempt": "rewrite",
-      "kept": false
+      "kept": true
     },
     {
-      "at": "2026-11-18T01:38:41Z",
+      "at": "2026-11-18T02:45:40Z",
       "model": "sonnet",
       "cli": "2.1.326",
       "score": 0.97,
       "notes": [
-        "\"Dạng que (stick): que nổi trên mặt nước.\": the facts don't carry it (unsupported, unsupported, unsupported): sources say there are sinking sticks too; not all sticks float / sticks also come in sinking forms; floating applies only to some / drops qualifier: sinking sticks also exist for bottom fish"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T01:38:41Z",
-      "model": "sonnet",
-      "cli": "2.1.326",
-      "score": 0.97,
-      "notes": [
-        "The rewrite dropped from \"Một tiệm ghi: thức ăn khô hỏng có mùi ôi như dầu ăn cũ hay sáp màu, các mảnh dính cục vì ẩm, viên lên màu trông xỉn hoặc bạc màu, hoặc có mốc thấy được bằng mắt.\" the advice \"bạc màu\", and nothing lets that sentence go: write it as it was, word for word.",
-        "\"Dạng que (stick): que nổi trên mặt nước.\": the facts don't carry it (unsupported, unsupported, unsupported): Says all sticks float, but sinking sticks exist for bottom fish / Sinking sticks also exist; this says all sticks float / Some sticks sink, for bottom fish; drops that qualifier"
+        "\"Loại ghi là đầy đủ dinh dưỡng thì đủ chất để làm thức ăn hằng ngày: Tetra và sera ghi vậy cho loại mảnh của họ.\": the facts don't carry it (unsupported, loose, unsupported): States maker claim as fact; drops JBL/UK Pet Food caveat that one food isn't enough in community tanks / States makers' claim as general fact; drops the caveat that one food may not suit a community tank / States the maker c…"
       ],
       "attempt": "rewrite",
       "kept": false
