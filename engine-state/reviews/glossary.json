@@ -1077,6 +1077,29 @@
   ],
   "vi/glossary/luu-vuc": [
     {
+      "at": "2026-11-18T18:26:24Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chọn nền, đá và lũa hợp với nơi sống đó.\" (not \"Chọn nền và vật liệu trang trí cứng (hardscape) hợp với nơi sống đó.\": it drops the advice \"đá\")"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T18:26:24Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: Step 3 reads \"Bài gợi ý bể 60–80 lít cho bể biotope đầu tiên, và cần xem sàn nhà có chịu nổi sức nặng không.\" It leaves out the weight (fact 23), which goes in an eighth item, \"Đừng quên sức nặng: một bể biotope 80 lít set xong có thể nặng khoảng 100 kg.\" THIS TERM says the guide's seven steps go in order and the weight belongs in step 3, beside the floor check, never as its own item. St…",
+        "Rule 12: Step 7 reads \"Chạy vi sinh cho bể từ bốn đến sáu tuần, rồi thả dần cá, tép, ốc, bắt đầu từ loài khỏe nhất.\" \"cá, tép, ốc\" are another page's words (fact 18). Step 7 must be, word for word: \"Chạy vi sinh cho bể từ bốn đến sáu tuần, rồi mới thả dần các loài vào bể, bắt đầu từ loài khỏe nhất.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T18:03:55Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1128,40 +1151,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-18T18:00:27Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 12: The meaning is not the required wording. \"Lưu vực là cả một hệ sông, như sông Amazon hay sông Mekong, xét như một vùng địa lý. Người nuôi cần biết vì bể biotope chép theo một vùng tự nhiên như vậy, nhưng một hệ sông có nhiều nơi sống riêng chứ không phải một nơi duy nhất.\" should read word for word: \"Lưu vực là cả một hệ sông, như sông Amazon hay lưu vực Rio Negro ở Brazil, xét như một v…",
-        "Rule 12: \"như sông Amazon hay sông Mekong\" names the Mekong as an example basin, but no fact names it as one. The meaning must give the Rio Negro basin in Brazil (fact 0) instead.",
-        "Rule 12: \"nhưng một hệ sông có nhiều nơi sống riêng chứ không phải một nơi duy nhất\" says that one river system holds many separate habitats. This is fact 2, which comes from one keeper's page alone. The meaning must never say it, and here it is also written as plain fact with no credit.",
-        "Rule 12: \"Người nuôi cần biết vì bể biotope chép theo một vùng tự nhiên như vậy\" uses \"vì\" to join two facts that no single fact joins.",
-        "Rule 12: \"Đặt thổi luồng ở một đầu bể để có dòng chảy vừa tới mạnh.\" must be replaced word for word with \"Đặt máy tạo dòng ở một đầu bể để có dòng chảy vừa tới mạnh.\"",
-        "Rule 12: The clown loach sentence is not right after the Mekong guide's list, under that guide's credit, in the required words. It must read: \"Bài này có xếp cá heo hề vào cá sông Mekong, còn một tài liệu tham khảo ghi cá heo hề là loài đặc hữu của Indonesia, chỉ có ở Sumatra và Borneo.\" Instead it sits in 'Sai lầm hay gặp' as \"Bài hướng dẫn sông Mekong ở trên có đưa cá heo hề vào danh sách cá sô…",
-        "Rules 4 and 12: The heading \"Xếp nhầm cá vào lưu vực\" in 'Sai lầm hay gặp' takes a side on where the two pages disagree: it calls the Mekong guide wrong. 'Sai lầm hay gặp' may hold only what the facts call mistakes, never a heading that settles the two pages.",
-        "Rule 12: The steps' opening \"Một tiệm hướng dẫn set bể biotope theo các bước sau:\" reads as if this were a different shop. The steps guide and the Mekong guide are two pages of one shop's own site, so the opening must be \"Một bài khác của tiệm này …\".",
-        "Rule 12: The steps guide's seven steps are not all given in the page's order (facts 9 to 15). Step 3 is missing (\"60-80 litres\" for a first biotope, and checking that the floor can bear the weight). Step 6 is missing (adjust the water before adding fish, and test pH, GH and KH weekly while cycling). Step 7 is missing (cycle for four to six weeks, then add the hardiest species first).",
-        "Rule 12: Step 2 (\"Tìm hiểu hóa học nước, nền, cây thường gặp ... trước khi mua bất cứ thứ gì.\") has fact 3 added to it (\"Nếu được thì tìm đúng nơi bắt cá, vì loài ở các nhánh khác nhau của cùng một hệ sông có thể không bao giờ gặp nhau ngoài tự nhiên\"). The steps must go in as the page gives them."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T17:25:21Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, reworded: \"Bài gọi đây là nước khá trung tính, cá dễ thích nghi.\" → \"Bài gọi đây là nước khá trung tính và dễ thích ứng.\" (supported)",
-        "Loose, reworded: \"Tìm hiểu nước, nền, cây thường gặp và mùa nước của vùng đó trước khi mua bất cứ thứ gì.\" → \"Tìm hiểu hóa học nước, nền, cây thường gặp và điều kiện theo mùa của vùng đó trước khi mua bất cứ thứ gì.\" (supported)",
-        "Rule 12: \"nhưng một hệ sông có nhiều nơi sống riêng chứ không phải một nơi duy nhất\" (and \"bể biotope chép theo một vùng tự nhiên như vậy\") is a claim from one page only, a keeper's page (source 0), but it is written as plain fact with no opening such as \"Một nguồn người nuôi ghi …\". Crediting it would add a fourth page to the three already named (the Mekong shop guide, the steps shop and the ref…",
-        "Rule 4: \"Xếp nhầm cá vào lưu vực\" takes a side on the disagreement it reports. It calls the shop guide's listing of cá heo hề a misplacement as plain fact, while the next lines present the shop and \"một tài liệu tham khảo\" as disagreeing. The disagreement should be said once, without a heading that settles it."
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ],
   "vi/glossary/oxy-hoa-tan": [
