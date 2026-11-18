@@ -709,93 +709,93 @@
   ],
   "vi/glossary/thuc-an-dong-lanh": [
     {
-      "at": "2026-11-17T00:40:05Z",
+      "at": "2026-11-18T00:32:24Z",
       "model": "sonnet",
-      "cli": "2.1.325",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Loose, left as written (not placeable): \"Trùng huyết đông lạnh, trùn huyết đông lạnh (Bloodworms): ấu trùng muỗi lắc, màu đỏ tươi hoặc đỏ nâu do hemoglobin.\"",
-        "Loose, left as written (not placeable): \"Baby brine shrimp, Daphnia, Cyclops, Mysis shrimp: các tên hay gặp trên trang bán hàng nước ngoài.\"",
-        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Một tiệm hướng dẫn cho cá bột ăn bobo từ 7 ngày tuổi.\" (not \"Hướng dẫn cho cá bột của một tiệm ghi cho cá ăn bobo từ 7 ngày tuổi, không nói rõ là bobo đông lạnh.\")",
-        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Baby brine shrimp là artemia mới nở, dùng cho cá bột.\" (not \"Baby brine shrimp là artemia cỡ khoảng 450 micron, dùng cho cá bột.\")",
-        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Cách thứ hai là rã riêng trong cốc nhỏ nước bể vài phút, đổ bỏ nước rã đông vì nó chứa phosphat và chất hữu cơ, có thể làm amoniac tăng vọt, rồi tráng mồi và cho ăn.\" (not \"Cách thứ hai là rã riêng một phần trong cốc nhỏ nước bể hoặc nước đã khử clo, đổ bỏ nước rã đông vì nó chứa phosphat và chất hữu cơ có th…",
-        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Loại sấy khô hay bị nhắc tới hơn, nhưng loại đông lạnh và loại sống cũng có thể gây dị ứng ở người nhạy cảm.\" (not \"Theo lời kể của người nuôi, loại sấy khô gắn với nhiều ca dị ứng hơn, nhưng loại đông lạnh và loại sống cũng có thể gây triệu chứng ở người nhạy cảm.\")"
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể vài phút, đổ bỏ nước rã đông, tráng mồi rồi cho ăn.\" (not \"Cách thứ hai là rã riêng một phần mồi trong cốc nhỏ nước bể hoặc nước đã khử clo, đổ bỏ nước rã đông, tráng mồi rồi cho ăn từng ít một.\": Rule 12: \"rã riêng một phần mồi trong cốc nhỏ nướ…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mỗi bữa chỉ cho lượng cá ăn hết trong vài phút.\" (not \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\": Rule 12: \"Mỗi bữa chỉ cho lượng cá ăn hết trong 2–3 phút.\" The line for this term asks for \"trong vài phút\" because the pages give both 2–3 minutes (fact 30) and 3–5 minutes for bloodworm (fact 31), so…",
+        "Loose, reworded: \"Loại sấy khô hay bị nhắc tới hơn, nhưng loại đông lạnh và loại sống cũng có thể gây dị ứng ở người nhạy cảm.\" → \"Theo các trường hợp người nuôi kể lại, loại sấy khô gắn với nhiều ca dị ứng hơn, nhưng loại đông lạnh và loại sống cũng có thể gây triệu chứng ở người nhạy cảm.\" (supported)"
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-17T00:40:05Z",
+      "at": "2026-11-18T00:32:24Z",
       "model": "sonnet",
-      "cli": "2.1.325",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Rule 12: \"bán dạng viên hoặc vỉ\" in the definition. THIS TERM asks for \"viên hoặc tấm\" (cubes or slabs, fact 2).",
-        "Rule 12: \"Ở Việt Nam trời nóng, viên đông lạnh rã chỉ trong khoảng 2–5 phút.\" The 28–34 °C figure comes from a Singapore shop (fact 60) and must not be said of Vietnam. THIS TERM asks for \"Khi trời nóng 28–34 °C, …\".",
-        "Rule 12: \"mồi này có thể kích Corydoras và vài loài cá khác đẻ\". THIS TERM says frozen tubifex \"giúp\" corydoras breed, never \"kích\".",
-        "Rules 7 and 12: \"Trong bể tép phải dọn mồi thừa thật kỹ\" sits in general step 5. The facts say it of bloodworm (fact 40), so it belongs in the trùng huyết item.",
-        "Rule 12: the allergy paragraph (\"Một số người nuôi bị dị ứng trùng huyết, từ nổi mẩn tới có ca phải đi cấp cứu...\") leaves out that frozen and live worms can set it off too, not only dried ones (fact 55). THIS TERM says this must stay.",
-        "Rule 12: \"Lúc rã ngoài nhiệt độ phòng, vi khuẩn có thể đã sinh sôi trong mồi.\" THIS TERM asks for \"rã ở nhiệt độ phòng\", never \"ngoài nhiệt độ phòng\".",
-        "Rule 12: \"Chỉ cho ăn một loại mồi, hoặc cho ăn trùng huyết ngày nào cũng vậy trong thời gian dài. Cá có thể rối loạn tiêu hóa và chê cám viên.\" Feeding only one kind (fact 46) must be its own mistake. The facts give it no consequence. Digestion trouble and refusing pellets belong only to bloodworm fed daily for a long time (fact 50), in a separate bullet."
+        "The rewrite dropped from \"Cách thứ nhất là thả thẳng viên hoặc một mẩu vào bể cho mồi tự rã.\" the advice \"Cách thứ nhất là thả thẳng viên\", and nothing lets that sentence go: write it as it was, word for word."
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-16T18:14:27Z",
+      "at": "2026-11-18T00:32:24Z",
       "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 1,
+      "cli": "2.1.326",
+      "score": 0.98,
       "notes": [
-        "Loose, left as written (not placeable): \"Trùng huyết đông lạnh, trùn huyết đông lạnh (Bloodworms): ấu trùng muỗi lắc, màu đỏ tươi hoặc đỏ nâu do hemoglobin.\"",
-        "Loose, left as written (not placeable): \"Baby brine shrimp, Daphnia, Cyclops, Mysis shrimp: các tên hay gặp trên trang bán hàng nước ngoài.\"",
-        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Một tiệm hướng dẫn cho cá bột ăn bobo từ 7 ngày tuổi.\" (not \"Cũng tiệm này hướng dẫn cho cá bột ăn bobo từ 7 ngày tuổi, nhưng không ghi là bobo đông lạnh.\")",
-        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Cách thứ hai là rã riêng trong cốc nhỏ nước bể vài phút, đổ bỏ nước rã đông vì nó chứa phosphat và chất hữu cơ, có thể làm amoniac tăng vọt, rồi tráng mồi và cho ăn.\" (not \"Cách thứ hai là rã một phần trong cốc nhỏ nước bể hoặc nước đã khử clo, đổ bỏ nước rã đông vì nó chứa phosphat và chất hữu cơ có thể làm …",
-        "The entry is 571 words: hold it to about 500, and leave what is left out to the pages that use the term."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-16T18:14:27Z",
-      "model": "sonnet",
-      "cli": "2.1.325",
-      "score": 0,
-      "notes": [
-        "The entry is 665 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "\"Một tiệm hướng dẫn cho cá bột ăn bobo từ 7 ngày tuổi.\": the facts don't carry it (loose, unsupported, unsupported): fry guide says bobo, not specifically frozen bobo / fry guide says bobo, not frozen bobo / fry guide is about bobo generally, not frozen bobo",
+        "Rule 12: the meaning \"được cấp đông nhanh để giữ dinh dưỡng và diệt mầm bệnh, bán dạng viên hoặc tấm\" still has \"diệt mầm bệnh\", which goes as background (fact 2), and \"viên hoặc tấm\", which goes because slabs are only the US shop's. It should read \"…được cấp đông nhanh để giữ dinh dưỡng.\"",
+        "Rule 12: the meaning keeps \"Sau đồ tươi sống, đây là loại gần với thức ăn tự nhiên nhất, nên cá kén ăn thường chịu ăn.\" Closeness to a wild diet goes. The point about picky eaters belongs in the body, credited to the US shop (fact 3).",
+        "Rules 4 and 12: \"<h3>Trong bể của bạn</h3> … Khi trời nóng 28–34 °C, viên đông lạnh rã chỉ trong khoảng 2–5 phút … vì vi khuẩn sinh sôi nhanh khi nhiệt độ trên 25 °C\". The Singapore thaw time, its bacteria reason and this heading all go. The Singapore figure is also given without its place, under a heading that reads as the keeper's own tank. The 30 minutes belongs in the thawing step only, as \"M…",
+        "Rule 12: the bloodworm item opens with \"Trùng huyết đông lạnh, trùn huyết đông lạnh\" and ends with \"Nó còn được gọi là sâu đỏ.\" The names should come first, \"trùng huyết, trùn huyết\", with \"sâu đỏ\" alongside them.",
+        "Rule 12: \"màu đỏ tươi hoặc đỏ nâu do hemoglobin\". The haemoglobin reason goes, and so does one shop's colour list (fact 12).",
+        "Rule 12: \"Loại này hợp với cá ăn thịt như Betta.\" This is the US shop's claim alone (fact 6) and needs that shop's credit opening. It should not be stated as plain fact.",
+        "Rules 4 and 12: \"Mỗi bữa cho lượng cá ăn trong khoảng 3–5 phút\" in the bloodworm item repeats the amount from the feeding step. The amount belongs once, in the feeding step, as \"trong vài phút\". Neither page's figure (3–5 or 2–3) stands alone there.",
+        "Rule 12: \"Trong bể tép phải dọn mồi thừa thật kỹ.\" This must use \"nên\", not \"phải\".",
+        "Rule 12: the bloodworm item leaves out that shrimp get frozen food only now and then (fact 10). That point belongs there, under the Singapore shop's credit."
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-15T03:30:05Z",
+      "at": "2026-11-18T00:25:15Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Rule 7: \"Lăng quăng đông lạnh: có tiệm ở Việt Nam bán.\" This local kind's item never says what it is. The FACTS give it as frozen mosquito larvae, while the foreign-names line gets sizes and uses.",
-        "Rule 7: \"Tim bò đông lạnh: có tiệm ở Việt Nam bán.\" This local kind's item never says what it is. The FACTS give it as frozen beef heart, while the foreign-names line gets sizes and uses.",
-        "Rule 7: \"Trùn chỉ đông lạnh ... Mồi này có thể kích Corydoras và vài loài cá khác đẻ\" and the bloodworm item \"Loại này hợp với cá ăn thịt như Betta\" leave out a use the FACTS give. A Vietnamese shop suggests frozen trùn chỉ and trùn huyết for predatory fish such as hồng két and tai tượng, to bring out their hunting instinct.",
-        "Rule 7: \"Artemia đông lạnh (Brine shrimp): con artemia lớn, dài khoảng 1 cm...\" leaves out a use the FACTS give: a Vietnamese shop sells it as food for ornamental shrimp and fish.",
-        "Rules 4 and 12: \"Mỗi bữa cho lượng cá ăn trong khoảng 3–5 phút.\" This feeding amount sits in the bloodworm item, but THIS TERM says the feeding step alone gives the amount (step 3, \"Bể nuôi chung 60–90 lít thì mỗi bữa khoảng nửa viên là thường...\"). It also breaks the item order, coming between the uses and the other name \"sâu đỏ\".",
-        "The entry is 683 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "The rewrite dropped from \"Những bữa còn lại cho ăn cám viên hoặc cám mảnh, và mỗi tuần để một ngày nhịn ăn.\" the advice \"Những bữa còn lại cho ăn cám viên\", the advice \"cám mảnh\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 12: \"dùng trong vòng 6–12 tháng kể từ ngày sản xuất\" is stated as plain fact. Two pages give 6–12 months (facts 38, 39), but only the Singapore shop counts it \"from manufacture\" (fact 38). Mayaqua says \"6 – 12 tháng nếu bảo quản tốt\". A one-page claim needs that shop's credit, so \"kể từ ngày sản xuất\" should go under \"Tiệm thứ nhất cũng ghi:\" or be dropped."
       ],
       "attempt": "rewrite",
       "kept": false
     },
     {
-      "at": "2026-11-15T03:30:05Z",
+      "at": "2026-11-18T00:25:15Z",
       "model": "sonnet",
-      "cli": "2.1.323",
+      "cli": "2.1.326",
       "score": 1,
       "notes": [
-        "Rule 4: The step on thawing says twice that the thaw water is thrown away: \"đổ bỏ nước rã đông\" and again \"Nước rã đông phải đổ đi vì nó chứa phosphat và chất hữu cơ, có thể làm amoniac tăng vọt\". Say it once, with its reason.",
-        "Rules 4 and 7: The note that shops give different feeding times, \"Các tiệm ghi con số khác nhau: một tiệm ghi 2–3 phút, tiệm khác ghi khoảng 3–5 phút với trùng huyết\", sits in the general feeding step. The 3–5 minute figure is about bloodworms (trùng huyết) alone, so it belongs once in the trùng huyết item and nowhere else. The general step should give only the amount.",
-        "The entry is 731 words: hold it to about 500, and leave what is left out to the pages that use the term."
+        "Rule 6: \"Betta\" in \"Tiệm thứ hai cũng ghi: con artemia trong loại này dài khoảng 1 cm, và vỏ kitin của nó là chất xơ, giúp cá vàng, Betta, Apistogramma đỡ sình bụng và táo bón.\": fact 7 writes plain \"betta\" (the fish), not \"betta (Betta)\" (the genus). That makes it Betta splendens, which has a page, so it should be called by its page name, \"cá betta (cá xiêm)\". THIS TERM's \"Betta\" line covers onl…",
+        "Rule 12: \"Những bữa còn lại cho ăn cám viên hoặc cám mảnh.\": only the Singapore shop says to give pellets or flakes the rest of the time (fact 34). The US shop's list of other foods is different (fact 32: freeze-dried, gel, live and prepared foods). This is a one-page claim written as plain fact with no credit. THIS TERM asks for frozen food once to a few times a week \"among other foods\" (facts 3…"
       ],
       "attempt": "rewrite",
       "kept": false,
-      "draft": "7e5a2b96984a966dfd8de32c84eeab5d61cfcffe3e9b375e9b986a1c068169be"
+      "draft": "86ec54785ff343b0d82b432b6c1588da5bd5099e11a45ca8c53a851edcd7701c"
+    },
+    {
+      "at": "2026-11-18T00:25:15Z",
+      "model": "sonnet",
+      "cli": "2.1.326",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"và diệt mầm bệnh\" in the meaning must go. Killing germs (fact 2) is background to be dropped.",
+        "Rule 12: \"bán dạng viên hoặc tấm\" must go from the meaning. \"Tấm\" comes from the US shop alone.",
+        "Rule 12: \"Sau đồ tươi sống, đây là loại gần với thức ăn tự nhiên nhất, nên cá kén ăn thường chịu ăn.\" Closeness to a wild diet must go. That picky eaters take it belongs in the body, under the US shop's opening \"Một tiệm khác ghi:\".",
+        "Rule 12: the heading \"Trong bể của bạn\" and its paragraph must go. That covers the Singapore thaw time (\"Khi trời nóng 28–34 °C, viên đông lạnh rã chỉ trong khoảng 2–5 phút\") and the reason (\"vì vi khuẩn sinh sôi nhanh khi nhiệt độ trên 25 °C\"). A figure must also stay with its place: the 28–34 °C is Singapore's heat, but it is given as general hot weather.",
+        "Rule 12: \"Mồi đã rã nên dùng hết trong khoảng 30 phút\" is under a hot-climate heading. It belongs in the thawing step, with no credit, as \"Mồi đã rã mà để ở nhiệt độ phòng quá khoảng 30 phút có thể hỏng và bốc mùi.\"",
+        "Rule 12: in the bloodworm item, \"màu đỏ tươi hoặc đỏ nâu do hemoglobin\" must go. Both the colour list (one shop's) and \"do hemoglobin\" are to be dropped.",
+        "Rule 12: in the bloodworm item, \"Nó còn được gọi là sâu đỏ.\" comes last. The item must open with its names: \"trùng huyết, trùn huyết\" with \"sâu đỏ\".",
+        "Rule 12: \"Loại này hợp với cá ăn thịt như Betta.\" is the US shop's claim (fact 6) but is written as plain fact. It belongs under \"Một tiệm khác ghi:\".",
+        "Rules 4 and 12: \"Mỗi bữa cho lượng cá ăn trong khoảng 3–5 phút\" (bloodworm item) and \"lượng cá ăn hết trong 2–3 phút\" (feeding step) give the amount in two places. Neither figure may stand alone: the general feeding step should say \"trong vài phút\", and the bloodworm item should not give the amount.",
+        "Rule 12: \"Trong bể tép phải dọn mồi thừa thật kỹ\" uses \"phải\". It must use \"nên\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
     }
   ]
 }

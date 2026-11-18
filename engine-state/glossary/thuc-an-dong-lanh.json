@@ -1,75 +1,5 @@
 {
   "found": true,
-  "species": [
-    "Artemia",
-    "Chironomidae",
-    "Daphnia",
-    "Tubifex",
-    "Apistogramma",
-    "Betta"
-  ],
-  "sources": [
-    {
-      "url": "https://www.aquariumcoop.com/blogs/aquarium/frozen-fish-food-guide",
-      "title": "How to Feed Frozen Fish Food to Your Aquarium",
-      "kind": "shop"
-    },
-    {
-      "url": "https://gensou.sg/frozen-fish-food-guide/",
-      "title": "Frozen Fish Food Guide: Types, Storage and Feeding Tips",
-      "kind": "shop"
-    },
-    {
-      "url": "https://aquariumcare.vn/san-pham/thuc-an-ca-canh-tep-canh/41/thuc-an-ca-canh.html",
-      "title": "Thức Ăn Cá Cảnh - Vi Sinh Cá Cảnh Aquarium Care",
-      "kind": "shop"
-    },
-    {
-      "url": "https://cacanhthuysinhtrungtin.com/danh-muc-san-pham/thuc-an-cho-ca-canh/",
-      "title": "Thức Ăn Cho Cá Cảnh - Các Loại Thức Ăn Tươi - Đông Lạnh - Khô",
-      "kind": "shop"
-    },
-    {
-      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/phu-kien/trung-huyet-dong-lanh/",
-      "title": "Trùng Huyết Đông Lạnh – Mayaqua",
-      "kind": "shop"
-    },
-    {
-      "url": "https://aquahouse.vn/cho-ca-an-trung-huyet/",
-      "title": "Cách cho cá ăn trùng huyết đúng cách giúp cá khỏe mạnh lớn nhanh",
-      "kind": "shop"
-    },
-    {
-      "url": "https://dongngu.com/cach-su-dung-trung-huyet-dong-lanh/",
-      "title": "Cách Sử Dụng Trùng Huyết Đông Lạnh Cho Cá Cảnh Ăn Tốt Nhất - Nhanh Lên SIZE Màu",
-      "kind": "shop"
-    },
-    {
-      "url": "https://yolo.com.vn/trun-huyet-la-con-gi/",
-      "title": "Trùn Huyết Là Con Gì? Cách Cho Cá Ăn Trùn Huyết 🦐 [SIÊU Đơn Giản]",
-      "kind": "shop"
-    },
-    {
-      "url": "https://shop.saigonaqua.com/shop/thuc-an-ca-tep/thuc-an-cho-tep/thuc-tep-canh-tom-canh-ca-canh",
-      "title": "Thức ăn tép cảnh - tôm cảnh - cá cảnh - Artemia đông lạnh - Cửa hàng Thủy sinh SaiGon Aqua",
-      "kind": "shop"
-    },
-    {
-      "url": "https://www.amazonasmagazine.com/2018/05/17/bloodworms-allergic-reactions-very-real-for-some-fishkeepers/",
-      "title": "Bloodworm Experiences: Reactions are a real thing for some fishkeepers",
-      "kind": "magazine"
-    },
-    {
-      "url": "https://www.diendancacanh.com/threads/trung-chi-va-trung-huyet-dong-lanh.269044/",
-      "title": "Trùng chỉ và trùng huyết đông lạnh :-)",
-      "kind": "forum"
-    },
-    {
-      "url": "https://topthuysinh.com/artemia-dong-lanh/",
-      "title": "Artemia đông lạnh (Chỉ ship Hà Nội) - Top Thủy Sinh",
-      "kind": "shop"
-    }
-  ],
   "facts": [
     {
       "section": "other",
@@ -394,6 +324,162 @@
       "section": "vietnam",
       "fact": "A Vietnamese shop's fry feeding guide says \"Từ 7 ngày trở đi ăn bobo\" (from 7 days old, feed bobo).",
       "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "The Vietnamese shop Thủy Sinh Tím sells frozen bobo as \"Bo Bo Đông Lạnh (Túi ~ 50g)\", which it describes as fresh bobo preserved by freezing.",
+      "source": 12
+    },
+    {
+      "section": "vietnam",
+      "fact": "The Vietnamese shop Vật liệu lọc hồ cá sells frozen beef heart as fish food under the name \"Thức ăn tim bò đông lạnh Angel FOOD cho cá dĩa, cá la hán\", in red beef heart and mixed versions.",
+      "source": 13
+    },
+    {
+      "section": "vietnam",
+      "fact": "The shop Cá cảnh Sơn Yến sells \"Sâu đỏ đông lạnh 5 vỉ 24 viên\". Its product text calls the item frozen trùn huyết (bloodworm) and describes the contents as cleaned \"sâu đỏ\", so the shop uses \"sâu đỏ\" as another name for bloodworms.",
+      "source": 14
+    },
+    {
+      "section": "mistakes",
+      "fact": "The Bulk Reef Supply page for San Francisco Bay Brand frozen bloodworms says microwaving or thawing them in hot water is not recommended because it breaks down the nutrients in the food.",
+      "source": 15
+    },
+    {
+      "section": "steps",
+      "fact": "A Hanoizoo guide to frozen bloodworms says to thaw them slowly in clean, room-temperature water and not to use hot water.",
+      "source": 16
+    },
+    {
+      "section": "mistakes",
+      "fact": "Aquasetup says some fish can get 'addicted' to frozen foods such as bloodworms (trùng huyết), artemia or frozen bobo, and then refuse other fish foods.",
+      "source": 17
+    },
+    {
+      "section": "mistakes",
+      "fact": "Blackwater Aquatics says bloodworms fed daily are the most commonly blamed cause of a bloated, constipated betta.",
+      "source": 18
+    },
+    {
+      "section": "causes",
+      "fact": "Blackwater Aquatics names overfeeding as by far the most common reason bloodworms cause problems such as bloating and constipation.",
+      "source": 18
+    },
+    {
+      "section": "prevention",
+      "fact": "In a shrimp-feeding guide that lists frozen food among shrimp foods, Kingaqua says food the shrimp have not eaten after 1 hour must be removed and siphoned out, because leftovers pollute the water if left too long.",
+      "source": 19
+    }
+  ],
+  "species": [
+    "Artemia",
+    "Chironomidae",
+    "Daphnia",
+    "Tubifex",
+    "Apistogramma",
+    "Betta",
+    "Betta splendens"
+  ],
+  "sources": [
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/frozen-fish-food-guide",
+      "title": "How to Feed Frozen Fish Food to Your Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/frozen-fish-food-guide/",
+      "title": "Frozen Fish Food Guide: Types, Storage and Feeding Tips",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumcare.vn/san-pham/thuc-an-ca-canh-tep-canh/41/thuc-an-ca-canh.html",
+      "title": "Thức Ăn Cá Cảnh - Vi Sinh Cá Cảnh Aquarium Care",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cacanhthuysinhtrungtin.com/danh-muc-san-pham/thuc-an-cho-ca-canh/",
+      "title": "Thức Ăn Cho Cá Cảnh - Các Loại Thức Ăn Tươi - Đông Lạnh - Khô",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mayaqua.vn/shop/danh-muc-ca-nuoc-ngot/phu-kien/trung-huyet-dong-lanh/",
+      "title": "Trùng Huyết Đông Lạnh – Mayaqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquahouse.vn/cho-ca-an-trung-huyet/",
+      "title": "Cách cho cá ăn trùng huyết đúng cách giúp cá khỏe mạnh lớn nhanh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dongngu.com/cach-su-dung-trung-huyet-dong-lanh/",
+      "title": "Cách Sử Dụng Trùng Huyết Đông Lạnh Cho Cá Cảnh Ăn Tốt Nhất - Nhanh Lên SIZE Màu",
+      "kind": "shop"
+    },
+    {
+      "url": "https://yolo.com.vn/trun-huyet-la-con-gi/",
+      "title": "Trùn Huyết Là Con Gì? Cách Cho Cá Ăn Trùn Huyết 🦐 [SIÊU Đơn Giản]",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shop.saigonaqua.com/shop/thuc-an-ca-tep/thuc-an-cho-tep/thuc-tep-canh-tom-canh-ca-canh",
+      "title": "Thức ăn tép cảnh - tôm cảnh - cá cảnh - Artemia đông lạnh - Cửa hàng Thủy sinh SaiGon Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.amazonasmagazine.com/2018/05/17/bloodworms-allergic-reactions-very-real-for-some-fishkeepers/",
+      "title": "Bloodworm Experiences: Reactions are a real thing for some fishkeepers",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/trung-chi-va-trung-huyet-dong-lanh.269044/",
+      "title": "Trùng chỉ và trùng huyết đông lạnh :-)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://topthuysinh.com/artemia-dong-lanh/",
+      "title": "Artemia đông lạnh (Chỉ ship Hà Nội) - Top Thủy Sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/bo-bo-dong-lanh",
+      "title": "Bo Bo Đông Lạnh (Túi ~ 50g) | Thủy Sinh Tím",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vatlieulochoca.vn/san-pham/thuc-an-tim-bo-dong-lanh-angel-food-cho-ca-dia-ca-la-han-tim-bo-do-va-tim-bo-tong-hop/",
+      "title": "Thức ăn tim bò đông lạnh Angel FOOD cho cá dĩa ,cá la hán (tim bò đỏ và tim bò tổng hợp - Vật liệu lọc hồ cá- Phụ kiện hồ thủy sinh-phụ kiện hồ cá",
+      "kind": "shop"
+    },
+    {
+      "url": "http://cacanhsonyen.com/index.php?route=product/product&product_id=84",
+      "title": "Sâu đỏ đông lạnh 5 vỉ 24 viên",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.bulkreefsupply.com/frozen-bloodworms-cubes-frozen-fish-food-san-francisco-bay-brand.html",
+      "title": "Frozen Bloodworms - Cubes - Frozen Fish Food - Bulk Reef Supply",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.hanoizoo.com/cho-ca-an-trun-huyet-dong-lanh/",
+      "title": "Hướng dẫn Toàn Tập: Cho Cá Ăn Trùn Huyết Đông Lạnh Hiệu Quả & An Toàn - Hanoizoo",
+      "kind": "other"
+    },
+    {
+      "url": "https://aquasetup.com/thuc-an-cho-ca-dong-lanh-co-tot-khong-bo-bo-trun-huyet-artemia-dong-lanh/",
+      "title": "Thức ăn cho cá đông lạnh có tốt không? – Bo bo , trùn huyết, artemia đông lạnh,..",
+      "kind": "shop"
+    },
+    {
+      "url": "https://blackwateraquatics.ca/blogs/knowledge-base/bloodworms-feeding-guide",
+      "title": "Bloodworms for Fish: Live vs Frozen, How Often to Feed & Safer Alternatives – Blackwater Aquatics Canada",
+      "kind": "shop"
+    },
+    {
+      "url": "https://kingaqua.vn/huong-dan-cach-cho-tep-canh-an-ma-ban-can-biet-n76251.html",
+      "title": "HƯỚNG DẪN CÁCH CHO TÉP CẢNH ĂN MÀ BẠN CẦN BIẾT",
+      "kind": "shop"
     }
   ]
 }
