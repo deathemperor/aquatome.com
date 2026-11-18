@@ -26,15 +26,24 @@ if (box && json) {
     return [...unsplashParts(ct('Ảnh: {author} trên {site}'), p.a, p.b ? { authorUrl: p.b } : { photo: p.s }).map(x => (x.href ? link(x.href, x.text) : x.text)), ...lic, ...(p.b ? [' · ', link(p.s, ct('Xem ảnh gốc ↗'))] : [])]
   }
   const photos: ViewerPhoto[] = album.photos.map(p => ({ src: p.u, thumb: p.t, width: p.w, height: p.h, alt: p.c ?? album.name, ...(p.c ? { caption: p.c } : {}), credit: credit(p) }))
-  // Focus goes back to the photo's thumb when the thumb is whole in the strip's view; else to what opened the viewer. The phone's row scrolls its thumbs out of view sideways, the tall screen's column
-  // clips the rows past its last whole one, and most of an album has no thumb.
+  // Focus goes back to the closing photo's thumb, in view (the Design Lead, 18 Nov): the phone's row, which scrolls
+  // sideways, brings a thumb past its edge back first, its start at the row's (where the row's scroll snaps), the page
+  // left where it is. Else to what opened the viewer: the tall screen's column clips the rows past its last whole one,
+  // and most of an album has no thumb.
   let opener: HTMLElement | undefined
-  const inView = (a: HTMLElement) => {
-    if (!(a.checkVisibility?.() ?? a.offsetParent !== null)) return false
-    const r = a.getBoundingClientRect(), v = (a.closest('ul') ?? box).getBoundingClientRect()
-    return r.width > 0 && r.left >= v.left - 1 && r.right <= v.right + 1 && r.top >= v.top - 1 && r.bottom <= v.bottom + 1
+  const thumb = (i: number) => {
+    for (const a of box.querySelectorAll<HTMLElement>(`a[data-i="${i}"]`)) {
+      if (!(a.checkVisibility?.() ?? a.offsetParent !== null)) continue
+      const ul = a.closest('ul') ?? box, r = a.getBoundingClientRect(), v = ul.getBoundingClientRect()
+      if (!(r.width > 0 && r.top >= v.top - 1 && r.bottom <= v.bottom + 1)) continue
+      if (r.left < v.left - 1 || r.right > v.right + 1) {
+        if (ul.scrollWidth <= ul.clientWidth) continue
+        ul.scrollLeft += r.left - v.left
+      }
+      return a
+    }
+    return undefined
   }
-  const thumb = (i: number) => [...box.querySelectorAll<HTMLElement>(`a[data-i="${i}"]`)].find(inView)
   let viewer: Promise<Viewer> | undefined
   const view = () => (viewer ??= import('./photo-viewer').then(m => m.createViewer({ id: 'album', photos, tile: i => thumb(i) ?? opener, address: i => `#a${i + 1}` })))
   const open = (i: number, from?: HTMLElement) => {
@@ -42,9 +51,11 @@ if (box && json) {
     view().then(v => v.open(i, { from }), () => location.assign(photos[i]!.src))
   }
   document.addEventListener('click', e => {
-    const a = (e.target as Element).closest<HTMLAnchorElement>('a[data-i], a[href^="#a"]')
-    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    const i = a.dataset.i !== undefined ? Number(a.dataset.i) : photoOfHash(a.getAttribute('href')!, photos.length)
+    // A thumb, the strip's "Xem tất cả" (the first photo) or a link to a photo's address (the jump row's chip).
+    const a = (e.target as Element).closest<HTMLElement>('a[data-i], [data-album] [data-all], a[href^="#a"]')
+    // A link clicked with a key held opens as the browser does it (a new tab); the button has nothing else to do.
+    if (!a || (a.tagName === 'A' && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey))) return
+    const i = a.dataset.i !== undefined ? Number(a.dataset.i) : a.hasAttribute('data-all') ? 0 : photoOfHash(a.getAttribute('href')!, photos.length)
     if (i === null || !(i >= 0 && i < photos.length)) return
     e.preventDefault()
     open(i, a)

@@ -2,7 +2,7 @@
 import type { Photo } from '@aq/schema'
 import AiPhotoLabel from './AiPhotoLabel.astro'
 import { albumJson, albumPhotos } from '../lib/album'
-import { GALLERY_MIN, GALLERY_STRIP } from '../lib/gallery'
+import { GALLERY_STRIP } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
 import { i18n } from '../lib/i18n'
 /**
@@ -23,22 +23,27 @@ interface Props { photos: Photo[]; name: string; shown?: (Photo | null)[]; colum
 const { t } = i18n(Astro.url)
 const { photos, name, column, more = [] } = Astro.props
 const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
-// "Xem tất cả": an album of GALLERY_MIN or more, as the photo page had it.
-const all = photos.length >= GALLERY_MIN
+// "Xem tất cả": a button opening the viewer on the first photo, with no arrow (it said "to another page"), and none when
+// the strip shows every photo (the Design Lead, 18 Nov): each is a thumb, or a photo the page shows already (null in
+// `shown`). A phone's wrapped strip shows only 6 thumbs (the styles below), so one of 7 or 8 keeps it there alone.
+const every = photos.length <= shown.length
+const phone = every && !column && shown.filter(Boolean).length > 6
+const all = !every || phone
+const see = t('Xem tất cả {n} ảnh', { n: photos.length })
 const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đã chỉnh sửa'), photos: albumPhotos(photos) })
 ---
 <section class:list={['strip', column ? 'column' : 'wrap']} aria-labelledby="gal-h" data-album>
-  <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{all && <a href="#a1">{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}</div>
+  <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{all && <button type="button" class:list={['see', phone && 'phone']} data-all aria-haspopup="dialog">{see}</button>}</div>
   <ul style={column ? `--rows: ${Math.ceil(shown.filter(Boolean).length / 4)}` : undefined}>
     {[...shown, ...more].map((p, i) => p && (
       <li class={i >= shown.length ? 'more' : undefined}><a href={p.url} data-i={i}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /><AiPhotoLabel photo={p} /></a></li>
     ))}
   </ul>
-  {/* A thumb tapped before the album's script has run (a slow phone): its photo's address, #aN, which that script opens
-      once it runs, in place of the bare photo; a second tap takes the first one's entry, so one Back still closes it.
-      Once the script runs (data-ready), its own handler takes the taps. */}
-  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i]');if(!a||this.hasAttribute('data-ready')||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();var h='#a'+(+a.dataset.i+1);if(/^#a\d+$/.test(location.hash))location.replace(h);else location.hash=h})</script>
-  {column && all && <a class="all" href="#a1">{t('Xem tất cả {n} ảnh →', { n: photos.length })}</a>}
+  {/* A thumb or "Xem tất cả" tapped before the album's script has run (a slow phone): its photo's address, #aN, which
+      that script opens once it runs, in place of the bare photo; a second tap takes the first one's entry, so one Back
+      still closes it. Once the script runs (data-ready), its own handler takes the taps. */}
+  <script is:inline>document.currentScript.parentElement.addEventListener('click',function(e){var a=e.target.closest('a[data-i],[data-all]');if(!a||this.hasAttribute('data-ready')||a.tagName=='A'&&(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey))return;e.preventDefault();var h='#a'+(+(a.dataset.i||0)+1);if(/^#a\d+$/.test(location.hash))location.replace(h);else location.hash=h})</script>
+  {column && all && <button type="button" class="all" data-all aria-haspopup="dialog">{see}</button>}
   <script type="application/json" set:html={data}></script>
   <script>
     import '../scripts/album'
@@ -48,8 +53,13 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
   .strip { padding-block: var(--space-5); }
   .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-1) var(--space-4); border-bottom: 2px solid var(--c-ink); padding-bottom: var(--space-2); margin-bottom: var(--space-4); }
   h2 { font-size: var(--step-2); }
+  /* "Xem tất cả": a button with a link's look (global.css), as it opens the viewer over the page. */
+  :where(button[data-all]) { font: inherit; color: var(--c-moss); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 0.18em; }
+  :where(button[data-all]):hover { color: var(--c-ink); }
   /* On one line beside the heading or under it; wrapped only where it can't fit on one (a phone 320 px wide). */
-  .head a { text-wrap: balance; font-size: 0.95rem; display: inline-block; padding-block: 10px; margin-block: -10px; }
+  .see { text-wrap: balance; font-size: 0.95rem; display: inline-block; padding-block: 10px; margin-block: -10px; text-align: start; }
+  .see.phone { display: none; }
+  @media (max-width: 640px) { .see.phone { display: inline-block; } }
   /* Each column its share (minmax(0, 1fr)), never its content's width: a photo that doesn't load shows its alt text in its
      place, and a long word in it widened the row past a phone's edge (13 November). */
   ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }
@@ -86,7 +96,7 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
   @media (max-width: 860px) {
     .column { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2); padding-top: var(--space-2); }
     .column .head { position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-    .column .head a { display: none; }
+    .column .see { display: none; }
     .column ul {
       grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 6rem;
       overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none;

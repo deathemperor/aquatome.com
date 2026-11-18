@@ -831,12 +831,15 @@ describe('photo gallery', () => {
   test('species page: a strip of thumbs, each opening its own photo over the page; the album carries every photo, credited', () => {
     const { html, dom } = page('/ca/ca-neon-vua/')
     const strip = dom.querySelector('section.strip')!
-    // "Xem tất cả" opens the album's first photo; the readers' photos are on the page itself (no link to them needed).
-    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('#a1')
-    expect(strip.querySelector('.head a')!.textContent).toBe('Xem tất cả 45 ảnh →')
-    // A phone's row hides the heading's link and ends with its own, short enough for a tile.
-    expect(strip.querySelector('a.all')!.getAttribute('href')).toBe('#a1')
-    expect(strip.querySelector('a.all')!.textContent).toBe('Xem tất cả 45 ảnh →')
+    // "Xem tất cả" opens the album's first photo over the page: a button, with no arrow, which said "to another page"
+    // (the Design Lead, 18 Nov). The readers' photos are on the page itself (no link to them needed).
+    const all = strip.querySelector('.head [data-all]')!
+    expect(all.tagName).toBe('BUTTON')
+    expect(all.getAttribute('aria-haspopup')).toBe('dialog')
+    expect(all.textContent).toBe('Xem tất cả 45 ảnh')
+    expect(strip.querySelector('a[href="#a1"]')).toBeNull()
+    // A phone's row hides the heading's and ends with its own, short enough for a tile.
+    expect(strip.querySelector('button.all[data-all][aria-haspopup="dialog"]')!.textContent).toBe('Xem tất cả 45 ảnh')
     const album = albumOf(dom)
     expect(album.photos).toHaveLength(45)
     // Each thumb its own photo: without the script, its full photo; with it, the album's photo at its place.
@@ -878,9 +881,10 @@ describe('photo gallery', () => {
   test('a plant gets an album too: the strip on its page, each photo credited, opened over the page', () => {
     const { dom } = page('/cay/cryptocoryne-wendtii/')
     const strip = dom.querySelector('section.strip')!
-    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('#a1')
-    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh') // the CC BY-NC photo is left out
+    // Its strip shows all 6 (the CC BY-NC photo is left out), so no "Xem tất cả" (the Design Lead, 18 Nov).
     expect(albumOf(dom).photos).toHaveLength(6)
+    expect(strip.querySelectorAll('li a[data-i]')).toHaveLength(6)
+    expect(strip.querySelector('[data-all]')).toBeNull()
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
     expect(page('/cay/ray-nana/').dom.querySelector('section.strip')).toBeNull()
   })
@@ -905,7 +909,7 @@ describe('man-made fish (breeds)', () => {
     expect(dom.querySelector('.body a[href="/ca/ca-dia-pigeon-blood/"]')).toBeNull()
     expect(dom.querySelector('[data-comments][data-entity="breed:pigeon-blood-discus"], [data-entity="breed:pigeon-blood-discus"]')).toBeTruthy()
     // Too few photos for "Xem tất cả": the second photo shows in the strip, opening itself over the page, credited.
-    expect(dom.querySelector('section.strip .head a')).toBeNull()
+    expect(dom.querySelector('section.strip [data-all]')).toBeNull()
     expect(dom.querySelector('section.strip li a')!.getAttribute('href')).toMatch(/Breed2\.jpg$/)
     expect(albumOf(dom).photos.map(p => p.u)).toContain(dom.querySelector('section.strip li a')!.getAttribute('href'))
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed2.jpg')
@@ -918,7 +922,10 @@ describe('man-made fish (breeds)', () => {
     expect(p.querySelector('a')!.textContent).toMatch(/^Cá đĩa \(Symphysodon/)
     expect(p.textContent).toContain('chưa chắc chắn')
     expect(dom.querySelector('meta[name="robots"]')!.getAttribute('content')).toContain('noindex')
-    expect(dom.querySelector('section.strip .head a')!.getAttribute('href')).toBe('#a1')
+    // All 7 of its photos are thumbs, but a phone's wrapped strip shows 6: its "Xem tất cả" is the phone's alone.
+    expect(dom.querySelectorAll('section.strip li a[data-i]')).toHaveLength(7)
+    expect(albumOf(dom).photos).toHaveLength(7)
+    expect(dom.querySelector('section.strip .head [data-all]')!.getAttribute('class')).toMatch(/\bsee phone\b/)
   })
   test('the species page lists its lines and hybrids, crediting their pictures; the species list shows them', () => {
     const { dom } = page('/ca/ca-dia/')

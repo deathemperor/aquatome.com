@@ -48,15 +48,19 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
     expect(errors).toEqual([])
   })
 
+  // A button with no arrow, there only when the strip doesn't show every photo (the Design Lead, 18 Nov).
   test(`${what} album: "Xem tất cả" opens its first photo over the page, and Back closes it there`, async ({ page, request, errors }) => {
-    const found = await albumPage(request, section)
-    test.skip(!found, `no ${what} album in this build`)
+    // One whose strip has it on every screen (not a phone's alone, the next test's).
+    const found = await albumPage(request, section, (_, html) => /<button[^>]*class="see"[^>]*\bdata-all\b/.test(html))
+    test.skip(!found, `no ${what} album with "Xem tất cả" in this build`)
     const { path, album } = found!
     await page.goto(path)
     await page.waitForLoadState()
-    const all = page.locator('section.strip :is(.head a, a.all):visible') // a fish page's row on a phone has its own
-    await expect(all).toHaveAttribute('href', '#a1')
-    await expect(all).toHaveText(`Xem tất cả ${album.photos.length} ảnh →`)
+    const all = page.locator('section.strip [data-all]:visible') // a fish page's row on a phone has its own
+    test.skip(!(await all.count()), 'this screen shows every photo of the strip')
+    await expect(all).toHaveRole('button')
+    await expect(all).toHaveAttribute('aria-haspopup', 'dialog')
+    await expect(all).toHaveText(`Xem tất cả ${album.photos.length} ảnh`)
     await all.click()
     const viewer = page.locator('dialog.lb')
     await expect(viewer.getByRole('status')).toHaveText(`1/${album.photos.length}`)
@@ -265,6 +269,60 @@ test('album, a tall computer screen: closed on a photo the column clips, focus g
   await page.keyboard.press('Escape')
   await expect(viewer).toBeHidden()
   await expect(thumb).toBeFocused()
+  expect(errors).toEqual([])
+})
+
+// A strip that shows every photo has no "Xem tất cả"; a phone's wrapped strip shows 6 of its thumbs, so one of 7 or 8
+// keeps it there alone (the Design Lead, 18 Nov).
+test('album: "Xem tất cả" only where the strip doesn\'t show every photo', async ({ page, request, errors }, info) => {
+  const found = await albumPage(request, 'ca', (_, html) => /<button[^>]*class="see phone"/.test(html))
+  test.skip(!found, 'no wrapped strip of 7 or 8 photos in this build')
+  await page.goto(found!.path)
+  const seen = page.locator('section.strip li a[data-i]:visible')
+  const all = page.locator('section.strip [data-all]:visible')
+  if (info.project.name === 'phone') {
+    await expect(seen).toHaveCount(6)
+    await expect(all).toHaveText(`Xem tất cả ${found!.album.photos.length} ảnh`)
+  } else {
+    await expect(seen).toHaveCount(await page.locator('section.strip li a[data-i]').count())
+    await expect(all).toHaveCount(0)
+  }
+  expect(errors).toEqual([])
+})
+
+// Closed on a photo whose thumb the phone's row has scrolled out of sight: the row brings it back, focused, and the page
+// stays where it was (the Design Lead, 18 Nov).
+test('album, a phone: closed on a photo whose thumb is past the row\'s edge, the row scrolls it into view, focused', async ({ page, request, errors, isMobile }) => {
+  test.skip(!isMobile, 'the photo column is a sideways row on a phone')
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html))
+  test.skip(!found, 'no fish page with a photo row in this build')
+  const { path } = found!
+  await page.goto(path)
+  await page.waitForLoadState()
+  const row = page.locator('section.strip.column ul')
+  await row.scrollIntoViewIfNeeded()
+  const past = await row.evaluate(ul => {
+    const v = ul.getBoundingClientRect()
+    const a = [...ul.querySelectorAll<HTMLElement>('li a[data-i]')].find(a => a.getBoundingClientRect().left > v.right + 1)
+    return a ? Number(a.dataset.i) : null
+  })
+  test.skip(past === null, 'every thumb fits the row')
+  const first = row.locator('li a[data-i]').first()
+  const from = Number(await first.getAttribute('data-i'))
+  const y = await page.evaluate(() => scrollY)
+  await first.tap()
+  const viewer = page.locator('dialog.lb')
+  await expect(viewer).toBeVisible()
+  for (let k = from; k < past!; k++) await page.keyboard.press('ArrowRight')
+  await expect(page).toHaveURL(at(path, `#a${past! + 1}`))
+  await page.keyboard.press('Escape')
+  await expect(viewer).toBeHidden()
+  const back = row.locator(`li a[data-i="${past}"]`)
+  await expect(back).toBeFocused()
+  const [r, v] = await back.evaluate(a => [a.getBoundingClientRect().toJSON(), a.closest('ul')!.getBoundingClientRect().toJSON()] as DOMRect[])
+  expect(r!.left, 'the thumb within the row').toBeGreaterThanOrEqual(v!.left - 1)
+  expect(r!.right, 'the thumb within the row').toBeLessThanOrEqual(v!.right + 1)
+  expect(await page.evaluate(() => scrollY), 'the page where it was').toBe(y)
   expect(errors).toEqual([])
 })
 
