@@ -14,7 +14,7 @@ import { fileClashes } from './clash-store'
 import { handoverFor } from './handover'
 import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, CHAT_PRESENT, MAX_TOKENS, noThinking, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
-import { answerFeed, type ChatBlock } from './answer'
+import { answerFeed, offersAnswer, type ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey, secs, stopKey } from './store'
 import type { Step, Tank, TankLight } from './tools'
@@ -141,14 +141,18 @@ export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStre
     expire = () => { over = true; s.abort(); reject(Object.assign(new Error('Request timed out.'), { status: undefined })) }
     timer = setTimeout(expire, timeoutMs)
   })
-  const feed = answerFeed()
-  s.on('streamEvent', e => {
-    const delta = feed(e)
+  const take = (delta: string | undefined) => {
     if (over || delta === undefined) return
     if (!writing && writingMs > timeoutMs) { clearTimeout(timer); timer = setTimeout(expire, writingMs - (Date.now() - began)) }
     writing = true
     onDelta(delta)
-  })
+  }
+  // A call that offers send_answer feeds the answer's block, its text or the tool's input (`answerFeed`); any other, its
+  // text, all of it, as before send_answer came.
+  if (offersAnswer(b)) {
+    const feed = answerFeed()
+    s.on('streamEvent', e => take(feed(e)))
+  } else s.on('text', take)
   const sdkError = (c.constructor as typeof Anthropic).AnthropicError
   const done = s.finalMessage().catch((e: unknown) => { throw e instanceof sdkError && !isApiError(e) ? Object.assign(e, { status: undefined }) : e })
   return Promise.race([done, bound]).finally(() => clearTimeout(timer))

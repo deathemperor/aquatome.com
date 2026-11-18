@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { answered, ANSWER_SCHEMA, answerTool, filler, OFF_TOPIC, picksReader, readAnswer, repeatsKey, textReader, type Answer, type ChatBlock, type Choice } from './answer'
+import { answered, ANSWER_SCHEMA, answerTool, filler, OFF_TOPIC, offersAnswer, picksReader, readAnswer, repeatsKey, textReader, type Answer, type ChatBlock, type Choice } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { Found, Handover } from './handover'
 import type { MatesCheck } from './mates'
@@ -347,7 +347,7 @@ export type ChatOptions = {
  * call that has given the reader any text is the answer: its tool calls are dropped and the run ends on it, since what
  * the reader has read can't be taken back. What is kept is what they read: an answer whose JSON names a key twice, one
  * whose text isn't the text shown, or one off topic after text showed fails the call, and with it the run, rather than
- * save another (Codex, 17 Nov).
+ * save another (Codex, 17 Nov). Those are for a call that offers send_answer: any other is read as before it came (18 Nov).
  */
 function streaming(send: ChatOptions['send'], onText: (piece: string) => void, onPick?: (pick: Choice) => void): ChatOptions['send'] {
   return async (body, opts) => {
@@ -357,7 +357,8 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
     let said = ''
     let shown = false
     let stuck = false
-    const m = answered(await send(body, {
+    const sends = offersAnswer(body)
+    const got = await send(body, {
       ...opts,
       onText: delta => {
         raw += delta
@@ -368,14 +369,17 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
         try { picked = onPick && !stuck ? picks(delta) : [] } catch (e) { stuck = true; console.error('chat picks:', e) }
         if (shown) picked.forEach(p => onPick!(p))
       },
-    }))
-    if (repeatsKey(raw)) throw new Error('chat: the answer names a key twice')
+    })
+    const m = sends ? answered(got) : got
+    if (sends && repeatsKey(raw)) throw new Error('chat: the answer names a key twice')
     if (!shown) return m
-    const kept = readAnswer(m)
-    // The answer kept is the one that streamed, its picks too: not another block's (Codex, 18 Nov).
-    const sameAs = (a: string, b: string) => { try { return JSON.stringify(JSON.parse(a)) === JSON.stringify(JSON.parse(b)) } catch { return false } }
-    const keptRaw = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
-    if (kept && (kept.offTopic || kept.text !== said || !sameAs(raw, keptRaw))) throw new Error('chat: the answer kept isn\'t the one shown')
+    if (sends) {
+      const kept = readAnswer(m)
+      // The answer kept is the one that streamed, its picks too: not another block's (Codex, 18 Nov).
+      const sameAs = (a: string, b: string) => { try { return JSON.stringify(JSON.parse(a)) === JSON.stringify(JSON.parse(b)) } catch { return false } }
+      const keptRaw = m.content.flatMap(b => (b.type === 'text' ? [b.text] : [])).join('')
+      if (kept && (kept.offTopic || kept.text !== said || !sameAs(raw, keptRaw))) throw new Error('chat: the answer kept isn\'t the one shown')
+    }
     return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
   }
 }

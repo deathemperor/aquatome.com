@@ -1208,6 +1208,28 @@ test('Haiku with the reader there keeps main\'s pace: never asked, never told to
   expect([bodies.length, bodies[1]!.tool_choice?.type, out.stopped]).toEqual([2, 'none', 'time'])
 })
 
+test('Haiku\'s calls, which offer no send_answer, are read as before it came: a whole object beside a read still reads, a key written twice and an answer in two blocks are kept (Codex, 18 Nov)', async () => {
+  const text = 'Cá neon xanh sống theo đàn từ 6 con, nước 20–26 °C.'
+  const rest = '"covered": true, "blocks": [], "suggestions": [], "clashes": []}'
+  const raw = `{"offTopic": false, "text": ${JSON.stringify(text)}, ${rest}`
+  const haiku = async (send: ChatOptions['send']) => answerQuestion({
+    model: 'claude-haiku-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+    onText: () => {}, until: () => Date.now() + 26_000, send,
+  })
+  // `{}` beside a read: the read runs and the next call answers.
+  let calls = 0
+  const read = await haiku(async () => (++calls === 1 ? message([{ type: 'text', text: '{}' }, readPage], 'tool_use') : message([{ type: 'text', text: raw }])))
+  expect([read.calls, read.answer?.text]).toEqual([2, text])
+  // A key written twice, streamed: kept, as JSON reads it.
+  const twice = raw.replace('"covered": true', '"covered": false, "covered": true')
+  const dup = await haiku(async (_b, o) => { for (let i = 0; i < twice.length; i += 9) o.onText?.(twice.slice(i, i + 9)); return message([{ type: 'text', text: twice }]) })
+  expect([dup.stopped, dup.answer?.text]).toEqual(['answer', text])
+  // The answer's JSON in two text blocks: read whole.
+  const cut = raw.indexOf('"covered"')
+  const two = await haiku(async () => message([{ type: 'text', text: raw.slice(0, cut) }, { type: 'text', text: raw.slice(cut) }]))
+  expect(two.answer?.text).toBe(text)
+})
+
 test('asked by a limit, the answer through send_answer streams: the call keeps its tools, told to answer, and its answer ends the run as an obeyed ask', async () => {
   // Calls of 7 s with the reader there, in their longer turn: two read, and a third would end past 20 s, so it is asked to
   // answer; read past, the answer's call would still begin by 22 s, with all its room (loop.ts `asking`).

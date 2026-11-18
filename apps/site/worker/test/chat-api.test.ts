@@ -943,6 +943,7 @@ describe('a call that has begun writing', () => {
   const writes = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: '{"offTopic":false,"text":"Nước' } })
   const ends = event('content_block_stop', { index: 0 }) + event('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
   const body = { model: 'claude-opus-5-5', max_tokens: 10, messages: [{ role: 'user' as const, content: 'hi' }] }
+  const sendAnswer = { name: 'send_answer', description: 'd', input_schema: { type: 'object' as const }, eager_input_streaming: true }
   /** A stream that sends `first` at once and, `ms` later, `then` (and ends), or nothing more with no `then`. */
   const streams = async (first: string, then?: string, ms = 0) => clientFor({ key: 'sk-ant-test', hash: 'h' } as KeyEntry, (async () => new Response(new ReadableStream({
     start: ctl => {
@@ -972,14 +973,14 @@ describe('a call that has begun writing', () => {
     const rest = event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: 'ớc"}' } }) + event('content_block_stop', { index: 0 })
       + event('message_delta', { delta: { stop_reason: 'tool_use', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
     const said: string[] = []
-    const m = await callClaude(await streams(start + tool, rest, 250), body, 100, d => said.push(d), undefined, 2000)
+    const m = await callClaude(await streams(start + tool, rest, 250), { ...body, tools: [sendAnswer] }, 100, d => said.push(d), undefined, 2000)
     expect(said).toEqual(['{"offTopic": false, "text": "Nư', 'ớc"}'])
     expect(m.content).toMatchObject([{ type: 'tool_use', name: 'send_answer', input: { offTopic: false, text: 'Nước' } }])
     // Another tool's input is no answer: nothing to onDelta, and a call still silent at its limit is stopped.
     const read = event('content_block_start', { index: 0, content_block: { type: 'tool_use', id: 'toolu_2', name: 'read_page', input: {} } })
       + event('content_block_delta', { index: 0, delta: { type: 'input_json_delta', partial_json: '{"path":"/vi/' } })
     const none: string[] = []
-    const e = await callClaude(await streams(start + read), body, 100, d => none.push(d), undefined, 2000).catch(x => x)
+    const e = await callClaude(await streams(start + read), { ...body, tools: [sendAnswer] }, 100, d => none.push(d), undefined, 2000).catch(x => x)
     expect([none, isApiError(e) && e.status === undefined]).toEqual([[], true])
   })
 
@@ -992,6 +993,17 @@ describe('a call that has begun writing', () => {
     const tools = [{ name: 'read_page', description: 'd', input_schema: { type: 'object' as const }, strict: true }, { name: 'send_answer', description: 'd', input_schema: { type: 'object' as const }, eager_input_streaming: true }]
     await callClaude(c, { ...body, tools }, 1000)
     expect(sent!.tools).toEqual([tools[0], { name: 'send_answer', description: 'd', input_schema: { type: 'object' } }])
+  })
+
+  test('a call that offers no send_answer (Haiku\'s) is read as before it came: any text is writing, words or not, and runs past its limit (Codex, 18 Nov)', async () => {
+    const words = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Let me check' } })
+    const said: string[] = []
+    const m = await callClaude(await streams(start + words, ends, 250), body, 100, d => said.push(d), undefined, 2000)
+    expect([said, m.stop_reason]).toEqual([['Let me check'], 'end_turn'])
+    // Offered send_answer, the same words aren't the answer: nothing to onDelta, and the call is stopped at its limit.
+    const none: string[] = []
+    const e = await callClaude(await streams(start + words, ends, 250), { ...body, tools: [sendAnswer] }, 100, d => none.push(d), undefined, 2000).catch(x => x)
+    expect([none, isApiError(e) && e.status === undefined]).toEqual([[], true])
   })
 
   test('a call still silent at its limit gets no more time', async () => {

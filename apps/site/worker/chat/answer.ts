@@ -81,6 +81,12 @@ export const ANSWER_SCHEMA = {
  * then text, in every probe). Haiku answers in text, which it streams, and that stays an answer too.
  */
 export const SEND_ANSWER = 'send_answer'
+/**
+ * Whether a call offers send_answer. Only such a call's stream and message are read as `answerFeed` and `answered` read
+ * them, with the stream's checks (agent.ts `streaming`); any other call is read as before send_answer came (Haiku's,
+ * 18 Nov: chat/agent.ts `SENDS_ANSWER`).
+ */
+export const offersAnswer = (b: { tools?: readonly unknown[] }) => !!b.tools?.some(t => (t as { name?: unknown }).name === SEND_ANSWER)
 export const answerTool = {
   name: SEND_ANSWER,
   description: 'Send the reader your answer. Call it once, when you have read what you need: what you pass is your answer, in the answer\'s form, and the reader sees its text as you write it.',
