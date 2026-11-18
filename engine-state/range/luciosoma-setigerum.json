@@ -1,9 +1,26 @@
 {
   "id": "luciosoma-setigerum",
   "native": {
-    "input": "d17514c8dde3463b",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "5d3611dd95dd57ae",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This barb with the extremely aerodynamic shape originates from Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Indonesia.",
+        "words": "Indonesia",
+        "ok": false,
+        "why": "no sentence"
+      },
       {
         "code": "TH",
         "status": "native",
@@ -45,19 +62,19 @@
         "ok": true
       },
       {
-        "code": "ID",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Pébak River, Java, Indonesia'.",
-        "words": "Indonesia",
-        "ok": true
-      },
-      {
         "code": "MM",
         "status": "doubtful",
         "source": "seriouslyfish",
         "quote": "It may also occur in eastern Myanmar but this remains in need of confirmation.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Pébak River, Java, Indonesia'.",
+        "words": "Indonesia",
         "ok": true
       }
     ],
@@ -72,14 +89,12 @@
         "name": "Chao Phraya",
         "source": "seriouslyfish",
         "quote": "Records exist from the Mekong River basin in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, respectively, various smaller drainages in peninsular Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
-        "country": "TH",
         "ok": true
       },
       {
         "name": "Mae Klong",
         "source": "seriouslyfish",
         "quote": "Records exist from the Mekong River basin in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, respectively, various smaller drainages in peninsular Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
-        "country": "TH",
         "ok": true
       },
       {

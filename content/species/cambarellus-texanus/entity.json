@@ -10,6 +10,50 @@
     "united-states",
     "texas"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Colorado River"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "It has since been found in the Colorado River, Fort Bend County and Waller County.",
+          "countries": [],
+          "regions": [
+            "Colorado River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2227435,
+      "total": 24,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "US",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          28.125,
+          18
+        ],
+        [
+          -97.03125,
+          29.53125,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

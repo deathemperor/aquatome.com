@@ -360,6 +360,47 @@
       "kept": false
     }
   ],
+  "id/guides/aquatome-ca-betta-cach-nuoi-thuc-an-benh-va-nuoi-chung": [
+    {
+      "at": "2026-11-18T00:05:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"panjang standar, tanpa ekor\": the facts give only \"70 mm SL\" and never explain what SL means.",
+        "\"bakteri baik yang menjalankan siklus nitrogen\": the facts say only that chlorine can kill beneficial bacteria. They do not mention the nitrogen cycle.",
+        "\"Dosis untuk produk bermerek hanya berlaku untuk produk tersebut\": a general caveat that the facts do not state.",
+        "\"akuarium yang sudah stabil\": the facts say nothing about a cycled or stable tank before adding the fish."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.86,
+        0.86,
+        0.86
+      ]
+    },
+    {
+      "at": "2026-11-18T00:05:19Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.78,
+      "notes": [
+        "\"obat berbahan nitrofurazone dengan dosis sesuai label produk\": the facts give the lab dose as 46 mg/L for 4 days. The guide swaps that for a label dose the study never mentions.",
+        "\"Velvet (di laboratorium)... obat komersial dengan dosis sesuai label produk\": the facts name Proform C at 30 µL/L for 5 days. The guide drops the product and dose and attributes a label-based dose to the study.",
+        "\"karantina ikan atau tanaman baru minimal dua minggu supaya penyakit seperti busuk sirip dan velvet tidak masuk\": the facts do not tie quarantine to preventing fin rot or velvet. They give fin rot causes such as water quality and injuries."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.78,
+        0.88
+      ]
+    }
+  ],
   "id/guides/aquatome-ca-bi-loi-mat-popeye-nguyen-nhan-cach-chua-va-phong": [
     {
       "at": "2026-11-16T01:29:00Z",

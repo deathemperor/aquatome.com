@@ -1,0 +1,136 @@
+{
+  "id": "ariopsis-assimilis",
+  "native": {
+    "input": "a81a5d121b0731a1",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "North America: Atlantic draining rivers, from Quintana Roo, Mexico, to Honduras.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "North America: Atlantic draining rivers, from Quintana Roo, Mexico, to Honduras.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Lake of Yzabal, Guatemala.",
+        "words": "Guatemala",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake of Yzabal",
+        "source": "scotcat",
+        "quote": "Type locality: Lake of Yzabal, Guatemala.",
+        "country": "GT",
+        "ok": true
+      },
+      {
+        "name": "Bacalar lagoon system",
+        "source": "scotcat",
+        "quote": "The species is assessed as Least Concern because, in spite of its rather limited distribution, it can be locally abundant, for example in the Bacalar lagoon system, which is not subject to the pollution impacts that likely killed a large part of the population in Chetumal/Corozal Bay in 1996 (IUCN 2019).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ariopsis assimilis",
+    "status": "ACCEPTED",
+    "taxonKey": 5202965,
+    "datasets": [
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        19
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        6
+      ],
+      [
+        "5000c6ca-d69a-4cc7-a4d2-1747803ce7e1",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        2
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        1
+      ]
+    ],
+    "native": [
+      "MX",
+      "HN",
+      "GT"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

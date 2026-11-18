@@ -1,12 +1,18 @@
 {
   "id": "ariopsis-seemanni",
-  "input": "38d6522f8db6fece",
-  "at": "2026-11-07T09:34:13.453Z",
+  "input": "df1f60397cf0de22",
+  "at": "2026-11-18T01:04:30.434Z",
   "claims": [
     {
       "kind": "brackish",
       "source": "seriouslyfish",
       "quote": "Aquatic plants aren't recommended, as most of the commonly available species will not do well in the brackish conditions needed for this species' long term health.",
+      "ok": true
+    },
+    {
+      "kind": "marine",
+      "source": "scotcat",
+      "quote": "As this fish grows it will require more salt, and from a sub-adult brackish water system it will progress into a marine environment which will need marine salt to be added.",
       "ok": true
     }
   ]

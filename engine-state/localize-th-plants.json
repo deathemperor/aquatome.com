@@ -1362,6 +1362,34 @@
       "\"คริปต์\": hobbyists more often write \"ครัยปโตคอรีน\" or \"คริปโต\". \"คริปต์\" is acceptable, but \"คริปโต\" is more common."
     ]
   },
+  "lemnoideae": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "แหนเป็ด",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "\"ปลาปอมปาดัวร์\" for discus is wrong: discus is normally \"ปลาปอมปาดัวร์\" in Thai, but the term is not wrong. However \"ปลาออตโต\" for otocinclus and \"ปลาหมู\" for loaches are loose: loaches are \"ปลาโลช\" or \"ปลาหมู\" (fine). Check \"ปลาซักเกอร์\" for plecos: it is better as \"ปลาแพลโก/ปลาซัคเกอร์\".",
+      "\"ปลาตะเพียนโรซี่บาร์บ\": rosy barb is not a ตะเพียน; use \"ปลาโรซี่บาร์บ\".",
+      "\"สายออกซิเจนแบบใส\" (air tubing): use \"สายยางอากาศ/สายลมแบบใส\"; \"ออกซิเจน\" is wrong.",
+      "\"อาจผ่านการฉีดยาฆ่าแมลง\": the English says \"treated with pesticides\", and \"ฉีด\" (spray/inject) is an added detail; use \"ผ่านการใช้ยาฆ่าแมลง\".",
+      "\"เป็นรากพิเศษ\" for adventitious roots: use \"รากแขนง/รากพิเศษ (adventitious)\" more clearly; \"ใบเหลือง\" for \"Yellowing\" and \"ไม่ซีด\" for \"without discolouration\" are loose.",
+      "\"ซึ่งมีความหนาแน่นมากกว่าใบ\": \"fronds\" is rendered \"ใบ\" here but \"แผ่น/ฟรอนด์\" elsewhere; make it consistent.",
+      "\"หากสูงหรือต่ำกว่าช่วงนี้จะหยุดนิ่ง\" is fine, but \"Common Duckweed (Lemna minor)\" is \"แหนเล็ก\" while the heading name is \"แหนเป็ด\"; \"subcosmopolitan\" is rendered \"เกือบทั่วโลก\", acceptable.",
+      "\"ดินมอนต์มอริลโลไนต์\": a spelling slip; the usual form is \"มอนต์มอริลโลไนต์\" (consistent) but add \"(montmorillonite clay)\" for clarity.",
+      "\"กรองแขวน\" for hang-on-back filter: more common is \"กรองแขวนหลังตู้\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "ceae2ffb2153",
+      "distribution:aquariumbreeder": "6892ea0846ac",
+      "habitat:aquariumbreeder": "d626bae01e84",
+      "maintenance:aquariumbreeder": "75e98f5217ea",
+      "waterConditions:aquariumbreeder": "f861adc0ae91",
+      "equipment:aquariumbreeder": "c08e820fd3f6",
+      "diet:aquariumbreeder": "9eb46a329abf",
+      "notes:aquariumbreeder": "ef6f15276eab"
+    }
+  },
   "leptodictyum-riparium": {
     "at": "2026-11-03",
     "from": "2026-10-30",
@@ -1496,6 +1524,33 @@
       "Item 3: \"ชื่อสกุลตั้งตาม...\" narrows \"It was named after\" to the genus name. Say \"ชื่อ Lobelia ตั้งตาม...\" or keep it neutral.",
       "Item 7: \"ดูเหมือนเป็นต้นไม้คนละชนิด\" is acceptable. \"ผอมยืด\" and \"โปร่งและผอมยืด\" for \"sparse and slender\" read a bit awkwardly. Use \"ต้นโปร่งและเรียวยาว\"."
     ]
+  },
+  "lomariopsis-sp": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "ซับวาสเซอร์แทง",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Section 2: \"Christel Kasselman\" is named, which is fine, but the English says the plant \"has not been named as a distinct species\". The Thai \"ยังไม่ได้รับการตั้งชื่อเป็นชนิดแยก\" is acceptable. Section 3 \"พืชอิงอาศัย\" for epiphytic is fine too.",
+      "Section 4: \"เพื่อนร่วมตู้...กุ้งยามาโตะ (Amano)\" is a standard term, but \"หอยโข่งญี่ปุ่น (Japanese trapdoor)\" is wrong: Japanese trapdoor snail is หอยกาบ/หอยฝาปิดญี่ปุ่น (Viviparus), not หอยโข่ง. Use the local term for Japanese trapdoor snail (หอยจุกญี่ปุ่น).",
+      "Section 4: \"ปลาเชอร์รี่บาร์บ\" and \"ปลาหางดาบเขียว\" are acceptable, but \"ปลาที่วางไข่แบบโปรยไข่\" is clumsy. Use \"ปลาที่วางไข่กระจาย (egg scatterer)\".",
+      "Section 4 (the care section): \"การกักโรคไว้ในตู้แยก\" is awkward. Use \"กักตัว/พักต้นไม้ในตู้กักโรค\".",
+      "Section 5: \"ให้ผลผลิตมากกว่า\" for \"more yield\" is odd for a plant. Use \"แตกกอมากกว่า\". \"คาร์บอนน้ำ\" for liquid carbon should be \"คาร์บอนน้ำ (liquid carbon)\" or \"น้ำยาคาร์บอน\".",
+      "Section 5: \"in nature it can thrive in cold temperatures\" is translated as \"สามารถเติบโตได้ดีในอุณหภูมิเย็น\", which is fine. The section 5 sentence \"มีรายงานว่าไม่ชอบแสงจัด\" lacks a subject and should say the plant dislikes it.",
+      "Section 7: \"อับตาย\" for \"smother\" is unnatural; use \"เน่า/อับจนตาย\". \"ละลาย\" for melt is OK.",
+      "Section 3: \"หินขอน\" in the rhizoid explanation is wrong or garbled for hardscape. Use \"หินและไม้ตกแต่ง\".",
+      "Section 1: \"ความยาก: ง่าย\" is fine. \"ซับวาสเซอร์แทง\" is a transliteration, but \"Subwassertang\" is already given."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "9af7634a7976",
+      "distribution:aquariumbreeder": "790415abadc4",
+      "habitat:aquariumbreeder": "1f710b8fea86",
+      "maintenance:aquariumbreeder": "1fb0a328b9b0",
+      "waterConditions:aquariumbreeder": "f3ebb0de339b",
+      "behaviour:aquariumbreeder": "ebb25b0ec16b",
+      "notes:aquariumbreeder": "793d62c0a975"
+    }
   },
   "ludwigia-arcuata": {
     "at": "2026-11-04",
@@ -2180,12 +2235,30 @@
     ]
   },
   "sagittaria-subulata": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-18",
+    "from": "2026-11-17",
     "name": "ซาจิทาเรีย ซูบูลาต้า",
     "confidence": "medium",
     "score": 0.95,
-    "notes": []
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "b7ff0e78c32e",
+      "maintenance:tropica": "4a34a8e17375",
+      "notes:tropica": "eba23cfbb4a0"
+    },
+    "failed": {
+      "at": "2026-11-18T00:12:38.247Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "50663f3a5885",
+        "distribution:aquariumbreeder": "af4306880e06",
+        "habitat:aquariumbreeder": "0cd1b2290f12",
+        "aquariumSize:aquariumbreeder": "53bf592ab515",
+        "maintenance:aquariumbreeder": "9ddf010f53d6",
+        "waterConditions:aquariumbreeder": "f7280caad253",
+        "equipment:aquariumbreeder": "9e4ec1d09717",
+        "notes:aquariumbreeder": "189b70237667"
+      }
+    }
   },
   "salvinia-auriculata": {
     "at": "2026-11-08",

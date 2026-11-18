@@ -13,6 +13,73 @@
     "india",
     "bangladesh"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH",
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Salween",
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Myanmar; reported from Thailand.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species also occurs in India and Bangladesh.",
+          "countries": [
+            "IN",
+            "BD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is known from the lower reaches and estuaries of the Irrawaddy and Salween drainages eastwards to the western part of the Malay Peninsula.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Salween",
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4286772,
+      "total": 1,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

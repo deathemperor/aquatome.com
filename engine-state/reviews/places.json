@@ -960,6 +960,20 @@
       "kept": true
     }
   ],
+  "id/places/baja-california": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/balkans": [
     {
       "at": "2026-11-13T11:01:52Z",
@@ -1263,6 +1277,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/batavia": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1718,6 +1746,20 @@
       "kept": true
     }
   ],
+  "id/places/bioko": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bird-s-head-peninsula": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1834,6 +1876,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/bolaven-plateau": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -3085,6 +3141,21 @@
       "kept": true
     }
   ],
+  "id/places/colorado-river": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Colorado (river): an Indonesian atlas would normally write \"Sungai Colorado\". The generic term is dropped.",
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/comoe": [
     {
       "at": "2026-11-08T05:19:46Z",
@@ -3440,6 +3511,20 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/dayao-mountain": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -4469,6 +4554,21 @@
       "kept": true
     }
   ],
+  "id/places/gui-river": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/guiana-shield": [
     {
       "at": "2026-11-14T16:53:33Z",
@@ -4867,6 +4967,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/indawgyi": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6487,6 +6601,21 @@
       "kept": true
     }
   ],
+  "id/places/kunene-river": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kurupung": [
     {
       "at": "2026-11-16T10:59:33Z",
@@ -6518,6 +6647,20 @@
       "score": 0.3,
       "notes": [
         "Kwai Noi → แควน้อย (Thai script, not Indonesian; should be Kwai Noi)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kwando": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
       ],
       "attempt": "first",
       "kept": true
@@ -6695,6 +6838,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/laguna-de-los-patos": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7600,6 +7757,21 @@
       "score": 0.6,
       "notes": [
         "\"Liu Jiang\" – questionable without \"Sungai\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/liu-river": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
       ],
       "attempt": "first",
       "kept": true
@@ -8524,6 +8696,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mangoro": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9496,6 +9682,20 @@
       "kept": true
     }
   ],
+  "id/places/mozambique-channel": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mozhehe": [
     {
       "at": "2026-11-14T23:44:10Z",
@@ -9929,6 +10129,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nam-ngum": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -10898,6 +11112,21 @@
       "kept": true
     }
   ],
+  "id/places/pangani-river": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/panniyar": [
     {
       "at": "2026-11-10T17:42:34Z",
@@ -10927,6 +11156,21 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/panuco-river": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -11280,6 +11524,21 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/phong-nha-river": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -12091,6 +12350,21 @@
       "kept": true
     }
   ],
+  "id/places/rio-axtla": [
+    {
+      "at": "2026-11-18T00:02:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-aye": [
     {
       "at": "2026-11-08T05:21:29Z",
@@ -12872,6 +13146,21 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-jucurucu": [
+    {
+      "at": "2026-11-18T00:02:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -16109,6 +16398,21 @@
       "kept": true
     }
   ],
+  "id/places/tecolutia-river": [
+    {
+      "at": "2026-11-18T00:02:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/tecolutla": [
     {
       "at": "2026-11-09T00:08:05Z",
@@ -16231,6 +16535,20 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/texas": [
+    {
+      "at": "2026-11-18T00:02:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -16887,6 +17205,20 @@
       "kept": true
     }
   ],
+  "id/places/upper-zambezi": [
+    {
+      "at": "2026-11-18T00:02:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/urubu": [
     {
       "at": "2026-11-09T11:45:44Z",
@@ -17300,6 +17632,20 @@
       "kept": true
     }
   ],
+  "id/places/xe-khong": [
+    {
+      "at": "2026-11-18T00:02:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "No clearly wrong place names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/xe-kong": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -17362,6 +17708,21 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/xiuren-river": [
+    {
+      "at": "2026-11-18T00:02:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "The other river names (Kunene, Pangani, Gui, Liu, Pánuco, Phong Nha, Axtla, Jucuruçu, Tecolutla, Xiuren) also omit \"Sungai\". They are probably acceptable if that is the atlas convention, since the pattern is consistent.",
+        "No clearly wrong place names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -19046,6 +19407,18 @@
       "kept": true
     }
   ],
+  "ms/places/baja-california": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/bali": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -19433,6 +19806,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/batavia": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -20008,6 +20393,18 @@
       "kept": true
     }
   ],
+  "ms/places/bioko": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/bird-s-head-peninsula": [
     {
       "at": "2026-11-08T12:43:56Z",
@@ -20131,6 +20528,18 @@
       "at": "2026-11-10T10:07:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/bolaven-plateau": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -21464,6 +21873,20 @@
       "kept": true
     }
   ],
+  "ms/places/colorado-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Colorado: river lacks 'Sungai' (Sungai Colorado)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/comoe": [
     {
       "at": "2026-11-08T12:43:57Z",
@@ -21768,6 +22191,18 @@
       "notes": [
         "Danube (needs \"Sungai Danube\")"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/dayao-mountain": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -22789,6 +23224,20 @@
       "kept": true
     }
   ],
+  "ms/places/gui-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Gui: should be 'Sungai Gui'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/guiana-shield": [
     {
       "at": "2026-11-14T17:06:26Z",
@@ -23391,6 +23840,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/indawgyi": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25402,6 +25863,20 @@
       "kept": true
     }
   ],
+  "ms/places/kunene-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Kunene: should be 'Sungai Kunene'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/kurupung": [
     {
       "at": "2026-11-16T11:16:43Z",
@@ -25431,6 +25906,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/kwando": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25609,6 +26096,18 @@
       "at": "2026-11-08T12:45:09Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/laguna-de-los-patos": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26389,6 +26888,20 @@
       "score": 0.5,
       "notes": [
         "liu-jiang → 'Sungai Liu' is inconsistent with Sungai Liujiang; atlases usually write 'Sungai Liu Jiang'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/liu-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Liu: should be 'Sungai Liu'"
       ],
       "attempt": "first",
       "kept": true
@@ -27256,6 +27769,18 @@
       "kept": true
     }
   ],
+  "ms/places/mangoro": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/manimala-river": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -28086,6 +28611,18 @@
       "kept": true
     }
   ],
+  "ms/places/mozambique-channel": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mozhehe": [
     {
       "at": "2026-11-15T00:09:09Z",
@@ -28522,6 +29059,18 @@
     {
       "at": "2026-11-10T10:08:06Z",
       "model": "sonnet",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/nam-ngum": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.2,
       "notes": [],
       "attempt": "first",
@@ -29465,6 +30014,20 @@
       "kept": true
     }
   ],
+  "ms/places/pangani-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Pangani: should be 'Sungai Pangani'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/panniyar": [
     {
       "at": "2026-11-12T13:20:25Z",
@@ -29473,6 +30036,20 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/panuco-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Pánuco: should be 'Sungai Pánuco'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -29952,6 +30529,20 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/phong-nha-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Phong Nha: should be 'Sungai Phong Nha'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30959,6 +31550,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-axtla": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Axtla: should be 'Sungai Axtla'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-aye": [
     {
       "at": "2026-11-08T12:45:47Z",
@@ -31827,6 +32432,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-jucurucu": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Jucuruçu: should be 'Sungai Jucuruçu'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35236,6 +35855,20 @@
       "kept": true
     }
   ],
+  "ms/places/tecolutia-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [
+        "Tecolutla: should be 'Sungai Tecolutla'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tecolutla": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -35372,6 +36005,18 @@
       "notes": [
         "'Asia Tenggara' is correct; 'Pantai Tenggara' is acceptable; 'Pulau Sakhalin', 'Pulau Ulwile', 'Sungai Sedili', 'Sungai Tahan', 'Sungai Terengganu' are fine."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/texas": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -36184,6 +36829,18 @@
       "kept": true
     }
   ],
+  "ms/places/upper-zambezi": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/urubu": [
     {
       "at": "2026-11-10T10:08:21Z",
@@ -36733,6 +37390,18 @@
       "kept": true
     }
   ],
+  "ms/places/xe-khong": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/xe-kong": [
     {
       "at": "2026-11-08T03:37:14Z",
@@ -36821,6 +37490,18 @@
       "notes": [
         "Rivers lack 'Sungai': 'Capim', 'Cauca', 'Marowijne', 'Morichal', 'Morona', 'Orthon', 'Pará', 'San Miguel', 'Santiago', 'Sucio', 'Teuchitlán', 'Tigre', 'Truandó', 'Choluteca', 'Motagua', 'Naranjo', 'Roaring', 'Ruvu', 'Sakaramy', 'Salween', 'Sipaliwini', 'Solimões', 'St. Francis', 'St. Johns', 'St. Lawrence', 'Tennessee', 'Waccasassa', 'Wacissa', 'Xingu', 'Yenna'. Malay atlas would write 'Sungai X'."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/xiuren-river": [
+    {
+      "at": "2026-11-18T00:27:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.2,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -38240,6 +38921,20 @@
       "kept": true
     }
   ],
+  "th/places/baja-california": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "บาฮากาลิฟอร์เนีย: acceptable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bali": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -38536,6 +39231,18 @@
   "th/places/batang-kayan": [
     {
       "at": "2026-11-14T05:18:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/batavia": [
+    {
+      "at": "2026-11-18T00:15:36Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
@@ -39033,6 +39740,18 @@
       "kept": true
     }
   ],
+  "th/places/bioko": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bird-s-head-peninsula": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -39156,6 +39875,20 @@
       "model": "sonnet",
       "score": 0.74,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/bolaven-plateau": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Bolaven: \"ที่ราบสูงโบลาเวน\" – Thai usually writes ที่ราบสูงโบเลเวน/โบลาเวน; borderline"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40491,6 +41224,20 @@
       "kept": true
     }
   ],
+  "th/places/colorado-river": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"โคโลราโด\" (colorado river): acceptable but lacks แม่น้ำ; fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/comoe": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -40874,6 +41621,20 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/dayao-mountain": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"ต้าเหยาซาน\": questionable, acceptable"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -41965,6 +42726,20 @@
       "kept": true
     }
   ],
+  "th/places/gui-river": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"กุ้ย\" (Gui river): usually แม่น้ำกุ้ย; acceptable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/guiana-shield": [
     {
       "at": "2026-11-14T16:55:43Z",
@@ -42398,6 +43173,20 @@
       "score": 0.6,
       "notes": [
         "Mengla → เมิ่งล่า (acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/indawgyi": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"อินดอจี\": Thai is usually อินดอจี; ok"
       ],
       "attempt": "first",
       "kept": true
@@ -44103,6 +44892,18 @@
       "kept": true
     }
   ],
+  "th/places/kunene-river": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kurupung": [
     {
       "at": "2026-11-16T11:03:14Z",
@@ -44146,6 +44947,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kwando": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -44349,6 +45162,18 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/laguna-de-los-patos": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -45269,6 +46094,20 @@
       "score": 0.6,
       "notes": [
         "Source names for several entries (quần đảo Admiralty, đảo Fergusson, sông Quế Giang, đảo Halmahera, sông Jiulang, sông Liễu Giang, sông Đà, quần đảo Maluku, sông Sê Kông, đảo Waigeo, vùng Llanos Venezuela, sông Xê Băng Hiêng) are Vietnamese rather than Thai-script names; the Thai outputs themselves are mostly fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/liu-river": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"หลิ่ว\" (Liu river): acceptable"
       ],
       "attempt": "first",
       "kept": true
@@ -46243,6 +47082,18 @@
       "at": "2026-11-08T05:28:39Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mangoro": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -47234,6 +48085,18 @@
       "kept": true
     }
   ],
+  "th/places/mozambique-channel": [
+    {
+      "at": "2026-11-18T00:15:36Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mozhehe": [
     {
       "at": "2026-11-14T23:49:56Z",
@@ -47690,6 +48553,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/nam-ngum": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"น้ำงึม\" (Nam Ngum): correct Thai is น้ำงึม; ok"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -48754,6 +49631,18 @@
       "kept": true
     }
   ],
+  "th/places/pangani-river": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/panniyar": [
     {
       "at": "2026-11-10T17:43:57Z",
@@ -48771,6 +49660,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/panuco-river": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -49161,6 +50062,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/phong-nha-river": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"ฟองญา\" (Phong Nha): Thai usually ฟองญา; ok"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -50013,6 +50928,20 @@
       ]
     }
   ],
+  "th/places/rio-axtla": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "\"อัชตลา\" (Axtla): Spanish Axtla would be อักซ์ตลา; likely wrong"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-aye": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -50832,6 +51761,18 @@
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-jucurucu": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -54233,6 +55174,18 @@
       "kept": true
     }
   ],
+  "th/places/tecolutia-river": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/tecolutla": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -54362,6 +55315,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/texas": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -55078,6 +56043,18 @@
       "kept": true
     }
   ],
+  "th/places/upper-zambezi": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/urubu": [
     {
       "at": "2026-11-09T11:49:05Z",
@@ -55518,6 +56495,18 @@
       "kept": true
     }
   ],
+  "th/places/xe-khong": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/xe-kong": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -55577,6 +56566,18 @@
       "notes": [
         "xingu-river: ชิงกู (Thai commonly ซิงกู)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/xiuren-river": [
+    {
+      "at": "2026-11-18T00:15:37Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -57259,6 +58260,19 @@
       "kept": true
     }
   ],
+  "vi/places/baja-california": [
+    {
+      "at": "2026-11-17T23:57:54Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bali": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -57661,6 +58675,19 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/batavia": [
+    {
+      "at": "2026-11-17T23:57:54Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
       ],
       "attempt": "first",
       "kept": true
@@ -58221,6 +59248,19 @@
       "kept": true
     }
   ],
+  "vi/places/bioko": [
+    {
+      "at": "2026-11-17T23:57:54Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bird-s-head-peninsula": [
     {
       "at": "2026-11-07T20:33:12Z",
@@ -58354,6 +59394,19 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/bolaven-plateau": [
+    {
+      "at": "2026-11-17T23:57:54Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -59824,6 +60877,19 @@
       "kept": true
     }
   ],
+  "vi/places/colorado-river": [
+    {
+      "at": "2026-11-17T23:57:54Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/comoe": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -60265,6 +61331,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/dayao-mountain": [
+    {
+      "at": "2026-11-17T23:57:54Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'núi Dayao' and 'sông Xiuren' are acceptable: each keeps the source's name and puts the generic word in Vietnamese. Vietnamese writers might instead say 'núi Đại Dao'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -61520,6 +62600,20 @@
       "kept": true
     }
   ],
+  "vi/places/gui-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'sông Quế' (Gui River, 桂江 Quế Giang) and 'sông Liễu' (Liu River, 柳江 Liễu Giang) are the usual Sino-Vietnamese names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/guiana-shield": [
     {
       "at": "2026-11-14T16:53:03Z",
@@ -62047,6 +63141,19 @@
       "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/indawgyi": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -64149,6 +65256,19 @@
       "kept": true
     }
   ],
+  "vi/places/kunene-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kurupung": [
     {
       "at": "2026-11-16T10:58:02Z",
@@ -64194,6 +65314,19 @@
       "cli": "2.1.322",
       "score": 0.86,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kwando": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -64404,6 +65537,19 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/laguna-de-los-patos": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -65639,6 +66785,20 @@
       "kept": true
     }
   ],
+  "vi/places/liu-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'sông Quế' (Gui River, 桂江 Quế Giang) and 'sông Liễu' (Liu River, 柳江 Liễu Giang) are the usual Sino-Vietnamese names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lixianjiang": [
     {
       "at": "2026-11-14T16:53:04Z",
@@ -66753,6 +67913,19 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mangoro": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -67905,6 +69078,19 @@
       "kept": true
     }
   ],
+  "vi/places/mozambique-channel": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mozhehe": [
     {
       "at": "2026-11-14T23:43:41Z",
@@ -68406,6 +69592,20 @@
       "cli": "2.1.322",
       "score": 0.86,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/nam-ngum": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'sông Nậm Ngừm' and 'sông Sê Kông' are the names Vietnamese readers use for these Lao rivers."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -69731,6 +70931,19 @@
       "kept": true
     }
   ],
+  "vi/places/pangani-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/panniyar": [
     {
       "at": "2026-11-10T17:42:12Z",
@@ -69759,6 +70972,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/panuco-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -70261,6 +71487,20 @@
       "notes": [
         "None of the names is wrong.",
         "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/phong-nha-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'sông Phong Nha' is acceptable for the same reason, but locally the river is usually called 'sông Son'."
       ],
       "attempt": "first",
       "kept": true
@@ -71252,6 +72492,19 @@
       "kept": true
     }
   ],
+  "vi/places/rio-axtla": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-aye": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -72116,6 +73369,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-jucurucu": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -76214,6 +77480,20 @@
       "kept": true
     }
   ],
+  "vi/places/tecolutia-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'sông Tecolutia' keeps the source's spelling, which is allowed. The river is usually spelled Tecolutla."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tecolutla": [
     {
       "at": "2026-11-09T00:06:31Z",
@@ -76404,6 +77684,19 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/texas": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -77248,6 +78541,19 @@
       "kept": true
     }
   ],
+  "vi/places/upper-zambezi": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/urubu": [
     {
       "at": "2026-11-09T11:43:20Z",
@@ -77739,6 +79045,20 @@
       "kept": true
     }
   ],
+  "vi/places/xe-khong": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'sông Nậm Ngừm' and 'sông Sê Kông' are the names Vietnamese readers use for these Lao rivers."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/xe-kong": [
     {
       "at": "2026-11-07T20:41:17Z",
@@ -77831,6 +79151,20 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/xiuren-river": [
+    {
+      "at": "2026-11-17T23:57:55Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All 25 names point to the right places. None of them are flagged.",
+        "'núi Dayao' and 'sông Xiuren' are acceptable: each keeps the source's name and puts the generic word in Vietnamese. Vietnamese writers might instead say 'núi Đại Dao'."
+      ],
       "attempt": "first",
       "kept": true
     }

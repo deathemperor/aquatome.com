@@ -1,8 +1,13 @@
 {
   "slug": "yom-river",
-  "name": "Yom",
+  "name": "Sungai Yom",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-18T00:40:41.407Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

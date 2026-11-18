@@ -1,0 +1,50 @@
+{
+  "id": "cambarellus-texanus",
+  "native": {
+    "input": "65bb05c72d0ddc91",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Colorado River",
+        "source": "aquariumbreeder",
+        "quote": "It has since been found in the Colorado River, Fort Bend County and Waller County.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cambarellus texanus",
+    "status": "ACCEPTED",
+    "taxonKey": 2227435,
+    "datasets": [
+      [
+        "16b0aa56-90aa-436c-bfe8-b5af83f84575",
+        12
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

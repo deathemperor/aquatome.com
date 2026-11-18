@@ -11,6 +11,62 @@
     "equatorial-guinea",
     "bioko"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [
+        "Fernando Poo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from Cameroon and the island of Fernando Poo.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Fernando Poo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370882,
+      "total": 6,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "CM",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

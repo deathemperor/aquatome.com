@@ -10,6 +10,45 @@
     "indonesia",
     "lake-sentani"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Sentani"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The specific name was chosen after Lake Sentani, elevation 75 m above sea level, where the type specimens were collected.",
+          "countries": [],
+          "regions": [
+            "Lake Sentani"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411721,
+      "total": 3,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          139.21875,
+          -2.8125,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

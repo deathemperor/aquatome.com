@@ -1,22 +1,22 @@
 {
   "id": "hyphessobrycon-herbertaxelrodi",
   "native": {
-    "input": "f0c5202978077ea9",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "9134bc0b740d28ab",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The black neon tetra, Hyphessobrycon herbertaxelrodi, is a characid from the upper rio Paraguai in Mato Grosso and Mato Grosso do Sul, Brazil.",
+        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
         "words": "Brazil",
         "ok": true
       },
       {
         "code": "BR",
-        "status": "native",
-        "source": "aquariumcoop",
-        "quote": "This South American fish comes from the Paraguay River basin in Brazil.",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "The species has also been introduced into natural waters of Minas Gerais in southeastern Brazil via the ornamental trade, with at least one feral population established in the rio Paraíba do Sul basin.",
         "words": "Brazil",
         "ok": true
       },
@@ -27,49 +27,86 @@
         "quote": "Records of a fish identified as H. cf. herbertaxelrodi from Noel Kempff Mercado National Park in the upper Guaporé, at the border between Bolivia and Brazil, suggest that it might also share this pattern of distribution.",
         "words": "Bolivia",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This South American fish comes from the Paraguay River basin in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from the Rio Paraguay basin in Brazil and Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species originates from the Rio Paraguay basin in Brazil and Bolivia.",
+        "words": "Bolivia",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Paraguai",
+        "name": "Rio Paraguai",
         "source": "seriouslyfish",
-        "quote": "The black neon tetra, Hyphessobrycon herbertaxelrodi, is a characid from the upper rio Paraguai in Mato Grosso and Mato Grosso do Sul, Brazil.",
+        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
         "country": "BR",
-        "ok": true
+        "ok": false,
+        "why": "in BR, which a source calls introduced or doubtful"
       },
       {
         "name": "Pantanal",
         "source": "seriouslyfish",
-        "quote": "It is widespread north and south of the Pantanal, favouring minor tributaries, headwater rivers, oxbows and seasonal floodplains.",
+        "quote": "This species appears to be widespread throughout the upper rio Paraguai in the states of Mato Grosso and Mato Grosso do Sul, Brazil, both north and south of the the vast tropical wetland known as the Pantanal.",
         "ok": true
       },
       {
-        "name": "Taquari",
+        "name": "Rio Taquari",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Coxim on the Rio Taquary [= Taquari], Rio Paraguay [= Paraguai] basin, Mato Grosso, Brazil'.",
         "country": "BR",
-        "ok": true
+        "ok": false,
+        "why": "its name is not in the quote"
       },
       {
-        "name": "Sepotuba",
+        "name": "Rio Sepotuba",
         "source": "seriouslyfish",
-        "quote": "The Sepotuba empties into the Paraguai main channel around 500 kilometres upstream of the Taquiri, thus the species is assumed to occur in other drainages between them.",
+        "quote": "Official records seem limited, but the type locality is located within the upper rio Taquari basin in the municipality of Coxim, while our field images show a specimen collected from the upper rio Sepotuba in the vicinity of Tangará da Serra, some 700 kilometers to the north.",
         "ok": true
       },
       {
-        "name": "Paraguay",
+        "name": "Rio Paraguay",
         "source": "aquariumcoop",
         "quote": "This South American fish comes from the Paraguay River basin in Brazil.",
         "country": "BR",
         "ok": false,
-        "why": "a country"
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Paraguay",
+        "source": "glaser",
+        "quote": "The species originates from the Rio Paraguay basin in Brazil and Bolivia.",
+        "ok": true
       }
     ],
-    "disputed": [],
+    "disputed": [
+      "BR",
+      "BO"
+    ],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "BO"
+        "BR",
+        "BO",
+        "PY"
       ],
       "sourcesOnly": []
     }
@@ -124,10 +161,8 @@
         1
       ]
     ],
-    "native": [
-      "BR"
-    ],
-    "requests": 13,
-    "at": "2026-11-04T21:41:08.860Z"
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T00:54:56.623Z"
   }
 }

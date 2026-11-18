@@ -1,0 +1,55 @@
+{
+  "id": "amphilophus-xiloaensis",
+  "native": {
+    "input": "d78f0c5213c1ef75",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In the lakes of Nicaragua a group of cichlids evolved, which is very interesting from a biological point of view: the Midas cichlids.",
+        "words": "Nicaragua",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Nicaragua",
+        "source": "glaser",
+        "quote": "These cichlids have settled several small satellite crater lakes from large lakes (like Lake Nicaragua) in different times.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphilophus xiloaensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2370114,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ],
+      [
+        "f29ab192-5964-40ae-a397-fa48ffdf0661",
+        1
+      ]
+    ],
+    "native": [
+      "NI"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

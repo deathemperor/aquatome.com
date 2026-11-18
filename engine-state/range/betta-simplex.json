@@ -1,14 +1,22 @@
 {
   "id": "betta-simplex",
   "native": {
-    "input": "16ad7f303aa176b0",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "e26f651ebe1f4ea3",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "TH",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Known only from Krabi province, southern (peninsular) Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A small (5-6 cm) mouthbrooding species from Thailand.",
         "words": "Thailand",
         "ok": true
       }

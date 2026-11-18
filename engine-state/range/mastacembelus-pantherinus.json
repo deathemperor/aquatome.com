@@ -1,0 +1,51 @@
+{
+  "id": "mastacembelus-pantherinus",
+  "native": {
+    "input": "03f576b2528b20e9",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Mastacembelus pantherinus originates from Burma.",
+        "words": "Burma",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Indawgyi",
+        "source": "glaser",
+        "quote": "It has been collected so far only in lake Indawgyi and its affluents.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mastacembelus pantherinus",
+    "status": "ACCEPTED",
+    "taxonKey": 2351797,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

@@ -11,6 +11,96 @@
     "pangani-river",
     "madagascar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ",
+        "MG"
+      ],
+      "regions": [
+        "Pangani River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Pangani River, Tanzania and estuaries of Madagascar.",
+          "countries": [
+            "TZ",
+            "MG"
+          ],
+          "regions": [
+            "Pangani River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345275,
+      "total": 8,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MZ",
+          6
+        ],
+        [
+          "KE",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -22.5,
+          2,
+          0
+        ],
+        [
+          35.15625,
+          -23.90625,
+          1,
+          0
+        ],
+        [
+          35.15625,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          36.5625,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          37.96875,
+          -18.28125,
+          1,
+          0
+        ],
+        [
+          37.96875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          37.96875,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

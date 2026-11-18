@@ -10,6 +10,38 @@
     "peru",
     "rio-nanay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Nanay"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from Peru, according to the exporters from the Loreto region, Rio Nanay basin.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Rio Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8930905,
+      "total": 0,
+      "fetched": "2026-11-18",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

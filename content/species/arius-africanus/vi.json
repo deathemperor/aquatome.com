@@ -7,20 +7,19 @@
     "Marine catfish"
   ],
   "sections": {
-    "quickFacts:scotcat": "<p>Cá da trơn biển châu Phi (Arius africanus), có khi gọi gọn là cá da trơn biển, là một loài trong họ cá da trơn biển Ariidae. Albert Günther mô tả loài này năm 1867. Cá dài tối đa 45 cm, tính chiều dài chuẩn (SL, đo từ mõm tới gốc đuôi).</p>",
+    "quickFacts:scotcat": "<p>Cá da trơn biển châu Phi (Arius africanus), có khi gọi gọn là cá da trơn biển, là một loài trong họ cá da trơn biển Ariidae. Albert Günther mô tả loài này năm 1867. Cá dài tối đa 45 cm, tính theo chiều dài chuẩn (SL).</p>",
     "distribution:scotcat": "<p>Châu Phi: sông Pangani ở Tanzania và các cửa sông ở Madagascar. Loài này có ở đoạn hạ lưu đến trung lưu của các hệ thống sông dọc bờ tây Madagascar và bờ đông châu Phi.</p>",
     "habitat:scotcat": "<p>Đây là loài sống ven biển. Chúng ở cả nước lợ lẫn nước ngọt vùng nhiệt đới tại Tanzania, Madagascar và sông Pangani.</p>",
     "waterConditions:scotcat": "<ul><li>Nhiệt độ: 20–27 °C</li><li>pH: 7,0–8,5</li></ul>",
-    "diet:scotcat": "<p>Cá da trơn biển châu Phi ăn cá nhỏ và các con nhỏ như tôm, cua, ốc.</p>",
+    "diet:scotcat": "<p>Cá da trơn biển châu Phi ăn cá nhỏ và động vật không xương sống nhỏ.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài africanus nghĩa là \"đến từ châu Phi\".</p><p>Danh sách Đỏ IUCN: loài này đang ở mức Thiếu dữ liệu, vì hiện còn biết rất ít về tình trạng các quần thể trên khắp vùng phân bố. Cần nghiên cứu thêm (IUCN 2017).</p>",
     "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (07/2023).</p><p>Playfair, R. L. and A. Günther, 1867 The fishes of Zanzibar, with a list of the fishes of the whole east coast of Africa. London. i-xix + 1-153, Pls. 1-21.</p><p>Sparks, J.S. 2017. Arius africanus. The IUCN Red List of Threatened Species 2017.</p><p>Taylor, W.R., 1986. Ariidae. p. 153-159. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISBN, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "scotcat": 0.7
-    },
-    "reason": "score"
+      "scotcat": 0.85
+    }
   }
 }

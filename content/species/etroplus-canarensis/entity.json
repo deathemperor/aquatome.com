@@ -17,12 +17,11 @@
       ],
       "regions": [
         "Kumaradhara-Netravati",
-        "Kumaradhara",
-        "Netravati"
+        "Netravati",
+        "Kumaradhara"
       ],
       "sources": [
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -31,6 +30,12 @@
           "countries": [
             "IN"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Appears locally endemic to southern Karnataka state, southwestern India where it's known only from the Kumaradhara-Netravati river system.",
+          "countries": [],
           "regions": [
             "Kumaradhara-Netravati"
           ]
@@ -40,8 +45,8 @@
           "quote": "It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.",
           "countries": [],
           "regions": [
-            "Kumaradhara",
-            "Netravati"
+            "Netravati",
+            "Kumaradhara"
           ]
         }
       ]

@@ -71,5 +71,126 @@
   ],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-17"
+  "updatedAt": "2026-11-17",
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Ganges",
+        "Bay of Bengal"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "The species epithet mino: presumably a local name for this fish along upper Ganges estuaries in India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Upper part of [Ganges] estuaries.",
+          "countries": [],
+          "regions": [
+            "Ganges"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Indo-West Pacific: Bay of Bengal, and parts of the western central Pacific, in coastal waters, estuaries, and lower reaches of rivers.",
+          "countries": [],
+          "regions": [
+            "Bay of Bengal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202922,
+      "total": 13,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "BN",
+          2
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "PK",
+          2
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "LK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          78.75,
+          5.625,
+          1,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          113.90625,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          116.71875,
+          4.21875,
+          2,
+          0
+        ]
+      ]
+    }
+  }
 }

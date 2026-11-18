@@ -19,7 +19,6 @@
   "range": {
     "native": {
       "countries": [
-        "TH",
         "MY"
       ],
       "regions": [
@@ -32,17 +31,10 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The pearl gourami, Trichopodus leerii, is a labyrinth fish from Thailand, Malaysia, Borneo and Sumatra, where it inhabits lowland swamps.",
+          "quote": "Found in Thailand, Malaysia and the islands of Borneo and Sumatra.",
           "countries": [
-            "TH",
             "MY"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Found in Thailand, Malaysia and the islands of Borneo and Sumatra.",
-          "countries": [],
           "regions": [
             "Borneo",
             "Sumatra"
@@ -53,7 +45,7 @@
     "records": {
       "taxonKey": 7623402,
       "total": 30,
-      "fetched": "2026-11-05",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "ID",
@@ -83,7 +75,7 @@
           98.4375,
           14.0625,
           1,
-          1
+          0
         ],
         [
           99.84375,

@@ -49,6 +49,27 @@
     "opus": 0.95,
     "back": true
   },
+  "bagre-marinus": {
+    "hash": "422104315d037abdd04f805e4e23f4cfb140a7d1727269519bf308e10ea192d2",
+    "at": "2026-11-18T00:36:09.239Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 5: 'ปลาหนังน้ำเค็ม' is a non-standard gloss for 'Salt-water Catfish'; consider the established name 'ปลาสังกะวาดทะเล' or just keep the English name."
+    ]
+  },
+  "boraras-brigittae": {
+    "hash": "5758ad122dcbd1aba352b423b817b078f2c1e3d2d1d5483f764b3d659b20a746",
+    "at": "2026-11-18T00:35:12.784Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "brevibora-dorsiocellata": {
+    "hash": "1d9d0433c410ff6c77c1e7f874a4ca4968f3b5502cef6d4c55c3b41dc4db161c",
+    "at": "2026-11-18T00:36:29.376Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "caquetaia-kraussii": {
     "hash": "7a01309fb8226beef0e5b61f93421b63c1e20a3a659a547e14edc86293bbc8a8",
     "at": "2026-11-17T11:29:43.846Z",
@@ -61,11 +82,30 @@
     "sonnet": 0.7,
     "back": false
   },
+  "corydoras-aeneus": {
+    "hash": "fe666451ebec0431887efc5f07660fa3d9803c341405b866b2b6a8cb33ca40b8",
+    "at": "2026-11-18T00:38:46.364Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
   "corydoras-duplicareus": {
     "hash": "fbc47e22846950c951965721a2802df88c21b7deb5b69f7a63571e790bab7ab5",
     "at": "2026-11-17T11:30:50.779Z",
     "sonnet": 0.85,
     "opus": 0.7,
+    "back": false
+  },
+  "corydoras-panda": {
+    "hash": "0b11a10e08d059b653603a9d53df2d38701dbc30258247bc965015cfabcacd98",
+    "at": "2026-11-18T00:39:04.028Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "danio-margaritatus": {
+    "hash": "82970e277ce388837d0b8e23ed8d265e0b10900010d257d780f9f810916cb24b",
+    "at": "2026-11-18T00:39:20.230Z",
+    "sonnet": 0.5,
     "back": false
   },
   "devario-apogon": {
@@ -196,5 +236,61 @@
     "held": [
       "Item 12: 'fights are always harmless' is translated as 'ไม่เคยเป็นอันตราย' (never dangerous). Use 'ไม่เป็นอันตราย'. 'ไม่สนใจปลาชนิดอื่น' also lacks a subject."
     ]
+  },
+  "hyphessobrycon-amandae": {
+    "hash": "d8e8db18290368c818909c6371590cbc32aa60b0e8ae2c0b144328d37b39f4df",
+    "at": "2026-11-18T00:37:49.503Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "hyphessobrycon-herbertaxelrodi": {
+    "hash": "bd59d9e82f89f727a1363d704c785e3d5c649e07ad686f75f8c60014f488532e",
+    "at": "2026-11-18T00:34:53.276Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "melanotaenia-praecox": {
+    "hash": "031659a78f9cbaf8272423d0c64ff1601db9c8e26667b6a82d3af4c30b76dd91",
+    "at": "2026-11-18T00:38:05.211Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "neocaridina-davidi": {
+    "hash": "17fe977a28bc555c5f61fc2f2417adf66e1a8fa45dc4f5599fc19e34db26783d",
+    "at": "2026-11-18T00:37:30.597Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "nomorhamphus-rex": {
+    "hash": "41acf861b1bf31eaf5ec0115433d5f9554dcfe2ac47f5cb44e6fca08e57e7b0b",
+    "at": "2026-11-18T00:37:00.158Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "paracheirodon-axelrodi": {
+    "hash": "0684f022235f3d62783d22577600149474f0f00d2f6913250776a1c2606336b2",
+    "at": "2026-11-18T00:37:08.382Z",
+    "sonnet": 0.4,
+    "back": false
+  },
+  "poecilia-wingei": {
+    "hash": "7788dc0314efe085f08d7d3eba1d7bdde24fc813bcd9386e651fd868641efb29",
+    "at": "2026-11-18T00:36:00.358Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
+  "trigonostigma-espei": {
+    "hash": "8d583db31463fa01d3400dc41a732b9d201355b5b5778c97f12048292c723f9a",
+    "at": "2026-11-18T00:39:37.280Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "trigonostigma-heteromorpha": {
+    "hash": "677dcbf757784460aa10546e11c052d8b577a59f8d3cb7c0ae29a93fc0f5712c",
+    "at": "2026-11-18T00:37:14.973Z",
+    "sonnet": 0.4,
+    "back": false
   }
 }

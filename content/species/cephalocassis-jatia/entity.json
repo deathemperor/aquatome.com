@@ -12,6 +12,84 @@
     "sri-lanka",
     "bangladesh"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "LK",
+        "BD"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Ganges-Brahmaputra"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South and southeast Asia: India, Sri Lanka and Bangladesh.",
+          "countries": [
+            "IN",
+            "LK",
+            "BD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Although this species is known to be common for part of its range (Irrawaddy River drainage), uncertainties regarding the taxonomic status of the Ganges-Brahmaputra and Irrawaddy populations and the lack of population information in the Ganges-Brahmaputra system make it impossible to accurately assess this species.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Ganges-Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344794,
+      "total": 5,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MM",
+          3
+        ],
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          95.625,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

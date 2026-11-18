@@ -248,6 +248,22 @@
       "kept": true
     }
   ],
+  "vi/guides/glaser-en-25-perchlike-fishes-a-little-sensation-the-first-documented-ob-discus#body": [
+    {
+      "at": "2026-11-18T01:13:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"Bị động\" became \"bị quấy hoặc giật mình\": small addition/nuance shift.",
+        "\"Gần như chắc chắn\" kept; fine.",
+        "\"Thích nghi rất tốt\" became \"quen bể rất nhanh\": slight shift from adaptation quality to speed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/loachesonline-articles-breeding-sewellia#body": [
     {
       "at": "2026-11-07T13:58:03Z",
@@ -539,6 +555,21 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-FVElZJMaBeo#body": [
+    {
+      "at": "2026-11-18T01:10:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"con cá bị hại nhiều hơn được\" (fish does more harm than good) became \"con cá phá nhiều hơn là đáng giữ\" (does more damage than is worth keeping): shifts the meaning toward whether to keep the fish, which adds a suggestion BEFORE does not state.",
+        "\"cá lau kiếng ăn cây\" -> \"gặm cây\" and \"hay bị gặm\" -> \"hay bị nó ăn\": wording swapped, fine, hedge \"hay\" kept."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-G2iSTDzETi0#body": [
