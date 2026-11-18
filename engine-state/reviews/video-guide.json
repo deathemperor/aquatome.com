@@ -17244,6 +17244,23 @@
   ],
   "vi/guides/youtube-OYxDI5jDSJk": [
     {
+      "at": "2026-11-18T14:45:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.6,
+      "notes": [
+        "Intro and heading \"Chọn cá ở tiệm\" / \"cách chọn cá ở tiệm\": the video gives no advice on choosing fish at a shop. Remove this promise and rename the section, for example \"Nên thả mấy con\".",
+        "\"Một bể không nên có quá nhiều cá hay đánh nhau giành chỗ\" appears in both the summary and the section. It is garbled. The video only says not to put too many territorial fish in one tank. Rewrite it as that and drop the repeat.",
+        "\"Nếu bể ở tiệm chạy chung một hệ thống có đèn UV diệt khuẩn và có xử lý hóa chất\": the video says its own system is UV-sterilised and chemically treated, not the shop's. Reword it as a hedged condition on the keeper's own system, for example \"nếu hệ thống bể được diệt khuẩn bằng UV và xử lý hóa chất thì...\", and don't present pouring bag water straight into the tank as general advice.",
+        "The steps list under \"Thả cá vào bể\" has a bare \"Thả cá vào bể\" as step 2 and presents the creator's one-off handling as a procedure. Turn it into a short hedged note (\"có thể...\") instead of a numbered guide.",
+        "\"những gì hay thấy trong mấy ngày đầu sau khi thả\" and the section title \"Mấy ngày đầu\" make one next-day observation sound like what usually happens. Hedge it as one possible observation (\"có thể\") and say \"hôm sau\" instead of \"mấy ngày đầu\".",
+        "\"Nước máy pH 7 vẫn ổn\" in the table, and again in the FAQ: this is the creator's own tap water, not a general fact. Remove it, or say only that pH 7 is within the 5–7,5 range."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-17T17:48:23Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -33296,6 +33313,21 @@
     }
   ],
   "vi/guides/youtube-mccSmIuItEY": [
+    {
+      "at": "2026-11-18T14:45:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.6,
+      "notes": [
+        "FAQ \"áp phim với mặt bóc được quay ra ngoài\" contradicts the video and the guide's own step 3. The peelable side faces the person, so change it to \"quay về phía mình\".",
+        "The intro says the guide covers \"chọn cát nền\", but no section covers sand. Either drop it from the intro, or add the video's point that pool filter sand was chosen, in a sensible amount, for a good depth for big plants and for its natural colour.",
+        "FAQ \"Gỗ làm chân bể không phẳng thì làm sao?\" ends with \"Có thể thêm thanh giằng ở giữa cho chân bể cứng hơn\". The video gives the brace to stiffen the stand, not to fix uneven wood, so remove that sentence from this answer.",
+        "\"Ở đây chỉ dựng cho xong cái \\\"khung\\\"\" uses a bare \"ở đây\" and reads awkwardly. Rewrite it directly, for example \"Bài này chỉ dựng phần khung cho bể đứng vững và trông gọn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-17T14:55:51Z",
       "model": "sonnet",
