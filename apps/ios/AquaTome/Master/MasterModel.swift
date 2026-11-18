@@ -268,9 +268,10 @@ final class MasterModel {
           r.back[i].done = true
           r.back[i].problem = nil
           switch end {
-          // Back already, after a try of its own that may have gone: that try may be what put it back, so no word that
-          // something else changed it and AquaTome left it.
-          case .already: if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
+          // Back already. Only guessed: whether the press's step went isn't known, whatever put it back since, so it says
+          // so, and to look, on Trả lại too (the chief, 18 Nov; Codex). Else, after a try of its own that may have gone:
+          // that try may be what put it back, so no word that something else changed it and AquaTome left it.
+          case .already: if b.guessed == true { tell(changed) } else if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
           case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
           case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là ổ sưởi nên AquaTome để nguyên. Bạn xem lại ổ này."))
           case .leave: tell(changed)

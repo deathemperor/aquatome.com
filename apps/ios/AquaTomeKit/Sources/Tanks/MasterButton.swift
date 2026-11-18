@@ -157,7 +157,8 @@ public struct MasterRun: Sendable, Equatable, Codable {
     case already
     /// Switched by a hand or its schedule since this press left it: left as it is, and said so.
     case leave
-    /// Made a heater since the press: the button never switches one, so left as it is, and said so (Fable, 18 Nov).
+    /// Made a heater since the press: the button never switches one, so left as it is, and said so (Fable, 18 Nov); before
+    /// CO2's hold, so the note says what the outlet is now (Codex, 18 Nov).
     case heater
     /// CO2 back on, which the phone never sends: left off, and said so.
     case hold
@@ -175,8 +176,8 @@ public struct MasterRun: Sendable, Equatable, Codable {
     let c = b.command
     if now == c.on { return .already }
     if let now, let left, now != left { return .leave }
-    if c.on && (b.held == true || role == "co2") { return .hold }
     if role == "heater" { return .heater }
+    if c.on && (b.held == true || role == "co2") { return .hold }
     if now == nil { return .unread }
     return .send
   }

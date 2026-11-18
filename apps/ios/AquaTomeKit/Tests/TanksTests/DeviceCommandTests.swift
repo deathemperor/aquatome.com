@@ -211,6 +211,9 @@ func whatTheEndDoes() throws {
     #expect(MasterRun.end(co2, now: nil, left: co2.left, role: role) == .hold)
     #expect(MasterRun.end(co2, now: true, left: co2.left, role: role) == .already)
   }
+  // Made a heater since: its own case, before the hold (the note says what it is now); nothing sent either way.
+  #expect(MasterRun.end(co2, now: false, left: co2.left, role: "heater") == .heater)
+  #expect(MasterRun.end(co2, now: nil, left: co2.left, role: "heater") == .heater)
   var unheld = co2
   unheld.held = nil
   #expect(MasterRun.end(unheld, now: false, left: unheld.left, role: "co2") == .hold)

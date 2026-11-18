@@ -105,7 +105,7 @@ let masterCardList = #"""
 - finish · `if end != .send {` · Nothing to send:
 - finish · `r.back[i].done = true` · done;
 - finish · `r.back[i].problem = nil` · its line goes.
-- finish · `case .already: if !b.earlier` · Back already: no note when a try of its own may be what put it back; else, if the press had changed it, that something else did and AquaTome left it.
+- finish · `case .already: if b.guessed == true { tell(changed) } else if !b.earlier` · Back already: only guessed, that it isn't known whether the press's command reached it, AquaTome left it, look at it (whatever put it back: true after a try of its own too); else no note when a try of its own may be what put it back; else, if the press had changed it, that something else did and AquaTome left it.
 - finish · `case .hold: tell(` · CO2 left off: AquaTome never switches CO2 on.
 - finish · `case .heater: tell(` · Made a heater since the press: left, and says so (the button never switches one; Fable, 18 Nov).
 - finish · `case .leave: tell(changed)` · Switched since the press left it: this end sends nothing, and says so.
@@ -242,8 +242,8 @@ let masterCardList = #"""
 - End · `case heater` · Made a heater since the press: the end's own case, with its own note (Fable, 18 Nov).
 - end · `if now == c.on { return .already }` · Reads as it goes back: nothing to send.
 - end · `if let now, let left, now != left { return .leave }` · Switched since the press left it: left, and said so.
+- end · `if role == "heater" { return .heater }` · A heater never switched; before CO2's hold, so its note says it is a heater now.
 - end · `if c.on && (b.held == true || role == "co2") { return .hold }` · CO2 never switched on.
-- end · `if role == "heater" { return .heater }` · A heater never switched.
 - end · `if now == nil { return .unread }` · Not read: nothing sent, owed for Trả lại.
 - end · `return .send` · Else it goes.
 - pending · `public var pending: [Back] { back.filter { !$0.done } }` · What is still owed: its lines on the card, Trả lại, and the run kept while any is.
