@@ -2,15 +2,18 @@
   "slug": "chieu-dai-chuan",
   "name": "Chiều dài chuẩn (SL)",
   "altNames": [
-    "SL"
+    "SL",
+    "chiều dài tiêu chuẩn",
+    "Standard Length"
   ],
   "sections": {},
   "linkNames": [
     "chiều dài chuẩn"
   ],
-  "definition": "Chiều dài cá đo từ mút mõm đến cuối cuống đuôi, không tính vây đuôi; viết tắt SL. Các nguồn khoa học dùng SL vì vây đuôi dễ rách; chiều dài toàn thân (TL, có tính vây đuôi) thường lớn hơn SL khoảng 15–25%.",
+  "body": "<h3>Trong bể của bạn</h3><p>Chiều dài toàn thân (TL) thì tính luôn cả vây đuôi.</p><p>Giới nghiên cứu đo SL cho hầu hết các loài cá xương. Vây đuôi rất dễ rách, gãy, và đo TL trên một cái đuôi đã hỏng thì ra con số sai.</p><h3>Nên làm gì</h3><p>Một tài liệu tham khảo về cá có bảng quy đổi giữa SL và TL cho từng loài:</p><ul><li>Muốn đổi SL sang TL hay ngược lại, tra đúng loài đó trong bảng. Bảng cho một phương trình hồi quy hoặc một tỉ lệ, tính bằng cm.</li><li>Quy đổi theo tỉ lệ thì phải dè dặt hơn, vì tỉ lệ thường chỉ lấy từ một hoặc vài con cá trong một khoảng kích cỡ hẹp.</li></ul><p>Nếu bạn nuôi Poecilia để thi, một tiệm ở Việt Nam ghi cách chấm Standard Length như sau:</p><ul><li>Tiêu chí này tối đa 8 điểm: cá trên 26 mm được 8 điểm, 22 mm được 6 điểm, 18 mm được 4 điểm, dưới 14 mm chỉ được 1 điểm.</li></ul><h3>Sai lầm hay gặp</h3><p>Một nguồn người nuôi ghi:</p><ul><li>Sai lầm hay gặp là đọc con số SL rồi nghĩ con cá chỉ dài chừng đó.</li><li>Một con cá vàng có SL 30 cm thì tính cả đuôi dài khoảng 38 cm.</li></ul>",
+  "definition": "Chiều dài chuẩn (SL) là chiều dài cá đo từ chóp mõm đến gốc vây đuôi (không tính vây đuôi). Nhiều tài liệu ghi kích thước cá theo SL.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }

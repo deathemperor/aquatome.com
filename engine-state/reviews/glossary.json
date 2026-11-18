@@ -1316,5 +1316,73 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/chieu-dai-chuan": [
+    {
+      "at": "2026-11-18T19:13:27Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nhiều tài liệu ghi kích thước cá theo SL.\" (not \"SL là cách đo chuẩn trong khoa học cho hầu hết các loài cá, và Seriously Fish ghi kích thước tối đa của cá neon (Paracheirodon innesi) theo SL là 30 mm SL.\": Rule 6: \"cá neon\" in \"Seriously Fish ghi kích thước tối đa của cá neon (Paracheirodon innesi) theo …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T19:13:27Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Chiều dài toàn thân (TL) thì tính luôn cả vây đuôi, nên con số TL của cùng một con cá bao giờ cũng dài hơn SL.\" The first sentence on TL must say only, word for word, \"Chiều dài toàn thân (TL) thì tính luôn cả vây đuôi.\" The point that TL is longer than SL is made here and again under \"Sai lầm hay gặp\" (\"đọc con số SL rồi nghĩ con cá chỉ dài chừng đó\" and the goldfish figures). I…",
+        "Rule 12: \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch. Nhìn thì chúng dài cỡ 1 foot, nhưng cân nặng chỉ như một con 6 inch.\" The Comet goldfish example (fact 22) must be removed in full, because the site has no Comet page.",
+        "Rule 12: \"Khi chọn cỡ bể, cân nặng của cá mới là thứ cần tính.\" This is the weight point of the Comet example, and it must be removed along with the example.",
+        "Rule 6: \"cá vàng Comet\" in \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": this is not the name of a page in PAGES. The page for Carassius auratus is \"Cá vàng\", and no Comet page exists."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T17:15:28Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 6: \"cá vàng Comet\" in \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": Carassius auratus has a page, and the page's name is \"Cá vàng\". The fish should be called \"cá vàng\", not \"cá vàng Comet\".",
+        "Rule 4: The point that an SL figure is shorter than the fish's length with its tail is made twice. It appears in \"con số TL của cùng một con cá bao giờ cũng dài hơn SL\" and again in \"Sai lầm hay gặp là đọc con số SL rồi nghĩ con cá chỉ dài chừng đó\". It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "1062e49ce6545b42dbd418bbfc68a47917d95165519e26f856fe6ad9330047c8"
+    },
+    {
+      "at": "2026-11-18T17:15:28Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 0.94,
+      "notes": [
+        "\"Một số cá vàng có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'comet' qualifier; source says comet goldfish / source says comet goldfish; qualifier dropped",
+        "Rule 12: \"nhất là ở mẫu cá ngâm bảo quản\" in \"Vây đuôi rất dễ rách, gãy, nhất là ở mẫu cá ngâm bảo quản, và đo TL trên một cái đuôi đã hỏng thì ra con số sai\": the point about preserved specimens comes from only one reference page (source 0), but it is stated as plain fact with no credit. The entry already names three pages (\"Một tài liệu tham khảo về cá\", \"một tiệm ở Việt Nam\", \"Một nguồn người …",
+        "Rule 12: \"Sai lầm hay gặp là đọc con số SL rồi nghĩ con cá chỉ dài chừng đó.\": the claim that an SL figure looks smaller than the fish's full length comes from a single keeper page (source 9), but it is stated as plain fact before the opening \"Một nguồn người nuôi ghi:\". It should go under that same opening, not stand outside it without credit."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T17:15:28Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: The measure is given more than once. The definition gives it as \"đo từ chóp mõm đến gốc vây đuôi (không tính vây đuôi)\". The body gives it again as \"SL đo theo một đường thẳng, từ chóp mõm đến chỗ thân cá kết thúc ở gốc vây đuôi (không tính vây đuôi)\". The shop list gives it a third time as \"Đo từ chóp miệng đến gốc đuôi\". THIS TERM says the measure is said in one sentence, and Ru…",
+        "Rule 4: The point that SL is smaller than the length with the tail is made three times: \"con số này nhỏ hơn chiều dài con cá khi tính cả đuôi\" (definition), \"nên con số TL của cùng một con cá bao giờ cũng dài hơn SL\" (body) and \"Con số SL vì vậy trông nhỏ hơn con cá thật\" (mistakes). It should be said once, in one place.",
+        "Rule 12: \"Vì thế khi đọc kích thước tối đa của một loài, nên xem con số đó ghi SL hay TL trước khi hình dung con cá lớn cỡ nào\" uses \"Vì thế\" to join the fact about damaged tail fins to a piece of advice. No single fact makes that link, and no fact gives this advice.",
+        "Rule 6: \"cá bảy màu\" in \"Nếu bạn nuôi cá bảy màu để thi, một tiệm cá bảy màu ở Việt Nam ghi cách chấm Standard Length như sau\": the shop's judging standard is for the genus, which the FACTS write as \"Poecilia\". \"Cá bảy màu\" is the page name of the single species Poecilia reticulata, so the genus should be called Poecilia.",
+        "Rule 12: In \"Một con cá vàng có SL 30 cm thì tính cả đuôi dài khoảng 38 cm\", the fact gives the total length as about 15 inches, but the entry converts it to \"38 cm\". In \"thân dài khoảng 15 cm và đuôi dài thêm khoảng 15 cm. Nhìn thì chúng dài cỡ 30 cm, nhưng cân nặng chỉ như một con 15 cm\", the fact gives six inches and about a foot. Each number should carry its unit as its fact gives it."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
