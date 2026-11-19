@@ -852,10 +852,11 @@ if (cmd === 'photo-privacy') {
     const secondLook = await readSecondLook(ROOT)
     const pages = await pagePhotos(ROOT), verdicts = await readVerdicts(ROOT)
     const engine = headAvoid(pages, verdicts, hand, heldBy(secondLook))
-    // And for each page whose head is on it, the photo the walk stopped at, which those faces take instead (cardPhotos).
-    const cardPhoto = cardPhotos(pages, verdicts, hand, heldBy(secondLook))
+    // And for each page whose head is on it, its first photo that passes and isn't on it, which those faces take instead.
+    const avoid = withEngineAvoid(cur.avoid, engine)
+    const cardPhoto = cardPhotos(pages, verdicts, hand, heldBy(secondLook), avoid)
     const was = Object.keys(cur.avoid).filter(u => !(u in hand))
-    const { calendar, report: r } = plan({ ...cur, avoid: withEngineAvoid(cur.avoid, engine), cardPhoto }, cands, today, days)
+    const { calendar, report: r } = plan({ ...cur, avoid, cardPhoto }, cands, today, days)
     await writeCalendar(ROOT, calendar)
     console.log(`  avoid: ${Object.keys(engine).length} held or refused photos (${Object.keys(engine).filter(u => !was.includes(u)).length} new, ${was.filter(u => !(u in engine)).length} gone), ${Object.keys(hand).length} a person's`)
     console.log(`  card photos: ${Object.keys(cardPhoto).length} pages whose head is on avoid, each with its first photo that passes`)
