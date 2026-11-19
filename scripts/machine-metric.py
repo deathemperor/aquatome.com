@@ -33,8 +33,17 @@ def minutes(etime):
     return int(days or 0) * 1440 + parts[0] * 60 + parts[1] + parts[2] / 60
 
 
-def run(*cmd):
-    return subprocess.run(cmd, capture_output=True, text=True, timeout=60).stdout
+def run(*cmd, timeout=60):
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=timeout).stdout
+
+
+def probe(*cmd):
+    """run() for a field the reading can do without: 10 s at most, and "" when the tool fails, hangs or answers in bytes it
+    can't read, so the reading is still written, without that field."""
+    try:
+        return run(*cmd, timeout=10)
+    except (OSError, subprocess.SubprocessError, UnicodeDecodeError):
+        return ""
 
 
 def waiting():
@@ -66,8 +75,8 @@ def free_gb():
     """Free space on the disk the home folder is on, in GB (10^9 bytes), read as mac-status.py reads it. None where df can't
     say."""
     try:
-        return round(int(run("/bin/df", "-Pk", HOME).strip().splitlines()[-1].split()[3]) * 1024 / 1e9, 1)
-    except (OSError, ValueError, IndexError, subprocess.TimeoutExpired):
+        return round(int(probe("/bin/df", "-Pk", HOME).strip().splitlines()[-1].split()[3]) * 1024 / 1e9, 1)
+    except (ValueError, IndexError):
         return None
 
 
@@ -87,17 +96,18 @@ def top_cpu(n=5):
     """The n processes using the most CPU (ps's share, 100 = one core, a decaying average over the last minute), this
     reading's own aside: each one's share, its program's name and the project it works in (project_of). On 18 Nov from 19:42
     to 20:15 a small job took 11-39 s beside engine parts that reported almost no work, while the owner's other project's
-    sessions were at work, and nothing said whose processes had the CPU (the chief of staff, 19 Nov)."""
+    sessions were at work, and nothing said whose processes had the CPU (the chief of staff, 19 Nov). ps failing gives none;
+    lsof failing, no projects (probe)."""
     rows = []
-    for line in run("/bin/ps", "-Aro", "pcpu=,pid=,comm=").splitlines():
-        m = re.match(r"\s*([\d.]+)\s+(\d+)\s+(.+)", line)
+    for line in probe("/bin/ps", "-Aro", "pcpu=,pid=,comm=").splitlines():
+        m = re.match(r"\s*(\d+(?:\.\d+)?)\s+(\d+)\s+(.+)", line)
         if m and int(m.group(2)) != os.getpid():
             rows.append((float(m.group(1)), m.group(2), os.path.basename(m.group(3).strip())))
         if len(rows) == n:
             break
     folders, pid = {}, None
     if rows:
-        for line in run("/usr/sbin/lsof", "-a", "-d", "cwd", "-Fn", "-p", ",".join(p for _, p, _ in rows)).splitlines():
+        for line in probe("/usr/sbin/lsof", "-a", "-d", "cwd", "-Fn", "-p", ",".join(p for _, p, _ in rows)).splitlines():
             if line.startswith("p"):
                 pid = line[1:]
             elif line.startswith("n") and pid:

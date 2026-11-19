@@ -281,6 +281,32 @@ print(json.dumps([m.project_of(f) for f in json.loads(sys.argv[2])]))`, join(ROO
   expect(JSON.parse(r.stdout)).toEqual(['aquatome.com', 'aquatome.com', 'other', 'aquatome.com', 'aquatome.com', 'aquatome.com', null, null, null, null])
 })
 
+// Codex's read, 19 Nov: a reading that fails writes no line at all, so a busy-process probe that hangs or fails must not
+// cost the reading. ps hanging: no busy processes; lsof failing: the processes without their projects; df hanging: no
+// free space. The line is written each time.
+test('a reading is still written when the busy-process or free-space probes hang or fail', () => {
+  if (process.platform !== 'darwin') return
+  const dir = home()
+  const reading = (fail: string) => {
+    const r = spawnSync('python3', ['-I', '-B', '-c', `import importlib.util, json, subprocess, sys
+s = importlib.util.spec_from_file_location("m", sys.argv[1]); m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
+real, fail = m.run, sys.argv[2]
+def run(*cmd, timeout=60):
+    if (fail == "ps" and "-Aro" in cmd) or (fail == "df" and cmd[0] == "/bin/df"): raise subprocess.TimeoutExpired(cmd, timeout)
+    if fail == "lsof" and "cwd" in cmd: raise OSError("lsof")
+    return real(*cmd, timeout=timeout)
+m.run, m.small_job = run, lambda: 0.1
+m.main()`, join(ROOT, 'scripts/machine-metric.py'), fail], { env: { ...process.env, HOME: dir }, encoding: 'utf8' })
+    expect(r.status, r.stderr).toBe(0)
+    return JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8').trim().split('\n').at(-1)!)
+  }
+  expect(reading('ps')).toMatchObject({ small_job_s: 0.1, top_cpu: [], free_gb: expect.any(Number) })
+  const noProjects = reading('lsof')
+  expect(noProjects.top_cpu.length).toBeGreaterThan(0)
+  expect(noProjects.top_cpu.every((p: { project: unknown }) => p.project === null)).toBe(true)
+  expect(reading('df')).toMatchObject({ free_gb: null, top_cpu: expect.any(Array) })
+}, slow(60_000))
+
 // 2026-11-08: signing on the own Mac took the owner's keychains off their list for minutes (gh's and git's sign-in among
 // them). Uploads there now run as AquaTome CI, on a runner of their own, and never touch the owner's keychains.
 test("TestFlight's uploads on this Mac run as AquaTome CI on their own runner, and leave the owner's keychains alone", () => {
