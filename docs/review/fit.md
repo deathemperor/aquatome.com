@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4865 | 4151 | 1592 | 36 | 42 | 198 | 43 | 1131 | 343 | 2654 | 462 | 9 | 11 | 0 | 2 | 5 | 4 | 0 |
+| Vietnamese | 4886 | 4174 | 1601 | 36 | 42 | 198 | 43 | 1139 | 344 | 2666 | 463 | 9 | 11 | 0 | 2 | 5 | 4 | 0 |
 | Indonesian | 1658 | 1500 | 421 | 24 | 11 | 4 | 5 | 205 | 39 | 69 | 194 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1651 | 1474 | 389 | 20 | 3 | 5 | 3 | 189 | 42 | 94 | 179 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 520 | 477 | 133 | 12 | 3 | 0 | 2 | 68 | 17 | 27 | 52 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
@@ -95,9 +95,9 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - apt fix: 11
 - aquario neo soil: 11
 - caribsea eco-complete: 11
+- tropica aquarium soil: 11
 - twinstar: 11
 - ge silicone 1: 10
-- tropica aquarium soil: 10
 - aquaclear: 9
 - jbl: 9
 - reef roids: 9
