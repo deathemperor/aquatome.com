@@ -1605,6 +1605,44 @@
       "kept": false
     }
   ],
+  "vi/species/oryzias-latipes#lpb0SxkCPcU": [
+    {
+      "at": "2026-11-19T20:05:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.68,
+      "notes": [
+        "[behaviour] The video says medaka suit a community tank with guppies, rasboras, corydoras and small tetras. The page says they \"không hợp với nhiều bể cộng đồng\". NEW does not say the video differs from the page here.",
+        "[waterConditions] \"Một người nuôi loài này thấy cá chịu được cả nước tù đọng\": the video states this as a general fact about the species, not as one keeper's experience. The attribution is false framing.",
+        "[reproduction] \"Trứng thường nở sau 7–10 ngày\": the page already gives incubation as 1–3 weeks and under a week at 25 °C. NEW neither notes the difference nor adds anything beyond the page.",
+        "[habitat] \"ruộng lúa ngập nước ở Nhật. Nước ở đó nông, đứng yên hoặc chảy chậm\" largely repeats the page, which already says medaka prefer rice paddies and slow-moving water.",
+        "[dimorphism] \"phần kéo dài trên vây hậu môn của con đực\" repeats the page's description of the male's anal fin. The video's point that females are larger and fuller-bodied is left out.",
+        "[reproduction] \"Muốn cá vào mùa đẻ thì cho ăn trùng huyết\" reads awkwardly and like a translation. Natural wording would be \"để cá lên trứng\" or \"chuẩn bị đẻ\".",
+        "[behaviour] The video also lists pseudomugil, shrimp and snails as tank mates, and says to keep medaka alone for breeding. NEW drops these points, and the page lists the other tank mates differently."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T20:05:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.62,
+      "notes": [
+        "[notes] \"nên hợp với hồ ngoài trời hoặc bể thấp đặt ngang tầm mắt nhìn xuống\" – the video only says they look best from above; the suitability for outdoor ponds or low tanks is the writer's own addition.",
+        "[reproduction] \"Một người nuôi thấy trứng nở sau 7–10 ngày\" – the video states the 7–10 days as a general fact, not one keeper's experience; the framing is invented.",
+        "[reproduction] \"trùng cỏ (infusoria)\" – infusoria is not the same as trùng cỏ (paramecium); this is a loose translation.",
+        "[waterConditions] \"dòng chảy khá\" – the video says good water flow. The page says gentle flow (dòng chảy nhẹ) and NEW does not say it differs from the video.",
+        "[dimorphism] \"màu sắc đậm hơn\" – the video says more colorful (sặc sỡ), not darker or more intense. Slight shift in meaning.",
+        "[behaviour] \"Ngoài những loài trên\" – refers back to species that are not listed in this passage, so it reads like a translation. It is also unclear where the tank-mate list sits.",
+        "[maintenance] \"hồ bị đóng băng mặt\" – the video says only frozen ponds. \"mặt\" is an added detail."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/otocinclus-vittatus#6C3cORsXseY": [
     {
       "at": "2026-11-09T17:54:19Z",
@@ -1951,6 +1989,40 @@
         "[distribution] repeats the page's point that El Tigre is a pure wild strain from El Tigre. The stream and separate-population detail is new.",
         "[diet] \"bo bo\" is already on the page's diet text. The video's \"daphnia\" is rendered as bo bo, which is fine, but that item adds nothing new.",
         "[behaviour] \"hiếu động\" is already on the page, though the comparison with the class K hybrids is new and in the video."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/pseudomugil-pellucidus#lUpeMIT0Qro": [
+    {
+      "at": "2026-11-19T20:06:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.8,
+      "notes": [
+        "The page's data card says the fish's most interesting feature is an anal-fin stripe that is yellow or red. The video describes a dark horizontal body stripe with reddish-orange above it, and fins with black, orange and yellow. NEW gives the video's version but never says it differs from the page.",
+        "\"Loài này sống chủ yếu ở tầng mặt\" in [behaviour] repeats the surface-dwelling point already made in [habitat] (\"pellucidus ở sát mặt nước\"). This is a small redundancy.",
+        "\"Chúng không bao giờ làm nhau bị thương thật\" states the video's remark as an absolute rule. The video does say they never cause damage, so it is acceptable, but \"không bao giờ\" is slightly strong.",
+        "\"Giữa các quần thể ở những nơi khác nhau cũng có khác biệt\" is vague. The video only mentions geographic variations between populations, with no detail.",
+        "\"cá lòng tong nhỏ\" for small rasboras and \"bo bo\" for Daphnia are loose renderings. They are passable for Vietnamese hobbyists, but not exact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T20:06:51Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.62,
+      "notes": [
+        "\"giá cũng không rẻ, khoảng 30 đô la Mỹ một con\": the video only jokes about losing \"a $30 Pseudomugil\". This is one offhand remark turned into a general price for the species.",
+        "\"Loài này ít khi thấy ở tiệm cá\": repeats the page's \"hiếm gặp\" (rare) and rests on the intro line \"don't see every day\". It adds nothing new.",
+        "\"khác biệt về hình dáng, màu sắc\": the video only says \"geographic variations between different populations\". It never says they differ in shape or colour.",
+        "\"gỗ mục\": the video says \"wood\", not rotting wood. This adds a detail.",
+        "The advice (group of 8 to 12, \"Phải đậy nắp\", the temperature) is written as a general rule. The video gives it as the speaker's own recommendation (\"I would probably start with around eight\"). It should read as one keeper's experience."
       ],
       "attempt": "first",
       "kept": false

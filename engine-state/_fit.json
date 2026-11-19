@@ -136286,10 +136286,10 @@
     "products": []
   },
   "vi/species/pseudomugil-pellucidus": {
-    "at": "2026-11-08",
+    "at": "2026-11-19",
     "hash": "b60b753b478cfda6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -142792,6 +142792,269 @@
   "vi/species/toxotes-siamensis": {
     "at": "2026-11-19",
     "hash": "653fcf1db2dd367f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-_XgI31yjUi4": {
+    "at": "2026-11-19",
+    "hash": "e8e6439b210f4da6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Gắn các khớp nối bằng súng keo nhựa cho kín hẳn.",
+        "why": "In Vietnam a hot glue gun is called súng bắn keo nến, not súng keo nhựa.",
+        "by": "model",
+        "fix": "súng bắn keo nến"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "bóc bớt bông gòn trồng cây (rockwool) rồi trồng",
+        "why": "Keepers don't call rockwool 'bông gòn trồng cây'. They say bông khoáng or just rockwool.",
+        "by": "model",
+        "fix": "bông khoáng (rockwool)"
+      }
+    ],
+    "products": [
+      "Tropica Aquarium Soil",
+      "viên phân Tropica"
+    ]
+  },
+  "vi/guides/youtube-3yhE0AuuWsM": {
+    "at": "2026-11-19",
+    "hash": "d1ac094724725f11",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-54hYFlHTSOs": {
+    "at": "2026-11-19",
+    "hash": "a50138cbe448ecf0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trên lớp tảo phủ kính còn thấy rõ cả vết ốc bò.",
+        "why": "Describes what is visible in the source video's tank, which the page does not show.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-6R-aFWdSN6Y": {
+    "at": "2026-11-19",
+    "hash": "7f181744a42448dc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cách này chưa được thử, chỉ là một lựa chọn.",
+        "why": "The original writer's own voice saying they have not tried this method.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "API Leaf Zone"
+    ]
+  },
+  "vi/guides/youtube-djrJP16R1DE": {
+    "at": "2026-11-19",
+    "hash": "837c4b6e9d980a4f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Đổ phân nền nhiệt đới lên trên cùng.",
+        "why": "\"Phân nền nhiệt đới\" looks like a literal translation of a brand (Tropica soil) or of 'tropical substrate'; keepers just say phân nền.",
+        "by": "model",
+        "fix": "phân nền"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-eSOzDN6wfk8": {
+    "at": "2026-11-19",
+    "hash": "d444457037bbd915",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Ăn các đốm rêu nhỏ, rêu trên mặt nền và có thể cả tảo silic.",
+        "why": "\"Tảo silic\" is a textbook term for diatoms; keepers in Vietnam call it brown algae, \"rêu nâu\".",
+        "by": "model",
+        "fix": "rêu nâu"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-Gk88H137s8I": {
+    "at": "2026-11-19",
+    "hash": "8ccf66df890f6130",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-HyMh5Yav5Ko": {
+    "at": "2026-11-19",
+    "hash": "3e1e782bd8a6b809",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có khúc lũa juniper trông hơi mảnh và lơ thơ.",
+        "why": "Refers to the source video's own piece of wood as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "lên máy quay thì trông hơi tím",
+        "why": "The video maker's filming voice; the reader is not filming the tank.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-JLqSW36m2cI": {
+    "at": "2026-11-19",
+    "hash": "0f4d95d8fa6c8254",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-leYo0CPNe-g": {
+    "at": "2026-11-19",
+    "hash": "7b880c453de7878a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "API",
+      "API Water Conditioner",
+      "API Quick Start"
+    ]
+  },
+  "vi/guides/youtube-los9CtgfKXI": {
+    "at": "2026-11-19",
+    "hash": "13ba7df438ccb81b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "ADA La Plata"
+    ]
+  },
+  "vi/guides/youtube-PQ_DmRR-I2A": {
+    "at": "2026-11-19",
+    "hash": "bc73e105df9a1d3e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-tzhH9OPm0g8": {
+    "at": "2026-11-19",
+    "hash": "0c3fb169dab04aa2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hy vọng khi cá con lên màu sẽ nhìn ra được cá bố mẹ là con nào.",
+        "why": "The video maker's own hope about their own tank's fish, told as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cây này nhân giống được, nhưng trong bể đã có sẵn rất nhiều thì không cần.",
+        "why": "A bare reference to the source's own tank, which the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-UNtXF-cdJxs": {
+    "at": "2026-11-19",
+    "hash": "afb9fa943edfefa7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "vì loại này từng dùng và cho kết quả tốt",
+        "why": "The original writer's own experience is given as if the reader shared it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Tropica Aquarium Soil"
+    ]
+  },
+  "vi/guides/youtube-veeADYG5Eac": {
+    "at": "2026-11-19",
+    "hash": "2e9f0d5bcf8d8f86",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cây đã lớn tới cỡ đó nhờ bộ rễ này",
+        "why": "Points at a specific plant from the source video that the reader cannot see.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "keo 502"
+    ],
+    "doses": [
+      {
+        "treatment": "bleach",
+        "strength": "5%",
+        "amount": 0,
+        "amountMax": 0,
+        "unit": "",
+        "per": 0,
+        "perUnit": "",
+        "use": "algae",
+        "method": "dip",
+        "quote": "Pha dung dịch thuốc tẩy 5% với nước."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-WS2ZDT7_lhU": {
+    "at": "2026-11-19",
+    "hash": "c75456d559d2c623",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-XQ6EWTvQeco": {
+    "at": "2026-11-19",
+    "hash": "918ab7f9972913ed",
     "model": "opus",
     "checklist": 3,
     "findings": [],

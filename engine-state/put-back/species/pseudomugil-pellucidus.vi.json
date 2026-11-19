@@ -1,0 +1,38 @@
+{
+ "at": "2026-11-19T20:21:07Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Một người nuôi khuyên đậy nắp bể.",
+   "why": "The care advice comes from an unnamed keeper from the source, whom the page keeps pointing back to as if the reader knew them."
+  }
+ ],
+ "text": {
+  "slug": "ca-mat-xanh-pseudomugil-pellucidus",
+  "name": "Cá mắt xanh Pseudomugil pellucidus",
+  "altNames": [
+   "Blue eye"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Đây là một loài cá mắt xanh hiếm gặp. Cá rất hiền, không gây sự với ai, và dài tối đa khoảng 4 cm. Điểm thú vị nhất nằm ở sọc trên vây hậu môn. Màu sọc này khác nhau ở từng con, có con vàng, có con đỏ.</p>",
+   "notes:aquatome": "<p>Loài này được mô tả chính thức năm 1988. Chữ <em>pellucidus</em> trong tiếng Latin nghĩa là trong suốt, đúng với thân cá trong một phần như thủy tinh. Dọc thân có một sọc ngang sẫm màu, phía trên sọc ánh đỏ cam. Vây có thể lên các mảng đen, cam, vàng xen nhau, còn mắt thì xanh sáng.</p><p>Nó không sặc sỡ bằng vài loài mắt xanh khác, nhưng càng ngắm lâu càng thấy đẹp. Giữa các quần thể ở những nơi khác nhau cũng có khác biệt.</p>",
+   "distribution:aquatome": "<p>Loài này chỉ sống trong một vùng khá nhỏ ở Tây Papua, quanh khu Timika.</p>",
+   "habitat:aquatome": "<p>Ngoài tự nhiên, chúng sống chủ yếu ở những suối rừng mưa nhỏ và nông. Nước có chỗ trong, có chỗ ngả màu trà vì tannin. Đáy suối là cát, sỏi, đá, gỗ và lá mục, còn cây thủy sinh thì ít.</p><p>Có nơi loài này sống chung với <em>Pseudomugil ivantsoffi</em>, nhưng hai loài chia tầng rõ ràng: <em>pellucidus</em> ở sát mặt nước, còn <em>ivantsoffi</em> bơi ở tầng giữa và tầng dưới.</p>",
+   "maintenance:aquatome": "<p>Muốn set bể giống tự nhiên thì cứ làm đơn giản: nền cát, vài viên đá trơn, cành cây, lá khô, thêm ít cây trồng quanh mép bể là đẹp.</p><p>Một người nuôi khuyên đậy nắp bể. Đây là loài cá nhỏ, hiếu động và hay quanh quẩn ở mặt nước, không đậy thì dễ có con nhảy ra ngoài chết khô.</p><p>Người này cũng khuyên nuôi theo đàn, bắt đầu với khoảng 8 con, bể đủ chỗ thì nâng lên 12 con trở lên càng tốt.</p>",
+   "waterConditions:aquatome": "<p>Một người nuôi thấy nhiệt độ 24–26 °C là hợp. Dù sống ở suối rừng mưa, loài này không cần nước quá mềm và quá chua. Ngoài tự nhiên, người ta đã gặp chúng ở nước từ hơi chua đến hơi kiềm, nên cá khá dễ tính. Người đó chú trọng giữ nước ổn định, sạch và nhiều oxy chứ không chạy theo thông số hoàn hảo.</p>",
+   "diet:aquatome": "<p>Cá nhỏ, miệng cũng nhỏ, nên thức ăn phải vừa cỡ miệng. Thức ăn khô loại hạt nhỏ là được, cho ăn thêm artemia mới nở, đồ đông lạnh hoặc bo bo.</p>",
+   "behaviour:aquatome": "<p>Loài này sống chủ yếu ở tầng mặt. Cái hay khi nuôi đàn là xem cả đàn tương tác với nhau: con đực gườm nhau, xòe vây và khoe mẽ với con cái. Chúng không bao giờ làm nhau bị thương thật, nhưng xem rất vui.</p><p>Cá nuôi chung phải hiền và đủ nhỏ để không coi chúng là mồi, chẳng hạn cá lòng tong nhỏ, cá tetra cỡ nhỏ, cá chuột lùn hay cá bống.</p>"
+  },
+  "quality": {
+   "score": 0.8,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.85,
+    "aquatome": 0.8
+   }
+  }
+ }
+}

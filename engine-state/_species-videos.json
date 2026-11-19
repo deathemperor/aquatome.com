@@ -3333,10 +3333,15 @@
     "reason": "collecting trip"
   },
   "lpb0SxkCPcU": {
-    "at": "2026-11-07",
+    "at": "2026-11-19",
     "title": "Platinum White Medaka Ricefish - Oryzias Latipes - STUNNING Aquarium & Pond Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Oryzias latipes",
+    "page": "species/oryzias-latipes",
+    "done": "low",
+    "score": 0.68,
+    "reason": "[behaviour] The video says medaka suit a community tank with guppies, rasboras, corydoras and small tetras. The page says they \"không hợp với nhiều bể cộng đồng\". NEW does not say the video differs from the page here.; [waterConditions] \"Một người nuôi loài này thấy cá chịu được cả nước tù đọng\": the video states this as a general fact about the species, not as one keeper's experience. The attribution is false framing."
   },
   "LQlxHGkGjHo": {
     "at": "2026-11-07",
@@ -3347,10 +3352,12 @@
     "reason": "heater product"
   },
   "lqsO-f0chJI": {
-    "at": "2026-11-07",
+    "at": "2026-11-19",
     "title": "Platy Fish Life Cycle (Breeding Project)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "lRYOZBiSLOo": {
     "at": "2026-11-07",
@@ -3385,10 +3392,14 @@
     "reason": "pond draining vlog"
   },
   "lUpeMIT0Qro": {
-    "at": "2026-11-07",
+    "at": "2026-11-19",
     "title": "This Tiny Rainbowfish Is Almost Invisible - Pseudomugil pellucidus",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Pseudomugil pellucidus",
+    "page": "species/pseudomugil-pellucidus",
+    "done": "added",
+    "score": 0.8
   },
   "lw0Pf6YGsCY": {
     "at": "2026-11-07",
