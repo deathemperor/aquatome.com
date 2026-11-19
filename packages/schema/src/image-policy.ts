@@ -42,6 +42,8 @@ export type GeneratedRecord = {
   date: string
   prompt: string
   referenceHash: string
+  /** Decoded pixel identity for manually reviewed glossary-kind stand-ins; fish keep their check.pixelHash. */
+  pixelHash?: string
   check?: { passes?: 2; judgments?: [string, string]; verdict: 'pass'; version: string; model: string; at: string; referenceHash: string; pixelHash: string; calibrationHash: string }
 }
 export type Alteration = {

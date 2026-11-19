@@ -13,7 +13,8 @@ import { creditsFor } from '../../lib/credits'
 import { fmt } from '../../lib/format'
 import { smallSrc, tileFrame } from '../../lib/img'
 import { guideImages } from '../../lib/mentions'
-import { bodySections, glossaryParts, kindCaption, kindCredit, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
+import { kindAiLabel, kindLargeFallback } from '../../lib/glossary-kind-image'
+import { bodySections, glossaryParts, kindCaption, kindCardImage, kindCredit, termTitle, tipLine, usedPictures, usedRows } from '../../lib/glossary-page'
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
   return c.glossary.map(g => ({ params: { slug: g.t.slug }, props: { g } }))
@@ -30,7 +31,8 @@ type Row = { href: string; name: string; photo?: Photo; sci?: string; kind?: str
 const rows = usedRows(p)
 // The kinds as cards (the Design Lead's board, 16 Nov 2026): those with a photo, then those in words; each opens large.
 const kinds = p.kinds
-const cards = kinds?.items.filter(k => k.photo) ?? [], words = kinds?.items.filter(k => !k.photo) ?? []
+const cards = kinds?.items.filter(k => k.photo).map(k => ({ ...k, cardImage: kindCardImage(k.photo!, k.cardCrop) })) ?? []
+const words = kinds?.items.filter(k => !k.photo) ?? []
 const kindsId = kinds ? slugify(kinds.title) || 'cac-loai' : ''
 const kindPhotos = cards.map(k => k.photo!)
 // No picture twice on the page: the kinds' photos, the term's (glossaryParts), then each row the first of its pictures
@@ -75,7 +77,7 @@ const REFS_SHOWN = 5
           {cards.length > 0 && (
             <ul class="k-cards">{cards.map(k => (
               <li><a class="k-card" href={`#${viewId(k.id)}`} data-view={viewId(k.id)}>
-                <span class="k-pic"><img src={smallSrc(k.photo!)} width={k.photo!.width} height={k.photo!.height} alt={k.photo!.caption ?? k.name} loading="lazy" decoding="async" /></span>
+                <span class="k-pic"><img src={k.cardImage.src} width={k.photo!.width} height={k.photo!.height} alt={k.photo!.caption ?? k.name} style={k.cardImage.style} loading="lazy" decoding="async" /><Fragment set:html={kindAiLabel(lang, k.photo!, 'card', k.aiLabelCorner)} /></span>
                 <span class="k-name">{k.name}</span>{k.aka && <span class="k-aka">{k.aka}</span>}<span class="k-line">{k.line}</span>
               </a></li>
             ))}</ul>
@@ -99,7 +101,9 @@ const REFS_SHOWN = 5
               <dialog class="k-view" id={viewId(k.id)} aria-labelledby={`${viewId(k.id)}-h`} data-full={k.photo?.url} data-w={k.photo?.width} data-h={k.photo?.height} data-alt={k.photo ? k.photo.caption ?? k.name : undefined}>
                 <div class="kv-bar"><span class="kv-n">{num(i + 1)} / {num(n)}</span><a class="kv-x" href={`#${kindsId}`} aria-label={t('Đóng')}><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg></a></div>
                 <div class="kv-body">
-                  {k.photo && <div class="kv-pic" style={`aspect-ratio: ${k.photo.width} / ${k.photo.height}`}></div>}
+                  {k.photo && <div class="kv-pic" style={`aspect-ratio: ${k.photo.width} / ${k.photo.height}`}>
+                    <Fragment set:html={kindAiLabel(lang, k.photo, 'large', k.aiLabelCorner) + kindLargeFallback(k.photo, k.name)} />
+                  </div>}
                   {k.photo && <p class="kv-by">{caption && <>{caption} </>}<Fragment set:html={kindCredit(lang, k.photo).html} /></p>}
                   <h3 id={`${viewId(k.id)}-h`}>{k.name}</h3>
                   {k.aka && <p class="kv-aka">{k.aka}</p>}
@@ -179,7 +183,7 @@ const REFS_SHOWN = 5
     let waiting: string | undefined
     const draw = (d: HTMLDialogElement) => {
       const box = d.querySelector<HTMLElement>('.kv-pic')
-      if (!box || box.firstChild || !d.dataset.full) return
+      if (!box || box.querySelector('img') || !d.dataset.full) return
       const img = document.createElement('img')
       img.src = d.dataset.full
       img.alt = d.dataset.alt ?? ''
@@ -284,8 +288,9 @@ const REFS_SHOWN = 5
   }
   .k-card { display: flex; flex-direction: column; min-height: 44px; color: var(--c-ink); text-decoration: none; }
   .k-card:hover .k-name { text-decoration: underline; }
-  .k-pic { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-blackwater); border-radius: var(--radius-media); margin-bottom: var(--space-2); }
+  .k-pic { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--c-blackwater); border-radius: var(--radius-media); margin-bottom: var(--space-2); }
   .k-pic img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .k-pic :global(.k-ai), .kv-pic :global(.k-ai) { position: absolute; z-index: 1; padding: 3px 6px; border: 1px solid var(--c-rule); border-radius: var(--radius-media); background: var(--c-paper); color: var(--c-ink); font: 600 0.75rem/1.35 var(--f-body); }
   .k-name { font: 600 0.9375rem/1.35 var(--f-body); overflow-wrap: anywhere; }
   .k-aka { font: 400 var(--step--1)/1.4 var(--f-body); color: var(--c-ink-faint); overflow-wrap: anywhere; }
   .k-line { font: 400 0.875rem/1.45 var(--f-body); color: var(--c-ink-soft); margin-top: 2px; }
@@ -306,7 +311,7 @@ const REFS_SHOWN = 5
   .kv-n { font: 400 var(--step--1)/1 var(--f-body); color: var(--c-ink-faint); }
   .kv-x { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--c-ink); }
   .kv-body { flex: 1 1 auto; overflow: auto; }
-  .kv-pic { width: 100%; max-height: 62vh; background: var(--c-blackwater); }
+  .kv-pic { position: relative; width: 100%; max-height: 62vh; background: var(--c-blackwater); }
   .kv-pic :global(img) { display: block; width: 100%; height: 100%; object-fit: contain; }
   .kv-by { margin: 0; padding: var(--space-2) var(--space-4) 0; font: 400 var(--step--1)/1.5 var(--f-body); color: var(--c-ink-faint); }
   .kv-by :global(a) { color: var(--c-moss); }

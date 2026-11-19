@@ -1,8 +1,8 @@
-import { capitalFirst, cleanPhoto, FIRST_PLANTS, kindLine, kindsSection, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
+import { capitalFirst, cleanPhoto, FIRST_PLANTS, kindLine, kindsSection, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, validKindCardCrop, type KindCardCrop, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
 import { breedIsFish, breedKind } from './breeds'
 import { partsHtml, photoCredit, unsplashLine } from './cite'
 import { LANG, translator, type Lang } from './i18n'
-import { tilePhoto } from './img'
+import { smallSrc, tilePhoto } from './img'
 import { materialPath } from './materials'
 import { mentionIndex } from './mentions'
 import { pagePictures, takeEach, tilePhotos } from './pictures'
@@ -171,18 +171,18 @@ export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntit
   // kind whose photo another kind holds already is in words. Each opens large on the page with its whole text.
   const pics = pagePictures(c)
   const section = kindsSection(g.t.body ?? '')
-  const filed = new Map((g.kinds ?? []).map(k => [k.id, k.photo]))
+  const filed = new Map((g.kinds ?? []).map(k => [k.id, k]))
   // Each term linked once, where a reader sees it first: the text over the cards and the rest of the body, then the kinds'
   // whole texts, which show only when a card opens.
   const intro = section?.intro ? linkTerms(h2(section.intro), targets, 'ml', pageSeen, own).html : ''
   const restHtml = section ? section.rest : g.t.body ?? ''
   const pageBody = restHtml.trim() ? linkTerms(h2(restHtml), targets, 'ml', pageSeen, own).html : ''
   const items = (section?.items ?? []).map(k => {
-    const photo = filed.has(k.id) ? pics.take([filed.get(k.id)!]) : undefined
-    return { id: k.id, name: k.label, ...(k.aka ? { aka: k.aka } : {}), line: kindLine(k.html), html: linkTerms(k.html, targets, 'ml', pageSeen, own).html, ...(photo ? { photo } : {}) }
+    const record = filed.get(k.id), photo = record ? pics.take([record.photo]) : undefined
+    return { id: k.id, name: k.label, ...(k.aka ? { aka: k.aka } : {}), line: photo?.generated ? photo.caption ?? '' : kindLine(k.html), html: linkTerms(k.html, targets, 'ml', pageSeen, own).html, ...(photo ? { photo, ...(photo.generated && record?.cardCrop ? { cardCrop: record.cardCrop } : {}), ...(photo.generated && record?.aiLabelCorner ? { aiLabelCorner: record.aiLabelCorner } : {}) } : {}) }
   })
   const kinds = section ? { title: section.heading, intro, items: [...items.filter(k => k.photo), ...items.filter(k => !k.photo)] } : undefined
-  const photos = (g.photos ?? []).flatMap(p => pics.take([p]) ?? [])
+  const photos = (g.photos ?? []).filter(p => !p.generated).flatMap(p => pics.take([p]) ?? [])
   return { otherNames, definition, material, photo: photos[0], others: photos.slice(1), kinds, pageBody, body, related, refs: g.refs ?? [], guides, fish, plants, total: usedCount(uses), more, treat }
 }
 
@@ -201,10 +201,18 @@ export function kindCaption(lang: Lang, name: string, caption?: string): string 
 export function kindCredit(lang: Lang, p: Photo): { html: string } {
   const t = translator(lang)
   const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
+  if (p.generated) return { html: esc(photoCredit(lang, p).text) }
   const more = `<a href="${esc(p.sourceUrl)}" rel="noopener" target="_blank">${esc(t('Xem ảnh gốc ↗'))}</a>`
   if (isUnsplash(p.licence)) return { html: `${partsHtml(unsplashLine(lang, p, p.sourceUrl))} · ${more}` }
   const { text, licence } = photoCredit(lang, p)
   return { html: `${esc(text)}${licence ? `, ${esc(licence)}` : ''}. ${more}` }
+}
+
+/** A reviewed card window can show the layers; the large view always keeps the original picture whole. */
+export function kindCardImage(p: Photo, crop?: KindCardCrop): { src: string; style?: string } {
+  if (!p.generated || !crop || !validKindCardCrop(p, crop)) return { src: smallSrc(p) }
+  const w = crop.x1 - crop.x0, h = crop.y1 - crop.y0, pct = (v: number) => `${+(v * 100).toFixed(5)}%`
+  return { src: p.url, style: `position:absolute;max-width:none;width:${pct(p.width / w)};height:${pct(p.height / h)};left:${pct(-crop.x0 / w)};top:${pct(-crop.y0 / h)}` }
 }
 
 /** The rows a term's page shows of the pages that use it, each kind's, and whether a search finds the rest (USED_IN_ROWS). */

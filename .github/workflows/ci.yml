@@ -1,6 +1,8 @@
 name: Site checks (pull requests and main)
 on:
   pull_request:
+  schedule:
+    - cron: '47 20 * * *' # 03:47 Vietnam: the full daily suite, including the real-content glossary proof.
   workflow_dispatch: # fix.yml starts it on its branches (their PRs, opened with the workflow token, start nothing)
   push:
     branches: [main]
@@ -23,7 +25,12 @@ jobs:
     outputs:
       site: ${{ steps.files.outputs.site }}
       review: ${{ steps.files.outputs.review }}
+      glossary-proof: ${{ steps.files.outputs.glossary-proof }}
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2
+          sparse-checkout: scripts
       # A pull request that changes only the iOS app (apps/ios, its two workflows) skips the site's checks: ios.yml and
       # testflight.yml check it. protocols/ is the site's too. Anything else, or a list gh can't give (a diff of over 300
       # files), runs every check. The AI review runs on pull requests that change the site's code.
@@ -32,6 +39,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.number }}
+          BEFORE: ${{ github.event.before }}
         run: |
           site=true review=false
           if [ "$GITHUB_EVENT_NAME" = pull_request ] && files="$(gh pr diff "$PR" -R "$GITHUB_REPOSITORY" --name-only)" && [ -n "$files" ]; then
@@ -41,6 +49,35 @@ jobs:
           echo "site checks: $site, AI review: $review"
           echo "site=$site" >> "$GITHUB_OUTPUT"
           echo "review=$review" >> "$GITHUB_OUTPUT"
+          # Daily/manual full runs and an unreadable diff always run the proof. A release is selected by content path.
+          glossary=true
+          changed="$RUNNER_TEMP/glossary-changed-files"
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            if gh api --paginate "repos/$GITHUB_REPOSITORY/pulls/$PR/files" --jq '.[] | .filename, (.previous_filename // empty)' > "$changed"; then
+              glossary="$(node scripts/glossary-proof.mjs select < "$changed")"
+            fi
+          elif [ "$GITHUB_EVENT_NAME" = push ] && [ -n "$BEFORE" ]; then
+            if git diff --name-only --no-renames "$BEFORE" "$GITHUB_SHA" > "$changed"; then
+              glossary="$(node scripts/glossary-proof.mjs select < "$changed")"
+            fi
+          fi
+          echo "glossary-proof=$glossary" >> "$GITHUB_OUTPUT"
+  glossary-proof:
+    name: Glossary real-content proof
+    needs: changes
+    if: needs.changes.outputs.glossary-proof == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install Node, pnpm and the dependencies
+        uses: ./.github/actions/setup
+      - name: Compare real loaded content, in every served language
+        run: pnpm --filter site test:glossary-real
+        env:
+          CI: 'true'
   # A pull request says what it changes for readers, app users and the content, in its body's "## Changelog" section
   # (AGENTS.md, "Pull requests"; scripts/changelog.mjs): the daily report and the change log read it. The body is read as
   # it is now, not as the event had it, so a body fixed after the push passes when this job is run again. fix.yml's PRs
@@ -232,11 +269,14 @@ jobs:
   # iOS-only and they were skipped, and the PR's Changelog section reads well. A failed or cancelled check, or a failed
   # `changes`, fails it.
   test:
-    needs: [changes, checks, lighthouse, changelog]
+    needs: [changes, checks, lighthouse, changelog, glossary-proof]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: scripts
       - name: Every site check passed (or the change is iOS-only)
         env:
           CHANGES: ${{ needs.changes.result }}
@@ -244,10 +284,13 @@ jobs:
           CHECKS: ${{ needs.checks.result }}
           LIGHTHOUSE: ${{ needs.lighthouse.result }}
           CHANGELOG: ${{ needs.changelog.result }}
+          GLOSSARY_PROOF_REQUIRED: ${{ needs.changes.outputs.glossary-proof }}
+          GLOSSARY_PROOF_RESULT: ${{ needs.glossary-proof.result }}
         run: |
           echo "changes: $CHANGES, site checks needed: $SITE, checks: $CHECKS, lighthouse: $LIGHTHOUSE, changelog: $CHANGELOG"
           [ "$CHANGELOG" = success ] || { echo "The PR body's Changelog section: see the changelog job for what to add."; exit 1; }
           [ "$CHANGES" = success ] || exit 1
+          node scripts/glossary-proof.mjs gate
           if [ "$SITE" = true ]; then
             [ "$CHECKS" = success ] && [ "$LIGHTHOUSE" = success ] || exit 1
           else

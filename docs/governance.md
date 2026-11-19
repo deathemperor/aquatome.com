@@ -626,6 +626,12 @@ The layers above still check the result.
   doesn't), open licences or permission only.
   A listed publisher's permission (Aquarium Co-op, 2Hr Aquarist, Seriously Fish, ScotCat, Aquarium Breeder) covers its
   photos on any AquaTome page, by the owner's word of 16 Nov 2026.
+  A generated illustration may stand in on a glossary kind without a usable real photo (owner's yes, 17 Nov 2026),
+  under its own reviewed approval and switch: never a term's top picture, guide, species/plant-library picture,
+  Fish ID reference, day card or share image. Curation and Glossary independently pass it against current recorded
+  facts, and the owner sees and explicitly approves the selected picture on the first sheet before publication. Both the card and large view label it as AI-made;
+  the record and file metadata retain its generation provenance. The real photo replaces the stand-in's whole
+  record. Changed or missing evidence holds it. The seven general image switches and source grants stay off.
   Pages show photos from our own media host: a Commons or iNaturalist photo waits for `pnpm engine mirror-photos` (every
   cycle), and a public build leaves it out until then (`setsCookies`), since those hosts set third-party cookies.
   Every request the engine sends to Wikimedia (Commons' API, its pictures, their thumbnails) asks under the engine's own

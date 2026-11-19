@@ -241,3 +241,26 @@ test('a kind\'s card opens it large; the next kind opens in its place; Esc and �
   expect(page.url()).not.toContain('#loai-')
   expect(errors).toEqual([])
 })
+
+// The stand-in label exists before lazy image loading. It must not be mistaken for an already-loaded picture.
+// A synthetic label on the real fixture exercises the production dialog script while publication stays off.
+test('a pre-existing AI label does not prevent a kind viewer from loading its full picture', async ({ page, errors }) => {
+  await page.goto(KINDS)
+  const first = page.locator('section.kinds a.k-card').filter({ has: page.locator('img') }).first()
+  const target = (await first.getAttribute('href'))!
+  await page.locator(target).evaluate(d => {
+    const box = d.querySelector('.kv-pic')!
+    const label = document.createElement('span')
+    label.dataset.aiKindLabel = 'large'
+    label.textContent = 'Ảnh do AI tạo'
+    box.prepend(label)
+  })
+  await first.click()
+  const open = page.locator('dialog.k-view[open]')
+  await expect(open.locator('[data-ai-kind-label]')).toBeVisible()
+  await expect(open.locator('.kv-pic > img')).toBeVisible()
+  const full = await open.getAttribute('data-full')
+  await expect(open.locator('.kv-pic > img')).toHaveAttribute('src', full!)
+  await page.keyboard.press('Escape')
+  expect(errors).toEqual([])
+})

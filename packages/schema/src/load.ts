@@ -8,6 +8,7 @@ import { setsCookies, THUMB_WIDTH } from './thumb'
 import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
+import { GLOSSARY_KIND_IMAGES, GLOSSARY_KIND_APPROVALS, glossaryKindApproved, kindCanonical, kindPhotoCanonical, kindEntryCanonical } from './glossary-generated'
 import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
@@ -45,6 +46,10 @@ export type LoadOptions = {
    * is, reads the record's boxes alone (false).
    */
   wholeBoxes?: boolean
+  /** The independently reviewed glossary-kind stand-in path; never changes species/plant image switches. */
+  glossaryKindImages?: boolean
+  /** Restrictive proof mode: ignore kind approvals; never supplies or overrides an approval. */
+  glossaryKindApprovals?: false
 }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
@@ -214,6 +219,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const allowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'text')
   const approvals: { calibrationHash?: string; photos: Record<string, { page: string; recordHash: string; check: unknown }> } = images.publishGenerated ? await readFile(join(root, 'image-approvals.json'), 'utf8').then(s => JSON.parse(s) as { calibrationHash?: string; photos: Record<string, { page: string; recordHash: string; check: unknown }> }, () => ({ photos: {} })) : { photos: {} }
   const generatedUrls = new Set<string>()
+  // Kind stand-ins never become unlabelled calendar images, including explicit calendar image addresses.
+  const kindStandinUrls = new Set<string>()
   for (const [url, approval] of Object.entries(approvals.photos)) {
     if (!/^(species|plants)\/[a-z0-9-]+$/.test(approval.page)) continue
     const e = await readFile(join(root, approval.page, 'entity.json'), 'utf8').then(s => JSON.parse(s), () => undefined)
@@ -241,9 +248,11 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // record by its photo's own address: in our store a thumb's and a larger copy's are the photo's with "-480" or
   // "-large" before ".webp" (thumb.ts, the engine's large-photos.ts). One the record doesn't know waits.
   const photoWaits = (address: string): boolean => {
+    const photo = address.replace(new RegExp(`-(?:${THUMB_WIDTH}|large)\\.webp$`), '.webp')
+    if (kindStandinUrls.has(address) || kindStandinUrls.has(photo)) return true
+    if (!screen) return false
     if (shown.has(address)) return false
     if (waiting.has(address)) return true
-    const photo = address.replace(new RegExp(`-(?:${THUMB_WIDTH}|large)\\.webp$`), '.webp')
     return awaitsScreen(photo, screen![photo])
   }
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
@@ -482,16 +491,45 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }
 
   const allPlaces = (await loadKind(root, 'places', PlaceSchema, lang)).filter(p => placeNamed(p.t))
+  const kindImages = opts.glossaryKindImages ?? GLOSSARY_KIND_IMAGES.on
+  const kindApprovals = kindImages && opts.glossaryKindApprovals !== false ? await readFile(join(root, GLOSSARY_KIND_APPROVALS), 'utf8').then(s => {
+    const v = JSON.parse(s) as { photos?: Record<string, unknown> }
+    return v && v.photos && typeof v.photos === 'object' && !Array.isArray(v.photos) ? v.photos : {}
+  }).catch(() => ({} as Record<string, unknown>)) : {}
+  const rejections = kindImages ? await stateRecord<unknown>(root, '_photo-rejected.json').catch(() => undefined) : undefined
+  const kindRejected = rejections && typeof rejections === 'object' && !Array.isArray(rejections) ? rejections as Record<string, unknown> : undefined
+  const digest = (s: string) => createHash('sha256').update(s).digest('hex')
+  const glossary = await Promise.all((await loadKind(root, 'glossary', GlossarySchema, lang)).map(async g => {
+    for (const k of g.kinds ?? []) if (k.photo.generated) {
+      for (const address of [k.photo.url, k.photo.thumb, k.photo.large?.url]) if (address) kindStandinUrls.add(address)
+    }
+    const generatedKinds = kindImages && g.kinds?.some(k => k.photo.generated)
+    const vi = generatedKinds ? await readFile(join(root, 'glossary', g.id, 'vi.json'), 'utf8').then(s => JSON.parse(s) as { body?: string }).catch(() => undefined) : undefined
+    const facts = generatedKinds ? await stateRecord<{ found?: boolean; facts?: unknown[] }>(root, `glossary/${g.id}.json`).catch(() => undefined) : undefined
+    const factsPresent = facts?.found === true && Array.isArray(facts.facts) && facts.facts.length > 0
+    const kinds = (g.kinds ?? []).flatMap(k => {
+      if (!k.photo.generated) return cleanPhotos([k.photo], g.id).map(photo => ({ ...k, photo }))
+      if (!kindImages) return []
+      const entry = vi?.body && kindEntryCanonical(g, k.id, vi.body)
+      const photo = caption(boxed(k.photo))
+      if (!photo.caption || (publicBuild && setsCookies(k.photo.url))) return []
+      const approved = glossaryKindApproved(k.photo, kindApprovals[k.photo.url], {
+        term: g.id, kind: k.id, recordHash: digest(kindPhotoCanonical(k.photo, k.cardCrop, k.aiLabelCorner)),
+        ...(entry ? { entryHash: digest(entry) } : {}),
+        ...(factsPresent ? { factsHash: digest(kindCanonical(facts)) } : {}),
+        rejected: !kindRejected || Object.hasOwn(kindRejected, k.photo.url), screened: !!screen && screened(k.photo) && screen[k.photo.url]?.watermark !== true,
+        realPhotoAvailable: false, aiLabelCorner: k.aiLabelCorner, ...(k.cardCrop ? { cardCrop: k.cardCrop } : {}),
+      })
+      return approved ? [{ ...k, photo }] : []
+    })
+    return { ...g, ...(g.photos ? { photos: cleanPhotos(g.photos.filter(p => !p.generated), g.id) } : {}), ...(g.kinds ? { kinds } : {}) }
+  }))
   return {
     lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, materials, cards,
-    ...(screen ? { photoWaits } : {}),
+    ...(screen || kindStandinUrls.size ? { photoWaits } : {}),
     // A term's photos follow the same rules as a page's (publish gates, the watermark screen).
     // A kind's photo passes the same screen as the term's; a kind whose photo doesn't is shown without one.
-    glossary: (await loadKind(root, 'glossary', GlossarySchema, lang)).map(g => ({
-      ...g,
-      ...(g.photos ? { photos: cleanPhotos(g.photos, g.id) } : {}),
-      ...(g.kinds ? { kinds: g.kinds.flatMap(k => cleanPhotos([k.photo], g.id).map(photo => ({ ...k, photo }))) } : {}),
-    })),
+    glossary,
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
     places: allPlaces.filter(p => lang === 'vi' || species.some(s => s.places.includes(p.id))),
