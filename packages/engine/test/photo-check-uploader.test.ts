@@ -23,6 +23,8 @@ const photo = (n: string, p: P = {}) => ({
 const seen: Partial<PhotoVerdict> = { ok: 'yes', typical: true, note: '', logo: false, person: false }
 /** Five photos by another uploader, so a page's first sheet is full and its photos that wait are left for later. */
 const five = (id: string) => [1, 2, 3, 4, 5].map(i => photo(`${id}-f${i}`))
+/** Six album photos readers see, so the page shows a strip and its photos that wait keep their turn (photo-check.ts `short`). */
+const strip = (id: string) => [1, 2, 3, 4, 5, 6].map(i => photo(`${id}-s${i}`))
 
 type Page = { id: string; own?: ReturnType<typeof photo>[]; album: ReturnType<typeof photo>[] }
 /** Each page has a lead the check has passed; `verdicts`: photo name → page → verdict already recorded. */
@@ -85,7 +87,7 @@ test('"another fish" for an album photo: the same run judges that album\'s photo
         photo('judged-before', { author: ANGLER, waits: true }),
       ],
     },
-    { id: 'bbb-fish', album: [photo('other-album', { author: ANGLER, waits: true })] },
+    { id: 'bbb-fish', album: [...strip('bbb-fish'), photo('other-album', { author: ANGLER, waits: true })] },
     {
       id: 'ccc-fish',
       album: [
@@ -96,7 +98,7 @@ test('"another fish" for an album photo: the same run judges that album\'s photo
         photo('name-only', { author: ANGLER, waits: true }),
       ],
     },
-  ], { 'judged-before': { 'aaa-fish': seen } })
+  ], { 'judged-before': { 'aaa-fish': seen }, ...Object.fromEntries(strip('bbb-fish').map(x => [name(x.url), { 'bbb-fish': seen }])) })
   const d = model({ trig: { ok: 'other', note: 'a guppy' }, 'trig-page': { ok: 'other', note: 'a platy' } })
   const out = await checkPagePhotos(r, d, { limit: 2 })
   expect(d.seen).toEqual([
@@ -108,7 +110,7 @@ test('"another fish" for an album photo: the same run judges that album\'s photo
   expect(out.uploaderPhotos).toBe(4)
   expect(await judged(r, 'aaa-fish')).not.toContain('other-site')
   expect(await judged(r, 'aaa-fish')).not.toContain('other-author')
-  expect(await judged(r, 'bbb-fish')).toEqual(['bbb-fish-lead'])
+  expect(await judged(r, 'bbb-fish')).toEqual(['bbb-fish-lead', ...strip('bbb-fish').map(x => name(x.url))].sort())
   expect(await judged(r, 'ccc-fish')).not.toContain('other-page')
 })
 
@@ -174,7 +176,7 @@ test('"another fish" for a page\'s own photo starts nothing, for its other own p
   // bbb-fish's own photos fill two sheets; the run's limit leaves the second, with `own-sib`, for later.
   const r = await pair({
     own: [photo('own-trig', { author: ANGLER }), ...five('bbb-fish'), photo('own-sib', { author: ANGLER })],
-    album: [photo('album-sib', { author: ANGLER, waits: true })],
+    album: [...strip('bbb-album'), photo('album-sib', { author: ANGLER, waits: true })],
   })
   const d = model({ 'aaa-trig': { ok: 'other' }, 'own-trig': { ok: 'other' } })
   await checkPagePhotos(r, d, { limit: 2, emptyCap: 99 })
