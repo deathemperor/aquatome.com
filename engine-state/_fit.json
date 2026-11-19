@@ -139598,27 +139598,34 @@
  },
  "vi/species/thayeria-ifati": {
   "at": "2026-11-19",
-  "hash": "c484a000d5d7c2f9",
+  "hash": "52c7a6b615fa1946",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "words",
-    "part": "P8",
-    "quote": "tetra Hyphessobrycon, cá chì, Apistogramma",
-    "why": "Pencilfish (Nannostomus) are called 'cá bút chì' by keepers in Vietnam, not 'cá chì'.",
-    "by": "model",
-    "fix": "cá bút chì"
+    "check": "units",
+    "part": "P4",
+    "quote": "Bể 60 × 38 × 30 cm (khoảng 68 lít)",
+    "why": "A 38 cm side shows the tank was converted from a 24 × 15 × 12 inch size; keepers in Vietnam don't build or buy tanks to these measurements.",
+    "by": "model"
    }
   ],
   "products": []
  },
  "vi/species/thayeria-obliqua": {
   "at": "2026-11-19",
-  "hash": "50e24966e6da582c",
+  "hash": "adb8db6f89a60171",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Bể 60 × 38 × 30 cm",
+    "why": "Tank sides converted from a 24 × 15 × 12 inch (15 gallon) tank; the 38 cm side is not a size keepers in Vietnam use.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/species/thiara-cancellata": {
@@ -140514,10 +140521,18 @@
  },
  "vi/species/vieja-fenestrata": {
   "at": "2026-11-19",
-  "hash": "8277f47a5849dc9d",
+  "hash": "10adaef06e518716",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "Một cặp trưởng thành cần bể 120 × 45 × 38 cm, khoảng 205 lít.",
+    "why": "A 48 × 18 × 15 inch (55 gallon) tank converted to centimetres; the 38 cm height is not a size keepers in Vietnam use.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/species/vieja-maculicauda": {

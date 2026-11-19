@@ -7,8 +7,8 @@ Written by `pnpm engine gallery` (2026-11-19). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 760 | 31 | 9 | 26 | 774 |
-| rest | 20 | 1849 | 79 | 0 | 104 | 1824 |
+| covered | 30 | 773 | 31 | 9 | 26 | 787 |
+| rest | 20 | 1854 | 80 | 0 | 106 | 1828 |
 
 ## Short of target: every source read (697)
 
@@ -278,6 +278,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
+| species/betta-foerschi | covered | 0 | 30 |
 | species/betta-siamorientalis | covered | 0 | 30 |
 | species/betta-unimaculata | covered | 1 | 30 |
 | species/boraras-merah | covered | 3 | 30 |
@@ -408,7 +409,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-dimidiata | covered | 0 | 30 |
 | species/betta-edithae | covered | 11 | 30 |
 | species/betta-falx | covered | 5 | 30 |
-| species/betta-foerschi | covered | 0 | 30 |
 | species/betta-hendra | covered | 0 | 30 |
 | species/betta-hipposideros | covered | 2 | 30 |
 | species/betta-ideii | covered | 0 | 30 |

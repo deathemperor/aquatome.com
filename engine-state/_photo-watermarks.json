@@ -49258,6 +49258,9 @@
   "https://media.aquatome.com/commons/94ac1e1db3f4eb86.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/commons/94b1a2218b91674e.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/commons/94b3ea41fb39815f.webp": {
     "ocr": []
   },
@@ -50877,6 +50880,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/commons/9fba0ba969d54664.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/commons/9fbc1fb788c2ce32.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/commons/9fc0ac249c757e77.webp": {
@@ -71759,6 +71765,44 @@
       "top left"
     ]
   },
+  "https://media.aquatome.com/glaser/08156a4c759a8811.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 33,
+        "mark": false,
+        "hash": "752ac2730204cd59be6fbdcee8e52d99acb622dfe204d182dc42302b0641de6d"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-lalia-2/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/0830c881bd15d8b6.webp": {
     "ocr": [
       {
@@ -79081,6 +79125,36 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/1515ce0dfe38abd2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "e3428de60ef54e3d99d2adf7bd4bc3888774b241ae68a49a54d790a4f563d015"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "609d9f106946b9eddf6a6d010285c5bffaa01ac67cedf50ef43fe30c35c8b4e8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/152a316d5984c877.webp": {
     "ocr": [
       {
@@ -85939,6 +86013,36 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/215e3a5d71083a97.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "17b9c7572631ef4540042a75acd3113050a9d3a6e0cc4bbe5f03d4ad6e93d270"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/215f7d8d6b1e47f7.webp": {
     "ocr": [
       {
@@ -86020,6 +86124,36 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/21940e8af2e53f8f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "969d68bb9b09fe37d4015a4d8bbdef08ceab4fbd2051832c46833c12d55193cf"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "owner": "source"
+    }
   },
   "https://media.aquatome.com/glaser/21cbc851853d6bce.webp": {
     "ocr": [
@@ -87689,6 +87823,36 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/24e57efa54837669.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/24ec1921b6b00c2f.webp": {
     "ocr": [
       {
@@ -89050,6 +89214,43 @@
       "bottom centre",
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/glaser/2777b586d9719314.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "4c76849b06bf4587fc677b826beecb56dadca1dc9c0c969a80266c982c9e90f5"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "owner": "source"
+    }
   },
   "https://media.aquatome.com/glaser/278b60e6c9fb873b.webp": {
     "ocr": [
@@ -94515,6 +94716,36 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/30668e649db3cadf.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/neolamprologus-marunguensis-2/",
+      "owner": "source"
     }
   },
   "https://media.aquatome.com/glaser/307118d203298918.webp": {
@@ -102199,6 +102430,51 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/3ce4a5340907d907.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "ff55dbd05d3d1cc0bc0d92ec6ee992400a131d4eed77c8f006c299fa032ee838"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 27,
+        "mark": false,
+        "hash": "b8be698dfa68d22fd057ec12500242ad1699cbee68030ab6072c8c0b6d568ab1"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-lalia-2/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/3cf6787b07ba55e9.webp": {
     "ocr": [
       {
@@ -103651,6 +103927,36 @@
       "top centre"
     ]
   },
+  "https://media.aquatome.com/glaser/3edf04e675edb4da.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/3ee2733b22267707.webp": {
     "ocr": [
       {
@@ -104598,6 +104904,43 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/404894cbc7892d24.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "ff55dbd05d3d1cc0bc0d92ec6ee992400a131d4eed77c8f006c299fa032ee838"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "owner": "source"
     }
   },
   "https://media.aquatome.com/glaser/404c104cf01f0d0e.webp": {
@@ -113668,6 +114011,36 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/4f529bab47e45040.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "4a76af103e409eedacd7be1faa3747901e93ad132b03883ff4ca6346d633b566"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 47,
+        "mark": false,
+        "hash": "f537c08352eacf733da6328204f25e88fec59d6b0c1e250435e0d042b7c86819"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/4f5d7634a632f410.webp": {
     "ocr": [
       {
@@ -119893,6 +120266,36 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/5aa2de36c1101d0f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/pseudosphromenus-dayi-2/",
+      "owner": "source"
+    }
   },
   "https://media.aquatome.com/glaser/5abb852f920f8af9.webp": {
     "ocr": [
@@ -137269,6 +137672,43 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/7b84920fd2700f43.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "2ee42cbf493abe7755a9fbe42e1ac6f457c95a5073e805db5ae0e5a82077586c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 34,
+        "mark": false,
+        "hash": "29ef340c32f1103f7e93a0b36b6d451ef80666d52f548368f5f787d4f298d3e9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/7b94188ab71eb65a.webp": {
     "ocr": [
       {
@@ -149015,6 +149455,36 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/90161616d2c65176.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pachypanchax-sakaramyi-one-of-the-rarest-fish-in-the-world/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/9034efb91d7ba34a.webp": {
     "ocr": [
       {
@@ -150356,6 +150826,43 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/93453551dcf42b2f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-foerschi-bred/",
+      "owner": "source"
     }
   },
   "https://media.aquatome.com/glaser/9345617643e96969.webp": {
@@ -152517,6 +153024,51 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/972edc866284ca72.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 27,
+        "mark": false,
+        "hash": "b8be698dfa68d22fd057ec12500242ad1699cbee68030ab6072c8c0b6d568ab1"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "382e684a037e9f0c0cfdb6adba3a6064f0f0c44f72823a4ee6a266c646362b62"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top right",
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-lalia-2/",
+      "owner": "source"
     }
   },
   "https://media.aquatome.com/glaser/97316e20d62ef215.webp": {
@@ -158403,6 +158955,43 @@
       "bottom right"
     ]
   },
+  "https://media.aquatome.com/glaser/a1c3585f275ca93b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/neolamprologus-marunguensis-2/",
+      "owner": "source"
+    }
+  },
   "https://media.aquatome.com/glaser/a1c6a3601c0c4252.webp": {
     "ocr": [
       {
@@ -162154,6 +162743,36 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/a85dd65138de2440.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "owner": "source"
     }
   },
   "https://media.aquatome.com/glaser/a866f40bf36f5b34.webp": {
@@ -170043,6 +170662,43 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/b5310fea0ea6cb00.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "e31626be01638935652cfe4a0589181aba58b73883c99ad851be0edcc8043217"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 10,
+        "mark": false,
+        "hash": "985e23b2b21f061febfff7c4a34419825d7e92464afbef897421811b75856bcd"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "83d24b989737692100e8f91ec029abde3183989783219c9cb95076aa824e6d88"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "owner": "source"
     }
   },
   "https://media.aquatome.com/glaser/b5689d74dad7f0af.webp": {
@@ -213992,6 +214648,12 @@
   "https://media.aquatome.com/inaturalist/1110538.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/111126035.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/111126076.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/111129249.webp": {
     "ocr": []
   },
@@ -214071,6 +214733,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/111784032.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/1120971.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/112111521.webp": {
@@ -214164,6 +214829,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/1132429.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/11325089.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/11325093.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/113304132.webp": {
@@ -214912,7 +215583,16 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/inaturalist/129011579.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/129013028.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/129013097.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/129013105.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/129213426.webp": {
@@ -215136,6 +215816,9 @@
   "https://media.aquatome.com/inaturalist/138080485.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/13818228.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/138383981.webp": {
     "ocr": []
   },
@@ -215292,6 +215975,9 @@
   "https://media.aquatome.com/inaturalist/144875302.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/14522333.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/145313878.webp": {
     "ocr": []
   },
@@ -215430,6 +216116,9 @@
   "https://media.aquatome.com/inaturalist/149313021.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/149432394.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/149449666.webp": {
     "ocr": []
   },
@@ -215547,6 +216236,9 @@
   "https://media.aquatome.com/inaturalist/15212557.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/1521473.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/1521474.webp": {
     "ocr": []
   },
@@ -215627,6 +216319,9 @@
       "middle centre",
       "middle right"
     ]
+  },
+  "https://media.aquatome.com/inaturalist/153603418.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/inaturalist/153605042.webp": {
     "ocr": [
@@ -215937,6 +216632,22 @@
   "https://media.aquatome.com/inaturalist/158142713.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/158468054.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 20,
+        "mark": true,
+        "hash": "1510d5e47589832012c3cd0d1a8ac8356b71d5d47d838d71c81a5bd13acc170e"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom left"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/158533790.webp": {
     "ocr": []
   },
@@ -216163,6 +216874,22 @@
   "https://media.aquatome.com/inaturalist/162086638.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/162116403.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 20,
+        "mark": false,
+        "hash": "16eb4c5c0dd8396e05420e25079a1a634c4976c4334e485f7db50df7315622f2"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top right"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/162188216.webp": {
     "ocr": []
   },
@@ -216382,6 +217109,22 @@
   "https://media.aquatome.com/inaturalist/167562620.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/167613946.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 20,
+        "mark": true,
+        "hash": "def34a265ff92a51029c720a743a75bef2b1ba8f247c2caaa4bca977581800f8"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "bottom right"
+    ]
+  },
   "https://media.aquatome.com/inaturalist/167723677.webp": {
     "ocr": []
   },
@@ -216429,6 +217172,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/168504530.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/168507481.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/168718415.webp": {
@@ -216706,6 +217452,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/171040474.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/17108118.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/171372481.webp": {
@@ -223256,6 +224005,9 @@
   "https://media.aquatome.com/inaturalist/274779174.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/27484729.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/27484738.webp": {
     "ocr": []
   },
@@ -224276,6 +225028,12 @@
   "https://media.aquatome.com/inaturalist/29266257.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/29266579.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/29266782.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/293282371.webp": {
     "ocr": []
   },
@@ -224951,6 +225709,9 @@
       "middle centre",
       "middle right"
     ]
+  },
+  "https://media.aquatome.com/inaturalist/29797366.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/inaturalist/298103923.webp": {
     "ocr": []
@@ -226659,6 +227420,9 @@
   "https://media.aquatome.com/inaturalist/317090649.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/31728718.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/317304722.webp": {
     "ocr": []
   },
@@ -226693,6 +227457,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/318084647.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/3181200.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/318286053.webp": {
@@ -226951,6 +227718,15 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/322458189.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/32257994.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/32258027.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/32258036.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/32258547.webp": {
@@ -229696,6 +230472,9 @@
   "https://media.aquatome.com/inaturalist/3707221.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/37077086.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/371559299.webp": {
     "ocr": [
       {
@@ -230492,6 +231271,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/40055565.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/40065696.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/400685600.webp": {
@@ -233007,6 +233789,9 @@
   "https://media.aquatome.com/inaturalist/420018218.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/42006435.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/420092055.webp": {
     "ocr": []
   },
@@ -233092,6 +233877,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/421279337.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/42129848.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/421411835.webp": {
@@ -235469,6 +236257,12 @@
   "https://media.aquatome.com/inaturalist/47681523.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/47691890.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/47691894.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/476985086.webp": {
     "ocr": []
   },
@@ -237308,6 +238102,9 @@
   "https://media.aquatome.com/inaturalist/53817383.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/53877739.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/538827694.webp": {
     "ocr": []
   },
@@ -237658,6 +238455,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/54937528.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/549646039.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/54995766.webp": {
@@ -239960,6 +240760,9 @@
   "https://media.aquatome.com/inaturalist/589888854.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/58992531.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/589928706.webp": {
     "ocr": []
   },
@@ -240021,6 +240824,9 @@
     ]
   },
   "https://media.aquatome.com/inaturalist/59052816.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/59078912.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/590889014.webp": {
@@ -240781,6 +241587,9 @@
   "https://media.aquatome.com/inaturalist/603617704.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/60368996.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/60369088.webp": {
     "ocr": []
   },
@@ -241347,6 +242156,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/611767.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/61182164.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/612266958.webp": {
@@ -244341,6 +245153,12 @@
   "https://media.aquatome.com/inaturalist/724575759.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/72470708.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/72470726.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/724929492.webp": {
     "ocr": []
   },
@@ -244467,6 +245285,12 @@
   "https://media.aquatome.com/inaturalist/727818061.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/72789626.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/72790129.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/729506149.webp": {
     "ocr": []
   },
@@ -244489,6 +245313,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/730745531.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/73153313.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/7315718.webp": {
@@ -245874,6 +246701,9 @@
   "https://media.aquatome.com/inaturalist/91301291.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/9155490.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/91579233.webp": {
     "ocr": []
   },
@@ -246201,7 +247031,13 @@
   "https://media.aquatome.com/inaturalist/98492050.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/98526565.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/98533660.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/98537177.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/98568921.webp": {

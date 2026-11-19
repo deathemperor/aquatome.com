@@ -8,7 +8,12 @@
   "inat:127178050",
   "inat:296041442"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/da91cfbc89fdd2ab.webp": "c3c3878d1503044c",
+  "https://media.aquatome.com/glaser/98c30e3d2b0a8f01.webp": "d36333312b169c8c",
+  "https://media.aquatome.com/glaser/d0556fc30b4631f2.webp": "702c2f2733310b4e",
+  "https://media.aquatome.com/glaser/638dfb64ccd4910f.webp": "d98d8d2333390d49"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 347914,
@@ -17,5 +22,12 @@
    "research": 170674844,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2353417,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

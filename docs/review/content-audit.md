@@ -8,7 +8,6 @@ borrow one from a species or plant they mention on the site.
 - species/acanthocobitis-rubidipinnis — Cá chạch Paracanthocobitis rubidipinnis
 - species/acanthopsoides-robertsi — Cá chạch mặt ngựa lùn
 - species/acestridium-dichromum — Cá whiptail xanh
-- species/acestrorhynchus-isalineae — Cá tetra barracuda sọc
 - species/acestrorhynchus-minimus — Cá tetra barracuda lùn
 - species/acheilognathus-tonkinensis — Cá thè be
 - species/acrochordonichthys-falcifer — Cá banjo châu Á
@@ -495,7 +494,6 @@ borrow one from a species or plant they mention on the site.
 - species/melanotaenia-rubrostriata — Cá cầu vồng sọc đỏ
 - species/mesoheros-ornatus — Cá cichlid Cichlasoma ornatum
 - species/metaloricaria-nijsseni — Cá lau kiếng Metaloricaria nijsseni
-- species/metynnis-maculatus — Cá hồng nhung đốm
 - species/metzia-bounthobi — Cá Metzia bounthobi
 - species/microcambeva-filamentosa — Cá da trơn Microcambeva filamentosa
 - species/microctenopoma-fasciolatum — Cá ctenopoma sọc
@@ -555,7 +553,6 @@ borrow one from a species or plant they mention on the site.
 - species/paludomus-loricata — Ốc Paludomus loricatus
 - species/panaqolus-koko — Cá koko pleco
 - species/pangasius-nasutus — Cá tra mũi
-- species/pao-suvattii — Cá nóc mũi tên
 - species/papyrocranus-afer — Cá dao arowana châu Phi
 - species/parabotia-lijiangensis — Cá chạch Parabotia lijiangensis
 - species/parachromis-motaguensis — Cá cichlid vàng giả
@@ -646,7 +643,6 @@ borrow one from a species or plant they mention on the site.
 - species/schistura-schultzi — Cá chạch suối Schistura schultzi
 - species/serrasalmus-altuvei — Cá piranha Serrasalmus altuvei
 - species/serrasalmus-elongatus — Cá piranha pike
-- species/serrasalmus-manueli — Cá piranha Manny
 - species/serrasalmus-marginatus — Cá piranha Serrasalmus marginatus
 - species/serrasalmus-serrulatus — Cá piranha serrulatus
 - species/silurichthys-hasseltii — Cá da trơn lá Hassel
@@ -993,13 +989,16 @@ borrow one from a species or plant they mention on the site.
 - guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-three-rare-catfish-species-from-paraguay-en — Ba loài cá da trơn hiếm từ Paraguay: Corydoras diphyes, Otocinclus mimulus và Hisonotus nigricauda
 - guides/glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-trachycorystes-sp-white-spots-en — Trachycorystes sp. White Spots – cá nheo Nam Mỹ từ Peru với những đốm trắng bất thường
 - guides/glaser-en-10-catfishes-10e-catfishes-from-asia-ompok-bimaculatus-and-o-pabda-en — Ompok bimaculatus và O. pabda – cá trê bơ nuôi trong bể
+- guides/glaser-en-10-catfishes-corydoras-cw-89-cw-91-cw-106-cw-107-2 — Cá chuột Corydoras CW 89, CW 91, CW 106 và CW 107 quý hiếm từ Rio Vaupés, Colombia
 - guides/glaser-en-10-catfishes-corydoras-orcesi-and-c-pastazensis — Cá chuột Corydoras orcesi và C. pastazensis – hai loài có hoa văn đẹp, hiếm gặp trong thú chơi cá cảnh
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-beautiful-new-varieties-of-liverbearers-arrived-en — Năm dòng cá đẻ con mới từ châu Á, trong đó có bốn dòng Micropoecilia parae
+- guides/glaser-en-18-toothcarps-killis-and-livebearers-black-molly-black-molly-2 — Các dòng cá molly đen (Black Molly) khác nhau thế nào
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-double-sword-guppys-en — Cá bảy màu đuôi kiếm đôi (Double Sword)
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-dwarf-lampeyes-fluviphylax-from-venezuela-en — Cá lampeye lùn (Fluviphylax) từ Venezuela
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-limia-special-en — Các loài Limia đặc biệt
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-new-endler-sports-en — Các dòng Endler mới
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-new-nothos-en — Các loài Nothobranchius mới
+- guides/glaser-en-18-toothcarps-killis-and-livebearers-oryzias-latipes-medaka-breeding-forms — 10 dòng cá medaka (cá lúa Nhật) Oryzias latipes được lai tạo
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-procatopus-aberrans-and-p-nototaenia-en — Procatopus aberrans và P. nototaenia
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-rare-livebearers-en — Các loài cá đẻ con hiếm
 - guides/glaser-en-18-toothcarps-killis-and-livebearers-the-story-of-the-cologne-wild-guppy — Câu chuyện về cá bảy màu hoang dã vùng Cologne
@@ -1047,6 +1046,7 @@ borrow one from a species or plant they mention on the site.
 - guides/glaser-en-fisharchive-osteogaster-rabauti-and-o-zygata — Osteogaster rabauti và O. zygata: hai loài cá chuột đồng loạt khó phân biệt
 - guides/glaser-en-general-a-visit-at-ornamental-fish-breeder-julich — Thăm trại nhân giống cá cảnh Jülich – chuyên cá ông tiên và các loài hiếm
 - guides/glaser-en-general-cichla-ocellaris-x-melaniae-hybrid-2 — Cá lai Cichla ocellaris x melaniae
+- guides/glaser-en-general-corydoras-rarities — Bốn loài cá chuột mũi dài hiếm từ Peru: Corydoras sp. “Melita”, “Karina”, “Souza” và “Panduro”
 - guides/loachesonline-articles-a-river-runs-through-it — Dòng sông chảy qua bể – Thiết kế bể River-Tank cho cá suối
 - guides/loachesonline-articles-an-introduction-to-keeping-botia — Giới thiệu về nuôi cá chạch Botia
 - guides/loachesonline-articles-botia-kubotai-development-of-markings-during-growth — Botia kubotai - Sự phát triển hoa văn trong quá trình lớn lên
@@ -2118,7 +2118,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (1056)
+## Only one photo (no pictures inside the text) (1061)
 
 - species/aborichthys-elongatus — Cá chạch sóc đuôi đỏ
 - species/acantopsis-dialuzona — Cá chạch mặt ngựa
@@ -2387,7 +2387,6 @@ borrow one from a species or plant they mention on the site.
 - species/danio-roseus — Cá danio hồng
 - species/danio-tinwini — Cá danio vòng vàng
 - species/danionella-priapus — Cá danionella priapus
-- species/dario-kajal — Cá Dario kajal
 - species/dario-tigris — Cá dario hổ đen
 - species/dario-urops — Cá Dario urops
 - species/datnioides-microlepis — Cá thái hổ Indonesia
@@ -2474,6 +2473,7 @@ borrow one from a species or plant they mention on the site.
 - species/geophagus-dicrozoster — Cá hải hồ dicrozoster
 - species/geophagus-iporangensis — Cá hải hồ iporangensis
 - species/geosesarma-hagen — Cua quỷ đỏ
+- species/geosesarma-krathing — Cua đầu quýt
 - species/glossolepis-wanamensis — Cá cầu vồng hồ Wanam
 - species/gnathocharax-steindachneri — Cá tetra răng nanh Steindachner
 - species/gnathochromis-permaxillaris — Cá Gnathochromis permaxillaris
@@ -2513,6 +2513,7 @@ borrow one from a species or plant they mention on the site.
 - species/heterandria-formosa — Cá bảy màu lùn
 - species/heterobranchus-longifilis — Cá trê vundu
 - species/heterotis-niloticus — Cá heterotis
+- species/hexanematichthys-mastersi — Cá da trơn Masters
 - species/homaloptera-orthogoniata — Cá bám đá yên ngựa
 - species/homalopteroides-nebulosus — Cá chạch suối Homalopteroides nebulosus
 - species/homalopteroides-stephensoni — Cá bám đá Homalopteroides stephensoni
@@ -2633,6 +2634,7 @@ borrow one from a species or plant they mention on the site.
 - species/megalonema-platycephalum — Cá Megalonema đầu bẹt
 - species/megalops-atlanticus — Cá tarpon Đại Tây Dương
 - species/melanochromis-auratus — Cá mbuna vàng
+- species/melanoides-tuberculata — Ốc tháp Malaysia
 - species/melanotaenia-australis — Cá cầu vồng miền Tây Úc
 - species/melanotaenia-lacustris — Cá cầu vồng hồ Kutubu
 - species/melanotaenia-maccullochi — Cá cầu vồng lùn
@@ -2684,7 +2686,6 @@ borrow one from a species or plant they mention on the site.
 - species/neoarius-midgleyi — Cá úc Silver Cobbler
 - species/neocaridina-denticulata — Tép Neocaridina Hulk cam
 - species/neolamprologus-leleupi — Cá cichlid chanh
-- species/neolamprologus-marunguensis — Cá Neolamprologus marunguensis
 - species/neolamprologus-pulcher — Cá Neolamprologus pulcher
 - species/neolamprologus-sexfasciatus — Cá cichlid sáu vạch
 - species/neolamprologus-similis — Cá cichlid vỏ ốc similis
@@ -2694,6 +2695,7 @@ borrow one from a species or plant they mention on the site.
 - species/neripteron-auriculatum — Ốc Batman
 - species/neritina-pulligera — Ốc nerite mũ quân đội đen
 - species/netuma-bilineata — Cá úc đồng
+- species/netuma-proxima — Cá da trơn Arafura
 - species/nothobranchius-eggersi — Cá killi Nothobranchius eggersi
 - species/nothobranchius-foerschi — Cá killi Nothobranchius foerschi
 - species/nothobranchius-guentheri — Cá killi Nothobranchius guentheri
@@ -2726,7 +2728,6 @@ borrow one from a species or plant they mention on the site.
 - species/oxyeleotris-marmorata — Cá bống tượng
 - species/pachypanchax-arnoulti — Cá Pachypanchax arnoulti
 - species/pachypanchax-playfairii — Cá panchax Playfair
-- species/pachypanchax-sakaramyi — Cá panchax Madagascar
 - species/pacifastacus-leniusculus — Tôm càng tín hiệu
 - species/palaemon-concinnus — Tôm Palaemon concinnus
 - species/panaqolus-albivermis — Cá L204
@@ -2779,6 +2780,8 @@ borrow one from a species or plant they mention on the site.
 - species/phractura-brevicauda — Cá Phractura brevicauda
 - species/pimelodella-kronei — Cá pimelodella hang động
 - species/planiloricaria-cryptodon — Cá lau kính dẹt Planiloricaria
+- species/plicofollis-argyropleuron — Cá da trơn mõm dài
+- species/plicofollis-nella — Cá úc nella
 - species/poecilia-latipinna — Cá molly vây buồm
 - species/poecilia-velifera — Cá molly buồm khổng lồ
 - species/poecilocharax-weitzmani — Cá tetra phi tiêu đen
@@ -2812,7 +2815,6 @@ borrow one from a species or plant they mention on the site.
 - species/pseudomystus-heokhuii — Cá ong bắp cày heokhuii
 - species/pseudorasbora-parva — Cá rasbora đá
 - species/pseudosphromenus-cupanus — Cá thiên đường đuôi nhọn
-- species/pseudosphromenus-dayi — Cá thiên đường đuôi nhọn nâu
 - species/pseudotropheus-crabro — Cá mbuna ong bắp cày
 - species/pseudotropheus-demasoni — Cá mbuna Demason
 - species/pseudotropheus-elongatus — Cá mbuna elongatus
@@ -2892,6 +2894,7 @@ borrow one from a species or plant they mention on the site.
 - species/sphoeroides-annulatus — Cá nóc Sphoeroides annulatus
 - species/steatocranus-tinanti — Cá Steatocranus tinanti
 - species/stenomelania-torulosa — Ốc đũa
+- species/stenorhynchus-seticornis — Stenorhynchus seticornis
 - species/stigmatogobius-sadanundio — Cá bống hiệp sĩ
 - species/stiphodon-birdsong — Cá bống Stiphodon birdsong
 - species/striuntius-lineatus — Cá barb sọc dọc
@@ -3002,6 +3005,7 @@ borrow one from a species or plant they mention on the site.
 - plants/eleocharis-montevidensis — Cỏ tóc tiên Montevideo
 - plants/eriocaulon-sp-vietnam — Eriocaulon Vietnam
 - plants/helanthium-tenellum — Cỏ Nhật Bản xanh
+- plants/hemianthus-callitriodes — Cỏ Cuba (HC)
 - plants/hemianthus-micranthemoides — Cỏ ngọc trai
 - plants/hydrocotyle-leucocephala — Rau má Brazil
 - plants/hygrophila-angustifolia — Cây liễu nước
@@ -3123,6 +3127,7 @@ borrow one from a species or plant they mention on the site.
 - guides/aquariumbreeder-light-co2-and-nutrients-why-aquarium-plants-struggle-to-grow — Ánh sáng, CO2 và dinh dưỡng: Vì sao cây thủy sinh khó phát triển
 - guides/aquariumbreeder-medusa-worm-in-a-reef-tank-stay-or-go — Giun Medusa trong bể san hô: nên giữ lại hay loại bỏ?
 - guides/aquariumbreeder-microworms-profile-and-how-to-culture-as-live-food — Giun vi mô (Microworms): giới thiệu và cách nuôi làm thức ăn sống
+- guides/aquariumbreeder-no-water-change-tank-top-offs-vs-water-change — Bể không thay nước: châm nước bù và thay nước khác nhau thế nào, cách set bể không cần thay nước
 - guides/aquariumbreeder-profile-gorilla-crabs-in-reef-tanks — Hồ sơ: Cua khỉ đột (Gorilla crab) trong bể san hô
 - guides/aquariumbreeder-profile-of-diving-beetles-monsters-in-shrimp-and-fish-tanks — Hồ sơ bọ cánh cứng lặn (Diving beetle): kẻ săn mồi trong bể tép và bể cá
 - guides/aquariumbreeder-proper-care-for-carpet-anemones — Hướng dẫn chăm sóc hải quỳ thảm (Stichodactyla) trong bể nước mặn
@@ -3225,7 +3230,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Oryzias setnai — named on 12 pages (species/oryzias-asinua, species/oryzias-celebensis, species/oryzias-dancena, species/oryzias-eversi, species/oryzias-javanicus, …)
 - Pontederia crassipes — named on 12 pages (guides/youtube-0EqLihKj8os, guides/youtube-7gf1xIZTJRg, guides/youtube-8SCxf-L1Nww, guides/youtube-8qCMy4BnnDI, guides/youtube-Asi_tzpiHxM, …)
 - Channa striata — named on 11 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/akysis-maculipinnis, species/betta-mahachaiensis, species/channa-asiatica, species/dawkinsia-arulius, …)
-- Melanoides tuberculata — named on 11 pages (guides/youtube--XN4FMqNwPQ, guides/youtube-3jqe5KGD9lI, guides/youtube-6MVlcgTchtE, guides/youtube-HK0vWQGwNOE, guides/youtube-JmUTEUoY6Jg, …)
 - Syngonium podophyllum — named on 11 pages (guides/youtube-1weSZQGGs2k, guides/youtube-HK0vWQGwNOE, guides/youtube-HUa1u8usS5w, guides/youtube-PVRlXXhdD7U, guides/youtube-Pc-uoB80jyk, …)
 - Strobilanthes sinuata — named on 10 pages (guides/youtube-HK0vWQGwNOE, guides/youtube-KsmBRW22jiQ, guides/youtube-N3uNPHmKkjc, guides/youtube-NnedKiWs71U, guides/youtube-Pc-uoB80jyk, …)
 - Adrianichthys roseni — named on 9 pages (species/oryzias-celebensis, species/oryzias-dancena, species/oryzias-javanicus, species/oryzias-latipes, species/oryzias-mekongensis, …)
@@ -3435,6 +3439,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Chromidotilapia schoutedeni — named on 2 pages (species/congochromis-dimidiatus, species/congochromis-sabinae)
 - Clarias teijsmanni — named on 2 pages (species/betta-brownorum, species/betta-taeniata)
 - Conta conta — named on 2 pages (species/ctenops-nobilis, species/nemacheilus-corica)
+- Corydoras evelynae — named on 2 pages (species/corydoras-loxozonus, species/corydoras-urucu)
 - Crenicichla inpa — named on 2 pages (species/laetacara-flamannellus, species/satanoperca-acuticeps)
 - Crenicichla saxatilis — named on 2 pages (species/nannostomus-marginatus, species/nannostomus-trifasciatus)
 - Cribroheros bussingi — named on 2 pages (species/amatitlania-myrnae, species/amatitlania-nanolutea)
@@ -3457,7 +3462,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Gastromyzon auronigrus — named on 2 pages (species/gastromyzon-cornusaccus, species/gastromyzon-monticola)
 - Gastromyzon borneensis — named on 2 pages (guides/loachesonline-articles-suckerbelly-loaches, species/gastromyzon-punctulatus)
 - Geophagus surinamensis — named on 2 pages (guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-wonderful-german-bred-south-american-cichlids-en, species/cleithracara-maronii)
-- Geosesarma krathing — named on 2 pages (guides/aquariumbreeder-aquarium-crabs-and-tankmates-possible-or-not, guides/aquariumbreeder-crabs-as-pets-pros-and-cons)
 - Glossogobius celebius — named on 2 pages (species/gastromyzon-cornusaccus, species/gastromyzon-monticola)
 - Guianacara geayi — named on 2 pages (species/geophagus-camopiensis, species/satanoperca-rhynchitis)
 - Guyanancistrus brevispinis — named on 2 pages (species/geophagus-camopiensis, species/satanoperca-rhynchitis)
@@ -3466,6 +3470,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Hemigrammus lunatus — named on 2 pages (species/geophagus-megasema, species/mikrogeophagus-altispinosus)
 - Hemimyzon sheni — named on 2 pages (species/hemimyzon-formosanus, species/hemimyzon-nanensis)
 - Hemirhamphodon chrysopunctatus — named on 2 pages (species/kottelatlimia-hipporhynchos, species/sphaerichthys-acrostoma)
+- Hermodice carunculata — named on 2 pages (guides/aquariumbreeder-bristleworms-profile-stay-or-go, species/stenorhynchus-seticornis)
 - Hoplosternum littorale — named on 2 pages (guides/youtube-ldbE9N7RUTQ, species/lepthoplosternum-pectorale)
 - Hydrocynus forskahlii — named on 2 pages (species/hepsetus-odoe, species/hydrocynus-vittatus)
 - Hypancistrus lunaorum — named on 2 pages (species/baryancistrus-beggini, species/baryancistrus-demantoides)
@@ -3749,7 +3754,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Correlophus ciliatus — named on 1 page (guides/aquariumbreeder-paludarium-animals)
 - Cortaderia selloana — named on 1 page (guides/youtube-Wh4n7nbLbi8)
 - Corydoras blochi — named on 1 page (species/corydoras-vittatus)
-- Corydoras evelynae — named on 1 page (species/corydoras-loxozonus)
 - Creagrutus britskii — named on 1 page (species/geophagus-neambi)
 - Creagrutus meridionalis — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
 - Creagrutus occidaneus — named on 1 page (species/geophagus-proximus)
@@ -3764,6 +3768,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Cryptoheros spilurus — named on 1 page (species/cincelichthys-bocourti)
 - Cteniloricaria maculata — named on 1 page (species/geophagus-brachybranchus)
 - Ctenopoma multispine — named on 1 page (species/nothobranchius-rachovii)
+- Ctenopoma ocellatum — named on 1 page (species/ctenopoma-kingsleyae)
 - Cyclocheilichthys enoplos — named on 1 page (species/bangana-behri)
 - Cymbopogon citratus — named on 1 page (guides/youtube-4lG_4wSx_bQ)
 - Cyperus blepharoleptos — named on 1 page (guides/youtube-pLRJzD035Co)
@@ -3860,7 +3865,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Hemiodus amazonum — named on 1 page (species/geophagus-proximus)
 - Hemisorubim platyrhynchos — named on 1 page (guides/sprucepets-common-fish-names-beginning-with-s-1378555)
 - Hemitaeniochromis brachyrhynchus — named on 1 page (guides/seriouslyfish-articles-a-passion-for-cichlids)
-- Hermodice carunculata — named on 1 page (guides/aquariumbreeder-bristleworms-profile-stay-or-go)
 - Heteranthera dubia — named on 1 page (guides/youtube-swLD-a1SkRQ)
 - Hisonotus hungy — named on 1 page (species/corydoras-carlae)
 - Holtodrilus truncatus — named on 1 page (guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby)
@@ -4066,6 +4070,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Pelmatochromis nigrofasciatus — named on 1 page (species/ctenopoma-acutirostre)
 - Penaeus vannamei — named on 1 page (guides/aquariumbreeder-microworms-profile-and-how-to-culture-as-live-food)
 - Peperomia caperata — named on 1 page (guides/youtube-UkkP80wMn_s)
+- Percnon gibbesi — named on 1 page (species/stenorhynchus-seticornis)
 - Petenia splendida — named on 1 page (species/thorichthys-meeki)
 - Pethia nankyweensis — named on 1 page (species/pethia-erythromycter)
 - Pethia thelys — named on 1 page (species/pethia-didi)
@@ -4187,6 +4192,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Scriptaphyosemion roloffi — named on 1 page (species/epiplatys-fasciolatus)
 - Semiplotus cirrhosus — named on 1 page (species/pethia-tiantian)
 - Serrapinnus calliurus — named on 1 page (species/hyphessobrycon-herbertaxelrodi)
+- Serrasalmus humeralis — named on 1 page (species/serrasalmus-manueli)
 - Serratia marcescens — named on 1 page (species/micromussa-lordhowensis)
 - Sicyopterus japonicus — named on 1 page (species/rhinogobius-gigas)
 - Siganus vulpinus — named on 1 page (guides/youtube-z_pKaOlsKyg)
@@ -4208,7 +4214,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Steindachnerina biornata — named on 1 page (species/scleromystax-salmacis)
 - Steindachnerina insculpta — named on 1 page (species/hyphessobrycon-balbus)
 - Stenopus hispidus — named on 1 page (guides/aquariumbreeder-bristleworms-profile-stay-or-go)
-- Stenorhynchus seticornis — named on 1 page (guides/aquariumbreeder-bristleworms-profile-stay-or-go)
 - Sternopygus macrurus — named on 1 page (species/geophagus-brokopondo)
 - Stichodactyla gigantea — named on 1 page (guides/aquariumbreeder-proper-care-for-carpet-anemones)
 - Stichodactyla haddoni — named on 1 page (guides/aquariumbreeder-proper-care-for-carpet-anemones)

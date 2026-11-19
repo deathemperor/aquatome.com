@@ -813,6 +813,20 @@
     "th/species/elacatinus-oceanops": "passed"
    },
    "wrong": []
+  },
+  {
+   "at": "2026-11-19T04:46:40.587Z",
+   "keys": [
+    "vi/species/thayeria-ifati",
+    "vi/species/thayeria-obliqua",
+    "vi/species/vieja-fenestrata"
+   ],
+   "outcomes": {
+    "vi/species/thayeria-ifati": "passed",
+    "vi/species/thayeria-obliqua": "passed",
+    "vi/species/vieja-fenestrata": "passed"
+   },
+   "wrong": []
   }
  ]
 }
