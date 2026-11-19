@@ -18,7 +18,32 @@ test('the agent\'s job sets up the sandbox after installing the CLI and before t
   expect(install).toBeGreaterThan(0)
   expect(ready).toBeGreaterThan(install)
   expect(session).toBeGreaterThan(ready)
-  expect(workflow).not.toMatch(/dangerously|allowUnsandboxed|--no-sandbox|sandbox["']?\s*:\s*false/i)
+  expect(workflow).not.toMatch(/dangerously|excludedCommands|--no-sandbox/i)
+})
+
+// Left to the CLI's defaults, a sandbox that can't start lets every command run unsandboxed (its docs, 19 Nov 2026), and
+// the workflow installs the newest CLI each run: the policy is the workflow's own.
+test('the session is started with its own sandbox policy: on, no way out, and no session without one', () => {
+  const policy = /^\s*sandbox='(\{.*\})'$/m.exec(workflow)
+  expect(policy, 'the policy the session is started with').not.toBeNull()
+  expect(JSON.parse(policy![1]!)).toEqual({ sandbox: { enabled: true, failIfUnavailable: true, allowUnsandboxedCommands: false } })
+  const call = workflow.slice(workflow.indexOf('claude -p --model'), workflow.indexOf('< scripts/site-fix-prompt.md'))
+  expect(call).toContain(`--setting-sources '' --settings "$sandbox"`)
+})
+
+// A job that ended without a fix (the sandbox, an install, the session's time) left the issue with no word, as
+// `publish` runs only after a job that succeeded.
+test('when no fix comes, the issue is told in fixed words with the run\'s link and waits for a person', () => {
+  const at = workflow.indexOf('\n  stopped:\n')
+  expect(at).toBeGreaterThan(0)
+  const job = workflow.slice(at + 1, workflow.slice(at + 1).search(/\n {2}[a-z-]+:\n/) + at + 1)
+  expect(job).toMatch(/needs\.agent\.result == 'failure'/)
+  expect(job).toMatch(/needs\.budget\.result == 'failure'/)
+  expect(job).toMatch(/permissions:\n\s+issues: write\n\s+steps:/)
+  expect(job).not.toMatch(/checkout|needs\.agent\.outputs|download-artifact/)
+  expect(job).toContain('gh issue comment "$ISSUE"')
+  expect(job).toContain('Where it stopped is in the run: $RUN')
+  expect(job).toContain('--add-label needs-person')
 })
 
 /** Runs the script with stand-ins for sudo, apt-get, socat and bwrap; bwrap starts a sandbox or not. */
