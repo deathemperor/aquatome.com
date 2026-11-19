@@ -56,4 +56,6 @@ test("the Site lead's own on GitHub: an image refused, an answer cut off, and a 
   expect(failureDetail({ ...base, code: null, signal: 'SIGKILL', message: 'claude returned non-JSON (null): other (killed)', text: '' })).toBe('claude: a call failed: other (killed); model opus; step page-review; try 1; signal SIGKILL')
   expect(failureDetail({ ...base, message: 'claude failed (1): other', text: `odd ${words} 42` })).toBe(`claude: a call failed: other; model opus; step page-review; try 1; exit 1; sentence ${sentenceHash(`odd ${words} 7`)}`)
   for (const m of [`messages[0]: ${words}`, `${words} x: y`, `${'a'.repeat(81)}: x`]) expect(refusedAt(refused(m)), m).toBeUndefined()
+  // The status, the type and the message of one error object (the engine's call-failure.ts the same).
+  expect(refusedAt(`API Error: 400 {"type":"error","error":{"type":"permission_error","message":"other.field: ${words}"},"meta":{"type":"invalid_request_error"}}`)).toBeUndefined()
 })

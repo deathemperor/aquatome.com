@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
 import { AUTH, resetOf } from './claude-accounts'
-import { errorKind } from './state'
+import { BROWSER_GONE, errorKind } from './state'
 
 /** The API's own error types, the only class names a kind keeps. */
 export const API_ERRORS = ['invalid_request_error', 'authentication_error', 'billing_error', 'permission_error', 'not_found_error', 'request_too_large', 'rate_limit_error', 'timeout_error', 'api_error', 'overloaded_error'] as const
@@ -14,8 +14,9 @@ const NETWORK: [RegExp, (m: RegExpExecArray) => string][] = [
   [/\bHTTP (408|429|5\d\d)\b/i, m => `HTTP ${m[1]}`],
   [/net::ERR_/, () => 'net::ERR_'],
   [/Timeout \d+ ?ms exceeded|Navigation timeout/i, () => 'Navigation timeout'],
+  [BROWSER_GONE, () => 'Target closed'],
 ]
-const NET_WORDS = 'ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE|ETIMEDOUT|socket hang up|fetch failed|HTTP (?:408|429|5\\d\\d)|net::ERR_|Navigation timeout'
+const NET_WORDS = 'ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE|ETIMEDOUT|socket hang up|fetch failed|HTTP (?:408|429|5\\d\\d)|net::ERR_|Navigation timeout|Target closed'
 const TYPES = API_ERRORS.join('|')
 /**
  * Every kind below, from fixed words and numbers only: a failed call's message that ends in one is ours already and is
@@ -40,14 +41,22 @@ export function failureKind(message: string, result?: { subtype?: unknown; stop_
   if (/^claude (?:failed|returned non-JSON) \(null\)/.test(message)) return 'other (killed)'
   const ours = /^claude (?:failed|returned non-JSON) \([^)]*\): (.*)$/s.exec(message)?.[1]
   if (ours && KIND.test(ours)) return ours
-  // Output that wasn't JSON: what the code reads off it, a rejected credential (the accounts), a limit or a quota (the
-  // gate's and the photo steps' stop); else whether there was any.
-  const text = /^claude returned non-JSON \([^)]*\): (.*)$/s.exec(message)?.[1]
-  if (text !== undefined) return AUTH.test(text) ? 'credential refused' : /usage limit|weekly limit/i.test(text) ? 'usage limit' : /quota/i.test(text) ? 'quota exceeded' : /limit/i.test(text) ? 'limit reached' : text.trim() ? 'answer not JSON' : 'no answer'
+  // As errorKind reads it first: a usage limit, then a failure that passes (the network, the browser), whatever else the
+  // message says, so the steps try it again as they would on the Mac.
   if (errorKind(message) === 'usage') {
     const at = resetOf(message)
     return `${/usage limit|quota|weekly limit/i.test(message) ? 'usage limit' : 'limit reached'}${at ? ` until ${at}` : ''}`
   }
+  if (errorKind(message) === 'transient') {
+    for (const [re, word] of NETWORK) {
+      const m = re.exec(message)
+      if (m) return `network (${word(m)})`
+    }
+  }
+  // Output that wasn't JSON: what the code reads off it, a rejected credential (the accounts), a limit or a quota (the
+  // gate's and the photo steps' stop); else whether there was any.
+  const text = /^claude returned non-JSON \([^)]*\): (.*)$/s.exec(message)?.[1]
+  if (text !== undefined) return AUTH.test(text) ? 'credential refused' : /usage limit|weekly limit/i.test(text) ? 'usage limit' : /quota/i.test(text) ? 'quota exceeded' : /limit/i.test(text) ? 'limit reached' : text.trim() ? 'answer not JSON' : 'no answer'
   if (AUTH.test(message)) return 'credential refused'
   if (/quota/i.test(message)) return 'quota exceeded'
   if (typeof result?.subtype === 'string' && SUBTYPES[result.subtype]) return SUBTYPES[result.subtype]
@@ -94,9 +103,32 @@ export const sentenceHash = (text: string) => createHash('sha256').update(text.r
  * nothing (the chief of staff, 19 Nov). It describes our request, not the account.
  */
 export function refusedAt(text: string): string | undefined {
-  if (!/\bAPI Error:?\s*400\b/.test(text) || !/"type"\s*:\s*"invalid_request_error"/.test(text)) return undefined
-  const place = /"message"\s*:\s*"([^":]*):/.exec(text)?.[1]
+  // The status, the type and the message of one error: the object the API sent after "API Error: 400", read whole.
+  const e = (apiError(text, '400') as { error?: { type?: unknown; message?: unknown } } | undefined)?.error
+  if (e?.type !== 'invalid_request_error' || typeof e.message !== 'string') return undefined
+  const place = /^([^:]*):/.exec(e.message)?.[1]
   return place && /^[A-Za-z0-9_.]{1,80}$/.test(place) ? place : undefined
+}
+
+/** The JSON object right after "API Error: <status>" in the CLI's text, parsed whole, or nothing. */
+function apiError(text: string, status: string): unknown {
+  const at = new RegExp(`\\bAPI Error:?\\s*${status}\\s*\\{`).exec(text)
+  if (!at) return undefined
+  const start = at.index + at[0].length - 1
+  let depth = 0, inString = false, escaped = false
+  for (let i = start; i < text.length; i++) {
+    const c = text[i]
+    if (inString) {
+      if (escaped) escaped = false
+      else if (c === '\\') escaped = true
+      else if (c === '"') inString = false
+    } else if (c === '"') inString = true
+    else if (c === '{') depth++
+    else if (c === '}' && --depth === 0) {
+      try { return JSON.parse(text.slice(start, i + 1)) } catch { return undefined }
+    }
+  }
+  return undefined
 }
 
 /**

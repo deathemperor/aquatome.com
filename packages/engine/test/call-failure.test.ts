@@ -95,6 +95,9 @@ test('every reader of a failure reads ours on GitHub as it reads the CLI\'s on t
     ['claude returned non-JSON (1)', 'Invalid bearer token'],
     ['claude returned non-JSON (1)', "You've hit your weekly limit"],
     ['claude returned non-JSON (1)', '<html>'],
+    ['claude returned non-JSON (1)', 'fetch failed'],
+    ['claude failed (1)', 'Failed to fetch image: HTTP 503'],
+    ['claude failed (1)', 'API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"prompt is too long"}} after HTTP 503'],
     ['claude returned non-JSON (143)', ''],
     ['claude returned non-JSON (null)', ''],
   ]
@@ -141,6 +144,10 @@ test("beside a failed call on GitHub, a line of ours: the kind, the model, the s
   expect(failureDetail({ ...base, message: 'claude failed (1): other (400 invalid_request_error)', text: refused(`messages.0.content.0.source: ${words}`) })).toMatch(/; at messages\.0\.content\.0\.source$/)
   for (const m of [`messages[0] content: ${words}`, `${words} and more: x`, `a/b: x`, `${'a'.repeat(81)}: x`, `no place named here ${words}`]) expect(refusedAt(refused(m)), m).toBeUndefined()
   expect(refusedAt(`API Error: 500 {"type":"error","error":{"type":"api_error","message":"messages.0: x"}}`)).toBeUndefined() // only a malformed request's
+  // The status, the type and the message of one error object: another error's type elsewhere in the text doesn't count.
+  expect(refusedAt(`API Error: 400 {"type":"error","error":{"type":"permission_error","message":"other.field: ${words}"},"meta":{"type":"invalid_request_error"}}`)).toBeUndefined()
+  expect(refusedAt(`API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"no place ${words}"}} "message":"other.field: x"`)).toBeUndefined()
+  expect(refusedAt(`${refused('messages.1.content: x')} and then ${words}`)).toBe('messages.1.content')
   // None of the tool's words but that place.
   expect(failureDetail({ ...base, message: 'claude failed (1): other', text: other })).not.toContain(words)
 })

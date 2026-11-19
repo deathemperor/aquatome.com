@@ -66,9 +66,32 @@ export const sentenceHash = (text: string) => createHash('sha256').update(text.r
  * message: kept only if it is letters, digits, dots and underscores, 80 at most, else nothing (the chief of staff, 19 Nov).
  */
 export function refusedAt(text: string): string | undefined {
-  if (!/\bAPI Error:?\s*400\b/.test(text) || !/"type"\s*:\s*"invalid_request_error"/.test(text)) return undefined
-  const place = /"message"\s*:\s*"([^":]*):/.exec(text)?.[1]
+  // The status, the type and the message of one error: the object the API sent after "API Error: 400", read whole.
+  const e = (apiError(text, '400') as { error?: { type?: unknown; message?: unknown } } | undefined)?.error
+  if (e?.type !== 'invalid_request_error' || typeof e.message !== 'string') return undefined
+  const place = /^([^:]*):/.exec(e.message)?.[1]
   return place && /^[A-Za-z0-9_.]{1,80}$/.test(place) ? place : undefined
+}
+
+/** The JSON object right after "API Error: <status>" in the CLI's text, parsed whole, or nothing. */
+function apiError(text: string, status: string): unknown {
+  const at = new RegExp(`\\bAPI Error:?\\s*${status}\\s*\\{`).exec(text)
+  if (!at) return undefined
+  const start = at.index + at[0].length - 1
+  let depth = 0, inString = false, escaped = false
+  for (let i = start; i < text.length; i++) {
+    const c = text[i]
+    if (inString) {
+      if (escaped) escaped = false
+      else if (c === '\\') escaped = true
+      else if (c === '"') inString = false
+    } else if (c === '"') inString = true
+    else if (c === '{') depth++
+    else if (c === '}' && --depth === 0) {
+      try { return JSON.parse(text.slice(start, i + 1)) } catch { return undefined }
+    }
+  }
+  return undefined
 }
 
 /**
