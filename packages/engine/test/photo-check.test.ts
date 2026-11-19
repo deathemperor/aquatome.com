@@ -292,6 +292,42 @@ test("non-commercial album photos that wait are judged last: after every other p
   expect(d2.seen.map(s => s.photos)).toEqual([['c-wait']])
 })
 
+test("the photos that wait on a page that shows no strip go before the turns, the open ones first, then the non-commercial ones; a page with a strip, or a breed's, waits its turn (the chief of staff, 2026-11-19)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const shows = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}` })
+  const commons = (n: string) => ({ ...photo(n), sourceUrl: `https://commons.wikimedia.org/wiki/File:${n}.jpg` })
+  // In page order: a breed whose row shows one album photo, with an open photo waiting; a page whose album shows six,
+  // with one of each waiting; a page with a Commons photo readers see that nothing has judged; a page whose album shows
+  // five, with a non-commercial photo waiting; and one whose album shows one, with an open photo waiting.
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] },
+    { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b-own'] },
+    { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] },
+    { id: 'ddd-fish', sci: 'Ddd fish', photos: ['d-own'] },
+    { kind: 'breeds', id: 'aaa-line', vi: { name: 'Aaa line' }, photos: ['e-own'], extra: { kind: 'variety', basedOn: 'aaa-fish', parents: [] } },
+  ])
+  const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), `${JSON.stringify({ id, photos, seen: 0, updatedAt: '' }, null, 2)}\n`)
+  const six = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'], five = ['c1', 'c2', 'c3', 'c4', 'c5']
+  await gallery('aaa-fish', [...six.map(shows), waits('a-wait'), nc('a-nc')])
+  await gallery('bbb-fish', [commons('b1')])
+  await gallery('ccc-fish', [...five.map(shows), nc('c-nc')])
+  await gallery('ddd-fish', [shows('d1'), waits('d-wait')])
+  await gallery('aaa-line', [shows('e1'), waits('e-wait')])
+  const seen = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  const judged: [string, string][] = [['a-own', 'aaa-fish'], ...six.map(n => [n, 'aaa-fish'] as [string, string]), ['b-own', 'bbb-fish'], ['c-own', 'ccc-fish'], ...five.map(n => [n, 'ccc-fish'] as [string, string]), ['d-own', 'ddd-fish'], ['d1', 'ddd-fish'], ['e-own', 'aaa-line'], ['e1', 'aaa-line']]
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(Object.fromEntries(judged.map(([n, id]) => [url(n), { [id]: seen }]))))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([
+    ['d-wait'], // the open photo that waits on a page with no strip
+    ['c-nc'], // then the non-commercial one on a page with no strip, though its page is read more
+    ['b1'], // then the turns as before: a Commons photo readers see
+    ['e-wait'], // a breed's row shows at any length: its photo waits its turn, first as the breed is read most
+    ['a-wait', 'a-nc'], // the page with a strip, its sheet filled from its non-commercial photo
+  ])
+})
+
 test("the lead a page shows stays where the check passes it as typical, and gives way to a typical photo where it passes as less, can't be told, is taken off, or has not been judged", async () => {
   const pages = ['aaa', 'bbb', 'ccc', 'ddd', 'eee'].map(p => ({ id: `${p}-fish`, sci: `${p} fish`, photos: [`${p}-lead`, `${p}-typical`] }))
   const r = await root(pages)

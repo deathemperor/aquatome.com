@@ -115,6 +115,8 @@ const PER_SHEET = 6
 export const EMPTY_CAP = 0
 /** Gallery photos a species page shows itself (the site's GALLERY_STRIP, apps/site/src/lib/gallery.ts); the rest are on the gallery page. */
 const STRIP = 8
+/** Photos an album must show before a page shows it as a strip (the site's GALLERY_MIN, apps/site/src/lib/gallery.ts). */
+const ALBUM = 6
 
 /**
  * Species whose hobby colour forms belong to another species: the bred discus (turquoise, red, pigeon blood…) are
@@ -310,10 +312,11 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
 /**
  * `waits`: a gallery photo no page shows until this check has judged it (`unchecked`); `bare`: a gallery photo of a page
  * with no photo of its own; `sourced`: a permitted source's own photo of what its page is about (Tropica's of its plant);
- * `lead`: the page's first photo of its own. `source` is the photo's `sourceUrl`; `origin` where it came from: its source's
+ * `lead`: the page's first photo of its own; `short`: a gallery photo that waits on a species' or a plant's page whose
+ * album shows fewer than ALBUM photos, so the page shows no strip. `source` is the photo's `sourceUrl`; `origin` where it came from: its source's
  * id, else the site of `sourceUrl` (most photos have no source id: Commons, iNaturalist, Flickr).
  */
-type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; authorUrl?: string; source?: string; origin?: string; waits?: boolean; bare?: boolean; sourced?: boolean; lead?: boolean; nc?: boolean }
+type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; authorUrl?: string; source?: string; origin?: string; waits?: boolean; bare?: boolean; sourced?: boolean; lead?: boolean; nc?: boolean; short?: boolean }
 
 const site = (u: string | undefined) => { try { return u ? new URL(u).hostname.replace(/^www\./, '') : undefined } catch { return undefined } }
 /**
@@ -335,7 +338,7 @@ const sameUploader = (a: Shown, b: Shown) =>
  * 3. the other photos that wait;
  * 4. non-commercial album photos that wait (iNaturalist's, IMAGE_SWITCHES.inatNonCommercial): they rank last in their
  *    album and never give a page its head, so they wait behind every other photo, a page with none too (the chief of
- *    staff, 2026-11-17, with up to 1,200 of them a cycle).
+ *    staff, 2026-11-17, with up to 1,200 of them a cycle), but for those on a page that shows no strip (below).
  *
  * Before all of them, a share of each run (`fill` sheets): a permitted source's own photos in the gallery of a page that
  * has none, which give that page its first photo once judged (Tropica's on the plant pages with none: the chief of
@@ -345,6 +348,10 @@ const sameUploader = (a: Shown, b: Shown) =>
  * photo, which the check had not reached in three days): a page's lead that neither check has looked at, from Flickr and
  * Commons first, then from the other sources; then the gallery of a page with no photo of its own, which gives it one
  * once judged. A lead's sheet is filled with its page's other photos, as any sheet is.
+ *
+ * Then, still before the turns (the chief of staff, 2026-11-19): the photos that wait on a page that shows no strip, its
+ * album showing fewer than ALBUM photos, which may give it one once judged, the open ones first, then the non-commercial
+ * ones.
  */
 export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 | 2 | 3 | 4 =>
   x.waits ? (x.nc ? 4 : x.bare ? 2 : 3) : /\/\/(?:commons\.wikimedia\.org|(?:www\.)?flickr\.com)\//.test(x.source ?? '') ? 0 : 1
@@ -378,7 +385,8 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 
  * - A gallery photo a step added waits (`unchecked`, gallery.ts) and no page shows it: judged and left on, it loses the
  *   mark here and shows from the next build.
  *
- * The order: the leads nothing has looked at and the pages with no photo of their own (see `turn`), then `turn`'s, and
+ * The order: the leads nothing has looked at, the pages with no photo of their own and the pages with no strip (see
+ * `turn`), then `turn`'s, and
  * within each most-read pages first (`rank`), the photos a page shows itself before the rest of its gallery. A page's
  * lead is judged in the first sheet a run gives the page, so no photo of the page is judged before it. A page's last
  * sheet is filled from its photos of a later turn (a lead's sheet from the page's own photos first), so no sheet goes
@@ -436,12 +444,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
       const photos = ((await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(file))?.photos ?? []).filter(p => !p.generated)
       if (file.endsWith('entity.json')) bare = !photos.length
+      // A breed's page shows its row at any length (apps/site/src/lib/breed-page.ts), so only a species' or a plant's is short.
+      const short = s.kind !== 'breeds' && file.includes('/gallery/') && photos.filter(p => p.unchecked !== true).length < ALBUM
       let place = 0
       for (const [i, p] of photos.entries()) {
         const origin = p.source ?? site(p.sourceUrl)
         // A non-commercial album photo fills no page that has none: it can't be a head (turn).
         const nc = file.includes('/gallery/') && isNonCommercial(p.licence ?? '')
-        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') && !nc ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true, ...(short ? { short: true } : {}) } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') && !nc ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
         // A photo that waits is on no page, so it takes no place in the strip.
         if (p.unchecked !== true) place++
       }
@@ -500,18 +510,20 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
     // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
-    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), and each
-    // turn in order.
-    const phase = (x: Shown, now: 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 0 | 1 | 2 | 3 | 4) =>
+    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), the photos
+    // that wait on a page with no strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in
+    // order.
+    const phase = (x: Shown, now: 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
       now === 'noAnimal' ? noAnimal(x)
       : now === 'first' ? !!x.sourced
       : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
       : now === 'bare' ? !!x.bare
+      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc')
       : turn(x) === now
     // A head with no animal in it goes before everything: a page whose head is a river should not wait (the chief of
     // staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
     let firstAt = from
-    for (const now of ['noAnimal', 'first', 'lead0', 'lead1', 'bare', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
+    for (const now of ['noAnimal', 'first', 'lead0', 'lead1', 'bare', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
       if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill)) break
       if (only && !only.has(s.id)) continue
