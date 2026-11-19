@@ -77,6 +77,10 @@ jobs:
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright, and Claude
         run: scripts/install-browser.sh chromium && npm install -g @anthropic-ai/claude-code
+      # The agent's every command runs in the CLI's sandbox, never outside it: its packages, and a sandbox started
+      # before any session is paid for (from 12 Nov 2026 none could start, and the agent could only read).
+      - name: The shell sandbox the agent works in
+        run: scripts/sandbox-ready.sh
       - name: Read the issue
         env:
           GH_TOKEN: ${{ github.token }}
@@ -126,7 +130,9 @@ jobs:
       - name: Turn the agent's work into a patch
         run: |
           mkdir -p /tmp/fix
-          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:r.subtype==="error_max_budget_usd"?"The agent stopped before it finished: it had spent what was left of the auto-fix ceiling for today (packages/engine/src/ceilings.json).":"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
+          # A session that didn't finish says so in our words, never the CLI's, as this log and the issue are public (the
+          # chief of staff, 19 Nov 2026): the usage limit with its reset, or an error by a hash of what the CLI said.
+          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:r.subtype==="error_max_budget_usd"?"The agent stopped before it finished: it had spent what was left of the auto-fix ceiling for today (packages/engine/src/ceilings.json).":(()=>{const t=String(r.result??"");if(/hit your .*limit|usage limit|limit reached|rate.?limit/i.test(t)){const at=/resets ((?:[A-Z][a-z]{2} \d{1,2}, )?\d{1,2}(?::\d\d)?[ap]m \(UTC\))/.exec(t);return "The agent did not finish: the Claude usage limit"+(at?", until "+at[1]:"")+". Start it again after that."}return t?"The agent did not finish: an error ("+require("crypto").createHash("sha256").update(t).digest("hex").slice(0,8)+").":"The agent did not finish: no output."})()};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
           # What the session says it cost, for the job that keeps the cost line (`cost`, below). A file beside the
           # patch, in the artifact this job hands on anyway: as one of this job's outputs it would be an input of that
           # job's step, and a step's inputs are printed in its public log before the step runs.
