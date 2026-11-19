@@ -67,9 +67,10 @@ test("on GitHub a failed call says its kind in our words; on the Mac the CLI's t
 })
 
 test('every reader of a failure reads ours on GitHub as it reads the CLI\'s on the Mac', () => {
-  // What each reads off a failure: the steps' kind; the accounts' set-aside and reset, and the reset on its own; the cycle's
-  // check for a rejected credential; the gate's and the fit step's stop (accountsOut); the photo steps' stop; the photo check's kind.
-  const read = (m: string) => [errorKind(m), outOf(m), resetOf(m), credentialRejected(`https://example.org/a: ${m}`), accountsOut(new LlmError(m)), photoModelStop(new LlmError(m)) === 'usage limit']
+  // What each reads off a failure: the steps' kind; the accounts' set-aside and reset (outOf, the one reader of a reset,
+  // claude-accounts.ts); the cycle's check for a rejected credential; the gate's and the fit step's stop (accountsOut); the
+  // photo steps' stop; the photo check's kind.
+  const read = (m: string) => [errorKind(m), outOf(m), credentialRejected(`https://example.org/a: ${m}`), accountsOut(new LlmError(m)), photoModelStop(new LlmError(m)) === 'usage limit']
   const cases: [string, string, string?][] = [
     ['claude failed (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC)"],
     ['claude failed (1)', "You've hit your limit · resets 3pm (Asia/Ho_Chi_Minh)"],
@@ -101,6 +102,8 @@ test('every reader of a failure reads ours on GitHub as it reads the CLI\'s on t
     ['claude returned non-JSON (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC); Invalid bearer token"],
     ['claude returned non-JSON (1)', 'limit reached|1762300800; Failed to authenticate'],
     ['claude returned non-JSON (1)', 'quota exceeded; Invalid bearer token'],
+    ['claude returned non-JSON (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC); fetch failed"],
+    ['claude failed (1)', 'quota exceeded · resets Nov 25 at 6am (UTC)'],
     ['claude returned non-JSON (1)', '<html>'],
     ['claude returned non-JSON (1)', 'fetch failed'],
     ['claude failed (1)', 'Failed to fetch image: HTTP 503'],
@@ -127,9 +130,13 @@ test('every reader of a failure reads ours on GitHub as it reads the CLI\'s on t
     expect(ours).not.toContain(words)
     expect(ours).not.toMatch(/10\.0\.0\.1|Invalid bearer|hit your|Service Unavailable/)
   }
-  // The reset survives in our words: the accounts set the account aside with the same time.
+  // The reset survives in our words: the accounts set the account aside with the same time. A limit in output that wasn't
+  // JSON says it too, also beside a refused credential, though no code reads it there, for whoever reads the run.
   process.env.GITHUB_ACTIONS = 'true'
-  expect(resetOf(failureMessage('claude failed (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC)"))).toBe(resetOf('resets Nov 25 at 6am (UTC)'))
+  const reset = resetOf('resets Nov 25 at 6am (UTC)')
+  expect(resetOf(failureMessage('claude failed (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC)"))).toBe(reset)
+  expect(resetOf(failureMessage('claude returned non-JSON (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC)"))).toBe(reset)
+  expect(resetOf(failureMessage('claude returned non-JSON (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC); Invalid bearer token"))).toBe(reset)
 })
 
 test("the Site lead's kinds of its own: an image the API couldn't take, and an answer cut off at the most it may write (19 Nov)", () => {
