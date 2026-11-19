@@ -163,11 +163,13 @@ extension XCUIApplication {
   }
 
   /// How readable the page's words are under the tab bar, against the same page's just above it. Two shots, the page dragged
-  /// up 40 points between them without a fling: of the pixels that changed, the side-by-side or stacked pairs 24 or more
-  /// grey levels apart, under the bar's frame (`under`) and in a band as tall a little above it, clear of iOS's edge
-  /// (`above`). A word that reads changes sharply as it moves; one blurred by the edge, softly; the bar's own names and
-  /// icons, still, not at all. `page`: the pixels that changed higher up, so a page that moved under a bar of its own over
-  /// its foot (Đèn's notice and write bar) tells apart from one that didn't move. Both shots go with the test's results.
+  /// up 40 points between them without a fling: the pixels with a sharp edge (40 or more grey levels to the next one across
+  /// or down) in one shot where the other is flat there (under 12), under the bar's frame (`under`) and in a band as tall a
+  /// little above it, clear of iOS's edge (`above`). A word that reads leaves sharp edges where there were none as it
+  /// moves; one blurred by the edge, none. The glass's own names, icons and rim keep theirs in both shots, however its tint
+  /// shifts with the page under it: the edges of the shots' difference counted that shift (the glass's lower rim, 1,052 on
+  /// a fish's page, 27.2, 20 Nov). `page`: the pixels that changed higher up, so a page that moved under a bar of its own
+  /// over its foot (Đèn's notice and write bar) tells apart from one that didn't move. Both shots go with the test's results.
   func wordsUnderTheTabBar(_ screen: String) -> (under: Int, above: Int, page: Int) {
     let bar = tabBars.firstMatch.frame
     let top = max(bar.minY - 48 - bar.height, 0)
@@ -185,12 +187,14 @@ extension XCUIApplication {
     let moved = zip(a.px, b.px).map { abs(Int($0) - Int($1)) }
     let scale = CGFloat(a.w) / frame.width, w = a.w
     func sharp(_ rows: Range<Int>) -> Int {
+      func edge(_ px: [UInt8], _ i: Int, _ x: Int, _ y: Int) -> Int {
+        max(x + 1 < w ? abs(Int(px[i]) - Int(px[i + 1])) : 0, y + 1 < rows.upperBound ? abs(Int(px[i]) - Int(px[i + w])) : 0)
+      }
       var n = 0
       for y in rows {
         for x in 0..<w {
-          let v = moved[y * w + x]
-          if x + 1 < w, abs(v - moved[y * w + x + 1]) >= 24 { n += 1 }
-          if y + 1 < rows.upperBound, abs(v - moved[(y + 1) * w + x]) >= 24 { n += 1 }
+          let i = y * w + x, ea = edge(a.px, i, x, y), eb = edge(b.px, i, x, y)
+          if (ea >= 40 && eb < 12) || (eb >= 40 && ea < 12) { n += 1 }
         }
       }
       return n
