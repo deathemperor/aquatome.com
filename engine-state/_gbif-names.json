@@ -1619,6 +1619,15 @@
     "genus": "Ancistrus",
     "matchType": "EXACT"
   },
+  "Ancylomenes pedersoni": {
+    "canonicalName": "Ancylomenes pedersoni",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Ancylomenes",
+    "matchType": "EXACT"
+  },
   "And madeirae": null,
   "Andinoacara latifrons": {
     "canonicalName": "Andinoacara latifrons",
@@ -2795,6 +2804,7 @@
   },
   "Asia has": null,
   "Asia including": null,
+  "Asia separated": null,
   "Asien und": null,
   "Asinua ricefish": null,
   "Asiphonichthys condei": {
@@ -5689,6 +5699,7 @@
   },
   "Bucephalandra mini": null,
   "Bucephalandra trong": null,
+  "Bucephalandra xanh": null,
   "Bujurquina oenolaemus": {
     "canonicalName": "Bujurquina oenolaemus",
     "phylum": "Chordata",
@@ -5711,6 +5722,22 @@
     "genus": "Pterobunocephalus",
     "matchType": "EXACT"
   },
+  "Bunocephalus amaurus": {
+    "canonicalName": "Bunocephalus amaurus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Bunocephalus",
+    "matchType": "EXACT"
+  },
+  "Bunocephalus chamaizelus": {
+    "canonicalName": "Bunocephalus chamaizelus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Bunocephalus",
+    "matchType": "EXACT"
+  },
   "Bunocephalus colombianus": {
     "canonicalName": "Bunocephalus colombianus",
     "order": "Siluriformes",
@@ -5720,6 +5747,38 @@
   },
   "Bunocephalus coracoideus": {
     "canonicalName": "Bunocephalus coracoideus",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Bunocephalus",
+    "matchType": "EXACT"
+  },
+  "Bunocephalus doriae": {
+    "canonicalName": "Bunocephalus doriae",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Bunocephalus",
+    "matchType": "EXACT"
+  },
+  "Bunocephalus knerii": {
+    "canonicalName": "Bunocephalus knerii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Bunocephalus",
+    "matchType": "EXACT"
+  },
+  "Bunocephalus larai": {
+    "canonicalName": "Bunocephalus larai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Bunocephalus",
+    "matchType": "EXACT"
+  },
+  "Bunocephalus verrucosus": {
+    "canonicalName": "Bunocephalus verrucosus",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Aspredinidae",
     "genus": "Bunocephalus",
@@ -5831,8 +5890,17 @@
     "genus": "Callisia",
     "matchType": "EXACT"
   },
+  "Callochromis greshakei": null,
   "Callochromis macrops": {
     "canonicalName": "Callochromis macrops",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Callochromis",
+    "matchType": "EXACT"
+  },
+  "Callochromis pleurospilus": {
+    "canonicalName": "Callochromis pleurospilus",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Callochromis",
@@ -6943,6 +7011,15 @@
     "genus": "Chelydra",
     "matchType": "EXACT"
   },
+  "Cherax alyciae": {
+    "canonicalName": "Cherax alyciae",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Parastacidae",
+    "genus": "Cherax",
+    "matchType": "EXACT"
+  },
   "Cherax boesemani": {
     "canonicalName": "Cherax boesemani",
     "order": "Decapoda",
@@ -7460,8 +7537,26 @@
     "genus": "Mayaheros",
     "matchType": "EXACT"
   },
+  "Ciliopagurus galzini": {
+    "canonicalName": "Ciliopagurus galzini",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Diogenidae",
+    "genus": "Ciliopagurus",
+    "matchType": "EXACT"
+  },
   "Ciliopagurus strigatus": {
     "canonicalName": "Ciliopagurus strigatus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Diogenidae",
+    "genus": "Ciliopagurus",
+    "matchType": "EXACT"
+  },
+  "Ciliopagurus vakovako": {
+    "canonicalName": "Ciliopagurus vakovako",
     "phylum": "Arthropoda",
     "class": "Malacostraca",
     "order": "Decapoda",
@@ -10784,6 +10879,14 @@
     "order": "Siluriformes",
     "family": "Pimelodidae",
     "genus": "Duopalatinus",
+    "matchType": "EXACT"
+  },
+  "Dupouyichthys sapito": {
+    "canonicalName": "Dupouyichthys sapito",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Dupouyichthys",
     "matchType": "EXACT"
   },
   "Duringlanis perugiae": {
@@ -14556,6 +14659,22 @@
   "Hoplisoma sterbai": null,
   "Hoplisoma trilineatum": null,
   "Hoplisoma xinguense": null,
+  "Hoplomyzon papillatus": {
+    "canonicalName": "Hoplomyzon papillatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Hoplomyzon",
+    "matchType": "EXACT"
+  },
+  "Hoplomyzon sexpapilostoma": {
+    "canonicalName": "Hoplomyzon sexpapilostoma",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Aspredinidae",
+    "genus": "Hoplomyzon",
+    "matchType": "EXACT"
+  },
   "Hoplosternum littorale": {
     "canonicalName": "Hoplosternum littorale",
     "order": "Siluriformes",
@@ -15455,6 +15574,14 @@
     "genus": "Hypostomus",
     "matchType": "EXACT"
   },
+  "Hypostomus micromaculatus": {
+    "canonicalName": "Hypostomus micromaculatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hypostomus",
+    "matchType": "EXACT"
+  },
   "Hypostomus mutucae": {
     "canonicalName": "Hypostomus mutucae",
     "order": "Siluriformes",
@@ -15516,6 +15643,14 @@
   },
   "Hypostomus regani": {
     "canonicalName": "Hypostomus regani",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hypostomus",
+    "matchType": "EXACT"
+  },
+  "Hypostomus rhantos": {
+    "canonicalName": "Hypostomus rhantos",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Hypostomus",
@@ -17428,6 +17563,14 @@
     "matchType": "EXACT"
   },
   "Leticia has": null,
+  "Leucaspius delineatus": {
+    "canonicalName": "Leucaspius delineatus",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Leucaspius",
+    "matchType": "EXACT"
+  },
   "Leuciscus cephalotaenia": {
     "canonicalName": "Rasbora cephalotaenia",
     "order": "Cypriniformes",
@@ -21939,6 +22082,7 @@
   },
   "Organothrips baudenii": null,
   "Orientalis bloch": null,
+  "Orinoco colour": null,
   "Orinoco drainages": null,
   "Orinoco eartheater": null,
   "Orinoco including": null,
@@ -23564,6 +23708,14 @@
     "genus": "Parosphromenus",
     "matchType": "EXACT"
   },
+  "Parosphromenus pahuensis": {
+    "canonicalName": "Parosphromenus pahuensis",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Parosphromenus",
+    "matchType": "EXACT"
+  },
   "Parosphromenus paludicola": {
     "canonicalName": "Parosphromenus paludicola",
     "order": "Perciformes",
@@ -23843,6 +23995,15 @@
     "canonicalName": "Peregriana peregra",
     "family": "Lymnaeidae",
     "genus": "Peregriana",
+    "matchType": "EXACT"
+  },
+  "Periclimenes pedersoni": {
+    "canonicalName": "Ancylomenes pedersoni",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Ancylomenes",
     "matchType": "EXACT"
   },
   "Periclimenes yucatanicus": {
@@ -25925,6 +26086,14 @@
     "genus": "Pseudomugil",
     "matchType": "EXACT"
   },
+  "Pseudomugil ivantsoffi": {
+    "canonicalName": "Pseudomugil ivantsoffi",
+    "phylum": "Chordata",
+    "order": "Atheriniformes",
+    "family": "Pseudomugilidae",
+    "genus": "Pseudomugil",
+    "matchType": "EXACT"
+  },
   "Pseudomugil luminatus": {
     "canonicalName": "Pseudomugil luminatus",
     "order": "Atheriniformes",
@@ -27828,6 +27997,24 @@
     "genus": "Rhynchocinetes",
     "matchType": "EXACT"
   },
+  "Rhynchocinetes typus": {
+    "canonicalName": "Rhynchocinetes typus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Rhynchocinetidae",
+    "genus": "Rhynchocinetes",
+    "matchType": "EXACT"
+  },
+  "Rhynchocinetes uritai": {
+    "canonicalName": "Rhynchocinetes uritai",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Rhynchocinetidae",
+    "genus": "Rhynchocinetes",
+    "matchType": "EXACT"
+  },
   "Rhynchodoras woodsi": {
     "canonicalName": "Rhynchodoras woodsi",
     "order": "Siluriformes",
@@ -27950,6 +28137,7 @@
     "genus": "Rineloricaria",
     "matchType": "EXACT"
   },
+  "Rintelen described": null,
   "Ritter ausgef": null,
   "Rivulus hartii": {
     "canonicalName": "Anablepsoides hartii",
