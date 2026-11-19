@@ -13,7 +13,7 @@ import { norm, render } from './reader'
 import { logReviews } from './review-log'
 import { roundConverted } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { blockOf, places, plain, quoted, sentences, splice, type Piece } from './sentences'
+import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentences'
 import { setHold } from './video-hold'
 import { reviewDraft, type WriteOpts, type YouTube } from './youtube'
 
@@ -31,7 +31,7 @@ const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', impor
  * and waits for a person (the chief of staff, 14 Nov 2026; Grok's reads). Unsure, it waits.
  */
 const SIZE_UNIT = '(?:lít|litres?|liters?|l|cm|centimet|centimét|mm|m|mét|feet|ft|foot|inch(?:es)?|in|gallons?|gal|galông|galon)'
-const DOSE_WORDS = 'ml|mililít|mililit|cc|mg|kg|gam|gram|grams|gr|g|ppm|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachets?|tablets?|butir|caps?|scoops?|drops?|teaspoons?|tablespoons?|tsp|tbsp|pumps?'
+const DOSE_WORDS = 'oz|ounces?|ml|mililít|mililit|cc|mg|kg|gam|gram|grams|gr|g|ppm|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachets?|tablets?|butir|caps?|scoops?|drops?|teaspoons?|tablespoons?|tsp|tbsp|pumps?'
 const NUMBER_WORDS = 'một|mốt|hai|ba|bốn|tư|năm|lăm|sáu|bảy|bẩy|tám|chín|mười|mươi|trăm|linh|lẻ|nửa|rưỡi'
 const OWN_TANK = new RegExp(`(?<![\\p{L}])(?:bể(?:\\s+(?:dài\\s+)?\\d[\\d.,]*\\s*${SIZE_UNIT})?\\s+này|bể ở đây|bể mình|bể của mình|bể trong video|bể mẫu|lần này|hôm đó)(?![\\p{L}])`, 'iu')
 const NOT_OWN = new RegExp(`(?<![\\p{L}])(?:cho|thì|trên|từ|theo|per|như|những|các|mọi|nào|loại|kiểu|cỡ|mấy|dạng|tất cả|bất kỳ|bất cứ|không chỉ|co2|co₂|ppm|mỗi(?!\\s+(?:ngày|tuần|tháng|lần|sáng|tối|buổi|đêm|giờ)(?![\\p{L}]))|(?:\\d[\\d.,]*|${NUMBER_WORDS})\\s+bể)(?![\\p{L}])|\\/`, 'iu')
@@ -72,13 +72,16 @@ function figures(text: string): Map<string, number> {
   const isUnit = (u?: string) => !!u && (DOSE_UNIT.test(u) || SIZE_UNIT_WORD.test(u))
   // What follows a unit and is the figure's: a half ("10 lít rưỡi") or a rate ("lít/giờ").
   const tail = (j: number) => (w[j] === 'rưỡi' || w[j]?.startsWith('trên') ? ` ${w[j]}` : '')
+  // "phần" between numbers in words is a fraction's ("một phần tư nắp", a quarter cap), one figure (Codex's fifth read).
+  const fraction = (j: number) => w[j] === 'phần' && NUMBER_WORD.test(w[j - 1] ?? '') && NUMBER_WORD.test(w[j + 1] ?? '')
+  const inNumber = (j: number) => NUMBER_WORD.test(w[j] ?? '') || fraction(j)
   w.forEach((x, i) => {
     if (NUMBER_WORD.test(x)) {
-      if (NUMBER_WORD.test(w[i - 1] ?? '')) return
+      if (inNumber(i - 1)) return
       // "lít rưỡi", a litre and a half, with no number before it.
       if (x === 'rưỡi' && isUnit(w[i - 1]) && !isFigure(w[i - 2] ?? '') && !NUMBER_WORD.test(w[i - 2] ?? '')) return void add(`${w[i - 1]} rưỡi`)
       let j = i
-      while (NUMBER_WORD.test(w[j] ?? '')) j++
+      while (inNumber(j)) j++
       let k = j
       // A range in words takes the unit after it: "từ mười đến hai mươi lít" is ten litres too.
       if (/^(?:đến|tới|hay|hoặc)$/u.test(w[k] ?? '') && NUMBER_WORD.test(w[k + 1] ?? '')) for (k++; NUMBER_WORD.test(w[k] ?? ''); k++);
@@ -102,22 +105,6 @@ const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?
  */
 const MARKS_AFTER = `"'”’»)“‘`
 const STOP_MARK = `[.?!…⋯‥][${MARKS_AFTER}]*`
-const CLOSING = new RegExp(`[${MARKS_AFTER}]+$`, 'u')
-const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'gu')
-/**
- * The quote's own sentence at `at` in a sentence the cutter gave, cut at every stop: a neighbour the cutter keeps with it
- * ("<strong>Châm 5 ml Seachem Prime.</strong> Bể này đã ổn định.") doesn't make a dose the tank's (Codex's fourth read
- * of #1690). A quote that ends its sentence ends there.
- */
-function finest(s: string, at: number, q: string): string {
-  const last = at + Math.max(1, q.replace(CLOSING, '').length) - 1
-  let start = 0, end = s.length
-  for (const m of s.matchAll(STOP)) {
-    if (m.index + m[0].length <= at) start = m.index + m[0].length
-    else if (m.index >= last) { end = m.index + m[0].length; break }
-  }
-  return s.slice(start, end).trim()
-}
 const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'u')).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
@@ -196,12 +183,13 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const isDose = (k: number, i: number) => doseAt.some(w => w.k === k && w.i === i)
   // A dose the editor may take is the source's own tank's, at every place its quote is said: each gets the note to drop
   // it. Any other waits for a person, and so does the guide.
-  const doses = doseAt.map(({ k, i }) => txt(k, said[k]![i]!))
-  if (doses.some(s => !ownTankDose(s))) return undefined
-  // And read on its own, cut at every stop, wherever the quote is in it.
-  if (findings.some(f => f.check === 'dose' && at(f).some(({ k, i }) => { const s = txt(k, said[k]![i]!), q = norm(f.quote); return places(s, q, true).some(p => !ownTankDose(finest(s, p, q))) }))) return undefined
   // A dose however it's written: any figure in a dose's unit, in figures, in words or as a fraction ("½ nắp").
   const dosed = (x: string) => givesDose(x) || [...figures(x).keys()].some(k => DOSE_UNIT.test(unit(k)))
+  // And each sentence in it, cut at every stop, that gives a dose: one the cutter keeps with the quote's ("<strong>Bể này
+  // dùng 4 nắp. Châm 5 ml Seachem Prime.</strong>") would go with it, and a neighbour's "Bể này" doesn't make a dose the
+  // tank's (Codex's fourth and fifth reads).
+  const doses = doseAt.map(({ k, i }) => txt(k, said[k]![i]!))
+  if (doses.some(s => !ownTankDose(s) || split(s).some(x => dosed(x) && !ownTankDose(x)))) return undefined
   // A product or a price in a paragraph that gives a dose, at any place it's quoted, waits, but for the video's own tank's
   // dose, which the editor takes. A paragraph, not a sentence: the cutter cuts at a line break ("Châm 5 ml<br> Seachem
   // Prime…"); a line (the title, a point, a question or an answer) is one.
@@ -212,7 +200,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const convert: { k: number; i: number }[] = []
   for (const f of findings) {
     const where = at(f)
-    if (f.check === 'units') { convert.push(...where); continue }
+    // A title a person picked keeps its units too: code converts the rest (Codex's fifth read).
+    if (f.check === 'units') { convert.push(...where.filter(w => !(vi.nameFixed && w.k === 0))); continue }
     // A quote in no sentence of the guide: nothing here the editor could be shown, nor told to leave.
     if (!where.length) return undefined
     for (const w of where) {

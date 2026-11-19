@@ -239,6 +239,12 @@ test('the title is the editor\'s only when a fault was in it', async () => {
 })
 
 test('a title a person picked stays, even when a check quotes it', async () => {
+  // Nor does code convert its units for another finding's mend (Codex's fifth read of #1690).
+  const fixed = await setup({ name: 'Bể 38 lít với lớp nền 2 inch', nameFixed: true, body: `<p>Lớp nền dày 2 inch.</p><p>Mua đá ở Petco.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(fixed.root, { answers: { 'Mua đá ở Petco.': 'Mua đá ở tiệm cá cảnh.' } }).mend(page(), [{ ...gallons, quote: '2 inch' }, { ...shop, quote: 'Petco' }])).toBe(true)
+  const after = JSON.parse(await readFile(fixed.file, 'utf8'))
+  expect(after.name).toBe('Bể 38 lít với lớp nền 2 inch')
+  expect(after.body).toMatch(/^<p>Lớp nền dày \d+ cm\.<\/p><p>Mua đá ở tiệm cá cảnh\.<\/p>/)
   for (const f of [{ ...shop, quote: 'Mua lọc ở Petco cho bể nhỏ', part: 'T' }, shop]) {
     const { root, file } = await setup({ name: 'Mua lọc ở Petco cho bể nhỏ', nameFixed: true })
     const { mend, prompts } = deps(root)
@@ -292,6 +298,10 @@ test('a figure the editor adds, keeps of the video\'s own dose, or writes in ano
     expect(await deps(root, ownTank(p3)).mend(page(), [own, gallons, caps]), name).toBe(false)
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
+  // An ounce is a dose's unit: the video's own dose in ounces goes, not into grams (Codex's fifth read; main too).
+  const oz = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể này dùng 4 thìa muối (½ oz).</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(oz.root, { answers: { 'Bể này dùng 4 thìa muối (½ oz).': 'Thêm ½ oz muối, liều theo hướng dẫn trên bao bì.' } }).mend(page(), [gallons, { ...caps, quote: 'Bể này dùng 4 thìa muối' }])).toBe(false)
+  expect(await readFile(oz.file, 'utf8')).toBe(oz.was)
   // A dose added to a shop's mend, in figures, caps, words or against its unit (Grok's fifth read).
   for (const fix of ['Lọc mua ở tiệm cá cảnh. Châm 5 ml vi sinh.', 'Lọc mua ở tiệm cá cảnh. Châm 5 caps vi sinh.', 'Lọc mua ở tiệm cá cảnh. Châm hai mươi nắp.', 'Lọc mua ở tiệm cá cảnh. Châm ½nắp.']) {
     const { root, file, was } = await setup()
@@ -328,6 +338,8 @@ test('a figure in a sentence the editor is given keeps its percent, its half, it
     ['a range in words changed', 'Bể từ mười đến hai mươi lít là đủ.', 'Bể từ năm đến hai mươi lít là đủ.', [at('Bể từ mười')]],
     ['a rate in words made a volume', 'Bơm ba trăm lít/giờ.', 'Bơm ba trăm lít.', [at('Bơm ba trăm')]],
     ['a rate made a volume', 'Bơm 300 lít/giờ.', 'Bơm 300 lít.', [at('Bơm 300')]],
+    // A fraction in words is one figure: a quarter cap isn't three quarters (Codex's fifth read; main too).
+    ['a written fraction changed', 'Theo video, châm một phần tư nắp vi sinh.', 'Châm ba phần tư nắp vi sinh.', [at('Theo video')]],
     // A units quote's figure is code's, even in a sentence a shop's finding gives the editor.
     ['a units figure dropped beside a shop', 'Bể 10 gallon mua ở Petco.', 'Bể mua ở tiệm cá cảnh.', [{ ...gallons, quote: 'Bể 10 gallon' }, { ...shop, quote: 'mua ở Petco' }]],
     // A units quote of the unit alone keeps its sentence's figure too (Codex's read of #1690).
@@ -439,6 +451,19 @@ test('crossed: a dose quote is the tank\'s own at every place it\'s said, or the
     const { root, file, was } = await setup({ body, faq: [...faq] })
     const { mend, prompts } = deps(root)
     expect(await mend(page(), [{ ...caps, quote: name === 'a neighbour names the tank' ? 'Châm 5 ml Seachem Prime.' : q }]), name).toBeUndefined()
+    expect(prompts, name).toEqual([])
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+  // Every sentence the cutter keeps with a dose's, cut at every stop, that gives a dose is the tank's own too, whatever
+  // quote finds it: a general dose beside it would go with it (Codex's fifth read).
+  for (const [name, body, findings] of [
+    ['a general dose kept with it', `<p><strong>Bể này dùng 4 nắp. Châm 5 ml Seachem Prime.</strong></p><p>${LONG}</p>`, [{ ...caps, quote: 'Bể này dùng 4 nắp.' }]],
+    ['and a product finding on it', `<p><strong>Bể này dùng 4 nắp. Châm 5 ml Seachem Prime.</strong></p><p>${LONG}</p>`, [{ ...caps, quote: 'Bể này dùng 4 nắp.' }, { check: 'product', part: 'P1', quote: 'Seachem Prime', why: 'a product not sold here', by: 'model' }]],
+    ['found by a curly apostrophe', `<p><strong>Châm 5 ml Dr. Tim’s One and Only. Bể này đã ổn định.</strong></p><p>Bể này châm 5 ml Dr. Tim's One and Only.</p><p>${LONG}</p>`, [{ ...caps, quote: "5 ml Dr. Tim's One and Only" }]],
+  ] as const) {
+    const { root, file, was } = await setup({ body, faq: [] })
+    const { mend, prompts } = deps(root)
+    expect(await mend(page(), [...findings] as FitFinding[]), name).toBeUndefined()
     expect(prompts, name).toEqual([])
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
