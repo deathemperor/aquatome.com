@@ -116,8 +116,10 @@ export const videoMend = (root: string, d: VideoMendDeps): Mend => {
 }
 type VideoMendDeps = { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts; sourceAndElsewhere?: boolean }
 const mendWith = (root: string, d: VideoMendDeps, release: Set<string>) => async (p: Page, findings: FitFinding[]) => {
-  release.delete(p.id)
   if (p.lang !== 'vi' || p.kind !== 'guides' || !findings.length) return undefined
+  // A release left by a mend the gate turned away goes with the next try at the guide, never with another language's
+  // call, which the gate's other workers may make while this one's text is read again (Astra's read).
+  release.delete(p.id)
   const contentRoot = join(root, 'content')
   const dir = join(contentRoot, 'guides', p.id)
   const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as GuideEntity

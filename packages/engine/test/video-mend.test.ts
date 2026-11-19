@@ -255,6 +255,8 @@ test('a mend never leaves a guide worse: under the bar it is kept only when no l
   expect(await m(page(), [shop, price])).toBe(true)
   expect(JSON.parse(await readFile(c.file, 'utf8')).quality).toEqual({ score: 0.8, indexable: true, bySource: { youtube: 0.8 } })
   expect(JSON.parse(await readFile(th, 'utf8')).quality.chat).toBe(false)
+  // The gate's other workers may send the guide's Thai file meanwhile: that call is no mend, and leaves the release be.
+  expect(await m(page({ lang: 'th' }), [shop])).toBeUndefined()
   await m.kept!(page())
   expect(JSON.parse(await readFile(th, 'utf8')).quality.chat).toBeUndefined()
 })
