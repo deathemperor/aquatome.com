@@ -62,6 +62,49 @@ def chrome_on_screen():
         return None
 
 
+def free_gb():
+    """Free space on the disk the home folder is on, in GB (10^9 bytes), read as mac-status.py reads it. None where df can't
+    say."""
+    try:
+        return round(int(run("/bin/df", "-Pk", HOME).strip().splitlines()[-1].split()[3]) * 1024 / 1e9, 1)
+    except (OSError, ValueError, IndexError, subprocess.TimeoutExpired):
+        return None
+
+
+def project_of(folder):
+    """The project a process works in, from its working folder: <name> for ~/.infinitus/projects/<name> and
+    ~/.infinitus/worktrees/<name>/…, "aquatome.com" for the engine's own folders (~/.local/share/aquatome, ~/.cache/aquatome,
+    /Users/Shared/aquatome), None for any other."""
+    for root in (f"{HOME}/.infinitus/projects/", f"{HOME}/.infinitus/worktrees/"):
+        if folder and folder.startswith(root):
+            return folder[len(root):].split("/")[0] or None
+    if folder and any(folder == r or folder.startswith(r + "/") for r in (f"{HOME}/.local/share/aquatome", f"{HOME}/.cache/aquatome", "/Users/Shared/aquatome")):
+        return "aquatome.com"
+    return None
+
+
+def top_cpu(n=5):
+    """The n processes using the most CPU (ps's share, 100 = one core, a decaying average over the last minute), this
+    reading's own aside: each one's share, its program's name and the project it works in (project_of). On 18 Nov from 19:42
+    to 20:15 a small job took 11-39 s beside engine parts that reported almost no work, while the owner's other project's
+    sessions were at work, and nothing said whose processes had the CPU (the chief of staff, 19 Nov)."""
+    rows = []
+    for line in run("/bin/ps", "-Aro", "pcpu=,pid=,comm=").splitlines():
+        m = re.match(r"\s*([\d.]+)\s+(\d+)\s+(.+)", line)
+        if m and int(m.group(2)) != os.getpid():
+            rows.append((float(m.group(1)), m.group(2), os.path.basename(m.group(3).strip())))
+        if len(rows) == n:
+            break
+    folders, pid = {}, None
+    if rows:
+        for line in run("/usr/sbin/lsof", "-a", "-d", "cwd", "-Fn", "-p", ",".join(p for _, p, _ in rows)).splitlines():
+            if line.startswith("p"):
+                pid = line[1:]
+            elif line.startswith("n") and pid:
+                folders[pid] = line[1:]
+    return [{"cpu": cpu, "name": name, "project": project_of(folders.get(pid))} for cpu, pid, name in rows]
+
+
 def main():
     job = small_job()
     checks, sim, longest, sims = waiting()
@@ -73,7 +116,7 @@ def main():
     line = {"at": time.strftime("%Y-%m-%dT%H:%M:%S"), "small_job_s": job, "waiting_checks": checks, "waiting_sim": sim, "longest_wait_min": longest,
             "simulators": sims, "swap_gb": round(float(swap.group(1)) / 1024, 1) if swap else None, "load1": float(load),
             "thermal": int(thermal.group(1)) if thermal else None, "cores": bin(int(cores)).count("1") if cores.isdigit() else None,
-            "chrome_on_screen": chrome_on_screen()}
+            "chrome_on_screen": chrome_on_screen(), "free_gb": free_gb(), "top_cpu": top_cpu()}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "a") as f:
         f.write(json.dumps(line) + "\n")

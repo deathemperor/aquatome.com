@@ -261,8 +261,25 @@ test('a reading of the Mac: the small job, the queues, and load only as backgrou
   // /usr/sbin's tools are the Mac's: elsewhere this script doesn't run.
   if (process.platform !== 'darwin') return
   expect(r.status, r.stderr).toBe(0)
-  expect(JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number) })
+  const reading = JSON.parse(readFileSync(`${dir}/.cache/aquatome/machine-metrics.jsonl`, 'utf8'))
+  expect(reading).toMatchObject({ small_job_s: expect.any(Number), waiting_checks: expect.any(Number), waiting_sim: expect.any(Number), swap_gb: expect.any(Number), thermal: expect.any(Number), cores: expect.any(Number), free_gb: expect.any(Number) })
+  // The five processes using the most CPU, each with its share, its program and its project (the chief of staff, 19 Nov).
+  expect(reading.top_cpu.length).toBeGreaterThan(0)
+  expect(reading.top_cpu.length).toBeLessThanOrEqual(5)
+  for (const p of reading.top_cpu) expect(p).toEqual({ cpu: expect.any(Number), name: expect.any(String), project: p.project === null ? null : expect.any(String) })
+  expect(reading.top_cpu.map((p: { cpu: number }) => p.cpu)).toEqual([...reading.top_cpu.map((p: { cpu: number }) => p.cpu)].sort((a, b) => b - a))
 }, slow(60_000))
+
+test("a busy process's project is its working folder's: a project's own or its worktree's, the engine's folders, or none", () => {
+  const dir = home()
+  const of = (folders: (string | null)[]) => spawnSync('python3', ['-I', '-B', '-c', `import importlib.util, json, sys
+s = importlib.util.spec_from_file_location("m", sys.argv[1]); m = importlib.util.module_from_spec(s); s.loader.exec_module(m)
+print(json.dumps([m.project_of(f) for f in json.loads(sys.argv[2])]))`, join(ROOT, 'scripts/machine-metric.py'), JSON.stringify(folders)], { env: { ...process.env, HOME: dir }, encoding: 'utf8' })
+  const r = of([`${dir}/.infinitus/projects/aquatome.com`, `${dir}/.infinitus/worktrees/aquatome.com/live-route/apps/site`, `${dir}/.infinitus/projects/other/src`,
+    `${dir}/.local/share/aquatome/engine-repo`, `${dir}/.cache/aquatome`, '/Users/Shared/aquatome/x', `${dir}/.cache/aquatomex`, `${dir}/.infinitus/projects/`, '/', null])
+  expect(r.status, r.stderr).toBe(0)
+  expect(JSON.parse(r.stdout)).toEqual(['aquatome.com', 'aquatome.com', 'other', 'aquatome.com', 'aquatome.com', 'aquatome.com', null, null, null, null])
+})
 
 // 2026-11-08: signing on the own Mac took the owner's keychains off their list for minutes (gh's and git's sign-in among
 // them). Uploads there now run as AquaTome CI, on a runner of their own, and never touch the owner's keychains.
