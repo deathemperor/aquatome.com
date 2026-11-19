@@ -1471,5 +1471,53 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/vay-hau-mon": [
+    {
+      "at": "2026-11-19T18:06:06Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Có thể thêm muối hột để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh).\" (not \"Để sát khuẩn nhẹ trong lúc vây lành, có thể dùng muối dành cho bể cá, một muỗng canh cho mỗi 5 gallon (khoảng 19 lít) nước.\": Rule 12: \"một muỗng canh cho mỗi 5 gallon (khoảng 19 lít) nước\": \"…",
+        "Rules 4 and 12: \"Có thể thêm muối hột để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh)\": the FACTS give the dose themselves (one tablespoon per five gallons of aquarium salt), but the entry drops it and sends the keeper to a treatment guide the FACTS don't mention. That asks for advice the FACTS don't give. It also changes the fact's \"aquarium salt\" into \"muối …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T18:06:06Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.9,
+      "notes": [
+        "\"Ở cá bảy màu, vây này của cá đực biến thành gonopodium, còn cá cái giữ vây hậu môn bình thường, nên nhìn vây này là phân biệt được đực cái.\": the facts don't carry it (loose, unsupported, loose, unsupported, unsupported, loose): Sexing by the fin is implied by the facts, but the age limit is left to later sentences / Drops the age limit: juveniles often can't be sexed reliably / Sexing by the fi…",
+        "\"Ở một số loài đẻ con lớn hơn thì muộn hơn một chút.\": the facts don't carry it (unsupported, unsupported, unsupported): Adds the hedge 'some' to 'larger livebearers' / Adds 'some'; fact covers larger livebearers generally / Adds 'some'; the fact covers larger livebearers in general",
+        "Rule 12: \"nên nhìn vây này là phân biệt được đực cái\" in the definition uses \"nên\" to join the guppy anal-fin fact to a conclusion about sexing. No single fact makes that link. It should be a separate sentence, or joined with \"và\" only to what a fact says.",
+        "Rule 4: \"Ở cá bảy màu, vây hậu môn của cá đực biến thành gonopodium, còn cá cái giữ vây hậu môn bình thường\" says the same thing in the definition and again as the first paragraph of the body. It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T18:06:06Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.75,
+      "notes": [
+        "\"Vây hậu môn là vây đơn nằm ở mặt dưới thân cá.\": the facts don't carry it (uncredited, uncredited, uncredited): median fin on underside only from sicb.org, no credit / median underside fin only from sicb.org / Only sicb.org gives the fin's position; no credit outside the definition",
+        "\"Cá cái vẫn giữ vây hậu môn bình thường, xòe ra.\": the facts don't carry it (supported, uncredited, uncredited): fan-shaped female fin only from gensou.sg; other site says triangular / Fan shape is only on gensou.sg; hanoizoo says triangular",
+        "\"Ở cá bảy màu, vây hậu môn của cá đực biến thành gonopodium hình ống, còn cá cái có vây hậu môn bình thường.\": the facts don't carry it (supported, supported, uncredited, uncredited, uncredited, supported): Tube shape is only on hanoizoo.com; no credit / Only hanoizoo.com calls the guppy gonopodium a tube; gensou.sg says \"rod-shaped\", which isn't the same thing. The sentence states it as plain fa…",
+        "\"Tìm nguyên nhân.\": the facts don't carry it (loose, unsupported, unsupported): generic step framing the listed causes / 'find the cause' step not given in facts / Facts don't give 'find the cause' as a step",
+        "\"Đồ trang trí cạnh sắc như một số cây nhựa hay đá nhám cũng móc rách vây.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge / Drops the 'can' hedge",
+        "\"Nước bẩn thì vi khuẩn dễ nhiễm vào chỗ vây rách, và vây rách tưa chuyển thành thối vây.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge; stated as certain / 'can let' made stronger: 'dễ' and definite turning into fin rot / 'dễ' overstates it and the 'can' hedge is dropped",
+        "Rule 12: \"Vây hậu môn là vây đơn nằm ở mặt dưới thân cá\" is written as plain fact. Only one paper (source 1) says the anal fin is a median fin on the underside, so the sentence needs to say whose claim it is.",
+        "Rule 12: \"vây này của cá đực dần biến thành gonopodium khi cá lớn đủ để đẻ\" (said of Poeciliidae as a whole) is written as plain fact. Only one paper (source 0) says this, so it needs a credit.",
+        "Rule 12: \"Gonopodium có hình que và cá đực dùng nó để thụ tinh trong bụng cá cái. Cá cái vẫn giữ vây hậu môn bình thường, xòe ra.\" and the definition's \"gonopodium hình que\" give one shop's claims (source 2) as plain fact. They should sit under that shop's single \"Một tiệm ghi:\" opening, which the entry already uses later.",
+        "Rule 12: \"Ở cá bảy màu, vây hậu môn của cá đực biến thành gonopodium hình ống, còn cá cái có vây hậu môn bình thường\" is uncredited. The tube shape comes from one page only (source 4). Crediting it would also make it at least a fourth page, and the entry already names three (\"Một tiệm ghi\", \"Một tài liệu tham khảo ghi\", \"Một nguồn ghi\"). It is a description a keeper can't act on, so it should be …"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
