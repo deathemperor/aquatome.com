@@ -1142,6 +1142,32 @@
   ],
   "vi/glossary/oxy-hoa-tan": [
     {
+      "at": "2026-11-19T01:35:50Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" (not \"Với phần lớn cá, oxy hòa tan trên 5 mg/L là tốt nhất.\": Rule 12: \"Với phần lớn cá, oxy hòa tan trên 5 mg/L là tốt nhất.\" replaces a sentence that must stay word for word: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" (not \"Oxy hòa tan thường thấp nhất vào sáng sớm, nhưng cũng có thể xuống thấp bất cứ lúc nào.\": Rule 12: \"Oxy hòa tan thường thấp nhất vào sáng sớm, nhưng cũng có thể xuống thấp bất cứ lúc nào.\" replaces a sentence that must stay word for w…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tăng sục khí ngay: bật máy sủi.\" (not \"Nếu có máy sủi, bật máy sủi để thêm oxy cho nước.\": it drops the advice \"Tăng sục khí ngay\")"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T01:35:50Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Một tiệm ở Việt Nam ghi là khuấy nhẹ 5–10 phút, cứ 30–60 phút làm lại một lần, hoặc chạy máy sủi bằng pin, hoặc chuyển bớt cá sang một bể dự phòng đã chuẩn bị sẵn.\" is the old saved sentence. THIS TERM says to replace it word for word with \"Một tiệm ở Việt Nam ghi: khuấy nhẹ 5–10 phút, cứ 30–60 phút làm lại một lần, hoặc chạy máy sủi bằng pin, hoặc chuyển bớt cá sang một bể dự phòng đã …",
+        "Rule 12: \"Giữ lọc sạch, giữ nhiệt độ ổn định và thay khoảng 20–30% nước mỗi một hoặc hai tuần.\" is the old saved sentence. THIS TERM says to replace it word for word with \"Giữ lọc sạch, giữ nhiệt độ ổn định và cứ 1–2 tuần thay khoảng 20–30% nước một lần.\"",
+        "Rule 12: \"Oxy có thể tụt do nuôi quá đông cá, chất hữu cơ thối rữa, tảo chết hàng loạt, dùng thuốc hay hóa chất, lọc hỏng, và mất điện làm máy sủi ngưng.\" still has the comma before \"và\". THIS TERM says to write it word for word as \"... lọc hỏng và mất điện làm máy sủi ngưng.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T19:34:33Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1191,38 +1217,6 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-18T19:27:51Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" (not \"Với phần lớn loài cá, oxy hòa tan trên 5 mg/L là mức tốt nhất.\": Rule 12: \"Với phần lớn loài cá, oxy hòa tan trên 5 mg/L là mức tốt nhất.\" Only one page says this (the vet page, fact 4), but it is written as plain fact. The entry al…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tăng sục khí ngay: bật máy sủi.\" (not \"Chạy máy sủi có đầu khuếch tán vào những giờ tối sẽ thêm oxy cho bể.\": Rule 12: \"Chạy máy sủi có đầu khuếch tán vào những giờ tối sẽ thêm oxy cho bể.\" The first step has to open with exactly \"Tăng sục khí ngay: bật máy sủi.\" This sentence also states a claim that onl…",
-        "Rule 12: \"Oxy vào nước theo hai đường: cây và tảo quang hợp, và oxy từ không khí thấm qua mặt nước.\" adds algae, which only the Florida page gives. The line must be written word for word as \"Oxy vào nước theo hai đường: cây quang hợp, và oxy từ không khí thấm qua mặt nước.\"",
-        "Rule 12: \"Ban ngày cây và tảo nhả oxy, còn ban đêm cây lại dùng oxy.\" adds algae again. The line must be written word for word as \"Ban ngày cây nhả oxy, còn ban đêm cây lại dùng oxy.\"",
-        "Rule 12: the causes sentence keeps \"dùng thuốc hay hóa chất quá liều\". \"quá liều\" is one page's word and must come out, leaving the sentence word for word as \"... dùng thuốc hay hóa chất, lọc hỏng, và mất điện làm máy sủi ngưng.\"",
-        "Rule 12: \"Mất điện thì khuấy mặt nước bằng tay.\" puts a power cut into the hand-stirring sentence. The line must be written word for word as \"Không có máy sủi thì khuấy mặt nước bằng tay.\"",
-        "Rule 12: the first-aid steps under \"Nên làm gì\" are a numbered list (<ol>). They must be a plain list, because no page puts aerating before the water change.",
-        "Rule 4: the dawn timing is said twice. The definition says \"thường vào lúc gần sáng\", and the body says it again in \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\"",
-        "Rule 12: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" The 'warm-water fish' figure comes from the Florida page (fact 3), but here it is stated without its place. The other page (fact 4) says 'most finfish', not warm-water fish. So the figure must be said of Florida, or worded as fact 4 words it."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T19:06:05Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" (not \"Với phần lớn loài cá, mức oxy hòa tan trên 5 mg/L là tốt nhất.\": Rule 12: \"Với phần lớn loài cá, mức oxy hòa tan trên 5 mg/L là tốt nhất.\" comes from one page only (the vet manual, fact 4) but is written as plain fact with no credit…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" (not \"Oxy hòa tan thường xuống thấp nhất vào sáng sớm.\": it drops the advice \"Trong bể\", the advice \"trước lúc trời sáng\")",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tăng sục khí ngay: bật máy sủi.\" (not \"Khi thiếu oxy, cần làm mặt nước chuyển động để tăng trao đổi khí.\": Rule 12: The first step has to open with \"Tăng sục khí ngay: bật máy sủi.\" word for word, but it opens with \"Khi thiếu oxy, cần làm mặt nước chuyển động để tăng trao đổi khí.\" That replacement senten…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ],
   "vi/glossary/ca-bot": [
