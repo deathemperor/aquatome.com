@@ -1,5 +1,5 @@
 {
- "day": "2026-11-19",
+ "day": "2026-11-20",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -59,45 +59,35 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/fish/trigonopoma-gracile/",
-   "url": "https://aquatome.com/th/fish/trigonopoma-gracile/",
-   "title": "ซิวกราซิลิส",
-   "wrong": [
-    {
-     "check": "source",
-     "quote": "ได้รับการนำเข้ามาอีกครั้งผ่านทางสิงคโปร์ แหล่งที่มา: สิงคโปร์ ขนาดที่มีจำหน่าย: 3–4 ซม."
-    }
-   ]
+   "path": "/th/fish/charax-stenopterus/",
+   "url": "https://aquatome.com/th/fish/charax-stenopterus/",
+   "title": "เรนโบว์ร็อบเบอร์เตตร้า",
+   "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
-   "url": "https://aquatome.com/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
-   "title": "Phá bể cũ, chuẩn bị set bể biotope sông Rio Negro",
-   "wrong": [
-    {
-     "check": "elsewhere",
-     "quote": "Phòng có sưởi sẵn thì không cần lo khoản này."
-    },
-    {
-     "check": "source",
-     "quote": "Bể cũ có một khối lũa lớn chìa từ trên xuống, che thành một vùng tối ở phía sau."
-    },
-    {
-     "check": "source",
-     "quote": "Nước bể cũ nhìn qua thì trong, nhưng múc ra soi lên mới thấy có khá nhiều tannin"
-    }
-   ]
+   "path": "/vi/ca/ca-da-tron-ong-nghe-khong-lo/",
+   "url": "https://aquatome.com/ca/ca-da-tron-ong-nghe-khong-lo/",
+   "title": "Cá da trơn ong nghệ khổng lồ",
+   "wrong": []
   },
   {
-   "lang": "id",
-   "path": "/id/ikan/betta-pallifina/",
-   "url": "https://aquatome.com/id/ikan/betta-pallifina/",
-   "title": "Betta pallifina",
+   "lang": "vi",
+   "path": "/vi/huong-dan/tu-lam-ho-mini-trong-nha-tu-chau-nhua-co-thac-nuoc-va-cay/",
+   "url": "https://aquatome.com/huong-dan/tu-lam-ho-mini-trong-nha-tu-chau-nhua-co-thac-nuoc-va-cay/",
+   "title": "Tự làm hồ mini trong nhà từ chậu nhựa, có thác nước và cây",
    "wrong": [
     {
-     "check": "elsewhere",
-     "quote": "kayu beech atau oak biasa aman dipakai asalkan benar-benar kering dan kulit kayunya sudah dikupas"
+     "check": "price",
+     "quote": "10 USD"
+    },
+    {
+     "check": "price",
+     "quote": "mua hàng xả kho khoảng 10 USD"
+    },
+    {
+     "check": "units",
+     "quote": "Dùng ống PVC cỡ khoảng 1,3 cm và các cút góc ba ngả"
     }
    ]
   }
