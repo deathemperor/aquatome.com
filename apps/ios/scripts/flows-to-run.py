@@ -196,12 +196,15 @@ def home(jobs, split):
 
 def ran(args):
     """What job parts' arguments ({job part: arguments}) run, test by test ('Class/test', once for each time it runs): a
-    class named runs its tests less those its part skips, and a test its own part both names and skips runs nowhere."""
+    class named runs its tests less those its part skips; a test or a class its own part both names and skips runs
+    nowhere, and a part's skip of a whole class takes all its tests."""
     out = []
     for a in args.values():
         skipped = set(re.findall(rf'-skip-testing:{UI}/(\S+)', a))
         for t in re.findall(rf'-only-testing:{UI}/(\S+)', a):
-            out += [t] * (t not in skipped) if '/' in t else [f'{t}/{x}' for x in tests_of(t) if f'{t}/{x}' not in skipped]
+            if t in skipped or t.split('/')[0] in skipped:
+                continue
+            out += [t] if '/' in t else [f'{t}/{x}' for x in tests_of(t) if f'{t}/{x}' not in skipped]
     return sorted(out)
 
 
@@ -372,6 +375,9 @@ def test():
     got = ran({'handbook_1': only(['PageShotsFlowTests']) + f' -skip-testing:{UI}/{shot}',
                'handbook_2': only([shot]) + f' -skip-testing:{UI}/{shot}'})
     assert shot not in got and got.count('PageShotsFlowTests/testAPlant') == 1, got
+    got = ran({'handbook_1': only(['PageShotsFlowTests']) + f' -skip-testing:{UI}/PageShotsFlowTests',
+               'handbook_2': only([shot]) + f' -skip-testing:{UI}/PageShotsFlowTests'})
+    assert got == [], got
 
     # Job `perf`: on a change to what it builds or checks, not on one to CI's scripts, the README, the flows.
     for paths in ([APP + 'Handbook/NativePage.swift'], ['protocols/tanks-vectors.json'], [KIT + 'Tests/TanksTests/StoreTests.swift'],
