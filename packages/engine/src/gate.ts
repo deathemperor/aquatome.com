@@ -70,7 +70,10 @@ export const heldMendsOf = (env: NodeJS.ProcessEnv = process.env) => Number(env.
  * for a page it sends to no editor (not one it mends, no transcript): the file as it was. A run's `mends` count the pages
  * an editor was called for, so not the last.
  */
-export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean | undefined | { refused: string }>
+export type Mend = ((p: Page, findings: FitFinding[]) => Promise<boolean | undefined | { refused: string }>) & {
+  /** What a mend leaves for once the gate keeps its text, and never when the text goes back (video-mend.ts: a guide's other languages let into the chat). */
+  kept?: (p: Page) => Promise<void>
+}
 /**
  * A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote.
  * `unread`: the page was not read (the accounts out), so there are no checks.
@@ -330,6 +333,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     if (!next || !read2) return await undo()
     const call = gateCall(gateChecks(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, ...(old ? { before: new Set([...o.oldChecks, ...carried(next, read2, old)]) } : {}) })
     if (call.action === 'revert') return await tried()
+    await d.mend.kept?.(p)
     // The mended text is the page's from here on: its read, and what the steps below and the report count.
     state[fitKey(p)] = fromHeld && call.action === 'hold' ? { ...read2, mendTried: day } : read2
     byFile.set(f, next)

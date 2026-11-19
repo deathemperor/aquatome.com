@@ -245,10 +245,18 @@ test('a mend never leaves a guide worse: under the bar it is kept only when no l
   const b = await setup(low)
   expect(await deps(b.root, { score: 0.5 }).mend(page(), [shop, price])).toBe(false)
   expect((await readReviews(b.root, 'video-guide'))['vi/guides/youtube-a1']).toMatchObject([{ score: 0.5, attempt: 'rewrite', kept: false }])
-  // At the bar, a guide held out of the chat is let back, as when the video writer writes one.
+  // At the bar, a guide held out of the chat is let back, as when the video writer writes one: its Vietnamese text at once,
+  // in the file the gate puts back if it turns the mend away; its other languages only once the gate keeps the mended text
+  // (Astra's read of #1690: let out here, a text the gate put back left its translations let out).
   const c = await setup(low)
-  expect(await deps(c.root, { score: 0.8 }).mend(page(), [shop, price])).toBe(true)
+  const th = c.file.replace(/vi\.json$/, 'th.json')
+  await writeFile(th, `${JSON.stringify({ slug: 'dung-be-nho', name: 'x', altNames: [], sections: {}, body: '<p>x</p>', quality: { score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false } }, null, 2)}\n`)
+  const m = deps(c.root, { score: 0.8 }).mend
+  expect(await m(page(), [shop, price])).toBe(true)
   expect(JSON.parse(await readFile(c.file, 'utf8')).quality).toEqual({ score: 0.8, indexable: true, bySource: { youtube: 0.8 } })
+  expect(JSON.parse(await readFile(th, 'utf8')).quality.chat).toBe(false)
+  await m.kept!(page())
+  expect(JSON.parse(await readFile(th, 'utf8')).quality.chat).toBeUndefined()
 })
 
 test('the title is the editor\'s only when a fault was in it', async () => {

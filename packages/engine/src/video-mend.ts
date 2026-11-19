@@ -106,7 +106,17 @@ type Part = { field: string; html: boolean; text: string; pieces: Piece[] }
  * of that product for 200 litres" would become a dose for every product of the kind (the Writing Lead, 2026-11-11).
  * That text goes back.
  */
-export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts; sourceAndElsewhere?: boolean }): Mend => async (p: Page, findings: FitFinding[]) => {
+export const videoMend = (root: string, d: VideoMendDeps): Mend => {
+  // A guide's other languages let back into the chat once the gate keeps the mended text, not before: the gate puts back
+  // only the Vietnamese file, so let out here, a text it turned away left its translations let out (Astra's read of #1690).
+  const release = new Set<string>()
+  return Object.assign(mendWith(root, d, release), {
+    kept: async (p: Page) => { if (release.delete(p.id)) await setHold(join(root, 'content'), p.id, false) },
+  })
+}
+type VideoMendDeps = { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts; sourceAndElsewhere?: boolean }
+const mendWith = (root: string, d: VideoMendDeps, release: Set<string>) => async (p: Page, findings: FitFinding[]) => {
+  release.delete(p.id)
   if (p.lang !== 'vi' || p.kind !== 'guides' || !findings.length) return undefined
   const contentRoot = join(root, 'content')
   const dir = join(contentRoot, 'guides', p.id)
@@ -275,7 +285,7 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
     const old = said[n.k]![n.i]!, fresh = changes[n.k]!.get(n.i)!
     if (fresh !== old) console.log(`mended sentence: guides/${p.id} (${e.video.youtubeId}, ${parts[n.k]!.field}): ${JSON.stringify(shownText(n.k, old))} -> ${JSON.stringify(shownText(n.k, fresh))}`)
   }
-  if (held && review.score >= QUALITY_THRESHOLD) await setHold(contentRoot, p.id, false)
+  if (held && review.score >= QUALITY_THRESHOLD) release.add(p.id)
   await logReviews(root, 'video-guide', page, [review], review, { now, rewrite: true })
   return true
 }
