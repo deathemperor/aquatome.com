@@ -138,14 +138,14 @@ let masterCardList = #"""
 - schedule · `c.body = String(localized:` · The notification at the end time, where allowed: the time is up, open the app to put things back. Nothing on what went.
 
 ### AquaTome/Master/Switcher.swift
-- send · `return (.failed(words(why, c)), false)` · Withdrawn before any of it went (signed out, the role no longer allows it): said so, and nothing went.
+- send · `return (.failed(words(why, c)), false)` · Withdrawn before any of it went (signed out, the role no longer allows it, the device no longer on a tank): said so, and nothing went.
 - send · `let allowed: @MainActor @Sendable () -> Bool = { [unowned self] in self.withdrawal(` · Asked right before each command leaves (Tuya's request, each recording): the same reasons as when it was sent (`withdrawal`: the owner still signed in, the role still allowing it, the device still on a tank); no, and it doesn't leave.
 - send · `await set(c, allowed: allowed, withdrawn:` · Sends it, checked again right before each command leaves.
 - setByButton · `await send(c, still: still).result` · The lamp's, by the button.
 - withdrawal · `return .signedOut` · Why it would be withdrawn now.
 - withdrawal · `return .role` · The same, or the device no longer on a tank (`gone`): its role can't be read.
 - words · `case .signedOut: MasterModel.signedOut` · "Chưa gửi…": only where nothing of it went (above, and CommandEnd).
-- words · `case .role: String(localized:` · The same, for a role that no longer allows it.
+- words · `case .role: gone(c) ?? String(localized:` · The same, for a role that no longer allows it; a device no longer on a tank, `gone`'s own line.
 - notKnown · `c.isLamp ? String(localized:` · The lamp: not known whether it took the command.
 - notKnown · `: String(localized:` · An outlet: not known whether it changed.
 - name · `c.isLamp ? String(localized:` · Names only.

@@ -61,7 +61,8 @@ final class Switcher {
   private func words(_ w: CommandEnd.Withdrawal, _ c: DeviceCommand) -> String {
     switch w {
     case .signedOut: MasterModel.signedOut
-    case .role: String(localized: "Nút không bật tắt ổ \(name(c)) được trong bản này.")
+    // A device no longer on a tank says so, as `set` would have (Fable, 19 Nov).
+    case .role: gone(c) ?? String(localized: "Nút không bật tắt ổ \(name(c)) được trong bản này.")
     }
   }
 
