@@ -574,6 +574,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }
   const tried = (kinds: string[]) => [kinds[0], ...(kinds[1] ? [`then ${kinds[1]} a minute later`] : []), ...(kinds[2] ? [`then ${kinds[2]} on the next account`] : [])].join(', ')
+  // A sheet's minute before its next try ends as soon as another sheet stops the run.
+  const wakes = new Set<() => void>()
+  const stop = (why: string) => { report.stopped ||= why; for (const w of wakes) w() }
+  const pause = (ms: number) => new Promise<void>(done => {
+    let t: ReturnType<typeof setTimeout> | undefined
+    const end = () => { clearTimeout(t); wakes.delete(end); done() }
+    wakes.add(end)
+    t = setTimeout(end, ms)
+  })
   const logos = new Set<string>() // photos this run found a logo on
   const others = new Set<string>() // `page\nurl` the model answered "another fish" for, this run, on the page itself
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
@@ -602,7 +611,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         await writeFile(sheet, await contactSheet(ok.map(x => x.b), 640, 480, 2, 'contain'))
         for (const ask of [d.look, d.look, d.lookNext]) {
           if (!ask) break
-          if (kinds.length === 1) await new Promise(r => setTimeout(r, o.retryAfterMs ?? 60_000))
+          if (kinds.length === 1 && !report.stopped) await pause(o.retryAfterMs ?? 60_000)
           // Another sheet stopped the run meanwhile (a limit, or a second sheet set aside): no more calls.
           if (report.stopped) break
           try {
@@ -616,8 +625,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         }
       } catch (err) {
         // The tries before a limit are kept too.
-        if (kinds.length) report.retried.push(`${s.id}: ${tried(kinds)}; then a limit stopped the run`)
-        if (err instanceof LlmError) report.stopped ||= `${s.id}: ${photoModelStop(err)}`
+        if (kinds.length) report.retried.push(`${s.id}: ${tried(kinds)}; ${err instanceof LlmError ? 'then a limit stopped the run' : 'then the sheet failed'}`)
+        if (err instanceof LlmError) stop(`${s.id}: ${photoModelStop(err)}`)
         else report.failed.push(`${s.id}: ${photoFailure(err)}`)
         return
       }
@@ -630,7 +639,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       if (!v) {
         for (const { url } of ok) asideNow[`${s.id} ${url}`] = { kind: kinds.at(-1)!, at: o.today ?? new Date().toISOString().slice(0, 10) }
         report.aside.push(`${s.id}: ${kinds.at(-1)}`)
-        if (report.aside.length >= 2) report.stopped ||= `${s.id}: two sheets set aside, the last ${kinds.at(-1)}`
+        if (report.aside.length >= 2) stop(`${s.id}: two sheets set aside, the last ${kinds.at(-1)}`)
         return
       }
       report.sheets++

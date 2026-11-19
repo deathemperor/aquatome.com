@@ -964,20 +964,28 @@ test('a second sheet set aside stops the run; a sheet set aside goes first in th
   expect(await json(r, `engine-state/${ASIDE_FILE}`)).toEqual({})
 })
 
-test("a sheet waiting to try again makes no call once another sheet stops the run, and a limit on a later try keeps the tries before it", async () => {
-  // Two sheets side by side: one's model is out of its limit at once, the other's failed once and waits its minute.
+test("a sheet waiting to try again makes no call once another sheet stops the run, and its wait ends there; a limit on a later try keeps the tries before it", async () => {
+  // Two sheets side by side: the other's model fails once and it waits its minute; then this one's is out of its limit.
   const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b1'] }])
-  let calls = 0
+  let calls = 0, failedOnce = () => {}
+  const waiting = new Promise<void>(done => (failedOnce = done))
   const d: PhotoCheckDeps = {
     get: async () => new Uint8Array(await jpeg),
     look: async (_sheet, prompt) => {
-      if (prompt.includes('Aaa fish')) throw new LlmError('claude failed (1): usage limit reached')
+      if (prompt.includes('Aaa fish')) {
+        await waiting
+        await new Promise(done => setTimeout(done, 50))
+        throw new LlmError('claude failed (1): usage limit reached')
+      }
       calls++
+      failedOnce()
       throw new LlmError('claude failed (1): API Error: 500')
     },
     lookNext: async () => { calls++; throw new LlmError('claude failed (1): API Error: 500') },
   }
-  const x = await checkPagePhotos(r, d, { limit: 10, parallel: 2, retryAfterMs: 300 })
+  const t0 = Date.now()
+  const x = await checkPagePhotos(r, d, { limit: 10, parallel: 2, retryAfterMs: 15_000 })
+  expect(Date.now() - t0).toBeLessThan(5_000)
   expect(x.stopped).toBe('aaa-fish: usage limit')
   expect(calls).toBe(1)
   expect(x.retried).toEqual(['bbb-fish: server error (500); the run stopped before its next try'])
@@ -987,7 +995,11 @@ test("a sheet waiting to try again makes no call once another sheet stops the ru
   let n = 0
   const y = await checkPagePhotos(r2, { get: async () => new Uint8Array(await jpeg), look: async () => { throw new LlmError(n++ ? 'claude failed (1): usage limit reached' : 'claude failed (1): API Error: 529') } }, { limit: 10, retryAfterMs: 0 })
   expect([y.stopped, y.retried]).toEqual(['danio-rerio: usage limit', ['danio-rerio: overloaded; then a limit stopped the run']])
-})
+  // A failure of another sort on a later try isn't called a limit.
+  let m = 0
+  const z = await checkPagePhotos(await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a'] }]), { get: async () => new Uint8Array(await jpeg), look: async () => { if (m++) throw new TypeError('x'); throw new LlmError('claude failed (1): API Error: 529') } }, { limit: 10, retryAfterMs: 0 })
+  expect([z.stopped, z.retried]).toEqual(['', ['danio-rerio: overloaded; then the sheet failed']])
+}, 30_000)
 
 test("a model failure's kind is a word of ours, with a status number and an error's class name where the tool gave them, never its text", () => {
   const words = 'TEST_ONLY_WORDS'
