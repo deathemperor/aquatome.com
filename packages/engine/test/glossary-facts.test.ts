@@ -48,7 +48,7 @@ test('a kind\'s sentences are read under its name, as a section\'s are under its
   const e = { definition: 'Lũa là gỗ.', body: '<h3>Các loại lũa</h3><ul><li><strong>Lũa đỗ quyên</strong> (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.</li><li><strong>Lũa sừng:</strong> màu vàng.</li></ul><p>Ngâm lũa trước.</p>' }
   const { llm, calls } = model([{ 'Lũa nhẹ.': 'unsupported: x' }, {}, {}], ['supported', 'supported', 'supported'])
   await checkSentences(llm, facts, e)
-  expect(calls[0]).toContain('SENTENCES:\n1. Lũa là gỗ.\n[Các loại lũa]\n2. Các loại lũa\n[Các loại lũa › Lũa đỗ quyên]\n3. Lũa đỗ quyên (spider wood): rễ cây.\n4. Lũa nhẹ.\n5. Thường dùng cho bể cá đĩa.\n[Các loại lũa › Lũa sừng]\n6. Lũa sừng: màu vàng.\n[Các loại lũa]\n7. Ngâm lũa trước.')
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. Lũa là gỗ.\n[Các loại lũa]\n2. Các loại lũa\n[Các loại lũa › Lũa đỗ quyên]\n3. Lũa đỗ quyên (spider wood): rễ cây.\n4. Lũa nhẹ.\n5. Thường dùng cho bể cá đĩa.\n[Các loại lũa › Lũa sừng]\n6. Lũa sừng: màu vàng.\n[Các loại lũa]\n7. Ngâm lũa trước.')
   expect(calls[3]).toContain('HEADING:\nCác loại lũa › Lũa đỗ quyên\n\nOPENING:\n(none)\n\nPARAGRAPH:\nLũa đỗ quyên (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.\n\nSENTENCE:\nLũa nhẹ.')
 })
 
@@ -71,7 +71,7 @@ test('a read is told each list\'s opening and the verdicts that stop: a one-site
   const plainOne = 'Cá bột sẽ chết nếu cho ăn quá tay.'
   const { llm, calls } = model([{ [plainOne]: 'uncredited: one site, plain' }, { [plainOne]: 'uncredited: one site' }, {}])
   const r = await checkSentences(llm, facts, e)
-  expect(calls[0]).toContain('SENTENCES:\n1. Cá bột là cá con vừa nở.\n2. Một tiệm ghi:\n[under the opening "Một tiệm ghi:"]\n3. Cho ăn 3–5 bữa nhỏ mỗi ngày.\n[no heading, under no opening]\n4. Cá bột sẽ chết nếu cho ăn quá tay.')
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. Cá bột là cá con vừa nở.\n[no heading, under no opening]\n2. Một tiệm ghi:\n[under the opening "Một tiệm ghi:"]\n3. Cho ăn 3–5 bữa nhỏ mỗi ngày.\n[no heading, under no opening]\n4. Cá bột sẽ chết nếu cho ăn quá tay.')
   expect(calls[0]).toContain('- uncredited: the facts carry it, but every fact that carries it comes from one site')
   expect(calls[0]).toContain('"sẽ" for "can" is unsupported')
   expect(calls[0]).toContain('Never loose, but unsupported: a hedge or an amount changed, a claim said more strongly or of more than its fact')
@@ -83,6 +83,40 @@ test('a read is told each list\'s opening and the verdicts that stop: a one-site
   const alone = model([{ [item]: 'uncredited: x' }, {}, {}], ['uncredited: one site', 'supported', 'uncredited: one site'])
   expect((await checkSentences(alone.llm, facts, e)).stops.map(x => x.text)).toEqual([item])
   expect(alone.calls[3]).toContain(`OPENING:\nMột tiệm ghi:\n\nPARAGRAPH:\n${item}\n\nSENTENCE:\n${item}`)
+})
+
+// The chief of staff, 19 Nov 2026, on the check run again on the six live entries: Dòng chảy's "điểm chết" (one Vietnamese
+// shop's word for what another site calls a dead spot) stopped as one site's claim, as would most terms' Vietnamese words.
+test('a Vietnamese word that plainly translates another site\'s word is the thing\'s name and needs no credit; a trade name stays one shop\'s', async () => {
+  const { llm, calls } = model([{}, {}, {}])
+  await checkSentences(llm, facts, { definition: 'Dòng chảy là sự chuyển động của nước.', body: '<p>Chỗ nước không lưu thông gọi là điểm chết.</p>' })
+  expect(calls[0]).toContain('A Vietnamese word that plainly translates what another site\'s word says ("điểm chết" for "dead spot") is the thing\'s name and needs no credit. A word that is not a plain translation, or a trade name only one shop uses, as for a wood, stays that shop\'s word.')
+})
+
+// The chief of staff, 19 Nov 2026: Cá bột's "Tách cá bột khỏi cá trưởng thành." rests on two sites, one shop's in general and
+// the magazine's for species that don't guard their fry, whose limit follows it in the next sentence. The check counted
+// only a fact as broad as the sentence. A lone stop's re-read, which saw only the item, now sees the sentences beside it.
+test('two sites carry a claim in other words or for some of its cases, with that limit beside it; a lone stop\'s re-read sees the sentences before and after', async () => {
+  const split = 'Tách cá bột khỏi cá trưởng thành.', limit = 'Bài tạp chí ấy cũng ghi: loài không giữ con thì vớt cá bố mẹ ra sau khi đẻ.'
+  const e = { definition: 'Cá bột là cá con vừa nở.', body: `<h3>Nên làm gì</h3><ul><li>${split}</li><li>${limit}</li></ul>` }
+  const { llm, calls } = model([{ [split]: 'uncredited: one shop in general' }, {}, {}], ['supported', 'supported', 'uncredited: x'])
+  expect((await checkSentences(llm, facts, e)).stops).toEqual([])
+  expect(calls[0]).toContain('Two sites carry a claim when one gives it as broadly as the sentence does and another gives the same thing in other words, or for some of the cases it covers. If a fact limits the claim, the entry carries that limit beside it (in the sentence, or the one just before or after); if it doesn\'t, the claim takes its site\'s credit.')
+  expect(calls[3]).toContain(`SENTENCE:\n${split}\n\nBEFORE:\nNên làm gì\n\nAFTER:\n${limit}`)
+  expect(calls[3]).toContain('with the sentences just BEFORE and AFTER it')
+})
+
+// The chief of staff, 19 Nov 2026: a meaning can't open with a credit. Lưu vực's, set that morning, is one site's whole and
+// stopped as one site's claim, as a one-site meaning would every night.
+test('the meaning is read under [the definition]: one site may define it alone, saying only what that fact gives; a body sentence under no heading is not the definition', async () => {
+  const e = { definition: 'Lưu vực là một hệ sông. Bể biotope mô phỏng nó.', body: '<p>Chọn cá cùng một nơi.</p>' }
+  const { llm, calls } = model([{ 'Bể biotope mô phỏng nó.': 'uncredited: x', 'Chọn cá cùng một nơi.': 'uncredited: y' }, {}, {}], ['supported', 'supported', 'supported', 'supported', 'supported', 'supported'])
+  await checkSentences(llm, facts, e)
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. Lưu vực là một hệ sông.\n2. Bể biotope mô phỏng nó.\n[no heading, under no opening]\n3. Chọn cá cùng một nơi.')
+  expect(calls[0]).toContain('The term\'s meaning, the sentences under [the definition], can\'t open with a credit: it rests on two sites where two define it, and where only one does, it says only what that fact gives and stands without a credit, so a sentence of it is never uncredited')
+  expect(calls[3]).toContain('HEADING:\n(the definition)\n\nOPENING:\n(none)\n\nPARAGRAPH:\nLưu vực là một hệ sông. Bể biotope mô phỏng nó.\n\nSENTENCE:\nBể biotope mô phỏng nó.')
+  expect(calls[6]).toContain('HEADING:\n(none)\n\nOPENING:\n(none)\n\nPARAGRAPH:\nChọn cá cùng một nơi.\n\nSENTENCE:\nChọn cá cùng một nơi.')
+  expect(sentences(e).map(s => s.meaning ?? false)).toEqual([true, true, false])
 })
 
 // Codex, 14 Nov 2026: a paragraph inside a kind's item lost the kind's name, and could read as another wood's.
@@ -119,7 +153,7 @@ test('two reads of three that say the facts don\'t carry a sentence stop it; one
   const r = await checkSentences(llm, facts, entry)
   // The sentence one read stopped is read three times more, alone, under its heading; none of those stops it.
   expect(calls).toHaveLength(6)
-  expect(calls[0]).toContain('SENTENCES:\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống.')
+  expect(calls[0]).toContain('SENTENCES:\n[the definition]\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống.')
   expect(calls[3]).toContain('HEADING:\n(the definition)\n\nOPENING:\n(none)\n\nPARAGRAPH:\npH đo độ chua của nước. Nó đi từ 0 tới 14.\n\nSENTENCE:\nNó đi từ 0 tới 14.')
   expect(r.stops.map(s => s.text)).toEqual([advice])
   expect(stopNote(r.stops[0]!)).toBe('"Nên thả lá từ từ rồi đo pH.": the facts don\'t carry it (unsupported, unsupported, supported): not in the facts / advice not given')
@@ -174,6 +208,20 @@ test('"not a claim" takes a sentence out of the score, and never keeps two stops
 
 // The middle path's trial on Lũa (14 Nov 2026): 4 of 12 rewordings hedged ("many sources say…, but one notes…"), a rewording
 // can read worse than the line it replaced, and a sentence's verdict moved with what stood around it (Codex).
+// The chief of staff, 19 Nov 2026: the rewording, told to narrow and never to credit, could leave a claim one site gives
+// written plain, which then stopped and went back to its loose wording.
+test('a rewording left with one site\'s claim opens with that page\'s credit, or joins the opening it stands under; the meaning opens with none', async () => {
+  const e = { definition: 'Cá bột là cá con vừa nở. Chúng cần nước sạch.', body: '<p>Một tiệm ghi:</p><ul><li>Cho ăn 3–5 bữa nhỏ mỗi ngày.</li></ul>' }
+  const all = sentences(e)
+  const flag = (t: string) => ({ ...all.find(x => x.text === t)!, verdicts: ['loose' as const, 'loose' as const], why: ['wider'] })
+  const { llm, calls } = model([{}, {}, {}])
+  await rewordLoose(llm, 'opus', facts, e, [flag('Chúng cần nước sạch.'), flag('Cho ăn 3–5 bữa nhỏ mỗi ngày.')])
+  expect(calls[0]).toContain('Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn.')
+  expect(calls[0]).not.toContain('"có tiệm ghi"')
+  expect(calls[0]).toContain('1. CÂU: Chúng cần nước sạch.\n   ĐOẠN: Cá bột là cá con vừa nở. Chúng cần nước sạch.\n   PHẦN: NGHĨA của thuật ngữ\n   LÝ DO: wider')
+  expect(calls[0]).toContain('2. CÂU: Cho ăn 3–5 bữa nhỏ mỗi ngày.\n   ĐOẠN: Cho ăn 3–5 bữa nhỏ mỗi ngày.\n   LỜI MỞ: Một tiệm ghi:\n   LÝ DO: wider')
+})
+
 test('the middle path rewords loose sentences once, no hedge, then reads the whole entry again; a rewording that stops goes back', async () => {
   // The definition's second sentence: its first is never reworded (below).
   const e = entry
@@ -186,11 +234,11 @@ test('the middle path rewords loose sentences once, no hedge, then reads the who
   const reword = { 'Lá bàng làm pH xuống.': 'Lá bàng làm pH xuống chút ít.', 'Nó đi từ 0 tới 14.': added }
   const { llm, calls } = model([{ [added]: 'unsupported: added' }, { [added]: 'unsupported: added' }, {}], [], reword)
   const r = await rewordLoose(llm, 'opus', facts, e, loose)
-  expect(calls[0]).toContain('không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi")')
+  expect(calls[0]).toContain('không rào đón ("có nguồn cho rằng", "nhiều nguồn"):')
   expect(calls[0]).toContain('1. CÂU: Lá bàng làm pH xuống.\n   ĐOẠN: Lá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n   LÝ DO: stronger than the facts')
   // The whole entry as it would be saved, read three times as the first check read it.
   expect(calls).toHaveLength(4)
-  expect(calls[1]).toContain(`SENTENCES:\n1. pH đo độ chua của nước.\n2. ${added}\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n[Trong bể › Làm pH lên]\n6. Làm pH lên: san hô.`)
+  expect(calls[1]).toContain(`SENTENCES:\n[the definition]\n1. pH đo độ chua của nước.\n2. ${added}\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống chút ít.\n5. Nên thả lá từ từ rồi đo pH.\n[Trong bể › Làm pH lên]\n6. Làm pH lên: san hô.`)
   expect(r.entry.body).toBe('<h3>Trong bể</h3><p>Lá bàng làm pH xuống chút ít. Nên thả lá từ từ rồi đo pH.</p><ul><li><strong>Làm pH lên:</strong> san hô.</li></ul>')
   expect(r.entry.definition).toBe(e.definition)
   expect(r.stops).toEqual([])
