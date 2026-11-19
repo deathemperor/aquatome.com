@@ -207,7 +207,7 @@ test('language menu: this page in that language, else the nearest page the langu
 // A source's title or name is Vietnamese when it's written in Vietnamese, not when it names a Vietnamese place: the
 // reader's find on #1681, an English article about Sóc Trăng's brine shrimp that a Malay page would have called Vietnamese.
 test('a source titled in Vietnamese is Vietnamese; one that only names a Vietnamese place or fish isn\'t', () => {
-  for (const s of ['Thức Ăn Cá Cảnh - Vi Sinh Cá Cảnh Aquarium Care', 'Cách Nuôi Ấu Trùng Artemia Làm Thức ăn Cho Cá', 'Chợ Thủy Sinh', 'Diễn Đàn Cá Cảnh', 'Cá bầy đàn: nuôi bao nhiêu con là đủ'])
+  for (const s of ['Thức Ăn Cá Cảnh - Vi Sinh Cá Cảnh Aquarium Care', 'Cách Nuôi Ấu Trùng Artemia Làm Thức ăn Cho Cá', 'Chợ Thủy Sinh', 'Diễn Đàn Cá Cảnh', 'Cá bầy đàn: nuôi bao nhiêu con là đủ', 'Cá Betta Dạ Quang GloFish – Betta\'s House', 'Tép ong đỏ (Crystal Red Bee – CRS) – Shrimp Touch', 'Halfmoon Việt Nam: Betta Halfmoon', 'Cá Koi – Mytour'])
     expect(isVietnameseTitle(s), s).toBe(true)
   for (const s of ['Sóc Trăng farmers reap bumper crop of brine shrimp eggs', 'Shoal', 'Seriously Fish', 'Frozen Fish Food Guide: Types, Storage and Feeding Tips', 'Pakan beku untuk ikan hias'])
     expect(isVietnameseTitle(s), s).toBe(false)
