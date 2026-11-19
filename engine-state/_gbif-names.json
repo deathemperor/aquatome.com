@@ -3181,6 +3181,14 @@
     "genus": "Trachycorystes",
     "matchType": "EXACT"
   },
+  "Auchenoglanis biscutatus": {
+    "canonicalName": "Auchenoglanis biscutatus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Auchenoglanis",
+    "matchType": "EXACT"
+  },
   "Auchenoglanis occidentalis": {
     "canonicalName": "Auchenoglanis occidentalis",
     "order": "Siluriformes",
@@ -3244,6 +3252,14 @@
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Aulonocara",
+    "matchType": "EXACT"
+  },
+  "Aulonocranus dewindti": {
+    "canonicalName": "Aulonocranus dewindti",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Aulonocranus",
     "matchType": "EXACT"
   },
   "Auriglobus modestus": {
@@ -3348,6 +3364,7 @@
     "genus": "Awaous",
     "matchType": "EXACT"
   },
+  "Axelrodi rasbora": null,
   "Axelrodi xanh": null,
   "Axelrodia fowleri": {
     "canonicalName": "Axelrodia stigmatias",
@@ -8386,6 +8403,14 @@
     "genus": "Corydoras",
     "matchType": "EXACT"
   },
+  "Corydoras geoffroy": {
+    "canonicalName": "Corydoras geoffroy",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
   "Corydoras geryi": {
     "canonicalName": "Corydoras geryi",
     "order": "Siluriformes",
@@ -9479,6 +9504,14 @@
     "genus": "Ctenopoma",
     "matchType": "EXACT"
   },
+  "Ctenopoma breviventrale": {
+    "canonicalName": "Ctenopoma kingsleyae",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Anabantidae",
+    "genus": "Ctenopoma",
+    "matchType": "EXACT"
+  },
   "Ctenopoma kingsleyae": {
     "canonicalName": "Ctenopoma kingsleyae",
     "order": "Perciformes",
@@ -9495,6 +9528,14 @@
   },
   "Ctenopoma muriei": {
     "canonicalName": "Ctenopoma muriei",
+    "order": "Perciformes",
+    "family": "Anabantidae",
+    "genus": "Ctenopoma",
+    "matchType": "EXACT"
+  },
+  "Ctenopoma ocellatum": {
+    "canonicalName": "Ctenopoma ocellatum",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Anabantidae",
     "genus": "Ctenopoma",
@@ -10876,6 +10917,7 @@
   "Ein subtropischer": null,
   "Ein weiterer": null,
   "Eine neue": null,
+  "Eine vierte": null,
   "Eirmotus insignis": {
     "canonicalName": "Eirmotus insignis",
     "order": "Cypriniformes",
@@ -12147,6 +12189,7 @@
   "Gastrodermus napoensis": null,
   "Gastrodermus nijsseni": null,
   "Gastrodermus pygmaeus": null,
+  "Gastrodiscus aegyptiacus": null,
   "Gastromyzon aequabilis": {
     "canonicalName": "Gastromyzon aequabilis",
     "order": "Cypriniformes",
@@ -14226,6 +14269,14 @@
     "genus": "Sciades",
     "matchType": "EXACT"
   },
+  "Hexanematichthys mastersi": {
+    "canonicalName": "Hexanematichthys mastersi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Hexanematichthys",
+    "matchType": "EXACT"
+  },
   "Hiang drainages": null,
   "Hilaire described": null,
   "Hilaire examined": null,
@@ -16007,6 +16058,7 @@
   "Khi phao": null,
   "Khi phay": null,
   "Khi pheromone": null,
+  "Khi phong": null,
   "Khi quang": null,
   "Khi quen": null,
   "Khi quy": null,
@@ -20952,6 +21004,14 @@
     "genus": "Netuma",
     "matchType": "EXACT"
   },
+  "Netuma proxima": {
+    "canonicalName": "Netuma proxima",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Netuma",
+    "matchType": "EXACT"
+  },
   "Netuma thalassina": {
     "canonicalName": "Netuma thalassina",
     "order": "Siluriformes",
@@ -22075,6 +22135,14 @@
   "Osteogaster melanotaenia": null,
   "Osteogaster rabauti": null,
   "Osteogaster zygata": null,
+  "Osteogeneiosus militaris": {
+    "canonicalName": "Osteogeneiosus militaris",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Osteogeneiosus",
+    "matchType": "EXACT"
+  },
   "Osteoglossum bicirrhosum": {
     "canonicalName": "Osteoglossum bicirrhosum",
     "order": "Osteoglossiformes",
@@ -23697,6 +23765,15 @@
     "genus": "Peperomia",
     "matchType": "EXACT"
   },
+  "Percnon gibbesi": {
+    "canonicalName": "Percnon gibbesi",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Percnidae",
+    "genus": "Percnon",
+    "matchType": "EXACT"
+  },
   "Peregriana peregra": {
     "canonicalName": "Peregriana peregra",
     "family": "Lymnaeidae",
@@ -24598,6 +24675,22 @@
     "order": "Caudata",
     "family": "Plethodontidae",
     "genus": "Plethodon",
+    "matchType": "EXACT"
+  },
+  "Plicofollis dussumieri": {
+    "canonicalName": "Plicofollis dussumieri",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Plicofollis",
+    "matchType": "EXACT"
+  },
+  "Plicofollis nella": {
+    "canonicalName": "Plicofollis nella",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Plicofollis",
     "matchType": "EXACT"
   },
   "Plotosus canius": {
@@ -25786,6 +25879,14 @@
     "genus": "Pseudomystus",
     "matchType": "EXACT"
   },
+  "Pseudomystus funebris": {
+    "canonicalName": "Pseudomystus funebris",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Pseudomystus",
+    "matchType": "EXACT"
+  },
   "Pseudomystus fuscus": {
     "canonicalName": "Nanobagrus fuscus",
     "order": "Siluriformes",
@@ -26685,6 +26786,14 @@
     "order": "Characiformes",
     "family": "Serrasalmidae",
     "genus": "Pygocentrus",
+    "matchType": "EXACT"
+  },
+  "Pygocentrus manueli": {
+    "canonicalName": "Serrasalmus manueli",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Serrasalmus",
     "matchType": "EXACT"
   },
   "Pygocentrus nattereri": {
@@ -28762,6 +28871,14 @@
     "genus": "Serrasalmus",
     "matchType": "EXACT"
   },
+  "Serrasalmus humeralis": {
+    "canonicalName": "Serrasalmus humeralis",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Serrasalmus",
+    "matchType": "EXACT"
+  },
   "Serrasalmus immaculatus": null,
   "Serrasalmus maculatus": {
     "canonicalName": "Serrasalmus maculatus",
@@ -30283,6 +30400,7 @@
     "genus": "Tahuantinsuyoa",
     "matchType": "EXACT"
   },
+  "Tailspot bushfish": null,
   "Taitung counties": null,
   "Taiwan has": null,
   "Taiwan having": null,
@@ -31471,6 +31589,7 @@
   },
   "Unitaeniatus orinoco": null,
   "Updated checklist": null,
+  "Updated database": null,
   "Urocaridella antonbruunii": {
     "canonicalName": "Urocaridella antonbruunii",
     "order": "Decapoda",
@@ -31936,6 +32055,14 @@
   },
   "Xenurolebias using": null,
   "Xingu drainages": null,
+  "Xiphophorus andersi": {
+    "canonicalName": "Xiphophorus andersi",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Xiphophorus",
+    "matchType": "EXACT"
+  },
   "Xiphophorus clemenciae": {
     "canonicalName": "Xiphophorus clemenciae",
     "order": "Cyprinodontiformes",
