@@ -139,11 +139,11 @@ let masterCardList = #"""
 
 ### AquaTome/Master/Switcher.swift
 - send · `return (.failed(words(why, c)), false)` · Withdrawn before any of it went (signed out, the role no longer allows it): said so, and nothing went.
-- send · `let allowed: @MainActor @Sendable () -> Bool = { [unowned self] in still() && MasterButton.allows(` · Asked right before each command leaves (Tuya's request, each recording): the owner still signed in, the role still allowing it; no, and it doesn't leave.
+- send · `let allowed: @MainActor @Sendable () -> Bool = { [unowned self] in self.withdrawal(` · Asked right before each command leaves (Tuya's request, each recording): the same reasons as when it was sent (`withdrawal`: the owner still signed in, the role still allowing it, the device still on a tank); no, and it doesn't leave.
 - send · `await set(c, allowed: allowed, withdrawn:` · Sends it, checked again right before each command leaves.
 - setByButton · `await send(c, still: still).result` · The lamp's, by the button.
 - withdrawal · `return .signedOut` · Why it would be withdrawn now.
-- withdrawal · `return .role` · The same.
+- withdrawal · `return .role` · The same, or the device no longer on a tank (`gone`): its role can't be read.
 - words · `case .signedOut: MasterModel.signedOut` · "Chưa gửi…": only where nothing of it went (above, and CommandEnd).
 - words · `case .role: String(localized:` · The same, for a role that no longer allows it.
 - notKnown · `c.isLamp ? String(localized:` · The lamp: not known whether it took the command.
@@ -348,7 +348,7 @@ private let walked: [(file: String, finds: [String], in: Set<String>?)] = [
                                          "session == s", "done = true", ".ended = "], nil),
   ("AquaTome/Master/Switcher.swift", [".failed(", "CommandEnd.lamp(", "CommandEnd.plug(", "lamp.send(", "board.set(", "nothingSent",
                                       "String(localized:", "MasterModel.signedOut", ": .done", "await set(", "await send(", "return .signedOut",
-                                      "return .role", "MasterButton.allows("], nil),
+                                      "return .role", "MasterButton.allows(", "let allowed:"], nil),
   ("AquaTome/Master/LampSender.swift", ["return .failed", "return started", "return nil", "cut.append(", "sent.append(", "LampRadio.start(",
                                         "LampRadio.stop(", "air.start(", "air.stop(", "String(localized:", "mayHaveGone", "guard allowed()", "holder"], nil),
   ("AquaTome/Lights/LoveEcology.swift", ["core.start(", "core.stop(", "core?.", "LampAirCore(", "CBPeripheralManager(", "startAdvertising(",
