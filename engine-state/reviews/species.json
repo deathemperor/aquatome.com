@@ -361,6 +361,42 @@
       "kept": false
     }
   ],
+  "vi/species/anentome-helena#Lfl7W6Ktlmo": [
+    {
+      "at": "2026-11-19T02:43:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.82,
+      "notes": [
+        "[habitat] \"thích nền hạt mịn để vùi mình\" repeats the page's point that it likes burying in sand or gravel.",
+        "[behaviour] \"Phần chân thường bị bỏ lại trong vỏ\" turns the narrator's guess (the foot may be harder to digest) into a general fact.",
+        "[behaviour] \"tép chết thì chắc chắn bị ăn\" is firmer than the video, which only says they go after dead shrimp.",
+        "[distribution] \"Người ta đã thu được ốc thuộc giống này ở cả Việt Nam\" is thin and does not say how it differs from the page's Thailand/Malaysia/Sumatra range.",
+        "[beforeYouBuy] The tip to buy only 3–4 snails for the whole set of tanks is one keeper's method, but the section partly phrases it as a general rule (\"Nếu có nhiều bể thì không cần mua...\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T02:43:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.7,
+      "notes": [
+        "Behaviour: \"Ốc lớn như ốc nerite thì khó hơn hẳn vì chúng bám kính quá chặt\" contradicts the page, which says the snails can take down nerite and mystery snails. NEW never says it differs from the page.",
+        "Behaviour: \"ốc Tylomelania lớn cũng khỏe... chỉ hạ được khi chúng đã yếu, già, sắp chết\" is the same unflagged conflict. The page says the snails can take down the Sulawesi rabbit snail (Tylomelania).",
+        "Behaviour: the shrimp paragraph says \"tép bệnh, yếu đi thì có thể bị săn\". The page calls shrimp safe tankmates. NEW does not point out that the video qualifies this.",
+        "beforeYouBuy: \"Ốc sọc nâu là dạng dễ mua nhất, còn dạng vàng thì thỉnh thoảng mới có\" is stated as general fact. In the video it is one shop's stock, from a European seller.",
+        "beforeYouBuy: \"Làm vậy thì không phải mua ốc sống về cho chúng ăn\" is stated as a plain outcome. It is really one keeper's setup.",
+        "Distribution: \"Loài này đã có mặt ở Ấn Độ và Mỹ\" is slightly firmer than the video. The video says these countries are on alert and that the snail is \"already there\", in a loose way.",
+        "Notes: the siphon-receptor detail overlaps the page's existing line that the snail uses its siphon to \"dò thức ăn\". It adds little new and is only loosely marked as new."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/apistogramma-borellii#1rJLXLHEGE4": [
     {
       "at": "2026-11-08T23:56:07Z",
@@ -713,6 +749,45 @@
       "kept": false
     }
   ],
+  "vi/species/danio-margaritatus#LiKjNAJS7BU": [
+    {
+      "at": "2026-11-19T02:45:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.7,
+      "notes": [
+        "Hatching: \"trứng nở sau 5–10 ngày tùy nhiệt độ\" contradicts the page (about 72 hours, or within a week). NEW doesn't say it differs from the page.",
+        "Shrimp: \"tép sống rất ổn với loài cá này\" differs from the page (cherry shrimp give mixed results, CPD hunt baby shrimp). NEW doesn't point out the difference.",
+        "Driftwood: NEW says the keeper's tank has wood for coral moss. The page says to avoid driftwood. The conflict isn't stated.",
+        "\"cá killi thì có thể thử\": the video says \"killer fish\", which is unclear. Corydoras is also dropped, though the video names it.",
+        "\"Cá nhát có thể tập cho dạn\" turns one keeper's knock-on-glass trick into a general claim.",
+        "Distribution: \"lúc đầu người ta tưởng loài này chỉ có quanh hồ\" largely repeats the page's \"ban đầu... chỉ có ở đúng một điểm\". Only the Inle lake detail is new.",
+        "Bullet \"thả một đàn ít nhất 10 con\" overlaps the page's recommendation of 10–15 fish.",
+        "The reproduction bullets are written as general rules in the video's voice, while the opening line attributes the rest to one keeper. The attribution is inconsistent."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T02:45:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.6,
+      "notes": [
+        "[diet] \"còn lại dùng thức ăn khô\" is not in the video. The speaker only says he feeds live food once or twice a week.",
+        "[notes] \"Cá trong bể lớn được khoảng 2–2,5 cm\" turns \"in the aquarium\" into \"bể lớn\", which is a mistranslation. The page card also already gives the maximum size as about 2,5 cm.",
+        "[reproduction] The video says larvae hatch after 5–10 days. The page says about 72 hours, or within a week. NEW does not say it differs from the page.",
+        "[behaviour] The video says shrimp do very well with this fish and even breed. The page says results with cherry shrimp vary and the fish hunt baby shrimp. NEW does not point out the difference.",
+        "[maintenance] The speaker grows coral moss on wood, but the page says to avoid driftwood. NEW does not flag this. \"ít nhất phải thả thêm ít cây nổi\" also repeats what the page already says.",
+        "[waterConditions] \"Cá chịu được nhiệt độ lên xuống theo ngày đêm và theo mùa\" turns one keeper's unheated tank into a general claim. The no-heater point is also already on the page.",
+        "[behaviour] The tank-mate list (tetra, corydoras) largely repeats the page. The Vietnamese in places reads like a translation, for example \"có lẽ cả cá killi\" and \"sinh ra kén món\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/dario-dario#KtNrbUrNnV4": [
     {
       "at": "2026-11-18T20:42:37Z",
@@ -920,6 +995,44 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/hemigrammus-erythrozonus#lmfsTkys5ZE": [
+    {
+      "at": "2026-11-19T02:47:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.5,
+      "notes": [
+        "[behaviour] \"cá Pelvicachromis kribensis\": the video says \"crebences\" (garbled), which is taken as Pelvicachromis kribensis. That is a guess and not clearly said.",
+        "[behaviour] \"Những con này dù không ăn thịt thì cũng hay xô đuổi\": the video says big or boisterous tank mates might see them as food or push them around. Saying they don't eat them reverses this.",
+        "[behaviour] \"Cá đi thành đàn\": this repeats the page's schooling point, and the video's six-or-more point is also on the page. Partly redundant.",
+        "[distribution] \"Ngoài dòng chính Essequibo\": the video says they are not in the main river channels. It says they live in small tributaries and creeks, so this contradicts the video.",
+        "[waterConditions] \"Nuôi trong nước mềm hơn thì màu cá rực hơn hẳn\": the page already says colour is better in acidic water. The video adds dimmer light and tannin tea stain, which are left out. \"hẳn\" overstates the video.",
+        "[notes] \"Cả cá đực lẫn cá cái đều lên màu đẹp\": this is said in the video. The \"từ đầu những năm 1930\" history is fine, but the \"hay nuôi nhất\" wording is stronger than the video's \"go-to small tetras\".",
+        "[dimorphism] \"Cá đực thon và nhỏ hơn một chút\": the page already says the female is rounder-bellied and a bit larger. This is largely duplicated.",
+        "[reproduction] \"Trong bể đẻ, cá thường đẻ lúc trời vừa hửng sáng\": this is fine. The \"vì cá lớn ăn trứng\" wording is slightly off, because the video says the adults eat them."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T02:47:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.8,
+      "notes": [
+        "\"Con đực và con cái đều lên màu đẹp như nhau\": the video only says both sexes colour up beautifully. It does not say they are equal, so \"như nhau\" overstates it.",
+        "\"dọc hai bên và phía sau bể\": the video says plants and hardscape \"around the edges\". \"Phía sau\" is added detail.",
+        "\"lũa đá\": the video says bogwood and hardscape, and does not name stones specifically.",
+        "[habitat] The forest streams and creeks off the main channel are already on the page (\"nhánh sông tách ra từ dòng chính\", forest, shaded). The new text repeats this, with little added except \"nước lặng\".",
+        "[behaviour] \"Ngoài cá lớn có thể ăn thịt chúng\" repeats the page's point that larger fish may eat it. The added part about boisterous tank mates is the only new content.",
+        "[reproduction] \"Cá thường đẻ lúc trời vừa hửng sáng\" is placed as general behaviour. In the video it describes spawning in a set-up breeding tank, and the page already covers spawning the next morning."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/hyphessobrycon-eschwartzae#4QNZbyXjZuI": [

@@ -2,6 +2,20 @@
   {
     "date": "2026-11-19",
     "kind": "species",
+    "id": "hemigrammus-erythrozonus",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-19",
+    "kind": "species",
+    "id": "anentome-helena",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-19",
+    "kind": "species",
     "id": "pao-suvattii",
     "source": "glaser",
     "action": "updated"
@@ -3484,19 +3498,5 @@
     "id": "youtube-AWRizJTJ13E",
     "source": "youtube",
     "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "glaser-en-10-catfishes-10c-catfishes-remaining-catfish-from-south-america-three-rare-catfish-species-from-paraguay-en",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "species",
-    "id": "rhinogobius-formosanus",
-    "source": "glaser",
-    "action": "updated"
   }
 ]

@@ -20557,6 +20557,27 @@
   ],
   "vi/guides/youtube-SdInuxeH8a8": [
     {
+      "at": "2026-11-19T03:00:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.55,
+      "notes": [
+        "\"Nếu muốn thì dùng keo 502\" and the FAQ \"dùng keo 502\": the video only says super glue can be used; remove the brand 502 and say \"keo super glue\" hedged as optional.",
+        "\"Cá cichlid ăn cây rỉa lá thì nó vẫn trụ được\": this is one person's experience with his own cichlid tank; hedge it (e.g. \"theo kinh nghiệm một số người nuôi cichlid\") or remove it, not a general fact.",
+        "\"Người mới bắt đầu cũng hợp với cỡ bể này\" and \"Bể 60 cm ... là cỡ dễ chịu\": fine in part, but \"có lẽ đây là cỡ nhỏ nhất đã bắt đầu nuôi được đàn cá nhỏ khá đông\" is fine; however \"Ai thích đổi bố cục thường xuyên thì cỡ này không ngốn quá nhiều tiền và công\" is ok. Main fault: \"Kiểu này ... gần như ai đầu tư đúng thiết bị cũng làm được\" overstates the video's \"almost anyone can achieve\" as a fir…",
+        "\"Cây cấy mô đóng cốc khá lời vì mỗi cốc cho nhiều cây\": the video says good value for money of the product line (One2Grow); keep it a hedged opinion (\"có thể thấy khá lời\"), not firm fact; also the product/cup type is not general.",
+        "\"Ráy chịu được tay mạnh vì lá dày và có lớp sáp\": ráy is robust, tough waxy leaves; \"chịu được tay mạnh\" is a mistranslation of withstanding fish attention; correct it to say the leaves are tough and waxy so it withstands fish nibbling.",
+        "\"Bể châm CO2 cần dòng chảy mạnh ... Bốn thứ cần có là\": the video describes its own plan (high-energy), not a requirement; hedge as \"một cách là\" instead of \"cần có\" and in the bullets/summary \"thì cần đèn mạnh, CO2...\".",
+        "\"Lọc có ngăn lọc thô tháo nhanh thì chỉ mất vài phút\" and \"Ống trong hợp với bố cục tối giản hơn ống xám khói\": fine, but \"Với bể nhỏ, sủi trong bể là một lựa chọn đáng cân nhắc vì những lý do trên. Nếu ngại nhìn thấy thiết bị trong bể thì inline vẫn kín đáo hơn\" is ok; the real fault: \"Sủi inline gắn trên ống xả của lọc, CO2 hòa vào nước ngay trong đường ống rồi mới vào bể\" is fine. Instead remo…",
+        "\"Bể chưa thả con nào thì clo chưa hại được gì, có thể châm thuốc khử clo sau một chút\": the video says he hasn't dechlorinated yet and isn't bothered; present it only as his hedged choice, not as advice.",
+        "\"Nhiều khoảng phân nền trống\" list under \"Trải nền ... chừa lại những chỗ sau\" and \"Trải phân nền trước, sau đó đặt đá và lũa\": acceptable; but \"Cây lớn tỉa ra từ bể khác làm bể lên hình ngay\" states as general fact; hedge it as these mature plants given for the build.",
+        "\"Hy vọng là hạn chế được rêu hại\", \"Tạo điểm nhấn màu\": fine; but the Echinodorus 'Reni' placement says \"Trung cảnh ... Tạo điểm nhấn màu\" and Eleocharis \"có thể tới 15 cm\" are fine; the table row for Eleocharis is placed 'sát mặt trước' fine. Remove the FAQ \"Lá ráy có chút rêu bám có đáng lo không?\" claim \"là chuyện bình thường\" as firm reassurance beyond the video's \"we expect that from anubias…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-16T00:24:08Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
