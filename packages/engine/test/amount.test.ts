@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { amounts, chemicals, holdsAmount } from '../src/amount'
+import { amounts, holdsAmount } from '../src/amount'
 import { DOSE_WORDS, NUMBER_WORDS, SIZE_UNIT } from '../src/video-mend'
 
 test('an amount is a figure, a number in words, a half or a few, a spoon or a cap, a unit, or a count of time, standing alone', () => {
@@ -14,14 +14,26 @@ test('an amount is a figure, a number in words, a half or a few, a spoon or a ca
     'Một xô nước.', 'Một bát.', 'Một ống tiêm.', 'Một bình nước.', 'Một vốc sỏi.', 'Một ký muối.', 'Một lạng.', 'Một tấc.',
     'Một chút muối.', 'Một xíu.', 'Fifty litres.', 'A cup.',
   ]) expect(holdsAmount(s), s).toBe(true)
+})
+
+// Codex's seventh read of #1690: a number a reader sees, however it's written. A full-width or circled digit, a Roman
+// numeral, a word with a character in it that shows nothing, a number word in Indonesian or Thai, a letter from another
+// alphabet that looks like a Latin one.
+test('a number is one however it is written: in any script, behind a character that shows nothing, or in Indonesian', () => {
+  for (const s of ['Thả １ con cá đực.', 'Thả ２ con.', 'Thả ① con.', 'Chương Ⅻ.', 'Thả h\u00ADai con cá đực.', 'Thả h\u200Bai con.', 'Thả ha\uFE0Fi con.',
+    'Thả ｈａｉ con.', 'Số cá đực là dua ekor.', 'Thả tiga ekor.', 'Setengah sendok.', 'Thả สาม con.', 'Thả 三 con.', 'Thả hаi con.' /* a Cyrillic а */]) {
+    expect(holdsAmount(s), JSON.stringify(s)).toBe(true)
+  }
+  // Vietnamese letters are Latin ones.
+  for (const s of ['Đặt bể gần cửa sổ.', 'Ưu tiên cây dễ trồng.', 'Rêu Java bám lũa.']) expect(holdsAmount(s), s).toBe(false)
   for (const s of ['Cây mọc khỏe.', 'Đặt bể gần cửa sổ.', 'Dùng phân nền cho cây.', 'Lọc treo dễ vệ sinh.', 'Ít cá thì nước sạch hơn.', 'Nhiều cây thì đẹp.']) expect(holdsAmount(s), s).toBe(false)
 })
 
-// The chief of staff, 19 Nov 2026: the bare "một" is the article "a" too ("một cách là…", the hedge the reviews ask
-// for); only it is carved out. Beside any word on the list it's still an amount.
-test('the bare "một" alone is no amount; beside any word on the list it is', () => {
-  for (const s of ['Một cách là tỉa mỗi cụm.', 'Trải một lớp phân nền.', 'Một bể thủy sinh mới set.', 'Một loại Rotala.']) expect(amounts(s), s).toEqual([])
-  for (const s of ['Một thìa muối.', 'Một nắm thức ăn.', 'Một tuần sau.', 'Một nửa.', 'Một phần tư nắp.']) expect(holdsAmount(s), s).toBe(true)
+// Codex's seventh read of #1690: "một" is a count of one ("chỉ thả đúng một con cá đực" became "mỗi nhóm…"), so it is
+// on the list, though it is the article "a" too (the chief of staff, 19 Nov 2026: Friday ships on the wide list, and the
+// carve-out waits for Monday's change).
+test('"một" is an amount, alone or beside any word', () => {
+  for (const s of ['Chỉ thả đúng một con cá đực.', 'Một cách là tỉa mỗi cụm.', 'Một thìa muối.', 'Một tuần sau.']) expect(holdsAmount(s), s).toBe(true)
 })
 
 test('every real amount the reviews of the ten named, and every dose case the six reads found, is held, and none by "một" alone', () => {
@@ -52,14 +64,10 @@ test('every real amount the reviews of the ten named, and every dose case the si
   }
 })
 
-test('a chemical name\'s digits are no amount; the name is counted apart, exactly, and another chemical\'s digits are an amount', () => {
-  expect(amounts('Bể cần CO2 và NO3 thấp.')).toEqual([])
-  expect(amounts('CO₂ châm đều.')).toEqual([])
-  expect(chemicals('NO3 cao, NO3 thấp, NH₄ và co2.')).toEqual(['no3', 'no3', 'nh4', 'co2'])
-  // Not on the list: its digits are figures.
-  expect(holdsAmount('Đường C6H12O6.')).toBe(true)
-  // A figure beside a chemical is still an amount.
-  expect(holdsAmount('NO3 dưới 20 ppm.')).toBe(true)
+test('a chemical name\'s digits are figures, however they are written', () => {
+  for (const s of ['Bể cần CO2.', 'NO3 thấp.', 'CO₂ châm đều.', 'Kiểm tra NO２.', 'NH₄ cao.']) expect(holdsAmount(s), s).toBe(true)
+  // In words, a chemical's name holds no amount: changing it is a fact the review reads, like any other word.
+  expect(holdsAmount('Kiểm tra nitrat và amoniac.')).toBe(false)
 })
 
 /** A pattern's words, as the mend's own patterns write them ("litres?", "inch(?:es)?"). */

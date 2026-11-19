@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
-import { amounts, chemicals, holdsAmount } from './amount'
+import { amounts, holdsAmount } from './amount'
 import { machine, type Machine } from './ceiling'
 import type { Llm } from './claude'
 import { FIT_TITLE, givesDose, type FitFinding } from './fit'
@@ -96,7 +96,7 @@ type Part = { field: string; html: boolean; text: string; pieces: Piece[] }
  * The file is written, and true returned, only when the edit took every quote out and its review is at the bar, or no
  * lower than the review of the text it mends (a mend never leaves a guide worse, as a redo never does). Its review is
  * then the page's. False, and the file as it was: an answer that numbers a sentence twice or leaves one out, writes an
- * amount or a chemical name its sentence didn't have, leaves a quote in or empties a part, or a review under both.
+ * amount, leaves a quote in or empties a part, or a review under both.
  * Nothing, with no editor called, so the gate doesn't count it among a run's mends: not a Vietnamese video guide, a text
  * a person fixed, a quote in no sentence of the guide, nothing but units to mend, a sentence to send that holds an
  * amount, a dose that isn't the video's own tank's, no transcript on this Mac. Nor is a mend tried when a product or a
@@ -197,15 +197,12 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   }
   if (answers.size < named.length) return false
   // What the editor wrote, as the part keeps it. Coming out, an answer holds no amount, but for the label line a dropped
-  // dose leaves, whose words are fixed and give none; and no chemical name its sentence didn't have (it may drop one,
-  // never add or swap one: NO2 for NO3).
+  // dose leaves, whose words are fixed and give none.
   const changes = parts.map(() => new Map<number, string>())
   for (const [j, n] of named.entries()) {
     const v = answers.get(j + 1)!
     const t = parts[n.k]!.html ? inline(v) : asHtml(flat(v))
-    const a = txt(n.k, t), was = chemicals(txt(n.k, said[n.k]![n.i]!))
-    if (holdsAmount(a.split(LABEL_DOSE).join(' '))) return false
-    if (chemicals(a).some((x, _, all) => all.filter(y => y === x).length > was.filter(y => y === x).length)) return false
+    if (holdsAmount(txt(n.k, t).split(LABEL_DOSE).join(' '))) return false
     changes[n.k]!.set(n.i, t)
   }
   const before = parts.map(x => x.text)

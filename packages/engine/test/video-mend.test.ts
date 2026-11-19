@@ -533,27 +533,27 @@ test('a title that holds an amount, which no finding names, stays as it was besi
   expect(after.body).toBe(`<p>Bể 10 gallon là đủ.</p><p>Lọc mua ở tiệm cá cảnh.</p><p>${LONG}</p>`)
 })
 
-// The chief of staff, 19 Nov 2026: the bare "một" is the article "a" too, so an answer may have it; any other word on
-// amount.ts's list it may not.
-test('an answer that holds an amount is refused, the bare "một" aside', async () => {
-  for (const fix of ['Lọc mua ở tiệm cá cảnh, chờ một tuần là có.', 'Lọc mua ở tiệm cá cảnh, mua hai cái.', 'Lọc mua ở tiệm cá cảnh, rẻ hơn một nửa.', 'Lọc mua ở vài tiệm cá cảnh.']) {
-    const { root, file, was } = await setup()
-    expect(await deps(root, { answers: { ...ANSWERS, 'Mua lọc ở Petco, giá khoảng 5 USD.': fix } }).mend(page(), [shop, price]), fix).toBe(false)
-    expect(await readFile(file, 'utf8'), fix).toBe(was)
+// Codex's seventh read of #1690, each through a source finding: a count of one, a chemical's digits, a full-width digit, a
+// number in Indonesian, and a word with a character in it that shows nothing. Going in, a sentence that holds one isn't
+// the editor's; coming out, an answer that holds one is refused. Friday's list has no carve-out (the chief of staff,
+// 19 Nov 2026).
+test('the seventh read\'s amounts: a sentence that holds one waits, and an answer that writes one is refused', async () => {
+  const theo: FitFinding = { ...own, quote: 'Theo video' }
+  for (const before of ['Theo video, chỉ thả đúng một con cá đực.', 'Theo video, nên kiểm tra NO3 trước khi thả cá.', 'Theo video, thả １ con cá đực.', 'Theo video, số cá đực cần thả là dua ekor.']) {
+    const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
+    const { mend, prompts } = deps(root, { answers: { [before]: before.slice('Theo video, '.length) } })
+    expect(await mend(page(), [theo]), before).toBeUndefined()
+    expect(prompts, before).toEqual([])
+    expect(await readFile(file, 'utf8'), before).toBe(was)
   }
-  const { root, file } = await setup()
-  expect(await deps(root, { answers: { ...ANSWERS, 'Mua lọc ở Petco, giá khoảng 5 USD.': 'Lọc mua ở một tiệm cá cảnh.' } }).mend(page(), [shop, price])).toBe(true)
-  expect(JSON.parse(await readFile(file, 'utf8')).body).toBe(FIXED.replace('Lọc mua ở tiệm cá cảnh.', 'Lọc mua ở một tiệm cá cảnh.'))
-})
-
-// The chief of staff, 19 Nov 2026: a chemical name's digits aren't an amount, so a sentence that names one can go to the
-// editor; its answer may drop the name, never add or swap one (NO2 for NO3).
-test('a chemical name in a sentence the editor is given may be dropped, never added or swapped', async () => {
-  const s = 'Theo video, NO3 cao thì rêu mọc nhanh.'
-  for (const [answer, out] of [['NO2 cao thì rêu mọc nhanh.', false], ['NO₂ cao thì rêu mọc nhanh.', false], ['NO3 và NH4 cao thì rêu mọc nhanh.', false], ['NO3 cao thì rêu mọc nhanh.', true], ['Nitrat cao thì rêu mọc nhanh.', true]] as const) {
+  const s = 'Theo video, thả cá đực vào bể.'
+  for (const answer of ['Mỗi nhóm chỉ thả đúng một con cá đực.', 'Chỉ thả đúng một con cá đực vào bể.', 'Thả ２ con cá đực vào bể.', 'Thả h\u00ADai con cá đực vào bể.', 'Nên kiểm tra NO２ trước khi thả cá.', 'Số cá đực cần thả là tiga ekor.']) {
     const { root, file, was } = await setup({ body: `<p>${s}</p><p>${LONG}</p>`, faq: [] })
-    expect(await deps(root, { answers: { [s]: answer } }).mend(page(), [{ ...own, quote: 'Theo video' }]), answer).toBe(out)
-    if (out) expect(JSON.parse(await readFile(file, 'utf8')).body, answer).toBe(`<p>${answer}</p><p>${LONG}</p>`)
-    else expect(await readFile(file, 'utf8'), answer).toBe(was)
+    expect(await deps(root, { answers: { [s]: answer } }).mend(page(), [theo]), JSON.stringify(answer)).toBe(false)
+    expect(await readFile(file, 'utf8'), answer).toBe(was)
   }
+  // With none: written.
+  const ok = await setup({ body: `<p>${s}</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(ok.root, { answers: { [s]: 'Thả cá đực vào bể.' } }).mend(page(), [theo])).toBe(true)
+  expect(JSON.parse(await readFile(ok.file, 'utf8')).body).toBe(`<p>Thả cá đực vào bể.</p><p>${LONG}</p>`)
 })
