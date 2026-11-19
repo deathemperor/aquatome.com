@@ -87,3 +87,11 @@ export function amounts(text: string): string[] {
 }
 
 export const holdsAmount = (text: string) => amounts(text).length > 0
+
+/**
+ * How many times a text says "không", read as `amounts` reads it. Not on the list, as it is also "not", in about half the
+ * sentences the editor would be sent; but "bằng không" is a zero, and "không nên" turned "nên" flips advice, so an
+ * answer says it exactly as often as its sentence did, or the sentence goes (the chief of staff, 19 Nov 2026).
+ */
+export const negations = (text: string) =>
+  [...seen(text).matchAll(/[\p{L}\p{M}]+/gu)].filter(([w]) => w.normalize('NFKC').toLowerCase() === 'không').length

@@ -78,6 +78,8 @@ test('the sentences a finding names go to the editor numbered, with the transcri
   expect(prompts[0]).toContain('Câu nào cho liều của một sản phẩm thì giữ tên sản phẩm; không đổi thành loại.')
   // It writes no amount, and is told so.
   expect(prompts[0]).toContain('Câu bạn viết không có số, số đo, liều, lượng hay khoảng thời gian nào')
+  expect(prompts[0]).toContain('muốn nói mềm thì viết "có thể…" hay "nếu thích thì…"')
+  expect(prompts[0]).toContain('Giữ đúng số lần chữ "không" như câu gốc')
   expect(prompts[0]).not.toContain('bằng đúng các số bài đang ghi')
   expect(prompts[1]).toContain('TRANSCRIPT:')
   expect(prompts[1]).toContain('by MJ Aquascaping')
@@ -570,4 +572,23 @@ test('the seventh read\'s amounts: a sentence that holds one waits, and an answe
   const ok = await setup({ body: `<p>${s}</p><p>${LONG}</p>`, faq: [] })
   expect(await deps(ok.root, { answers: { [s]: 'Thả cá đực vào bể.' } }).mend(page(), [theo])).toBe(true)
   expect(JSON.parse(await readFile(ok.file, 'utf8')).body).toBe(`<p>Thả cá đực vào bể.</p><p>${LONG}</p>`)
+})
+
+// The chief of staff, 19 Nov 2026: "không" is also "not", so it isn't on the list; but "không nên cho ăn" turned "nên cho
+// ăn", or a "bằng không" written in, changes what a reader does. An answer says it as often as its sentence did, or the
+// sentence goes. A negation moved from one clause to another, the count the same, is the morning read's.
+test('an answer says "không" exactly as often as its sentence, or the sentence goes', async () => {
+  const theo: FitFinding = { ...own, quote: 'Theo video' }
+  const cases: [string, string, boolean][] = [
+    ['Theo video, không nên cho cá ăn quá nhiều.', 'Nên cho cá ăn quá nhiều.', false],
+    ['Theo video, cá đực nên nuôi riêng.', 'Cá đực nên nuôi riêng, với số cá cái bằng không.', false],
+    ['Theo video, không nên cho cá ăn quá nhiều.', 'Không nên cho cá ăn quá nhiều.', true],
+    ['Theo video, không nên cho cá ăn quá nhiều.', '', true],
+  ]
+  for (const [before, answer, out] of cases) {
+    const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
+    expect(await deps(root, { answers: { [before]: answer } }).mend(page(), [theo]), answer).toBe(out)
+    if (out) expect(JSON.parse(await readFile(file, 'utf8')).body, answer).toBe(answer ? `<p>${answer}</p><p>${LONG}</p>` : `<p>${LONG}</p>`)
+    else expect(await readFile(file, 'utf8'), answer).toBe(was)
+  }
 })

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { amounts, holdsAmount } from '../src/amount'
+import { amounts, holdsAmount, negations } from '../src/amount'
 import { DOSE_WORDS, NUMBER_WORDS, SIZE_UNIT } from '../src/video-mend'
 
 test('an amount is a figure, a number in words, a half or a few, a spoon or a cap, a unit, or a count of time, standing alone', () => {
@@ -82,4 +82,12 @@ test('every word the mend\'s own dose, size and number patterns know is on the l
   expect(known).toContain('inches')
   expect(known).toContain('litres')
   for (const w of known.filter(w => w !== 'một')) expect(holdsAmount(w), w).toBe(true)
+})
+
+test('"không" is counted as a reader reads it, and is not on the list', () => {
+  expect(negations('Không nên cho ăn, không thay nước.')).toBe(2)
+  expect(negations('Thả kh\u00ADông con nào.')).toBe(1)
+  expect(negations('Không gian rộng.')).toBe(1)
+  expect(negations('Nên cho ăn.')).toBe(0)
+  expect(holdsAmount('Không nên cho ăn.')).toBe(false)
 })
