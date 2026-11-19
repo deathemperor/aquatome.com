@@ -516,7 +516,7 @@ test('orderAlbums: every album in the album order, the leads that changed listed
   expect(first.leads).toEqual(['poecilia-reticulata: https://media.aquatome.com/inaturalist/340813812.webp -> https://media.aquatome.com/inaturalist/296283368.webp'])
   const g = GallerySchema.parse(await read(r, 'content/gallery/poecilia-reticulata.json'))
   expect(g.photos.map(p => p.url.split('/').at(-1))).toEqual(['296283368.webp', '340813812.webp'])
-  expect(await orderAlbums(r, {})).toEqual({ files: [], leads: [] })
+  expect(await orderAlbums(r, {})).toEqual({ files: [], leads: [], keptOut: [] })
 })
 
 const num = (p: { url: string }) => Number(/(\d+)\.webp$/.exec(p.url)![1])
@@ -568,7 +568,7 @@ test('the album step and the sweep order an album alike, from the saved verdicts
   const g = GallerySchema.parse(await read(r, 'content/gallery/betta-splendens.json'))
   expect(g.photos.length).toBeGreaterThan(9)
   expect(g.photos.filter(p => !p.unchecked).map(num)).toEqual([104, 105, 106, 107, 108, 109, 103, 101, 102])
-  expect(await orderAlbums(r, subjects)).toEqual({ files: [], leads: [] })
+  expect(await orderAlbums(r, subjects)).toEqual({ files: [], leads: [], keptOut: [] })
   // The sweep reads the same: with the answers gone, it moves them back.
   await writeFile(join(r, 'engine-state/_album-ask.json'), '{}')
   await writeFile(join(r, 'engine-state/_photo-boxes.json'), '{}')

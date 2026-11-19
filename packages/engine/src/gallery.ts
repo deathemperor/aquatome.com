@@ -11,7 +11,7 @@ import { inatNcPage, inatPage, inatTaxon, newInatCursor, type InatCursor, type I
 import { openversePage } from './openverse'
 import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
-import { keptMarks } from './own-mark'
+import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
@@ -736,12 +736,14 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
 /**
  * Every album in rankGallery's order, each cycle (the sweep): the album step ranks only an album it adds to, so the rest
  * kept the order an older rule left them (by stored size, with no rule for photo-tank photos, until 14 Nov). Each album's
- * screening order is its state's (`judged`); the photo check's verdicts say which photos it can't tell. The files
- * changed, and the albums whose lead photo changed (`id: old -> new`).
+ * screening order is its state's (`judged`); the photo check's verdicts say which photos it can't tell. Then no more
+ * Aquarium Glaser kept-mark photos than an album shows, the first in that order (own-mark.ts keptCap; the chief of staff,
+ * 16 Nov). The files changed, the albums whose lead photo changed (`id: old -> new`), and the kept-mark photos left out
+ * of an album (`id: url`).
  */
-export async function orderAlbums(root: string, subjects: Record<string, Record<string, PhotoVerdict>>): Promise<{ files: string[]; leads: string[] }> {
+export async function orderAlbums(root: string, subjects: Record<string, Record<string, PhotoVerdict>>): Promise<{ files: string[]; leads: string[]; keptOut: string[] }> {
   const dir = join(root, 'content', 'gallery')
-  const out = { files: [] as string[], leads: [] as string[] }
+  const out = { files: [] as string[], leads: [] as string[], keptOut: [] as string[] }
   const lead = (ps: GalleryPhoto[]) => ps.find(p => !p.unchecked && !isGenerated(p))?.url
   const looksOn = await albumLooks(root, subjects)
   const on = await namedOn(join(root, 'content'))
@@ -752,13 +754,25 @@ export async function orderAlbums(root: string, subjects: Record<string, Record<
     const g = JSON.parse(raw) as { photos?: GalleryPhoto[] }
     if (!g.photos?.length) continue
     const st = JSON.parse(await readFile(join(root, 'engine-state', 'gallery', f), 'utf8').catch(() => '{}')) as Partial<GalleryState>
-    const ranked = rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id), markKept)
-    if (ranked.every((p, i) => p === g.photos![i])) continue
+    const own = await pageOf(root, id)
+    const capped = keptCap(rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id), markKept), own, markKept)
+    const ranked = capped.album
+    out.keptOut.push(...capped.out.map(p => `${id}: ${p.url}`))
+    if (ranked.length === g.photos.length && ranked.every((p, i) => p === g.photos![i])) continue
     if (lead(g.photos) !== lead(ranked)) out.leads.push(`${id}: ${lead(g.photos)} -> ${lead(ranked)}`)
     await writeFile(file, `${JSON.stringify({ ...g, photos: ranked }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
     out.files.push(`gallery/${f}`)
   }
   return out
+}
+
+/** The own photos of the page an album belongs to: a species', a plant's or a breed's. */
+async function pageOf(root: string, id: string): Promise<Photo[]> {
+  for (const kind of ['species', 'plants', 'breeds']) {
+    const raw = await readFile(join(root, 'content', kind, id, 'entity.json'), 'utf8').catch(() => null)
+    if (raw) return (JSON.parse(raw) as { photos?: Photo[] }).photos ?? []
+  }
+  return []
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
