@@ -1519,5 +1519,43 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/vay-duoi": [
+    {
+      "at": "2026-11-19T18:18:20Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Loose, rewording would take the entry past its length, old wording kept for the reader: \"Betta nuôi được chia dòng theo dáng đuôi.\" (not \"Nhiều dòng Betta nuôi được gọi tên theo dáng đuôi.\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mép đuôi tưa, ửng đỏ, viền trắng đục hoặc xám là dấu hiệu cần để ý.\" (not \"Một hội cá cảnh ghi: bệnh thường bắt đầu bằng mép vây tưa và vây đuôi ửng đỏ, sau đó chóp vây chuyển xám.\": Rule 12: The entry credits four pages, but the limit is three: \"một nguồn người nuôi ghi\" (the keeper page on tail shapes),…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nguồn người nuôi khác ở trên ghi cách chăm Betta cắn đuôi: thay 25–30% nước mỗi 3–4 ngày, cho ăn nhiều đạm, giữ amoniac và nitrit bằng 0, lọc êm, có cây và chỗ trốn.\" (not \"Nguồn người nuôi khác ở trên ghi: trong lúc đuôi Betta lành lại sau khi bị cắn, thay 25–30% nước mỗi 3–4 ngày và cho ăn nhiều đạm.\": …",
+        "Rule 12: \"Mép đuôi tưa, rách: dấu hiệu cần để ý\" and \"Mép đuôi tưa, ửng đỏ, viền trắng đục hoặc xám là dấu hiệu cần để ý\": \"đuôi tưa\" is the entry's own name for the crowntail shape (\"Đuôi tưa (crowntail)\"). Using the same words for a frayed, sick tail mixes a tail-shape name with a sign of disease. Tail shapes should be named only as keepers or the site write them, so the frayed edge needs other…",
+        "Rule 12: \"Nếu cần dùng thuốc, liều và cách dùng: xem bài hướng dẫn chữa bệnh.\": the FACTS set the condition as antimicrobials being recommended if fish are dying, chosen by sensitivity testing where possible. \"Nếu cần\" drops that condition, which breaks the rule that a fact's hedges stay as given. The step also sends the keeper to a treatment guide that no FACT names.",
+        "The entry is 408 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T18:18:20Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.64,
+      "notes": [
+        "\"Vây đuôi là vây ở cuối thân cá, gắn với cuống đuôi, và cá quẫy nó sang hai bên để bơi tới.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'in most fish groups' qualifier on propulsion / Drops 'in most fish groups' for side-to-side propulsion / Drops 'in most fish groups' from the propulsion claim",
+        "\"Vây đuôi nằm ở cuối cuống đuôi.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia gives it / Only wikipedia gives this",
+        "\"Mép đuôi có thể tròn, gần thẳng đứng, hơi lõm vào như ở Cyprinus carpio, chẻ đôi hoặc cong hình lưỡi liềm.\": the facts don't carry it (unsupported, uncredited, uncredited): drops homocercal-only limit on these shapes / Tail shapes come only from wikipedia",
+        "\"Đuôi voan, đuôi màn (veiltail): đuôi dài, gốc rộng, rủ xuống.\": the facts don't carry it (uncredited, loose, uncredited): wide base only from one site, drooping only from another; uncredited / Joins two sites' descriptions / Wide base is only on one site, drooping only on the other; joined with no credit",
+        "\"Đuôi hoa (rosetail): tia vây phân nhánh, vây rộng tới mức mép nhăn lại.\": the facts don't carry it (uncredited, loose, uncredited): branching rays and wrinkled edges each from a single site, uncredited / Joins two sites' descriptions / Branching rays (one site) and wrinkled edges (another) are each stated without credit",
+        "\"Các dáng hiếm: nguồn người nuôi trên ghi có đuôi quạt (roundtail), đuôi ba thùy (tripletail), đuôi tim (hearttail), đuôi dính (fusetail), và vây dính (fusefin) là cực hiếm.\": the facts don't carry it (contradicts, contradicts, unsupported): roundtail not rare; source says it often appears in delta/halfmoon lines / Roundtail often turns up, so it is not rare / Roundtail isn't called rare; the fac…",
+        "\"Một nguồn người nuôi khác ghi: cá betta tự cắn đuôi thì để lại vết cắn gọn, mép trơn, có khi hiện ra chỉ trong một ngày, còn thối vây thì mép nham nhở, viền trắng, xám hoặc đen, nặng dần qua nhiều tuần.\": the facts don't carry it (unsupported, supported, supported, unsupported, unsupported, unsupported): drops 'often' on white/grey/black border / Drops the \"often\" hedge on the white, grey or bla…",
+        "\"Nếu phát hiện sớm thì có thể chỉ cần vậy là đủ.\": the facts don't carry it (uncredited, uncredited, uncredited): only fishdoc says early removal may suffice / Only fishdoc says early removal may be enough",
+        "\"Cân nhắc kỹ trước khi dùng kháng sinh.\": the facts don't carry it (uncredited, uncredited, uncredited): only angfa advises considering antibiotics carefully / Only angfa says to consider antibiotics carefully / Only angfa gives this advice",
+        "Rule 12: \"cá quẫy nó sang hai bên để bơi tới\" drops the fact's hedge. The fact says the caudal fin is used this way \"in most fish groups\", but the entry states it for all fish."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

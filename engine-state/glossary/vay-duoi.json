@@ -1,0 +1,359 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens",
+    "Poecilia reticulata",
+    "Aeromonas hydrophila",
+    "Pseudomonas fluorescens",
+    "Flavobacterium columnare"
+  ],
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Fish_fin",
+      "title": "Fish fin",
+      "kind": "reference"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/disease_prevention_and_control/fin_and_tail_rot.html",
+      "title": "Fin & Tail Rot",
+      "kind": "society"
+    },
+    {
+      "url": "https://fishdoc.co.uk/?p=418",
+      "title": "Fin rot and peduncle disease a common fish disease problem",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.msdvetmanual.com/en-au/veterinary/exotic-and-laboratory-animals/aquarium-fish/bacterial-diseases-of-fish",
+      "title": "Bacterial Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "http://bettavietnam.blogspot.com/2014/10/cac-danh-uoi-cua-ca-betta.html",
+      "title": "Halfmoon Việt Nam: Các dạng đuôi của cá betta",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://aquasetup.com/16-dong-ca-betta-phan-theo-dang-duoi-va-mau-sac/",
+      "title": "16 dòng cá betta phân theo dáng đuôi và màu sắc",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.bettacarefishguide.com/betta-tail-biting-what-to-do-how-to-prevent-it/",
+      "title": "Betta Fish Tail Biting: 5 Reasons Why & How to Stop It Fast",
+      "kind": "keeper"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Name for the term: \"vây đuôi\"",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"caudal fin\"",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The caudal fin is the tail fin, at the end of the caudal peduncle; the name comes from the Latin cauda, meaning tail.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In most fish groups the caudal fin is used for propulsion: fish get thrust by moving the vertical tail fin from side to side.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "The caudal fin is supported by the vertebrae of the axial skeleton and by pterygiophores (radials).",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Most modern teleosts have a homocercal tail: it looks mostly symmetrical, and the vertebrae run only a short way into the upper lobe.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In a heterocercal tail the vertebrae extend into the upper lobe, which is often longer than the lower lobe, as in sharks and sturgeons.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In a diphycercal tail the vertebrae reach the tip of a symmetrical, expanded tail, as in bichirs, lungfish and coelacanths.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Homocercal tail shapes are rounded, truncate (a roughly vertical edge, as in trout), emarginate (slightly curved in, as in Eurasian carp, Cyprinus carpio), forked (as in catla) or lunate (crescent-shaped, as in swordfish).",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi đơn\" is the general term for domesticated bettas (Betta) whose tail has only one lobe; veiltail, delta, superdelta, halfmoon and roundtail are single-tail forms.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Plakat\" is the name for short-tailed bettas (Betta); young males can be hard to tell from females.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi voan (veiltail)\": the tail is balanced, wide at the base and extended at the edge.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta đuôi màn / Veiltail\": a betta (Betta) with a long, drooping caudal fin.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi quạt (roundtail)\": the tail is round, and this form often turns up in delta, superdelta and halfmoon lines.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Delta\": a triangular betta (Betta) tail with long rays and often-curved edges; the page gives its spread both as under 160 degrees and as 160 to 179 degrees.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Superdelta\": a betta (Betta) tail that spreads between 160 and 180 degrees.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Halfmoon\": a betta (Betta) tail with straight rays that spreads a full 180 degrees; a wider spread is called over halfmoon (oHM).",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Halfmoon\": the traits come from several genes, so fish in a spawn that lack one or two of them may be classed as delta or superdelta.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta halfmoon\": a large, wide caudal fin that spreads at about 180 degrees; the ventral and anal fins are also longer than in other betta (Betta) lines.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta halfmoon\": fairly aggressive, especially the males.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi hoa (rosetail)\": bred by selecting halfmoon bettas (Betta) whose rays branch and stick out in bud-like clusters.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta rosetail\": its fins are so wide that they wrinkle at the edges, and it can open its tail more than 180 degrees.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "\"Cá betta rosetail\": its very large fins and tail often cause swimming problems.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi tưa (crowntail)\": a betta (Betta) whose fin rays extend past the edge of the tail like a crown; ray patterns are single, double, triple and double-double.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta đuôi tưa / Crowntail\": split fins form many thin, pointed, long tail sections that look like a palm leaf.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "\"Cá betta đuôi tưa / Crowntail\": more prone to tail disease and somewhat more aggressive than other betta (Betta) lines.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta Combtail\": looks like a crowntail, but the split parts are no longer than half of the total tail length.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi kép (doubletail)\": a betta (Betta) with two tail lobes and a much larger than normal dorsal fin; the lobes should be equal and split to the base.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta đuôi kép/ Doubletail\": the tail splits into two separate parts.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi ba thuỳ (tripletail)\": a rare betta (Betta) tail with three lobes.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi tim (hearttail)\": a rare betta (Betta) tail whose two lobes split only partly, making a heart shape; breeding often gives fully split doubletails instead.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Đuôi dính (fusetail)\": a rare betta (Betta) tail with fused lobes; the line is very hard to maintain.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "\"Vây dính (fusefin)\": an extremely rare betta (Betta) in which the dorsal, caudal and anal fins are joined.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "\"Cá betta đuôi nhót/ Spade tail\": a small, round tail with a pointed tip; the page says it is rare in Vietnam.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "\"Cá betta half sun\": a large tail spread at 180 degrees like a halfmoon, with a slightly split edge; the page says it is rare in Vietnam.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "\"Cá betta Plakat/ Vây ngắn\": a short-finned, compact betta (Betta) line.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Fin and tail rot often starts with frayed fin edges and a reddened caudal fin, then greyish fin tips that erode and bleed.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Advanced fin rot can erode the fin back to the caudal peduncle and expose bone, with ulcerated tissue.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Bacterial fin rot looks whitish or grey and damages patches unevenly; fungal rot looks creamy or whitish and hairy and spreads more evenly.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Fin rot usually starts at the fin edge, with an opaque or whitish lesion edge; advanced cases show redness and inflammation.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Untreated fin rot on the tail can spread into the body as peduncle disease.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Tail biting in bettas (Betta) leaves clean, chunky bites with smooth edges in places the fish can reach and can appear within a day; fin rot has ragged, decaying edges, often with a white, grey or black border, and develops over weeks.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "Fin and tail rot is linked to bacteria, mainly Aeromonas, Pseudomonas and Flavobacterium, which normally live in fish skin mucus.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Poor aquarium conditions and aggressive interactions that damage fins make fish more susceptible to fin rot.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Nearly all fin rot cases are triggered by stress, fear or poor conditions, such as parasites, overcrowding, low oxygen, bullying and poor water quality.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Predisposing factors for Aeromonas and Pseudomonas infections include low dissolved oxygen, other water quality problems, handling stress, trauma, marked temperature changes and crowding.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Vibriosis can cause bleeding and ulcers of the skin, fins and tail.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Betta (Betta) tail biting can be caused by reflections, boredom in small or bare tanks, poor water quality, strong filter current, fin-nipping tankmates and sharp decor such as rough plastic plants.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Remove the stressor first; if fin rot is caught early, this alone may be enough.",
+      "source": 2
+    },
+    {
+      "section": "firstAid",
+      "fact": "For Aeromonas or Pseudomonas infections, the main approach is to remove predisposing factors; antimicrobials are recommended if fish are dying, chosen by sensitivity testing where possible.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Kanamycin in food for fin and tail rot: 200–300 mg per 100 g of food.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Kanamycin in water for fin and tail rot: 2–5 g/L for 4–5 days, followed by a 35–50% water change.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Nalidixic acid (water-soluble) bath for fin and tail rot: 13 mg/L for 1–4 hours, repeated if needed.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Malachite green for fin and tail rot: 1–3 mg/L for up to 1 hour.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Salt bath for fin and tail rot: 10 g/L for 20–30 minutes, only for species that tolerate it; adult rainbowfish (Melanotaeniidae) tolerate up to 17 g/L and juveniles up to 12 g/L.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For advanced fin rot, the damaged fin can be trimmed under sedation with sterile scissors, and an antiseptic such as povidone-iodine applied to the clean edge; add antibiotics if the infection threatens the body.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "Fins are likely to regrow after minor fin-only damage, but unlikely to when the fin rays are involved.",
+      "source": 2
+    },
+    {
+      "section": "treatment",
+      "fact": "While a betta's (Betta) tail heals from biting, change 25–30% of the water every 3–4 days and feed a protein-rich diet; use antibacterial or antifungal medication only if a secondary infection appears.",
+      "source": 6
+    },
+    {
+      "section": "prevention",
+      "fact": "To prevent tail biting in bettas (Betta), keep lighting moderate, keep ammonia and nitrite at zero, use gentle filtration, give plants and hiding places, avoid fin-nipping tankmates and check decor for snags.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating a damaged fin without finding the underlying cause is a mistake; every fin rot case should be investigated for its cause.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Trimming fins with non-sterile tools is a mistake; sterile scissors are needed.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Consider antibiotics carefully before using them, and follow the maker's instructions for commercial medications because concentrations vary.",
+      "source": 1
+    }
+  ]
+}
