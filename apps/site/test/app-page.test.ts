@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { drawnKinds, levelBlocks, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
 import { appBreeds, appEquipment, appGlossary, appGuides, appPlants, appSeries, appSpecies, type AppIndex } from '../src/lib/app-index'
-import { appPages, glossaryDoc, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
+import { appPages, glossaryDoc, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, sectionBlocks, shardsOf } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { GUIDE_KIND_LABELS } from '../src/lib/format'
 import { guideParts } from '../src/lib/guide-page'
@@ -130,6 +130,22 @@ test('a term\'s source titled in Vietnamese says so in the app, on a page in ano
   const vi = 'Cá bầy đàn: nuôi bao nhiêu con là đủ'
   expect((await refs('vi'))?.items.map(i => i.title)).toEqual(['Shoal', vi])
   expect((await refs('ms'))?.items.map(i => i.title)).toEqual(['Shoal', `${vi} (${translator('ms')('tiếng Việt')})`])
+})
+
+// The same for a fish's or a plant's sources and a guide's own video (the reader's finds on #1681). The fixture has no
+// pages of them in other languages: its Vietnamese ones, made as those pages are.
+test('a fish\'s source and a guide\'s video titled in Vietnamese say so in the app, on a page in another language', async () => {
+  const c = await getContent('vi')
+  const note = ` (${translator('ms')('tiếng Việt')})`
+  const vi = 'Cá neon: cách nuôi cho đàn khỏe'
+  const s = appSpecies('vi', c)[0]!
+  const refs = (lang: 'vi' | 'ms') => sectionBlocks(lang, c, { sections: [], t: s.t, self: `species:${s.id}`, refs: [{ url: 'https://example.com/ca-neon', title: vi }] }).blocks.find(b => b.t === 'refs')
+  expect(refs('vi')?.items.map(i => i.title)).toEqual([vi])
+  expect(refs('ms')?.items.map(i => i.title)).toEqual([vi + note])
+  const g = appGuides('vi', c).find(g => g.video)!
+  const video = (lang: 'vi' | 'ms') => guideDoc(lang, c, { ...g, video: { ...g.video!, title: vi } }, listedPaths(lang, c)).blocks.find(b => b.t === 'refs')?.items[0]?.title
+  expect(video('vi')).toContain(`${vi},`)
+  expect(video('ms')).toContain(`${vi}${note},`)
 })
 
 test('a page the app index leaves out is in no "pages" block; a link to it in the text stays, for the web', async () => {

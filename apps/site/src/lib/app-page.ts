@@ -123,7 +123,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
   if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
     blocks.push({
-      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: r.name, url: r.url })), note,
+      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: lang !== 'vi' && isVietnamese(r.name) ? `${r.name} (${t('tiếng Việt')})` : r.name, url: r.url })), note,
     })
   }
   return { blocks, unknown: [...unknown].sort() }
@@ -522,7 +522,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
       ...(poster ? blocks.filter(b => !(b.t === 'figure' && b.img.src === poster.src)) : blocks),
       ...(g.t.faq?.length ? [{ t: 'faq' as const, title: t('Câu hỏi thường gặp'), items: g.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
       ...(v || p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: [
-        ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
+        ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${lang !== 'vi' && isVietnamese(v.title) ? ` (${t('tiếng Việt')})` : ''}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
         ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
       ] }] : []),
       // "Phần tiếp theo" over a series' next parts, as the page has it; the app's list keeps to guides with a picture
