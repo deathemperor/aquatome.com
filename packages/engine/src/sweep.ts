@@ -38,7 +38,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
-import { keptCapOwn, keptLast } from './own-mark'
+import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
 
@@ -849,6 +849,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       changed(`${ref}/entity.json`)
     }
   }
+  const keptNow = await keptMarks(root)
   for (const [ref, url] of Object.entries(headPicks)) {
     if (!pickStands(ref, url, subjects, yes)) { report.heads.push(`${ref}: pick lapsed with its person's yes`); continue }
     const file = join(content, ref, 'entity.json')
@@ -871,7 +872,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
     if (own[0]?.url === url) continue
     report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
-    await write(file, raw, { ...e, photos: [picked, ...own.filter(p => p.url !== url)] })
+    let next = [picked, ...own.filter(p => p.url !== url)]
+    // A pick from the album may be a kept-mark photo: the page's cap holds with it too, the pick first (keptCapOwn).
+    if (next.some(x => keptNow(x.url))) {
+      const album = (JSON.parse(await readFile(join(content, 'gallery', `${ref.split('/')[1]}.json`), 'utf8').catch(() => '{}')) as { photos?: Photo[] }).photos ?? []
+      const capped = keptCapOwn(next, album.filter(x => x.url !== url), keptNow)
+      next = capped.own
+      report.ownKeptOut.push(...capped.out.map(x => `${ref}: ${x.url}`))
+    }
+    await write(file, raw, { ...e, photos: next })
     changed(`${ref}/entity.json`)
   }
   // Photos: what the caption rule finds on a published page (Vietnamese: the photos are the same in every language).

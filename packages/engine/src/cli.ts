@@ -481,6 +481,8 @@ if (cmd === 'photo-privacy') {
   for (const x of r.unanswered) console.log(`no answer, asked next run: ${x}`)
   for (const x of r.skipped) console.log(`skipped: ${x}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
+  for (const x of r.resumed) console.log(`back, finished from a run that stopped: ${x}`)
+  for (const x of r.relisted) console.log(`listed again for another reason, stays listed: ${x}`)
 } else if (cmd === 'photos') {
   // Pages with fewer than 3 photos: re-read their source pages for photos the picker used to miss (monthly per page).
   // --only id,id: these pages alone, read now (first in line).

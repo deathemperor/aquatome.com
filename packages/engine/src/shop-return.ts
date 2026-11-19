@@ -6,7 +6,7 @@ import type { Photo } from '@aq/schema'
 import { LlmError } from './claude'
 import { waiting, type GalleryPhoto } from './gallery'
 import { screenedShop } from './own-mark'
-import { compactScreen, photoFailure, photoModelStop } from './photo-observations'
+import { compactRejection, compactScreen, photoFailure, photoModelStop } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { piece } from './pieces'
 import { judgeSheet, type ShopPhoto, type WatermarkDeps, type WatermarkEntry } from './watermarks'
@@ -24,9 +24,14 @@ import { judgeSheet, type ShopPhoto, type WatermarkDeps, type WatermarkEntry } f
  * A photo the screen refuses (a mark someone else's, or none it can place, or no mark at all) stays on the list, and the
  * record says so, so it isn't asked again. One the screen gives no answer for stays listed and is asked next run. A photo
  * listed for anything but a mark (a person, a dead fish, another fish) never comes back here.
+ *
+ * The writes for a photo that passes go in an order a stopped run can pick up from: its kept record, then its line here
+ * with the photo it puts back (`photo`), then off the list, then into its albums, then the line loses `photo`. A line that
+ * still has `photo` is finished first, at the start of the next run. A photo listed again for another reason since it
+ * was asked (another step's entry in place of the mark's) stays listed and comes back nowhere, and its line says so.
  */
 export const RETURNS_FILE = '_shop-photo-returns.json'
-export type ReturnEntry = { at: string; pages: string[]; answer: 'returned' | 'refused'; was: string; why: string }
+export type ReturnEntry = { at: string; pages: string[]; answer: 'returned' | 'refused'; was: string; why: string; photo?: Photo }
 export type ReturnCandidate = { page: string; photo: Photo }
 export type ReturnDeps = Pick<WatermarkDeps, 'get' | 'look'>
 /** The repository's history of a page's files: the commits that touched them, newest first, and a file at a commit. */
@@ -51,15 +56,16 @@ export function historyCandidates(pages: string[], rejected: Record<string, stri
     if (!PAGE.test(page)) continue
     const id = page.split('/')[1]!
     const files = [`content/${page}/entity.json`, `content/gallery/${id}.json`]
-    const found = new Map<string, Photo>()
+    // Each photo's newest record, whatever it says: one that later named another source isn't taken from an older one.
+    const newest = new Map<string, Photo>()
     for (const c of h.commits(files)) for (const f of files) {
       const raw = h.show(c, f)
       if (!raw) continue
       let photos: Photo[] = []
       try { photos = (JSON.parse(raw) as { photos?: Photo[] }).photos ?? [] } catch { continue }
-      for (const p of photos) if (!found.has(p.url) && rejected[p.url]?.startsWith('watermark:') && screenedShop(p.url, p.sourceUrl)) found.set(p.url, p)
+      for (const p of photos) if (!newest.has(p.url)) newest.set(p.url, p)
     }
-    for (const photo of found.values()) out.push({ page, photo })
+    for (const photo of newest.values()) if (rejected[photo.url]?.startsWith('watermark:') && screenedShop(photo.url, photo.sourceUrl)) out.push({ page, photo })
   }
   return out
 }
@@ -73,7 +79,8 @@ export async function returnShopPhotos(root: string, candidates: ReturnCandidate
   const rejected = await readJson<Record<string, string>>(rejectedFile, {})
   const returns = await readJson<Record<string, ReturnEntry>>(returnsFile, {})
   const sources = await readJson<Record<string, { name?: string; homepage?: string }>>(join(content, 'sources.json'), {})
-  const report = { returned: [] as string[], refused: [] as string[], unanswered: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '' }
+  const report = { returned: [] as string[], refused: [] as string[], unanswered: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '', resumed: [] as string[], relisted: [] as string[] }
+  const saveReturns = () => writeFile(returnsFile, `${JSON.stringify(Object.fromEntries(Object.entries(returns).sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0))), null, 2)}\n`)
 
   // Each photo once, with every page it goes back to. A page that shows it already, or a copy cleaned of its mark
   // (`original`), takes it no more.
@@ -84,6 +91,34 @@ export async function returnShopPhotos(root: string, candidates: ReturnCandidate
     const album = (await readJson<{ photos?: Photo[] }>(join(content, 'gallery', `${id}.json`), {})).photos ?? []
     return [...own, ...album].some(p => p.url === url || p.original?.url === url)
   }
+  // Off the list, one photo at a time, only while the list still holds it for the mark it was asked about; then back in
+  // each of its pages' albums that doesn't show it, waiting for the photo check.
+  const finish = async (url: string) => {
+    const e = returns[url]!, now = await readJson<Record<string, string>>(rejectedFile, {})
+    if (url in now && compactRejection(now[url]!) !== e.was) {
+      const { photo: _p, ...rest } = e
+      returns[url] = { ...rest, answer: 'refused', why: 'listed again for another reason before it came off' }
+      report.relisted.push(url)
+      return
+    }
+    if (url in now) { delete now[url]; await writePhotoState(rejectedFile, now) }
+    for (const page of e.pages) {
+      if ((await shows(page, url)) !== false) continue
+      const id = page.split('/')[1]!, file = join(content, 'gallery', `${id}.json`)
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      const g = raw ? JSON.parse(raw) as { photos?: GalleryPhoto[] } : { id, photos: [], seen: 0, updatedAt: o.today }
+      const { unchecked: _u, ...clean } = e.photo as GalleryPhoto
+      g.photos = [...(g.photos ?? []), waiting(clean)]
+      await writeFile(file, `${JSON.stringify(g, null, raw?.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+    }
+    const { photo: _p, ...done } = e
+    returns[url] = done
+  }
+  // A run that stopped between its writes: its passed photos are finished first.
+  const pending = Object.keys(returns).filter(u => returns[u]!.photo)
+  for (const url of pending) { await finish(url); if (returns[url]!.answer === 'returned') report.resumed.push(url) }
+  if (pending.length) await saveReturns()
+
   const todo = new Map<string, { photo: Photo; pages: string[]; shop: ShopPhoto }>()
   for (const c of candidates) {
     const url = c.photo.url, source = screenedShop(url, c.photo.sourceUrl), held = source && sources[source]
@@ -99,7 +134,6 @@ export async function returnShopPhotos(root: string, candidates: ReturnCandidate
     todo.set(url, x)
   }
 
-  const passed: { url: string; photo: Photo; pages: string[] }[] = []
   const dir = await mkdtemp(join(tmpdir(), 'shop-return-'))
   try {
     const all = [...todo.entries()]
@@ -117,43 +151,32 @@ export async function returnShopPhotos(root: string, candidates: ReturnCandidate
         else report.failed.push(`sheet ${sheet}: ${photoFailure(err)}`)
         continue
       }
+      const passed: string[] = []
       ok.forEach(({ url }, j) => {
         const r = v[j], x = todo.get(url)!
         if (!r) { report.unanswered.push(url); return }
-        const was = rejected[url]!
+        // The list's reason as the list keeps it, never a reason's own words.
+        const was = compactRejection(rejected[url]!)
         if (r.retainedOwnMark) {
-          // One photo at a time: its kept record, then off the list, with why.
           cache[url] = { ...cache[url]!, ...r, retainedOwnMark: { ...r.retainedOwnMark, by: 'return' } }
-          delete rejected[url]
-          returns[url] = { at: o.today, pages: x.pages, answer: 'returned', was, why: "every mark the shop's own (the watermark screen)" }
-          passed.push({ url, photo: x.photo, pages: x.pages })
-          report.returned.push(`${x.pages.join(', ')}: ${url}`)
+          returns[url] = { at: o.today, pages: x.pages, answer: 'returned', was, why: "every mark the shop's own (the watermark screen)", photo: x.photo }
+          passed.push(url)
         } else {
           returns[url] = { at: o.today, pages: x.pages, answer: 'refused', was, why: r.watermark ? "a mark not the shop's own, or one the screen can't place" : 'no mark the screen can see now' }
           report.refused.push(`${x.pages.join(', ')}: ${url}`)
         }
       })
+      // This sheet's answers are kept before any photo comes off the list (the order above).
+      if (passed.length) await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0))))
+      await saveReturns()
+      for (const url of passed) {
+        await finish(url)
+        if (returns[url]!.answer === 'returned') report.returned.push(`${returns[url]!.pages.join(', ')}: ${url}`)
+      }
+      if (passed.length) await saveReturns()
     }
   } finally {
     await rm(dir, { recursive: true, force: true })
-  }
-
-  // Back in each page's album, waiting for the photo check.
-  for (const { photo, pages } of passed) for (const page of pages) {
-    const id = page.split('/')[1]!, file = join(content, 'gallery', `${id}.json`)
-    const raw = await readFile(file, 'utf8').catch(() => null)
-    const g = raw ? JSON.parse(raw) as { photos?: GalleryPhoto[] } : { id, photos: [], seen: 0, updatedAt: o.today }
-    const { unchecked: _u, ...clean } = photo as GalleryPhoto
-    g.photos = [...(g.photos ?? []), waiting(clean)]
-    await writeFile(file, `${JSON.stringify(g, null, raw?.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
-  }
-  if (passed.length || report.refused.length) {
-    await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
-    // The list as it is on disk now, less only the photos that passed: an entry another step added during the run stays.
-    const now = await readJson<Record<string, string>>(rejectedFile, {})
-    for (const { url } of passed) delete now[url]
-    await writePhotoState(rejectedFile, now)
-    await writeFile(returnsFile, `${JSON.stringify(Object.fromEntries(Object.entries(returns).sort()), null, 2)}\n`)
   }
   return report
 }

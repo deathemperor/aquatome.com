@@ -1,7 +1,7 @@
 import { artworkObservation } from './photo-artwork'
 import { createHash } from 'node:crypto'
 import { ocrHit, validOcrSummary, type OcrSummary } from '@aq/schema'
-import { isOwnMarkShop, type OwnMarkShop } from './own-mark'
+import { isOwnMarkShop, keptAuthorOk, type KEPT_BY, type KEPT_WORD, type OwnMarkShop } from './own-mark'
 
 export const observationHash = (s:string) => createHash('sha256').update(s).digest('hex')
 const digest = (x:unknown):x is string => typeof x==='string' && /^[a-f0-9]{64}$/.test(x)
@@ -10,17 +10,13 @@ const position = (s:unknown) => typeof s==='string' && (PHOTO_POSITIONS as reado
 export const PHOTO_MARK_KINDS = ['credit','logo','url','name','caption','stamp','none'] as const
 export type PhotoMarkKind = typeof PHOTO_MARK_KINDS[number]
 export type PhotoHints = { dead:boolean; people:boolean; artwork?:boolean }
-/**
- * Who wrote a kept record (the chief of staff, 19 Nov): the watermark screen, the return step (shop-return.ts), the image
- * step, or a person, whose record also says on whose word and on what date (`word`). A record from before 19 Nov says none.
- */
-export const KEPT_BY = ['screen','return','image','person'] as const
-export const KEPT_WORD = ['owner','chief of staff'] as const
+/** A kept record: who wrote it (`by`) and, for a person, on whose word and on what date (`word`); own-mark.ts keptAuthorOk. */
 export type KeptRecord = { source:OwnMarkShop;sourceUrl:string;owner:'source';by?:typeof KEPT_BY[number];word?:{who:typeof KEPT_WORD[number];date:string} }
 export type CompactScreen = { ocr:OcrSummary[];watermark?:boolean;kind?:PhotoMarkKind;locations?:string[];observationHash?:string;hints?:PhotoHints;retainedOwnMark?:KeptRecord }
-const keptRecord = (k:any):KeptRecord|undefined => isOwnMarkShop(k?.source)&&k.owner==='source'&&typeof k.sourceUrl==='string' ? {source:k.source as OwnMarkShop,sourceUrl:k.sourceUrl,owner:'source',
-  ...((KEPT_BY as readonly unknown[]).includes(k.by)?{by:k.by}:{}),
-  ...((KEPT_WORD as readonly unknown[]).includes(k.word?.who)&&typeof k.word.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(k.word.date)?{word:{who:k.word.who,date:k.word.date}}:{})} : undefined
+// A record that says who wrote it in a way keptAuthorOk refuses is dropped whole: never kept as one from before 19 Nov.
+const keptRecord = (k:any):KeptRecord|undefined => isOwnMarkShop(k?.source)&&k.owner==='source'&&typeof k.sourceUrl==='string'&&keptAuthorOk(k) ? {source:k.source as OwnMarkShop,sourceUrl:k.sourceUrl,owner:'source',
+  ...(k.by!==undefined?{by:k.by}:{}),
+  ...(k.word!==undefined?{word:{who:k.word.who,date:k.word.date}}:{})} : undefined
 const DEAD_NOTE = /\b(?:dead(?! (?:leaf|leaves|wood|plants?|twigs?|branch(?:es)?|stems?|vegetation|grass|reeds?|algae|coral|trees?|logs?))|died|carcass(?:es)?|markets?|fishmonger|preserved|museum|mounted|taxiderm\w*|fillets?|cooked|fried|grilled|on ice|on a plate|catch(?:es)?|caught|landed|trays?|nets?|formalin|pickled|herbarium|pressed)\b|(?<!(?:lá|cành|gỗ|cây) )chết|chợ|bày bán|mẫu ngâm|mẫu vật|bảo tàng|tiêu bản|phi lê/i
 const ARTWORK = /drawing|illustrat|engrav|painting|lithograph|watercolou?r/i
 export const deadNote = (note: string) => DEAD_NOTE.test(note) && !ARTWORK.test(note)

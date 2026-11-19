@@ -303,6 +303,10 @@ test('a page shows at most three Glaser kept-mark photos, its own and its album\
   // No clean photo anywhere: six together, the page's own first.
   expect(keptCapOwn(k.slice(0, 4), k.slice(4), kept).out).toEqual([])
   expect(keptCap(k.slice(4), k.slice(0, 4), kept)).toEqual({ album: k.slice(4, 6), out: k.slice(6) })
+  // A photo waiting for the photo check, or a non-commercial one, is a clean photo: three, not six.
+  const waits = { url: 'https://media.example/waits.webp', unchecked: true }, nc = { url: 'https://media.example/nc.webp', licence: 'CC BY-NC 4.0' }
+  expect(keptCapOwn(k.slice(0, 4), [waits], kept).own).toEqual(k.slice(0, 3))
+  expect(keptCapOwn(k.slice(0, 4), [nc], kept).own).toEqual(k.slice(0, 3))
 })
 
 test('the sweep leaves a page\'s own Glaser kept-mark photos past its cap out of the page\'s file and gives its album only the room left (the chief of staff, 19 Nov)', async () => {
@@ -329,6 +333,12 @@ test('the sweep leaves a page\'s own Glaser kept-mark photos past its cap out of
   expect(await json(r, 'engine-state/_photo-rejected.json').catch(() => ({}))).toEqual({})
   const again = await sweep(r, {})
   expect([again.ownKeptOut, again.albumKeptOut]).toEqual([[], []])
+  // A person's pick of one from the album leads, and the page still shows three: the last of its own goes.
+  await put(`gallery/${ID}.json`, { id: ID, photos: [g(k[4]!)], seen: 2, updatedAt: '2026-11-19' })
+  await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: k[4] }))
+  const picked = await sweep(r, {})
+  expect((await json(r, `content/species/${ID}/entity.json`)).photos.map((p: { url: string }) => p.url)).toEqual([k[4], CLEAN, k[0], k[1]])
+  expect(picked.ownKeptOut).toEqual([`species/${ID}: ${k[2]}`])
 })
 
 test('the album order leaves the Glaser kept-mark photos past the cap out of the album file, stored still and off the never-again list', async () => {

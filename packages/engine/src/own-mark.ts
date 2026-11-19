@@ -43,7 +43,24 @@ export const retainedOwnMark = (url: string, entry: CompactScreen | undefined) =
   const kept = entry?.retainedOwnMark
   return !!kept && kept.owner === 'source' && isOwnMarkShop(kept.source) && typeof kept.sourceUrl === 'string'
     && url.startsWith(`https://media.aquatome.com/${kept.source}/`) && OWN_MARK_SHOPS[kept.source].test(kept.sourceUrl)
-    && (kept.by !== 'person' || !!kept.word)
+    && keptAuthorOk(kept)
+}
+
+/** Who wrote a kept record (the chief of staff, 19 Nov): the watermark screen, the return step, the image step, or a person. */
+export const KEPT_BY = ['screen', 'return', 'image', 'person'] as const
+/** On whose word a person writes one. */
+export const KEPT_WORD = ['owner', 'chief of staff'] as const
+/**
+ * Whether a kept record says who wrote it as it must: one from before 19 Nov says neither who nor on whose word, and
+ * keeps; any other names a known writer, and a person's names whose word and the date. A record that says either in any
+ * other way keeps nothing. The raw file is read as well as the compacted one (keptMarks), so this is checked here.
+ */
+export const keptAuthorOk = (k: { by?: unknown; word?: unknown }): boolean => {
+  if (k.by === undefined) return k.word === undefined
+  if (!(KEPT_BY as readonly unknown[]).includes(k.by)) return false
+  if (k.word === undefined) return k.by !== 'person'
+  const w = k.word as { who?: unknown; date?: unknown } | null
+  return !!w && typeof w === 'object' && (KEPT_WORD as readonly unknown[]).includes(w.who) && typeof w.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(w.date)
 }
 
 /** The kept-mark photos (engine-state/_photo-watermarks.json), which an album puts after its unmarked ones (gallery.ts rankGallery). */

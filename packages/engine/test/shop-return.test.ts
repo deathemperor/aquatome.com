@@ -1,11 +1,13 @@
+import { execFileSync } from 'node:child_process'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import type { Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
+import { LlmError } from '../src/claude'
 import { retainedOwnMark } from '../src/own-mark'
-import { historyCandidates, returnShopPhotos, RETURNS_FILE, type History, type ReturnDeps } from '../src/shop-return'
+import { gitHistory, historyCandidates, returnShopPhotos, RETURNS_FILE, type History, type ReturnDeps } from '../src/shop-return'
 
 // The return of Aquarium Glaser's photos the never-again list holds for a mark (the chief of staff, 19 Nov): only a photo
 // the rule passes comes off the list, one at a time, with its reason in the step's own record; a refused one stays.
@@ -104,6 +106,27 @@ test("a page's history gives the listed shop photos it showed, each as the newes
   const rejected = { [a]: listed('watermark'), [b]: listed('people'), [c]: listed('watermark', 'b') }
   // b is listed for a person, c isn't from the shop's own pages: only a comes back, as the newest commit had it.
   expect(historyCandidates([PAGE, 'not a page'], rejected, h)).toEqual([{ page: PAGE, photo: photo(a, { caption: 'newer' }) }])
+  // A photo whose newest record names another source isn't taken from an older one that named the shop.
+  files.new![`content/${PAGE}/entity.json`] = { photos: [photo(a, { sourceUrl: 'https://example.org/corrected' })] }
+  expect(historyCandidates([PAGE], rejected, h)).toEqual([])
+})
+
+test("the history reader gives a page's commits newest first, and a file as each had it", async () => {
+  const r = await mkdtemp(join(tmpdir(), 'aq-shop-history-'))
+  const git = (...a: string[]) => execFileSync('git', ['-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=/dev/null', '-c', 'user.email=test@example.org', '-c', 'user.name=Sampletown test', ...a], { cwd: r, encoding: 'utf8' })
+  git('init', '-q')
+  await mkdir(join(r, 'content/gallery'), { recursive: true })
+  const album = `content/gallery/${ID}.json`, own = `content/${PAGE}/entity.json`
+  await writeFile(join(r, album), '{"photos":[1]}')
+  git('add', '.')
+  git('commit', '-qm', 'one')
+  await writeFile(join(r, album), '{"photos":[2]}')
+  git('commit', '-qam', 'two')
+  const h = gitHistory(r)
+  const commits = h.commits([own, album])
+  expect(commits).toHaveLength(2)
+  expect(commits.map(c => h.show(c, album))).toEqual(['{"photos":[2]}', '{"photos":[1]}'])
+  expect(h.show(commits[0]!, own)).toBeUndefined()
 })
 
 test("a kept record a person writes says on whose word and on what date, or keeps nothing (the chief of staff, 19 Nov)", async () => {
@@ -111,8 +134,71 @@ test("a kept record a person writes says on whose word and on what date, or keep
   const rec = (k: object) => compactScreen({ ...marked, retainedOwnMark: { source: 'glaser', sourceUrl: SHOP, owner: 'source', ...k } })
   expect(retainedOwnMark(g('a'), rec({ by: 'person', word: { who: 'chief of staff', date: '2026-11-19' } }))).toBe(true)
   expect(retainedOwnMark(g('a'), rec({ by: 'person' }))).toBe(false)
-  expect(rec({ by: 'person', word: { who: 'someone', date: '2026-11-19' } }).retainedOwnMark).toEqual({ source: 'glaser', sourceUrl: SHOP, owner: 'source', by: 'person' })
   expect(rec({ by: 'screen' }).retainedOwnMark).toEqual({ source: 'glaser', sourceUrl: SHOP, owner: 'source', by: 'screen' })
   // A record from before 19 Nov says neither, and still keeps.
   expect(retainedOwnMark(g('a'), rec({}))).toBe(true)
+  // Said in any other way, it keeps nothing, read raw (as keptMarks reads the file) or compacted: an unknown word, an
+  // empty one, a date in another form, an unknown writer, or a word with no writer.
+  for (const k of [{ by: 'person', word: { who: 'someone', date: '2026-11-19' } }, { by: 'person', word: {} }, { by: 'person', word: { who: 'owner', date: '19 Nov' } }, { by: 'robot' }, { word: { who: 'owner', date: '2026-11-19' } }]) {
+    const raw = { ...marked, retainedOwnMark: { source: 'glaser', sourceUrl: SHOP, owner: 'source', ...k } }
+    expect(retainedOwnMark(g('a'), raw as never)).toBe(false)
+    expect(compactScreen(raw).retainedOwnMark).toBeUndefined()
+  }
+})
+
+test('a photo listed again for another reason while it was asked stays listed and comes back nowhere', async () => {
+  const own = g('own')
+  const r = await site({ [own]: listed('watermark') })
+  const d = screen([true]), look = d.look
+  // Another step lists it for a person while the screen looks.
+  d.look = async (sheet, prompt) => { await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [own]: listed('people', 'f') })); return look(sheet, prompt) }
+  const report = await returnShopPhotos(r, [{ page: PAGE, photo: photo(own) }], d, { today: '2026-11-20', limit: 5 })
+  expect([report.returned, report.relisted]).toEqual([[], [own]])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [own]: listed('people', 'f') })
+  expect((await json(r, `content/gallery/${ID}.json`)).photos).toEqual([])
+  expect((await json(r, `engine-state/${RETURNS_FILE}`))[own]).toEqual({ at: '2026-11-20', pages: [PAGE], answer: 'refused', was: listed('watermark'), why: 'listed again for another reason before it came off' })
+})
+
+test('a run that stopped between its writes is finished by the next: the photo comes off the list and back in its album once, and its line loses the photo', async () => {
+  const own = g('own')
+  const r = await site({ [own]: listed('watermark') })
+  // Stopped after its line was written and before the list: its kept record and its line with the photo are on disk.
+  const marks = await json(r, 'engine-state/_photo-watermarks.json')
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ ...marks, [own]: { ...marked, retainedOwnMark: { source: 'glaser', sourceUrl: SHOP, owner: 'source', by: 'return' } } }))
+  const line = { at: '2026-11-20', pages: [PAGE], answer: 'returned', was: listed('watermark'), why: "every mark the shop's own (the watermark screen)" }
+  await writeFile(join(r, `engine-state/${RETURNS_FILE}`), JSON.stringify({ [own]: { ...line, photo: photo(own) } }))
+  const nothing: ReturnDeps = { get: async () => { throw new Error('nothing to fetch') }, look: async () => { throw new Error('nothing to ask') } }
+  const report = await returnShopPhotos(r, [], nothing, { today: '2026-11-21', limit: 5 })
+  expect(report.resumed).toEqual([own])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({})
+  expect((await json(r, `content/gallery/${ID}.json`)).photos).toEqual([{ ...photo(own), unchecked: true }])
+  expect(await json(r, `engine-state/${RETURNS_FILE}`)).toEqual({ [own]: line })
+  // Stopped later, after the album: finished again, the photo isn't put in twice.
+  await writeFile(join(r, `engine-state/${RETURNS_FILE}`), JSON.stringify({ [own]: { ...line, photo: photo(own) } }))
+  await returnShopPhotos(r, [], nothing, { today: '2026-11-21', limit: 5 })
+  expect((await json(r, `content/gallery/${ID}.json`)).photos).toEqual([{ ...photo(own), unchecked: true }])
+  expect(await json(r, `engine-state/${RETURNS_FILE}`)).toEqual({ [own]: line })
+})
+
+test("a fetch that fails, or a model that stops on its limit, leaves the photos listed and unrecorded, to be asked next run", async () => {
+  const a = g('a'), b = g('b')
+  const r = await site({ [a]: listed('watermark'), [b]: listed('watermark', 'b') })
+  const before = await json(r, 'engine-state/_photo-rejected.json')
+  const report = await returnShopPhotos(r, [a, b].map(u => ({ page: PAGE, photo: photo(u) })), {
+    get: async u => { if (u === a) throw new Error('HTTP 503'); return new Uint8Array(await jpeg) },
+    look: async () => { throw new LlmError('claude failed (1): usage limit reached') },
+  }, { today: '2026-11-20', limit: 5 })
+  expect(report.failed).toHaveLength(1)
+  expect(report.stopped).not.toBe('')
+  expect([report.returned, report.refused]).toEqual([[], []])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual(before)
+  expect(await json(r, `engine-state/${RETURNS_FILE}`).catch(() => ({}))).toEqual({})
+})
+
+test("the step's record keeps the list's reason as the list keeps it, never a reason's own words", async () => {
+  const own = g('own')
+  const r = await site({ [own]: 'watermark: Sampletown lettering bottom left' })
+  await returnShopPhotos(r, [{ page: PAGE, photo: photo(own) }], screen([false]), { today: '2026-11-20', limit: 5 })
+  const line = (await json(r, `engine-state/${RETURNS_FILE}`))[own]
+  expect(line.was).toMatch(/^watermark: withheld \[sha256:[a-f0-9]{64}\]$/)
 })
