@@ -263,14 +263,19 @@ test("a search lists Commons' and Openverse's open candidates by their own words
   }] })
   const tif = { ...hit(6, 'Spider_wood_scan'), title: 'File:Spider wood scan.tif' }
   tif.imageinfo[0]!.descriptionurl = 'https://commons.wikimedia.org/wiki/File:Spider_wood_scan.tif'
-  const search = { query: { pages: { 1: hit(2, 'Spider_wood_b'), 2: hit(1, 'Spider_wood_a'), 3: hit(3, 'Spider_wood_nc', { licence: 'CC BY-NC 2.0' }), 4: hit(4, 'Spider_wood_small', { width: 640 }), 5: hit(5, 'Spider_wood_listed'), 6: tif } } }
-  await writeFile(join(r, 'engine-state/_photo-rejected.json'), `${JSON.stringify({ [`https://media.aquatome.com/${mirrorPlan(thumb('Spider_wood_listed'))!.key}`]: 'rejected: sample', 'https://media.aquatome.com/flickr/1001.webp': 'rejected: sample' }, null, 2)}\n`)
-  const { d, calls } = deps({ info: search, pages: [{ page_count: 3, results: [flickr('ov-a', 1000), flickr('ov-listed', 1001), { ...flickr('ov-nc', 1002), license: 'by-nc' }] }] })
+  const search = { query: { pages: { 1: hit(2, 'Spider_wood_b'), 2: hit(1, 'Spider_wood_a'), 3: hit(3, 'Spider_wood_nc', { licence: 'CC BY-NC 2.0' }), 4: hit(4, 'Spider_wood_small', { width: 640 }), 5: hit(5, 'Spider_wood_listed'), 6: tif, 7: hit(7, 'Spider_wood_listed_larger') } } }
+  // Never-again by our copy's key, or by the source's own address at another size than the search's (a Commons thumb at
+  // 1280 px, a Flickr photo at its original size).
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), `${JSON.stringify({
+    [`https://media.aquatome.com/${mirrorPlan(thumb('Spider_wood_listed'))!.key}`]: 'rejected: sample', 'https://media.aquatome.com/flickr/1001.webp': 'rejected: sample',
+    [thumb('Spider_wood_listed_larger').replace('/960px-', '/1280px-')]: 'rejected: sample', 'https://live.staticflickr.com/65535/1003_0123abcd45_o.jpg': 'rejected: sample',
+  }, null, 2)}\n`)
+  const { d, calls } = deps({ info: search, pages: [{ page_count: 3, results: [{ ...flickr('ov-a', 1000), title: 'Spider wood on a stone' }, flickr('ov-listed', 1001), { ...flickr('ov-nc', 1002), license: 'by-nc' }, flickr('ov-listed-larger', 1003)] }] })
   const content = await snapshot(r), state = await Promise.all((await readdir(join(r, 'engine-state'))).sort().map(async f => [f, await readFile(join(r, 'engine-state', f), 'utf8')]))
 
   // A kind the term doesn't list, or no words, asks nothing.
   await expect(glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-mopani', search: 'spider wood' }, d)).rejects.toThrow(/"lua-mopani" is not one of lua's kinds/)
-  for (const search of ['  ', '""', ' " " ']) await expect(glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-cholla', search }, d)).rejects.toThrow(/--search takes the words/)
+  for (const search of ['  ', '""', ' " " ', "''", " ' ' ", `"'"`]) await expect(glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-cholla', search }, d)).rejects.toThrow(/--search takes the words/)
   expect(calls.http).toEqual([])
   expect(calls.openverse).toEqual([])
 
@@ -281,6 +286,8 @@ test("a search lists Commons' and Openverse's open candidates by their own words
     ['flickr:1000', "--openverse 'spider wood' --flickr 1000"],
   ])
   expect(hits[0]).toEqual({ key: 'File:Spider wood a.jpg', licence: 'CC BY 4.0', author: 'Ann Sample', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Spider_wood_a.jpg', words: 'Spider wood a in a tank', take: "--file 'File:Spider wood a.jpg'" })
+  // An Openverse photo's own words are its title.
+  expect(hits[2]).toEqual({ key: 'flickr:1000', licence: 'CC BY 2.0', author: 'Sample Shooter', sourceUrl: 'https://www.flickr.com/photos/someone/1000', words: 'Spider wood on a stone', take: "--openverse 'spider wood' --flickr 1000" })
   expect(new URL(calls.http[0]!).searchParams.get('gsrsearch')).toBe('filetype:bitmap "spider wood"')
   expect(calls.openverse.map(u => new URL(u).searchParams.get('q'))).toEqual(['"spider wood"'])
   expect(calls).toMatchObject({ bytes: [], put: [], faces: 0, read: 0, looks: 0 })

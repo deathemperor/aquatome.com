@@ -207,6 +207,17 @@ export async function glossaryPhoto(root: string, o: { term: string; kind: strin
   return record
 }
 
+/**
+ * Whether a photo is on the never-again list (isRejected), also where the list names the source's own address at
+ * another size than the search finds it at: a Commons file and a Flickr photo have one key whatever size the address
+ * asks for (mirrorPlan).
+ */
+function neverAgain(rejected: Record<string, string>): (url: string) => boolean {
+  const listed = isRejected(rejected)
+  const keys = new Set(Object.keys(rejected).flatMap(u => { try { return [mirrorPlan(u)?.key ?? ''] } catch { return [] } }).filter(Boolean))
+  return url => listed(url) || keys.has(mirrorPlan(url)?.key ?? '')
+}
+
 /** A search's candidate: what a person needs to choose it by its own words, and the options that bring it in (glossaryPhoto). */
 export type GlossarySearchHit = { key: string; licence: string; author: string; sourceUrl: string; words: string; take: string }
 
@@ -219,24 +230,27 @@ const IMPORTABLE = /\.(jpe?g|png|webp)$/i
  * Candidates for one kind of a glossary term, found by a search, for a person to choose by their words before any is
  * stored (`--search`): Commons' open-licence JPEG, PNG and WebP bitmaps of 800 px or more (searchCommons, its first 20
  * hits), then Openverse's open-licence Flickr photos of 800 px or more on its first page. The kind must be one the
- * term's entry lists, and the words more than quotes, both checked before any request; photos on the never-again list
- * are left out. Nothing is stored and no file is written: each hit says how to bring it in, which stores and screens it.
+ * term's entry lists, and the words must hold a letter or a digit, not quotes alone, both checked before any request;
+ * photos on the never-again list are left out (neverAgain). Each hit's words are the source's own: Commons' description,
+ * Openverse's title. Nothing is stored and no file of ours is written (Commons' client keeps its own rest after a
+ * refusal): each hit says how to bring it in, which stores and screens it.
  */
 export async function glossaryPhotoSearch(root: string, o: { term: string; kind: string; search: string }, d: Pick<GlossaryPhotoDeps, 'http' | 'openverse'>): Promise<GlossarySearchHit[]> {
   await checkKind(root, o.term, o.kind)
   const search = o.search.trim()
   // Openverse searches the words as one phrase (openversePage quotes them), so a person's own quotes come off.
   const phrase = search.replace(/"/g, '').trim()
-  if (!phrase) throw refuse('--search takes the words to search for')
+  if (!/[\p{L}\p{N}]/u.test(phrase)) throw refuse('--search takes the words to search for')
   const rejected = await readMap<string>(join(root, 'engine-state/_photo-rejected.json'))
+  const blocked = neverAgain(rejected)
   const hits: GlossarySearchHit[] = (await searchCommons(search, d.http, 20, { rejected })).flatMap(p => {
     const file = decodeURIComponent(new URL(p.sourceUrl).pathname.replace(/^\/wiki\//, '')).replace(/_/g, ' ')
-    return IMPORTABLE.test(file) ? [{ key: file, licence: p.licence, author: p.author, sourceUrl: p.sourceUrl, words: p.caption ?? '', take: `--file ${shellWord(file)}` }] : []
+    return IMPORTABLE.test(file) && !blocked(p.url) ? [{ key: file, licence: p.licence, author: p.author, sourceUrl: p.sourceUrl, words: p.caption ?? '', take: `--file ${shellWord(file)}` }] : []
   })
   if (d.openverse) {
-    const blocked = isRejected(rejected)
-    for (const c of (await openversePage(phrase, 1, d.openverse)).cands) {
-      if (!blocked(c.url)) hits.push({ key: c.key, licence: c.licence, author: c.author, sourceUrl: c.sourceUrl, words: '', take: `--openverse ${shellWord(phrase)} --flickr ${c.key.slice('flickr:'.length)}` })
+    const page = await openversePage(phrase, 1, d.openverse)
+    for (const c of page.cands) {
+      if (!blocked(c.url)) hits.push({ key: c.key, licence: c.licence, author: c.author, sourceUrl: c.sourceUrl, words: page.titles[c.key] ?? '', take: `--openverse ${shellWord(phrase)} --flickr ${c.key.slice('flickr:'.length)}` })
     }
   }
   return hits
