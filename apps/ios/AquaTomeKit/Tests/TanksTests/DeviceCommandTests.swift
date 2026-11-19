@@ -179,6 +179,10 @@ func theButtonReadsEveryCopysRole() throws {
   #expect(code.components(separatedBy: "strictestRole(device: c.device, outlet: code)").count - 1 == 1)
   #expect(code.components(separatedBy: "role: store.strictestRole(device: p.id, outlet: o.code))").count - 1 == 1)
   #expect(code.contains("func role(_ c: DeviceCommand) -> String? { switcher.role(c) }"))
+  // Right before each command leaves, the same reasons as when it was sent, and a record no longer on a tank refused: its
+  // role can't be read then (Fable, 19 Nov: a copy deleted mid-press, the other marking the outlet a heater).
+  #expect(code.contains("{ [unowned self] in self.withdrawal(c, still: still) == nil }"))
+  #expect(code.contains("if gone(c) != nil || !MasterButton.allows(c, role: role(c)) { return .role }"))
 }
 
 @Test("At the end each outlet goes back to how it was; one already as asked, nowhere; one not known, the other way")

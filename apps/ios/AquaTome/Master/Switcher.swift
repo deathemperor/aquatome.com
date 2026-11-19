@@ -40,7 +40,7 @@ final class Switcher {
   /// whether its command may have reached the device (false when refused before anything went).
   func send(_ c: DeviceCommand, still: @escaping @MainActor @Sendable () -> Bool) async -> (result: SwitchResult, mayHaveSent: Bool) {
     if let why = withdrawal(c, still: still) { return (.failed(words(why, c)), false) }
-    let allowed: @MainActor @Sendable () -> Bool = { [unowned self] in still() && MasterButton.allows(c, role: self.role(c)) }
+    let allowed: @MainActor @Sendable () -> Bool = { [unowned self] in self.withdrawal(c, still: still) == nil }
     // Withdrawn as it was about to go: why, in the button's words, only when nothing of it went (CommandEnd).
     let (result, sent) = await set(c, allowed: allowed, withdrawn: { self.withdrawal(c, still: still) })
     return (result, sent)
@@ -52,7 +52,9 @@ final class Switcher {
 
   private func withdrawal(_ c: DeviceCommand, still: @MainActor () -> Bool) -> CommandEnd.Withdrawal? {
     if !still() { return .signedOut }
-    if !MasterButton.allows(c, role: role(c)) { return .role }
+    // Its record no longer on a tank (a sync deleted it, as the command waited for a token): its role, and so whether
+    // another record of the strip marks it a heater, can't be read, so it doesn't go (Fable, 19 Nov).
+    if gone(c) != nil || !MasterButton.allows(c, role: role(c)) { return .role }
     return nil
   }
 

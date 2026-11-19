@@ -197,7 +197,7 @@ private struct StepChoice: View {
   private func row(_ title: String, swatch: Color? = nil, chosen: Bool, _ pick: @escaping () -> Void) -> some View {
     Button(action: pick) {
       HStack(spacing: 12) {
-        if let swatch { Circle().fill(swatch).frame(width: 22, height: 22).overlay { Circle().strokeBorder(.primary.opacity(0.3)) } }
+        if let swatch { Circle().fill(swatch).frame(width: 22, height: 22).overlay { Circle().strokeBorder(Color.primary.opacity(0.3)) } }
         Text(verbatim: title).foregroundStyle(Color.primary)
         Spacer()
         if chosen { Image(systemName: "checkmark").foregroundStyle(Color.accentColor).accessibilityHidden(true) }
