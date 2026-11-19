@@ -1,10 +1,13 @@
 {
   "slug": "caribbean-sea",
-  "name": "Caribbean Sea",
-  "altNames": [],
+  "name": "biển Caribe",
+  "altNames": [
+    "Caribbean Sea"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

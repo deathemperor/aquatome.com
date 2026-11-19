@@ -5,10 +5,10 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4819 | 4101 | 1602 | 36 | 42 | 199 | 43 | 1133 | 342 | 2636 | 471 | 9 | 11 | 0 | 2 | 5 | 3 | 0 |
-| Indonesian | 1621 | 1461 | 410 | 24 | 10 | 4 | 5 | 200 | 37 | 68 | 190 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
-| Thai | 1614 | 1435 | 376 | 20 | 3 | 5 | 4 | 181 | 40 | 94 | 173 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 492 | 449 | 128 | 12 | 3 | 0 | 2 | 63 | 17 | 25 | 51 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
+| Vietnamese | 4819 | 4101 | 1587 | 36 | 42 | 199 | 43 | 1126 | 342 | 2640 | 463 | 9 | 11 | 0 | 2 | 5 | 3 | 0 |
+| Indonesian | 1637 | 1478 | 415 | 24 | 11 | 4 | 5 | 202 | 37 | 69 | 193 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
+| Thai | 1630 | 1451 | 382 | 20 | 3 | 5 | 4 | 186 | 40 | 94 | 176 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 505 | 462 | 133 | 12 | 3 | 0 | 2 | 68 | 17 | 25 | 52 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
 
 Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 150, Indonesian 2 of 58, Thai 2 of 54, Malay 1 of 28.
 

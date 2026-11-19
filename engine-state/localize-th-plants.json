@@ -811,18 +811,37 @@
     ]
   },
   "echinodorus-grisebachii": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "อเมซอนซอร์ด",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "อเมซอนซอร์ด บลีเฮอรี",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.6,
     "notes": [
-      "Item 2: \"anchor\" (a bundle held by a lead/metal strip, also called a weight) is rendered as \"ตัวถ่วง\"; this is acceptable, but \"ต้นไม้ที่ได้มาเป็นกำ\" adds the idea of purchase. Use more neutral wording such as \"ไม้น้ำที่มัดเป็นกำ\".",
-      "Item 2: \"Plant the individual plants with some distance into the bottom substrate\" is translated as \"เว้นระยะห่างกันพอสมควร\". This changes the meaning, because the source says to plant them some distance deep into the substrate. Change it to \"ปักลงในพื้นปลูกให้ลึกพอสมควร\".",
-      "Item 3: \"20-50 cm\" is correct, but item 1 says \"20–30+ cm\". The translation \"20–30 ซม. ขึ้นไป\" is fine, so there is nothing to fix there.",
-      "Item 1: \"Rosulate\" is expanded with an explanatory bracket, which adds content. Use a shorter term such as \"ไม้น้ำแบบกอ (Rosulate)\".",
-      "Item 3: \"มือใหม่และผู้ที่มีประสบการณ์แล้ว\" is slightly clumsy. Use \"ผู้เล่นมือใหม่และมือเก่า\"."
-    ]
+      "Item 8 Care: 'Regular dosing of plant fertilizer and iron-rich fertilizer' is rendered as 'ปุ๋ยน้ำและปุ๋ยที่มีธาตุเหล็กสูง'. 'ปุ๋ยน้ำ' (liquid fertilizer) is an added detail that is not in the source. Use 'ปุ๋ยไม้น้ำ'.",
+      "Item 8 Planting: 'Make sure you have not buried the crown too deeply... It has to be above the substrate' conflicts with the earlier 'crown visible at the soil line'. Keep the English meaning, but check that the Thai reads clearly.",
+      "Item 3: 'ควรกักโรคต้นไม้' is awkward and unnatural. Use 'ควรกักต้นไม้ไว้ดูอาการ (quarantine) ก่อนนำลงตู้'.",
+      "Item 3: 'ศัตรูอย่างหอย' turns snails into 'enemies'. The source says pests such as snails, so use 'ศัตรูพืช/สัตว์รบกวน เช่น หอย'.",
+      "Item 3: 'ต้นที่โคนต้นและระบบรากดูแข็งแรงจะช่วยให้รอดได้มากขึ้นอย่างมาก' is awkward and does not clearly say that a robust stem and root structure favour survival.",
+      "Item 3: 'สัตว์ไม่มีกระดูกสันหลังอื่น ๆ' is correct but stiff. Hobbyists would say 'สัตว์น้ำไม่มีกระดูกสันหลัง'.",
+      "Item 5: 'Shrill scapes' is rendered as 'ก้านใบ' (leaf stalks). A scape is a flower stalk. The sentence 'ที่เรียกว่า ‘อเมซอนซอร์ด’ เพราะ...' has no subject and reads abruptly.",
+      "Item 5: 'ทรงกุหลาบซ้อน (rosette)' is a non-standard rendering of rosette. In item 1, 'Rosulate' as 'ทรงกอ' is vague.",
+      "Item 8: 'ใบละลาย' for melting is fine, but 'ต้นส่วนใหญ่ถูกเพาะแบบบก' is awkward. 'Grown emersed' is better rendered as 'เพาะเลี้ยงแบบโผล่พ้นน้ำ'.",
+      "Item 8: 'ปลาซักเกอร์แคระ (Otocinclus)' and 'หอยเนอไรต์' are acceptable. But 'ปลาหมูอินโด (clown loach)' is a wrong common name: clown loach is 'ปลาลูช/ปลาโคลนโลช', and 'ปลาหมูอินโด' is a different local name for Botia. Item 12: 'ปลาปอมปาดัวร์ (discus)' is wrong, because Pompadour is the Thai name for discus but the usual hobby name is 'ปลาปอมปาดัวร์' and may be confusing. 'หอยเจดีย์' for Malaysian trumpet snail is acceptable. 'หอยขมญี่ปุ่น' for Japanese trapdoor snail is questionable. 'ปลาม้าลาย' is ok."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6c8e0b12bda0",
+      "quickFacts:aquariumbreeder": "22bab368dc11",
+      "beforeYouBuy:aquariumbreeder": "79a719a3a09d",
+      "distribution:aquariumbreeder": "787191d2966d",
+      "habitat:aquariumbreeder": "cda66e0a2b36",
+      "aquariumSize:aquariumbreeder": "e7c981e56e83",
+      "maintenance:tropica": "ec4dc3a619c4",
+      "maintenance:aquariumbreeder": "369b57292340",
+      "waterConditions:aquariumbreeder": "c9a418c68709",
+      "equipment:aquariumbreeder": "5d15ecd43570",
+      "notes:tropica": "db7ac997a8e6",
+      "notes:aquariumbreeder": "358191748451"
+    }
   },
   "echinodorus-grisebachii-tropica": {
     "at": "2026-10-31",

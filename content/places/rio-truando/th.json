@@ -3,6 +3,12 @@
   "name": "ตรูอันโด",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:48:06.568Z",
+    "why": "The Thai transliteration ตรูอันโด is a reasonable phonetic rendering of Truandó, but it omits the Thai kind word แม่น้ำ that an atlas in Thailand would use for a river."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

@@ -11,6 +11,69 @@
     "borneo",
     "kahayan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Rungan River",
+        "Kahayan River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pseudomystus funebris is a blackwater dwarf catfish from Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: known currently only from the Rungan River in Southern Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Rungan River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The Rungan River is part of the Kahayan River drainage.",
+          "countries": [],
+          "regions": [
+            "Kahayan River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961259,
+      "total": 5,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          -2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -239,49 +302,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19",
-  "range": {
-    "native": {
-      "countries": [
-        "ID"
-      ],
-      "regions": [
-        "Borneo"
-      ],
-      "sources": [
-        "glaser"
-      ],
-      "quotes": [
-        {
-          "source": "glaser",
-          "quote": "Pseudomystus funebris is a blackwater dwarf catfish from Borneo, Indonesia.",
-          "countries": [
-            "ID"
-          ],
-          "regions": [
-            "Borneo"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 5961259,
-      "total": 5,
-      "fetched": "2026-11-19",
-      "countries": [
-        [
-          "ID",
-          5
-        ]
-      ],
-      "cells": [
-        [
-          112.5,
-          -2.8125,
-          5,
-          5
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-19"
 }

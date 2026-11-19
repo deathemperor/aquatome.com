@@ -877,12 +877,29 @@
     "notes": []
   },
   "echinodorus-grisebachii": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Amazon Sword",
-    "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Echinodorus Bleherae",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "#8 'Tumbuh terlalu besar': 'akan mengalahkan hampir semua tanaman lain' is slightly loose. Prefer 'akan tumbuh melebihi/mengungguli hampir semua tanaman lain'.",
+      "#5 'tangkai yang ramping' for 'shrill scapes' is a loose rendering and could be clearer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6c8e0b12bda0",
+      "quickFacts:aquariumbreeder": "22bab368dc11",
+      "beforeYouBuy:aquariumbreeder": "79a719a3a09d",
+      "distribution:aquariumbreeder": "787191d2966d",
+      "habitat:aquariumbreeder": "cda66e0a2b36",
+      "aquariumSize:aquariumbreeder": "e7c981e56e83",
+      "maintenance:tropica": "ec4dc3a619c4",
+      "maintenance:aquariumbreeder": "369b57292340",
+      "waterConditions:aquariumbreeder": "c9a418c68709",
+      "equipment:aquariumbreeder": "5d15ecd43570",
+      "notes:tropica": "db7ac997a8e6",
+      "notes:aquariumbreeder": "358191748451"
+    }
   },
   "echinodorus-grisebachii-tropica": {
     "at": "2026-10-31",

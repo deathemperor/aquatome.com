@@ -124,9 +124,65 @@
     "sonnet": 0.6,
     "back": false
   },
+  "alestopetersius-leopoldianus": {
+    "hash": "fe37e71b3eb729246f50d4ff4fe845b52419e7271a5a7e236f7ba7eee6e3cdfa",
+    "at": "2026-11-19T12:42:19.144Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
+  },
+  "alestopetersius-nigropterus": {
+    "hash": "a1090c7669c41c57180cef4e36716741683a832ca9231d6fc0f15d8834facf58",
+    "at": "2026-11-19T12:42:46.089Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "alestopetersius-smykalai": {
+    "hash": "bcf8863345f3dc0b13369c902af843478f3c78e8a02115dae0c9449c47de0520",
+    "at": "2026-11-19T12:42:52.530Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "amatitlania-sajica": {
+    "hash": "8461ee72b7a4675eb118a88ad278c17683a951ec6a4c6dfff8aa3c4657957cd7",
+    "at": "2026-11-19T12:43:05.055Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 3: \"ไม่ค่อยรบกวนหรือทำร้ายพรรณไม้น้ำ\" adds \"ทำร้าย\" beyond \"treat plants rather gently\"; use \"ไม่ค่อยรบกวนพรรณไม้น้ำ\".",
+      "Item 3: \"ไม่ค่อยรบกวนหรือทำร้ายพรรณไม้น้ำ\" adds \"รบกวนหรือ\". The source says only that they treat plants gently, so simplify to \"ไม่ค่อยทำลายพรรณไม้น้ำ\".",
+      "Item 3: \"Some relatively peaceful... species show the exciting behaviour of their bigger and rougher cousins\" — the Thai \"แสดงพฤติกรรมที่น่าตื่นเต้นแบบเดียวกับ...\" is fine, but \"treat plants rather gently\" became \"ไม่ค่อยรบกวนหรือทำร้ายพรรณไม้น้ำ\"; acceptable but slightly expanded. Better: \"ไม่ค่อยทำลายพรรณไม้น้ำ\"."
+    ]
+  },
+  "amblyceps-arunachalense": {
+    "hash": "7e5632547d6f2c3537749d9943a2addfe8eaa5a5a6a6fe80e537a8f279602cd5",
+    "at": "2026-11-19T12:43:29.606Z",
+    "sonnet": 0.92,
+    "opus": 0.95,
+    "back": true
+  },
+  "amblydoras-nauticus": {
+    "hash": "1989a3ada7cc24cbb78597fabddef8a03d1d8ee5cfbbdb07e4056136bce312fb",
+    "at": "2026-11-19T12:44:05.111Z",
+    "sonnet": 0.88,
+    "opus": 0.7,
+    "back": false
+  },
   "ambystoma-mexicanum": {
     "hash": "610ccd546f48338c1dcdecd11f5708ffda237a7fba63b737fbfff99c2301d8d7",
     "at": "2026-11-18T05:46:54.127Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "ameca-splendens": {
+    "hash": "e432f479161b9e50d4d8bb345e92de7dd4d8800decfe0cdff3a09bdb0912166f",
+    "at": "2026-11-19T12:44:19.774Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "ameiurus-brunneus": {
+    "hash": "85468cade70e916cc59bfe991015c6e38b133f7cb6e67332dbef099c49d6c850",
+    "at": "2026-11-19T12:44:34.513Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -198,6 +254,15 @@
     "at": "2026-11-19T00:29:49.646Z",
     "sonnet": 0.72,
     "back": false
+  },
+  "aspredinichthys-filamentosus": {
+    "hash": "d2b1a42f23ceb3432f32f92e65bc1bce0bc59ef9d8199de12abef2ece296d0a7",
+    "at": "2026-11-19T12:40:23.825Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 3: \"some addition of salt\" rendered as \"เติมเกลือลงในน้ำบ้าง\", which is acceptable, but \"requirements...would need\" is a hedge that is lost in the Thai. Keep it a mild recommendation."
+    ]
   },
   "astacus-astacus": {
     "hash": "ac529d27ef648292b14bc9bd902fa3dc00056e6ee3982e38d40210306bdda28f",
@@ -334,6 +399,13 @@
     "sonnet": 0.6,
     "back": false
   },
+  "corydoras-urucu": {
+    "hash": "39b8a0260df0049cd01ae28899ea13fc64bde007fcea588ba54ab210b5cf4f31",
+    "at": "2026-11-19T12:40:51.538Z",
+    "sonnet": 0.85,
+    "opus": 0.8,
+    "back": true
+  },
   "cyrtocara-moorii": {
     "hash": "4c43298442c535c43dc19b121f93cce24168db82658bf678c447af63eb86d4f9",
     "at": "2026-11-18T12:16:53.712Z",
@@ -467,6 +539,36 @@
     "at": "2026-11-19T00:31:07.327Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "entomocorus-benjamini": {
+    "hash": "5ecdb207cee649a565d70f0ab1b1069956b38f44e2e01bb750e9048d1bab769d",
+    "at": "2026-11-19T12:41:04.717Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "epalzeorhynchos-munense": {
+    "hash": "323a9f644a14f2ee2d5f60a0800b265cbbacac43f500515a2226af52062e59d8",
+    "at": "2026-11-19T12:41:24.557Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "epiplatys-annulatus": {
+    "hash": "1bd7f528676279a7f73a197b9325dad2e0ecdc782100910184af54d6161b2367",
+    "at": "2026-11-19T12:41:33.217Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "Item 22: 'GH 4 – 8' vs. other sections giving 1–8 dGH is source inconsistency; fine. But 'Fish not prepared for it will die' is rendered OK. No change."
+    ]
+  },
+  "epiplatys-chevalieri": {
+    "hash": "abfd11499e1365e78162d812030423f03ed2bbd1417f4fc5969d0aecb4e54744",
+    "at": "2026-11-19T12:41:45.809Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 4: \"น้ำที่มีเชื้อโรคน้อย\" for \"low-germ water\" is a medical-sounding term. Use \"น้ำสะอาดที่มีแบคทีเรียต่ำ\" or similar for aquarium water quality."
+    ]
   },
   "garra-flavatra": {
     "hash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685",
@@ -663,6 +765,12 @@
       "Item 10: Added '(GH)' to the Hardness label is harmless, but 'แหล่งน้ำดำ' for oligotrophic blackwater drops nothing; fine.",
       "Item 5: 'hardness 0–320 ppm' is left as is, which is fine. 'ธาตุอาหาร' for nutrients in 'dissolved nutrients' is OK."
     ]
+  },
+  "pseudomystus-funebris": {
+    "hash": "811eacdf9c54fb9c52a2368a658d565c11cf1c4a947abce121abcdd281fa2659",
+    "at": "2026-11-19T12:41:58.808Z",
+    "sonnet": 0.72,
+    "back": false
   },
   "sewellia-breviventralis": {
     "hash": "738b0e77ab6a7954f05fb8298d61266334f4795771cbe91f81300e643a1a8632",

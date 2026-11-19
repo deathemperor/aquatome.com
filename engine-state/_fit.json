@@ -3579,12 +3579,16 @@
   "products": []
  },
  "id/plants/echinodorus-grisebachii": {
-  "at": "2026-11-08",
-  "hash": "49dfa8edbbe4f25f",
+  "at": "2026-11-19",
+  "hash": "d470a5cbed7eed62",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [
+   "ADA Amazonia soil",
+   "Caribsea Eco-Complete Aquasoil",
+   "Seachem Flourite Black Sand"
+  ]
  },
  "id/plants/echinodorus-grisebachii-tropica": {
   "at": "2026-11-07",
@@ -8120,6 +8124,30 @@
   "findings": [],
   "products": []
  },
+ "id/species/aspredinichthys-filamentosus": {
+  "at": "2026-11-19",
+  "hash": "dc89392e1e5ae0d4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/aspredinichthys-tibicen": {
+  "at": "2026-11-19",
+  "hash": "3c22c281084ed0f3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/aspredo-aspredo": {
+  "at": "2026-11-19",
+  "hash": "3c1cf1156a068107",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/astacopsis-gouldi": {
   "at": "2026-11-14",
   "hash": "76eae5740ff3441c",
@@ -8137,19 +8165,11 @@
   "products": []
  },
  "id/species/asterophysus-batrachus": {
-  "at": "2026-11-07",
-  "hash": "2fe45cf317dac470",
+  "at": "2026-11-19",
+  "hash": "c3a0923529730b22",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Ukuran yang tersedia: 5–7 cm",
-    "why": "This is the size of fish the source shop has in stock, not something the reader can buy.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "id/species/astronotus-crassipinnis": {
@@ -8363,6 +8383,36 @@
   ],
   "products": []
  },
+ "id/species/auchenoglanis-biscutatus": {
+  "at": "2026-11-19",
+  "hash": "aad9584bed16bf50",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P7",
+    "quote": "Spesies dari Sungai Niger yang diimpor ini paling mirip dengan A. wittei dari Kongo",
+    "why": "Refers to the source shop's own imported stock as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P7",
+    "quote": "Karena alasan-alasan tersebut, ikan ini dicantumkan sebagai Auchenoglanis biscutatus.",
+    "why": "Refers to how the source shop listed its stock.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P8",
+    "quote": "Spesies pada gambar mini pertama awalnya dianggap sebagai anakan A. occidentalis.",
+    "why": "Points to a thumbnail picture the page does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "id/species/auchenoglanis-occidentalis": {
   "at": "2026-11-08",
   "hash": "35a163a63a91b111",
@@ -8415,6 +8465,14 @@
   "hash": "f069eaf62f30e331",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "id/species/aulonocranus-dewindti": {
+  "at": "2026-11-19",
+  "hash": "f69cc791b2e2b1ae",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -9679,19 +9737,11 @@
   "products": []
  },
  "id/species/betta-compuncta": {
-  "at": "2026-11-08",
-  "hash": "66a2cc20fc087f19",
+  "at": "2026-11-19",
+  "hash": "05628d7ec0dc67b2",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Betta compuncta tangkapan alam dari Melak.",
-    "why": "Describes the source shop's own wild-caught stock as if the reader knew those fish.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "id/species/betta-cracens": {
@@ -10036,30 +10086,30 @@
   "products": []
  },
  "id/species/betta-ocellata": {
-  "at": "2026-11-08",
-  "hash": "3afb937a9bc1301a",
+  "at": "2026-11-19",
+  "hash": "4b55bf7fdd49599f",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P9",
-    "quote": "Saat ini diberi pakan hidup, beku, dan kering",
-    "why": "Describes what the source shop currently feeds its own fish.",
+    "part": "P1",
+    "quote": "Kelompok ikan ini merupakan tangkapan alam dan disebut berasal dari Malinau, Kalimantan Utara.",
+    "why": "Describes the source shop's own batch of fish in stock, which the reader doesn't know.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P16",
+    "part": "P19",
     "quote": "lihat catatan di atas tentang pemberian artemia untuk anakan Betta",
-    "why": "Points to a note on feeding artemia that this page does not contain.",
+    "why": "Points to a note on artemia feeding that this page does not contain.",
     "by": "model"
    },
    {
     "check": "elsewhere",
-    "part": "P6",
-    "quote": "kayu beech atau oak aman digunakan asalkan sudah benar-benar kering dan dikupas kulitnya",
-    "why": "Collecting beech or oak wood assumes a reader in a temperate country.",
+    "part": "P9",
+    "quote": "kayu beech atau oak aman dipakai asalkan sudah benar-benar kering dan kulit kayunya dikupas",
+    "why": "Beech and oak are European trees, not something an Indonesian keeper can collect.",
     "by": "model"
    }
   ],
@@ -10121,37 +10171,30 @@
   "products": []
  },
  "id/species/betta-patoti": {
-  "at": "2026-11-08",
-  "hash": "4d902cfec8509837",
+  "at": "2026-11-19",
+  "hash": "5d77953d20d1311f",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P17",
-    "quote": "Tipe yang satu ini tubuhnya lebih kemerahan dibanding tipe biasa.",
-    "why": "Refers to a particular fish the source shop had in stock, which the reader has never seen.",
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "kayu beech atau oak aman dipakai asalkan sudah benar-benar kering dan dikupas kulitnya",
+    "why": "Beech and oak are European woods that are hard to get in Indonesia, so this advice was written for a European reader.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Tangkapan alam, berasal dari Tanah Grogot.",
-    "why": "Describes the source shop's own stock batch as if it were a fact about the species.",
+    "quote": "varian Tanah Grogot ini tubuhnya lebih kemerahan dibanding tipe biasa",
+    "why": "This refers to the source shop's own wild-caught stock as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P16",
-    "quote": "(lihat catatan di atas tentang pemberian artemia untuk anakan Betta)",
-    "why": "Points to a note in the original article that is not on this page.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P6",
-    "quote": "kayu beech atau ek biasa aman digunakan asalkan benar-benar kering dan sudah dikupas kulitnya",
-    "why": "Beech and oak are European woodland trees that a keeper in Indonesia can't go out and collect.",
+    "part": "P19",
+    "quote": "lihat catatan di atas tentang pemberian artemia untuk anakan Betta",
+    "why": "This points to a note about artemia that is not on this page.",
     "by": "model"
    }
   ],
@@ -14420,6 +14463,29 @@
   ],
   "products": []
  },
+ "id/species/corydoras-urucu": {
+  "at": "2026-11-19",
+  "hash": "ab68d967cdeed4c6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ikan-ikan ini dikoleksi di sekitar Labrina di Rio Mucuim",
+    "why": "Refers to the source importer's own shipment of fish as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P2",
+    "quote": "wilayah yang lebih luas daripada Jerman",
+    "why": "A size comparison to Germany is meant for a German reader, not one in Indonesia.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "id/species/corydoras-virginiae": {
   "at": "2026-11-13",
   "hash": "fee15b0fc468eb5d",
@@ -16771,6 +16837,38 @@
   ],
   "products": []
  },
+ "id/species/enteromius-jae": {
+  "at": "2026-11-19",
+  "hash": "c8149ab4da4fcc53",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "kayu beech atau oak aman digunakan asalkan sudah dikeringkan sepenuhnya dan dikupas kulitnya",
+    "why": "Suggests collecting beech or oak branches, temperate European trees that a hobbyist in Indonesia can't gather locally.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/enteromius-sublineatus": {
+  "at": "2026-11-19",
+  "hash": "f339db37b4905bab",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/entomocorus-benjamini": {
+  "at": "2026-11-19",
+  "hash": "09b44588f9c43231",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/species/epalzeorhynchos-bicolor": {
   "at": "2026-11-08",
   "hash": "fcf330319330bb52",
@@ -16801,6 +16899,82 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "id/species/epalzeorhynchos-munense": {
+  "at": "2026-11-19",
+  "hash": "a98d428882ecddfd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "Seri tipe maupun ikan pada foto sama-sama dikoleksi dari Sungai Mun",
+    "why": "Refers to a photo from the source that the page does not include.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/epiplatys-annulatus": {
+  "at": "2026-11-19",
+  "hash": "5eaab72795ae44d3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Fluval Bug Bites",
+   "Hikari First Bites"
+  ]
+ },
+ "id/species/epiplatys-chaperi": {
+  "at": "2026-11-19",
+  "hash": "c520193d952b8825",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P5",
+    "quote": "dengan teman tangki yang tenang",
+    "why": "Calque of English 'tank mates'; Indonesian keepers don't call an aquarium 'tangki'.",
+    "by": "model",
+    "fix": "tankmate / teman satu akuarium"
+   }
+  ],
+  "products": []
+ },
+ "id/species/epiplatys-chevalieri": {
+  "at": "2026-11-19",
+  "hash": "80a95c6ff9625579",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P3",
+    "quote": "Karena ikan ini lebih menyukai suhu ruangan, pemeliharaannya pun menghemat energi.",
+    "why": "This assumes a cool European room near 18–22 °C. Rooms in Indonesia are usually 27–30 °C, which is too warm for this fish, so the tank needs cooling and does not save energy.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/epiplatys-dageti": {
+  "at": "2026-11-19",
+  "hash": "fce0bc59d9bc6103",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/epiplatys-dageti-monroviae": {
+  "at": "2026-11-19",
+  "hash": "3c64fd8e27239f9b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "id/species/esomus-metallicus": {
@@ -18796,15 +18970,15 @@
  },
  "id/species/oryzias-latipes": {
   "at": "2026-11-19",
-  "hash": "ddc5dff9d238f5e3",
+  "hash": "788db8880ba62ab6",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P10",
+    "part": "P13",
     "quote": "Di banyak negara atau di rumah yang insulasinya baik, ikan ini paling baik dipelihara tanpa pemanas sepanjang tahun.",
-    "why": "This assumes a temperate-country home where an unheated room stays at 16–22 °C, but rooms in Indonesia are usually much warmer.",
+    "why": "Assumes a cool, insulated home in a temperate country; an unheated room in Indonesia is far warmer than 16–22 °C.",
     "by": "model"
    }
   ],
@@ -19649,6 +19823,14 @@
  "id/species/pseudomugil-tenellus": {
   "at": "2026-11-09",
   "hash": "611c80d033c5dbce",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/pseudomystus-funebris": {
+  "at": "2026-11-19",
+  "hash": "93fb39dbfa13bf41",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -23075,12 +23257,16 @@
   "products": []
  },
  "ms/plants/echinodorus-grisebachii": {
-  "at": "2026-11-14",
-  "hash": "156162fe027f03fe",
+  "at": "2026-11-19",
+  "hash": "2b4a5dc1bf265a34",
   "model": "opus",
   "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [
+   "ADA Amazonia soil",
+   "Caribsea Eco-Complete Aquasoil",
+   "Seachem Flourite Black Sand"
+  ]
  },
  "ms/plants/echinodorus-grisebachii-tropica": {
   "at": "2026-11-14",
@@ -23759,6 +23945,40 @@
   "model": "opus",
   "checklist": 3,
   "findings": [],
+  "products": []
+ },
+ "ms/plants/microsorum-pteropus-trident": {
+  "at": "2026-11-19",
+  "hash": "b86b38c9dc6eb8c6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/microsorum-sp": {
+  "at": "2026-11-19",
+  "hash": "ec0149929a526098",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Bank Wood Ornamental"
+  ]
+ },
+ "ms/plants/monosolenium-tenerum": {
+  "at": "2026-11-19",
+  "hash": "fafb2757d4ea5541",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "Tumbuhan akuarium daripada kultur tisu dalam cawan tertutup.",
+    "why": "Describes the source shop's own product form (its tissue-culture cup) as if the reader were buying it.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "ms/species/acanthicus-adonis": {
@@ -26131,6 +26351,146 @@
  "ms/species/apistogramma-brevis": {
   "at": "2026-11-19",
   "hash": "5a927ca647a64920",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/apistogramma-cacatuoides": {
+  "at": "2026-11-19",
+  "hash": "154cbcbd052fff24",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/apistogramma-cinilabra": {
+  "at": "2026-11-19",
+  "hash": "b68bbdfe07fc63db",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/apistogramma-commbrae": {
+  "at": "2026-11-19",
+  "hash": "27c3c29659196486",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Ikan yang ditawarkan berasal dari Paraguay.",
+    "why": "Refers to the source shop's own stock on offer.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "Saiz yang ada: 3–4 cm.",
+    "why": "Lists the sizes the source shop has in stock.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P14",
+    "quote": "(lihat di bawah)",
+    "why": "Points to material below that the page does not contain.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "ia patut dipelihara pada suhu yang lebih sejuk sepanjang musim sejuk",
+    "why": "Assumes the reader has a winter, which Malaysia does not.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P7",
+    "quote": "cuba pelihara A. commbrae pada suhu yang lebih sejuk sepanjang musim sejuk",
+    "why": "Advice tied to the reader's winter season, which doesn't exist in Malaysia.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/apistogramma-diplotaenia": {
+  "at": "2026-11-19",
+  "hash": "4534dceb81e0b24f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/apistogramma-elizabethae": {
+  "at": "2026-11-19",
+  "hash": "31500ba1e2099747",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P11",
+    "quote": "Semasa sesi fotografi dokumentari, seekor ikan jantan ditemui",
+    "why": "Retells the source writer's own photo session as if the reader knew about it.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/apistogramma-eremnopyge": {
+  "at": "2026-11-19",
+  "hash": "26385cd79c0e5803",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/apistogramma-eunotus": {
+  "at": "2026-11-19",
+  "hash": "711ed2cf25b79b62",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P12",
+    "quote": "Spesimen A. eunotus dari Rio Tapiche di Peru diperoleh baru-baru ini",
+    "why": "Refers to the source writer's own recent acquisition/import as news the reader would know.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/apistogramma-gephyra": {
+  "at": "2026-11-19",
+  "hash": "2c1aeb03f2339163",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Saiz yang boleh didapati: 3-5 cm.",
+    "why": "States the sizes the source supplier currently offers, i.e. its own stock.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "ms/species/apistogramma-gibbiceps": {
+  "at": "2026-11-19",
+  "hash": "23c5ee2bde82aaee",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/species/apistogramma-hoignei": {
+  "at": "2026-11-19",
+  "hash": "a99c6698af98cfe8",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -31344,12 +31704,16 @@
   "products": []
  },
  "th/plants/echinodorus-grisebachii": {
-  "at": "2026-11-07",
-  "hash": "21a2b53bc4e58a04",
+  "at": "2026-11-19",
+  "hash": "67d62b05a28f739d",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
-  "products": []
+  "products": [
+   "ADA Amazonia",
+   "Caribsea Eco-Complete",
+   "Seachem Flourite Black Sand"
+  ]
  },
  "th/plants/echinodorus-grisebachii-tropica": {
   "at": "2026-11-07",
@@ -36008,6 +36372,30 @@
   "findings": [],
   "products": []
  },
+ "th/species/aspredinichthys-filamentosus": {
+  "at": "2026-11-19",
+  "hash": "a6e75bfc924e2914",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/aspredinichthys-tibicen": {
+  "at": "2026-11-19",
+  "hash": "de7fbe561dedd91d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/aspredo-aspredo": {
+  "at": "2026-11-19",
+  "hash": "f9a3004c03a4b13f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/astacopsis-gouldi": {
   "at": "2026-11-14",
   "hash": "700a0bc21de55b3a",
@@ -36263,6 +36651,22 @@
   ],
   "products": []
  },
+ "th/species/auchenoglanis-biscutatus": {
+  "at": "2026-11-19",
+  "hash": "9d2cd5f0b16394df",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P8",
+    "quote": "ปลาในภาพย่อภาพแรกเดิมเคยเข้าใจว่าเป็นลูกปลา A. occidentalis",
+    "why": "Refers to a thumbnail picture from the source site that this page does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "th/species/auchenoglanis-occidentalis": {
   "at": "2026-11-07",
   "hash": "ed9ce26a8c4e5931",
@@ -36314,6 +36718,14 @@
   "hash": "1375652f71f6d6b3",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "th/species/aulonocranus-dewindti": {
+  "at": "2026-11-19",
+  "hash": "9bdc4502ded85bb8",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -38009,30 +38421,30 @@
   "products": []
  },
  "th/species/betta-ocellata": {
-  "at": "2026-11-08",
-  "hash": "a58ee5cf072609a3",
+  "at": "2026-11-19",
+  "hash": "314951915c4f3e89",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P9",
-    "quote": "ปัจจุบันให้อาหารทั้งอาหารมีชีวิต อาหารแช่แข็ง และอาหารแห้ง",
-    "why": "Describes how the source shop currently feeds its own fish.",
+    "part": "P1",
+    "quote": "ปลากลุ่มนี้เป็นปลาที่จับจากธรรมชาติ แหล่งที่มาที่แจ้งไว้คือ Malinau",
+    "why": "Describes the source shop's own stock batch as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P16",
-    "quote": "(ดูหมายเหตุข้างต้นเรื่องการให้ไรทะเลแก่ลูกปลากัด)",
-    "why": "Points to an earlier note on feeding brine shrimp that this page does not contain.",
+    "part": "P19",
+    "quote": "ดูหมายเหตุข้างต้นเรื่องการให้ไรทะเลแก่ลูกปลากัด",
+    "why": "Points to a note that is not on this page.",
     "by": "model"
    },
    {
     "check": "elsewhere",
-    "part": "P6",
-    "quote": "หากหาขอนไม้รูปทรงที่ต้องการไม่ได้ สามารถใช้ไม้บีชหรือไม้โอ๊กได้อย่างปลอดภัย",
-    "why": "Beech and oak wood are what a European reader has on hand, not a keeper in Thailand.",
+    "part": "P9",
+    "quote": "สามารถใช้ไม้บีชหรือไม้โอ๊กได้อย่างปลอดภัย",
+    "why": "Beech and oak wood are what keepers in Europe or America have to hand, not keepers in Thailand.",
     "by": "model"
    }
   ],
@@ -38055,16 +38467,23 @@
   "products": []
  },
  "th/species/betta-pallifina": {
-  "at": "2026-11-14",
-  "hash": "6ede5e92f70959dc",
+  "at": "2026-11-19",
+  "hash": "74d6bb7417bfd216",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "source",
+    "part": "P7",
+    "quote": "จากภาพที่เคยเห็น พื้นดูเหมือนเป็นทรายปนเศษใบไม้",
+    "why": "The source writer's first-person voice, referring to pictures the reader hasn't seen.",
+    "by": "model"
+   },
+   {
     "check": "elsewhere",
-    "part": "P8",
+    "part": "P10",
     "quote": "สามารถใช้ไม้บีชหรือไม้โอ๊กได้อย่างปลอดภัย หากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
-    "why": "Collecting beech or oak wood assumes a European reader's woodlands, not Thailand.",
+    "why": "Beech and oak are European trees offered as the easy local stand-in, which they aren't for a keeper in Thailand.",
     "by": "model"
    }
   ],
@@ -38087,37 +38506,23 @@
   "products": []
  },
  "th/species/betta-patoti": {
-  "at": "2026-11-08",
-  "hash": "f2a2804876cff9b0",
+  "at": "2026-11-19",
+  "hash": "e3233fa82ccef7de",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P1",
-    "quote": "เป็นปลาที่จับจากธรรมชาติ แหล่ง Tanah Grogot",
-    "why": "Describes the source shop's own wild-caught stock from one locality as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P17",
-    "quote": "ปลาประเภทนี้โดยเฉพาะมีลำตัวสีออกแดงมากกว่าแบบปกติ",
-    "why": "Refers to the particular fish the source shop is offering.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P16",
-    "quote": "(ดูหมายเหตุข้างต้นเรื่องการให้ไรทะเลกับลูกปลากัด)",
-    "why": "Points to a note from the original article that is not on this page.",
+    "part": "P19",
+    "quote": "ดูหมายเหตุด้านบนเรื่องการให้ไรทะเลแก่ลูกปลากัด",
+    "why": "Refers to a note 'above' about feeding brine shrimp to betta fry that this page does not contain.",
     "by": "model"
    },
    {
     "check": "elsewhere",
-    "part": "P6",
-    "quote": "กิ่งบีช (common beech) หรือโอ๊กก็ใช้ได้อย่างปลอดภัย หากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
-    "why": "Beech and oak are local trees for a European reader, not for someone in Thailand.",
+    "part": "P9",
+    "quote": "ไม้บีช (beech) หรือไม้โอ๊กก็ใช้ได้อย่างปลอดภัยหากตากจนแห้งสนิทและลอกเปลือกออกแล้ว",
+    "why": "Suggests collecting beech or oak wood and leaves, temperate trees a European reader would have nearby but not common in Thailand.",
     "by": "model"
    }
   ],
@@ -38421,23 +38826,30 @@
   "products": []
  },
  "th/species/betta-unimaculata": {
-  "at": "2026-11-09",
-  "hash": "30769a69ee380a25",
+  "at": "2026-11-19",
+  "hash": "29839e7b5d22e252",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
-    "part": "P9",
-    "quote": "กิ่งไม้บีช (beech) หรือโอ๊ก (oak) ก็ใช้ได้อย่างปลอดภัยหากตากให้แห้งสนิทและลอกเปลือกออก",
-    "why": "Beech and oak branches are advice for a European reader; these trees aren't something a keeper in Thailand can easily collect.",
+    "check": "source",
+    "part": "P4",
+    "quote": "ปลาฟอร์มนี้มาจาก Wahau กาลีมันตันตะวันออก",
+    "why": "Describes the source shop's own stock as if the reader knew which fish it meant.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P20",
-    "quote": "(ดูหมายเหตุข้างต้นเรื่องการให้ไรทะเลแก่ลูกปลากัด)",
-    "why": "Points to a note from the source article that this page doesn't have.",
+    "part": "P22",
+    "quote": "ดูหมายเหตุข้างต้นเรื่องการให้อาร์ทีเมียแก่ลูกปลากัด",
+    "why": "Points to an earlier note that this page does not contain.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P11",
+    "quote": "ไม้บีช (common beech) หรือไม้โอ๊กก็ใช้ได้อย่างปลอดภัย หากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
+    "why": "Collecting European beech or oak wood is advice for a reader in Europe, not Thailand.",
     "by": "model"
    }
   ],
@@ -42266,6 +42678,36 @@
   ],
   "products": []
  },
+ "th/species/corydoras-urucu": {
+  "at": "2026-11-19",
+  "hash": "e5c89a568ed8b250",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ปลาชุดนี้จับได้ในบริเวณรอบเมือง Labrina ในแม่น้ำ Rio Mucuim",
+    "why": "Refers to the source importer's own shipment of fish, which the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ผู้ส่งออกระบุว่าพบปลาที่คล้ายกันมากในแม่น้ำ Rio Urucu และ Rio Jutai ด้วย",
+    "why": "Cites the source shop's exporter, someone the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P2",
+    "quote": "ซึ่งเป็นพื้นที่ที่กว้างกว่าประเทศเยอรมนีเสียอีก",
+    "why": "The size comparison with Germany was written for German readers.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "th/species/corydoras-virginiae": {
   "at": "2026-11-13",
   "hash": "5aedc7e6a9e8e957",
@@ -44635,6 +45077,38 @@
   ],
   "products": []
  },
+ "th/species/enteromius-jae": {
+  "at": "2026-11-19",
+  "hash": "b37fc10f88e055ab",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "หากหาขอนไม้รูปทรงที่ต้องการไม่ได้ สามารถใช้ไม้บีชหรือไม้โอ๊คได้อย่างปลอดภัย หากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
+    "why": "It tells the reader to collect beech or oak wood themselves, which suits a European keeper; these trees don't grow wild in Thailand.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/enteromius-sublineatus": {
+  "at": "2026-11-19",
+  "hash": "1d0a92ca9d7bffb6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/entomocorus-benjamini": {
+  "at": "2026-11-19",
+  "hash": "e6cfe98da1fae884",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "th/species/epalzeorhynchos-bicolor": {
   "at": "2026-11-08",
   "hash": "efba9fca9027e6f3",
@@ -44674,6 +45148,81 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "th/species/epalzeorhynchos-munense": {
+  "at": "2026-11-19",
+  "hash": "f9d793c70bc7a926",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P2",
+    "quote": "ปลาในภาพประกอบของหน้านี้เก็บได้จากแม่น้ำมูล",
+    "why": "Refers to an illustration from the source page that this page does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/epiplatys-annulatus": {
+  "at": "2026-11-19",
+  "hash": "ffdd9adbc77476b3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Fluval Bug Bites",
+   "Hikari First Bites"
+  ]
+ },
+ "th/species/epiplatys-chaperi": {
+  "at": "2026-11-19",
+  "hash": "11da6d9d64e6799f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/epiplatys-chevalieri": {
+  "at": "2026-11-19",
+  "hash": "e51a2906ea0f2ffc",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P3",
+    "quote": "การที่ปลาชนิดนี้ชอบอุณหภูมิห้องยังช่วยประหยัดพลังงานด้วย",
+    "why": "Room temperature as 18–22 °C that saves energy is true of a cool European home; in Thailand rooms are far warmer and this fish would need cooling.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/epiplatys-dageti": {
+  "at": "2026-11-19",
+  "hash": "c96596569669b4d3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ปัจจุบันมีให้เลือก 2 ฟอร์ม",
+    "why": "This is the source dealer's note about what it has in stock right now, not something that applies to the reader.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/epiplatys-dageti-monroviae": {
+  "at": "2026-11-19",
+  "hash": "4e6f92f4edd55d1c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "th/species/esomus-metallicus": {
@@ -47443,6 +47992,14 @@
  "th/species/pseudomugil-tenellus": {
   "at": "2026-11-09",
   "hash": "bdfcbe5ee1dde772",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/pseudomystus-funebris": {
+  "at": "2026-11-19",
+  "hash": "ce33e9c4db132eba",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -52732,10 +53289,19 @@
  },
  "vi/guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew": {
   "at": "2026-11-19",
-  "hash": "d2e34492ec1f710f",
+  "hash": "ddc0d38f5b3afa9c",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Tôm blood",
+    "why": "Half-translated English name; keepers in Vietnam call Lysmata debelius by a Vietnamese name.",
+    "by": "model",
+    "fix": "tôm lửa"
+   }
+  ],
   "products": []
  },
  "vi/guides/aquariumbreeder-is-my-snail-alive-or-dead": {
@@ -53567,8 +54133,8 @@
   "products": []
  },
  "vi/guides/aquariumbreeder-top-10-corals-for-beginners": {
-  "at": "2026-11-18",
-  "hash": "1d9044b9ef7c8beb",
+  "at": "2026-11-19",
+  "hash": "2216a1221781557d",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -110146,7 +110712,7 @@
  },
  "vi/species/auchenoglanis-biscutatus": {
   "at": "2026-11-19",
-  "hash": "f6e33019a85a6a43",
+  "hash": "ed4bfa02ee598f40",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -110154,14 +110720,7 @@
     "check": "source",
     "part": "P7",
     "quote": "Con cá từ sông Niger nhập về đây trông giống A. wittei ở Congo nhất.",
-    "why": "\"Imported here\" refers to the source shop's own import and location, which the reader doesn't know.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P8",
-    "quote": "Con cá trong ảnh nhỏ đầu tiên lúc đầu bị tưởng là cá con của A. occidentalis.",
-    "why": "Points to a photo from the original source that this page doesn't have.",
+    "why": "Refers to the source shop's own imported stock ('imported here'), which the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -126001,35 +126560,19 @@
   "products": []
  },
  "vi/species/lamprologus-speciosus": {
-  "at": "2026-11-09",
-  "hash": "d238e6a9a990dbe7",
+  "at": "2026-11-19",
+  "hash": "6f624886cb62e51e",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P10",
-    "quote": "Vỏ ốc escargot dùng tốt, và hầu hết các cửa hàng thực phẩm cao cấp tử tế đều có bán.",
-    "why": "Buying escargot shells at gourmet food shops is a Western shopping habit, not a source for a keeper in Vietnam.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/lamprologus-stappersi": {
-  "at": "2026-11-09",
-  "hash": "2d64962b2d1dfb61",
+  "at": "2026-11-19",
+  "hash": "d50cd2c07bc6bafb",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P10",
-    "quote": "Vỏ ốc escargot dùng rất tốt, và hầu hết các cửa hàng thực phẩm đặc sản tử tế đều có bán.",
-    "why": "It assumes Western speciality food shops that sell escargot shells, which a reader in Vietnam doesn't have.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/lamprologus-werneri": {
@@ -126160,16 +126703,16 @@
   "products": []
  },
  "vi/species/leiarius-longibarbis": {
-  "at": "2026-11-08",
-  "hash": "15290f7db60d0352",
+  "at": "2026-11-19",
+  "hash": "568eba90e4c6ba42",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P7",
-    "quote": "cá lancefish",
-    "why": "Lancefish is a frozen food sold in British fish shops; keepers in Vietnam can't easily buy it.",
+    "part": "P5",
+    "quote": "cành dẻ gai",
+    "why": "Beech branches come from European trees; keepers in Vietnam don't buy or gather them.",
     "by": "model"
    }
   ],
@@ -126246,19 +126789,11 @@
   "products": []
  },
  "vi/species/lepidiolamprologus-boulengeri": {
-  "at": "2026-11-08",
-  "hash": "0e7a38e21569fb82",
+  "at": "2026-11-19",
+  "hash": "713e49ee172b97d6",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P10",
-    "quote": "Vỏ ốc sên escargot dùng tốt, hầu hết các tiệm thực phẩm cao cấp tử tế đều có bán.",
-    "why": "Assumes gourmet food shops that sell escargot shells, as in the source's country.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/lepidiolamprologus-meeli": {
@@ -126302,19 +126837,11 @@
   "products": []
  },
  "vi/species/lepidocephalichthys-goalparensis": {
-  "at": "2026-11-08",
-  "hash": "e922baccae62c162",
+  "at": "2026-11-19",
+  "hash": "3e5472b168897f9e",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P11",
-    "quote": "Con cá trong ảnh là con duy nhất từng được biết tới.",
-    "why": "Refers to a photo from the source article that the page does not have.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/lepidocephalichthys-guntea": {
@@ -126682,19 +127209,11 @@
   ]
  },
  "vi/species/leptobotia-guilinensis": {
-  "at": "2026-11-08",
-  "hash": "988ecafa3c7ce582",
+  "at": "2026-11-19",
+  "hash": "143df51f7953b3f4",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P7",
-    "quote": "Ở xứ nóng, mấy tháng hè có thể phải dùng máy làm lạnh nước.",
-    "why": "Treats a hot climate as somewhere else; a keeper in Vietnam lives in one and will likely need a chiller most of the year, not just in summer.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "Panacur"
   ]
@@ -127079,19 +127598,11 @@
   "products": []
  },
  "vi/species/luciosoma-pellegrinii": {
-  "at": "2026-11-15",
-  "hash": "57267a0488b1ff1f",
+  "at": "2026-11-19",
+  "hash": "743a230e32526d9d",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P5",
-    "quote": "Ảnh của nó xem ở trang về L. setigerum.",
-    "why": "Points the reader to a photo on another page of the source site that this page does not have.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/luciosoma-setigerum": {
@@ -128604,30 +129115,16 @@
   "products": []
  },
  "vi/species/moenkhausia-ceros": {
-  "at": "2026-11-09",
-  "hash": "ab3e40b5ed972669",
+  "at": "2026-11-19",
+  "hash": "01851fa1ab8b6089",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P1",
-    "quote": "Ở Anh, người chơi ít gặp nó.",
-    "why": "Describes availability in the UK hobby as if it were the reader's own market.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P11",
-    "quote": "Ở Anh, người chơi khá ít gặp loài này.",
-    "why": "Repeats UK availability as the reader's context.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
     "part": "P5",
-    "quote": "dùng gỗ dẻ gai (beech) thường cũng an toàn, miễn là đã phơi thật khô và bóc sạch vỏ",
-    "why": "Beech wood is a temperate-European material, not something a keeper in Vietnam can easily collect.",
+    "quote": "Lá dẻ gai dùng được, lá sồi cũng hợp.",
+    "why": "Beech and oak leaves are European tank additions that keepers in Vietnam don't buy or gather.",
     "by": "model"
    }
   ],
@@ -129426,19 +129923,11 @@
   "products": []
  },
  "vi/species/nannostomus-nitidus": {
-  "at": "2026-11-09",
-  "hash": "7a9bc60b7c2c89c0",
+  "at": "2026-11-19",
+  "hash": "d64e00f885686b3e",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P10",
-    "quote": "Phần này để tưởng nhớ Alan P. Vaissiere, chuyên gia ép đẻ cá quá cố, người đã góp rất nhiều công cho phần này.",
-    "why": "A dedication to a contributor of the source article, someone the reader doesn't know.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/nannostomus-rubrocaudatus": {
@@ -131465,19 +131954,11 @@
   "products": []
  },
  "vi/species/pachypanchax-omalonotus": {
-  "at": "2026-11-09",
-  "hash": "e513b8c402ee5f05",
+  "at": "2026-11-19",
+  "hash": "c2753450e9f0d2ad",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P10",
-    "quote": "Đến thời điểm viết, cả hai vẫn thuộc Aplocheilidae.",
-    "why": "Refers to when the original article was written, a dated source the reader can't see.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/pachypanchax-playfairii": {
@@ -131694,17 +132175,18 @@
   "products": []
  },
  "vi/species/pangasius-sanitwongsei": {
-  "at": "2026-11-09",
-  "hash": "aaa8f5175746edbb",
+  "at": "2026-11-19",
+  "hash": "d67467b8bc5641a0",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
-    "part": "P8",
-    "quote": "các trại cá vùng Viễn Đông vẫn cho loài này đẻ trong những ao rất lớn",
-    "why": "'Far East' is a Western reader's view of the region; a reader in Vietnam lives there.",
-    "by": "model"
+    "check": "words",
+    "part": "P1",
+    "quote": "Cá tra Paroon (paroon shark), Pangasius sanitwongsei",
+    "why": "\"Cá tra Paroon\" calques the English trade name; in Vietnam this species is known as cá vồ cờ.",
+    "by": "model",
+    "fix": "cá vồ cờ"
    }
   ],
   "products": []
@@ -131965,8 +132447,8 @@
   ]
  },
  "vi/species/parabotia-lijiangensis": {
-  "at": "2026-11-09",
-  "hash": "74e15903e97f07ee",
+  "at": "2026-11-19",
+  "hash": "4edb350297aaf782",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -132528,19 +133010,11 @@
   "products": []
  },
  "vi/species/paretroplus-damii": {
-  "at": "2026-11-09",
-  "hash": "a9948995b498217e",
+  "at": "2026-11-19",
+  "hash": "095ef43cbf49b1d1",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P11",
-    "quote": "Ở Anh loài này không phổ biến. Thỉnh thoảng mới kiếm được qua người chơi cichlid hoặc các tiệm chuyên.",
-    "why": "Describes how easy the fish is to buy in the UK, as though that were the reader's own market.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/pareutropius-buffei": {
@@ -132680,16 +133154,16 @@
   "products": []
  },
  "vi/species/parosphromenus-nagyi": {
-  "at": "2026-11-09",
-  "hash": "ee4e5f539ae9519f",
+  "at": "2026-11-19",
+  "hash": "f0272011c9d5f7f5",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P2",
-    "quote": "Một số con cá trong ảnh hình như được bắt quanh Ulu Tiram, bang Johor",
-    "why": "Refers to photos from the source article that the page does not have.",
+    "check": "elsewhere",
+    "part": "P5",
+    "quote": "Quả alder cũng dùng được cho việc này.",
+    "why": "Alder cones come from a European tree that keepers in Vietnam don't buy or gather.",
     "by": "model"
    }
   ],
@@ -133350,19 +133824,11 @@
   "products": []
  },
  "vi/species/pethia-tiantian": {
-  "at": "2026-11-09",
-  "hash": "2b071d128a88291f",
+  "at": "2026-11-19",
+  "hash": "ef01fc27af641577",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P6",
-    "quote": "Vì vậy ở nhiều vùng khí hậu, hoặc trong nhà giữ nhiệt tốt, có thể nuôi cả năm mà không cần sưởi.",
-    "why": "Written for a temperate-climate reader whose concern is heating; in Vietnam the issue is keeping water down to 15–25 °C.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/pethia-ticto": {
@@ -133419,17 +133885,18 @@
   "products": []
  },
  "vi/species/phalacronotus-bleekeri": {
-  "at": "2026-11-09",
-  "hash": "68ae36dd8ce0bfb8",
+  "at": "2026-11-19",
+  "hash": "fde47f94798f5340",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Loài này lâu lâu mới được nhập về",
-    "why": "The fish is native to Vietnam, so calling it a rare import only makes sense for a reader abroad.",
-    "by": "model"
+    "check": "words",
+    "part": "P5",
+    "quote": "nhạy với nước xuống cấp",
+    "why": "Calque of 'sensitive to deteriorating water quality'; keepers don't say water 'xuống cấp'.",
+    "by": "model",
+    "fix": "nhạy với nước dơ / chất lượng nước kém"
    }
   ],
   "products": []
@@ -133646,16 +134113,16 @@
   "products": []
  },
  "vi/species/piabucus-dentatus": {
-  "at": "2026-11-09",
-  "hash": "d65affc89756a293",
+  "at": "2026-11-19",
+  "hash": "42732efed09cd9f9",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P5",
-    "quote": "Lá dẻ gai là lựa chọn tốt, lá sồi cũng dùng được.",
-    "why": "Beech and oak leaves and branches are European materials not commonly available in Vietnam, where keepers use Indian almond (bàng) leaves.",
+    "quote": "dùng cành dẻ gai cũng an toàn, miễn là phơi thật khô và bóc sạch vỏ",
+    "why": "Beech wood is a European tree that keepers in Vietnam don't buy or gather.",
     "by": "model"
    }
   ],
@@ -134371,19 +134838,11 @@
   "products": []
  },
  "vi/species/potamotrygon-hystrix": {
-  "at": "2026-11-09",
-  "hash": "bc6ae737588608f9",
+  "at": "2026-11-19",
+  "hash": "5ac82e55726394d8",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P6",
-    "quote": "cành dẻ gai (beech)",
-    "why": "Beech branches are a European decoration material, not something keepers in Vietnam use or can easily get.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/potamotrygon-jabuti": {
@@ -136481,17 +136940,25 @@
   "products": []
  },
  "vi/species/rhinogobius-flumineus": {
-  "at": "2026-11-09",
-  "hash": "75c6d34e71a7ac04",
+  "at": "2026-11-19",
+  "hash": "52963b354a90622a",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P8",
-    "quote": "Mọi ảnh kèm trang này đều là dạng 'vây lưng nhạt'.",
-    "why": "Refers to the source page's photos, which this page does not have.",
+    "quote": "Hiện chưa có ảnh nào của dạng 'vây lưng có đốm'.",
+    "why": "Refers to the source site's photo gallery, which this page does not have.",
     "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P5",
+    "quote": "Cần thì dùng thêm lọc máy, thổi luồng hoặc cục sủi.",
+    "why": "'Thổi luồng' is a calque; keepers call this device a wave/flow pump.",
+    "by": "model",
+    "fix": "máy tạo luồng / bơm tạo sóng"
    }
   ],
   "products": []
@@ -137405,26 +137872,11 @@
   "products": []
  },
  "vi/species/schistura-polytaenia": {
-  "at": "2026-11-09",
-  "hash": "2bee7fd0f8a61f6e",
+  "at": "2026-11-19",
+  "hash": "09dfc8822a023629",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Cá trong ảnh ở trang này được định danh theo nơi bắt mẫu.",
-    "why": "Refers to a photo from the source article that the page does not have.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P10",
-    "quote": "Cá trong ảnh được định danh theo nơi bắt mẫu.",
-    "why": "Refers to a photo from the source article that the page does not have.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/schistura-pridii": {

@@ -3,6 +3,12 @@
   "name": "Sungai Da",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:50:13.724Z",
+    "why": "Indonesian atlases and Wikipedia write the river as \"Sungai Đà\" or \"Sungai Da\" with the Vietnamese spelling, but the Indonesian name is usually \"Sungai Hitam\" or \"Sungai Da (Sông Đà)\", so the plain form is acceptable but not the best."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

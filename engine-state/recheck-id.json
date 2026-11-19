@@ -331,12 +331,84 @@
     "sonnet": 0.7,
     "back": false
   },
+  "apistogramma-cinilabra": {
+    "hash": "37bd1b42618f4ca5e829f31f9b02b9d4ea0f6d35a8eecdab4dde402a35422f24",
+    "at": "2026-11-19T12:36:11.466Z",
+    "sonnet": 0.92,
+    "opus": 0.9,
+    "back": true
+  },
+  "apistogramma-eremnopyge": {
+    "hash": "b4c0f63ff7880b6707ea522a246046a8d82174bfc00d2523fe222e9517d4b739",
+    "at": "2026-11-19T12:36:25.365Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "apistogramma-nijsseni": {
+    "hash": "72fb7b4cc895db7f21469c1c064da06aed5a7e8808436732b039c2b4c8040550",
+    "at": "2026-11-19T12:36:51.514Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "apistogramma-pantalone": {
+    "hash": "f23080261fbcd05347bb6830dc08959ea2b7e4251856c412500516709da27f72",
+    "at": "2026-11-19T12:37:23.859Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
+  "apistogramma-paulmuelleri": {
+    "hash": "057ed96cdd8a932e0cb35a953c023cf6cb85bbd7901611c402def482797e9274",
+    "at": "2026-11-19T12:37:36.112Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "apistogramma-steindachneri": {
+    "hash": "da6c5f51cd6188b6dc4e53fbd74d5977ea9569175fe195a83185c4b61fe13c8b",
+    "at": "2026-11-19T12:38:07.606Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
+    "back": true
+  },
+  "apistogramma-viejita": {
+    "hash": "b1a0a7562b874d536c3fd5c4028ff6c0f96f8bbc62f589110a592007cf22463f",
+    "at": "2026-11-19T12:38:37.095Z",
+    "sonnet": 0.92,
+    "opus": 0.9,
+    "back": true
+  },
+  "apricaphanius-baeticus": {
+    "hash": "e8956aa0ed7634ff0609095a495c973b0efb3fcca4af1da75bd734dc18ffa1ca",
+    "at": "2026-11-19T12:38:42.619Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "ariopsis-felis": {
+    "hash": "3ffbe9b5410c889529c48f0193b855376af54771effbb111a57f321eb701a3ff",
+    "at": "2026-11-19T12:38:53.637Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "aristochromis-christyi": {
+    "hash": "83ced6ce341e2575c4fac0971cf5d16af3379ff6d4cf7ecec38ea21eee4396d5",
+    "at": "2026-11-19T12:39:23.111Z",
+    "sonnet": 0.9,
+    "opus": 0.95,
+    "back": true
+  },
   "arius-oetik": {
     "hash": "94dd834488a22919ed08b92e8fc88cc09c0ba1aec8f77c8e7cea8de78cedbeae",
     "at": "2026-11-18T05:44:03.431Z",
     "sonnet": 0.8,
     "opus": 0.95,
     "back": true
+  },
+  "arnoldichthys-spilopterus": {
+    "hash": "231ecc7ad4eb5dbb1607588928eb4f0131e679013bd202ec5779baf70cbf2d29",
+    "at": "2026-11-19T12:39:34.494Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "asolene-spixii": {
     "hash": "eb30d6e18c04352505775c3c46b21e5900554946145321266e8a8233a53eaa64",
@@ -347,6 +419,15 @@
       "Item 1: \"Dwellers: mid and bottom\" rendered as \"Area hidup\" is acceptable, but \"Nitrat: kurang dari 20\" lacks a unit (mg/L); add it."
     ]
   },
+  "aspidoras-pauciradiatus": {
+    "hash": "63a91327508dd11a20a2f4a15ca737be70aa1573e347be05fca1b7a944d42d0a",
+    "at": "2026-11-19T12:39:45.123Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 5: 54 litres (~14 US gal) is not on the tank-size table. Tank sizes given in US gallons should be named by the usual local size, so 14 gal would be 60 litres. 'sekitar 54 liter' should be 'sekitar 54 liter' only if it is treated as a computed volume; check it against the table."
+    ]
+  },
   "aspistor-luniscutis": {
     "hash": "e3cfe114af1cc846824fb4576fbb20bb0f2c6356398468fe6fa9ec0d1c8d7a85",
     "at": "2026-11-19T00:25:32.472Z",
@@ -354,10 +435,27 @@
     "opus": 0.85,
     "back": true
   },
+  "aspredinichthys-filamentosus": {
+    "hash": "a5787b674e6077900136434b4a6f7f787b05ac70567d4815a0d4a27005ee196c",
+    "at": "2026-11-19T12:35:28.524Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "#3: \"penambahan sedikit garam\" for \"some addition of salt\" is acceptable. \"syarat pemeliharaannya perlu mencakup\" is stiff and could be \"pemeliharaannya memerlukan\".",
+      "#3: \"some addition of salt\" is rendered \"penambahan sedikit garam\"; the meaning is fine, but \"syarat pemeliharaannya perlu mencakup\" is stiff. Use \"pemeliharaannya memerlukan penambahan sedikit garam ke dalam air\"."
+    ]
+  },
   "astacus-astacus": {
     "hash": "b9a1016a94ff4d0e0b3a629da87d837fda031b789737f23732f857a7126778d4",
     "at": "2026-11-17T11:23:26.170Z",
     "sonnet": 0.75,
+    "opus": 0.9,
+    "back": true
+  },
+  "asterophysus-batrachus": {
+    "hash": "533b30913290208436fdcd873d6a9ccfcb2633fc9ac206380e3ab5922e99dc4b",
+    "at": "2026-11-19T12:40:07.758Z",
+    "sonnet": 0.95,
     "opus": 0.9,
     "back": true
   },
@@ -582,6 +680,12 @@
   "epalzeorhynchos-kalopterus": {
     "hash": "bf6521158b00aad6d98a152415b93b5ec69199fdcc1e1fda27770c5bed223466",
     "at": "2026-11-18T05:44:45.747Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "epiplatys-dageti": {
+    "hash": "393590bbe970b8a2f75543c19febe3968fef31f0d972eba4708c336f43cf93c5",
+    "at": "2026-11-19T12:35:41.870Z",
     "sonnet": 0.7,
     "back": false
   },

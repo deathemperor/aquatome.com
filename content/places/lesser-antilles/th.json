@@ -1,8 +1,13 @@
 {
   "slug": "lesser-antilles",
-  "name": "เลสเซอร์แอนทิลลีส",
+  "name": "หมู่เกาะเลสเซอร์แอนทิลลีส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T12:46:53.403Z"
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

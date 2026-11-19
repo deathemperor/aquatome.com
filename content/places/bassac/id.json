@@ -3,6 +3,12 @@
   "name": "Bassac",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:49:52.493Z",
+    "why": "Bassac is a Cambodian region (Basak, the Bassac River area/Mekong Delta), and Indonesian atlases would more likely write it as \"Sungai Bassac\" for the river or \"Basak\" for the region; the bare name \"Bassac\" is only a plausible foreign spelling retention."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

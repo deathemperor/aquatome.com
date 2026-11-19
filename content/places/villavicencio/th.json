@@ -3,6 +3,12 @@
   "name": "บิยาบิเซนซิโอ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T12:48:35.705Z",
+    "why": "Thai atlases transcribe Spanish \"Villavicencio\" as วิยาวิเซนซิโอ (วิยาบิเซนซิโอ), with ll as \"ย\" and v as \"ว\"/\"บ\"; บิยาบิเซนซิโอ has the first syllable as \"บิ\" instead of \"วิ\", so it departs from the usual form."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

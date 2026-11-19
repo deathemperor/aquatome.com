@@ -1,22 +1,51 @@
 {
   "id": "auchenoglanis-biscutatus",
   "native": {
-    "input": "51d8347cadb071bc",
-    "at": "2026-11-19T07:58:14.453Z",
+    "input": "a5e5be54289713da",
+    "at": "2026-11-19T12:55:32.239Z",
     "claims": [],
     "regions": [
       {
         "name": "Nile",
-        "source": "glaser",
-        "quote": "Until recently only two species of Auchenoglanis were recognized as valid: A. biscutatus from the Nile and the whole of West Africa and A. occidentalis from Central Africa.",
+        "source": "scotcat",
+        "quote": "Africa: Rivers Nile, Niger, Senegal, Lake Chad Basin and Gambia basin.",
         "ok": true
+      },
+      {
+        "name": "Niger",
+        "source": "scotcat",
+        "quote": "Africa: Rivers Nile, Niger, Senegal, Lake Chad Basin and Gambia basin.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Senegal",
+        "source": "scotcat",
+        "quote": "Africa: Rivers Nile, Niger, Senegal, Lake Chad Basin and Gambia basin.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Lake Chad Basin",
+        "source": "scotcat",
+        "quote": "Africa: Rivers Nile, Niger, Senegal, Lake Chad Basin and Gambia basin.",
+        "ok": true
+      },
+      {
+        "name": "Gambia",
+        "source": "scotcat",
+        "quote": "Africa: Rivers Nile, Niger, Senegal, Lake Chad Basin and Gambia basin.",
+        "ok": false,
+        "why": "a country"
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "NE"
+        "NE",
+        "SN",
+        "GM"
       ],
       "sourcesOnly": []
     }

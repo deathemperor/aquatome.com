@@ -3,6 +3,12 @@
   "name": "Lereng Atlantik",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:49:43.035Z",
+    "why": "\"Lereng Atlantik\" is a fluent Indonesian rendering, but the Atlantic Slope in Mexico is a physiographic region (Lereng Atlantik/Vertiente del Golfo), and an Indonesian atlas would likely write \"Lereng Samudra Atlantik\" or \"Lereng Teluk\"; the name is a plausible, somewhat uncertain translation."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

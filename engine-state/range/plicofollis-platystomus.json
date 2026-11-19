@@ -1,0 +1,92 @@
+{
+  "id": "plicofollis-platystomus",
+  "native": {
+    "input": "d98bee764090f552",
+    "at": "2026-11-19T12:55:32.239Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indian Ocean: India and Sri Lanka.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indian Ocean: India and Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Also reported from Pakistan, Myanmar and Bangladesh.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Also reported from Pakistan, Myanmar and Bangladesh.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Also reported from Pakistan, Myanmar and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Plicofollis platystomus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345122,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "878298f7-6182-4a72-bdf6-9dd480d89713",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "LK",
+      "PK",
+      "MM",
+      "BD"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T12:55:32.239Z"
+  }
+}

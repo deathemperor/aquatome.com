@@ -147,6 +147,20 @@
       "kept": false
     }
   ],
+  "vi/guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew#body": [
+    {
+      "at": "2026-11-19T13:00:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "Minor: \"ăn luôn cả cá nhỏ trong bể reef\" adds slight emphasis (\"luôn cả\") not in BEFORE's \"còn ăn cá nhỏ\"; content is otherwise preserved."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",
@@ -177,6 +191,21 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/aquariumbreeder-top-10-corals-for-beginners#body": [
+    {
+      "at": "2026-11-19T13:01:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"một góc bể\" is dropped: BEFORE says the coral is worth it for a beginner's corner of the tank, but AFTER only says it is worth keeping for beginners.",
+        "\"tưởng như không gì giết nổi\" (seemingly unkillable) became \"hầu như nuôi không chết\" (almost impossible to kill). The meaning shifts slightly, from an apparent trait to a stated one."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon#body": [
@@ -974,6 +1003,23 @@
         "Added: \"nhưng không ăn thua\" — BEFORE only says the clarifier was tried, not that it failed (though implied by contrast).",
         "Changed: \"nên mất đèn thì nó sẽ chết\" — BEFORE says green water needs light so it dies; AFTER wording \"mất đèn\" is slightly shifted, and \"mới sống được\" adds emphasis.",
         "\"không chiếu xuống nước được\" vs \"không xuyên xuống được\" is fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-i1ajPb5qWD4#body": [
+    {
+      "at": "2026-11-19T13:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"ngoài bể\" changed to \"trong bể\": location of the tube is reversed",
+        "\"gỉ\" (rust/scale) changed to \"rêu\" (algae): a different substance",
+        "\"Không có cọ rửa ống\" became \"Nếu không có cọ rửa ống\": fine, just a natural-style change",
+        "\"để thông\" became \"để thông ống\": fine"
       ],
       "attempt": "first",
       "kept": false

@@ -4485,6 +4485,259 @@
       "notes:seriouslyfish": "7e37b74b6273"
     }
   },
+  "apistogramma-cacatuoides": {
+    "at": "2026-11-19",
+    "from": "2026-11-16",
+    "name": "Apisto cacatuoides",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "Item 9: \"Kebanyakannya karnivor dan nampaknya kebanyakan memakan\" repeats \"kebanyakan\"; rephrase, e.g. \"Terutamanya karnivor dan nampaknya lebih banyak memakan invertebrata dasar\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "6ef1228dab93",
+      "beforeYouBuy:glaser": "5af3b52cd629",
+      "distribution:seriouslyfish": "d2196aa50d2c",
+      "distribution:glaser": "bdd500c91d39",
+      "habitat:seriouslyfish": "e836539559a4",
+      "aquariumSize:seriouslyfish": "fa5e65e4ae3f",
+      "maintenance:seriouslyfish": "06edc94d0e07",
+      "waterConditions:seriouslyfish": "5ed8ee58904b",
+      "diet:seriouslyfish": "60b70b0af893",
+      "behaviour:seriouslyfish": "2a39469d5e5f",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "1248bc864023",
+      "notes:glaser": "07f01f030992",
+      "references:seriouslyfish": "e5d8dc2ca6c4"
+    }
+  },
+  "apistogramma-cinilabra": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apistogramma cinilabra",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 11: \"threatened or even endangered\" is rendered \"terancam atau malah hampir pupus\"; \"hampir pupus\" means nearly extinct, which overstates \"endangered\". Use \"terancam atau malah terancam bahaya (endangered)\".",
+      " Item 10: \"mengurat betina lain\" is too colloquial for \"courting\". Use \"memikat\" or \"mengawani\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "e285368f3a89",
+      "distribution:seriouslyfish": "b12d682fbfce",
+      "habitat:seriouslyfish": "4613c1c0ac9b",
+      "aquariumSize:seriouslyfish": "28f59f3d6331",
+      "maintenance:seriouslyfish": "528ba8eca442",
+      "waterConditions:seriouslyfish": "f6d24a19fb1f",
+      "diet:seriouslyfish": "dafe326b8126",
+      "behaviour:seriouslyfish": "957114438d28",
+      "dimorphism:seriouslyfish": "b3de7212bf84",
+      "reproduction:seriouslyfish": "5d55ffdd68e8",
+      "notes:seriouslyfish": "3e000788e0f5",
+      "references:seriouslyfish": "344b06ef5fc9"
+    }
+  },
+  "apistogramma-commbrae": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apisto Commbrae",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 6: tank is 60x30x30 cm; the 54-litre figure is exact conversion (should be 54 L actually from dimensions) but table says 24 in tank ~ keep; 'liter' should be 'liter/litre' - minor; ok to use 'liter'.",
+      "Item 3: 'di bahagian hulu pertemuannya dengan Sungai Salado' is ambiguous/wrong; should say 'di sebelah hulu pertemuannya dengan Sungai Salado' (above confluence) – clarify.",
+      "Item 3: 'anak sungai kepada hulu Sungai Madeira' reads awkwardly; use 'anak sungai bagi bahagian hulu Sungai Madeira'.",
+      "Item 1/5: 'Corumbá dwarf cichlid' left in English without a Malay form; consider adding a Malay rendering such as 'cichlid kerdil Corumbá'.",
+      "Item 9: 'Dalam akuarium... flake' – 'flake' left untranslated; use 'serpihan (flake)'.",
+      "Item 9: 'kutu air (Daphnia, Moina)' – kutu air is a loose term; use 'kutu air (Daphnia)' and 'Moina' separately.",
+      "Item 7: 'kitaran nitrogennya belum matang' – fine, but 'biologically-immature' is better as 'belum matang secara biologi'.",
+      "Item 7: 'ikan-ikan ini sensitif terhadap turun naik sisa organik' fine; 'Sudah tentu' for 'It goes without saying' is OK.",
+      "Item 13: 'mati' for 'loss of juvenile fish' is OK; 'tugas menjaga anak' adds 'menjaga anak' to 'the task' — acceptable but implies; make explicit as 'tugas itu'.",
+      "Item 4: 'Argentina, Brazil dan Paraguay' fine."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "6683a47a5010",
+      "beforeYouBuy:glaser": "39ad24ab9fee",
+      "distribution:seriouslyfish": "69568c918fc6",
+      "distribution:glaser": "26db0a10cf7c",
+      "habitat:seriouslyfish": "fd528cd70359",
+      "aquariumSize:seriouslyfish": "92eebc89a209",
+      "maintenance:seriouslyfish": "a115882449d8",
+      "waterConditions:seriouslyfish": "fe90a7e84361",
+      "diet:seriouslyfish": "af94da0f9728",
+      "behaviour:seriouslyfish": "15525cf61f3d",
+      "dimorphism:seriouslyfish": "bb6579cdf0ab",
+      "dimorphism:glaser": "3bbe95936c7f",
+      "reproduction:seriouslyfish": "185549ad4bfc",
+      "notes:seriouslyfish": "a6d206a3b7f9",
+      "references:seriouslyfish": "645cf598fd60"
+    }
+  },
+  "apistogramma-diplotaenia": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apisto diplotaenia",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"mudah dikenali tanpa silap\" is slightly awkward; use \"mudah dicam\" or \"tidak mungkin dikelirukan dengan spesies lain\".",
+      "\"ahli yang paling luar biasa\" is a bit literal; \"antara spesies yang paling luar biasa\" is more natural.",
+      "\"hampir hilang dua jalurnya\" is slightly stiff; \"hampir kehilangan kedua-dua jalurnya\" reads better.",
+      "\"memegang kuasa\" loses the idiom's humour but keeps the meaning; \"ikan betina lebih dominan\" would be clearer."
+    ],
+    "parts": {
+      "quickFacts:glaser": "265363e10c43",
+      "beforeYouBuy:glaser": "c473f1952ca1",
+      "behaviour:glaser": "879cabd2677d"
+    }
+  },
+  "apistogramma-elizabethae": {
+    "at": "2026-11-19",
+    "from": "2026-11-17",
+    "name": "Apistogramma elizabethae",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "#12: \"masuk ke mood mengawan\" leaves the English word \"mood\" in place; use \"bersedia untuk mengawan\" or \"dalam keadaan ingin mengawan\".",
+      "#11: \"setiap rusuk\" for \"each flank\" is slightly odd; \"setiap sisi badan\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "f30b82d48a3a",
+      "distribution:seriouslyfish": "b9eba69f1038",
+      "habitat:seriouslyfish": "8ab20702c413",
+      "aquariumSize:seriouslyfish": "144644e5eb23",
+      "maintenance:seriouslyfish": "c6d19ba00564",
+      "waterConditions:seriouslyfish": "3758afb74931",
+      "diet:seriouslyfish": "af94da0f9728",
+      "behaviour:seriouslyfish": "aaaacc897c41",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "3c2170f8a66b",
+      "notes:seriouslyfish": "d45039a20bcb",
+      "notes:glaser": "b3176fc1cd71",
+      "references:seriouslyfish": "0e3e5c3d4a1f"
+    }
+  },
+  "apistogramma-eremnopyge": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apistogramma eremnopyge",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "825b6279f2ff",
+      "distribution:seriouslyfish": "047445a9df59",
+      "habitat:seriouslyfish": "5ff27376d712",
+      "aquariumSize:seriouslyfish": "1adfd521bfa6",
+      "maintenance:seriouslyfish": "c6d19ba00564",
+      "waterConditions:seriouslyfish": "59ae28c19270",
+      "diet:seriouslyfish": "af94da0f9728",
+      "behaviour:seriouslyfish": "7a70213e2cb6",
+      "dimorphism:seriouslyfish": "44bd879f0521",
+      "reproduction:seriouslyfish": "fe9d75fd72e4",
+      "notes:seriouslyfish": "396535ff4bf8",
+      "references:seriouslyfish": "c2893c669a0c"
+    }
+  },
+  "apistogramma-eunotus": {
+    "at": "2026-11-19",
+    "from": "2026-11-17",
+    "name": "Apisto eunotus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "#11: \"bertelur pada permukaan\" is ambiguous and could read as the water surface. Use \"pembiak substrat\" or \"bertelur pada dasar/substrat\" for \"substrate spawner\".",
+      "#8: \"Kebanyakannya karnivor\" reads as \"most of them are carnivorous\". For \"Primarily carnivorous\", use \"Terutamanya karnivor\" or \"Pada asasnya karnivor\".",
+      "#12: \"yang mungkin atau mungkin tidak akan didapati sebagai spesies berasingan\" is awkward. Use \"yang mungkin atau mungkin tidak akan diiktiraf sebagai spesies berasingan\".",
+      "#13: \"hujung sirip yang memanjang\" for \"fin lappets\" is vague. Use \"jumbai sirip\" or \"juntaian sirip\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "78924e1d8a35",
+      "quickFacts:glaser": "b65d073e2c09",
+      "distribution:seriouslyfish": "c21faa55edb9",
+      "habitat:seriouslyfish": "e9e388aa7e61",
+      "aquariumSize:seriouslyfish": "7b831a9cd90b",
+      "maintenance:seriouslyfish": "da8065b3a578",
+      "waterConditions:seriouslyfish": "2d70033d4747",
+      "diet:seriouslyfish": "60b70b0af893",
+      "behaviour:seriouslyfish": "c2f915c208d4",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "b987ff76d9ce",
+      "notes:seriouslyfish": "804a08771f4a",
+      "notes:glaser": "c8994d506ba9"
+    }
+  },
+  "apistogramma-gephyra": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apistogramma gephyra",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"bahasa Yunani kuno\": in Malaysia the standard term is \"bahasa Greek purba\" (or \"Greek kuno\"); \"Yunani\" is Indonesian usage. Likewise \"perkataan Yunani kuno\".",
+      "\"dengan garisan yang tidak menentu\": \"unreliable\" is better rendered as \"tidak boleh dipercayai\" or \"tidak tetap\"; \"tidak menentu\" is slightly vague.",
+      "\"air hitam (blackwater)\": acceptable, but \"Apistogramma perairan air hitam\" would read more naturally."
+    ],
+    "parts": {
+      "quickFacts:glaser": "0d68ffb9edfc",
+      "distribution:glaser": "59f79d8eba0f",
+      "dimorphism:glaser": "637bab9e5595",
+      "notes:glaser": "f421cf9437bd"
+    }
+  },
+  "apistogramma-gibbiceps": {
+    "at": "2026-11-19",
+    "from": "2026-11-18",
+    "name": "Apistogramma gibbiceps",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"jalur melintang\" for \"horizontal stripe\" is ambiguous (melintang can mean transverse/vertical); use \"jalur mendatar\".",
+      "Item 12: \"induk berkepala kuning\" for \"yellow-headed ancestors\"; \"induk\" means parent, so use \"nenek moyang\" or \"keturunan terdahulu\".",
+      "Item 14: \"yang dilukisnya\" for \"the one he illustrated\"; \"digambarkannya\" or \"diilustrasikannya\" is more accurate than \"drew\".",
+      "Item 1: \"sebenarnya\" in \"mengandungi tiga spesies\" is not in the English; remove it."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "ef3f4fad4cb0",
+      "distribution:seriouslyfish": "35b16ca866df",
+      "distribution:glaser": "7cbd2b6c9860",
+      "habitat:seriouslyfish": "997cfdcfe3c4",
+      "aquariumSize:seriouslyfish": "37c65d4df703",
+      "maintenance:seriouslyfish": "2ddf89dc6486",
+      "waterConditions:seriouslyfish": "8ba0e6f463bd",
+      "diet:seriouslyfish": "059f8617954d",
+      "behaviour:seriouslyfish": "ce0b4ed2676b",
+      "behaviour:glaser": "0bbfd8937d24",
+      "dimorphism:seriouslyfish": "fb9bf3313763",
+      "dimorphism:glaser": "8ebc40236032",
+      "reproduction:seriouslyfish": "e5d5794c9752",
+      "notes:seriouslyfish": "cfd099cab379",
+      "references:seriouslyfish": "22709a6389fd"
+    }
+  },
+  "apistogramma-hoignei": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apistogramma hoignei",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 7: \"Kebanyakannya karnivor\" reads as \"mostly carnivores\". Use \"Terutamanya karnivor\" or \"Pada dasarnya karnivor\" for \"Primarily carnivorous\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "61ac7d3fbfac",
+      "distribution:seriouslyfish": "bf6d27dec43b",
+      "habitat:seriouslyfish": "3425a9296838",
+      "aquariumSize:seriouslyfish": "1fb48c198fb2",
+      "maintenance:seriouslyfish": "80c379596549",
+      "waterConditions:seriouslyfish": "711321d13da3",
+      "diet:seriouslyfish": "b62a7d1b482f",
+      "behaviour:seriouslyfish": "58c74a6a0932",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "2a1c1f3383b1"
+    }
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-16",
     "from": "2026-11-16",

@@ -14,6 +14,199 @@
     "suriname",
     "trinidad-and-tobago"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GF",
+        "GY",
+        "SR",
+        "TT",
+        "VE"
+      ],
+      "regions": [
+        "Amazon River",
+        "Trinidad"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+          "countries": [
+            "BR",
+            "GF",
+            "GY",
+            "SR",
+            "TT",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "It occurs from the eastern coast of Venezuela and Trinidad, and from Guyana to the mouth of the Amazon River in Brazil and the north coast of Brazil up to Maranhão state.",
+          "countries": [],
+          "regions": [
+            "Amazon River",
+            "Trinidad"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340554,
+      "total": 54,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BR",
+          33
+        ],
+        [
+          "GF",
+          19
+        ],
+        [
+          "SR",
+          1
+        ],
+        [
+          "TT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -52.03125,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -46.40625,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -45,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "scotcat",
+    "quote": "Not seen very often in the hobby, but the requirements for keeping this species would need to include some addition of salt in the water."
+  },
   "dataCard": {
     "tempC": [
       {

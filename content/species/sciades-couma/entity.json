@@ -8,6 +8,182 @@
   "places": [
     "south-america"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Surinam, probably neighbourhood of Paramaribo.",
+          "countries": [
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The range extends from Venezuela to northern Brazil, restricted to turbid waters in estuaries and the lower reaches of rivers.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Atlantic draining rivers of South America, from the Gulf of Paria to the mouth of the Amazon.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202961,
+      "total": 320,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          275
+        ],
+        [
+          "BR",
+          43
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          7,
+          7
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -54.84375,
+          5.625,
+          23,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          31,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          195,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          4,
+          3
+        ],
+        [
+          -52.03125,
+          4.21875,
+          21,
+          0
+        ],
+        [
+          -50.625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          0,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -45,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          -43.59375,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "scotcat",
+    "quote": "Brackish, marine."
+  },
   "dataCard": {
     "tempC": [
       {

@@ -13,6 +13,77 @@
     "myanmar",
     "bangladesh"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "LK",
+        "PK",
+        "MM",
+        "BD"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Indian Ocean: India and Sri Lanka.",
+          "countries": [
+            "IN",
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Also reported from Pakistan, Myanmar and Bangladesh.",
+          "countries": [
+            "PK",
+            "MM",
+            "BD"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345122,
+      "total": 7,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BD",
+          4
+        ],
+        [
+          "IN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          67.5,
+          22.5,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          21.09375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

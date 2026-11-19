@@ -994,22 +994,29 @@
     }
   },
   "echinodorus-grisebachii": {
-    "at": "2026-11-14",
-    "from": "2026-10-30",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Amazon Sword",
     "confidence": "high",
     "score": 0.7,
     "notes": [
-      "\"dihimpunkan dalam pemberat\" / \"Buang pemberat\": 'anchor' here is the lead/metal weight strip bundling plants; 'pemberat' is acceptable, but \"Seikat ... yang dihimpunkan\" is a fragment; better \"Seikat batang... diikat dengan pemberat (jalur plumbum)\".",
-      "\"Regarding stem plants\": \"tumbuhan berbatang\" is fine, but \"pokok ini perlu dipangkas\" loses 'the plant' generic; minor.",
-      "\"dengan sedikit jarak\" is vague; better \"dengan jarak sesuai antara satu sama lain\".",
-      "\"Type: Rosulate\" translated as \"Roset\": more common hobby term is \"berroset\" (rosette-forming); minor.",
-      "\"tidak cerewet\" for 'undemanding' is a bit odd for plants; use \"tidak memerlukan penjagaan rapi\"/\"mudah dijaga\"."
+      "\"crown\" is left in English throughout (table, items 2 and 6). Use a Malay term such as \"pangkal rosette/mahkota\", with (crown) in brackets on first use.",
+      "\"Malaysian trumpet snail\", \"Japanese trapdoor snail\" and \"mystery snail\" are left in English. Use \"siput trumpet Malaysia\" etc., for consistency with \"siput ramshorn\" and \"siput nerite\".",
+      "\"ghost shrimp\", \"bamboo shrimp\" and \"vampire shrimp\" are left in English while \"udang Amano\" is localised. Make this consistent, e.g. \"udang hantu\", \"udang buluh\"."
     ],
     "parts": {
       "quickFacts:tropica": "6c8e0b12bda0",
       "maintenance:tropica": "ec4dc3a619c4",
-      "notes:tropica": "db7ac997a8e6"
+      "notes:tropica": "db7ac997a8e6",
+      "quickFacts:aquariumbreeder": "22bab368dc11",
+      "beforeYouBuy:aquariumbreeder": "79a719a3a09d",
+      "distribution:aquariumbreeder": "787191d2966d",
+      "habitat:aquariumbreeder": "cda66e0a2b36",
+      "aquariumSize:aquariumbreeder": "e7c981e56e83",
+      "maintenance:aquariumbreeder": "369b57292340",
+      "waterConditions:aquariumbreeder": "c9a418c68709",
+      "equipment:aquariumbreeder": "5d15ecd43570",
+      "notes:aquariumbreeder": "358191748451"
     }
   },
   "echinodorus-grisebachii-tropica": {
@@ -2299,6 +2306,68 @@
       "quickFacts:tropica": "60f8aab2d9f3",
       "maintenance:aquatome": "44885a80783b",
       "notes:tropica": "63f44464d931"
+    }
+  },
+  "microsorum-pteropus-trident": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Java Fern Trident",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "#2: \"Jika ditanam di dalam substrat\" – the English says \"bottom layer\"; fine, but \"(rizom)\" is an added gloss; acceptable. Consider \"ditarik keluar\" → \"dipisahkan/dikopek\" for natural phrasing.",
+      "#3: \"paku pakis\" is redundant; use \"paku-pakis\" or \"paku\" (e.g. \"sejenis paku-pakis dari Asia\").",
+      "#3: \"berjinak-jinak\" is slightly odd; \"pemula\" is the usual hobby term (\"sesuai untuk pemula\")."
+    ],
+    "parts": {
+      "quickFacts:tropica": "c9d291fb9643",
+      "maintenance:tropica": "c39e9ca74a4d",
+      "notes:tropica": "8f01abedca04"
+    }
+  },
+  "microsorum-sp": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Microsorum",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1: 'Berizom' is acceptable, but 'Berakar rizom' or 'Rizom' is also common; only optional."
+    ],
+    "parts": {
+      "quickFacts:tropica": "adaff1d12ac1",
+      "notes:tropica": "ea3c98abb06c"
+    }
+  },
+  "monosolenium-tenerum": {
+    "at": "2026-11-19",
+    "from": "2026-11-04",
+    "name": "Monosolenium",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Tank size: \"kira-kira 40 liter\" is fine, but \"Ia boleh ditanam dalam apa-apa bekas\" — OK; main issue below.",
+      "\"Tahap kesukaran\" section: \"paludarium yang mempunyai lebihan CO2 percuma\" is awkward; use \"CO2 berlebihan secara semula jadi/percuma\" more clearly.",
+      "\"mematangkan kitaran nitrogen substrat\" adds a fact not in the English (\"cycles the substrate\"); say \"mematangkan substrat\".",
+      "\"Leggy bottom leaves\" translated as \"Pertumbuhan meninggi dengan daun bawah gugur\" — changes meaning; use \"Daun bawah kurus/jarang\" or \"Daun bawah mati\".",
+      "\"tersalah dikenali sebagai Pellia\" is awkward; use \"tersilap dikenali/dipanggil Pellia\".",
+      "\"dianggap antara tumbuhan darat yang terawal bercabang daripada salasilah tumbuhan darat\" is clumsy and redundant; simplify to \"antara kumpulan tumbuhan darat yang terawal berpecah/berevolusi\".",
+      "\"Ia tidak memerlukan substrat kerana ia kebanyakannya menyerap nutrien daripada air\": fine, but \"batu kecil, batu besar\" for stones/rocks is awkward; use \"batu kerikil/batu\".",
+      "\"udang karang\" for crayfish: OK, but \"memotong, memakan\" - say \"mengerat\"; \"setinggi 2–5 cm\" in item 9 versus item 1's 3–5+ cm is source-consistent.",
+      "\"lebih hijau gelap\" for \"darker green\" is acceptable but \"lebih gelap hijaunya\" reads more natural."
+    ],
+    "parts": {
+      "quickFacts:tropica": "4114dfe5f33a",
+      "quickFacts:aquariumbreeder": "6567e74fe8af",
+      "distribution:aquariumbreeder": "2f40cab156ee",
+      "habitat:aquariumbreeder": "2d6b0932769f",
+      "maintenance:tropica": "4aef3c2c0d88",
+      "maintenance:aquariumbreeder": "0b29996fac2c",
+      "waterConditions:aquariumbreeder": "7860bee61a74",
+      "behaviour:aquariumbreeder": "3f14e0b6bb42",
+      "notes:tropica": "d6247c815869",
+      "notes:aquariumbreeder": "a5f393d8fb2c",
+      "references:aquariumbreeder": "fef0d720cf00"
     }
   }
 }

@@ -21,10 +21,10 @@
     "references:seriouslyfish": "<ul><li>Apistogramma cinilabra 2011 https://www.fishbase.se/search.php, FishBase</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.9
     }
   }
 }

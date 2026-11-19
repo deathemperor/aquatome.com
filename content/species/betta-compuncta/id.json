@@ -2,20 +2,27 @@
   "slug": "betta-compuncta",
   "name": "Betta compuncta",
   "altNames": [
-    "Cupang compuncta",
-    "Cupang alam compuncta"
+    "Cupang alam compuncta",
+    "Wild betta compuncta",
+    "Cupang compuncta"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Termasuk kompleks Betta unimaculata. Daftar Merah IUCN: N/A. Betta compuncta tangkapan alam dari Melak.</p><ul><li>Ukuran maksimum: 7,5+ cm</li><li>TDS: ~60–100</li><li>pH: ~5,0–7,0</li><li>Suhu: 22–28 °C (lebih menyukai suhu yang lebih sejuk, tetapi suhu yang lebih tinggi memicu munculnya warna dan perilaku kawin)</li><li>Pemijahan: pengeram mulut (mouthbrooder)</li></ul>",
-    "diet:bwaquatics": "<p>Karnivora. Diberi pakan hidup, beku, dan kering, seperti blackworm, cacing darah beku, dan pelet.</p>",
-    "behaviour:bwaquatics": "<p>Seperti banyak spesies lain dalam kompleks ini, betta yang paling besar bisa bersifat agresif. Sebaiknya dipelihara di akuarium khusus satu spesies, karena ikan ini bisa memakan apa saja yang muat di mulutnya yang besar.</p>",
-    "dimorphism:bwaquatics": "<p>Warna dasar tubuh cokelat muda hingga cokelat kekuningan, dengan kilau biru muda di pipi (operkulum) dan rahang bawah, tubuh, serta ekor; kilau pada betina lebih sedikit. Jantan dewasa yang sudah tumbuh penuh memiliki sirip perut (ventral) yang lebih panjang dan tubuh yang lebih besar.</p>"
+    "quickFacts:bwaquatics": "<ul><li>Termasuk dalam kompleks Betta unimaculata.</li><li>Daftar Merah IUCN: Data Deficient (informasi belum cukup untuk menilai tingkat ancamannya).</li><li>Asal: tangkapan alam (Melak, Kalimantan Timur).</li><li>Sifat: agresif.</li></ul>",
+    "beforeYouBuy:bwaquatics": "<p>Ikan dari kompleks ini sangat rentan terkena penyakit bintik putih (white spot) dan velvet pada beberapa minggu pertama setelah diimpor, jadi awasi ikan yang baru datang dengan saksama.</p>",
+    "distribution:bwaquatics": "<p>Betta compuncta dideskripsikan pada tahun 2006 dari sebuah sungai kecil di daerah aliran Sungai Mahakam dekat Long Iram, Kalimantan Timur, tidak jauh ke arah hulu dari Melak. Spesies ini berkerabat dekat dengan Betta pallifina. Namanya berarti \"bertato\", merujuk pada pola hitam yang jelas di tubuhnya, yang biasanya paling tegas pada betina.</p>",
+    "habitat:bwaquatics": "<p>Kebanyakan berupa sungai kecil berarus lambat di hutan kerangas berawa, kadang juga anak sungai yang lebih besar dan berarus lebih deras. FishBase mencatat air yang sangat asam, pH 3,7–5,3.</p>",
+    "aquariumSize:bwaquatics": "<p>Disarankan 1 pasang per akuarium 40 liter, atau 80 liter untuk pemijahan. Sediakan banyak gua dan tempat berlindung untuk memutus garis pandang antarikan.</p>",
+    "waterConditions:bwaquatics": "<ul><li>Suhu: 22–28 °C. Ikan ini lebih menyukai air yang lebih sejuk, tetapi air yang lebih hangat memunculkan warna dan perilaku kawin.</li><li>pH: 3,7–5,5</li><li>TDS: 60–100</li></ul>",
+    "diet:bwaquatics": "<p>Karnivora. Pakan yang cocok antara lain cacing hitam (blackworm) hidup, cacing darah beku, dan pelet.</p>",
+    "behaviour:bwaquatics": "<p>Agresif. Paling baik dipelihara di akuarium khusus satu spesies, karena ikan ini akan memakan ikan apa pun yang muat di mulutnya.</p>",
+    "dimorphism:bwaquatics": "<p>Bentuk tubuh: panjang dan ramping. Jantan memiliki kepala lebih lebar daripada betina. Sirip: sirip anal panjang dan sirip ekor runcing; jantan dewasa penuh memiliki sirip perut lebih panjang. Sisik: sisik biru muda berkilau di pipi dan rahang bawah, dengan sisik berkilau yang tersebar di sepanjang tubuh. Warna: tubuh cokelat muda hingga cokelat kekuningan dengan kilau biru muda di pipi, rahang bawah, tubuh, dan sirip. Betina memiliki kilau lebih sedikit dan pola hitam di tubuh yang lebih tegas.</p>",
+    "reproduction:bwaquatics": "<p>Pengeram mulut oleh jantan (paternal mouthbrooder). Betina mengumpulkan telur saat pemijahan lalu menyerahkannya kepada jantan, yang mengeramnya di dalam mulut selama sekitar 12–18 hari (biasanya sekitar 14 hari). Jaga agar akuarium tetap tenang dan biarkan jantan yang sedang mengeram, karena jantan yang terganggu dapat menelan atau memuntahkan telur/burayaknya. Jantan akan melepaskan burayak yang sudah terbentuk sempurna dan langsung bisa memakan baby artemia.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.97,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.95
+      "bwaquatics": 0.97
     }
   }
 }

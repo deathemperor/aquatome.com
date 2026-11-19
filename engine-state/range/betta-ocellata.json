@@ -1,8 +1,8 @@
 {
   "id": "betta-ocellata",
   "native": {
-    "input": "abe1b8610e8d575a",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "e1d1081e5781ce31",
+    "at": "2026-11-19T12:55:32.239Z",
     "claims": [
       {
         "code": "MY",
@@ -25,19 +25,31 @@
       {
         "name": "Borneo",
         "source": "seriouslyfish",
-        "quote": "Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan.",
+        "quote": "Native to the Malaysian state of Sabah in northeastern Borneo plus the northern tip of Kalimantan Timur (East Kalimantan), one of the four Indonesian provinces on the island.",
         "ok": true
       },
       {
         "name": "Sebuku River",
         "source": "seriouslyfish",
-        "quote": "Betta ocellata is a large paternal mouthbrooding labyrinth fish from Sabah, northeastern Borneo, and the Sebuku River basin in East Kalimantan.",
+        "quote": "In Sabah it's been recorded at various localities including Bettotan, Sandokan, Kinabatangan, Lahad Datu, Tawau, Kudat, and Bongon, while in Kalimantan Timur it's known only from the Sebuku River basin.",
         "ok": true
       },
       {
         "name": "Kinabatangan",
         "source": "seriouslyfish",
-        "quote": "In the Kinabatangan drainage basin B. ocellata was collected from ox-bow lakes and lowland streams with turbid water.",
+        "quote": "In Sabah it's been recorded at various localities including Bettotan, Sandokan, Kinabatangan, Lahad Datu, Tawau, Kudat, and Bongon, while in Kalimantan Timur it's known only from the Sebuku River basin.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta ocellata was described in 1933 and is native to Sabah in northeastern Borneo and the far north of Kalimantan, where published records come from the Sebuku River basin.",
+        "ok": true
+      },
+      {
+        "name": "Sebuku River",
+        "source": "bwaquatics",
+        "quote": "Betta ocellata was described in 1933 and is native to Sabah in northeastern Borneo and the far north of Kalimantan, where published records come from the Sebuku River basin.",
         "ok": true
       }
     ],

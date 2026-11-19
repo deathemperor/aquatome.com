@@ -3,6 +3,12 @@
   "name": "Teluk Thailand",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T12:50:27.549Z",
+    "why": "Indonesian atlases and the government write \"Teluk Thailand\" with the English-style spelling of Thailand, but the standard Indonesian name is \"Teluk Siam\" (Thailand is \"Thailand\" in Indonesian, so \"Teluk Thailand\" is also used and understood), making this acceptable yet not the most traditional form"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true
