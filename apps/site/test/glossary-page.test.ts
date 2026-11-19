@@ -128,7 +128,15 @@ test('a term with a fuller entry shows its photo, its text under headings, the t
   expect(dom.querySelectorAll('.body h2').map(h => h.textContent.trim())).toEqual(['Các loại', 'Trong bể của bạn'])
   expect(dom.querySelector('.body a[href="/thuat-ngu/ph/"]')).toBeTruthy()
   expect(dom.querySelectorAll('.related a').map(a => a.getAttribute('href'))).toEqual(['/thuat-ngu/chu-trinh-nito/', '/thuat-ngu/ph/'])
-  expect(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href'))).toEqual(['https://www.seriouslyfish.com/glossary/shoal'])
+  expect(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href'))).toEqual(['https://www.seriouslyfish.com/glossary/shoal', 'https://example.com/ca-dan'])
+})
+
+// A source titled in Vietnamese is marked as Vietnamese, and a page in another language says it is, as a guide's and a
+// breed's do: on 19 Nov 2026 the live checks found three term pages in Indonesian, Thai and Malay printing one bare.
+test('a source titled in Vietnamese is marked as Vietnamese, and an Indonesian, Thai or Malay term page says so', () => {
+  const refs = (path: string) => page(path).dom.querySelectorAll('.refs li').map(li => [li.textContent.trim(), li.querySelector('a')?.getAttribute('lang') ?? null])
+  expect(refs('/thuat-ngu/ca-dan/')).toEqual([['Shoal', null], ['Cá bầy đàn: nuôi bao nhiêu con là đủ', 'vi']])
+  expect(refs('/ms/istilah/istilah-uji-melayu/')).toEqual([['Shoal', null], ['Cá bầy đàn: nuôi bao nhiêu con là đủ (bahasa Vietnam)', 'vi']])
 })
 
 // Every term page as the Design Lead's board has it (14 Nov 2026): a long term's parts in the fish page's jump row with
