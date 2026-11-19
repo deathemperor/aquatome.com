@@ -287,8 +287,8 @@ test('--top-up researches only what the notes ask, adds it to the kept research 
   expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })).toEqual({ id: 'lua', refused: ['no kept research to top up'] })
   await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
   await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
-  await writeFile(join(root, 'engine-state/glossary/ph.json'), JSON.stringify(facts))
-  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'ph', { kind: 'setup', topUp: true })).toEqual({ id: 'ph', refused: ['nothing to top up: the notes file gives this term no also or read'] })
+  await writeFile(join(root, 'engine-state/glossary/tanin.json'), JSON.stringify(facts))
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'tanin', { kind: 'setup', topUp: true })).toEqual({ id: 'tanin', refused: ['nothing to top up: the notes file gives this term no also or read'] })
   for (const with_ of [{ fresh: true }, { reuse: true }, { revise: true }, { fromDraft: true }, { accept: 'the chief of staff' }])
     expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true, ...with_ })).toMatchObject({ refused: [expect.stringMatching(/^--top-up only researches/)] })
   const more: TopicFacts = {
@@ -361,15 +361,16 @@ test('a term\'s notes file sets its length: pH\'s 648 words get a trim pass and 
   expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'ph', { kind: 'setup' })).toMatchObject({ id: 'ph', score: 1 })
   expect(writes.length).toBe(2)
   // The writer is told the term's own length (Codex, 14 Nov 2026: it was told only the prompt's 200–300 words).
-  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 620 chữ cả bài')
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 630 chữ cả bài')
   const asks = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length?: { words: number; why: string } }>
-  // The chief of staff's 620, 15 Nov 2026, once every read sentence was kept.
-  expect(asks.ph!.length!.words).toBe(620)
+  // The chief of staff's 620, 15 Nov 2026, once every read sentence was kept; 630 on 18 Nov, so a rewrite keeps the
+  // almond-leaf credit and the pace in its step without cutting whole sentences.
+  expect(asks.ph!.length!.words).toBe(630)
   for (const [id, a] of Object.entries(asks)) if (a.length) expect(a.length.words <= 600 || /chief of staff/.test(a.length.why), id).toBe(true)
 })
 
-// The owner, 15 Nov 2026: "what does each look like?". Nền bể names its kinds and sets its own length, 500: the writer is
-// told the 500, and that each kind takes a line or two, as its picture shows how it looks.
+// The owner, 15 Nov 2026: "what does each look like?". Nền bể names its kinds and sets its own length, 580 (the chief of
+// staff, 16 Nov 2026): the writer is told the 580, and that each kind takes a line or two, as its picture shows how it looks.
 test('a term with kinds and its own length tells the writer the length, and a line or two a kind', async () => {
   const root = await site()
   await mkdir(join(root, 'content/glossary/nen-be'), { recursive: true })
@@ -383,7 +384,7 @@ test('a term with kinds and its own length tells the writer the length, and a li
     return written as never
   }
   await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'nen-be', { kind: 'setup' })
-  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 500 chữ cả bài, thay cho độ dài nói ở trên. Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.')
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 580 chữ cả bài, thay cho độ dài nói ở trên. Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.')
   expect(writes[0]).toContain('--- LOẠI BÁN Ở VIỆT NAM ---\nđất nền (aqua soil)')
 })
 
