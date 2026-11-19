@@ -245,7 +245,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // 2026), inside the backstop that was already there. On 15 Nov its line came down to the $33.87 it had spent, the quota
   // road's test had $1, and the backstop rose by the $34 and the test's room; on 16 Nov it has $37, and the backstop what
   // that line needs to be whole (the chief of staff, 15 Nov 2026). On 17 Nov it has $8 and on 18 Nov $12, each with the
-  // backstop what that line needs to be whole, then the small line again from 19 Nov (the chief of staff, 16 Nov 2026).
+  // backstop what that line needs to be whole (the chief of staff, 16 Nov 2026); on 19 Nov alone $30, with the Mac's
+  // backstop $30 higher, for the judges of the scoreboard's run-to-run spread and the chat's limits test; then the small
+  // line again from 20 Nov (the chief of staff, 19 Nov 2026).
   // The photo check: $22 on the Mac from 15 Nov 06:00 to the end of 17 Nov, with the backstop $10 higher, while the photo
   // job runs 80 sheets a run to judge the 621 page heads no check has seen; $12 again from 18 Nov (the chief of staff,
   // 15 Nov 2026), but $20 on 18 Nov alone, with the backstop $8 higher, for Glaser's first hundred pages and the last 72
@@ -261,8 +263,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', whole: true, steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
     { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', whole: true, steps: 506, backstop: 516, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 8, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
     { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 503, backstop: 562, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 20, recheck: 12 },
-    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 477, backstop: 536, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
-    { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 496, backstop: 555, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
+    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 507, backstop: 566, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
+    { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 526, backstop: 585, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
     { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 536, backstop: 595, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
     { from: '2026-11-21T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 522, backstop: 595, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25 },
     { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 443, backstop: 516, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 6 },
@@ -347,7 +349,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
 // (the chief of staff, 16 Nov 2026), until the Mac's $59 room from 18 Nov leaves the small line whole too (the chief of
 // staff, 17 Nov 2026). The day's spend is the Mac's cost logs at 01:33 on the 15th.
 // The materials writer's $8 from 15 Nov raises each day's backstop by its $3, so neither the test nor the board loses room.
-test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on 15 Nov, the board its $37 on 16 Nov, $8 on 17 Nov, $12 on 18 Nov, its small $4 from 19 Nov', async () => {
+test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on 15 Nov, the board its $37 on 16 Nov, $8 on 17 Nov, $12 on 18 Nov, $30 on 19 Nov alone, its small $4 from 20 Nov', async () => {
   const at = (lines: unknown[]) => logs({ 'aquatome-cost-hand.jsonl': lines }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   const night = '2026-11-14T17:30:00.000Z'
   const spent = await at([{ at: night, step: 'chat-board', usd: 33.87 }, { at: night, step: 'glossary-entry', usd: 1.26 }, { at: night, step: 'check-one', usd: 2.54 }])
@@ -361,7 +363,9 @@ test('ceilings.json: the quota road test has its $1 after the board\'s $33.87 on
   expect(yielding('chat-board', none, '2026-11-16T00:00:00+07:00')).toBe(37)
   expect(yielding('chat-board', none, '2026-11-17T00:00:00+07:00')).toBe(8)
   expect(yielding('chat-board', none, '2026-11-18T00:00:00+07:00')).toBe(12)
-  expect(yielding('chat-board', none, '2026-11-19T00:00:00+07:00')).toBe(4)
+  expect(yielding('chat-board', none, '2026-11-19T00:00:00+07:00')).toBe(30)
+  expect(yielding('chat-board', none, '2026-11-19T13:00:00+07:00')).toBe(30)
+  expect(yielding('chat-board', none, '2026-11-20T00:00:00+07:00')).toBe(4)
 })
 
 // The recheck starts on the second sign-in while the third is out, at about $18 in all: $12 on 18 Nov and $6 on 19 Nov until
