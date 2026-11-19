@@ -3548,10 +3548,15 @@
     "reason": "water parameters guide"
   },
   "N1bg013jXHQ": {
-    "at": "2026-11-07",
+    "at": "2026-11-19",
     "title": "Emerald Dwarf Rasbora",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Danio erythromicron",
+    "page": "species/danio-erythromicron",
+    "done": "low",
+    "score": 0.72,
+    "reason": "[behaviour] \"Loài này hiền\" is already on the page (\"Tính cách: hiền\"), so it repeats existing content.; [reproduction] \"mỗi lứa thường chưa tới 25 trứng\" contradicts the page's \"khoảng 30 trứng\". NEW never says it differs from the page."
   },
   "n4A7LqdvMsI": {
     "at": "2026-11-07",
@@ -3562,10 +3567,15 @@
     "reason": "science news"
   },
   "N4pRrMjmgZ8": {
-    "at": "2026-11-07",
+    "at": "2026-11-19",
     "title": "CHRISTMAS MOSS \"Vesicularia montagnei\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Vesicularia montagnei",
+    "page": "plants/vesicularia-montagnei",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[distribution] \"có gốc ở châu Á, cụ thể là đảo Sunda\" contradicts the page, which says Nam Mỹ and Brazil. NEW never says the video differs from the page.; [distribution] \"Theo một người nuôi loài này\" puts a geographic fact in a keeper's mouth. The video states it as plain fact, so the attribution is wrong."
   },
   "N6CJqOruoi0": {
     "at": "2026-11-07",
@@ -3700,10 +3710,12 @@
     "kind": "profile"
   },
   "nO7mJbLvt38": {
-    "at": "2026-11-07",
+    "at": "2026-11-19",
     "title": "Quick Dip into The Pygmy Cory Catfish - Corydoras pygmaeus",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "whisper: ValueError: Unsupported language: zxx"
   },
   "nOoLFhQlMpc": {
     "at": "2026-11-07",

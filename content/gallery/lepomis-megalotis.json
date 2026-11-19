@@ -2,18 +2,17 @@
   "id": "lepomis-megalotis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/216990082.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/216990082-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/290423086.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/290423086-480.webp",
       "width": 1024,
       "height": 768,
-      "licence": "CC0",
-      "author": "kcapuzzi",
-      "sourceUrl": "https://www.inaturalist.org/photos/216990082",
-      "caption": "Cá thái dương tai dài đực sặc sỡ trong bể chụp ảnh",
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/290423086",
+      "caption": "Cá thái dương tai dài đực màu sắc rực rỡ trong bể ảnh nhỏ",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/83184351.webp",
@@ -26,64 +25,7 @@
       "caption": "Cá thái dương tai dài bơi trên đáy đá ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/81052395.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/81052395-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "John Abrams",
-      "sourceUrl": "https://www.inaturalist.org/photos/81052395",
-      "caption": "Cá thái dương tai dài bụng cam treo trên dây câu bên suối",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/216989792.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/216989792-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "kcapuzzi",
-      "sourceUrl": "https://www.inaturalist.org/photos/216989792",
-      "caption": "Cận cảnh đầu cá thái dương tai dài với vân xanh ngọc",
-      "best": true,
-      "kind": "detail",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/290423086.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/290423086-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Nick Tobler (Cowturtle)",
-      "sourceUrl": "https://www.inaturalist.org/photos/290423086",
-      "caption": "Cá thái dương tai dài đực màu sắc rực rỡ trong bể ảnh nhỏ",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/283912297.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/283912297-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jensyn Scott",
-      "sourceUrl": "https://www.inaturalist.org/photos/283912297",
-      "caption": "Cá thái dương tai dài màu cam vàng bên bờ nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/141686297.webp",
@@ -98,6 +40,19 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/216989792.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/216989792-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "kcapuzzi",
+      "sourceUrl": "https://www.inaturalist.org/photos/216989792",
+      "caption": "Cận cảnh đầu cá thái dương tai dài với vân xanh ngọc",
+      "best": true,
+      "kind": "detail",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/401713610.webp",

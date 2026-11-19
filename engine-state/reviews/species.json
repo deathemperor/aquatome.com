@@ -254,6 +254,44 @@
       "kept": false
     }
   ],
+  "vi/plants/vesicularia-montagnei#N4pRrMjmgZ8": [
+    {
+      "at": "2026-11-19T23:44:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.45,
+      "notes": [
+        "\"dù rêu này vẫn hay bị coi là khó chăm hơn rêu java\" - the video never says this; it says the moss is super easy and good for beginners. This repeats the page's claim and is not in the video.",
+        "\"Loài rêu này có gốc ở châu Á chứ không phải Nam Mỹ\" - the video says native to Asia, which is a valid difference from the page. But the video also says it comes from Sunda Island in Indonesia and Japan only as other places. The wording \"chứ không phải Nam Mỹ\" is OK but the contrast is not stated in the video.",
+        "\"Một người nuôi loài này lâu năm thấy nó rất dễ giữ, dễ nhân và hợp cho người mới\" - the video's ease claims are stated as fact, not as one keeper's experience. Mixing it with the 'khó chăm hơn' contradiction muddles the point.",
+        "\"Rêu lên đẹp nhất khi ngập hẳn trong nước\" - fine, but the page does not say the video differs on growth; the growth-speed point (\"không nhanh\") is already on the page (growth medium, lên chậm hơn), so it adds nothing new.",
+        "\"có phân và CO2 thì nó khỏe hơn\" - the video says CO2 or fertilizer \"can help it thrive\"; the page already lists CO2 optional, so this is a repeat of card data.",
+        "\"buộc lên lũa, đá\" / \"gắn bằng keo\" - the text is fine, but \"Rêu bám vào bề mặt bằng rễ giả\" is a loose reading of the garbled transcript (\"resolates\"); it is probably right but not clearly said.",
+        "\"Một người nuôi loài này lâu năm thấy đèn mạnh quá dễ làm rêu hại mọc lên đám rêu\" - the phrase \"mọc lên đám rêu\" reads awkwardly, like a translation.",
+        "The video says the moss has no need for CO2; the NEW text does not note that the page's \"Nhu cầu ánh sáng: trung bình\" differs from the video's advice to avoid too much light, and does not flag that the page's 1–3 cm height or its Brazil origin conflict with the video."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T23:44:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.6,
+      "notes": [
+        "[distribution] \"có gốc ở châu Á, cụ thể là đảo Sunda\" contradicts the page, which says Nam Mỹ and Brazil. NEW never says the video differs from the page.",
+        "[distribution] \"Theo một người nuôi loài này\" puts a geographic fact in a keeper's mouth. The video states it as plain fact, so the attribution is wrong.",
+        "[notes] \"rất dễ giữ... hợp cho người mới\" conflicts with the page, which says it is harder than java moss. NEW does not flag this difference.",
+        "[notes] \"Rêu không lên nhanh\" repeats the page, which already says it grows slowly (\"lên chậm hơn\"). The page also lists a medium growth rate, which conflicts with this and is not flagged.",
+        "[maintenance] \"keo 502 dạng gel\" adds a brand-style term. The video only says gel super glue, and 502 is normally a liquid.",
+        "[maintenance] \"Đừng để đèn quá mạnh\" is stated as a rule, but in the video it is one keeper's experience (\"from my experience\")."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/acarichthys-heckelii#Cg5gUTFbSyA": [
     {
       "at": "2026-11-13T19:07:24Z",
@@ -821,6 +859,45 @@
         "[diet] 'cho gì cũng ăn' and 'ăn được nhiều thứ nên lớn nhanh' conflicts with the page's advice to avoid protein-rich food and its wild aufwuchs diet; the video differs from the page here and NEW doesn't say so.",
         "[behaviour] 'tính nó hiền hơn hẳn' and the peaceful claim contradict nothing, but the page says small groups can be bullied and to keep 6+; NEW doesn't note differences.",
         "[notes] Comparison with rainbow shark/red tail shark in notes and again in behaviour is duplicated."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/danio-erythromicron#N1bg013jXHQ": [
+    {
+      "at": "2026-11-19T23:43:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.72,
+      "notes": [
+        "[behaviour] \"Loài này hiền\" is already on the page (\"Tính cách: hiền\"), so it repeats existing content.",
+        "[reproduction] \"mỗi lứa thường chưa tới 25 trứng\" contradicts the page's \"khoảng 30 trứng\". NEW never says it differs from the page.",
+        "[notes] \"dài khoảng 2,5 cm\" differs from the page's 20 mm / 2 cm. NEW doesn't say it differs, and it is just a size statement.",
+        "[maintenance] \"cây lá kim mảnh như lông chim\" is a literal rendering of \"Federpflanzen\" (feathery plants). Hobbyists would not call them \"lá kim\", so it reads as a translation.",
+        "[diet] \"có con dần thích riêng một vài loại\" is slightly off. The video says the fish can develop preferences for certain foods, not that some individuals do.",
+        "[behaviour] \"tản ra từng con\" partly conflicts with the page's loose shoaling. NEW doesn't flag the difference.",
+        "[aquariumSize] The remark \"Con số này nhỏ hơn cỡ bể thường khuyên\" is fine, but \"thấy bể từ 30 lít... đã đủ\" mixes the keeper's own tank (30–60 L) with the video's general claim."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T23:43:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.55,
+      "notes": [
+        "aquariumSize: '30 lít trở lên là đủ' contradicts the page (minimum 60×30 cm, ~54 L) and the text doesn't say plainly that the video differs",
+        "maintenance: 'Một người nuôi lâu năm' – the video never says the keeper has kept them for many years; it only says 'in my nano tank'",
+        "behaviour: '10 con sống ổn' differs from the page's advice of 20+ fish, but the difference isn't pointed out",
+        "reproduction: 'dưới 25 trứng' conflicts with the page's ~30 eggs per spawn, and the difference isn't stated; the one-keeper framing is also inconsistent with the other lines",
+        "habitat: 'hồ Indawgyi' is an inference from the transcript's 'Indar-See', not stated in the video",
+        "habitat: '30 loài đặc hữu khác' differs from the page's 'chín loài cá' and the difference isn't flagged",
+        "diet: 'Cám hạt loại tốt thì chúng ăn ngon lành' largely repeats what the page already says about dry food",
+        "behaviour/reproduction: several statements are given as general rules, where the video gives one keeper's experience"
       ],
       "attempt": "first",
       "kept": false
