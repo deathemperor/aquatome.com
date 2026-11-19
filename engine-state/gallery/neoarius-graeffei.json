@@ -51,7 +51,9 @@
   "inat:740787571",
   "inat:740904698",
   "File:Neoarius graeffei.jpg",
-  "File:Neoarius graeffei 22674828.jpg"
+  "File:Neoarius graeffei 22674828.jpg",
+  "gbif:1456452557:bcf0f6ad351b379e",
+  "gbif:1456452557:e4d7552ba7ccd5f9"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/f14547d82bd6a345.webp": "e2e32561c1869604",
@@ -74,5 +76,9 @@
    "agree": 253814359
   }
  },
- "commons": "2026-11-18"
+ "commons": "2026-11-18",
+ "gbif": {
+  "key": 2345449,
+  "next": null
+ }
 }
