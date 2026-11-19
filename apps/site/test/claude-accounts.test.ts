@@ -89,7 +89,9 @@ test('on GitHub, where the log is public, an account set aside is named by its n
   tokens('tok-weekly\ntok-bad\ntok-ok')
   process.env.GITHUB_ACTIONS = 'true'
   expect(await ask()).toEqual({ findings: ['ok'] })
-  expect(logs).toEqual(['claude: token 1 set aside: usage limit', 'claude: token 2 set aside: credential rejected'])
+  expect(logs.filter(l => l.startsWith('claude: token'))).toEqual(['claude: token 1 set aside: usage limit', 'claude: token 2 set aside: credential rejected'])
+  // Beside each failed try, a line of ours: the kind, the model, the step, the try and the exit code (claude-limit.ts).
+  expect(logs.filter(l => l.startsWith('claude: a call failed'))).toEqual(['claude: a call failed: usage limit; model default; step none; try 1; exit 1', 'claude: a call failed: credential rejected; model default; step none; try 2; exit 1'])
 })
 
 test("on GitHub a review's failed call says its kind in our words, none of the CLI's, and a limit is still a skip (the chief of staff, 19 Nov)", async () => {
@@ -101,7 +103,9 @@ test("on GitHub a review's failed call says its kind in our words, none of the C
   resetAccounts()
   const limit: Error = await ask().catch(e => e)
   expect(usageLimit(limit.message)).toBe('Claude usage limit')
-  expect(logs).toEqual(['claude: token 1 set aside: usage limit'])
+  expect(logs.filter(l => l.startsWith('claude: token'))).toEqual(['claude: token 1 set aside: usage limit'])
+  // "other": the hash of the tool's sentence, so the same unknown error is seen to repeat; none of its words.
+  expect(logs[0]).toMatch(/^claude: a call failed: other; model default; step none; try 1; exit 1; sentence [0-9a-f]{8}$/)
 })
 
 // The cloud's list begins with the Mac's two sign-ins; the chief of staff (2026-11-12): the cloud starts on its third.

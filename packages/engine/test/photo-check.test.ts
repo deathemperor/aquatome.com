@@ -1011,7 +1011,7 @@ test("a model failure's kind is a word of ours, with a status number and an erro
   expect(modelFailureKind(new Error(`claude failed (1): API Error: 500 {"type":"error","error":{"type":"api_error","message":"${words}"}}`))).toBe('server error (500)')
   expect(modelFailureKind(new Error(`claude failed (1): API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"${words}"}}`))).toBe('other (400 invalid_request_error)')
   expect(modelFailureKind(new Error('spawn claude ENOENT'))).toBe('other (ENOENT)')
-  expect(modelFailureKind(new Error('fetch failed: ECONNRESET'))).toBe('network (fetch failed)') // the code too: errorKind reads it (call-failure.ts)
+  expect(modelFailureKind(new Error('fetch failed: ECONNRESET'))).toBe('network (ECONNRESET)') // the code too: errorKind reads it (call-failure.ts)
   expect(modelFailureKind(new Error(`claude failed (1): ${words}`))).toBe('other')
   // A name is kept only from the error's own type field, and only one the API has: never a word from the text.
   expect(modelFailureKind(new Error(`claude failed (1): the sampletown_words_error came up`))).toBe('other')

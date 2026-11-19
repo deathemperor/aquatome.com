@@ -126,7 +126,12 @@ test('on GitHub, where the log and the run summary are public, an account is nam
   process.env.GITHUB_ACTIONS = 'true'
   await call()
   expect(accountReport()).toEqual([`token 1: 0 answered; set aside: usage limit until ${UNTIL}`, 'token 2: 0 answered; set aside: credential rejected', 'token 3: 1 answered'])
-  expect(logs).toEqual([`claude: token 1 set aside: usage limit until ${UNTIL}`, 'claude: token 2 set aside: credential rejected'])
+  expect(logs.filter(l => l.startsWith('claude: token'))).toEqual([`claude: token 1 set aside: usage limit until ${UNTIL}`, 'claude: token 2 set aside: credential rejected'])
+  // Beside each failed try, a line of ours: the kind, the model, the step, the try and the exit code (call-failure.ts).
+  expect(logs.filter(l => l.startsWith('claude: a call failed'))).toEqual([
+    expect.stringMatching(new RegExp(`^claude: a call failed: usage limit until ${UNTIL!.replace(/\./g, '\\.')}; model \\S+; step \\S+; try 1; exit 1$`)),
+    expect.stringMatching(/^claude: a call failed: credential refused; model \S+; step \S+; try 2; exit 1$/),
+  ])
   expect(rejectedTokens()).toBe('token 2 in CLAUDE_CODE_OAUTH_TOKENS')
   delete process.env.GITHUB_ACTIONS
   expect(accountReport()[2]).toBe(`token 3 (${h('tok-ok')}): 1 answered`)

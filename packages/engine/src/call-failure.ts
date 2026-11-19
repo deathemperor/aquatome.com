@@ -1,13 +1,27 @@
+import { createHash } from 'node:crypto'
 import { AUTH, resetOf } from './claude-accounts'
 import { errorKind } from './state'
 
 /** The API's own error types, the only class names a kind keeps. */
 export const API_ERRORS = ['invalid_request_error', 'authentication_error', 'billing_error', 'permission_error', 'not_found_error', 'request_too_large', 'rate_limit_error', 'timeout_error', 'api_error', 'overloaded_error'] as const
-/** The CLI's names for a run it ended short (its result's `subtype`), and ours. */
-const SUBTYPES: Record<string, string> = { error_max_structured_output_retries: 'answer failed its schema', error_max_turns: 'stopped at its turn limit', error_max_budget_usd: 'stopped at its budget' }
-const NETWORK = /\b(ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE|ETIMEDOUT)\b|(socket hang up|fetch failed)/
-/** Every kind below, as a failed call's message ends with it: one already in our words is read back as it is. */
-const KIND = /^(?:usage limit(?: until \d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z)?|credential rejected|prompt too long|refused by the model's safeguards|answer failed its schema|answer not JSON|no answer|stopped at its (?:turn limit|budget)|timed out|overloaded|network \([a-zA-Z ]+\)|server error(?: \(\d{3}\))?|other(?: \([\w ]+\))?)$/
+/** The CLI's names for a run it ended short (its result's `subtype`), and ours: none says "limit", which stops a step. */
+const SUBTYPES: Record<string, string> = { error_max_structured_output_retries: 'answer failed its schema', error_max_turns: 'stopped: out of turns', error_max_budget_usd: 'stopped: out of budget' }
+/** A network failure, by the fixed word each is known by: the ones errorKind reads as passing (state.ts NETWORK). */
+const NETWORK: [RegExp, (m: RegExpExecArray) => string][] = [
+  [/\b(ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE|ETIMEDOUT)\b/, m => m[1]!],
+  [/socket hang up/, () => 'socket hang up'],
+  [/fetch failed/, () => 'fetch failed'],
+  [/\bHTTP (408|429|5\d\d)\b/i, m => `HTTP ${m[1]}`],
+  [/net::ERR_/, () => 'net::ERR_'],
+  [/Timeout \d+ ?ms exceeded|Navigation timeout/i, () => 'Navigation timeout'],
+]
+const NET_WORDS = 'ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE|ETIMEDOUT|socket hang up|fetch failed|HTTP (?:408|429|5\\d\\d)|net::ERR_|Navigation timeout'
+const TYPES = API_ERRORS.join('|')
+/**
+ * Every kind below, from fixed words and numbers only: a failed call's message that ends in one is ours already and is
+ * read back as it is. A CLI message that happens to read the same says nothing of its own.
+ */
+const KIND = new RegExp(`^(?:(?:usage limit|limit reached)(?: until \\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d\\.\\d{3}Z)?|credential refused|quota exceeded|answer cut off|image refused|prompt too long|refused by the model's safeguards|answer failed its schema|answer not JSON|no answer|stopped: out of (?:turns|budget)|timed out|overloaded|network \\((?:${NET_WORDS})\\)|server error(?: \\([1-5]\\d\\d\\))?|other(?: \\((?:killed|[1-5]\\d\\d(?: (?:${TYPES}))?|${TYPES}|ENOENT|EACCES|EPERM|EMFILE)\\))?)$`)
 
 /**
  * What a failed model call was, in the engine's own words, decided by code from what the CLI said (and the subtype of its
@@ -15,30 +29,43 @@ const KIND = /^(?:usage limit(?: until \d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z)?|
  * says (claude.ts); on the Mac the CLI's own text stays. The photo check keeps the same kinds for each try
  * (modelFailureKind).
  *
- * Each kind keeps what the code that reads a failure looks for: "usage limit" (errorKind, the accounts, the steps that stop
- * on a limit) and, after "until", when it lifts as a UTC time (resetOf); "credential rejected" (the accounts, the cycle's
- * check); the status number and the API's error type, only one of API_ERRORS; a network failure's code (errorKind).
+ * The code that reads a failure reads ours as it reads the CLI's (call-failure.test.ts holds each reader to it): errorKind's
+ * limit ("usage limit", or "limit reached" for another, as a rate limit) and its passing network failures (the word each is known by);
+ * the accounts' reset, as a UTC time after "until", and a rejected credential ("credential refused", which the gate's stop
+ * on a limit or a rejection doesn't read, as it doesn't the CLI's words for it); the photo steps' stop on a limit or a quota
+ * ("quota exceeded"). No other kind says "limit", "rejected" or "quota".
  */
-export function failureKind(message: string, subtype?: unknown): string {
+export function failureKind(message: string, result?: { subtype?: unknown; stop_reason?: unknown }): string {
   if (/^claude timed out after \d+ s$/.test(message)) return 'timed out'
   if (/^claude (?:failed|returned non-JSON) \(null\)/.test(message)) return 'other (killed)'
   const ours = /^claude (?:failed|returned non-JSON) \([^)]*\): (.*)$/s.exec(message)?.[1]
   if (ours && KIND.test(ours)) return ours
+  // Output that wasn't JSON: what the code reads off it, a rejected credential (the accounts), a limit or a quota (the
+  // gate's and the photo steps' stop); else whether there was any.
+  const text = /^claude returned non-JSON \([^)]*\): (.*)$/s.exec(message)?.[1]
+  if (text !== undefined) return AUTH.test(text) ? 'credential refused' : /usage limit|weekly limit/i.test(text) ? 'usage limit' : /quota/i.test(text) ? 'quota exceeded' : /limit/i.test(text) ? 'limit reached' : text.trim() ? 'answer not JSON' : 'no answer'
   if (errorKind(message) === 'usage') {
     const at = resetOf(message)
-    return `usage limit${at ? ` until ${at}` : ''}`
+    return `${/usage limit|quota|weekly limit/i.test(message) ? 'usage limit' : 'limit reached'}${at ? ` until ${at}` : ''}`
   }
-  if (AUTH.test(message)) return 'credential rejected'
-  if (typeof subtype === 'string' && SUBTYPES[subtype]) return SUBTYPES[subtype]
-  if (/prompt is too long|prompt too long|input is too long|context (?:length|window)|too many (?:input )?tokens/i.test(message)) return 'prompt too long'
-  if (/safeguards|usage polic(?:y|ies)|content (?:filter|policy)/i.test(message)) return "refused by the model's safeguards"
-  if (/json[ _-]?schema|structured output|schema validation/i.test(message)) return 'answer failed its schema'
+  if (AUTH.test(message)) return 'credential refused'
+  if (/quota/i.test(message)) return 'quota exceeded'
+  if (typeof result?.subtype === 'string' && SUBTYPES[result.subtype]) return SUBTYPES[result.subtype]
+  // The answer stopped at the most it may write (the Site lead, 19 Nov): not the same fix as an answer that isn't JSON.
+  if (result?.stop_reason === 'max_tokens' || /output token maximum|stop_reason"?\s*[:=]\s*"?max_tokens|(?:response|answer|output) (?:was )?(?:cut off|truncated)/i.test(message)) return 'answer cut off'
+  // The API couldn't read or fetch an image it was given (the Site lead, 19 Nov).
+  if (/(?:could not|cannot|can't|unable to|failed to) (?:process|download|fetch|read|decode|load) (?:the |this |an )?(?:image|photo)|\bimage\b[^."]{0,60}\b(?:exceeds|too large|does not match|not supported|unsupported|is invalid|corrupt)/i.test(message)) return 'image refused'
+  if (/prompt is too long|input is too long|exceeds? (?:the )?(?:model'?s? )?(?:maximum )?context (?:window|length)|context (?:window|length) exceeded|too many (?:input )?tokens/i.test(message)) return 'prompt too long'
+  if (/safeguards flagged|flagged (?:this|the|your) (?:message|request|content)|violat\w* (?:our |the )?usage polic/i.test(message)) return "refused by the model's safeguards"
+  if (/(?:did not|does not|doesn't|failed to) (?:match|conform to|satisfy) (?:the |its )?(?:json )?(?:output )?schema/i.test(message)) return 'answer failed its schema'
   const status = /\bAPI Error:?\s*([1-5]\d\d)\b/.exec(message)?.[1]
   const type = /"error"\s*:\s*\{\s*"type"\s*:\s*"([a-z_]+)"/.exec(message)?.[1]
   const cls = (API_ERRORS as readonly string[]).includes(type ?? '') ? type : undefined
   if (cls === 'overloaded_error' || status === '529') return 'overloaded'
-  const net = NETWORK.exec(message)
-  if (net) return `network (${net[1] ?? net[2]})`
+  for (const [re, word] of NETWORK) {
+    const m = re.exec(message)
+    if (m) return `network (${word(m)})`
+  }
   if (status?.startsWith('5') || cls === 'api_error') return `server error${status ? ` (${status})` : ''}`
   const errno = /\b(ENOENT|EACCES|EPERM|EMFILE)\b/.exec(message)?.[1]
   const told = [status, cls ?? errno].filter(Boolean)
@@ -49,9 +76,38 @@ export function failureKind(message: string, subtype?: unknown): string {
  * A failed call's message: on GitHub the kind in our words after the CLI's exit code, on the Mac the CLI's text as before.
  * `head` is "claude failed (<code>)" or "claude returned non-JSON (<code>)".
  */
-export function failureMessage(head: string, text: string, subtype?: unknown): string {
+export function failureMessage(head: string, text: string, result?: { subtype?: unknown; stop_reason?: unknown }): string {
   const raw = `${head}: ${text}`
-  if (!process.env.GITHUB_ACTIONS) return raw
-  if (head.startsWith('claude returned non-JSON') && !/\(null\)$/.test(head)) return `${head}: ${text.trim() ? 'answer not JSON' : 'no answer'}`
-  return `${head}: ${failureKind(raw, subtype)}`
+  return process.env.GITHUB_ACTIONS ? `${head}: ${failureKind(raw, result)}` : raw
+}
+
+/**
+ * The tool's sentence as a short hash: the first 8 hex of the SHA-256 of its text with each run of digits as one 9 and
+ * its spaces as one, so the same error with another request id or count gives the same hash, and a line of the Mac's log
+ * through this function gives the one a cloud run printed.
+ */
+export const sentenceHash = (text: string) => createHash('sha256').update(text.replace(/\d+/g, '9').replace(/\s+/g, ' ').trim()).digest('hex').slice(0, 8)
+
+/**
+ * The place in our request that an API refused as malformed (400, invalid_request_error) names, before the colon of its
+ * message, as "messages.0.content.0.source": kept only if it is letters, digits, dots and underscores, 80 at most, else
+ * nothing (the chief of staff, 19 Nov). It describes our request, not the account.
+ */
+export function refusedAt(text: string): string | undefined {
+  if (!/\bAPI Error:?\s*400\b/.test(text) || !/"type"\s*:\s*"invalid_request_error"/.test(text)) return undefined
+  const place = /"message"\s*:\s*"([^":]*):/.exec(text)?.[1]
+  return place && /^[A-Za-z0-9_.]{1,80}$/.test(place) ? place : undefined
+}
+
+/**
+ * Beside a failed call on GitHub, a line of ours for whoever debugs a cloud run (the Site lead, 19 Nov): the kind, the
+ * model asked for, the step, the page or guide the call was for (a step that works in pieces), the try (each account
+ * tried is one), the tool's exit code or the signal that stopped it, for "other" the hash of the tool's sentence, and for
+ * a request refused as malformed the place it names. Nothing copied from the tool's text but that place, as refusedAt
+ * keeps it. The tool's sentence itself is kept nowhere for a cloud run: a failure needed in full is run again on the Mac.
+ */
+export function failureDetail(o: { message: string; text?: string; result?: { subtype?: unknown; stop_reason?: unknown }; model: string; step: string; page?: string; attempt: number; code: number | null; signal: string | null }): string {
+  const kind = failureKind(o.message, o.result)
+  const at = o.text ? refusedAt(o.text) : undefined
+  return [`claude: a call failed: ${kind}`, `model ${o.model}`, `step ${o.step}`, ...(o.page ? [`page ${o.page}`] : []), `try ${o.attempt}`, o.signal ? `signal ${o.signal}` : `exit ${o.code}`, ...(kind.startsWith('other') && o.text?.trim() ? [`sentence ${sentenceHash(o.text)}`] : []), ...(at ? [`at ${at}`] : [])].join('; ')
 }

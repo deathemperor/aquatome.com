@@ -36,8 +36,8 @@ export const tokenHash = (token: string) => createHash('sha256').update(token).d
 
 /** Why an account was set aside: its usage limit (and when it lifts, as a UTC time), or its token rejected. */
 export type Out = { why: 'usage' | 'auth'; reset?: string }
-/** A credential Claude rejected: the CLI's words, or ours (call-failure.ts, and every account's below). */
-export const AUTH = /Failed to authenticate|Invalid bearer token|\bcredential rejected\b/i
+/** A credential Claude rejected: the CLI's words, or ours (one call's, call-failure.ts; every account's, below). */
+export const AUTH = /Failed to authenticate|Invalid bearer token|\bcredential (?:rejected|refused)\b/i
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 /** A moment's date and time on the clocks of a time zone. */
@@ -59,8 +59,8 @@ function inZone(y: number, mo: number, d: number, h: number, mi: number, zone: s
  */
 export function resetOf(message: string, now = Date.now()): string | undefined {
   // A failure already in our words (call-failure.ts) says it as a UTC time after "until".
-  const ours = /\busage limit until (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z)\b/.exec(message)?.[1]
-  if (ours) return ours
+  const ours = /\b(?:usage limit|limit reached) until (\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z)/.exec(message)?.[1]
+  if (ours && !Number.isNaN(Date.parse(ours))) return new Date(ours).toISOString()
   const epoch = /limit reached\|(\d{10})\b/i.exec(message)?.[1]
   if (epoch) return new Date(Number(epoch) * 1000).toISOString()
   const m = /\bresets\s+(?:([a-z]{3})[a-z]*\.?\s+(\d{1,2}),?\s+(?:at\s+)?)?(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*\(([\w+\-/]+)\)/i.exec(message)
