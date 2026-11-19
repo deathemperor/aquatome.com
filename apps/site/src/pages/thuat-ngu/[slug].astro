@@ -6,7 +6,7 @@ import JumpChips from '../../components/JumpChips.astro'
 import { getContent } from '../../lib/content'
 import { glossaryTitle } from '../../lib/meta'
 import { sciBeside } from '../../lib/sci'
-import { i18n, isVietnamese, langOf } from '../../lib/i18n'
+import { i18n, isVietnameseTitle, langOf } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
 import { figureHtml } from '../../lib/figures'
 import { creditsFor } from '../../lib/credits'
@@ -148,11 +148,11 @@ const REFS_SHOWN = 5
   {p.refs.length > 0 && (
     <section class="refs" id="nguon" aria-labelledby="ref-h" data-pagefind-ignore>
       <h2 id="ref-h">{t('Nguồn tham khảo')}</h2>
-      <ol>{p.refs.slice(0, REFS_SHOWN).map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" data-ev="src" lang={isVietnamese(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnamese(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
+      <ol>{p.refs.slice(0, REFS_SHOWN).map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" data-ev="src" lang={isVietnameseTitle(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnameseTitle(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
       {p.refs.length > REFS_SHOWN && (
         <details>
           <summary>{t('Xem cả {n} nguồn', { n: num(p.refs.length) })}</summary>
-          <ol start={REFS_SHOWN + 1}>{p.refs.slice(REFS_SHOWN).map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" data-ev="src" lang={isVietnamese(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnamese(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
+          <ol start={REFS_SHOWN + 1}>{p.refs.slice(REFS_SHOWN).map(r => <li><a href={r.url} rel="nofollow noopener" target="_blank" data-ev="src" lang={isVietnameseTitle(r.title) ? 'vi' : undefined}>{r.title}</a>{lang !== 'vi' && isVietnameseTitle(r.title) && <> ({t('tiếng Việt')})</>}</li>)}</ol>
         </details>
       )}
     </section>

@@ -8,7 +8,7 @@ import { figureHtml } from '../lib/figures'
 import { DISPLAY_ORDER, QUESTION_LABELS } from '../lib/sections'
 import { OFF_LABELS, sectionParts, type SectionProps } from '../lib/section-parts'
 import { fmt, isRange } from '../lib/format'
-import { i18n, isVietnamese } from '../lib/i18n'
+import { i18n, isVietnameseTitle } from '../lib/i18n'
 /** `card`: a species' data card. Its figures are the page's own: a quick-facts list drops what the card already gives, and a
  * block whose figure is far from the card's gives the card's after itself (@aq/schema card-facts, lib/section-parts.ts). The text is
  * put together in lib/section-parts.ts, which the app's copy of the page reads too.
@@ -65,7 +65,7 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
     <section class="refs" id="nguon" data-pagefind-ignore>
       <details>
         <summary><h2 id="nguon-h">{tr('Nguồn')}</h2> <span class="n">{biblio ? tr('{n} nguồn và tài liệu tham khảo', { n: refs.length }) : tr('{n} nguồn', { n: refs.length })}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
-        <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener" data-ev="src" lang={isVietnamese(r.name) ? 'vi' : undefined}>{r.name}</a>{lang !== 'vi' && isVietnamese(r.name) && <> ({tr('tiếng Việt')})</>} <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
+        <ol>{refs.map((r, i) => <li id={`nguon-${i + 1}`}><a href={r.url} rel="noopener" data-ev="src" lang={isVietnameseTitle(r.name) ? 'vi' : undefined}>{r.name}</a>{lang !== 'vi' && isVietnameseTitle(r.name) && <> ({tr('tiếng Việt')})</>} <span class="host">{new URL(r.url).hostname.replace(/^www\./, '')}</span></li>)}</ol>
         <p class="note">{note}</p>
         {biblio && (
           <section class="biblio" data-section="references" id="muc-references">

@@ -3,6 +3,7 @@ import id from '../i18n/id.json' with { type: 'json' }
 import th from '../i18n/th.json' with { type: 'json' }
 import ms from '../i18n/ms.json' with { type: 'json' }
 import { withoutVi } from '../../worker/paths.ts'
+import { isVietnamese as viLetters } from '@aq/schema/text'
 
 /**
  * Site languages. Pages are written once, in Vietnamese, with the UI text wrapped in t(): Vietnamese pages are at the
@@ -192,6 +193,15 @@ export function switchTo(lang: Lang, viPath: string, here: string | undefined, h
 
 /** Text written in Vietnamese (letters only Vietnamese uses): a cited page's title, marked as such on the other languages' pages. */
 export { isVietnamese } from '@aq/schema/text'
+/**
+ * A source's title or name written in Vietnamese, not one that only names a Vietnamese place or fish: a letter only
+ * Vietnamese uses, and at least two in five of its words marked. "Sóc Trăng farmers reap bumper crop of brine shrimp
+ * eggs" is English (the reader's find on #1681): a page in another language says nothing of it.
+ */
+export const isVietnameseTitle = (s: string) => {
+  const words = s.split(/[^\p{L}]+/u).filter(Boolean)
+  return viLetters(s) && words.filter(w => /[^\x00-\x7f]/.test(w) || /^(cá|tép)$/i.test(w)).length * 5 >= words.length * 2
+}
 
 /** A photo's licence as shown: its name (CC BY…), none for a photo a source let us use (stored as its permission note). */
 export const licenceLabel = (licence: string) => (licence === 'dùng với sự cho phép' ? '' : licence)

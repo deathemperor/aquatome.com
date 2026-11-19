@@ -19,7 +19,7 @@ import { galleryNote } from './gallery'
 import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
-import { appLinks, appPath, isVietnamese, served, translator, type Lang, type T } from './i18n'
+import { appLinks, appPath, isVietnamese, isVietnameseTitle, served, translator, type Lang, type T } from './i18n'
 import { resizeOf, smallSrc } from './img'
 import { guideImage } from './mentions'
 import { htmlBlocks } from './page-blocks'
@@ -123,7 +123,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
   if (wild && wildAt === groups.length) wildBlocks(wild)
   if (refs.length) {
     blocks.push({
-      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: lang !== 'vi' && isVietnamese(r.name) ? `${r.name} (${t('tiếng Việt')})` : r.name, url: r.url })), note,
+      t: 'refs', title: t('Nguồn'), id: 'nguon', items: refs.map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.name) ? `${r.name} (${t('tiếng Việt')})` : r.name, url: r.url })), note,
     })
   }
   return { blocks, unknown: [...unknown].sort() }
@@ -301,7 +301,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
       ...(b.t.faq?.length ? [{ t: 'faq' as const, title: t('Hỏi đáp'), items: b.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
       ...pagesBlock(lang, listed, t('Bài viết nhắc đến'), p.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
       ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), p.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),
-      ...(b.sources.length ? [{ t: 'refs' as const, title: t('Nguồn'), items: b.sources.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
+      ...(b.sources.length ? [{ t: 'refs' as const, title: t('Nguồn'), items: b.sources.map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
     ],
   }
 }
@@ -364,7 +364,7 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),
       // The rest are reached by the page's search link, which the web page shows: the app offers to open it there.
       ...(used.length && p.more ? [{ t: 'web' as const }] : []),
-      ...(p.refs.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
+      ...(p.refs.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
     ],
   }
 }
@@ -523,7 +523,7 @@ export function guideDoc(lang: Lang, c: Content, g: Localized<GuideEntity>, list
       ...(g.t.faq?.length ? [{ t: 'faq' as const, title: t('Câu hỏi thường gặp'), items: g.t.faq.map(f => ({ q: f.q, a: f.a })) }] : []),
       ...(v || p.refs?.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: [
         ...(v ? [{ title: `${t('Video gốc:')} ${v.title}${t(', kênh')} ${v.channel} · ${clock(v.durationSec)}`, url: watchUrl(v.youtubeId) }] : []),
-        ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
+        ...(p.refs ?? []).map(r => ({ title: lang !== 'vi' && isVietnameseTitle(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })),
       ] }] : []),
       // "Phần tiếp theo" over a series' next parts, as the page has it; the app's list keeps to guides with a picture
       // (guideParts), so where it drops the next parts, the guides it has instead are "Bài tiếp theo" (Fable's read).
