@@ -47,7 +47,7 @@ struct MasterSheet: View {
           ForEach([60, 120, nil] as [Int?], id: \.self) { m in
             Button { draft.minutes = m } label: {
               HStack {
-                Text(verbatim: m.map { String(localized: "Sau \($0 / 60) giờ") } ?? String(localized: "Khi tôi bấm Kết thúc")).foregroundStyle(.primary)
+                Text(verbatim: m.map { String(localized: "Sau \($0 / 60) giờ") } ?? String(localized: "Khi tôi bấm Kết thúc")).foregroundStyle(Color.primary)
                 Spacer()
                 if draft.minutes == m { Image(systemName: "checkmark").foregroundStyle(Color.accentColor).accessibilityHidden(true) }
               }
@@ -153,7 +153,7 @@ private struct StepChoice: View {
             row(String(localized: "Bật"), chosen: s.on && s.colour == nil) { set(on: true, colour: nil) }
             row(String(localized: "Tắt"), chosen: !s.on) { set(on: false, colour: nil) }
           } else {
-            // CO2 off only (MasterButton.allows): on comes after the owner's test of a plug's countdown.
+            // CO2 off only (MasterButton.allows): on comes with the CO2-on work, a plug's countdown switching it off.
             if MasterButton.allows(DeviceCommand(device: s.device, outlet: s.outlet, on: true), role: master.role(s)) {
               row(String(localized: "Bật"), chosen: s.on) { set(on: true, colour: nil) }
             }
@@ -197,8 +197,8 @@ private struct StepChoice: View {
   private func row(_ title: String, swatch: Color? = nil, chosen: Bool, _ pick: @escaping () -> Void) -> some View {
     Button(action: pick) {
       HStack(spacing: 12) {
-        if let swatch { Circle().fill(swatch).frame(width: 22, height: 22).overlay { Circle().strokeBorder(.primary.opacity(0.3)) } }
-        Text(verbatim: title).foregroundStyle(.primary)
+        if let swatch { Circle().fill(swatch).frame(width: 22, height: 22).overlay { Circle().strokeBorder(Color.primary.opacity(0.3)) } }
+        Text(verbatim: title).foregroundStyle(Color.primary)
         Spacer()
         if chosen { Image(systemName: "checkmark").foregroundStyle(Color.accentColor).accessibilityHidden(true) }
       }
@@ -224,7 +224,7 @@ private struct AddDevice: View {
       if lampFree {
         Section("Đèn") {
           Button { addLamp() } label: {
-            HStack(spacing: 12) { DeviceSquare(lamp: true); Text("Đèn Love Ecology").foregroundStyle(.primary) }
+            HStack(spacing: 12) { DeviceSquare(lamp: true); Text("Đèn Love Ecology").foregroundStyle(Color.primary) }
           }
           .accessibilityIdentifier("master-add-lamp")
         }
@@ -236,8 +236,8 @@ private struct AddDevice: View {
             HStack(spacing: 12) {
               DeviceSquare(lamp: false)
               VStack(alignment: .leading, spacing: 2) {
-                Text(verbatim: o.name).foregroundStyle(.primary)
-                Text(verbatim: o.place).font(.subheadline).foregroundStyle(.secondary)
+                Text(verbatim: o.name).foregroundStyle(Color.primary)
+                Text(verbatim: o.place).font(.subheadline).foregroundStyle(Color.secondary)
               }
             }
           }
@@ -291,12 +291,9 @@ extension MasterModel {
   /// offered at all.)
   static let asksAgain: Set = ["filter", "air"]
 
-  /// The outlet's role as the button goes by it: a heater or CO2 when any record of the same strip marks it so, whichever
-  /// record the step was made from (TankStore.strictestRole, the chief, 18 Nov); else its record's own.
-  func role(_ c: DeviceCommand) -> String? {
-    guard let code = c.outlet else { return nil }
-    return switcher.tanks.store.strictestRole(device: c.device, outlet: code)
-  }
+  /// The outlet's role as the button goes by it, as it is now: a heater or CO2 when any record of the same strip marks it
+  /// so, whichever record the step was made from (Switcher.role, through TankStore.strictestRole: the chief, 18 Nov).
+  func role(_ c: DeviceCommand) -> String? { switcher.role(c) }
 
   static func secondAsk(_ role: String?) -> (title: String, why: String, yes: String) {
     switch role {

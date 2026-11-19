@@ -119,15 +119,18 @@ synced.
   left as it is, and the card says so. CO2 is never switched on by the phone at the end: its schedule may mean it off by
   then, and CO2 with the lights out can kill fish; the card says to turn it on by hand if wanted. That holds by the
   outlet's role when the button was pressed, and an outlet made a heater during the run is left as it is too.
-- **No countdown is written to a plug by the button** (the chief, 15 Nov). A Tuya countdown switches the outlet the
-  other way at 0 whatever it is then, and some plugs' only switch off. First the owner tries one, both ways, on an outlet
-  they pick that is on (never CO2 or a heater), with the app open: an owner-only row on the card switches it off with a
-  one-minute countdown (does it come back on at 0?), then on with another (does it switch off at 0, the way CO2 will
-  need?), then leaves it on as it was found, and keeps what each did (`PlugSource.countdown`, read back once; the outlet
-  read 10 seconds after each end). It reads the list afresh first, and on every way out (each step done, or one that
-  failed) ends any countdown it may have left and switches the outlet back on if it isn't. It runs only while no
-  press is running or owes anything, and a press waits for it: each would read the other's switching as a hand's. The strips' Smart Life timers, which the app can read, will then rule out an outlet a
-  timer switches before the run ends.
+- **No countdown is written to a plug by the app** (the chief, 15 and 17 Nov). A Tuya countdown switches the outlet the
+  other way at 0 whatever it is then, and some plugs' only switch off. The owner's test of one (a row on the card, in
+  build 390) is gone: a kit check fails if the app's code calls a countdown again. It comes back, rebuilt, with the
+  CO2-on work, if the owner says yes to that. The strips' Smart Life timers, which the app can read, will then rule out
+  an outlet a timer switches before the run ends.
+- **Each command is checked as it leaves** (Codex, 17 Nov): the outlet's role now (CO2 never on, a heater never), and
+  the owner still signed in, in the session that pressed or ended it; right before a plug's command goes (after any wait
+  for Tuya's token, and again if it is sent once more for a stale one) and before each of the lamp's recordings.
+  Signed out and in again, a press doesn't go on. An end due while the owner isn't signed in (or not known yet, as at
+  each launch) waits until they are.
+- **An outlet not read at the end isn't put back**: it stays owed, for Trả lại. How each press left an outlet is kept
+  with what it owes, across launches: a step whose answer was lost counts as read after it, or, not read, as gone.
 - **Turning off a filter or an air pump** asks a second time when the button is set up.
 - Its steps are `DeviceCommand`s (protocols/device-command.schema.json), the shape the chat's commands will take: the
   device record's id, the outlet's code, on, and for the lamp one of its recorded colours. `DeviceCommand.offerable`

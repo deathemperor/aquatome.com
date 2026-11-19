@@ -18,8 +18,10 @@ struct MasterCard: View {
         .sheet(isPresented: $editing) { MasterSheet(button: master.button) }
         #if DEBUG
         .background {
-          // What went out, for the UI tests to read (debug builds only).
+          // What went out, for the UI tests to read (debug builds only): each step, and each of the lamp's recordings.
           Text(verbatim: master.log.joined(separator: " | ")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-log")
+          Text(verbatim: master.switcher.lamp.sent.joined(separator: "+")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-lamp-sent")
+          Text(verbatim: master.switcher.lamp.asked.joined(separator: "+")).font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("master-lamp-asked")
         }
         #endif
     }
@@ -38,10 +40,10 @@ struct MasterCard: View {
         Button { editing = true } label: { Text("Tạo nút tổng").frame(maxWidth: .infinity) }
           .buttonStyle(.bordered).controlSize(.large)
           .accessibilityIdentifier("master-create")
-        // A button deleted while its press still owed something: that stays.
+        // A button deleted while its press still owed something: that stays, and what its end says, as under the button.
         problems
         putBack
-        CountdownTrialRow()
+        endNotes
       }
       .modifier(Panel())
     }
@@ -58,18 +60,11 @@ struct MasterCard: View {
       Text(verbatim: summary).font(.subheadline).foregroundStyle(.secondary).accessibilityIdentifier("master-summary")
       Button { Task { await master.start() } } label: { sendingOr(Text("Bắt đầu"), colour: ink) }
       .buttonStyle(Filled(fill: .accentColor, words: ink, keepsLook: master.sending))
-      .disabled(master.sending || b.steps.isEmpty || master.trial.state != .idle)
+      .disabled(master.sending || b.steps.isEmpty)
       .accessibilityIdentifier("master-start")
       problems
       putBack
-      // What the last end left as it was: nothing failed, so not in the warning's style.
-      if !master.notes.isEmpty {
-        VStack(alignment: .leading, spacing: 4) { ForEach(master.notes, id: \.self) { Text(verbatim: $0) } }
-          .font(.footnote).foregroundStyle(.secondary)
-          .accessibilityElement(children: .combine)
-          .accessibilityIdentifier("master-notes")
-      }
-      CountdownTrialRow()
+      endNotes
     }
     .modifier(Panel())
     // VoiceOver reads it as one ("Ngắm bể, Đèn sáng, CO2 bật, quạt tắt, 2 giờ"), Bắt đầu and Sửa its actions.
@@ -125,6 +120,17 @@ struct MasterCard: View {
       Button { Task { await master.finish(byReader: true) } } label: { Text("Trả lại").frame(maxWidth: .infinity) }
         .buttonStyle(.bordered).controlSize(.large).disabled(master.sending)
         .accessibilityIdentifier("master-put-back")
+    }
+  }
+
+  /// What the last end left as it was, and why: nothing failed, so not in the warning's style. The same rows under the
+  /// button and on the card without one (a button deleted while a put-back was owed, then Trả lại: the chief, 18 Nov).
+  @ViewBuilder private var endNotes: some View {
+    if !master.notes.isEmpty {
+      VStack(alignment: .leading, spacing: 4) { ForEach(master.notes, id: \.self) { Text(verbatim: $0) } }
+        .font(.footnote).foregroundStyle(.secondary)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("master-notes")
     }
   }
 

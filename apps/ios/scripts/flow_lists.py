@@ -224,8 +224,7 @@ REACH = {
     # The Week Aqua screen, which the page shots take too.
     APP + 'Lights/WeekAquaView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light'),
     APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
-    # The master button on Đèn (its card, sheet, run and the owner's countdown test), and the broadcaster it shares with
-    # the Love Ecology light's card.
+    # The master button on Đèn (its card, sheet and run), and the broadcaster it shares with the Love Ecology light's card.
     APP + 'Master/': ['MasterFlowTests', LOVE_ECOLOGY],
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).

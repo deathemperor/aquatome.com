@@ -3367,6 +3367,28 @@
         }
       }
     },
+    "Chưa gửi vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dikirim karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihantar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่ง เพราะคุณออกจากระบบแล้ว"
+          }
+        }
+      }
+    },
     "Chưa gửi được email: thử lại sau.": {
       "localizations": {
         "id": {
@@ -21341,6 +21363,50 @@
         }
       }
     },
+    "AquaTome đã trả ổ %@ về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome sudah mengembalikan stopkontak %@ seperti semula: saat tombol ditekan, stopkontak belum melaporkan perubahan. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome telah mengembalikan soket %@ seperti asal: semasa butang ditekan, soket belum melaporkan perubahan. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome คืนค่าปลั๊ก %@ ให้เหมือนเดิมแล้ว: ตอนกดปุ่ม ปลั๊กยังไม่รายงานว่าเปลี่ยนแล้ว ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
+    "Ổ %@ đã về như cũ, có thể do lệnh trả lại của AquaTome. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sudah kembali seperti semula, mungkin karena perintah pengembalian dari AquaTome. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sudah kembali seperti asal, mungkin kerana arahan pengembalian daripada AquaTome. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ กลับเป็นเหมือนเดิมแล้ว อาจเป็นเพราะคำสั่งคืนค่าของ AquaTome ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
     "Bật với màu": {
       "localizations": {
         "id": {
@@ -21491,6 +21557,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่แน่ใจว่าปลั๊ก %@ เปลี่ยนแล้วหรือยัง: ดูได้ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah lampu Love Ecology sudah menerima perintah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada lampu Love Ecology sudah menerima arahan. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าไฟ Love Ecology ได้รับคำสั่งแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không rõ lệnh đã tới ổ %@ chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah perintah sudah sampai ke stopkontak %@, jadi AquaTome membiarkannya: periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada arahan sudah sampai ke soket %@, jadi AquaTome membiarkannya: semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าคำสั่งไปถึงปลั๊ก %@ หรือยัง AquaTome จึงปล่อยไว้ตามเดิม: ตรวจดูปลั๊กนี้"
           }
         }
       }
@@ -22177,6 +22287,94 @@
         }
       }
     },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี เพราะคุณออกจากระบบแล้ว"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah. Coba lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar. Cuba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี ลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี: %@"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi belum jelas apakah warnanya sudah berubah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi tidak pasti sama ada warnanya sudah bertukar. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ไม่แน่ใจว่าเปลี่ยนสีแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
+          }
+        }
+      }
+    },
     "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.": {
       "localizations": {
         "id": {
@@ -22349,6 +22547,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลั๊ก %@ ถูกเปลี่ยนระหว่างที่ปุ่มทำงาน AquaTome จึงปล่อยไว้ตามนั้น"
+          }
+        }
+      }
+    },
+    "Ổ %@ giờ được ghi là cắm sưởi nên AquaTome để nguyên. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sekarang dicatat untuk pemanas, jadi AquaTome membiarkannya. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ kini direkodkan untuk pemanas, jadi AquaTome membiarkannya. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ถูกระบุว่าใช้กับฮีตเตอร์แล้ว AquaTome จึงปล่อยไว้ตามเดิม ตรวจดูปลั๊กนี้"
           }
         }
       }
