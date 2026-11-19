@@ -1371,5 +1371,56 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/tao": [
+    {
+      "at": "2026-11-19T17:35:49Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Nó bám lên kính, lá, đá hoặc làm nước xanh đục.\" → \"Có loại bám lên kính, lá, đá; có loại lơ lửng làm nước xanh đục.\" (supported)",
+        "Loose, reworded: \"Dư dinh dưỡng, thiếu CO2 và dòng chảy yếu dễ làm tảo bùng lên.\" → \"Dư dinh dưỡng, thiếu CO2 và dòng chảy yếu là những nguyên nhân hay gặp khiến tảo mọc.\" (supported)",
+        "Loose, reworded: \"Cách chữa là bớt châm sắt và gỡ bằng tay.\" → \"Có thể gỡ bằng tay và bớt châm sắt.\" (supported)",
+        "The entry is 524 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T17:35:49Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.97,
+      "notes": [
+        "\"Thuốc diệt tảo làm hại cây, và loại gốc đồng chắc là giết luôn cả cây.\": the facts don't carry it (supported, uncredited, supported, uncredited, uncredited, uncredited): copper algaecide claim from one site only, uncredited / The claim that copper algaecides will likely kill plants comes only from gwapa.org, and the sentence states it as plain fact with no credit. / Two sites back the claim that…",
+        "Rule 12: \"Thuốc diệt tảo làm hại cây\": only one page says this, a shop (source 4), and it is written as plain fact with no credit. That shop would be a fourth page, past the three the entry may name. The sentence also narrows the fact. The fact says algaecides harm plants and animals and should not be used casually, but the entry keeps only the plants and drops the warning for fish and shrimp.",
+        "Rule 12: \"loại gốc đồng chắc là giết luôn cả cây\": only the society's page says that copper algaecides will likely kill plants. The entry writes it as plain fact. It should be credited, for example \"Hội người chơi kia ghi …\".",
+        "Rule 12: \"tăng dòng chảy hoặc sục khí\" (Rêu nhớt xanh): only one shop (source 3) says to increase aeration. That shop is not among the three pages the entry names, and no second page backs this step. It should be left out until research finds a second page.",
+        "The entry is 534 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T17:35:49Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.8,
+      "notes": [
+        "\"Rêu tóc (Oedogonium): sợi xanh mảnh như tóc trên lá, đá, lũa, nền và kính.\": the facts don't carry it (uncredited, supported, supported, uncredited, uncredited, uncredited): description only from aquasetup / Only aquasetup.com (source 2) gives this description. The credit is in the sentence before, and a full stop ends a credit, so this sentence states it as plain fact with no credit. / The desc…",
+        "\"Rêu sừng hươu: búi dày ở mép lá và gân lá, phân nhánh như sừng hươu, khó chữa hơn rêu tóc.\": the facts don't carry it (uncredited, supported, supported, uncredited, uncredited, uncredited): only aquasetup describes staghorn / The look and the claim that it is harder to treat than hair algae come only from aquasetup.com, and the sentence gives no credit. / Only aquasetup.com gives the description…",
+        "\"Tảo nâu (diatom): lớp nâu nhớt bám lỏng trên kính, đá và lũa, hay gặp ở bể mới.\": the facts don't carry it (uncredited, supported, loose, uncredited, uncredited, uncredited): slimy, weakly attached only from aquasetup; new-tank note only from aquariumcoop / adds 'common in new tanks' from another site to this shop's description / Only aquasetup calls it slimy and loosely attached, and only aquar…",
+        "\"Ở bể mới thì chờ 4–6 tuần cho nó tự ổn, hoặc chà đi.\": the facts don't carry it (uncredited, uncredited, uncredited): 4-6 week wait only from aquasetup / 4-6 week wait only from aquasetup.com; credit covers descriptions only / only aquasetup gives the 4–6 week wait; the credit covers descriptions only",
+        "\"Rêu chùm đen (Black Beard Algae): búi đen, xanh sẫm hoặc đỏ sẫm trên mép lá, lũa và đá, ưa chỗ nước chảy mạnh.\": the facts don't carry it (uncredited, supported, supported, uncredited, uncredited, uncredited): BBA description only from aquasetup / Only aquasetup.com gives the look, the places it grows and the liking for strong flow. The sentence states them as plain fact with no credit. / The lo…",
+        "\"Rêu đốm xanh: đốm xanh nhỏ, cứng trên kính, đá, lũa và lá to, cứng.\": the facts don't carry it (uncredited, supported, supported, uncredited, uncredited, uncredited): green spot description only from aquasetup / Only aquasetup.com describes the small, hard spots and where they grow, yet the sentence states this as plain fact with no credit. / The description of green spot algae (small, hard spot…",
+        "\"Rêu bụi xanh: lớp bụi xanh bám lỏng trên kính rồi lan xuống nền, đá và lá.\": the facts don't carry it (uncredited, supported, supported, uncredited, uncredited, uncredited): green dust description only from aquasetup / Only aquasetup.com describes how green dust algae looks, and the sentence states it as plain fact without crediting that page. / The description of how green dust algae looks and …",
+        "\"Rêu nhớt xanh (Cyanobacteria): lớp dày như thảm, xanh sẫm, có bọt khí bên dưới.\": the facts don't carry it (uncredited, supported, supported, unsupported, uncredited, uncredited): carpet with bubbles only from aquasetup / The source says it is dark green \"in freshwater\", but the sentence drops that limit and gives the colour for every case. The bubbles and dark colour also come from one site onl…",
+        "Rule 4: \"Tảo mọc nhờ ánh sáng và chất dinh dưỡng trong nước\" in the body repeats the definition's \"mọc nhờ ánh sáng và chất dinh dưỡng trong bể\". It should be said once.",
+        "Rule 4: \"Những nguyên nhân hay gặp là dư dinh dưỡng, thiếu CO2 và dòng chảy yếu\" in the body repeats the definition's \"Dư dinh dưỡng, thiếu CO2 và dòng chảy yếu dễ làm tảo bùng lên\". It should be said once."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
