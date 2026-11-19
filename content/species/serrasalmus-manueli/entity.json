@@ -19,14 +19,15 @@
         "VE"
       ],
       "regions": [
-        "Amazon",
-        "Orinoco",
         "Rio Negro",
         "Rio Xingu",
-        "Venezuelan Llanos"
+        "Orinoco",
+        "Amazon",
+        "Río Paraguaza"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -40,15 +41,6 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
-          "countries": [],
-          "regions": [
-            "Amazon",
-            "Orinoco"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Its range covers the Rio Negro, Rio Xingu and tributaries including the Rio Cassiquiare, Rio Atabapo and Rio Cunucunuma.",
           "countries": [],
           "regions": [
@@ -58,10 +50,19 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "This species is known to inhabit quite a diverse range of biotopes, from areas of dense jungle to the tropical grasslands of the Venezuelan Llanos with their clear, sunlit water and lush growth of aquatic plants.",
+          "quote": "Native to parts of the Amazon and Rio Orinoco basins in northern Brazil and Venezuela.",
           "countries": [],
           "regions": [
-            "Venezuelan Llanos"
+            "Orinoco",
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "S. manueli was described as Pygocentrus manueli from the Río Paraguaza, middle Orinoco, Venezuela.",
+          "countries": [],
+          "regions": [
+            "Río Paraguaza"
           ]
         }
       ]

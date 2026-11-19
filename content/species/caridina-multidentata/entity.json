@@ -15,7 +15,8 @@
     "native": {
       "countries": [
         "JP",
-        "TW"
+        "TW",
+        "KR"
       ],
       "regions": [],
       "sources": [
@@ -27,7 +28,8 @@
           "quote": "They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.",
           "countries": [
             "JP",
-            "TW"
+            "TW",
+            "KR"
           ],
           "regions": []
         }
@@ -36,7 +38,7 @@
     "records": {
       "taxonKey": 5863054,
       "total": 143,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-19",
       "countries": [
         [
           "JP",

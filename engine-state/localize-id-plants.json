@@ -1165,6 +1165,34 @@
       "Item 2: \"lapisan substratnya kaya nutrisi\" is acceptable, but \"bottom layer\" could be \"dasar akuarium yang kaya nutrisi\"."
     ]
   },
+  "hemianthus-callitriodes": {
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Hemianthus callitriodes",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Section 8: \"platy pedang (swordtail)\" is wrong: swordtail is \"swordtail\"/\"ikan pedang\", and a platy is a different fish. Use \"swordtail\" or \"ikan pedang\".",
+      "Section 8: \"angelfish (manfish)\" adds an unsupported name; use \"angelfish\" or \"manfish\" alone, not as a gloss.",
+      "Section 8: \"dwarf gourami, rainbow\" is an unnatural rendering of rainbowfish; use \"ikan pelangi (rainbowfish)\".",
+      "Section 5: \"Berikan suplemen zat besi\" for \"Dose iron\" is fine, but \"Masukkan udang atau ikan pemakan alga\" adds \"udang atau ikan\" not in the source (\"algae-eating species\"). Use \"spesies pemakan alga\".",
+      "Section 5: \"Perbanyakan\" in the plug step: \"rumpun-rumpun kecil\" is fine, but \"jika tidak tanaman akan melting\" leaves \"melting\" without explanation at first use. Add \"(luruh/rontok)\".",
+      "Section 5: \"Cryptocoryne parva\" and \"Monte Carlo\" are fine, but \"Pangkas bagian atasnya hingga tersisa beberapa sentimeter di atas dasar\" leaves \"dasar\" vague. Use \"substrat\".",
+      "Section 7: \"Aqua Soil Powder ... soil kaya nutrisi\" is fine, but \"ukuran sebenarnya yang perlu diperhatikan\" is awkward. Rephrase as \"yang sebenarnya perlu dipertimbangkan\".",
+      "Section 3: the source says \"up to 3 cm\", while the care spec in section 1 says 3–5 cm. This is a source inconsistency; keep it, but \"Seluruh tanaman berwarna hijau cerah\" is fine.",
+      "Section 8: \"Spesies yang merusak\" for \"Hostile species\" is a loose rendering; use \"spesies agresif\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "4dc447679344",
+      "distribution:aquariumbreeder": "1677f0550b36",
+      "habitat:aquariumbreeder": "359d126badbd",
+      "aquariumSize:aquariumbreeder": "9db3b7d14d80",
+      "maintenance:aquariumbreeder": "71f31dea8fe7",
+      "waterConditions:aquariumbreeder": "866796c3ffe2",
+      "equipment:aquariumbreeder": "9423cea019a7",
+      "notes:aquariumbreeder": "8afff9e5548a"
+    }
+  },
   "hemianthus-micranthemoides": {
     "at": "2026-11-11",
     "from": "2026-11-10",
@@ -1968,12 +1996,26 @@
     ]
   },
   "nymphaea-zenkeri": {
-    "at": "2026-11-10",
-    "from": "2026-11-10",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Tiger Lotus",
     "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "score": 0.8,
+    "notes": [
+      "Item 9, Problems: \"karena tanaman ini kalah-bersaingkan dan bisa mencekik\" is a non-existent word and reads as 'loses in competition', the opposite of 'outcompetes'. Use \"karena tanaman ini mengalahkan tanaman lain dalam persaingan dan bisa mencekik tanaman berakar lainnya\".",
+      "Item 9, Benefits: \"Tempat mencari makan\" for 'Foraging place' is a little stiff. \"Tempat mencari pakan\" or \"Sumber pakan\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "17cd6f6bf4eb",
+      "quickFacts:aquariumbreeder": "59666ae52df8",
+      "distribution:aquariumbreeder": "51c1c9240de6",
+      "habitat:aquariumbreeder": "04ff6b2c7fc6",
+      "maintenance:aquatome": "b3a4b18a9054",
+      "maintenance:aquariumcoop": "d6525a05acb9",
+      "reproduction:aquariumcoop": "4cd409ecc872",
+      "notes:aquariumcoop": "91813775cdd3",
+      "notes:aquariumbreeder": "d175ae3deb85"
+    }
   },
   "nymphoides-aquatica": {
     "at": "2026-10-30",

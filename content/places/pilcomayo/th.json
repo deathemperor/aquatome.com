@@ -3,6 +3,12 @@
   "name": "ปิลโกมาโย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:48:42.236Z",
+    "why": "Pilcomayo in Argentina is a department/region in Formosa Province, and Thai atlases usually transliterate it as \"ปิลโกมาโย\" or \"ปิลกอมาโย\"; the \"โก\" form is a plausible but unverified transliteration, and Spanish \"o\" is more typically rendered \"อ\" in this position."
+  },
   "quality": {
     "score": 0.62,
     "indexable": false

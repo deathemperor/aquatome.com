@@ -3,6 +3,12 @@
   "name": "Geum",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:50:00.396Z",
+    "why": "\"Geum\" is the Revised Romanization of the Korean name (금), which is plausible for a Korean region (e.g., Geum River), but the place is \"keum\" with no kind word and its identity is unclear. Indonesian atlases would likely keep the source spelling \"Keum\" or use a different form, so the match is uncert"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

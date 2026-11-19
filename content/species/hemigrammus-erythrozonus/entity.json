@@ -16,10 +16,13 @@
         "GY"
       ],
       "regions": [
-        "Rio Essequibo"
+        "Rio Essequibo",
+        "Potaro",
+        "Mazaruni"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquatome"
       ],
       "quotes": [
         {
@@ -28,14 +31,17 @@
           "countries": [
             "GY"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Known only from the Rio Essequibo, Guyana.",
-          "countries": [],
           "regions": [
             "Rio Essequibo"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Ngoài dòng chính Essequibo, cá còn sống ở các nhánh nhỏ như sông Potaro và sông Mazaruni.",
+          "countries": [],
+          "regions": [
+            "Potaro",
+            "Mazaruni"
           ]
         }
       ]

@@ -1,8 +1,8 @@
 {
   "id": "hemigrammus-erythrozonus",
   "native": {
-    "input": "9d7a1b6dc03649ac",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "e9333fca715d7d97",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "GY",
@@ -19,22 +19,26 @@
         "quote": "Known only from the Rio Essequibo, Guyana.",
         "words": "Guyana",
         "ok": true
-      },
-      {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The Essequibo is the longest river in Guyana, and flows through a variety of biotopes.",
-        "words": "Guyana",
-        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Rio Essequibo",
         "source": "seriouslyfish",
-        "quote": "Known only from the Rio Essequibo, Guyana.",
+        "quote": "The glowlight tetra, Hemigrammus erythrozonus, is a small characin known only from the Rio Essequibo in Guyana.",
         "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Potaro",
+        "source": "aquatome",
+        "quote": "Ngoài dòng chính Essequibo, cá còn sống ở các nhánh nhỏ như sông Potaro và sông Mazaruni.",
+        "ok": true
+      },
+      {
+        "name": "Mazaruni",
+        "source": "aquatome",
+        "quote": "Ngoài dòng chính Essequibo, cá còn sống ở các nhánh nhỏ như sông Potaro và sông Mazaruni.",
         "ok": true
       }
     ],

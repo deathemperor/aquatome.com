@@ -1,10 +1,13 @@
 {
   "slug": "galapagos",
-  "name": "Galapagos",
-  "altNames": [],
+  "name": "quần đảo Galápagos",
+  "altNames": [
+    "Galapagos"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

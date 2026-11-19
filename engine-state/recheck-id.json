@@ -267,6 +267,70 @@
     "sonnet": 0.55,
     "back": false
   },
+  "ancistrus-claro": {
+    "hash": "7eaeedcf2732fd13bca381b1b6c9c7fe54cf114f03605e824569ff6282a47b8e",
+    "at": "2026-11-19T07:36:07.390Z",
+    "sonnet": 0.85,
+    "opus": 0.7,
+    "back": false
+  },
+  "ancistrus-formoso": {
+    "hash": "c38f890b8b916280728b32e3a34ccc222e041edbea8041cc71435a83ce096803",
+    "at": "2026-11-19T07:36:18.171Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "ancistrus-ranunculus": {
+    "hash": "39f986b3d85118228f85c00be4dcf986e8bc80741900e5c633f654686c19d967",
+    "at": "2026-11-19T07:36:30.853Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "anematichthys-repasson": {
+    "hash": "0027827ef5a5a2a1a3dc32a4aa87c76f5b6d90f6da7a8c610d815e738d9a86ba",
+    "at": "2026-11-19T07:36:56.670Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "anostomus-ternetzi": {
+    "hash": "4255a077664bf63e9fd2cb5419751ab0e65f71815375def6a887e0f11ec5f29a",
+    "at": "2026-11-19T07:37:07.846Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "aphanius-dispar": {
+    "hash": "787c8c993f239f1dd52dd4a14fc842c126d79e5b189f3ff938e72c84dd975aec",
+    "at": "2026-11-19T07:37:13.673Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "aphanius-sirhani": {
+    "hash": "c61c1a8050cb9c3777e2fe545dfa1e6f20e4b1780499100ab5e0082f34e9ca2a",
+    "at": "2026-11-19T07:37:33.631Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "apistogramma-alacrina": {
+    "hash": "78797970bd8ee56263b5e4d297911b0a7b95a3d66045e003dbf4737dae762432",
+    "at": "2026-11-19T07:38:07.351Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "apistogramma-barlowi": {
+    "hash": "20843465b17d23b9c79630d00bc76e48fea6d63c3a746b8726b374d6247b7b65",
+    "at": "2026-11-19T07:38:49.576Z",
+    "sonnet": 0.85,
+    "opus": 0.8,
+    "back": true
+  },
+  "apistogramma-bitaeniata": {
+    "hash": "f7c87b16949b285f69fac71b908b5457f2ec57107e606ade59e68eed6db12afd",
+    "at": "2026-11-19T07:39:01.883Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "arius-oetik": {
     "hash": "94dd834488a22919ed08b92e8fc88cc09c0ba1aec8f77c8e7cea8de78cedbeae",
     "at": "2026-11-18T05:44:03.431Z",
@@ -345,6 +409,12 @@
     "hash": "afb77d4fdf7ad3685ec20026dc1e45a14d973a30f621c1b7e6af899b62110fc2",
     "at": "2026-11-18T00:30:52.098Z",
     "sonnet": 0.7,
+    "back": false
+  },
+  "caridina-multidentata": {
+    "hash": "49490649fe0a56585449e8ddd797bf93d143e91836bc3997dcd475b2e92dec36",
+    "at": "2026-11-19T07:34:54.235Z",
+    "sonnet": 0.5,
     "back": false
   },
   "cathorops-dasycephalus": {
@@ -548,6 +618,12 @@
     "sonnet": 0.72,
     "back": false
   },
+  "homaloptera-parclitella": {
+    "hash": "d2595c8e8a3192b3b715c70dbfc9de40603f6801e58cf5fa6aad3e1f4a9d9481",
+    "at": "2026-11-19T07:35:09.764Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "hyphessobrycon-eques": {
     "hash": "1a635721e275664611f8fb59bc6e94614a591bacb8f6959f6064fa26aea84c80",
     "at": "2026-11-18T00:32:34.140Z",
@@ -638,9 +714,21 @@
       "Item 11: 'Gurami sering dijual' - original says 'They' (O. goramy); also 'finnage' rendered as 'siripnya yang merah' loses 'red finnage' nuance slightly (fine). Item 11: 'dying' mistranslation check: 'varian yang diwarnai' correct but 'we strongly advise' became passive 'sangat disarankan' OK."
     ]
   },
+  "osteogeneiosus-militaris": {
+    "hash": "1a9dd4713c6c4327a3150368288692a47824098703fb76499c2a717fc221f8ec",
+    "at": "2026-11-19T07:35:20.003Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "paracheirodon-axelrodi": {
     "hash": "591f04bb0c80c26cc263605f77dedee6aa70bcd3fb6e5afc70ed80f1877236a4",
     "at": "2026-11-18T05:43:25.259Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "parosphromenus-linkei": {
+    "hash": "c71388f689d8ad9163f8efca020124b1cf39d27b392a8ebe8de1b6ef7399b803",
+    "at": "2026-11-19T07:35:34.286Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -676,15 +764,10 @@
     "back": false
   },
   "trichogaster-lalius": {
-    "hash": "35847b8e3df4bbc4fc27d1837e9e0ea19c7abc1ed16cdcd22c9ed7355af94654",
-    "at": "2026-11-18T05:45:42.395Z",
-    "sonnet": 0.6,
-    "back": false,
-    "held": [
-      "Item 3: the 'Minimum tank size: 15 gallons (~60 litres)' figure is fine, but 'Nitrat: kurang dari 60' is left without a unit (mg/L). Add the unit.",
-      "Item 16: 'dipaparkan hingga 4 g/L' is awkward; use 'dapat terpapar'. Also 'Nitrat: kurang dari 60' lacks a unit.",
-      "Item 3: 'Minimum tank size: 15 gallons (~60 litres)' is fine, but the 'Nitrate: less than 60' line is left without a unit (mg/L). Add the unit or keep as in the source."
-    ]
+    "hash": "e80a1378c65a2c530b45ff1dc38683045ba2acfb9af615382343887e7ed9f2f2",
+    "at": "2026-11-19T07:34:46.679Z",
+    "sonnet": 0.7,
+    "back": false
   },
   "xiphophorus-hellerii": {
     "hash": "c32b8f67ededd350dc6b18cd432c2d446ad22d49cc4f59ed4a15d6617fc5bad0",

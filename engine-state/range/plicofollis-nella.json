@@ -1,0 +1,110 @@
+{
+  "id": "plicofollis-nella",
+  "native": {
+    "input": "b06e1396c20171ce",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Distributed in the eastern Indian Ocean and West Pacific, from the east coast of India to the east coast of Australia, north to the Philippines.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Distributed in the eastern Indian Ocean and West Pacific, from the east coast of India to the east coast of Australia, north to the Philippines.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Distributed in the eastern Indian Ocean and West Pacific, from the east coast of India to the east coast of Australia, north to the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Plicofollis nella",
+    "status": "ACCEPTED",
+    "taxonKey": 2345111,
+    "datasets": [
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        15
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        7
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "24f3b18e-b8b6-4804-8eeb-4cd067a659cc",
+        5
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        5
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        1
+      ],
+      [
+        "26ae0930-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        1
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "AU",
+      "PH"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

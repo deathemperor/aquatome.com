@@ -1,10 +1,35 @@
 {
   "id": "corydoras-geoffroy",
   "native": {
-    "input": "08c26db5f6b869fc",
-    "at": "2026-11-19T00:50:56.943Z",
-    "claims": [],
-    "regions": [],
+    "input": "def6afc1ebddb184",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: coastal rivers of Suriname and French Guiana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: coastal rivers of Suriname and French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Suriname River",
+        "source": "scotcat",
+        "quote": "Type locality: Suriname, district Brokopondo, Suriname River system, Marchall Creek, east of the road Paranam-Afobaka, 1.5 km north of Marchall village.",
+        "country": "SR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -62,8 +87,11 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-19T00:50:56.943Z"
+    "native": [
+      "SR",
+      "GF"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T07:58:14.453Z"
   }
 }

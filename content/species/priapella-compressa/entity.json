@@ -9,6 +9,70 @@
     "north-america",
     "mexico"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Blue-eyes from Mexico are closely related to the Knife-bellies (Alfaro).",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350147,
+      "total": 76,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "MX",
+          76
+        ]
+      ],
+      "cells": [
+        [
+          -102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          -94.21875,
+          16.875,
+          28,
+          28
+        ],
+        [
+          -92.8125,
+          16.875,
+          44,
+          44
+        ],
+        [
+          -91.40625,
+          15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

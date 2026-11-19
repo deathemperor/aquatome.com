@@ -15,15 +15,15 @@
   "range": {
     "native": {
       "countries": [
-        "MY",
-        "TH"
+        "TH",
+        "MY"
       ],
       "regions": [
         "Terengganu",
         "Perak",
         "Endau",
-        "Muar",
         "Sai Buri",
+        "Bang Nara",
         "Kolok"
       ],
       "sources": [
@@ -33,10 +33,10 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "It inhabits Malaysia and Southern Thailand.",
+          "quote": "Homaloptera parclitella is an extraordinarily beautiful hillstream loach from the black water of South Thailand and Malaysia.",
           "countries": [
-            "MY",
-            "TH"
+            "TH",
+            "MY"
           ],
           "regions": []
         },
@@ -47,8 +47,7 @@
           "regions": [
             "Terengganu",
             "Perak",
-            "Endau",
-            "Muar"
+            "Endau"
           ]
         },
         {
@@ -57,6 +56,7 @@
           "countries": [],
           "regions": [
             "Sai Buri",
+            "Bang Nara",
             "Kolok"
           ]
         }

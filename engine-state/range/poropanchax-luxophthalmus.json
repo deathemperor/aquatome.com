@@ -1,0 +1,55 @@
+{
+  "id": "poropanchax-luxophthalmus",
+  "native": {
+    "input": "99f987b52bdad0c6",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Poropanchax luxophthalmus",
+    "status": "ACCEPTED",
+    "taxonKey": 5788278,
+    "datasets": [
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        8
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        5
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        2
+      ],
+      [
+        "2ba30ed2-6f82-480c-a892-4c8749508324",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

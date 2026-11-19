@@ -15,9 +15,14 @@
       "countries": [
         "MM"
       ],
-      "regions": [],
+      "regions": [
+        "Irrawaddy",
+        "Bago",
+        "Tenasserim"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -27,6 +32,16 @@
             "MM"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Myanmar; Irrawaddy, Bago and Tenasserim River systems.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Bago",
+            "Tenasserim"
+          ]
         }
       ]
     },

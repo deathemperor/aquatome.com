@@ -2585,6 +2585,18 @@
       "kept": true
     }
   ],
+  "id/places/cedros-island": [
+    {
+      "at": "2026-11-19T07:10:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/celebes": [
     {
       "at": "2026-11-10T22:48:50Z",
@@ -4190,6 +4202,20 @@
       "kept": true
     }
   ],
+  "id/places/flinders-river": [
+    {
+      "at": "2026-11-19T07:10:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Flinders (flinders-river): the river is missing \"Sungai\". It should be \"Sungai Flinders\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/florida": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -4302,6 +4328,18 @@
       "notes": [
         "cửa sông Gabon (Vietnamese; should be Estuari Gabon)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/galapagos": [
+    {
+      "at": "2026-11-19T07:10:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -8801,6 +8839,18 @@
       "kept": true
     }
   ],
+  "id/places/malacca": [
+    {
+      "at": "2026-11-19T07:10:16Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/malay-archipelago": [
     {
       "at": "2026-11-14T16:53:34Z",
@@ -9306,6 +9356,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mary-river": [
+    {
+      "at": "2026-11-19T07:10:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Mary (mary-river): the river is missing \"Sungai\". It should be \"Sungai Mary\"."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -12113,6 +12177,18 @@
       "kept": true
     }
   ],
+  "id/places/port-darwin": [
+    {
+      "at": "2026-11-19T07:10:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/portugal": [
     {
       "at": "2026-11-17T04:48:41Z",
@@ -12763,6 +12839,20 @@
       "score": 0.45,
       "notes": [
         "Atabapo"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-atoyac": [
+    {
+      "at": "2026-11-19T07:10:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Atoyac (rio-atoyac): the river is missing \"Sungai\". It should be \"Sungai Atoyac\"."
       ],
       "attempt": "first",
       "kept": true
@@ -14452,6 +14542,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-suno": [
+    {
+      "at": "2026-11-19T07:10:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [
+        "Suno (rio-suno): the river is missing \"Sungai\". It should be \"Sungai Suno\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-tahuayo": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -14890,6 +14994,18 @@
       "at": "2026-11-06T13:59:22Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/roper": [
+    {
+      "at": "2026-11-19T07:10:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -17345,6 +17461,18 @@
       "kept": true
     }
   ],
+  "id/places/tobago": [
+    {
+      "at": "2026-11-19T07:10:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/tocantins-araguaia": [
     {
       "at": "2026-11-16T16:47:50Z",
@@ -17485,6 +17613,18 @@
       "notes": [
         "Singkep, Tioman, Trangan, Solo: islands or cities written without \"Pulau\" (Pulau Singkep, Pulau Tioman, Pulau Trangan); Tioman is also in Malaysia, not ID, but the name itself is fine"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tres-marias-islands": [
+    {
+      "at": "2026-11-19T07:10:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.45,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -21981,6 +22121,20 @@
       "kept": true
     }
   ],
+  "ms/places/cedros-island": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Pulau Cedros: correct"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/celebes": [
     {
       "at": "2026-11-12T13:20:23Z",
@@ -23410,6 +23564,20 @@
       "kept": true
     }
   ],
+  "ms/places/flinders-river": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "sông Flinders → Flinders: Malay atlas would write 'Sungai Flinders', not bare 'Flinders'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/florida-peninsula": [
     {
       "at": "2026-11-09T00:52:34Z",
@@ -23474,6 +23642,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/galapagos": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Kepulauan Galápagos: correct (Malay usually 'Kepulauan Galapagos', diacritic acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -28539,6 +28721,20 @@
       "kept": true
     }
   ],
+  "ms/places/malacca": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Malacca → Melaka: correct (source label 'Malacca' is English, but the Malay answer is right)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/malay-archipelago": [
     {
       "at": "2026-11-14T17:06:26Z",
@@ -28970,6 +29166,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/mary-river": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "sông Mary → Mary: should be 'Sungai Mary'"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -31812,6 +32022,20 @@
       "kept": true
     }
   ],
+  "ms/places/port-darwin": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Port Darwin → Port Darwin: acceptable but could be 'Pelabuhan Darwin'; borderline"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/porto-novo": [
     {
       "at": "2026-11-08T03:37:07Z",
@@ -32623,6 +32847,20 @@
         0.6,
         0.6
       ]
+    }
+  ],
+  "ms/places/rio-atoyac": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "sông Atoyac → Atoyac: should be 'Sungai Atoyac'"
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "ms/places/rio-atrato": [
@@ -34530,6 +34768,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-suno": [
+    {
+      "at": "2026-11-19T07:33:10Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "sông Suno → Suno: should be 'Sungai Suno'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-tahuayo": [
     {
       "at": "2026-11-08T12:46:22Z",
@@ -35074,6 +35326,20 @@
       "model": "sonnet",
       "score": 0.68,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/roper": [
+    {
+      "at": "2026-11-19T07:33:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Roper → Roper: acceptable (perhaps 'Sungai Roper' if river)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -37470,6 +37736,20 @@
       "kept": true
     }
   ],
+  "ms/places/tobago": [
+    {
+      "at": "2026-11-19T07:33:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Tobago → Tobago: correct"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/tocantins-araguaia": [
     {
       "at": "2026-11-16T17:06:02Z",
@@ -37657,6 +37937,18 @@
       "score": 0.85,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/tres-marias-islands": [
+    {
+      "at": "2026-11-19T07:33:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -41930,6 +42222,26 @@
       "kept": true
     }
   ],
+  "th/places/cedros-island": [
+    {
+      "at": "2026-11-19T07:16:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "เกาะเซดรอส: acceptable",
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "th/places/celebes": [
     {
       "at": "2026-11-10T22:53:23Z",
@@ -43640,6 +43952,25 @@
       "kept": true
     }
   ],
+  "th/places/flinders-river": [
+    {
+      "at": "2026-11-19T07:16:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "th/places/florida": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -43756,6 +44087,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/galapagos": [
+    {
+      "at": "2026-11-19T07:16:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
     }
   ],
   "th/places/gamba": [
@@ -48474,6 +48824,25 @@
       "kept": true
     }
   ],
+  "th/places/malacca": [
+    {
+      "at": "2026-11-19T07:16:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "th/places/malay-archipelago": [
     {
       "at": "2026-11-14T16:55:44Z",
@@ -48981,6 +49350,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/mary-river": [
+    {
+      "at": "2026-11-19T07:16:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
     }
   ],
   "th/places/mascarene-islands": [
@@ -51988,6 +52376,25 @@
       "kept": true
     }
   ],
+  "th/places/port-darwin": [
+    {
+      "at": "2026-11-19T07:16:27Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "th/places/porto-novo": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -52678,6 +53085,26 @@
         0.7,
         0.8,
         0.8
+      ]
+    }
+  ],
+  "th/places/rio-atoyac": [
+    {
+      "at": "2026-11-19T07:16:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "rio-atoyac: \"อาโตยัก\" lacks the word แม่น้ำ (river), so it is incomplete compared with the other river names",
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
       ]
     }
   ],
@@ -54424,6 +54851,26 @@
       "kept": true
     }
   ],
+  "th/places/rio-suno": [
+    {
+      "at": "2026-11-19T07:16:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "rio-suno: \"ซูโน\" lacks the word แม่น้ำ (river), so it is incomplete",
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "th/places/rio-tahuayo": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -54938,6 +55385,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/roper": [
+    {
+      "at": "2026-11-19T07:16:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
     }
   ],
   "th/places/roper-river": [
@@ -57500,6 +57966,25 @@
       "kept": true
     }
   ],
+  "th/places/tobago": [
+    {
+      "at": "2026-11-19T07:16:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "th/places/tocantins-araguaia": [
     {
       "at": "2026-11-16T16:51:27Z",
@@ -57645,6 +58130,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/tres-marias-islands": [
+    {
+      "at": "2026-11-19T07:16:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "All other names are correct Thai atlas renderings"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.6,
+        0.6
+      ]
     }
   ],
   "th/places/trieu-tien": [
@@ -62190,6 +62694,17 @@
       "kept": true
     }
   ],
+  "vi/places/cedros-island": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/celebes": [
     {
       "at": "2026-11-10T22:46:13Z",
@@ -64033,6 +64548,17 @@
       "kept": true
     }
   ],
+  "vi/places/flinders-river": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/florida": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -64169,6 +64695,17 @@
       "at": "2026-11-08T08:45:14Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/galapagos": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -69898,6 +70435,17 @@
       "kept": true
     }
   ],
+  "vi/places/malacca": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/malay-archipelago": [
     {
       "at": "2026-11-14T16:53:04Z",
@@ -70501,6 +71049,17 @@
       "at": "2026-11-08T08:45:15Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mary-river": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -74035,6 +74594,19 @@
       "kept": true
     }
   ],
+  "vi/places/port-darwin": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"Port Darwin\": I did not flag this one. 'Port' is part of the established proper name, as in Port Moresby. If the entry means only the harbour, 'cảng Darwin' is also possible."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/porto-novo": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -74839,6 +75411,17 @@
   "vi/places/rio-atabapo": [
     {
       "at": "2026-11-16T05:17:56Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-atoyac": [
+    {
+      "at": "2026-11-19T07:05:49Z",
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.95,
@@ -76774,6 +77357,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-suno": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-tahuayo": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -77345,6 +77939,20 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/roper": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"Port Darwin\": I did not flag this one. 'Port' is part of the established proper name, as in Port Moresby. If the entry means only the harbour, 'cảng Darwin' is also possible.",
+        "All the other names are the right places. Each is either the source's proper name kept as is or that name with its generic word in Vietnamese: đảo, sông, quần đảo."
       ],
       "attempt": "first",
       "kept": true
@@ -80517,6 +81125,17 @@
       "kept": true
     }
   ],
+  "vi/places/tobago": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tocantins": [
     {
       "at": "2026-11-07T20:40:26Z",
@@ -80713,6 +81332,17 @@
     {
       "at": "2026-11-07T20:41:17Z",
       "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tres-marias-islands": [
+    {
+      "at": "2026-11-19T07:05:49Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
       "attempt": "first",

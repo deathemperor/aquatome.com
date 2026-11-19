@@ -20,10 +20,12 @@
         "ID"
       ],
       "regions": [
-        "Sumatra"
+        "Sumatra",
+        "Java"
       ],
       "sources": [
-        "aquariumcoop"
+        "aquariumcoop",
+        "aquatome"
       ],
       "quotes": [
         {
@@ -36,6 +38,14 @@
           ],
           "regions": [
             "Sumatra"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Mẫu gốc dùng để mô tả loài lấy ở đảo Java.",
+          "countries": [],
+          "regions": [
+            "Java"
           ]
         }
       ]

@@ -239,5 +239,49 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-19",
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pseudomystus funebris is a blackwater dwarf catfish from Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961259,
+      "total": 5,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          -2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  }
 }

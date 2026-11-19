@@ -1,0 +1,88 @@
+{
+  "id": "netuma-proxima",
+  "native": {
+    "input": "73622add497c1a94",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Pacific: Southern New Guinea, northern Australia and Aru Islands; in nearshore coastal waters and estuaries.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "scotcat",
+        "quote": "Western Pacific: Southern New Guinea, northern Australia and Aru Islands; in nearshore coastal waters and estuaries.",
+        "ok": true
+      },
+      {
+        "name": "Aru Islands",
+        "source": "scotcat",
+        "quote": "Western Pacific: Southern New Guinea, northern Australia and Aru Islands; in nearshore coastal waters and estuaries.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG",
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Netuma proxima",
+    "status": "ACCEPTED",
+    "taxonKey": 2345418,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        38
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        23
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        15
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        4
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        4
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

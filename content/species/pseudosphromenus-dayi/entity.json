@@ -16,10 +16,10 @@
         "IN"
       ],
       "regions": [
-        "Western Ghats",
         "Chalakkudy",
         "Muvattupuzha",
-        "Periyar"
+        "Periyar",
+        "Western Ghats"
       ],
       "sources": [
         "seriouslyfish"
@@ -27,15 +27,28 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+          "quote": "The brown spike-tailed paradise fish, Pseudosphromenus dayi, is a small labyrinth fish from coastal drainages of the Western Ghats in Kerala, India.",
           "countries": [
             "IN"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known only from the Chalakkudy, Muvattupuzha and Periyar rivers, though it may be more widely distributed.",
+          "countries": [],
           "regions": [
-            "Western Ghats",
             "Chalakkudy",
             "Muvattupuzha",
             "Periyar"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
           ]
         }
       ]

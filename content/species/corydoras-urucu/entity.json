@@ -10,6 +10,58 @@
     "brazil",
     "rio-purus"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Purus",
+        "Rio Urucu",
+        "Rio Jutai",
+        "Solimões"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The fish were collected in the surroundings of Labrina in the Rio Mucuim, in the central part of the Rio Purus.",
+          "countries": [],
+          "regions": [
+            "Rio Purus"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "According to the exporters, very similar fish also occur in the Rio Urucu and Rio Jutai, both tributaries of the Solimões, but very far away from the Rio Mucuim.",
+          "countries": [],
+          "regions": [
+            "Rio Urucu",
+            "Rio Jutai",
+            "Solimões"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961331,
+      "total": 1,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

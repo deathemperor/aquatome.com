@@ -1123,6 +1123,33 @@
       "Item 2: \"ไม่ค่อยเรื่องมาก\" is colloquial; consider \"ไม่ต้องดูแลมาก\"."
     ]
   },
+  "hemianthus-callitriodes": {
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Hemianthus callitriodes",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 8 fish list: \"นีออน\" and \"แพะ (corydoras)\" – \"neon tetras\" should be \"ปลานีออน\" (เตตร้านีออน); corydoras is \"ปลาแพะ\"/\"คอรี่\", \"แพะ\" alone is wrong/unclear; \"ปลาเพลที่\" should be \"ปลาแพลตตี้\".",
+      "Item 8 Tankmates: \"ปลากระดี่แคระ\" for dwarf gouramis OK, but \"ผักบุ้งฝรั่ง (frogbit)\" is a wrong/invented name; frogbit is usually \"ผักตบฝรั่ง/ฟร็อกบิท\". Also Java fern and water wisteria are not floating plants in the source list context but kept; check \"สาหร่ายหางกระรอก\" is fine.",
+      "Item 5 Dry start: \"ใช้ปากคีบปลูก\" is duplicated in the middle of the water-filling instructions, scrambling the sequence (plant first, then add water); the order of steps is changed from the source.",
+      "Item 5 Dry start: \"ฟ็อกกี้พ่นละอองสำหรับรดต้นไม้\" – 'garden mister' should be simply \"กระบอกฉีดพ่นละอองน้ำ\"; \"ฟ็อกกี้\" is a specific nozzle, not the same thing.",
+      "Item 5 Dry start Pros: \"light (without water, even low light can be enough)\" rendered \"เรื่องแสง\" – clarify as 'ใช้แสงน้อย'; also \"ได้ CO2 จากธรรมชาติ\" fine. Cons: \"ละลายไปจำนวนมาก\" loses 'many melt away' subject tie, minor.",
+      "Item 5 Problems: \"yellow ... iron deficiency (such as iron and potassium)\" translated as \"ขาดธาตุอาหาร (เช่น เหล็กและโพแทสเซียม)\" – the source says iron deficiency; Thai changes the meaning to general nutrient deficiency, dropping 'iron deficiency'.",
+      "Item 5 Care: \"Pressurised CO2 ... required\" fine, but \"Introduce algae-eating species\" rendered \"ใส่สัตว์ที่กินตะไคร่\" – use \"ปล่อยสัตว์ที่กินตะไคร่\"; and \"รันวงจรไนโตรเจน\" is ok but 'cycling' more commonly \"ปั่นน้ำ/ปั่นตู้\".",
+      "Item 1: \"Fertilisers: appreciated\" translated \"ตอบสนองดี\" – better \"ชอบปุ๋ย/ควรใส่ปุ๋ย\"; \"Placement ... (carpeting)\" 'ปูพรม' ok. Item 3: 'Common name' lead in item 2/3 \"HC คิวบา\" used as the translated name for Dwarf baby tears is non-standard; use the established \"HC\" or \"เฮมิแอนทัส คิวบา\" consistently."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "4dc447679344",
+      "distribution:aquariumbreeder": "1677f0550b36",
+      "habitat:aquariumbreeder": "359d126badbd",
+      "aquariumSize:aquariumbreeder": "9db3b7d14d80",
+      "maintenance:aquariumbreeder": "71f31dea8fe7",
+      "waterConditions:aquariumbreeder": "866796c3ffe2",
+      "equipment:aquariumbreeder": "9423cea019a7",
+      "notes:aquariumbreeder": "8afff9e5548a"
+    }
+  },
   "hemianthus-micranthemoides": {
     "at": "2026-11-11",
     "from": "2026-11-10",
@@ -1931,12 +1958,27 @@
     "notes": []
   },
   "nymphaea-zenkeri": {
-    "at": "2026-11-10",
-    "from": "2026-11-10",
-    "name": "ไทเกอร์โลตัส",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "บัวไทเกอร์",
     "confidence": "medium",
-    "score": 0.95,
-    "notes": []
+    "score": 0.88,
+    "notes": [
+      "\"ปลาแคระ otocinclus\": the English name is left in place; use the Thai hobby name \"ปลาอ็อตโต\" (or \"ปลาอ็อตโตซินคลัส\").",
+      "\"หอยกาบประตูญี่ปุ่น\" for Japanese trapdoor snail is an unnatural, non-standard term (กาบ suggests a bivalve); use \"หอยทราปดอร์ญี่ปุ่น\" or give the English trade name.",
+      "\"Anacharis\" is left in Latin letters after a Thai name; fine in brackets, but consider \"Egeria densa/Elodea\" for consistency. \"เฟิร์นใบมะพร้าว\" for Java fern is less common than \"เฟิร์นชวา\" (Java fern)."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "17cd6f6bf4eb",
+      "quickFacts:aquariumbreeder": "59666ae52df8",
+      "distribution:aquariumbreeder": "51c1c9240de6",
+      "habitat:aquariumbreeder": "04ff6b2c7fc6",
+      "maintenance:aquatome": "b3a4b18a9054",
+      "maintenance:aquariumcoop": "d6525a05acb9",
+      "reproduction:aquariumcoop": "4cd409ecc872",
+      "notes:aquariumcoop": "91813775cdd3",
+      "notes:aquariumbreeder": "d175ae3deb85"
+    }
   },
   "nymphoides-aquatica": {
     "at": "2026-10-30",

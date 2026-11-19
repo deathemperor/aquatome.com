@@ -1,0 +1,98 @@
+{
+  "id": "auchenoglanis-biscutatus",
+  "native": {
+    "input": "51d8347cadb071bc",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Nile",
+        "source": "glaser",
+        "quote": "Until recently only two species of Auchenoglanis were recognized as valid: A. biscutatus from the Nile and the whole of West Africa and A. occidentalis from Central Africa.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenoglanis biscutatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2337348,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        21
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        9
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

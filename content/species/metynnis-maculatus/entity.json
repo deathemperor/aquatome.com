@@ -21,13 +21,15 @@
         "BR"
       ],
       "regions": [
-        "rio Madeira",
-        "rio Paraguai",
-        "rio Guaporé",
-        "Pantanal"
+        "Rio Madeira",
+        "Rio Paraguai",
+        "Rio Guaporé",
+        "Pantanal",
+        "Orinoco"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -38,16 +40,8 @@
             "BR"
           ],
           "regions": [
-            "rio Madeira",
-            "rio Paraguai"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Rio Guaporé, Mato Grosso, Brazil'.",
-          "countries": [],
-          "regions": [
-            "rio Guaporé"
+            "Rio Madeira",
+            "Rio Paraguai"
           ]
         },
         {
@@ -55,7 +49,16 @@
           "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
           "countries": [],
           "regions": [
+            "Rio Guaporé",
             "Pantanal"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Orinoco basin; the animals described here were recently imported from Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
           ]
         }
       ]

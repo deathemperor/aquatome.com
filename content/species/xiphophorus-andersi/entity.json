@@ -10,6 +10,50 @@
     "mexico",
     "rio-atoyac"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Rio Atoyak"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Xiphophorus andersi comes from the Rio Atoyak in the state of Veracruz, Mexico, which is one of the Atlantic processes of the Central American country.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Rio Atoyak"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350153,
+      "total": 2,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "MX",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          18.28125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

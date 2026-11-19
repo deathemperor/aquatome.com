@@ -1,8 +1,8 @@
 {
   "id": "badis-badis",
   "native": {
-    "input": "4e6f8fbb6a3ae906",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "bf95fae14d118a29",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "IN",
@@ -27,59 +27,32 @@
         "quote": "The badis, Badis badis, is a small badid from the Ganges river system in India, Nepal and Bangladesh, with further records in Assam and the Mahanadi.",
         "words": "Bangladesh",
         "ok": true
-      },
-      {
-        "code": "IN",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Native to the Ganges River system, from the Yamuna River in Himachal Pradesh state, India, to its delta in Bangladesh.",
-        "words": "India",
-        "ok": true
-      },
-      {
-        "code": "BD",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Native to the Ganges River system, from the Yamuna River in Himachal Pradesh state, India, to its delta in Bangladesh.",
-        "words": "Bangladesh",
-        "ok": true
-      },
-      {
-        "code": "NP",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It is also known from Ganges tributaries in Nepal, while in India there are additional records from the Mahanadi River system in Chhattisgarh and Orissa states, and parts of Assam state including the city of Guwahati, Kaziranga National Park, and the Dibru River basin.",
-        "words": "Nepal",
-        "ok": true
-      },
-      {
-        "code": "IN",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It is also known from Ganges tributaries in Nepal, while in India there are additional records from the Mahanadi River system in Chhattisgarh and Orissa states, and parts of Assam state including the city of Guwahati, Kaziranga National Park, and the Dibru River basin.",
-        "words": "India",
-        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Ganges",
         "source": "seriouslyfish",
-        "quote": "Native to the Ganges River system, from the Yamuna River in Himachal Pradesh state, India, to its delta in Bangladesh.",
+        "quote": "The badis, Badis badis, is a small badid from the Ganges river system in India, Nepal and Bangladesh, with further records in Assam and the Mahanadi.",
         "ok": true
       },
       {
         "name": "Mahanadi",
         "source": "seriouslyfish",
-        "quote": "It is also known from Ganges tributaries in Nepal, while in India there are additional records from the Mahanadi River system in Chhattisgarh and Orissa states, and parts of Assam state including the city of Guwahati, Kaziranga National Park, and the Dibru River basin.",
+        "quote": "The badis, Badis badis, is a small badid from the Ganges river system in India, Nepal and Bangladesh, with further records in Assam and the Mahanadi.",
+        "ok": true
+      },
+      {
+        "name": "Yamuna",
+        "source": "seriouslyfish",
+        "quote": "Native to the Ganges River system, from the Yamuna River in Himachal Pradesh state, India, to its delta in Bangladesh.",
         "country": "IN",
         "ok": true
       },
       {
         "name": "Dibru River",
         "source": "seriouslyfish",
-        "quote": "It is also known from Ganges tributaries in Nepal, while in India there are additional records from the Mahanadi River system in Chhattisgarh and Orissa states, and parts of Assam state including the city of Guwahati, Kaziranga National Park, and the Dibru River basin.",
-        "country": "IN",
+        "quote": "It is often associated with water lily beds, and in the Dibru River occurs sympatrically with B. assamensis.",
         "ok": true
       }
     ],

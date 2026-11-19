@@ -1,0 +1,624 @@
+{
+  "id": "melanoides-tuberculata",
+  "native": {
+    "input": "2f2661e946213006",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Today the species is established or reported in almost all regions between northern Argentina and Florida, USA, including the West Indies, as well as Venezuela, Colombia, Peru, Brazil and Paraguay.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Today the species is established or reported in almost all regions between northern Argentina and Florida, USA, including the West Indies, as well as Venezuela, Colombia, Peru, Brazil and Paraguay.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Today the species is established or reported in almost all regions between northern Argentina and Florida, USA, including the West Indies, as well as Venezuela, Colombia, Peru, Brazil and Paraguay.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Today the species is established or reported in almost all regions between northern Argentina and Florida, USA, including the West Indies, as well as Venezuela, Colombia, Peru, Brazil and Paraguay.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Today the species is established or reported in almost all regions between northern Argentina and Florida, USA, including the West Indies, as well as Venezuela, Colombia, Peru, Brazil and Paraguay.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Today the species is established or reported in almost all regions between northern Argentina and Florida, USA, including the West Indies, as well as Venezuela, Colombia, Peru, Brazil and Paraguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "Today the species is established or reported in almost all regions between northern Argentina and Florida, USA, including the West Indies, as well as Venezuela, Colombia, Peru, Brazil and Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The snails are also found in northern Australia, in European Mediterranean countries and in hot springs in Austria, Germany, the Czech Republic, Slovakia and Hungary.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AT",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The snails are also found in northern Australia, in European Mediterranean countries and in hot springs in Austria, Germany, the Czech Republic, Slovakia and Hungary.",
+        "words": "Austria",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The snails are also found in northern Australia, in European Mediterranean countries and in hot springs in Austria, Germany, the Czech Republic, Slovakia and Hungary.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "CZ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The snails are also found in northern Australia, in European Mediterranean countries and in hot springs in Austria, Germany, the Czech Republic, Slovakia and Hungary.",
+        "words": "Czech Republic",
+        "ok": true
+      },
+      {
+        "code": "SK",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The snails are also found in northern Australia, in European Mediterranean countries and in hot springs in Austria, Germany, the Czech Republic, Slovakia and Hungary.",
+        "words": "Slovakia",
+        "ok": true
+      },
+      {
+        "code": "HU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "The snails are also found in northern Australia, in European Mediterranean countries and in hot springs in Austria, Germany, the Czech Republic, Slovakia and Hungary.",
+        "words": "Hungary",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "AU",
+        "AT",
+        "DE",
+        "CZ",
+        "SK",
+        "HU"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Melanoides tuberculata",
+    "status": "ACCEPTED",
+    "taxonKey": 4362965,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        333
+      ],
+      [
+        "1882cf98-ecdb-4217-9fb7-7b6a02bc0ebf",
+        285
+      ],
+      [
+        "38f40fff-0afd-4fc2-9ad2-7982d0e9cff7",
+        236
+      ],
+      [
+        "9648a106-f762-11e1-a439-00145eb45e9a",
+        192
+      ],
+      [
+        "6cef8c28-b4dd-4082-af20-57cdc660a5bd",
+        117
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        112
+      ],
+      [
+        "18680b2b-84db-4d45-8acd-0b0e9467fb33",
+        96
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        96
+      ],
+      [
+        "01e71491-0712-47f5-95a0-55a43f44fddc",
+        76
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        72
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        70
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        65
+      ],
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        61
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        54
+      ],
+      [
+        "b211f32f-326b-43d3-8012-2fbce0cc6dcc",
+        45
+      ],
+      [
+        "2ca312ee-40cf-49e0-b864-31531b7eba81",
+        44
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        44
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        42
+      ],
+      [
+        "84b18cce-083a-4464-bee8-25b2083a17cd",
+        39
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        33
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        31
+      ],
+      [
+        "788fbea1-8f16-49fa-8daa-6ebd9c9b6ff9",
+        27
+      ],
+      [
+        "35300942-09d7-4a4c-ab2c-3cf1b9b8f0f3",
+        26
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        22
+      ],
+      [
+        "3a209a83-18a9-4aba-89fc-4ecbc4fb93fb",
+        20
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        20
+      ],
+      [
+        "ec0ad39f-3370-4d51-a663-cb27abd2a6bb",
+        20
+      ],
+      [
+        "db9fe307-0dd1-48d8-b977-f025efb21a62",
+        17
+      ],
+      [
+        "64506744-f343-44cb-bb14-1fbe6610b22b",
+        16
+      ],
+      [
+        "005eb8d8-ed94-41be-89cf-e3115a9058e4",
+        15
+      ],
+      [
+        "38b4c89f-584c-41bb-bd8f-cd1def33e92f",
+        14
+      ],
+      [
+        "d7b58b26-fd72-4251-b948-bf92c7c4377b",
+        13
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        12
+      ],
+      [
+        "3ee66eb3-4786-4bda-b7f1-c145b1a57a6b",
+        11
+      ],
+      [
+        "51c49096-dc31-4077-b35c-4510a8ee1ee8",
+        11
+      ],
+      [
+        "80049c24-f762-11e1-a439-00145eb45e9a",
+        11
+      ],
+      [
+        "0a56a02d-d561-4f3f-bb18-b8b1389415fc",
+        10
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        10
+      ],
+      [
+        "e13f7a37-837e-4199-824b-b7404ffc4f1f",
+        10
+      ],
+      [
+        "0214a6a7-898f-4ee8-b888-0be60ecde81f",
+        9
+      ],
+      [
+        "03b8dac0-be98-4f71-9440-76c406cbf2c1",
+        9
+      ],
+      [
+        "19841134-3010-4cdf-8be5-24e0e21c0b76",
+        9
+      ],
+      [
+        "240e848b-47bc-40a3-a44c-6e745901d2d0",
+        9
+      ],
+      [
+        "d244db0c-1e0e-402a-b277-564f4fd70c0d",
+        9
+      ],
+      [
+        "36914742-56c5-4d54-a18a-6ab1e41b9240",
+        8
+      ],
+      [
+        "43f502a9-fa8c-4d3c-a128-13aa44d29d06",
+        8
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        8
+      ],
+      [
+        "7e2989f0-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        8
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        8
+      ],
+      [
+        "fd77b374-5ad2-4429-afac-670443d22317",
+        8
+      ],
+      [
+        "965bbbd8-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "df1b03cd-806b-4479-adf2-dfd6ba3fd1d2",
+        7
+      ],
+      [
+        "f5cb509c-00bb-42f5-aafb-59b631722d60",
+        7
+      ],
+      [
+        "71d46a30-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "23bab45d-e5c8-43fd-8fc5-6a8668becd16",
+        5
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "e5d2aed2-a177-46ba-9ea8-c349160a4c2d",
+        5
+      ],
+      [
+        "f85dc597-d683-4038-8a09-cad4efd9804d",
+        5
+      ],
+      [
+        "22bd6f42-72a2-4a4c-9d14-a97f7efd556c",
+        4
+      ],
+      [
+        "4718437d-76c6-432b-9883-4b9a253ac53f",
+        4
+      ],
+      [
+        "7fcf98b0-0c63-11dd-84d0-b8a03c50a862",
+        4
+      ],
+      [
+        "80291478-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "e43d91a4-582c-4613-8546-c13e836f9c79",
+        4
+      ],
+      [
+        "fba3ae25-f1a0-4b90-b6c1-b50c91886a85",
+        4
+      ],
+      [
+        "207b73bc-b799-49f1-9e94-fd1afc175170",
+        3
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "5199d77b-fc69-4c85-94f2-4d3e63e777ff",
+        3
+      ],
+      [
+        "6197c830-d9c7-11de-b793-b8a03c50a862",
+        3
+      ],
+      [
+        "6b3f90ff-fc9a-4962-9605-8a79b81193e7",
+        3
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "8291593c-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        3
+      ],
+      [
+        "95f883c4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "bd067a4c-05b8-4def-925c-60ce83c01891",
+        3
+      ],
+      [
+        "db1abc39-7b60-4103-815d-820fa37cb62b",
+        3
+      ],
+      [
+        "f83035bf-bcc7-45b1-87e6-ccd7d9922eed",
+        3
+      ],
+      [
+        "fc53a503-d180-4a63-b8a2-868d56da5420",
+        3
+      ],
+      [
+        "ff2ed94e-45ee-4dde-8e1f-0a4798f61a12",
+        3
+      ],
+      [
+        "0f223a99-0331-4410-bd97-5472b2e457ec",
+        2
+      ],
+      [
+        "311926a0-83d6-4b2c-8a74-7c8739bd6744",
+        2
+      ],
+      [
+        "3586d3f4-5178-46aa-be2d-77036191e2ae",
+        2
+      ],
+      [
+        "816f3aa0-d44b-4785-b920-457693d8451d",
+        2
+      ],
+      [
+        "85487457-e02f-4dee-95ea-8dc0d220c52d",
+        2
+      ],
+      [
+        "854e35e6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "e9ef15ac-1078-44c1-bc86-f1ecc4115a68",
+        2
+      ],
+      [
+        "f5783452-6ff5-4bef-8f30-9adfeba81bd7",
+        2
+      ],
+      [
+        "ffa7390a-800c-4b37-8081-e5352e0310c7",
+        2
+      ],
+      [
+        "0f6d26c0-c645-4f15-b1c9-fbcb77515545",
+        1
+      ],
+      [
+        "1196c919-404e-44ae-8191-a583f0d0167e",
+        1
+      ],
+      [
+        "1ba9fcec-441b-44ad-97fc-896240427039",
+        1
+      ],
+      [
+        "2429f28c-dc43-40e7-92f6-49206e0729fb",
+        1
+      ],
+      [
+        "265475de-0fe1-42c4-93ad-5dfe804e7148",
+        1
+      ],
+      [
+        "398bbcfa-4fc8-4456-8fc9-1964257faac2",
+        1
+      ],
+      [
+        "3a3aae4c-5895-4ba5-b3ba-d5f7d924478d",
+        1
+      ],
+      [
+        "417f4d21-959b-4773-90a2-c38d1822d873",
+        1
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        1
+      ],
+      [
+        "4ffe66a0-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "5ec0f837-8d2c-4bd3-9876-d3f296f08c18",
+        1
+      ],
+      [
+        "707b24b9-3ad8-4031-ad1d-2b81d76fef0c",
+        1
+      ],
+      [
+        "7247dc2e-b862-4555-b533-7701d183271b",
+        1
+      ],
+      [
+        "7a9ad56e-7452-4f24-a1b4-3be3400c9a9d",
+        1
+      ],
+      [
+        "7eae038e-7a8e-492e-a4dc-43238cce7c52",
+        1
+      ],
+      [
+        "9717fb10-494e-46f2-9cec-31d03dda9e1f",
+        1
+      ],
+      [
+        "978f2ae7-1c5e-42fc-a61c-d4fabefdf63e",
+        1
+      ],
+      [
+        "a386b330-40ce-4ae9-be09-4479ad3cf071",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "b5192815-5e90-45b4-a17d-62856a3ead51",
+        1
+      ],
+      [
+        "bbae6ccc-af83-4866-bed0-498b9adacbbe",
+        1
+      ],
+      [
+        "be07e8c1-0d79-4e39-9697-2a9ec687f8f8",
+        1
+      ],
+      [
+        "c13eb182-a0e0-4e54-985b-598de74dd949",
+        1
+      ],
+      [
+        "c4356fc0-83fa-4542-b754-d32471e67348",
+        1
+      ],
+      [
+        "d18935d7-260c-4633-af39-7eb7ee6f1e14",
+        1
+      ],
+      [
+        "d27a7bf0-d78e-46d4-bc74-6b2ae4705367",
+        1
+      ],
+      [
+        "d962a7dc-2183-4824-bb88-5e0ba14ec62d",
+        1
+      ],
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        1
+      ],
+      [
+        "e3b85734-cc89-47e8-9114-47457d06d52c",
+        1
+      ],
+      [
+        "e8dd97e5-0bd4-4da8-8f88-3ab91325a12c",
+        1
+      ],
+      [
+        "f08cb83c-9d50-4de8-aaa4-dd9bbe5cd02a",
+        1
+      ]
+    ],
+    "native": [
+      "AU",
+      "AT",
+      "DE",
+      "CZ",
+      "SK",
+      "HU"
+    ],
+    "requests": 18,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

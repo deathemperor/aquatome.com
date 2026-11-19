@@ -1,8 +1,8 @@
 {
   "id": "panaqolus-albomaculatus",
   "native": {
-    "input": "57aecda608bd64ee",
-    "at": "2026-11-19T00:50:56.943Z",
+    "input": "16937bf8eb07655c",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "PE",
@@ -21,15 +21,52 @@
         "ok": true
       },
       {
-        "code": "VE",
+        "code": "EC",
         "status": "native",
-        "source": "glaser",
-        "quote": "Panaqolus albomaculatus/LDA 31 from Venezuela also have very bright orange spots.",
-        "words": "Venezuela",
+        "source": "scotcat",
+        "quote": "South America: Ecuador: tributary of the Rio Suno. Peru: headwaters of the Napo, Marañon and Ucayali rivers.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Ecuador: tributary of the Rio Suno. Peru: headwaters of the Napo, Marañon and Ucayali rivers.",
+        "words": "Peru",
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Napo",
+        "source": "scotcat",
+        "quote": "South America: Ecuador: tributary of the Rio Suno. Peru: headwaters of the Napo, Marañon and Ucayali rivers.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Marañon",
+        "source": "scotcat",
+        "quote": "South America: Ecuador: tributary of the Rio Suno. Peru: headwaters of the Napo, Marañon and Ucayali rivers.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "scotcat",
+        "quote": "South America: Ecuador: tributary of the Rio Suno. Peru: headwaters of the Napo, Marañon and Ucayali rivers.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Rio Suno",
+        "source": "scotcat",
+        "quote": "South America: Ecuador: tributary of the Rio Suno. Peru: headwaters of the Napo, Marañon and Ucayali rivers.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -81,9 +118,10 @@
     ],
     "native": [
       "PE",
-      "VE"
+      "VE",
+      "EC"
     ],
     "requests": 11,
-    "at": "2026-11-19T00:50:56.943Z"
+    "at": "2026-11-19T07:58:14.453Z"
   }
 }

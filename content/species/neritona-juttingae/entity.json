@@ -10,6 +10,54 @@
     "indonesia",
     "borneo"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Neritina juttingae from Borneo is an unmistakable species with numerous horns on its shell.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9957427,
+      "total": 2,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "LK",
+          1
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          7.03125,
+          1
+        ],
+        [
+          102.65625,
+          0,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -30,12 +78,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina-juttingae-2/",
       "html": "<p>Neritina snails are enjoying growing popularity among aquarists. They look attractive, they do not reproduce in freshwater aquariums because the larvae only develop in the sea, and they also grate very hard, solid algae that other freshwater snails or algae-eating fish usually avoid.</p><p>The biggest disadvantage of many Neritina snails is that they often crawl out of the water, because in nature they live in the tidal area of the sea. The aquarium must therefore be well covered. Neritina juttingae does not have this disadvantage; it rarely leaves the water.</p>"
-    },
-    {
-      "key": "diet",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina-juttingae-2/",
-      "html": "<p>These snails graze hard algae. In the aquarium, feeding this species dead leaves (beech, oak, walnut, cherry, cattappa tree) has proved successful, as it particularly likes them.</p>"
     }
   ],
   "photos": [

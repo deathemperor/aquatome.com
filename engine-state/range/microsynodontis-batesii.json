@@ -1,22 +1,22 @@
 {
   "id": "microsynodontis-batesii",
   "native": {
-    "input": "47ceed1c18fbe358",
-    "at": "2026-11-10T12:58:20.267Z",
+    "input": "dec40b6cb92e7d18",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "CD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
-        "words": "Democratic Republic of Congo",
+        "quote": "The dwarf synodontis, Microsynodontis batesii, is a small catfish from the Congo and Ogowe basins in DR Congo, Gabon and Cameroon.",
+        "words": "DR Congo",
         "ok": true
       },
       {
         "code": "GA",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "quote": "The dwarf synodontis, Microsynodontis batesii, is a small catfish from the Congo and Ogowe basins in DR Congo, Gabon and Cameroon.",
         "words": "Gabon",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "CM",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "quote": "The dwarf synodontis, Microsynodontis batesii, is a small catfish from the Congo and Ogowe basins in DR Congo, Gabon and Cameroon.",
         "words": "Cameroon",
         "ok": true
       }
@@ -33,20 +33,22 @@
       {
         "name": "Congo",
         "source": "seriouslyfish",
-        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "quote": "The dwarf synodontis, Microsynodontis batesii, is a small catfish from the Congo and Ogowe basins in DR Congo, Gabon and Cameroon.",
         "ok": true
       },
       {
         "name": "Ogowe",
         "source": "seriouslyfish",
-        "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+        "quote": "The dwarf synodontis, Microsynodontis batesii, is a small catfish from the Congo and Ogowe basins in DR Congo, Gabon and Cameroon.",
         "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "NG"
+      ],
       "sourcesOnly": []
     }
   },

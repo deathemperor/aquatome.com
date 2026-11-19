@@ -1,23 +1,23 @@
 {
   "id": "homaloptera-parclitella",
   "native": {
-    "input": "f84a0d55759efe73",
-    "at": "2026-11-08T22:57:48.089Z",
+    "input": "61db57eb3e778ceb",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
-      {
-        "code": "MY",
-        "status": "native",
-        "source": "glaser",
-        "quote": "It inhabits Malaysia and Southern Thailand.",
-        "words": "Malaysia",
-        "ok": true
-      },
       {
         "code": "TH",
         "status": "native",
         "source": "glaser",
-        "quote": "It inhabits Malaysia and Southern Thailand.",
+        "quote": "Homaloptera parclitella is an extraordinarily beautiful hillstream loach from the black water of South Thailand and Malaysia.",
         "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Homaloptera parclitella is an extraordinarily beautiful hillstream loach from the black water of South Thailand and Malaysia.",
+        "words": "Malaysia",
         "ok": true
       },
       {
@@ -42,28 +42,32 @@
         "name": "Terengganu",
         "source": "seriouslyfish",
         "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "country": "MY",
         "ok": true
       },
       {
         "name": "Perak",
         "source": "seriouslyfish",
         "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "country": "MY",
         "ok": true
       },
       {
         "name": "Endau",
         "source": "seriouslyfish",
         "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
-        "ok": true
-      },
-      {
-        "name": "Muar",
-        "source": "seriouslyfish",
-        "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "country": "MY",
         "ok": true
       },
       {
         "name": "Sai Buri",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Sai Buri, Bang Nara and Kolok river systems, southern Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Bang Nara",
         "source": "seriouslyfish",
         "quote": "It also occurs in the Sai Buri, Bang Nara and Kolok river systems, southern Thailand.",
         "country": "TH",

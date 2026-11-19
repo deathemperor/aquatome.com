@@ -3,6 +3,12 @@
   "name": "กบิน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T07:51:30.988Z",
+    "why": "\"กบิน\" is a Thai transcription of Gbin but omits the kind word \"แม่น้ำ\" (river), so it is cut short as a river name."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

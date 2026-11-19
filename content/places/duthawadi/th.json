@@ -3,6 +3,12 @@
   "name": "ดุทาวดี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:53:37.821Z",
+    "why": "ดุทาวดี is a plausible Thai transliteration of Duthawadi, but the source describes it as a river system and the name lacks the kind word แม่น้ำ that a Thai atlas would use."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

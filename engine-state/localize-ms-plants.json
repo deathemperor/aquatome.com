@@ -1366,6 +1366,34 @@
       "notes:tropica": "81835eaf6307"
     }
   },
+  "hemianthus-callitriodes": {
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Hemianthus callitriodes",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Section 2: 'first described and collected' is rendered as 'mula-mula dikumpul dan dihuraikan' – the order is reversed, and 'dihuraikan' is odd for a botanical description (use 'diperihalkan'). Minor.",
+      "Section 2: 'Order Lamiales' is left as 'Order' in the classification; use 'Order' consistently or 'Bangsa'. 'Alam Plantae' for Kingdom is acceptable but inconsistent with the English-form 'Klad'. Minor.",
+      "Section 5, Dry start Pros: 'light (without water, even low light can be enough)' is translated as 'pencahayaan', so the benefit is lost. Use 'cahaya: tanpa air, cahaya rendah pun mungkin cukup'.",
+      "Section 5, Problems: 'iron deficiency (such as iron and potassium)' is translated literally, so the illogical source wording is kept. Make it 'kekurangan nutrien (seperti ferum dan kalium)'.",
+      "Section 5, Dry start: 'Plant with tweezers' is repeated after the planting step. Fine, but 'sebelum kitaran nitrogen tangki dimulakan' is an added gloss. Use 'sebelum tangki dikitarkan (cycling)'.",
+      "Section 5, Care: 'Introduce algae-eating species' is translated as 'spesies pemakan alga' without saying which animals. Acceptable, but 'Care' says 'Gently brush or stir ... with tweezers', and 'kuis' is unnatural. Use 'kacau'.",
+      "Section 7: 'Fertilisers such as Flourish Excel are well accepted' is translated as 'sesuai digunakan'. Flourish Excel is a carbon supplement, not a fertiliser; keep as in the source.",
+      "Section 8: 'Hostile species such as ... rainbowfish' is rendered 'ganas'. 'Hostile' fits poorly; use 'agresif'. 'ikan laga' for bettas is fine.",
+      "Section 3: 'foreground (midground)' is translated as 'latar depan (latar tengah)' – fine. 'Kedudukan dalam tangki' – 'Kuarantin ... nimfa pepatung dan pepatung jarum' is fine. Section 1: 'Fertilisers: appreciated' → 'digemari' is odd; use 'disyorkan' or 'dialu-alukan'."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "4dc447679344",
+      "distribution:aquariumbreeder": "1677f0550b36",
+      "habitat:aquariumbreeder": "359d126badbd",
+      "aquariumSize:aquariumbreeder": "9db3b7d14d80",
+      "maintenance:aquariumbreeder": "71f31dea8fe7",
+      "waterConditions:aquariumbreeder": "866796c3ffe2",
+      "equipment:aquariumbreeder": "9423cea019a7",
+      "notes:aquariumbreeder": "8afff9e5548a"
+    }
+  },
   "hemianthus-micranthemoides": {
     "at": "2026-11-16",
     "from": "2026-11-10",
@@ -2213,6 +2241,64 @@
       "quickFacts:tropica": "74dcccf0f8df",
       "maintenance:aquatome": "6402c17f9805",
       "notes:tropica": "33b8ce4d511d"
+    }
+  },
+  "micranthemum-umbrosum": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Micranthemum umbrosum",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"di dalam tangki\": for an aquarium, \"akuarium\" is more natural than \"tangki\".",
+      "\"Agak memerlukan cahaya yang mencukupi\": awkward. Use \"Agak menuntut dari segi pencahayaan\" or \"Memerlukan cahaya yang agak tinggi\".",
+      "\"ditanam semula di substrat\": the English says \"in the bottom\". \"di dasar akuarium\" is more natural.",
+      "\"Tumbuhan batang\" for Type: Stem is fine in meaning, but \"tumbuhan berbatang\" is the more usual term."
+    ],
+    "parts": {
+      "quickFacts:tropica": "2cc090ce90a1",
+      "maintenance:tropica": "05c9a42aabb1",
+      "notes:tropica": "0c507f8559e7"
+    }
+  },
+  "microsorum-pteropus": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Java Fern",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 3: \"ia boleh kalah teruk dengan alga\" / \"Jika alga menang\" is a literal rendering of \"fight badly with algae\" / \"algae wins\". Use e.g. \"ia sukar bersaing dengan alga\" / \"jika alga menguasai\".",
+      "Item 3: \"memulakan tangki dengannya secara sambil lewa\" reads oddly. \"Start a tank with it carelessly\" is better as \"menjadikannya tumbuhan permulaan tangki baharu secara sembarangan\".",
+      "Item 3: \"tangki tanpa substrat (bare bottom)\" is acceptable, but \"ditimbus\" and \"ditanam dalam batu kelikir\" are mixed up. Use \"ditanam dalam kerikil\" and \"ditimbus\" consistently.",
+      "Item 3: \"Satu kaedah yang digemari\" drops the sense of \"the author's favourite method\". This is acceptable as neutral wording, but \"setitik gam\" for \"a bead of glue\" understates the amount. Use \"setitik\" or \"sedikit\" consistently.",
+      "Item 5: \"reput (melt)\" for \"burn or melt\" is fine, but \"spektrum atau watt\" should be \"spektrum atau kuasa watt\". \"Cahaya rendah hingga sederhana tinggi\" is also ambiguous. Use \"cahaya rendah hingga sederhana-tinggi\".",
+      "Item 6: \"tercabut\" for \"drop off\" is acceptable, but \"anak pokok\" for \"plantlets\" is fine. No change needed here.",
+      "Item 8: \"pengasas syarikat yang menghasilkannya\" replaces \"Tropica's founder\" and drops the name Tropica. Restore \"pengasas Tropica\" (a trade name).",
+      "Item 4: \"ikan herbivor\" is fine. Item 1: \"tangki air payau pun boleh\" is colloquial. Use \"malah tangki air payau\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "6bcf2166a992",
+      "quickFacts:tropica": "a7149f4500ca",
+      "maintenance:aquariumcoop": "052ba487355e",
+      "maintenance:tropica": "dc99c6df5692",
+      "equipment:aquariumcoop": "5d2099ea38b1",
+      "reproduction:aquariumcoop": "2e1f91cf5aa3",
+      "notes:aquariumcoop": "947a0d98f7a0",
+      "notes:tropica": "b734195ea119"
+    }
+  },
+  "microsorum-pteropus-narrow": {
+    "at": "2026-11-19",
+    "from": "2026-11-08",
+    "name": "Java Fern Narrow",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "60f8aab2d9f3",
+      "maintenance:aquatome": "44885a80783b",
+      "notes:tropica": "63f44464d931"
     }
   }
 }

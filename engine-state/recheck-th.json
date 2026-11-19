@@ -33,9 +33,94 @@
     "sonnet": 0.55,
     "back": false
   },
+  "acestrorhynchus-altus": {
+    "hash": "d7d5c674a16295430fc2bed2742ba9394d8828d71912778e1eb2671163b80535",
+    "at": "2026-11-19T07:41:38.069Z",
+    "sonnet": 0.95,
+    "opus": 0.8,
+    "back": true
+  },
+  "acestrorhynchus-falcirostris": {
+    "hash": "87f2316e1d9cf4ac7100018207851eeb1fd99e5f6d786c98b720b2e5170b25ae",
+    "at": "2026-11-19T07:42:11.584Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
+  },
+  "acestrorhynchus-pantaneiro": {
+    "hash": "6a7dca15871649a368c849bdc35381ad8cae2382b35dbe48b3e11560d9aa24a9",
+    "at": "2026-11-19T07:42:49.996Z",
+    "sonnet": 0.95,
+    "opus": 0.8,
+    "back": true
+  },
+  "acrossocheilus-beijiangensis": {
+    "hash": "8e3a562dc2be873fde530a00f530dcc095b92089352cacacab646281e46b40d9",
+    "at": "2026-11-19T07:43:01.428Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "acrossocheilus-paradoxus": {
+    "hash": "174f18e3a2bc0a5a1a21d30dd07f397d945add662f9385c0d7498a1cb7f1fb32",
+    "at": "2026-11-19T07:43:30.033Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "Item 1 and 2: \"ของเกาะ\" is added where the English has no \"of the island\". Harmless, but could be dropped."
+    ]
+  },
   "aegla-platensis": {
     "hash": "d7262d465d269491aa887225ab5e6259bc0f12d53bf56d4d732c76ee6cb51d3c",
     "at": "2026-11-18T12:14:06.101Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "agamyxis-pectinifrons": {
+    "hash": "2481c334a7f8a81236f3d2a2e09d7dfbab4489d39df864fa5b3d0d77f3d38b5e",
+    "at": "2026-11-19T07:44:13.264Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "ageneiosus-magoi": {
+    "hash": "2d43c2ec3b8d0dd551bb173903953a557b3ec6a84ad8e0951ebf385bb1671581",
+    "at": "2026-11-19T07:44:26.843Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "ageneiosus-marmoratus": {
+    "hash": "6cd9f15757b0a7b64d784989e96daae212bb7bf4995e7154b7a9d8dfde193fab",
+    "at": "2026-11-19T07:45:03.013Z",
+    "sonnet": 0.88,
+    "opus": 0.85,
+    "back": true
+  },
+  "alcolapia-alcalica": {
+    "hash": "b6e72321280acc94c09d9f00043f1407dd22f8394a65babb4c6451544507d5a7",
+    "at": "2026-11-19T07:45:17.212Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 10: 'kH 7000+' is left in unconventional form; write 'KH' and add the unit (e.g. 'KH 7000+' ppm or dKH as the source implies). Also 'sg' should be 'SG'."
+    ]
+  },
+  "alcolapia-grahami": {
+    "hash": "4d38044722695ba4d88352c37c26bbf2d672c2d2d31c54de2f9ff3089d29ba1a",
+    "at": "2026-11-19T07:45:45.788Z",
+    "sonnet": 0.9,
+    "opus": 0.93,
+    "back": true
+  },
+  "alestopetersius-brichardi": {
+    "hash": "df50250495c6571fd18ca2ac2eef4e53ae6f2d4bfe8f56ce9d5b9545a8db7966",
+    "at": "2026-11-19T07:45:53.041Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "alestopetersius-caudalis": {
+    "hash": "5a94b6b52a61327eb487903e16ca77142ffb4b1df94e81f8dd8edafc262494c3",
+    "at": "2026-11-19T07:46:07.675Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -95,6 +180,13 @@
     "sonnet": 0.7,
     "back": false
   },
+  "asellus-aquaticus": {
+    "hash": "99848c1debd284e86706bfebc9971da823cc50b20abf786a74ef85abe06506e6",
+    "at": "2026-11-19T07:39:59.114Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
   "asolene-spixii": {
     "hash": "a3b18b456220186dad954927314579b5ad8b9c2077c0289d640117398557db07",
     "at": "2026-11-18T12:14:36.553Z",
@@ -140,6 +232,13 @@
     "at": "2026-11-19T00:30:00.072Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "betta-siamorientalis": {
+    "hash": "8b085e1a488698dbb43e4842e6aec67c44f58225063ee1d32b60367331680402",
+    "at": "2026-11-19T07:40:46.331Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
   },
   "boraras-brigittae": {
     "hash": "5758ad122dcbd1aba352b423b817b078f2c1e3d2d1d5483f764b3d659b20a746",
@@ -493,6 +592,12 @@
     "sonnet": 0.8,
     "opus": 0.9,
     "back": true
+  },
+  "osteogeneiosus-militaris": {
+    "hash": "e0a27d4b6a6254872ad013b7d9d02b77ad06eab047777f3d7252f3cd33533678",
+    "at": "2026-11-19T07:40:59.926Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "paracheirodon-axelrodi": {
     "hash": "80c7b485edf4d4d838dacd640b312294274c82c75b64e3e315c4966da32a96db",

@@ -1,8 +1,13 @@
 {
   "slug": "biwa",
-  "name": "Biwa",
+  "name": "Danau Biwa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-19T07:49:24.761Z"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

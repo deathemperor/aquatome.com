@@ -3,6 +3,12 @@
   "name": "โลเบ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:51:58.360Z",
+    "why": "\"โลเบ\" is a plausible phonetic rendering of Lobé, but it omits the Thai kind word for a region/department (อำเภอ/จังหวัด-type word, here \"ภูมิภาค\" or \"แคว้น\"), and the Lobé in Cameroon is a river with a Lobé department, so the bare name is ambiguous."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

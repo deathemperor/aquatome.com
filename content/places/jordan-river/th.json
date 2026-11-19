@@ -1,8 +1,13 @@
 {
   "slug": "jordan-river",
-  "name": "จอร์แดน",
+  "name": "แม่น้ำจอร์แดน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-19T07:55:30.818Z"
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

@@ -1,8 +1,13 @@
 {
   "slug": "likoula",
-  "name": "Likoula",
+  "name": "Departemen Likouala",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T07:50:12.595Z"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

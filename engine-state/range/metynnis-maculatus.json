@@ -1,8 +1,8 @@
 {
   "id": "metynnis-maculatus",
   "native": {
-    "input": "bc1401e8d75aa7b3",
-    "at": "2026-11-10T12:58:20.267Z",
+    "input": "7f529acd6808fcc7",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "BO",
@@ -39,22 +39,21 @@
     ],
     "regions": [
       {
-        "name": "rio Madeira",
+        "name": "Rio Madeira",
         "source": "seriouslyfish",
         "quote": "The spotted metynnis, Metynnis maculatus, is a silver dollar probably confined to the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil.",
         "ok": true
       },
       {
-        "name": "rio Paraguai",
+        "name": "Rio Paraguai",
         "source": "seriouslyfish",
         "quote": "The spotted metynnis, Metynnis maculatus, is a silver dollar probably confined to the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil.",
         "ok": true
       },
       {
-        "name": "rio Guaporé",
+        "name": "Rio Guaporé",
         "source": "seriouslyfish",
-        "quote": "Type locality is 'Rio Guaporé, Mato Grosso, Brazil'.",
-        "country": "BR",
+        "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
         "ok": true
       },
       {
@@ -62,12 +61,20 @@
         "source": "seriouslyfish",
         "quote": "The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction.",
         "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Orinoco basin; the animals described here were recently imported from Colombia.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "CO"
+      ],
       "sourcesOnly": []
     }
   },

@@ -3,6 +3,12 @@
   "name": "Sungai Min",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:47:40.029Z",
+    "why": "The Min River (Min Jiang) in Fujian is usually written \"Sungai Min\" in Malay, but the source's \"Min Jiang\" watershed is ambiguous, and Malaysian atlases often keep the pinyin as \"Sungai Min Jiang\" or \"Sungai Minjiang\", so \"Sungai Min\" is cut short."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

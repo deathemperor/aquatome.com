@@ -23,6 +23,7 @@
       "regions": [
         "Ganges",
         "Mahanadi",
+        "Yamuna",
         "Dibru River"
       ],
       "sources": [
@@ -37,22 +38,24 @@
             "NP",
             "BD"
           ],
-          "regions": []
+          "regions": [
+            "Ganges",
+            "Mahanadi"
+          ]
         },
         {
           "source": "seriouslyfish",
           "quote": "Native to the Ganges River system, from the Yamuna River in Himachal Pradesh state, India, to its delta in Bangladesh.",
           "countries": [],
           "regions": [
-            "Ganges"
+            "Yamuna"
           ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "It is also known from Ganges tributaries in Nepal, while in India there are additional records from the Mahanadi River system in Chhattisgarh and Orissa states, and parts of Assam state including the city of Guwahati, Kaziranga National Park, and the Dibru River basin.",
+          "quote": "It is often associated with water lily beds, and in the Dibru River occurs sympatrically with B. assamensis.",
           "countries": [],
           "regions": [
-            "Mahanadi",
             "Dibru River"
           ]
         }

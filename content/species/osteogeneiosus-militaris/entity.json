@@ -110,5 +110,326 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-19",
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "MM",
+        "SG",
+        "ID",
+        "BN",
+        "MY",
+        "PK",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Malay Archipelago"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Indo-West Pacific: distributed along the Indo-Pacific region from the west coast of India to Bangladesh, Myanmar, Singapore, Malacca, Indonesia, Brunei Darussalam, Malaysia and Pakistan.",
+          "countries": [
+            "IN",
+            "BD",
+            "MM",
+            "SG",
+            "ID",
+            "BN",
+            "MY",
+            "PK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species also has a wide distribution range in the Indo-West Pacific: from the north-west coast of India (Calcutta) to the south-east Asian countries Bangladesh, Cambodia, Myanmar, Brunei Darussalam, Indonesia, Singapore, Malaysia and Viet Nam (Bianchi 1985).",
+          "countries": [
+            "KH",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "A sea catfish found in the Indian and western Pacific Oceans from Pakistan to the Malay Archipelago.",
+          "countries": [],
+          "regions": [
+            "Malay Archipelago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345388,
+      "total": 145,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BD",
+          62
+        ],
+        [
+          "IN",
+          33
+        ],
+        [
+          "MY",
+          20
+        ],
+        [
+          "VN",
+          8
+        ],
+        [
+          "ID",
+          6
+        ],
+        [
+          "TH",
+          5
+        ],
+        [
+          "MM",
+          4
+        ],
+        [
+          "LK",
+          3
+        ],
+        [
+          "KH",
+          2
+        ],
+        [
+          "PK",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          66.09375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          67.5,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          67.5,
+          22.5,
+          1,
+          1
+        ],
+        [
+          70.3125,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          70.3125,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          71.71875,
+          18.28125,
+          6,
+          6
+        ],
+        [
+          71.71875,
+          19.6875,
+          5,
+          5
+        ],
+        [
+          73.125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          74.53125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          74.53125,
+          18.28125,
+          10,
+          10
+        ],
+        [
+          78.75,
+          5.625,
+          3,
+          0
+        ],
+        [
+          78.75,
+          11.25,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          51,
+          51
+        ],
+        [
+          90,
+          22.5,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          12,
+          12
+        ],
+        [
+          94.21875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          95.625,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          101.25,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          101.25,
+          11.25,
+          1,
+          0
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          112.5,
+          11.25,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

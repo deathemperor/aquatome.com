@@ -3,6 +3,12 @@
   "name": "อีเรียนจายา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:55:01.132Z",
+    "why": "Thai atlases usually write Irian Jaya as \"เฮียนจายา\"/\"อิเรียนจายา\" (more commonly \"อีเรียนจายา\" is a plausible transliteration), but the standard Thai form is \"อิเรียนจายา\" with short อิ, so this spelling is slightly off."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

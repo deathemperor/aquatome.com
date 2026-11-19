@@ -11,6 +11,92 @@
     "suriname-river",
     "french-guiana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "GF"
+      ],
+      "regions": [
+        "Suriname River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: coastal rivers of Suriname and French Guiana.",
+          "countries": [
+            "SR",
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Suriname, district Brokopondo, Suriname River system, Marchall Creek, east of the road Paranam-Afobaka, 1.5 km north of Marchall village.",
+          "countries": [],
+          "regions": [
+            "Suriname River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342620,
+      "total": 68,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          65
+        ],
+        [
+          "SR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          17,
+          17
+        ],
+        [
+          -54.84375,
+          4.21875,
+          12,
+          12
+        ],
+        [
+          -53.4375,
+          2.8125,
+          13,
+          13
+        ],
+        [
+          -53.4375,
+          4.21875,
+          22,
+          22
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -198,54 +284,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19",
-  "range": {
-    "records": {
-      "taxonKey": 2342620,
-      "total": 68,
-      "fetched": "2026-11-19",
-      "countries": [
-        [
-          "GF",
-          65
-        ],
-        [
-          "SR",
-          3
-        ]
-      ],
-      "cells": [
-        [
-          -56.25,
-          4.21875,
-          3
-        ],
-        [
-          -54.84375,
-          1.40625,
-          1
-        ],
-        [
-          -54.84375,
-          2.8125,
-          17
-        ],
-        [
-          -54.84375,
-          4.21875,
-          12
-        ],
-        [
-          -53.4375,
-          2.8125,
-          13
-        ],
-        [
-          -53.4375,
-          4.21875,
-          22
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-19"
 }

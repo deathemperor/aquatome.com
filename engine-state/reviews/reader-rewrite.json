@@ -768,6 +768,23 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-Siun2vEDvh0#body": [
+    {
+      "at": "2026-11-19T08:09:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Said more surely than before: \"nếu thấy dán rêu bằng keo trông không đẹp thì quấn rêu lên mấy viên đá nhỏ rồi đặt vào các khe đá.\" (was: \"nếu thấy dán rêu bằng keo trông không đẹp thì có thể quấn rêu lên mấy viên đá nhỏ rồi đặt vào các khe đá.\")",
+        "Changed content: \"mong nó giữ nước tốt hơn\" became \"để nó hút bớt dinh dưỡng thừa cho nước sạch hơn\"; this adds a mechanism (absorbing excess nutrients) and turns a hope into a stated purpose.",
+        "Hedge dropped: \"thì có thể quấn rêu lên mấy viên đá nhỏ\" became \"thì quấn rêu lên mấy viên đá nhỏ\"; an optional suggestion became an instruction.",
+        "\"ban đầu không thấy\" became \"Lúc đầu sẽ không thấy nó\"; this is a minor nuance change."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-U8S5XWnXsi4#body": [
     {
       "at": "2026-11-08T14:25:48Z",

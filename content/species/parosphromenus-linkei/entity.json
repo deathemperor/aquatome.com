@@ -17,12 +17,12 @@
         "ID"
       ],
       "regions": [
-        "Borneo",
-        "Kalimantan"
+        "Borneo"
       ],
       "sources": [
         "bwaquatics",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -31,14 +31,6 @@
           "countries": [
             "ID"
           ],
-          "regions": [
-            "Kalimantan"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara.",
-          "countries": [],
           "regions": [
             "Borneo"
           ]
