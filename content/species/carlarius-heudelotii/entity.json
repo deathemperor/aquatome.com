@@ -1,0 +1,280 @@
+{
+  "id": "carlarius-heudelotii",
+  "scientificName": "Carlarius heudelotii",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Carlarius",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "mauritania",
+    "gabon",
+    "senegal",
+    "guinea"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MR",
+        "GA",
+        "CI",
+        "CM"
+      ],
+      "regions": [
+        "Volta"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "West coast of Africa: from Mauritania to Gabon and, possibly, to Angola; in marine waters and estuaries.",
+          "countries": [
+            "MR",
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon, mainly in the Niger and Volta basins, but appears sparsely distributed and may be rare.",
+          "countries": [
+            "CI",
+            "CM"
+          ],
+          "regions": [
+            "Volta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5851761,
+      "total": 37,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MR",
+          8
+        ],
+        [
+          "AO",
+          6
+        ],
+        [
+          "SN",
+          6
+        ],
+        [
+          "CD",
+          4
+        ],
+        [
+          "GN",
+          4
+        ],
+        [
+          "GW",
+          4
+        ],
+        [
+          "SL",
+          3
+        ],
+        [
+          "LR",
+          1
+        ],
+        [
+          "NG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -18.28125,
+          11.25,
+          5,
+          0
+        ],
+        [
+          -18.28125,
+          14.0625,
+          2,
+          0
+        ],
+        [
+          -18.28125,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -16.875,
+          11.25,
+          3,
+          0
+        ],
+        [
+          -16.875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -16.875,
+          19.6875,
+          6,
+          6
+        ],
+        [
+          -15.46875,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -14.0625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -14.0625,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          -12.65625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -11.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -7.03125,
+          6,
+          0
+        ],
+        [
+          11.25,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          12.65625,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 76
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "html": "<ul><li>Common name: Smoothmouth sea catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "html": "<p>West coast of Africa: from Mauritania to Gabon and, possibly, to Angola; in marine waters and estuaries. Type locality: haut Sénégal.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "html": "<p>Demersal; brackish; marine; depth range 15–75 m. Enters brackish waters; found along the shallow continental shelf. Its habitat is muddy bottoms where turbidity is strong.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "html": "<p>Feeds on benthic invertebrates buried in the mud but it can sometimes leave the bottom to capture prey in open water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "html": "<p>The females bear large eggs which are incubated and develop in the buccal cavity of the males. Their reproductive adaptation, with a small number of very big eggs (ariids have the largest eggs of any teleost group) protected by mouth incubation, also allows a large reduction in early life mortality.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "html": "<p>The rays of the fins are venomous and the wound inflicted is extremely painful.</p><p>The sea catfish from Guinea are slow growing species which reach 40 to 42 cm (approximately one kilogram) at 6 years. Individuals of 80 cm, speculated to be 20 to 30 years old, are quite frequently seen in canoe fishery landings, which indicates that natural mortality is low. Their very hard skull and strong protective spines, as well as their habitat on muddy bottoms where turbidity is strong, probably protect them from predation.</p><p>Etymology: the specific name heudelotii honours Heudelot, a French botanist.</p><p>Marceniuk &amp; Menezes (2007) placed this species in the new genus Carlarius, named for Carl Ferraris for his contribution to the knowledge of Siluriformes, which includes the seven known Arius species from the west African coastline. Arius heudeloti Valenciennes, 1840, is the type species.</p><p>IUCN Red List: Data Deficient. The species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon, mainly in the Niger and Volta basins, but appears sparsely distributed and may be rare. Within the Volta basin it is declining due to heavy fishing pressure, pollution and invasive species. Population information is lacking elsewhere.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "html": "<ul><li>Betancur, R., Marceniuk, A.P., de Morais, L., Sagna, A., Djiman, R., Carpenter, K.E., Camara, K., Nunoo, F., Sidibé, A, Williams, A.B., Sylla, M., Lindeman, K., Montiero, V. &amp; Quartey, R. 2015. Carlarius heudelotii. The IUCN Red List of Threatened Species 2015. California Academy of Sciences.</li><li>Conand, F., S.B. Camara and F. Domain 1995 Age and growth of three species of Ariidae (Siluriformes) in coastal waters of Guinea. Bull. Mar. Sci. 56(1):58-67.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (10/2009).</li><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3d1dafa6fef3bfd6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3d1dafa6fef3bfd6-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_heudelotii.htm",
+      "caption": "Carlarius heudelotii",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

@@ -1,0 +1,288 @@
+{
+  "found": true,
+  "species": [],
+  "sources": [
+    {
+      "url": "https://aqueon.com/articles/hang-on-back-canister-filter",
+      "title": "Hang on Back vs. Canister Filter",
+      "kind": "maker"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/keeping_and_caring/aquarium_filtration.html",
+      "title": "Aquarium Filtration",
+      "kind": "society"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/keeping_and_caring/filter_turnover_rate.html",
+      "title": "Filter Turnover Rate",
+      "kind": "society"
+    },
+    {
+      "url": "https://fluvalaquatics.com/ca/manuals/A440-50_07_Manual_INT_Mar4_19_WEB.pdf",
+      "title": "A440 50 07 Manual INT Mar4 19 WEB",
+      "kind": "maker"
+    },
+    {
+      "url": "https://kb.rspca.org.au/knowledge-base/why-is-water-quality-important-when-setting-up-a-fish-aquarium/",
+      "title": "Why is water quality important when setting up a fish aquarium?",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
+      "title": "How to Keep Your Aquarium Fish Alive During A Power Outage",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cvm.ncsu.edu/news/dealing-with-aquariums-and-ponds-during-power-outages/",
+      "title": "Dealing With Aquariums and Ponds During Power Outages",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.manualslib.com/manual/3853494/Aqua-Clear-70.html",
+      "title": "Aqua Clear 70",
+      "kind": "maker"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/loc-tran-don-gian-cho-ca-la-han.43410/",
+      "title": "Lọc tràn đơn giản cho cá La Hán.",
+      "kind": "forum"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cac-loai-loc-be-ca",
+      "title": "Các Loại Lọc Bể Cá Thông Dụng Hiện Nay - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquazonefish.vn/blogs/kien-thuc/cac-loai-loc-tran-khac-nhau-va-cach-su-dung-hieu-qua",
+      "title": "Các Loại Lọc Tràn Khác Nhau Và Cách Sử Dụng Hiệu Quả - AquaZone - Siêu thị cá cảnh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://reefs.com/forum/general-discussion/264120-power-outages-sumps.html",
+      "title": "Power outages & sumps",
+      "kind": "forum"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Hang-on-back filters do mechanical, biological and chemical filtration at a reasonable price, and upkeep is usually just rinsing or replacing a cartridge.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Aqueon says hang-on-back filters are best suited to aquariums of 75 gallons and smaller.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Canister filters hold more media than comparable hang-on-back filters and cost more. Cleaning takes more work, but they go longer between cleanings.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Canister filters are usually used on larger tanks or by advanced hobbyists, but they also suit an average 20-gallon tank.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Filtration does three jobs: mechanical (removes particles), biological (bacteria convert toxic wastes) and chemical (removes dissolved organics).",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "RSPCA calls biological filtration the most important of the three types. Media with more surface area gives more biological capacity.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Choose the filter by need: larger, messier fish need more mechanical filtration, heavily stocked tanks need more biological capacity, and very clean water needs strong chemical filtration.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Aqueon advises buying a filter rated at least one size larger than your aquarium.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Turnover time in minutes = tank volume (litres) ÷ pump rate (litres per minute). For example, 1,000 L ÷ 100 L/min = 10 minutes.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "ANGFA says it is wrong to think all the water has passed through the filter in one turnover time. With good mixing, it takes about 9 times that figure (10 minutes × 9 = 90 minutes).",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Once filter media is added, flow can drop by 10 to 50 percent, so real turnover is slower than the pump's rating.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "In one study ANGFA cites, filters run at 57.5 L/hour removed more ammonia than filters at 111 L/hour, because slower flow gave the bacteria more contact time.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Fluval 07 Series: the canister must always sit below the aquarium. Its base can be at most 4.5 ft (1.4 m) below the water level.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Fluval 07 Series: the aquarium's water level should never be more than 7 in (17.5 cm) below the rim.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Fluval 07 Series: run the hoses in a straight path from the filter to the aquarium rim, with no loops and very little slack.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Fluval 07 Series: do not place the intake tube close to an air source.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Fluval's 07 Series manual says not to fill the canister with water during preparation; the filter is primed with its built-in primer.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "AquaClear hang-on-back filter: the media goes in three stages in order: foam (mechanical), activated carbon (chemical), then BioMax (biological).",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "AquaClear hang-on-back filter: start-up means filling the filter, priming it, plugging it in, then adjusting the flow control.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "AquaClear warns against letting the pump run dry.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "AquaClear says to unplug the filter before cleaning, rinse the inserts in aquarium water rather than tap water, and clean the motor unit every three months.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "When rinsing the AquaClear impeller to remove deposits, wet the motor seal ring before putting it back together.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Rinse filter media lightly in a bucket of tank water when it clogs or monthly, whichever comes first.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Over-cleaning filter media removes the beneficial bacteria.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Cleaning filter media in tap water can kill the beneficial bacteria, because of chlorine or chloramine.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding fish before the biofilter is conditioned is a common mistake.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Filtration does not replace water changes. Water quality still declines and needs regular changes.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Treating sick fish in the main tank can harm the biofilter bacteria, so ANGFA advises having a separate tank for treatment.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep dissolved oxygen from falling below 5.0 mg/L.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Mechanical media such as sponge clog as they trap particles, so they need regular inspection and cleaning.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "In a power cut, unplug the filter and get the media out as soon as possible. Rinse it in aquarium water and put it in the tank.",
+      "source": 5
+    },
+    {
+      "section": "causes",
+      "fact": "A canister filter that is closed to the air can go anoxic in as little as four to six hours without power, depending on how dirty it was.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Before restarting a filter after an outage, empty and rinse the filter body so settled detritus is not pumped into the tank. Then return the media, prime with new water and plug it in.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Clean impellers and impeller housings as routine maintenance. Clogged or dirty impellers often fail to restart when power returns.",
+      "source": 5
+    },
+    {
+      "section": "firstAid",
+      "fact": "During an outage, run the pump/filter and heater on an alternate power supply if possible. Test ammonia, and if it is over 1 ppm, change 10 to 30 percent of the water.",
+      "source": 6
+    },
+    {
+      "section": "firstAid",
+      "fact": "Do not feed fish during a power outage. They can usually go days or even weeks without food.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "NC State's Gregory Lewbart says tropical fish usually tolerate water in the high 80s or low 90s °F for a day or more. If the tank gets too warm, uncover the surface and shade it from sun.",
+      "source": 6
+    },
+    {
+      "section": "causes",
+      "fact": "In a sump, a power cut can let water siphon back from the display through the return line. A small hole drilled just below the waterline in the return line breaks the siphon.",
+      "source": 11
+    },
+    {
+      "section": "prevention",
+      "fact": "Keepers report that siphon-break holes can clog without regular cleaning, and that the sump should be kept not full so it can take the water that drains back in an outage.",
+      "source": 11
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops call the hang-on-back filter \"lọc treo\", the canister filter \"lọc thùng\", the overflow filter \"lọc tràn\" and the undergravel filter \"lọc đáy\".",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam, a filter tray that sits on top of the tank is sold as \"lọc tràn trên\".",
+      "source": 10
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese keeper reports building a 60 × 10 × 15 cm glass top filter (lọc tràn kính) with 4 compartments in order: filter wool, ceramic media, then lava rock mixed with crushed coral. The last compartment is optional, with a little fine wool.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same keeper reports a 1.1 m 5-compartment glass overflow on a 1.2 m flowerhorn tank. Two 30 W pumps fed both ends, water drained through two Ø21 mm holes in the middle, and the filter was hung from the stand's top rail.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "Keepers on the forum advise running the overflow filter 24/24 so the beneficial bacteria stay alive. One reports cutting the weight on the glass braces by using only ceramic media.",
+      "source": 8
+    }
+  ]
+}

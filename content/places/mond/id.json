@@ -3,6 +3,12 @@
   "name": "Mond",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:54:09.619Z",
+    "why": "Mond is a river/region in Bushehr Province, Iran, and the name is a proper name kept as is, but without a kind word like \"Sungai\" or \"Wilayah\" it is ambiguous and hard to verify as the region's atlas form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

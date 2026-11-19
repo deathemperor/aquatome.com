@@ -1,17 +1,9 @@
 {
   "id": "lepisosteus-oculatus",
   "native": {
-    "input": "e8076561fa714852",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "d5a1afb58ac88da1",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
-      {
-        "code": "MX",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.",
-        "words": "Mexico",
-        "ok": true
-      },
       {
         "code": "US",
         "status": "native",
@@ -19,26 +11,36 @@
         "quote": "It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.",
         "words": "United States",
         "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.",
+        "words": "Mexico",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Mississippi River",
+        "name": "Mississippi",
         "source": "seriouslyfish",
         "quote": "Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.",
         "ok": true
       },
       {
-        "name": "Rio Grande",
-        "source": "seriouslyfish",
-        "quote": "It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.",
-        "ok": true
-      },
-      {
-        "name": "Great Lakes",
+        "name": "Lake Erie",
         "source": "seriouslyfish",
         "quote": "Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.",
-        "ok": true
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Lake Michigan",
+        "source": "seriouslyfish",
+        "quote": "Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.",
+        "ok": false,
+        "why": "its name is not in the quote"
       },
       {
         "name": "Apalachicola River",
@@ -50,6 +52,12 @@
         "name": "Nueces River",
         "source": "seriouslyfish",
         "quote": "Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.",
+        "ok": true
+      },
+      {
+        "name": "Rio Grande",
+        "source": "seriouslyfish",
+        "quote": "It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.",
         "ok": true
       }
     ],

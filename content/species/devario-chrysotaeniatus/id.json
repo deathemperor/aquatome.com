@@ -20,10 +20,10 @@
     "references:seriouslyfish": "<ul><li>Chu, X.-L. (1981). A preliminary revision of fishes of the genus Danio from China. Zoological Research 2(2), 145-156</li><li>Fang, F. (2003). Phylogenetic Analysis of the Asian Cyprinid Genus Danio (Teleostei, Cyprinidae). Copeia 2003(4), 714-728</li><li>Fang, F. and M. Kottelat (1999). Danio species from northern Laos, with descriptions of three new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 10(3), 281-295</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.78,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.78
     }
   }
 }

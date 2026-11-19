@@ -2,18 +2,6 @@
   "id": "asellus-aquaticus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/a7c5014d4a1df406.webp",
-      "thumb": "https://media.aquatome.com/commons/a7c5014d4a1df406-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Donald Davesne",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asellus_aquaticus_159371604.jpg",
-      "caption": "Nhiều Asellus cùng nhau trên nền trắng",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/commons/0c0879da4ab153e2.webp",
       "thumb": "https://media.aquatome.com/commons/0c0879da4ab153e2-480.webp",
       "width": 1200,
@@ -122,18 +110,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/a1b6e58a85c32a8e.webp",
-      "thumb": "https://media.aquatome.com/commons/a1b6e58a85c32a8e-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY 4.0",
-      "author": "Ron Pasieczna",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asellus_aquaticus_169459675.jpg",
-      "caption": "Asellus sẫm màu giữa mảnh vụn hữu cơ",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/9a34349c8068bf14.webp",
       "thumb": "https://media.aquatome.com/commons/9a34349c8068bf14-480.webp",
       "width": 1200,
@@ -158,6 +134,46 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/30668512.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30668512-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Simon Rolph",
+      "sourceUrl": "https://www.inaturalist.org/photos/30668512",
+      "caption": "Asellus aquaticus bò trên cây thủy sinh trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/17085627.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/17085627-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Jack Sewell",
+      "sourceUrl": "https://www.inaturalist.org/photos/17085627",
+      "caption": "Asellus aquaticus giữa đám bèo ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a7c5014d4a1df406.webp",
+      "thumb": "https://media.aquatome.com/commons/a7c5014d4a1df406-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Donald Davesne",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asellus_aquaticus_159371604.jpg",
+      "caption": "Nhiều Asellus cùng nhau trên nền trắng",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/commons/96dea0ca9344308f.webp",
       "thumb": "https://media.aquatome.com/commons/96dea0ca9344308f-480.webp",
       "width": 1200,
@@ -180,6 +196,34 @@
       "caption": "Asellus nhạt màu giữa đám rêu xanh",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/446472507.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/446472507-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "NHMlearning",
+      "sourceUrl": "https://www.inaturalist.org/photos/446472507",
+      "caption": "Cận cảnh Asellus aquaticus lớn trong đĩa nhựa",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253907395.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253907395-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Andrew Skotnicki",
+      "sourceUrl": "https://www.inaturalist.org/photos/253907395",
+      "caption": "Asellus aquaticus trong đĩa petri, thấy rõ các đốt thân",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/d46d9dff184c3063.webp",
@@ -214,6 +258,18 @@
       "author": "Ron Pasieczna",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asellus_aquaticus_169459851.jpg",
       "caption": "Asellus màu vàng nâu bò trong khay trắng",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a1b6e58a85c32a8e.webp",
+      "thumb": "https://media.aquatome.com/commons/a1b6e58a85c32a8e-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY 4.0",
+      "author": "Ron Pasieczna",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asellus_aquaticus_169459675.jpg",
+      "caption": "Asellus sẫm màu giữa mảnh vụn hữu cơ",
       "best": false,
       "kind": "other"
     },
@@ -254,6 +310,90 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/458243575.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/458243575-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "Robert Martin",
+      "sourceUrl": "https://www.inaturalist.org/photos/458243575",
+      "caption": "Asellus aquaticus bò trong hộp nhỏ trong suốt",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/634147515.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/634147515-480.webp",
+      "width": 1200,
+      "height": 904,
+      "licence": "CC BY",
+      "author": "R Avery",
+      "sourceUrl": "https://www.inaturalist.org/photos/634147515",
+      "caption": "Asellus aquaticus nhìn từ trên xuống, chụp trên nền sáng",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/455174039.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/455174039-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Joss Carr",
+      "sourceUrl": "https://www.inaturalist.org/photos/455174039",
+      "caption": "Asellus aquaticus màu nâu trong đĩa nước",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253908082.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253908082-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Andrew Skotnicki",
+      "sourceUrl": "https://www.inaturalist.org/photos/253908082",
+      "caption": "Asellus aquaticus nhìn từ trên trong đĩa petri",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253907380.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253907380-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Andrew Skotnicki",
+      "sourceUrl": "https://www.inaturalist.org/photos/253907380",
+      "caption": "Asellus aquaticus nhìn nghiêng trong đĩa petri",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/4013306.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/4013306-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Donald Hobern",
+      "sourceUrl": "https://www.inaturalist.org/photos/4013306",
+      "caption": "Asellus aquaticus trong đĩa có mảnh vụn",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/7eefecbe31026901.webp",
       "thumb": "https://media.aquatome.com/commons/7eefecbe31026901-480.webp",
       "width": 1200,
@@ -290,7 +430,7 @@
       "kind": "other"
     }
   ],
-  "seen": 80,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 100,
+  "updatedAt": "2026-11-19",
+  "builtAt": "2026-11-19"
 }

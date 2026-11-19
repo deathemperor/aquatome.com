@@ -3,6 +3,12 @@
   "name": "การิญญาญา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-18T18:26:49.395Z",
+    "why": "The name การิญญาญา lacks the Thai river word แม่น้ำ and doesn't match Portuguese Carinhanha (ca-ri-NYA-nya), which Thai would write as การินยานยา or คาริญญา; the syllables are also garbled."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

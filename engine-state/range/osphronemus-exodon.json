@@ -1,8 +1,8 @@
 {
   "id": "osphronemus-exodon",
   "native": {
-    "input": "d8bafc20cd1c642f",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "df88b503b50631c9",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "TH",
@@ -27,18 +27,16 @@
         "quote": "The elephant ear gourami, Osphronemus exodon, is a large gourami from Thailand, Laos and Cambodia.",
         "words": "Cambodia",
         "ok": true
-      },
-      {
-        "code": "KH",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Cambodia.",
-        "words": "Cambodia",
-        "ok": false,
-        "why": "no sentence"
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "Osphronemus exodon is a giant gourami from the Mekong river.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

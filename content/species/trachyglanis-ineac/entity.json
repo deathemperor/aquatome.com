@@ -1,0 +1,214 @@
+{
+  "id": "trachyglanis-ineac",
+  "scientificName": "Trachyglanis ineac",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Trachyglanis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "congo-river"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Etymology: the specific name ineac was given for the Centre de l'Institut National pour l'Etude Agronomique du Congo belge (I.N.E.A.C.), Stanleyville (now Kisangani, Democratic Republic of the Congo), near the type locality.",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Africa: Congo River basin.",
+          "countries": [],
+          "regions": [
+            "Congo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340848,
+      "total": 13,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CD",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          22.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          11,
+          11
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.2,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>There are four species in this genus: T. ineac, T. intermedius, T. minutus and T. sanghensis. Similar looking to the Phractura genus. Family: Amphiliidae. Size: 9.0 cm SL. Temperature: 24–28°C. pH: 6.2–7.2.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>Quite rare in imports. Not an easy species to keep due to its high maintenance and specialised diet.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>Africa: Congo River basin. Type locality: riv. Loweo, environs de Yangambi (Stanleyville).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>Found in the banks of rivers with floating and hanging vegetation. They hide at the river banks among leaves and twigs.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>This genus prefers water with a bit of movement as they are found at the margins of swift-flowing streams. Provide floating plants with long stems and branches.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>Small live foods such as sifted Daphnia, Rotifers and Artemia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>Etymology: the specific name ineac was given for the Centre de l'Institut National pour l'Etude Agronomique du Congo belge (I.N.E.A.C.), Stanleyville (now Kisangani, Democratic Republic of the Congo), near the type locality.</p><p>IUCN Red List: the species is widespread or without major threats throughout the Central Africa assessment region and is assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Moelants, T. 2010. Trachyglanis ineac. The IUCN Red List of Threatened Species 2010.</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3262f8fdc9738fc3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3262f8fdc9738fc3-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "caption": "Trachyglanis ineac: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d2787fa7d6b4fc6a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d2787fa7d6b4fc6a-480.webp",
+      "width": 500,
+      "height": 297,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/trachyglanis_ineac.htm",
+      "caption": "Trachyglanis ineac",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ZimvLQcGkTw",
+      "title": "Freckled Loach Catfish - Trachyglanis ineac",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RX-JBF9suVA",
+      "title": "Trachyglanis",
+      "durationSec": 24,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo sống",
+        "artemia",
+        "thức ăn đông lạnh cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thác cho bể cá"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "rong rêu thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

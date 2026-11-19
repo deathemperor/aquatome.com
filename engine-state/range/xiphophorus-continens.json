@@ -1,0 +1,33 @@
+{
+  "id": "xiphophorus-continens",
+  "native": {
+    "input": "f825fdb305319cb6",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus continens",
+    "status": "ACCEPTED",
+    "taxonKey": 2350163,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "หุคลี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-18T12:24:26.845Z",
+    "why": "หุคลี is Thai script and points at the right place, but its spelling is off: the usual Thai form is ฮูกลี (the river is แม่น้ำฮูกลี), and หุคลี reads closer to \"hu-khlee\"."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

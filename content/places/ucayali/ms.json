@@ -3,6 +3,12 @@
   "name": "Ucayali",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:01:12.861Z",
+    "why": "The Peruvian region is normally written \"Wilayah Ucayali\" in Malay atlases, and bare \"Ucayali\" leaves out the kind word, though the proper name's spelling is correct."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

@@ -1,0 +1,123 @@
+{
+  "id": "amphiarius-phrygiatus",
+  "native": {
+    "input": "0558473e9226db38",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Atlantic coastal rivers and estuaries from Guyana to the mouth of the Amazon River (Brazil, French Guiana, Guyana, Suriname and Venezuela).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Atlantic coastal rivers and estuaries from Guyana to the mouth of the Amazon River (Brazil, French Guiana, Guyana, Suriname and Venezuela).",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Atlantic coastal rivers and estuaries from Guyana to the mouth of the Amazon River (Brazil, French Guiana, Guyana, Suriname and Venezuela).",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Atlantic coastal rivers and estuaries from Guyana to the mouth of the Amazon River (Brazil, French Guiana, Guyana, Suriname and Venezuela).",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Atlantic coastal rivers and estuaries from Guyana to the mouth of the Amazon River (Brazil, French Guiana, Guyana, Suriname and Venezuela).",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon River",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Atlantic coastal rivers and estuaries from Guyana to the mouth of the Amazon River (Brazil, French Guiana, Guyana, Suriname and Venezuela).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Amphiarius phrygiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345507,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        80
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        75
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        17
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GF",
+      "GY",
+      "SR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

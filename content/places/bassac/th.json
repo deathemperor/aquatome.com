@@ -3,6 +3,12 @@
   "name": "บาสัก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T06:00:44.496Z",
+    "why": "The Bassac region in Cambodia (Basak, the Mekong delta area around the Bassac River) is usually written บาสัก or บัสสัก in Thai, but the Thai name here is a plausible transliteration lacking a kind word, and the Khmer-based form is often ปราสาก/บาซัก, so it's uncertain."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -10,6 +10,7 @@ import { isMarketplace } from './marketplaces'
 import { piece } from './pieces'
 import { logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
+import { withoutRefused } from './refused-sources'
 
 /**
  * A hobby material's page (content/materials/<id>/: lũa, đá, nền, lá khô), written in Vietnamese from web research and
@@ -259,9 +260,10 @@ async function writeMaterial(root: string, d: { research: Llm; llm: Llm }, a: Ma
   const factsFile = join(root, 'engine-state/materials', `${a.id}.json`)
   const kept = o.reuse ? await readJson<MaterialFacts>(factsFile) : null
   if (o.reuse && !kept) throw new Error(`${a.id}: no research kept in ${factsFile}`)
-  let researched = kept
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  let researched = kept && withoutRefused(kept).kept
   if (!researched) {
-    researched = { ...await d.research<MaterialFacts>({ system: 'You research aquarium materials carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' }), at: now.toISOString().slice(0, 10) }
+    researched = withoutRefused({ ...await d.research<MaterialFacts>({ system: 'You research aquarium materials carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' }), at: now.toISOString().slice(0, 10) }).kept
     await mkdir(join(root, 'engine-state/materials'), { recursive: true })
     await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`)
   }

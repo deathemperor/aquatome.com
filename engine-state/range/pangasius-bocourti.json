@@ -1,8 +1,8 @@
 {
   "id": "pangasius-bocourti",
   "native": {
-    "input": "15076d437bdb292a",
-    "at": "2026-11-17T00:14:47.070Z",
+    "input": "340d5f0a711e1ec5",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "TH",
@@ -11,9 +11,30 @@
         "quote": "Origin: Thailand.",
         "words": "Thailand",
         "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Phnom-Penh (Cambodia).",
+        "words": "Cambodia",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya River basins.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya River basins.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -52,9 +73,10 @@
       ]
     ],
     "native": [
-      "TH"
+      "TH",
+      "KH"
     ],
     "requests": 12,
-    "at": "2026-11-17T00:14:47.070Z"
+    "at": "2026-11-17T05:18:20.405Z"
   }
 }

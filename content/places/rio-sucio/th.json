@@ -1,8 +1,13 @@
 {
   "slug": "rio-sucio",
-  "name": "ริโอซูซิโอ",
+  "name": "แม่น้ำซูซิโอ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-19T00:36:34.921Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

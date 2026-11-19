@@ -1,0 +1,75 @@
+{
+  "id": "yunnanilus-cruciatus",
+  "native": {
+    "input": "8d3e0d58cd9d2070",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Yunnanilus cruciatus is endemic to Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It appears to be endemic to Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This charming free swimming dwarf loach originates from Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "An Lao River",
+        "source": "aquariumbreeder",
+        "quote": "These fish can be found in the coastal rivers of central Vietnam from the An Lao River (Binh Dinh Province) to the Phong Nha River (Quang Binh Province).",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Phong Nha River",
+        "source": "aquariumbreeder",
+        "quote": "These fish can be found in the coastal rivers of central Vietnam from the An Lao River (Binh Dinh Province) to the Phong Nha River (Quang Binh Province).",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Yunnanilus cruciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358243,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        10
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

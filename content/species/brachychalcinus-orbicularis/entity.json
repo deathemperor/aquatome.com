@@ -28,7 +28,8 @@
         "Negro"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -452,6 +453,13 @@
           "min": 20,
           "max": 27
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -499,10 +507,22 @@
       "html": "<ul><li><strong>Max size:</strong> 90 mm SL (3.5 in SL)</li><li><strong>Aquarium size:</strong> 120 × 30 cm (48 × 12 in)</li><li><strong>Temperature:</strong> 20–27°C (68–81°F)</li><li><strong>pH:</strong> 5.0–7.5</li><li><strong>Hardness:</strong> 1–12 dGH</li><li><strong>Difficulty:</strong> 2 of 8</li></ul><p>The discus tetra, Brachychalcinus orbicularis, is a deep-bodied characid generally considered endemic to coastal watersheds of Guyana and Suriname. Recent records suggest it, or a similar congener, may also occur in the Orinoco and Negro drainages. The genus is often referred to collectively as 'silver dollar tetras', and although B. orbicularis is normally said to be the species in the trade, identification is challenging.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brachychalcinus-orbicularis/",
+      "html": "<p>Brachychalcinus orbicularis is also known in the hobby under the name “Silver Dollar Tetra”, which might lead, however, to confusion with tetras of the genus Metynnis, which are also called “Silver Dollars”. Ephippicharax orbicularis is a well known synonym for this fish, which is quite popular in the hobby despite the fact that it displays not much coloration. The reason for its popularity is probably the unusual shape of the body, which forms almost a disc when the fish are fully grown. This and their schooling behaviour is a nice contrast to all the colorful fish in a community tank.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachychalcinus-orbicularis",
       "html": "<p>Generally considered endemic to coastal watersheds of Guyana and Suriname with type locality the Essequibo River, Guyana, but recent records suggest it or a similar-looking, unidentified congener may also occur in the Orinoco and Negro drainages in Venezuela and Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brachychalcinus-orbicularis/",
+      "html": "<p>The natural distribution of this species is the coastal drainages of Suriname and Guyana.</p>"
     },
     {
       "key": "habitat",
@@ -529,10 +549,22 @@
       "html": "<ul><li>Temperature: 20–27°C (68–81°F)</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brachychalcinus-orbicularis/",
+      "html": "<p>The fish are completely undemanding regarding the water chemistry. Temperature should be between 20 and 28°C. The higher temperatures are used for breeding.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachychalcinus-orbicularis",
       "html": "<p>Stomach analyses of wild specimens have shown it to be an opportunistic omnivore consuming a variety of aquatic invertebrates, insects, algae and plant material, though it's unclear what proportion of the latter is consumed via the gut contents of prey items.</p><p>In the aquarium it's easily fed, but for the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brachychalcinus-orbicularis/",
+      "html": "<p>Silver Dollars are omnivorous and might feed on water plants if they are not fed regularly with plant material by the keeper.</p>"
     },
     {
       "key": "behaviour",
@@ -547,10 +579,22 @@
       "html": "<p>Adult females grow a little larger than males and are noticeably rounder-bellied when gravid, while males possess very small hook-like extensions on the anal-fin rays.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brachychalcinus-orbicularis/",
+      "html": "<p>Males develop minute hooks on the rays of the anal fin, which can be observed by using a magnifying glass. When the fish are caught with a very fine-meshed net, these hooks attach for a short time to the net, which also makes it possible to recognise the males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachychalcinus-orbicularis",
       "html": "<p>We've been unable to locate any detailed record but according to Baensch, spawning is possible in large aquaria and a single female may deposit up to 2000 eggs in a single event.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them, or largely filled with fine-leaved plant such as Taxiphyllum spp.</p><p>The adults should be removed post-spawning with fry swimming freely after around six days.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/brachychalcinus-orbicularis/",
+      "html": "<p>Breeding is not complicated. They spawn free and take no care of their brood in any way.</p>"
     },
     {
       "key": "notes",
@@ -568,14 +612,14 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/f77c245422d1492d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f77c245422d1492d-480.webp",
       "width": 700,
       "height": 452,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachychalcinus-orbicularis",
       "caption": "Subadult from the UK aquarium trade.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f77c245422d1492d-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -609,5 +653,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-17"
 }

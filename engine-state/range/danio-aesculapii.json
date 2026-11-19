@@ -1,9 +1,17 @@
 {
   "id": "danio-aesculapii",
   "native": {
-    "input": "c416c4ff966a9d70",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "c25407e73a5a7f7d",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "These minnows originate from Burma, do not grow over 4 cm and are therefore the smallest representative of the Danio genus.",
+        "words": "Burma",
+        "ok": true
+      },
       {
         "code": "MM",
         "status": "native",
@@ -16,8 +24,8 @@
         "code": "MM",
         "status": "native",
         "source": "glaser",
-        "quote": "This species was first imported from Burma in 2005.",
-        "words": "Burma",
+        "quote": "Origin: Myanmar.",
+        "words": "Myanmar",
         "ok": true
       }
     ],

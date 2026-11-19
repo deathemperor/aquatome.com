@@ -52,13 +52,14 @@ public struct DeviceCommand: Sendable, Hashable, Codable {
   }
 
   /// What the chat may switch on the reader's tanks: the Love Ecology lamp, where the app offers it (`lamp`), and the
-  /// outlets of Tuya plugs whose role is CO2 or a fan. Never a heater, a filter, an air pump, a light's outlet, another
-  /// role, or an outlet with none: the wrong state of those can harm the fish, and the chat doesn't ask twice.
+  /// outlets of Tuya plugs whose role is CO2 or a fan, on any record of the strip (`strictestRole`: a heater on one wins,
+  /// the chief, 18 Nov). Never a heater, a filter, an air pump, a light's outlet, another role, or an outlet with none:
+  /// the wrong state of those can harm the fish, and the chat doesn't ask twice.
   public static func offerable(_ store: TankStore, lamp: Bool) -> [DeviceTarget] {
     var targets: [DeviceTarget] = []
     if lamp, let d = store.loveEcology { targets.append(DeviceTarget(device: d.id, outlet: nil)) }
     for p in store.liveDevices where p.kind == "plug" && p.brand == "tuya" {
-      for o in p.outlets where o.role == "co2" || o.role == "fan" { targets.append(DeviceTarget(device: p.id, outlet: o.code)) }
+      for o in p.outlets { let r = store.strictestRole(device: p.id, outlet: o.code); if r == "co2" || r == "fan" { targets.append(DeviceTarget(device: p.id, outlet: o.code)) } }
     }
     return targets
   }

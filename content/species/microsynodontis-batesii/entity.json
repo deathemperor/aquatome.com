@@ -11,7 +11,8 @@
     "congo",
     "gabon",
     "ogowe",
-    "cameroon"
+    "cameroon",
+    "nigeria"
   ],
   "range": {
     "native": {
@@ -145,6 +146,13 @@
           "min": 22,
           "max": 26
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -169,6 +177,10 @@
       {
         "source": "seriouslyfish",
         "value": 8.8
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -190,6 +202,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microsynodontis-batesii",
       "html": "<p>The dwarf synodontis, Microsynodontis batesii, is a small catfish from the Congo and Ogowe basins in DR Congo, Gabon and Cameroon. The largest Microsynodontis, it is sometimes mislabelled as Synodontis sp. 'Nyong'. Young fish are sold with a spotted or reticulated pattern that breaks up into the characteristic barring as they grow, and new imports are often delicate. At least some of its recorded occurrences may be different species.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "html": "<p>Squeakers or upside-down catfishes are a fish family occurring exclusively in Africa. The best known genus is Synodontis, which comprises over 130 species. Closely related to this genus is the genus Microsynodontis. The genus name means “small Synodontis” and is programmatic, because these fish already become sexually mature at 3-4 cm in length, and are thus true dwarf fish. The biggest known species grows to a maximum of 10 cm, most reach a final length of 5-6 cm.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "html": "<p>Unfortunately, it is very tricky to determine the species correctly; until 2004 the fish presented here were called M. batesii, then the species was divided into 8 species, but so far no scientist has found the time to correctly determine the animals imported from Nigeria. It is possible that this is a species that has not yet been scientifically recorded; among the already described species M. emarginata is the most similar one; it is obvious that all the species previously grouped under M. batesii look extraordinarily similar.</p>"
     },
     {
       "key": "distribution",
@@ -222,10 +246,22 @@
       "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 6.7–7.5</li><li>Hardness: 10–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "html": "<p>The chemical water composition is of no importance for the care of these animals, but extremes should be avoided. The water temperature can lie in the range of 22-28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microsynodontis-batesii",
       "html": "<p>Frozen, live and dried foods are all accepted.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microsynodontis-batesii-2/",
+      "html": "<p>They are well suited for the containment of a possible mass increase of small water snails, because these form a component of the food of the small catfish. Otherwise, all usual feeds are eaten readily.</p>"
     },
     {
       "key": "behaviour",
@@ -276,7 +312,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "1gHe4NfAOtk",
+      "title": "Microsynodontis batesii feeding / Fütterung",
+      "durationSec": 50,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "6WDJiFJ1_RA",
+      "title": "It's one of the smallest Synodontis- Microsynodontis batesii, Dwarf Synodontis (2022) #shorts",
+      "durationSec": 45,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "T2GTdxONARI",
+      "title": "Microsynodontis batesi",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dDKKzogus4s",
+      "title": "Neues Tetra 60l. Update 2.) Zwergfiederbardwelse Microsynodontis batesii ca. 3 cm groß, Guppys",
+      "durationSec": 119,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -306,5 +367,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19"
 }

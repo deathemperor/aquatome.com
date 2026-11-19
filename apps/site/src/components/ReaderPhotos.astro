@@ -1,14 +1,12 @@
 ---
 // Readers' own photos of this species. Loaded client-side from the Worker; stays hidden until the API answers.
-// `gallery`: under a gallery page's photos (pages/ca/[slug]/anh.astro), inside the page's margins already, and loaded
-// once those photos have.
 import { i18n } from '../lib/i18n'
 import { photosKey } from '../lib/talk'
-interface Props { entity: string; name: string; gallery?: boolean }
-const { entity, name, gallery } = Astro.props
+interface Props { entity: string; name: string }
+const { entity, name } = Astro.props
 const { t } = i18n(Astro.url)
 ---
-<section class:list={[!gallery && 'wrap', 'rp']} data-reader-photos data-entity={photosKey(entity)} data-later={gallery ? '' : undefined} aria-labelledby="rp-h" hidden>
+<section class="wrap rp" data-reader-photos data-entity={photosKey(entity)} aria-labelledby="rp-h" hidden>
   <h2 id="rp-h">{t('Ảnh bạn đọc')}</h2>
   <ul class="list" data-list></ul>
   <button type="button" class="more" data-more hidden>{t('Xem thêm')}</button>
@@ -31,15 +29,7 @@ const { t } = i18n(Astro.url)
 </section>
 <script>
   import { mountReaderPhotos } from '../scripts/reader-photos'
-  // Under a gallery (data-later): once the page and its photos have loaded and the browser is idle, or at once when it
-  // was reloaded with a reader's photo open.
-  const reopened = () => (history.state as { viewer?: unknown } | null)?.viewer === 'reader'
-  document.querySelectorAll<HTMLElement>('[data-reader-photos]').forEach(s => {
-    if (s.dataset.later === undefined || reopened()) return void mountReaderPhotos(s)
-    const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(() => void mountReaderPhotos(s), { timeout: 2000 }) : setTimeout(() => void mountReaderPhotos(s)))
-    if (document.readyState === 'complete') idle()
-    else addEventListener('load', idle, { once: true })
-  })
+  document.querySelectorAll<HTMLElement>('[data-reader-photos]').forEach(s => void mountReaderPhotos(s))
 </script>
 <style>
   .rp { padding-block: var(--space-6); }

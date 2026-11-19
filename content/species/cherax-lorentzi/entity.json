@@ -1,0 +1,159 @@
+{
+  "id": "cherax-lorentzi",
+  "scientificName": "Cherax lorentzi",
+  "order": "Decapoda",
+  "family": "Parastacidae",
+  "genus": "Cherax",
+  "group": "other",
+  "places": [
+    "oceania",
+    "new-guinea"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "New Guinea"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: New Guinea.",
+          "countries": [],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5789934,
+      "total": 1,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "glaser",
+        "value": 100
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax_lorentzi_en/",
+      "html": "<p>Origin: New Guinea.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax_lorentzi_en/",
+      "html": "<p>With a size of 12 cm it can be kept very well in aquariums starting from 100 cm length.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax_lorentzi_en/",
+      "html": "<p>No special requirements are placed on the water chemistry. They have already been bred several times at 25°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax_lorentzi_en/",
+      "html": "<p>Because the youngsters have a very high oxygen demand, good filtration, water movement and good aeration should be present in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax_lorentzi_en/",
+      "html": "<p>As omnivores they can be fed with staple food (granules/sticks), which should however be supplemented with fish meat, shrimps, frozen food as well as carrot, cucumber, zucchini, salad and other vegetables. The vegetable portion of the food should be kept high.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax_lorentzi_en/",
+      "html": "<p>In its shining armour Cherax lorentzi is reminiscent of a medieval knight on its way to a tournament. Contrary to some of its relatives, it does not seem to harm other tank mates, so it seems suitable also for community tanks. The tank would have to be well arranged and equipped with numerous caves and hiding places. A certain compatibility with plants is also reported.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/cherax_lorentzi_en/",
+      "html": "<p>They have already been bred several times at 25°C. The youngsters have a very high oxygen demand.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "e-RBfqBS1Yo",
+      "title": "🦞🛜 #Cherax #lorentzi mit Kabelempfang 🤣 Futterklammer an Angelschnur #Shorts  #Flusskrebs #Zucchini",
+      "durationSec": 57,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "_ucyJ5bdiPE",
+      "title": "Cherax sp. Lorentzi HoaCreek",
+      "durationSec": 68,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-vUBeAZhkt0",
+      "title": "Cherax Lorentzi im Aquarium",
+      "durationSec": 104,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Pj48Z7HO9u8",
+      "title": "Cherax Lorentzi frißt Zucchini",
+      "durationSec": 465,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể tôm hùm đất",
+        "máy sục khí bể thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho tôm hùm đất",
+        "thức ăn cho tôm cá ăn tạp"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

@@ -1,0 +1,235 @@
+{
+  "id": "nannopetersius-ansorgii",
+  "scientificName": "Nannopetersius ansorgii",
+  "order": "Characiformes",
+  "family": "Alestidae",
+  "genus": "Nannopetersius",
+  "group": "tetras",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lac-mai-ndombe"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lac Mai Ndombe"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This fish comes from Zaire and was caught in Lac Mai Ndombe.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Lac Mai Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356254,
+      "total": 197,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "GA",
+          162
+        ],
+        [
+          "CG",
+          24
+        ],
+        [
+          "AO",
+          5
+        ],
+        [
+          "CD",
+          3
+        ],
+        [
+          "GQ",
+          2
+        ],
+        [
+          "CM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          -2.8125,
+          7,
+          0
+        ],
+        [
+          8.4375,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          8.4375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          9.84375,
+          -2.8125,
+          135,
+          0
+        ],
+        [
+          9.84375,
+          -1.40625,
+          7,
+          0
+        ],
+        [
+          11.25,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          11.25,
+          -5.625,
+          22,
+          1
+        ],
+        [
+          11.25,
+          -4.21875,
+          8,
+          0
+        ],
+        [
+          11.25,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          12.65625,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          12.65625,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6,
+          "max": 6
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>This fish comes from Zaire and was caught in Lac Mai Ndombe. In the past this lake was called Lac Leopold II.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>Lac Mai Ndombe is a blackwater lake.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "html": "<p>All fish from this blackwater lake should be kept at a pH of about 6.0.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/ae60964e978158bb.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae60964e978158bb-480.webp",
+      "width": 717,
+      "height": 504,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-cf-ansorgei/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120 lít",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

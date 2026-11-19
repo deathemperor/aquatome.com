@@ -1,0 +1,42 @@
+{
+  "id": "gogo-atratus",
+  "native": {
+    "input": "92ce913999138cfd",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: main channel of Mananara River at Antonibaolina village, Mananara du Nord drainage, 16°18'47.4''S, 49°39'52.2''E, Toamasina Province, Madagascar, elevation 108 metres.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mananara du Nord",
+        "source": "scotcat",
+        "quote": "Gogo atratus is only known from the two collection sites of the type series in the Lower Mananara du Nord River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gogo atratus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338029,
+    "datasets": [],
+    "native": [
+      "MG"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

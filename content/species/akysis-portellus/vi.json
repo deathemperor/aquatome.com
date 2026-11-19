@@ -4,7 +4,9 @@
   "altNames": [
     "Cá da trơn suối Akysis portellus",
     "Smallmouth Stream Catfish",
-    "Cá akysis Myanmar"
+    "Cá akysis Myanmar",
+    "Cá da trơn ong",
+    "Wasp catfish"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá trê suối miệng nhỏ (Akysis portellus) là một loài cá da trơn nhỏ thuộc họ Akysidae, sống ở hệ thống sông Sittaung, miền nam Myanmar. Đây là một trong số ít loài của họ này có xuất khẩu làm cá cảnh. Cá lớn tới khoảng 43 mm SL. Nhìn bề ngoài, nó rất giống loài A. longifilis sống cùng khu vực. Điểm khác là gốc vây mỡ ngắn hơn, miệng nhỏ hơn, và đầu tròn hơn khi nhìn từ trên xuống.</p><ul><li>Kích thước tối đa: 43 mm SL</li><li>Kích thước bể: 45 × 30 cm</li><li>Nhiệt độ: 16,5–24°C</li><li>pH: 6,0–7,5</li><li>Độ cứng: 2–12 dGH</li><li>Cần dòng chảy mạnh, lọc phải đẩy được lượng nước gấp 8–12 lần thể tích bể mỗi giờ</li></ul>",
@@ -25,7 +27,14 @@
     "waterConditions:scotcat": "<p>Nhiệt độ: 18-22°C. pH: 6,5-7,5.</p>",
     "diet:scotcat": "<p>Cá ăn trùng huyết, giun đất cắt nhỏ, giun trắng, bo bo và thức ăn viên chìm. Dù vậy, có vẻ chúng thích đồ ăn sống hoặc đông lạnh hơn.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: tên chi Akysis ghép từ \"a\" (không có) và \"kysis\" (bọng), ý nói cá không có bóng bơi. Tên loài portellus lấy từ chữ Latin portella. Chữ này là dạng chỉ vật nhỏ của porta, nghĩa là cửa. Tên được dùng như một danh từ và ám chỉ cái miệng khá nhỏ của loài này.</p>",
-    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2017. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2017). Ng, H.H., 2009. Akysis portellus sp. Nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1):2-8.</p>"
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2017. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2017). Ng, H.H., 2009. Akysis portellus sp. Nov., a new species of catfish (Teleostei: Akysidae) from the Sittang River drainage, Myanmar. Journal of Threatened Taxa 1(1):2-8.</p>",
+    "quickFacts:glaser": "<p>Cá da trơn ong (Akysis) ngày càng có nhiều người nuôi. Cái tên này là do chúng có tuyến độc ở gốc vây lưng và vây ngực. Bị gai các vây này đâm thì rất đau nhưng không nguy hiểm. Chỉ người có cơ địa dị ứng mới cần cẩn thận hơn.</p><p>Akysis portellus dài tối đa khoảng 4-5 cm.</p>",
+    "distribution:glaser": "<p>Loài này có nguồn gốc từ lưu vực sông Sittang ở Myanmar.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, chúng sống ở các con suối nhỏ, nước trong.</p>",
+    "waterConditions:glaser": "<p>Cá Akysis sống khỏe nhất trong nước trong, sạch và nhiều oxy. Nên giữ nhiệt độ từ 22 đến 26°C. Đôi lúc nước mát hơn mức này một chút cũng được.</p>",
+    "behaviour:glaser": "<p>Đây là loài cá rất hiền, và lúc nào cũng nên nuôi theo đàn.</p>",
+    "equipment:glaser": "<p>Trong bể nên có ít nhất vài chỗ trải cát mịn, vì thỉnh thoảng Akysis thích vùi mình xuống cát.</p>",
+    "diet:glaser": "<p>Akysis portellus ăn được mọi loại thức ăn cá cảnh thông thường.</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -35,11 +44,12 @@
     }
   ],
   "quality": {
-    "score": 0.9,
+    "score": 0.88,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.9,
-      "scotcat": 0.95
+      "scotcat": 0.95,
+      "glaser": 0.88
     }
   }
 }

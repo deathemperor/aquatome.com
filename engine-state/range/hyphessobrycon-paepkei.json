@@ -1,0 +1,43 @@
+{
+  "id": "hyphessobrycon-paepkei",
+  "native": {
+    "input": "a2a584d10eb3aa7a",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of Hyphessobrycon paepkei is in the Rio Negro in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "The natural distribution of Hyphessobrycon paepkei is in the Rio Negro in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon paepkei",
+    "status": "ACCEPTED",
+    "taxonKey": 7595172,
+    "datasets": [],
+    "native": [
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

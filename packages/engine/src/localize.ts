@@ -361,14 +361,14 @@ type Term = { id: string; name: string; altNames: string[]; definition: string }
 export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang, o: { redo?: boolean; model?: string; batch?: number; /** Only these terms. */ only?: string[] } = {}) {
   const dir = join(root, 'content/glossary')
   const taken = new Set<string>()
-  const todo: { id: string; en: string; latin?: string; vi: { name: string; definition?: string }; slug?: string }[] = []
+  const todo: { id: string; en: string; latin?: string; vi: { name: string; definition?: string }; slug?: string; linkNames?: string[] }[] = []
   for (const id of (await readdir(dir)).sort()) {
-    const prev = JSON.parse(await readFile(join(dir, id, `${lang}.json`), 'utf8').catch(() => 'null')) as { slug: string } | null
+    const prev = JSON.parse(await readFile(join(dir, id, `${lang}.json`), 'utf8').catch(() => 'null')) as { slug: string; linkNames?: string[] } | null
     if (prev) taken.add(prev.slug)
     if ((prev && !o.redo) || (o.only && !o.only.includes(id))) continue
     const e = JSON.parse(await readFile(join(dir, id, 'entity.json'), 'utf8')) as { en: string; latin?: string }
     const vi = JSON.parse(await readFile(join(dir, id, 'vi.json'), 'utf8')) as { name: string; definition?: string }
-    todo.push({ id, en: e.en, latin: e.latin, vi, slug: prev?.slug })
+    todo.push({ id, en: e.en, latin: e.latin, vi, slug: prev?.slug, ...(prev?.linkNames?.length ? { linkNames: prev.linkNames } : {}) })
   }
   const report = { done: [] as string[], failed: [] as string[], stopped: '', /** Each batch's score and the reviewer's notes. */ reviews: [] as string[] }
   // Small batches: a batch is scored by its worst entry, so one bad term holds back only a few good ones.
@@ -405,8 +405,11 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
         if (!name || !definition) { report.failed.push(`${x.id}: left out`); continue }
         const slug = x.slug ?? pickSlug(lang === 'th' || !slugify(name) ? x.en : name, TARGETS[lang].slugWords.term, taken)
         taken.add(slug)
+        // A redo keeps the term's link phrases, which are never its other names (the chief of staff, 18 Nov 2026).
+        const links = new Set((x.linkNames ?? []).map(n => n.toLowerCase()))
         const t = TranslationSchema.parse({
-          slug, name, altNames: [...new Set(got!.altNames.map(n => n.trim()).filter(n => n && n !== name))].slice(0, 4), sections: {}, definition,
+          slug, name, altNames: [...new Set(got!.altNames.map(n => n.trim()).filter(n => n && n !== name && !links.has(n.toLowerCase())))].slice(0, 4),
+          ...(x.linkNames?.length ? { linkNames: x.linkNames } : {}), sections: {}, definition,
           quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD },
         })
         await writeFile(join(dir, x.id, `${lang}.json`), `${JSON.stringify(t, null, 2)}\n`)
@@ -421,11 +424,11 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
     }
   }
   // The site links a term's names wherever they appear in running text: other names are kept only when they can't be
-  // an everyday word (several words, or an abbreviation such as NH3, dGH) and no other term has them.
+  // an everyday word (several words, or an abbreviation such as NH3, dGH) and no other term has them, as a name or a link phrase.
   const files = (await readdir(dir)).map(id => join(dir, id, `${lang}.json`))
-  const all = (await Promise.all(files.map(f => readFile(f, 'utf8').then(s => ({ f, t: JSON.parse(s) as { name: string; altNames: string[] } }), () => null)))).filter(x => x !== null)
+  const all = (await Promise.all(files.map(f => readFile(f, 'utf8').then(s => ({ f, t: JSON.parse(s) as { name: string; altNames: string[]; linkNames?: string[] } }), () => null)))).filter(x => x !== null)
   const uses = new Map<string, number>()
-  for (const { t } of all) for (const n of new Set([t.name, ...t.altNames].map(n => n.toLowerCase()))) uses.set(n, (uses.get(n) ?? 0) + 1)
+  for (const { t } of all) for (const n of new Set([t.name, ...t.altNames, ...(t.linkNames ?? [])].map(n => n.toLowerCase()))) uses.set(n, (uses.get(n) ?? 0) + 1)
   const linkable = (n: string) => (/\s/.test(n.trim()) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && uses.get(n.toLowerCase()) === 1
   for (const { f, t } of all) {
     const kept = t.altNames.filter(linkable)

@@ -1,8 +1,13 @@
 {
   "slug": "kyushu",
-  "name": "คีวชู",
+  "name": "คิวชู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T12:26:56.093Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

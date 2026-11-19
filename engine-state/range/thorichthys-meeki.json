@@ -1,8 +1,8 @@
 {
   "id": "thorichthys-meeki",
   "native": {
-    "input": "e1743730f8e60f59",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "c82cc57b21ad683b",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "MX",
@@ -29,11 +29,27 @@
         "ok": true
       },
       {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Firemouth (Thorichthys meeki, formerly Cichlasoma meeki) originates from Mexico and belongs to the most popular cichlids at all.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
         "code": "US",
         "status": "introduced",
         "source": "seriouslyfish",
         "quote": "Naturalised populations exist in Hawaii (since 1940), and Puerto Rico (since the late 2000s), plus there are reports from Arizona and Florida states, USA.",
         "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "PR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "Naturalised populations exist in Hawaii (since 1940), and Puerto Rico (since the late 2000s), plus there are reports from Arizona and Florida states, USA.",
+        "words": "Puerto Rico",
         "ok": true
       }
     ],

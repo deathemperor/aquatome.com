@@ -1,0 +1,223 @@
+{
+  "found": true,
+  "species": [
+    "Betta splendens",
+    "Puntigrus tetrazona",
+    "Poecilia reticulata",
+    "Pterophyllum scalare",
+    "Corydoras"
+  ],
+  "sources": [
+    {
+      "url": "https://www.seriouslyfish.com/species/betta-splendens/",
+      "title": "Betta splendens (Siamese Fighting Fish) · Seriously Fish",
+      "kind": "reference"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/puntigrus-tetrazona/",
+      "title": "Puntigrus tetrazona (Tiger Barb) · Seriously Fish",
+      "kind": "reference"
+    },
+    {
+      "url": "https://ornamentalfish.org/what-we-do/advice-information/care-sheets/caresheets-tropical-freshwater-fish/how-to-look-after-barbs/",
+      "title": "How to look after barbs",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.chewy.com/education/fish/freshwater-fish/which-fish-can-live-together-in-a-community-fish-tank",
+      "title": "Which Fish Can Live Together in a Community Fish Tank?",
+      "kind": "shop"
+    },
+    {
+      "url": "https://charterhouse-aquatics.com/blogs/help-guides/help-my-fish-are-fighting-a-chill-guide-to-restoring-peace-in-your-tank",
+      "title": "Help! My Fish Are Fighting: A Guide to Restoring Peace in Your Tank",
+      "kind": "shop"
+    },
+    {
+      "url": "https://merckvetmanual.com/exotic-and-laboratory-animals/aquarium-fishes/management-of-fish",
+      "title": "Management of Aquarium Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://aquahouse.vn/ca-xiem-nuoi-chung-voi-ca-nao/",
+      "title": "Cá Xiêm Nuôi Chung Với Cá Nào? Gợi Ý Các Loài Cá Phù Hợp Nhất",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquahouse.vn/ca-7-mau-nuoi-chung-voi-ca-gi/",
+      "title": "Cá 7 Màu Nuôi Chung Với Cá Gì? Gợi Ý Các Loài Phù Hợp",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Aquatic veterinarian Jessica Allen advises thinking about how tank mates will get along when planning a new tank, because fish do best with little stress and little competition.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Melissa Witherell, DVM, advises researching every species before stocking, so that the fish come from similar regions and need similar water conditions.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "Before buying, look up whether each species you are considering is compatible with the others.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Overcrowding can stress even peaceful fish.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "causes",
+      "fact": "Causes of fighting include territorial behaviour (made worse by too few hiding places or newly added fish), fin nippers kept with long-finned fish, competition for food, breeding behaviour, and a tank too small for the fishes' adult size.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Tiger barbs are known for nipping fins, but this is mainly a problem when too few are kept or space is limited.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep tiger barbs in a group of at least 8–10, which spreads their aggression among themselves.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Barbs are shoaling fish and should be kept in groups of at least five, with more being better. Larger groups help reduce fin nipping.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not keep tiger barbs with timid, slow-moving or long-finned fish, such as many livebearers, cichlids and anabantoids.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "The best tank mates for tiger barbs are robust, similarly sized cyprinids that swim in open water. Some loaches and bottom-dwelling cyprinids such as Crossocheilus or Garra are also suitable.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Barbs should not be mixed with slow-swimming, timid or long-finned fish. Larger barb species should not be kept with fish small enough to fit in their mouths.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Cherry, six-banded and checker barbs are generally fine with other peaceful species.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not keep tiger barbs with long-finned fish such as guppies.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Seriously Fish describes ornamental strains of Betta splendens as more aggressive than any other Betta species. In most cases only one can be kept per tank.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Male and female bettas are usually kept apart except for breeding.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Seriously Fish does not recommend Betta splendens for a standard community aquarium. Some small cyprinids and loaches from similar habitats can work, but this is the exception, not the norm.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Avoid keeping fish with trailing fins or unusual body shapes with a male betta, because he may treat them as rivals.",
+      "source": 0,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Chewy suggests a tank of more than 20 gallons for keeping a betta with other species.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Chewy says cichlids are aggressive and should be kept out of community tanks, and that dwarf gouramis can become territorial.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Mollies kept in small tanks need more space and may become aggressive.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep tetras in groups of at least six.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of fighting or bullying include one fish repeatedly chasing another, ramming, shredded or torn fins, missing scales or wounds, a victim that hides most of the time, and refusal to eat.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Isolate the aggressor for a while to reduce its dominance and give injured fish time to recover. It may start fighting again when put back.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Test ammonia, nitrite, nitrate and temperature, because poor water conditions can make fish more irritable.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Consider separating fish permanently if they are repeatedly injured, if the aggression is constant, or if one fish stops the others from feeding.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "To reduce fighting, rearrange the rocks, wood and decor to break up existing territories, add caves and dense plants, and block lines of sight.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed in several spots and use sinking food for bottom dwellers, so that fast eaters do not dominate.",
+      "source": 4
+    },
+    {
+      "section": "other",
+      "fact": "Skin injuries make it harder for a fish to regulate its salt and water balance, and serious wounds can cause fluid loss and circulatory collapse.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "The Merck Veterinary Manual strongly recommends quarantining new fish, for at least 30 days.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Chewy suggests quarantining new fish for 4 to 6 weeks.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam the betta is sold as 'cá xiêm', and Corydoras as 'cá chuột'. The harlequin rasbora is called 'cá tam giác'.",
+      "source": 6
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops call the guppy 'cá 7 màu' or 'cá bảy màu', platies 'cá bình tích' and Otocinclus 'cá otto'.",
+      "source": 7,
+      "also": [
+        6
+      ]
+    }
+  ]
+}

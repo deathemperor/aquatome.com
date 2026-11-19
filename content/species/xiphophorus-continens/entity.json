@@ -6,6 +6,26 @@
   "genus": "Xiphophorus",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2350163,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -99.84375,
+          21.09375,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

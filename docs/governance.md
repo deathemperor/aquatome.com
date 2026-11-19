@@ -413,6 +413,32 @@ The layers above still check the result.
   - **The style rewrite takes the pages out of search for their score first** (`rewriteExisting`, `vi-backfill.ts`),
     then the rest in its kinds' order: a kept rewrite is what brings such a page back, and in folder order the last of
     them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
+  - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
+    (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
+    2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
+    after a pass, the steady Opus read: when both pass and no read of that text carries a note on a dose or harm, the page
+    is back at the lower of the two scores.
+    - One try a text, by its hash (`engine-state/recheck-<lang>.json`): a page that fails either read keeps its place and
+      its old score and goes to the rewrite as before, and isn't read again until its text changes. One pass after one fail
+      changes nothing.
+    - A dose or harm note counts on any read of the text the page has: the two fresh reads, a logged read of it, the
+      translator's own. One on a text the page never kept doesn't. One the Page Recovery or Writing lead has read and
+      cleared, by page and quoted whole with why (`packages/engine/src/dose-cleared.json`, by pull request), doesn't
+      either; nothing is cleared by pattern.
+    - The bar moves one way. Main already keeps a pass over a later fail (a passing translation is never replaced by one
+      under it, above), and with this a page under it can pass on a later read, while one over it isn't read again. That
+      is accepted because two models must agree, and both fail what is wrong: on 2026-11-16, of 12 passing pages with one
+      fault planted in each (a figure, a caution dropped or turned round, a wrong name, an invented sentence), Opus named
+      all 12 and Sonnet 11 in their notes, and each it named fell under the bar; Sonnet's one miss, a cut caution, Opus
+      failed at 0.6. What it rests on: of 40 pages under the bar, 30 passed a fresh read with nothing changed and 29 of
+      those passed Opus too, and of 40 in search at exactly the bar, 39 passed again. Most pages under it were put there by
+      one early read, before the middle-of-three read began (2026-11-11).
+    - Indonesian and Thai fish pages only, the kinds that was measured on. Malay fish pages and other kinds each get a
+      20-page sample first. `RECHECK_LIMIT` pages a language a cycle (15), the translator's pages of the last day first so
+      a new page its first read failed has its two reads in the same cycle, then the most-read, starting none after
+      `RECHECK_MINUTES` (15), on its own line on GitHub's side of `ceilings.json`: $12 on 18 Nov and $6 on 19 Nov until
+      13:00, about $18 on the second sign-in while the third is out of its week, then $25 a day to 24 Nov and $6 from
+      25 Nov, GitHub's backstop $180 and that line (the chief of staff, 16 and 17 Nov 2026).
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.
@@ -477,6 +503,28 @@ The layers above still check the result.
   runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
   row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
+- **Refused sources.** A site refused as a source for its quality (`REFUSED_SITES`, `packages/engine/src/cycle-only.ts`;
+  cabaymau.vn since 16 Nov 2026) is read by no research, and its pages leave the research the engine keeps and the
+  pages it shows (`packages/engine/src/refused-sources.ts`):
+  - the research steps of guides, glossary terms, materials, breeds, products and species drop an item that cites one
+    of its pages, whatever else it lists, before the step writes or uses it;
+  - every sweep does the same to the research kept in those six kinds, and drops its pages from every page's top-level
+    reference list (`refs`), in every language, so a run on older code can't bring them back at its push;
+  - the real-content test fails if any page or kept research names one anywhere, so what the sweep can't take out (a
+    list a page's text cites by number: a section's `refs`, a material's or a breed's `sources`) stops the run's push
+    until a person takes it out. The one exception is a page left waiting with its owner and day (`WAITING`), whose text
+    cites the refused page by number: the test holds it to still naming it, so it leaves that list the day its text is
+    fixed;
+  - the same test fails on any address on a proxy's host (Google's cache, Translate's proxy, a reader proxy), whose
+    original the engine doesn't read: research is refused those hosts, none is kept or shown, and none stays none, so a
+    refused site's pages can't come back through one;
+  - a buying list keeps an entry it has (`engine-state/shop-lists`, which the test doesn't read: the chief of staff,
+    16 Nov 2026).
+  - **The list is a switch for the whole site.** One more name drops that site's facts everywhere at the next push, and
+    the test then fails on main for every page still resting on them, stopping every push behind it. So a site is added
+    only in a change that carries the pass's result (`pnpm engine refused-sweep`, its files committed), the count of
+    facts and pages it took out, and each page it leaves waiting with its owner and day. Nobody adds a name alone (the
+    chief of staff, 17 Nov 2026).
 - **Daily ceiling.** Each step may spend only so many dollars on the model in a day, counted from the cost log before
   every call (`ceiling.ts`). The amounts are in `packages/engine/src/ceilings.json`, a table a period, with the clock
   a day runs on. A step the file doesn't name has the small ceiling, never none. The gate and moderation have none, and
@@ -492,6 +540,10 @@ The layers above still check the result.
   - A measurement yields to the engine: the chat's board spends only what leaves every other step its whole line and
     some room for the gate (`leftYielding`), so the backstop never stops a step on its account (the chief of staff,
     13 Nov 2026).
+  - From 18 Nov the Mac's backstop is its named lines and $59 more, the room for the steps without a line of their own
+    (the gate with the video guides' editor, and the steps on the small line), which spent $88 on 16 Nov against the $10
+    then kept and stopped the day at 21:50; `ceiling.test.ts` fails on a Mac table that keeps less (the chief of staff,
+    17 Nov 2026).
   - The AI page review on pull requests, the nightly AI review and the auto-fix call Claude on the same accounts by
     another road, and each has a line on GitHub's side (`page-review`, `nightly-review`, `autofix`). A call writes a
     cost line: the time, the step, the account's hash, the model, dollars and tokens, and nothing of a page, a prompt
@@ -602,11 +654,12 @@ The layers above still check the result.
     and trade names) and Openverse, never iNaturalist or GBIF, which give the wild fish; it is screened for that line
     alone, and a photo another breed's page shows stays there. Each photo's licence is read from the source's API for
     that photo, never assumed: CC BY-NC, the default on iNaturalist and Flickr, stays out, since the site carries ads
-    and affiliate links. One exception waits behind a switch that ships off (`IMAGE_SWITCHES.inatNonCommercial`,
-    `packages/schema/src/image-policy.ts`), on only when the chief of staff says (the owner's yes, 10 Nov): iNaturalist's
+    and affiliate links. One exception sits behind a switch (`IMAGE_SWITCHES.inatNonCommercial`,
+    `packages/schema/src/image-policy.ts`), on from 18 Nov, on the chief of staff's yes of 17 Nov (the owner's yes, 10 Nov): iNaturalist's
     research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
-    are the album step's last source, read once every open one has run dry; they rank after every open photo, pass every
-    screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
+    are the album step's last source, read once every open one has run dry and after every page's open sources in a run, pages with no photo of their own first,
+    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo; they rank
+    after every open photo, pass every screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
     head, card or fish-ID reference takes one. Their licence text is their mark (`isNonCommercial`, `licence.ts`), so with
     the switch off the site shows none and the sweep takes every one off every album and page (`dropNonCommercial`).
     Commons, GBIF, Openverse, hand seeds and the mirror keep refusing NC whatever the switch says (the mirror copies an
@@ -1230,6 +1283,13 @@ The layers above still check the result.
     front list's pages whose read is of older text. After its
     first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
     run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
+  - The pages whose saved read found a foreign product or medicine still on them (the owner's complaint) go ahead of
+    the lane until they're done (`products: "ahead"`), each read again first if its read is of older text, and tried
+    once more past the cap. Where the writer's cut is refused, code cuts each sentence holding the product, a shop or a
+    price whole, beside findings of other kinds, which wait for the page's next read and try; each sentence it cuts is
+    in the run's list for the chief of staff, and a true care line in one gets its general half back by hand the same
+    day (the chief of staff, 17 Nov 2026: after eight runs at one for one, 62 of the 74 were left, the fallback never
+    having run on a page with another finding; `fit-rewrite.test.ts`, `fit-front.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the

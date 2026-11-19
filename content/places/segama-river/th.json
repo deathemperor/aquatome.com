@@ -1,8 +1,13 @@
 {
   "slug": "segama-river",
-  "name": "เซกามา",
+  "name": "แม่น้ำเซกามา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T00:38:25.250Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -1,8 +1,8 @@
 {
   "id": "hydrolycus-scomberoides",
   "native": {
-    "input": "d4e7c30be5ff9985",
-    "at": "2026-11-08T22:57:48.089Z",
+    "input": "a5b9f964193b6942",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "BR",
@@ -35,6 +35,14 @@
         "quote": "Type locality is given simply as 'Brazil' but this species is currently understood to be widespread in the central and upper Amazon River system in Brazil, Bolivia, Peru and Ecuador, with the rio Tapajós in Brazil appearing to mark the downstream limit of its range.",
         "words": "Ecuador",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Peru.",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
@@ -42,13 +50,6 @@
         "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Type locality is given simply as 'Brazil' but this species is currently understood to be widespread in the central and upper Amazon River system in Brazil, Bolivia, Peru and Ecuador, with the rio Tapajós in Brazil appearing to mark the downstream limit of its range.",
-        "ok": true
-      },
-      {
-        "name": "Rio Tapajós",
-        "source": "seriouslyfish",
-        "quote": "Type locality is given simply as 'Brazil' but this species is currently understood to be widespread in the central and upper Amazon River system in Brazil, Bolivia, Peru and Ecuador, with the rio Tapajós in Brazil appearing to mark the downstream limit of its range.",
-        "country": "BR",
         "ok": true
       }
     ],

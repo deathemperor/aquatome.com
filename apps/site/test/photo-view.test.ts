@@ -63,18 +63,18 @@ function tab(first: string) {
 }
 
 test('the viewer adds one entry, whatever it steps through, and closing it by its button or Esc takes it off', () => {
-  const t = tab('/ca/x/anh/')
-  const v = viewerHistory(t.h, 'gallery')
+  const t = tab('/ca/x/')
+  const v = viewerHistory(t.h, 'album')
   expect(v.current()).toBeNull()
   v.open(2, '#a3')
-  expect(t.urls()).toEqual(['/ca/x/anh/', '/ca/x/anh/#a3'])
+  expect(t.urls()).toEqual(['/ca/x/', '/ca/x/#a3'])
   expect(v.current()).toBe(2)
   v.step(3, '#a4')
   v.step(4, '#a5')
-  expect(t.urls()).toEqual(['/ca/x/anh/', '/ca/x/anh/#a5'])
-  v.close()
-  expect([t.at(), t.here(), v.current()]).toEqual([0, '/ca/x/anh/', null])
-  v.close() // closed already: Back isn't pressed again
+  expect(t.urls()).toEqual(['/ca/x/', '/ca/x/#a5'])
+  expect(v.close(), 'it went back').toBe(true)
+  expect([t.at(), t.here(), v.current()]).toEqual([0, '/ca/x/', null])
+  expect(v.close(), 'closed already: Back isn\'t pressed again').toBe(false)
   expect(t.at()).toBe(0)
 })
 
@@ -90,23 +90,37 @@ test('Back closes it (the entry under it is not the viewer\'s), Forward opens it
   expect(seen).toEqual([null, 1])
 })
 
-test('a page opened on a photo\'s own address (#a5) gets an entry under it, so Back shows the gallery, not the photo again', () => {
-  const t = tab('/ca/x/')
-  t.h.pushState(null, '', '/ca/x/anh/#a5') // from the fish's page, its fifth photo
-  const v = viewerHistory(t.h, 'gallery')
-  v.open(4, '#a5', '/ca/x/anh/')
-  expect(t.urls()).toEqual(['/ca/x/', '/ca/x/anh/', '/ca/x/anh/#a5'])
+test('a page opened on a photo\'s own address (#a5) gets an entry under it, so Back shows the page, not the photo again', () => {
+  const t = tab('/ca/y/')
+  t.h.pushState(null, '', '/ca/x/#a5') // a shared photo, or an old photo page's address the Worker forwarded here
+  const v = viewerHistory(t.h, 'album')
+  v.open(4, '#a5', '/ca/x/')
+  expect(t.urls()).toEqual(['/ca/y/', '/ca/x/', '/ca/x/#a5'])
   v.close()
-  expect(t.here()).toBe('/ca/x/anh/')
+  expect(t.here()).toBe('/ca/x/')
+})
+
+test('a photo\'s address followed on the page (a tap while it loaded, or typed) is taken as the viewer\'s: Back shows the page, then leaves', () => {
+  const t = tab('/')
+  t.h.pushState(null, '', '/ca/x/')
+  t.h.pushState(null, '', '/ca/x/#a2') // the browser's own entry for the #a2 followed before the viewer loaded
+  const v = viewerHistory(t.h, 'album')
+  v.open(1, '#a2', undefined, true)
+  expect(t.urls()).toEqual(['/', '/ca/x/', '/ca/x/#a2'])
+  expect(v.current()).toBe(1)
+  v.close()
+  expect(t.here()).toBe('/ca/x/')
+  t.h.back()
+  expect(t.here()).toBe('/')
 })
 
 test('reloaded with the viewer open, its entry is still its own: opening it again adds none', () => {
-  const t = tab('/ca/x/anh/')
-  const first = viewerHistory(t.h, 'gallery')
+  const t = tab('/ca/x/')
+  const first = viewerHistory(t.h, 'album')
   first.open(0, '#a1')
-  const again = viewerHistory(t.h, 'gallery') // the page loaded again on the same entry
+  const again = viewerHistory(t.h, 'album') // the page loaded again on the same entry
   expect(again.current()).toBe(0)
-  again.open(0, '#a1', '/ca/x/anh/')
-  expect(t.urls()).toEqual(['/ca/x/anh/', '/ca/x/anh/#a1'])
+  again.open(0, '#a1', '/ca/x/')
+  expect(t.urls()).toEqual(['/ca/x/', '/ca/x/#a1'])
   expect(viewerHistory(t.h, 'reader').current()).toBeNull() // another viewer's entry isn't this one's
 })

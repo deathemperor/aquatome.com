@@ -1,0 +1,84 @@
+{
+  "id": "plicofollis-argyropleuron",
+  "scientificName": "Plicofollis argyropleuron",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Plicofollis",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia",
+    "papua-new-guinea",
+    "new-guinea",
+    "asia",
+    "china",
+    "india",
+    "indonesia",
+    "java",
+    "malaysia",
+    "philippines",
+    "thailand"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p><strong>Family:</strong> Ariidae</p><p><strong>Common name:</strong> Longsnouted catfish</p><p><strong>Size:</strong> 50 cm TL</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Indo-West Pacific/South and southeast Asia: Southern New Guinea and northern Australia, Australia, China, India, Indonesia, Malaysia, Papua New Guinea, Philippines, Thailand. Type locality: Java.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Occurs in inshore waters over soft bottoms.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Feeds on detritus, prawns, soft-bodied organisms, and mud.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p><strong>Description:</strong> Dorsal spines (total): 1; anal spines: 0; anal soft rays: 14–21. Head depressed and elongate, 27–36% (mean 32%) of SL; exposed shield very striate or sharply granular. Narrow supraoccipital process, always keeled. Low set eyes. Small mouth, width 24–40% (mean 31%) of HL. Gill rakers absent on hind aspect of first 2 gill arches. Posterior epithelial ridges of palate run transversely. Caudal peduncle depth 1.3–2.1 in its length.</p><p><strong>Etymology:</strong> The genus name Plicofollis: plico, fold; follis, bellows or windbag, referring to the creased or scalloped swim bladder characteristic of the genus. The specific name argyropleuron: arguros, silver; pleuron, side, referring to the silver belly and sides.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Marceniuk, A.P. and N.A. Menezes, 2007. Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera. Zootaxa 1416:1-126. Fishes of Australia. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e2cbcf021d362ff3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e2cbcf021d362ff3-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Australian National Fish Collection / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "caption": "Plicofollis argyropleuron",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

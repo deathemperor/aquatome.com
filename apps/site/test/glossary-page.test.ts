@@ -31,6 +31,21 @@ test('a term\'s other names are shown once each, never its own name; its definit
   expect(p.definition).toContain('GH &lt; 4')
 })
 
+// The chief of staff, 18 Nov 2026: "Tên khác: đông lạnh, Frozen food. Tiếng Anh: Frozen food", and "sống theo đàn" printed
+// as another name for Cá đàn. A link phrase is linked from, never printed; the English name prints once, on its own line.
+test('a term\'s other names never repeat its English line, nor print its link phrases, which still link to it', async () => {
+  const c = await getContent('vi')
+  const gh = c.glossary.find(x => x.id === 'gh')!
+  const p = glossaryParts('vi', c, term(gh, { altNames: ['General hardness', 'dGH'], linkNames: ['độ cứng của nước'], definition: 'Đo độ cứng của nước bằng dGH.' }, 'General Hardness'))
+  expect(p.otherNames).toEqual(['dGH'])
+  // Nor in the singular: "tannin" beside "Tiếng Anh: Tannins", "Bloodworms" beside "Bloodworm".
+  expect(glossaryParts('vi', c, term(gh, { altNames: ['tannin', 'trà lá'] }, 'Tannins')).otherNames).toEqual(['trà lá'])
+  expect(glossaryParts('vi', c, term(gh, { altNames: ['Bloodworms', 'giun đỏ'] }, 'Bloodworm')).otherNames).toEqual(['giun đỏ'])
+  const ph = c.glossary.find(x => x.id === 'ph')!
+  const withPhrase = { ...c, glossary: c.glossary.map(x => (x.id === 'gh' ? term(x, { linkNames: ['độ cứng của nước'] }) : x)) }
+  expect(glossaryParts('vi', withPhrase, term(ph, { definition: 'pH khác với độ cứng của nước.' })).definition).toContain('<a href="/vi/thuat-ngu/gh/" class="gl"')
+})
+
 test('a page\'s link to a term is found however it is written: either quote, a #part; never another address', () => {
   expect(linkedTermPaths('<a href="/vi/thuat-ngu/ph/" class="gl">pH</a> <a href=\'/vi/thuat-ngu/gh/\'>GH</a> <a href="/vi/thuat-ngu/lua/#loai">lũa</a>')).toEqual(['/vi/thuat-ngu/ph/', '/vi/thuat-ngu/gh/', '/vi/thuat-ngu/lua/'])
   expect(linkedTermPaths('<a href="/vi/thuat-ngu/">Thuật ngữ</a> <a href="/vi/huong-dan/ph/">pH</a> <a href="/vi/thuat-ngu/ph/x/">x</a> data-href="/vi/thuat-ngu/kh/"')).toEqual([])

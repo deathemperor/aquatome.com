@@ -3,6 +3,12 @@
   "name": "กวามา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T00:42:54.044Z",
+    "why": "\"กวามา\" is Thai script and phonetically close to Guamá, but it lacks the kind word \"แม่น้ำ\" that Thai atlases use for a river, and Portuguese \"Guamá\" is usually rendered \"กัวมา\"."
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

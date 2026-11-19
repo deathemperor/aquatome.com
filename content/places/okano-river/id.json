@@ -1,8 +1,13 @@
 {
   "slug": "okano-river",
-  "name": "Okano",
+  "name": "Sungai Okano",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T05:54:40.258Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

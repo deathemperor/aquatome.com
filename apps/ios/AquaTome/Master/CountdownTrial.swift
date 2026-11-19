@@ -34,11 +34,12 @@ final class CountdownTrial {
 
   init(switcher: Switcher) { self.switcher = switcher }
 
-  /// Outlets to try: on now, on a Tuya plug that lists a countdown for them, and not CO2 or a heater.
+  /// Outlets to try: on now, on a Tuya plug that lists a countdown for them, and not CO2 or a heater on any record of the
+  /// strip (TankStore.strictestRole, the chief, 18 Nov).
   func outlets() -> [(target: DeviceTarget, name: String)] {
     let board = switcher.plugs.board
     return switcher.tanks.store.liveDevices.filter { $0.kind == "plug" && $0.brand == "tuya" }.flatMap { p in
-      p.outlets.filter { $0.role != "co2" && $0.role != "heater" }.compactMap { o -> (DeviceTarget, String)? in
+      p.outlets.filter { let r = switcher.tanks.store.strictestRole(device: p.id, outlet: $0.code); return r != "co2" && r != "heater" }.compactMap { o -> (DeviceTarget, String)? in
         let c = DeviceCommand(device: p.id, outlet: o.code, on: false)
         guard let o = switcher.outlet(c), board.on(o.key) == true, board.hasCountdown(o.key) else { return nil }
         return (c.target, o.name)

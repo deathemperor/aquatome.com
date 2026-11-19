@@ -1,0 +1,318 @@
+{
+  "id": "caridina-babaulti",
+  "scientificName": "Caridina babaulti",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Caridina",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "india",
+    "madhya-pradesh",
+    "gujarat",
+    "europe",
+    "hungary",
+    "miskolctapolca"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Shetrunji",
+        "Saurashtra"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Các nhà khoa học đã xác nhận nó có ở sông Shetrunji, trên bán đảo Saurashtra thuộc bang Gujarat.",
+          "countries": [],
+          "regions": [
+            "Shetrunji",
+            "Saurashtra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5863044,
+      "total": 28,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "IN",
+          20
+        ],
+        [
+          "TH",
+          7
+        ],
+        [
+          "NP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          70.3125,
+          21.09375,
+          2
+        ],
+        [
+          78.75,
+          12.65625,
+          1
+        ],
+        [
+          82.96875,
+          26.71875,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          5
+        ],
+        [
+          90,
+          23.90625,
+          12
+        ],
+        [
+          98.4375,
+          7.03125,
+          6
+        ],
+        [
+          99.84375,
+          7.03125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 22,
+          "max": 26
+        },
+        "ref": 6
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        },
+        "ref": 6
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 4,
+          "max": 14
+        },
+        "ref": 3
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 1.2,
+          "max": 2.5
+        },
+        "ref": 0
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquatome",
+        "value": 2,
+        "ref": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 1,
+          "max": 2
+        },
+        "ref": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này có bán trong tiệm cá cảnh, hay gặp nhất là dạng xanh. Một tiệm ở Đức bán tép ghi tên <em>Caridina</em> cf. <em>babaulti</em> và ghi xuất xứ là Ấn Độ. Tuy vậy, một người nuôi cho biết loài này vẫn hiếm trong giới nuôi tép.</p><p>Người nuôi này cũng nói tép chịu vận chuyển kém, chết nhiều dọc đường, và khuyên mua ở tiệm hoặc từ trại.</p><p>Số tép ngoài tự nhiên ở Hungary có lẽ là do người nuôi thả ra. Nếu không bắt hết, chúng có thể tạo thành một quần thể tự duy trì ở đó.</p>",
+      "refs": [
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này có nguồn gốc ở các thủy vực nội địa miền trung, miền tây và miền nam Ấn Độ. Các nhà khoa học đã xác nhận nó có ở sông Shetrunji, trên bán đảo Saurashtra thuộc bang Gujarat.</p><p>Năm 2021, nó được tìm thấy lần đầu ngoài tự nhiên ở châu Âu, tại Miskolctapolca, Hungary. Trong 120 con tép ngoại lai thu được ở đó, có 7 con là loài này.</p>",
+      "refs": [
+        1,
+        4
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Theo các tiệm bán tép, dạng xanh và dạng zebra sống ở những con sông nhỏ, nước trong ở Ấn Độ. Nước ở đó chảy chậm, cây mọc dày và đáy nhiều đá.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi khuyên bắt đầu từ bể khoảng 20 lít, loại bể đã chạy ổn định và có trồng cây. Một tiệm cũng đưa mức tối thiểu 20 lít cho một nhóm nhỏ. Chiều dài bể tối thiểu thì chưa có nguồn nào công bố.</p>",
+      "refs": [
+        2,
+        6
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi giữ loài này ở 24 °C, pH 7,4. Theo người này, quan trọng nhất là nước ổn định, đừng để thông số dao động mạnh. Người này cũng cho rằng loài này cần điều kiện giống tép cherry (<em>Neocaridina</em>) và không cần nước mềm. Khoảng nhiệt độ, pH và độ cứng xem ở bảng dữ liệu.</p>",
+      "refs": [
+        2,
+        3,
+        6
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này chủ yếu gặm màng vi sinh (biofilm), rêu và vi sinh vật. Không nên cho ăn quá nhiều.</p><p>Nó ăn tạp, nhận thức ăn cho tép, thức ăn dạng vảy, viên tảo, rau trụng sơ và một ít đồ đông lạnh như bo bo. Một người nuôi còn cho thêm mai mực để bổ sung canxi.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Theo một người nuôi, loài này nhút nhát, thích trốn và hay tụ thành đám hơn tép cherry. Một tiệm cũng tả nó nhát hơn nhiều loài tép lùn khác, cần nhiều chỗ trốn.</p><p>Chuyện nuôi chung với cá thì phải cẩn thận. Tiệm này nói phần đông các loài cá sẽ ăn nó. Một người nuôi thì cho rằng chỉ rất ít loài cá nuôi chung được an toàn, chẳng hạn cá otto.</p>",
+      "refs": [
+        2,
+        3
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Phân biệt đực cái ở loài này khó hơn tép cherry. Con cái có phần bụng (váy) rộng hơn để ôm trứng.</p>",
+      "refs": [
+        2
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Theo một người nuôi, trong bể con cái ôm khoảng 30–50 trứng trong chừng 30 ngày. Tép con rất nhỏ, lớn chậm và lên màu chậm. Số con sống sót có vẻ thấp hơn tép cherry.</p><p>Một tiệm cho biết loài này đẻ chậm hơn <em>Neocaridina</em>, tốc độ gần với tép ong hơn.</p><p>Ngoài tự nhiên ở Hungary, trong số tép thu được có một con cái đang ôm trứng.</p>",
+      "refs": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Caridina babaulti</em> là một loài tép nước ngọt thuộc chi <em>Caridina</em>, họ Atyidae. Bouvier mô tả loài này năm 1918, dựa trên mẫu do Guy Babault thu ở Ấn Độ thuộc Anh trong hai năm 1913–1914. Mẫu chuẩn chọn (lectotype) hiện được giữ ở bảo tàng Paris (MNHN). Nơi lấy mẫu chuẩn là Majghaon, bang Madhya Pradesh, miền trung Ấn Độ. Nhãn trên các mẫu này còn ghi thêm Masegaon, thuộc bang Maharashtra.</p><p>Năm 2019, Pandya và Richard mô tả lại loài này từ chính các mẫu chuẩn và từ mẫu mới thu ở sông Shetrunji. Cũng trong bài đó, hai nhà khoa học mô tả thêm một loài họ hàng là <em>Caridina kutchi</em>.</p><p>Tên tiếng Anh của nó là Indian zebra shrimp hoặc Babaulti shrimp. Con tép có chủy dài, mép chủy có răng cưa, thân có sọc. Một số con có mắt màu cam, thấy rõ con ngươi. Chủy dài bằng hoặc ngắn hơn cuống râu thứ nhất, bằng 0,4–0,7 lần chiều dài vỏ đầu ngực và mang 14–25 răng.</p><p>Điều làm loài này đáng chú ý là màu thân hay đổi. Màu có thể thay theo ánh đèn, màu nền, mùa sinh sản, tuổi, hoặc lúc tép bị giật mình. Dải màu đi từ đỏ, cam qua nâu, xanh lá, vàng cho tới gần như xanh thép. Ngoài tiệm có hai dạng là dạng xanh và dạng zebra. Dạng zebra có nền nâu nhạt với các sọc đứng màu sẫm, còn con dạng xanh khi bị stress có thể chuyển sang cam hoặc nâu.</p><p>Danh tính của loài này chưa ngã ngũ. Vì thế tiệm thường bán nó dưới tên <em>Caridina</em> cf. <em>babaulti</em>.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "kjRB938iz0Q",
+      "title": "INDIAN ZEBRA SHRIMP SPECIES PROFILE",
+      "durationSec": 543,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "3dT-EVy71WY",
+      "title": "Green babaulti freshwater shrimp",
+      "durationSec": 8,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DveJhETe4Lg",
+      "title": "Green babaulti shrimps. Feeding time",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "fX1cJaEMGk8",
+      "title": "Caridina Babaulti shrimp",
+      "durationSec": 36,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17",
+  "refs": [
+    {
+      "url": "https://tb.plazi.org/GgServer/html/03D9236CFFF86459D7B0F927FA83FE55",
+      "title": "Caridina babaulti Bouvier, 1918"
+    },
+    {
+      "url": "https://mapress.com/zt/article/view/27188",
+      "title": "Report of Caridina babaulti Bouvier, 1918 (Crustacea: Decapoda: Caridea: Atyidae) and description of a new species Caridina kutchi sp. nov. from Gujarat, India"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kjRB938iz0Q",
+      "title": "INDIAN ZEBRA SHRIMP SPECIES PROFILE"
+    },
+    {
+      "url": "https://www.theshrimpfarm.com/posts/caridina-babaulti-shrimp-care/",
+      "title": "Babaulti Shrimp (Caridina babaulti) | Tank Set-Up & Care"
+    },
+    {
+      "url": "https://doaj.org/article/627edd288a8d454c8f5f885332c31032",
+      "title": "First record and DNA barcodes of non-native shrimp, Caridina babaulti (Bouvier, 1918) in Europe"
+    },
+    {
+      "url": "https://www.garnelio.de/en/carrying-green-shrimp-caridinia-cf.-babaulti-green",
+      "title": "Carrying Green Shrimp - Caridinia cf. babaulti \"Green\""
+    },
+    {
+      "url": "https://riverparkaquatics.co.uk/indian-zebra-shrimp-caridina-babaulti/",
+      "title": "Indian Zebra Shrimp (Caridina babaulti)"
+    }
+  ]
+}

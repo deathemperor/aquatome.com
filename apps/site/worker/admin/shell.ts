@@ -33,8 +33,13 @@ export const REPORT_NAME = 'Daily reports'
 /** The product change log (daily/changelog.ts), which each merge adds to. */
 export const CHANGELOG_PATH = '/_ab/thay-doi/'
 export const CHANGELOG_NAME = 'Changelog'
-export type WebPath = AdminPath
-const PAGE_NAV: readonly (readonly [WebPath, string, string])[] = NAV
+/** The owner's asks, the chief of staff's list (admin/asks.ts): a page of the web dashboard, after Today. */
+export const ASKS_PATH = '/_ab/yeu-cau/'
+export const ASKS_NAME = 'Your asks'
+/** Pages of the web dashboard that the app's section list doesn't have (yet): the rail lists them, NAV doesn't. */
+const WEB_ONLY = [[ASKS_PATH, ASKS_NAME, '']] as const
+export type WebPath = AdminPath | (typeof WEB_ONLY)[number][0]
+const PAGE_NAV: readonly (readonly [WebPath, string, string])[] = [NAV[0], ...WEB_ONLY, ...NAV.slice(1)]
 /** Every page of the web dashboard. */
 export const WEB_PAGES: readonly WebPath[] = PAGE_NAV.map(([p]) => p)
 
@@ -442,6 +447,23 @@ details.fold>summary{display:flex;justify-content:space-between;gap:12px;align-i
 details.fold .fig{color:var(--muted);font-variant-numeric:tabular-nums}
 details.fold .scroll{margin:0 -14px;border-width:1px 0 0;border-radius:0 0 var(--r) var(--r)}
 td.bad,th.bad{color:var(--rust)}
+.asks-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin:14px 0 16px}
+.asks-tiles div{background:var(--plate);border:1px solid var(--rule);border-radius:var(--r);padding:10px 12px}
+.asks-tiles b{display:block;font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+.asks-tiles span{font-size:12px;color:var(--muted)}
+.asks-tiles .t-red b{color:var(--rust)}.asks-tiles .t-done b{color:var(--moss)}
+.asks-group{border-top:1px solid var(--rule);padding:2px 0 6px}
+.asks-group>summary{color:var(--ink);font-weight:600;font-size:1rem;min-height:44px;display:flex;align-items:center;gap:8px}
+.asks-group .n{color:var(--muted);font-weight:500;font-size:.85rem}
+.asks .ask{padding:10px 0;border-top:1px solid var(--grid);overflow-wrap:anywhere}
+.asks .ask p{margin:2px 0}
+.asks .top{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.asks .what{font-weight:600}
+.asks .state{flex:none;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;margin-top:2px;color:var(--muted)}
+.asks .s-late,.asks .s-nothing,.asks .s-unknown,.asks .x,.asks .stale{color:var(--rust)}.asks .s-you{color:var(--s3)}.asks .s-try{color:var(--s2)}.asks .s-done{color:var(--moss)}
+.asks .said,.asks .meta{color:var(--muted)}.asks .said{font-style:italic}.asks .meta{font-size:12.5px}
+.asks .x,.asks .stale{font-weight:600}.asks .where{font-size:13.5px}
+.asks .rules{padding-left:18px;margin:6px 0}.asks .rules li{margin:3px 0}
 @media (min-width:1000px){
 .frame{grid-template-columns:232px minmax(0,1fr);gap:0 8px}
 .rail,.home .rail{display:block;border:0;background:none;padding:20px 0 0 16px}

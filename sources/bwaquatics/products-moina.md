@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/moina
 title: Moina – BWAquatics
-fetchedAt: 2026-11-16T17:20:46.644Z
+fetchedAt: 2026-11-17T23:17:07.648Z
 hash: e7900ab795797a55230069970d81214da666399bb935eadb5f2959cd77c36201
 ---
 

@@ -1,8 +1,13 @@
 {
   "slug": "solo",
-  "name": "Solo",
+  "name": "Sungai Bengawan Solo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T05:14:07.541Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

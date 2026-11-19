@@ -29,7 +29,8 @@
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -302,6 +303,10 @@
       {
         "source": "seriouslyfish",
         "value": 32.5
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -325,6 +330,12 @@
       "html": "<ul><li>Difficulty: 4 of 8 (Moderate)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/",
+      "html": "<p>A comparatively small (20–25 cm) and very pretty bichir, Polypterus palmas.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-palmas",
@@ -335,6 +346,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-palmas",
       "html": "<p>Ghana, Democratic Republic of Congo, Cameroon, Liberia, Guinea, Ivory Coast, Sierra Leone.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/",
+      "html": "<p>Imported from Guinea. Two former subspecies have been recorded from Guinea, namely P. p. palmas and P. p. buettikoferi.</p>"
     },
     {
       "key": "habitat",
@@ -383,10 +400,82 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-palmas",
       "html": "<p>An incredibly hardy, nocturnal species with very poor vision, P. palmas relies on its excellent sense of smell to locate food. This species, along with others of its genus, is one of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occured during the early development of the dinosaurs more than 200 million years ago. They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time, provided it is kept moist. Like Anabantoid species, this fish may actually drown if it is denied access to atmospheric air. Young bichirs have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water, clearly exhibits the link these species form between fish and amphibians.</p><p>This is one of the more peaceful and active species of Polypterus. Along with its relatively small adult size this makes it an ideal beginner's bichir. P. palmas buettikoferi, once treated as a subspecies, is now a synonym of P. palmas. P. palmas polli, the other former subspecies, is now a species in its own right, P. polli. Most of the fish sold in the trade as P. palmas are in fact P. polli but aquarium care for the two is identical. Both are included in the \"upper-jawed\" tribe of polypterids so named on account of the upper jaw being longer than or equal in length to the lower jaw.</p><p>It should be noted that most Polypterus offered for sale are wild caught and, as such, may come in carrying infections or parasites. It is advisable to keep a close eye on new fish for the first few weeks after purchase.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/",
+      "html": "<p>Formerly the species has been split into several subspecies, but this seems not to reflect the real situation. Both P. p. palmas and P. p. buettikoferi are currently regarded as full species in their own right. P. buettikoferi can be recognized by the much broader lateral bands.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/bf23e1058ae5b128.webp",
+      "thumb": "https://media.aquatome.com/glaser/bf23e1058ae5b128-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/066d18d28a61b221.webp",
+      "thumb": "https://media.aquatome.com/glaser/066d18d28a61b221-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/605b0a304e3dd0bd.webp",
+      "thumb": "https://media.aquatome.com/glaser/605b0a304e3dd0bd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e63dd1ac7074bc69.webp",
+      "thumb": "https://media.aquatome.com/glaser/e63dd1ac7074bc69-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-palmas-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "auxXlLzblJs",
+      "title": "THE LOYAL POLYPTERUS PALMAS PALMAS. (Leopard Aquatic D019A)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FJqVOps6t3s",
+      "title": "NEW Polypterus palmas \"Kolenté River\" (Shortfin/Marbled Bichir)",
+      "durationSec": 237,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4afwunDykao",
+      "title": "Polypterus Palmas, Leopard Ctenopoma and African Butterflyfish - Feeding",
+      "durationSec": 653,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IeFpL4B9Xdo",
+      "title": "Polypterus Palmas buettikoferi Birchir, a closer look, still to young to sex, hopefully soon🙏...",
+      "durationSec": 30,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -416,5 +505,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-17"
 }

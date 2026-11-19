@@ -1,0 +1,109 @@
+{
+  "id": "aspistor-luniscutis",
+  "native": {
+    "input": "cab07686f9ff45ca",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Atlantic coastal rivers of South America from French Guiana to southern Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Atlantic coastal rivers of South America from French Guiana to southern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Notarius luniscutis occurs along the eastern coast of South America from the Guianas to Brazil, and may reach a maximum length of 1.2 m.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aspistor luniscutis",
+    "status": "ACCEPTED",
+    "taxonKey": 2345323,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        98
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        21
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GF",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

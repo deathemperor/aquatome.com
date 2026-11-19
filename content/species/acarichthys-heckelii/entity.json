@@ -28,14 +28,11 @@
       ],
       "regions": [
         "Amazon",
-        "Essequibo",
-        "Putumayo",
-        "Trombetas",
-        "Negro",
-        "Xingu"
+        "Essequibo"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -47,20 +44,15 @@
             "BR",
             "GY"
           ],
-          "regions": [
-            "Amazon",
-            "Essequibo"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
           "quote": "Native to northern parts of the Amazon basin in Colombia, Peru and Brazil including lower parts of the ríos Putumayo, Trombetas, Negro, Xingu, Tocantins, Capim and Branco River plus the Essequibo drainage in Guyana.",
           "countries": [],
           "regions": [
-            "Putumayo",
-            "Trombetas",
-            "Negro",
-            "Xingu"
+            "Amazon",
+            "Essequibo"
           ]
         }
       ]
@@ -476,16 +468,34 @@
       "html": "<p>The threadfin acara, Acarichthys heckelii, is a cichlid from the northern Amazon basin in Colombia, Peru and Brazil and the Essequibo in Guyana. The only member of its genus, it grows to around 200 mm and digs incessantly, and it is susceptible to deteriorating water quality. Some adults show sudden, extreme aggression towards conspecifics that can kill weaker fish, and the problem decreases as tank and group size increase.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/acarichthys_heckelii_en/",
+      "html": "<p>Acarichthys heckelii from the region around Santarem are characterised by an intensive yellow body colouring, which forms a beautiful contrast to the red eyes and the magnificent fin rays.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "html": "<p>Native to northern parts of the Amazon basin in Colombia, Peru and Brazil including lower parts of the ríos Putumayo, Trombetas, Negro, Xingu, Tocantins, Capim and Branco River plus the Essequibo drainage in Guyana. It has also been introduced to Singapore and is apparently thriving there.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/acarichthys_heckelii_en/",
+      "html": "<p>Acarichthys heckelii has a large area of origin along the Amazon and the upper Essequibo in Guyana. Origin: Brazil, Colombia, Peru.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "html": "<p>Inhabits lowland parts of river basins and often enters flooded savannah or forest during the wet season.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/acarichthys_heckelii_en/",
+      "html": "<p>They live mainly in lagoons and calm areas of rivers and like high water temperatures.</p>"
     },
     {
       "key": "aquariumSize",
@@ -512,10 +522,22 @@
       "html": "<p>This species does not sift sand like some related species, rather spending much its time in midwater. Most foods are accepted but a varied diet is essential for it to develop the best condition and colour. Offer a mixture of live, frozen and dried foods and ensure some vegetable matter, such as blanched spinach or a proprietary Spirulina product, is included.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/acarichthys_heckelii_en/",
+      "html": "<p>Feeding is unproblematic; nearly all available food is accepted.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "html": "<p>Relatively peaceful in the main and will not prey on anything larger than a couple of centimetres in size. Suitable tankmates are too numerous to list but include most peaceful species enjoying similar environmental conditions. For those wishing to attempt a biotope-style community a list of some naturally co-occurrent species can be found in the 'habitat' section above.</p><p>Best avoided are particularly aggressive/territorial species or those known to nip at trailing fins. Some aquarists keep this species alongside freshwater stingrays of the genus Potamotrygon which in many cases has proven successful but in others has resulted in the stingrays preying on them at night.</p><p>Unfortunately some adults appear prone to exhibit unpredictable and extreme events of intraspecific aggression which can easily result in the death of weaker individuals. This appears related to both tank and group size with problems decreasing as both those factors increase.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/acarichthys_heckelii_en/",
+      "html": "<p>At best they should be kept in groups, as they are only slightly aggressive.</p>"
     },
     {
       "key": "dimorphism",
@@ -528,6 +550,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "html": "<p>This species requires 2-3 years to reach sexual maturity and in nature exhibits an intriguing spawning strategy whereby females compete for territories and excavate complex, burrow-like substructures from the substrate. These can have several entrances, some of which may be false, and generally consist of a more-or-less vertical main entrance leading to a horizontal tunnel at the end of which is a larger chamber where the eggs are deposited.</p><p>The female will then attempt to attract a partner and once successful and spawning complete the pair share duties with the female responsible for the majority of brood care and the male territorial defence. Once free swimming the fry remain in the vicinity, darting into the burrow when threatened, and are abandoned by the parents when they measure around 10 mm (0.4 in) TL on average. Some continue to use the burrow beyond this point, and it may also be taken over by a different pair.</p><p>A cycle of this complexity is clearly impossible to replicate in the aquarium, and further complications arise due to the often extreme intra-specific aggression displayed by adults. A single pair will require a large tank (see 'minimum tank size'), rigorous observation and ideally an absence of competition. The most proven substitute in terms of a spawning cave is a large, upturned flowerpot with an entrance hole chipped into the base, with simulation of natural weather conditions via raising and lowering of the temperature every few days couple with large (up to 50%) water changes known to help trigger courtship. Provided you can get a pair to spawn without one fish murdering the other the fry are apparently quite simple to raise.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/acarichthys_heckelii_en/",
+      "html": "<p>Breeding of this cave breeder succeeds only rarely. Apart from suitable caves, they seem to need temperatures of at least 30°C.</p>"
     },
     {
       "key": "notes",
@@ -545,50 +573,75 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/a4366c37af9eb4a7.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a4366c37af9eb4a7-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "caption": "Adult male specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a4366c37af9eb4a7-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/afff15554446ffd8.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/afff15554446ffd8-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "caption": "Adult female.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/afff15554446ffd8-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/95c2334ead90f329.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/95c2334ead90f329-480.webp",
       "width": 1024,
       "height": 685,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "caption": "Another subadult...",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/95c2334ead90f329-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/a07c770406c78d59.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a07c770406c78d59-480.webp",
       "width": 1024,
       "height": 729,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acarichthys-heckelii",
       "caption": "...and another.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a07c770406c78d59-480.webp"
+      "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dE5_dqak5kQ",
+      "title": "Threadfin Acara (Acarichthys heckelii) | Care Guide & Species Profile",
+      "durationSec": 655,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "T2OtFk0zbu0",
+      "title": "Albino Threadfin Acara Care Guide",
+      "durationSec": 456,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "c8bZyPO75DM",
+      "title": "This Fish Deserved a Better Tank: Albino Heckelii Showing Why They are SO Amazing!",
+      "durationSec": 316,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VkBKcEdytOg",
+      "title": "Acarichthys heckelii Albino in group mating",
+      "durationSec": 241,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -618,5 +671,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-17"
 }

@@ -11,13 +11,20 @@
     "habitat:planetcatfish": "<p>ส่วนใหญ่อาศัยอยู่ในทะเล แต่พบได้บ่อยในบริเวณปากแม่น้ำที่เป็นน้ำกร่อย และบางครั้งก็เข้ามาในแหล่งน้ำจืด</p>",
     "diet:planetcatfish": "<p>กินปลา สัตว์ไม่มีกระดูกสันหลังที่อาศัยอยู่ตามพื้น แพลงก์ตอนสัตว์ และเศษซากอินทรีย์</p>",
     "reproduction:planetcatfish": "<p>ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์</p>",
-    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 151, Fig.</p>"
+    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 151, Fig.</p>",
+    "quickFacts:scotcat": "<ul><li>ชื่อสามัญ: ปลากดทะเล (Rough-head sea catfish)</li></ul>",
+    "distribution:scotcat": "<p>แอฟริกาตะวันตก: เซเนกัล กินีบิสเซา อิเควทอเรียลกินี เซียร์ราลีโอน ไลบีเรีย กานา โตโก เบนิน ไนจีเรีย แคเมอรูน กาบอง คองโก ซาอีร์ แองโกลา และนามิเบีย แหล่งที่พบตัวอย่างต้นแบบ: เกาะเฟร์นันโดโป ประเทศอิเควทอเรียลกินี อ่าวกินี</p><p>ปลาชนิดนี้พบได้ตั้งแต่มอริเตเนียลงไปจนถึงนามิเบีย ส่วนใหญ่พบในบริเวณปากแม่น้ำ และในบางพื้นที่อาจพบได้เป็นจำนวนมาก</p>",
+    "habitat:scotcat": "<p>ส่วนใหญ่อาศัยอยู่ในทะเล แต่พบได้บ่อยในบริเวณปากแม่น้ำที่เป็นน้ำกร่อย และบางครั้งก็เข้ามาในแหล่งน้ำจืด มีชุกชุมในช่วงฤดูหนาว</p>",
+    "diet:scotcat": "",
+    "notes:scotcat": "<p>เป็นปลาสวยงามและบางครั้งก็ถูกนำมาเลี้ยงในตู้ปลา ปลาชนิดนี้มีพิษและอาจเป็นอันตรายต่อมนุษย์ได้</p><p>ที่มาของชื่อ: ชื่อชนิด latiscutatus มาจาก latis แปลว่า กว้าง และ scutatus แปลว่า ติดโล่หรือคล้ายโล่ หมายถึงกระดูกยื่นบริเวณท้ายทอย (occipital process) ที่กว้างมากกว่ายาว</p><p>Marceniuk et al (2007) ได้ย้ายปลาชนิดนี้ (Arius latiscutatus) ไปไว้ในสกุลใหม่ คือ Carlarius ซึ่งตั้งชื่อเพื่อเป็นเกียรติแก่ Carl Ferraris จากผลงานที่ช่วยเพิ่มพูนองค์ความรู้เกี่ยวกับปลาในอันดับ Siluriformes สกุลใหม่นี้รวมปลาทั้ง 7 ชนิดที่รู้จักจากชายฝั่งแอฟริกาตะวันตกซึ่งเดิมเคยจัดอยู่ในสกุล Arius โดยมี Arius heudeloti Valenciennes, 1840 เป็นชนิดต้นแบบ (type species) ปัจจุบันการเปลี่ยนสกุลนี้ได้รับการยอมรับแล้ว</p><p>บัญชีแดงของ IUCN: ปลาชนิดนี้ถูกจับทั่วทั้งเขตการกระจายพันธุ์ ทั้งในการประมงพื้นบ้านและการประมงเชิงพาณิชย์ ยังไม่มีข้อมูลปริมาณการจับแยกเฉพาะชนิด แต่ปริมาณการจับปลาในวงศ์ Ariidae รวมกันที่มีรายงานในภูมิภาคนี้ยังไม่แสดงสัญญาณการลดลงในปัจจุบัน จึงจัดอยู่ในสถานภาพกังวลน้อยที่สุด (Least Concern) อย่างไรก็ตาม ควรเฝ้าติดตามปลาชนิดนี้อย่างใกล้ชิด เนื่องจากอาจถูกจับมากขึ้นเรื่อย ๆ เมื่อปลาหน้าดินชนิดอื่นถูกจับมากเกินไป (IUCN 2020)</p>",
+    "references:scotcat": "<p>Carpenter, K.E., Camara, K.D., Djiman, R., Nunoo, F., Sagna, A., Sidibé, A, de Morais, L. &amp; Olaosebikan, B.D. 2020. Carlarius latiscutatus. The IUCN Red List of Threatened Species 2020. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009). Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.88
     }
   }
 }

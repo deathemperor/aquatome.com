@@ -3,6 +3,12 @@
   "name": "Paraná Hulu",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:57:30.439Z",
+    "why": "\"Upper Paraná\" is a region (Alto Paraná) in Brazil/Paraguay; Indonesian would likely write \"Paraná Atas\" or \"Alto Paraná\", and \"Hulu\" fits river upper courses but the name is ambiguous and not an established form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

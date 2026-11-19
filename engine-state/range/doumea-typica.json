@@ -1,0 +1,105 @@
+{
+  "id": "doumea-typica",
+  "native": {
+    "input": "39aba454429bb75a",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Congo River basin and coastal rivers from Cameroon to Congo.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Congo River basin and coastal rivers from Cameroon to Congo.",
+        "words": "Congo",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Remarks: D. typica is the type species for this genus and the holotype was collected in the Doumé Falls, Gabon, hence the genus name.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "scotcat",
+        "quote": "Africa: Congo River basin and coastal rivers from Cameroon to Congo.",
+        "ok": true
+      },
+      {
+        "name": "Ogôoué",
+        "source": "scotcat",
+        "quote": "Type locality: Doumé (rivière Ogôoué).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Doumea typica",
+    "status": "ACCEPTED",
+    "taxonKey": 2340797,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        80
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "CG",
+      "GA"
+    ],
+    "requests": 13,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

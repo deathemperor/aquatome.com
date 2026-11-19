@@ -19,8 +19,8 @@ const words = (licence: string) => licence.toLowerCase().replace(/[^a-z0-9]+/g, 
 export const isNonCommercial = (licence: string): boolean => /\bnc\b|\bnon ?commercial\b/.test(words(licence))
 
 /**
- * An iNaturalist photo under CC BY-NC or CC BY-NC-SA, any version: what the owner let into albums (10 Nov), behind
- * IMAGE_SWITCHES.inatNonCommercial. Never ND, all rights reserved or no licence. Known by its licence text and its page on
+ * An iNaturalist photo under CC BY-NC or CC BY-NC-SA, any version: the licences the owner said yes to (10 Nov), behind
+ * IMAGE_SWITCHES.inatNonCommercial (albums only: the rule this step was built with, 16 Nov). Never ND, all rights reserved or no licence. Known by its licence text and its page on
  * iNaturalist, which our copy keeps (mirror-photos.ts moves only its address); a source's photo shows by its permission.
  */
 export const isInatNonCommercial = (p: Pick<Photo, 'licence' | 'sourceUrl' | 'source'>): boolean =>

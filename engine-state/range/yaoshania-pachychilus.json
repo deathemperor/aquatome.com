@@ -1,0 +1,78 @@
+{
+  "id": "yaoshania-pachychilus",
+  "native": {
+    "input": "69257ef92cbc5e4c",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Due to their origin (China) and their black and white coloration they are called dwarf panda hillstream loaches.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Officially known only from a handful of headwater tributary streams draining the Dayao Mountain (Dayaoshan) in Jinxiu County, Guangxi Zhuang Autonomous Region, southern China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pearl River",
+        "source": "seriouslyfish",
+        "quote": "There are just three confirmed localities of which two drain into the Liu River (Liujiang) and one the Gui River (Guijiang), themselves both north bank tributaries of the much larger Pearl River (Zhujiang) system.",
+        "ok": true
+      },
+      {
+        "name": "Liu River",
+        "source": "seriouslyfish",
+        "quote": "There are just three confirmed localities of which two drain into the Liu River (Liujiang) and one the Gui River (Guijiang), themselves both north bank tributaries of the much larger Pearl River (Zhujiang) system.",
+        "ok": true
+      },
+      {
+        "name": "Gui River",
+        "source": "seriouslyfish",
+        "quote": "There are just three confirmed localities of which two drain into the Liu River (Liujiang) and one the Gui River (Guijiang), themselves both north bank tributaries of the much larger Pearl River (Zhujiang) system.",
+        "ok": true
+      },
+      {
+        "name": "Dayao Mountain",
+        "source": "seriouslyfish",
+        "quote": "Officially known only from a handful of headwater tributary streams draining the Dayao Mountain (Dayaoshan) in Jinxiu County, Guangxi Zhuang Autonomous Region, southern China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Yaoshania pachychilus",
+    "status": "ACCEPTED",
+    "taxonKey": 7663625,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-eunotus",
   "native": {
-    "input": "63957baab0aae5c0",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "fd6aa3e3b79b63c4",
+    "at": "2026-11-17T18:05:08.130Z",
     "claims": [
       {
         "code": "PE",
@@ -35,6 +35,14 @@
         "quote": "Described from the Río Ucayali close to the city of Pucallpa, central Peru but is widely-distributed in tributaries of that system, as well as the Solimões/Amazon as far east as the Japurá drainage.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is very interesting that the newly imported Apistogramma eunotus \"Rio Tapiche\" seems to represent a link between the normal A. eunotus found in Peru and the Apistogramma species of the A. macmasteri complex found in the Orinoco drainage.",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
@@ -54,7 +62,7 @@
       {
         "name": "Japurá",
         "source": "seriouslyfish",
-        "quote": "Described from the Río Ucayali close to the city of Pucallpa, central Peru but is widely-distributed in tributaries of that system, as well as the Solimões/Amazon as far east as the Japurá drainage.",
+        "quote": "Apistogramma eunotus is a dwarf cichlid from the Río Ucayali in Peru and the Solimões/Amazon in Colombia and Brazil, as far east as the Japurá.",
         "ok": true
       },
       {
@@ -64,15 +72,10 @@
         "ok": true
       },
       {
-        "name": "Samiria",
-        "source": "seriouslyfish",
-        "quote": "Records exist from the Itaya, Samiria, Ampiyacu, and Yavarí basins, among others.",
-        "ok": true
-      },
-      {
-        "name": "Yavarí",
-        "source": "seriouslyfish",
-        "quote": "Records exist from the Itaya, Samiria, Ampiyacu, and Yavarí basins, among others.",
+        "name": "Rio Tapiche",
+        "source": "glaser",
+        "quote": "Specimens of A. eunotus from the Rio Tapiche in Peru were obtained recently that differ in many respects from typical A. eunotus.",
+        "country": "PE",
         "ok": true
       }
     ],

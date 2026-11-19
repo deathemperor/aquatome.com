@@ -1,0 +1,40 @@
+{
+ "at": "2026-11-18T20:14:55Z",
+ "checks": [
+  "elsewhere",
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "như ảnh chụp những con bày bán ở một chợ thực phẩm bên Thái Lan",
+   "why": "It points to a photo from the source that this page doesn't have."
+  },
+  {
+   "check": "elsewhere",
+   "quote": "vẫn thường xuyên được nhập về",
+   "why": "This shrimp is native and widely farmed in Vietnam, so saying it is 'imported' was written for a reader abroad."
+  }
+ ],
+ "text": {
+  "slug": "tom-cang-xanh",
+  "name": "Tôm càng xanh",
+  "altNames": [
+   "Tôm càng khổng lồ",
+   "Giant freshwater prawn"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Macrobrachium rosenbergii là loài tôm nước ngọt lớn nhất. Con đực có thể dài tới 50 cm nếu tính cả đôi càng dài, như ảnh chụp những con bày bán ở một chợ thực phẩm bên Thái Lan. To như vậy nhưng loài này không sống lâu. Các nghiên cứu khoa học cho thấy tôm chỉ sống được 1,5 năm.</p>",
+   "behaviour:glaser": "<p>Ấu trùng của loài tôm này chỉ nở được trong nước biển. Vì thế, trong đời mình, có con đi ngược dòng sông hơn 1.000 km rồi lại quay về.</p>",
+   "notes:glaser": "<p>Ở Đông Nam Á, Macrobrachium rosenbergii được nuôi rất nhiều để lấy thịt. Những con cỡ vừa, thân dài 6–8 cm không tính càng, vẫn thường xuyên được nhập về. Đã có vài con cái cỡ này đẻ trứng.</p>"
+  },
+  "quality": {
+   "score": 0.8,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.8
+   },
+   "reason": "thin"
+  }
+ }
+}

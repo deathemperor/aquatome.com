@@ -81,6 +81,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -104,6 +108,12 @@
       "html": "<p>Neolamprologus marunguensis is a cichlid endemic to Lake Tanganyika, found over rocky shorelines around the southwestern shore of the lake. It has a deeply forked tail and was previously sold as Neolamprologus sp. 'walteri'. Relatively peaceful, it becomes very territorial when breeding and is best kept in a species tank.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/neolamprologus-marunguensis-2/",
+      "html": "<p>Neolamprologus marunguensis is a beautiful dwarf cichlid from Lake Tanganyika and belongs to the problem-free ornamental fish. It is the little blue-eyed sister of the Princess of Burundi (Neolamprologus brichardi). The fish grows to approximately 6-7 cm long and is not a very active swimmer.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-marunguensis",
@@ -120,6 +130,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-marunguensis",
       "html": "<p>Standard length: 6 cm SL.</p><p>A tank of 75 cm x 30 cm x 30 cm - 70 litres is suitable for a single pair.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/neolamprologus-marunguensis-2/",
+      "html": "<p>N. marunguensis should not be kept in too small an aquarium. Although the fish grows to only approximately 6-7 cm and is not a very active swimmer, observing its family life brings much joy but also requires some space.</p>"
     },
     {
       "key": "maintenance",
@@ -146,6 +162,12 @@
       "html": "<p>A relatively peaceful species, although very territorial when breeding and is best kept in a species tank. However in large tanks it can be maintained successfully with other small to medium-sized Tanganyikan cichlids that occupy different areas of the tank such as Cyprichromis species. Other rockdwellers such as Julidochromis or Altolamprologus are possibilities if the tank is large enough and sufficient territories are provided. It should not be kept with mbuna or other boisterous species.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/neolamprologus-marunguensis-2/",
+      "html": "<p>As with all princesses, multiple broods can frequently be observed, with the older siblings taking part in looking after the small young animals.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-marunguensis",
@@ -170,18 +192,43 @@
       "thumb": "https://media.aquatome.com/commons/a36d40247933a103-480.webp",
       "width": 1200,
       "height": 583,
-      "licence": "CC BY-SA 3.0",
-      "author": "H. Zell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_marunguensis_-_Wilhelma_01.jpg",
-      "caption": "Cá Neolamprologus marunguensis vây xanh ánh, nhìn nghiêng rõ nét",
       "large": {
         "url": "https://media.aquatome.com/commons/a36d40247933a103-large.webp",
         "width": 2400,
         "height": 1166
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "H. Zell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_marunguensis_-_Wilhelma_01.jpg",
+      "caption": "Cá Neolamprologus marunguensis vây xanh ánh, nhìn nghiêng rõ nét"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ZRA9tOKsrX4",
+      "title": "Neolamprologus marunguensis. Group of 6 interact with each other.",
+      "durationSec": 624,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "oE91h6H-B2g",
+      "title": "Neolamprologus Marunguensis AQUA LAB",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cCyrU4re9xE",
+      "title": "Neolamprologus marunguensis with young",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Qft_mnWlJ2Y",
+      "title": "Neolamprologus marunguensis Zusammenhalt / Junge",
+      "durationSec": 87,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -210,5 +257,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19"
 }

@@ -5,6 +5,7 @@ import { FACTS, type AppIndex, type Facts } from '../src/lib/app-index'
 import { guideLink, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { fmt } from '../src/lib/format'
 import { appPath, LANGS, localizePath, missing, OTHER_LANGS, translator, type Lang } from '../src/lib/i18n'
+import { isFish } from '../src/lib/taxa-places'
 import { appPage, DIST } from './dist'
 
 // Shared with the iOS app, which reads the "Vì sao?" panel's needs from a fish's index entry with its own port of
@@ -16,15 +17,16 @@ const FIXTURE = new URL('fixture-content/species/', import.meta.url)
 
 type Words = {
   summary: string; lead: string; need: Record<NeedKey, string>; level: Record<NeedLevel, string>; why: Record<WaterWhy | TempWhy, string>
-  temperament: Record<Temperament, string>; finNipper: string; tank: string; size: string; school: string; note: string; how: string; howPath: string
+  temperament: Record<Temperament, string>; finNipper: string; tank: string; size: string; sizeOther: string; school: string; note: string; how: string; howPath: string
 }
 type Line = [label: string, level: string, figures: string]
-type Case = { note: string; species?: string; entry: Facts; needs: Need[]; shown: Record<Lang, Line[]> }
+/** `fish: false`: a crab's, a shrimp's or a snail's (the app's `Item.isFish`), whose size line is `sizeOther`. */
+type Case = { note: string; species?: string; fish?: false; entry: Facts; needs: Need[]; shown: Record<Lang, Line[]> }
 type Vectors = { $comment: string; cases: Case[]; words: Record<Lang, Words> }
 
 /** The panel's own strings in DataCard.astro, as t() takes them; the last test holds the component to this list. */
 const PANEL = {
-  summary: 'Vì sao?', lead: 'Điều làm loài này dễ hay khó nuôi, đọc từ bảng:', finNipper: 'hay cắn vây', tank: 'bể từ {cm}', size: 'cá dài {cm}',
+  summary: 'Vì sao?', lead: 'Điều làm loài này dễ hay khó nuôi, đọc từ bảng:', finNipper: 'hay cắn vây', tank: 'bể từ {cm}', size: 'cá dài {cm}', sizeOther: 'con dài {cm}',
   school: 'đàn từ {n} con', note: 'Độ khó {n}/8 là mức nguồn chấm. Nguồn có thể tính cả điều bảng không ghi, như thức ăn.', how: 'Cách tính các mức',
 }
 
@@ -35,17 +37,17 @@ function words(lang: Lang): Words {
   return {
     summary: t(PANEL.summary), lead: t(PANEL.lead), need: each(NEED_LABELS), level: each(LEVEL_WORDS), why: each(WHY_WORDS),
     temperament: each(TEMPERAMENT_WORDS, s => s.toLocaleLowerCase(lang)), finNipper: t(PANEL.finNipper),
-    tank: t(PANEL.tank), size: t(PANEL.size), school: t(PANEL.school), note: t(PANEL.note), how: t(PANEL.how), howPath: appPath(lang, guideLink(NEEDS_ANCHOR)),
+    tank: t(PANEL.tank), size: t(PANEL.size), sizeOther: t(PANEL.sizeOther), school: t(PANEL.school), note: t(PANEL.note), how: t(PANEL.how), howPath: appPath(lang, guideLink(NEEDS_ANCHOR)),
   }
 }
 
 /** The panel's line for each need, as DataCard.astro writes it (the built pages hold this to the component). */
-function lines(needs: Need[], lang: Lang, w: Words): Line[] {
+function lines(needs: Need[], lang: Lang, w: Words, fish = true): Line[] {
   const { num, range } = fmt(lang)
   const why = (codes: (WaterWhy | TempWhy)[]) => (codes.length ? `${codes.map(c => w.why[c]).join(', ')} · ` : '')
   const figures = (n: Need): string => {
     switch (n.key) {
-      case 'space': return [n.tankCm !== undefined && w.tank.replace('{cm}', `${num(n.tankCm)} cm`), n.sizeCm !== undefined && w.size.replace('{cm}', `${num(n.sizeCm)} cm`)].filter(Boolean).join(', ')
+      case 'space': return [n.tankCm !== undefined && w.tank.replace('{cm}', `${num(n.tankCm)} cm`), n.sizeCm !== undefined && (fish ? w.size : w.sizeOther).replace('{cm}', `${num(n.sizeCm)} cm`)].filter(Boolean).join(', ')
       case 'water': return why(n.why) + [n.ph && `pH ${range(n.ph)}`, n.gh && `${range(n.gh)} dGH`].filter(Boolean).join(', ')
       case 'temperature': return `${why(n.why)}${range(n.tempC)}°C`
       case 'temperament': return [n.temperament && w.temperament[n.temperament], n.finNipper && w.finNipper].filter(Boolean).join(', ')
@@ -62,6 +64,11 @@ function entryOf(id: string): Facts {
   if (!item) throw new Error(`${id}: no fish of that id in the fixture build's app index`)
   return Object.fromEntries(FACTS.filter(k => item[k] !== undefined).map(k => [k, item[k]])) as Facts
 }
+/** Whether a fixture page is a fish's, from its app index entry as the app reads it (its group, its order). */
+function fishOf(id: string): boolean {
+  const item = index.items.find(i => i.kind === 'fish' && i.id === id)!
+  return isFish({ id, group: item.group ?? '', order: item.tax?.[0] ?? '' })
+}
 
 /** The file as the site would write it now, from the hand-written notes, entries and species ids of `kept`. */
 function regenerate(kept: Vectors): Vectors {
@@ -69,7 +76,8 @@ function regenerate(kept: Vectors): Vectors {
   const cases = kept.cases.map((c): Case => {
     const entry = c.species ? entryOf(c.species) : c.entry
     const needs = careNeeds(entry)
-    return { note: c.note, ...(c.species ? { species: c.species } : {}), entry, needs, shown: Object.fromEntries(LANGS.map(l => [l, lines(needs, l, w[l])])) as Record<Lang, Line[]> }
+    const fish = c.species ? fishOf(c.species) : c.fish !== false
+    return { note: c.note, ...(c.species ? { species: c.species } : {}), ...(fish ? {} : { fish: false as const }), entry, needs, shown: Object.fromEntries(LANGS.map(l => [l, lines(needs, l, w[l], fish)])) as Record<Lang, Line[]> }
   })
   return { $comment: kept.$comment, cases, words: w }
 }
@@ -85,13 +93,21 @@ function json(v: unknown, indent = '', lead = 0): string {
   return Array.isArray(v) ? `[\n${body.join(',\n')}\n${indent}]` : `{\n${body.join(',\n')}\n${indent}}`
 }
 
-const kept: Vectors = JSON.parse(readFileSync(FILE, 'utf8'))
+// With UPDATE_VECTORS=1 the first test writes the file again, and every test reads it as written: a case added by hand
+// (a species and a note) is whole only then (Codex's read, 17 Nov: the shrimp's case, with no `sizeOther` in the old words).
+const read: Vectors = JSON.parse(readFileSync(FILE, 'utf8'))
+const kept: Vectors = process.env.UPDATE_VECTORS === '1' ? regenerate(read) : read
 const norm = (s: string | undefined) => s?.replace(/\s+/g, ' ').trim()
 
 test('protocols/care-needs-vectors.json is careNeeds\' answers, the panel\'s lines and its words, as the site has them now', () => {
   const next = `${json(regenerate(kept))}\n`
   if (process.env.UPDATE_VECTORS === '1') writeFileSync(FILE, next)
   expect(readFileSync(FILE, 'utf8'), 'run UPDATE_VECTORS=1 pnpm --filter site test').toBe(next)
+  // A crab's, a shrimp's or a snail's case writes its size line in sizeOther in every language, so a port that always
+  // writes `size` fails it (Codex's read, 17 Nov).
+  const other = kept.cases.filter(c => c.fish === false)
+  expect(other.map(c => c.species)).toContain('neocaridina-davidi')
+  for (const l of LANGS) expect(other.flatMap(c => c.shown[l]).some(([, , fx]) => fx.includes(kept.words[l].sizeOther.replace(' {cm}', ''))), l).toBe(true)
   // Every Indonesian and Thai word is the site's translation, none the Vietnamese left in its place.
   for (const lang of OTHER_LANGS) expect([...(missing.get(lang) ?? [])], lang).toEqual([])
 })
@@ -155,7 +171,7 @@ test('each fixture fish\'s built page shows these lines in these words, from its
     const why = appPage(item.path).dom.querySelector('.card [data-field="difficulty"] details.why')
     expect(why !== null, `${id}: a panel`).toBe(entry.difficulty !== undefined && needs.length > 0)
     if (!why) continue
-    const listed = kept.cases.find(c => c.species === id)?.shown.vi ?? lines(needs, 'vi', w)
+    const listed = kept.cases.find(c => c.species === id)?.shown.vi ?? lines(needs, 'vi', w, fishOf(id))
     const li = why.querySelectorAll('li')
     expect(li.map(n => [n.getAttribute('data-need'), n.getAttribute('data-level')]), id).toEqual(needs.map(n => [n.key, n.level]))
     expect(li.map(n => [norm(n.querySelector('.nm')?.text), norm(n.querySelector('.lv')?.text), norm(n.querySelector('.fx')?.text)]), id).toEqual(listed)

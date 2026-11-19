@@ -7,7 +7,8 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "colombia"
+    "colombia",
+    "venezuela"
   ],
   "range": {
     "records": {
@@ -29,13 +30,32 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
   "sections": [
     {
-      "key": "notes",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-rubrostriatus/",
-      "html": "<p>There are some other, similar looking species, like Hemigrammus erythrozonus (Glowlight tetra) or the several species of Flag tetra (Hyphessobrycon heterorhabdus, H. amapaensis, H. agulha, H. eschwartzae). However, Hemigrammus rubrostriatus can be distinguished from all of them even in fright coloration by a shining spot on the basis of the tail, which is lacking in all other species mentioned above. Such a spot is known in Hemigrammus for example by the Head-and-Tail-Light tetras (Hemigrammus ocellifer and H. falsus).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-rubrostriatus-4/",
+      "html": "<p>This beautiful tetra was described scientifically only in 2015. The tail pattern is similar to the Head-and-Tail tetras (Hemigrammus ocellifer and H. falsus), but the bright tailspot is blood red instead of yellow; the red horizontal stripe is as bright as in Hyphessobrycon amapaensis and the golden-yellow belly shines like that of the Kitty tetra, Hyphessobrycon heliacus. The red and white pattern of the fins is also very nice. If a tetra were designed as an ideal community fish, this is it.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-rubrostriatus-4/",
+      "html": "<p>The fish were imported from Venezuela. They are about 4-5 cm long, adult and in full colour. They are among the most attractive small tetra species.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemigrammus-rubrostriatus-4/",
+      "html": "<p>Hemigrammus rubrostriatus is as easy to keep as its congeners, which have lived in aquaria for almost a century. Any tap water will do. However, soft, slightly acidic water and the addition of humic acids from dead leaves, peat, alder cones, roots etc. will increase the intensity of the colours.</p>"
     }
   ],
   "photos": [
@@ -44,6 +64,11 @@
       "thumb": "https://media.aquatome.com/commons/05565b2fbb15afa6-480.webp",
       "width": 1200,
       "height": 543,
+      "large": {
+        "url": "https://media.aquatome.com/commons/05565b2fbb15afa6-large.webp",
+        "width": 1306,
+        "height": 591
+      },
       "licence": "CC BY 4.0",
       "author": "D. Bork",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemigrammus_rubrostriatus_(live_coloration).png",
@@ -98,5 +123,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-17"
 }

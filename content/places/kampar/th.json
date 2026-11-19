@@ -3,6 +3,12 @@
   "name": "กัมปาร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T12:25:50.290Z",
+    "why": "กัมปาร์ is a plausible transliteration of Kampar, but for a regency (kabupaten) in Indonesia an atlas in Thailand would normally add the kind word, e.g. \"เขตการปกครองกัมปาร์\" or \"อำเภอ/จังหวัด\"; the bare form leaves the type of place unstated and is ambiguous with the Kampar River."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

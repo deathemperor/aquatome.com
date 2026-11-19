@@ -1,17 +1,24 @@
-import { readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { exportJWK, generateKeyPair, SignJWT, createLocalJWKSet } from 'jose'
 import { accounts, type AccountDeps, type AccountsEnv } from '../accounts/api'
-import type { Mail } from '../accounts/email'
+import { emailHash, startEmail, type Mail } from '../accounts/email'
 import { idTokenVerifier, type IdClaims } from '../accounts/idtoken'
 import { COOKIE } from '../accounts/session'
+import { TESTER_ADDRESS, TESTER_ID } from '../accounts/tester'
+import { signInWith } from '../accounts/users'
 import { testD1 } from './d1'
 import { slow } from '@aq/schema/test-time'
 
 const readJson = (rel: string) => JSON.parse(readFileSync(fileURLToPath(new URL(rel, import.meta.url).href), 'utf8'))
 const ORIGIN = 'https://x.test'
 const NOW = new Date('2026-11-01T00:00:00.000Z')
+/** The Mac's dashboard bearer, as the test's Worker has it. */
+const BEARER = 'b'.repeat(32)
+/** The Mac's code, as on this site's host (the tests' x.test). */
+const ON = { CHAT_TESTER: 'on', AB_DASH_TOKEN: BEARER, CANONICAL_HOST: 'x.test' }
 
 /** A fake provider: an ID token is `<sub>|<nonce>|<email>`; anything else is refused. */
 function setup(over: Partial<AccountsEnv> = {}, opts: { turnstile?: boolean } = {}) {
@@ -59,7 +66,15 @@ function setup(over: Partial<AccountsEnv> = {}, opts: { turnstile?: boolean } = 
     const r = await call('POST', '/api/v1/auth/email/verify', { body: { flow, code }, cookie: o.cookie })
     return { ...r, cookie: cookieOf(r), flow, code }
   }
-  return { db, env, deps, mails, call, google, ask, emailIn, cookieOf, setNow: (d: Date) => { now = d } }
+  /** The Mac's sign-in to the test account (tester-sign-in.ts): its id and its app token. */
+  const tester = async () => {
+    const c = await call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })
+    expect(c.status).toBe(200)
+    const v = await call('POST', '/api/v1/auth/email/verify', { body: { ...c.json, client: 'app' }, origin: null })
+    expect(v.status).toBe(200)
+    return { id: v.json.user.id as string, token: v.json.token as string }
+  }
+  return { db, env, deps, mails, call, google, ask, emailIn, cookieOf, tester, setNow: (d: Date) => { now = d } }
 }
 
 test('off: the page learns accounts are off; everything else is not there', async () => {
@@ -282,6 +297,169 @@ test('signed in, a sign-in method joins the account only when asked to (link); o
   const other = await google('g-2')
   expect((await google('g-1', { cookie: other.cookie, link: true })).status).toBe(409)
   expect((await google('g-3', { link: true })).status).toBe(401) // nothing to add it to
+})
+
+// The chat's test account (accounts/tester.ts) signs in by its own email sign-in alone: its address never joins another
+// account, added from a signed-in account or vouched for by Google or Apple, and each refusal writes no account or
+// credential and sends no mail (Codex's read of the chat gate, 17 Nov). Before the fix, a reader adding it would have made
+// their account the tester's.
+test('the test account\'s address: its own email sign-in only, never added to an account, never through Google or Apple', async () => {
+  const { db, env, mails, call, google, emailIn } = setup()
+  const tester = TESTER_ADDRESS
+  const reader = await emailIn('reader@example.com')
+  const methods = async () => (await call('GET', '/api/v1/session', { cookie: reader.cookie })).json.user.methods.map((m: { kind: string }) => m.kind)
+  const users = async () => (await db.prepare('SELECT COUNT(*) AS n FROM users').first<{ n: number }>())!.n
+  // Added to an account signed in here: refused before a code goes out.
+  const sent = mails.length
+  expect((await call('POST', '/api/v1/auth/email/start', { body: { email: tester, turnstile: 't', link: true }, cookie: reader.cookie })).json).toEqual({ error: 'bad_email' })
+  expect(mails.length).toBe(sent)
+  // A flow started to add it before that check: refused at the code.
+  const { flow, mail } = await startEmail(db, env.ACCOUNT_HMAC_KEY!, tester, 'vi', ORIGIN, reader.json.user.id, NOW)
+  const code = /(?:#ma=|: )(\d{6})/.exec(mail.text)![1]!
+  expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code }, cookie: reader.cookie })).json).toEqual({ error: 'credential_in_use' })
+  // Google or Apple vouching for it: refused, linked or not, and no account is made.
+  const n = await users()
+  expect((await google('g-t', { email: tester })).json).toEqual({ error: 'credential_in_use' })
+  expect((await google('g-t', { email: tester, cookie: reader.cookie, link: true })).json).toEqual({ error: 'credential_in_use' })
+  const { json: { nonce } } = await call('POST', '/api/v1/auth/nonce', { body: {} })
+  expect((await call('POST', '/api/v1/auth/apple', { body: { idToken: `a-t|${nonce}|${tester}`, nonce, client: 'web' } })).json).toEqual({ error: 'credential_in_use' })
+  expect(await users()).toBe(n)
+  expect(await methods()).toEqual(['email'])
+  // Nor is a code mailed to it to sign in (the Mac's code alone signs it in, below), in any case.
+  for (const email of [tester, tester.toUpperCase(), ` ${tester} `]) {
+    expect((await call('POST', '/api/v1/auth/email/start', { body: { email, turnstile: 't' } })).json, email).toEqual({ error: 'bad_email' })
+  }
+  expect(mails.length).toBe(sent)
+  // Another address, added as before.
+  expect((await emailIn('second@example.com', { cookie: reader.cookie, link: true })).status).toBe(200)
+  expect(await methods()).toEqual(['email', 'email'])
+})
+
+// Codex's read of #1606: signed in by its own code, the test account could link Google or Apple carrying another address
+// or none, and later sign in through it. Signed in now by the Mac's code alone, its session is no session to anything but
+// the chat (session.ts): every way to link answers as to a token never issued, and writes nothing. A reader still links.
+test('the test account, signed in by the Mac\'s code, adds no other way in, whatever address that one carries', async () => {
+  const { db, mails, call, google, emailIn, tester } = setup(ON)
+  const own = await tester()
+  const none = 'x'.repeat(43)
+  const credentials = async () => (await db.prepare('SELECT COUNT(*) AS n FROM credentials').first<{ n: number }>())!.n
+  const before = await credentials()
+  for (const bearer of [own.token, none]) {
+    expect((await google('g-other', { email: 'other@example.com', bearer, link: true, client: 'app' })).status).toBe(401)
+    const { json: { nonce } } = await call('POST', '/api/v1/auth/nonce', { body: {} })
+    expect((await call('POST', '/api/v1/auth/apple', { body: { idToken: `a-other|${nonce}|other@example.com`, nonce, client: 'app', link: true }, bearer, origin: null })).status).toBe(401)
+    expect((await call('POST', '/api/v1/auth/email/start', { body: { email: 'other@example.com', turnstile: 't', link: true, client: 'app' }, bearer, origin: null })).status).toBe(401)
+    expect((await call('POST', '/api/v1/account/passkey/options', { body: {}, bearer, origin: null })).status).toBe(401)
+  }
+  expect(await credentials()).toBe(before)
+  expect(mails).toEqual([])
+  // Its code still signs it in, to the same account; and a reader's account still links Google.
+  expect((await tester()).id).toBe(TESTER_ID)
+  const reader = await emailIn('reader@example.com')
+  expect((await google('g-reader', { cookie: reader.cookie, link: true })).status).toBe(200)
+})
+
+// The Mac signs in to the test account (tester-sign-in.ts) for the chief of staff's questions to the live chat.
+test('the Mac\'s code: only with its bearer, on this site\'s host, while the tester is on; anything else is a path that isn\'t there', async () => {
+  const on = ON
+  const unknown = async (call: ReturnType<typeof setup>['call'], origin: string | null = null) => call('POST', '/api/v1/no-such-path', { body: {}, bearer: BEARER, origin })
+  const same = (a: { status: number; text: string; headers: Headers }, b: { status: number; text: string; headers: Headers }) =>
+    expect([a.status, a.text, [...a.headers]]).toEqual([b.status, b.text, [...b.headers]])
+  for (const [over, how] of [
+    [on, { bearer: undefined }], [on, { bearer: 'x'.repeat(43) }], [on, { bearer: `${BEARER}x` }], [on, { bearer: BEARER.slice(0, -1) }],
+    [{ ...on, CHAT_TESTER: undefined }, {}], [{ ...on, CHAT_TESTER: 'off' }, {}], [{ ...on, CHAT_TESTER: 'On' }, {}],
+    [{ ...on, AB_DASH_TOKEN: undefined }, { bearer: '' }], [{ ...on, CANONICAL_HOST: 'aquatome.com' }, {}], [{ ...on, CANONICAL_HOST: undefined }, {}], [on, { method: 'GET' }],
+    [on, { origin: 'https://evil.test' }], [on, { bearer: undefined, origin: 'https://evil.test' }],
+  ] as [Partial<AccountsEnv>, { bearer?: string; method?: string; origin?: string }][]) {
+    const { db, call, mails } = setup(over)
+    const r = await call(how.method ?? 'POST', '/api/v1/chat-tester/code', { body: how.method ? undefined : {}, bearer: 'bearer' in how ? how.bearer : BEARER, origin: how.origin ?? null })
+    same(r, await unknown(call, how.origin ?? null))
+    expect(r.status).toBe(how.origin ? 403 : 404)
+    expect(mails).toEqual([])
+    expect(await db.prepare('SELECT COUNT(*) AS n FROM auth_challenges').first<{ n: number }>()).toEqual({ n: 0 })
+  }
+  // Thirty a day; the 31st is a path that isn't there, and so is the next day's first only once the day has passed.
+  const { call, setNow } = setup(on)
+  for (let i = 0; i < 30; i++) expect((await call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).status).toBe(200)
+  const over = await call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })
+  same(over, await unknown(call))
+  setNow(new Date(NOW.getTime() + 86_400_000 + 1))
+  expect((await call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).status).toBe(200)
+})
+
+test('the Mac\'s code: no mail, used once, five minutes, a session of fifteen for the app\'s way only, and none of it logged', async () => {
+  const { db, mails, call, setNow } = setup(ON)
+  const logged: string[] = []
+  const spies = (['log', 'info', 'warn', 'error', 'debug'] as const).map(k => vi.spyOn(console, k).mockImplementation((...a: unknown[]) => { logged.push(a.map(String).join(' ')) }))
+  try {
+    const c = await call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })
+    expect([c.status, c.headers.get('cache-control')]).toEqual([200, 'no-store'])
+    const { flow, code } = c.json as { flow: string; code: string }
+    expect(code).toMatch(/^\d{6}$/)
+    expect(mails).toEqual([])
+    // Asked as a browser, it is still the app's way: a token, no cookie.
+    const v = await call('POST', '/api/v1/auth/email/verify', { body: { flow, code, client: 'web' } })
+    expect([v.status, v.json.user.id, v.headers.get('set-cookie')]).toEqual([200, TESTER_ID, null])
+    const token = v.json.token as string
+    expect(token).toMatch(/^[A-Za-z0-9_-]{43}$/)
+    expect((await call('POST', '/api/v1/auth/email/verify', { body: { flow, code, client: 'app' } })).json).toEqual({ error: 'bad_code' })
+    const row = await db.prepare('SELECT client, expires_at FROM sessions WHERE user_id = ?').bind(TESTER_ID).first<{ client: string; expires_at: string }>()
+    expect(row).toEqual({ client: 'app', expires_at: new Date(NOW.getTime() + 15 * 60_000).toISOString() })
+    // A code not used within five minutes signs nobody in.
+    const late = (await call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).json as { flow: string; code: string }
+    setNow(new Date(NOW.getTime() + 5 * 60_000 + 1))
+    expect((await call('POST', '/api/v1/auth/email/verify', { body: { ...late, client: 'app' } })).json).toEqual({ error: 'bad_code' })
+    for (const secret of [flow, code, token, late.code, BEARER]) expect(logged.join('\n')).not.toContain(secret)
+  } finally {
+    for (const s of spies) s.mockRestore()
+  }
+})
+
+test('the test account is made once, with its fixed id; a code finds no account if its address were another\'s sign-in', async () => {
+  const { db, env, call, tester } = setup(ON)
+  expect((await tester()).id).toBe(TESTER_ID)
+  expect((await tester()).id).toBe(TESTER_ID)
+  expect(await db.prepare('SELECT COUNT(*) AS n FROM credentials WHERE user_id = ?').bind(TESTER_ID).first<{ n: number }>()).toEqual({ n: 1 })
+  // Another account holding the address's email sign-in (none can: the test above): no code, nothing made.
+  const other = setup(ON)
+  await signInWith(other.db, { kind: 'email', subject: await emailHash(env.ACCOUNT_HMAC_KEY!, TESTER_ADDRESS), emailHash: await emailHash(env.ACCOUNT_HMAC_KEY!, TESTER_ADDRESS) }, NOW)
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {})
+  expect((await other.call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).status).toBe(404)
+  errors.mockRestore()
+  expect(await other.db.prepare('SELECT COUNT(*) AS n FROM users WHERE id = ?').bind(TESTER_ID).first<{ n: number }>()).toEqual({ n: 0 })
+  void call
+})
+
+test('off, the test account can\'t sign in: no code, and one handed out before signs nobody in', async () => {
+  const s = setup(ON)
+  const c = (await s.call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).json as { flow: string; code: string }
+  s.env.CHAT_TESTER = 'off'
+  expect((await s.call('POST', '/api/v1/auth/email/verify', { body: { ...c, client: 'app' } })).json).toEqual({ error: 'bad_code' })
+  expect((await s.call('POST', '/api/v1/chat-tester/code', { body: {}, bearer: BEARER, origin: null })).status).toBe(404)
+  expect(await s.db.prepare('SELECT COUNT(*) AS n FROM sessions').first<{ n: number }>()).toEqual({ n: 0 })
+})
+
+// The test account asks the chat and does nothing else: its session is none to any other route (session.ts). Every
+// route that reads a session reads it through sessionOf, and only the chat's own helper asks for the tester's.
+test('the test account\'s session is no session to anything but the chat: the accounts\' routes answer it as a token never issued', async () => {
+  const { call, tester } = setup(ON)
+  const { token } = await tester()
+  const none = 'x'.repeat(43)
+  for (const [method, path, body] of [
+    ['GET', '/api/v1/session'], ['GET', '/api/v1/tanks'], ['POST', '/api/v1/tanks/sync', { records: [] }], ['GET', '/api/v1/account/export'], ['DELETE', '/api/v1/account', {}],
+    ['POST', '/api/v1/account/picture', { picture: 'betta' }], ['GET', '/api/v1/fish-id/photos'], ['POST', '/api/v1/account/passkey/options', {}], ['POST', '/api/v1/auth/logout', {}],
+  ] as [string, string, unknown?][]) {
+    const as = async (bearer: string) => { const r = await call(method, path, { body, bearer, origin: null }); return [r.status, r.text] }
+    expect(await as(token), `${method} ${path}`).toEqual(await as(none))
+  }
+  // The Worker's own code, read as files (no process): its one call that asks for the tester's session is the chat's.
+  const root = fileURLToPath(new URL('..', import.meta.url).href)
+  const callers = readdirSync(root, { recursive: true, encoding: 'utf8' }).filter(f => f.endsWith('.ts') && !f.startsWith('test'))
+    .flatMap(f => readFileSync(join(root, f), 'utf8').split('\n').filter(l => l.includes('sessionOf(')).map(l => `${f}: ${l.trim()}`))
+  expect(callers.length).toBeGreaterThan(5)
+  const asks = callers.filter(l => /tester:/.test(l))
+  expect(asks).toHaveLength(1)
+  expect(asks[0]).toMatch(/^chat\/api\.ts: export const chatSession = .*\{ tester: testerOn\(env\) \}/)
 })
 
 test('signing in as someone else on a signed-in browser switches accounts: never joins them (a shared computer)', async () => {

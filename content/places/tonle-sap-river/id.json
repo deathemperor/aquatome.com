@@ -1,8 +1,13 @@
 {
   "slug": "tonle-sap-river",
-  "name": "Tonle Sap",
+  "name": "Sungai Tonle Sap",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T05:14:52.691Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

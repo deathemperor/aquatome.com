@@ -1,0 +1,21 @@
+{
+  "slug": "euryrhynchus-amazoniensis",
+  "name": "Euryrhynchus amazoniensis",
+  "altNames": [
+    "Peru Zebra Shrimp"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài tép hiếm đến từ Nam Mỹ. Thân nó có họa tiết chấm và sọc rất đẹp mắt, nên tên tiếng Anh Peru Zebra Shrimp (tép ngựa vằn Peru) nghe rất hợp. Con tép chỉ lớn tới khoảng 3 cm.</p>",
+    "distribution:glaser": "<p>Peru, Brazil.</p>",
+    "waterConditions:glaser": "<p>Muốn nuôi lâu thì phải giữ nước mềm và pH thấp. Nước không đúng như vậy thì tép có vẻ dễ nhiễm bệnh do vi khuẩn.</p>",
+    "behaviour:glaser": "<p>Con tép nhỏ như vậy thì dĩ nhiên không nuôi chung với cá săn mồi được. Nó rất hợp với bể Nam Mỹ thả chung với cá hiền, chẳng hạn các loài tetra nhỏ và cá chuột.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

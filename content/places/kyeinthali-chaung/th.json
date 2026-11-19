@@ -3,6 +3,12 @@
   "name": "เจียนตาลี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T12:26:54.233Z",
+    "why": "The Thai name \"เจียนตาลี\" drops the river word (แม่น้ำ/ชอง) and is a loose rendering of Kyeinthali; an atlas would write e.g. \"แม่น้ำจเยนตาลี\" or \"ชองจเยนตาลี\" with the kind word."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Jin Jiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-18T00:48:29.311Z",
+    "why": "Indonesian atlases write a river with the kind word \"Sungai\", so the bare \"Jin Jiang\" leaves out that word and only keeps the Chinese \"jiang\" (river)."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

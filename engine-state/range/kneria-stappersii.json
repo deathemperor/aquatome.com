@@ -1,0 +1,48 @@
+{
+  "id": "kneria-stappersii",
+  "native": {
+    "input": "781dba9179f5200f",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "Kneria stappersii originates from the upper Congo basin, where it inhabits exclusively the Lubumbashi river.",
+        "ok": true
+      },
+      {
+        "name": "Lubumbashi",
+        "source": "glaser",
+        "quote": "Kneria stappersii originates from the upper Congo basin, where it inhabits exclusively the Lubumbashi river.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Kneria stappersii",
+    "status": "ACCEPTED",
+    "taxonKey": 5213337,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        58
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        37
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

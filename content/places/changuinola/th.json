@@ -3,6 +3,12 @@
   "name": "จังกีโนลา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:20:29.713Z",
+    "why": "The Thai transliteration is plausible, but Changuinola is a river and town in Panama and the source lists it among rivers, so an atlas would more likely write \"แม่น้ำชังกีโนลา\" or \"ชางกีโนลา\" with a kind word, and the \"region\" label is questionable."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

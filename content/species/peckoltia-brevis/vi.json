@@ -4,7 +4,8 @@
   "altNames": [
     "Cá tỳ bà Purus hổ",
     "Purus Tiger Pleco",
-    "LDA078"
+    "LDA078",
+    "Cá tỳ bà Peckoltia brevis"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Peckoltia brevis (LaMonte, 1935)</li><li>Tên thường gọi: LDA078, Purus Tiger Pleco</li><li>Tên đồng nghĩa: Hemiancistrus brevis</li><li>Nơi thu mẫu chuẩn: gần Sena Madureira, gần cửa sông Macaua. Sông này là nhánh của Rio Iaco, còn Rio Iaco lại là nhánh của Rio Purus, bang Amazonas, Brazil.</li></ul>",
@@ -15,13 +16,18 @@
     "behaviour:planetcatfish": "<p>Loài này hiền, chỉ hơi hay giành chỗ. Ước chừng thì mỗi con cần một ô khoảng 30 x 30 cm, có đá và lũa chia cắt nhiều góc.</p><p>Đây là một loài cá lau kiếng cỡ vừa. Nó dễ tính nên nuôi chung được với rất nhiều loại cá. Với cá nhỏ và tép, nó hoàn toàn vô hại. Nó cũng đủ cứng cáp để chịu được cichlid quấy phá, trừ những loài cichlid lớn nhất.</p>",
     "dimorphism:planetcatfish": "<p>Cá đực mọc những gai nhỏ như răng (odontode) dọc các tia đầu của vây ngực và trên nửa sau thân. Cá cái không có gai, thân lại to ngang hơn. Nhìn từ trên xuống đoạn ngay sau vây ngực là thấy rõ nhất.</p>",
     "reproduction:planetcatfish": "<p>Loài này đẻ trong hang.</p>",
-    "references:planetcatfish": "<p>American Museum Novitates No. 784, pp 3, Fig. 2.</p>"
+    "references:planetcatfish": "<p>American Museum Novitates No. 784, pp 3, Fig. 2.</p>",
+    "quickFacts:glaser": "<p>Peckoltia brevis dài tối đa khoảng 12 cm. Loài này đã có mặt rộng rãi trong giới nuôi cá từ rất lâu, trước cả khi người ta đặt ra mã L (L-number) cho cá lau kiếng.</p>",
+    "distribution:glaser": "<p>Loài này sống ở các nhánh sông đổ vào sông Amazon, chẳng hạn Rio Purus, Rio Jurua, Rio Manacapuru và Rio Tefé.</p>",
+    "dimorphism:glaser": "<p>Cá non nhập về chủ yếu có màu vàng. Khi lớn hơn, chúng sẫm màu dần và lên màu cam tới nâu hồng rất đẹp.</p>",
+    "notes:glaser": "<p>Ancistrus phổ biến hơn Peckoltia brevis rất nhiều, nhưng ai muốn một con đẹp khác đi thì có thể chọn loài này. Lối sống của hai loài rất giống nhau.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
+      "planetcatfish": 0.9,
+      "glaser": 0.8
     }
   }
 }

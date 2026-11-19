@@ -3,7 +3,7 @@ import { careNeeds, type DataCardField, type NeedInput, type Range } from '@aq/s
 import Difficulty from './Difficulty.astro'
 import RangeBar from './RangeBar.astro'
 import { cardRows } from '../lib/card-rows'
-import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, guideLink, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../lib/card-guide'
+import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, FIELD_TIPS_NOT_FISH, guideLink, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../lib/card-guide'
 import { FIELD_LABELS, fmt, isRange } from '../lib/format'
 import { i18n, isVietnamese } from '../lib/i18n'
 import { asNum, asRange } from '../lib/species-index'
@@ -11,8 +11,9 @@ import { asNum, asRange } from '../lib/species-index'
  * Species cite source ids (sources.json); breeds cite their own sources by position. `traits`: the species' behaviour
  * (content/traits), for the temperament and social needs of "Vì sao độ khó này"; a breed has none.
  */
-interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>>; traits?: Pick<NeedInput, 'temperament' | 'finNipper' | 'schoolMin'> }
-const { card, sources, traits } = Astro.props
+interface Props { card: Partial<Record<DataCardField, { source: string; value: Range | number }[]>>; sources: Partial<Record<string, { name: string }>>; traits?: Pick<NeedInput, 'temperament' | 'finNipper' | 'schoolMin'>; fish?: boolean }
+// `fish`: false on a crab's, a shrimp's or a snail's page: its tips and its size line don't call it a fish ("con dài", not "cá dài").
+const { card, sources, traits, fish = true } = Astro.props
 const { t, lang } = i18n(Astro.url)
 const { num, range } = fmt(lang)
 // Sources that disagree: the range they all accept; each source's own figure in "Nguồn và độ tin cậy". The dot only where
@@ -39,7 +40,7 @@ const around = (s: string) => s.split(/\{\w+\}/) as [string, string]
     <dl class="card">
       {rows.map(r => (
         <div data-field={r.field} data-conflict={r.conflict ? 'true' : undefined}>
-          <dt><a class="gl" href={guideLink(FIELD_ANCHORS[r.field])} data-term={t(FIELD_LABELS[r.field])} data-tip={t(FIELD_TIPS[r.field])}>{t(FIELD_LABELS[r.field])}</a>{r.marked && <span class="mark" title={t('Các nguồn ghi khác nhau')}><span class="visually-hidden">{t('Các nguồn ghi khác nhau')}</span></span>}</dt>
+          <dt><a class="gl" href={guideLink(FIELD_ANCHORS[r.field])} data-term={t(FIELD_LABELS[r.field])} data-tip={t((!fish && FIELD_TIPS_NOT_FISH[r.field]) || FIELD_TIPS[r.field])}>{t(FIELD_LABELS[r.field])}</a>{r.marked && <span class="mark" title={t('Các nguồn ghi khác nhau')}><span class="visually-hidden">{t('Các nguồn ghi khác nhau')}</span></span>}</dt>
           <dd>
             {r.field === 'difficulty' && typeof r.value === 'number'
               ? needs.length > 0
@@ -57,7 +58,7 @@ const around = (s: string) => s.split(/\{\w+\}/) as [string, string]
                               {n.key === 'space' && <>
                                 {n.tankCm !== undefined && <>{around(t('bể từ {cm}'))[0]}<span data-cm={`${n.tankCm},${n.tankCm}`}>{num(n.tankCm)} cm</span>{around(t('bể từ {cm}'))[1]}</>}
                                 {n.tankCm !== undefined && n.sizeCm !== undefined && ', '}
-                                {n.sizeCm !== undefined && <>{around(t('cá dài {cm}'))[0]}<span data-cm={`${n.sizeCm},${n.sizeCm}`}>{num(n.sizeCm)} cm</span>{around(t('cá dài {cm}'))[1]}</>}
+                                {n.sizeCm !== undefined && <>{around(fish ? t('cá dài {cm}') : t('con dài {cm}'))[0]}<span data-cm={`${n.sizeCm},${n.sizeCm}`}>{num(n.sizeCm)} cm</span>{around(fish ? t('cá dài {cm}') : t('con dài {cm}'))[1]}</>}
                               </>}
                               {n.key === 'water' && <>
                                 {n.why.map(w => t(WHY_WORDS[w])).join(', ')}{n.why.length > 0 && ' · '}

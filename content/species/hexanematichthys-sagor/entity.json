@@ -1,0 +1,362 @@
+{
+  "id": "hexanematichthys-sagor",
+  "scientificName": "Hexanematichthys sagor",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Hexanematichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "pakistan",
+    "india",
+    "bangladesh",
+    "indonesia",
+    "vietnam",
+    "mekong"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 45
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Common name: Sagor catfish. Family: Ariidae. Size: 45 cm TL. The dorsal and pectoral spines are venomous on this species. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Indo-West Pacific: Pakistan, India and Bangladesh east to Indonesia and Vietnam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Found along the coastline, mainly around estuaries. Ascends into fresh water of the upper tidal zone. Occurs in the Mekong delta.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Feeds on invertebrates and small fishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>They carry the eggs in their mouths. Juveniles continue to hide in males' mouths for the first 2 months.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "html": "<p>Etymology: The genus name Hexanematichthys: Greek, exa = six + Greek, nema = filament + Greek, ichthys = fish. The species epithet sagor: Local Bengali name for this fish in India.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d004255c94521927.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d004255c94521927-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Sahat Ratmuangkhwang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "caption": "Hexanematichthys sagor: Kampuan mangrove forest at Amphoe Suksamran, Ranong province, southern Thailand",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f11255b93f407c00.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f11255b93f407c00-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Sahat Ratmuangkhwang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "caption": "Hexanematichthys sagor: Suksamran of Ranong, Andaman Coast of Thailand",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/17dce809821d7e67.webp",
+      "thumb": "https://media.aquatome.com/scotcat/17dce809821d7e67-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Theo Modder / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hexanematichthys_sagor.htm",
+      "caption": "Hexanematichthys sagor: Changi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "MUtvKKl0Mzs",
+      "title": "Sagor catfish albino (Hexanematichthys sagor)",
+      "durationSec": 23,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "K8z4yZczSWU",
+      "title": "Sagor Catfish (Belukang) Convert to Fresh water.",
+      "durationSec": 89,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "YVUSWRQtLiE",
+      "title": "#shorts Ikan Sagor Catfish dan Jenis Ikan lainnya di akuarium",
+      "durationSec": 21,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "IN",
+        "BD",
+        "ID",
+        "VN"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Indo-West Pacific: Pakistan, India and Bangladesh east to Indonesia and Vietnam.",
+          "countries": [
+            "PK",
+            "IN",
+            "BD",
+            "ID",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Occurs in the Mekong delta.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345376,
+      "total": 58,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "MY",
+          30
+        ],
+        [
+          "ID",
+          12
+        ],
+        [
+          "MM",
+          6
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "IN",
+          3
+        ],
+        [
+          "BD",
+          1
+        ],
+        [
+          "BN",
+          1
+        ],
+        [
+          "KH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          11.25,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          11.25,
+          8,
+          0
+        ],
+        [
+          99.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          11.25,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          5.625,
+          4,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          113.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          116.71875,
+          5.625,
+          3,
+          0
+        ],
+        [
+          118.125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          118.125,
+          5.625,
+          3,
+          0
+        ]
+      ]
+    }
+  }
+}

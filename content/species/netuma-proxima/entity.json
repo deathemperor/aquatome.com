@@ -1,0 +1,79 @@
+{
+  "id": "netuma-proxima",
+  "scientificName": "Netuma proxima",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Netuma",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "papua-new-guinea",
+    "australia",
+    "port-darwin",
+    "asia",
+    "indonesia",
+    "aru-islands"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 46
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>The Arafura catfish, also known as the Arafura sea catfish, is a species of catfish in the family Ariidae. It was described by James Douglas Ogilby in 1898, originally under the genus Arius.</p><ul><li>Synonyms: Arius proximus, Arius arafurensis, Netuma proxima</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Western Pacific: Southern New Guinea, northern Australia and Aru Islands; in nearshore coastal waters and estuaries. Type Locality: Port Darwin, Northern Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>It inhabits marine, brackish and freshwaters in the western Pacific.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Worms, finfish, crustaceans such as crabs and amphipods, mollusks, echinoderms, algae and insects.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Etymology: The genus name Pararius: Para-, near, presumably referring to resemblance of P. proximus to Arius australis (=Neoarius graeffei). The specific name proximus: near, referring to its \"outward resemblance\" to Arius australis (=Neoarius graeffei).</p><p>Remarks: Still found on some online searches as Netuma proxima.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Netuma proxima in Fishes of Australia. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a06c2a73c40d7b66.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a06c2a73c40d7b66-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Australian National Fish Collection / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "caption": "Pararius proximus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

@@ -3,14 +3,14 @@ import { join } from 'node:path'
 import { retiredTo, type Content } from '@aq/schema'
 import { LANGS, localizePath, type Lang } from './i18n'
 
-const PREFIX = { species: 'ca', breeds: 'ca', plants: 'cay' } as const
+const PREFIX = { species: 'ca', breeds: 'ca', plants: 'cay', guides: 'huong-dan' } as const
 
 /**
  * Each retired guide's address (@aq/schema retired.ts: off the site for good), in each language it was written in and
- * under each old address it had, → its fish's page in that language, or that language's guides list where that page
- * isn't there (none, or held). The guide's files stay, held, so its addresses are read from them.
+ * under each old address it had, → its fish's page (or the guide it names) in that language, or that language's guides
+ * list where that page isn't there (none, or held). The guide's files stay, held, so its addresses are read from them.
  */
-export async function retiredForwards(content: string, contentOf: (lang: Lang) => Promise<Pick<Content, 'species' | 'breeds' | 'plants'>>): Promise<Record<string, string>> {
+export async function retiredForwards(content: string, contentOf: (lang: Lang) => Promise<Pick<Content, 'species' | 'breeds' | 'plants' | 'guides'>>): Promise<Record<string, string>> {
   const out: Record<string, string> = {}
   const dir = join(content, 'guides')
   const ids = existsSync(dir) ? readdirSync(dir).filter(id => retiredTo(id)) : []

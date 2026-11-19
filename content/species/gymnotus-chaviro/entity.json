@@ -1,0 +1,185 @@
+{
+  "id": "gymnotus-chaviro",
+  "scientificName": "Gymnotus chaviro",
+  "order": "Gymnotiformes",
+  "family": "Gymnotidae",
+  "genus": "Gymnotus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "peru",
+    "rio-jurua"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Jurua"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Gymnotus chaviro originates from Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Here it inhabits the basin of the upper Rio Jurua.",
+          "countries": [],
+          "regions": [
+            "Rio Jurua"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961148,
+      "total": 25,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "PE",
+          24
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -9.84375,
+          22,
+          22
+        ],
+        [
+          -73.125,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 27.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-chaviro-2/",
+      "html": "<p>The pattern of G. chaviro is species-specific. However, there is one usefull feature mentioned in the original description: the anal fin in G. chaviro is grey and black in G. carapo. This enables hobbyists to distinguish the two species, as it is very likely that they are at least occasionally collected and imported together.</p><p>The largest specimen of G. chaviro known so far was 27.5 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-chaviro-2/",
+      "html": "<p>More and more species of Gymnotus become known to science. Gymnotus chaviro originates from Peru. Here it inhabits the basin of the upper Rio Jurua. The species is found together with its close relative G. carapo.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-chaviro-2/",
+      "html": "<p>In the original description (Maxime &amp; Albert, 2009) a very interesting note can be found: sometimes G. chaviro can be seen in groups in the natural habitat! This could mean that this knife fish is rather peaceful against conspecifics and that there is a chance to keep several specimens together. All other species of Gymnotus imported so far proofed to be quite aggressive and could be kept singulary only. However, there are still no published observations on the aquarium biology of G. chaviro.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/81a30ca71fa52744.webp",
+      "thumb": "https://media.aquatome.com/glaser/81a30ca71fa52744-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-chaviro-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7179835f85096605.webp",
+      "thumb": "https://media.aquatome.com/glaser/7179835f85096605-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-chaviro-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b7227fe94c7e30ce.webp",
+      "thumb": "https://media.aquatome.com/glaser/b7227fe94c7e30ce-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-chaviro-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/37a27ee59d582682.webp",
+      "thumb": "https://media.aquatome.com/glaser/37a27ee59d582682-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/gymnotus-chaviro-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "7M6emSM1k90",
+      "title": "Gymnotus chaviro",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8SJicfoDQX0",
+      "title": "El pez cuchillo tigre (Gymnotus chaviro)",
+      "durationSec": 774,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá dài cho cá dao"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

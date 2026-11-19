@@ -10,7 +10,9 @@
     "indonesia",
     "kalimantan",
     "malaysia",
-    "batang-hari"
+    "batang-hari",
+    "sumatra",
+    "borneo"
   ],
   "range": {
     "native": {
@@ -192,10 +194,6 @@
       {
         "source": "seriouslyfish",
         "value": 40
-      },
-      {
-        "source": "glaser",
-        "value": 30
       }
     ],
     "tankCm": [
@@ -242,12 +240,6 @@
       "html": "<ul><li>Difficulty: moderate; needs a very large tank, a group, careful choice of tankmates and a well-established tank</li></ul>"
     },
     {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en-2/",
-      "html": "<p>The clown loach is one of the most popular species of loach at all. One should keep this species, which grows up to 20-30 cm long, always in a small school, for clown loaches are very social animals.</p>"
-    },
-    {
       "key": "beforeYouBuy",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
@@ -274,8 +266,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en-2/",
-      "html": "<p>Origin: Indonesia</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en/",
+      "html": "<p>Indonesia: Sumatra, Borneo.</p>"
     },
     {
       "key": "habitat",
@@ -312,6 +304,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
       "html": "<p>All botiids need a well-structured set-up although the actual choice of décor is more-or-less down to personal taste.</p><p>A natural-style arrangement could include a substrate of sand or fine gravel with lots of smooth, water-worn rocks and pebbles plus driftwood roots and branches.</p><p>Lighting can be relatively subdued and plants able to grow in such conditions like Microsorum pteropus (Java fern), Taxiphyllum barbieri ('Java' moss) or Anubias spp. can be added if you wish. These have an added benefit as they can be attached to pieces of décor in such a way as to provide useful shade.</p><p>Otherwise be sure to provide plenty of cover as botiids are inquisitive and seem to enjoy exploring their surroundings. Rocks, wood, flower pots and aquarium ornaments can be used in whichever combination to achieve the desired effect.</p><p>Bear in mind that they like to squeeze themselves into small gaps and crevices so items with sharp edges should be omitted, and any gaps or holes small enough for a fish to become trapped should be filled in with aquarium-grade silicone sealant. A tightly-fitting cover is also essential as these loaches do jump at times.</p><p>Although botiids don't require turbulent conditions they do best when the water is well-oxygenated with a degree of flow, are intolerant to accumulation of organic wastes and require spotless water in order to thrive.</p><p>For these reasons they should never be introduced to biologically immature set-ups and adapt most readily to stable, mature aquaria. In terms of maintenance weekly water changes of 30-50% tank volume should be considered routine.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en/",
+      "html": "<p>Although Chromobotia macracanthus, formerly known as Botia macracantha, has long been kept in aquariums, it is still not without mysteries. Keeping them can also cause problems, since they are very susceptible to stress. Catching and transfer should take place only when absolutely necessary, because they are particularly prone to whitespot disease (Ichthyophthirius multifiliis) when stressed in any way. When well acclimatized, clown loaches are beautiful and interesting fishes. There should be a lot of hiding places in the aquarium to keep the stress for the animals as small as possible.</p>"
     },
     {
       "key": "waterConditions",
@@ -356,6 +354,12 @@
       "html": "<p>Not especially aggressive but don't keep it with much smaller fishes as they may be intimidated by its size and sometimes very active behaviour.</p><p>Slow-moving, long-finned species such as ornamental bettas, guppies and many cichlids should also be avoided as trailing fins can be nipped.</p><p>More suitable tankmates include peaceful, open water-dwelling cyprinids, while in larger tanks members of Barilius, Luciosoma, Balantiocheilos and Barbonymus become options.</p><p>In terms of other bottom-dwellers it will do well alongside most other botiids. Some cobitid and nemacheilid loaches are also possibilities as are members of Epalzeorhynchos, Crossocheilus and Garra and many catfishes.</p><p>As always, thorough research prior to selecting a community of fishes is the best way to avoid problems.</p><p>C. macracanthus is gregarious, forms complex social hierarchies and should be maintained in groups of at least 5 or 6 specimens, preferably 10 or more.</p><p>When kept singly it can become withdrawn or aggressive towards similarly-shaped fishes, and if only a pair or trio are purchased the dominant individual may stress the other(s) to the extent that they stop feeding.</p><p>That said it seemingly requires regular contact with conspecifics, a fact exemplified by a number of behavioural rituals which have been recorded consistently in aquaria (see 'Notes').</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en/",
+      "html": "<p>A certain behaviour can surprise the inexperienced owner. Sometimes they lie on their side when resting, which may alarm those not familiar with it, as the fish may appear to be ill. They may also make audible clicking sounds, particularly at feeding time. They tend to be more active if kept as a small group, rather than singly or in pairs.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/clown-loach-1378616",
@@ -378,6 +382,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
       "html": "<p>In nature this species is a migratory spawner, moving from the main river channels into smaller tributaries with surrounding, temporarily inundated flood plains during the rainy season.</p><p>These movements usually begin in September with spawning typically occurring in late September/early October, though the timing of this is beginning to shift with the changing climate.</p><p>The eggs drift and come to settle in the riparian vegetation and there the initially pelagic larvae spend their early days feeding on micro-organisms. Some drift too far, enter the main rivers and are eventually swept out to sea, and modern-day native fishermen have come to take advantage of this phenomenon (see 'Notes').</p><p>The remaining fry stay in the flooded areas until the waters begin to recede at which point they typically measure around 30 mm SL.</p><p>They then move into the smaller tributaries until large enough to complete their passage into the major channels where they remain until sexually mature and able to undertake spawning migrations of their own.</p><p>There exist reports suggesting that the Bornean populations inhabiting permanent waters such as the Danau Sentarum lake system do not perform such migrations although this has not been confirmed definitively.</p><p>At one time all traded fish were wild-collected, mostly from Sumatra, but these days the situation is less clear. While many thousands of wild specimens are still caught and sold annually, farmers in Southeast Asia have been artificially breeding the species via the use of hormones for several years.</p><p>More recently breeders from the Czech Republic and other parts of Eastern Europe have perfected a similar technique which has seen the price of the once-expensive captive-bred fish drop considerably.</p><p>Unfortunately this practice has been taken to a different level in recent years with an apparent hybrid between a Botia species (probably a form of B. histrionica) and C. macracanthus appearing on the market as well as others with questionable body shapes or markings.</p><p>Aquarium breeding by private hobbyists remains unheard of and undocumented which given the complexity of the species' natural reproductive cycle is perhaps unsurprising.</p><p>It's often been said that the reason for the lack of success is that immature animals were being used and that the species requires many years to become sexually mature, but this would appear not to be the case.</p><p>In nature the specimens undertaking annual spawning migrations average 12–20 cm SL, and the species seems to become sexually mature at 12–15 cm. Larger individuals appear not to migrate and remain in the primary river channels year-round, suggesting they don't spawn beyond a certain age.</p><p>The only substantial observations in private aquaria known were made by forum member Colin Dunlop who noticed his group of four adult fish (three males and a single female) swimming in a 'diamond' formation with the female at the head in one of his large stock tanks.</p><p>The fish were removed and placed in a separate, smaller tank with plastic grating covering part of the base and some lengths of plastic piping. Water temperature was 26°C and pH 4.5, the latter lowered using hydrochloric acid.</p><p>After several days Colin noticed \"thousands\" of eggs on the base of the tank, and on close inspection all four fish were found to be crammed into a single piece of piping out of which hundreds more eggs were falling.</p><p>The vast majority fungussed immediately with the others proving infertile shortly after, the general consensus being that moving the fish stressed them and caused the female to expel the eggs without being prompted by the males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/chromobotia_macracanthus_en/",
+      "html": "<p>So far, breeding has only succeeded by coincidence.</p>"
     },
     {
       "key": "notes",
@@ -430,17 +440,6 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
       "caption": "An unusually-marked, 'greyed out' Sumatran individual.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/3b740a59f243d3a4.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3b740a59f243d3a4-480.webp",
-      "width": 722,
-      "height": 541,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/chromobotia-macracanthus",
-      "caption": "B. histrionica x Chromobotia macracanthus hybrid?",
       "source": "seriouslyfish"
     }
   ],
@@ -499,5 +498,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-17"
 }

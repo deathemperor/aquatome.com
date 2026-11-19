@@ -1,0 +1,35 @@
+{
+  "id": "monodactylus-kottelati",
+  "native": {
+    "input": "c25be12c76f5a224",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Monodactylus kottelati",
+    "status": "ACCEPTED",
+    "taxonKey": 5211119,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

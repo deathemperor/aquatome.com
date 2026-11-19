@@ -3,6 +3,12 @@
   "name": "St. John",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-17T18:00:06.248Z",
+    "why": "The source's \"St. John\" refers to the St. John River in Liberia, not a place in Togo (TG), and Malay atlases would write \"Sungai St. John\" with the kind word \"Sungai\", so the bare \"St. John\" is cut short."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

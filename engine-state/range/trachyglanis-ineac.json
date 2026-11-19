@@ -1,0 +1,47 @@
+{
+  "id": "trachyglanis-ineac",
+  "native": {
+    "input": "51ddd422a8e97244",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Etymology: the specific name ineac was given for the Centre de l'Institut National pour l'Etude Agronomique du Congo belge (I.N.E.A.C.), Stanleyville (now Kisangani, Democratic Republic of the Congo), near the type locality.",
+        "words": "Democratic Republic of the Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "scotcat",
+        "quote": "Africa: Congo River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trachyglanis ineac",
+    "status": "ACCEPTED",
+    "taxonKey": 2340848,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        13
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

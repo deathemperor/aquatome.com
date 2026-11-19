@@ -23,6 +23,20 @@ test('commons photos: open licences, ≥800px, plain-text author, 960px thumbs, 
   expect(photos.map(p => p.sourceUrl)).not.toContain(expect.stringContaining('Cardinal_Tetra_2.jpg')) // 656px original
 })
 
+// Codex's read, 17 Nov: a Commons file's description became a stored photo's caption with whatever address it held.
+test("a Commons file's description and its author keep no email address", async () => {
+  const data = fixture()
+  for (const page of Object.values(data.query.pages as Record<string, { imageinfo: { extmetadata: Record<string, { value: string }> }[] }>)) {
+    const meta = page.imageinfo[0]!.extmetadata
+    meta.ImageDescription = { value: 'Paracheirodon axelrodi in an aquarium, photo <a href="mailto:keeper@example.com">keeper@example.com</a>' }
+    meta.Artist = { value: 'A Keeper (keeper@example.com)' }
+  }
+  const photos = await findPhotos('Paracheirodon axelrodi', async () => data)
+  expect(photos.length).toBeGreaterThan(0)
+  expect(JSON.stringify(photos)).not.toMatch(/example\.com/)
+  for (const p of photos) expect(p).toMatchObject({ caption: 'Paracheirodon axelrodi in an aquarium, photo', author: 'A Keeper' })
+})
+
 test('videos are skipped without an API key', async () => {
   let called = false
   expect(await findVideos(['Paracheirodon axelrodi'], async () => { called = true; return {} as never }, async () => { called = true; return {} })).toEqual([])

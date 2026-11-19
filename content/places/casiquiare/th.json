@@ -3,6 +3,12 @@
   "name": "กาซีกีอาเร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:19:35.360Z",
+    "why": "The Thai transliteration \"กาซีกีอาเร\" is a plausible phonetic rendering of Casiquiare, but it omits the kind word for the feature and the usual Thai form is \"คาซีกิอาเร\" (or \"คาซิกิอาเร\"), so it is uncertain."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

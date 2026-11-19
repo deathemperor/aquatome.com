@@ -1,14 +1,14 @@
 {
   "id": "trichopodus-leerii",
   "native": {
-    "input": "70c18e4089f95cf4",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "0f07027f67cd2d27",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "TH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The pearl gourami, Trichopodus leerii, is a labyrinth fish from Thailand, Malaysia, Borneo and Sumatra, where it inhabits lowland swamps.",
+        "quote": "Found in Thailand, Malaysia and the islands of Borneo and Sumatra.",
         "words": "Thailand",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "MY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The pearl gourami, Trichopodus leerii, is a labyrinth fish from Thailand, Malaysia, Borneo and Sumatra, where it inhabits lowland swamps.",
+        "quote": "Found in Thailand, Malaysia and the islands of Borneo and Sumatra.",
         "words": "Malaysia",
         "ok": true
       },
@@ -75,6 +75,14 @@
         "quote": "Some pearl gouramis have been introduced to Singapore and Colombia.",
         "words": "Colombia",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "Whether the species occurs in Thailand at all is discussed very ambiguously in the scientific literature.",
+        "words": "Thailand",
+        "ok": true
       }
     ],
     "regions": [
@@ -107,7 +115,9 @@
         "why": "in ID, which only a general site gives"
       }
     ],
-    "disputed": [],
+    "disputed": [
+      "TH"
+    ],
     "outranked": [
       {
         "code": "ID",
@@ -117,6 +127,7 @@
     ],
     "origin": {
       "pagesOnly": [
+        "TH",
         "ID",
         "SG",
         "CO"
@@ -171,10 +182,9 @@
       ]
     ],
     "native": [
-      "TH",
       "MY"
     ],
     "requests": 13,
-    "at": "2026-11-05T19:44:13.099Z"
+    "at": "2026-11-18T00:54:56.623Z"
   }
 }

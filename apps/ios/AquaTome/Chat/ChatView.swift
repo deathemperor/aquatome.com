@@ -271,6 +271,7 @@ private struct ChatThread: View {
             if let u = URL(string: path, relativeTo: handbook.site)?.absoluteURL { open(u) }
           }
         }
+        if model.reportable(a) { ReportControl(reported: a.reported) { await model.report(a.id, reason: $0) } }
         if last, !t.suggestions.isEmpty {
           Chips(items: t.suggestions, dim: model.offline || model.stop != nil) { model.send($0) }
             .padding(.top, 4)
@@ -762,6 +763,144 @@ private struct Chips: View {
       }
       .buttonStyle(.plain)
       .accessibilityIdentifier("chat-chip")
+    }
+  }
+}
+
+/// "Báo sai" under a finished answer: quiet, there when an answer is wrong. Once sent or refused for good it says so and is
+/// no longer a button.
+private struct ReportControl: View {
+  let reported: Bool?
+  let send: (String) async -> ChatModel.ReportResult
+  @State private var asking = false
+
+  var body: some View {
+    Group {
+      switch reported {
+      case true?:
+        Label { Text("Đã báo. Cảm ơn bạn.") } icon: { Image(systemName: "checkmark") }
+          .accessibilityElement(children: .ignore)
+          .accessibilityLabel(Text("Đã báo"))
+          .accessibilityIdentifier("chat-reported")
+      case false?:
+        Text("Không báo được câu trả lời này.").accessibilityIdentifier("chat-report-refused")
+      case nil:
+        Button { asking = true } label: {
+          Label("Báo sai", systemImage: "flag").frame(minHeight: 44, alignment: .leading).contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("chat-report")
+      }
+    }
+    .font(.footnote)
+    .foregroundStyle(.secondary)
+    .sensoryFeedback(.success, trigger: reported) { _, new in new == true }
+    .sheet(isPresented: $asking) { ReportSheet(send: send) }
+  }
+}
+
+/// One optional line saying what's wrong; the keyboard's return sends. Failed, it stays to send again. Where the keyboard
+/// leaves too little room (the largest text), the sheet scrolls once it's up so "Gửi" sits whole above it.
+private struct ReportSheet: View {
+  let send: (String) async -> ChatModel.ReportResult
+  @Environment(\.dismiss) private var dismiss
+  @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.colorScheme) private var scheme
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  @State private var reason = ""
+  @State private var sending = false
+  @State private var failed = false
+  @State private var height: CGFloat = 260
+
+  var body: some View {
+    ScrollViewReader { proxy in
+      ScrollView {
+        content
+          .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height = $0 + 24 }
+      }
+      .scrollBounceBehavior(.basedOnSize)
+      .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
+        withAnimation(reduceMotion ? nil : .default) { proxy.scrollTo("send", anchor: .bottom) }
+      }
+    }
+    .presentationDetents([.height(height)])
+    .presentationDragIndicator(.visible)
+    .presentationBackground(Color(uiColor: .systemGroupedBackground))
+    // Not closed while it sends: a failure then would land on a sheet that's gone, and the reader would never hear of it.
+    .interactiveDismissDisabled(sending)
+  }
+
+  private var content: some View {
+    VStack(spacing: 12) {
+      ZStack {
+        Text("Báo câu trả lời sai").font(.headline).multilineTextAlignment(.center).padding(.horizontal, 44).accessibilityAddTraits(.isHeader)
+        HStack {
+          Spacer()
+          Button { dismiss() } label: {
+            // The label's dark grey, as the mock has it (the tint's pale green was 2.2:1 on its circle); while it sends, the
+            // plain grey of a control that's off. Its circle doesn't grow, so the cross stops growing where it still fits.
+            Image(systemName: "xmark").font(.footnote.weight(.semibold))
+              .foregroundStyle(sending ? AnyShapeStyle(.secondary) : AnyShapeStyle(Color.primary.opacity(0.75)))
+              .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+              .frame(width: 34, height: 34).background(Color(uiColor: .secondarySystemGroupedBackground), in: .circle)
+              .frame(width: 44, height: 44).contentShape(.rect)
+          }
+          .accessibilityLabel(Text("Đóng"))
+          .accessibilityIdentifier("chat-report-close")
+          .disabled(sending)
+        }
+      }
+      TextField(size.isAccessibilitySize ? String(localized: "Sai ở đâu?") : String(localized: "Sai ở đâu? (không bắt buộc)"), text: $reason)
+        .submitLabel(.send)
+        .onSubmit(go)
+        .padding(12)
+        .background(Color(uiColor: .secondarySystemGroupedBackground), in: .rect(cornerRadius: 14))
+        // One line, as the Worker takes it (a line break is a 400, which "Gửi lần nữa" would never get past), and no longer
+        // than its limit.
+        .onChange(of: reason) { _, t in
+          let fits = Chat.oneLine(t)
+          if fits != t { reason = fits }
+        }
+        .accessibilityIdentifier("chat-report-reason")
+      Group {
+        if size.isAccessibilitySize { Text("Không bắt buộc. AquaTome sẽ xem lại câu trả lời này.") } else { Text("AquaTome sẽ xem lại câu trả lời này.") }
+      }
+      .font(.caption)
+      .foregroundStyle(.secondary)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      Button(action: go) {
+        Group { if sending { Text("Đang gửi…") } else { Text("Gửi") } }
+          .font(.body.weight(.semibold))
+          .foregroundStyle(scheme == .dark ? Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255) : Color.white)
+          .frame(maxWidth: .infinity, minHeight: 50)
+          .background(Color("AccentColor").opacity(sending ? 0.6 : 1), in: .capsule)
+          .contentShape(.capsule)
+      }
+      .buttonStyle(.plain)
+      .disabled(sending)
+      .accessibilityIdentifier("chat-report-send")
+      .id("send")
+      if failed {
+        Text("Chưa gửi được. Bấm Gửi lần nữa.").font(.footnote).foregroundStyle(.red).accessibilityIdentifier("chat-report-failed")
+      }
+    }
+    .padding()
+  }
+
+  private func go() {
+    guard !sending else { return }
+    sending = true
+    failed = false
+    Task {
+      let result = await send(reason)
+      sending = false
+      if result == .failed {
+        failed = true
+        // Under "Gửi", out of VoiceOver's way: said too.
+        AccessibilityNotification.Announcement(String(localized: "Chưa gửi được. Bấm Gửi lần nữa.")).post()
+      } else {
+        dismiss()
+      }
     }
   }
 }

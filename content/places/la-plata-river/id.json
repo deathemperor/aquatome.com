@@ -1,0 +1,16 @@
+{
+  "slug": "la-plata-river",
+  "name": "Río de la Plata",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-18T12:17:08.782Z",
+    "why": "Indonesian atlases write \"Sungai La Plata\" (or \"Rio de la Plata\" as an estuary), so the bare Spanish name with no kind word is not the usual Indonesian form."
+  },
+  "quality": {
+    "score": 0.2,
+    "indexable": false
+  }
+}

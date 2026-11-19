@@ -1,14 +1,14 @@
 {
   "id": "cichla-temensis",
   "native": {
-    "input": "8bd13d8119469f58",
-    "at": "2026-11-07T06:20:08.160Z",
+    "input": "6e4e9ecd9dbfa6c0",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "CO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The speckled pavon, Cichla temensis, is a large peacock bass from the Rio Negro, Uatumã and Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
+        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
         "words": "Colombia",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The speckled pavon, Cichla temensis, is a large peacock bass from the Rio Negro, Uatumã and Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
+        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
         "words": "Venezuela",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "GY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The speckled pavon, Cichla temensis, is a large peacock bass from the Rio Negro, Uatumã and Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
+        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
         "words": "Guyana",
         "ok": true
       },
@@ -32,39 +32,31 @@
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The speckled pavon, Cichla temensis, is a large peacock bass from the Rio Negro, Uatumã and Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
+        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Venezuela, Colombia, Brazil.",
+        "words": "Venezuela",
         "ok": true
       },
       {
         "code": "CO",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
+        "source": "glaser",
+        "quote": "Venezuela, Colombia, Brazil.",
         "words": "Colombia",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
-        "words": "Venezuela",
-        "ok": true
-      },
-      {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
-        "words": "Guyana",
         "ok": true
       },
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's known from the Rio Negro, Rio Uatumã and Rio Orinoco basins in Colombia, Venezuela, Guyana and Brazil.",
+        "source": "glaser",
+        "quote": "Venezuela, Colombia, Brazil.",
         "words": "Brazil",
         "ok": true
       }

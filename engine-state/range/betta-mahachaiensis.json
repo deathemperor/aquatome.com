@@ -1,14 +1,14 @@
 {
   "id": "betta-mahachaiensis",
   "native": {
-    "input": "709c2132d36f1869",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "3acde00fd0a620d3",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "TH",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "The wild type is the natural green form of Betta mahachaiensis, described in 2012 from Samut Sakhon province in Thailand.",
+        "quote": "Betta mahachaiensis \"Wild Type\" is the natural green form of Betta mahachaiensis, a member of the Betta splendens complex described in 2012 from Samut Sakhon province in Thailand.",
         "words": "Thailand",
         "ok": true
       },
@@ -16,20 +16,12 @@
         "code": "TH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Known only from a handful of localities in Bangkok, Samut Sakhon, Samut Songkhram and Samut Prakan provinces in central Thailand, all of which lie on the coast of the Gulf of Thailand.",
+        "quote": "Betta mahachaiensis is a bubble-nesting labyrinth fish known only from a handful of coastal localities around Bangkok in central Thailand.",
         "words": "Thailand",
         "ok": true
       }
     ],
-    "regions": [
-      {
-        "name": "Gulf of Thailand",
-        "source": "bwaquatics",
-        "quote": "It is native to the coast of the Gulf of Thailand around Samut Sakhon.",
-        "country": "TH",
-        "ok": true
-      }
-    ],
+    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {

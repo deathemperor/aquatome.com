@@ -122,6 +122,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "difficulty": [
@@ -139,6 +143,15 @@
         "source": "seriouslyfish",
         "value": 40
       }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
     ]
   },
   "sections": [
@@ -155,6 +168,12 @@
       "html": "<p>Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara. Said to be slightly easier to maintain than most congeners, it has been traded as 'moonspot licorice gourami'. Males have one to three black blotches in the midlateral stripe and a lanceolate caudal fin, and populations that differ in colour should be kept apart. It appears in danger of extinction.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parosphromenus-linkei-2/",
+      "html": "<p>The magnificent licorice guramis (Parosphromenus) have experienced a species explosion in recent years. Until 1979 only three species were known, today there are 20 scientifically described species and some more undescribed ones are already known in the hobby. Unfortunately, many are threatened with extinction because they live in peat swamps and these habitats are drained extensively in order to cultivate oil palms there. So there is a great risk that the recently discovered biodiversity will disappear again. The collecting for aquarium keeping has no influence whatsoever on the wild stocks.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei",
@@ -165,6 +184,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-linkei",
       "html": "<p>Described from 'Creeks in Pudukuali, 2 kilometers north of Sukamara and Tarantang, Kalimantan Tengah, Borneo', which refers to the village of Pudu in Sukumara district, West Kotawaringin Regency, Central Kalimantan province, Indonesia (Borneo).</p><p>It's also been collected a little further east, near the larger town of Pangkalan Bun, although the full extent of its range remains unclear.</p><p>A reddish form is traded as P. sp. 'Seruyan' with the latter appearing to relate to Seruyan Regency considerably further east.</p><p>Some of these populations exhibit phenotypic differences (see 'Notes') and may represent different genetic lineages so should be maintained apart in aquaria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parosphromenus-linkei-2/",
+      "html": "<p>Parosphromenus linkei comes from the Indonesian part of Borneo, from the province of Kalimantan Tengah.</p>"
     },
     {
       "key": "habitat",
@@ -195,6 +220,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-linkei",
       "html": "<p>Can be maintained in a fully-decorated aquarium although many breeders prefer not to use a substrate for ease of maintenance.</p><p>Driftwood roots and branches can be used and placed such a way that a few shady spots are formed, and clay plant pots, lengths of piping or even plastic camera-film containers can be included to provide further shelter and potential spawning sites.</p><p>The addition of dried leaf litter further emphasises the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>These can provide a valuable secondary food source for fry and the tannins and other chemicals released by the decaying leaves are also considered beneficial for fishes from blackwater environments. Alder cones may also be used for the latter purpose.</p><p>Like others in the genus this species does best under fairly dim lighting. You can add aquatic plant species that can survive under such conditions such as Microsorum, Taxiphyllum or Cryptocoryne spp., while floating vegetation, especially Ceratopteris spp., is also useful.</p><p>Filtration need not be too strong, with an air-powered sponge filter or similar adequate, and since this species tends to be maintained in pairs (see 'Behaviour and Compatibility') a filter may not be required at all provided the fish are not overfed and maintenance is stringent.</p><p>The latter must include small weekly water changes of 5-10 % aquarium volume with irregular or larger changes not recommended.</p><p>All Parosphromenus spp. require acidic conditions with negligible carbonate hardness and very low general hardness so a reverse osmosis unit or other method of obtaining soft water may need to be employed, and this can be further acidified using phosphoric acid or similar if necessary.</p><p>There is no need to use natural peat, the collection of which is both unsustainable and environmentally-destructive.</p><p>It goes without saying that these are fishes are sensitive to fluctuating organic wastes and should never be introduced to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parosphromenus-linkei-2/",
+      "html": "<p>In the aquarium, fine live-food in form of Artemia-Nauplii, soft and acidic water, dim light and dead leaves are the prerequisite for a successful care and breeding.</p>"
     },
     {
       "key": "waterConditions",
@@ -239,6 +270,12 @@
       "html": "<p>Not recommended for the general community aquarium for reasons already touched upon.</p><p>It's care requirements, disposition, and especially conservation status dictate that it should be maintained alone or alongside a group of small, peaceful cyprinids such as Boraras or Sundadanio spp.</p><p>Likewise, different Parosphromenus spp. should not be kept together since the females of many are very difficult to tell apart and some are undoubtedly capable of hybridising.</p><p>A mixed-sex group can be maintained if you wish although most breeders prefer to maintain it in sexed pairs since some fry may survive alongside their parents but not usually if other adults are present.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parosphromenus-linkei-2/",
+      "html": "<p>They can reach an astonishingly high age in the aquarium for so small fish. Specimens over 10 years old that still reproduced have become known. In nature, however, they usually only become one year old and do not experience a second brood-period.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei",
@@ -263,10 +300,22 @@
       "html": "<p>Normally spawns in small caves or among leaf litter and forms temporary pair bonds with the male solely responsible for egg and brood-care.</p><p>Parosphromenus spp. have been grouped arbitrarily based on courtship behaviour in males which adopt a 'head-down', 'head-up', or 'horizontal' position depending on species.</p><p>P. linkei belongs to the former, more speciose, assemblage in which the male assumes a near-vertical position with the head lowermost and fins splayed during nuptial displays.</p><p>Sexually-active males form small territories at the centre of which is a small cave normally formed from leaf litter in nature, although in aquaria any suitable structure may be chosen (see 'Maintenance').</p><p>They then attempt to attract females in the vicinity to enter the cave via spectacular displays as described above.</p><p>Eggs and milt are released in batches during a series of embraces in which the male wraps its body around that of the female.</p><p>Some males construct a rudimentary bubble nest inside the cave while others do not, and sometimes a particularly large nest is built, but either way both male and female attempt to attach the eggs to the ceiling after they are released.</p><p>Subsequent spawning embraces may dislodge eggs from the roof of the cave, and inexperienced adults sometimes simply eat them so a degree of patience may be required until the fish get things right.</p><p>Following a successful spawn the female leaves the cave and proceeds to defend the surrounding area while the male tends to the brood.</p><p>Incubation is normally 24-36 hours with the fry mobile around 4-6 days later.</p><p>They initially swim without direction and the male will collect and return them to the 'nest' but after 3-5 additional days are fully free-swimming and leave the cave at which point parental care ceases.</p><p>They may require Paramecium, rotifers or similar as a first food but are quickly able to accept Artemia nauplii and suchlike.</p><p>If the aquarium is well-structured they can often be raised alongside the parents but in more basic set-ups should be removed and grown on elsewhere.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parosphromenus-linkei-2/",
+      "html": "<p>Like all licorice guramis, they are cave-breeders.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-linkei",
       "html": "<p>This species is said to be slightly easier to maintain than the majority of congeners and is therefore a recommended choice for those new to maintaining Parosphromenus spp. in the aquarium.</p><p>It's occasionally available on a commercial basis and has been traded as 'moonspot licorice gourami' in the past.</p><p>There exist at least three colour forms one of which possesses an overall silverish colour pattern, another more brownish and the third a series of small, reddish spots distributed around the dark lateral markings on each flank.</p><p>In the original description it's diagnosed by possessing 1-3 conspicuous black blotches in the centre of the midlateral stripe, greyish-brown dorsal, caudal and anal fins with rows of hyaline spots and a lanceolate caudal-fin with the median ray extended into a filament.</p><p>Following Kottelat and Ng (2005) it can be further told apart from other members of the genus by possessing 10-12 segmented anal-fin rays.</p><p>Aquarists often refer to Parosphromenus spp. collectively as 'liquorice/licorice gouramis' or 'paros'.</p><p>The genus occurs in southern (peninsular) Thailand, Peninsular Malaysia, Sumatra (Indonesia, including the islands of Bintan, Bangka and the Riau Archipelago), and Borneo (Malaysia and Indonesia).</p><p>All members are small-growing inhabitants of freshwater swamps and associated streams, and the grouping was considered to be monotypic, containing only P. deissneri (Bleeker, 1859), for almost a century.</p><p>Additional taxa have been described on a sporadic basis since the 1950s and there currently exist 20 recognised members with more likely to follow.</p><p>Despite the generic name the results of phylogenetic analyses by Rüber et al. (2006) suggest that Parosphromenus is most closely-related to Betta or Trichopsis in an evolutionary sense.</p><p>All three of these are sometimes included in the putative subfamily Macropodusinae alongside Macropodus, Pseudosphromenus and Malpulutta.</p><p>Like others in the suborder Anabantoidei members possess an accessory breathing organ known as the labyrinth organ, formed by a modification of the first gill arch and consisting of many highly-vascularised, folded flaps of skin.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>The structure of the organ varies in complexity between species tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p><p>While some labyrinth fishes can be observed taking regular gulps of air from the surface others, including Parosphromenus spp., do so less often.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parosphromenus-linkei-2/",
+      "html": "<p>It belongs to the quite well recognizable species. Many specimens have one or more shiny green spots on their flanks, but there are also animals that lack this characteristic. The species becomes approximately 2-3 cm long.</p>"
     },
     {
       "key": "references",
@@ -276,16 +325,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/bwaquatics/c4728558b4a7ec5d.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/c4728558b4a7ec5d-480.webp",
-      "width": 1000,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei",
-      "source": "bwaquatics"
-    },
     {
       "url": "https://media.aquatome.com/seriouslyfish/6cf1ec294a1f2ade.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/6cf1ec294a1f2ade-480.webp",
@@ -318,6 +357,16 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/parosphromenus-linkei",
       "caption": "Nuptial male.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/c4728558b4a7ec5d.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/c4728558b4a7ec5d-480.webp",
+      "width": 1000,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei",
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/bwaquatics/c68149d74fa61cbf.webp",
@@ -387,5 +436,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-19"
 }

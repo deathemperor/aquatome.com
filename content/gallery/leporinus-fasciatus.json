@@ -2,18 +2,6 @@
   "id": "leporinus-fasciatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/187562683.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/187562683-480.webp",
-      "width": 1200,
-      "height": 732,
-      "licence": "CC0",
-      "author": "Andrew J. Crawford",
-      "sourceUrl": "https://www.inaturalist.org/photos/187562683",
-      "caption": "Hai cá leporinus sọc xanh vàng bơi cạnh lũa",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/commons/e98f8d034ffeb5fd.webp",
       "thumb": "https://media.aquatome.com/commons/e98f8d034ffeb5fd-480.webp",
       "width": 1200,
@@ -120,6 +108,18 @@
       "caption": "Cá leporinus sọc vàng đen bơi gần nền đá",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/187562683.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/187562683-480.webp",
+      "width": 1200,
+      "height": 732,
+      "licence": "CC0",
+      "author": "Andrew J. Crawford",
+      "sourceUrl": "https://www.inaturalist.org/photos/187562683",
+      "caption": "Hai cá leporinus sọc xanh vàng bơi cạnh lũa",
+      "best": true,
+      "kind": "pair"
     }
   ],
   "seen": 19,

@@ -3,6 +3,12 @@
   "name": "ริเบย์ราจีอีกวาปี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:26:14.297Z",
+    "why": "The Thai is a plausible Brazilian-style phonetic transliteration of Ribeira de Iguape, but it is run together without spaces and has no kind word such as แม่น้ำ (river) or ลุ่มแม่น้ำ (river basin), although the source describes the river and its drainage basin."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

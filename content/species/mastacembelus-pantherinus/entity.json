@@ -1,0 +1,164 @@
+{
+  "id": "mastacembelus-pantherinus",
+  "scientificName": "Mastacembelus pantherinus",
+  "order": "Synbranchiformes",
+  "family": "Mastacembelidae",
+  "genus": "Mastacembelus",
+  "group": "other",
+  "places": [
+    "asia",
+    "myanmar",
+    "indawgyi"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Lake Indawgyi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Mastacembelus pantherinus originates from Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It has been collected so far only in lake Indawgyi and its affluents.",
+          "countries": [],
+          "regions": [
+            "Lake Indawgyi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2351797,
+      "total": 6,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MM",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          23.90625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-pantherinus-2/",
+      "html": "<p>Mastacembelus pantherinus originates from Burma. It has been collected so far only in lake Indawgyi and its affluents.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/83380f17fcb1438c.webp",
+      "thumb": "https://media.aquatome.com/glaser/83380f17fcb1438c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-pantherinus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/624e5e3d9f81e0e3.webp",
+      "thumb": "https://media.aquatome.com/glaser/624e5e3d9f81e0e3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-pantherinus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8c754bf3c1e5d6cf.webp",
+      "thumb": "https://media.aquatome.com/glaser/8c754bf3c1e5d6cf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-pantherinus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f9c0b8899093b3e9.webp",
+      "thumb": "https://media.aquatome.com/glaser/f9c0b8899093b3e9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/mastacembelus-pantherinus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "rGDGRVs7Gq4",
+      "title": "Mastacembelus pantherinus @ Leopard Eel (Myanmar)",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "lep5WTnA-pI",
+      "title": "M.PANTHERINUS #mastacembelus",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ifio8qoIYyc",
+      "title": "Extremely Rare Mastacembelus pantherinus",
+      "durationSec": 102,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá chình gai"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

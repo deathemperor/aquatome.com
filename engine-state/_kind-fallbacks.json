@@ -1,4 +1,10 @@
 {
+  "species/aegla-platensis": {
+    "name": "Cua nước ngọt Aegla platensis",
+    "word": "cua",
+    "took": "Aegla platensis",
+    "at": "2026-11-17"
+  },
   "species/amphilius-platychir": {
     "name": "Cá trê núi",
     "word": "trê",
@@ -11,11 +17,35 @@
     "took": "Cá Arius latiscutatus",
     "at": "2026-11-15"
   },
+  "species/badis-badis": {
+    "name": "Cá rô Badis xanh",
+    "word": "rô",
+    "took": "Cá badis",
+    "at": "2026-11-19"
+  },
+  "species/cochlefelis-burmanicus": {
+    "name": "Cá trê biển Arius burmanicus",
+    "word": "trê",
+    "took": "Cá Cochlefelis burmanicus",
+    "at": "2026-11-17"
+  },
   "species/etroplus-canarensis": {
     "name": "Cá rô Canara",
     "word": "rô",
     "took": "Cá rô Canara",
     "at": "2026-11-16"
+  },
+  "species/euryrhynchus-amazoniensis": {
+    "name": "Tép zebra Peru",
+    "word": "tép",
+    "took": "Euryrhynchus amazoniensis",
+    "at": "2026-11-17"
+  },
+  "species/galeichthys-ater": {
+    "name": "Cá trê biển đen",
+    "word": "trê",
+    "took": "Cá Galeichthys ater",
+    "at": "2026-11-18"
   },
   "species/galeocharax-gulo": {
     "name": "Cá chó nước barracuda",
@@ -29,8 +59,14 @@
     "took": "Cá hải hồ megasema",
     "at": "2026-11-16"
   },
+  "species/gogo-brevibarbis": {
+    "name": "Cá trê Vaona",
+    "word": "trê",
+    "took": "Cá Gogo brevibarbis",
+    "at": "2026-11-17"
+  },
   "species/ompok-fumidus": {
-    "name": "Cá trê Ompok fumidus",
+    "name": "Cá trê trắng khói Ompok fumidus",
     "word": "trê",
     "took": "Cá Ompok fumidus",
     "at": "2026-11-16"
@@ -41,11 +77,23 @@
     "took": "Cá nheo biết hót Orinocodoras eigenmanni",
     "at": "2026-11-15"
   },
+  "species/palaemon-concinnus": {
+    "name": "Tép ngón trắng",
+    "word": "tép",
+    "took": "Tôm Palaemon concinnus",
+    "at": "2026-11-17"
+  },
   "species/parauchenoglanis-punctatus": {
     "name": "Cá trê Parauchenoglanis punctatus",
     "word": "trê",
     "took": "Cá Parauchenoglanis punctatus",
     "at": "2026-11-16"
+  },
+  "species/priapella-compressa": {
+    "name": "Cá mắt xanh Priapella",
+    "word": "mắt xanh",
+    "took": "Cá Priapella compressa",
+    "at": "2026-11-19"
   },
   "species/pseudecheneis-sulcata": {
     "name": "Cá trê họng hút",
@@ -59,11 +107,41 @@
     "took": "Cá Pseudocrenilabrus multicolor victoriae",
     "at": "2026-11-16"
   },
+  "species/pseudocrenilabrus-philander-dispersus": {
+    "name": "Cá rô phi lùn đồng",
+    "word": "rô phi",
+    "took": "Cá Pseudocrenilabrus philander dispersus",
+    "at": "2026-11-18"
+  },
+  "species/pseudomystus-funebris": {
+    "name": "Cá trê lùn Pseudomystus funebris",
+    "word": "trê",
+    "took": "Cá Pseudomystus funebris",
+    "at": "2026-11-19"
+  },
   "species/pseudomystus-siamensis": {
     "name": "Cá trê ong nghệ châu Á",
     "word": "trê",
     "took": "Cá trê ong nghệ châu Á",
     "at": "2026-11-16"
+  },
+  "species/rineloricaria-teffeana": {
+    "name": "Cá chuột đuôi roi Tefé",
+    "word": "chuột",
+    "took": "Cá chổi Rineloricaria teffeana",
+    "at": "2026-11-17"
+  },
+  "species/sperata-acicularis": {
+    "name": "Cá trê mõm xẻng bạc",
+    "word": "trê",
+    "took": "Cá nheo Sperata acicularis",
+    "at": "2026-11-19"
+  },
+  "species/stenorhynchus-seticornis": {
+    "name": "Cua mũi tên",
+    "word": "cua",
+    "took": "Stenorhynchus seticornis",
+    "at": "2026-11-19"
   },
   "species/synodontis-granulosus": {
     "name": "Cá chuột bụng đốm Synodontis granulosus",
@@ -76,5 +154,17 @@
     "word": "mèo",
     "took": "Cá Tatia dunni",
     "at": "2026-11-16"
+  },
+  "species/trachelyopterus-galeatus": {
+    "name": "Cá mèo gỗ",
+    "word": "mèo",
+    "took": "Cá da trơn lũa",
+    "at": "2026-11-16"
+  },
+  "species/zaireichthys-pallidus": {
+    "name": "Cá trê cát nhạt",
+    "word": "trê",
+    "took": "Cá Zaireichthys pallidus",
+    "at": "2026-11-17"
   }
 }

@@ -1,0 +1,71 @@
+{
+ "at": "2026-11-18T01:26:08Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Buat pertama kali, sepat mutiara tangkapan liar dari Thailand telah diperoleh.",
+   "why": "This is the source shop's stock news. It talks about fish the shop got in, not about anything the reader has."
+  },
+  {
+   "check": "source",
+   "quote": "Pada mulanya, ikan yang baru tiba kelihatan hampir sama dengan saudaranya yang diternak.",
+   "why": "It describes the shop's newly arrived fish as if the reader knew about them."
+  },
+  {
+   "check": "source",
+   "quote": "Ikan liar ini kini sedikit lebih besar daripada separuh saiz dewasa (6–8 cm).",
+   "why": "It gives the current size of the shop's stock fish, which the reader has never seen."
+  }
+ ],
+ "text": {
+  "slug": "sepat-mutiara",
+  "name": "Sepat Mutiara",
+  "altNames": [
+   "Pearl gourami",
+   "Mosaic gourami",
+   "Lace gourami",
+   "Leeri gourami",
+   "Diamond gourami"
+  ],
+  "sections": {
+   "quickFacts:seriouslyfish": "<p>Sepat mutiara, Trichopodus leerii, ialah ikan labirin dari Thailand, Malaysia, Borneo dan Sumatera. Di sana ia hidup di kawasan paya tanah rendah. Ia antara gourami yang paling aman. Ikan ini lasak dan agak panjang umur, iaitu boleh hidup 8 tahun atau lebih dalam akuarium. Ikan tangkapan liar jarang ada di pasaran hobi, dan kebanyakan yang dijual diternak secara besar-besaran di Timur Jauh dan Eropah Timur.</p>",
+   "quickFacts:sprucepets": "<ul><li>Nama biasa: pearl gourami, mosaic gourami, lace gourami, diamond gourami, leeri gourami</li><li>Jangka hayat: 4 hingga 5 tahun</li><li>Sifat: aman, tetapi ikan jantan mungkin menjaga kawasan</li><li>Aras dalam tangki: bahagian atas dan tengah</li><li>Pemakanan: omnivor</li><li>Pembiakan: membina sarang buih</li></ul><p>Sepat mutiara antara gourami yang paling menarik rupanya. Ia terkenal kerana lasak dan mudah dijaga. Sebagai ikan labirin, ia boleh menyedut udara dari permukaan air dan menyimpannya dalam ruang labirin. Organ ini berfungsi seperti paru-paru dan membantunya bernafas dengan udara selain menggunakan insang. Tidak seperti ikan lain, sepat mutiara boleh mengeluarkan bunyi. Ia sering mengeluarkan bunyi seperti menggeram atau berkuak semasa membiak atau ketika berdepan dengan ikan jantan lain.</p>",
+   "distribution:seriouslyfish": "<p>Ikan ini terdapat di Thailand, Malaysia serta Pulau Borneo dan Sumatera. Kini terdapat juga populasi yang telah dibawa masuk dan hidup di Singapura dan Colombia. Ikan tangkapan liar jarang ada di pasaran hobi sekarang. Sebahagian besar yang dijual diternak secara besar-besaran di Timur Jauh dan Eropah Timur.</p>",
+   "distribution:sprucepets": "<p>Spesies ini berasal dari Thailand, Malaysia, serta Pulau Sumatera dan Borneo di Indonesia. Sebahagian sepat mutiara telah dibawa masuk ke Singapura dan Colombia. Sepat mutiara tangkapan liar jarang dijual sebagai ikan akuarium kerana ia mudah dibiakkan dalam kurungan.</p><p>Senarai Merah International Union for Conservation of Nature (IUCN) mengkategorikan sepat mutiara sebagai Hampir Terancam. Status ini disebabkan oleh pembinaan empangan sungai, amalan pengurusan air, perubahan ekosistem akibat pembalakan dan penangkapan terus ikan liar.</p>",
+   "distribution:glaser": "<p>Buat pertama kali, sepat mutiara tangkapan liar dari Thailand telah diperoleh. Sama ada spesies ini memang terdapat di Thailand masih dibincangkan secara sangat kabur dalam literatur saintifik. Ikan-ikan ini berasal dari wilayah Narathiwat, berhampiran bandar Su-ngai Kolok. Ikan kaca (Kryptopterus vitreolus) juga biasanya ditangkap di kawasan yang sama.</p>",
+   "habitat:seriouslyfish": "<p>Ikan ini hidup di kawasan paya tanah rendah, selalunya di kawasan pesisir pantai.</p>",
+   "habitat:sprucepets": "<p>Ikan ini lebih suka air berasid seperti di kawasan paya tanah rendah berhampiran laut. Habitat semula jadinya penuh dengan tumbuhan, jadi sepat mutiara akan hidup subur jika keadaan dalam akuarium dibuat serupa.</p>",
+   "habitat:glaser": "<p>Spesies ini teradaptasi sepenuhnya kepada air hitam (blackwater). Populasi liar sepat mutiara semakin berkurangan dengan sangat cepat. Walau bagaimanapun, penangkapan ikan untuk perdagangan dikatakan tidak menjejaskan populasi semula jadi.</p>",
+   "aquariumSize:seriouslyfish": "<p>Panjang piawai: 120 mm SL. Tapak akuarium: 90 × 30 cm. Isi padu: ~81 liter, iaitu tangki 90 × 30 × 30 cm.</p>",
+   "aquariumSize:sprucepets": "<p>Saiz tangki minimum: 80 liter. Sepat mutiara tidak digalakkan dibela dalam akuarium 40 liter. Walaupun gourami muda mungkin muat dalam tangki kecil pada awalnya, ia memerlukan lebih banyak ruang untuk membesar dengan sihat. Tangki 80 liter sesuai untuk seekor sepat mutiara. Bagi sekumpulan ikan, tangki 150 liter atau lebih besar disyorkan.</p>",
+   "maintenance:seriouslyfish": "<p>Sediakan tangki bertumbuhan yang ada sedikit tumbuhan terapung dan ruang terbuka untuk berenang.</p>",
+   "waterConditions:seriouslyfish": "<ul><li>Suhu: 24–30 °C</li><li>pH: 5.5–8.0</li><li>Kekerasan air (GH): 2–30 dGH</li></ul>",
+   "waterConditions:sprucepets": "<ul><li>pH: 5.5 hingga 7.5</li><li>Kekerasan air: 2 hingga 30 dH</li><li>Suhu: 25 hingga 28 °C</li></ul><p>Walaupun lebih suka air lembut dan berasid, ikan ini mudah menyesuaikan diri dengan pelbagai keadaan air. Sifatnya yang aman juga menjadikannya sesuai untuk tangki komuniti.</p>",
+   "equipment:sprucepets": "<p>Susunan terbaik ialah tangki yang ada tumbuhan terapung, pencahayaan malap dan substrat berwarna gelap.</p>",
+   "diet:seriouslyfish": "<p>Ikan ini tidak cerewet dan akan makan kebanyakan makanan yang diberi.</p>",
+   "diet:sprucepets": "<p>Sepat mutiara mudah diberi makan. Ia menerima pelbagai jenis makanan seperti flake, makanan kering beku dan makanan sejuk beku. Untuk kesihatan yang terbaik, tambahkan sayur-sayuran segar seperti salad romaine, kacang pea yang dimasak dan bayam. Makanan hidup seperti cacing hitam (blackworm), artemia dan cacing kaca (glassworm) sangat baik sebagai makanan tambahan, terutamanya semasa menyediakan ikan untuk membiak.</p>",
+   "behaviour:seriouslyfish": "<p>Ia antara gourami yang paling aman dan merupakan ikan komuniti yang sangat baik. Walau bagaimanapun, ikan jantan menjaga kawasan sesama sendiri. Ikan jantan juga boleh agak kasar terhadap ikan betina apabila hendak membiak, jadi pastikan akuarium ada tempat bersembunyi yang mencukupi. Jangan bela sepat mutiara bersama ikan yang agresif atau terlalu lasak kerana ia akan menjadi pemalu dan suka menyorok.</p>",
+   "behaviour:sprucepets": "<p>Sepat mutiara hidup subur dalam akuarium komuniti yang aman, tetapi tidak patut dibela bersama spesies yang terlalu agresif. Ikan jantan boleh menunjukkan sifat agresif terhadap jantan lain atau gourami lain. Ikan ini paling sesuai dibela bersama spesies yang sama saiz dan sama perangai, atau bersama ikan kecil yang hidup berkawan. Kumpulan yang disyorkan ialah seekor jantan dengan beberapa ekor betina untuk mengurangkan pergaduhan.</p><p>Seekor sepat mutiara boleh dibela secara bersendirian. Namun, sebagai ikan yang suka bergaul dan aman, ia biasanya lebih gembira dan kurang tertekan jika dibela dalam kumpulan kecil. Sebaik-baiknya, bela dalam kumpulan sekurang-kurangnya 3 hingga 5 ekor, dengan bilangan betina lebih ramai daripada jantan supaya kurang perebutan kawasan antara ikan jantan.</p>",
+   "dimorphism:seriouslyfish": "<p>Ikan jantan dewasa jauh lebih berwarna-warni berbanding betina. Bahagian kerongkongnya menjadi jingga atau merah yang sangat menarik. Sirip dorsal dan sirip duburnya juga memanjang. Ikan betina pula lebih pudar warnanya dan lebih gemuk.</p>",
+   "dimorphism:sprucepets": "<p>Sepat mutiara jantan boleh dikenali melalui badannya yang lebih langsing dan bersudut, siripnya yang sedikit lebih panjang dan dadanya yang merah dengan jelas. Warnanya juga lebih terang berbanding betina. Kerongkong dan dada ikan jantan berwarna merah-jingga pekat yang ketara, dan sirip dorsalnya lebih panjang dan lebih tajam. Ikan betina kelihatan lebih gemuk apabila sudah bersedia untuk bertelur.</p>",
+   "dimorphism:glaser": "<p>Pada mulanya, ikan yang baru tiba kelihatan hampir sama dengan saudaranya yang diternak. Setelah diperhatikan dengan teliti, ada perbezaan yang menarik: pada ikan betina liar, bahagian belakang badannya hampir tiada bintik mutiara.</p>",
+   "reproduction:seriouslyfish": "<p>Mudah. Ikan ini membina sarang buih. Air dalam tangki pembiakan tidak patut lebih dalam daripada 15–20 cm dan perlu ada banyak tumbuhan terapung. Penapisan perlu perlahan, dan penapis yang digerakkan oleh pam udara adalah yang terbaik. Sediakan ikan untuk membiak dengan memberi makanan hidup. Apabila perut ikan betina sudah buncit dengan telur, ikan jantan akan membina sarang buih yang besar, sehingga 25 cm lebarnya, di celah-celah tumbuhan terapung. Kemudian, ia akan mula memperagakan diri kepada ikan betina. Apabila ikan betina menghampiri sarang, kedua-dua ikan boleh dilihat saling menyentuh dengan sirip ventral mereka yang telah berubah bentuk. Pengawanan berlaku di bawah sarang dengan cara pelukan yang biasa pada ikan anabantoid. Telur akan terapung ke atas dan ikan jantan akan mengumpulkannya ke dalam sarang. Beberapa kali lagi pengawanan berlaku dan sebanyak 200–300 biji telur mungkin dihasilkan. Apabila tiada lagi telur, ikan betina akan dihalau. Sebaiknya keluarkan ikan betina pada ketika ini, jika tidak ia mungkin cedera teruk. Ikan jantan kemudian menjaga sarang sehingga telur menetas, biasanya dalam masa lebih kurang 20–30 jam. Anak ikan mula berenang bebas 4–5 hari kemudian, dan pada ketika itu ikan jantan juga perlu dikeluarkan. Beri anak ikan makan infusoria atau makanan cecair untuk anak ikan pada minggu pertama. Selepas itu, ia sudah cukup besar untuk makan anak artemia (nauplii), microworm dan flake yang dihancurkan menjadi serbuk. Anak ikan membesar dengan sangat perlahan. Berhati-hati semasa tukar air kerana anak ikan sangat sensitif terhadap perubahan suhu air sepanjang lebih kurang 3 bulan pertama.</p>",
+   "reproduction:sprucepets": "<p>Membiakkan sepat mutiara tidak sukar. Sebelum itu, sediakan pasangan ikan dengan memberi artemia dan cacing, sama ada hidup atau sejuk beku. Pastikan ada banyak tumbuhan terapung dan naikkan suhu air kepada sekitar 27 °C. Rendahkan paras air kepada lebih kurang 15 cm supaya anak ikan mudah mencapai udara di permukaan, dan ini membantu organ labirinnya berkembang.</p><p>Ikan jantan memulakan pembiakan dengan membina sarang buih, sehingga 25 cm lebarnya, di celah-celah tumbuhan terapung. Di situlah pengawanan berlaku. Setelah sarang siap, ikan jantan akan menunjukkan kelakuan mengurat terhadap ikan betina. Apabila ikan betina menghampiri, pasangan itu akan saling berinteraksi menggunakan sirip pelvik mereka yang seperti sesungut.</p><p>Semasa mengawan, ikan jantan membelit badan ikan betina supaya ia mengeluarkan beratus-ratus biji telur, dan ikan jantan mensenyawakannya pada masa yang sama. Telur akan hanyut naik ke dalam sarang, dan ikan jantan mengutip mana-mana telur yang tersasar. Beberapa kali lagi pengawanan mungkin menghasilkan 200 hingga 300 biji telur. Selepas bertelur, ikan betina selalunya dihalau, jadi ia perlu dikeluarkan supaya tidak cedera. Hanya ikan jantan yang menjaga telur. Selepas empat hari, apabila anak ikan sudah mula berenang bebas, ikan jantan perlu dikeluarkan supaya ia tidak menyangka anak ikan itu makanan.</p><p>Beri anak ikan makan makanan cecair atau kultur infusoria beberapa kali sehari. Mulakan anak artemia yang baru menetas atau artemia sejuk beku selepas lebih kurang dua minggu. Apabila anak ikan berumur sebulan, tukar kepada flake yang dihancurkan halus. Tukar air setiap dua hingga tiga hari. Apabila anak ikan semakin besar, agihkan ke beberapa tangki untuk mengurangkan pengumpulan sisa. Tangki yang terlalu padat boleh membantutkan pertumbesaran dan menyebabkan lebih banyak kematian akibat kualiti air yang buruk.</p>",
+   "notes:seriouslyfish": "<p>Spesies ini sangat lasak dan cantik, dan sangat disyorkan untuk pemula. Ikan jantan yang berwarna penuh semasa musim membiak ialah antara ikan paling menawan dalam hobi ini. T. leerii juga agak panjang umur dan boleh hidup 8 tahun atau lebih dalam akuarium. Ikan ini juga akan memakan hydra, perosak dalam akuarium.</p>",
+   "notes:sprucepets": "<p>Sepat mutiara mempunyai badan yang panjang dan leper di bahagian sisi. Sirip ventral (pelvik) ikan ini menyerupai sesungut yang panjang, seperti yang digambarkan oleh nama genusnya, Trichopodus (\"kaki rambut\"). Mulutnya kecil dan menghala ke atas, menandakan ia makan di permukaan air. Bintik putih seperti mutiara pada badannya yang berwarna perang memberikan kesan seperti kulit mutiara, dan dari situlah nama ikan ini berasal. Satu garisan hitam memanjang secara mendatar dari mulut ke ekor dan berakhir dengan satu bintik. Bahagian bawah kepalanya berwarna jingga, dan warna ini menjadi lebih terang semasa musim membiak untuk menarik pasangan.</p><p>Sepat mutiara agak besar, iaitu mencapai 10 hingga 12 cm apabila dewasa. Dengan penjagaan yang betul, termasuk ruang yang cukup dan pemakanan yang seimbang, ikan ini mencapai saiz penuhnya dalam masa satu hingga dua tahun.</p>",
+   "notes:glaser": "<p>Ikan liar ini kini sedikit lebih besar daripada separuh saiz dewasa (6–8 cm).</p>"
+  },
+  "quality": {
+   "score": 0.95,
+   "indexable": true,
+   "bySource": {
+    "seriouslyfish": 0.95,
+    "sprucepets": 0.95,
+    "glaser": 0.95
+   }
+  }
+ }
+}

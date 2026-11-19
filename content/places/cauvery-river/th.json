@@ -1,8 +1,13 @@
 {
   "slug": "cauvery-river",
-  "name": "กาเวรี",
+  "name": "แม่น้ำกาเวรี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T12:19:50.754Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

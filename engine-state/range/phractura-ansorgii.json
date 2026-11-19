@@ -1,0 +1,73 @@
+{
+  "id": "phractura-ansorgii",
+  "native": {
+    "input": "b51ea547dc320f62",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Phractura ansorgii occurs in the Lower Niger, Niger delta and Oshun River in Nigeria.",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lower Niger",
+        "source": "scotcat",
+        "quote": "Phractura ansorgii occurs in the Lower Niger, Niger delta and Oshun River in Nigeria.",
+        "country": "NG",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Niger delta",
+        "source": "scotcat",
+        "quote": "Phractura ansorgii occurs in the Lower Niger, Niger delta and Oshun River in Nigeria.",
+        "country": "NG",
+        "ok": true
+      },
+      {
+        "name": "Oshun River",
+        "source": "scotcat",
+        "quote": "Phractura ansorgii occurs in the Lower Niger, Niger delta and Oshun River in Nigeria.",
+        "country": "NG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Phractura ansorgii",
+    "status": "ACCEPTED",
+    "taxonKey": 2340812,
+    "datasets": [
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "NG"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

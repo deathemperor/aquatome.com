@@ -362,11 +362,6 @@
       {
         "source": "seriouslyfish",
         "value": 125
-      },
-      {
-        "source": "glaser",
-        "value": 40,
-        "overruled": "Glaser's 35–40 cm is the length of the subadults it had in stock, not the adult's; Seriously Fish gives 125 cm SL."
       }
     ],
     "tankCm": [
@@ -389,6 +384,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
       "html": "<ul><li>Difficulty: Difficult (6 of 8); rated difficult because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/29-lungfishes/lepidosiren-paradoxus-2/",
+      "html": "<p>The South American Lungfish is a very interesting fish, but it has only very drab colours. The usual pattern is mud-coloured, e.g. brownish, greyish, sometimes a bit blackish. But why should an animal that lives in swamps and feeds on snails show bright coloration?</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -459,8 +460,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/29-lungfishes/lepidosiren_paradoxus_en/",
-      "html": "<p>The mouth of that species is very special. At the tip of the mouth is a small, round opening. It looks as if the fish would try to whistle or if it imagined to have a longtrink with drinking straw. In the real life these fish prefer to feed on snails.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/29-lungfishes/lepidosiren-paradoxus-2/",
+      "html": "<p>Astonishingly, very young specimens, like the ones recently obtained from Peru (6–9 cm long), are very pretty. The fish are pitch-black with golden-yellow dots. Towards conspecifics the youngsters are very peaceful. This cannot be said about the adults.</p>"
     }
   ],
   "photos": [
@@ -469,15 +470,15 @@
       "thumb": "https://media.aquatome.com/commons/c094518e0034f09e-480.webp",
       "width": 960,
       "height": 549,
-      "licence": "CC BY-SA 2.5",
-      "author": "Wikimedia Commons",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa_0.jpg",
-      "caption": "Lepidosiren paradoxa 0.jpg",
       "large": {
         "url": "https://media.aquatome.com/commons/c094518e0034f09e-large.webp",
         "width": 1000,
         "height": 572
-      }
+      },
+      "licence": "CC BY-SA 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa_0.jpg",
+      "caption": "Lepidosiren paradoxa 0.jpg"
     },
     {
       "url": "https://media.aquatome.com/commons/d63bff14661e9df5.webp",
@@ -546,5 +547,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-17"
 }

@@ -3,6 +3,12 @@
   "name": "เชเบลี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T00:38:37.075Z",
+    "why": "เชเบลี is a plausible transliteration of Shebelle, but it lacks the region word and Thai atlases usually write \"แคว้นเชเบลล\" or similar (Shabeellaha), so the name is incomplete for a region."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

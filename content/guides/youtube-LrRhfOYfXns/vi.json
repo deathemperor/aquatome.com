@@ -48,5 +48,11 @@
       "youtube": 0.5
     },
     "chat": false
+  },
+  "held": {
+    "checks": [
+      "off"
+    ],
+    "at": "2026-11-15"
   }
 }

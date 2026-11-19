@@ -26,11 +26,11 @@
     "references:seriouslyfish": "<ul><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li><li>Römer, U. (2006). Cichlid Atlas Volume 2. Mergus Verlag GmBH, Melle, Germany. 1320 p.</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.82,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6,
-      "glaser": 0.6
+      "seriouslyfish": 0.82,
+      "glaser": 0.82
     }
   }
 }

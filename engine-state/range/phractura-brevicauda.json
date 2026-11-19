@@ -1,0 +1,86 @@
+{
+  "id": "phractura-brevicauda",
+  "native": {
+    "input": "8df761790ddd700c",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Lower Congo River. Type locality: tributary of the Lobi River, south-west of Efulen, and Kribi River, South Cameroon; Abanga River, Ogowe.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "scotcat",
+        "quote": "Africa: Lower Congo River. Type locality: tributary of the Lobi River, south-west of Efulen, and Kribi River, South Cameroon; Abanga River, Ogowe.",
+        "ok": true
+      },
+      {
+        "name": "Ogowe",
+        "source": "scotcat",
+        "quote": "Africa: Lower Congo River. Type locality: tributary of the Lobi River, south-west of Efulen, and Kribi River, South Cameroon; Abanga River, Ogowe.",
+        "ok": true
+      },
+      {
+        "name": "Kribi River",
+        "source": "scotcat",
+        "quote": "Africa: Lower Congo River. Type locality: tributary of the Lobi River, south-west of Efulen, and Kribi River, South Cameroon; Abanga River, Ogowe.",
+        "country": "CM",
+        "ok": true
+      },
+      {
+        "name": "Lobi River",
+        "source": "scotcat",
+        "quote": "Africa: Lower Congo River. Type locality: tributary of the Lobi River, south-west of Efulen, and Kribi River, South Cameroon; Abanga River, Ogowe.",
+        "country": "CM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD",
+        "GA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Phractura brevicauda",
+    "status": "ACCEPTED",
+    "taxonKey": 2340819,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        63
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        9
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        7
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        4
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ]
+    ],
+    "native": [
+      "CM"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

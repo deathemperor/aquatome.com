@@ -1,14 +1,14 @@
 {
   "id": "squaliforma-emarginata",
   "native": {
-    "input": "89519eb1dcc8d16c",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "5af1d84af2297bf1",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "quote": "Widely distributed throughout the Amazon region in Brazil, Ecuador, Peru and Bolivia.",
         "words": "Brazil",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "EC",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "quote": "Widely distributed throughout the Amazon region in Brazil, Ecuador, Peru and Bolivia.",
         "words": "Ecuador",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "quote": "Widely distributed throughout the Amazon region in Brazil, Ecuador, Peru and Bolivia.",
         "words": "Peru",
         "ok": true
       },
@@ -32,12 +32,18 @@
         "code": "BO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+        "quote": "Widely distributed throughout the Amazon region in Brazil, Ecuador, Peru and Bolivia.",
         "words": "Bolivia",
         "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon region in Brazil, Ecuador, Peru and Bolivia.",
+        "ok": true
+      },
       {
         "name": "Rio Xingú",
         "source": "seriouslyfish",
@@ -67,7 +73,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "VE"
+      ],
       "sourcesOnly": []
     }
   },

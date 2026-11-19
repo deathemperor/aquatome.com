@@ -1,0 +1,17 @@
+{
+  "slug": "ca-acestrorhynchus-heterolepis",
+  "name": "Cá Acestrorhynchus heterolepis",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Acestrorhynchus heterolepis được Cope mô tả khoa học từ tận năm 1878, dựa trên mẫu ở Peru. Loài này có hai sọc ngang sẫm màu, trông hơi giống A. isalinae. Điểm riêng của A. heterolepis là mảng vảy khác cỡ nằm ngay sau nắp mang, không loài nào khác trong giống có. Ở đúng chỗ đó, A. microlepis có một đốm đen nhỏ.</p><p>Theo tài liệu khoa học, cả hai loài có thể dài tới khoảng 35 cm.</p>",
+    "notes:glaser": "<p>Số cá nhập về dưới tên A. microlepis có thể thật ra là A. apurensis. Hai loài này chỉ khác nhau ở chiều dài mõm so với chiều dài đầu. Không có mẫu vật để so sánh thì không thể phân biệt được chúng.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

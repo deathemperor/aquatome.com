@@ -3,6 +3,12 @@
   "name": "แม่น้ำตาปาโจส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:36:38.142Z",
+    "why": "The name is a Thai-script transliteration of Tapajós with the proper kind word \"แม่น้ำ\", but \"ตาปาโจส\" is a questionable rendering because Portuguese \"Tapajós\" is usually written \"ตาปาโยส\" or \"ตาปาฌอส\" in Thai."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

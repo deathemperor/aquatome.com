@@ -1,0 +1,26 @@
+{
+  "slug": "ca-nheo-moi-thit",
+  "name": "Cá nheo môi thịt",
+  "altNames": [
+    "Cá Auchenoglanis",
+    "Kissing mouth catfish"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Cho tới gần đây, giống Auchenoglanis chỉ có hai loài được công nhận là hợp lệ. Loài thứ nhất là A. biscutatus, sống ở sông Nile và khắp Tây Phi. Loài thứ hai là A. occidentalis ở Trung Phi. Đến năm 2010, Retzer xét lại cả giống này và công nhận tổng cộng 8 loài. Trong đó có 7 loài đã mô tả từ trước và một loài mới là A. senegali.</p><p>Con cá từ sông Niger nhập về đây trông giống A. wittei ở Congo nhất. Nhưng theo Retzer, Auchenoglanis ở sông Niger rất có thể là một loài khoa học chưa mô tả. Vì vậy, loài cá này đang được ghi tên là Auchenoglanis biscutatus.</p>",
+    "behaviour:glaser": "<p>Loài Auchenoglanis nào cũng có thể dài hơn 40 cm, nhưng chúng chủ yếu ăn các mẩu thức ăn nhỏ. Vì thế chúng thường rất hiền, kể cả với cá nuôi chung nhỏ hơn chúng nhiều. Auchenoglanis có đôi môi dày để mò thức ăn trong bùn. Vì đôi môi này mà người chơi đặt cho chúng biệt danh \"miệng hôn\".</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

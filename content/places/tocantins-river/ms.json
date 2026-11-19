@@ -1,8 +1,13 @@
 {
   "slug": "tocantins-river",
-  "name": "Tocantins",
+  "name": "Sungai Tocantins",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-17T05:11:42.416Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

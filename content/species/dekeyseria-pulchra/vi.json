@@ -1,15 +1,21 @@
 {
   "slug": "ca-l168",
   "name": "Cá L168",
-  "altNames": [],
+  "altNames": [
+    "Cá tỳ bà L168"
+  ],
   "sections": {
-    "notes:glaser": "<p>Một lứa L168 nuôi sinh sản rất đẹp đã về từ một người nuôi đẻ có tiếng. Lúc ghi nhận, cá dài khoảng 4-5 cm.</p><p>Tên khoa học của loài này là Zonancistrus brachyurus. Trên các danh sách hàng, bạn vẫn hay gặp tên sai \"Peckoltia pulcher\".</p>"
+    "notes:glaser": "<p>Loài cá này bị định danh nhầm mấy lần. Lúc đầu nó được bán ra với tên Peckoltia pulcher, sau đó là Dekeyseria pulcher, có khi còn mang tên Zonancistrus pictus. Tên hợp lệ hiện nay (ít ra là theo hiểu biết lúc này) là Zonancistrus brachyurus. Với loài này, mã L đáng tin hơn tên khoa học. Nó hay bị nhầm với L52, một loài rất giống ở lưu vực sông Orinoco.</p>",
+    "distribution:glaser": "<p>Zonancistrus brachyurus sống trong hệ sông Rio Negro ở Brazil.</p>",
+    "quickFacts:glaser": "<p>Zonancistrus brachyurus dài tối đa khoảng 15 cm.</p>",
+    "behaviour:glaser": "<p>L168 rất hiền với đồng loại nên có thể nuôi thành đàn đông hơn.</p>",
+    "reproduction:glaser": "<p>Nuôi thành đàn đông thì dễ cho đẻ hơn. Muốn thử cho đẻ thì nên dùng nước thật mềm, pH 5,5–6 và nhiệt độ 26–28 °C. L168 là loài đẻ trong hang điển hình.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.97,
     "indexable": false,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.97
     },
     "reason": "thin"
   }

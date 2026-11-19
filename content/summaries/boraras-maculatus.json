@@ -1,12 +1,17 @@
 {
   "id": "boraras-maculatus",
-  "summary": "Cá rasbora lùn (Boraras maculatus) hợp với người đã có chút kinh nghiệm, thích bể thủy sinh nano trồng cây dày, nước đen, ánh sáng dịu. Cá dài 2,5 cm, cần bể dài tối thiểu 45 cm, nhiệt độ 20–28 °C, pH 4–6,5, độ cứng 1–5 dGH, độ khó 4/8. Khó nhất là giữ nước mềm, chua và ổn định: đừng thả vào bể chưa ổn định vi sinh, và chọn bạn cùng bể thật hiền, nhỏ.",
+  "summary": "Cá rasbora lùn (Boraras maculatus) hợp với người thích bể thủy sinh trồng cây dày hoặc bể biotope nước đen. Cá dài 2,5 cm, bể dài tối thiểu 45 cm, nước 20–28 °C, pH 4–6,5, độ cứng 1–5 dGH, độ khó 4/8. Khó nhất là giữ nước mềm, chua và ổn định, vì cá dễ gặp chuyện khi thông số dao động.",
   "mistakes": [
-    "Thả cá vào bể mới chưa ổn định vi sinh thì cá dễ gặp chuyện khi thông số nước dao động; nên đợi bể ổn định hẳn rồi mới thả.",
-    "Nuôi chung với cá lớn hoặc cá bơi hăng thì cá có thể bị tranh hết mồi; nên nuôi riêng hoặc chung với loài tí hon, hiền như Boraras brigittae, Sundadanio hay tép Caridina.",
-    "Dòng lọc mạnh có thể khiến cá bơi vất vả; nên dùng lọc nhẹ, để nước chảy lờ đờ và rải lá khô, lũa cho cá có chỗ trú."
+    "Thả cá vào bể chưa ổn định vi sinh thì cá dễ gặp chuyện khi thông số dao động, nên chỉ thả khi bể đã ổn định.",
+    "Nuôi chung với cá lớn hoặc cá bơi hăng thì cá bị tranh hết mồi, nên nuôi riêng hoặc chung với loài tí hon hiền lành.",
+    "Để dòng chảy mạnh thì cá phải bơi vất vả, nên dùng lọc nhẹ để nước chảy lờ đờ."
   ],
   "speciesUpdatedAt": "2026-11-02",
-  "generatedAt": "2026-11-10T22:53:49.752Z",
-  "review": "approved"
+  "writtenFrom": "0e81729e34161ad0",
+  "generatedAt": "2026-11-19T01:56:28.908Z",
+  "review": "pending",
+  "problems": [
+    "\"thì cá bị tranh hết mồi\": the page hedges this with \"chúng có thể tranh hết mồi\" (they may outcompete the fish for food). The summary states it as a certainty.",
+    "\"Để dòng chảy mạnh thì cá phải bơi vất vả\": the page says \"gặp dòng mạnh có thể sẽ bơi vất vả\" (strong current may make them struggle). The summary turns the hedge into a certainty."
+  ]
 }

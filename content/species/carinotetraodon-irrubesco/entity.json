@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "sambas"
+    "sambas",
+    "sumatra"
   ],
   "range": {
     "native": {
@@ -16,26 +17,33 @@
         "ID"
       ],
       "regions": [
-        "Banjuasin",
-        "Sambas",
         "Sumatra",
-        "Borneo"
+        "Borneo",
+        "Banjuasin",
+        "Sambas"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+          "quote": "The red-tailed redeye puffer, Carinotetraodon irrubesco, is a small freshwater puffer endemic to Indonesia, known from Sumatra and West Kalimantan.",
           "countries": [
             "ID"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+          "countries": [],
           "regions": [
-            "Banjuasin",
-            "Sambas",
             "Sumatra",
-            "Borneo"
+            "Borneo",
+            "Banjuasin",
+            "Sambas"
           ]
         }
       ]
@@ -80,6 +88,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -103,10 +115,22 @@
       "html": "<p>The red-tailed redeye puffer, Carinotetraodon irrubesco, is a small freshwater puffer endemic to Indonesia, known from Sumatra and West Kalimantan. Males have a reddish caudal fin and lack the black spot at the dorsal-fin base seen in the other red-eyed puffers, and the eyes bulge clearly above the head. It has been collected only among submerged riparian vegetation of terrestrial origin, in murky brown water.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-irrubesco-2/",
+      "html": "<p>Males of this Carinotetraodon become about 5 cm long; females stay a bit smaller. Males can be recognized by the red caudal fin. All other colours can change very fast and are not of much use for determination.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
       "html": "<p>Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.</p><p>The type series was obtained from the aquarium trade with type locality given as 'Banjuasin basin, Sumatra Selatan, Sumatra, Indonesia'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-irrubesco-2/",
+      "html": "<p>Pufferfish are most often thought to be brackish water fishes, but there are species adapted to totally fresh water. Some of them even live in the very soft and acidic waters of the forests. Among the latter are the species of Carinotetraodon from Indonesia; C. irrubesco comes from Sumatra.</p>"
     },
     {
       "key": "habitat",
@@ -145,16 +169,34 @@
       "html": "<p>Less aggressive than some members of the genus but nevertheless best maintained alone or alongside a group of peaceful, schooling cyprinids of a size large enough to escape predation but small enough that they offer no competition or threat.</p><p>It is only loosely gregarious, males in particular tending to be territorial, but a group can be maintained provided sufficient cover and space is available.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-irrubesco-2/",
+      "html": "<p>In respect of behaviour, Carinotetraodon irrubesco can be best compared with a small cichlid of the more aggressive kind. Sometimes other fish are totally ignored, sometimes bitten. It is not possible to make any reliable prognoses. So these puffers are best kept by pair in a single species tank.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
       "html": "<p>In males body colour is greyish and faintly mottled, and this is distinctly separated from the white belly and underside of the head. There is a broad, pale stripe extending posteriorly from the eye to the caudal peduncle, plus a similarly-coloured, chevron-shaped marking on the dorsal surface and a narrow interorbital bar with the latter markings not in contact with each other. All males possess a broad, red mid-ventral stripe and the dorsum is also sometimes red. The pectoral and anal fins are normally hyaline, sometimes tinged with red, while the dorsal and caudal fins are red.</p><p>In females the body is slightly paler with a similar broad, pale lateral stripe to that of males, but this is often interrupted and may contain irregular brownish markings. There are two or three additional, undulating pale stripes on the body and these form an irregular reticulated pattern. The belly is whitish with a number of brownish stripes broken into a series of smaller markings and there is a darker blotch just anterior to the anal-fin origin. The fins are mostly hyaline but the dorsal contains faint stripes while the caudal is yellowish with reticulated markings and several dark bars. The eye is red in both males and females, but sometimes appears greenish-blue in the former.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-irrubesco-2/",
+      "html": "<p>Males can be recognized by the red caudal fin; females stay a bit smaller.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-irrubesco",
       "html": "<p>This species has been bred in aquaria with at least one documented account.</p><p>Prior to spawning the single male individual present was observed to attack one of the two females sharing its aquarium while displaying to the other, so the former was removed.</p><p>During courtship the male displayed to the female by darkening its colours and extending its ventral ridge (see 'Notes'), and after a couple of hours the pair deposited several hundred eggs among vegetation and attached to décor. The adults were subsequently removed after the male was observed preying on the eggs.</p><p>The first fry hatched in 65 hours and were still in possession of a yolk sac but free-swimming immediately with the sac fully-absorbed by the third day at which point infusoria was introduced as a first food. After 10 days 30-40 fry were alive and feeding on rotifers, but it is unclear if any were raised beyond this point.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-irrubesco-2/",
+      "html": "<p>In a single species tank they often will spawn. The eggs are scattered freely in plants; this species does not take care for the brood.</p>"
     },
     {
       "key": "notes",
@@ -249,5 +291,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-18"
 }

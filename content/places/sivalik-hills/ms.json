@@ -3,6 +3,12 @@
   "name": "Bukit Sivalik",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T05:10:40.655Z",
+    "why": "\"Bukit Sivalik\" is a plausible Malay form, but the Sivalik Hills are a range, and Malay atlases usually write \"Banjaran Sivalik\" (or \"Banjaran Siwalik\"), so \"Bukit\" understates the feature."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false
