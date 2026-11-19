@@ -2,6 +2,13 @@
   {
     "date": "2026-11-18",
     "kind": "species",
+    "id": "asellus-aquaticus",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-18",
+    "kind": "species",
     "id": "moenkhausia-heikoi",
     "source": "glaser",
     "action": "new"
@@ -3489,13 +3496,6 @@
     "date": "2026-11-16",
     "kind": "guide",
     "id": "youtube-DeGF0oCnqus",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-16",
-    "kind": "guide",
-    "id": "youtube-2Spfw4pWphk",
     "source": "youtube",
     "action": "new"
   }

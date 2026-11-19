@@ -107,15 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá cảnh bơi trong bể nhỏ có cây thủy sinh, dùng làm bể tạm.",
-            "sharpness": 1099.5
-          },
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ đặt tạm trên bàn, có dây sục khí bên trong.",
-            "sharpness": 539.6
+            "sharpness": 1099.5,
+            "person": false
           }
         ]
       },
@@ -123,20 +116,13 @@
         "heading": "Tháo bố cục mà không làm khô cây",
         "moments": [
           {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục đá có dương xỉ Java và rêu trước khi tháo.",
-            "sharpness": 1392.8
-          },
-          {
             "t": 290,
             "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at290-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây nhổ ra được phủ khăn giấy ướt để giữ ẩm trong khay.",
-            "sharpness": 1677.8
+            "sharpness": 1677.8,
+            "person": false
           }
         ],
         "photo": {
@@ -159,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm đá lớn dựng làm điểm nhấn trong bể cube, có dương xỉ trên đá.",
-            "sharpness": 2064.8
+            "sharpness": 2064.8,
+            "person": false
           },
           {
             "t": 565,
@@ -167,30 +154,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã lên cây, cây cắt cắm mọc kín phía sau, khoảng trống phía trước.",
-            "sharpness": 302.5
+            "sharpness": 302.5,
+            "person": false
           }
         ]
       },
       {
         "heading": "Trồng cây khi bể đã có nước",
-        "moments": [
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang cắm cây vào nền khi bể đã có nước, nước hơi đục.",
-            "sharpness": 382.7
-          },
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã trồng cây xanh um, mặt nước có lớp váng mỏng.",
-            "sharpness": 617.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/oLzR-_RUPA4/p3-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/oLzR-_RUPA4/p3-ydS1JbmRpYS5qcGc-480.webp",
@@ -206,20 +177,13 @@
         "heading": "Chuyển lọc cũ để có sẵn vi sinh",
         "moments": [
           {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc thùng cũ đặt trong tủ bể, sẵn sàng tháo ống chuyển sang bể mới.",
-            "sharpness": 517.5
-          },
-          {
             "t": 530,
             "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at530-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể mới đã lắp lọc, nước trong, đá và cây đã bố trí xong.",
-            "sharpness": 2728.7
+            "sharpness": 2728.7,
+            "person": false
           }
         ],
         "photo": {
@@ -237,20 +201,13 @@
         "heading": "Thả cá phượng hoàng vào bể mới",
         "moments": [
           {
-            "t": 590,
-            "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at590-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cube mới setup với đá và cây thủy sinh, sẵn sàng thả cá.",
-            "sharpness": 1614.6
-          },
-          {
             "t": 600,
             "url": "https://media.aquatome.com/video/oLzR-_RUPA4/at600-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nhiệt kế dán trong bể để kiểm tra nhiệt độ trước khi thả cá.",
-            "sharpness": 1210.1
+            "sharpness": 1210.1,
+            "person": false
           }
         ],
         "photo": {

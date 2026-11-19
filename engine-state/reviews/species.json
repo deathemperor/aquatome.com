@@ -397,6 +397,43 @@
       "kept": false
     }
   ],
+  "vi/species/asellus-aquaticus#lAQerMcagrY": [
+    {
+      "at": "2026-11-18T23:44:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.85,
+      "notes": [
+        "[diet] \"Cây đã chết mềm thì chúng ăn được\" and \"Cây đang sống chỉ bị gặm khi không còn gì khác\" mostly repeat the page's behaviour and diet text (they only gnaw dying plants). The new part is the swarm of thousands and the enzyme reason.",
+        "[waterConditions] \"Ngoài amoniac, chúng chịu được...\" is partly redundant with the page's existing ammonia tolerance. This is minor.",
+        "[waterConditions] \"Mức này chặt hơn so với số liệu đo\" is the writer's own comparison with the page's pH 4.5–11. It is not stated in the video, though it is a fair note of difference.",
+        "[reproduction] The 18 °C and 24 °C figures are converted from the video's 65 and 75 °F. This is correct, but the video says \"65 và 75 độ F\" and does not name Celsius.",
+        "[behaviour] \"Người ta đang tính dùng chúng trong nuôi trồng thủy sản\" is stated flatly. The video says this too, but the egg-hatch research claim is third-party, not the keeper's experience."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T23:44:00Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.6,
+      "notes": [
+        "Several video claims contradict the page, and NEW never says so. Examples: 'chịu được nước tới khoảng 35 °C' (page: 5–30 °C), 'tuổi thọ dao động từ 1 đến 3 năm' (page: about 1 year, up to 1.5), 'khoảng 20–40 con' (page: 30–150 eggs), and eggs 'khoảng vài tháng mới nở' (page: 23–35 days).",
+        "'sau 3–4 tháng' to mature conflicts with the page's 1.5–3 months. NEW does not flag the difference.",
+        "'Loài này không săn mồi. Chúng không đụng tới tép kể cả tép con' differs from the page, which says not to keep them with breeding shrimp because they compete for food. NEW does not note the difference.",
+        "'pH trên 6' differs from the page's 100% survival at pH 4.5–11 and best range 6.5–9. NEW does not say how the video differs.",
+        "Dimorphism: the video says the male's long legs hold the female, with long antennae. The page says the 4th leg pair is smaller and curved. NEW does not flag this difference.",
+        "'dùng ống hút (pipet)' mistranslates the 'turkey baster' (an ống bóp). A pipet is too small to move a batch of isopods.",
+        "'bể gây trùng cỏ' renders 'infusoria tank' as a paramecium tank. Infusoria covers more than paramecium, so this is slightly inaccurate.",
+        "'lột xác khoảng 3–4 tuần một lần' is a loose reading of 'every month or every 3 weeks'. Several keeper-experience statements, such as the temperature and breeding figures, are attributed to one keeper. This is fine, but they are mixed with general statements."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/axelrodia-riesei#G7YKeIn7c1w": [
     {
       "at": "2026-11-07T20:43:36Z",

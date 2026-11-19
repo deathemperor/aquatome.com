@@ -133,15 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp bộ test nước mở ra, xếp đầy các lọ thuốc thử.",
-            "sharpness": 1752.2
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/rmzCn0C_BMU/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ test nước dạng so màu với các lọ thuốc thử và bảng màu.",
-            "sharpness": 203.6
+            "sharpness": 1752.2,
+            "person": false
           }
         ]
       },
@@ -154,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá đĩa cây mọc dày xanh um, cá bơi giữa đám cây.",
-            "sharpness": 776.4
+            "sharpness": 776.4,
+            "person": false
           },
           {
             "t": 635,
@@ -162,7 +156,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đĩa cam bơi trong bể thủy sinh cây rậm rạp, khỏe mạnh.",
-            "sharpness": 490.2
+            "sharpness": 490.2,
+            "person": false
           }
         ]
       },

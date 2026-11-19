@@ -116,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể suối có đá phủ rêu xanh và cây thủy sinh mọc dày.",
-            "sharpness": 1911.1
+            "sharpness": 1911.1,
+            "person": false
           },
           {
             "t": 200,
@@ -124,7 +125,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh um tùm trong bể, nước khá trong.",
-            "sharpness": 1072.7
+            "sharpness": 1072.7,
+            "person": false
           }
         ]
       },
@@ -137,7 +139,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED đặt trên bể, nguồn sáng cần giảm bớt để hạn chế rêu.",
-            "sharpness": 1619.2
+            "sharpness": 1619.2,
+            "person": false
           },
           {
             "t": 850,
@@ -145,7 +148,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu hại bám trên đá và lá cây trong bể thủy sinh.",
-            "sharpness": 551.6
+            "sharpness": 551.6,
+            "person": false
           }
         ]
       },
@@ -158,7 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ với bụi Limnophila xanh mọc dày phía sau đá cuội.",
-            "sharpness": 1137.8
+            "sharpness": 1137.8,
+            "person": false
           },
           {
             "t": 350,
@@ -166,21 +171,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc nhìn khác của bể, cây mọc thành bụi rậm trên nền cát.",
-            "sharpness": 1820
+            "sharpness": 1820,
+            "person": false
           }
         ]
       },
       {
         "heading": "Dùng một bể ổn định làm chỗ dưỡng cây",
         "moments": [
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/ojUhcailsfc/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm cây xanh khỏe, lên tốt trong bể ổn định.",
-            "sharpness": 590.6
-          },
           {
             "t": 640,
             "url": "https://media.aquatome.com/video/ojUhcailsfc/at640-hd.webp",
@@ -201,7 +199,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ khuếch tán CO2 nhỏ gắn trong bể cạnh bụi cây thủy sinh.",
-            "sharpness": 1757.3
+            "sharpness": 1757.3,
+            "person": false
           },
           {
             "t": 660,
@@ -231,20 +230,13 @@
         "heading": "Bể đèn yếu nuôi cá nóc mini",
         "moments": [
           {
-            "t": 1030,
-            "url": "https://media.aquatome.com/video/ojUhcailsfc/at1030-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trang trí nhỏ hình quả trứng với rêu, đá và lũa dưới đèn yếu.",
-            "sharpness": 1040
-          },
-          {
             "t": 1040,
             "url": "https://media.aquatome.com/video/ojUhcailsfc/at1040-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh rêu xanh mọc quanh cục đá nhỏ và lũa trong bể nhỏ.",
-            "sharpness": 511.2
+            "sharpness": 511.2,
+            "person": false
           }
         ],
         "photo": {

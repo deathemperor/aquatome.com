@@ -3155,10 +3155,12 @@
     "reason": "multiple species list"
   },
   "KUowBsxLqso": {
-    "at": "2026-11-07",
+    "at": "2026-11-18",
     "title": "Anubias - In Nature and Aquarium  with  Exclusive Nature  Footage !!",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "other",
+    "done": "skipped",
+    "reason": "other: Genus Anubias overview, no single species given"
   },
   "kXVBS21xVOg": {
     "at": "2026-11-07",
@@ -3177,16 +3179,22 @@
     "reason": "fishroom clip"
   },
   "l2ZSzzRQjoU": {
-    "at": "2026-11-07",
+    "at": "2026-11-18",
     "title": "Breeding Corydoras, Macro Fry Development Day by Day.",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "lAQerMcagrY": {
-    "at": "2026-11-07",
+    "at": "2026-11-18",
     "title": "Aquatic Isopods: The Perfect Cleanup Crew & Fish Food?! How to Spawn & Care For Asellus aquaticus",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Asellus aquaticus",
+    "page": "species/asellus-aquaticus",
+    "done": "added",
+    "score": 0.85
   },
   "Lbosf1uLw5A": {
     "at": "2026-11-07",

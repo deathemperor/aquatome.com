@@ -114,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trống đặt trên kệ gỗ, sẵn sàng trước khi xếp đá.",
-            "sharpness": 447.1
+            "sharpness": 447.1,
+            "person": false
           }
         ]
       },
@@ -136,7 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các viên đá ghép sát nhau theo góc cạnh tự nhiên, mặt tiếp xúc rộng.",
-            "sharpness": 3031.5
+            "sharpness": 3031.5,
+            "person": false
           }
         ]
       },
@@ -149,15 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhánh lũa lớn vắt qua đống đá, dựng khung phần trên cạn.",
-            "sharpness": 2108.1
-          },
-          {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/razEt0THqD4/at730-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ khung lũa đặt trên bệ đá, có các khe để nhét dương xỉ.",
-            "sharpness": 3009.4
+            "sharpness": 2108.1,
+            "person": false
           }
         ]
       },
@@ -170,15 +165,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai đèn thanh treo phía trên bể, nghiêng nhẹ vào trong.",
-            "sharpness": 1398.2
-          },
-          {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/razEt0THqD4/at610-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn thanh treo lơ lửng bằng dây phía trên bể thủy sinh.",
-            "sharpness": 1415.5
+            "sharpness": 1398.2,
+            "person": false
           }
         ]
       },
@@ -186,56 +174,19 @@
         "heading": "Chọn nền chịu được dòng chảy mạnh",
         "moments": [
           {
-            "t": 790,
-            "url": "https://media.aquatome.com/video/razEt0THqD4/at790-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải nền cát hạt thô quanh các viên đá trong bể.",
-            "sharpness": 2959.3
-          },
-          {
             "t": 820,
             "url": "https://media.aquatome.com/video/razEt0THqD4/at820-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã rải nền xong, đá và lũa được bố trí ổn định.",
-            "sharpness": 3325.4
-          }
-        ]
-      },
-      {
-        "heading": "Tạo dòng chảy có chỗ cho cá nghỉ",
-        "moments": [
-          {
-            "t": 890,
-            "url": "https://media.aquatome.com/video/razEt0THqD4/at890-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm một chiếc bơm nhỏ dùng để tạo dòng chảy trong bể.",
-            "sharpness": 334
-          },
-          {
-            "t": 900,
-            "url": "https://media.aquatome.com/video/razEt0THqD4/at900-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chỉ vào chỗ sau đống đá, nơi có thể giấu bơm.",
-            "sharpness": 1136.1
+            "sharpness": 3325.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Làm dàn phun mềm tưới cho dương xỉ",
-        "moments": [
-          {
-            "t": 1010,
-            "url": "https://media.aquatome.com/video/razEt0THqD4/at1010-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay luồn ống dọc theo phần lũa trong hồ.",
-            "sharpness": 1656.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/razEt0THqD4/p6-VuLUdSMzVLLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/razEt0THqD4/p6-VuLUdSMzVLLmpwZw-480.webp",
@@ -251,20 +202,13 @@
         "heading": "Trồng cây trên cạn và dưới nước",
         "moments": [
           {
-            "t": 1140,
-            "url": "https://media.aquatome.com/video/razEt0THqD4/at1140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dương xỉ còn trong chậu vàng, chưa dùng tới.",
-            "sharpness": 2202.3
-          },
-          {
             "t": 1180,
             "url": "https://media.aquatome.com/video/razEt0THqD4/at1180-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Dương xỉ gắn trên lũa và đá phía trên mặt nước của bể.",
-            "sharpness": 5213.4
+            "sharpness": 5213.4,
+            "person": false
           }
         ]
       }

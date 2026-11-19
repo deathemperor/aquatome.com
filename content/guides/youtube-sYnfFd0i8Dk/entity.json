@@ -69,36 +69,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vách nền đang đắp các khối tạo hình bằng vỏ cây và ống.",
-            "sharpness": 2922.6
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/sYnfFd0i8Dk/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vách nền hoàn chỉnh hơn với gỗ, ống và lớp xốp xanh hòa vào nhau.",
-            "sharpness": 2427.4
-          }
-        ]
-      },
-      {
-        "heading": "Đèn cho paludarium",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/sYnfFd0i8Dk/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thanh đèn gắn sát vách nền của bể.",
-            "sharpness": 1883.1
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/sYnfFd0i8Dk/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt nắp đèn lên nóc bể paludarium trước khi lắp bóng.",
-            "sharpness": 780.4
+            "sharpness": 2922.6,
+            "person": false
           }
         ]
       },
@@ -111,7 +83,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây dương xỉ xanh tốt trồng cạnh khúc gỗ lũa trên nền đất.",
-            "sharpness": 939.2
+            "sharpness": 939.2,
+            "person": false
           },
           {
             "t": 590,
@@ -119,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dương xỉ và cây lá dài mọc dày, đã bén rễ trong đất.",
-            "sharpness": 510.8
+            "sharpness": 510.8,
+            "person": false
           }
         ],
         "photo": {
@@ -142,15 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các tảng đá xếp chồng lên nhau ở khu bờ trong bể.",
-            "sharpness": 1132
-          },
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/sYnfFd0i8Dk/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô sỏi vụn dùng để đổ lấp khe phía sau đá.",
-            "sharpness": 489.7
+            "sharpness": 1132,
+            "person": false
           }
         ],
         "photo": {
@@ -165,27 +132,6 @@
         }
       },
       {
-        "heading": "Đặt lũa và tạo bờ sông",
-        "moments": [
-          {
-            "t": 870,
-            "url": "https://media.aquatome.com/video/sYnfFd0i8Dk/at870-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa gác chéo giữa các cây dương xỉ, nối phần dưới lên phía trên.",
-            "sharpness": 3337.3
-          },
-          {
-            "t": 880,
-            "url": "https://media.aquatome.com/video/sYnfFd0i8Dk/at880-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bờ đá phía trước với lũa vươn lên phần cây cao phía trên.",
-            "sharpness": 4396.8
-          }
-        ]
-      },
-      {
         "heading": "Đặt lọc và đi dây cho gọn",
         "moments": [
           {
@@ -194,15 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc bể phần nước nhìn từ bên hông, sát mép kính.",
-            "sharpness": 321.1
-          },
-          {
-            "t": 1060,
-            "url": "https://media.aquatome.com/video/sYnfFd0i8Dk/at1060-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phần nước của bể còn hơi đục sau khi mới châm nước.",
-            "sharpness": 1692.8
+            "sharpness": 321.1,
+            "person": false
           }
         ]
       },
@@ -215,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu và cây nhỏ gắn trong các khe đá ở mép bờ.",
-            "sharpness": 2371.7
+            "sharpness": 2371.7,
+            "person": false
           },
           {
             "t": 1260,
@@ -223,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với rêu và cây xanh mọc dày dọc mép nước.",
-            "sharpness": 1380.2
+            "sharpness": 1380.2,
+            "person": false
           }
         ]
       },
@@ -236,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể trồng cây với lớp nền sỏi đá, chưa có dây nhợ.",
-            "sharpness": 676.8
+            "sharpness": 676.8,
+            "person": false
           },
           {
             "t": 1390,

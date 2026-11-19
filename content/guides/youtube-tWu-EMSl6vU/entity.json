@@ -190,14 +190,6 @@
         "heading": "Đèn thế nào là đủ cho bể low tech",
         "moments": [
           {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/tWu-EMSl6vU/at170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn thanh gác trên bể thủy sinh, chiếu sáng xuống đám cây.",
-            "sharpness": 571.7
-          },
-          {
             "t": 190,
             "url": "https://media.aquatome.com/video/tWu-EMSl6vU/at190-hd.webp",
             "width": 1200,
@@ -212,7 +204,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cây low tech lên xanh tốt, rậm rạp dưới ánh đèn đủ sáng.",
-            "sharpness": 1900.8
+            "sharpness": 1900.8,
+            "person": false
           }
         ],
         "photo": {
@@ -244,7 +237,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ có đèn treo phía trên chiếu sáng cho cây.",
-            "sharpness": 178.8
+            "sharpness": 178.8,
+            "person": false
           },
           {
             "t": 400,
@@ -252,7 +246,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây rậm rạp, xanh tốt dưới đèn, có đàn cá nhỏ.",
-            "sharpness": 295
+            "sharpness": 295,
+            "person": false
           }
         ]
       },
@@ -322,7 +317,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nền sỏi sáng, cây xanh tốt và cá bơi quanh đá.",
-            "sharpness": 578.2
+            "sharpness": 578.2,
+            "person": false
           },
           {
             "t": 1000,
@@ -330,7 +326,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng cây nền sỏi phủ cỏ xanh, đàn cá nhỏ bơi phía trước.",
-            "sharpness": 229.2
+            "sharpness": 229.2,
+            "person": false
           }
         ]
       },
@@ -352,15 +349,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây xanh tốt, cá nhỏ bơi, nước trong.",
-            "sharpness": 854.6
-          },
-          {
-            "t": 1150,
-            "url": "https://media.aquatome.com/video/tWu-EMSl6vU/at1150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh low tech cây rậm rạp, xanh mướt, không thấy rêu hại.",
-            "sharpness": 1686.2
+            "sharpness": 854.6,
+            "person": false
           }
         ],
         "photo": {
@@ -373,27 +363,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suisaku.eight.drive.m.internal.aqualium.filter.moterdrive2.jpg",
           "caption": "Lọc trong cỡ nhỏ có mút lọc, gắn ống phun mưa cho dòng chảy nhẹ."
         }
-      },
-      {
-        "heading": "Châm phân thế nào để không nuôi rêu",
-        "moments": [
-          {
-            "t": 1260,
-            "url": "https://media.aquatome.com/video/tWu-EMSl6vU/at1260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh cây xanh tốt, người cầm chai phân chuẩn bị châm.",
-            "sharpness": 1344.8
-          },
-          {
-            "t": 1280,
-            "url": "https://media.aquatome.com/video/tWu-EMSl6vU/at1280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cây rậm rạp, ít rêu hại, kế bên là chai phân lỏng.",
-            "sharpness": 1651.5
-          }
-        ]
       },
       {
         "heading": "Thả cá và chạy chu trình có cá",
@@ -415,14 +384,6 @@
             "caption": "Bể thủy sinh cây xanh um với vài con cá bơi lội.",
             "sharpness": 1418.2,
             "person": false
-          },
-          {
-            "t": 1590,
-            "url": "https://media.aquatome.com/video/tWu-EMSl6vU/at1590-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá nhỏ bơi trong bể trồng cây đã ổn định.",
-            "sharpness": 554.8
           }
         ],
         "photo": {
@@ -445,7 +406,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có cây xanh và cá dọn rêu bò dưới nền sỏi.",
-            "sharpness": 731.8
+            "sharpness": 731.8,
+            "person": false
           },
           {
             "t": 1740,
