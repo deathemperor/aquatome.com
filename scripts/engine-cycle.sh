@@ -383,7 +383,11 @@ if part rewrite; then
     # most read; pages the gate held new before them (fit-front.json, lane). A run's front-list pages hold the next run's
     # until the chief of staff has read them (fit-front.json, cleared, one run at a time). The pages with a foreign product
     # share the lane's place (products). 24 a run from 15 Nov, after the chief of staff read the lane's first clean run.
-    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-24}" || log "fit-rewrite: failed"
+    # Guides are left out: a guide is written again whole, and its check only asks that each of the old text's digit
+    # figures is somewhere in the new one (for-reader.ts figuresLost). Fish, plant and breed parts are mended cut-only
+    # and go on. The lane's guides, which would be mended cut-only too, wait with the rest. FIT_REWRITE_KINDS names the
+    # kinds by their content folders; "species,plants,breeds,guides" puts guides back.
+    pnpm engine fit-rewrite --front --kind "${FIT_REWRITE_KINDS:-species,plants,breeds}" --limit "${FIT_REWRITE_LIMIT:-24}" || log "fit-rewrite: failed"
   else
     log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
   fi
