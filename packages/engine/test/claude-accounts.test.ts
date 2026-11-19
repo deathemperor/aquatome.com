@@ -34,6 +34,8 @@ const { accountReport, envFor, NotTheAccount, onAccounts, onNextAccount, outOf, 
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
 const h = (t: string) => tokenHash(t)
+// The weekly limit's reset as the report gives it: Nov 5, 6am UTC, this year's or next's, whichever isn't past.
+const UNTIL = resetOf(WEEKLY)
 
 const saved = { list: process.env.CLAUDE_CODE_OAUTH_TOKENS, one: process.env.CLAUDE_CODE_OAUTH_TOKEN }
 const setTokens = (list?: string, one?: string) => {
@@ -46,10 +48,13 @@ let logs: string[] = []
 // A starting position set in the shell that runs the tests would move every default-order case (the cycles set it as
 // a repository variable): none here but a test's own.
 const savedFirst = process.env.CLAUDE_FIRST_ACCOUNT
+const savedGitHub = process.env.GITHUB_ACTIONS
 beforeEach(() => {
   // A stand-in call must not be written to a real cost log (vitest.config.ts): `off` is no log.
   process.env.ENGINE_COST_LOG = 'off'
   delete process.env.CLAUDE_FIRST_ACCOUNT
+  // The tests run on GitHub too, where an account is named by its number alone: each test says where it runs.
+  delete process.env.GITHUB_ACTIONS
   spawned.length = 0
   logs = []
   resetAccounts()
@@ -59,6 +64,8 @@ afterEach(() => {
   setTokens(saved.list, saved.one)
   if (savedFirst === undefined) delete process.env.CLAUDE_FIRST_ACCOUNT
   else process.env.CLAUDE_FIRST_ACCOUNT = savedFirst
+  if (savedGitHub === undefined) delete process.env.GITHUB_ACTIONS
+  else process.env.GITHUB_ACTIONS = savedGitHub
   vi.restoreAllMocks()
 })
 
@@ -73,8 +80,8 @@ test('parseTokens: the list one a line (blank lines, spaces and CRLF ignored), t
 })
 
 test('outOf: the usage limit (with when it resets) and a rejected credential set an account aside; nothing else does', () => {
-  expect(outOf(`claude failed (1): ${WEEKLY}`)).toMatchObject({ why: 'usage', reset: 'Nov 5 at 6am (UTC)' })
-  expect(outOf("claude failed (1): You've hit your weekly limit · resets Nov 5, 6am (UTC)")?.reset).toBe('Nov 5, 6am (UTC)')
+  expect(outOf(`claude failed (1): ${WEEKLY}`)).toMatchObject({ why: 'usage', reset: expect.stringMatching(/^\d{4}-11-05T06:00:00\.000Z$/) })
+  expect(outOf("claude failed (1): You've hit your weekly limit · resets Nov 5, 6am (UTC)")?.reset).toMatch(/^\d{4}-11-05T06:00:00\.000Z$/)
   expect(outOf('claude failed (1): Claude AI usage limit reached|1762300800')).toMatchObject({ why: 'usage', reset: new Date(1762300800_000).toISOString() })
   expect(outOf('claude failed (1): API Error: 429 rate_limit_error')).toMatchObject({ why: 'usage', reset: undefined })
   expect(outOf('claude failed (1): Failed to authenticate. API Error: 401')?.why).toBe('auth')
@@ -82,6 +89,32 @@ test('outOf: the usage limit (with when it resets) and a rejected credential set
   expect(outOf('claude failed (1): API Error: 400 prompt is too long')).toBeUndefined()
   expect(outOf('spawn claude ENOENT')).toBeUndefined()
   expect(resetOf('limit reached')).toBeUndefined()
+})
+
+test("the reset is a UTC time the code reads, or nothing: none of the CLI's words reach a log line (the chief of staff, 19 Nov)", () => {
+  const now = Date.parse('2026-11-19T06:00:00Z'), words = ['TEST', 'ONLY', 'WORDS'].join('_')
+  expect(resetOf("You've hit your weekly limit · resets Nov 25 at 6am (UTC)", now)).toBe('2026-11-25T06:00:00.000Z')
+  expect(resetOf('resets Nov 5, 6:30pm (UTC)', now)).toBe('2027-11-05T18:30:00.000Z') // past this year: next year's
+  // With no date, today's on that zone's clock if it isn't past, else tomorrow's; the zone's own offset (UTC+7 here).
+  expect(resetOf('resets 3pm (Asia/Ho_Chi_Minh)', now)).toBe('2026-11-19T08:00:00.000Z')
+  expect(resetOf('resets 9am (Asia/Ho_Chi_Minh)', now)).toBe('2026-11-20T02:00:00.000Z')
+  expect(resetOf('resets 1am (America/New_York)', Date.parse('2026-07-01T00:00:00Z'))).toBe('2026-07-01T05:00:00.000Z') // summer time
+  expect(resetOf('usage limit reached|1762300800', now)).toBe(new Date(1762300800_000).toISOString())
+  // The CLI's words around it never come through, and a reset the code can't read is nothing.
+  expect(resetOf(`resets Nov 25 at 6am (UTC) ${words}`, now)).toBe('2026-11-25T06:00:00.000Z')
+  for (const m of [`resets ${words}`, `resets soon (${words})`, `resets 6am (${words})`, 'resets 6am', `resets Nov 5 at 13pm (UTC)`, `resets Smarch 5 at 6am (UTC)`]) expect(resetOf(m, now)).toBeUndefined()
+  expect(outOf(`claude failed (1): usage limit reached · resets ${words}`)).toMatchObject({ why: 'usage', reset: undefined })
+})
+
+test('on GitHub, where the log and the run summary are public, an account is named by its number alone; elsewhere with its hash too', async () => {
+  setTokens('tok-weekly\ntok-bad\ntok-ok')
+  process.env.GITHUB_ACTIONS = 'true'
+  await call()
+  expect(accountReport()).toEqual([`token 1: 0 answered; set aside: usage limit until ${UNTIL}`, 'token 2: 0 answered; set aside: credential rejected', 'token 3: 1 answered'])
+  expect(logs).toEqual([`claude: token 1 set aside: usage limit until ${UNTIL}`, 'claude: token 2 set aside: credential rejected'])
+  expect(rejectedTokens()).toBe('token 2 in CLAUDE_CODE_OAUTH_TOKENS')
+  delete process.env.GITHUB_ACTIONS
+  expect(accountReport()[2]).toBe(`token 3 (${h('tok-ok')}): 1 answered`)
 })
 
 test('token 1 out of its weekly limit: the same call answers on token 2, and later calls start there', async () => {
@@ -92,10 +125,10 @@ test('token 1 out of its weekly limit: the same call answers on token 2, and lat
   expect(spawned.map(s => s.token)).toEqual(['tok-weekly', 'tok-ok', 'tok-ok'])
   expect(spawned.every(s => !s.list)).toBe(true) // the child gets its own token, not the list
   expect(accountReport()).toEqual([
-    `token 1 (${h('tok-weekly')}): 0 answered; set aside: usage limit until Nov 5 at 6am (UTC)`,
+    `token 1 (${h('tok-weekly')}): 0 answered; set aside: usage limit until ${UNTIL}`,
     `token 2 (${h('tok-ok')}): 2 answered`,
   ])
-  expect(logs).toEqual([`claude: token 1 (${h('tok-weekly')}) set aside: usage limit until Nov 5 at 6am (UTC)`])
+  expect(logs).toEqual([`claude: token 1 (${h('tok-weekly')}) set aside: usage limit until ${UNTIL}`])
 })
 
 // The cloud's list begins with the Mac's two sign-ins; the chief of staff (2026-11-12): the cloud starts on its third and
@@ -115,7 +148,7 @@ test('CLAUDE_FIRST_ACCOUNT: a call starts at that position, goes round to the st
     expect(await call()).toEqual({ ok: true })
     expect(spawned.map(s => s.token)).toEqual(['tok-weekly', 'tok-ok', 'tok-ok'])
     expect(accountReport()).toEqual([
-      `token 3 (${h('tok-weekly')}): 0 answered; set aside: usage limit until Nov 5 at 6am (UTC)`,
+      `token 3 (${h('tok-weekly')}): 0 answered; set aside: usage limit until ${UNTIL}`,
       `token 1 (${h('tok-ok')}): 2 answered`,
       `token 2 (${h('tok-ok-2')}): 0 answered`,
     ])
@@ -146,7 +179,7 @@ test('every token out: the usage limit as before (errorKind usage), and later ca
   await expect(call()).rejects.toThrow(e.message)
   expect(spawned).toHaveLength(2)
   expect(accountReport()).toEqual([
-    `token 1 (${h('tok-weekly')}): 0 answered; set aside: usage limit until Nov 5 at 6am (UTC)`,
+    `token 1 (${h('tok-weekly')}): 0 answered; set aside: usage limit until ${UNTIL}`,
     `token 2 (${h('tok-session')}): 0 answered; set aside: usage limit until ${new Date(1762300800_000).toISOString()}`,
   ])
 })
@@ -261,7 +294,7 @@ test("a call made for the next account goes once to the account after the one in
   setTokens('tok-broken\ntok-weekly')
   resetAccounts()
   await expect(onNextAccount.run(true, call)).rejects.toThrow(/weekly limit/)
-  expect(accountReport()).toEqual([`token 1 (${h('tok-broken')}): 0 answered`, `token 2 (${h('tok-weekly')}): 0 answered; set aside: usage limit until Nov 5 at 6am (UTC)`])
+  expect(accountReport()).toEqual([`token 1 (${h('tok-broken')}): 0 answered`, `token 2 (${h('tok-weekly')}): 0 answered; set aside: usage limit until ${UNTIL}`])
   // One account, or none: nothing is called.
   for (const list of ['tok-ok', undefined]) {
     setTokens(list)

@@ -9,7 +9,8 @@ import { usageLimit } from './claude-limit'
  * one a line in CLAUDE_CODE_OAUTH_TOKENS, then the single CLAUDE_CODE_OAUTH_TOKEN; with neither, the CLI's own login. A call goes to
  * the first account not set aside; out of its usage limit, or with its token rejected, the account is set aside for the
  * rest of this process (a Playwright worker) and the same call goes to the next. A token is never printed: the log names
- * it by its number in the list and the first 8 hex of its SHA-256.
+ * it by its number in the list and the first 8 hex of its SHA-256, and on GitHub, where a run's log is public, by its
+ * number alone (the chief of staff, 19 Nov).
  */
 
 /**
@@ -112,7 +113,7 @@ export async function claude<T>(args: string[], cwd: string, input: string): Pro
       if (!why) throw e
       if (!a.out) {
         a.out = { why, message }
-        console.log(`claude: token ${a.n} (${a.hash}) set aside: ${why === 'usage' ? 'usage limit' : 'credential rejected'}`)
+        console.log(`claude: token ${a.n}${process.env.GITHUB_ACTIONS ? '' : ` (${a.hash})`} set aside: ${why === 'usage' ? 'usage limit' : 'credential rejected'}`)
       }
     }
   }

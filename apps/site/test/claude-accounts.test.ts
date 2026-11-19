@@ -40,6 +40,7 @@ const ask = () => claude<{ findings: string[] }>(['-p'], dir, 'the prompt')
 let logs: string[] = []
 
 const savedFirst = process.env.CLAUDE_FIRST_ACCOUNT
+const savedGitHub = process.env.GITHUB_ACTIONS
 beforeEach(() => {
   dir = mkdtempSync(join(tmpdir(), 'aq-claude-'))
   writeFileSync(join(dir, 'claude'), STUB)
@@ -52,6 +53,8 @@ beforeEach(() => {
   for (const k of COST) delete process.env[k]
   // A starting position set in the shell that runs the tests would move every default-order case: none but a test's own.
   delete process.env.CLAUDE_FIRST_ACCOUNT
+  // The tests run on GitHub too, where an account is named by its number alone: each test says where it runs.
+  delete process.env.GITHUB_ACTIONS
   resetAccounts()
   logs = []
   vi.spyOn(console, 'log').mockImplementation((...a: unknown[]) => { logs.push(a.join(' ')) })
@@ -61,6 +64,7 @@ afterEach(() => {
   tokens(saved.list, saved.one)
   COST.forEach((k, i) => restore(k, savedCost[i]))
   restore('CLAUDE_FIRST_ACCOUNT', savedFirst)
+  restore('GITHUB_ACTIONS', savedGitHub)
   vi.restoreAllMocks()
 })
 
@@ -79,6 +83,13 @@ test('token 1 out of its weekly limit: the same review runs on token 2, and late
   expect(calls()).toEqual(['tok-weekly', 'tok-ok', 'tok-ok']) // and no call saw the list
   expect(logs).toHaveLength(1)
   expect(logs[0]).toMatch(/^claude: token 1 \([0-9a-f]{8}\) set aside: usage limit$/)
+})
+
+test('on GitHub, where the log is public, an account set aside is named by its number alone', async () => {
+  tokens('tok-weekly\ntok-bad\ntok-ok')
+  process.env.GITHUB_ACTIONS = 'true'
+  expect(await ask()).toEqual({ findings: ['ok'] })
+  expect(logs).toEqual(['claude: token 1 set aside: usage limit', 'claude: token 2 set aside: credential rejected'])
 })
 
 // The cloud's list begins with the Mac's two sign-ins; the chief of staff (2026-11-12): the cloud starts on its third.
