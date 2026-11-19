@@ -194,6 +194,17 @@ def home(jobs, split):
     return {j: ' '.join(filter(None, [only(named[j])] + [f'-skip-testing:{UI}/{t}' for t in skipped[j]])) for j in jobs}
 
 
+def ran(args):
+    """What job parts' arguments ({job part: arguments}) run, test by test ('Class/test', once for each time it runs): a
+    class named runs its tests less those its part skips, and a test its own part both names and skips runs nowhere."""
+    out = []
+    for a in args.values():
+        skipped = set(re.findall(rf'-skip-testing:{UI}/(\S+)', a))
+        for t in re.findall(rf'-only-testing:{UI}/(\S+)', a):
+            out += [t] * (t not in skipped) if '/' in t else [f'{t}/{x}' for x in tests_of(t) if f'{t}/{x}' not in skipped]
+    return sorted(out)
+
+
 def parts(name, args):
     """A job's parts from {job part: arguments}: {'1': its arguments, … , 'parts': the numbers of those with any}."""
     got = {str(n): args.get(f'{name}_{n}', '') for n in range(1, PARTS[name] + 1)}
@@ -311,6 +322,10 @@ def test():
     def left(paths):
         return pick(paths)[1]
 
+    def ran_by(paths):
+        (app, hb, lt), _ = pick(paths)
+        return ran(jobs_of(app, hb, lt))
+
     def reached(paths):
         """The flows a change can reach (what main runs for it after the merge): a set, or ALL."""
         rs = [reach(p) for p in paths]
@@ -351,7 +366,12 @@ def test():
     assert not machinery('apps/ios/scripts/flow_lists.py')
     assert runs(['apps/ios/scripts/flow_lists.py']) == {} and left(['apps/ios/scripts/flow_lists.py']) == ''
     # What the lists decide for a few changes: which flows run, in whichever job.
-    check_lists(lambda paths: sorted(t for tests in runs(paths).values() for t in tests), left, reached)
+    check_lists(lambda paths: sorted(t for tests in runs(paths).values() for t in tests), left, reached, ran_by)
+    # What a part runs, by test: a class less what its part skips; a test its own part both names and skips, nowhere.
+    shot = 'PageShotsFlowTests/testAFish'
+    got = ran({'handbook_1': only(['PageShotsFlowTests']) + f' -skip-testing:{UI}/{shot}',
+               'handbook_2': only([shot]) + f' -skip-testing:{UI}/{shot}'})
+    assert shot not in got and got.count('PageShotsFlowTests/testAPlant') == 1, got
 
     # Job `perf`: on a change to what it builds or checks, not on one to CI's scripts, the README, the flows.
     for paths in ([APP + 'Handbook/NativePage.swift'], ['protocols/tanks-vectors.json'], [KIT + 'Tests/TanksTests/StoreTests.swift'],
@@ -416,6 +436,8 @@ def test():
     got, skip = runs([f + 'Page/List.swift']), skips([f + 'Page/List.swift'])
     assert got['handbook_1'][0] == 'PageShotsFlowTests' and all(t.startswith('PageShotsFlowTests/') for t in got['handbook_2']), got
     assert sorted(skip['handbook_1']) == sorted(got['handbook_2']) and len(got['handbook_2']) < len(tests_of('PageShotsFlowTests')) / 3, skip
+    shots = [t for t in ran_by([f + 'Page/List.swift']) if t.startswith('PageShotsFlowTests/')]
+    assert shots == sorted(f'PageShotsFlowTests/{t}' for t in tests_of('PageShotsFlowTests')), shots
     globals()['TEST_SECONDS'] = kept
     # Nothing where no flow reaches: a rule of none, the flows run elsewhere (`perf`, app-store.yml), outside apps/ios/.
     for paths in ([f + 'Notes.md'],
