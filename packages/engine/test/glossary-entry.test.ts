@@ -999,3 +999,22 @@ test('a term\'s link phrases are kept and never become its other names; a writer
   expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung', 'General hardness'])
   expect(vi.linkNames).toEqual(['độ cứng của nước'])
 })
+
+// The chief of staff, 19 Nov 2026: two pages of one site are one source, and a claim only one site gives is that site's and
+// is credited. The fact check counts a claim's sites, so it reads each source's site and each fact's other sources; the
+// writer's facts stay as they were.
+test('the fact check reads each source\'s site and each fact\'s other sources ("also"); the writer reads neither', async () => {
+  const root = await site()
+  const withAlso: TopicFacts = { ...facts, facts: facts.facts.map((f, i) => (i === 0 ? { ...f, also: [1, 0] } : f)) }
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => { prompts.push(prompt); return (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : written) as never }
+  await makeGlossaryEntry(root, { research: async () => withAlso as never, llm }, 'lua', { kind: 'aquascaping' })
+  const check = prompts.find(isCheck)!
+  const writer = prompts.find(p => p.startsWith('Bạn viết'))!
+  expect(check).toContain('{"source":0,"kind":"university","site":"edis.ifas.ufl.edu"}')
+  expect(check).toContain('{"source":1,"kind":"keeper","site":"example.org"}')
+  // Its own source never counts again as another.
+  expect(check).toContain('"source":0,"also":[1]}')
+  expect(writer).not.toContain('"site"')
+  expect(writer).not.toContain('"also"')
+})

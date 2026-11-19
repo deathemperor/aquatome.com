@@ -49,7 +49,40 @@ test('a kind\'s sentences are read under its name, as a section\'s are under its
   const { llm, calls } = model([{ 'Lũa nhẹ.': 'unsupported: x' }, {}, {}], ['supported', 'supported', 'supported'])
   await checkSentences(llm, facts, e)
   expect(calls[0]).toContain('SENTENCES:\n1. Lũa là gỗ.\n[Các loại lũa]\n2. Các loại lũa\n[Các loại lũa › Lũa đỗ quyên]\n3. Lũa đỗ quyên (spider wood): rễ cây.\n4. Lũa nhẹ.\n5. Thường dùng cho bể cá đĩa.\n[Các loại lũa › Lũa sừng]\n6. Lũa sừng: màu vàng.\n[Các loại lũa]\n7. Ngâm lũa trước.')
-  expect(calls[3]).toContain('HEADING:\nCác loại lũa › Lũa đỗ quyên\n\nPARAGRAPH:\nLũa đỗ quyên (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.\n\nSENTENCE:\nLũa nhẹ.')
+  expect(calls[3]).toContain('HEADING:\nCác loại lũa › Lũa đỗ quyên\n\nOPENING:\n(none)\n\nPARAGRAPH:\nLũa đỗ quyên (spider wood): rễ cây. Lũa nhẹ. Thường dùng cho bể cá đĩa.\n\nSENTENCE:\nLũa nhẹ.')
+})
+
+// The chief of staff, 19 Nov 2026: five of the first six first writes failed their first reader on a claim only one site
+// gives, written plain, and three on a hedge or an amount widened past its fact. The check only noted them. Now a read
+// sees each list's opening, and each source's site, and both stop.
+test('a list item stands under the opening its list follows, a line ending in a colon; a paragraph after the list, or a list after no such line, under none', () => {
+  const e = { definition: 'Cá bột là cá con vừa nở.', body: '<p>Một tiệm ghi:</p><ul><li>Cho ăn 3–5 bữa nhỏ mỗi ngày.</li><li>Giữ dòng chảy yếu. Thay nước thường xuyên.</li></ul><p>Tách cá bột khỏi cá trưởng thành.</p><h3>Nên làm gì</h3><ul><li>Thay nước.</li></ul><ul><li>Bài tạp chí ấy cũng ghi:<ul><li>Vớt cá bố mẹ ra.</li></ul></li></ul>' }
+  const at = (t: string) => sentences(e).find(x => x.text === t)!
+  expect(at('Cho ăn 3–5 bữa nhỏ mỗi ngày.').opening).toBe('Một tiệm ghi:')
+  expect(at('Thay nước thường xuyên.').opening).toBe('Một tiệm ghi:')
+  expect(at('Tách cá bột khỏi cá trưởng thành.').opening).toBeUndefined()
+  expect(at('Thay nước.').opening).toBeUndefined()
+  expect(at('Vớt cá bố mẹ ra.').opening).toBe('Bài tạp chí ấy cũng ghi:')
+  expect(at('Cá bột là cá con vừa nở.').opening).toBeUndefined()
+})
+
+test('a read is told each list\'s opening and the verdicts that stop: a one-site claim written plain, and a hedge or an amount changed', async () => {
+  const e = { definition: 'Cá bột là cá con vừa nở.', body: '<p>Một tiệm ghi:</p><ul><li>Cho ăn 3–5 bữa nhỏ mỗi ngày.</li></ul><p>Cá bột sẽ chết nếu cho ăn quá tay.</p>' }
+  const plainOne = 'Cá bột sẽ chết nếu cho ăn quá tay.'
+  const { llm, calls } = model([{ [plainOne]: 'uncredited: one site, plain' }, { [plainOne]: 'uncredited: one site' }, {}])
+  const r = await checkSentences(llm, facts, e)
+  expect(calls[0]).toContain('SENTENCES:\n1. Cá bột là cá con vừa nở.\n2. Một tiệm ghi:\n[under the opening "Một tiệm ghi:"]\n3. Cho ăn 3–5 bữa nhỏ mỗi ngày.\n[no heading, under no opening]\n4. Cá bột sẽ chết nếu cho ăn quá tay.')
+  expect(calls[0]).toContain('- uncredited: the facts carry it, but every fact that carries it comes from one site')
+  expect(calls[0]).toContain('"sẽ" for "can" is unsupported')
+  expect(calls[0]).toContain('A hedge or an amount changed is never loose')
+  expect(calls[0]).toContain('the sources list gives each number\'s kind and site')
+  expect(r.stops.map(x => x.text)).toEqual([plainOne])
+  expect(stopNote(r.stops[0]!)).toBe(`"${plainOne}": the facts don't carry it (uncredited, uncredited, supported): one site, plain / one site`)
+  // One read's lone "uncredited" is settled alone, with the item's opening shown.
+  const item = 'Cho ăn 3–5 bữa nhỏ mỗi ngày.'
+  const alone = model([{ [item]: 'uncredited: x' }, {}, {}], ['uncredited: one site', 'supported', 'uncredited: one site'])
+  expect((await checkSentences(alone.llm, facts, e)).stops.map(x => x.text)).toEqual([item])
+  expect(alone.calls[3]).toContain(`OPENING:\nMột tiệm ghi:\n\nPARAGRAPH:\n${item}\n\nSENTENCE:\n${item}`)
 })
 
 // Codex, 14 Nov 2026: a paragraph inside a kind's item lost the kind's name, and could read as another wood's.
@@ -87,7 +120,7 @@ test('two reads of three that say the facts don\'t carry a sentence stop it; one
   // The sentence one read stopped is read three times more, alone, under its heading; none of those stops it.
   expect(calls).toHaveLength(6)
   expect(calls[0]).toContain('SENTENCES:\n1. pH đo độ chua của nước.\n2. Nó đi từ 0 tới 14.\n[Trong bể]\n3. Trong bể\n4. Lá bàng làm pH xuống.')
-  expect(calls[3]).toContain('HEADING:\n(the definition)\n\nPARAGRAPH:\npH đo độ chua của nước. Nó đi từ 0 tới 14.\n\nSENTENCE:\nNó đi từ 0 tới 14.')
+  expect(calls[3]).toContain('HEADING:\n(the definition)\n\nOPENING:\n(none)\n\nPARAGRAPH:\npH đo độ chua của nước. Nó đi từ 0 tới 14.\n\nSENTENCE:\nNó đi từ 0 tới 14.')
   expect(r.stops.map(s => s.text)).toEqual([advice])
   expect(stopNote(r.stops[0]!)).toBe('"Nên thả lá từ từ rồi đo pH.": the facts don\'t carry it (unsupported, unsupported, supported): not in the facts / advice not given')
   expect(r.loose.map(s => s.text)).toEqual(['Lá bàng làm pH xuống.'])
@@ -99,7 +132,7 @@ test('a sentence one read stops is read three times more alone, and stops when t
   const yes = model([{ [s]: 'contradicts: raises it' }, {}, {}], ['contradicts: raises it', 'supported', 'contradicts: raises it'])
   const r = await checkSentences(yes.llm, facts, entry)
   expect(yes.calls).toHaveLength(6)
-  expect(yes.calls[3]).toContain(`HEADING:\nTrong bể\n\nPARAGRAPH:\nLá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n\nSENTENCE:\n${s}`)
+  expect(yes.calls[3]).toContain(`HEADING:\nTrong bể\n\nOPENING:\n(none)\n\nPARAGRAPH:\nLá bàng làm pH xuống. Nên thả lá từ từ rồi đo pH.\n\nSENTENCE:\n${s}`)
   expect(r.stops.map(x => x.verdicts)).toEqual([['contradicts', 'supported', 'supported', 'contradicts', 'supported', 'contradicts']])
   const no = model([{ [s]: 'contradicts: raises it' }, {}, {}], ['supported', 'loose: x', 'contradicts: y'])
   expect((await checkSentences(no.llm, facts, entry)).stops).toEqual([])

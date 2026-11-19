@@ -10,12 +10,13 @@ import { unescapePlain } from './sanitize'
  * sentence to a stop.
  */
 
-export type Verdict = 'supported' | 'loose' | 'unsupported' | 'contradicts' | 'not a claim'
+export type Verdict = 'supported' | 'loose' | 'unsupported' | 'uncredited' | 'contradicts' | 'not a claim'
 /**
  * One sentence of an entry, the definition or paragraph or list item it stands in, the heading it stands under, and the
- * kind its block is about (the bold name it opens with, "Lũa đỗ quyên"), as plain text.
+ * kind its block is about (the bold name it opens with, "Lũa đỗ quyên"), as plain text. `opening`: for a list item, the
+ * line the list follows when that line ends with a colon ("Một tiệm ghi:"), the credit every item under it carries.
  */
-export type Sentence = { text: string; block: string; heading?: string; item?: string }
+export type Sentence = { text: string; block: string; heading?: string; item?: string; opening?: string }
 type Read = { verdict: Verdict; why?: string }
 /**
  * A sentence the reads call loose, unsupported or contradicted, with what they said. `unjudged`: how many reads it had, when
@@ -50,13 +51,18 @@ const TOKENS = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>|<\/?(?:p|ul|ol|li|table|thead
  * item that opens with a name of its own stands under both.
  */
 export function sentences(e: { definition: string; body: string }): Sentence[] {
-  const blocks: { block: string; heading?: string; item?: string }[] = [{ block: plain(e.definition) }]
+  const blocks: { block: string; heading?: string; item?: string; opening?: string }[] = [{ block: plain(e.definition) }]
   let heading: string | undefined
+  // Each open list's opening: the line it follows, when that line ends with a colon. An item stands under the nearest one
+  // (the chief of staff, 19 Nov 2026: a list under an opening counts as credited, each item included; a full stop ends a
+  // credit, so a paragraph after the list stands under none).
+  const openings: (string | undefined)[] = []
+  const opening = () => openings.findLast(Boolean)
   // The open lists and list items, each item with the name it opens with, if any; a new item closes an unclosed one. One
   // pass over the whole body, so a heading inside a kind's item doesn't drop its name (Codex, 14 Nov 2026).
   const open: ('list' | { name?: string; seen: boolean })[] = []
   const names = () => open.flatMap(x => (x !== 'list' && x.name ? [x.name] : []))
-  const push = (block: string, item: string) => blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
+  const push = (block: string, item: string) => { const o = opening(); blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}), ...(o ? { opening: o } : {}) }) }
   const text = (b: string) => {
     const block = plain(b)
     if (!block) return
@@ -74,8 +80,8 @@ export function sentences(e: { definition: string; body: string }): Sentence[] {
     const tag = /^<(\/?)([a-z]+)/i.exec(m[0])!
     const [close, name] = [tag[1] === '/', tag[2]!.toLowerCase()]
     if (name === 'ul' || name === 'ol') {
-      if (!close) open.push('list')
-      else while (open.length && open.pop() !== 'list');
+      if (!close) { const last = blocks.length > 1 ? blocks.at(-1)!.block : ''; openings.push(/:\s*$/.test(last) ? last : undefined); open.push('list') }
+      else { openings.pop(); while (open.length && open.pop() !== 'list'); }
     } else if (name === 'li') {
       if (open.length && open.at(-1) !== 'list') open.pop()
       if (!close) open.push({ seen: false })
@@ -86,20 +92,24 @@ export function sentences(e: { definition: string; body: string }): Sentence[] {
 }
 /** Where a sentence stands: its heading, and the kind its item is about. */
 const under = (s: Sentence) => [s.heading, s.item].filter(Boolean).join(' › ')
-/** Numbered sentences for a read, each section's under its heading, each kind's under its name too. */
+/** Where a sentence stands for a read: its heading and kind, and the opening its list follows, if any. */
+const where = (s: Sentence) => [under(s), s.opening ? `under the opening "${s.opening}"` : ''].filter(Boolean).join(' › ')
+/** Numbered sentences for a read, each section's under its heading, each kind's under its name too, each list's under its opening. */
+// A sentence that stands under nothing after one that stood under an opening says so, or it would read as still under it.
 const numbered = (list: Sentence[], show: (s: Sentence) => string = s => s.text) =>
-  list.map((s, i) => `${under(s) && under(s) !== (list[i - 1] ? under(list[i - 1]!) : '') ? `[${under(s)}]\n` : ''}${i + 1}. ${show(s)}`).join('\n')
+  list.map((s, i) => { const before = list[i - 1] ? where(list[i - 1]!) : ''; return `${where(s) !== before && (where(s) || before) ? `[${where(s) || 'no heading, under no opening'}]\n` : ''}${i + 1}. ${show(s)}` }).join('\n')
 
 const VERDICTS = `- supported: every claim in it is in the facts (a figure converted to metric, sensibly rounded, is the same figure);
-- loose: supported, but generalised, or put a little more or less strongly than the facts, or joining what several sources say about the same thing, in a way a keeper would not act on differently;
-- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another, or drops a qualifier that limits a claim to some kinds, forms or cases (wild fish only, small pieces only), or joins what sources say about different things into one claim;
+- loose: supported, but worded a little more generally, or joining what several sources say about the same thing, in a way a keeper would not act on differently. A hedge or an amount changed is never loose: it is unsupported;
+- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another, or drops a qualifier that limits a claim to some kinds, forms or cases (wild fish only, small pieces only), or joins what sources say about different things into one claim, or drops or adds a hedge its fact has or lacks ("can", "may", "some", "often", "usually", "about", "up to": "sẽ" for "can" is unsupported), or rounds, widens or narrows an amount, a time or a count ("vài tuần" for "a couple of weeks");
+- uncredited: the facts carry it, but every fact that carries it comes from one site (count each fact's source and its "also" by their "site": two pages of one site are one), and the sentence states it as plain fact: neither the sentence itself nor the opening its list is under credits a page ("Một tiệm ghi:", "Một bài khác ghi:", "Một nguồn người nuôi ghi:", "Một bài tạp chí ghi:", "Theo một tài liệu tham khảo, …"). A full stop ends a credit: a sentence after the one that credits a page, or a paragraph after a credited list, stands under none. A claim two sites give needs no credit;
 - contradicts: the facts say otherwise;
 - not a claim: a picture, a transition or a heading, with nothing in it to check ("it gives the tank the look of a stream"). An item under a heading of steps, mistakes or warnings is a claim: judge the advice or warning it gives.
 For every verdict but supported, say why in a few English words.`
-const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and the numbered SENTENCES of a Vietnamese glossary entry written from them, each section's under its [heading], and each kind's under [heading › its name]: a sentence there is about that kind. Give every sentence one verdict against the FACTS:
+const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site) and the numbered SENTENCES of a Vietnamese glossary entry written from them, each section's under its [heading], each kind's under [heading › its name]: a sentence there is about that kind, and each list's items under the opening the list follows, which credits every item. Give every sentence one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdicts": [{"n": 1, "verdict": "supported"}, {"n": 2, "verdict": "loose", "why": "..."}]}, one for every sentence, in order.`
-const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING. Give the SENTENCE one verdict against the FACTS:
+const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING, and under the OPENING its list follows, if any, which credits it. Give the SENTENCE one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdict": "...", "why": "..."}.`
 const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply only with JSON.'
@@ -110,11 +120,16 @@ const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply
  * carried from one kind to another (the discus and vân thép lines): the read-back carries those.
  */
 const READ_MODEL = 'opus'
-const VERDICT = { type: 'string', enum: ['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'] }
+const VERDICT = { type: 'string', enum: ['supported', 'loose', 'unsupported', 'uncredited', 'contradicts', 'not a claim'] }
 const MANY = { type: 'object', required: ['verdicts'], properties: { verdicts: { type: 'array', items: { type: 'object', required: ['n', 'verdict'], properties: { n: { type: 'number' }, verdict: VERDICT, why: { type: 'string' } } } } } }
 const SINGLE = { type: 'object', required: ['verdict'], properties: { verdict: VERDICT, why: { type: 'string' } } }
-const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'])
-const STOP = new Set<Verdict>(['unsupported', 'contradicts'])
+const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'uncredited', 'contradicts', 'not a claim'])
+/**
+ * What stops a save. A one-site claim written plain and a hedge or amount changed stop too (the chief of staff, 19 Nov
+ * 2026): five of the first six first writes failed their first reader on the one, three on the other, and the check only
+ * noted them, so a reader was spent on what the check could have stopped.
+ */
+const STOP = new Set<Verdict>(['unsupported', 'uncredited', 'contradicts'])
 const LOOSE = new Set<Verdict>(['loose'])
 const NOT_A_CLAIM = new Set<Verdict>(['not a claim'])
 /** A verdict a read left out, or one not on the list, counts as no verdict: it can't stop a sentence or clear one. A sentence fewer than two reads judge isn't cleared: it stops, unjudged (Codex, 14 Nov 2026: three empty replies scored an entry 1). */
@@ -155,7 +170,7 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
     let all = count(rs, STOP) >= 2 ? rs : null
     if (!all && count(rs, STOP) === 1) {
       const again: (Read | null)[] = []
-      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, model: READ_MODEL, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
+      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, model: READ_MODEL, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nOPENING:\n${s.opening ?? '(none)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
       // Re-reads too few of which give a verdict don't settle it: it stops, unjudged (Codex, 14 Nov 2026).
       if (again.filter(Boolean).length < 2) { stops.push({ ...flagged(s, [...rs, ...again]), unjudged: 6, ...(claim ? {} : { unscored: true as const }) }); if (claim) stopped++; continue }
       if (count(again, STOP) >= 2) all = [...rs, ...again]

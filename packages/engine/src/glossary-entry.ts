@@ -342,8 +342,14 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   }
   // Any other page research may not read goes the same way, with the facts that cite it, before the writer sees them: no
   // address, no source (viFacts).
-  const { facts, refs, sources } = viFacts({ ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) })
+  const usable = { ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) }
+  const { facts, refs, sources } = viFacts(usable)
   if (!facts.length) return { id, skipped: 'no cited facts' }
+  // The fact check reads what the writer reads, with each source's site and each fact's other sources ("also"), so it can
+  // count a claim's sites: two pages of one site are one source, and a claim only one site gives is that site's and is
+  // credited (the chief of staff, 19 Nov 2026). The writer's own facts don't change.
+  const checked = viFacts(usable, { also: true })
+  const site = (url: string) => { try { return new URL(url).hostname.toLowerCase().replace(/^www\./, '') } catch { return url } }
 
   // The other terms: what `related` may name, and the names an added other name may not take.
   const others: { id: string; name: string; altNames: string[]; linkNames: string[]; definition: string }[] = []
@@ -353,6 +359,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     if (t) others.push({ id: x, name: t.name, altNames: t.altNames, linkNames: t.linkNames ?? [], definition: t.definition ?? '' })
   }
   const forWriter = { term: vi.name, english: entity.en, sources, facts }
+  const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: site(checked.refs[x.source]!.url) })), facts: checked.facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)
   const terms = others.map(x => `${x.id}: ${x.name}: ${x.definition}`).join('\n')
@@ -389,7 +396,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const check = async (e: Entry): Promise<Checked> => {
     const long = size(e)
     if (long.stop) return { score: 0, notes: long.notes, broken: long.notes.length, stops: 1, unread: true }
-    const [f, r] = await Promise.all([checkSentences(d.llm, forWriter, e), rules(e)])
+    const [f, r] = await Promise.all([checkSentences(d.llm, forCheck, e), rules(e)])
     const unborne = f.stops.map(stopNote)
     return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose, stopped: f.stops }
   }
@@ -427,7 +434,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const heldTo = async (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => {
     const lost = dropsFrom(base, e, freed)
     if (o.revise || !lost.length) return lost
-    savedStops ??= (await checkSentences(d.llm, forWriter, base)).stops
+    savedStops ??= (await checkSentences(d.llm, forCheck, base)).stops
     return dropsFrom(base, e, [...freed, ...savedStops])
   }
   if (o.accept) {
@@ -476,7 +483,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       // Its rewordings may not take the entry past its length, or make one already past it longer (the chief of staff, 15 Nov
       // 2026: Artemia's took 455 words to 480, past its stop): an entry with no note on its length keeps none, or is no longer.
       const before = words(w.body), fits = (e: Entry) => words(e.body) <= before || !size(e).notes.some(n => n.startsWith('The entry is'))
-      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)], fits })
+      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forCheck, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)], fits })
       w = m.entry
       review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes]
       review.stops = stopping(review) + m.stops.length
