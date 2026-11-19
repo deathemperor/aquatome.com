@@ -9,7 +9,8 @@ import { usageLimit } from './claude-limit'
  * one a line in CLAUDE_CODE_OAUTH_TOKENS, then the single CLAUDE_CODE_OAUTH_TOKEN; with neither, the CLI's own login. A call goes to
  * the first account not set aside; out of its usage limit, or with its token rejected, the account is set aside for the
  * rest of this process (a Playwright worker) and the same call goes to the next. A token is never printed: the log names
- * it by its number in the list and the first 8 hex of its SHA-256.
+ * it by its number in the list and the first 8 hex of its SHA-256, and on GitHub, where a run's log is public, by its
+ * number alone (the chief of staff, 19 Nov).
  */
 
 /**
@@ -33,7 +34,7 @@ export function startAt<T>(all: T[], first?: string): T[] {
 }
 
 const AUTH = /Failed to authenticate|Invalid bearer token/i
-type Account = { n: number; token: string; hash: string; out?: { why: 'usage' | 'auth'; message: string } }
+type Account = { n: number; token: string; hash: string; out?: { why: 'usage' | 'auth' } }
 let accounts: Account[] | undefined
 const list = (): Account[] => (accounts ??= startAt(parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN)
   .map((token, i) => ({ n: i + 1, token, hash: createHash('sha256').update(token).digest('hex').slice(0, 8) })), process.env.CLAUDE_FIRST_ACCOUNT))
@@ -103,7 +104,8 @@ export async function claude<T>(args: string[], cwd: string, input: string): Pro
   for (;;) {
     capped()
     const a = all.find(x => !x.out)
-    if (!a) throw new Error((all.findLast(x => x.out?.why === 'usage') ?? all.at(-1)!).out!.message)
+    // In our own words, none of the CLI's: the reason can reach the pull request's comment, which is public.
+    if (!a) throw new Error(`claude failed (accounts): every account ${all.some(x => x.out?.why === 'usage') ? 'out of its usage limit' : 'with its credential rejected'}`)
     try {
       return await once<T>(args, cwd, input, a.token)
     } catch (e) {
@@ -111,8 +113,8 @@ export async function claude<T>(args: string[], cwd: string, input: string): Pro
       const why = usageLimit(message) ? 'usage' : AUTH.test(message) ? 'auth' : undefined
       if (!why) throw e
       if (!a.out) {
-        a.out = { why, message }
-        console.log(`claude: token ${a.n} (${a.hash}) set aside: ${why === 'usage' ? 'usage limit' : 'credential rejected'}`)
+        a.out = { why }
+        console.log(`claude: token ${a.n}${process.env.GITHUB_ACTIONS ? '' : ` (${a.hash})`} set aside: ${why === 'usage' ? 'usage limit' : 'credential rejected'}`)
       }
     }
   }

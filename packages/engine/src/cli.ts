@@ -10,7 +10,7 @@ import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId
 import { LANGS, type Lang, WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { nameStep } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
-import { accountReport, onNextAccount, rejectedTokens } from './claude-accounts'
+import { accountReport, credentialRejected, onNextAccount, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
 import { productCandidates, productReviews } from './product-reviews'
 import { readKit } from './video-items'
@@ -282,7 +282,7 @@ if (cmd === 'photo-privacy') {
     }
     if (report.depth) printDepth(report.depth)
     // A rejected Claude credential stops every page: fail the cycle so the scheduler (GitHub Actions) reports it.
-    if (report.errors.some(e => /Failed to authenticate|Invalid bearer token/i.test(e))) { console.log(`error: Claude rejected the credential — replace ${rejectedTokens()}`); process.exitCode = 1 }
+    if (report.errors.some(credentialRejected)) { console.log(`error: Claude rejected the credential — replace ${rejectedTokens()}`); process.exitCode = 1 }
   } finally {
     await fetcher.close()
   }
