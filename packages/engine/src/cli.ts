@@ -74,6 +74,7 @@ import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } fro
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { tidyCredits } from './wiki-author'
+import { namePublisherCredits } from './publisher-credits'
 import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
@@ -332,6 +333,10 @@ if (cmd === 'photo-privacy') {
   // provided. X assumed…", "X~commonswiki"): tidied in place. New imports are tidied as they come (authorText).
   const r = await tidyCredits(join(ROOT, 'content'))
   console.log(`credits: ${r.authors} authors tidied in ${r.files} files`)
+  const named = await namePublisherCredits(ROOT)
+  console.log(`publisher credits: ${Object.entries(named.named).map(([s, n]) => `${s} ${n}`).join(', ') || 'none'} named in ${named.files} files; ${named.untied.length} keep the publisher alone`)
+  // Each by its file and address, with why: no name.
+  for (const u of named.untied) console.log(`publisher credit not told: ${u.file} ${u.url} (${u.why})`)
 } else if (cmd === 'lifespans') {
   // Lifespans the sources already state as a labelled line ("Life expectancy: 4 years"), put on the data card for each
   // source that gives one; new reads give theirs through the process prompt.
@@ -643,6 +648,9 @@ if (cmd === 'photo-privacy') {
   for (const x of [...r.secondLook.map(x => `held for a second look: ${x}`), ...r.agreed.map(x => `second look agreed, now never-again: ${x}`)]) console.log(x)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
   for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`), ...r.albums.map(x => `album lead: ${x}`), ...r.albumKeptOut.map(x => `album kept-mark photo past its cap, left out: ${x}`), ...r.ownKeptOut.map(x => `page's own kept-mark photo past its cap, left out: ${x}`)]) console.log(x)
+  // A publisher's photos credited to it alone get the photographer its page prints under them (publisher-credits.ts).
+  const named = await namePublisherCredits(ROOT)
+  console.log(`publisher credits: ${Object.entries(named.named).map(([s, n]) => `${s} ${n}`).join(', ') || 'none'} named in ${named.files} files; ${named.untied.length} keep the publisher alone`)
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)

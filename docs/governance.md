@@ -859,6 +859,13 @@ The layers above still check the result.
     `PageDoc.Image.Credit` in AquaTomeKit); in its card lists' credits, once the name links the photographer's page,
     each photo's own page is a number, as in the site's credits list, and a line's links are underlined, as the
     site's are. Its photo viewer doesn't yet link an Unsplash photo's own page once the name links the photographer's.
+    A photo a publisher lets us use names the photographer its page prints under it, the line as printed, then the
+    publisher ("<line> / Seriously Fish"; the chief of staff's rulings of 10 and 17 Nov 2026: the owner's leave for
+    those pictures rests on the photographer being named). Each sweep mends a photo credited to its publisher alone
+    from the page's stored copy, by the line that follows its caption there (`publisher-credits.ts`, Seriously Fish's
+    pages; `publisher-credits.test.ts`). A photo whose line can't be told for certain keeps the publisher alone, and
+    `pnpm engine credits` lists it by file and address, with why. Found on 17 Nov 2026: 1,654 Seriously Fish photo
+    places credited the site alone a week after the ruling.
   - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws
