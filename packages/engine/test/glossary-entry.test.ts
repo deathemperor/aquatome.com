@@ -977,6 +977,29 @@ test('a name the term\'s notes take off leaves its other names, saved or newly w
   expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung'])
 })
 
+// The chief of staff, 19 Nov 2026: "Oxy hoà tan", Oxy hòa tan's own name with its tone mark on the other vowel, came back
+// as its other name until its notes took it off by hand. A name is one name whichever vowel the mark sits on.
+test('a name that is the term\'s own, or another term\'s, with its tone mark on another vowel is never an other name', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/oxy-hoa-tan'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/oxy-hoa-tan/entity.json'), JSON.stringify({ id: 'oxy-hoa-tan', en: 'Dissolved oxygen' }))
+  await writeFile(join(root, 'content/glossary/oxy-hoa-tan/vi.json'), JSON.stringify({ slug: 'oxy-hoa-tan', name: 'Oxy hòa tan', altNames: ['Oxy hoà tan', 'Ôxy hòa tan'], sections: {}, definition: 'Khí oxy hòa trong nước.', quality: { score: 0.9, indexable: true } }))
+  const named: TopicFacts = { ...facts, facts: [...facts.facts,
+    { section: 'other', fact: 'Name for the term: "OXY HOÀ TAN".', source: 1 },
+    { section: 'other', fact: 'Name for the term: "luã gỗ".', source: 1 },
+    { section: 'other', fact: 'Name for the term: "oxy trong nước".', source: 1 }] }
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    return { definition: 'Oxy hòa tan là khí oxy hòa trong nước.', altNames: ['OXY HOÀ TAN', 'luã gỗ', 'oxy trong nước'], body: '<h3>Trong bể của bạn</h3><p>Cá thở bằng oxy hòa tan.</p>', related: [] } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => named as never, llm }, 'oxy-hoa-tan', { kind: 'care' })
+  expect(r).toMatchObject({ id: 'oxy-hoa-tan', score: 1 })
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/oxy-hoa-tan/vi.json'), 'utf8'))
+  // Its own name in the old placing goes, saved or newly written; "luã gỗ" is Lũa's "lũa gỗ"; "Ôxy" is another spelling.
+  expect(vi.altNames).toEqual(['Ôxy hòa tan', 'oxy trong nước'])
+})
+
 // The chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing. A link phrase stays one, kept on
 // the save; a phrase the writer offers that a fact only quotes, and not as the term's name, is not an other name.
 test('a term\'s link phrases are kept and never become its other names; a writer\'s name stays only when a fact gives it as one', async () => {

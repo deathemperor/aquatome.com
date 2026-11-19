@@ -20,6 +20,15 @@ export function markVietnameseNames(html: string): string {
   }).join('')
 }
 
+/** The five tone marks, decomposed: huyền, sắc, ngã, hỏi, nặng. */
+const TONE = /[\u0300\u0301\u0303\u0309\u0323]/gu
+/**
+ * One key for a Vietnamese name whichever vowel of a word its tone mark sits on, the old placing or the new: "Oxy hoà tan"
+ * and "Oxy hòa tan" are one name, as are "thuỷ" and "thủy" (the chief of staff, 19 Nov 2026, after "Oxy hoà tan" came back
+ * as Oxy hòa tan's other name). Case folded; every other mark stays where it is, so "hóa" and "hoa", "ô" and "o" stay apart.
+ */
+export const toneKey = (s: string) => s.normalize('NFD').toLowerCase().replace(/[\p{L}\p{M}]+/gu, w => w.replace(TONE, '') + (w.match(TONE) ?? []).join('')).normalize('NFC')
+
 /**
  * Two names a reader can't tell apart get the same key: the tank-mates picker's folding (accents off, đ → d, lower case,
  * punctuation dropped; Thai keeps its marks) with the spaces dropped too, since Thai writes one name with or without them

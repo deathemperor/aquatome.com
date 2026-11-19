@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
+import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, toneKey, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { refusedSite } from './cycle-only'
@@ -495,18 +495,19 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     }
   }
 
-  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames, ...x.linkNames]).map(n => n.toLowerCase()))
+  // A name is the same whichever vowel its tone mark sits on (toneKey): "Oxy hoà tan" is Oxy hòa tan's own.
+  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames, ...x.linkNames]).map(toneKey))
   // Written whole in one fact, as its own word: "gỗ lũ" is not in "gỗ lũa".
   const quoted = (n: string) => {
     const re = new RegExp(`(?<![\\p{L}\\p{N}])${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu')
     return facts.some(f => re.test(f.fact))
   }
-  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
+  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(toneKey(n)) && quoted(n)
   // A link phrase is never one of its names again; a name the writer adds stays only when it is the term's English name or
   // a fact gives it as the term's name (glossary-other-names.ts; the chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing).
-  const own = new Set([vi.name, ...(vi.linkNames ?? []), ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
+  const own = new Set([vi.name, ...(vi.linkNames ?? []), ...(asks.notNames ?? [])].map(toneKey))
   const isName = (n: string) => n.toLowerCase() === entity.en.toLowerCase() || givenAsName(n, facts.map(f => f.fact))
-  const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
+  const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))].filter(n => n && !own.has(toneKey(n)) && own.add(toneKey(n)))
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
   // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
