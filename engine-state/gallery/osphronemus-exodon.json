@@ -3,7 +3,12 @@
  "judged": [
   "File:Diergaarde Blijdorp 2014 v43.jpg",
   "File:Osphronemus exodon.jpg",
-  "File:Osphronemus exodon 2.png"
+  "File:Osphronemus exodon 2.png",
+  "flickr:32134962995",
+  "flickr:31986333362",
+  "flickr:32134966675",
+  "flickr:32095974986",
+  "flickr:31293626504"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/8ba8f98528394d36.webp": "0c040c8c4c4c9890",
@@ -20,6 +25,9 @@
  },
  "gbif": {
   "key": 2394167,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

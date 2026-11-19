@@ -7,8 +7,8 @@ Written by `pnpm engine gallery` (2026-11-19). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 773 | 31 | 9 | 26 | 787 |
-| rest | 20 | 1854 | 80 | 0 | 106 | 1828 |
+| covered | 30 | 775 | 31 | 9 | 26 | 789 |
+| rest | 20 | 1860 | 80 | 0 | 106 | 1834 |
 
 ## Short of target: every source read (697)
 

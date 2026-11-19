@@ -9,14 +9,14 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1029 | 735 (vi 735) | 735 |
-| translation | 2074 | 307 (vi 307) | 307 |
+| translation | 2089 | 310 (vi 310) | 310 |
 | vi-rewrite | 391 | 31 (vi 31) | 31 |
 | reader-rewrite | 43 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 122 | 6 (id 1, ms 1, th 4) | 6 |
-| product | 23 | 1 (vi 1) | 1 |
-| product-reviews | 17 | 0 | 0 |
+| product | 24 | 1 (vi 1) | 1 |
+| product-reviews | 18 | 0 | 0 |
 | summary | 2536 | 135 (vi 135) | 135 |
 | localize | 2612 | 897 (id 389, ms 68, th 440) | 897 |
 | glossary | 19 | 0 | 0 |
@@ -126,18 +126,18 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-307 of 2074 pages under the bar.
+310 of 2089 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 293 | 866 |
-| Says what the source doesn't (invented, added) | 256 | 492 |
-| Wording: unnatural, literal, stiff or chatty | 231 | 429 |
-| Meaning changed or wrong | 188 | 289 |
-| Hobby terms and names | 152 | 201 |
-| Leaves out what the source says | 107 | 144 |
-| Text left in another language | 106 | 132 |
-| States as certain what the source hedges, or what garbled captions only hint at | 86 | 99 |
+| Other | 296 | 872 |
+| Says what the source doesn't (invented, added) | 259 | 497 |
+| Wording: unnatural, literal, stiff or chatty | 234 | 434 |
+| Meaning changed or wrong | 189 | 290 |
+| Hobby terms and names | 153 | 202 |
+| Leaves out what the source says | 108 | 145 |
+| Text left in another language | 108 | 134 |
+| States as certain what the source hedges, or what garbled captions only hint at | 87 | 100 |
 | A number, unit, dose or price | 78 | 101 |
 | Repeats itself (intro, summary, steps and FAQ) | 60 | 71 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
@@ -188,9 +188,9 @@ under `<lang>/<path>`.
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
+- Item 5: "lưới kéo bờ" for "shore seines" is non-standard. Use "lưới vây bờ" or "lưới rê/kéo ven bờ". "đáy cố định" for "set bagnets" is unclear. Use "lưới đáy cố định". — vi/species/plicofollis-platystomus (scotcat), 0.50
 - Item 5: "đầu hồi nước" is non-standard for 'outflows'; use 'đầu nước ra/ống xả'. 'đầu ra' for 'returns' is also unclear. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 - #1: 'bắt Ilyodon về làm thức ăn' – 'found on the human menu' is slightly changed; and 'Vì to như vậy' overstates causation, since 15 cm is exceptional only. — vi/species/ilyodon-furcidens (glaser), 0.55
-- The stomach muscles table row has "–" for function. The source merges those cells, so the row is unclear. Mandible muscle is listed under "Bộ phận miệng" and the anterior/posterior muscles are not explained. Make clear that the stomach mus… — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.60
 
 ### A number, unit, dose or price
 
@@ -386,7 +386,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 23 pages under the bar.
+1 of 24 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -413,7 +413,7 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 17 pages under the bar.
+0 of 18 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
