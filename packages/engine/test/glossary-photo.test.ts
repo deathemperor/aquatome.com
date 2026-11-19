@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { afterEach, expect, test } from 'vitest'
-import { GLOSSARY_PHOTOS, glossaryPhoto, type GlossaryPhotoDeps } from '../src/glossary-photo'
+import { GLOSSARY_PHOTOS, glossaryPhoto, glossaryPhotoSearch, type GlossaryPhotoDeps } from '../src/glossary-photo'
 import { mirrorPlan } from '../src/mirror-photos'
 import { assertPhotoPrivacy } from '../src/photo-privacy'
 
@@ -252,4 +252,60 @@ test("a photo already in the mark screen's file is screened again where it stand
   await writeFile(join(r, 'engine-state/_photo-watermarks.json'), `${JSON.stringify(marks, null, 2)}\n`)
   await glossaryPhoto(r, { term: 'lua', kind: 'lua-bonsai', file: FILE }, deps({ stored: [OURS] }).d)
   expect(Object.keys(await load(r, 'engine-state/_photo-watermarks.json'))).toEqual([first, OURS, OTHER])
+})
+
+test("a search lists Commons' and Openverse's open candidates by their own words, without never-again ones or files the import can't take, and stores and writes nothing", async () => {
+  const r = await root()
+  const thumb = (n: string) => `https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/${n}.jpg/960px-${n}.jpg`
+  const hit = (index: number, n: string, o: { width?: number; licence?: string } = {}) => ({ index, title: `File:${n.replace(/_/g, ' ')}.jpg`, imageinfo: [{
+    width: o.width ?? 3000, thumburl: thumb(n), thumbwidth: 960, thumbheight: 720, descriptionurl: `https://commons.wikimedia.org/wiki/File:${n}.jpg`,
+    extmetadata: { LicenseShortName: { value: o.licence ?? 'CC BY 4.0' }, Artist: { value: ARTIST }, ImageDescription: { value: `<p>${n.replace(/_/g, ' ')} in a tank</p>` } },
+  }] })
+  const tif = { ...hit(6, 'Spider_wood_scan'), title: 'File:Spider wood scan.tif' }
+  tif.imageinfo[0]!.descriptionurl = 'https://commons.wikimedia.org/wiki/File:Spider_wood_scan.tif'
+  const search = { query: { pages: { 1: hit(2, 'Spider_wood_b'), 2: hit(1, 'Spider_wood_a'), 3: hit(3, 'Spider_wood_nc', { licence: 'CC BY-NC 2.0' }), 4: hit(4, 'Spider_wood_small', { width: 640 }), 5: hit(5, 'Spider_wood_listed'), 6: tif, 7: hit(7, 'Spider_wood_listed_larger') } } }
+  // Never-again by our copy's key, or by the source's own address at another size than the search's (a Commons thumb at
+  // 1280 px, a Flickr photo at its original size).
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), `${JSON.stringify({
+    [`https://media.aquatome.com/${mirrorPlan(thumb('Spider_wood_listed'))!.key}`]: 'rejected: sample', 'https://media.aquatome.com/flickr/1001.webp': 'rejected: sample',
+    [thumb('Spider_wood_listed_larger').replace('/960px-', '/1280px-')]: 'rejected: sample', 'https://live.staticflickr.com/65535/1003_0123abcd45_o.jpg': 'rejected: sample',
+  }, null, 2)}\n`)
+  const { d, calls } = deps({ info: search, pages: [{ page_count: 3, results: [{ ...flickr('ov-a', 1000), title: 'Spider wood on a stone' }, flickr('ov-listed', 1001), { ...flickr('ov-nc', 1002), license: 'by-nc' }, flickr('ov-listed-larger', 1003)] }] })
+  const content = await snapshot(r), state = await Promise.all((await readdir(join(r, 'engine-state'))).sort().map(async f => [f, await readFile(join(r, 'engine-state', f), 'utf8')]))
+
+  // A kind the term doesn't list, or no words, asks nothing.
+  await expect(glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-mopani', search: 'spider wood' }, d)).rejects.toThrow(/"lua-mopani" is not one of lua's kinds/)
+  for (const search of ['  ', '""', ' " " ', "''", " ' ' ", `"'"`]) await expect(glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-cholla', search }, d)).rejects.toThrow(/--search takes the words/)
+  expect(calls.http).toEqual([])
+  expect(calls.openverse).toEqual([])
+
+  const hits = await glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-cholla', search: '"spider wood"' }, d)
+  expect(hits.map(h => [h.key, h.take])).toEqual([
+    ['File:Spider wood a.jpg', "--file 'File:Spider wood a.jpg'"],
+    ['File:Spider wood b.jpg', "--file 'File:Spider wood b.jpg'"],
+    ['flickr:1000', "--openverse 'spider wood' --flickr 1000"],
+  ])
+  expect(hits[0]).toEqual({ key: 'File:Spider wood a.jpg', licence: 'CC BY 4.0', author: 'Ann Sample', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Spider_wood_a.jpg', words: 'Spider wood a in a tank', take: "--file 'File:Spider wood a.jpg'" })
+  // An Openverse photo's own words are its title.
+  expect(hits[2]).toEqual({ key: 'flickr:1000', licence: 'CC BY 2.0', author: 'Sample Shooter', sourceUrl: 'https://www.flickr.com/photos/someone/1000', words: 'Spider wood on a stone', take: "--openverse 'spider wood' --flickr 1000" })
+  expect(new URL(calls.http[0]!).searchParams.get('gsrsearch')).toBe('filetype:bitmap "spider wood"')
+  expect(calls.openverse.map(u => new URL(u).searchParams.get('q'))).toEqual(['"spider wood"'])
+  expect(calls).toMatchObject({ bytes: [], put: [], faces: 0, read: 0, looks: 0 })
+  expect(await snapshot(r)).toEqual(content)
+  expect(await Promise.all((await readdir(join(r, 'engine-state'))).sort().map(async f => [f, await readFile(join(r, 'engine-state', f), 'utf8')]))).toEqual(state)
+})
+
+test("a search's lines are safe to paste: a title's quotes, $ and backticks stay one shell word, read back as the title", async () => {
+  const r = await root()
+  const title = `File:Sampletown "bark" $(touch x) \`id\` it's.jpg`
+  const url = `https://commons.wikimedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_')).replace(/%3A/g, ':')}`
+  const search = { query: { pages: { 1: { index: 1, title, imageinfo: [{ width: 3000, thumburl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Sampletown.jpg/960px-Sampletown.jpg', thumbwidth: 960, thumbheight: 720, descriptionurl: url, extmetadata: { LicenseShortName: { value: 'CC0' }, Artist: { value: ARTIST } } }] } } } }
+  const { d } = deps({ info: search, pages: [{ page_count: 1, results: [flickr('ov-a', 1000)] }] })
+  const hits = await glossaryPhotoSearch(r, { term: 'lua', kind: 'lua-cholla', search: "it's $(x)" }, d)
+  const { execFileSync } = await import('node:child_process')
+  // The shell reads each line back as its words: the title and the phrase whole, nothing run.
+  const words = (line: string) => JSON.parse(execFileSync('sh', ['-c', `node -e 'console.log(JSON.stringify(process.argv.slice(1)))' -- ${line}`], { cwd: r, encoding: 'utf8' }))
+  expect(words(hits[0]!.take)).toEqual(['--file', title])
+  expect(words(hits[1]!.take)).toEqual(['--openverse', "it's $(x)", '--flickr', '1000'])
+  expect(await has(r, 'x')).toBe(false)
 })
