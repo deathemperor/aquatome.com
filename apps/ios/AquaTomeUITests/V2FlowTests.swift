@@ -1649,17 +1649,23 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThanOrEqual(last.frame.maxY, bar - 30, "the page ends in the fade")
   }
 
-  /// What's faded out under the bar can't be tapped: a tap under it, with a card behind, opens nothing.
+  /// What's faded out under the bar can't be tapped: at the sizes that take the fade (AX3 and up, Design's ladder, 15 Nov),
+  /// a tap under it, with a card behind, opens nothing. At the other sizes the page under the glass is seen, and live.
   func testATapUnderTheTabBarOpensNothing() {
-    let app = launch("-v2", "YES")
+    let app = launch("-v2", "YES", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXL")
     app.launchForFlow()
-    let fish = app.buttons["v2-fish-of-the-day"]
-    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    let foot = app.tabBars.buttons["Hôm nay"].frame.maxY + 10
-    app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: 100, dy: foot)).tap()
-    // Hôm nay still there, its fish's card in view, and no page pushed over it.
-    XCTAssertFalse(fish.waitForNonExistence(timeout: 2), "a tap under the bar opened what's behind it")
-    XCTAssertTrue(fish.isHittable, "a tap under the bar opened what's behind it")
+    let tab = app.tabBars.buttons["Hôm nay"]
+    XCTAssertTrue(tab.waitForExistence(timeout: 10), "no Hôm nay")
+    let at = CGPoint(x: 100, y: tab.frame.maxY + 10)
+    // A card of the page's behind that point: hidden by the fade, still in the accessibility tree.
+    func behind(_ e: XCUIElementSnapshot) -> Bool {
+      e.elementType != .tabBar && ((e.elementType == .button && e.frame.contains(at)) || e.children.contains(where: behind))
+    }
+    XCTAssertTrue((try? app.snapshot()).map(behind) ?? false, "no card behind the bar to tap")
+    app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: at.x, dy: at.y)).tap()
+    // A post's, a guide's and a fish's page each have a ⋯; Hôm nay has none.
+    XCTAssertFalse(app.descendants(matching: .any)["page-more"].waitForExistence(timeout: 2), "a tap under the bar opened what's behind it")
+    XCTAssertTrue(tab.isSelected, "a tap under the bar left Hôm nay")
   }
 
   /// Khám phá's chips (Design's spec-chips.md): a row under the title, from its left edge, two or more whole at size L; the
