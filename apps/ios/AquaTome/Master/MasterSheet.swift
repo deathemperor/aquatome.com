@@ -47,7 +47,7 @@ struct MasterSheet: View {
           ForEach([60, 120, nil] as [Int?], id: \.self) { m in
             Button { draft.minutes = m } label: {
               HStack {
-                Text(verbatim: m.map { String(localized: "Sau \($0 / 60) giờ") } ?? String(localized: "Khi tôi bấm Kết thúc")).foregroundStyle(.primary)
+                Text(verbatim: m.map { String(localized: "Sau \($0 / 60) giờ") } ?? String(localized: "Khi tôi bấm Kết thúc")).foregroundStyle(Color.primary)
                 Spacer()
                 if draft.minutes == m { Image(systemName: "checkmark").foregroundStyle(Color.accentColor).accessibilityHidden(true) }
               }
@@ -198,7 +198,7 @@ private struct StepChoice: View {
     Button(action: pick) {
       HStack(spacing: 12) {
         if let swatch { Circle().fill(swatch).frame(width: 22, height: 22).overlay { Circle().strokeBorder(.primary.opacity(0.3)) } }
-        Text(verbatim: title).foregroundStyle(.primary)
+        Text(verbatim: title).foregroundStyle(Color.primary)
         Spacer()
         if chosen { Image(systemName: "checkmark").foregroundStyle(Color.accentColor).accessibilityHidden(true) }
       }
@@ -224,7 +224,7 @@ private struct AddDevice: View {
       if lampFree {
         Section("Đèn") {
           Button { addLamp() } label: {
-            HStack(spacing: 12) { DeviceSquare(lamp: true); Text("Đèn Love Ecology").foregroundStyle(.primary) }
+            HStack(spacing: 12) { DeviceSquare(lamp: true); Text("Đèn Love Ecology").foregroundStyle(Color.primary) }
           }
           .accessibilityIdentifier("master-add-lamp")
         }
@@ -236,8 +236,8 @@ private struct AddDevice: View {
             HStack(spacing: 12) {
               DeviceSquare(lamp: false)
               VStack(alignment: .leading, spacing: 2) {
-                Text(verbatim: o.name).foregroundStyle(.primary)
-                Text(verbatim: o.place).font(.subheadline).foregroundStyle(.secondary)
+                Text(verbatim: o.name).foregroundStyle(Color.primary)
+                Text(verbatim: o.place).font(.subheadline).foregroundStyle(Color.secondary)
               }
             }
           }
