@@ -442,7 +442,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const s of all) {
     let bare = false
     const files = [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]
-    const [own, album] = await Promise.all(files.map(async f => (await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(f))?.photos ?? []))
+    const [own, album] = await Promise.all(files.map(async f => (await readJson<{ photos?: (Photo & Parameters<typeof photoFitsHead>[0] & { unchecked?: boolean; source?: string; headFit?: string })[] }>(f))?.photos ?? []))
     // The photos the page's album shows, as the build fills it (packages/schema/src/load.ts): its file's photos that don't
     // wait, AI pictures among them, and the page's own photos that can't lead it, which the build moves there. The build
     // hides some and the site counts each picture once, so this can count a few too many, never too few. A breed's page
