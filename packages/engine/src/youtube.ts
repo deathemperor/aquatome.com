@@ -60,7 +60,6 @@ const WRITE = withTanks(readFileSync(new URL('./prompts/video-guide.md', import.
 const REVIEW = withTanks(readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8'))
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
-const MEND = readFileSync(new URL('./prompts/video-mend.md', import.meta.url), 'utf8')
 const str = { type: 'string' }
 const DRAFT_SCHEMA = {
   type: 'object', required: ['relevant', 'kind', 'viTitle', 'summary', 'body', 'faq', 'chapters'],
@@ -367,9 +366,9 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
  * The reviewer's notes applied to the draft they are about, checked against the transcript: what the video doesn't say goes,
  * nothing new comes in. A fresh draft fixed the old notes and brought new inventions. null: the edit came back broken.
  */
-export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string; /** The notes are the reader-fit check's (video-mend.ts): what the video says but a reader here can't use. */ reader?: boolean } = {}): Promise<Draft | null> {
+export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string } = {}): Promise<Draft | null> {
   const own = o.lang === 'vi' ? ['Video bằng tiếng Việt: không chép lại câu nói trong bản ghi; chỗ nào sửa thì viết bằng lời của bạn.'] : []
-  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.reader ? [MEND] : [checkRules()]), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `${o.reader ? 'Ghi chú về người đọc' : 'Ghi chú của người duyệt'}:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
+  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, checkRules(), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `Ghi chú của người duyệt:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
   if (!e.relevant || !usable(e)) return null
   return { ...e, kind: d.kind, relevant: d.relevant, chapters: e.chapters.length === d.chapters.length ? e.chapters : d.chapters }
 }

@@ -276,7 +276,7 @@ const REVIEW_SCHEMA = {
 }
 
 /** A sentence as the writer returned it: inline markup only, as the site keeps it; nothing when it's to go. */
-const inline = (vi: string) => {
+export const inline = (vi: string) => {
   const t = vi.trim()
   if (!t) return ''
   return sanitizeHtml(t).replace(/<\/?(p|ul|ol|li|h3|table|thead|tbody|tr|th|td)>/g, ' ').replace(/<br>/g, ' ').replace(/\s+/g, ' ').trim()

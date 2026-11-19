@@ -1,20 +1,24 @@
 import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
+import { QUALITY_THRESHOLD, toMetric, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import { machine, type Machine } from './ceiling'
 import type { Llm } from './claude'
 import { FIT_TITLE, givesDose, type FitFinding } from './fit'
 import type { Mend } from './gate'
-import { words } from './mend'
+import { holding, inline, words } from './mend'
 import type { Page } from './pages'
+import { VI_STYLE as STYLE } from './phrases'
 import { norm, render } from './reader'
 import { logReviews } from './review-log'
-import { roundPage } from './round'
-import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
+import { roundConverted } from './round'
+import { sanitizeHtml, unescapePlain } from './sanitize'
+import { plain, quoted, sentences, splice, type Piece } from './sentences'
 import { setHold } from './video-hold'
-import { fixDraft, reviewDraft, type Draft, type WriteOpts, type YouTube } from './youtube'
+import { reviewDraft, type WriteOpts, type YouTube } from './youtube'
 
+/** What the editor is told: to write again only the numbered sentences, for a reader in Vietnam, and how to answer. */
+const MEND = readFileSync(new URL('./prompts/video-mend.md', import.meta.url), 'utf8')
 /** What the mender's editor is told to do, said to its reviewer: a foreign price turned into the comparison it makes is a fact kept (the Writing Lead's ruling, 2026-11-11). */
 const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', import.meta.url), 'utf8')
 
@@ -139,20 +143,41 @@ const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(
 const less = (a: Map<string, number>, gone: Map<string, number>) => new Map([...a].map(([k, n]) => [k, Math.max(0, n - (gone.get(k) ?? 0))]))
 
 /**
+ * A plain line (the title, a summary point, a question or an answer) as HTML the sentence cutter reads as text, and
+ * back, exactly: "&" is "&amp;" there and "&amp;" again here.
+ */
+const asHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const asPlain = (s: string) => s.replace(/&(amp|lt|gt);/g, (_, e: string) => ({ amp: '&', lt: '<', gt: '>' })[e]!)
+/** A sentence the editor returned for a plain line: its words only, as such a line is kept. */
+const flat = (vi: string) => unescapePlain(vi.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim()
+/** Metric and rounded, as the video writer writes a guide (youtube.ts): only what changes, so the rest stays byte for byte. */
+const metric = (s: string) => roundConverted(toMetric(s, 'vi'), 'vi')
+const WHERE: [RegExp, string][] = [[/^name$/, 'tiêu đề'], [/^summary\./, 'tóm tắt'], [/^body$/, 'thân bài'], [/^faq\.\d+\.q$/, 'câu hỏi FAQ'], [/^faq\.\d+\.a$/, 'trả lời FAQ']]
+const SENTENCES_SCHEMA = { type: 'object', required: ['sentences'], properties: { sentences: { type: 'array', items: { type: 'object', required: ['n', 'vi'], properties: { n: { type: 'number' }, vi: { type: 'string' } } } } } }
+type Part = { field: string; html: boolean; text: string; pieces: Piece[] }
+
+/**
  * The gate's mender for a Vietnamese video guide (gate.ts `mend`). A new version the video reviewer passed went back
  * whole when one sentence of it named a shop abroad or gave a price in dollars, and the guide had had its one go: 43 of
- * the 94 texts the recheck job's gate put back from 8 to 10 Nov 2026. Here the sentences the gate quotes go to the
- * video's own editor (`fixDraft`), which has the transcript and only cuts or rewords, and the video reviewer reads the
- * result: a text the reader-fit writer made from facts (for-reader.ts) would be another guide, with the passing review
- * left on a text the page doesn't have.
+ * the 94 texts the recheck job's gate put back from 8 to 10 Nov 2026. Here the sentences the gate quotes go to an editor
+ * with the transcript, and the video reviewer reads the result: a text the reader-fit writer made from facts
+ * (for-reader.ts) would be another guide, with the passing review left on a text the page doesn't have.
  *
- * The file is written, and true returned, only when the edit took every quoted sentence out and its review is at the bar,
- * or no lower than the review of the text it mends (a mend never leaves a guide worse, as a redo never does). Its review
- * is then the page's. False, and the file as it was: a broken edit, a sentence left in, or a review under both. Nothing,
- * with no editor called, so the gate doesn't count it among a run's mends: not a Vietnamese video guide, a text a person
- * fixed, no transcript on this Mac. Nor is a mend tried when a product or a price is quoted in a sentence that gives a
- * dose: the editor turns a product into its kind, and "5 ml of that product for 200 litres" would become a dose for every
- * product of the kind (the Writing Lead, 2026-11-11). That text goes back.
+ * Only the sentences a finding names are written again, and code puts each back in its place: every other sentence of
+ * the guide is kept byte for byte (the chief of staff, 19 Nov 2026). Until then the editor got the whole guide and
+ * returned it whole, and 15 of the 21 held guides mended from 18 Nov were thrown away after paying for it, each for a
+ * sentence no finding named that the editor had changed. A sentence is one as sentences.ts cuts it (coarsely: unsure,
+ * two stay one), in the title, each summary point, the body, and each question and answer, and a finding names every
+ * one its quote is in, wherever the guide says it. A units finding's sentence isn't the editor's: code converts it.
+ *
+ * The file is written, and true returned, only when the edit took every quote out and its review is at the bar, or no
+ * lower than the review of the text it mends (a mend never leaves a guide worse, as a redo never does). Its review is
+ * then the page's. False, and the file as it was: an answer that numbers a sentence twice or leaves one out, a quote left
+ * in, a figure moved, a part it would empty, or a review under both. Nothing, with no editor called, so the gate doesn't
+ * count it among a run's mends: not a Vietnamese video guide, a text a person fixed, a quote in no sentence of the
+ * guide, nothing but units to mend, no transcript on this Mac. Nor is a mend tried when a product or a price is quoted in
+ * a sentence that gives a dose: the editor turns a product into its kind, and "5 ml of that product for 200 litres" would
+ * become a dose for every product of the kind (the Writing Lead, 2026-11-11). That text goes back.
  */
 export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts }): Mend => async (p: Page, findings: FitFinding[]) => {
   if (p.lang !== 'vi' || p.kind !== 'guides' || !findings.length) return undefined
@@ -172,19 +197,85 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote))) && ownTankDose(sentenceOf(paragraphs, norm(f.quote), cased)))) return undefined
   const sentence = (f: FitFinding) => sentenceOf(paragraphs, norm(f.quote))
   if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentence(f)) && !doses.includes(sentence(f)))) return undefined
+
+  // The guide's parts, each cut into its sentences, and the ones each finding names: every sentence its quote is in, in
+  // any part (a quote said again in the FAQ is named there too), each sent once with all its notes.
+  const parts: Part[] = [
+    { field: 'name', html: false, text: vi.name },
+    ...(vi.summary ?? []).map((s, i) => ({ field: `summary.${i}`, html: false, text: s })),
+    { field: 'body', html: true, text: vi.body ?? '' },
+    ...(vi.faq ?? []).flatMap((f, i) => [{ field: `faq.${i}.q`, html: false, text: f.q }, { field: `faq.${i}.a`, html: false, text: f.a }]),
+  ].map(x => ({ ...x, pieces: sentences(x.html ? x.text : asHtml(x.text)) }))
+  const said = parts.map(x => x.pieces.filter(q => q.sentence).map(q => q.html))
+  const at = (f: FitFinding) => parts.flatMap((x, k) => [...new Set([...quoted(x.pieces, f.quote), ...holding(x.pieces, f.quote)])].map(i => ({ k, i })))
+  const named: { k: number; i: number; notes: string[] }[] = []
+  const convert: { k: number; i: number }[] = []
+  for (const f of findings) {
+    const where = at(f)
+    if (f.check === 'units') { convert.push(...where); continue }
+    // A quote in no sentence of the guide: nothing here the editor could be shown, nor told to leave.
+    if (!where.length) return undefined
+    for (const w of where) {
+      const n = named.find(x => x.k === w.k && x.i === w.i) ?? named[named.push({ ...w, notes: [] }) - 1]!
+      n.notes.push(`"${f.quote}": ${FIT_TITLE[f.check]} (${f.why})${f.check === 'dose' ? `. Đây là liều của chính bể trong video: bỏ con số liều và tên sản phẩm, giữ bước làm, viết "…, ${LABEL_DOSE}."` : ''}`)
+    }
+  }
+  if (!named.length) return undefined
+  if (vi.nameFixed && named.some(n => n.k === 0)) return undefined
+  named.sort((a, b) => a.k - b.k || a.i - b.i)
   const lang = e.video.lang ?? 'en'
   const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
   if (!transcript) return undefined
 
-  const draft: Draft = { relevant: true, kind: e.kind, viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [], chapters: vi.chapters ?? [] }
-  const notes = findings.map(f => `"${f.quote}": ${FIT_TITLE[f.check]} (${f.why})${f.check === 'units'
-    ? '. Giữ nguyên mọi con số và đơn vị như đang viết: code đổi sang hệ mét sau.'
-    : f.check === 'dose' ? `. Đây là liều của chính bể trong video: bỏ con số liều và tên sản phẩm, giữ bước làm, viết "…, ${LABEL_DOSE}."` : ''}`)
-  const fixed = await fixDraft(d.llm, transcript, draft, notes, { ...d.write, lang, reader: true })
-  if (!fixed) return false
-  // The title only when a fault was in it: a guide's name isn't the editor's to change otherwise.
-  const name = findings.some(f => f.part === 'T') ? unescapePlain(fixed.viTitle).trim() : vi.name
-  const text = norm([name, ...fixed.summary, render(sanitizeHtml(fixed.body)), ...fixed.faq.flatMap(f => [f.q, f.a])].join('\n'))
+  const shown = (k: number, h: string) => (parts[k]!.html ? h : asPlain(h))
+  const whole = [`TIÊU ĐỀ: ${vi.name}`, ...(vi.summary ?? []).map(s => `TÓM TẮT: ${s}`), render(sanitizeHtml(vi.body ?? '')), ...(vi.faq ?? []).flatMap(f => [`HỎI: ${f.q}`, `ĐÁP: ${f.a}`])].join('\n')
+  const asked = named.map((n, j) => `[${j + 1}] (${WHERE.find(([r]) => r.test(parts[n.k]!.field))![1]}) ${shown(n.k, said[n.k]![n.i]!)}\n${n.notes.map(t => `- ${t}`).join('\n')}`)
+  const own = lang === 'vi' ? ['Video bằng tiếng Việt: không chép lại câu nói trong bản ghi; chỗ nào sửa thì viết bằng lời của bạn.'] : []
+  const w = await d.llm<{ sentences: { n: number; vi: string }[] }>({
+    system: 'Bạn là biên tập viên tiếng Việt. Chỉ trả lời bằng JSON.',
+    prompt: [MEND, ...(d.write?.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Cả bài, để đọc:\n${whole}`, `Các câu cần sửa:\n${asked.join('\n\n')}`].join('\n\n'),
+    schema: SENTENCES_SCHEMA, ...(d.write?.model ? { model: d.write.model } : {}),
+  })
+  // Each named sentence answered once; a number it wasn't asked is left alone. Two answers for one, or none: which to
+  // put in is a guess, and the edit is broken.
+  const answers = new Map<number, string>()
+  for (const s of w.sentences ?? []) {
+    const n = Number(s.n)
+    if (!Number.isInteger(n) || n < 1 || n > named.length) continue
+    if (answers.has(n)) return false
+    answers.set(n, String(s.vi ?? ''))
+  }
+  if (answers.size < named.length) return false
+  // What the editor wrote, as the checks read it, and as it's written: metric and rounded, a units finding's sentence too.
+  const raw = parts.map(() => new Map<number, string>())
+  const out = parts.map(() => new Map<number, string>())
+  named.forEach((n, j) => {
+    const v = answers.get(j + 1)!
+    const t = parts[n.k]!.html ? inline(v) : asHtml(flat(v))
+    raw[n.k]!.set(n.i, t)
+    out[n.k]!.set(n.i, t && metric(t))
+  })
+  for (const c of convert) if (!out[c.k]!.has(c.i)) out[c.k]!.set(c.i, metric(said[c.k]![c.i]!))
+  const assemble = (changes: Map<number, string>[]) => parts.map((x, k) => {
+    if (![...changes[k]!].some(([i, t]) => t !== said[k]![i])) return x.text
+    const h = splice(x.pieces, changes[k]!).trim()
+    return x.html ? h : asPlain(h)
+  })
+  const before = parts.map(x => x.text)
+  const [checked, written] = [assemble(raw), assemble(out)]
+  // A part it would empty: the title, the body, or one side of a question and its answer, which would leave the other about nothing.
+  const faqAt = (k: number) => /^faq\.(\d+)\.[qa]$/.exec(parts[k]!.field)?.[1]
+  if (!written[0] || (before[parts.findIndex(x => x.field === 'body')] && !written[parts.findIndex(x => x.field === 'body')])) return false
+  if (parts.some((x, k) => faqAt(k) !== undefined && !written[k] && written[parts.findIndex((y, m) => m !== k && faqAt(m) === faqAt(k))])) return false
+  const draftOf = (v: string[]) => {
+    const get = (f: string) => v[parts.findIndex(x => x.field === f)]!
+    return {
+      name: get('name'), body: get('body'), summary: (vi.summary ?? []).map((_, i) => get(`summary.${i}`)).filter(Boolean),
+      faq: (vi.faq ?? []).map((_, i) => ({ q: get(`faq.${i}.q`), a: get(`faq.${i}.a`) })).filter(f => f.q && f.a),
+    }
+  }
+  const c = draftOf(checked), fixed = draftOf(written)
+  const text = norm([c.name, ...c.summary, render(sanitizeHtml(c.body)), ...c.faq.flatMap(f => [f.q, f.a])].join('\n'))
   // A units finding's figures stay as written, for code to convert; every other quote goes.
   if (findings.some(f => f.check !== 'units' && text.includes(norm(f.quote)))) return false
   // No dose figure comes out that didn't go in (the chief of staff, 14 Nov 2026: "every figure in equals every figure
@@ -195,40 +286,28 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   if ([...figures(doses.join('\n'))].some(([k, n]) => DOSE_UNIT.test(unit(k)) && (has.get(k) ?? 0) > (had.get(k) ?? 0) - n)) return false
   // Its figure may stay only in a sentence carried over whole from one with no dose of the tank's ("Ngoài ra còn 4 nắp
   // trong tủ."), never in one the editor wrote, which a count can't tell apart (Grok's read).
-  const own = new Set([...figures(doses.join('\n')).keys()].filter(k => DOSE_UNIT.test(unit(k))))
+  const ownDose = new Set([...figures(doses.join('\n')).keys()].filter(k => DOSE_UNIT.test(unit(k))))
   const carried = new Set(split(paragraphs.join('\n')).filter(x => !doses.some(s => s.trim() === x)))
-  if (split(text).some(x => !carried.has(x) && [...figures(x).keys()].some(k => own.has(k)))) return false
-  // In every mend, not only beside units or a dose: no figure added, and none lost but those of the sentences a finding
-  // takes, each once, and never a units quote's, which stay for code to convert (a shop's mend made "80 cm" "90 cm",
-  // Grok's read).
-  const taken = less(figures([...new Set(findings.filter(f => f.check !== 'units').map(sentence))].join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
+  if (split(text).some(x => !carried.has(x) && [...figures(x).keys()].some(k => ownDose.has(k)))) return false
+  // No figure added, and none lost but those of the sentences the editor was given, each once, and never a units quote's,
+  // which stay for code to convert (a shop's mend made "80 cm" "90 cm", Grok's read).
+  const taken = less(figures(named.map(n => norm(parts[n.k]!.html ? plain(said[n.k]![n.i]!) : asPlain(said[n.k]![n.i]!))).join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
   if (more(has, had).length || more(less(had, taken), has).length) return false
-  // Every other sentence survives word for word: a mend takes out only a sentence a finding names, one with a non-units
-  // finding's quote in it (the chief of staff, 14 Nov 2026, the lane's rule). One that also tidies the same thing said
-  // another way elsewhere is refused, and the guide stays held: the gate counts these, to say whether a finding for a
-  // repeated mention is worth adding.
-  const quotes = findings.filter(f => f.check !== 'units').map(f => norm(f.quote))
-  // Line by line, as the text it mends is read: a heading or the title is its own sentence.
-  // The summary and FAQ as they're written: unescaped ("&amp;" is "&", Grok's read).
-  const plain = plainParts(fixed.summary, fixed.faq)
-  const kept = new Set(split([name, ...plain.summary, ...render(sanitizeHtml(fixed.body)).split('\n'), ...plain.faq.flatMap(f => [f.q, f.a])].map(norm).join('\n')))
-  const lost = split(paragraphs.join('\n')).filter(x => !kept.has(x) && !quotes.some(q => x.includes(q)) && !findings.some(f => f.check !== 'units' && split(sentence(f)).includes(x)))
-  if (lost.length) return { refused: `a sentence no finding names was changed or left out: "${lost[0]}"${lost.length > 1 ? ` and ${lost.length - 1} more` : ''}` }
 
-  const review = await reviewDraft(d.llm, transcript, { ...fixed, viTitle: name }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)
+  const review = await reviewDraft(d.llm, transcript, { viTitle: fixed.name, summary: fixed.summary, body: fixed.body, faq: fixed.faq }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)
   const page = { id: `guides/${p.id}`, lang: 'vi' }
   const now = d.now?.() ?? new Date()
   if (review.score < QUALITY_THRESHOLD && review.score < (vi.quality?.score ?? 0)) {
     await logReviews(root, 'video-guide', page, [review], undefined, { now, rewrite: true })
     return false
   }
-  // As the video writer writes a guide (youtube.ts): metric and rounded, held out of the chat while under the bar.
+  // Held out of the chat while under the bar, as the video writer writes a guide (youtube.ts).
   const held = vi.quality?.chat === false
   const { chat: _chat, ...quality } = vi.quality ?? {}
-  const next = TranslationSchema.parse(roundPage(metricPage({
-    ...vi, name, body: sanitizeHtml(fixed.body), ...plainParts(fixed.summary, fixed.faq),
+  const next = TranslationSchema.parse({
+    ...vi, ...fixed,
     quality: { ...quality, score: review.score, indexable: review.score >= QUALITY_THRESHOLD, bySource: { youtube: review.score }, ...(held && review.score < QUALITY_THRESHOLD ? { chat: false as const } : {}) },
-  }, 'vi'), 'vi'))
+  })
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(next, null, 2)}\n`)
   if (held && review.score >= QUALITY_THRESHOLD) await setHold(contentRoot, p.id, false)
   await logReviews(root, 'video-guide', page, [review], review, { now, rewrite: true })
