@@ -1422,5 +1422,54 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/bo-bo": [
+    {
+      "at": "2026-11-19T17:56:04Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Sau khoảng 7–10 ngày, khi bo bo đã đông, vớt bằng vợt mịn hoặc vải mỏng.\" leaves out part of the keeper's step. The fact also says to rinse the bo bo in clean water before feeding them. THIS TERM asks for the culturing steps as the facts give them, so this step is incomplete.",
+        "Rule 12: \"chủ yếu thuộc chi Moina hoặc Daphnia\" is written as plain fact, but only the magazine (source 3) says bo bo are 'mainly' Moina or Daphnia. THIS TERM says a one-page claim must say whose it is, and that page would be a fourth source. Either drop the hedge \"chủ yếu\" and name Moina and Daphnia as the other pages do, or credit the claim within the three-page limit.",
+        "Rule 12: \"Một nguồn người nuôi ghi cách nuôi như sau:\" opens the keeper's page with the same wording a second time, after \"Một nguồn người nuôi ghi chỉ nên cho cá betta (cá xiêm) bột ăn bo bo…\". This makes it read as a second keeper. The shop's second mention uses \"Tiệm nói ở trên\", so this should also make clear it is the same keeper's page, for example \"Nguồn người nuôi nói ở trên ghi…\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T17:56:04Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.97,
+      "notes": [
+        "\"Vớt xong thì xả bo bo qua nước sạch rồi mới cho cá ăn.\": the facts don't carry it (supported, uncredited, uncredited): only the keeper blog gives rinsing for all harvested bo bo; the magazine's rinsing is for wild-caught only, and that limit isn't stated / rinsing harvested bo bo only from keeper site; magazine's rinse is for wild-caught only",
+        "Rule 4: The entry makes the point that pale bo bo are weak or underfed in three places. The keeper source says it in \"Giống nhợt, trắng là giống yếu\" and again in \"Nguồn này cũng ghi rằng đàn bo bo nhợt màu là đang thiếu ăn và cần cho ăn ngay\". The university source says it in \"Moina nhợt màu, ruột rỗng là dấu hiệu điều kiện nuôi kém hoặc thiếu ăn\". Two pages give this, so it should be said once,…",
+        "Rule 4: The step of removing chlorine appears twice. It is stated plainly in \"Nước máy phải khử clo trước khi nuôi bo bo\", then repeated in the shop's list as \"với 20–30 cm nước đã khử clo\". It should be said once.",
+        "The entry is 529 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T17:56:04Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.91,
+      "notes": [
+        "\"Bo bo là giáp xác nước ngọt rất nhỏ, thuộc chi Moina hoặc Daphnia.\": the facts don't carry it (loose, unsupported, unsupported): Source says 'mainly' Moina or Daphnia; the sentence drops that / drops 'mainly' qualifier on genera",
+        "\"Đàn bo bo nhợt màu là đang thiếu ăn, cần cho ăn ngay.\": the facts don't carry it (uncredited, uncredited, uncredited): Only the keeper blog says to feed a pale colony right away / 'feed right away' only from keeper blog, uncredited / 'feed right away' only from keeper blog",
+        "\"Nắng gắt chiếu thẳng làm nước nóng nhanh và bo bo chết.\": the facts don't carry it (unsupported, unsupported, unsupported): Drops 'can': the source says direct sun can kill them, not that it does / drops 'can' hedge; stated as certain / drops 'can' hedge",
+        "Rule 12: \"thuộc chi Moina hoặc Daphnia\" in the definition drops the fact's hedge. The magazine says BoBo are \"mainly of the genera Moina or Daphnia\", so it should read \"chủ yếu thuộc chi Moina hoặc Daphnia\".",
+        "Rule 4: \"Chúng giàu đạm và hợp làm mồi cho cá bột.\" says again what the definition already says (\"Đây là mồi sống hợp với cá bột\"). That bo bo suit fry should be said in one place only.",
+        "Rule 6: \"cá bảy màu\" in \"Một tiệm ghi rằng bo bo hợp với cá miệng nhỏ như cá bảy màu, cá betta (cá xiêm) và cá neon xanh\": the fact names the genus (\"guppies (Poecilia)\"), not the species on the Cá bảy màu page. A genus has no page, so it should be called by the scientific name the fact writes: \"Poecilia\".",
+        "Rule 6: \"cá betta (cá xiêm)\" in \"Một tiệm ghi rằng bo bo hợp với cá miệng nhỏ như cá bảy màu, cá betta (cá xiêm) và cá neon xanh\": the fact names the genus (\"bettas (Betta)\"), not the Betta splendens page. It should be \"Betta\".",
+        "Rule 6: \"cá neon xanh\" in \"Một tiệm ghi rằng bo bo hợp với cá miệng nhỏ như cá bảy màu, cá betta (cá xiêm) và cá neon xanh\": the fact names the genus (\"neon tetras (Paracheirodon)\"), not the Paracheirodon innesi page. It should be \"Paracheirodon\".",
+        "Rule 12: \"cần cho ăn ngay\" in \"Đàn bo bo nhợt màu là đang thiếu ăn, cần cho ăn ngay\" is written as plain fact, but only the keeper's page says it. Also, the university page gives a pale colony as a sign of \"poor conditions or too little food\", so stating plainly that it \"is underfed\" drops that hedge. The part only one page gives should go under the keeper's opening.",
+        "Rule 12: In the shop's culture list, \"Dùng thùng xốp, chậu hoặc bể nhỏ từ 20 lít trở lên, mặt thoáng rộng\" leaves out the step's own figure, \"20–30 cm\" of dechlorinated water. Culturing steps should be given as the facts give them, with every figure and its unit."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
