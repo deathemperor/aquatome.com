@@ -1077,6 +1077,27 @@
   ],
   "vi/glossary/luu-vuc": [
     {
+      "at": "2026-11-19T01:30:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T01:30:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The meaning still has the saved wording \"bể biotope chép theo\". THIS TERM says it must be replaced word for word with \"Trong nuôi cá cảnh, lưu vực, hay hệ sông, được xét như một vùng địa lý mà bể biotope mô phỏng: cá, cây và đồ trang trí đều lấy từ cùng một nơi ngoài tự nhiên, như sông Amazon.\" Only \"mô phỏng\" replaces \"chép theo\".",
+        "Rule 12: The plants sentence still has the saved order \"Hygrophila, và Crinum natans hoặc cây crinum calamistratum.\" THIS TERM says it must be replaced word for word with \"Cây gồm Cryptocoryne dọc mép nước lặng, Vallisneria (cỏ lươn) trồng trên cát chỗ dòng vừa, Hygrophila, và cây crinum calamistratum hoặc Crinum natans.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T19:21:54Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1114,29 +1135,6 @@
         "Rule 12: The meaning \"Lưu vực là cả một hệ sông, như sông Amazon hay lưu vực Rio Negro ở Brazil, xét như một vùng địa lý. Bể biotope chép theo một nơi như vậy ngoài tự nhiên: cá, cây và đồ trang trí đều lấy từ một nơi.\" is not the required wording. It must read word for word: \"Trong nuôi cá cảnh, lưu vực, hay hệ sông, được xét như một vùng địa lý mà bể biotope chép theo: cá, cây và đồ trang trí đ…",
         "Rule 12: \"Bể dài từ 120 cm trở lên, nền cát sông mịn kèm sỏi và đá cuội tròn.\" uses \"dài\" and \"tròn\", and it drops \"nhẵn\". THIS TERM bans both words. The sentence must read word for word: \"Bể từ 120 cm trở lên, nền cát sông mịn kèm sỏi nhẵn và đá cuội.\"",
         "Rule 12: The mistake \"Thả chung cá từ các châu lục hay nơi sống khác nhau trong một bể biotope.\" keeps the continents, which only the keeper's page gives, so they must come out. It must read word for word: \"Thả chung cá từ những nơi sống khác nhau trong một bể biotope.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T18:26:24Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chọn nền, đá và lũa hợp với nơi sống đó.\" (not \"Chọn nền và vật liệu trang trí cứng (hardscape) hợp với nơi sống đó.\": it drops the advice \"đá\")"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T18:26:24Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 12: Step 3 reads \"Bài gợi ý bể 60–80 lít cho bể biotope đầu tiên, và cần xem sàn nhà có chịu nổi sức nặng không.\" It leaves out the weight (fact 23), which goes in an eighth item, \"Đừng quên sức nặng: một bể biotope 80 lít set xong có thể nặng khoảng 100 kg.\" THIS TERM says the guide's seven steps go in order and the weight belongs in step 3, beside the floor check, never as its own item. St…",
-        "Rule 12: Step 7 reads \"Chạy vi sinh cho bể từ bốn đến sáu tuần, rồi thả dần cá, tép, ốc, bắt đầu từ loài khỏe nhất.\" \"cá, tép, ốc\" are another page's words (fact 18). Step 7 must be, word for word: \"Chạy vi sinh cho bể từ bốn đến sáu tuần, rồi mới thả dần các loài vào bể, bắt đầu từ loài khỏe nhất.\""
       ],
       "attempt": "rewrite",
       "kept": false
