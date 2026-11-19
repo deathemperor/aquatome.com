@@ -18,9 +18,11 @@ vi.mock('node:child_process', () => ({
   spawn: (_cmd: string, _args: string[], opts: { env?: NodeJS.ProcessEnv }) => {
     const token = opts.env?.CLAUDE_CODE_OAUTH_TOKEN
     spawned.push({ token: opts.env ? token : undefined, list: !!opts.env?.CLAUDE_CODE_OAUTH_TOKENS })
-    const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
+    // 'tok-hang' never answers, and ends only when the engine's timer kills it.
+    const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => { if (token === 'tok-hang') setImmediate(() => child.emit('close', null)); return true } })
     const a = token ? ANSWERS[token]! : ANSWERS['tok-ok']!
     child.stdin.on('finish', () => {
+      if (token === 'tok-hang') return
       child.stdout.end(JSON.stringify(a.json))
       setImmediate(() => child.emit('close', a.code))
     })
@@ -268,4 +270,19 @@ test("a call made for the next account goes once to the account after the one in
     await expect(onNextAccount.run(true, call)).rejects.toThrow('no other account to ask')
     expect(spawned).toEqual([])
   }
+})
+
+test("a call the engine's own timer stops says so, and isn't read as its account's failure", async () => {
+  setTokens('tok-hang\ntok-ok')
+  vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
+  try {
+    const stopped = expect(call()).rejects.toThrow(/^claude timed out after 600 s$/)
+    await vi.advanceTimersByTimeAsync(10 * 60_000)
+    await stopped
+  } finally {
+    vi.useRealTimers()
+  }
+  // No account is set aside for it (the report lists none), and the next isn't tried.
+  expect(accountReport()).toEqual([])
+  expect(spawned.map(x => x.token)).toEqual(['tok-hang'])
 })

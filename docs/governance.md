@@ -766,7 +766,7 @@ The layers above still check the result.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
     the firemouth's and the flame tetra's only photos, a lake and a stream with no fish, led their pages, their index
     cards and the tank-mates blocks (a design review's find). Such a verdict is asked again (below).
-    Before everything else, since 2026-11-12: a fish's or a breed's head the box step found no animal in
+    Before everything else but a sheet set aside last run (above; the chief of staff, 19 Nov), since 2026-11-12: a fish's or a breed's head the box step found no animal in
     (`_photo-boxes.json`: null), on a sheet filled from its page. On 12 Nov 34 heads were a river, a lake or open water,
     and none had been judged (the chief of staff). Such a head is "not a photo of it", as above: it leaves the page, and
     a page with nothing else shows no photo, its tile "Chưa có ảnh" (no photo yet), until a photo of the fish arrives. A

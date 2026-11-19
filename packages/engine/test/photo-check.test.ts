@@ -924,8 +924,8 @@ test("a model failure that isn't a limit: the sheet again after a minute on the 
     return real(fn, ms, ...rest)
   }) as typeof setTimeout)
   const one = flaky(['API Error: 529 {"type":"error","error":{"type":"overloaded_error","message":"' + trip + '"}}'], null)
-  const a = await checkPagePhotos(await page(), one.d, { limit: 10 })
-  spy.mockRestore()
+  let a: Awaited<ReturnType<typeof checkPagePhotos>>
+  try { a = await checkPagePhotos(await page(), one.d, { limit: 10 }) } finally { spy.mockRestore() }
   expect(waits).toEqual([60_000])
   expect([a.retried, a.judged, a.aside, a.stopped, one.asked()]).toEqual([['danio-rerio: overloaded; answered a minute later'], 2, [], '', 0])
   // Twice a server error: the next account, once, answers.
@@ -934,10 +934,10 @@ test("a model failure that isn't a limit: the sheet again after a minute on the 
   expect(b.retried).toEqual(['danio-rerio: server error (500), then server error (500) a minute later; the next account answered'])
   // Nothing answers: set aside, with the last kind, each photo first in the next run; none of the tool's words kept.
   const r = await page()
-  const three = flaky(['claude failed (null): ' + trip, 'claude failed (null): ' + trip], 'API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"' + trip + '"}}')
+  const three = flaky(['claude timed out after 600 s', 'claude failed (null): ' + trip], 'API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"' + trip + '"}}')
   const c = await checkPagePhotos(r, three.d, { limit: 10, retryAfterMs: 0, today: '2026-11-19' })
   expect([three.tries(), three.asked()]).toEqual([2, 1])
-  expect(c.retried).toEqual(['danio-rerio: timed out, then timed out a minute later, then other (400 invalid_request_error) on the next account; nothing answered'])
+  expect(c.retried).toEqual(['danio-rerio: timed out, then other (killed) a minute later, then other (400 invalid_request_error) on the next account; nothing answered'])
   expect([c.aside, c.stopped, c.judged]).toEqual([['danio-rerio: other (400 invalid_request_error)'], '', 0])
   const aside = await json(r, `engine-state/${ASIDE_FILE}`)
   expect(Object.keys(aside)).toEqual([`danio-rerio ${url('a')}`, `danio-rerio ${url('b')}`])
@@ -964,15 +964,46 @@ test('a second sheet set aside stops the run; a sheet set aside goes first in th
   expect(await json(r, `engine-state/${ASIDE_FILE}`)).toEqual({})
 })
 
+test("a sheet waiting to try again makes no call once another sheet stops the run, and a limit on a later try keeps the tries before it", async () => {
+  // Two sheets side by side: one's model is out of its limit at once, the other's failed once and waits its minute.
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b1'] }])
+  let calls = 0
+  const d: PhotoCheckDeps = {
+    get: async () => new Uint8Array(await jpeg),
+    look: async (_sheet, prompt) => {
+      if (prompt.includes('Aaa fish')) throw new LlmError('claude failed (1): usage limit reached')
+      calls++
+      throw new LlmError('claude failed (1): API Error: 500')
+    },
+    lookNext: async () => { calls++; throw new LlmError('claude failed (1): API Error: 500') },
+  }
+  const x = await checkPagePhotos(r, d, { limit: 10, parallel: 2, retryAfterMs: 300 })
+  expect(x.stopped).toBe('aaa-fish: usage limit')
+  expect(calls).toBe(1)
+  expect(x.retried).toEqual(['bbb-fish: server error (500); the run stopped before its next try'])
+  expect(x.aside).toEqual([])
+  // One failure, then the limit on the try a minute later: both are kept.
+  const r2 = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a'] }])
+  let n = 0
+  const y = await checkPagePhotos(r2, { get: async () => new Uint8Array(await jpeg), look: async () => { throw new LlmError(n++ ? 'claude failed (1): usage limit reached' : 'claude failed (1): API Error: 529') } }, { limit: 10, retryAfterMs: 0 })
+  expect([y.stopped, y.retried]).toEqual(['danio-rerio: usage limit', ['danio-rerio: overloaded; then a limit stopped the run']])
+})
+
 test("a model failure's kind is a word of ours, with a status number and an error's class name where the tool gave them, never its text", () => {
   const words = 'TEST_ONLY_WORDS'
-  expect(modelFailureKind(new Error(`claude failed (null): ${words}`))).toBe('timed out')
+  // Timed out only when the engine's own timer stopped the call (claude.ts); a process stopped otherwise is killed.
+  expect(modelFailureKind(new Error('claude timed out after 600 s'))).toBe('timed out')
+  expect(modelFailureKind(new Error(`claude failed (null): ${words}`))).toBe('other (killed)')
+  expect(modelFailureKind(new Error(`claude returned non-JSON (null): ${words}`))).toBe('other (killed)')
   expect(modelFailureKind(new Error(`claude failed (1): API Error: 529 {"type":"error","error":{"type":"overloaded_error","message":"${words}"}}`))).toBe('overloaded')
   expect(modelFailureKind(new Error(`claude failed (1): API Error: 500 {"type":"error","error":{"type":"api_error","message":"${words}"}}`))).toBe('server error (500)')
   expect(modelFailureKind(new Error(`claude failed (1): API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"${words}"}}`))).toBe('other (400 invalid_request_error)')
   expect(modelFailureKind(new Error('spawn claude ENOENT'))).toBe('other (ENOENT)')
   expect(modelFailureKind(new Error('fetch failed: ECONNRESET'))).toBe('network')
   expect(modelFailureKind(new Error(`claude failed (1): ${words}`))).toBe('other')
+  // A name is kept only from the error's own type field, and only one the API has: never a word from the text.
+  expect(modelFailureKind(new Error(`claude failed (1): the sampletown_words_error came up`))).toBe('other')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 418 {"type":"error","error":{"type":"sampletown_words_error"}}`))).toBe('other (418)')
   // The other photo steps' stop (guide photos, the dead-fish screen, the watermark screen, video stills) says it too.
   expect(photoModelStop(new LlmError(`claude failed (1): API Error: 529 ${words}`))).toBe('photo model unavailable: overloaded')
   expect(photoModelStop(new LlmError(`claude failed (1): usage limit reached ${words}`))).toBe('usage limit')

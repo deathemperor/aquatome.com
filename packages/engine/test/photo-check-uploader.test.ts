@@ -4,7 +4,8 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { afterEach, expect, test } from 'vitest'
 import { nameStep } from '../src/ceiling'
-import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { LlmError } from '../src/claude'
+import { ASIDE_FILE, checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 
 // An album photo the check answers "another fish": the same run judges that album's other photos from the same uploader
 // that have no verdict for the page, and nothing else (the chief of staff, 2026-11-16).
@@ -217,4 +218,27 @@ test("the step's daily line stops the second round like any sheet: no call past 
   expect(out.uploaderPhotos).toBe(0)
   expect(out.stopped).toBeTruthy()
   expect(await judged(r, 'aaa-fish')).toEqual(['aaa-fish-f1', 'aaa-fish-f2', 'aaa-fish-f3', 'aaa-fish-f4', 'aaa-fish-f5', 'aaa-fish-lead', 'trig'])
+})
+
+test('a sheet the model failed on, set aside, and then judged in the uploader round of the same run leaves the list', async () => {
+  // The first sheet: five photos and one by the angler the check calls another fish; the second, the angler's other photo,
+  // which the model fails on three times and which is set aside; the uploader round then judges it.
+  const r = await root([{ id: 'bbb-fish', album: [...[1, 2, 3, 4, 5].map(i => photo(`bbb-fish-f${i}`, { waits: true })), photo('bbb-trig', { author: ANGLER, waits: true }), photo('bbb-sib', { author: ANGLER, waits: true })] }])
+  let pending: string[] = [], fails = 0
+  const answer = (photos: string[]) => ({ photos: photos.map((p, i) => ({ n: i + 1, ok: p === 'bbb-trig' ? 'other' : 'yes', typical: false, note: p }) as { n: number } & PhotoVerdict) })
+  const d: PhotoCheckDeps = {
+    get: async u => { pending.push(name(u)); return new Uint8Array(await jpeg) },
+    look: async () => {
+      if (pending.includes('bbb-sib') && fails < 2) { fails++; throw new LlmError('claude failed (1): API Error: 500') }
+      const photos = pending
+      pending = []
+      return answer(photos)
+    },
+    lookNext: async () => { throw new LlmError('claude failed (1): API Error: 500') },
+  }
+  const x = await checkPagePhotos(r, d, { limit: 2, emptyCap: 99, retryAfterMs: 0 })
+  expect(x.aside).toEqual(['bbb-fish: server error (500)'])
+  expect(await judged(r, 'bbb-fish')).toContain('bbb-sib')
+  // Nothing left set aside: no list, or an empty one.
+  expect(JSON.parse(await readFile(join(r, 'engine-state', ASIDE_FILE), 'utf8').catch(() => '{}'))).toEqual({})
 })

@@ -545,8 +545,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       : now === 'bare' ? !!x.bare
       : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc')
       : turn(x) === now
-    // A head with no animal in it goes before everything: a page whose head is a river should not wait (the chief of
-    // staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
+    // A sheet set aside last run goes first (the chief of staff, 19 Nov); then a head with no animal in it, before the
+    // rest: a page whose head is a river should not wait (the chief of staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
     let firstAt = from
     for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
@@ -573,6 +573,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }
+  const tried = (kinds: string[]) => [kinds[0], ...(kinds[1] ? [`then ${kinds[1]} a minute later`] : []), ...(kinds[2] ? [`then ${kinds[2]} on the next account`] : [])].join(', ')
   const logos = new Set<string>() // photos this run found a logo on
   const others = new Set<string>() // `page\nurl` the model answered "another fish" for, this run, on the page itself
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
@@ -602,6 +603,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         for (const ask of [d.look, d.look, d.lookNext]) {
           if (!ask) break
           if (kinds.length === 1) await new Promise(r => setTimeout(r, o.retryAfterMs ?? 60_000))
+          // Another sheet stopped the run meanwhile (a limit, or a second sheet set aside): no more calls.
+          if (report.stopped) break
           try {
             v = await piece(s.id, () => ask(sheet, prompt))
             break
@@ -612,14 +615,18 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
           }
         }
       } catch (err) {
+        // The tries before a limit are kept too.
+        if (kinds.length) report.retried.push(`${s.id}: ${tried(kinds)}; then a limit stopped the run`)
         if (err instanceof LlmError) report.stopped ||= `${s.id}: ${photoModelStop(err)}`
         else report.failed.push(`${s.id}: ${photoFailure(err)}`)
         return
       }
-      if (kinds.length) {
-        const tried = [`${kinds[0]}`, ...(kinds[1] ? [`then ${kinds[1]} a minute later`] : []), ...(kinds[2] ? [`then ${kinds[2]} on the next account`] : [])].join(', ')
-        report.retried.push(`${s.id}: ${tried}; ${!v ? (d.lookNext ? 'nothing answered' : 'no next account asked') : kinds.length === 1 ? 'answered a minute later' : 'the next account answered'}`)
+      if (!v && report.stopped) {
+        // Stopped by another sheet before its tries were done: not set aside, it waits its turn.
+        if (kinds.length) report.retried.push(`${s.id}: ${tried(kinds)}; the run stopped before its next try`)
+        return
       }
+      if (kinds.length) report.retried.push(`${s.id}: ${tried(kinds)}; ${!v ? (d.lookNext ? 'nothing answered' : 'no next account asked') : kinds.length === 1 ? 'answered a minute later' : 'the next account answered'}`)
       if (!v) {
         for (const { url } of ok) asideNow[`${s.id} ${url}`] = { kind: kinds.at(-1)!, at: o.today ?? new Date().toISOString().slice(0, 10) }
         report.aside.push(`${s.id}: ${kinds.at(-1)}`)
@@ -666,8 +673,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   // The sheets set aside: this run's, and those from before it hasn't judged yet that their page still shows.
   const still = new Set(shown.map(x => `${x.page} ${x.url}`))
-  const aside = { ...Object.fromEntries(Object.entries(asideBefore).filter(([k]) => !judgedNow.has(k) && still.has(k))), ...asideNow }
-  if (Object.keys(aside).length || Object.keys(asideBefore).length) await writeFile(asideFile, `${JSON.stringify(Object.fromEntries(Object.entries(aside).sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0))), null, 2)}\n`)
+  // A sheet set aside this run and judged later in it (a follow-up round) leaves the list too. Written whole or not at all.
+  const aside = Object.entries({ ...asideBefore, ...asideNow }).filter(([k]) => !judgedNow.has(k) && still.has(k))
+  if (aside.length || Object.keys(asideBefore).length) await writeImageCache(asideFile, `${JSON.stringify(Object.fromEntries(aside.sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0))), null, 2)}\n`)
 
   // 2. Rejected photos leave their pages; a photo everywhere it is shown rejects is rejected for good, and one that shows
   // a dead fish, a person or a logo wherever it was judged.

@@ -75,20 +75,26 @@ export function compactRejection(s:string):string {
 }
 export const compactRejections = (v:Record<string,string>):Record<string,string> => Object.fromEntries(Object.entries(v).map(([u,s])=>[u,compactRejection(s)]))
 export const photoFailure = (e:unknown) => {const s=e instanceof Error?e.message:String(e);return /^photo operation unavailable \[sha256:[a-f0-9]{64}\]$/.test(s)?s:`photo operation unavailable [sha256:${observationHash(s)}]`}
+/** The API's own error types, the only class names a kind keeps. */
+const API_ERRORS = ['invalid_request_error','authentication_error','billing_error','permission_error','not_found_error','request_too_large','rate_limit_error','timeout_error','api_error','overloaded_error'] as const
 /**
  * The kind of failure that stopped a model call, in a word of ours, never the tool's text (the chief of staff, 19 Nov):
- * timed out (the engine's own timer), overloaded, server error, network, or other, with the status number and the
- * error's class name where it gave them, so one "other" can be told from the next.
+ * timed out (the engine's own timer, claude.ts), overloaded, server error, network, or other, with the status number
+ * and the API's error type where its error said them, so one "other" can be told from the next. Only a number and a
+ * name from API_ERRORS are kept, read from the error's own fields; a process stopped by a signal is "other (killed)".
  */
 export function modelFailureKind(e:unknown):string {
   const m=e instanceof Error?e.message:String(e)
-  if(/^claude failed \(null\)/.test(m)||/\btimed? ?out\b|ETIMEDOUT/i.test(m))return 'timed out'
-  if(/overloaded|\b529\b/i.test(m))return 'overloaded'
-  if(/\b(?:ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE)\b|socket hang up|fetch failed/i.test(m))return 'network'
-  const status=/\b(?:API Error:?|status:?)\s*([1-5]\d\d)\b/i.exec(m)?.[1]
-  const cls=/"type"\s*:\s*"([a-z]+(?:_[a-z]+)*_error)"/.exec(m)?.[1]??/\b(ENOENT|EACCES|EPERM|EMFILE)\b/.exec(m)?.[1]
+  if(/^claude timed out after \d+ s$/.test(m))return 'timed out'
+  const status=/\bAPI Error:?\s*([1-5]\d\d)\b/.exec(m)?.[1]
+  const type=/"error"\s*:\s*\{\s*"type"\s*:\s*"([a-z_]+)"/.exec(m)?.[1]
+  const cls=(API_ERRORS as readonly string[]).includes(type??'')?type:undefined
+  if(cls==='overloaded_error'||status==='529')return 'overloaded'
+  if(/\b(?:ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE|ETIMEDOUT)\b|socket hang up|fetch failed/.test(m))return 'network'
   if(status?.startsWith('5')||cls==='api_error')return `server error${status?` (${status})`:''}`
-  const told=[status,cls].filter(Boolean)
+  if(/^claude (?:failed|returned non-JSON) \(null\)/.test(m))return 'other (killed)'
+  const errno=/\b(ENOENT|EACCES|EPERM|EMFILE)\b/.exec(m)?.[1]
+  const told=[status,cls??errno].filter(Boolean)
   return told.length?`other (${told.join(' ')})`:'other'
 }
 export const photoModelStop = (e:unknown) => /usage limit|quota|weekly limit/i.test(e instanceof Error?e.message:String(e))?'usage limit':`photo model unavailable: ${modelFailureKind(e)}`
