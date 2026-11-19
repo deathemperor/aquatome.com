@@ -1301,6 +1301,28 @@
   ],
   "vi/glossary/chieu-dai-chuan": [
     {
+      "at": "2026-11-19T01:41:10Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T01:41:10Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Giới nghiên cứu đo SL cho hầu hết các loài cá xương.\" should have been replaced, word for word, by \"Các nhà nghiên cứu đo SL cho hầu hết các loài cá xương.\"",
+        "Rule 12: \"Chiều dài toàn thân (TL) thì tính luôn cả vây đuôi.\" should have been replaced by \"Chiều dài toàn thân (TL) thì tính luôn cả vây đuôi. Một nguồn người nuôi ghi: con số SL trông nhỏ hơn chiều dài cả con cá tính cả đuôi; một con cá vàng có SL 30 cm thì tính cả đuôi dài khoảng 38 cm.\" That puts the keeper's two claims (fact 21) right after the TL sentence, in the same paragraph, under one …",
+        "Rule 12: the \"Sai lầm hay gặp\" heading, its opening \"Một nguồn người nuôi ghi:\" and its two items (\"Con số SL trông nhỏ hơn chiều dài đầy đủ của con cá, tính cả đuôi.\" and \"Một con cá vàng có SL 30 cm thì tính cả đuôi dài khoảng 38 cm.\") should come out. Fact 21 doesn't call these a mistake, and nothing else stands under that heading."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T19:29:53Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1345,32 +1367,6 @@
         "Rule 12: \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch. Nhìn thì chúng dài cỡ 1 foot, nhưng cân nặng chỉ như một con 6 inch.\" The Comet goldfish example (fact 22) must be removed in full, because the site has no Comet page.",
         "Rule 12: \"Khi chọn cỡ bể, cân nặng của cá mới là thứ cần tính.\" This is the weight point of the Comet example, and it must be removed along with the example.",
         "Rule 6: \"cá vàng Comet\" in \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": this is not the name of a page in PAGES. The page for Carassius auratus is \"Cá vàng\", and no Comet page exists."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T17:15:28Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 6: \"cá vàng Comet\" in \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": Carassius auratus has a page, and the page's name is \"Cá vàng\". The fish should be called \"cá vàng\", not \"cá vàng Comet\".",
-        "Rule 4: The point that an SL figure is shorter than the fish's length with its tail is made twice. It appears in \"con số TL của cùng một con cá bao giờ cũng dài hơn SL\" and again in \"Sai lầm hay gặp là đọc con số SL rồi nghĩ con cá chỉ dài chừng đó\". It should be said once, in one place."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "1062e49ce6545b42dbd418bbfc68a47917d95165519e26f856fe6ad9330047c8"
-    },
-    {
-      "at": "2026-11-18T17:15:28Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 0.94,
-      "notes": [
-        "\"Một số cá vàng có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'comet' qualifier; source says comet goldfish / source says comet goldfish; qualifier dropped",
-        "Rule 12: \"nhất là ở mẫu cá ngâm bảo quản\" in \"Vây đuôi rất dễ rách, gãy, nhất là ở mẫu cá ngâm bảo quản, và đo TL trên một cái đuôi đã hỏng thì ra con số sai\": the point about preserved specimens comes from only one reference page (source 0), but it is stated as plain fact with no credit. The entry already names three pages (\"Một tài liệu tham khảo về cá\", \"một tiệm ở Việt Nam\", \"Một nguồn người …",
-        "Rule 12: \"Sai lầm hay gặp là đọc con số SL rồi nghĩ con cá chỉ dài chừng đó.\": the claim that an SL figure looks smaller than the fish's full length comes from a single keeper page (source 9), but it is stated as plain fact before the opening \"Một nguồn người nuôi ghi:\". It should go under that same opening, not stand outside it without credit."
       ],
       "attempt": "rewrite",
       "kept": false
