@@ -3,6 +3,12 @@
   "name": "เนินเขาศิวาลิก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T00:39:09.091Z",
+    "why": "Thai atlases usually write the Sivalik range as \"เทือกเขาศิวาลิก\" (a mountain range, not \"เนินเขา\" meaning hill), so \"เนินเขา\" is a loose rendering of the Vietnamese \"đồi\", though the transliteration ศิวาลิก is fine."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

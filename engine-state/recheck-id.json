@@ -192,6 +192,81 @@
     "opus": 0.95,
     "back": true
   },
+  "ameiurus-brunneus": {
+    "hash": "28019227bbd474a5181279e843d4cc34739976cba1c97e1029c4f3145d19352e",
+    "at": "2026-11-19T00:26:53.837Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "ameiurus-platycephalus": {
+    "hash": "3c5ba2213655e889cfd35ca96224ffa0da4cfb0a0388b6b4761aaa88d37bee64",
+    "at": "2026-11-19T00:27:05.425Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "amphiarius-phrygiatus": {
+    "hash": "7e2558ffe40104798ff718d6fa1d2c824df94b3dd60b6368452c87578ac6bfbe",
+    "at": "2026-11-19T00:25:07.361Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "amphilophus-citrinellus": {
+    "hash": "cb222f4bb974ed7d534741d60a916233e1017472d718f92c6d3d09e8cb728356",
+    "at": "2026-11-19T00:27:38.301Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
+    "back": true
+  },
+  "anadoras-grypus": {
+    "hash": "5d14d36d986a3ea8c378025ceca05f112ace5572fdffbe2940429ef05d14e14b",
+    "at": "2026-11-19T00:27:49.598Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "anatolichthys-anatoliae": {
+    "hash": "6d1458a9f9da38510a1450e1843ea99ff89df69c896b41d7b1913abc489ce09d",
+    "at": "2026-11-19T00:28:04.318Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "anatolichthys-saldae": {
+    "hash": "05f57c991148c933d8f49266ae64827f452694ab1449bb874b8cf97dd703caf8",
+    "at": "2026-11-19T00:28:15.151Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "Item 10: 'subspesies ini' is kept from the source though the species is now treated as a separate species; consider 'spesies ini' for consistency with the rest of the text."
+    ]
+  },
+  "anatolichthys-sureyanus": {
+    "hash": "f8cd13769d3fe6ce9b6e36de4d01a8b930ed6c24a8ae0b24bd0d298cb58b686e",
+    "at": "2026-11-19T00:28:32.536Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "anatolichthys-transgrediens": {
+    "hash": "a4a836f1330bb16b472c45e67c24ae08d8c0390a2064e934e558f4727fc1aac5",
+    "at": "2026-11-19T00:29:09.380Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "Item 5: 'Java moss or Ceratophyllum ... may fail to thrive as the addition of marine salt ... is necessary'. The Indonesian says 'air perlu ditambah garam laut', which is acceptable. 'kalau suka' is too casual for a handbook. Use 'jika diinginkan'.",
+      "Item 5: 'Begitu pula, substrat tidak wajib' links back poorly to the salt sentence. Reword it, e.g. 'Demikian pula, substrat tidak diperlukan'."
+    ]
+  },
+  "anatolichthys-villwocki": {
+    "hash": "a5e1a108fbd105b3d6e53d698fdbe38f8e7d6e388d393564aa3b0f52d49b14da",
+    "at": "2026-11-19T00:29:22.413Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "ancistrus-cirrhosus": {
+    "hash": "3d5ff25924b83e0f1a7363f4c2442aeefc967983337b52168037a9f076687d31",
+    "at": "2026-11-19T00:29:33.702Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "arius-oetik": {
     "hash": "94dd834488a22919ed08b92e8fc88cc09c0ba1aec8f77c8e7cea8de78cedbeae",
     "at": "2026-11-18T05:44:03.431Z",
@@ -208,6 +283,13 @@
       "Item 1: \"Dwellers: mid and bottom\" rendered as \"Area hidup\" is acceptable, but \"Nitrat: kurang dari 20\" lacks a unit (mg/L); add it."
     ]
   },
+  "aspistor-luniscutis": {
+    "hash": "e3cfe114af1cc846824fb4576fbb20bb0f2c6356398468fe6fa9ec0d1c8d7a85",
+    "at": "2026-11-19T00:25:32.472Z",
+    "sonnet": 0.8,
+    "opus": 0.85,
+    "back": true
+  },
   "astacus-astacus": {
     "hash": "b9a1016a94ff4d0e0b3a629da87d837fda031b789737f23732f857a7126778d4",
     "at": "2026-11-17T11:23:26.170Z",
@@ -220,6 +302,12 @@
     "at": "2026-11-17T11:23:04.088Z",
     "sonnet": 0.92,
     "opus": 0.65,
+    "back": false
+  },
+  "badis-corycaeus": {
+    "hash": "a95a18b6f9a20565cfba0b6107e235e6391b3a0262c8aff1c1e9fbd0ea43f083",
+    "at": "2026-11-19T00:25:46.536Z",
+    "sonnet": 0.6,
     "back": false
   },
   "bagarius-suchus": {
@@ -343,6 +431,12 @@
   "dicrossus-maculatus": {
     "hash": "ee1f5ac8743ef92f4d7060b54bd6e7e539027fc48c546e8b27ac68ccafc4faa4",
     "at": "2026-11-17T11:25:52.941Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "dimidiochromis-strigatus": {
+    "hash": "fb5f02bf0b7235ba13fac62a02ba5faba5fa57fb45987d96434f385a696dc987",
+    "at": "2026-11-19T00:25:56.286Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -498,6 +592,13 @@
     "sonnet": 0.9,
     "opus": 0.9,
     "back": true
+  },
+  "microdevario-kubotai": {
+    "hash": "ba48894a8ab50d41169b8df37d62ec3e4c35c4fb5b3f6c19d0e700119146bb91",
+    "at": "2026-11-19T00:26:41.560Z",
+    "sonnet": 0.85,
+    "opus": 0.7,
+    "back": false
   },
   "mikrogeophagus-ramirezi": {
     "hash": "08f12294cad7ba729bc3be9017777a19c219869d8a950c50de6b728b5e097e32",

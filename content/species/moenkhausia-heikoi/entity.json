@@ -10,6 +10,65 @@
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Xingu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A tetra from the Rio Xingu, described only in 2004.",
+          "countries": [],
+          "regions": [
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352621,
+      "total": 14,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BR",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          -8.4375,
+          1
+        ],
+        [
+          -54.84375,
+          -5.625,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          8
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

@@ -1382,6 +1382,23 @@
     ],
     "ruled": "a7c2a15c6ddaeb4a"
   },
+  "vi/guides/aquariumbreeder-aquarium-safety-and-checklist": {
+    "at": "2026-11-19",
+    "hash": "e7b158e63d9b4569",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Sưởi",
+        "problem": "The safety subsections (GFCI, grounding, heater, drip loop…) are set at the same level as \"Lưu ý an toàn cho bể cá\" instead of under it. That leaves the safety heading over a single sentence and makes a second \"Sưởi\" section that reads like a repeat of \"Nhiệt kế và sưởi\".",
+        "fix": "## An toàn khi dùng sưởi",
+        "rule": "Two headings at the same level on one page with the same key word (e.g. \"Sưởi\" and \"Nhiệt kế và sưởi\").",
+        "field": "body"
+      }
+    ],
+    "ruled": "e7b158e63d9b4569"
+  },
   "vi/guides/aquariumbreeder-are-african-frogs-and-shrimp-compatible": {
     "at": "2026-11-05",
     "hash": "e9b32bfd2bf4c92a",
@@ -2506,6 +2523,21 @@
     ],
     "ruled": "13b6490c673147a3"
   },
+  "vi/guides/aquariumbreeder-guide-to-planted-tank-lighting": {
+    "at": "2026-11-19",
+    "hash": "9b18d855689a0163",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể high-tech (PAR 30 – 50) hợp với cây cần sáng vừa tới mạnh",
+        "problem": "The PAR table on the same page puts 30–60 as medium light and only above 60 as strong light, yet 30–50 PAR is said here to suit plants needing medium to strong light.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9b18d855689a0163"
+  },
   "vi/guides/aquariumbreeder-holtodrilus-truncates-parasites-in-shrimp-keeping-hobby": {
     "at": "2026-11-16",
     "hash": "f205b36a2f263f27",
@@ -3049,6 +3081,39 @@
     "hash": "5f8e97e3c782ce7f",
     "findings": [],
     "ruled": "5f8e97e3c782ce7f"
+  },
+  "vi/guides/aquariumbreeder-how-to-remove-algae-with-plants": {
+    "at": "2026-11-19",
+    "hash": "e39229023a9589c9",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trồng thêm vài loại cây ăn rễ như Rotala rotundifolia, cây kiếm Amazon… cũng là một ý hay.",
+        "problem": "'Cây ăn rễ' reads as 'a plant that eats roots'. It should be 'cây ăn bằng rễ', as the page says elsewhere.",
+        "fix": "Trồng thêm vài loại cây ăn bằng rễ như Rotala rotundifolia, cây kiếm Amazon… cũng là một ý hay.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây ăn rễ là lớp phòng thủ thứ hai.",
+        "problem": "'Cây ăn rễ' reads as 'a plant that eats roots' instead of 'a plant that feeds through its roots'.",
+        "fix": "Cây ăn bằng rễ là lớp phòng thủ thứ hai.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Cây hơn rêu ở đâu?",
+        "problem": "The subsections under this heading in the source are flattened into top-level headings, so this section holds only two sentences and seems to promise content it doesn't give.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e39229023a9589c9"
   },
   "vi/guides/aquariumbreeder-how-to-remove-black-beard-algae": {
     "at": "2026-11-18",
@@ -4408,6 +4473,12 @@
       }
     ],
     "ruled": "1db5169b1042095f"
+  },
+  "vi/guides/aquariumbreeder-proper-care-for-carpet-anemones": {
+    "at": "2026-11-19",
+    "hash": "12de8c55879b8411",
+    "findings": [],
+    "ruled": "12de8c55879b8411"
   },
   "vi/guides/aquariumbreeder-protein-skimmer-for-a-nano-reef-aquarium": {
     "at": "2026-11-08",
@@ -10052,6 +10123,12 @@
       }
     ],
     "ruled": "b92fd7b708fe13a5"
+  },
+  "vi/guides/aquatome-loc-thung-loc-treo-loc-tran-chon-va-lap-dat": {
+    "at": "2026-11-19",
+    "hash": "583f96a8955aabb8",
+    "findings": [],
+    "ruled": "583f96a8955aabb8"
   },
   "vi/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung": {
     "at": "2026-11-07",
@@ -15826,6 +15903,22 @@
     "findings": [],
     "ruled": "69c2d4c8ef7ea47f"
   },
+  "vi/guides/youtube-0ojuoEuL6AA": {
+    "at": "2026-11-19",
+    "hash": "6502d4ff6facca59",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một cách nhìn là cho bọt thật mịn với ít bọt mỗi giây thì CO2 ở lại trong nước lâu hơn",
+        "problem": "\"Một cách nhìn là\" is a literal calque of \"one way to look at it\" and reads as translated.",
+        "fix": "Bọt thật mịn, ít bọt mỗi giây thì CO2 ở lại trong nước lâu hơn so với bọt to xả mạnh, vì bọt to bay thẳng lên mặt.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6502d4ff6facca59"
+  },
   "vi/guides/youtube-0ozJmYMk914": {
     "at": "2026-11-01",
     "hash": "40a5086540662bfa",
@@ -17104,6 +17197,12 @@
     ],
     "ruled": "3c9f236d6f708820"
   },
+  "vi/guides/youtube-5yH835oMU04": {
+    "at": "2026-11-19",
+    "hash": "1ab72af254ef4117",
+    "findings": [],
+    "ruled": "1ab72af254ef4117"
+  },
   "vi/guides/youtube-609KjgRjavo": {
     "at": "2026-11-15",
     "hash": "df4b8ec4388d98c4",
@@ -17276,6 +17375,23 @@
       }
     ],
     "ruled": "48c4eddfd26fd928"
+  },
+  "vi/guides/youtube-6w1xAFzJGM8": {
+    "at": "2026-11-19",
+    "hash": "8395cdae30a88f36",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-19",
+        "field": "body",
+        "score": 0.88,
+        "kept": true,
+        "problems": [
+          "\"Rau om\" is Limnophila aromatica, not Limnophila sessiliflora, so the Vietnamese name points to a different plant."
+        ]
+      }
+    ],
+    "ruled": "8395cdae30a88f36"
   },
   "vi/guides/youtube-7detxox6fXc": {
     "at": "2026-11-04",
@@ -18347,6 +18463,12 @@
     "hash": "bf4b0f86dfa07f7a",
     "findings": [],
     "ruled": "bf4b0f86dfa07f7a"
+  },
+  "vi/guides/youtube-Arh2r7FXkdc": {
+    "at": "2026-11-19",
+    "hash": "2c8c9efe2ee61d2d",
+    "findings": [],
+    "ruled": "2c8c9efe2ee61d2d"
   },
   "vi/guides/youtube-Asi_tzpiHxM": {
     "at": "2026-11-13",
@@ -19619,6 +19741,12 @@
     ],
     "ruled": "b2765b96be4bc2c7"
   },
+  "vi/guides/youtube-D4oDBLyt9FU": {
+    "at": "2026-11-19",
+    "hash": "548930d2fa61a785",
+    "findings": [],
+    "ruled": "548930d2fa61a785"
+  },
   "vi/guides/youtube-D7dsDUKUsvU": {
     "at": "2026-11-08",
     "hash": "67e6fd1cb36fea68",
@@ -20070,6 +20198,22 @@
     "hash": "47489ffae6792f30",
     "findings": [],
     "ruled": "47489ffae6792f30"
+  },
+  "vi/guides/youtube-efVHn6juO-4": {
+    "at": "2026-11-19",
+    "hash": "87d333142c7e575e",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "Aquasoil đắt nhưng cây lên nhanh ngay từ đầu, hợp với bể hay trồng lại và sắp xếp lại.",
+        "problem": "The summary gives aquasoil faster early growth as an advantage, but the body and the table say both tanks grew plants equally well from the start.",
+        "fix": "Aquasoil đắt nhưng hợp với bể hay trồng lại và sắp xếp lại bố cục.",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "87d333142c7e575e"
   },
   "vi/guides/youtube-EIjUVVFcNmo": {
     "at": "2026-11-03",
@@ -21552,6 +21696,22 @@
       }
     ],
     "ruled": "e31b3dc8f61bb8cb"
+  },
+  "vi/guides/youtube-hO58T9PhRlk": {
+    "at": "2026-11-19",
+    "hash": "de3d1bc72927c737",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một bể chỉ dùng 2 đèn pha LED 20 W mà cây cắt cắm và hẹ vẫn mọc dày đặc, vì đèn này cho cây mọc rất tốt",
+        "problem": "The sentence says the tank has only two 20 W lights, as if that were weak lighting, then says the plants grew thick because those lights are very good, so the logic contradicts itself.",
+        "fix": "Ví dụ, một bể chỉ có 2 đèn pha LED 20 W nhưng loại đèn này cho cây lên rất tốt, nên cây cắt cắm và hẹ mọc dày đặc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "de3d1bc72927c737"
   },
   "vi/guides/youtube-HoMUpt_DdfU": {
     "at": "2026-11-03",
@@ -25546,6 +25706,38 @@
     "findings": [],
     "ruled": "ca390a7961ce4397"
   },
+  "vi/guides/youtube-ojUhcailsfc": {
+    "at": "2026-11-19",
+    "hash": "f2fffc71ed4678e4",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trong bể suối kia, cây chỉ hơi đung đưa nên dòng chảy không quá mạnh.",
+        "problem": "A sentence about water flow sits under the heading about dimming the light, where it doesn't belong.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-19",
+        "field": "body",
+        "score": 0.8,
+        "kept": true,
+        "problems": [
+          "CO2 injection is counted in bubbles per second, not drops; 'giọt' is the wrong hobby term (also in L4 and L7)."
+        ]
+      }
+    ],
+    "ruled": "f2fffc71ed4678e4"
+  },
+  "vi/guides/youtube-oLzR-_RUPA4": {
+    "at": "2026-11-19",
+    "hash": "a39b33a12c9e8ef1",
+    "findings": [],
+    "ruled": "a39b33a12c9e8ef1"
+  },
   "vi/guides/youtube-Omxb5ByqLMs": {
     "at": "2026-11-03",
     "hash": "92c48eb398a32525",
@@ -25784,6 +25976,22 @@
     "hash": "a968245d1d676066",
     "findings": [],
     "ruled": "a968245d1d676066"
+  },
+  "vi/guides/youtube-P2uxJHRl2kM": {
+    "at": "2026-11-19",
+    "hash": "a22f702702b9a32f",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "xử lý bể cũ ra sao, theo dõi bể mới set lại",
+        "problem": "The intro promises sections on handling old tanks and monitoring newly set-up tanks, but the page never covers either.",
+        "fix": "Bài này gom lại những điều cần nghĩ tới khi dời và xếp lại một dàn bể nano: đặt bể ở đâu, chọn kệ thế nào và sưởi cả phòng cá thế nào cho đỡ tốn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a22f702702b9a32f"
   },
   "vi/guides/youtube-P33hkCbg2hc": {
     "at": "2026-11-16",
@@ -26978,6 +27186,22 @@
     ],
     "ruled": "78cd800de30b0478"
   },
+  "vi/guides/youtube-S4htujhM4p0": {
+    "at": "2026-11-19",
+    "hash": "7025091be90f6da4",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Kể cả khi nền chỉ là một lớp cát mỏng cộng với đá",
+        "problem": "The title calls this a gravel tank (\"sỏi\"), but the text describes the substrate as a thin layer of sand.",
+        "fix": "Kể cả khi nền chỉ là một lớp sỏi mỏng cộng với đá",
+        "field": "body"
+      }
+    ],
+    "ruled": "7025091be90f6da4"
+  },
   "vi/guides/youtube-s9MMmXyOyec": {
     "at": "2026-11-04",
     "hash": "7f96975831108869",
@@ -27262,6 +27486,22 @@
       }
     ],
     "ruled": "398910d83d6518bc"
+  },
+  "vi/guides/youtube-SUBZ64BUM20": {
+    "at": "2026-11-19",
+    "hash": "75250b70521bbcf7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đặt máy quay lại để xem nó đi đâu",
+        "problem": "\"đặt máy quay lại\" can be read as \"put the camera back\" rather than \"set up a camera to record\".",
+        "fix": "đặt máy quay để xem nó đi đâu",
+        "field": "body"
+      }
+    ],
+    "ruled": "75250b70521bbcf7"
   },
   "vi/guides/youtube-SVD46Uvw66A": {
     "at": "2026-11-04",
@@ -29459,6 +29699,39 @@
     "findings": [],
     "ruled": "8b89a3bccb2d6799"
   },
+  "vi/guides/youtube-XYjtpXJY_Hk": {
+    "at": "2026-11-19",
+    "hash": "17d95194b5fb84d3",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nói gọn lại, có hai hướng sửa:",
+        "problem": "The body gives only two fixes (remove the rock, or switch to easy plants), but the FAQ gives three by adding a brighter light, and the rebuild itself does fit a brighter light, which the list leaves out.",
+        "fix": "Nói gọn lại, có mấy hướng sửa:",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đẩy thanh đèn sát về phía sau, chỗ có khe hở phía sau",
+        "problem": "'phía sau' appears twice in one clause, so the sentence reads clumsily.",
+        "fix": "Đẩy thanh đèn sát về phía sau, chỗ nắp có khe hở",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Monte Carlo có rễ nhưng không trồng xuống vẫn sống được.",
+        "problem": "Monte Carlo is given as one of the plants that make plant food in the substrate unnecessary, but the planting steps never use it, so the reader can't tell where it goes.",
+        "field": "body"
+      }
+    ],
+    "ruled": "17d95194b5fb84d3"
+  },
   "vi/guides/youtube-Y2HmhlumTYU": {
     "at": "2026-11-10",
     "hash": "c92f013760ad8557",
@@ -29928,6 +30201,12 @@
     "findings": [],
     "ruled": "7d557609a053adc0"
   },
+  "vi/guides/youtube-Z_LBvNba2oQ": {
+    "at": "2026-11-19",
+    "hash": "1181e14eeb45096d",
+    "findings": [],
+    "ruled": "1181e14eeb45096d"
+  },
   "vi/guides/youtube-z_pKaOlsKyg": {
     "at": "2026-11-07",
     "hash": "54adcd99e24166d6",
@@ -30295,6 +30574,12 @@
       }
     ],
     "ruled": "5e2f1bf08887c510"
+  },
+  "vi/guides/youtube-ZjEKzzWM05U": {
+    "at": "2026-11-19",
+    "hash": "421950faddab921e",
+    "findings": [],
+    "ruled": "421950faddab921e"
   },
   "vi/guides/youtube-Zl5gW-39XRE": {
     "at": "2026-11-14",

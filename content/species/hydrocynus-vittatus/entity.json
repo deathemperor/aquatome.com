@@ -18,21 +18,31 @@
     "native": {
       "countries": [
         "EG",
-        "ZA"
+        "ZA",
+        "NG"
       ],
       "regions": [
         "Tanganyika"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The African tiger fish, Hydrocynus vittatus, is a large predatory alestid found throughout Africa, from Egypt to South Africa.",
+          "quote": "Widespread throughout Africa, from Egypt to South Africa.",
           "countries": [
             "EG",
             "ZA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "According to the most recent literature there do appear two species in Nigeria, namely Hydrocynus forskahlii and H. vittatus.",
+          "countries": [
+            "NG"
           ],
           "regions": []
         },
@@ -48,12 +58,12 @@
     },
     "records": {
       "taxonKey": 2356183,
-      "total": 917,
-      "fetched": "2026-11-08",
+      "total": 920,
+      "fetched": "2026-11-19",
       "countries": [
         [
           "ZA",
-          352
+          353
         ],
         [
           "CD",
@@ -61,7 +71,7 @@
         ],
         [
           "MZ",
-          60
+          62
         ],
         [
           "ZM",
@@ -221,31 +231,31 @@
           2.8125,
           11.25,
           5,
-          0
+          1
         ],
         [
           4.21875,
           12.65625,
           1,
-          0
+          1
         ],
         [
           5.625,
           4.21875,
           3,
-          0
+          3
         ],
         [
           5.625,
           5.625,
           1,
-          0
+          1
         ],
         [
           8.4375,
           11.25,
           1,
-          0
+          1
         ],
         [
           9.84375,
@@ -838,8 +848,8 @@
         [
           30.9375,
           -25.3125,
-          77,
-          72
+          78,
+          73
         ],
         [
           30.9375,
@@ -904,7 +914,7 @@
         [
           32.34375,
           -16.875,
-          8,
+          10,
           0
         ],
         [

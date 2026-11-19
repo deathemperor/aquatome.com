@@ -1,9 +1,17 @@
 {
   "id": "microdevario-kubotai",
   "native": {
-    "input": "6413428b4ebe5010",
-    "at": "2026-11-17T05:18:20.405Z",
+    "input": "0b0db2a276a54206",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+        "words": "Thailand",
+        "ok": true
+      },
       {
         "code": "TH",
         "status": "native",
@@ -23,8 +31,8 @@
       {
         "code": "TH",
         "status": "native",
-        "source": "bwaquatics",
-        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+        "source": "glaser",
+        "quote": "It originates from the southwestern province of Ranong in Thailand, which forms a border with Burma.",
         "words": "Thailand",
         "ok": true
       }
@@ -34,6 +42,13 @@
         "name": "Salween",
         "source": "seriouslyfish",
         "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Mae Khlong",
+        "source": "bwaquatics",
+        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
         "ok": true
       },
       {
@@ -47,13 +62,6 @@
         "name": "Suriya",
         "source": "seriouslyfish",
         "quote": "It has also been recorded in the Suriya (known as Hanthayaw in Myanmar) River basin, a headwater tributary of the Salween which rises in Tak province, Thailand.",
-        "ok": true
-      },
-      {
-        "name": "Mae Khlong",
-        "source": "bwaquatics",
-        "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
-        "country": "TH",
         "ok": true
       }
     ],

@@ -14,6 +14,141 @@
     "suriname",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GF",
+        "GY",
+        "SR",
+        "VE"
+      ],
+      "regions": [
+        "Amazon River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Western Atlantic: Atlantic coastal rivers and estuaries from Guyana to the mouth of the Amazon River (Brazil, French Guiana, Guyana, Suriname and Venezuela).",
+          "countries": [
+            "BR",
+            "GF",
+            "GY",
+            "SR",
+            "VE"
+          ],
+          "regions": [
+            "Amazon River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345507,
+      "total": 202,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          167
+        ],
+        [
+          "VE",
+          18
+        ],
+        [
+          "BR",
+          16
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          8.4375,
+          18,
+          18
+        ],
+        [
+          -54.84375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          -54.84375,
+          5.625,
+          23,
+          23
+        ],
+        [
+          -53.4375,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -53.4375,
+          4.21875,
+          117,
+          117
+        ],
+        [
+          -52.03125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -50.625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -39.375,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "scotcat",
+    "quote": "Occurs in brackish estuaries with very low salinities, nearly entering freshwater."
+  },
   "dataCard": {
     "tempC": [
       {

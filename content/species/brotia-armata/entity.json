@@ -149,5 +149,55 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Brotia armata is a livebearing snail from Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9656704,
+      "total": 41,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "TH",
+          40
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          16.875,
+          40,
+          40
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

@@ -3,6 +3,12 @@
   "name": "อวตูมา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:42:54.265Z",
+    "why": "Uatumã is Portuguese, with stress on the last syllable and a nasal ending, so Thai atlases would write อัวตูมา or อูอาตูมา. อวตูมา reads \"awa-tu-ma\" under Thai orthography and is not the usual transliteration of the \"ua\" sequence."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

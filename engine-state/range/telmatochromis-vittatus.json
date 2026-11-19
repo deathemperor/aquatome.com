@@ -1,8 +1,8 @@
 {
   "id": "telmatochromis-vittatus",
   "native": {
-    "input": "9d0720a715cb1b85",
-    "at": "2026-11-16T11:31:54.968Z",
+    "input": "29c24f5177f6f843",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "BI",
@@ -42,6 +42,12 @@
         "name": "Lake Tanganyika",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Lake Tanganyika.",
         "ok": true
       }
     ],

@@ -3,6 +3,12 @@
   "name": "Lomami",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:46:05.595Z",
+    "why": "Lomami is a province (wilayah) in DR Congo, and a Malay atlas would likely write \"Wilayah Lomami\" or \"Provinsi Lomami\", so the bare name omits the kind word, though the spelling is fine."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

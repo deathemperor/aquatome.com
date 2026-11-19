@@ -124,5 +124,91 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "New Guinea"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The beautiful animal is widespread in fresh and brackish water in New Guinea and northern Australia.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5209936,
+      "total": 47,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "AU",
+          47
+        ]
+      ],
+      "cells": [
+        [
+          130.78125,
+          -12.65625,
+          37,
+          37
+        ],
+        [
+          132.1875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          132.1875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          137.8125,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

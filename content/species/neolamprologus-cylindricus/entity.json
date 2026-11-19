@@ -9,6 +9,59 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Among the small species of cichlid from Lake Tanganyika Neolamprologus cylindricus is one of the prettiest.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371739,
+      "total": 10,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "TZ",
+          6
+        ],
+        [
+          "ZM",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -9.84375,
+          1
+        ],
+        [
+          29.53125,
+          -8.4375,
+          6
+        ],
+        [
+          30.9375,
+          -9.84375,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

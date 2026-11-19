@@ -1,8 +1,8 @@
 {
   "id": "eirmotus-octozona",
   "native": {
-    "input": "3164cdac8092907c",
-    "at": "2026-11-18T12:30:34.128Z",
+    "input": "ba1cd966cd252266",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "MY",
@@ -16,7 +16,7 @@
         "code": "TH",
         "status": "doubtful",
         "source": "seriouslyfish",
-        "quote": "The type series consisted of aquarium specimens apparently originated from a lake named Bueng Boraphet in western Thailand, but despite extensive sampling of the region in the years since this species has never been recorded there since.",
+        "quote": "Specimens used in Tan and Kottelat's 2008 revision of the genus were obtained from commercial collectors in Johor state, Peninsular Malaysia, and the authors suggest that if E. octozona does occur in Thailand, it is probably restricted to the southern, peninsular section.",
         "words": "Thailand",
         "ok": true
       },
@@ -24,15 +24,23 @@
         "code": "MY",
         "status": "native",
         "source": "glaser",
-        "quote": "Ornamental fish collectors formerly collected this species in the peat swamp forest of Ayer Hitam in Johor, Malaysia.",
+        "quote": "The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia.",
         "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia.",
+        "words": "Indonesia",
         "ok": true
       },
       {
         "code": "TH",
         "status": "doubtful",
         "source": "glaser",
-        "quote": "However, there have been no reports since then of any occurrence of Eirmotus in Thailand.",
+        "quote": "However, there have been no reports since then about any occurrence of Eirmotus in Thailand.",
         "words": "Thailand",
         "ok": true
       }
@@ -66,9 +74,10 @@
       ]
     ],
     "native": [
-      "MY"
+      "MY",
+      "ID"
     ],
     "requests": 12,
-    "at": "2026-11-08T03:17:10.020Z"
+    "at": "2026-11-19T00:50:56.943Z"
   }
 }

@@ -16,7 +16,8 @@
   "range": {
     "native": {
       "countries": [
-        "MY"
+        "MY",
+        "ID"
       ],
       "regions": [],
       "sources": [
@@ -31,13 +32,21 @@
             "MY"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2359308,
       "total": 4,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-19",
       "countries": [
         [
           "ID",
@@ -49,19 +58,19 @@
           109.6875,
           -1.40625,
           1,
-          0
+          1
         ],
         [
           109.6875,
           0,
           2,
-          0
+          2
         ],
         [
           111.09375,
           -4.21875,
           1,
-          0
+          1
         ]
       ]
     }

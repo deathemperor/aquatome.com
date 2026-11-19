@@ -6,19 +6,18 @@
     "Sagor catfish"
   ],
   "sections": {
-    "quickFacts:scotcat": "<p>Tên thường gọi: cá úc Sagor. Họ: Ariidae. Kích thước: 45 cm TL. Loài này có gai vây lưng và gai vây ngực mang độc. Sách đỏ IUCN: chưa đánh giá.</p>",
+    "quickFacts:scotcat": "<p>Tên thường gọi: cá úc Sagor. Họ: Ariidae. Kích thước: 45 cm (chiều dài tổng). Gai vây lưng và gai vây ngực của loài này có độc. Sách đỏ IUCN: chưa đánh giá.</p>",
     "distribution:scotcat": "<p>Ấn Độ Dương – Tây Thái Bình Dương: từ Pakistan, Ấn Độ và Bangladesh sang phía đông tới Indonesia và Việt Nam.</p>",
-    "habitat:scotcat": "<p>Loài này sống dọc bờ biển, chủ yếu quanh các cửa sông. Chúng còn ngược lên vùng nước ngọt ở phần trên của vùng triều. Ở Việt Nam, có thể gặp chúng ở đồng bằng sông Mê Kông.</p>",
-    "diet:scotcat": "<p>Chúng ăn cá nhỏ và các con nhỏ như tép, ốc, côn trùng.</p>",
-    "reproduction:scotcat": "<p>Loài này ngậm trứng trong miệng. Trong 2 tháng đầu, cá con vẫn trốn vào miệng cá đực.</p>",
-    "notes:scotcat": "<p>Từ nguyên: tên giống Hexanematichthys ghép từ tiếng Hy Lạp exa = sáu, nema = sợi và ichthys = cá. Tên loài sagor là tên người Ấn Độ gọi loài cá này trong tiếng Bengal.</p>"
+    "habitat:scotcat": "<p>Loài này sống dọc bờ biển, chủ yếu quanh các cửa sông. Chúng còn ngược lên vùng nước ngọt ở phần trên của vùng triều. Ở đồng bằng sông Mê Kông cũng có loài này.</p>",
+    "diet:scotcat": "<p>Chúng ăn động vật không xương sống và cá nhỏ.</p>",
+    "reproduction:scotcat": "<p>Loài này ngậm trứng trong miệng. Trong 2 tháng đầu, cá con vẫn tiếp tục ẩn trong miệng cá đực.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên chi Hexanematichthys ghép từ tiếng Hy Lạp exa = sáu, nema = sợi và ichthys = cá. Tên loài sagor là tên địa phương tiếng Bengal của loài cá này ở Ấn Độ.</p>"
   },
   "quality": {
-    "score": 0.3,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "scotcat": 0.3
-    },
-    "reason": "score"
+      "scotcat": 0.8
+    }
   }
 }

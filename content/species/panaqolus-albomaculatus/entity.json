@@ -123,5 +123,114 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [
+        "PE",
+        "VE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The \"typical\" LDA 31 come from Peru and usually have rather whitish spots.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Fish from Venezuela, with very bright orange spots, have also been identified as LDA 31.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339421,
+      "total": 35,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "PE",
+          26
+        ],
+        [
+          "EC",
+          7
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          -78.75,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          5,
+          0
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

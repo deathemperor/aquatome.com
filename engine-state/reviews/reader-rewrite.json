@@ -473,6 +473,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-6w1xAFzJGM8#body": [
+    {
+      "at": "2026-11-19T01:06:54Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "Dropped the common name: \"rau om Limnophila sessiliflora\" became just \"Limnophila sessiliflora\"; small loss of detail.",
+        "\"một bên đang xanh hơn hẳn, có lẽ vì có nhiều...\" became \"nếu một bên đang xanh hơn hẳn, có lẽ là do...\"; the added \"nếu\" makes the observation conditional, a slight nuance shift. The hedge \"có lẽ\" is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-7DFk4bnIxEg#body": [
     {
       "at": "2026-11-06T21:51:26Z",
@@ -1060,6 +1075,21 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-ojUhcailsfc#body": [
+    {
+      "at": "2026-11-19T01:03:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"giọt\" changed to \"bọt\": drop vs bubble is a different word; likely just a term for CO2 bubbles, minor nuance.",
+        "Hedge position shifted: \"có thể châm CO2 rất ít, dưới 1 giọt\" vs \"châm CO2 rất ít, có thể dưới 1 bọt\"; the hedge now covers only the rate, not the dosing."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-rWaSv_jw6Rs#body": [

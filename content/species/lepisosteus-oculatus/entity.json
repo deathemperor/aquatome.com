@@ -15,15 +15,14 @@
   "range": {
     "native": {
       "countries": [
-        "MX",
-        "US"
+        "US",
+        "MX"
       ],
       "regions": [
-        "Mississippi River",
-        "Rio Grande",
-        "Great Lakes",
+        "Mississippi",
         "Apalachicola River",
-        "Nueces River"
+        "Nueces River",
+        "Rio Grande"
       ],
       "sources": [
         "seriouslyfish"
@@ -33,8 +32,8 @@
           "source": "seriouslyfish",
           "quote": "It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.",
           "countries": [
-            "MX",
-            "US"
+            "US",
+            "MX"
           ],
           "regions": [
             "Rio Grande"
@@ -45,8 +44,7 @@
           "quote": "Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.",
           "countries": [],
           "regions": [
-            "Mississippi River",
-            "Great Lakes",
+            "Mississippi",
             "Apalachicola River",
             "Nueces River"
           ]

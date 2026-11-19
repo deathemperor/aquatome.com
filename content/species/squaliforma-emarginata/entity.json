@@ -27,6 +27,7 @@
         "BO"
       ],
       "regions": [
+        "Amazon",
         "Rio Xingú",
         "Rio Araguaia",
         "Rio Trombetas",
@@ -38,14 +39,16 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The red fin thresher plec, Aphanotorulus emarginatus, is a suckermouth catfish from the Amazon region of Brazil, Ecuador, Peru and Bolivia.",
+          "quote": "Widely distributed throughout the Amazon region in Brazil, Ecuador, Peru and Bolivia.",
           "countries": [
             "BR",
             "EC",
             "PE",
             "BO"
           ],
-          "regions": []
+          "regions": [
+            "Amazon"
+          ]
         },
         {
           "source": "seriouslyfish",

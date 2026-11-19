@@ -3,6 +3,12 @@
   "name": "ทาเด",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:41:30.576Z",
+    "why": "ทาเด is a fine phonetic rendering of Thade, but it lacks the kind word, so an atlas would write it as a township or region, e.g. อำเภอทาเด."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

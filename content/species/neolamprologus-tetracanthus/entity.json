@@ -9,6 +9,92 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species of cichlid from Lake Tanganyika lives in two different worlds.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371734,
+      "total": 103,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "ZM",
+          44
+        ],
+        [
+          "TZ",
+          26
+        ],
+        [
+          "CD",
+          23
+        ],
+        [
+          "BI",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          9
+        ],
+        [
+          28.125,
+          -5.625,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          12
+        ],
+        [
+          29.53125,
+          -9.84375,
+          18
+        ],
+        [
+          29.53125,
+          -8.4375,
+          24
+        ],
+        [
+          29.53125,
+          -7.03125,
+          5
+        ],
+        [
+          29.53125,
+          -5.625,
+          8
+        ],
+        [
+          30.9375,
+          -9.84375,
+          26
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,9 +1,17 @@
 {
   "id": "carinotetraodon-irrubesco",
   "native": {
-    "input": "74d93a99d87a769d",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "59b2a5eb986f0b88",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The red-tailed redeye puffer, Carinotetraodon irrubesco, is a small freshwater puffer endemic to Indonesia, known from Sumatra and West Kalimantan.",
+        "words": "Indonesia",
+        "ok": true
+      },
       {
         "code": "ID",
         "status": "native",
@@ -11,9 +19,31 @@
         "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Among the latter are the species of Carinotetraodon from Indonesia; C. irrubesco comes from Sumatra.",
+        "words": "Indonesia",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "country": "ID",
+        "ok": true
+      },
       {
         "name": "Banjuasin",
         "source": "seriouslyfish",
@@ -30,15 +60,8 @@
       },
       {
         "name": "Sumatra",
-        "source": "seriouslyfish",
-        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Endemic to Indonesia, where it is known from the lower Banjuasin river basin in South Sumatra (Sumatera Selatan) province, Sumatra, and the Sambas river drainage in West Kalimantan (Kalimantan Barat) province, Borneo.",
+        "source": "glaser",
+        "quote": "Among the latter are the species of Carinotetraodon from Indonesia; C. irrubesco comes from Sumatra.",
         "country": "ID",
         "ok": true
       }

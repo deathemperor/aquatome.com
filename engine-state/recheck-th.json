@@ -1,4 +1,38 @@
 {
+  "abbottina-rivularis": {
+    "hash": "fb5b063dfe7c44be2464b3a80bb268b10fdb77def8f96d29e0febe9a6dde7c19",
+    "at": "2026-11-19T00:32:31.030Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "abramites-hypselonotus": {
+    "hash": "b8850175efda3f530c615d3d9b18a6c00e485919c1812cdfedf9d72edb1e1d4e",
+    "at": "2026-11-19T00:33:05.325Z",
+    "sonnet": 0.9,
+    "opus": 0.93,
+    "back": true
+  },
+  "acanthicus-hystrix": {
+    "hash": "34ded2c448a261dc343726bc25e8847056cdb9cc7f2028d884810391d3ccb518",
+    "at": "2026-11-19T00:33:53.163Z",
+    "sonnet": 0.85,
+    "opus": 0.95,
+    "back": true
+  },
+  "acanthocobitis-pavonacea": {
+    "hash": "8496bae5e965e34a1d71dc34357452e6a27edc4f23e4f115cb471aadb67ccf33",
+    "at": "2026-11-19T00:34:39.250Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "acanthodoras-cataphractus": {
+    "hash": "9d953cb5c0b6e1fc47ab3eeabc535bd46bb804f9fca5593fc4f10632c799acd1",
+    "at": "2026-11-19T00:34:52.764Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "aegla-platensis": {
     "hash": "d7262d465d269491aa887225ab5e6259bc0f12d53bf56d4d732c76ee6cb51d3c",
     "at": "2026-11-18T12:14:06.101Z",
@@ -67,6 +101,12 @@
     "sonnet": 0.55,
     "back": false
   },
+  "aspistor-luniscutis": {
+    "hash": "97aecad72a0a6537bf0bec25e330058b78654f71845664470eaa14f110e8b7ad",
+    "at": "2026-11-19T00:29:49.646Z",
+    "sonnet": 0.72,
+    "back": false
+  },
   "astacus-astacus": {
     "hash": "ac529d27ef648292b14bc9bd902fa3dc00056e6ee3982e38d40210306bdda28f",
     "at": "2026-11-17T11:29:29.617Z",
@@ -96,8 +136,8 @@
     ]
   },
   "batrachocephalus-mino": {
-    "hash": "e5604f7986d42d200f3da3662204bb55f08a78dd6ffd667518f19c299a14e3b0",
-    "at": "2026-11-18T18:11:09.929Z",
+    "hash": "7cb4ef47ef40abdf9db69b7348f9d7f807b7a9ebaa5ef52955f611c0ebf9b16e",
+    "at": "2026-11-19T00:30:00.072Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -106,6 +146,15 @@
     "at": "2026-11-18T00:35:12.784Z",
     "sonnet": 0.55,
     "back": false
+  },
+  "bostrychus-zonatus": {
+    "hash": "6c2ffbc41c1c221719ef8fe4e357ccbc903d0199cb8438d04cc7df9a7d77e9f3",
+    "at": "2026-11-19T00:30:11.878Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 3: \"Soft soil\" is translated as \"พื้นตู้ที่นุ่ม\". Use \"วัสดุรองพื้นละเอียดนุ่ม (ทราย)\" for clarity. \"light addition of salt\" is fine."
+    ]
   },
   "brevibora-dorsiocellata": {
     "hash": "1d9d0433c410ff6c77c1e7f874a4ca4968f3b5502cef6d4c55c3b41dc4db161c",
@@ -154,9 +203,10 @@
     ]
   },
   "cephalocassis-jatia": {
-    "hash": "405ffb3520757a3da914aa808d9902f923789dace6ef6254cd4c2c89b0c4feab",
-    "at": "2026-11-18T18:12:21.755Z",
-    "sonnet": 0.7,
+    "hash": "98fda630e67d9b5d868cbe8655794b1a2413bd1af08e371522857935108cb1c8",
+    "at": "2026-11-19T00:30:49.272Z",
+    "sonnet": 0.85,
+    "opus": 0.7,
     "back": false
   },
   "ceylonthelphusa-kandambyi": {
@@ -313,6 +363,12 @@
     "opus": 0.78,
     "back": true
   },
+  "enteromius-hulstaerti": {
+    "hash": "fde622b849b05b145fd02fdd7337f18064d5a675e7bec0eb06931bd8181cdd16",
+    "at": "2026-11-19T00:31:07.327Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "garra-flavatra": {
     "hash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685",
     "at": "2026-11-17T11:27:29.902Z",
@@ -355,6 +411,12 @@
     "hash": "327ae590d67c92e89eddc4411c8cbd1b097d79e28113d40a3cba058ce76a64f3",
     "at": "2026-11-18T18:16:33.594Z",
     "sonnet": 0.55,
+    "back": false
+  },
+  "hexanematichthys-sagor": {
+    "hash": "4f9f109dedb1ede6368fb3c8be0693b9c91baf61001b8dc3c3cff4d60fb81d0c",
+    "at": "2026-11-19T00:31:18.570Z",
+    "sonnet": 0.7,
     "back": false
   },
   "hyphessobrycon-amandae": {
@@ -470,6 +532,13 @@
     "hash": "174922fdbe9345f4c20835a5771acb51ca76c2cd277e35a37e806783f6367502",
     "at": "2026-11-18T18:14:48.813Z",
     "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "pomacea-diffusa": {
+    "hash": "007566a0223a661a07912c731f639cde3953b018b9bfe370f593b0f9916cd6ab",
+    "at": "2026-11-19T00:31:59.180Z",
+    "sonnet": 0.88,
     "opus": 0.9,
     "back": true
   },

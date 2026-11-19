@@ -2809,6 +2809,20 @@
       "kept": true
     }
   ],
+  "id/places/chapman-river": [
+    {
+      "at": "2026-11-19T00:13:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Chapman"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/chari": [
     {
       "at": "2026-11-08T05:19:46Z",
@@ -4770,6 +4784,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/gulf-of-california": [
+    {
+      "at": "2026-11-19T00:13:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -12053,6 +12079,18 @@
       "kept": true
     }
   ],
+  "id/places/pondicherry": [
+    {
+      "at": "2026-11-19T00:13:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pookode-lake": [
     {
       "at": "2026-11-13T05:06:12Z",
@@ -12405,6 +12443,18 @@
         "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong.",
         "\"rakuto-river\" → \"sông Nakdong\" is probably a mismatch: the ID and the output don't match, and the Vietnamese prefix is wrong for Indonesian."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rangoon": [
+    {
+      "at": "2026-11-19T00:13:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -17891,6 +17941,20 @@
       "kept": true
     }
   ],
+  "id/places/victoria-river": [
+    {
+      "at": "2026-11-19T00:13:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Victoria"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/villavicencio": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -22123,6 +22187,18 @@
       "kept": true
     }
   ],
+  "ms/places/chapman-river": [
+    {
+      "at": "2026-11-19T00:24:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/chari": [
     {
       "at": "2026-11-08T12:43:57Z",
@@ -24022,6 +24098,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/gulf-of-california": [
+    {
+      "at": "2026-11-19T00:24:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -31690,6 +31778,18 @@
       "kept": true
     }
   ],
+  "ms/places/pondicherry": [
+    {
+      "at": "2026-11-19T00:24:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/pookode-lake": [
     {
       "at": "2026-11-13T05:22:14Z",
@@ -32133,6 +32233,18 @@
       "at": "2026-11-10T10:08:06Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rangoon": [
+    {
+      "at": "2026-11-19T00:24:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -38237,6 +38349,18 @@
       "kept": true
     }
   ],
+  "ms/places/victoria-river": [
+    {
+      "at": "2026-11-19T00:24:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/vietnam": [
     {
       "at": "2026-11-08T03:37:14Z",
@@ -42046,6 +42170,25 @@
       "kept": true
     }
   ],
+  "th/places/chapman-river": [
+    {
+      "at": "2026-11-19T00:14:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "แชปแมน (Chapman River): a Thai atlas would write แม่น้ำแชปแมน, and the name lacks the river term"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.9,
+        0.8
+      ]
+    }
+  ],
   "th/places/chari": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -44124,6 +44267,23 @@
       "notes": [],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "th/places/gulf-of-california": [
+    {
+      "at": "2026-11-19T00:14:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.9,
+        0.8
+      ]
     }
   ],
   "th/places/gulf-of-carpentaria": [
@@ -51797,6 +51957,25 @@
       "kept": true
     }
   ],
+  "th/places/pondicherry": [
+    {
+      "at": "2026-11-19T00:14:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "พอนดิเชอร์รี: acceptable. Thai sources also write ปอนดิเชอร์รี or ปูดูเชร์รี"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.9,
+        0.8
+      ]
+    }
+  ],
   "th/places/pookode-lake": [
     {
       "at": "2026-11-13T05:09:21Z",
@@ -52164,6 +52343,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/rangoon": [
+    {
+      "at": "2026-11-19T00:14:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.9,
+        0.8
+      ]
     }
   ],
   "th/places/red": [
@@ -57942,6 +58138,25 @@
       "kept": true
     }
   ],
+  "th/places/victoria-river": [
+    {
+      "at": "2026-11-19T00:14:31Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "วิกตอเรีย (Victoria River): a Thai atlas would write แม่น้ำวิกตอเรีย, and the name lacks the river term"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.9,
+        0.8
+      ]
+    }
+  ],
   "th/places/villavicencio": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -62268,6 +62483,19 @@
       "kept": true
     }
   ],
+  "vi/places/chapman-river": [
+    {
+      "at": "2026-11-19T00:12:24Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"sông Chapman\" and \"sông Victoria\": correct. The generic word 'River' is put into Vietnamese as 'sông' and the proper name is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/chari": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -64543,6 +64771,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/gulf-of-california": [
+    {
+      "at": "2026-11-19T00:12:24Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"vịnh California\": this is the standard Vietnamese name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -73760,6 +74001,19 @@
       "kept": true
     }
   ],
+  "vi/places/pondicherry": [
+    {
+      "at": "2026-11-19T00:12:24Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"Pondicherry\": keeps the source spelling, which is acceptable. Vietnamese also uses 'Puducherry'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pookode-lake": [
     {
       "at": "2026-11-13T05:05:52Z",
@@ -74202,6 +74456,19 @@
         "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
         "'Rakuto River' is the Japanese name for the Nakdong River in Korea. 'sông Nakdong' is a name Vietnamese readers use for it.",
         "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rangoon": [
+    {
+      "at": "2026-11-19T00:12:24Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"Rangoon\": keeps the source spelling, which is acceptable. Vietnamese readers more often see 'Yangon'."
       ],
       "attempt": "first",
       "kept": true
@@ -81002,6 +81269,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/victoria-river": [
+    {
+      "at": "2026-11-19T00:12:25Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"sông Chapman\" and \"sông Victoria\": correct. The generic word 'River' is put into Vietnamese as 'sông' and the proper name is kept."
+      ],
       "attempt": "first",
       "kept": true
     }

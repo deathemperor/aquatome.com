@@ -1,0 +1,44 @@
+{
+  "id": "neolamprologus-cylindricus",
+  "native": {
+    "input": "766bc593f09bdb1d",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Among the small species of cichlid from Lake Tanganyika Neolamprologus cylindricus is one of the prettiest.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolamprologus cylindricus",
+    "status": "ACCEPTED",
+    "taxonKey": 2371739,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        4
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

@@ -10,6 +10,45 @@
     "brazil",
     "rio-tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Tapajós"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species occurs in rivers in the upper rio Tapajós catchment.",
+          "countries": [],
+          "regions": [
+            "Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10706406,
+      "total": 2,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -15.46875,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

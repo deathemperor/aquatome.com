@@ -5,19 +5,18 @@
     "Armoured sea catfish"
   ],
   "sections": {
-    "quickFacts:scotcat": "<ul><li>Tên tiếng Anh: Armoured sea catfish</li><li>Tên đồng nghĩa: Cephalocassis stormii, Arius stormii, Tachysurus stormii</li><li>Danh sách Đỏ IUCN: Ít quan tâm (IUCN 2020)</li></ul>",
-    "distribution:scotcat": "<p>Châu Á: từ Thái Lan xuống Indonesia. Nơi thu mẫu chuẩn: Sumatra (Palembang), in flumine Mussi (nghĩa là \"ở sông Mussi\").</p>",
-    "habitat:scotcat": "<p>Loài này sống ở sông cỡ vừa đến lớn. Nó chủ yếu săn các con nhỏ như tép, ốc, côn trùng, và cả cá nhỏ.</p>",
-    "reproduction:scotcat": "<p>Ở hầu hết các loài trong họ, có khi là tất cả, cá đực ngậm trứng trong miệng cho tới khi nở. Trứng của chúng khá to.</p>",
-    "notes:scotcat": "<p>Mô tả: So với các loài cùng họ ở Lào, loài này khác ở chỗ đầu rộng hơn cao. Mõm nhọn, miệng nằm dưới mõm và nhìn rõ. Răng vòm miệng dạng hạt.</p><p>Nguồn gốc tên loài: Tên loài stormii đặt để vinh danh F. J. P. Storm van 's Gravesande (1812-1875). Ông là ủy viên chính phủ Hà Lan tại Djambi (còn viết là Jambi), Sumatra, và là người đã gửi mẫu chuẩn.</p><p>Danh sách Đỏ IUCN: Hiện chưa có số liệu chi tiết về số lượng và xu hướng quần thể của loài này. Nhưng cũng chưa có bằng chứng nào cho thấy quần thể đang giảm đáng kể. Vì vậy, người ta nghi là quần thể ổn định, hoặc có giảm nhưng chậm, chưa tới mức phải xếp vào nhóm bị đe dọa. Có thể có những mối đe dọa ở từng nơi hay từng vùng, nhưng chúng khó ảnh hưởng tới loài này trên toàn vùng phân bố. Do đó, Hemiarius stormii được xếp vào mức Ít quan tâm (IUCN 2020).</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Cá da trơn biển giáp (Armoured sea catfish)</li><li>Tên đồng nghĩa: Cephalocassis stormii, Arius stormii, Tachysurus stormii</li><li>Danh sách Đỏ IUCN: Ít quan tâm (IUCN 2020)</li></ul>",
+    "distribution:scotcat": "<p>Châu Á: từ Thái Lan xuống Indonesia. Nơi thu mẫu định danh: Sumatra (Palembang), in flumine Mussi.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở các con sông cỡ vừa đến lớn và chủ yếu ăn động vật không xương sống cùng cá nhỏ.</p>",
+    "reproduction:scotcat": "<p>Ở hầu hết, nếu không muốn nói là tất cả các loài, cá đực ngậm những quả trứng khá lớn trong miệng cho đến khi nở.</p>",
+    "notes:scotcat": "<p>Mô tả: Điểm khác giữa loài này và các loài cùng họ ở Lào là đầu rộng hơn cao. Mõm nhọn, miệng nằm phía dưới và nhìn thấy rõ. Răng vòm miệng có dạng hạt.</p><p>Nguồn gốc tên loài: Tên loài stormii đặt theo tên F. J. P. Storm van 's Gravesande (1812-1875). Ông là ủy viên chính phủ Hà Lan ở Djambi (còn viết là Jambi), Sumatra, và là người gửi mẫu định danh.</p><p>Danh sách Đỏ IUCN: Hiện chưa có thông tin chi tiết về số lượng và xu hướng quần thể của loài này. Nhưng cũng chưa có bằng chứng nào cho thấy quần thể đang giảm đáng kể. Từ đó có thể ước đoán quần thể ổn định hoặc suy giảm với tốc độ chậm, chưa tới mức phải xếp vào nhóm bị đe dọa. Ở một số nơi hay một số vùng có thể có mối đe dọa riêng, nhưng chúng khó ảnh hưởng tới loài này trên toàn vùng phân bố. Vì thế, IUCN xếp Hemiarius stormii vào mức Ít quan tâm (IUCN 2020).</p>",
     "references:scotcat": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2015).</li><li>Kottelat, M., 2001. Fishes of Laos. WHT Publications Ltd., Colombo 5, Sri Lanka. 198 p.</li><li>Nelson, Joseph S. 1994. Fishes of the World. Third edition. 600p.</li><li>Ng, H.H. 2020. Hemiarius stormii. The IUCN Red List of Threatened Species 2020.</li><li>The ETYFish Project Fish Name Etymology Database.</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "scotcat": 0.6
-    },
-    "reason": "score"
+      "scotcat": 0.8
+    }
   }
 }

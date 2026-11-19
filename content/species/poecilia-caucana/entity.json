@@ -17,7 +17,8 @@
     "native": {
       "countries": [
         "CO",
-        "VE"
+        "VE",
+        "PA"
       ],
       "regions": [],
       "sources": [
@@ -26,10 +27,11 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia and Venezuela, belongs to the smaller livebearers.",
+          "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia, Venezuela and Panama, belongs to the smaller livebearers.",
           "countries": [
             "CO",
-            "VE"
+            "VE",
+            "PA"
           ],
           "regions": []
         }
@@ -38,7 +40,7 @@
     "records": {
       "taxonKey": 5203742,
       "total": 1867,
-      "fetched": "2026-11-17",
+      "fetched": "2026-11-19",
       "countries": [
         [
           "CO",
@@ -68,25 +70,25 @@
           -82.96875,
           8.4375,
           2,
-          0
+          2
         ],
         [
           -80.15625,
           8.4375,
           6,
-          0
+          6
         ],
         [
           -78.75,
           7.03125,
           12,
-          0
+          12
         ],
         [
           -78.75,
           8.4375,
           16,
-          0
+          16
         ],
         [
           -77.34375,

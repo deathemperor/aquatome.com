@@ -1,14 +1,14 @@
 {
   "id": "pethia-padamya",
   "native": {
-    "input": "3c2197016857c0ee",
-    "at": "2026-11-18T12:30:34.128Z",
+    "input": "9a3ed83ec2af1318",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "MM",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The Odessa barb, Pethia padamya, is a small cyprinid from central Myanmar, also recorded from the lower Chindwin, a tributary of the Ayeyarwady.",
+        "quote": "Known only from central Myanmar where the type specimens were collected from a man-made pond fed by a small stream in a village called Toe Gyi which lies in the administrative division of Mandalay.",
         "words": "Myanmar",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "MM",
         "status": "native",
         "source": "glaser",
-        "quote": "In 2001 the first wild-collected specimens could be traced, which showed that this fish is a wild species originating from Burma (Myanmar).",
+        "quote": "Now it was clear that this fish is a wild species originating from Burma.",
         "words": "Burma",
         "ok": true
       }
@@ -25,13 +25,13 @@
       {
         "name": "Chindwin",
         "source": "seriouslyfish",
-        "quote": "The Odessa barb, Pethia padamya, is a small cyprinid from central Myanmar, also recorded from the lower Chindwin, a tributary of the Ayeyarwady.",
+        "quote": "It's also been recorded from lower stretches of the river Chindwin, a tributary of the Ayeyarwady, and a 'small pond' 500m away from the main river channel.",
         "ok": true
       },
       {
         "name": "Ayeyarwady",
         "source": "seriouslyfish",
-        "quote": "The Odessa barb, Pethia padamya, is a small cyprinid from central Myanmar, also recorded from the lower Chindwin, a tributary of the Ayeyarwady.",
+        "quote": "It's also been recorded from lower stretches of the river Chindwin, a tributary of the Ayeyarwady, and a 'small pond' 500m away from the main river channel.",
         "ok": true
       }
     ],

@@ -2145,5 +2145,74 @@
       "maintenance:tropica": "57325dab85a2",
       "notes:tropica": "3fcb2949a833"
     }
+  },
+  "micranthemum-callitrichoides": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "HC Cuba",
+    "confidence": "high",
+    "score": 0.2,
+    "notes": [
+      "Item 3: the EN source is Vietnamese, not English, so the original text is not valid English input. The MS is a faithful translation of the Vietnamese, but it can't be checked against an English original. Flag the source mismatch.",
+      "Item 3: 'ditrim'/'trim' is acceptable hobby usage, but 'dipangkas' is a more standard Malay alternative.",
+      "Item 4: 'millimetre-sized' became 'bersaiz beberapa milimeter'. This adds 'beberapa' (a few), which isn't in the source. Use 'bersaiz milimeter'.",
+      "Item 4: 'creeps over the bottom' is fine, but 'akarnya akan mati' drops the 'causing root death' cause-and-effect link. Rephrase as 'menyebabkan akar mati'.",
+      "Item 5: 'pokok' is used where the English says 'plants'; 'tumbuhan' would be more consistent. '(pearling)' is an added English term, but it is acceptable."
+    ],
+    "parts": {
+      "quickFacts:tropica": "b648d5304be8",
+      "distribution:tropica": "f46ba7353f28",
+      "maintenance:aquatome": "9de65d7a5714",
+      "maintenance:tropica": "466e80add0d2",
+      "notes:tropica": "0f87631b84a9"
+    }
+  },
+  "micranthemum-glomeratum": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Pearlweed",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Sederhana\" for Medium is fine, but \"Tumbuhan karpet\" could simply be \"Karpet\" — optional, minor.",
+      "\"kusyen yang padat\" is a slightly literal rendering of \"compact cushion\"; \"hamparan padat seperti kusyen\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:tropica": "dbab1a5592f2",
+      "notes:tropica": "d1c2e3d71c76"
+    }
+  },
+  "micranthemum-tweediei": {
+    "at": "2026-11-19",
+    "from": "2026-11-07",
+    "name": "Monte Carlo",
+    "confidence": "high",
+    "score": 0.88,
+    "notes": [
+      "\"untuk penuh sepenuhnya\" is awkward and redundant; use \"untuk memenuhi ruang sepenuhnya\" or \"untuk tumbuh penuh\".",
+      "\"pearling\" is left in English without a Malay term; consider \"mengeluarkan gelembung oksigen (pearling)\".",
+      "\"tumbuh mendatar\" and \"tumbuh bertindih di atasnya\" are slightly awkward; consider \"tumbuh melata\" and \"tumbuh bertindan\".",
+      "\"dijangkiti alga\" is not ideal, because alga does not infect; use \"diliputi alga\" or \"ditumbuhi alga\"."
+    ],
+    "parts": {
+      "quickFacts:2hraquarist": "d62395cb6f57",
+      "maintenance:2hraquarist": "3c5d9beead98"
+    }
+  },
+  "micranthemum-tweediei-monte-carlo": {
+    "at": "2026-11-19",
+    "from": "2026-11-07",
+    "name": "Micranthemum tweediei 'Monte Carlo'",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"runner\" is left in English; use \"sulur\" (or \"sulur menjalar\") with runner in brackets if wanted.",
+      "Item 2: the source text is Vietnamese, not English. The translation is still faithful to it."
+    ],
+    "parts": {
+      "quickFacts:tropica": "74dcccf0f8df",
+      "maintenance:aquatome": "6402c17f9805",
+      "notes:tropica": "33b8ce4d511d"
+    }
   }
 }

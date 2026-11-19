@@ -158,5 +158,178 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "P. paradiseus has a very wide distribution along the whole eastern coastline of the Indian subcontinent to Thailand, while P. hornadyai is known so far only from the Malayan part of Borneo.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393403,
+      "total": 111,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BD",
+          73
+        ],
+        [
+          "IN",
+          24
+        ],
+        [
+          "MM",
+          11
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "PH",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          11.25,
+          1,
+          0
+        ],
+        [
+          80.15625,
+          22.5,
+          3,
+          0
+        ],
+        [
+          84.375,
+          18.28125,
+          1,
+          0
+        ],
+        [
+          85.78125,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          87.1875,
+          21.09375,
+          2,
+          0
+        ],
+        [
+          87.1875,
+          22.5,
+          14,
+          0
+        ],
+        [
+          88.59375,
+          21.09375,
+          55,
+          0
+        ],
+        [
+          88.59375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          90,
+          22.5,
+          2,
+          0
+        ],
+        [
+          91.40625,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          91.40625,
+          21.09375,
+          15,
+          0
+        ],
+        [
+          95.625,
+          15.46875,
+          5,
+          0
+        ],
+        [
+          95.625,
+          16.875,
+          2,
+          0
+        ],
+        [
+          97.03125,
+          15.46875,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          0,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          11.25,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          120.9375,
+          14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "In the long term they should be kept in strongly brackish water (10-15 g salt/litre) or in pure marine water, although the specimens at the supplier are adapted to pure freshwater."
+  }
 }

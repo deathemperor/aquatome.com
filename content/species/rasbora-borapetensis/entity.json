@@ -21,8 +21,8 @@
         "KH",
         "LA",
         "VN",
-        "MY",
         "CN",
+        "MY",
         "PH",
         "ID",
         "BN"
@@ -30,8 +30,7 @@
       "regions": [
         "Mekong",
         "Chao Phraya",
-        "Mae Klong",
-        "Sunda Islands"
+        "Mae Klong"
       ],
       "sources": [
         "seriouslyfish"
@@ -39,11 +38,15 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The red-tailed rasbora, Rasbora borapetensis, is a small cyprinid from the Mekong and Chao Phraya drainages and the Mae Klong in western Thailand.",
+          "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
           "countries": [
             "TH"
           ],
-          "regions": []
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -52,7 +55,6 @@
             "KH",
             "LA",
             "VN",
-            "MY",
             "CN"
           ],
           "regions": []
@@ -61,23 +63,12 @@
           "source": "seriouslyfish",
           "quote": "Its distribution extends further into the Philippines and Sunda Islands including parts of Malaysia, Indonesia, Brunei Darussalam and Singapore (introduced and non-native to the latter).",
           "countries": [
+            "MY",
             "PH",
             "ID",
             "BN"
           ],
-          "regions": [
-            "Sunda Islands"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Occurs in the great Mekong and Chao Phraya river drainages as well as the Mae Klong in western Thailand.",
-          "countries": [],
-          "regions": [
-            "Mekong",
-            "Chao Phraya",
-            "Mae Klong"
-          ]
+          "regions": []
         }
       ]
     },

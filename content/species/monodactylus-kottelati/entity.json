@@ -137,5 +137,39 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-18",
+  "range": {
+    "records": {
+      "taxonKey": 5211119,
+      "total": 3,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "IN",
+          2
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          84.375,
+          18.28125,
+          2
+        ],
+        [
+          98.4375,
+          9.84375,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "Keep them in brackish water at a water temperature of about 26-28°C."
+  }
 }

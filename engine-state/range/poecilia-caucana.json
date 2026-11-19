@@ -1,14 +1,14 @@
 {
   "id": "poecilia-caucana",
   "native": {
-    "input": "598056256e16d943",
-    "at": "2026-11-17T05:18:20.405Z",
+    "input": "c10eb9cacb96f629",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "CO",
         "status": "native",
         "source": "glaser",
-        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia and Venezuela, belongs to the smaller livebearers.",
+        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia, Venezuela and Panama, belongs to the smaller livebearers.",
         "words": "Colombia",
         "ok": true
       },
@@ -16,24 +16,16 @@
         "code": "VE",
         "status": "native",
         "source": "glaser",
-        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia and Venezuela, belongs to the smaller livebearers.",
+        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia, Venezuela and Panama, belongs to the smaller livebearers.",
         "words": "Venezuela",
         "ok": true
       },
       {
-        "code": "CO",
+        "code": "PA",
         "status": "native",
         "source": "glaser",
-        "quote": "Colombia, Venezuela.",
-        "words": "Colombia",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Colombia, Venezuela.",
-        "words": "Venezuela",
+        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia, Venezuela and Panama, belongs to the smaller livebearers.",
+        "words": "Panama",
         "ok": true
       }
     ],
@@ -237,9 +229,10 @@
     ],
     "native": [
       "CO",
-      "VE"
+      "VE",
+      "PA"
     ],
     "requests": 12,
-    "at": "2026-11-17T05:18:20.405Z"
+    "at": "2026-11-19T00:50:56.943Z"
   }
 }

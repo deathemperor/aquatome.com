@@ -1,0 +1,69 @@
+{
+  "id": "corydoras-geoffroy",
+  "native": {
+    "input": "08c26db5f6b869fc",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras geoffroy",
+    "status": "ACCEPTED",
+    "taxonKey": 2342620,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        23
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        23
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        5
+      ],
+      [
+        "68ace562-4acd-4a6e-a1ef-52c73a5018d8",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

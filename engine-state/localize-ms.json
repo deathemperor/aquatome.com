@@ -349,6 +349,22 @@
       "Item 8: 'dikondisikan' is awkward. Use 'dikondisikan/diberi makanan khas terlebih dahulu' or 'disediakan dengan betul'. 'Pemakan ikan mutlak' is acceptable."
     ]
   },
+  "acestrorhynchus-heterolepis": {
+    "at": "2026-11-19",
+    "from": "2026-11-18",
+    "name": "Freshwater barracuda",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "In 1: \"diperihalkan secara saintifik\" is slightly stiff; \"diperihalkan secara saintifik\" could be \"diperihalkan secara saintifik buat pertama kali\" or simpler \"dihuraikan\" (minor).",
+      "In 1: \"berdasarkan spesimen dari Peru\" slightly rephrases \"from Peru\" (minor, meaning acceptable).",
+      "In 1: source says \"both species\" though only A. heterolepis and A. microlepis are mentioned; the translation follows this, no change needed beyond optional clarity."
+    ],
+    "parts": {
+      "quickFacts:glaser": "8dcf5b4701fe",
+      "notes:glaser": "22ac2f01577b"
+    }
+  },
   "acestrorhynchus-isalineae": {
     "at": "2026-11-09",
     "from": "2026-10-28",
@@ -783,22 +799,23 @@
     }
   },
   "afruca-tangeri": {
-    "at": "2026-11-17",
-    "from": "2026-11-17",
+    "at": "2026-11-19",
+    "from": "2026-11-18",
     "name": "African fiddler crab",
     "confidence": "low",
     "score": 0.85,
     "notes": [
-      "Sentence 5: \"bergaduh dengan jantan lain\" is informal; use \"bertarung dengan jantan pesaing\" for fights between rival males (rival nuance is lost).",
-      "Sentence 2: \"mencari makan\" is fine, but the English says \"take in food\"; consider \"mengambil makanan\" or \"makan\" (minor).",
-      "Sentence 3: \"tempat berlindung\" repeats \"tempat bersembunyi\"; rephrase, e.g. \"Beberapa tempat persembunyian membolehkannya berlindung\"."
+      "\"Dalam tangki\": for a crab setup, \"akuarium\" or \"paludarium\" is more consistent with the rest of the text (\"tangki\" is acceptable but less natural here).",
+      "\"berbatu kelikir\": \"kerikil\" is the more common Malaysian spelling/term for gravel.",
+      "\"makanan beku\": fine, but \"frosted\" food is better rendered as \"makanan sejuk beku\" for clarity.",
+      "\"ketam fiddler\": consider the local name \"ketam biola\" with (fiddler crab) in brackets."
     ],
     "parts": {
-      "distribution:glaser": "0f501fa43901",
-      "habitat:glaser": "d877c654157e",
-      "maintenance:glaser": "ae51a1b02f28",
-      "diet:glaser": "6b6f5696b02b",
-      "dimorphism:glaser": "955614770b41"
+      "distribution:glaser": "f6e06c706d52",
+      "habitat:glaser": "cf3bb8758e7f",
+      "maintenance:glaser": "2a0554e287a1",
+      "diet:glaser": "ce230ba4ff87",
+      "behaviour:glaser": "47d0657e7660"
     }
   },
   "agamyxis-pectinifrons": {
@@ -2397,6 +2414,27 @@
       "references:planetcatfish": "5d10186b6238"
     }
   },
+  "amphiarius-phrygiatus": {
+    "at": "2026-11-19",
+    "from": "2026-11-18",
+    "name": "Kukwari sea catfish",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Kukwari sea catfish\" left in English; add a Malay descriptor, e.g. \"ikan duri laut Kukwari (Kukwari sea catfish)\".",
+      "Item 5: \"Mouth brooding males\" is rendered as \"Ikan jantan yang mengeram telur di dalam mulut\"; the standard hobby term is \"pengeram mulut\" (mouthbrooder), so consider \"Ikan jantan pengeram mulut menjaga telur...\".",
+      "Item 6: \"sedap mata memandang\" is colloquial; \"menarik pada pandangan mata\" is more suitable for a handbook.",
+      "Item 6: \"perikanan tradisional\" for \"artisanal fisheries\" is acceptable but \"perikanan artisanal/kecil-kecilan\" is closer."
+    ],
+    "parts": {
+      "quickFacts:scotcat": "d295f2e3488f",
+      "distribution:scotcat": "70b2eac6d2d9",
+      "habitat:scotcat": "cc47d47a8f17",
+      "diet:scotcat": "518afc36d30e",
+      "reproduction:scotcat": "7ba3f007515c",
+      "notes:scotcat": "fbcdb77f6a0d"
+    }
+  },
   "amphilius-atesuensis": {
     "at": "2026-11-16",
     "from": "2026-11-13",
@@ -3744,13 +3782,13 @@
     }
   },
   "aphyocharax-nattereri": {
-    "at": "2026-11-18",
-    "from": "2026-10-29",
+    "at": "2026-11-19",
+    "from": "2026-11-18",
     "name": "Dawn Tetra",
     "confidence": "medium",
-    "score": 0.92,
+    "score": 0.88,
     "notes": [
-      "\"Spesies ini agak banyak bertelur berbanding saiznya\" is slightly awkward for \"quite a fecund species\"; use \"sangat subur membiak\" or \"menghasilkan banyak telur berbanding saiznya\"."
+      "\"beberapa ekor ikan keli\": 'ikan keli' usually means Clarias, the food catfish, in Malaysia. For aquarium catfish like Corydoras, 'ikan keli hiasan' or 'catfish' (or 'ikan duri') is clearer."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "17e5a2b1e6c5",
@@ -3765,7 +3803,11 @@
       "dimorphism:seriouslyfish": "f0711e7da92b",
       "reproduction:seriouslyfish": "ffd590bd17f4",
       "notes:seriouslyfish": "c004545e9abc",
-      "references:seriouslyfish": "49f9a319cd60"
+      "references:seriouslyfish": "49f9a319cd60",
+      "quickFacts:glaser": "e894d209d4e0",
+      "waterConditions:glaser": "af59487c0651",
+      "behaviour:glaser": "2d9b7f41afce",
+      "notes:glaser": "43dfed9713b0"
     }
   },
   "aphyocharax-rathbuni": {
@@ -4172,6 +4214,134 @@
       "quickFacts:glaser": "30ee88002bd2",
       "distribution:glaser": "9e8e26931983",
       "notes:glaser": "2292dcee82a5"
+    }
+  },
+  "aphyosemion-rectogoense": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Aphyosemion rectogoense",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 4: \"Kononnya, pengarang pertama\" – \"Kononnya\" implies a dubious claim; \"Apparently\" is better rendered as \"Nampaknya\" or \"Dikatakan\".",
+      "Item 4: \"berhias, selalunya berbentuk lyre\" – \"lyre\" is left untranslated; use \"berbentuk lira\" or \"berbentuk kecapi\".",
+      "Item 1: \"killifish\" is fine, but consider adding \"(ikan killi)\" on first mention for readers."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "cc3996101f79",
+      "distribution:seriouslyfish": "30bec8359b74",
+      "waterConditions:seriouslyfish": "18572d7ed084",
+      "notes:seriouslyfish": "76834ac30688"
+    }
+  },
+  "aphyosemion-splendopleure": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Splendid Lyretail",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "beforeYouBuy:seriouslyfish": "373ca29a3045",
+      "distribution:seriouslyfish": "e2002163fb1a",
+      "habitat:seriouslyfish": "989d161271f7",
+      "aquariumSize:seriouslyfish": "9c87a59089fb",
+      "maintenance:seriouslyfish": "a2079e53a794",
+      "waterConditions:seriouslyfish": "deae19a3e674",
+      "diet:seriouslyfish": "14af234d7841",
+      "behaviour:seriouslyfish": "a7f2e12ba0bf",
+      "dimorphism:seriouslyfish": "37c774e855ab",
+      "reproduction:seriouslyfish": "699ae41ce1b1",
+      "notes:seriouslyfish": "e205917e8233"
+    }
+  },
+  "aphyosemion-striatum": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Red-striped killifish",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 11: source spells 'Taxiphylum' but the translation changes it to 'Taxiphyllum'. Keep the Latin name as in the source, or at most flag it as a correction.",
+      "Item 5: '~41 liter' for ~11 US gal. The Malaysian spelling is 'liter' or 'liter/L', and rounding gives about 42 L, so check the figure. Minor."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "7d307791d0f3",
+      "beforeYouBuy:seriouslyfish": "8c999c1c509e",
+      "distribution:seriouslyfish": "67b346fc6487",
+      "habitat:seriouslyfish": "e12fbc264952",
+      "aquariumSize:seriouslyfish": "cd5622d720e2",
+      "maintenance:seriouslyfish": "a02d0a4a254e",
+      "waterConditions:seriouslyfish": "e1506cd6a22a",
+      "diet:seriouslyfish": "960352402ab2",
+      "behaviour:seriouslyfish": "05250bb2a8ff",
+      "dimorphism:seriouslyfish": "03897959165b",
+      "reproduction:seriouslyfish": "ec8d770e7f52",
+      "notes:seriouslyfish": "88316d6d3e3f",
+      "references:seriouslyfish": "b9e200b1d3c7"
+    }
+  },
+  "apistogramma-agassizii": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apisto agassizii",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "e4c166c8f241",
+      "quickFacts:glaser": "aaab11b51a0b",
+      "distribution:seriouslyfish": "0eb660d3e201",
+      "habitat:seriouslyfish": "e836539559a4",
+      "aquariumSize:seriouslyfish": "db800275128f",
+      "maintenance:seriouslyfish": "ea86a10fde5d",
+      "waterConditions:seriouslyfish": "d92274c5b38f",
+      "diet:seriouslyfish": "60b70b0af893",
+      "behaviour:seriouslyfish": "2a39469d5e5f",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "b32f4ac5c5a3",
+      "notes:glaser": "83f6d74edb16",
+      "references:seriouslyfish": "e5d8dc2ca6c4"
+    }
+  },
+  "apistogramma-alacrina": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apisto alacrina",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"hyper-aggressive\" is rendered as \"terlalu agresif\", which is a little weaker. \"sangat agresif\" or \"amat agresif\" would be closer.",
+      "Item 11: \"tiada wakil ... dimasukkan\" and \"pengesahan bahawa\" are fine. However, \"Teleocichla sudah lama diterima sebagai kumpulan beradik\" slightly overstates \"well-established\"; \"telah mantap\" would be closer.",
+      "Item 5: \"tukar air dalam jumlah yang sangat besar\" is stiff. \"pertukaran air yang sangat banyak\" would read more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "cc30116078b9",
+      "distribution:seriouslyfish": "80bbbbf7e7ac",
+      "habitat:seriouslyfish": "d0c28c5d06f6",
+      "aquariumSize:seriouslyfish": "0bd23859542c",
+      "maintenance:seriouslyfish": "b30fe5513b82",
+      "waterConditions:seriouslyfish": "cacb1dbb37c3",
+      "diet:seriouslyfish": "f3c80588a3d7",
+      "behaviour:seriouslyfish": "aaaacc897c41",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "b83428b21a81",
+      "notes:seriouslyfish": "f465e25a1984"
+    }
+  },
+  "apistogramma-atahualpa": {
+    "at": "2026-11-19",
+    "from": "2026-11-02",
+    "name": "Apistogramma atahualpa",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Minor: \"diberi huraian saintifik\" could be more natural as \"sebelum dihuraikan secara saintifik\" or \"sebelum diperihalkan secara rasmi\".",
+      "Minor: \"atahualpa\" is a species epithet; could be italicised/kept as is, which is fine."
+    ],
+    "parts": {
+      "quickFacts:glaser": "cff6b59a7d36"
     }
   },
   "astronotus-ocellatus": {
