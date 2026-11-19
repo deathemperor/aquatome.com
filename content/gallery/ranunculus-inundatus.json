@@ -62,18 +62,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/347392300.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/347392300-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Wendy F",
-      "sourceUrl": "https://www.inaturalist.org/photos/347392300",
-      "caption": "Cây mao lương lá xẻ mảnh mọc nhô lên khỏi mặt nước",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/flickr/17981501012.webp",
       "thumb": "https://media.aquatome.com/flickr/17981501012-480.webp",
       "width": 1024,
@@ -708,6 +696,18 @@
       "caption": "Thảm Cây mao lương thủy sinh ra hoa vàng ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/347392300.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/347392300-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Wendy F",
+      "sourceUrl": "https://www.inaturalist.org/photos/347392300",
+      "caption": "Cây mao lương lá xẻ mảnh mọc nhô lên khỏi mặt nước",
+      "best": true,
+      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/98294780.webp",

@@ -381,7 +381,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/auchenoglanis-occidentalis | covered | 5 | 30 |
 | species/axelrodia-stigmatias | covered | 0 | 30 |
 | species/bagarius-suchus | covered | 0 | 30 |
-| species/bagre-marinus | covered | 10 | 30 |
+| species/bagre-marinus | covered | 7 | 30 |
 | species/bagrichthys-hypselopterus | covered | 0 | 30 |
 | species/bagrichthys-macracanthus | covered | 0 | 30 |
 | species/bagrichthys-obscurus | covered | 0 | 30 |
@@ -461,7 +461,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/chaca-bankanensis | covered | 1 | 30 |
 | species/chaca-chaca | covered | 0 | 30 |
 | species/chaetostoma-fischeri | covered | 0 | 30 |
-| species/chaetostoma-leucomelas | covered | 1 | 30 |
+| species/chaetostoma-leucomelas | covered | 0 | 30 |
 | species/chaetostoma-lineopunctatum | covered | 0 | 30 |
 | species/chalceus-erythrurus | covered | 2 | 30 |
 | species/channa-maculata | covered | 4 | 30 |
@@ -512,7 +512,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/crenicichla-compressiceps | covered | 0 | 30 |
 | species/crenicichla-johanna | covered | 1 | 30 |
 | species/crenicichla-lugubris | covered | 0 | 30 |
-| species/crenuchus-spilurus | covered | 1 | 30 |
+| species/crenuchus-spilurus | covered | 0 | 30 |
 | species/crossoloricaria-cephalaspis | covered | 0 | 30 |
 | species/ctenochromis-polli | covered | 0 | 30 |
 | species/ctenopoma-acutirostre | covered | 1 | 30 |
@@ -572,7 +572,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/exostoma-labiatum | covered | 0 | 30 |
 | species/farlowella-amazonum | covered | 0 | 30 |
 | species/farlowella-oxyrryncha | covered | 0 | 30 |
-| species/farlowella-vittata | covered | 2 | 30 |
+| species/farlowella-vittata | covered | 1 | 30 |
 | species/gagata-cenia | covered | 0 | 30 |
 | species/garra-qiaojiensis | covered | 0 | 30 |
 | species/gastromyzon-punctulatus | covered | 0 | 30 |

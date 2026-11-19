@@ -1228,6 +1228,21 @@
       }
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/02abd835e11df120.webp": {
+    "stenorhynchus-seticornis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9c6cfd3d758b53de9b7f8a238142d579d4e55c3d74ed8b2f786503b89aeddf33",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/aquariumbreeder/033c39de34dbf2c5.webp": {
     "gastromyzon-punctulatus": {
       "ok": "unsure",
@@ -1236,6 +1251,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "64d612d5a59dfe9f6b5510186993d08f2e8f40a40ab917fca60711e94b57e494",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/063c13c4caf6118a.webp": {
+    "hemianthus-callitriodes": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "892d5d367ea034a8cd32da3fe07fb2b865dacc84d8b4e26bc93652a28c52497b",
       "hints": {
         "dead": false,
         "people": false
@@ -2232,6 +2262,21 @@
       }
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/8bdd71e6e3028464.webp": {
+    "melanoides-tuberculata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8fe0269eff069285ca17702a80fa199f304e24fb81ba4b707efe64fecb2ac989",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/aquariumbreeder/8be7a523fcfd98a9.webp": {
     "costasiella-kuroshimae": {
       "ok": "yes",
@@ -2417,6 +2462,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "501fdb80402259f90574c48677447e07c38628874fd53ee0e422b83121d5f303",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/aquariumbreeder/a6eb0ebe0fa1603f.webp": {
+    "geosesarma-krathing": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "052c86f6fbae7d055edb7f186ba99d021e07405efd959befc15606a9f040f574",
       "hints": {
         "dead": false,
         "people": false
@@ -3176,6 +3236,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "25524f3da05339ef6dffa96d1944423e0146face1c08eabe24d861108b1ab0a5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/04b2124c7c2253ce.webp": {
+    "pao-suvattii": {
+      "ok": "yes",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "87144c00649cd5a92e1471be0404fac81766597eb8849823a4bdffd7a23e64bc",
       "hints": {
         "dead": false,
         "people": false
@@ -4136,6 +4211,21 @@
       }
     }
   },
+  "https://media.aquatome.com/aquariumcoop/27959617eef893b9.webp": {
+    "melanoides-tuberculata": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "b9ff37eeccf236e70ba306e15ca88383cfe5be9ec59ee4a1209008848e079004",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/27fa1a4d1bcf80f1.webp": {
     "glossolepis-incisus": {
       "ok": "yes",
@@ -4153,11 +4243,12 @@
   },
   "https://media.aquatome.com/aquariumcoop/28833217bf576b7d.webp": {
     "hemigrammus-rhodostomus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": true,
+      "person": false,
       "logo": false,
-      "note": "subject yes",
-      "noteHash": "f8299966e748e59e2744b8d4fa683fd9683a4190ca1a5f87a276595c7206fb0f",
+      "note": "subject unsure",
+      "noteHash": "3a87591996ea32bbe5dbe31d0167988ee717eb2157e36a89c26f654efba4f08e",
       "hints": {
         "dead": false,
         "people": false
@@ -6767,6 +6858,21 @@
       }
     }
   },
+  "https://media.aquatome.com/aquariumcoop/8bad181fbec60890.webp": {
+    "melanoides-tuberculata": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "8353eaa83731bd1ba8942afb389178418212bb99fcd5549850bcb0bdd648ba49",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/8be45c5b9cfa63e6.webp": {
     "acarichthys-heckelii": {
       "ok": "yes",
@@ -7076,11 +7182,12 @@
   },
   "https://media.aquatome.com/aquariumcoop/962a822e80eb7fa5.webp": {
     "hemigrammus-rhodostomus": {
-      "ok": "unsure",
-      "typical": false,
+      "ok": "other",
+      "typical": true,
+      "person": false,
       "logo": false,
-      "note": "subject unsure",
-      "noteHash": "55576a02b1f458d9befa2510c4454f699f9909363e4671fd6e060ab97c43fa0f",
+      "note": "subject other",
+      "noteHash": "903fe800c09d557255837beb009240af0b5d75e50e206664e2958bb384cde5aa",
       "hints": {
         "dead": false,
         "people": false
@@ -7123,6 +7230,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "0e62f148fc496cd870e3b900e967f87d492fee90205f1a2a2b97d6e2a8bb0708",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/980d301c6c0ba6f0.webp": {
+    "melanoides-tuberculata": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "3a7dae766c2a75e2146339429e75e7e59063143020dd10470bdbc67ef80be23f",
       "hints": {
         "dead": false,
         "people": false
@@ -7941,6 +8063,21 @@
       }
     }
   },
+  "https://media.aquatome.com/aquariumcoop/b115243636b2c63c.webp": {
+    "melanoides-tuberculata": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "772f6f9e19cf01ef1dfd50a616c7f5ec7c78d6b955e6698296686dced5990515",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/b1bf83441056d578.webp": {
     "phenacogrammus-interruptus": {
       "ok": "yes",
@@ -8502,11 +8639,12 @@
   },
   "https://media.aquatome.com/aquariumcoop/c319198b28375b52.webp": {
     "hemigrammus-rhodostomus": {
-      "ok": "yes",
-      "typical": false,
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
       "logo": false,
-      "note": "subject yes",
-      "noteHash": "a798ed657af61bd22bca54e579a4913de9d5e92ec1a3707479ddce95e7ec0de3",
+      "note": "subject unsure",
+      "noteHash": "e1ad97693b2ec400b2c104bb0c6b93e00d162f133e1e9c5a79e1afd997dfe625",
       "hints": {
         "dead": false,
         "people": false
@@ -8579,6 +8717,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "dd4c70859f09bf21d1fc35112c0125edd26a46e5ad62185645e84b1b0f3517a8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/c6f0de438046310a.webp": {
+    "melanoides-tuberculata": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "8bd36f64978453f000b4b7c287942338776e2a2b4937646baa140239a985ee3b",
       "hints": {
         "dead": false,
         "people": false
@@ -17528,6 +17681,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/15fcf86e9b07e592.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "cec9847059faefcda7963f3b62e9a613f5f79e56587f74b83de33dd27d279a20",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/15ff366f916ecdf5.webp": {
     "brachyrhaphis-roseni": {
       "ok": "yes",
@@ -20713,6 +20881,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "66ece988d6ff59d2461202b90e344c16fe0265fb0d4f2b00fe31c962cfadabc8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/1eeffb76b724a262.webp": {
+    "salvinia-minima": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "04b7d7aae338e08fa26dbb1d148df5544467e2a9110704a913723b77e76af180",
       "hints": {
         "dead": false,
         "people": false
@@ -25852,6 +26034,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/2e76b4c59f975830.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1ee9b8aba67aad14ff75351955c5426401a014ce354f2ff2cc43ddc21f2d41c2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/2e798ccf66ab49d1.webp": {
     "puntigrus-tetrazona": {
       "ok": "yes",
@@ -25875,6 +26072,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "0d84856e853f57e54e79c1e9c787b12710753d3491eec917a997cf4076c33e92",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/2e89a632e759e23b.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "eb632778f2a5dc9792b41ef7f7335c435017685e98f24de6b7b3d8384df273ef",
       "hints": {
         "dead": false,
         "people": false
@@ -26755,6 +26967,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "694e3d8b0b9b588b8ef809bd65751fa909afed6991fd7d8ce61161358cbbb863",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/309f41efd902430a.webp": {
+    "acantopsis-rungthipae": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "f16041611280377f2754dd373368e830e236dc39adde960e5588502e8c5e925f",
       "hints": {
         "dead": false,
         "people": false
@@ -28223,6 +28449,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/354feb231b1ee854.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "fe7d8a0e078e825e1168daa622159b332b20f9301b74338b3c7ece5809be06c9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/355ae217bd8f52c2.webp": {
     "apistogramma-bitaeniata": {
       "ok": "unsure",
@@ -28513,6 +28754,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "200e590dd8eacab6d1cfae05c7d35f7dbe3f5ed6e6655f02355ecd4578677b63",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/3607affc19f6081e.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c75e96bde691968a2ced0f11d96c691c8b8cd5352fb45d257f70426cb05557a7",
       "hints": {
         "dead": false,
         "people": false
@@ -31135,6 +31391,21 @@
       "hints": {
         "dead": true,
         "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/3cde08e6abae6d02.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1623c19ec95328b1c0933b442b14918262563e10e3e5ffb9c2dff9fc895653b6",
+      "hints": {
+        "dead": false,
+        "people": false
       }
     }
   },
@@ -37042,6 +37313,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/506b8c609aedf39a.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "aef047ec9109c2e860a9a2e932d5fbee4927ae4ef91d0064eb82365e44cb71cb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/507123932a70419c.webp": {
     "mickey-mouse-platy": {
       "ok": "yes",
@@ -38692,6 +38978,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/5475ee812bbc6c10.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2dbd9c20d56e273fae011a8c3d577d8df493627e97aa615c6e8d18f0f6898753",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/547b2dfc17de0718.webp": {
     "hyphessobrycon-megalopterus": {
       "ok": "none",
@@ -38815,6 +39116,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "bf69d35fdcc2c20efa17b5d47aa06fc9b0afe9d177eac3973707026ee29592ee",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/54e4455db8276713.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "17970b537f08c9331e06bbc3df4b9b33485960d032212065847aa1b35d1b43bb",
       "hints": {
         "dead": false,
         "people": false
@@ -57523,6 +57839,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/923af4c71aee4b58.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "27d6f4a39054e2cc1e796b4382d039a5ed5d7402c4db70c7f15b4d4d588d702f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/9251a1c113529f91.webp": {
     "palaemon-concinnus": {
       "ok": "unsure",
@@ -58463,6 +58794,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "ecff89f04d832df4c42462c3aadd4345158a5eefe9f4ae0b860003fb14ed8652",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/94b1a2218b91674e.webp": {
+    "krobia-xinguensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "f36689eecd907c44173ffddfc432ac6aeca6201b1a040e2d173d9996c366b2fd",
       "hints": {
         "dead": false,
         "people": false
@@ -60333,6 +60679,21 @@
       "hints": {
         "dead": false,
         "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/99a9cb58647c4069.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "394f986376622d9e2c021c537087ef878502fa269dc16ae9d28bea1247d87802",
+      "hints": {
+        "dead": false,
+        "people": false
       }
     }
   },
@@ -62394,6 +62755,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "e09d95d6aff3fee99b372d8f60d6d9a62dca3d6e955149b8b871af6c24695b4c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/9fbc1fb788c2ce32.webp": {
+    "krobia-xinguensis": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "79d8f6dc6fa1856bce459fac044b26b896d1b9bb87d6a64f4d06dd07bac24a9b",
       "hints": {
         "dead": false,
         "people": false
@@ -66484,6 +66859,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/ad76b34dd45ddae9.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "74343ea0490d3d6dee3adfe9feae285c2c918defdb6eb2349ae26fcfce86e5ea",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/ad80fe40afef6521.webp": {
     "urocaridella-antonbruunii": {
       "ok": "unsure",
@@ -66976,6 +67366,20 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/aee5798dcbd18b0d.webp": {
+    "parotocinclus-jumbo": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "31afecbe0f27d1d8a81a99cc548a1dae56ff9073c810a04f69384483fedc91f6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/aee6c5b5dee56b0b.webp": {
     "lepidosiren-paradoxa": {
       "ok": "yes",
@@ -67056,6 +67460,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "761352aff68391bc38955ebdff6079260cfaaf8535bdaf8162a2b8fa03728eb1",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/af4cabf0c93abb64.webp": {
+    "otocinclus-vestitus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "29a316512c40883d53fb3d5176b74947a6a9cb49df0850de5062e0ee1e4567da",
       "hints": {
         "dead": false,
         "people": false
@@ -78353,6 +78772,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/cf86be0ef388cf7b.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2c3a81325c6e4452bcfe9ccfd90e8d1766371e8f5ae1798ac77b61ac85abc9d0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/cf92ae1583d22ced.webp": {
     "symphysodon-aequifasciatus": {
       "ok": "yes",
@@ -79154,6 +79588,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "79dc7fe013f8a4b9ca6ce5042d3f4898d87ec581f2a85b0dedf2971744eb1029",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/d1f993355144c76b.webp": {
+    "salvinia-minima": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "4558278f844f99964a0c6688c9cf5fb016b2c27660618183188f5a83a3fdf726",
       "hints": {
         "dead": false,
         "people": false
@@ -81921,6 +82369,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "7dd8a4386e14492044dac1950988519c60879b8c23913a5bb55d603515e66f0a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/d98e995e8f51632a.webp": {
+    "otocinclus-vestitus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3ac7e1e3b5778971f531c5095ed90ae8e6992df18c6c9ec62b51ef99f4b50d57",
       "hints": {
         "dead": false,
         "people": false
@@ -91076,6 +91539,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/f660c93214059215.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "02eb46ba63008a27e05aa2291ad8cf4fef081bbe14c575938be4376bd4dea169",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/f663ae1ccccc968d.webp": {
     "mickey-mouse-platy": {
       "ok": "yes",
@@ -91468,6 +91946,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "5f8e64930b42cf714cbf63b202e82a56890670d32c818897509e244a193bef32",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/f7915cfb7171796c.webp": {
+    "parotocinclus-jumbo": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2ceeaed0de02613530a57d0c29352c18abfa495c933063472227fdf58f4ace37",
       "hints": {
         "dead": false,
         "people": false
@@ -94507,6 +95000,21 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/14545788403.webp": {
+    "farlowella-vittata": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "0b04feac5ba7fffc155a987661c379d23eb20fe98267aba2e6721a56b465f526",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/14619429711.webp": {
     "boraras-urophthalmoides": {
       "ok": "yes",
@@ -94733,6 +95241,20 @@
       "noteHash": "45433bcaf5ede56c54e74ea80b4973200444b77a6f9ffd451b8cf96bc9bc7180",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/16519764731.webp": {
+    "chaetostoma-leucomelas": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "3e878b72abd5fb05209cffdab6041d40b6af682119a76cb0bb7f2401f54d2157",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -95024,6 +95546,51 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/23724583030.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f7d876c66eb8efe81b85c54e74ef2d6b70f4d65565e2c8ad3d5f866ffe78b095",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/23732157773.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "51b6cf43a4fe155ee7559174bd0cc9572099492823cebd12120285f671295666",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/23994159786.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3d6ca9fa843a3ecc3cebc0579f2bd222e385d32b58aac04a7f7e394e28225d3b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/24045734979.webp": {
     "taxiphyllum-barbieri": {
       "ok": "yes",
@@ -95032,6 +95599,66 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "8082794f75a92495ade26daa689a7f7fa5be650f89c06bcb6f0bedba001c719d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/24067651911.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d716696537aade037d217cade597ebf1622859b7d2645afde01c9b2a4b8cc1d4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/24150271495.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "6c69760e3ae98743f097429f3113089a90b5d20714d7759b50bf9677422ffca6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/24250855892.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "810f8a6fbe2af7f9ae696bd40f0f87bd22ac4565732a82c9331a9d0a2d34f756",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/24266388614.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e8ccf023fc324bdd849ab4723a77bea8213d35878e6fb921f1156975cf96c83d",
       "hints": {
         "dead": false,
         "people": false
@@ -95052,6 +95679,20 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/24335055523.webp": {
+    "apistogramma-borellii": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "4e250f6ada5b96e596e5d03ce724819eaf23e2ed5cbd8b2a7b1fec789daacd3d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/24386831116.webp": {
     "taxiphyllum-barbieri": {
       "ok": "yes",
@@ -95060,6 +95701,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "d347f52f1048fc92370f0bda3db5e34401fc8f29c0b0db50fc130b92678d6209",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/24395559463.webp": {
+    "apistogramma-borellii": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "8915bb83854cd4c8b11b54fedfd6ef32f6a3e5d1a0d52a92104dfb07cf5a8a94",
       "hints": {
         "dead": false,
         "people": false
@@ -95136,6 +95791,49 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/24801159221.webp": {
+    "apistogramma-borellii": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "cc997ffa5e7cd37b6dcd0e87ed5db3e854916da6669d4201150f694dcac278a5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/24868584941.webp": {
+    "apistogramma-borellii": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "a5d39ef2d265303e3216eef2ea168b7c25c083fca14fabad6b5f1f60605c7f3f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/2522309998.webp": {
+    "exodon-paradoxus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b8bab2c72b64888c472843d2526cfb1f35a6fa767525ba2073ee0c6ed211e3da",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/26033331155.webp": {
     "distichodus-sexfasciatus": {
       "ok": "yes",
@@ -95179,6 +95877,21 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/26935837754.webp": {
+    "apistogramma-borellii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "14633b06207820ee09faf5fc3d9d9734daed39eab1232fbf7682e7ff38e8b678",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/2709294861.webp": {
     "corydoras-paleatus": {
       "ok": "yes",
@@ -95187,6 +95900,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "eb896e6ef47bada32c773a3b50ef91d27e83161555365351dbadc9acab195e78",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/27683475390.webp": {
+    "apistogramma-borellii": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "2eb7c4b0ef30c680329dd092e1ebdbfad6ef57628df614317594bd4f363014aa",
       "hints": {
         "dead": false,
         "people": false
@@ -95275,6 +96002,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "fa30674ad261b6ca16615baf06d8d2d8a8623fa2f63a0e2847ad47980b0680eb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/30775417143.webp": {
+    "hemigrammus-rhodostomus": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "1ca31c44d1567c297bef072a2ba8e54a77b4874e9f23f8ce49c5a0b1c55a1a59",
       "hints": {
         "dead": false,
         "people": false
@@ -95875,6 +96616,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "e891a04b2d3d9d49fe571a434efef7cac775dd187274c6bbd2158706259ebf92",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/52231563605.webp": {
+    "geophagus-altifrons": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "487fde3742e957336173d7c78ebd3f9e26dba6a94887b8d92340725ecd15f41d",
       "hints": {
         "dead": false,
         "people": false
@@ -96628,6 +97383,21 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/5807040248.webp": {
+    "exodon-paradoxus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "75e6892f9403fbdd1901a27c7f5779a135c3e71d92ec13fb886cdb55dddc4ce8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/5807040632.webp": {
     "hemigrammus-stictus": {
       "ok": "yes",
@@ -96657,6 +97427,64 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/5807043316.webp": {
+    "crenuchus-spilurus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "fe87e14167ffd8547780a8aa193801cbf0685aad8a3c408dc699a1a85f1cc16d",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/5807047612.webp": {
+    "leiarius-marmoratus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "da9d971433a0ff26bc1bb15c88a0c91e346f4f9d59f8295988a17cd658a4d37d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/6181911473.webp": {
+    "mesonauta-festivus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0debc17f51b65aecba4ec7f915c80882cd8acb55dc24811e206901cdbd4ad8b0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/6181911883.webp": {
+    "anostomus-anostomus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8c4f56c1f0327265fc4dff08691f7848072c32b18b58bdd113c25b5e5959b6eb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/6181919529.webp": {
     "hyphessobrycon-herbertaxelrodi": {
       "ok": "yes",
@@ -96679,6 +97507,35 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "ad30c492ffa7b3034ade685d430e6d88d1b25c9676e8cef2b71ce84cff913f1f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/6181925527.webp": {
+    "maylandia-callainos": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "66c7e9d237b30dc56dfc843ec9342fe65ba74513d99e9b55756d14e0be759d90",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/6181927093.webp": {
+    "copadichromis-borleyi": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "fa0dd03ef02c56ad7953583e1e9e13627d8415689dc1e238c98acce8117e3da8",
       "hints": {
         "dead": false,
         "people": false
@@ -96998,6 +97855,34 @@
       }
     }
   },
+  "https://media.aquatome.com/flickr/8917150972.webp": {
+    "hemigrammus-rhodostomus": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "539d02f090c6930aa2cd3cbdc91f4c9fe44ebe7814fe9a187462f79d3c877093",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/flickr/8917256154.webp": {
+    "hemigrammus-rhodostomus": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "30fb3437fdae0c4daa7faef91cbedde20083025755c1947a2b223cff66f3e777",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/flickr/9111155798.webp": {
     "vesicularia-ferriei": {
       "ok": "yes",
@@ -97065,6 +97950,20 @@
       }
     }
   },
+  "https://media.aquatome.com/gbif/1265259192-47c01045484574df.webp": {
+    "hydrocynus-vittatus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "31fb8fcd9f413a0fa7b5201b321025cb96371701e00e9d012b1207dc8f9e151b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/gbif/1265259207-bb7505b8b4367a4a.webp": {
     "enteromius-fasciolatus": {
       "ok": "dead",
@@ -97088,6 +97987,20 @@
       "noteHash": "fde7fb9db57fc646faa210eefd162e4b7c9090b5fa481b59f1093ffdf930872c",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/gbif/1265259577-ac4181c64843b71f.webp": {
+    "hydrocynus-vittatus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "d71a1958a08b048caef2d49a9ebefbf8a7805aa0d471fc2e1798cf5fa5c6eb5c",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -97602,6 +98515,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/05ce2440e38887cf.webp": {
+    "pseudomystus-funebris": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "e542596d9e80ad6da6d351cf23524d07d53b35eb7d1f9f65dd48295e66d53188",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/06071983774d707c.webp": {
     "potamotyphlus-kaupii": {
       "ok": "yes",
@@ -97855,6 +98783,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/097976d53f6c8820.webp": {
+    "auchenoglanis-biscutatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "022457e900866f74ad4d16d34245e3f557789681adc5041fca0e87583ca31e17",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/09dca11b1148753e.webp": {
     "panaqolus-albomaculatus": {
       "ok": "yes",
@@ -97885,6 +98828,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/0a942a24a3a13fbd.webp": {
+    "serrasalmus-manueli": {
+      "ok": "yes",
+      "typical": false,
+      "young": true,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "b00c4babb82f0c88baa37371f5252b45fa83e1566fd4381ab0ebb953adb417ba",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/0a9f7c118e8e3c24.webp": {
     "nothobranchius-cardinalis": {
       "ok": "yes",
@@ -97894,6 +98852,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "c50cb979b5f53273e1dcaf623a3281566dcdf1968e07eac3495ce3b482e18a84",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/0aaade25f3d39b7e.webp": {
+    "serrasalmus-manueli": {
+      "ok": "yes",
+      "typical": false,
+      "young": true,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "ac0898c6562defaabb921643cd94962417271e275217bac11b1f5b4f90215841",
       "hints": {
         "dead": false,
         "people": false
@@ -98968,6 +99941,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/254dbeca36b2099a.webp": {
+    "pseudomystus-funebris": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "50326e6a1f4af22aa48df9f501019c91a7ec2fb350ca91d50aa862235be3a198",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/262b8c240585fdb6.webp": {
     "melanotaenia-nigrans": {
       "ok": "yes",
@@ -99152,6 +100140,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "9841ea8880e4b10e287712730aa1c5691b92b2994337ab7b6040478b42454929",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/2afc594e371f7cd3.webp": {
+    "aulonocranus-dewindti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "26484e419c38740571110f20b0873962f52fb75a15867a1b3eebfee9e5a4eb18",
       "hints": {
         "dead": false,
         "people": false
@@ -99721,6 +100724,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/36652a632ba75e6e.webp": {
+    "neritona-juttingae": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "8772600788f87ba9df78fd931812a188bd51b93afde8978d51ab0ed5e88d2cae",
+      "hints": {
+        "dead": false,
+        "people": true
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/36f7478546b2693a.webp": {
     "monopterus-cuchia": {
       "ok": "yes",
@@ -99847,6 +100865,20 @@
       "logo": true,
       "note": "subject other; logo",
       "noteHash": "782bd1906cc0a1c6e981ac953216cdd416a9a98edeb7288bcfd5f910212dc30c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/3913861c8c0507b2.webp": {
+    "poropanchax-luxophthalmus": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "8e0bf1c08da164d4870481e10dfe52de5366451742d873428b7aee0be19057a3",
       "hints": {
         "dead": false,
         "people": false
@@ -100076,6 +101108,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/3e214e3264894e18.webp": {
+    "serrasalmus-manueli": {
+      "ok": "yes",
+      "typical": false,
+      "young": true,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "d13821a11d5e23fe69fd3e062064ae1b1d6476cb4d0806b7e7dd53f51329d037",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/3e2bb5aa7824e882.webp": {
     "pyrrhulina-spilota": {
       "ok": "yes",
@@ -100115,6 +101162,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "f175bd81cf9272f51f2976a7f541b3b903c494f83fa72287e0eb2d2acd2bd997",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/3ee2733b22267707.webp": {
+    "aulonocranus-dewindti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "518e3a7e1f90d67d62fb01cf9cd97eda986b89ea79c38ac474556b0afebe2eb0",
       "hints": {
         "dead": false,
         "people": false
@@ -100190,6 +101252,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "10126985bc021b454100f9723a63dfca20b6d2b7296ba1ded19deb7a6cb74d9a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/4002ad57134d25bb.webp": {
+    "priapella-compressa": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "2dff0d5e0379f17ac395fae638311ff6d836c3a9683550a137c8d6c2d227c5d8",
       "hints": {
         "dead": false,
         "people": false
@@ -100390,6 +101467,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/42a453a63cfaadc9.webp": {
+    "krobia-xinguensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "a8eab3a3ad4d57823c5842580d25dea129d413aac4ce295c9a758e7c85fc8c7f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/42d1b77567031f31.webp": {
     "melanotaenia-goldiei": {
       "ok": "yes",
@@ -100399,6 +101491,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "2ee46dc1c3971aac19b03480ec95890a7e5c3cfcfcbe299f7eccb6842d0f9db8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/43ba8e08103de7f8.webp": {
+    "auchenoglanis-biscutatus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "a9a751938f889bb021b4b9e3e1198802788e7695eced873d68b0754a0f04d543",
       "hints": {
         "dead": false,
         "people": false
@@ -100504,6 +101611,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "0b2a273fd0e9592ab246440e2c9117d20dfd50579d69b50ac3d91e491f73ac02",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/451b64d3bdf6804f.webp": {
+    "pseudomystus-funebris": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "b1b674d7a9417b37a6dea2a7b309f44d4723d6c18e774ff5a2b7e61f8863e7fb",
       "hints": {
         "dead": false,
         "people": false
@@ -101333,6 +102455,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/56477afe60138419.webp": {
+    "poropanchax-luxophthalmus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "754e796a89a0fe23fb3967671ca4d5438291a00181c734e528f0b8004a59221d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/56df7269b916e45a.webp": {
     "pseudochalceus-kyburzi": {
       "ok": "yes",
@@ -101511,6 +102648,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/5b426d105d0f6b05.webp": {
+    "xiphophorus-andersi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "67ba658111c56a828d1d5cf2c79ebc049576150aa61a0664208b0645d254b58b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/5b44e3cb2bc60e7c.webp": {
     "girardinus-falcatus": {
       "ok": "yes",
@@ -101520,6 +102672,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "f2098ad8a40e264ce12bb09558fd298937959d707b78366021528a554e31f87e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/5be92adc54491019.webp": {
+    "krobia-xinguensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "335bcaf08e12d308f966326d98a7cc225cd82da7860380b42a0dfb7a1cda2685",
       "hints": {
         "dead": false,
         "people": false
@@ -101911,6 +103078,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/638dfb64ccd4910f.webp": {
+    "metynnis-maculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "75cbdd510cb7f281b73d8fdf53f0f9812a03540f19099a804e9037609bf6d408",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/63b0c7c2f9dc841b.webp": {
     "epiplatys-dageti-monroviae": {
       "ok": "yes",
@@ -101980,6 +103162,36 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "2be94886a5e9f34d7e0b316226944adfb4d1bb9f5d8c8d1daabcdab481880709",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/65405ef75d64d61c.webp": {
+    "acestrorhynchus-isalineae": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "0f17f523d6406ff489298355b7938580a9452abe36c5b00a795943d85cd957b2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/6540f476b1463da5.webp": {
+    "krobia-xinguensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "fa61493756de4b4b40df8842ac3a4e4cae85f8662f4e851d34f1253b87464bc9",
       "hints": {
         "dead": false,
         "people": false
@@ -102144,6 +103356,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "dc613838c9a515c4571baf3557c3adcd6310ec60d55728473afa84ba1c01d8f0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/6ccbded0c81c2d66.webp": {
+    "pao-suvattii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "da51f25e726311e35e2381338b833f44fb9a9f946436222baac2d36bb22149ae",
       "hints": {
         "dead": false,
         "people": false
@@ -102588,6 +103815,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/731cc14a3a46445b.webp": {
+    "corydoras-urucu": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "c963d13ff416872ba2424409c377c074c7e7c60553b489e7b3a6103050eaa9a2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/736f26a2ccb318f8.webp": {
     "pyrrhulina-spilota": {
       "ok": "yes",
@@ -102597,6 +103839,20 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "3f997dfe0b5d7aba26935cd09fc744bb1b844d9d5a19e811c4fcdbb230c30b1a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/73b400dd87e6d34c.webp": {
+    "poropanchax-luxophthalmus": {
+      "ok": "unsure",
+      "typical": true,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "8e0bf1c08da164d4870481e10dfe52de5366451742d873428b7aee0be19057a3",
       "hints": {
         "dead": false,
         "people": false
@@ -103104,6 +104360,36 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/7f022b90f20a576a.webp": {
+    "xiphophorus-andersi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "e789286f132be6b45c5221e76401f6d25959d70f51d5828dca57594d1cc21e90",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/7f4cbcaaf9c7442e.webp": {
+    "neritona-juttingae": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "f5d16ec1a76bdad30fa76e1321a88d3826865a51845f636864ec31e7748182aa",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/7f5cd0139d4003cc.webp": {
     "tetragonopterus-argenteus": {
       "ok": "yes",
@@ -103516,6 +104802,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "8075fc737b8b599816fd7a0b8c18b002760efeddc861ec988458c17e081a5632",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/85a66d1e7e3254b6.webp": {
+    "corydoras-urucu": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "823f15bae33c455f330242c10c4d2cc0cff2c04155a0ada5be99af4376498524",
       "hints": {
         "dead": false,
         "people": false
@@ -103950,6 +105251,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/8ceb5d790a9fefd5.webp": {
+    "corydoras-urucu": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "894cc86c8b80512a5211464f71690116efa97306edce1107911ff687d4e2b3e7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/8d06f93cab1ca8b7.webp": {
     "microphis-deocata": {
       "ok": "yes",
@@ -104091,6 +105407,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "645f15a951224cb6c972ec69b5727f590abadd8ef32164b054b084be40970f4a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/8fcc9aaceb3cd98f.webp": {
+    "pao-suvattii": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "da03ab90e7abcb72c39535a20b2ef4f326c341bfbd24ec5df55616c0f8bca363",
       "hints": {
         "dead": false,
         "people": false
@@ -104378,6 +105709,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/955c6758ad6785d3.webp": {
+    "acestrorhynchus-isalineae": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "4ee14d0671ae475f29594c106792ac672027d6562365213baf1b8f50fc184df0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/962d3d2921963397.webp": {
     "polypterus-delhezi": {
       "ok": "yes",
@@ -104526,6 +105872,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/98c30e3d2b0a8f01.webp": {
+    "metynnis-maculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "f0ed3aef6c82076059b304a8295502a944642b728f038a4cdc761c8c174934b1",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/98c32c5884c11b47.webp": {
     "pseudancistrus-sidereus": {
       "ok": "yes",
@@ -104646,6 +106007,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/9a3ccafa7b9effe4.webp": {
+    "xiphophorus-andersi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "46f6e8e7dbc24eb473d18fa613091216d1cd34a03b8fff0f0b2b29f65d0bdcba",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/9a57366071be81bd.webp": {
     "synodontis-soloni": {
       "ok": "yes",
@@ -104685,6 +106061,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "c99823016e7eb0fb4c729f579e2bb9123bb6684b343631b213aaee2150cc9326",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/9aa3c485f6c63b0d.webp": {
+    "auchenoglanis-biscutatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": true,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "32f7b2fec91b560f02d7675e341473b228807e620b39fa50f7cc1c777a48044e",
       "hints": {
         "dead": false,
         "people": false
@@ -104990,6 +106381,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/a1302ebf2a09d0b2.webp": {
+    "acestrorhynchus-isalineae": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "8c95012151885b65a6d894cac9c8615046b35ef5701df5ec54e78548f45dbec2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/a1364017dbc77ed7.webp": {
     "roeboides-araguaito": {
       "ok": "yes",
@@ -105223,6 +106629,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "60f86da0553ad9be14c45f1fc4b49ae55ba5fcaebebfbd77fd2aebb5695579fa",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/a4d6c27e45c1302b.webp": {
+    "acestrorhynchus-isalineae": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "4ee14d0671ae475f29594c106792ac672027d6562365213baf1b8f50fc184df0",
       "hints": {
         "dead": false,
         "people": false
@@ -105481,6 +106902,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/a8bec27ea5f20244.webp": {
+    "krobia-xinguensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "43bc05d697a4ef718722cf569d7d6ea167462d19f2435b2af02649ccfb015cef",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/a917bfa8da55eed6.webp": {
     "catathyridium-jenynsii": {
       "ok": "yes",
@@ -105652,6 +107088,20 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "b3a1892b4da578a60c0ec1e7aafc187e098fe12faf22d8526f014751eb0e13f6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/aac033b43d42e334.webp": {
+    "auchenoglanis-biscutatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "2c1f98bdf0d0a863972757d3d6f7f753dd04c1b21399c5c9e68d16b0daf3868e",
       "hints": {
         "dead": false,
         "people": false
@@ -105969,6 +107419,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/b063333fec38efcd.webp": {
+    "neritona-juttingae": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "7487b79c5e671be3d92de6884b339352a9a275ec28fe7cdac8f20739e3a6ee31",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/b1241026832748e4.webp": {
     "brochiloricaria-macrodon": {
       "ok": "yes",
@@ -106197,6 +107662,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "84bc41491601f24d4553db4bb9825df921add0affbb182f0b69ba0d90d48a94c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/b43036694501481f.webp": {
+    "priapella-compressa": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "bc620079c9ab7e490e5dbe3fec8ee2e95016ca4f6a8ab77e32b759903699a92f",
       "hints": {
         "dead": false,
         "people": false
@@ -107184,6 +108664,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/c59e3567e62134c7.webp": {
+    "pao-suvattii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "ebf378cc28c98a36da007561c1341b01c9d918f01eb667e2cbb66bc26ac1a56a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/c5ae6d6e34f7e08c.webp": {
     "pelvicachromis-rubrolabiatus": {
       "ok": "yes",
@@ -107325,6 +108820,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "208a923730b5b7a7648a6df8af32b11b26dc96d5560fff05655b861df198e3c1",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/c6e0b3a84c7f4e26.webp": {
+    "pao-suvattii": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "85809c8f827a7a8c710229ae6757bdbba82277cecebeabf49eb970cfcbc56fc9",
       "hints": {
         "dead": false,
         "people": false
@@ -107750,6 +109260,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/d0556fc30b4631f2.webp": {
+    "metynnis-maculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "f2bf032a184f4641cc05c3bf4ed85cd3ef3a43f313379d4fb303cef179924bff",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/d081237eefe2b28f.webp": {
     "neolamprologus-cylindricus": {
       "ok": "yes",
@@ -107944,6 +109469,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/d425eede3a673aca.webp": {
+    "priapella-compressa": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "0b875d0d980b108479709a26e76bf50dcb299cf631129a334a6211f414473b01",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/d46cc68f18ca23e6.webp": {
     "nomorhamphus-liemi": {
       "ok": "yes",
@@ -108057,6 +109597,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "dcec77810a5a0346d24d0e3b193de127875c6a5188b2405ffd11346bb5e0b009",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/d752175f21b40b3a.webp": {
+    "aulonocranus-dewindti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "098eaa5e1df53003df8d6c86abd8f901f4263f1a7a33237f180a78d188cc78e7",
       "hints": {
         "dead": false,
         "people": false
@@ -108239,6 +109794,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/da3b4c79929c9b91.webp": {
+    "aulonocranus-dewindti": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "d7e29cb722495673b3d7f36ca1cb696c5d93865a073ef81003fe164a9a844ccb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/da8fa1c1913745f5.webp": {
     "ichthyborus-ornatus": {
       "ok": "dead",
@@ -108249,6 +109819,21 @@
       "noteHash": "84de7870e9ae1da2036cd8e69c7b761e2b30ba4baccff639aa8e5100231db6bb",
       "hints": {
         "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/da91cfbc89fdd2ab.webp": {
+    "metynnis-maculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "7b76e9f41d8fe0aa5df2d4cfe4847467cf4bd6d00f8bdebd188a466867243c71",
+      "hints": {
+        "dead": false,
         "people": false
       }
     }
@@ -108352,6 +109937,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "3a1739ab7ed359bc36a6716cd3ebbca84942c23131e803863d44d0553dc648d8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/dbcd712e05f0fdbc.webp": {
+    "corydoras-urucu": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "7c01e6eca6a75d9ce8be0fac83a1ee150b1015b6185db14bb9dd4ead9b6ac5d6",
       "hints": {
         "dead": false,
         "people": false
@@ -109193,6 +110793,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/ed45a3ccfef61401.webp": {
+    "xiphophorus-andersi": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "9c734cb1d8341ea1a9a372d503345b3b757a11e1fb779bca15b476682b32ffdd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/ed59b94c51639c72.webp": {
     "caquetaia-kraussii": {
       "ok": "yes",
@@ -109265,6 +110880,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/eeac0408e0ce4a7e.webp": {
+    "poropanchax-luxophthalmus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "47a63cb5c14fe101d0db352524ac63861a8e2f4d44d356cb7ba212efe8ae428d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/eecad33b6e1fbaef.webp": {
     "tor-putitora": {
       "ok": "yes",
@@ -109319,6 +110949,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "2ce0b2e94e2dfd1c5589d7f87f37777e717886996149aa1a5ec82fc1c76fec17",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/eff76a3a072af9a6.webp": {
+    "priapella-compressa": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "24eed9555bcd3950369208acdb7c6d36d1ae5353a67398c15cb50aaff59153de",
       "hints": {
         "dead": false,
         "people": false
@@ -109890,6 +111535,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/f94afd55eb4c1c38.webp": {
+    "pseudomystus-funebris": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "a1e5bda1330b71456ff4c0742441ce31ffa92ef91c97a103a83d98e0424e9914",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/f94babe3f193d0ba.webp": {
     "geophagus-megasema": {
       "ok": "yes",
@@ -110095,6 +111755,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/fd8ae8a1b135a5f8.webp": {
+    "neritona-juttingae": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "0ca822f43ceafceeafa802c15c5547fc4f5f2557d322e2c51574fe3736865162",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/fdaa51232d1b836b.webp": {
     "poecilia-caucana": {
       "ok": "yes",
@@ -110283,6 +111958,21 @@
       "noteHash": "f9876e6ed8ec55874ae4d5f8398a14545c5eca7aa328899b6b503a0755532489",
       "hints": {
         "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/10218624.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a2943c988db8eb58d0241add3dbcc5d1126b7df4d9becb8ef2e462b778dd5b73",
+      "hints": {
+        "dead": false,
         "people": false
       }
     }
@@ -111539,6 +113229,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/120400073.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4bd41b29247b7ef7c41e6c43972e802ab7f3865ee2a52bcc02dc1c02c0d21254",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/120400089.webp": {
     "hydrocotyle-leucocephala": {
       "ok": "yes",
@@ -112124,6 +113829,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/129817492.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "bc7e174856f2b71050eac1103881bcf43745a69febb981eb06106ee2f373ceb6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/130041687.webp": {
     "chitala-ornata": {
       "ok": "yes",
@@ -112344,6 +114063,35 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "62bbc4b6b78ab21e42f9794993b100132e1a1e8f3b7f2d2a138f759db738c451",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/13818228.webp": {
+    "stenorhynchus-seticornis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4ca50c2cbe9b7b2c6a1730bb0c947a39ef1b15d5e78436598efb0e4e185f6d59",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/138731124.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "957efc30f29682aa1ed9fbfc823011c2a5f1f63d18138d100b31749098c71cfe",
       "hints": {
         "dead": false,
         "people": false
@@ -112584,6 +114332,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "1ad084211bf18d1261c5cc6eab42dbfafb3d03a39bdf89da9ba25b70e970d882",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/14522333.webp": {
+    "stenorhynchus-seticornis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c02cd94bba3aaba823b8259cef5638d4e474203cefdef2cd8a52c5779c043116",
       "hints": {
         "dead": false,
         "people": false
@@ -112840,6 +114603,36 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "b67df703ef28c58b507d9679518693da571f432695819b018e55e433a702bacb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/152081147.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b389f6856210a32e4a86af6f9f21577bd7573d0b3cbc6fb6ad7f52e715d02a73",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/152081176.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4049e7ce0bf054b28fe0f99f3a78a75223030061dc400cdce5520b86064df9d1",
       "hints": {
         "dead": false,
         "people": false
@@ -113181,6 +114974,20 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "3c95b098addaf2b335cb05fbd981b26d944e091306f3d8e855a518a261edc1e9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/155943074.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "622f010534b6ba429a4ab3a2a30580138ab931d3095ef01e02215950b8ce18f2",
       "hints": {
         "dead": false,
         "people": false
@@ -113794,6 +115601,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/171588415.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "464fb1c7556b6c67f07de7c7f4cf7e9b467da800939ebf181122a09e26990738",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/171588437.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a341ea91dd4580608d330eacb59704cace9f97ff632d77a540b67bf653c68b0f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/171963115.webp": {
     "hemichromis-letourneuxi": {
       "ok": "yes",
@@ -113966,6 +115803,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/1735933.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "82f47d5074e1c5989a166d1540e0387663747e80fd772963b721aeb39d6709fd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/173593909.webp": {
     "egeria-densa": {
       "ok": "yes",
@@ -114000,6 +115851,21 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "2ce0d6b35b560925d20d5c584fed30ea274c4dbae6ef55ab300c393195a4d34f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/173884675.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "051adf798cfc843389d063b48f9095e376d0939f8bb7e60962a913952950e67e",
       "hints": {
         "dead": false,
         "people": false
@@ -114208,6 +116074,49 @@
       "noteHash": "09b4b53a9cc0251dbe6f7b7121cbe389cf5ff2787ff17e1a3f3074705c427d92",
       "hints": {
         "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/176388607.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "5edf0b4a812603de7c22315238a644c7f3dfb02a7a2f4c9711b0dcf9d5b79440",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/176388616.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "aaea4408406c9acd6b6aa6e9f27e22bd0252a0ef7ad798f3a47e3e6831239927",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/176388624.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "12cf9f2de69870f09f8c9e0117daa9bae27a374c89cdace5992cbc51552b25da",
+      "hints": {
+        "dead": false,
         "people": false
       }
     }
@@ -115046,6 +116955,78 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/189042377.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a6cdbe1bec759640248e69ecb7e3a45981f6d61f8cbd356c03ff00d9de24dd0b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/189042406.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "51b75f0eb946bc115b5247342bd3c7fa389b32c37f75f314468e10ab77a12bab",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/189144488.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "6f30ed681c9fba023b32ee978032d1f23f4c320548d264b0b4c8becffc754ca6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/189389646.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "327eefc6d77e85e8afe7555b1af6dc46e0915a92ad64f98dc9fd574bf1db547b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/189389672.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "eb961837fbf8ca457d68bd87d3079dbb6148e2f6fa6f342a725861970c015368",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/18967334.webp": {
     "acrossocheilus-paradoxus": {
       "ok": "unsure",
@@ -115054,6 +117035,20 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "0d7a9c088facd215a60887616e3d224fed0405d58039b0a15544565c3f5f200b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/190328168.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "2e23350de25663cf86b8ae0ec5e33278d4e617bb2a953542fc0170f27a7f9eab",
       "hints": {
         "dead": false,
         "people": false
@@ -115509,6 +117504,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "d8d81c88c850950499b6655ae29bd359ef2b1331baee2659aec641b0c6aa4e26",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/20544565.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "d58368a663b922419ce79162af37e4a656adb0c45f139157b18636bcdeb6393b",
       "hints": {
         "dead": false,
         "people": false
@@ -116068,6 +118077,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/22002121.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3946398d48ca0f976a0a8e292986f4ba1d336e4cc3ccb5f44cf815221c15d52a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/22087958.webp": {
     "margarites-pupillus": {
       "ok": "yes",
@@ -116411,6 +118435,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/22618377.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "79536a51076074ac592aaed0236dc1dfed59b36bd6f82c4daf367fea51fef50e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/226286.webp": {
     "xenopus-laevis": {
       "ok": "yes",
@@ -116611,6 +118650,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/22938322.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "5dd57098c7aa979e08adc5bbbb1a17d6f5f1f99164aa9dfb9b61f7bdf0a66f50",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/22949270.webp": {
     "marisa-cornuarietis": {
       "ok": "unsure",
@@ -116673,6 +118726,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "f3699c545ad57ebc8cd31fb15b73d24de02ce73d88e5a5535d70bcefafd9be88",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/23057881.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3104ed9589170c130a3fe65800a0adbf3faee73c2db75d2593fec855757c8928",
       "hints": {
         "dead": false,
         "people": false
@@ -116764,6 +118832,35 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/234082519.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "829ef6cfa15fbc02f6bb711d2df81037f198f5d3b753aecfeaa219bd16f6a036",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/234082535.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "93aeecd3fc11ebc6bfe3528288279c4793679e3ec6c33991483681711a17a0b5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/234082551.webp": {
     "hydrocotyle-leucocephala": {
       "ok": "unsure",
@@ -116800,6 +118897,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "b11b1eeeece9a2d8888c8fd4c19956867f24d6aeadd5274f9b265cfdee0b99e4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/235883487.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f39f407f528493296e6ba1128c9c8d7f41f75b70753a7acf36dfbc96e34bf7c0",
       "hints": {
         "dead": false,
         "people": false
@@ -116949,6 +119061,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/238819578.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "612065e11344d5aa7fc60303583c8b8c6757f15271b52b3766512f14ebd4d187",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/240206161.webp": {
     "noturus-insignis": {
       "ok": "unsure",
@@ -116963,6 +119089,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/24032.webp": {
+    "afruca-tangeri": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "f85bd25676e0b015703692664a2e31a566d65db036981211afbdabe77c3db41b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/240370601.webp": {
     "mayaca-fluviatilis": {
       "ok": "yes",
@@ -116971,6 +119111,48 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "3ec79f2a9c79806a3085ec4f7f6ef98df916cee7e2004fb86e5ddc16e99d75d2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/24042.webp": {
+    "afruca-tangeri": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "0d52436874392ac9ebdc949baa018a10c9b06aa0a9742936a2a0169e224d3a56",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/24048.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "12cea4095236dc2474da9d1ec4289409ed8e6ffaf491b4d8179d955de5497aa0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/240548239.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "0046c80e57f8574f1a5d2aa3fdccaf02babc01437b2c15a4a785d459fd795dc6",
       "hints": {
         "dead": false,
         "people": false
@@ -117196,6 +119378,63 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/243654238.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "addb1e35b79c39bc8a9fc9cd102e30ae55ac307cd07f88b68df4b86d2ca9e348",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/24377752.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c715cf5f2c908444030fc041b3ce50a9c0416ccdda122fc7ecabe2b503c1ca48",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/24398019.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "a7f2e858953750c2fc6f7684f29a930aeec953a94500a04eaf381ffe8e5d2c13",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/244304694.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "2569f2424d2b111b7ce65f08dd9c3a4008eaa5c62351d2fa3c8924121f0f5adf",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/24437573.webp": {
     "eleocharis-acicularis": {
       "ok": "yes",
@@ -117204,6 +119443,50 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "45891485bf835209885ca6af10d531682920a308641067b14eec4201003e325f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/245077991.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "eb961837fbf8ca457d68bd87d3079dbb6148e2f6fa6f342a725861970c015368",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/245078046.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "d05fa13d4dbf3e9d1b1cb7fe51600ba313fffcd9e9a534a3414520a26de4a049",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/245078059.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "eadd68ffe370fa2ca8bbf5b78d5aff2bba582f1cf1055c7d9e28f4a1ab9ac27f",
       "hints": {
         "dead": false,
         "people": false
@@ -117388,6 +119671,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "d68e04240e03fc7c4d93d8e9dfdbd25ebb8291010bd22942144fe895703e0d22",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/247074933.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0edcbdaa207295290dc94a84c7fe972391c08d22acc05862e40a20ecc4f8e433",
       "hints": {
         "dead": false,
         "people": false
@@ -117603,6 +119901,36 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "e1242fefd25ab6999117ff5f73895d2e489687f256da6c7b6dbe1898b17e0700",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/248907805.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f7fdd0dcb7898a2f6efc390f8ae06739104349995374a638577d27c136f69cbd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/248907978.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9679c2287e222ec3a9530ce931e58cf219030f33f46625686e84051f2106a6dc",
       "hints": {
         "dead": false,
         "people": false
@@ -118342,6 +120670,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/253200923.webp": {
+    "polypterus-delhezi": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "4fae04f37aaa2bdbca999b6bc28da9a9741c8e97995934dbc4c45b6af75eaf73",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/253339306.webp": {
     "margarites-pupillus": {
       "ok": "yes",
@@ -118509,6 +120851,35 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/254626040.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "01a38aca1949e74cb844b770afacb3e612d16734fa3d317ef25660dcd6662a94",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/254626123.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "6c4a24a6ddbb1ea4e46d43c5ed0aff7f90a237b0eaa1daccbe5e005ecc64f1be",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/254760976.webp": {
     "corydoras-paleatus": {
       "ok": "unsure",
@@ -118561,6 +120932,50 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "03b789f93825ecfc49cacfbfda987eb93cdc5ebe7ba9b0398a29dfe2fdaa2122",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/255761932.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "6d7b863842554de35931ef1d34eed80fcb0aa217850ca4f0e3783add05db6f42",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/255761936.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "d7cf7b89c27c8a23512d6e5f0ba4e527ad85d3596557ba5a0c393bfb9f102528",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/255761947.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "36d68ad2dcf1e6fa357a854cfe63bd12ea28762949eb0acef4e16645f8e96ed7",
       "hints": {
         "dead": false,
         "people": false
@@ -119396,6 +121811,65 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/264258243.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c5751c6b3b4ed81850ec2f32a9a34be03cbb93bb63e4904fc5bbf2fe9b40f3a5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/264638901.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "cc4a01f3ba1143ca3ae5212f9832b9a6d60047bf6d00df3926ce6a96b56f7846",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/264638919.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c8cbcd09f2c3e4cafda8e31341d62e609ec56fe820e37ba73d714c4ac6e20fdd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/264807516.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bca348a1766a7ac435e24cd37ecdcefeab1601a3f6c8b708f7dbe44cfef5e363",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/265232797.webp": {
     "gyrinocheilus-aymonieri": {
       "ok": "yes",
@@ -119545,6 +122019,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "c90dda9a7d7a7028bc2db328adb7831143a6c8b6c4b174304c0b6045870a92bd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/26792812.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "69d5d0b80adab1a323ab8097df7255e7052fdc0bdb011497eafec831c32f6038",
       "hints": {
         "dead": false,
         "people": false
@@ -119846,6 +122335,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/27642357.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "15ec5557f290da73235daead4f94b51383aba335f201c2860364d2ebd3bc49c5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/27669619.webp": {
     "kryptopterus-vitreolus": {
       "ok": "yes",
@@ -119884,6 +122388,20 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "950b62de4885c8af0ffcfff4e5af2d388e110ac4c50c1e2474040166f186c712",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/27786592.webp": {
+    "salvinia-minima": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "a87b0b1c8e07eae97fe63421ec45cf3fdd40e6c141c42975a11cabd43437af2a",
       "hints": {
         "dead": false,
         "people": false
@@ -119941,6 +122459,34 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "48c6baaad82ff6c93f0df509221f96a873926ed6a0483c86f8389830774d25d4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/28108164.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "814d5368ea7abf01d25bd94e1428c6b285de6953c6d3c2b274ae91940d5e34f7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/28108186.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "84ff9b7ea236fba670fef468bb5a1ebda26999522c248d035c7ecc75a590f272",
       "hints": {
         "dead": false,
         "people": false
@@ -120049,6 +122595,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/28536694.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "163da740ed80ee62189c82458d53a2211b7c8da6ddfad959719cd26ec5515fbe",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/28555268.webp": {
     "trichopodus-trichopterus": {
       "ok": "yes",
@@ -120093,6 +122654,34 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/286329220.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "b9cd704d1183b1a71846aec902e234c58213dfd7ce9013ea7115d4a51a24b9bc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/286329306.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "e17f4b71b83674b7ac3ac4e350cad432aae0167c233c93d8b0e4761e225ffbdd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/28663323.webp": {
     "hypsibarbus-wetmorei": {
       "ok": "unsure",
@@ -120117,6 +122706,20 @@
       "noteHash": "c532cde7aa84fe950d333bf8937452e984159ad889fc7fa15d96fc47a59ae324",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/28687754.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "e620612fff44122a8f0237ba72b9b50c9ff70446607a8e19d25838ef828cf9a4",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -120188,6 +122791,34 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "a7fd98648b1500caeb4d8c2557f7aab05ab74a2a4b3fcaee74ec6d5f8d6e8354",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/288661428.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "e5b3bb2b6a2965a4b3e4e1e13ce48eaded152cb9f3090dc5217950fe4b56c125",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/288661472.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "80f407060938acae12c42fa40fe8deeb57a683d6d28c58b57e571330ceab3987",
       "hints": {
         "dead": false,
         "people": false
@@ -120402,6 +123033,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "4bc6d8656fc998cdd58203507f4ca8f65359c032867a9f25b6f494d97fa464bb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/29531459.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "49f144aaa41a503cc89a60bc56050bbb7d483b64020be215b25c83e8d72d6a67",
       "hints": {
         "dead": false,
         "people": false
@@ -120921,6 +123567,36 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "ba4650976e75667a832f94d6f58f24f5d8b9368a82c6d79a3ece3690949c1492",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/303341523.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0fb69e03c725963c5e96d435952cef22ceaf10a6e4902ecca4e8e709ea6b8019",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/303341561.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e869964c7d9b67563bae34b0ad47fd5bbec430b64c88c97c9ddab6285d5c557b",
       "hints": {
         "dead": false,
         "people": false
@@ -121494,6 +124170,49 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/313233089.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "29c8798693029d42b2659c64c52dcf02c0ca7dbb970af5e9190d165b31f56976",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/313233111.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "69387147b62ca3fb917bc11f37ceb08910c06389b748be316eeab65b4254acf9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/313233145.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "77d6fe08a9843d8814d619026f817754b97776f3a691fbe6bc953ba10a51ba82",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/313654351.webp": {
     "sahyadria-denisonii": {
       "ok": "yes",
@@ -121516,6 +124235,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "baba5999c99a463266906a7999406b61d90decfb5a297da0177983a92776d91b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/3141699.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "864377078ab3c90cdbcf046f0b70eb6a68732145507840946e931ec5d5a55627",
       "hints": {
         "dead": false,
         "people": false
@@ -121586,6 +124320,19 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "21053b3864b7d77d140a4553fc70e4987bd05a729728cbfb0412b57d9622cdf2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    },
+    "phyllantus-fluitans": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bd18e35ab0e40f761b8dfb8902679aba616703e53653f0be0cab7f533b6919d9",
       "hints": {
         "dead": false,
         "people": false
@@ -122282,6 +125029,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/322658626.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "875ac180095aea80dbaa04d3e3216a602d1383592bddb501e94b2f3b3a9442dc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/322701389.webp": {
     "trichopodus-microlepis": {
       "ok": "yes",
@@ -122448,6 +125209,20 @@
       "hints": {
         "dead": false,
         "people": true
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/3243957.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "20816f34133609917555e7bfe1c0747cc4489bc5f4ad0907ec28ad04635119a5",
+      "hints": {
+        "dead": false,
+        "people": false
       }
     }
   },
@@ -123760,6 +126535,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/342762796.webp": {
+    "bagre-marinus": {
+      "ok": "dead",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject dead; person",
+      "noteHash": "ff0f17f0ec140bfe82d5636e075de8334aa6e20c9a7965af95eea71dfec63e3a",
+      "hints": {
+        "dead": true,
+        "people": true
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/342891887.webp": {
     "boleophthalmus-boddarti": {
       "ok": "yes",
@@ -124080,6 +126869,20 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "09e3fe6839d2fd76f116c7a84481e7a7d5e4348c7a23a32ebe3dac094a2edd95",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/34795630.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "73da28483e8dc41bf40e78b46aebdee069257f43b9a0e739e65158fe0c0f69aa",
       "hints": {
         "dead": false,
         "people": false
@@ -125488,6 +128291,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/37858186.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1f0f89dce69488ca2cc1662981bafde0fb0a412887bd7120e26dab8de5f5a5e5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/37858289.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "dc5929404c50ac43c4d345ab6403cf17aa6e56b5c5a49f73b320c11e5fef4595",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/378746249.webp": {
     "salminus-brasiliensis": {
       "ok": "yes",
@@ -126874,6 +129707,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/416106242.webp": {
+    "rhinogobius-rubromaculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7fdf3675b4519229dc9ff80144c85a0322bedae3cf42d7ffed65a9f6b85e5be6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/416106616.webp": {
     "rhinogobius-rubromaculatus": {
       "ok": "yes",
@@ -127189,6 +130037,19 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "ebe104c9dca165b6200ad886e33a4044d4a4f063704e369a280018e85e9a790f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    },
+    "phyllantus-fluitans": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0ca1c83baa11d652ccad5593e7551b71de20c4eba33bfe59b310f763ea652762",
       "hints": {
         "dead": false,
         "people": false
@@ -128171,6 +131032,19 @@
         "dead": false,
         "people": false
       }
+    },
+    "phyllantus-fluitans": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a7adab9cc8ab3ae1418d57bf02e15117ccee5053c48d87d83810fa559335dd6c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
     }
   },
   "https://media.aquatome.com/inaturalist/445274367.webp": {
@@ -128496,6 +131370,20 @@
       "hints": {
         "dead": false,
         "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/452654129.webp": {
+    "bagre-marinus": {
+      "ok": "dead",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject dead; person",
+      "noteHash": "02ade79ff1438c2f83049ab4bbdffca6e5c159e3cad08ccd3fbed499f674ca3f",
+      "hints": {
+        "dead": true,
+        "people": true
       }
     }
   },
@@ -128960,6 +131848,20 @@
       "noteHash": "12ae770125d4bdcd02c4693c6c0e163fedfea145c6501301599e56c3e9a88d22",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/459060984.webp": {
+    "bagre-marinus": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "c28ec48b8888a0ed6b95e7b62e24fa81641c2c176e157d3f3fd3b906fca1fdc5",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -129770,6 +132672,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/4716064.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7915a0cad35d9ed6d1b154e153677269c3dc36e48cff867081f6e4d9861fec94",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/471890663.webp": {
     "poecilia-wingei": {
       "ok": "yes",
@@ -130454,6 +133371,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/48706682.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9c78a0f95295fd83e27a8a2868062580596b35b796562283c9e48b7f51dcdfa8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/487218535.webp": {
     "notropis-chrosomus": {
       "ok": "yes",
@@ -130625,6 +133557,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/490614687.webp": {
+    "bagre-marinus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9bd1271f39ec6318019d4fb44ec42ddab3d74f607a3a101aaf066903b84920e7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/491056065.webp": {
     "cherax-quadricarinatus": {
       "ok": "unsure",
@@ -130761,6 +133708,36 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "3f1a27498de1845b8b0209b59ec3c2c2189cf71ead14fa86ed7b0b84e437ad25",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/49525660.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1e2526957de858fbfc244fb84572cd512e7dc9ee654e5016e0ff1574b36faf3e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/49525809.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b11cc9ad5a0eb9c7e14d83bfe07f540f6393f4ed1605a1eb88d8d0db8fcdaa3f",
       "hints": {
         "dead": false,
         "people": false
@@ -131444,6 +134421,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/5143371.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b5093a11f2c04d4f8efec8304cec1390219eb2701844e3f93df2957b90f1cce6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/51451501.webp": {
     "sphoeroides-annulatus": {
       "ok": "yes",
@@ -131796,6 +134788,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "5e9b83b3b1543629fd3dfdb34c69d588db081a2d6ae7e2199db05149dc0884b5",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/5242227.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2005f2e6e2f17c4e656643eba6fbeeedaea3797d0bdf4933ec959e4f50f97f71",
       "hints": {
         "dead": false,
         "people": false
@@ -132236,6 +135243,36 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "78de3c8d954b778722be9b2c04641ea0a2dfdae479f6018316d3ecac741e30be",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/538827694.webp": {
+    "rhinogobius-rubromaculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "511ac0cc90939c0f0a38cf1a78457fc13ab0974cd9e0f77741ac0f81fc05fa7d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/538827720.webp": {
+    "rhinogobius-rubromaculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3f3643e75c2717a56fb5d91c0892e71ed766ca7bb623fb3c7b39a0005ea5db78",
       "hints": {
         "dead": false,
         "people": false
@@ -132714,6 +135751,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/549646039.webp": {
+    "geosesarma-krathing": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b65014c00742597b3e419876a488ba85d5c6c9943fa6c63b384a029202366a7a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/55011346.webp": {
     "geophagus-iporangensis": {
       "ok": "unsure",
@@ -132838,6 +135890,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "cee73ceba2a09cc2d17e6f1ef96c57665380205e30511f5e22e761e5308a7d37",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/55252651.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "6216c2a1b2bb9cfd004e18ad145c07c3d7a8f5367e48d2c7e3a4f8f6c1bf577f",
       "hints": {
         "dead": false,
         "people": false
@@ -133512,6 +136579,20 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/56458614.webp": {
+    "rhinogobius-rubromaculatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "3993f942f1756a3b7eb8d3bfc04b08cf036f0737eb876c9063234b201bce6780",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/56458689.webp": {
     "rhinogobius-rubromaculatus": {
       "ok": "unsure",
@@ -133552,6 +136633,21 @@
       "noteHash": "eef1b01c6ab8067b26fe13c74be11674bde5c52cf298cf17a736feee784fce47",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/564823734.webp": {
+    "bagre-marinus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "213da4112d7cb95eba10644b233f9308f2c90ff60434e0a5fa9a07111ef8d956",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -133648,6 +136744,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "277878ca654ed83833139496573814f071ec0e526035299b00c037ec12b5b777",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/566172672.webp": {
+    "potamotrygon-falkneri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0a8c9eaa05d6a7c7d4e907a9758a9332b5b38d923d2a17f41df968bafbead859",
       "hints": {
         "dead": false,
         "people": false
@@ -133764,6 +136875,19 @@
         "dead": false,
         "people": false
       }
+    },
+    "phyllantus-fluitans": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1d2a28ec29b4238874c049132085947e5bb474107ddd1339d8a6a904734bdd7b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
     }
   },
   "https://media.aquatome.com/inaturalist/567586207.webp": {
@@ -133774,6 +136898,19 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "cff13fc10185bcf6d015506028e34dec986a71fce297722531b2e01284e95b71",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    },
+    "phyllantus-fluitans": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8a35b83d711212a3275697a71d76d827f12477c49ac77825caa23f1f27deba26",
       "hints": {
         "dead": false,
         "people": false
@@ -134429,6 +137566,34 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/58675506.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "fc3f0d3fe9119face19071bc8ef4ac2fc4f0954639b3012db06b3f3a3cd9048f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/58675511.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "1d11cd205275578c17888594fc38679b77f155d1eea59f6af88ab95deb4fa407",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/58713735.webp": {
     "belontia-signata": {
       "ok": "yes",
@@ -134733,6 +137898,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/58992531.webp": {
+    "stenorhynchus-seticornis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "6e9c7aed66ded0b0fc02fb5517bfcbbbff26c8b85c9f31a646816c340ab862f6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/589928706.webp": {
     "atractosteus-spatula": {
       "ok": "unsure",
@@ -134882,6 +138062,21 @@
       "typical": false,
       "note": "subject other",
       "noteHash": "bbf7f2d8f1b34c70347d632a9981e75c460b87203fa37369bfe352ca33d97beb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/59381580.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c018053cf47209a007efb7868a340b5238d613c6c01e9bf30fec77d2cbe4c34f",
       "hints": {
         "dead": false,
         "people": false
@@ -135374,6 +138569,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/60318367.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7c2fb55f2d1336ef9806d51cfa614f5b5b0db4bc857fd802d20f22b8c580b186",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/60318381.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "2f4a6d184f08cc34a40829e546a0605bd598ed46e34d87eb9b6515399c36e989",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/603808018.webp": {
     "selenotoca-multifasciata": {
       "ok": "yes",
@@ -135524,6 +138749,49 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "f334bda545cdc37e23567f136765610b0d3b0fcdf63a8a290832a746623033b6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/60503150.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "0355f28807ab7d57e415a7f55780119c1b207192eb982d5994bc6a5fc0016efe",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/60503256.webp": {
+    "afruca-tangeri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "d4239ec081e94959346cdc81fb44c6b444b8d09dc0b2cfd8e42e033b34497bbb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/60503257.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "5fa90bde88ffa1870a16f1b67ec67210feac7f437031efafa9f77e8f46e81ee3",
       "hints": {
         "dead": false,
         "people": false
@@ -135710,6 +138978,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "03c1ae4e707405d03624cf6f93c87e4a6ad027df60dd98fff75da4d6f1d644c8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/60760163.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c1c2de5f162e805ce032daf24e30f08730ee8b2703979db9a09be31f846681c6",
       "hints": {
         "dead": false,
         "people": false
@@ -135971,6 +139254,36 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "01c44be5861c5167421fab8f6cf1df72968f418bada22eaa8d550d5444b2c151",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/613316715.webp": {
+    "rhinogobius-rubromaculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "710478add8a1f7443fad5d98df96b4884d329c62848075f23bfe29bfb1a88dfc",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/613316996.webp": {
+    "rhinogobius-rubromaculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7fdf3675b4519229dc9ff80144c85a0322bedae3cf42d7ffed65a9f6b85e5be6",
       "hints": {
         "dead": false,
         "people": false
@@ -136933,6 +140246,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/626413706.webp": {
+    "rhinogobius-rubromaculatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "bf1fe50179efe1bfbc5f2b4a620a365d6e532fa6fc644e7f470a48d7fea3b38f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/62648342.webp": {
     "lindernia-rotundifolia": {
       "ok": "yes",
@@ -137551,6 +140879,51 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/641184278.webp": {
+    "bagre-marinus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "5d56c507e7ea5037f5986d00419c58c2f9900e5d6813f7a18ca8444f5b0e9e76",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/641184282.webp": {
+    "bagre-marinus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a082033e0d499f7b97270a15d9ff41224102c7f0736f0076efb6ef12e60b17bd",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/641546672.webp": {
+    "bagre-marinus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0f5b370aec7790b2241e2e1df8d298510f5cfa87a44b5e376b10635b1e887fcb",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/641837899.webp": {
     "eriocaulon-cinereum": {
       "ok": "yes",
@@ -137824,6 +141197,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "86100754711fff6d93edc64bb71167d6b1cca0a603c8239209e5dfb75aecfc6d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/64823875.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7986de1cc4eb843de5bdca7468c66f86e64649ac23668282519c9ed71a3764b6",
       "hints": {
         "dead": false,
         "people": false
@@ -138368,6 +141756,36 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/6613752.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c689b653450e8df81c1ff49a49ad158821b56668d3d3a33804c48fc9a7bb355f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/6613754.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "40163cb6893f0f07de07d17bfee363497338c63bc5581839f3d8566d3a6e1989",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/661489443.webp": {
     "boulengerella-maculata": {
       "ok": "yes",
@@ -138677,6 +142095,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "2dbbd520598f222ad3c6aedf5d739829477ce81bb0f140e37cf76eb61a3c0773",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/67240465.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "4667cdd58583ffa8a91c16b54a5608c088c0ede2e9f44c475d7fd8b55f3b236b",
       "hints": {
         "dead": false,
         "people": false
@@ -139543,6 +142976,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/70515599.webp": {
+    "afruca-tangeri": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "566b6f1739646743cc6ac96b6e0c06a0db4c978ebae00532fc5fb22b1f588d5c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/705925185.webp": {
     "astyanax-mexicanus": {
       "ok": "yes",
@@ -139762,6 +143210,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "a087213f8f2e8b0459779653e642a676999061fa88347114a3dd43376969d9e0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/712771997.webp": {
+    "bagre-marinus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9d877f4248e05abde3aaeb5df4a2c0a95c4c6dab1846dd7a8421852a1b243312",
       "hints": {
         "dead": false,
         "people": false
@@ -140271,6 +143734,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/72790129.webp": {
+    "stenorhynchus-seticornis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "ab3c4309674cb3c967b3876dabfb78b696b29907ab24faec311e7d1d14f5a59c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/730608979.webp": {
     "selenotoca-multifasciata": {
       "ok": "unsure",
@@ -140279,6 +143757,21 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "174abe2f9335c718e19a9cd2a4c40140af48407be7679adb0ea6465b674c0fd4",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/73153313.webp": {
+    "stenorhynchus-seticornis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "446349c12464bffc515a131095480149c37fd9b11572d584d30c7b25f97148ed",
       "hints": {
         "dead": false,
         "people": false
@@ -140709,6 +144202,21 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/7474674.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "0d67006fa1fece56de9f90a35d54f1a0f12cc89d2301dac6d56230a3327f2276",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/7474675.webp": {
     "hydrocotyle-leucocephala": {
       "ok": "yes",
@@ -140984,6 +144492,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "00b047088519c82243f0e5f74879dcb59319595fc4be0924f768f0e295cf871b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/773859.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "30c7e16977f38c8c633c00d68d0cdc943068123cece09c104ed2852e906dbf5b",
       "hints": {
         "dead": false,
         "people": false
@@ -141832,6 +145355,35 @@
       }
     }
   },
+  "https://media.aquatome.com/inaturalist/89789186.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "cc6698367d5e543672a7e66ecb39893cfaad243e6d61efc07e46b38315dfc582",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/89790580.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "c688b040fa07fffb97b4bfbc15c54eeb2da736a4c285701178c53379a1c957e2",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/inaturalist/8984626.webp": {
     "eleocharis-acicularis": {
       "ok": "yes",
@@ -141869,6 +145421,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "e45fa57235058be4818b1b84939d39362d40adf72813c0c9276f0e9a82d998c9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/9050147.webp": {
+    "salvinia-minima": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "0c3c44609e8a1f2e2ef66fedec860de2e1c086b10c802915b0fc650fdfdc218f",
       "hints": {
         "dead": false,
         "people": false
@@ -142242,6 +145808,20 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "2371e905c24c6c84283db60601f26b01c6335b2ca12bd2d1c942d69436355093",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/inaturalist/98297704.webp": {
+    "hydrocotyle-leucocephala": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "dea001b4b9a19356cf97bd4d677a0dfa7a72eda080dc643b4681d8f1f0a0572d",
       "hints": {
         "dead": false,
         "people": false
@@ -144355,6 +147935,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/04fe2ee550ec56dd.webp": {
+    "aspredinichthys-tibicen": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "ae6c911d7f865380db7744652d6c8c33ebd767238ca5b506a81a2b5359d1ece7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/0521c4f805b21368.webp": {
     "tatia-intermedia": {
       "ok": "yes",
@@ -144441,6 +148035,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/0590c42777bf53e0.webp": {
+    "sciades-proops": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "ab322d59b51a1e9df029832f0a5a63673181c77e91ad4516ff6d98c4c594de37",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/05a6f205cc253245.webp": {
     "tympanopleura-atronasus": {
       "ok": "unsure",
@@ -144497,12 +148105,42 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/06b1b8a26ef1299f.webp": {
+    "plicofollis-nella": {
+      "ok": "none",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject none; logo",
+      "noteHash": "49a2cf12270d452a9710cfa669203b0c683b3d84840461be597c2af45b454b46",
+      "hints": {
+        "dead": false,
+        "people": false,
+        "artwork": true
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/06f6d37e18ba1fed.webp": {
     "diplomystes-nahuelbutaensis": {
       "ok": "unsure",
       "typical": false,
       "note": "subject unsure",
       "noteHash": "0fed7f681d2ad6ff027d3e01521cdc672e4cdf806834c027e75040f86468ee80",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/071cb38ba505c773.webp": {
+    "parotocinclus-jumbo": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "529ba9bf5be7977d0acb669113f8c48033dc7c3e3e7ed6fbe03875158545e235",
       "hints": {
         "dead": false,
         "people": false
@@ -144516,6 +148154,20 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "314aaf42c8d5aaea1993ba3e047682ac4b49ae59c7d37985d0215f066f12e8b5",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/074ff3c5c3f84e02.webp": {
+    "sciades-herzbergii": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "b5632bc8d1f6c994938217ae26fc64ad0ea8a4dda34c66f8e291bbd0acbacec3",
       "hints": {
         "dead": true,
         "people": false
@@ -144861,6 +148513,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/0c7c749d4d799104.webp": {
+    "plicofollis-dussumieri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "e527de9d2284dab68c36cc9394d9fb89fdec7f3b9b7b22c3d8fa7ac48013f3d9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/0c84d77cfd50d75a.webp": {
     "amphilius-atesuensis": {
       "ok": "unsure",
@@ -145039,6 +148705,20 @@
       "noteHash": "2bd3c9740f30b9dfe28185342bfe92de4e6c14ebf44f57afb9bd1bb5da18ce6c",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/107471e8fc77a0ad.webp": {
+    "aspredinichthys-tibicen": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "4730c693df7db01f52d6e032b62323d58de66bee3577cc5f0c2070c3bfde94cf",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -145777,6 +149457,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/1d2b18cfc5cbba0a.webp": {
+    "sciades-parkeri": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "2ab313088ecaaddc634205a6301eb84612646f19bf0b46001b2b4d70cfb3bfd2",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/1d51afadff8de750.webp": {
     "doumea-typica": {
       "ok": "unsure",
@@ -145839,6 +149533,20 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "d9c606daa4af4029d9fb29a9f081938c590d2cbe431c29084ae339daaef6d906",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/1d9b1d8269f853b8.webp": {
+    "sciades-proops": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "c69707898a0dcf6e3129ddbac04b6bcd2ffa01b89fc659b8920f9acec096a2e4",
       "hints": {
         "dead": true,
         "people": false
@@ -146123,6 +149831,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "e1d09edec4a46c972c2492efca7b236fe7204b1897e95bf62f9400a75049220d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/211dc181f08b74a2.webp": {
+    "plicofollis-dussumieri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "087e6f044f5e4a11961b5117862f97846ce8e32eb7f7f6226769386284964c27",
       "hints": {
         "dead": false,
         "people": false
@@ -147712,6 +151434,21 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/3983309c4b23d7e5.webp": {
+    "plicofollis-platystomus": {
+      "ok": "none",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject none; logo",
+      "noteHash": "92815111fbb071963b24cf106c61289cdbcbae6f5c55223958640dc0eba47b8a",
+      "hints": {
+        "dead": false,
+        "people": false,
+        "artwork": true
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/39927f55b5a1f5c2.webp": {
     "cryptarius-daugueti": {
       "ok": "none",
@@ -148181,6 +151918,21 @@
       "typical": true,
       "note": "subject unsure",
       "noteHash": "aaf7e409ec8fc640c4a778fee3fad9129f4d142c4b2b841196cce01b3c61dee8",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/41045e2dd2231793.webp": {
+    "parotocinclus-jumbo": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "666edea62b4070530021124528fd059a63de047dbb8f4f7630613c04b0beb66f",
       "hints": {
         "dead": false,
         "people": false
@@ -149610,6 +153362,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/56a8e9804f542ca8.webp": {
+    "sciades-parkeri": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "7c23222caf25e6a6c324686be45c7c29574bc3b21cda78c03e808cac761c68f3",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/56d72585e02d3d84.webp": {
     "phractura-ansorgii": {
       "ok": "yes",
@@ -149619,6 +153385,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "f952fed633f1f9668fab76f3c9dade975fc336870c8847267bd8f22db75d433e",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/571c1810a248172d.webp": {
+    "plicofollis-dussumieri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "c01fa105d4060d3f41e5f55bbccfd93cd95d1a993fb77eb2743bba398115aa63",
       "hints": {
         "dead": false,
         "people": false
@@ -150814,6 +154594,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/68bac95cfec8cee1.webp": {
+    "osteogeneiosus-militaris": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "56485ffef586c36a812790c0bcbb43fd2558e7fa7bb531adc97072585c5bf49d",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/68da4bb0ae1ebfba.webp": {
     "arius-maculatus": {
       "ok": "dead",
@@ -151018,6 +154812,20 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "9c8fc03a645bd748d0af74f6f04c87843edabbca4f084c56eb64f058b30b4f50",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/6e1d34948f5dae79.webp": {
+    "hexanematichthys-mastersi": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "5d596fa5fc4d798a8ca69ec5b8aaa9edf0022091ba54c8f510f12238bb281c11",
       "hints": {
         "dead": true,
         "people": false
@@ -152336,6 +156144,21 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/83a8f561f3a253f2.webp": {
+    "aspredinichthys-filamentosus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "a77943251d413d73614063435b6ca95f928a58b7a6c5ff78c0c4bc9a29633657",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/83bf001dedba6a32.webp": {
     "ompok-bimaculatus": {
       "ok": "yes",
@@ -153498,6 +157321,21 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/98e503ab81d979fd.webp": {
+    "aspredinichthys-filamentosus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "cc7d122695d9edb0b9f4166bf0f6a5c13d001dce28d641334e7907d63514a057",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/98efb2a95b6dff32.webp": {
     "tetranematichthys-wallacei": {
       "ok": "yes",
@@ -153586,6 +157424,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/99a582568207f9ff.webp": {
+    "plicofollis-dussumieri": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "5c2a3dab551f7788ea03f5310a868cab51e68a35b9b0e4af1bc6ec4f299abe7d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/99d274f48bd8f37e.webp": {
     "cryptarius-truncatus": {
       "ok": "dead",
@@ -153610,6 +157462,21 @@
       "noteHash": "c43606c8adf53a4b428b95acd457a67eea2110a15030519379b8a64afbb71bfd",
       "hints": {
         "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/9a52e587cf084462.webp": {
+    "pseudomystus-funebris": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b810e52640f079727fa59aeedffda010f0d13860ff83a318b2403cef113b7bbe",
+      "hints": {
+        "dead": false,
         "people": false
       }
     }
@@ -153866,6 +157733,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/a04b10ffe3bf192d.webp": {
+    "osteogeneiosus-militaris": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "300b4bca7a410c13d99a4f5fbc0ea5b49fc90ae0f346da6082b1ab5c5f4cc2f1",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/a057aa675fa6bab5.webp": {
     "belonoglanis-brieni": {
       "ok": "yes",
@@ -153875,6 +157756,34 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "6a3f6ae07edce945d6be0015f12794533c4e601bd9f59005f08c7f253b0e32b6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/a06c2a73c40d7b66.webp": {
+    "netuma-proxima": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "af4647019f659d511affd652b76c5cde70107c73d265b7d0b776093176fdb99a",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/a091ad0f0e6a7287.webp": {
+    "sciades-herzbergii": {
+      "ok": "none",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject none",
+      "noteHash": "3a18147623cbc9e255a566d8d1e1c0ab2f5bdb9a572daafaab139d63c023ef1d",
       "hints": {
         "dead": false,
         "people": false
@@ -154090,6 +157999,20 @@
       "noteHash": "93bfb927675086b5596bed57635a35f9674060219f4d21a63845a44279695c33",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/a400d2b07f310618.webp": {
+    "sciades-parkeri": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "6103950b4d4685da18515f834c3ef8d1b22a295d217d222107e03e6c69f4aaf9",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -155282,6 +159205,34 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/b33e83f2c88e7a79.webp": {
+    "parotocinclus-jumbo": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "4fae9b64ab5eeb0d3d081ae4681428e20f662d61e06ae7e8e71a974d61386e93",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/b344b14555997165.webp": {
+    "sciades-proops": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "2e584634124535cb7fdbb96fd565e75d60a4031fd1e94dcdcc588e0a41e176e1",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/b35715ea02b0233b.webp": {
     "rineloricaria-beni": {
       "ok": "yes",
@@ -155701,6 +159652,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "2250d797639d626579f9766ab3dadb4f3afc8482864015173576475abb3d023a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/bce3fa723cbd9feb.webp": {
+    "sciades-proops": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "23d2118b5d564e55f80d008539cc84e6828874e2f33037d48648556636958456",
       "hints": {
         "dead": false,
         "people": false
@@ -156130,6 +160095,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/c43a47567d075a60.webp": {
+    "sciades-parkeri": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "b24e9768664e7f99ac9fd7a54fe4f9a481df4e0f49533a02366e7a6fc41385ae",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/c47f6d4458d45170.webp": {
     "rineloricaria-eigenmanni": {
       "ok": "yes",
@@ -156150,6 +160129,20 @@
       "logo": false,
       "note": "subject unsure",
       "noteHash": "32af941e15a92d04834f7509bf564c2983fcd1ed58ddff1f98d3c8b8b2841a24",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/c49afb16d11f99cc.webp": {
+    "sciades-herzbergii": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "1e4b4fe521bd815630f896f6913ac43aca95bf598903db5c6ae73cc37782c50d",
       "hints": {
         "dead": false,
         "people": false
@@ -156333,6 +160326,20 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "1ff741a3ea1a3f5c1d82f0f003cf67b11147e869428d153c1e2e2e44fa61e756",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/c62b8ba666572973.webp": {
+    "sciades-herzbergii": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "a3d880d174304bdfdde1aa77d978c1242e478b03691ff0d5e0a156244b63e38e",
       "hints": {
         "dead": true,
         "people": false
@@ -156549,6 +160556,20 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/ca33a0af50966d9a.webp": {
+    "auchenoglanis-biscutatus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "67a02835e24e60789f84faf6157aa4a1dc4e12938d2a91669d45221d8002882a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/ca3e87aa74db57e8.webp": {
     "cathorops-dasycephalus": {
       "ok": "dead",
@@ -156644,6 +160665,20 @@
       "hints": {
         "dead": false,
         "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/cbac1eb1e0cb0669.webp": {
+    "aspredo-aspredo": {
+      "ok": "dead",
+      "typical": false,
+      "person": true,
+      "logo": false,
+      "note": "subject dead; person",
+      "noteHash": "c3f8aab04b073044a5d4037daaf4fd829a895002a90a7ffc5f855dba89ab01a9",
+      "hints": {
+        "dead": true,
+        "people": true
       }
     }
   },
@@ -157828,6 +161863,21 @@
       }
     }
   },
+  "https://media.aquatome.com/scotcat/df9c59dd4246381e.webp": {
+    "aspredinichthys-filamentosus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "60bc61cae2879b7bac83277a6ed5f47a0a06668605be72ecc53e7ed8c31ce097",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/scotcat/dfb138d67c0782dc.webp": {
     "chrysichthys-auratus": {
       "ok": "yes",
@@ -157963,6 +162013,20 @@
       "noteHash": "daa4ce629cc44d30b3c7f3a5d2947dc59b2e0910b62b03943e8c4801337c68c7",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/e2cbcf021d362ff3.webp": {
+    "plicofollis-argyropleuron": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "609940c6df3aa7fbf4d19e39c944fae470621a881a25de264b9173779c703aba",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
@@ -158424,6 +162488,20 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "16740260149c839ef765358aec4d5e1d9a8e9175b112eb92f0afcea76aebdcc3",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/ec483919ae69c948.webp": {
+    "sciades-couma": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "4440a3f4a045bda9c012927f285f68ba8c094dc2a1d3a9f71431f92492da0554",
       "hints": {
         "dead": true,
         "people": false
@@ -159120,6 +163198,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "a04078258d70db50b62c8083ac66a9180879af131d0e6960a0c2d4a1fa007282",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/f86f27b909e75e45.webp": {
+    "pseudomystus-funebris": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "028e7cab4cf3ef34864fd8fb029ddd258d98dd0d06632cb044cd28e66df0e6ac",
       "hints": {
         "dead": false,
         "people": false
@@ -163522,10 +167615,12 @@
   },
   "https://media.aquatome.com/seriouslyfish/25f6e2b745411b9e.webp": {
     "crenuchus-spilurus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "subject yes",
-      "noteHash": "cb1a5391d156e11b04c1d9a1f4c9a299d768d3505649784d9d6de4d8a02c6a2b",
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "2798eed080fa73c2a0e420dfc82722310aa74623f0a9381ce9a8b5501d4c3e91",
       "hints": {
         "dead": false,
         "people": false
@@ -165875,6 +169970,21 @@
       "logo": false,
       "note": "subject dead",
       "noteHash": "4016f88fcb975a5d1a1c5bd6e4ab25766104c2c5e7cf7aedc55c8f19d2378688",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/3f92ef5801623d4f.webp": {
+    "crenuchus-spilurus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "374e84b05699cba9191f85852ed021600dea223d0038057b87245a33146136af",
       "hints": {
         "dead": false,
         "people": false
@@ -175999,10 +180109,12 @@
   },
   "https://media.aquatome.com/seriouslyfish/aeaec4bf0430a403.webp": {
     "crenuchus-spilurus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "subject yes",
-      "noteHash": "48d9557f74e59c8f430ac70999042c6f305e40da07408021b591d7c846083fce",
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject other",
+      "noteHash": "a8ca5ed4b3366fb5285e174bcf10cd4549fa7ad4d692ef20e5edd4de4812b5b4",
       "hints": {
         "dead": false,
         "people": false
@@ -185291,6 +189403,21 @@
       }
     }
   },
+  "https://media.aquatome.com/tropica/01884510547c20dc.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "30dd3d433132a0a5d55c48f0a76e13d81e5353fefbb75624712ba4e033043a16",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/tropica/02256d2766141e3a.webp": {
     "anubias-gracilis": {
       "ok": "yes",
@@ -185313,6 +189440,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "6a1915dd29793299c85732728b91ad2b57aac1ae548ce4b414d96be7e6e310d9",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/tropica/02f5de8df32c1a9a.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "e65c1448896ed1b86ea15760cea911db0da404b74f98e375c527f1d378d2605b",
       "hints": {
         "dead": false,
         "people": false
@@ -185446,6 +189588,21 @@
       }
     }
   },
+  "https://media.aquatome.com/tropica/0a810238d62e78f9.webp": {
+    "vesicularia-montagnei": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "9592ce206462fb53ae2ebccdc22970761e1cede8399e3f472a58f91e0d62ec23",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/tropica/0b87f4ec663c7f52.webp": {
     "cryptocoryne-undulata": {
       "ok": "yes",
@@ -185539,6 +189696,20 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "4bb7a2fd168b1128fb9835d20752d8c31f82e4600b089bf1b503db10f5692756",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/tropica/0e85c22d8ff9500a.webp": {
+    "vesicularia-montagnei": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "403c578476465a2d336f01d959964a8b536a920ddc719133d443a79a6f84719d",
       "hints": {
         "dead": false,
         "people": false
@@ -187284,6 +191455,21 @@
       }
     }
   },
+  "https://media.aquatome.com/tropica/83dab6454866a459.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b4e0c483aaa72a0e85bb01c9f8635b54d9bb70e40b4b0719f057171753a4c767",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/tropica/87df586d4c135d2c.webp": {
     "lysimachia-parvifolia": {
       "ok": "yes",
@@ -188019,6 +192205,20 @@
       }
     }
   },
+  "https://media.aquatome.com/tropica/abc8c2317668b500.webp": {
+    "salvinia-minima": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "eaf9e9f9dbfd1977c38b62492f73fce5cdabb3e7a8565b7eb01356c2bfb50a47",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/tropica/ac179bf3f4a9c3db.webp": {
     "bucephalandra-sp-needle-leaf": {
       "ok": "yes",
@@ -188530,6 +192730,21 @@
       }
     }
   },
+  "https://media.aquatome.com/tropica/d3f9870119a6fe0c.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f08318179f9ca9977446d2a61ae1a077567d1567aa25887d07dbd493e190bb1a",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/tropica/d459fd6a6ee3e964.webp": {
     "cardamine-lyrata": {
       "ok": "yes",
@@ -188538,6 +192753,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "5c028ae8162b9003626880303b376f573ba6275ad2fb967c355060f1db021510",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/tropica/d45f46cdd2566ccf.webp": {
+    "vesicularia-montagnei": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3d13c95d0726bcd82c389630228708480d11bad26238c09753d7480abeb5cdd7",
       "hints": {
         "dead": false,
         "people": false
@@ -189200,6 +193430,21 @@
       }
     }
   },
+  "https://media.aquatome.com/tropica/fa6c7c9d66f15a3d.webp": {
+    "micranthemum-callitrichoides": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "a293d84dc1d5b6c40c5b16942a79464df2a966049236f7d2ec35e83fcfe05057",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/tropica/fa816876311a525e.webp": {
     "cryptocoryne-usteriana": {
       "ok": "yes",
@@ -189284,6 +193529,20 @@
       }
     }
   },
+  "https://media.aquatome.com/tropica/fd96564a39604d74.webp": {
+    "salvinia-minima": {
+      "ok": "none",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject none",
+      "noteHash": "1aa02dadf12bb2e5d94addb8f2fd4bdf0ae92b809d2641e3f4e6fded6c537cb7",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/tropica/fdd3e5b7f2a2a882.webp": {
     "vallisneria-sp-gigantea": {
       "ok": "unsure",
@@ -189306,6 +193565,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "ab233298e4107553569702c74f6906dc43756a0fa040b3c4d2bd229703f6b062",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/tropica/fed8fbab4a7c6bd2.webp": {
+    "vesicularia-montagnei": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "3c2a7a9d56bf4c466c269cd915b6e7d3e3e638ee4a526da5578253ee5d12d9ae",
       "hints": {
         "dead": false,
         "people": false
@@ -189653,6 +193927,21 @@
       }
     }
   },
+  "https://media.aquatome.com/video/0xEdMSmpNHo/p6-xMTg1NTY0KS5qcGc.webp": {
+    "vesicularia-montagnei": {
+      "ok": "other",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject other",
+      "noteHash": "c2c0b40355c1af056468b1dfbc71e13fd94b929f9f654d474f6e8db0c08e9bd0",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/video/0xEdMSmpNHo/p7-MDYtMjBfMDEuanBn.webp": {
     "lemnoideae": {
       "ok": "yes",
@@ -189722,6 +194011,21 @@
       "guide": true,
       "note": "subject yes",
       "noteHash": "88cb75e186988c9079607c3bfb9fe96ecaa636e94a74131e9f2bac4aa805dbb6",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/video/2J0ms7dT71c/p4-MDYtMjBfMDEuanBn.webp": {
+    "phyllantus-fluitans": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "7d13e7ad96c77e02603cac089d78b29a59aa78190810ad153233a18b35eeddbe",
       "hints": {
         "dead": false,
         "people": false
@@ -191335,6 +195639,21 @@
       }
     }
   },
+  "https://media.aquatome.com/video/HaupU28dhz0/p2-phdmFtb29zLmpwZw.webp": {
+    "vesicularia-montagnei": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject unsure",
+      "noteHash": "3e3ddd89f424b75a727a70ee09ef0d22f6b3e1d6d617750cc890cdfef0b8c48c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/video/HeOOfGW7eAk/p2-b25fdGV0cmEuanBn.webp": {
     "hyphessobrycon-herbertaxelrodi": {
       "ok": "yes",
@@ -191786,6 +196105,21 @@
       }
     }
   },
+  "https://media.aquatome.com/video/LWCAnbfgtcE/p4-mdHdvb2RfMy5qcGc.webp": {
+    "otocinclus-vestitus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject unsure",
+      "noteHash": "d711ee99adbd2cf1996dab415c451854d9e8890dbdd26fcf91582085933f4069",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/video/LiCZUjqLck8/p4-EU0MwMDI1My5KUEc.webp": {
     "marsilea-hirsuta": {
       "ok": "yes",
@@ -191972,6 +196306,21 @@
       "guide": true,
       "note": "subject yes",
       "noteHash": "221359b5c5f4665f57a0c893d73b8b18dada6effac9192bf67d13c0a92770171",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/video/NnedKiWs71U/p6-ltYV9rejA1LmpwZw.webp": {
+    "salvinia-minima": {
+      "ok": "yes",
+      "typical": true,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject yes",
+      "noteHash": "b85dfee4846a2ebb7550806c81e16a10a7ce8299facce1a377551c8d0e9fd6d1",
       "hints": {
         "dead": false,
         "people": false
@@ -193807,6 +198156,21 @@
       }
     }
   },
+  "https://media.aquatome.com/video/ahN0nP8HLaI/p2-mdHdvb2RfMy5qcGc.webp": {
+    "otocinclus-vestitus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject unsure",
+      "noteHash": "2bb20eecb25a4367e4aa29f9651cb8b88f762cf61960bd7f5ee0215dccb35586",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/video/aj_iGo-D6GY/p7-X2dvdXJhbWkuanBn.webp": {
     "trichogaster-lalius": {
       "ok": "yes",
@@ -194003,6 +198367,21 @@
       "guide": true,
       "note": "subject yes",
       "noteHash": "3395303b14ed6ad6fab9089ee86bbded5d7a3a270a3acce98a4c9bedf1186d7d",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/video/cGTFcYJ_BQs/p6-mdHdvb2RfMy5qcGc.webp": {
+    "otocinclus-vestitus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject unsure",
+      "noteHash": "2bb20eecb25a4367e4aa29f9651cb8b88f762cf61960bd7f5ee0215dccb35586",
       "hints": {
         "dead": false,
         "people": false
@@ -194511,6 +198890,21 @@
       "guide": true,
       "note": "subject yes",
       "noteHash": "ad6dae24b6aa897a6569a6f5f1684704edb8f1ab3e71280687f7d6fdf4407445",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/video/iFDXqeBOxQk/p5-mdHdvb2RfMy5qcGc.webp": {
+    "otocinclus-vestitus": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "guide": true,
+      "note": "subject unsure",
+      "noteHash": "2bb20eecb25a4367e4aa29f9651cb8b88f762cf61960bd7f5ee0215dccb35586",
       "hints": {
         "dead": false,
         "people": false

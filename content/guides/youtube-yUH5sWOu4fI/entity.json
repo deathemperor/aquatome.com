@@ -91,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính nhỏ có cát trắng và lũa, chưa gắn lọc.",
-            "sharpness": 1017.6
+            "sharpness": 1017.6,
+            "person": false
           }
         ]
       },
@@ -99,20 +100,13 @@
         "heading": "Làm nền và sưởi",
         "moments": [
           {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/yUH5sWOu4fI/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sưởi đặt dưới đáy bể trống, chưa đổ sỏi.",
-            "sharpness": 1009.7
-          },
-          {
             "t": 310,
             "url": "https://media.aquatome.com/video/yUH5sWOu4fI/at310-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đã đổ lớp sỏi trang trí phủ lên trên sưởi.",
-            "sharpness": 2441
+            "sharpness": 2441,
+            "person": false
           }
         ]
       },
@@ -125,7 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thử xếp cụm đá theo kiểu tam giác trong bể trước khi chốt.",
-            "sharpness": 1780.5
+            "sharpness": 1780.5,
+            "person": false
           },
           {
             "t": 430,
@@ -133,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục chỉ giữ hai viên đá chính trong bể, nhìn gọn và thoáng.",
-            "sharpness": 379.5
+            "sharpness": 379.5,
+            "person": false
           }
         ],
         "photo": {
@@ -156,15 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai viên đá đặt trên lớp sỏi trắng trong bể nhỏ.",
-            "sharpness": 558.8
-          },
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/yUH5sWOu4fI/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay san phẳng lớp sỏi sau khi lấp lại trong bể.",
-            "sharpness": 5158.4
+            "sharpness": 558.8,
+            "person": false
           }
         ],
         "photo": {
@@ -182,20 +171,13 @@
         "heading": "Cây và rêu nên dùng",
         "moments": [
           {
-            "t": 670,
-            "url": "https://media.aquatome.com/video/yUH5sWOu4fI/at670-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cây đã trồng dày, lá xanh tươi mọc khỏe.",
-            "sharpness": 1249.8
-          },
-          {
             "t": 680,
             "url": "https://media.aquatome.com/video/yUH5sWOu4fI/at680-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các loại cây cắt cắm và cây buộc đá đặt sẵn trên khay.",
-            "sharpness": 2402.6
+            "sharpness": 2402.6,
+            "person": false
           }
         ]
       },
@@ -208,7 +190,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh mới trồng gọn gàng, cây còn thấp và nền sạch.",
-            "sharpness": 1171.8
+            "sharpness": 1171.8,
+            "person": false
           },
           {
             "t": 840,
@@ -216,7 +199,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây mới trồng quanh hòn đá, bố cục bể còn thoáng và gọn.",
-            "sharpness": 757.6
+            "sharpness": 757.6,
+            "person": false
           }
         ],
         "photo": {
@@ -232,16 +216,7 @@
       },
       {
         "heading": "Thả cá",
-        "moments": [
-          {
-            "t": 920,
-            "url": "https://media.aquatome.com/video/yUH5sWOu4fI/at920-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt thả betta vào bể thủy sinh đã tỉa cây gọn gàng.",
-            "sharpness": 1462.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/yUH5sWOu4fI/p6-Vfb3JhbmdlLkpQRw.webp",
           "thumb": "https://media.aquatome.com/video/yUH5sWOu4fI/p6-Vfb3JhbmdlLkpQRw-480.webp",

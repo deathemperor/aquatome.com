@@ -2119,7 +2119,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (1066)
+## Only one photo (no pictures inside the text) (1067)
 
 - species/aborichthys-elongatus — Cá chạch sóc đuôi đỏ
 - species/acantopsis-dialuzona — Cá chạch mặt ngựa
@@ -2878,6 +2878,7 @@ borrow one from a species or plant they mention on the site.
 - species/schistura-notostigma — Cá chạch suối Schistura notostigma
 - species/schistura-robertsi — Cá chạch suối Schistura robertsi
 - species/sciades-couma — Cá da trơn biển Couma
+- species/sciades-proops — Cá Sciades proops
 - species/scleromystax-prionotos — Cá chuột Scleromystax prionotos
 - species/scleropages-inscriptus — Cá rồng Tenasserim
 - species/scleropages-jardinii — Cá rồng Úc
