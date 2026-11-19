@@ -29,7 +29,7 @@ import { speciesDescription, speciesTitle } from '../../lib/meta'
 import { nameAndSci, sciBeside } from '../../lib/sci'
 import { i18n, langOf, served } from '../../lib/i18n'
 import { alternatesOf } from '../../lib/alternates'
-import { taxonHref } from '../../lib/taxa-places'
+import { isFish, taxonHref } from '../../lib/taxa-places'
 
 export async function getStaticPaths({ routePattern }: { routePattern: string }) {
   const c = await getContent(langOf(routePattern))
@@ -39,24 +39,27 @@ const { s } = Astro.props as { s: Localized<SpeciesEntity> }
 const { lang, t } = i18n(Astro.url)
 const c = await getContent(lang)
 const url = new URL(Astro.url.pathname, Astro.site).href
+// The fish list's name at the head of the trail: a crab's, a shrimp's or a snail's page isn't under "Loài cá" (the owner,
+// 15 Nov: the fiddler crab's page).
+const list = t(isFish(s) ? 'Loài cá' : 'Loài')
 const jsonld = [
   { '@context': 'https://schema.org', '@type': 'Article', headline: s.t.name, ...(sciBeside(s.t.name, s.scientificName) ? { alternativeHeadline: s.scientificName } : {}), inLanguage: lang, dateModified: s.updatedAt, image: s.photos[0]?.url, mainEntityOfPage: url,
     about: { '@type': 'Taxon', name: s.scientificName, taxonRank: 'species', alternateName: [s.t.name, ...s.t.altNames] } },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: t('Loài cá'), item: new URL('/vi/ca/', Astro.site).href },
+    { '@type': 'ListItem', position: 1, name: list, item: new URL('/vi/ca/', Astro.site).href },
     ...(served(lang, '/vi/phan-loai/x/') ? [{ '@type': 'ListItem', position: 2, name: s.family, item: new URL(taxonHref(s, 2) ?? '/vi/phan-loai/', Astro.site).href }] : []),
     { '@type': 'ListItem', position: served(lang, '/vi/phan-loai/x/') ? 3 : 2, name: s.t.name, item: url } ] },
 ]
 // What the page shows, chosen in page order (lib/species-page.ts, which the app's copy reads too).
-const { country, firstSource, researched, card, sources, summary, gallery, galleryPath, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides, videoPhotos } = await speciesParts(lang, c, s)
+const { country, firstSource, researched, card, sources, summary, gallery, strip, more, figures, vn, kit, videos, breeds, breedPhotos, mates, showMates, tool, text, jumps, guides, videoGuides, videoPhotos } = await speciesParts(lang, c, s)
 // The shop's tank row says the minimum tank the data card gives.
 const tank = resolveDataCard(s.dataCard.tankCm ?? [], 'tankCm')?.value
 const alternates = await alternatesOf('species', s.id)
 ---
-<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard)} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos, ...(showMates ? [...mates.good, ...mates.avoid].map(m => matePhoto(m.s)) : []), ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
+<Base title={speciesTitle(lang, s.t.name, s.scientificName)} description={speciesDescription(lang, s.t.name, s.scientificName, s.dataCard, isFish(s))} image={s.photos[0]?.url} noindex={!s.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...figures, ...strip, ...more, ...breedPhotos, ...(showMates ? [...mates.good, ...mates.avoid].map(m => matePhoto(m.s)) : []), ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
-    <a href="/vi/ca/">{t('Loài cá')}</a> / <a href={taxonHref(s, 2)}>{s.family}</a> / <a href={taxonHref(s, 3)} class="sci">{s.genus}</a>
+    <a href="/vi/ca/">{list}</a> / <a href={taxonHref(s, 2)}>{s.family}</a> / <a href={taxonHref(s, 3)} class="sci">{s.genus}</a>
   </nav>
   {/* Answer first, in reading order (a screen reader's too): the name and the four facts a reader decides by, the full
       card folded under them on a phone, the summary, the photo and a row of the gallery's thumbnails; then the care
@@ -75,7 +78,7 @@ const alternates = await alternatesOf('species', s.id)
       <h2 id="card-h" class="visually-hidden">{t('Bảng dữ liệu')}</h2>
       <details class="full" open>
         <summary><span class="label">{t('Xem đủ bảng')}</span><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></summary>
-        <DataCard card={card} sources={sources} traits={mates.self} />
+        <DataCard card={card} sources={sources} traits={mates.self} fish={isFish(s)} />
       </details>
       {/* Closed on a phone, where the key facts above it already answer; open on a computer (no toggle there). */}
       <script is:inline>(function (d) { var m = matchMedia('(max-width: 860px)'); var set = function () { d.open = !m.matches }; set(); m.addEventListener('change', set) })(document.currentScript.previousElementSibling)</script>
@@ -87,7 +90,7 @@ const alternates = await alternatesOf('species', s.id)
     {s.photos.length > 0 && (
       <div class="side">
         <div class="photo" id="anh"><PhotoGallery photos={s.photos} alt={nameAndSci(s.t.name, s.scientificName)} fish phone /></div>
-        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} href={galleryPath} name={s.t.name} column readers />}
+        {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} more={more} name={s.t.name} column />}
       </div>
     )}
   </header>
@@ -102,8 +105,8 @@ const alternates = await alternatesOf('species', s.id)
   {kit && <div class="wrap"><ProductSlots slots={s.productSlots} heading={t('Chuẩn bị để nuôi {name}', { name: s.t.name })} entity={`species:${s.id}`} tankCm={typeof tank === 'number' ? tank : undefined} /></div>}
   {/* The gallery's thumbnails, after the care text, on a page with no photo of its own. A page with one has them under
       its photo, on a phone too (a single row: GalleryStrip.astro). */}
-  {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={s.t.name} readers />}
-  <BreedList breeds={breeds} photos={breedPhotos} heading={t('Các dòng và cá lai từ {name}', { name: s.t.name })} />
+  {s.photos.length === 0 && strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} name={s.t.name} />}
+  <BreedList breeds={breeds} photos={breedPhotos} heading={t(isFish(s) ? 'Các dòng và cá lai từ {name}' : 'Các dòng và con lai từ {name}', { name: s.t.name })} />
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến loài này')} />
   <VideoGuideGrid guides={videoGuides} photos={videoPhotos} heading={t('Có trong video hướng dẫn')} />
 

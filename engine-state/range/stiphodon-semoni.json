@@ -1,8 +1,8 @@
 {
   "id": "stiphodon-semoni",
   "native": {
-    "input": "c8a91f6abf1fc793",
-    "at": "2026-11-15T05:39:34.625Z",
+    "input": "72d71cb6a03027a4",
+    "at": "2026-11-17T18:05:08.130Z",
     "claims": [
       {
         "code": "ID",
@@ -27,18 +27,27 @@
         "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
         "words": "Solomon Islands",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "SB",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands.",
+        "words": "Solomon Islands",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Ambon Island",
-        "source": "seriouslyfish",
-        "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
-        "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Maluku Islands",
         "source": "seriouslyfish",
         "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
         "country": "ID",
@@ -54,6 +63,24 @@
         "name": "Bismarck Archipelago",
         "source": "seriouslyfish",
         "quote": "Described from Ambon Island, South Molucca Islands, a group within the Maluku Islands chain in central Indonesia, but currently considered to range eastwards from western Sumatra across much of Indonesia, northern Papua New Guinea and the Bismarck Archipelago as far as the Solomon Islands.",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands.",
+        "ok": true
+      },
+      {
+        "name": "Bali",
+        "source": "glaser",
+        "quote": "The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands.",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "The species has a wide distribution: it is known from Sulawesi, Bali, New Guinea (Irian Jaya), generally in Indonesia, and in the west to the Solomon Islands.",
         "ok": true
       }
     ],
@@ -111,6 +138,6 @@
       "SB"
     ],
     "requests": 12,
-    "at": "2026-11-15T05:39:34.625Z"
+    "at": "2026-11-17T18:05:08.130Z"
   }
 }

@@ -198,10 +198,6 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 8
-      },
-      {
         "source": "seriouslyfish",
         "value": 7
       }
@@ -250,8 +246,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/",
-      "html": "<p>Wild-caught red dwarf bushfish from the Congo. The species belongs to the bubble-nest builders and grows to about 6-8 cm long. The fish are currently 3-4 cm long.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en-2/",
+      "html": "<p>Microctenopoma (Ctenopoma) ansorgii belongs reliably to the most beautiful bushfishes. The African bushfishes are the counterpart to the numerous labyrinth fish genera spread in Asia. Like their asiatic cousins they are bubble nest builders and the male will adopt the brood care.</p>"
     },
     {
       "key": "quickFacts",
@@ -264,6 +260,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
       "html": "<p>Native to the River Congo basin in parts of both the Republic of Congo and Democratic Republic of Congo. Apparently a feral population exists on the island of Madagascar.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en-2/",
+      "html": "<p>They occur in slowly flowing jungle waters of the Congo basin. Origin: Congo, tropical West Africa.</p>"
     },
     {
       "key": "habitat",
@@ -290,10 +292,22 @@
       "html": "<ul><li>Temperature: 20–27°C, but aim for the upper end of this range.</li><li>pH: 5.5–7.5</li><li>Hardness: 5–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en-2/",
+      "html": "<p>They place no big requirements against the water chemistry.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
       "html": "<p>Provide a diet consisting mainly of small frozen or live food. Rarely accepts dried foods.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en-2/",
+      "html": "<p>Their appetite is big and wild caughts need for acclimatizing strong living food.</p>"
     },
     {
       "key": "behaviour",
@@ -306,12 +320,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-ansorgii",
       "html": "<p>Males are the larger sex and are much more colourful. They also have white edges to the anal and dorsal fins.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_ansorgii_en/",
-      "html": "<p>The species belongs to the bubble-nest builders.</p>"
     },
     {
       "key": "reproduction",
@@ -332,18 +340,43 @@
       "thumb": "https://media.aquatome.com/commons/abefbf6f22274ae4-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY 3.0",
-      "author": "Juan Carlos Palau Díaz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microctenopoma_ansorgii_2.jpg",
-      "caption": "Microctenopoma ansorgii",
       "large": {
         "url": "https://media.aquatome.com/commons/abefbf6f22274ae4-large.webp",
         "width": 1401,
         "height": 934
-      }
+      },
+      "licence": "CC BY 3.0",
+      "author": "Juan Carlos Palau Díaz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microctenopoma_ansorgii_2.jpg",
+      "caption": "Microctenopoma ansorgii"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "8owNy4JZkFI",
+      "title": "Microctenopoma ansorgii (Orange Bushfish/Red Stripe Bushfish) - male, adult, normal coloration",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0R920L_wKx0",
+      "title": "SPECIES SPOTLIGHT | Ornate Ctenopoma",
+      "durationSec": 317,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jlrGYmCtBPM",
+      "title": "Microctenopoma ansorgii (Orange Bushfish) - Fry",
+      "durationSec": 3,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nCBAIeySK58",
+      "title": "Microctenopoma ansorgii biotope",
+      "durationSec": 44,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -365,5 +398,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-17"
 }

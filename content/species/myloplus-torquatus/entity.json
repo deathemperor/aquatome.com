@@ -1,0 +1,434 @@
+{
+  "id": "myloplus-torquatus",
+  "scientificName": "Myloplus torquatus",
+  "order": "Characiformes",
+  "family": "Serrasalmidae",
+  "genus": "Myloplus",
+  "group": "characins",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 7193779,
+      "total": 125,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BR",
+          93
+        ],
+        [
+          "VE",
+          22
+        ],
+        [
+          "CO",
+          5
+        ],
+        [
+          "GY",
+          3
+        ],
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          5
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          5
+        ],
+        [
+          -67.5,
+          2.8125,
+          3
+        ],
+        [
+          -67.5,
+          5.625,
+          5
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          3
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1
+        ],
+        [
+          -66.09375,
+          4.21875,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          1
+        ],
+        [
+          -64.6875,
+          5.625,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          2
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1
+        ],
+        [
+          -61.875,
+          5.625,
+          3
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          3
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          2
+        ],
+        [
+          -60.46875,
+          5.625,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          1
+        ],
+        [
+          -59.0625,
+          -5.625,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          5
+        ],
+        [
+          -59.0625,
+          2.8125,
+          2
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          7
+        ],
+        [
+          -56.25,
+          -11.25,
+          4
+        ],
+        [
+          -56.25,
+          -9.84375,
+          1
+        ],
+        [
+          -56.25,
+          -7.03125,
+          5
+        ],
+        [
+          -56.25,
+          -5.625,
+          2
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          4
+        ],
+        [
+          -54.84375,
+          -14.0625,
+          2
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          6
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          3
+        ],
+        [
+          -53.4375,
+          -14.0625,
+          7
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          5
+        ],
+        [
+          -52.03125,
+          -16.875,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          4
+        ],
+        [
+          -52.03125,
+          -12.65625,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1
+        ],
+        [
+          -50.625,
+          -7.03125,
+          1
+        ],
+        [
+          -49.21875,
+          -11.25,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          1
+        ],
+        [
+          -49.21875,
+          -8.4375,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          1
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          1
+        ],
+        [
+          -47.8125,
+          -14.0625,
+          2
+        ],
+        [
+          -47.8125,
+          -12.65625,
+          1
+        ],
+        [
+          -47.8125,
+          -11.25,
+          2
+        ],
+        [
+          -47.8125,
+          -9.84375,
+          1
+        ],
+        [
+          -47.8125,
+          -8.4375,
+          1
+        ],
+        [
+          -42.1875,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
+      "html": "<p>Adults of Myleus torquatus are expected to reach about 20–25 cm, with a silvery basic colour, yellow fins and a broad black band bordering the caudal fin (species-specific).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
+      "html": "<p>The smallest babies, about 1.5–2 cm long, are very dark coloured and have a light blaze on the forehead. They float through the water without much movement and imitate a dead leaf. This can make the keeper pretty nervous, but is normal behaviour.</p><p>When the fish are a bit larger, 3–4 cm, they become lighter in basic colour and the blaze vanishes. A diffuse light band over the nape appears, along with an individually differing pattern of spots and stripes. The behaviour differs now, too: the fish become active swimmers and form schools with conspecifics.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/6ee1858ed9623545.webp",
+      "thumb": "https://media.aquatome.com/glaser/6ee1858ed9623545-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d14398869e44f5df.webp",
+      "thumb": "https://media.aquatome.com/glaser/d14398869e44f5df-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/be34df4a255663d1.webp",
+      "thumb": "https://media.aquatome.com/glaser/be34df4a255663d1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/79ac8e34489a69ef.webp",
+      "thumb": "https://media.aquatome.com/glaser/79ac8e34489a69ef-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/myleus-cf-torquatus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "kJEOZsErH6Q",
+      "title": "MYLEUS PACU vs. KALE ! a first look at young  MYLOPLUS TORQUATUS ( silver dollar fish ) in grow-out",
+      "durationSec": 156,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qPjyu0W5fWo",
+      "title": "Myleus sp. torquatus",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "so_qWlHLtYw",
+      "title": "rare silver dollars with geophagus altifrons",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9tTeEnSR3zs",
+      "title": "myleus setiger and myleus torquatus",
+      "durationSec": 49,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

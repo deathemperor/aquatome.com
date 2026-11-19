@@ -3,6 +3,12 @@
   "name": "Linbian",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-17T11:38:00.640Z",
+    "why": "The source names the Linbian river (Sungai Linbian) in southern Taiwan, but bare \"Linbian\" drops the Malay kind word \"Sungai\", so it reads as the place rather than the river."
+  },
   "quality": {
     "score": 0.45,
     "indexable": false

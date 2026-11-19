@@ -1,0 +1,33 @@
+{
+ "at": "2026-11-17T05:46:43Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Uji coba pembiakan pertama masih berlangsung.",
+   "why": "This is the source shop's own news about its breeding trials, and the reader has no way of knowing who is running them or how they went."
+  }
+ ],
+ "text": {
+  "slug": "caridina-propinqua",
+  "name": "Udang Caridina propinqua",
+  "altNames": [
+   "Udang Sulawesi"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Asal: Sulawesi. Betina bisa mencapai 2 cm, sedangkan jantan tetap sedikit lebih kecil. Sejauh ini mudah dipelihara.</p>",
+   "distribution:glaser": "<p>Udang ini berasal dari Pulau Sulawesi.</p>",
+   "dimorphism:glaser": "<p>Betina bisa mencapai 2 cm, sedangkan jantan tetap sedikit lebih kecil.</p>",
+   "notes:glaser": "<p>Berdasarkan pengalaman, kabar bahwa udang ini termasuk spesies air payau belum bisa dibuktikan. Uji coba pembiakan pertama masih berlangsung.</p>"
+  },
+  "quality": {
+   "score": 0.95,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.95
+   }
+  }
+ }
+}

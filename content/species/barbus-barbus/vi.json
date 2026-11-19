@@ -1,0 +1,21 @@
+{
+  "slug": "ca-barbel",
+  "name": "Cá barbel",
+  "altNames": [
+    "Cá barb châu Âu"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Đây là loài đặc hữu của châu Âu, sống rải rác từ Pháp tới sông Memel. Ở Anh, nó có ở sông Thames và vài con sông khác. Loài này cũng sống ở sông Danube và các sông nhánh của nó.</p>",
+    "dimorphism:glaser": "<p>Vào mùa sinh sản, trên đầu cá đực có một lớp chất tiết màu đục kèm những nốt trắng. Cá cái to hơn cá đực khá rõ và thân cũng tròn hơn.</p>",
+    "diet:glaser": "<p>Chúng ăn đủ loại đồ tươi sống và đông lạnh, ăn được mọi thứ thức ăn thực vật có sẵn, và ăn cả cám dạng mảnh lẫn dạng viên.</p>",
+    "notes:glaser": "<p>Trứng của loài barb này hơi độc. Đây là loài cá rất đáng nuôi trong bể cá đặc hữu, và dĩ nhiên cả bể nước ôn đới. Ở châu Âu, người ta đã biết và mô tả nhiều phân loài của B. barbus, chẳng hạn các phân loài ở Pháp, Nam Tư và Hy Lạp.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

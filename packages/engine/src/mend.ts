@@ -6,7 +6,7 @@ import { hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
 import { VI_STYLE } from './phrases'
 import { givesDose, withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
-import { blockOf, plain, quoted, sentences, splice } from './sentences'
+import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentences'
 import { norm } from './reader'
 
 /**
@@ -111,20 +111,65 @@ const CUTTABLE: readonly FitCheck[] = ['product', 'shop', 'price']
  * The part with each sentence a `CUTTABLE` finding quotes cut whole, by code: no model and no new word (the chief of staff,
  * 14 Nov 2026: a sentence a finding flags is deleted, or its foreign detail is). What a writer's cut the guard refused gets
  * instead (fit-rewrite.ts). Nothing when no such sentence is in the part, or every sentence would go (the dealer check's).
- * `gone`: each sentence it took, as `Mended.gone` lists a writer's, for the run's list to the chief of staff.
+ * `gone`: each sentence it took, as `Mended.gone` lists a writer's, for the run's list to the chief of staff. `near`:
+ * findings no sentence it takes may stand next to, nor be (a dose, its caution, a lethal level: cut of the product's name,
+ * a dose beside it would read as a dose of whatever came before; the readers of #1578, 17 Nov 2026). Such a sentence stays
+ * for its page's next try, and the others go; nothing when one of those findings quotes no single sentence of the part, as
+ * code can't tell where it stands. Nor does code cut a heading, a sentence whose block would keep only its number, the
+ * last line under a heading, or one the next line points back at (the readers of #1578, 17 Nov 2026): each stays for a
+ * writer or a person.
  */
-export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[]): { html: string; gone: string[] } | undefined {
+/**
+ * Each sentence (from 0) that holds a quote's words in a row, whole words, as `cutWhole` finds them: the last word may be
+ * the English plural ("Wonder Shells" for the table's "Wonder Shell"), and "Easy Carbo" isn't in "Easy Carbon".
+ */
+export function holding(pieces: Piece[], quote: string): number[] {
+  // A curly apostrophe is a straight one ("Dr. Tim’s"), and a price's sign is part of it: "$12" isn't the "12" of "12 cm"
+  // (Codex's read of #1578).
+  const straight = (s: string) => s.replace(/[’‘`]/g, "'")
+  const x = words(straight(quote))
+  const sign = /[$€£¥₫]/u.test(quote) ? norm(straight(quote)) : ''
+  return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(straight(p.html)); return w.some((_, k) => x.every((y, j) => w[k + j] === y || (j === x.length - 1 && /^[a-z]+$/.test(y) && w[k + j] === `${y}s`))) && (!sign || norm(straight(plain(p.html))).includes(sign)) ? [i] : [] }) : []
+}
+
+export function cutWhole(html: string, fs: readonly { check: FitCheck; quote?: string }[], o: { near?: readonly { quote?: string }[] } = {}): { html: string; gone: string[] } | undefined {
   const pieces = sentences(html)
   const n = pieces.filter(p => p.sentence).length
   // Each sentence that holds the quote's words in a row, whole words (Astra's read: "ADA" matched in "Canada" cut the
-  // wrong sentence and left the product); a quote across two sentences is the writer's, not cut here.
-  const holds = (quote: string) => {
-    const x = words(quote)
-    return x.length ? pieces.filter(p => p.sentence).flatMap((p, i) => { const w = words(p.html); return w.some((_, k) => x.every((y, j) => w[k + j] === y)) ? [i] : [] }) : []
-  }
-  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)))
-  if (!gone.size || gone.size >= n) return undefined
+  // wrong sentence and left the product); a quote across two sentences is the writer's, not cut here. The last word may
+  // be the English plural: the market table's "Wonder Shell" is "Wonder Shells" on five pages (17 Nov 2026).
+  const holds = (quote: string) => holding(pieces, quote)
+  const near = (o.near ?? []).map(f => (f.quote ? holds(f.quote) : []))
+  if (near.some(x => !x.length)) return undefined
+  const close = new Set(near.flat())
   const texts = pieces.filter(p => p.sentence).map(p => p.html)
+  const seen = texts.map(t => plain(t))
+  // A list's or a heading's own number ("3.", "2)") is a sentence to the splitter, not a line: a dose past it is still the
+  // next line, and a block left with only its number is a line cut in half (the readers of #1578, 17 Nov 2026).
+  const bare = (i: number) => /^[\s\d.,:;()–—-]*$/u.test(seen[i]!)
+  const step = (i: number, d: number) => { let j = i + d; while (j >= 0 && j < n && bare(j)) j += d; return j }
+  // Each sentence's block, and whether that block is a heading: a heading cut leaves its section under the one before.
+  const block = blockOf(pieces)
+  let tag = ''
+  const heading = pieces.flatMap(p => { if (p.sentence) return [/^h[1-6]$/.test(tag)]; for (const m of p.html.matchAll(/<(h[1-6]|p|li|td|th|dt|dd|div|blockquote|figcaption)\b/gi)) tag = m[1]!.toLowerCase(); return [] })
+  // A line that points back would point at nothing: the sentence before it stays. "này", "đó" or "ấy" anywhere in it ("Hai
+  // sản phẩm này…", "Với loại đèn này…"), or a start that counts or names what came before ("Cả ba…", "Hai…", "Chúng…").
+  // Keeping a sentence is the cheaper mistake (Codex's read of #1578).
+  const points = (i: number) => /(?<![\p{L}\p{N}])(?:này|đó|ấy)(?![\p{L}\p{N}])|^(?:chúng|nó|đây|cả|hai|ba|bốn)(?![\p{L}\p{N}])/iu.test(seen[i] ?? '')
+  // Each sentence's section, by the headings before it: a section left with its heading alone isn't a section.
+  let sections = 0, head = -1
+  const section = texts.map((_, i) => { if (heading[i] && block[i] !== head) { sections++; head = block[i]! } return sections })
+  const gone = new Set(fs.filter(f => CUTTABLE.includes(f.check) && f.quote).flatMap(f => holds(f.quote!)).filter(i => !heading[i] && !close.has(step(i, -1)) && !close.has(i) && !close.has(step(i, 1))))
+  for (let changed = true; changed;) {
+    changed = false
+    for (const i of gone) {
+      const after = step(i, 1)
+      const rest = texts.map((_, j) => j).filter(j => j !== i && block[j] === block[i] && !gone.has(j))
+      const kept = texts.map((_, j) => j).filter(j => j !== i && section[j] === section[i] && !heading[j] && !bare(j) && !gone.has(j))
+      if ((after < n && !gone.has(after) && points(after)) || (rest.length && rest.every(bare)) || (section[i]! > 0 && !kept.length)) { gone.delete(i); changed = true }
+    }
+  }
+  if (!gone.size || gone.size >= n) return undefined
   return { html: splice(pieces, new Map([...gone].map(i => [i, '']))), gone: [...gone].sort((a, b) => a - b).map(i => `sentence ${i + 1} went whole: "${plain(texts[i]!)}"`) }
 }
 
@@ -208,10 +253,13 @@ export type MendFinding = { check: FitCheck; quote: string; note: string; covers
 export type Dropped = { sentence: number; finding: number; text: string }
 /** `added`: each changed sentence that says what it didn't (addedWords): the part isn't kept with any. */
 /**
- * `whole`: what the whole-sentence rule refuses (`goesWhole`). `gone`: each sentence the part lost, whatever its finding,
- * and each that went with the one before it, as the run lists them for the chief of staff.
+ * `whole`: what the whole-sentence rule refuses (`goesWhole`). `stranded`: of those, each line the writer says no longer
+ * reads without what went, which a code cut of the same sentence would leave too. `follows`: each sentence the writer took
+ * with the one before it, its reviewer agreeing or not, which a code cut of the one before would leave behind. `gone`:
+ * each sentence the part lost, whatever its finding, and each that went with the one before it, as the run lists them for
+ * the chief of staff.
  */
-export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[]; whole: string[]; gone: string[] }
+export type Mended = { html: string; score: number; notes: string[]; lost: HedgePair[]; unasked: string[]; added: string[]; whole: string[]; stranded: string[]; follows: number[]; gone: string[] }
 
 const WRITER_SCHEMA = {
   type: 'object', required: ['sentences'],
@@ -313,7 +361,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
       const left = addedWords(halves(plain(texts[n - 1]!))?.head ?? '', raw.get(n - 1)!)
       return left.length ? [`Sentence ${n} keeps only what comes before its batch half, as its finding asks, and kept of the half: "${left.join(' ')}"`] : []
     })]
-  if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole, gone: [] }
+  if (!changes.size) return { html, score: 1, notes: whole, lost: [], unasked: [], added: [], whole, stranded, follows: [], gone: [] }
   // Every sentence to go: a part of three or fewer, each named by a finding that takes its sentence whole
   // (`goesWhole`: a price, product or shop finding cuts only its words, Grok's read), comes off the page whole
   // (fit-rewrite.ts), with nothing left to review. A longer one is more likely the read's mistake than the page's, and
@@ -323,7 +371,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     const said = texts.map((t, i) => `sentence ${i + 1}: "${plain(t!)}"`).join('; ')
     if (texts.length > 3) return `every sentence would go, and the part has ${texts.length}: held for the chief of staff (${said})`
     if (!texts.every((_, i) => named.some(f => goesWhole(f.check) && f.sentences.includes(i + 1)))) return `every sentence would go, and not each is a finding's to take: held for the chief of staff (${said})`
-    return { html: '', score: 1, notes: [], lost: [], unasked: [], added: [], whole: [], gone: texts.map((t, i) => `sentence ${i + 1} went whole: "${plain(t!)}"`) }
+    return { html: '', score: 1, notes: [], lost: [], unasked: [], added: [], whole: [], stranded: [], follows: [], gone: texts.map((t, i) => `sentence ${i + 1} went whole: "${plain(t!)}"`) }
   }
   const shown = [...changes.keys()].sort((a, b) => a - b)
   const body = [
@@ -377,7 +425,7 @@ export async function mendPart(llm: Llm, html: string, fs: MendFinding[], o: { e
     ...[...follows.keys()].map(n => `sentence ${n} went with the one before it ("${plain(texts[n - 2]!)}"): "${plain(texts[n - 1]!)}"`),
   ]
   return {
-    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked, added, whole: [...whole, ...unagreed], gone,
+    html: after, score: Math.min(1, Math.max(0, Number(r.score) || 0)), lost, unasked, added, whole: [...whole, ...unagreed], stranded, follows: [...follows.keys()], gone,
     notes: [...unasked, ...added, ...whole, ...unagreed, ...lost.map(h => `Said more surely than before: "${h.to}" (was: "${h.from}")`), ...(r.notes ?? []).slice(0, 10)],
   }
 }

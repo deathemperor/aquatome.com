@@ -9,16 +9,20 @@
     "asia",
     "malaysia",
     "johor",
-    "thailand"
+    "thailand",
+    "bung-borapet",
+    "indonesia"
   ],
   "range": {
     "native": {
       "countries": [
-        "MY"
+        "MY",
+        "ID"
       ],
       "regions": [],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -28,13 +32,21 @@
             "MY"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 2359308,
       "total": 4,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-19",
       "countries": [
         [
           "ID",
@@ -46,19 +58,19 @@
           109.6875,
           -1.40625,
           1,
-          0
+          1
         ],
         [
           109.6875,
           0,
           2,
-          0
+          2
         ],
         [
           111.09375,
           -4.21875,
           1,
-          0
+          1
         ]
       ]
     }
@@ -95,6 +107,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.6
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -118,10 +134,22 @@
       "html": "<p>Eirmotus octozona is a small cyprinid with eight dark body bars, known from Johor state in Peninsular Malaysia. The type series came from aquarium fish said to originate at Bueng Boraphet in Thailand, where it has never been recorded since, and if it occurs in Thailand it is probably restricted to the peninsula. It is sold, along with E. insignis, as the 'false eight-banded barb'.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>The Eightbanded barb (Eirmotus octozona) is a very delicate, slightly transparent dwarf barb from blackwaters of Malaysia and Indonesia. Eirmotus become only 3-4 cm long and are perfect tankmates for small blackwater tanks.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-octozona",
       "html": "<p>The type series consisted of aquarium specimens apparently originated from a lake named Bueng Boraphet in western Thailand, but despite extensive sampling of the region in the years since this species has never been recorded there since.</p><p>Specimens used in Tan and Kottelat's 2008 revision of the genus were obtained from commercial collectors in Johor state, Peninsular Malaysia, and the authors suggest that if E. octozona does occur in Thailand, it is probably restricted to the southern, peninsular section.</p><p>Information obtained from a collector in the same study hints that it was once found in areas of peat swamp forest around the town of Ayer Hitam in Johor state, Peninsular Malaysia along with other species of mysterious origin such as Gymnochanda filamentosa. The swamps in this area have been severely disturbed with many of the original habitats destroyed so the current status of many species inhabiting them is best described as unclear.</p><p>Records from Borneo probably refer to the congener E. insignis.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>This tiny barb is very enigmatic. It has been described in 1959 on the basis of specimens from the aquarium fish trade which were said to originate from Thailand (Bung Borapet). However, there have been no reports since then about any occurrence of Eirmotus in Thailand. Ornamental fish collectors formerly collected this species in the peat swamp forest of Ayer Hitam in Johor, Malaysia. This forest has been almost destroyed for oil palm plantations and all fish that lived there seem to be extinct now. In 2008 three very similar, new species of Eirmotus have been described from Sumatra and Borneo. The fish offered here seem to belong to the “real” E. octozona.</p>"
     },
     {
       "key": "habitat",
@@ -148,6 +176,12 @@
       "html": "<ul><li>Temperature: 22–26°C (72–79°F)</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>The fish gets the most intense coloration in water that is rich in humic substances from peat, dead leaves and alder cones.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-octozona",
@@ -166,16 +200,34 @@
       "html": "<p>Adult males are noticeably slimmer than females and exhibit a pale red colouration in the unpaired fins when in good condition.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>The males are much smaller than the females and sometimes even look as if they were half famished. But this is normal. Besides this, males have comparatively larger ventral fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-octozona",
       "html": "<p>Unrecorded as far as we know.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>Nothing has been reported so far about the breeding biology of this unusual, very peaceful barb.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/eirmotus-octozona",
       "html": "<p>Prior to revision in 2008 the genus Eirmotus was monotypic for almost half a century, with E. octozona the sole representative. There currently exist four species, all of which are similar in appearance.</p><p>E. octozona can be told apart from congeners by the following combination of characters: bar 1 present; presence of a large and distinct black mark anterior to anus, visible in lateral and ventral views; simple dorsal-fin rays black, sometimes extending onto first branched ray; other rays hyaline or with diffused chromatophores on last dorsal-fin ray, adjacent to upper extremity of bar 6; 25-31 serrae on last simple dorsal-fin ray; uppermost ray of pectoral-fin with faint black margin; width of bar 5 equal to 1-1½ lateral row scales; mouth terminal, lower jaw wide, rounded anteriorly.</p><p>The numbered bars mentioned here refer to the black body bars which the authors ordered from 1 to 8 beginning with the anteriormost across the snout and ending with the small bar across the caudal peduncle. This patterning also gave rise to the english vernacular name of 'false eight-banded barb', under which both E. insignis and E. octozona appear to be offered for sale in the ornamental trade.</p><p>Members of this genus possess rows of sensory papillae on the snout, cheeks, throat, opercle and interorbital area that are lacking in most other cyprinids but present in a few other genera including Oreichthys, Cyclocheilichthys, Neobarynotus and a handful of other species. They are further characterised by a small adult size of less than 36 mm SL, body patterning consisting of eight dark bars on a red to yellowish background, relatively large scales, an incomplete lateral line with only 2-6 perforated scales, serrations on the last simple dorsal ray and a lack of barbels.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/eirmotus-octozona-2/",
+      "html": "<p>Lexicon: Eirmotus refers to the rows of sensitive pores on the head. octozona means “with 8 bars”.</p><p>Sadly the most intense coloration cannot be realised in photo tanks for technical reasons: the resulting yellow tinge of the pictures is quite irritating.</p>"
     },
     {
       "key": "references",
@@ -208,7 +260,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "D9OH8ZPa_zo",
+      "title": "フォールスバルブ Eirmotus octozona (False Eight-Banded Barb / Octozona Barb)",
+      "durationSec": 124,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "59AxrKQKV8Q",
+      "title": "Eirmotus octozona. The UNSUAL Eight banded barb! (Leopard Aquatic U022A)",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UZEIlvkuoXM",
+      "title": "エサを全く追おうとしないフォールスバルブたち Eirmotus octozona does not try to eat food",
+      "durationSec": 139,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OXpA7PToOls",
+      "title": "10 gallon Eirmotus Octozona aquarium",
+      "durationSec": 149,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -239,5 +316,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-18"
 }

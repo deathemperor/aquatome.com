@@ -1,0 +1,176 @@
+{
+  "id": "zungaro-zungaro",
+  "native": {
+    "input": "1bb43db3ad53ce29",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "introduced",
+        "source": "scotcat",
+        "quote": "Introduced to fishing lakes in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Tomependa, Río Marañon [Amazon River basin, Peru].",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "Z. zungaro occurs in the Amazon and Orinoco rivers.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Z. zungaro occurs in the Amazon and Orinoco rivers.",
+        "ok": true
+      },
+      {
+        "name": "Río Marañon",
+        "source": "scotcat",
+        "quote": "Type locality: Tomependa, Río Marañon [Amazon River basin, Peru].",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR",
+        "VE",
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Zungaro zungaro",
+    "status": "ACCEPTED",
+    "taxonKey": 2338770,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        63
+      ],
+      [
+        "00d324d6-5211-47a1-a84d-82175f84e678",
+        45
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        40
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        23
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        17
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        4
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        3
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        3
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        1
+      ],
+      [
+        "7282b774-f547-4f96-9c43-3ad3d16f152e",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

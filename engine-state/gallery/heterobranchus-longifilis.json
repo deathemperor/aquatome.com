@@ -3,7 +3,8 @@
  "judged": [
   "inat:53146551",
   "inat:53146555",
-  "inat:53146546"
+  "inat:53146546",
+  "gbif:1265259313:2cd38ff173ac8c03"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/0da17387609a0e64.webp": "6ae62530f080898a"
@@ -16,5 +17,9 @@
    "research": 33814745,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 5202831,
+  "next": null
  }
 }

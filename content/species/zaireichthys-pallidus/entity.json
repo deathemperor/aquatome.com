@@ -1,0 +1,251 @@
+{
+  "id": "zaireichthys-pallidus",
+  "scientificName": "Zaireichthys pallidus",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Zaireichthys",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "zambia",
+    "zambezi",
+    "namibia",
+    "chobe"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ZM",
+        "NA"
+      ],
+      "regions": [
+        "Upper Zambezi",
+        "Chobe",
+        "Kwando"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Known only from the Upper Zambezi up to and including the Barotse Floodplain in Zambia (Tweddle et al., 2004), and the Chobe and Kwando rivers, in the area of the Eastern Caprivi, Namibia.",
+          "countries": [
+            "ZM",
+            "NA"
+          ],
+          "regions": [
+            "Upper Zambezi",
+            "Chobe",
+            "Kwando"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961346,
+      "total": 20,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "NA",
+          11
+        ],
+        [
+          "ZM",
+          4
+        ],
+        [
+          "AO",
+          3
+        ],
+        [
+          "BW",
+          1
+        ],
+        [
+          "ZW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          18.28125,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          22.5,
+          -18.28125,
+          4,
+          4
+        ],
+        [
+          22.5,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -18.28125,
+          8,
+          7
+        ],
+        [
+          23.90625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          25.3125,
+          -19.6875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 2.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "html": "<ul><li>Common name: Pale sand catlet</li><li>Synonyms: None</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "html": "<p>Africa: Known only from the Upper Zambezi up to and including the Barotse Floodplain in Zambia (Tweddle et al., 2004), and the Chobe and Kwando rivers, in the area of the Eastern Caprivi, Namibia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "html": "<p>Found in shallow water with a sandy bottom where it buries itself. It feeds on small invertebrates, including mayfly nymphs and caddis fly larvae.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "html": "<p>Description: Dorsal spines (total): 2; Dorsal soft rays (total): 4-5; Anal spines: 0; Anal soft rays: 9 - 12; Vertebrae: 36 - 38. This species is generally more pallid and less conspicuously marked than other species of Zaireichthys. It differs from Zaireichthys conspicuus, Z. kunenensis, Z. lacustris and Z. maravensis in possessing a narrow premaxillary tooth patch, less than 40% of the mouth width; from Z. monomotapa by the smaller number of rays in the dorsal fin, 4-5 soft rays vs. 5-6), pectoral fins, 5-7 vs. 7-8, and caudal fin, 9-13 vs. 14-16; from Z. kavangoensis in colour pattern.</p><p>Colouration: In life almost transparent, preserved usually very pale yellow, with a few minute black spots scattered irregularly over the body. A few specimens are darker, but rarely show a definite pattern except for a series of darker patches along the back, the first at the base of the dorsal, and an irregular darker line mid-laterally. The dark individuals can be readily distinguished from the other members of the genus by the shape of the melanophores, which are unusually large and rectangular in shape.</p><p>Etymology: Named for its very pale colouration.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "html": "<p>Eccles, D.H., D. Tweddle and P.H. Skelton, 2011. Eight new species in the dwarf catfish genus Zaireichthys (Siluriformes: Amphiliidae). Smithiana Bull. (13):3-28.</p><p>Pedro Bragança, Jouke Van Der Zee, Phillip S Lobel, Ulrich Schliewen. Osteology and redescription of the miniature lampeye species of Congopanchax Poll, 1971 with an overview of miniature African freshwater fishes (Teleostei, Cyprinodontiformes, Procatopodidae). Spixiana 46(1):91-118.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/fd95d23cfe60d4be.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fd95d23cfe60d4be-480.webp",
+      "width": 500,
+      "height": 404,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Cook / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "caption": "Zaireichthys pallidus: From the Chobe Rapids at the recreational Centre in Kasane, Botswana.",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f4a2549141aba16e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f4a2549141aba16e-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Nathan Cook / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "caption": "Zaireichthys pallidus: From the Chobe Rapids at the recreational Centre in Kasane, Botswana.",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d44301044c4d4483.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d44301044c4d4483-480.webp",
+      "width": 500,
+      "height": 256,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "caption": "Zaireichthys pallidus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/eb276feb98cbf168.webp",
+      "thumb": "https://media.aquatome.com/scotcat/eb276feb98cbf168-480.webp",
+      "width": 500,
+      "height": 203,
+      "licence": "dùng với sự cho phép",
+      "author": "Roger Bills / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/zaireichthys_pallidus.htm",
+      "caption": "Zaireichthys pallidus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá mini 30cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "nền cát cho cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

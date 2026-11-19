@@ -1,0 +1,121 @@
+{
+  "id": "xyliphius-lepturus",
+  "native": {
+    "input": "9c933c161c3a7d51",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Desembocadura del rio Pucayacu en el Bobonaza, Río Magdalena system, Amazon system, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The specimens were obtained from Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon and Orinoco River basins of Colombia, Ecuador and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon and Orinoco River basins of Colombia, Ecuador and Venezuela.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon and Orinoco River basins of Colombia, Ecuador and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "South America: upper Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: upper Amazon and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon and Orinoco River basins of Colombia, Ecuador and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon and Orinoco River basins of Colombia, Ecuador and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Río Bobonaza",
+        "source": "scotcat",
+        "quote": "X. lepturus and X. melanopterus were described from the western headwaters of the Río Bobonaza, upper Amazon basin (Orcés, 1962).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xyliphius lepturus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340564,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE",
+      "EC"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

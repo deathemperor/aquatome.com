@@ -1,8 +1,13 @@
 {
   "slug": "hue-river",
-  "name": "ฮูเอ",
+  "name": "แม่น้ำเว้ (or แม่น้ำหอม, a literal rendering of Hương)",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-18T12:24:33.136Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

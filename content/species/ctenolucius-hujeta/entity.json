@@ -24,7 +24,8 @@
         "Río Sinú"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -234,6 +235,10 @@
       {
         "source": "seriouslyfish",
         "value": 25
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -257,16 +262,34 @@
       "html": "<ul><li>Max size: 250 mm SL (10 in)</li><li>Aquarium size: 180 × 60 cm</li><li>Temperature: 22–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ctenolucius-hujeta-2/",
+      "html": "<p>This genus of South American gar characins contains only two species, distinguished basically by the coloration of adult specimens (from about 15 cm length on): C. hujeta and C. beani. Maximum size in both species is about 25-30 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenolucius-hujeta",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. A tightly-fitting cover should be used in all cases as ctenoluciids are generally excellent jumpers.</p><p>The gar characin, Ctenolucius hujeta, is a predatory pike characid from the Lake Maracaibo basin in Venezuela west to the Río Sinú in Colombia. Also traded as 'freshwater barracuda' and 'hujeta gar', it is surprisingly peaceful with anything too large to swallow. Juveniles school readily, and it is best kept in numbers of four or more with placid fishes that feed from the substrate. It is much the commoner of the two Ctenolucius in the hobby.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ctenolucius-hujeta-2/",
+      "html": "<p>C. beani has an adult pattern with clearly visible longitudinal stripes which are lacking in C. hujeta. However, almost all traded specimens are bred ones and are usually placed in C. hujeta.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenolucius-hujeta",
       "html": "<p>Its natural range extends west from the Lake Maracaibo basin of northwestern Venezuela via the Río Magdalena drainage in northern Colombia as far as the Río Sinú in the northwest of the latter country.</p><p>Type locality is 'Rivers of Lake Maracaibo basin, Venezuela'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ctenolucius-hujeta-2/",
+      "html": "<p>Both species occur in Colombia; C. beani further occurs in Panama and C. hujeta in Venezuela.</p>"
     },
     {
       "key": "habitat",
@@ -323,6 +346,12 @@
       "html": "<p>C. hujeta is traded under various names including 'slant-nosed gar', 'hujeta gar', 'rocket gar' and 'freshwater barracuda' but it and other members of the family Ctenoluciidae have traditionally been referred to as 'pike characids'.</p><p>They're all predatory fishes native to South America and are currently spread across two genera; Ctenolucius with two species and Boulengerella with five.</p><p>Ctenolucius differs from Boulengerella in several synapomorphic characters including: possession of 45-50 lateral line scales (vs. 87-124); scales with distinct posterior serrations (vs. absence); possession of flattened 'flaps' on either side of the lower jaw (vs. absence); absence of fleshy appendage at tip of snout (vs. presence); first 4-5 teeth in upper jaw noticeably larger than other teeth (vs. teeth uniformly-sized).</p><p>C. hujeta is distinguished from its only congener C. beani by lacking thin, dark lateral stripes on the body in specimens larger than 100 mm SL (3.9 in) although Vari (1995) noted that some aberrant individuals from the lower Río Magdalena do have body stripes which are actually better-developed than those in C. beani.</p><p>C. hujeta is much the commoner species in the aquarium hobby with its relatively manageable adult size and adaptability placing it among the better choices for those new to keeping predatory fishes.</p><p>Within the order Characiformes the family Ctenoluciidae is also distinguished by a set of synapomorphic characters as follows: tapering body shape; elongate jaw shape; possession of many small teeth with curved tips arranged in a single series within each jaw.</p><p>Characiformes is among the most diverse orders of freshwater fishes currently including close to 2000 valid species distributed among 19 families.</p><p>This tremendous taxonomical, and morphological, diversity has historically impaired the ability of researchers to resolve their genetic relationships with many genera remaining incertae sedis.</p><p>A further limiting factor has been that in many cases exhaustive study of these on an individual basis is the only way to resolve such problems.</p><p>Modern molecular phylogenetic techniques have allowed some headway, though, and research published by Calcagnotto et al. (2005) revealed some interesting hypotheses.</p><p>Their results suggest Ctenoluciidae to belong to a trans-atlantic, monophyletic clade alongside the families Lebiasinidae and Hepsetidae, this assemblage further forming a sister group to Alestidae.</p><p>Others such as Oliveira et al. (2011) have concluded that the family Erythrinidae is also closely-related to this grouping with Hepsetidae and Alestidae more distant.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/ctenolucius-hujeta-2/",
+      "html": "<p>A genus-specific feature of Ctenolucius are the strange skin lappets at the end of the lower jaw. Very similar structures can be found in the West African characins of the genus Hepsetus, which are also very similar in overall appearance. But while Hepsetus are often found in swamps and have an accessory breathing organ via a primitive lung, Ctenolucius are usually found in running waters. So it is unlikely that the skin lappets work as a breathing help, at least in Ctenolucius. However, the purpose of these skin lappets remains unknown.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenolucius-hujeta",
@@ -332,51 +361,76 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/f98aa0d867c05320.webp",
+      "thumb": "https://media.aquatome.com/commons/f98aa0d867c05320-480.webp",
       "width": 960,
       "height": 504,
-      "licence": "CC BY-SA 3.0",
-      "author": "User:haplochromis",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ctenolucius_hujeta_1.JPG",
-      "caption": "Ctenolucius hujeta",
-      "thumb": "https://media.aquatome.com/commons/f98aa0d867c05320-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/f98aa0d867c05320-large.webp",
         "width": 2073,
         "height": 1089
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "User:haplochromis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ctenolucius_hujeta_1.JPG",
+      "caption": "Ctenolucius hujeta"
     },
     {
       "url": "https://media.aquatome.com/commons/bb28a0bb91f1bff5.webp",
+      "thumb": "https://media.aquatome.com/commons/bb28a0bb91f1bff5-480.webp",
       "width": 960,
       "height": 635,
       "licence": "CC BY-SA 3.0",
       "author": "Tino Strauss",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ctenolucius_hujeta_3.jpg",
-      "caption": "Ctenolucius hujeta, Zoo Leipzig",
-      "thumb": "https://media.aquatome.com/commons/bb28a0bb91f1bff5-480.webp"
+      "caption": "Ctenolucius hujeta, Zoo Leipzig"
     },
     {
       "url": "https://media.aquatome.com/commons/8f8daef28760e5e1.webp",
+      "thumb": "https://media.aquatome.com/commons/8f8daef28760e5e1-480.webp",
       "width": 960,
       "height": 615,
       "licence": "CC BY-SA 3.0",
       "author": "T.Voekler",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_Barracuda_-_Ctenolucius_hujeta.png",
-      "caption": "Scientific Name: Ctenolucius hujeta. Common: Freshwater Barracuda.",
-      "thumb": "https://media.aquatome.com/commons/8f8daef28760e5e1-480.webp"
+      "caption": "Scientific Name: Ctenolucius hujeta. Common: Freshwater Barracuda."
     },
     {
       "url": "https://media.aquatome.com/commons/f1ec03131f6c8783.webp",
+      "thumb": "https://media.aquatome.com/commons/f1ec03131f6c8783-480.webp",
       "width": 960,
       "height": 665,
       "licence": "CC BY-SA 4.0",
       "author": "Manuel M.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ctenolucius_hujeta.jpg",
-      "caption": "Ctenolucius hujeta, barracuda de agua dulce",
-      "thumb": "https://media.aquatome.com/commons/f1ec03131f6c8783-480.webp"
+      "caption": "Ctenolucius hujeta, barracuda de agua dulce"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "zXYUlEXazIs",
+      "title": "Ctenolucius hujeta THE ADORABLE HUJETA. (Leopard Aquatic C048A)",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Ls_DxzwXjYE",
+      "title": "Hujeta Gar: One Year Later!",
+      "durationSec": 707,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "VnqrjOJhqnQ",
+      "title": "Hujeta Gar Care Guide - Ctenolucius hujeta",
+      "durationSec": 326,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UZcaxGZ6UrE",
+      "title": "Hujeta Gar Live Feeding ⚠️⚠️ Minnow TUG of WAR",
+      "durationSec": 76,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -404,5 +458,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-18"
 }

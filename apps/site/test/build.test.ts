@@ -5,6 +5,10 @@ import { DIST, page, sitemapText } from './dist'
 import { CATEGORY_ORDER } from '../src/lib/format'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
+import type { AlbumPhoto } from '../src/lib/album'
+
+/** A page's album, as its strip carries it for the viewer (GalleryStrip.astro). */
+const albumOf = (dom: ReturnType<typeof page>['dom']) => JSON.parse(dom.querySelector('[data-album] script[type="application/json"]')!.textContent) as { name: string; photos: AlbumPhoto[] }
 
 describe('species page', () => {
   const { html, dom } = page('/ca/ca-neon-vua/')
@@ -50,15 +54,16 @@ describe('species page', () => {
     expect(facts[3]!.querySelector('dd')?.text.trim()).toBe('Dễ')
   })
   // At most five chips (seven ran off a phone's row): the care questions, the shop, the photos; breeding gives way first
-  // (test/jump-row.test.ts: the tank next, the photos never). Each to its section, the photos to their gallery with its count.
+  // (test/jump-row.test.ts: the tank next, the photos never). Each to its section, the photos to the album's first, opened
+  // over the page (#a1, scripts/album.ts), with its count.
   test('jump row: at most five of the main parts this page has, in page order, the photos last with their count', () => {
     const links = dom.querySelectorAll('nav.jump a')
     expect(links.map(a => [a.text, a.getAttribute('href')])).toEqual([
-      ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh 45', '/ca/ca-neon-vua/anh/'],
+      ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], ['Ảnh 45', '#a1'],
     ])
     for (const a of links.slice(0, -1)) expect(dom.querySelector(a.getAttribute('href')!), a.getAttribute('href')!).not.toBeNull()
     expect(dom.querySelector('#muc-reproduction')).not.toBeNull() // the part that gave way
-    expect(page('/ca/ca-neon-vua/anh/').dom.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(45) // the chip's count
+    expect(albumOf(dom).photos).toHaveLength(45) // the chip's count
     // Just before the text: after the summary and the photo.
     expect(dom.querySelector('header.top')?.nextElementSibling?.tagName).toBe('NAV')
   })
@@ -821,111 +826,72 @@ describe('a product page\'s reviews and control', () => {
 })
 
 describe('photo gallery', () => {
-  test('species page: a strip of thumbs linking each photo on the gallery page; open licences only', () => {
-    const { dom } = page('/ca/ca-neon-vua/')
+  // The owner, 17 Nov 2026: "opening a new page for it is unnecessary". An album opens over its fish's or plant's page
+  // (GalleryStrip.astro, scripts/album.ts); its photo pages are gone and their addresses forward (worker/paths.ts).
+  test('species page: a strip of thumbs, each opening its own photo over the page; the album carries every photo, credited', () => {
+    const { html, dom } = page('/ca/ca-neon-vua/')
     const strip = dom.querySelector('section.strip')!
-    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
-    // Its gallery has the readers' photos too (the gallery test below), and the link says so; a breed's has none yet.
-    expect(strip.querySelector('.head a')!.textContent).toBe('Xem tất cả 45 ảnh và ảnh bạn đọc →')
-    expect(page('/ca/ca-la-han/').dom.querySelector('section.strip .head a')!.textContent).not.toContain('bạn đọc')
-    // A phone's row hides the heading's link and ends with its own, short enough for a tile.
-    expect(strip.querySelector('a.all')!.getAttribute('href')).toBe('/ca/ca-neon-vua/anh/')
-    expect(strip.querySelector('a.all')!.textContent).toBe('Xem tất cả 45 ảnh →')
-    const links = [...strip.querySelectorAll('li a')].map(a => a.getAttribute('href'))
-    expect(links[0]).toBe('/ca/ca-neon-vua/anh/#a1')
+    // "Xem tất cả" opens the album's first photo over the page: a button, with no arrow, which said "to another page"
+    // (the Design Lead, 18 Nov). The readers' photos are on the page itself (no link to them needed).
+    const all = strip.querySelector('.head [data-all]')!
+    expect(all.tagName).toBe('BUTTON')
+    expect(all.getAttribute('aria-haspopup')).toBe('dialog')
+    expect(all.textContent).toBe('Xem tất cả 45 ảnh')
+    expect(strip.querySelector('a[href="#a1"]')).toBeNull()
+    // A phone's row hides the heading's and ends with its own, short enough for a tile.
+    expect(strip.querySelector('button.all[data-all][aria-haspopup="dialog"]')!.textContent).toBe('Xem tất cả 45 ảnh')
+    const album = albumOf(dom)
+    expect(album.photos).toHaveLength(45)
+    // Each thumb its own photo: without the script, its full photo; with it, the album's photo at its place.
+    const thumbs = [...strip.querySelectorAll('li a')]
+    for (const a of thumbs) expect(a.getAttribute('href'), a.getAttribute('data-i')!).toBe(album.photos[Number(a.getAttribute('data-i'))]!.u)
+    expect(thumbs[0]!.getAttribute('data-i')).toBe('0')
     expect(strip.querySelector('img')!.getAttribute('src')).toMatch(/500px-Neon1\.jpg$/)
     expect(strip.innerHTML).not.toContain('Neon3')
     const credits = dom.querySelector('#photo-credits')!.innerHTML
     for (const n of [1, 2, 4, 5, 6, 7]) expect(credits).toContain(`File:Neon${n}.jpg`)
-    // On a tall computer screen the photo column goes on with the gallery's next photos (`.more`), each at its own place
-    // on the gallery page and credited, up to 40 thumbnails, never the fish's own photo (#a19).
-    const more = [...strip.querySelectorAll('li.more a')].map(a => a.getAttribute('href'))
-    expect(links.slice(0, 8)).toEqual([1, 2, 3, 4, 5, 6, 7, 8].map(n => `/ca/ca-neon-vua/anh/#a${n}`))
-    expect(more).toEqual([...Array.from({ length: 33 }, (_, i) => i + 9).filter(n => n !== 19)].map(n => `/ca/ca-neon-vua/anh/#a${n}`))
+    // On a tall computer screen the photo column goes on with the album's next photos (`.more`), each at its own place
+    // in the album and credited, up to 40 thumbnails, never the fish's own photo (the 19th).
+    const more = [...strip.querySelectorAll('li.more a')].map(a => Number(a.getAttribute('data-i')))
+    expect(thumbs.slice(0, 8).map(a => Number(a.getAttribute('data-i')))).toEqual([0, 1, 2, 3, 4, 5, 6, 7])
+    expect(more).toEqual([...Array.from({ length: 33 }, (_, i) => i + 8).filter(n => n !== 18)])
     expect(credits).toContain('File:NeonVua43.jpg')
     expect(credits).not.toContain('File:NeonVua44.jpg')
+    // Every photo's credit for the viewer: its author and source, its licence and the licence's own page; captions whole
+    // but no "<" in the page's data, so none can end its script.
+    expect(album.photos[0]).toMatchObject({ a: 'Tác giả 1', l: 'CC BY 2.0', lu: 'https://creativecommons.org/licenses/by/2.0/', s: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
+    expect(album.photos.find(p => p.lu?.includes('publicdomain'))).toBeTruthy()
+    for (const p of album.photos) expect([p.u, p.w > 0, p.h > 0, p.a.length > 0, p.s.length > 0]).toEqual([p.u, true, true, true, true])
+    expect(album.photos.some(p => p.c?.includes('<b>'))).toBe(true)
+    expect(dom.querySelector('[data-album] script[type="application/json"]')!.innerHTML).not.toContain('<')
+    expect(html).not.toMatch(/href="[^"]*\/anh\//)
   })
-  test('a species with too few photos gets no strip, no gallery page and no chip for its photos: its photo is right above the row', () => {
+  test('a species with too few photos gets no strip, no album and no chip for its photos: its photo is right above the row', () => {
     const { dom } = page('/ca/ca-neon-xanh/')
     expect(dom.querySelector('section.strip')).toBeNull()
-    expect(() => readFileSync(`${DIST}/ca/ca-neon-xanh/anh/index.html`)).toThrow()
+    expect(dom.querySelector('[data-album]')).toBeNull()
     expect(dom.querySelectorAll('nav.jump a').map(a => [a.text, a.getAttribute('href')])).toEqual([['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do']])
     expect(dom.querySelector('header.top #anh img')).not.toBeNull()
   })
-  test('gallery page: its title is the count, nothing but the crumbs before it; the fish\'s name stays in the page\'s title', () => {
-    const { dom } = page('/ca/ca-neon-vua/anh/')
-    const h1 = dom.querySelector('h1')!
-    expect(h1.text).toBe('45 ảnh')
-    expect(dom.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(45)
-    expect(h1.previousElementSibling?.classList.contains('crumb')).toBe(true)
-    expect(h1.previousElementSibling?.previousElementSibling).toBeNull()
-    expect(h1.nextElementSibling?.classList.contains('lead')).toBe(true)
-    expect(dom.querySelector('title')!.text).toContain('Cá neon vua')
-    expect(page('/cay/cryptocoryne-wendtii/anh/').dom.querySelector('h1')!.text).toBe('6 ảnh')
+  test('no photo page is built in any language, and no sitemap lists one', () => {
+    const forms = ['/ca/ca-neon-vua/anh/', '/cay/cryptocoryne-wendtii/anh/', '/ca/ca-la-han/anh/', '/id/ikan/ca-neon-vua/foto/', '/th/fish/ca-neon-vua/photos/', '/ms/ikan/ca-neon-vua/foto/', '/id/tanaman/cryptocoryne-wendtii/foto/', '/th/plants/cryptocoryne-wendtii/photos/', '/ms/tumbuhan/cryptocoryne-wendtii/foto/']
+    for (const p of forms) expect(() => readFileSync(join(DIST, p, 'index.html')), p).toThrow()
+    expect(sitemapText()).not.toMatch(/\/(anh|foto|photos)\/<\/loc>/)
   })
-  test('a fish\'s gallery page has a link down to its readers\' photos, hidden until there are any; a breed\'s and a plant\'s have none', () => {
-    const { dom } = page('/ca/ca-neon-vua/anh/')
-    const down = dom.querySelector('.lead a[data-to-readers]')!
-    expect(down.hasAttribute('hidden')).toBe(true)
-    expect(dom.querySelector(down.getAttribute('href')!)?.tagName).toBe('H2')
-    for (const other of ['/ca/ca-la-han/anh/', '/cay/cryptocoryne-wendtii/anh/']) expect(page(other).dom.querySelector('[data-to-readers]'), other).toBeNull()
-  })
-  test('gallery page: every photo credited (author, licence, source), each tile its full photo for the viewer, ImageObject licence data, captions escaped', () => {
-    const { html, dom } = page('/ca/ca-neon-vua/anh/')
-    const items = [...dom.querySelectorAll('[data-gallery] a[data-i]')]
-    expect(items).toHaveLength(45)
-    expect(items[0]!.getAttribute('data-author')).toBe('Tác giả 1')
-    expect(items[0]!.getAttribute('data-lic')).toBe('CC BY 2.0')
-    expect(items[0]!.getAttribute('data-src')).toBe('https://commons.wikimedia.org/wiki/File:Neon1.jpg')
-    // The viewer (scripts/photo-viewer.ts, made by the page's script) shows each tile's full photo at its size; without
-    // the script the tile links to it.
-    for (const a of items) expect([a.getAttribute('href'), Number(a.getAttribute('data-w')) > 0, Number(a.getAttribute('data-h')) > 0]).toEqual([a.getAttribute('data-full'), true, true])
-    expect(dom.querySelector('[data-gallery] b')).toBeNull()
-    expect(html.indexOf('data-gallery')).toBeLessThan(html.indexOf('</body>'))
-    expect(html.lastIndexOf('<script')).toBeLessThan(html.indexOf('</html>'))
-    const ld = [...dom.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent!)).flat()
-    const g = ld.find((x: { '@type': string }) => x['@type'] === 'ImageGallery')
-    expect(g.image).toHaveLength(45)
-    expect(g.image[0]).toMatchObject({ '@type': 'ImageObject', creditText: 'Tác giả 1', license: 'https://creativecommons.org/licenses/by/2.0/', acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Neon1.jpg' })
-    expect(g.image.find((x: { license?: string }) => x.license?.includes('publicdomain'))).toBeTruthy()
-    expect(dom.querySelector('a[href="/ca/ca-neon-vua/"]')).toBeTruthy()
-  })
-  test('a fish\'s gallery ends with its readers\' photos, loaded live by the fish\'s key, outside the gallery\'s count and data', () => {
-    const { html, dom } = page('/ca/ca-neon-vua/anh/')
-    const s = dom.querySelector('section[data-reader-photos]')!
-    // The fish page's key (lib/talk.ts photosKey), never a comment's: their photos list under `comment:<id>`.
-    expect(s.getAttribute('data-entity')).toBe(page('/ca/ca-neon-vua/').dom.querySelector('section[data-reader-photos]')!.getAttribute('data-entity'))
-    expect(s.getAttribute('data-entity')).toMatch(/^species:[a-z0-9-]+$/)
-    expect(s.hasAttribute('hidden')).toBe(true)
-    expect(s.hasAttribute('data-later')).toBe(true) // after the gallery's photos (components/ReaderPhotos.astro)
-    expect(s.classList.contains('wrap')).toBe(false) // inside the page's margins already
-    expect(s.querySelector('input[type="file"]')).toBeTruthy()
-    expect(s.querySelector('button[data-more][hidden]')?.text).toBe('Xem thêm')
-    // After the gallery, and none of its photos: the count in the title, the tiles and the ImageGallery data are the
-    // gallery's 45 (checked above).
-    expect(html.indexOf('data-gallery')).toBeLessThan(html.indexOf('data-reader-photos'))
-    expect(s.querySelectorAll('a[data-i], img')).toHaveLength(0)
-    expect(dom.querySelector('title')!.text).toContain('45 ảnh')
-    // A fish's only (a breed's and a plant's gallery: none yet).
-    for (const other of ['/ca/ca-la-han/anh/', '/cay/cryptocoryne-wendtii/anh/']) expect(page(other).dom.querySelector('[data-reader-photos]'), other).toBeNull()
-  })
-  test('sitemap lists the gallery page', () => {
-    expect(sitemapText()).toContain('/ca/ca-neon-vua/anh/')
-  })
-  test('a plant gets a gallery too: the strip on its page, a gallery page naming each photo site (Indonesian and Thai addresses: i18n.test.ts)', () => {
+  test('a plant gets an album too: the strip on its page, each photo credited, opened over the page', () => {
     const { dom } = page('/cay/cryptocoryne-wendtii/')
     const strip = dom.querySelector('section.strip')!
-    expect(strip.querySelector('.head a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/anh/')
-    expect(strip.querySelector('.head a')!.textContent).toContain('Xem tất cả 6 ảnh') // the CC BY-NC photo is left out
+    // iNaturalist's CC BY-NC photo is in, its switch on (IMAGE_SWITCHES.inatNonCommercial): 7 photos, all in the strip, so
+    // "Xem tất cả" shows on a phone only, where the strip shows two rows of three (seeAll; the Design Lead, 18 Nov).
+    const album = albumOf(dom)
+    expect(album.photos).toHaveLength(7)
+    expect(strip.querySelectorAll('li a[data-i]')).toHaveLength(7)
+    const all = strip.querySelector('.head [data-all]')!
+    expect([all.tagName, all.classList.contains('phone'), all.textContent!.trim()]).toEqual(['BUTTON', true, 'Xem tất cả 7 ảnh'])
+    // Its credit names its licence and the licence's own page.
+    expect(album.photos.find(p => p.s === 'https://www.inaturalist.org/photos/107')).toMatchObject({ l: 'CC BY-NC 4.0', lu: 'https://creativecommons.org/licenses/by-nc/4.0/' })
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
-    const g = page('/cay/cryptocoryne-wendtii/anh/').dom
-    expect(g.querySelectorAll('[data-gallery] a[data-i]')).toHaveLength(6)
-    expect(g.querySelector('.lead')!.textContent).toContain('Ảnh từ iNaturalist, Flickr, Wikimedia Commons và GBIF, giấy phép mở.')
-    expect(g.querySelector('.lead a')!.getAttribute('href')).toBe('/cay/cryptocoryne-wendtii/')
-    expect(g.querySelector('.lead a')!.textContent).toContain('Cách trồng')
-    expect(g.querySelector('.crumb a[href="/cay/"]')).toBeTruthy()
     expect(page('/cay/ray-nana/').dom.querySelector('section.strip')).toBeNull()
-    expect(sitemapText()).toContain('/cay/cryptocoryne-wendtii/anh/')
   })
 })
 
@@ -947,9 +913,10 @@ describe('man-made fish (breeds)', () => {
     expect(dom.querySelector('.body a[href="/ca/ca-la-han/"]')).toBeTruthy()
     expect(dom.querySelector('.body a[href="/ca/ca-dia-pigeon-blood/"]')).toBeNull()
     expect(dom.querySelector('[data-comments][data-entity="breed:pigeon-blood-discus"], [data-entity="breed:pigeon-blood-discus"]')).toBeTruthy()
-    // Too few photos for a gallery page: the second photo shows in the strip, opening itself, credited.
-    expect(dom.querySelector('section.strip .head a')).toBeNull()
+    // Too few photos for "Xem tất cả": the second photo shows in the strip, opening itself over the page, credited.
+    expect(dom.querySelector('section.strip [data-all]')).toBeNull()
     expect(dom.querySelector('section.strip li a')!.getAttribute('href')).toMatch(/Breed2\.jpg$/)
+    expect(albumOf(dom).photos.map(p => p.u)).toContain(dom.querySelector('section.strip li a')!.getAttribute('href'))
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('File:Breed2.jpg')
   })
   test('a hybrid: its parents, linked when we have the species, doubtful ones marked; noindex below the bar', () => {
@@ -960,12 +927,10 @@ describe('man-made fish (breeds)', () => {
     expect(p.querySelector('a')!.textContent).toMatch(/^Cá đĩa \(Symphysodon/)
     expect(p.textContent).toContain('chưa chắc chắn')
     expect(dom.querySelector('meta[name="robots"]')!.getAttribute('content')).toContain('noindex')
-    expect(dom.querySelector('section.strip .head a')!.getAttribute('href')).toBe('/ca/ca-la-han/anh/')
-  })
-  test('a breed gallery page has no scientific name', () => {
-    const { dom } = page('/ca/ca-la-han/anh/')
-    expect(dom.querySelector('.lead')!.textContent).toMatch(/^Ảnh từ Wikimedia Commons/)
-    expect(dom.querySelector('.lead .sci')).toBeNull()
+    // All 7 of its photos are thumbs, but a phone's wrapped strip shows 6: its "Xem tất cả" is the phone's alone.
+    expect(dom.querySelectorAll('section.strip li a[data-i]')).toHaveLength(7)
+    expect(albumOf(dom).photos).toHaveLength(7)
+    expect(dom.querySelector('section.strip .head [data-all]')!.getAttribute('class')).toMatch(/\bsee phone\b/)
   })
   test('the species page lists its lines and hybrids, crediting their pictures; the species list shows them', () => {
     const { dom } = page('/ca/ca-dia/')

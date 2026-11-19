@@ -129,6 +129,10 @@
       {
         "source": "seriouslyfish",
         "value": 70
+      },
+      {
+        "source": "glaser",
+        "value": 70
       }
     ],
     "tankCm": [
@@ -152,6 +156,12 @@
       "html": "<p>The crocodile catfish, Bagarius suchus, is a sisorid catfish from the Mekong system in Thailand, Laos and Cambodia and the Chao Phraya in Thailand. Reaching 650 to 700 mm SL, it is clearly unsuitable for the home aquarium. An exposed, rugose cranium, sharp ridges on the predorsal plate and a row of prominent humps along the back separate it from congeners. It is mostly collected from turbulent rapids in larger rivers, where it shelters among boulders and large rocks.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagarius-suchus-2/",
+      "html": "<p>There are currently four species placed in the genus Bagarius, which are called devil catfish. The biggest one, which grows up to 200 cm in length, is Bagarius yarelli. It can be found in many parts of south and south-east Asia. The smallest is Bagarius bagarius, which grows up to only 15-20 cm and comes exclusively from India. Bagarius suchus is a most interesting fish, growing \"only\" up to about 70 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
@@ -170,6 +180,12 @@
       "html": "<p>Standard length 700 mm (28 in).</p><p>Suitable only for public installations or the very largest, highly-specialised private aquaria.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagarius-suchus-2/",
+      "html": "<p>Due to its calm behaviour it doesn't need too large tanks.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
@@ -180,6 +196,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
       "html": "<ul><li>Temperature: 18–23°C (64–73°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagarius-suchus-2/",
+      "html": "<p>This species needs oxygen-rich and almost waste-free water to thrive well.</p>"
     },
     {
       "key": "diet",
@@ -194,6 +216,12 @@
       "html": "<p>Best maintained alone.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagarius-suchus-2/",
+      "html": "<p>This species is also a predator and for sure a \"must have\" for fans of predatory fish.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
@@ -204,6 +232,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bagarius-suchus",
       "html": "<p>B. suchus is clearly unsuitable for the home aquarium given its eventual size and natural behaviour, and we know of only a handful of private aquarists with the facilities required to house it long-term.</p><p>Following Roberts (1983) it is told apart from congeners by the following combination of characters: rugose dorsal surface of bony cranium and predorsal plate exposed (not covered by skin); a median sharp ridge on supraoccipital crest and paired sharp longitudinal ridges on predorsal plate; skin on sides of head and on body with closely set beadlike or granular protuberances of similar size; body depth 7.9-9.3 (mean 8.5); a darkly pigmented spot or blotch on side of body midway between darkly pigmented bands associated with bases of dorsal and adipose fins.</p><p>In addition, the skin above the neural spines anterior and posterior to the adipose fin always forms large ridges or humps (seven to nine in front of the adipose fin, three to five behind it), much more prominent and more numerous than the relatively weak humps or ridges sometimes formed over the neural spines in B. bagarius and rarely present and even more weakly developed in B. yarrelli. In B. suchus the adipose fin origin tends to lie even further posterior than in B. bagarius (and therefore much further posteriorly than in B. yarrelli), and the distance separating the dorsal and adipose fins is much greater in B. suchus than in B. bagarius or B. yarrelli.</p><p>The genus Bagarius is distinguished from all other genera in the putative subfamily Sisoridae by having markedly heterodont teeth in the lower jaw. Teeth are present in two or three outer rows of relatively numerous, close-set conical teeth, and one or two inner rows of less numerous, widely separated, and much larger conical teeth (vs. dentition of the lower jaw consisting of only small conical teeth, or a roughened bony plate).</p><p>The grouping currently contains four species but is in urgent need of review with a number of additional taxa thought to exist and B. yarrelli possibly representing a synonym of B. bagarius.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/bagarius-suchus-2/",
+      "html": "<p>The species-specific feature of B. suchus are the small humps between the dorsal and the adipose fin, which led to the popular name \"crocodile devil catfish\".</p>"
     },
     {
       "key": "references",
@@ -263,5 +297,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-18"
 }

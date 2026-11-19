@@ -3,6 +3,12 @@
   "name": "เปริยาร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.68,
+    "at": "2026-11-18T18:25:20.440Z",
+    "why": "The Thai transliteration เปริยาร์ is sound, but the source uses Periyar as a river system, and an atlas in Thailand would normally add the kind word แม่น้ำ."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

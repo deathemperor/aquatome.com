@@ -36,76 +36,7 @@
       "caption": "Đàn cá Zacco platypus bơi trên nền sỏi trong suối",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/156855164.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/156855164-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "WATANABE Hitoshi 渡辺仁",
-      "sourceUrl": "https://www.inaturalist.org/photos/156855164",
-      "caption": "Cá Zacco platypus bơi trên đáy sỏi trong nước trong",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/394785788.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/394785788-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "WATANABE Hitoshi 渡辺仁",
-      "sourceUrl": "https://www.inaturalist.org/photos/394785788",
-      "caption": "Cá Zacco platypus nhìn nghiêng rõ nét trong nước",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/f676c4a6da25c59f.webp",
-      "thumb": "https://media.aquatome.com/commons/f676c4a6da25c59f-480.webp",
-      "width": 1200,
-      "height": 536,
-      "licence": "CC BY-SA 4.0",
-      "author": "Totti",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zacco_platypus_Marinepia.jpg",
-      "caption": "Cá Zacco platypus đực màu hôn phối đỏ xanh rực rỡ",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/111697646.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/111697646-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "りなべる",
-      "sourceUrl": "https://www.inaturalist.org/photos/111697646",
-      "caption": "Hai cá Zacco platypus trên nền rêu tảo ở suối",
-      "best": true,
-      "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/311240271.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/311240271-480.webp",
-      "width": 1024,
-      "height": 762,
-      "licence": "CC BY",
-      "author": "mami_t_t",
-      "sourceUrl": "https://www.inaturalist.org/photos/311240271",
-      "caption": "Đàn cá Zacco platypus bơi sát bờ đất ở suối",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/212668835.webp",
@@ -122,6 +53,18 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/commons/f676c4a6da25c59f.webp",
+      "thumb": "https://media.aquatome.com/commons/f676c4a6da25c59f-480.webp",
+      "width": 1200,
+      "height": 536,
+      "licence": "CC BY-SA 4.0",
+      "author": "Totti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zacco_platypus_Marinepia.jpg",
+      "caption": "Cá Zacco platypus đực màu hôn phối đỏ xanh rực rỡ",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/225851169.webp",
       "thumb": "https://media.aquatome.com/inaturalist/225851169-480.webp",
       "width": 1024,
@@ -134,6 +77,19 @@
       "kind": "pair",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/311240271.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/311240271-480.webp",
+      "width": 1024,
+      "height": 762,
+      "licence": "CC BY",
+      "author": "mami_t_t",
+      "sourceUrl": "https://www.inaturalist.org/photos/311240271",
+      "caption": "Đàn cá Zacco platypus bơi sát bờ đất ở suối",
+      "best": true,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/233079533.webp",
@@ -330,6 +286,45 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/111697646.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/111697646-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "りなべる",
+      "sourceUrl": "https://www.inaturalist.org/photos/111697646",
+      "caption": "Hai cá Zacco platypus trên nền rêu tảo ở suối",
+      "best": true,
+      "kind": "pair",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/156855164.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/156855164-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "WATANABE Hitoshi 渡辺仁",
+      "sourceUrl": "https://www.inaturalist.org/photos/156855164",
+      "caption": "Cá Zacco platypus bơi trên đáy sỏi trong nước trong",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/394785788.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/394785788-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "WATANABE Hitoshi 渡辺仁",
+      "sourceUrl": "https://www.inaturalist.org/photos/394785788",
+      "caption": "Cá Zacco platypus nhìn nghiêng rõ nét trong nước",
+      "best": true,
+      "kind": "other",
+      "setup": false
     }
   ],
   "seen": 85,

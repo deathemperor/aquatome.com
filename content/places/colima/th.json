@@ -1,8 +1,13 @@
 {
   "slug": "colima",
-  "name": "โกลิมา",
+  "name": "รัฐโกลิมา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-18T12:21:38.598Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

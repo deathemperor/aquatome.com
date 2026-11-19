@@ -3,6 +3,12 @@
   "name": "สุริยะ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T00:40:03.059Z",
+    "why": "สุริยะ is only a bare transliteration of \"Suriya\" and omits the kind word แม่น้ำ for a river, and an atlas in Thailand would name the Tak-rising Salween tributary แม่น้ำเมย."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

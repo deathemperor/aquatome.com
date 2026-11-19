@@ -3,6 +3,12 @@
   "name": "โก-ลก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T00:41:40.315Z",
+    "why": "โก-ลก is the correct proper name in Thai script, but it omits the kind word แม่น้ำ that a Thai atlas puts before a river's name."
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

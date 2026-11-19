@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -19,6 +19,7 @@ import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
 import { retitleGuide, sourceTitle, titleClashes, titleKey } from './guide-titles'
+import { refusedSweep } from './refused-sources'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
 import { viSearchWords, viWording } from './sanitize'
@@ -154,6 +155,8 @@ export type SweepReport = {
   noAnimal: string[]
   /** Photos the photo check refused, kept off a page or an album it is back on (photo-check.ts refusedOn), `file: url (why)`. */
   refused: string[]
+  /** A refused site's facts taken out of the research kept, and its pages out of a page's reference list (refused-sources.ts), `file: what left`. */
+  refusedSources: string[]
   /** Pages that rule leaves as they are: held by the check's last run, or more than EMPTY_CAP of them it would leave with no photo, `kind/id (why)`. */
   refusedHeld: string[]
   /** Albums put in the album order (gallery.ts orderAlbums) whose lead photo changed, `id: old -> new`. */
@@ -333,7 +336,8 @@ export async function nameFish(content: string, rows: readonly FishName[] = FISH
  * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
  * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The photos are the
  * galleries' and the pages' (CAPTIONED, as captions.ts reads them). A row's own photos, in its gallery and on its page, say
- * what its own page calls it (names.ts ownWords). The files changed.
+ * what its own page calls it (names.ts ownWords), before another's old name in them is renamed: the pygmy gourami's "cá
+ * sặc lùn" is its own, not the dwarf gourami's. The files changed.
  */
 export async function renameCaptions(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const changed: string[] = []
@@ -349,7 +353,7 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     const r = own.find(([o]) => o === f)?.[1]
     let any = false
     const photos = (g.photos ?? []).map(p => {
-      const to = p.caption && (r ? ownWords(r, renameFishNames(p.caption)) : renameFishNames(p.caption))
+      const to = p.caption && renameFishNames(r ? ownWords(r, p.caption) : p.caption)
       if (!p.caption || to === p.caption) return p
       any = true
       rekey.set(p.caption, to!)
@@ -531,13 +535,18 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
   // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
   // school size and the text read the page as it is now (Astra, 2026-11-13).
   for (const f of report.folds = await foldPages(root)) changed(`species/${f.split(' → ')[1]}`)
+  // A refused site's facts out of the research kept, and its pages out of every page's reference list (refused-sources.ts):
+  // on the merge at a cycle's push too, so a run on older code that wrote them again doesn't bring them back (the chief of
+  // staff, 17 Nov 2026). Before the pages are read, so they're read as they are now.
+  const cleaned = await refusedSweep(root)
+  report.refusedSources = [...cleaned.facts.map(f => `${f.file}: ${f.dropped} out`), ...cleaned.refs.map(f => `${f.file}: refs lose ${f.urls.length}`), ...cleaned.failed.map(f => `${f} (not cleaned)`)]
   // A group its order doesn't allow, before anything reads the group.
   for (const id of report.regrouped = await regroupPages(content)) changed(`species/${id}/entity.json`)
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
@@ -618,7 +627,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
   }
 
-  // A page's shop searches, in the words its text uses. Fish and plants are the pages with them.
+  // A page's shop searches, in the words its text uses, a renamed fish's or plant's old name (names.ts FISH_NAMES) as its
+  // name: the shops write the name keepers use (the African fern's "dương xỉ nước châu Phi", 17 Nov). Fish and plants are
+  // the pages with them.
   for (const kind of ['species', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
@@ -626,7 +637,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (!raw) continue
       const e = JSON.parse(raw) as { productSlots?: { keywords: string[] }[] }
       const before = JSON.stringify(e.productSlots ?? [])
-      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(viSearchWords)
+      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(k => viSearchWords(renameFishNames(k)))
       if (JSON.stringify(e.productSlots ?? []) === before) continue
       await write(file, raw, e)
       changed(`${kind}/${id}/entity.json`)
@@ -838,6 +849,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const id = ref.split('/')[1]!
       const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
       const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
+      // A non-commercial album photo stays in its album, a person's pick or not (albums only: the rule this step was built with, 16 Nov).
+      if (found && isNonCommercial(found.licence)) { report.heads.push(`${ref}: picked photo is non-commercial, album only`); continue }
       if (found) {
         const { best: _b, kind: _k, unchecked: _u, ...photo } = found
         picked = photo

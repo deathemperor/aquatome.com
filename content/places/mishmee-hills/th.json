@@ -3,6 +3,12 @@
   "name": "เทือกเขามิชมี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:20:56.471Z",
+    "why": "Mishmi Hills in Arunachal Pradesh are usually written เนินเขามิชมี or เทือกเขามิชมี, but the Vietnamese \"đồi\" suggests hills and the common Thai form is \"เทือกเขามิชมี\"; the spelling มิชมี is plausible though Thai atlases often write มิชมิ (Mishmi)."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

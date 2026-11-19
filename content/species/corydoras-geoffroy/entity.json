@@ -1,0 +1,251 @@
+{
+  "id": "corydoras-geoffroy",
+  "scientificName": "Corydoras geoffroy",
+  "order": "Siluriformes",
+  "family": "Callichthyidae",
+  "genus": "Corydoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "suriname-river",
+    "french-guiana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "html": "<p>Corydoras geoffroy La Cépède, 1803. Family: Callichthyidae. Size: male 6.5 cm, female 7.0 cm. Temperature: 23–26°C. pH: 6.0–7.2.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "html": "<p>South America: coastal rivers of Suriname and French Guiana. Type locality: Suriname, district Brokopondo, Suriname River system, Marchall Creek, east of the road Paranam-Afobaka, 1.5 km north of Marchall village.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "html": "<p>As this is one of the longer snouted species it will be well suited to most community tanks. A well planted tank with a soft substrate such as sand so they can bury their snouts while searching out food. The males can be somewhat aggressive to each other so would need a large tank and hiding places to dilute this trait.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "html": "<p>A good quality flake food and tablet food for adults with sporadic feedings of frozen or live food will keep your Corydoras in good health.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-geoffroy-2/",
+      "html": "<p>For a very long time this species of Corydoras, the type species of the entire genus, was a myth. It is still a top rarity among the corys.</p><p>The breeder Kurt Jülich succeeded in breeding it from wild-collected specimens. The youngsters of this offspring are still rather drab in colour, so pictures of adult fish were supplied by Ernst-Otto von Drachenfels and Jürgen Glaser.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "html": "<p>This is the type species of the Corydoras genus. This species also has a third rictal barbel, also found in C. amapaensis, C. septentrionalis and C. simulatus. Lineage: placed in Lineage 1; following the latest update (Dias et al 2024) it has retained the genus name Corydoras. Etymology: the specific name geoffroy honours colleague Étienne Geoffroy Saint-Hilaire (1772–1844), French naturalist. IUCN Red List: classified as Least Concern (LC) (IUCN 2023); there are no known threats to the species as a whole.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/5f856957dde11f0c.webp",
+      "thumb": "https://media.aquatome.com/glaser/5f856957dde11f0c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-geoffroy-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/941074adfe9f4551.webp",
+      "thumb": "https://media.aquatome.com/glaser/941074adfe9f4551-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-geoffroy-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bc9b8c3d63ec8db1.webp",
+      "thumb": "https://media.aquatome.com/glaser/bc9b8c3d63ec8db1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-geoffroy-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5427f80950580dd5.webp",
+      "thumb": "https://media.aquatome.com/glaser/5427f80950580dd5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-geoffroy-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a29fcf4d26f5c7b9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a29fcf4d26f5c7b9-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "caption": "Corydoras geoffroy",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/492b3201f563d90b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/492b3201f563d90b-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Graham Carr / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "caption": "Corydoras geoffroy",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/db4628c3ba614003.webp",
+      "thumb": "https://media.aquatome.com/scotcat/db4628c3ba614003-480.webp",
+      "width": 500,
+      "height": 323,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "caption": "Corydoras geoffroy: juveniles",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9ccde853ad03bd7d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9ccde853ad03bd7d-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Raphael Covain / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm",
+      "caption": "Corydoras geoffroy: Crique Serpent \u0014 at Suriname and French Guiana",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "vtFIvwOCZqw",
+      "title": "Corydoras geoffroy in nature, habitat of a rare Corydoras in Suriname",
+      "durationSec": 395,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PXYu7WoexAA",
+      "title": "Super Rare Corydoras  コリドラス GEOFFREY-Cory fish Aquarium Tank",
+      "durationSec": 187,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá chuột 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá chuột",
+        "cát mịn thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá chuột đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19",
+  "range": {
+    "records": {
+      "taxonKey": 2342620,
+      "total": 68,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          65
+        ],
+        [
+          "SR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          4.21875,
+          3
+        ],
+        [
+          -54.84375,
+          1.40625,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          17
+        ],
+        [
+          -54.84375,
+          4.21875,
+          12
+        ],
+        [
+          -53.4375,
+          2.8125,
+          13
+        ],
+        [
+          -53.4375,
+          4.21875,
+          22
+        ]
+      ]
+    }
+  }
+}

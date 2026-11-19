@@ -1,0 +1,27 @@
+{
+  "slug": "farsi-toothcarp",
+  "name": "Farsi toothcarp",
+  "altNames": [
+    "Farsi killifish",
+    "Aphanius persicus"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Aphanius farsicus boleh mencapai panjang maksimum kira-kira 5–6 cm. Sehingga baru-baru ini, spesies ini dikenali dengan nama A. persicus.</p>",
+    "distribution:glaser": "<p>Aphanius farsicus berasal dari Iran, iaitu di kawasan sekitar Tasik Shiraz.</p>",
+    "notes:glaser": "<p>Ikan killifish yang hidup di sekitar Laut Mediterranean di Afrika Utara, Eropah dan Asia Barat jelas tergolong dalam kumpulan \"ikan balkoni\". Ini ialah spesies yang dipelihara dan dibiakkan oleh penggemar di luar rumah (dalam akuarium atau kolam taman kecil) hampir sepanjang tahun. Ikan-ikan ini sudah terbiasa dengan suhu air yang jauh berbeza antara siang dan malam, dan memerlukan cahaya matahari yang tidak ditapis. Kebanyakannya tergolong dalam genus Aphanius.</p><p>Spesimen yang diperhatikan pada musim sejuk agak cantik tetapi tidak dalam keadaan bersedia untuk membiak. Pada musim membiak, rupa ikan ini sangat menakjubkan.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "source"
+    ],
+    "at": "2026-11-18"
+  }
+}

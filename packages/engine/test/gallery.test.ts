@@ -2,13 +2,13 @@ import { denied } from './piece-admission'
 import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, loadAll, type Photo } from '@aq/schema'
+import { GallerySchema, IMAGE_SWITCHES, loadAll, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { mirrorPlan } from '../src/mirror-photos'
 import { WikimediaRefused } from '../src/wikimedia-rest'
-import { breedNames, commonsCandidates, dhash, galleries, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Look, type Vet } from '../src/gallery'
+import { breedNames, commonsCandidates, dhash, galleries as albumStep, isSetup, orderAlbums, rankGallery, screenedAt, screenTagged, VET_SCHEMA, type GalleryDeps, type GalleryPhoto, type Look, type Vet } from '../src/gallery'
 import { slow } from '@aq/schema/test-time'
 import { knownNames, namedAs } from '../src/photo-named'
 
@@ -143,6 +143,8 @@ const deps = (over: Partial<GalleryDeps> = {}): GalleryDeps => ({
   now: () => new Date('2026-10-30T00:00:00Z'),
   ...over,
 })
+/** The album step with iNaturalist's non-commercial pass off, whatever its switch says: that pass's tests are non-commercial.test.ts. */
+const galleries: typeof albumStep = (r, d, o) => albumStep(r, d, { switches: { ...IMAGE_SWITCHES, inatNonCommercial: false }, ...o })
 const read = async (r: string, f: string) => JSON.parse(await readFile(join(r, f), 'utf8'))
 const urls = (g: { photos: { sourceUrl: string }[] }) => g.photos.map(p => p.sourceUrl)
 

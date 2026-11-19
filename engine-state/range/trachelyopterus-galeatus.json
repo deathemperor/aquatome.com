@@ -1,9 +1,50 @@
 {
   "id": "trachelyopterus-galeatus",
   "native": {
-    "input": "00d14ce396f6bc77",
-    "at": "2026-11-17T00:14:47.070Z",
-    "claims": [],
+    "input": "b82ee1d2a1fbe606",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, French Guiana, Peru, Surinam, Trinidad & Tobago.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, French Guiana, Peru, Surinam, Trinidad & Tobago.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, French Guiana, Peru, Surinam, Trinidad & Tobago.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, French Guiana, Peru, Surinam, Trinidad & Tobago.",
+        "words": "Surinam",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, French Guiana, Peru, Surinam, Trinidad & Tobago.",
+        "words": "Trinidad & Tobago",
+        "ok": true
+      }
+    ],
     "regions": [],
     "disputed": [],
     "outranked": [],
@@ -224,8 +265,14 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-17T00:14:47.070Z"
+    "native": [
+      "BR",
+      "GF",
+      "PE",
+      "SR",
+      "TT"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T05:18:20.405Z"
   }
 }

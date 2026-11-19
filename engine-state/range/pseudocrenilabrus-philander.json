@@ -1,23 +1,15 @@
 {
   "id": "pseudocrenilabrus-philander",
   "native": {
-    "input": "cab012f6c627001f",
-    "at": "2026-11-13T05:31:31.275Z",
+    "input": "3aded9393d2358f8",
+    "at": "2026-11-19T00:50:56.943Z",
     "claims": [
       {
         "code": "CD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The southern mouth-brooder, Pseudocrenilabrus philander, is a cichlid found in eleven countries from the Democratic Republic of Congo to South Africa.",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
         "words": "Democratic Republic of Congo",
-        "ok": true
-      },
-      {
-        "code": "ZA",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The southern mouth-brooder, Pseudocrenilabrus philander, is a cichlid found in eleven countries from the Democratic Republic of Congo to South Africa.",
-        "words": "South Africa",
         "ok": true
       },
       {
@@ -34,6 +26,14 @@
         "source": "seriouslyfish",
         "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
         "words": "Zimbabwe",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Democratic Republic of Congo, Malawi, Zimbabwe, South Africa, Angola, Namibia, Zambia, Tanzania, Botswana, Mozambique, Swaziland.",
+        "words": "South Africa",
         "ok": true
       },
       {

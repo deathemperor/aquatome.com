@@ -1,8 +1,13 @@
 {
   "slug": "capim",
-  "name": "กาปิง",
+  "name": "แม่น้ำกาปิม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-18T12:19:19.149Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

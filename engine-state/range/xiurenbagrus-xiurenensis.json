@@ -1,0 +1,58 @@
+{
+  "id": "xiurenbagrus-xiurenensis",
+  "native": {
+    "input": "637b09a341b50c21",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: China, Zhujiang River.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The specific name xiurenensis refers to the Xiuren River, Pearl River drainage, Guangxi Province, China, the type locality.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Zhujiang River",
+        "source": "scotcat",
+        "quote": "Asia: China, Zhujiang River.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Xiuren River",
+        "source": "scotcat",
+        "quote": "The specific name xiurenensis refers to the Xiuren River, Pearl River drainage, Guangxi Province, China, the type locality.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiurenbagrus xiurenensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342876,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

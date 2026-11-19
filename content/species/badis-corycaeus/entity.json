@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "myanmar",
-    "ayeyarwady"
+    "ayeyarwady",
+    "china"
   ],
   "range": {
     "native": {
@@ -20,7 +21,8 @@
         "Lake Indawgyi"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,15 +32,8 @@
             "MM"
           ],
           "regions": [
+            "Ayeyarwady",
             "Lake Indawgyi"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "To date the species is known only from the upper Ayeyarwady River basin in northern Myanmar.",
-          "countries": [],
-          "regions": [
-            "Ayeyarwady"
           ]
         }
       ]
@@ -130,10 +125,22 @@
       "html": "<p>Badis corycaeus is a badid known only from the upper Ayeyarwady River basin in northern Myanmar, including nearby Lake Indawgyi. Its closest relative is B. pyema, but it is much the deeper, darker-bodied fish. At the type locality it lives in running water towards the margins of a clear stream, alongside B. kyar and Dario hysginon, which occupy different niches. Rare in the hobby, it is best kept alone with the emphasis on captive reproduction, and rival males can be very aggressive.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/badis_sp_patao_en/",
+      "html": "<p>This new, brown-red Badis was imported from the borderland of Myanmar and China. It can be kept even at cooler temperatures and is easily satisfied. Captive-bred fish are already available.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/badis-corycaeus",
       "html": "<p>To date the species is known only from the upper Ayeyarwady River basin in northern Myanmar. It has been collected from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia and home to ten globally threatened bird species. The lake and surrounding area were designated a protected zone by the Ministry of Ecotourism in 1999 and now form the Indawgyi Lake Wildlife Sanctuary.</p><p>Kachin State itself is one of the world's great biodiversity hotspots and contains many endemic species although sadly large portions of the area have already been decimated due to illegal logging by both Myanmar and neighbouring China. A 2004 phylogenetic study revealed that Badis spp. from the Ganges/Brahmaputra and other Indian drainages were probably separated from the Ayeyarwady populations between 19-23 million years ago.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/badis_sp_patao_en/",
+      "html": "<p>Myanmar (border region with China).</p>"
     },
     {
       "key": "habitat",
@@ -209,7 +216,20 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "WPP2VxK-UW0",
+      "title": "Discover the Fascinating Badis Corycaeus #facts #aquarium #fish",
+      "durationSec": 56,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "qDnhOq4MjFk",
+      "title": "Badis corycaeus - Fortpflanzungsverhalten",
+      "durationSec": 566,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -232,5 +252,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-18"
 }

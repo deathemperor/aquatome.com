@@ -3,6 +3,12 @@
   "name": "Sungai Mutiara",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T05:57:58.964Z",
+    "why": "Indonesian atlases write \"Sungai Zhujiang\" (or \"Sungai Mutiara\" as a gloss), and \"Sungai Mutiara\" translates the proper name Pearl River word for word instead of using the Zhu Jiang name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

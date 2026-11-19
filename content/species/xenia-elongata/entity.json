@@ -9,6 +9,35 @@
     "asia",
     "africa"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 5185319,
+      "total": 5,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "YT",
+          3
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          45,
+          -14.0625,
+          3
+        ],
+        [
+          127.96875,
+          -4.21875,
+          2
+        ]
+      ]
+    }
+  },
   "water": {
     "kind": "marine",
     "source": "aquariumbreeder",

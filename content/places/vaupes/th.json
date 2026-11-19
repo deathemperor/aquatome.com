@@ -3,6 +3,12 @@
   "name": "วาอูเปส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T00:43:22.884Z",
+    "why": "วาอูเปส is a plausible transliteration of Vaupés, but it splits the Spanish diphthong 'au' into two syllables (วา-อู) where Thai would write เวาเปส, and it has no kind word such as จังหวัด for the Colombian department."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

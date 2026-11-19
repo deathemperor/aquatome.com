@@ -3,6 +3,12 @@
   "name": "Sekong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T05:56:28.500Z",
+    "why": "The source names the Se Kong river, which Indonesian atlases write \"Sungai Sekong\", but the bare \"Sekong\" drops the kind word \"Sungai\" and so also matches Sekong Province in Laos."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

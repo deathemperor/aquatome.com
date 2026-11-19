@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "brazil",
-    "purus"
+    "purus",
+    "amazon"
   ],
   "range": {
     "native": {
@@ -17,10 +18,15 @@
         "BR"
       ],
       "regions": [
-        "Rio Purus"
+        "Purus",
+        "Amazon",
+        "Rio Jurua",
+        "Rio Manacapuru",
+        "Rio Tefé"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -29,8 +35,25 @@
           "countries": [
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Purus River basin, Brazil.",
+          "countries": [],
           "regions": [
-            "Rio Purus"
+            "Purus"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It originates from affluents of the Amazon river, for example from the Rio Purus, the Rio Jurua, the Rio Manacapuru, and the Rio Tefé.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Jurua",
+            "Rio Manacapuru",
+            "Rio Tefé"
           ]
         }
       ]
@@ -207,6 +230,10 @@
       {
         "source": "planetcatfish",
         "value": 11.4
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ]
   },
@@ -218,10 +245,22 @@
       "html": "<ul><li>Scientific name: Peckoltia brevis (LaMonte, 1935)</li><li>Common names: LDA078, Purus Tiger Pleco</li><li>Synonym: Hemiancistrus brevis</li><li>Type locality: near Sena Madureira, near the mouth of the River Macaua, a tributary of the Rio Iaco, itself a tributary of the Rio Purus, Amazonas, Brazil.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/peckoltia-brevis-lda-78-2/",
+      "html": "<p>Peckoltia brevis attains a maximum length of about 12 cm. The species became popular in the hobby long time before any L-numbers were created.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1339",
       "html": "<p>South America: Purus River basin, Brazil.</p><p>IUCN Red List category: Least Concern (last assessed 2020).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/peckoltia-brevis-lda-78-2/",
+      "html": "<p>It originates from affluents of the Amazon river, for example from the Rio Purus, the Rio Jurua, the Rio Manacapuru, and the Rio Tefé.</p>"
     },
     {
       "key": "waterConditions",
@@ -254,10 +293,22 @@
       "html": "<p>Males develop small teeth-like odontodes which adorn the leading pectoral fin rays and the back half of the body. Females remain unadorned and have a wider girth across the body, most evident when the area just behind the pectoral fins is viewed from above.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/peckoltia-brevis-lda-78-2/",
+      "html": "<p>The juveniles imported are basically yellow, but older fish become darker and develop a very nice orange to pink-brown coloration.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1339",
       "html": "<p>Cave spawner.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/peckoltia-brevis-lda-78-2/",
+      "html": "<p>Peckoltia brevis is a pretty alternative to the by far more widespread species of Ancistrus; the lifestyle of both is very similar.</p>"
     },
     {
       "key": "references",
@@ -302,13 +353,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/7e581014423f00ca.webp",
+      "thumb": "https://media.aquatome.com/commons/7e581014423f00ca-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "Hantanplan",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peckoltia-brevis.JPG",
-      "caption": "Photo of a female Peckoltia brevis kept in aquarium.",
-      "thumb": "https://media.aquatome.com/commons/7e581014423f00ca-480.webp"
+      "caption": "Photo of a female Peckoltia brevis kept in aquarium."
     }
   ],
   "videos": [
@@ -360,5 +411,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-17"
 }

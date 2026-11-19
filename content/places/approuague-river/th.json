@@ -3,6 +3,12 @@
   "name": "อาปรูอาก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-18T05:59:04.424Z",
+    "why": "The Thai \"อาปรูอาก\" is a bare transliteration with no river word (แม่น้ำ), and an atlas in Thailand would write \"แม่น้ำอาปรูอาก\" (or similar)."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

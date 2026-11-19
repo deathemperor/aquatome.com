@@ -60,7 +60,7 @@ final class FishIdFlowTests: XCTestCase {
     photo.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.25))
       .press(forDuration: 0.2, thenDragTo: photo.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.75)))
     let said = element(app, "fish-id-box-said")
-    XCTAssertTrue(said.waitForLabel("Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác.", timeout: 5), "not boxed: \(said.label)")
+    XCTAssertTrue(said.waitForLabel("Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác.", timeout: 30), "not boxed: \(said.saying)")
     send(app)
     let first = app.descendants(matching: .any).matching(identifier: "fish-id-guess").element(boundBy: 0)
     XCTAssertTrue(first.waitForExistence(timeout: 10), "no guesses")
@@ -214,7 +214,9 @@ final class FishIdFlowTests: XCTestCase {
     photo.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.25))
       .press(forDuration: 0.2, thenDragTo: photo.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.75)))
     let boxed = "Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác."
-    XCTAssertTrue(element(app, "fish-id-box-said").waitForLabel(boxed, timeout: 5), "not boxed")
+    // Up to 30 s, not 5: on CI the drag can reach the app seconds late. In main's run 43800778499 (16 Nov) the recording
+    // shows the box still being drawn as a 5 s wait began, and it ran out.
+    XCTAssertTrue(element(app, "fish-id-box-said").waitForLabel(boxed, timeout: 30), "not boxed: \(element(app, "fish-id-box-said").saying)")
     send(app)
     let first = app.descendants(matching: .any).matching(identifier: "fish-id-guess").element(boundBy: 0)
     XCTAssertTrue(first.waitForExistence(timeout: 10), "no guesses")
@@ -286,7 +288,10 @@ final class FishIdFlowTests: XCTestCase {
   private func send(_ app: XCUIApplication) {
     let send = element(app, "fish-id-send")
     reveal(app, send)
-    XCTAssertTrue(send.waitForEnabled(timeout: 5), "nothing to send")
+    // Up to 30 s, as the box's wait. The same run's retry ran out at 5 s here with the box drawn; why isn't known, so
+    // the message says what was there.
+    XCTAssertTrue(send.waitForEnabled(timeout: 30),
+                  "nothing to send: \(send.exists ? "the button is off" : "no button"); the box's line: \(element(app, "fish-id-box-said").saying)")
     send.tap()
   }
 

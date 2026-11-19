@@ -2,7 +2,7 @@ import { linkTerms, type Content } from '@aq/schema'
 import { slugify } from '@aq/schema/slug'
 import { basedOn, breedsOf, careCard, type Breed } from './breeds'
 import { GALLERY_STRIP } from './gallery'
-import { albumOf, hasPhotoPage } from './photo-page'
+import { albumOf, hasAlbum } from './photo-page'
 import { isVietnamese, type Lang } from './i18n'
 import { guideImages, guidesMentioning, mentionIndex } from './mentions'
 import { pagePictures, takeEach } from './pictures'
@@ -57,8 +57,9 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   const videoGuides = mentioning.filter(g => g.video)
   return {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
-    // Its gallery page, once there are enough photos for one.
-    galleryPath: hasPhotoPage(gallery) ? `/vi/ca/${b.t.slug}/anh/` : undefined,
+    // The app's link to its album, once there are enough photos for one: the album's old address, which forwards to this
+    // page (the app doesn't open it; protocols/page-vectors.json holds it until the protocols next change).
+    galleryPath: hasAlbum(gallery) ? `/vi/ca/${b.t.slug}/anh/` : undefined,
     lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: takeEach(pics, videoGuides, g => guideImages(c, g)),
   }
 }

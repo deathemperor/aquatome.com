@@ -1,8 +1,13 @@
 {
   "slug": "upper-yangtze",
-  "name": "Hulu Yangtze",
+  "name": "Hulu Sungai Yangtze",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T18:01:34.707Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

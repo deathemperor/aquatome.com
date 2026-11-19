@@ -303,16 +303,18 @@ Debug builds, so they don't see it.
   notice. Label the pull request `ios-full` to run them on it, as on a change to a model many flows share
   (LightsModel, HandbookModel's fixture, AccountModel). `ios.yml`, `flows-to-run.py`, the scripts the flow jobs run
   and the flows' shared code (a file in `AquaTomeUITests` that isn't a class's own) run every flow. The lists
-  `flows-to-run.py` reads (`flow_lists.py`: which job runs a class, and what each path reaches) run none, as they
-  change only what a run picks: its `--test` checks them on every run, and fails when a flow they name is renamed. A
-  pull request's flows go into as few jobs as hold them in 25 minutes of tests each (a class's time is
-  `CLASS_SECONDS` in `flow_lists.py`), as each job builds the app and waits for one of GitHub's five Macs; the run's
-  notice "Flows by job" names what each ran. Job `perf` (with the kit's tests and the translations) runs on every ready
+  `flows-to-run.py` reads (`flow_lists.py`: what a test of each class takes, and what each path reaches) run none, as
+  they change only what a run picks: its `--test` checks them on every run, and fails when a flow they name is renamed.
+  A pull request's flows go into as few jobs as hold them in 25 minutes of tests each (a class's time is its tests'
+  count times its `TEST_SECONDS` in `flow_lists.py`; a class past 25 minutes goes by test), as each job builds the app
+  and waits for one of GitHub's five Macs; the run's notice "Flows by job" names what each ran. Job `perf` (with the kit's tests and the translations) runs on every ready
   pull request; job `kit` runs the kit's tests nightly, when `perf` doesn't. Until 2026-11-05 a pull request also ran
   every flow its change could reach, one to two and a half hours of GitHub's Macs: the owner chose this instead.
 - **Every flow** runs on main after merges, every night at 02:30 Vietnam time on main (without `perf`: each change was
   measured by its pull request's run), by hand (Actions → "iOS app: build and tests" → Run workflow), and on a pull
-  request labelled `ios-full`. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
+  request labelled `ios-full`: in nine jobs, packed by their time, and `flows-to-run.py --test` fails when one would hold
+  more than 75 minutes of flows (about 85 with its build; GitHub stops a job at 120). Job `app (2)` runs every flow the
+  others don't name, so a test or a class the script's reading of the files misses still runs. Adding a label runs the pull request again, in place of its run in progress: `ios-full`
   with every flow, any other label as a push would. A main run that started is never cancelled; of those waiting for
   it, only the newest is kept (a merge, the nightly run or one by hand), and it covers every merge since the last run
   (a full run for each merge held the own Mac for hours when several merged at once). So a run by hand on main that is

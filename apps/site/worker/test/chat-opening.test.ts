@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
-import { openingAsk } from '../chat/agent'
+import { LANGS, type Lang } from '@aq/schema/langs'
+import { OPENING_REST, lineShown, openingAsk, openingMore, withRest } from '../chat/agent'
 import { openingFault, openingOf } from '../chat/opening'
 
 test('a first line is shown trimmed, on one line, in the reader\'s language', () => {
@@ -73,15 +74,16 @@ test('a first line isn\'t shown when it is too short or too long, or holds a rud
   expect(faults('Checking the handbook about green water for you.', 'vi')).toBe('not in the reader\'s language')
 })
 
-test('a long post\'s first line is written from its end, in whole sentences; a short question, and Thai, whole', () => {
+test('a long post\'s first line is written from its end and its opening, in whole sentences; a short question, and Thai, whole', () => {
   const start = 'Bể em set 3 tháng, đèn 8 tiếng, phân nước tuần hai lần, nuôi neon với tép, lọc thùng, thay nước mỗi tuần. '.repeat(4)
   const ask = 'Lá ráy có đốm rêu xanh. Có nên chia đèn ra làm hai đợt không?'
   expect(openingAsk(`${start}${ask}`, 'vi').endsWith(ask)).toBe(true)
-  expect(openingAsk(`${start}${ask}`, 'vi').length).toBeLessThan(250)
+  // The end's 240 characters and the opening's 160, with a space.
+  expect([...openingAsk(`${start}${ask}`, 'vi')].length).toBeLessThanOrEqual(240 + 1 + 160)
   expect(openingAsk(`${start}${ask}`, 'vi')).toMatch(/^[A-ZĐÁÀẢÃẠ\p{Lu}]/u)
   expect(openingAsk(ask, 'vi')).toBe(ask)
   // Never half a character, nor half a word.
-  const emoji = openingAsk(`a${'😀'.repeat(300)}`, 'vi')
+  const emoji = openingAsk(`a${'😀'.repeat(600)}`, 'vi')
   expect(emoji).toBe('😀'.repeat(240))
   expect(openingAsk(`${'Cá '.repeat(100)}ăn gì`, 'vi')).toMatch(/^Cá /u)
   // A question further up comes with the end.
@@ -91,3 +93,74 @@ test('a long post\'s first line is written from its end, in whole sentences; a s
   expect(openingAsk(thai, 'th')).toBe(thai.trim())
 })
 
+test('a long post keeps its opening, where the fish, tank or symptom is said: the end alone asked a betta\'s disease of its leaves (the editors, 17 Nov)', () => {
+  const fish = 'Ikan cupang aku sudah empat hari tidak mau makan dan diam saja di dasar.'
+  const middle = ' Wadahnya toples kecil, airnya aku ganti dua hari sekali, airnya dari sumur dan aku endapkan dulu semalam.'.repeat(3)
+  const ask = ' Kemarin aku kasih daun ketapang sedikit ke dalam toplesnya. Ini kena penyakit apa ya, perlu obat?'
+  const line = openingAsk(`${fish}${middle}${ask}`, 'id')
+  expect(line.startsWith(fish)).toBe(true)
+  expect(line.endsWith(ask.trim())).toBe(true)
+  // A first sentence longer than the opening holds stops at a comma or a word, marked as cut; one with no place to stop
+  // is left out.
+  const run = `Bể 60 phân của em mới set được hai tuần, nuôi mười con neon, ba con otto, ${'nước vẫn còn hơi đục, '.repeat(8)}em thay nước rồi.`
+  const cut = openingAsk(`${run}${middle}${ask}`, 'vi')
+  expect(cut).toMatch(/^Bể 60 phân của em mới set được hai tuần, .*…/u)
+  expect([...cut.split('…')[0]!].length).toBeLessThanOrEqual(160)
+  expect(openingAsk(`${'x'.repeat(500)}${ask}`, 'vi').startsWith('x')).toBe(false)
+  // A post the end and the opening would hold between them goes whole.
+  expect(openingAsk(`${fish}${middle.slice(0, 200)}${ask}`, 'id')).toBe(`${fish}${middle.slice(0, 200)}${ask}`)
+})
+
+test('a long post whose questions don\'t all fit in its line is written from its opening and its first question, and the line says the rest in the reader\'s words (17 of 21 long Vietnamese tries got no line, 17 and 18 Nov)', () => {
+  const opening = 'Bể mình 60x30x30, mới set được hai tuần, trồng ráy và rong đuôi chồn, đèn bật 8 tiếng mỗi ngày, chưa thả cá con nào.'
+  const asks = ['Mình nên dùng phân nền gì cho bể này?', 'Chơi nền trơ có được không, hay phải có phân nền mới lên cây?', 'Lọc thác 6W chạy cho bể này có đủ không?']
+  const post = `${opening} Bên shop tư vấn nhiều loại quá, mình đọc mãi vẫn chưa chọn được. ${asks.join(' ')}`
+  expect([...post].length).toBeGreaterThan(240)
+  expect(openingMore(post, 'vi')).toBe(true)
+  // The opening holds its first sentence, and the sentence just before the question comes with it.
+  expect(openingAsk(post, 'vi')).toBe(`${opening} Bên shop tư vấn nhiều loại quá, mình đọc mãi vẫn chưa chọn được. ${asks[0]}`)
+  // What sits further from the question is left out.
+  expect(openingAsk(post.replace('Bên shop', 'Mình đã thay nước hai lần trong tuần đầu, mỗi lần một phần ba bể, nước vẫn hơi đục. Bên shop'), 'vi')).not.toContain('thay nước hai lần')
+  // Their questions fit, the post is short, or it is Thai: the line keeps every question, as before.
+  expect(openingMore(`${opening.repeat(3)} ${asks[0]} ${asks[2]}`, 'vi')).toBe(false)
+  expect(openingMore(asks.join(' '), 'vi')).toBe(false)
+  expect(openingMore(`${'ตู้ปลาของผมน้ำขุ่น '.repeat(20)}${'ควรทำอย่างไรดีครับ? '.repeat(6)}`, 'th')).toBe(false)
+  // The rest follows the line in one sentence, and passes the line's check in every served language.
+  const lines: Partial<Record<Lang, string>> = {
+    vi: 'Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì.',
+    id: 'Aku lagi cek panduan, akuarium 60 cm kamu cocoknya pakai pupuk dasar apa',
+    ms: 'Saya sedang semak buku panduan, akuarium 60 cm anda patut guna baja dasar apa.',
+  }
+  expect(withRest(lines.vi!, 'vi')).toBe('Mình đang tra cẩm nang xem bể 60x30x30 của bạn nên dùng phân nền gì, và xem thêm các câu hỏi khác của bạn.')
+  for (const lang of LANGS.filter(l => l !== 'th')) {
+    expect(OPENING_REST[lang], lang).toBeTruthy()
+    expect(openingFault(withRest(lines[lang]!, lang), lang), lang).toBeUndefined()
+  }
+  expect(lineShown(lines.vi!, post, 'vi')).toBe(withRest(lines.vi!, 'vi'))
+  expect(lineShown(lines.vi!, asks.join(' '), 'vi')).toBe(lines.vi)
+  // Only a post over 240 characters: at 240, its questions go whole as before.
+  const at = (n: number) => `${'Bể nhà mình nuôi cá. '.repeat(20)}`.slice(0, n - asks.join(' ').length - 1).replace(/.$/u, 'x') + ` ${asks.join(' ')}`
+  expect([[...at(240)].length, openingMore(at(240), 'vi'), [...at(241)].length, openingMore(at(241), 'vi')]).toEqual([240, false, 241, true])
+  // A post that marks no question with "?" (many Indonesian and Malay ones) is written from its end, as before.
+  expect(openingMore(post.replaceAll('?', '.'), 'vi')).toBe(false)
+  // A line the rest would take past the check's length is shown alone (3 of 57 long-post tries, 18 Nov).
+  const long = `Mình đang tra cẩm nang xem bể xi măng nửa âm dài 5m, rộng 0,8m, nước 40cm của bạn nuôi 12 con chép, ${'con to con nhỏ, '.repeat(4)}có phải chép màu hay lai không.`
+  expect([...withRest(long, 'vi')].length).toBeGreaterThan(200)
+  expect(lineShown(long, post, 'vi')).toBe(long)
+})
+
+test('a link\'s "?" and a decimal\'s "." end no question: the first question is the reader\'s, whole (Codex\'s read, 18 Nov)', () => {
+  const opening = 'Kolam koi aku ukuran 2x1,5 meter, dalamnya 80 cm, isinya 8 ekor koi ukuran 20 cm.'
+  const since = 'Sudah jalan tiga bulan, airnya aku ganti seminggu sekali sepertiganya.'
+  const link = 'Fotonya di https://example.invalid/kolam?id=1&size=2 ya.'
+  const filter = 'Filternya aku bikin sendiri dari ember isi kapas, bioball dan batu zeolit.'
+  const asks = ['Filter kayak gitu cukup belum buat pH 6.5 dan 8 ekor koi?', 'Pompanya perlu diganti yang 3.000 liter per jam nggak?', 'Kalau air hijau terus, harus diapain?']
+  const post = `${opening} ${since} ${link} ${filter} ${asks.join(' ')}`
+  expect([...post].length).toBeGreaterThan(240)
+  expect(openingMore(post, 'id')).toBe(true)
+  // Its first question whole, its number too; the filter it calls "that filter" just before it; the link left out.
+  expect(openingAsk(post, 'id')).toBe(`${opening} ${since} ${filter} ${asks[0]}`)
+  // A question with a link in it is one question, the link in it.
+  const linked = `${opening} ${filter} Ikan di https://example.invalid/koi?id=7 ini sakit apa? ${asks.slice(1).join(' ')}`
+  expect(openingAsk(linked, 'id')).toContain('Ikan di https://example.invalid/koi?id=7 ini sakit apa?')
+})

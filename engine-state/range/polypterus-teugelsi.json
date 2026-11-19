@@ -1,8 +1,8 @@
 {
   "id": "polypterus-teugelsi",
   "native": {
-    "input": "08c274705c95e73f",
-    "at": "2026-11-13T05:31:31.275Z",
+    "input": "755ca96a43dbdfbc",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "CM",
@@ -11,9 +11,24 @@
         "quote": "Probably endemic to the River Cross drainage in Cameroon.",
         "words": "Cameroon",
         "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Polypterus teugelsi originates from the Cross River system in Cameroon.",
+        "words": "Cameroon",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Cross River",
+        "source": "glaser",
+        "quote": "Polypterus teugelsi originates from the Cross River system in Cameroon.",
+        "country": "CM",
+        "ok": true
+      },
       {
         "name": "River Cross",
         "source": "seriouslyfish",

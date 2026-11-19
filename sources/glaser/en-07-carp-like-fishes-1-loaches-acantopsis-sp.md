@@ -1,0 +1,9 @@
+---
+url: https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/acantopsis-sp/
+title: Acantopsis sp. - Aquarium Glaser GmbH
+fetchedAt: 2026-11-17T07:30:37.426Z
+hash: 8548914b87b750e3cf74fef484e73b95ee4b38e29649f003cb30c8491388b8a8
+---
+
+(Nov.6th 2008)Due to its unusual head shape the horseface loach A. coirorhynchos is one of the most popular aquarium fish. In nature they often are residents of clear rivers, where you can find them especially on sandy grounds. Inside the aquarium you also have to provide sandy ground, which allows them to completely bury themselves. Considering this, you can raise this species for many years in a small group (6-8 specimen). The females will grow bigger than the males and are more corpulent. Their maximum length is approx. 15cm. From scientific view the genus Acantopsis is hardly understood. Therefore it is not sure at all that all loaches, which are traded under the name “A. Coirorhynchos” really belong to this species. Aquarium Glaser was now able to import a horseface loach from Thailand for the first time, whose colours deviate clearly from the Acantopsis known so far. Whereas the colouring of each animal is different intensive. The spectrum extends from almost colourless to strong and pertaining to a high contrast. The identification was not successful yet. From the scientific litertature we know three species of this genus from Mekong, which were not specified yet. With A. guttatus and A. thiemmedhi two already specified types from the region join, whose live colouring is unknown until now, however. No matter which species the now imported animals are , they are interesting fish, which enrich the spectrum of loaches that are kept in aquariums. (Photo & Text F. Schäfer)
+Angaben zum Tier Herkunft Thailand Verfügbare Größe in cm 10-12

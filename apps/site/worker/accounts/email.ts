@@ -62,16 +62,16 @@ function sixDigits(): string {
 
 /**
  * Starts an email sign-in: the `flow` secret for the client that asked (stored as its hash, with the address's hash, the
- * code's hash and the signed-in account if any) and the mail with the code: with the page's link for a browser, without
- * one for the app.
+ * code's hash and the signed-in account if any), the code, and the mail with it: with the page's link for a browser,
+ * without one for the app. The code lasts `minutes`.
  */
-export async function startEmail(db: D1Database, key: string, email: string, lang: Lang, origin: string, signedIn: string | undefined, now: Date, forApp = false): Promise<{ flow: string; mail: Mail }> {
+export async function startEmail(db: D1Database, key: string, email: string, lang: Lang, origin: string, signedIn: string | undefined, now: Date, forApp = false, minutes = CODE_MINUTES): Promise<{ flow: string; code: string; mail: Mail }> {
   const flow = randomToken()
   const code = sixDigits()
   await db.prepare(`INSERT INTO auth_challenges (id, kind, value, user_id, code, expires_at) VALUES (?, 'email', ?, ?, ?, ?)`)
-    .bind(await sha256(flow), await emailHash(key, email), signedIn ?? null, await sha256(`${flow}|${code}`), new Date(now.getTime() + CODE_MINUTES * 60_000).toISOString()).run()
+    .bind(await sha256(flow), await emailHash(key, email), signedIn ?? null, await sha256(`${flow}|${code}`), new Date(now.getTime() + minutes * 60_000).toISOString()).run()
   const link = `${origin}${TANKS_PAGE[lang]}#${LINK_PARAM}=${code}`
-  return { flow, mail: { to: email, subject: TEXT[lang].subject(code), text: forApp ? TEXT[lang].app(code) : TEXT[lang].body(code, link) } }
+  return { flow, code, mail: { to: email, subject: TEXT[lang].subject(code), text: forApp ? TEXT[lang].app(code) : TEXT[lang].body(code, link) } }
 }
 
 /**

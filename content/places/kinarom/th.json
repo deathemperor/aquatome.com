@@ -3,6 +3,12 @@
   "name": "คินารอม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:26:18.723Z",
+    "why": "คินารอม is a plausible phonetic transliteration of Kinarom, but the place is a region (Kinarom in Sabah, Malaysia) and the Thai name lacks a kind word such as เขต or ภูมิภาค, and the place is obscure, so it is uncertain."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

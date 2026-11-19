@@ -1,8 +1,13 @@
 {
   "slug": "approuague-river",
-  "name": "Approuague",
+  "name": "Sungai Approuague",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-18T00:46:29.199Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

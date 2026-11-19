@@ -1,0 +1,25 @@
+{
+  "slug": "arius-oetik",
+  "name": "Arius oetik",
+  "altNames": [
+    "ปลากดทะเล",
+    "ปลากด",
+    "Sea catfish",
+    "Arius utik"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<p>Arius utik เป็นปลากดทะเลชนิดหนึ่งในวงศ์ Ariidae ได้รับการบรรยายลักษณะโดย Pieter Bleeker ในปี 1846</p><ul><li>สถานภาพใน IUCN Red List: ยังไม่ได้รับการประเมิน (Not Evaluated)</li></ul>",
+    "distribution:scotcat": "<p>มหาสมุทรแปซิฟิกตะวันตก: อ่าวไทย และน่านน้ำรอบมาเลเซียและอินโดนีเซียเกือบทั้งหมด พบในน้ำชายฝั่งและบริเวณปากแม่น้ำ</p>",
+    "habitat:scotcat": "<p>มีรายงานการพบในน้ำทะเลและน้ำกร่อยเขตร้อนของมหาสมุทรแปซิฟิกตะวันตก</p>",
+    "diet:scotcat": "<p>อาหารของปลาชนิดนี้ได้แก่ หอยแมลงภู่ กั้งกระดาน กุ้ง ปลาไหลทะเล (conger eel) ปลาแป้น หมึก และปลาลัง</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด utik มาจาก Ikan (= ปลา) Manong utik ซึ่งเป็นชื่อท้องถิ่นที่ชาวจาการ์ตา (บาตาเวีย) ใช้เรียกปลากดชนิดนี้ ต่อมาในปี 1846 Bleeker ได้สะกดชื่อนี้เป็น oetik ด้วย ซึ่งเป็นตัวสะกดที่พบบ่อยในเอกสารสมัยใหม่ แต่ utik เป็นชื่อที่ Bleeker ตั้งใจใช้อย่างชัดเจน และดูเหมือนจะมีสิทธิ์ก่อนตามหลักการตั้งชื่อ (priority) อยู่ไม่กี่เดือน</p><p>หมายเหตุ: ตัวสะกด oetik ปรากฏใน Bleeker 1846:166 ส่วนตัวสะกดที่ถูกต้องคือ utik ตามที่ใช้ใน Bleeker 1862:31 (Eschmeyer's Catalog of Fishes) ในการค้นหาทางออนไลน์บางแห่งยังคงใช้ชื่อ oetik อยู่</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2021). Kailola, P.J., 1999 Ariidae (=Tachysuridae): sea catfishes (fork-tailed catfishes). Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.92
+    }
+  }
+}

@@ -15,6 +15,136 @@
     "thailand",
     "tapi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Kampar Kiri",
+        "Batang Hari",
+        "Kapuas"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "V. maassi is widespread in the peat-swamp areas of Malaysia and Borneo, a habitat extremely endangered through destruction for oil palm plantations.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The fork-tailed loach, Vaillantella maassi, is a loach from Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Kampar Kiri River system, central Sumatra, Indonesia and since recorded from the Batang Hari drainage a little further south on the island, plus the Kapuas River basin in West Kalimantan province, Indonesian Borneo, and streams flowing into Kalimantan from the neighbouring Malaysian state of Sarawak.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Kampar Kiri",
+            "Batang Hari",
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358663,
+      "total": 15,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "ID",
+          10
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "DK",
+          1
+        ],
+        [
+          "NO",
+          1
+        ],
+        [
+          "SE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          56.25,
+          1,
+          0
+        ],
+        [
+          9.84375,
+          57.65625,
+          1,
+          0
+        ],
+        [
+          14.0625,
+          66.09375,
+          1,
+          0
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          113.90625,
+          -1.40625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

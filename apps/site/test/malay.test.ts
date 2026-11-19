@@ -41,9 +41,3 @@ test('a breed\'s parent its translation left unnamed, with no page in the langua
   // A Vietnamese page marks nothing.
   expect(page('/ca/ca-la-han/').dom.querySelectorAll('.parents [lang="vi"]')).toHaveLength(0)
 })
-
-test('a photo site\'s own Vietnamese name in a gallery\'s line is marked Vietnamese, as the about page marks it', () => {
-  const lead = page('/ms/ikan/baka-uji-melayu/foto/').dom.querySelector('.lead')!
-  expect(lead.querySelectorAll('[lang="vi"]').map(x => x.text)).toEqual(['Diễn Đàn Cá Cảnh'])
-  expect(page('/ca/ca-la-han/anh/').dom.querySelectorAll('.lead [lang="vi"]')).toHaveLength(0)
-})

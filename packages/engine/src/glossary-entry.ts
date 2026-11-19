@@ -13,6 +13,8 @@ import { sanitizeHtml, unescapePlain } from './sanitize'
 import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts } from './topics'
+import { withoutRefused } from './refused-sources'
+import { givenAsName } from './glossary-other-names'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/glossary-entry.md', import.meta.url), 'utf8'))
 /**
@@ -280,7 +282,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       asks.read?.length ? `Read these pages and keep what they say: ${asks.read.join(', ')}.` : '',
     ].filter(Boolean).join(' ')
     const found = await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: `${researchPrompt({ topic: `${vi.name} (${entity.en}): only what is asked below; research already kept covers the rest`, kind: o.kind })}\n\n${ask}`, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
-    const researched = addResearch(saved, found)
+    const researched = withoutRefused(addResearch(saved, found)).kept
     await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`)
     const key = (f: TopicFacts['facts'][number]) => `${f.section}|${f.fact.trim().toLowerCase()}`
     const had = new Set(saved.facts.map(key))
@@ -309,7 +311,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // The owner, 13 Nov, of driftwood: "all kinds and names named per language", "lũa sa tùng là gì", "full details". A term
   // that comes in kinds is researched kind by kind, each by the name shops here write and its English name.
   const asks = ASKS[id] ?? {}
-  const topic = `${vi.name} (${entity.en}) in a freshwater aquarium: what it is, what it does in a tank, how to use or handle it, common mistakes. If it comes in kinds (for driftwood: the woods sold to keepers in Vietnam), each kind sold in Vietnam: the name Vietnamese shops write for it and its English name, each quoted exactly as a source writes it; what it looks like and does in a tank (sinks or floats, tannins, the water's colour and pH, fungus or film); how to prepare it; what goes wrong with it. Start each fact about one kind with that kind's name as its source writes it. Find the Vietnamese names on Vietnamese shops' own websites and in Vietnamese keepers' articles, never on marketplaces (Shopee, Lazada, Tiki) or social networks. Each name for the term itself in a fact of its own (section other), quoted exactly as the source writes it; never a name translated by you`
+  const topic = `${vi.name} (${entity.en}) in a freshwater aquarium: what it is, what it does in a tank, how to use or handle it, common mistakes. If it comes in kinds (for driftwood: the woods sold to keepers in Vietnam), each kind sold in Vietnam: the name Vietnamese shops write for it and its English name, each quoted exactly as a source writes it; what it looks like and does in a tank (sinks or floats, tannins, the water's colour and pH, fungus or film); how to prepare it; what goes wrong with it. Start each fact about one kind with that kind's name as its source writes it. Find the Vietnamese names on Vietnamese shops' own websites and in Vietnamese keepers' articles, never on marketplaces (Shopee, Lazada, Tiki) or social networks. Each name for the term itself in a fact of its own (section other), written as Name for the term: "<the name, quoted exactly as the source writes it>"; never a name translated by you`
   const lead = o.sf ? `\n\nRead this glossary entry first and cite it as a reference source: ${sfGlossaryUrl(o.sf)}` : ''
   // The kinds the owner named, by name: each found where a source we may use writes it, its English trade name only as a
   // source writes it, and an honest line when no such source says what it is.
@@ -328,25 +330,27 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const found = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: `${researchPrompt({ topic, kind: o.kind })}${lead}${cover ? `\n\n${cover}` : ''}`, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
   // New research adds to what was kept unless told to start over (the chief of staff, 14 Nov 2026: Lũa's second research
   // replaced its first, and the kinds sold here went with it).
-  const researched = !kept && saved && !o.fresh ? addResearch(saved, found) : found
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  const cleaned = withoutRefused(!kept && saved && !o.fresh ? addResearch(saved, found) : found)
+  const researched = cleaned.kept
   if (!kept) { await mkdir(join(root, 'engine-state/glossary'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: 'nothing reliable found' }
   // A refused site's page, cited by research kept before it was refused, is named in the run's log as it goes, with the
   // facts that cite it (the Writing Lead, 16 Nov 2026, on the chief of staff's Thursday ruling for refused sources).
-  for (const url of new Set(researched.sources.filter(x => refusedSite(x.url)).map(x => x.url))) {
-    const n = researched.facts.filter(f => researched.sources[f.source]?.url === url).length
+  for (const { url, items: n } of cleaned.refused) {
     ;(d.log ?? console.error)(`${id}: ${url} is refused as a source: its link and the ${n} fact${n === 1 ? '' : 's'} citing it don't reach the writer`)
   }
-  // Such a page goes, with the facts that cite it, before the writer sees them: no address, no source (viFacts).
+  // Any other page research may not read goes the same way, with the facts that cite it, before the writer sees them: no
+  // address, no source (viFacts).
   const { facts, refs, sources } = viFacts({ ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) })
   if (!facts.length) return { id, skipped: 'no cited facts' }
 
   // The other terms: what `related` may name, and the names an added other name may not take.
-  const others: { id: string; name: string; altNames: string[]; definition: string }[] = []
+  const others: { id: string; name: string; altNames: string[]; linkNames: string[]; definition: string }[] = []
   for (const x of (await readdir(dir)).sort()) {
     if (x === id) continue
     const t = await read<Translation>(join(dir, x, 'vi.json')).catch(() => null)
-    if (t) others.push({ id: x, name: t.name, altNames: t.altNames, definition: t.definition ?? '' })
+    if (t) others.push({ id: x, name: t.name, altNames: t.altNames, linkNames: t.linkNames ?? [], definition: t.definition ?? '' })
   }
   const forWriter = { term: vi.name, english: entity.en, sources, facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
@@ -491,15 +495,18 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     }
   }
 
-  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames]).map(n => n.toLowerCase()))
+  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames, ...x.linkNames]).map(n => n.toLowerCase()))
   // Written whole in one fact, as its own word: "gỗ lũ" is not in "gỗ lũa".
   const quoted = (n: string) => {
     const re = new RegExp(`(?<![\\p{L}\\p{N}])${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu')
     return facts.some(f => re.test(f.fact))
   }
   const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
-  const own = new Set([vi.name, ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
-  const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(linkable)].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
+  // A link phrase is never one of its names again; a name the writer adds stays only when it is the term's English name or
+  // a fact gives it as the term's name (glossary-other-names.ts; the chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing).
+  const own = new Set([vi.name, ...(vi.linkNames ?? []), ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
+  const isName = (n: string) => n.toLowerCase() === entity.en.toLowerCase() || givenAsName(n, facts.map(f => f.fact))
+  const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
   // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's

@@ -101,19 +101,15 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 8
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 8
       }
     ],
     "difficulty": [
-      {
-        "source": "glaser",
-        "value": 6
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -125,6 +121,13 @@
         "value": {
           "min": 20,
           "max": 25.5
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 25
         }
       }
     ],
@@ -157,20 +160,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>Hillstream loaches are – in general – rather dull coloured fishes. However, there are exceptions and among the most beautiful species are those belonging to the genus Homaloptera. Several, closely related and quite similar species exist. In German they are called “saddle-back loaches”, a commonly used English name is “lizard loaches”.</p><p>The species attains a length of about 7-8 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>Hillstream loaches belong to the family of loaches. Probably the most beautiful species can be found in the genus Homaloptera. There are several closely related and similar looking species. In German they are often called \"saddle-stain loaches\"; in English the animals are called \"lizard loaches\".</p>"
     },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>A perfect water quality is absolutely necessary for these pretty loaches, otherwise they quickly become sick. So the recommendable species is better suited for experienced hobbyists.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -181,8 +178,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>It inhabits Malaysia and Southern Thailand.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>Homaloptera parclitella is an extraordinarily beautiful hillstream loach from the black water of South Thailand and Malaysia. It is closely related to the Indonesian H. orthogoniata.</p>"
     },
     {
       "key": "distribution",
@@ -209,10 +206,22 @@
       "html": "<p>Most importantly the water must be clean and well-oxygenated so we suggest the use of an over-sized filter as a minimum requirement. Turnover should ideally be 10-15 times per hour so additional powerheads, airstones, etc., should be employed as necessary to achieve the desired flow and oxygenation if necessary.</p><p>Base substrate can either be of gravel, sand or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Driftwood roots and branches are also suitable and although rarely a feature of the natural habitat aquatic plants from adaptable genera such as Microsorum, Crinum and Anubias spp. can also be included. The latter are particularly useful as Homaloptera spp. appear to enjoy resting on their leaves.</p><p>Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass. While regular partial water changes are essential aufwuchs can be allowed to grow on all surfaces except perhaps the viewing pane.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>In care, the animals, up to 8 cm long, are demanding.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "html": "<ul><li>Temperature: 20–25.5°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>As black-water inhabitants, they require a low-bacterial environment; the water should absolutely be enriched with humic matter from peat, alder cones or leaves, otherwise the animals are very susceptible to parasites. In addition, these fish have a high oxygen demand as inhabitants of running water. The water should therefore not be too warm; 22-25°C is ideal.</p>"
     },
     {
       "key": "diet",
@@ -221,10 +230,16 @@
       "html": "<p>Homaloptera spp. are specialised grazers feeding on biofilm, small crustaceans, insect larvae and other invertebrates.</p><p>In captivity some sinking dried foods may be accepted but regular meals of live or frozen Daphnia, Artemia, bloodworm, etc., are essential for the maintenance of good health, and it's highly preferable if the tank contains rock and other solid surfaces with growths of algae and other aufwuchs.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a continual, easily-obtainable source of suitable foods in the absence of competitors if they're to recover.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>Live food is preferred in the beginning; later the animals also accept frozen and dry food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>The species is very peaceful, but they do very often harmless comment fights with conspecifics, which are very attractive to look at.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera-parclitella-2/",
+      "html": "<p>The beautiful fish are very peaceful, but like to show off to each other in harmless ranking fights, which are very interesting to watch.</p>"
     },
     {
       "key": "behaviour",
@@ -243,12 +258,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "html": "<p>Presumably a seasonal spawner in nature but nothing has been recorded in aquaria.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "html": "<p>Text &amp; photos: Frank Schäfer</p>"
     },
     {
       "key": "notes",
@@ -276,16 +285,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/glaser/76b373d0ef000900.webp",
-      "thumb": "https://media.aquatome.com/glaser/76b373d0ef000900-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
-      "source": "glaser"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/0cde1529d439626e.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/0cde1529d439626e-480.webp",
       "width": 1024,
@@ -306,9 +305,44 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-parclitella",
       "caption": "Head detail.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/76b373d0ef000900.webp",
+      "thumb": "https://media.aquatome.com/glaser/76b373d0ef000900-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/homaloptera_parclitella_en/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "mlOAjTU3w9M",
+      "title": "Homaloptera parclitella and microgeophagus altispinosa",
+      "durationSec": 164,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TT6BPmqI9rM",
+      "title": "Homaloptera parclitella at  super clear river in Terengganu, Malaysia Vlog #45",
+      "durationSec": 758,
+      "lang": "ms"
+    },
+    {
+      "youtubeId": "--oy_ELv4ZU",
+      "title": "Haltungsbedingungen und Infos zu Sattelfleck Prachtflossensauger Homaloptera parclitella| #Aquarium",
+      "durationSec": 279,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "JY6Ta-w9rrQ",
+      "title": "Homaloptera parclitella @ Malayan Saddle-back Loach/Puting Beliung (Malaysia)",
+      "durationSec": 64,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -331,5 +365,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-19"
 }

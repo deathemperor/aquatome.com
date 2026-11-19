@@ -1,0 +1,70 @@
+{
+  "id": "hexanematichthys-mastersi",
+  "scientificName": "Hexanematichthys mastersi",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Hexanematichthys",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "papua-new-guinea",
+    "australia",
+    "port-darwin"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 48
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_mastersi.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_mastersi.htm",
+      "html": "<p>Indo-west Pacific: Papua New Guinea and Australia. Type locality: Port Darwin, Northern Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_mastersi.htm",
+      "html": "<p>A benthic species which occurs over soft bottoms of inshore waters.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_mastersi.htm",
+      "html": "<p>Described by James Douglas Ogilby in 1898, originally under the genus Arius. Still found on some online searches as Hexanematichthys mastersi.</p><p>Etymology: The genus name Pararius: Para-, near, presumably referring to resemblance of P. proximus to Arius australis (=Neoarius graeffei). The specific name masteri: In honour of George Masters (1837-1912), Curator of the Macleay Museum, Sydney University, to whom Ogilby was \"indebted for much valuable information on the fine collection under his charge, and whose general knowledge of the Australian fauna is possibly exceeded by none\".</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_mastersi.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Hexanematichthys mastersi in Fishes of Australia. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6e1d34948f5dae79.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6e1d34948f5dae79-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Australian National Fish Collection / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_mastersi.htm",
+      "caption": "Pararius mastersi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

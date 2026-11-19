@@ -3,6 +3,12 @@
   "name": "Llanos Orientales",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:45:53.845Z",
+    "why": "\"Llanos Orientales\" is the Spanish name unchanged, but a Malay atlas would likely write \"Dataran Llanos Timur\" or similar, using \"Dataran\" for the kind word, so the bare Spanish form is less suitable."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "จ่าคุก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.1,
+    "at": "2026-11-19T00:42:16.946Z",
+    "why": "\"จ่าคุก\" is not a Thai rendering of Trà Khúc; it reads as a Thai word (jailer/sergeant) rather than a transliteration, and it lacks the river kind word แม่น้ำ."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

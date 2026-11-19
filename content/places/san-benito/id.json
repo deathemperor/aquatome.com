@@ -3,6 +3,12 @@
   "name": "San Benito",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-17T11:39:55.958Z",
+    "why": "\"San Benito\" keeps the source's spelling of a proper name, which is acceptable, but the place is the Benito River basin in Equatorial Guinea, so an Indonesian atlas would likely write \"Sungai Benito\" or \"Daerah aliran Sungai Benito\"."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

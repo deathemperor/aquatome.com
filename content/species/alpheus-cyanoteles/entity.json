@@ -1,0 +1,133 @@
+{
+  "id": "alpheus-cyanoteles",
+  "scientificName": "Alpheus cyanoteles",
+  "order": "Decapoda",
+  "family": "Alpheidae",
+  "genus": "Alpheus",
+  "group": "shrimp",
+  "places": [
+    "asia",
+    "malaysia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They come from the peninsula of Malaysia.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6455800,
+      "total": 7,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          119.53125,
+          -5.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/alpheus-cyanoteles/",
+      "html": "<p>Pistol shrimp is the name given to these shrimps. Generally this is a brackish-water species that is completely adapted to live in freshwater.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/alpheus-cyanoteles/",
+      "html": "<p>They come from the peninsula of Malaysia.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/alpheus-cyanoteles/",
+      "html": "<p>They can be fed all kinds of different foods; they eat just about everything.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/alpheus-cyanoteles/",
+      "html": "<p>They can create a sound like the shot of a pistol, which is why they are called pistol shrimp. This can be heard very well even outside the tank. Among themselves they are incompatible, so it is recommended to keep them singly.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/44ed00cf02af16aa.webp",
+      "thumb": "https://media.aquatome.com/glaser/44ed00cf02af16aa-480.webp",
+      "width": 787,
+      "height": 591,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/alpheus-cyanoteles/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "8YFKdjtLozc",
+      "title": "The Odd Couple: Goby Fish & Pistol Shrimp (HD)",
+      "durationSec": 317,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh nhỏ",
+        "bể nuôi tôm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tôm",
+        "thức ăn tôm cảnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể tôm",
+        "máy sục khí mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

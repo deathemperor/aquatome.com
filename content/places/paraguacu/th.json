@@ -3,6 +3,12 @@
   "name": "ปารากวาซู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T00:42:38.617Z",
+    "why": "Paraguaçu is a Brazilian region/river (Bahia); Thai transliterates Portuguese \"çu\" as \"ซู\" and \"gua\" as \"กวา\", so ปารากวาซู is plausible, but it lacks a kind word and the Thai rendering is uncertain (e.g., ปารากวาสุ), so it is only moderately confident."
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

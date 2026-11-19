@@ -1,0 +1,23 @@
+{
+  "slug": "cryptarius-daugueti",
+  "name": "Cryptarius daugueti",
+  "altNames": [
+    "ปลาอุก",
+    "ปลากดทะเล",
+    "ปลากด"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<ul><li>ชื่อพ้อง: Hemipimelodus daugueti</li><li>สถานะในบัญชีแดงของ IUCN: ยังไม่ได้รับการประเมิน (Not Evaluated)</li></ul>",
+    "distribution:scotcat": "<p>เอเชีย: ลุ่มน้ำโขง พบในแม่น้ำสายใหญ่ของเอเชียตะวันออกเฉียงใต้ แหล่งที่เก็บตัวอย่างต้นแบบ (type locality): Phnompenh et Snoctrou, au seuil du Grand Lac ตัวอย่างต้นแบบเก็บรักษาไว้ที่ Inst. Océanogr. Indochine, Nhatrang, Viet Nam</p>",
+    "habitat:scotcat": "<p>อาศัยอยู่ในแม่น้ำสายใหญ่</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อสกุล Cryptarius มาจากคำว่า kryptos ที่แปลว่าซ่อนเร้นหรือลึกลับ หมายถึง Arius ที่ซ่อนตัวอยู่ ซึ่งสื่อถึงการที่ลักษณะเฉพาะอันไม่เหมือนใครของปลากลุ่มนี้ถูกมองข้ามมาเป็นเวลานาน ส่วนชื่อชนิด daugueti ตั้งเพื่อเป็นเกียรติแก่ Paul Dauguet (1883-?) นักเดินเรือพาณิชย์และผู้บังคับการเรือ le Lanessan ซึ่งเป็นเรือที่ใช้เก็บตัวอย่างต้นแบบ</p><p>Kailola (2004: 135) จัดปลาชนิดนี้ไว้ในสกุล Cryptarius แบบยังไม่เป็นข้อยุติ</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2021. FishBase. www.fishbase.org. Kailola, P.J., 1999 Ariidae (=Tachysuridae): sea catfishes (fork-tailed catfishes). Rainboth, W.J., 1996 Fishes of the Cambodian Mekong. The ETYFish Project Fish Name Etymology Database.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.85
+    }
+  }
+}

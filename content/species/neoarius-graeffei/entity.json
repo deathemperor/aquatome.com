@@ -1,0 +1,730 @@
+{
+  "id": "neoarius-graeffei",
+  "scientificName": "Neoarius graeffei",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Neoarius",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia",
+    "papua-new-guinea",
+    "new-guinea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern, because it is widespread, locally common and there are no major threats (IUCN 2019).</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>The Lesser Salmon Catfish and other members of the Ariidae family from southern New Guinea and northern Australia have undergone a name change, from Arius to Neoarius. Only N. graeffei and Neoarius berneyi are deemed appropriate for an aquarium, as the rest get far too big for captivity.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>Australia: southern New Guinea and northern Australia, in rivers and along the coast.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>Inhabits freshwater rivers and lagoons, as well as brackish estuaries and coastal marine waters. Tolerates temperatures from 11°C to 38°C. Large groups of juveniles are often encountered.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>A good-sized tank is needed, as N. graeffei can grow to around 45 cm. If kept with other fish, it would need to be housed with larger fish such as cichlids, as it can be carnivorous, but it can be a good addition to a larger tank.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>Feeds on arthropods, insects, aquatic plants, molluscs, prawns, crayfish, fishes and bottom detritus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>Breeding takes place from September to February. Marine populations of N. graeffei appear to undertake extensive anadromous migrations associated with breeding, but no such movements were observed in the fluviatile population studied.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>Etymology: the genus name Neoarius: Neo means \"new\" in Latin, and Arius is derived from the Greek word Apelos (pronounced Araios), meaning \"sanctified by the god of war\", and refers to the bony structure extending from the skull covering to the powerful spine of the first dorsal fin ray. The specific name graeffei honours the Swiss entomologist Eduard Heinrich Gräffe (1833–1916), who, while employed by Johann Cesar VI. Godeffroy, a wealthy shipping magnate, curated a natural history collection that introduced several new species from the South Pacific to science, including this catfish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "html": "<p>Butler, G. &amp; Kennard, M. 2019. Neoarius graeffei. The IUCN Red List of Threatened Species 2019. Ferraris, C.J.Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Froese, R. and D. Pauly. Editors. 2008. FishBase. www.fishbase.org, version (03/2009). ScotCat Factsheet no. 52 October 2000. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/f14547d82bd6a345.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f14547d82bd6a345-480.webp",
+      "width": 500,
+      "height": 390,
+      "licence": "dùng với sự cho phép",
+      "author": "Finn Ellis / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "caption": "Neoarius graeffei: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c545605c593bad17.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c545605c593bad17-480.webp",
+      "width": 500,
+      "height": 292,
+      "licence": "dùng với sự cho phép",
+      "author": "Julian Dignall / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "caption": "Neoarius graeffei",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f78ff1331f61d913.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f78ff1331f61d913-480.webp",
+      "width": 500,
+      "height": 295,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "caption": "Neoarius graeffei",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b728b0334d7269fd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b728b0334d7269fd-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "Finn Ellis / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_graeffei.htm",
+      "caption": "Neoarius graeffei: juvenile-head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "57GIzsPJeCw",
+      "title": "Papua Shark Catfish (Neoarius graeffei) adalah jenis lele yang mirip hiu #akuarium #ikanpredator",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OfJ5kM1cpy0",
+      "title": "Papuan Shark Catfish(Neoarius Graffei)",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0dn-mazx8RQ",
+      "title": "Beautiful massive salmon catfish 🐱",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ag3TDIcWY28",
+      "title": "Salmon catfish first time breeding",
+      "durationSec": 315,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 400 lít",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc ngoài cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn thịt",
+        "thức ăn cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18",
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "New Guinea"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Australia: southern New Guinea and northern Australia, in rivers and along the coast.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345449,
+      "total": 2776,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "AU",
+          2762
+        ],
+        [
+          "PG",
+          8
+        ],
+        [
+          "ID",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          0,
+          2,
+          0
+        ],
+        [
+          115.3125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          118.125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          122.34375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          127.96875,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          127.96875,
+          -16.875,
+          12,
+          12
+        ],
+        [
+          127.96875,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          129.375,
+          -16.875,
+          15,
+          15
+        ],
+        [
+          129.375,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          129.375,
+          -14.0625,
+          9,
+          9
+        ],
+        [
+          130.78125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          130.78125,
+          -16.875,
+          8,
+          8
+        ],
+        [
+          130.78125,
+          -15.46875,
+          10,
+          10
+        ],
+        [
+          130.78125,
+          -14.0625,
+          10,
+          10
+        ],
+        [
+          130.78125,
+          -12.65625,
+          14,
+          14
+        ],
+        [
+          132.1875,
+          -15.46875,
+          14,
+          14
+        ],
+        [
+          132.1875,
+          -14.0625,
+          6,
+          6
+        ],
+        [
+          132.1875,
+          -12.65625,
+          17,
+          17
+        ],
+        [
+          132.1875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          133.59375,
+          -15.46875,
+          18,
+          18
+        ],
+        [
+          133.59375,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          133.59375,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          133.59375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          135,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          135,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          135,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          135,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          136.40625,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          137.8125,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          137.8125,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          137.8125,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          139.21875,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -19.6875,
+          3,
+          3
+        ],
+        [
+          140.625,
+          -18.28125,
+          40,
+          40
+        ],
+        [
+          140.625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -15.46875,
+          5,
+          5
+        ],
+        [
+          140.625,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          142.03125,
+          -21.09375,
+          3,
+          3
+        ],
+        [
+          142.03125,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          142.03125,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          142.03125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          143.4375,
+          -19.6875,
+          8,
+          8
+        ],
+        [
+          143.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          143.4375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          144.84375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -18.28125,
+          5,
+          5
+        ],
+        [
+          144.84375,
+          -8.4375,
+          3,
+          0
+        ],
+        [
+          146.25,
+          -21.09375,
+          11,
+          11
+        ],
+        [
+          146.25,
+          -19.6875,
+          10,
+          10
+        ],
+        [
+          146.25,
+          -9.84375,
+          2,
+          0
+        ],
+        [
+          147.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          147.65625,
+          -23.90625,
+          15,
+          15
+        ],
+        [
+          147.65625,
+          -22.5,
+          14,
+          14
+        ],
+        [
+          147.65625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -37.96875,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -25.3125,
+          29,
+          29
+        ],
+        [
+          149.0625,
+          -23.90625,
+          29,
+          29
+        ],
+        [
+          149.0625,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          150.46875,
+          -35.15625,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          -26.71875,
+          18,
+          18
+        ],
+        [
+          150.46875,
+          -25.3125,
+          9,
+          9
+        ],
+        [
+          150.46875,
+          -23.90625,
+          6,
+          6
+        ],
+        [
+          151.875,
+          -30.9375,
+          25,
+          25
+        ],
+        [
+          151.875,
+          -29.53125,
+          20,
+          20
+        ],
+        [
+          151.875,
+          -28.125,
+          2096,
+          2096
+        ],
+        [
+          151.875,
+          -26.71875,
+          26,
+          26
+        ],
+        [
+          151.875,
+          -25.3125,
+          31,
+          31
+        ],
+        [
+          153.28125,
+          -29.53125,
+          8,
+          8
+        ],
+        [
+          153.28125,
+          -28.125,
+          149,
+          149
+        ]
+      ]
+    }
+  }
+}

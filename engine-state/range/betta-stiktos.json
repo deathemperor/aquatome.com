@@ -1,14 +1,22 @@
 {
   "id": "betta-stiktos",
   "native": {
-    "input": "aae473c63ba83191",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "98a7aa6963081374",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "KH",
         "status": "native",
         "source": "bwaquatics",
         "quote": "Found only in the Mekong River basin in Cambodia, around Stung Treng.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to the Mekong drainage in Stung Treng, Cambodia.",
         "words": "Cambodia",
         "ok": true
       }

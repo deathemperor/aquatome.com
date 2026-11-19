@@ -291,10 +291,11 @@ extension MasterModel {
   /// offered at all.)
   static let asksAgain: Set = ["filter", "air"]
 
-  /// The outlet's role, from its record.
+  /// The outlet's role as the button goes by it: a heater or CO2 when any record of the same strip marks it so, whichever
+  /// record the step was made from (TankStore.strictestRole, the chief, 18 Nov); else its record's own.
   func role(_ c: DeviceCommand) -> String? {
     guard let code = c.outlet else { return nil }
-    return switcher.tanks.store.device(c.device)?.outlets.first { $0.code == code }?.role
+    return switcher.tanks.store.strictestRole(device: c.device, outlet: code)
   }
 
   static func secondAsk(_ role: String?) -> (title: String, why: String, yes: String) {
@@ -323,7 +324,7 @@ extension MasterModel {
       p.outlets.map { o in
         let c = DeviceCommand(device: p.id, outlet: o.code, on: true)
         let place = [p.nickname, store.tank(p.tankId)?.name].compactMap { $0 }.joined(separator: " · ")
-        return OfferedOutlet(target: c.target, name: switcher.name(c), place: place, role: o.role)
+        return OfferedOutlet(target: c.target, name: switcher.name(c), place: place, role: store.strictestRole(device: p.id, outlet: o.code))
       }
     }
   }

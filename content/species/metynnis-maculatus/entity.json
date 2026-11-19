@@ -10,7 +10,9 @@
     "bolivia",
     "madeira",
     "brazil",
-    "paraguai"
+    "paraguai",
+    "colombia",
+    "orinoco"
   ],
   "range": {
     "native": {
@@ -564,6 +566,10 @@
       {
         "source": "seriouslyfish",
         "value": 14.8
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -587,10 +593,22 @@
       "html": "<p>The spotted metynnis, Metynnis maculatus, is a silver dollar probably confined to the upper rio Madeira and upper rio Paraguai in Bolivia and Brazil. It is most often confused with M. argenteus and M. lippincottianus, but it has more midlateral scales and more spines on the ventral keel than either. It schools in nature and needs a very large tank with a group of six or more.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-maculatus-2/",
+      "html": "<p>According to literature, the species becomes 18-20 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-maculatus",
       "html": "<p>This species' range is unclear with records extending from Guyana to the upper and lower Amazon basins in Peru and Brazil, respectively.</p><p>However, it is probably found only in the upper rio Madeira, a major branch of the western Amazon watershed in Bolivia and western Brazil, including its major tributaries the rios Beni and Mamoré, plus the upper rio Paraguai in Brazil.</p><p>The majority of records pertain to the rio Guaporé (Río Iténez in Bolivia), the main affluent of the rio Mamoré, which drains the vast tropical wetland known as the Pantanal, and the upper rio Paraguai, which also has its headwaters in the Pantanal but flows in the opposite direction. The Guaporé and Paraguai are connected due to rising water levels during the annual wet season.</p><p>Type locality is 'Rio Guaporé, Mato Grosso, Brazil'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-maculatus-2/",
+      "html": "<p>Orinoco basin; the animals described here were recently imported from Colombia.</p>"
     },
     {
       "key": "aquariumSize",
@@ -623,6 +641,12 @@
       "html": "<p>Not usually aggressive but only appropriate for very large tanks containing robust, similarly-sized tankmates. There are plenty of suitable choices including many cichlids, catfishes, cyprinids, and other characins.</p><p>It is often found swimming in large schools in nature and some individuals can become skittish or even aggressive if kept in insufficient numbers in the aquarium, meaning a group of six or more should be the smallest considered. This gives a much more natural-looking display, plus interesting behaviour from the fish as they interact with conspecifics.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-maculatus-2/",
+      "html": "<p>Even if the herbivorous silver dollars are often characterized as \"peaceful\" against the \"bloodthirsty\" piranhas: they are tetras and they can also quarrel. In the case of Metynnis, the animals often tatter the tail fin in the course of the ranking-fights. However, this is harmless and heals quickly again.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/metynnis-maculatus",
@@ -647,7 +671,48 @@
       "html": "<ul><li>Cope, E. D. (1878). Synopsis of the fishes of the Peruvian Amazon, obtained by Professor Orton during his expeditions of 1873 and 1877. Proceedings of the American Philosophical Society 17(101), 673-701</li><li>Pavanelli, C. S., R. P. Ota and P. Petry (2009). New species of Metynnis Cope, 1878 (Characiformes: Characidae) from the rio Paraguay basin, Mato Grosso State, Brazil. Neotropical Ichthyology 7(2), 141-146</li><li>Kner, R. (1858). Zur Familie der Characinen. Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe 32(22), 163-168</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Gomes, I. D., F. G. Araújo, R. J. Albieri, and W. Uehara (2012). Opportunistic reproductive strategy of a non-native fish, the spotted metynnis Metynnis maculatus (Kner, 1858) (Characidae Serrasalminae) in a tropical reservoir in south-eastern Brazil. Tropical Zoology 25(1), 2-15</li><li>Thompson, A. W., R. Betancur-R., H. López-Fernández and G. Ortí (2014). A time-calibrated, multi-locus phylogeny of piranhas and pacus (Characiformes: Serrasalmidae) and a comparison of species tree methods. Molecular Phylogenetics and Evolution 81, 242-257</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/da91cfbc89fdd2ab.webp",
+      "thumb": "https://media.aquatome.com/glaser/da91cfbc89fdd2ab-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-maculatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/98c30e3d2b0a8f01.webp",
+      "thumb": "https://media.aquatome.com/glaser/98c30e3d2b0a8f01-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-maculatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d0556fc30b4631f2.webp",
+      "thumb": "https://media.aquatome.com/glaser/d0556fc30b4631f2-480.webp",
+      "width": 850,
+      "height": 1032,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-maculatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/638dfb64ccd4910f.webp",
+      "thumb": "https://media.aquatome.com/glaser/638dfb64ccd4910f-480.webp",
+      "width": 850,
+      "height": 878,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-maculatus-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "Ugh2UZ_kJqo",
@@ -696,5 +761,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19"
 }

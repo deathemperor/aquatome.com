@@ -3,6 +3,12 @@
   "name": "รอนโดเนีย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T00:37:09.341Z",
+    "why": "Thai atlases and the Royal Institute transcription write the Brazilian state as \"รondônia\" with the ô giving \"โอ\" and the state kind word \"รัฐ\", so the bare \"รอนโดเนีย\" uses a wrong vowel (ออ vs โอ) and omits the kind word."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

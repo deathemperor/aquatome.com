@@ -3,6 +3,12 @@
   "name": "Ky Cung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-17T05:10:44.693Z",
+    "why": "\"Ky Cung\" drops the river word, so it reads as a cut-short name; a Malaysian atlas would write \"Sungai Ky Cung\" (or \"Sungai Kỳ Cùng\"), using the Malay word \"Sungai\"."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

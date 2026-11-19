@@ -1,0 +1,29 @@
+{
+  "slug": "chelonodon-patoca",
+  "name": "Buntal pisang",
+  "altNames": [
+    "Milk spotted puffer",
+    "Buntal patoca",
+    "Ikan buntal"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Ikan buntal air payau. Ukuran dewasanya bisa mencapai 30 cm. Paling baik dipelihara di air payau.</p>",
+    "distribution:glaser": "<p>Chelonodon patoca tersebar luas di Samudra Hindia. Belakangan ini spesies ini sering dimasukkan ke dalam genus Chelonodontops. Stok ini didatangkan dari Thailand.</p>",
+    "habitat:glaser": "<p>Ikan dewasa biasanya hidup di laut, sedangkan yang muda hidup di air payau dan kadang-kadang berenang jauh ke arah hulu.</p>",
+    "equipment:glaser": "<p>Sebaiknya akuarium diberi dasar pasir, karena C. patoca suka sesekali membenamkan diri.</p>",
+    "behaviour:glaser": "<p>Sayangnya, banyak individu ikan cantik ini jadi suka menggigit sirip. Karena itu, sebaiknya ikan ini hanya dicampur dengan ikan-ikan yang gesit dan bisa menghindari serangan si buntal. Selain itu, C. patoca mudah dipelihara dan, seperti kebanyakan ikan buntal, sangat menarik.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.95
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

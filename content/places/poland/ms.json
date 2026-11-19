@@ -3,6 +3,12 @@
   "name": "Poland",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.1,
+    "at": "2026-11-17T11:35:19.392Z",
+    "why": "The Malay name for Poland is \"Poland\" in English spelling? No: Malaysian atlases write \"Poland\" as \"Poland\" in some uses, but standard Malay (DBP) is \"Poland\"; however the common Malay form is \"Poland\" (Malay: Poland), so this is the accepted name."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

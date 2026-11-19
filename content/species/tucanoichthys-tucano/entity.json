@@ -9,7 +9,8 @@
     "south-america",
     "rio-uaupes",
     "brazil",
-    "uaupes"
+    "uaupes",
+    "rio-negro"
   ],
   "range": {
     "native": {
@@ -37,7 +38,7 @@
         },
         {
           "source": "glaser",
-          "quote": "Tucanoichthys lives endemic in the upper Rio Negro basin, to be more precise in the Rio Uaupes.",
+          "quote": "Tucanoichthys lives endemic in the upper Rio Negro basin, more precisely in the Rio Uaupes.",
           "countries": [],
           "regions": [
             "Rio Negro"
@@ -74,28 +75,28 @@
   "dataCard": {
     "ph": [
       {
-        "source": "glaser",
-        "value": {
-          "min": 5,
-          "max": 5
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 4,
           "max": 6.5
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 2
-      },
-      {
         "source": "seriouslyfish",
         "value": 1.7
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ],
     "tempC": [
@@ -133,8 +134,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
-      "html": "<p>A tiny, very nice and extremely rare dwarf tetra. It attains a maximum length of around 2 cm and is an ideal fish for nano aquaria.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en/",
+      "html": "<p>Tucanoichthys tucano is a tiny tetra that reaches a maximum length of around 2 cm and is therefore an ideal fish for nano aquaria. It was imported for the first time ever.</p>"
     },
     {
       "key": "quickFacts",
@@ -145,8 +146,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
-      "html": "<p>Tucanoichthys lives endemic in the upper Rio Negro basin, to be more precise in the Rio Uaupes.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en/",
+      "html": "<p>Tucanoichthys lives endemic in the upper Rio Negro basin, more precisely in the Rio Uaupes.</p>"
     },
     {
       "key": "distribution",
@@ -175,7 +176,7 @@
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en/",
       "html": "<p>Fishes from that region should be kept in very soft, strongly acidic water (pH 5). The water should be coloured brownish with humic acids.</p>"
     },
     {
@@ -199,7 +200,7 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en/",
       "html": "<p>Males have red in the caudal and anal fin, which is missing in females.</p>"
     },
     {
@@ -217,7 +218,7 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en-3/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/tucanoichthys_tucano_en/",
       "html": "<p>In dark aquaria the pastel, but shining colours of the fish are presented best.</p>"
     },
     {
@@ -257,7 +258,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "zWhvXtOSTk8",
+      "title": "My Tucano Tetras Have Finally Laid Eggs!!!-Tucano Tetra Spawning Footage",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9_-ldoaFkfI",
+      "title": "🔴TUDO SOBRE TETRA TUCANO ( COMO CUIDAR, LITRAGEM, TEMPERATURA,  ALIMENTAÇÃO, PH E + ) |Mr. Betta|",
+      "durationSec": 617,
+      "lang": "pt-BR"
+    },
+    {
+      "youtubeId": "s3RQR5nNi5o",
+      "title": "Tucanoichthys tucano",
+      "durationSec": 166,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "daEa0PcR5p4",
+      "title": "Tucanoichthys tucano in a blackwater aquarium",
+      "durationSec": 95,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -279,5 +305,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-17"
 }

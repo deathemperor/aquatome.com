@@ -3,6 +3,12 @@
   "name": "Tone",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:00:22.722Z",
+    "why": "\"Tone\" alone is ambiguous: Tone is a Japanese river (Sungai Tone) and the place is described as a region (Tone District/Tone-gun), so the Malay form would normally carry a kind word such as \"Sungai Tone\" or \"Daerah Tone\", and bare \"Tone\" omits it."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

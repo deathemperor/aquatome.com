@@ -3,7 +3,9 @@
   "name": "Cá da trơn nenga",
   "altNames": [
     "Cá mập nước ngọt nenga",
-    "Whimple freshwater shark"
+    "Whimple freshwater shark",
+    "Thickspined catfish",
+    "Nenga gagora"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Nemapteryx nenga là một loài cá da trơn có nguồn gốc từ Ấn Độ. Trước đây, loài này nằm trong giống Arius. Tuy hay được gọi là \"cá mập nước ngọt\", nó không phải cá mập. Cá lớn tới khoảng 30 cm, vì vậy chỉ nên nuôi trong bể lớn.</p>",
@@ -11,14 +13,18 @@
     "waterConditions:glaser": "<p>Bạn nên nuôi chúng trong nước lợ, pha 5-10 gram muối cho mỗi lít nước.</p>",
     "behaviour:glaser": "<p>Loài cá da trơn này nên luôn được nuôi theo đàn từ 5 đến 10 con. Nuôi một con riêng lẻ thì cá thường không khỏe mạnh.</p>",
     "reproduction:glaser": "<p>Theo những gì biết được đến nay, mọi loài họ hàng của Arius đều ấp trứng bằng miệng. Cá đực ngậm trứng trong miệng cho tới khi trứng nở.</p>",
-    "notes:glaser": "<p>Loài này có vây lưng dáng rất đẹp. Vì thế người ta có thể gọi nó bằng tên thông dụng \"whimple freshwater shark\".</p>"
+    "notes:glaser": "<p>Loài này có vây lưng dáng rất đẹp. Vì thế người ta có thể gọi nó bằng tên thông dụng \"whimple freshwater shark\".</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: chưa đánh giá</li></ul>",
+    "distribution:scotcat": "<p>Nam Á và Đông Nam Á: Ấn Độ, Thái Lan, Myanmar, Malaysia và Indonesia. Mẫu chuẩn lấy ở sông Hằng, Ấn Độ.</p>",
+    "notes:scotcat": "<p>Mô tả: Các mảng răng trên vòm miệng có hình tam giác rõ. Trục dài của chúng chếch khoảng 70° so với đường cong của miệng.</p><p>Nguồn gốc tên: Tên giống Kyataphisa là một từ tiếng Bengal, nghĩa là cá da trơn. Tên loài nenga lấy từ Nenga gagora, tên người Bengal ở Ấn Độ gọi loài cá da trơn này.</p><p>Ghi chú: Tra trên mạng thì một số nơi vẫn ghi loài này dưới tên Nemapteryx nenga.</p>",
+    "references:scotcat": "<p>Kailola, P. J. 2004 (Dec.) A phylogenetic exploration of the catfish family Ariidae (Otophysi: Siluriformes). The Beagle, Records of the Museums and Art Galleries of the Northern Territory v. 20: 87-166. Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126. Marceniuk, A. P., C. Oliveira and C. J. Ferraris, Jr. 2023 (21 Aug.) A new classification of the family Ariidae (Osteichthyes: Ostariophysi: Siluriformes) based on combined analyses of morphological and molecular data. Zoological Journal of the Linnean Society Advance access: 1-51. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.9
+    }
   }
 }

@@ -1,0 +1,16 @@
+{
+  "slug": "miskolctapolca",
+  "name": "มิชโกลตะโปลซอ",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:20:59.618Z",
+    "why": "The name is a Thai-script phonetic rendering of Miskolctapolca, but it is loose: it uses ก for k, drops the \"l-ts\" cluster, and gives ซอ for \"ca\", so it does not match how an atlas in Thailand would write it."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

@@ -1,8 +1,13 @@
 {
   "slug": "santik",
-  "name": "Santik",
+  "name": "Sungai Santik",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-17T05:10:00.097Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

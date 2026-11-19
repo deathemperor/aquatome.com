@@ -1,8 +1,13 @@
 {
   "slug": "songhua",
-  "name": "Songhua",
+  "name": "Sungai Songhua",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T05:10:46.514Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

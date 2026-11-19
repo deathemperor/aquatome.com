@@ -13,7 +13,19 @@
     "fernando-poo",
     "gambia",
     "nigeria",
-    "niger"
+    "niger",
+    "guinea-bissau",
+    "sierra-leone",
+    "liberia",
+    "ghana",
+    "togo",
+    "benin",
+    "cameroon",
+    "gabon",
+    "congo",
+    "democratic-republic-of-the-congo",
+    "namibia",
+    "mauritania"
   ],
   "range": {
     "native": {
@@ -21,13 +33,27 @@
         "GQ",
         "SN",
         "AO",
-        "GM"
+        "GM",
+        "GW",
+        "SL",
+        "LR",
+        "GH",
+        "TG",
+        "BJ",
+        "NG",
+        "CM",
+        "GA",
+        "CG",
+        "CD",
+        "NA",
+        "MR"
       ],
       "regions": [
         "Fernando Póo Island"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -36,26 +62,66 @@
           "countries": [
             "GQ"
           ],
-          "regions": [
-            "Fernando Póo Island"
-          ]
+          "regions": []
         },
         {
           "source": "planetcatfish",
-          "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo. Reported from Gambia and the lower Niger basin.",
+          "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo.",
           "countries": [
             "SN",
-            "AO",
+            "AO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Reported from Gambia and the lower Niger basin.",
+          "countries": [
             "GM"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+          "countries": [
+            "GW",
+            "SL",
+            "LR",
+            "GH",
+            "TG",
+            "BJ",
+            "NG",
+            "CM",
+            "GA",
+            "CG",
+            "CD",
+            "NA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species can be found from Mauritania to Namibia, is mainly found in estuaries and can be locally abundant.",
+          "countries": [
+            "MR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia. Type locality: Fernando Póo Island, Equatorial Guinea, Gulf of Guinea.",
+          "countries": [],
+          "regions": [
+            "Fernando Póo Island"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2345301,
       "total": 142,
-      "fetched": "2026-11-16",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "MR",
@@ -123,7 +189,7 @@
           -18.28125,
           11.25,
           1,
-          0
+          1
         ],
         [
           -18.28125,
@@ -135,7 +201,7 @@
           -16.875,
           11.25,
           4,
-          2
+          4
         ],
         [
           -16.875,
@@ -147,13 +213,13 @@
           -16.875,
           19.6875,
           65,
-          0
+          65
         ],
         [
           -15.46875,
           11.25,
           2,
-          0
+          2
         ],
         [
           -14.0625,
@@ -171,85 +237,85 @@
           -1.40625,
           4.21875,
           1,
-          0
+          1
         ],
         [
           0,
           9.84375,
           2,
-          0
+          2
         ],
         [
           1.40625,
           5.625,
           18,
-          0
+          18
         ],
         [
           2.8125,
           5.625,
           2,
-          0
+          2
         ],
         [
           2.8125,
           11.25,
           4,
-          0
+          4
         ],
         [
           8.4375,
           -2.8125,
           1,
-          0
+          1
         ],
         [
           8.4375,
           0,
           2,
-          0
+          2
         ],
         [
           8.4375,
           1.40625,
           1,
-          0
+          1
         ],
         [
           9.84375,
           -2.8125,
           21,
-          0
+          21
         ],
         [
           9.84375,
           2.8125,
           1,
-          0
+          1
         ],
         [
           9.84375,
           4.21875,
           2,
-          0
+          2
         ],
         [
           11.25,
           -18.28125,
           1,
-          0
+          1
         ],
         [
           11.25,
           -7.03125,
           4,
-          0
+          4
         ],
         [
           11.25,
           -5.625,
           4,
-          1
+          4
         ],
         [
           12.65625,
@@ -271,6 +337,28 @@
       {
         "source": "planetcatfish",
         "value": 70
+      },
+      {
+        "source": "scotcat",
+        "value": 70
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
       }
     ]
   },
@@ -282,10 +370,22 @@
       "html": "<ul><li><strong>Scientific name:</strong> Carlarius latiscutatus (Günther, 1864)</li><li><strong>Common names:</strong> Gambian Sea Catfish, Rough-head Sea Catfish, Ruhovedet Havmalle (Denmark)</li><li><strong>Type locality:</strong> Fernando Póo Island [Bioco Island], Equatorial Guinea, Gulf of Guinea.</li><li><strong>Synonyms:</strong> Arius lagoensis, Arius latiscutatus, Tachysurus lagoensis</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
+      "html": "<ul><li>Common name: Rough-head sea catfish</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
       "html": "<p>Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo. Reported from Gambia and the lower Niger basin.</p><p>IUCN Red List category: Least Concern. Last assessed 2019.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
+      "html": "<p>Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia. Type locality: Fernando Póo Island, Equatorial Guinea, Gulf of Guinea.</p><p>This species can be found from Mauritania to Namibia, is mainly found in estuaries and can be locally abundant.</p>"
     },
     {
       "key": "habitat",
@@ -294,9 +394,21 @@
       "html": "<p>Mainly marine but frequently found in brackish estuaries, sometimes enters freshwater.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
+      "html": "<p>Mainly marine but frequently found in brackish estuaries, and sometimes enters freshwater. Common during winter.</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
+      "html": "<p>Feeds on fish, benthic invertebrates, zooplankton and detritus.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
       "html": "<p>Feeds on fish, benthic invertebrates, zooplankton and detritus.</p>"
     },
     {
@@ -306,14 +418,49 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
+      "html": "<p>Ornamental and sometimes considered an aquarium fish, the fish is venomous and can be dangerous to humans.</p><p>Etymology: The specific name latiscutatus: latis, broad; scutatus, shielded, referring to occipital process broader than long.</p><p>Marceniuk et al (2007) have placed this species (Arius latiscutatus) in a new genus, Carlarius, named for Carl Ferraris for his contribution to the knowledge of Siluriformes fishes and includes the seven known Arius species from the west African coastline. Arius heudeloti Valenciennes, 1840, is the type species. Up to date this change of genus has now been accepted.</p><p>IUCN Red List: It is fished throughout its range in artisanal and industrial fisheries. Species-specific catch data are not available, but mixed-Ariidae catch reported in the region do not show any current indication of decline. It is listed as Least Concern. However, this species should be carefully monitored, as it may be increasingly targeted as other demersal species are over-exploited (IUCN 2020).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=139",
       "html": "<p>Catalogue of the fishes in the British Museum v. 5, pp 151, Fig.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
+      "html": "<p>Carpenter, K.E., Camara, K.D., Djiman, R., Nunoo, F., Sagna, A., Sidibé, A, de Morais, L. &amp; Olaosebikan, B.D. 2020. Carlarius latiscutatus. The IUCN Red List of Threatened Species 2020. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009). Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e6c6b1d68d8a5652.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e6c6b1d68d8a5652-480.webp",
+      "width": 500,
+      "height": 336,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
+      "caption": "Carlarius latiscutatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/231118991af5ddc0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/231118991af5ddc0-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/carlarius_latiscutatus.htm",
+      "caption": "Carlarius latiscutatus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-15"
+  "updatedAt": "2026-11-18"
 }

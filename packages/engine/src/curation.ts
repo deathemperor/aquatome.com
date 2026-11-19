@@ -360,7 +360,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   }
   const known = [...STAPLE_SPECIES, ...POPULAR.filter(id => !STAPLE_SPECIES.includes(id)), ...POPULAR_BREEDS]
   const out: Candidate[] = []
-  // A non-commercial album photo stays in its album: no card shows it (the owner's yes was for albums, 10 Nov).
+  // A non-commercial album photo stays in its album: no card shows it (albums only: the rule this step was built with, 16 Nov).
   const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? []).filter(p => !isNonCommercial(p.licence))]
   for (const s of c.species) {
     const ok = (p: Photo) => cardWorthy(p, s.id, v, avoid)

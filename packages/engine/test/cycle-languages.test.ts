@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { LANG, OTHER_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
+import { RECHECK_LANGS } from '../src/localize-recheck'
 
 const script = readFileSync(new URL('../../../scripts/engine-cycle.sh', import.meta.url), 'utf8')
 const loops = (lang: string) => [...script.matchAll(/for lang in ([a-z -]+); do/g)].map(m => m[1]!.split(' ')).filter(l => l.includes(lang))
@@ -26,6 +27,22 @@ test("Malay's steps: 10 species a cycle right after Indonesian and Thai, never g
   for (const step of ['--kind plants --limit "${LOCALIZE_PLANTS_LIMIT:-4}"', 'localize-guides --lang "$lang" --limit "${LOCALIZE_GUIDES_LIMIT:-2}"', 'localize-breeds --lang "$lang" --limit "${LOCALIZE_BREEDS_LIMIT:-2}"', 'localize-captions --lang "$lang" --limit "${LOCALIZE_CAPTIONS_LIMIT:-10}"']) expect(block, step).toContain(step)
   for (const step of ['localize-glossary', 'localize-places', 'localize-equipment', 'wikidata-names', 'shop-names']) expect(block, step).toContain(step)
   for (const line of block.split('\n').filter(l => l.includes('pnpm'))) expect(line.trim(), line).toMatch(/^ahead pnpm /)
+})
+
+test('the pages out of search for their score are read again on two models, Indonesian and Thai, after the other translations and gated as they are', () => {
+  // The chief of staff, 16 Nov 2026: a page comes back on two fresh reads on two models, Indonesian and Thai fish pages
+  // only. Up to six model calls a page: a long cycle gives it first, and it starts no page after 15 minutes, inside the
+  // 20 a gated step is allowed (the test below).
+  const from = script.indexOf('for lang in ms; do')
+  const malay = script.indexOf('\n  done\n', from)
+  const recheck = script.indexOf('do ahead pnpm engine recheck --lang "$lang" --limit "${RECHECK_LIMIT:-15}" --max-minutes "${RECHECK_MINUTES:-15}"')
+  expect(from).toBeGreaterThan(-1)
+  expect(recheck).toBeGreaterThan(malay)
+  expect(recheck).toBeLessThan(script.indexOf('pnpm engine judge-places'))
+  // Nothing but comments between Malay's steps and it, and the two languages its rule was measured on.
+  const line = script.lastIndexOf('\n', recheck)
+  expect(script.slice(malay + '\n  done\n'.length, line).split('\n').filter(l => l.trim() && !l.trim().startsWith('#'))).toEqual([])
+  expect(script.slice(line + 1, recheck).trim()).toBe(`for lang in ${RECHECK_LANGS.join(' ')};`)
 })
 
 test('the rewrite part spends on the Vietnamese rewrite and every translation first, Malay inside them, then the rest; a gated step started at the gate ends inside the job', () => {

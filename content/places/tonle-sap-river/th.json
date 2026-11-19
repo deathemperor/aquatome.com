@@ -1,8 +1,13 @@
 {
   "slug": "tonle-sap-river",
-  "name": "โตนเลสาบ",
+  "name": "แม่น้ำโตนเลสาบ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T00:42:07.559Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

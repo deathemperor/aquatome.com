@@ -13,7 +13,8 @@
     "malaysia",
     "vietnam",
     "china",
-    "chao-phraya"
+    "chao-phraya",
+    "kanchanaburi"
   ],
   "range": {
     "native": {
@@ -30,11 +31,13 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The Siamese fighting fish, Betta splendens, is a labyrinth fish from central Thailand, native to rice paddies, swamps, ditches and other still waters.",
+          "quote": "Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra.",
           "countries": [
             "TH"
           ],
-          "regions": []
+          "regions": [
+            "Malay Peninsula"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -42,14 +45,6 @@
           "countries": [],
           "regions": [
             "Chao Phraya"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra.",
-          "countries": [],
-          "regions": [
-            "Malay Peninsula"
           ]
         }
       ]
@@ -585,6 +580,12 @@
       "html": "<p>Not recommended for the standard community aquarium. Its care requirements and disposition mean it is best kept alone. Sometimes individual fish may tolerate other species, but this is the exception not the expected norm.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are suitable, but proper research prior to purchase is essential and in most cases it is best maintained alone. Species with body shapes or trailing finnage should certainly be avoided, since a male may view these as rivals.</p><p>Ornamental strains seem to be more aggressive than any other Betta species, including others from the B. splendens group, and only a single individual can be kept per tank in most cases. Usual practice is also to maintain males and females separately unless breeding.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-splendens-wild-2/",
+      "html": "<p>They are beautiful fish with a lot of temper and a lot of red coloration.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/siamese-fighting-fish-bettas-1378308",
@@ -621,6 +622,12 @@
       "html": "<p>This species is among the most popular and well-known aquarium fishes. Its common name is derived from the tradition of keeping the fish in order to fight against each other in organised 'bouts' upon which participants and onlookers place wagers. It has been extensively line-bred for vigour, strength, and the ornamental trade, and hybridised with the congeners B. imbellis, B. smaragdina, and B. mahachaiensis.</p><p>The wild form is rarely seen in the aquarium hobby but there exist countless ornamental strains which vary tremendously in colour pattern, morphology of fins and body, quality, and price. The cheap, 'veiltail' strains found on sale in the majority of stores are mostly mass-produced in Southeast Asia or Eastern Europe and often exhibit genetic defects or other health issues, so it is best to find a reputable private breeder if possible.</p><p>Females are also available in a myriad of colours, and some commercial breeders have apparently taken to producing very short-finned males which are subsequently sold as females, purportedly in order to discourage private breeding efforts. The vernacular name 'plakat', often applied to short-finned ornamental strains, is derived from 'pla kat', the Thai name for all members of the B. splendens group.</p><p>This species lends its name to the Betta splendens complex of closely-related species within the genus, of which members share the following series of characters: head length short 22-31 % SL; often a brightly-coloured body; iris of the eye with iridescent green or blue patches; body elongate or slender; opercles parallel when head viewed dorsally; caudal-fin rays red or brown and contrasting with the iridescent interradial membranes; unpaired fins without an iridescent margin; opercle with red or blue vertical bars in males; dorsal-fin rays 0-II, 7-9; anal-fin rays II-V, 21-26.</p><p>The unique combination of characters distinguishing B. splendens from others in the group is as follows: no iridescent scales on opercle; opercle with red-coloured parallel vertical bars; fins in male blue, green, or red; head and body relatively stocky with depth 27.1-32.2 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae. Members have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is largely based on morphological and behavioural characters.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth, which permits the fish to breathe atmospheric air to a certain extent. Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be more developed in those inhabiting harsher environments.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-splendens-wild-2/",
+      "html": "<p>The wild forms of the Betta splendens-group are very difficult to determine, even for specialists, and in some cases a safe determination will fail altogether. Currently these species are placed in the group: Betta imbellis, B. mahachaiensis, B. siamorientalis, B. smaragdina, B. splendens, and B. stiktos. Inside this group one can differentiate two subgroups, namely the Betta smaragdina-subgroup, containing B. mahachaiensis, B. smaragdina, and B. stiktos, and the Betta splendens-subgroup that contains the remaining species.</p><p>The only way to distinguish the species of the Betta splendens-subgroup is via the coloration of the head of males in aggressive mood. In Betta imbellis a blue stripe appears at the edge of the operculum, and another blue stripe appears in front of it behind the eye. In Betta splendens and B. siamorientalis the whole head becomes dark or black and at the edge of the operculum a red or yellowish stripe appears. All other details in coloration and morphometrics overlap broadly in the three species and are hardly useful for determination purposes. However, DNA analyses strongly support the existence of the three species.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-splendens",
@@ -633,15 +640,15 @@
       "thumb": "https://media.aquatome.com/commons/561b4018211c8bee-480.webp",
       "width": 960,
       "height": 742,
-      "licence": "CC BY 4.0",
-      "author": "Henryk Niestrój",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bojownik_syjamski.jpg",
-      "caption": "Aquarium fish, Siamese fighting fish, also great fighting fish (Betta splendens)",
       "large": {
         "url": "https://media.aquatome.com/commons/561b4018211c8bee-large.webp",
         "width": 1553,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 4.0",
+      "author": "Henryk Niestrój",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bojownik_syjamski.jpg",
+      "caption": "Aquarium fish, Siamese fighting fish, also great fighting fish (Betta splendens)"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/2aac368512dfd6f8.webp",
@@ -742,5 +749,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-17"
 }

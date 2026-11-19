@@ -16,7 +16,7 @@ const facts: TopicFacts = {
     { section: 'what', fact: 'Driftwood releases tannins that lower pH slightly and tint the water brown', source: 0 },
     { section: 'steps', fact: 'Soak new driftwood for one to two weeks, changing the water, before it goes in a tank', source: 1 },
     { section: 'other', fact: 'Bogwood is wood preserved in a peat bog', source: 2 },
-    { section: 'other', fact: 'Vietnamese keepers write "gỗ lũa" and "cây lũa"; NH3 is not about wood', source: 1 },
+    { section: 'other', fact: 'Vietnamese keepers write the term as "gỗ lũa" and "cây lũa"; NH3 is not about wood', source: 1 },
   ],
   species: [],
   sources: [
@@ -76,7 +76,9 @@ test('a term\'s fuller entry: cited facts only, checked and rewritten once on no
   expect(researched).toContain('never on marketplaces (Shopee, Lazada, Tiki) or social networks')
   // A figure keeps its page's place: research never says a Singapore shop's figure applies to Vietnam (the chief of staff, 17 Nov 2026).
   expect(researched).toContain('A figure keeps its page\'s place: a figure a page gives for one country, city or climate')
-  expect(researched).toContain('a fact from a page outside Vietnam says Vietnam only where the page itself does')
+  expect(researched).toContain('A fact from a page outside Vietnam says Vietnam only where the page itself does')
+  // Not "anywhere wider than the page names", which reads loosely (the chief of staff, 17 Nov 2026, on the reader's point).
+  expect(researched).toContain('A fact names no place its page doesn\'t name: never add Vietnam, a region or a climate ("the tropics", "Southeast Asia", "hot countries") to what a page says')
   expect(prompts[0]).toContain('<strong>tên các tiệm Việt Nam ghi</strong>')
   expect(prompts[0]).toContain('Trước hết là các loại bán ở Việt Nam')
   expect(prompts[0]).toContain('Soak new driftwood for one to two weeks')
@@ -159,6 +161,11 @@ test('a marketplace\'s, a social network\'s or a refused site\'s page is never a
   expect(wrote).not.toContain('brine')
   const e = JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(facts.sources.map(x => x.url))
+  // The research kept holds no refused site's page, nor what it alone says; a marketplace's and a social network's pages
+  // stay in it, as before (the chief of staff, 17 Nov 2026: Thursday's change, refused-sources.ts).
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
+  expect(kept.sources.map(x => x.url)).toEqual(shops.sources.slice(0, 5).map(x => x.url))
+  expect(kept.facts.map(f => f.fact)).toEqual(shops.facts.slice(0, -1).map(f => f.fact))
 })
 
 // A body cut by hand, what rested on a refused site alone taken off the live page (bodyFixed; the chief of staff, 16 Nov
@@ -287,8 +294,8 @@ test('--top-up researches only what the notes ask, adds it to the kept research 
   expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true })).toEqual({ id: 'lua', refused: ['no kept research to top up'] })
   await mkdir(join(root, 'engine-state/glossary'), { recursive: true })
   await writeFile(join(root, 'engine-state/glossary/lua.json'), JSON.stringify(facts))
-  await writeFile(join(root, 'engine-state/glossary/ph.json'), JSON.stringify(facts))
-  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'ph', { kind: 'setup', topUp: true })).toEqual({ id: 'ph', refused: ['nothing to top up: the notes file gives this term no also or read'] })
+  await writeFile(join(root, 'engine-state/glossary/tanin.json'), JSON.stringify(facts))
+  expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'tanin', { kind: 'setup', topUp: true })).toEqual({ id: 'tanin', refused: ['nothing to top up: the notes file gives this term no also or read'] })
   for (const with_ of [{ fresh: true }, { reuse: true }, { revise: true }, { fromDraft: true }, { accept: 'the chief of staff' }])
     expect(await makeGlossaryEntry(root, { research: never, llm: never }, 'lua', { kind: 'aquascaping', topUp: true, ...with_ })).toMatchObject({ refused: [expect.stringMatching(/^--top-up only researches/)] })
   const more: TopicFacts = {
@@ -309,7 +316,9 @@ test('--top-up researches only what the notes ask, adds it to the kept research 
   expect(asked).toContain(`Read these pages and keep what they say: ${ASKS.lua!.read!.join(', ')}.`)
   expect(asked).not.toContain('what it does in a tank')
   // A top-up's research keeps a figure's place too.
-  expect(asked).toContain('a fact from a page outside Vietnam says Vietnam only where the page itself does')
+  expect(asked).toContain('A fact from a page outside Vietnam says Vietnam only where the page itself does')
+  // Not "anywhere wider than the page names", which reads loosely (the chief of staff, 17 Nov 2026, on the reader's point).
+  expect(asked).toContain('A fact names no place its page doesn\'t name: never add Vietnam, a region or a climate ("the tropics", "Southeast Asia", "hot countries") to what a page says')
   const kept = JSON.parse(await readFile(join(root, 'engine-state/glossary/lua.json'), 'utf8')) as TopicFacts
   expect(kept.facts).toEqual([...facts.facts, { section: 'what', fact: 'Lũa sa tùng is the root of a pine', source: 3 }])
   expect(await Promise.all(files.map(f => readFile(join(root, f), 'utf8')))).toEqual(before)
@@ -361,15 +370,16 @@ test('a term\'s notes file sets its length: pH\'s 648 words get a trim pass and 
   expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'ph', { kind: 'setup' })).toMatchObject({ id: 'ph', score: 1 })
   expect(writes.length).toBe(2)
   // The writer is told the term's own length (Codex, 14 Nov 2026: it was told only the prompt's 200–300 words).
-  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 620 chữ cả bài')
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 630 chữ cả bài')
   const asks = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { length?: { words: number; why: string } }>
-  // The chief of staff's 620, 15 Nov 2026, once every read sentence was kept.
-  expect(asks.ph!.length!.words).toBe(620)
+  // The chief of staff's 620, 15 Nov 2026, once every read sentence was kept; 630 on 18 Nov, so a rewrite keeps the
+  // almond-leaf credit and the pace in its step without cutting whole sentences.
+  expect(asks.ph!.length!.words).toBe(630)
   for (const [id, a] of Object.entries(asks)) if (a.length) expect(a.length.words <= 600 || /chief of staff/.test(a.length.why), id).toBe(true)
 })
 
-// The owner, 15 Nov 2026: "what does each look like?". Nền bể names its kinds and sets its own length, 500: the writer is
-// told the 500, and that each kind takes a line or two, as its picture shows how it looks.
+// The owner, 15 Nov 2026: "what does each look like?". Nền bể names its kinds and sets its own length, 580 (the chief of
+// staff, 16 Nov 2026): the writer is told the 580, and that each kind takes a line or two, as its picture shows how it looks.
 test('a term with kinds and its own length tells the writer the length, and a line or two a kind', async () => {
   const root = await site()
   await mkdir(join(root, 'content/glossary/nen-be'), { recursive: true })
@@ -383,7 +393,7 @@ test('a term with kinds and its own length tells the writer the length, and a li
     return written as never
   }
   await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'nen-be', { kind: 'setup' })
-  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 500 chữ cả bài, thay cho độ dài nói ở trên. Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.')
+  expect(writes[0]).toContain('--- ĐỘ DÀI ---\nKhoảng 580 chữ cả bài, thay cho độ dài nói ở trên. Mỗi loại một hai câu, vì ảnh của nó cho thấy nó trông thế nào.')
   expect(writes[0]).toContain('--- LOẠI BÁN Ở VIỆT NAM ---\nđất nền (aqua soil)')
 })
 
@@ -955,7 +965,7 @@ test('a name the term\'s notes take off leaves its other names, saved or newly w
   await mkdir(join(root, 'content/glossary/gh'), { recursive: true })
   await writeFile(join(root, 'content/glossary/gh/entity.json'), JSON.stringify({ id: 'gh', en: 'General hardness' }))
   await writeFile(join(root, 'content/glossary/gh/vi.json'), JSON.stringify({ slug: 'gh', name: 'GH', altNames: ['dGH', 'độ cứng tổng'], sections: {}, definition: 'Độ cứng tổng của nước.', quality: { score: 0.9, indexable: true } }))
-  const named: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'other', fact: 'Keepers here write "độ cứng chung" for GH and measure it in dGH', source: 1 }] }
+  const named: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'other', fact: 'Keepers here write the term as "độ cứng chung" and measure it in dGH', source: 1 }] }
   const llm: Llm = async ({ prompt }) => {
     if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
     if (isCheck(prompt)) return verdicts(prompt) as never
@@ -965,4 +975,27 @@ test('a name the term\'s notes take off leaves its other names, saved or newly w
   expect(r).toMatchObject({ id: 'gh', score: 1 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/gh/vi.json'), 'utf8'))
   expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung'])
+})
+
+// The chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing. A link phrase stays one, kept on
+// the save; a phrase the writer offers that a fact only quotes, and not as the term's name, is not an other name.
+test('a term\'s link phrases are kept and never become its other names; a writer\'s name stays only when a fact gives it as one', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/gh'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/gh/entity.json'), JSON.stringify({ id: 'gh', en: 'General hardness' }))
+  await writeFile(join(root, 'content/glossary/gh/vi.json'), JSON.stringify({ slug: 'gh', name: 'GH', altNames: ['độ cứng tổng'], sections: {}, linkNames: ['độ cứng của nước'], definition: 'Độ cứng tổng của nước.', quality: { score: 0.9, indexable: true } }))
+  const quoted: TopicFacts = { ...facts, facts: [...facts.facts,
+    { section: 'other', fact: 'Name for the term: "độ cứng chung".', source: 1 },
+    { section: 'other', fact: 'A shop says "nước rất cứng" scales heaters, and calls "độ cứng của nước" the first thing to test', source: 1 },
+    { section: 'other', fact: 'GH is short for General hardness, measured in dGH', source: 1 }] }
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    return { definition: 'GH là độ cứng tổng của nước.', altNames: ['độ cứng chung', 'độ cứng của nước', 'nước rất cứng', 'General hardness'], body: '<h3>Trong bể của bạn</h3><p>GH đo canxi và magie trong nước.</p>', related: [] } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => quoted as never, llm }, 'gh', { kind: 'care' })
+  expect(r).toMatchObject({ id: 'gh', score: 1 })
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/gh/vi.json'), 'utf8'))
+  expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung', 'General hardness'])
+  expect(vi.linkNames).toEqual(['độ cứng của nước'])
 })

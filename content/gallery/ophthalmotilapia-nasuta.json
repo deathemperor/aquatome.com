@@ -2,19 +2,6 @@
   "id": "ophthalmotilapia-nasuta",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/689265908.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/689265908-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Zach Johnson",
-      "sourceUrl": "https://www.inaturalist.org/photos/689265908",
-      "caption": "Cá Ophthalmotilapia nasuta có vằn bơi gần ống đá dưới nước",
-      "best": true,
-      "kind": "habitat",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/d6aa138bbd99cba4.webp",
       "thumb": "https://media.aquatome.com/commons/d6aa138bbd99cba4-480.webp",
       "width": 960,
@@ -25,6 +12,18 @@
       "caption": "Cá Ophthalmotilapia nasuta đực màu vàng trong bể nuôi",
       "best": true,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/689265908.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/689265908-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zach Johnson",
+      "sourceUrl": "https://www.inaturalist.org/photos/689265908",
+      "caption": "Cá Ophthalmotilapia nasuta có vằn bơi gần ống đá dưới nước",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 4,

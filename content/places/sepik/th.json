@@ -3,6 +3,12 @@
   "name": "เซปิก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:38:31.232Z",
+    "why": "เซปิก is the correct transliteration of Sepik, but the place is a region (the Sepik region/provinces) and Thai atlases normally write the river as แม่น้ำเซปิก or the provinces as เซปิกตะวันออก/เซปิกตะวันตก, so the bare name is ambiguous."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

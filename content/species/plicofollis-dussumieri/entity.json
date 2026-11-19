@@ -1,0 +1,158 @@
+{
+  "id": "plicofollis-dussumieri",
+  "scientificName": "Plicofollis dussumieri",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Plicofollis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "mozambique",
+    "madagascar",
+    "asia",
+    "sri-lanka",
+    "india",
+    "bangladesh",
+    "myanmar",
+    "indonesia",
+    "sumatra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 60
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "html": "<ul><li>Common name: Blacktip sea catfish</li><li>Description: Anal soft rays: 14–16. It has a prominent lateral ethmoid that forms a \"shelf\" between the eye and the nostrils, two pairs of vomerine toothplates, and a very short adipose-fin base.</li><li>Colouration: Body dark brown, lower surfaces completely covered with fine brown pigment specks.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "html": "<p>Indo-west Pacific: Mozambique and Madagascar to Sri Lanka, the east coast of India, Bangladesh, Myanmar to Sumatra.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "html": "<p>Found along the coast. Enters the lower parts of rivers of the east coast of Africa.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "html": "<p>Feeds on invertebrates and small fishes. Marketed fresh and dried-salted. Air bladder utilized for isinglass.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "html": "<p>Etymology: The genus name Plicofollis: plico, fold; follis, bellows or windbag, referring to creased or scalloped swim bladder characteristic of the genus. The specific name dussumieri: in honour of Jean-Jacques Dussumier (1792-1883), French voyager and merchant, who reported on this fish from off the Malabar coast of India.</p><p>IUCN Red List: This species is assessed as Least Concern due to its very large distribution and the lack of any known major widespread threats. Although it is utilised, there is no evidence at present that this poses a major threat to the species, however, further research into harvest levels would be beneficial in confirming this (IUCN 2017).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2008).</li><li>Sparks, J.S., Kaymaram, F., Bishop, J., Al-Husaini, M., Almukhtar, M. &amp; Alam, S. 2017. Plicofollis dussumieri. The IUCN Red List of Threatened Species 2017.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/211dc181f08b74a2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/211dc181f08b74a2-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "caption": "Plicofollis dussumieri: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/99a582568207f9ff.webp",
+      "thumb": "https://media.aquatome.com/scotcat/99a582568207f9ff-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "caption": "Plicofollis dussumieri: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/571c1810a248172d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/571c1810a248172d-480.webp",
+      "width": 500,
+      "height": 282,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "caption": "Plicofollis dussumieri: juvenile",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0c7c749d4d799104.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0c7c749d4d799104-480.webp",
+      "width": 500,
+      "height": 280,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm",
+      "caption": "Plicofollis dussumieri: juvenile",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "FProhuU1kuo",
+      "title": "sea cat fish/ഏട്ട",
+      "durationSec": 69,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "W41bPf8Vtjw",
+      "title": "ചങ്ക്‌ളി#മഞ്ഞൾ ഏട്ട#yellow catfish#മഞ്ഞകൂരി#chankli#ചങ്ക്ലി",
+      "durationSec": 17,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QzHy6UDL_M0",
+      "title": "yellow catfish catch/  ഏട്ട(മഞ്ഞക്കൂരി) പിടുത്തം",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OX-QElWjqLA",
+      "title": "ഉപ്പ് വെള്ളത്തിലും ശുദ്ധജലത്തിലും വസിക്കുന്ന മത്സ്യം |ഏട്ട,കൂരി |Blacktip sea catfish|FISHinKERALA28",
+      "durationSec": 59,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

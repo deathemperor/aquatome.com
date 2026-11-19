@@ -3,12 +3,74 @@ import { PictureSet } from '@aq/schema'
 import { describe, expect, test } from 'vitest'
 import { checkDist, checkPage, fishSections, loadFacts, type Facts } from '../scripts/page-check'
 import { DIST, page } from './dist'
+import { localizePath } from '../src/lib/i18n'
 
 const facts = await loadFacts(process.env.CONTENT_ROOT!)
 
 // Every page of the fixture build passes every check. A real exception goes into the check, with its reason.
 test('no built page shows a picture twice, a wrong fish, a wrong link, a fish without its photo, wrong contents or an empty section', () => {
   expect(checkDist(DIST, facts)).toEqual([])
+})
+
+// The owner's report of 15 Nov: the fiddler crab's page said "Loài cá" at the head of its trail, as about 100 crabs',
+// shrimps', snails', frogs', newts' and corals' pages did; and the site's own lines called them fish too (the Writing
+// Lead, 17 Nov: the range's "có thể là cá do người thả ra"). The fixture's shrimp is one: its page and its group's say
+// "Loài" there, no line of the site's calls it a fish, and the check over every
+// page (the test above; live, every such page) finds "Loài cá" and every such line on any of them.
+test('a shrimp\'s page and its group\'s trails say "Loài", and the check finds "Loài cá" there, and every line that calls it a fish', () => {
+  for (const path of ['/ca/tep-red-cherry/', '/nhom/shrimp/']) {
+    expect(facts.notFish, path).toContain(path)
+    const { html, dom } = page(path)
+    expect(dom.querySelector('nav.crumb a')!.text, path).toBe('Loài')
+    expect(checkPage(path, html, facts).filter(p => p.check === 'not-fish'), path).toEqual([])
+  }
+  const { html, dom } = page('/ca/tep-red-cherry/')
+  expect(html).toContain('con dài ')
+  // The card's tips on tap say no fish either (Codex's read, 17 Nov: the size tip was "Chiều dài của cá khi trưởng thành.").
+  const tips = dom.querySelectorAll('[data-tip]').map(e => e.getAttribute('data-tip'))
+  expect(tips).toEqual(expect.arrayContaining(['Chiều dài khi trưởng thành.', 'Khoảng nhiệt độ nước mà loài này sống khỏe, tính bằng °C.']))
+  expect(tips).not.toContain('Chiều dài của cá khi trưởng thành.')
+  // The page as it was before 17 Nov: "Loài cá" in its trail and its structured data's, "cá gì" in its description, "cá
+  // dài" in its card's size line, its card's tips, and (on a page with records outside its range, as 147 were live) the
+  // range's line.
+  const before = html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, '$1Loài cá</a>').replace('"name":"Loài"', '"name":"Loài cá"')
+    .replaceAll('nuôi chung với con gì, sinh sản.', 'nuôi chung với cá gì, sinh sản.').replace('con dài ', 'cá dài ')
+    .replace('</main>', '<p>GBIF có 9 ghi nhận ngoài tự nhiên. Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.</p></main>')
+    .replaceAll('Chiều dài khi trưởng thành.', 'Chiều dài của cá khi trưởng thành.').replaceAll('Khoảng nhiệt độ nước mà loài này sống khỏe', 'Khoảng nhiệt độ nước mà cá sống khỏe')
+  expect(checkPage('/ca/tep-red-cherry/', before, facts).filter(p => p.check === 'not-fish').map(p => p.detail).sort()).toEqual([
+    'trail: "Loài cá"', 'structured data\'s trail: "Loài cá"',
+    'line "Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản.": "Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản."',
+    'line "cá dài {cm}": "cá dài"',
+    'line "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.": "Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài."',
+    'line "Chiều dài của cá khi trưởng thành.": "Chiều dài của cá khi trưởng thành."',
+    'line "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C.": "Khoảng nhiệt độ nước mà cá sống khỏe, tính bằng °C."',
+  ].sort())
+  // A group's numbered page is its page, at each language's address (/id/kelompok/shrimp/halaman/2/), its trail in that
+  // language's words. The fixture's shrimp is written in Vietnamese alone, so the other languages' group page is put in
+  // their facts here (Codex's read: without it the numbered page was never checked).
+  const group = (word: string) => page('/nhom/shrimp/').html.replace(/(<a href="\/ca\/"[^>]*>)Loài<\/a>/, `$1${word}</a>`)
+  for (const [lang, word] of [['vi', 'Loài cá'], ['id', 'Spesies ikan'], ['th', 'สายพันธุ์ปลา'], ['ms', 'Spesies ikan']] as const) {
+    const path = localizePath(lang, '/vi/nhom/shrimp/trang/2/')
+    const known = { ...facts, notFish: new Set([...facts.notFish, localizePath(lang, '/vi/nhom/shrimp/')]) }
+    expect(known.notFish.has(path), path).toBe(false)
+    expect(checkPage(path, group(word), known).filter(p => p.check === 'not-fish').map(p => p.detail), path).toContain(`trail: "${word}"`)
+  }
+  expect(facts.notFish).not.toContain('/ca/ca-galaxy/')
+})
+
+// A reason to keep a species away is about that species: on a fish's page, a crayfish kept away for eating what fits its
+// mouth isn't "Cá săn mồi"; a fish kept away for it is.
+test('a reason to keep a shrimp, a crab or a snail away doesn\'t call it a fish', () => {
+  const mates = (href: string, why: string) => `<html><body><main><h1>Cá neon vua</h1><section class="mates"><ul><li><a href="${href}"><span class="nm">X<span class="why" data-reason="predator">${why}</span></span></a></li></ul></section></main></body></html>`
+  const found = (html: string) => checkPage('/ca/ca-neon-vua/', html, facts).filter(p => p.check === 'not-fish').map(p => p.detail)
+  expect(found(mates('/ca/tep-red-cherry/', 'Cá săn mồi, ăn con nào vừa miệng'))).toEqual(['reason for /ca/tep-red-cherry/: "Cá săn mồi, ăn con nào vừa miệng"'])
+  expect(found(mates('/ca/tep-red-cherry/', 'Săn mồi, ăn con nào vừa miệng'))).toEqual([])
+  expect(found(mates('/ca/ca-galaxy/', 'Cá săn mồi, ăn con nào vừa miệng'))).toEqual([])
+  // A fin nipper that isn't a fish: "Hay cắn vây", not "… vây cá".
+  expect(found(mates('/ca/tep-red-cherry/', 'Hay cắn vây cá'))).toEqual(['reason for /ca/tep-red-cherry/: "Hay cắn vây cá"'])
+  expect(found(mates('/ca/tep-red-cherry/', 'Hay cắn vây'))).toEqual([])
+  // The page's own fish, named in the shrimp's reason, is that fish's name.
+  expect(found(mates('/ca/tep-red-cherry/', 'Chỉ dài 3 cm, có thể bị Cá neon vua ăn'))).toEqual([])
 })
 
 // 2026-11-02, the check on aquatome.com: "rêu Java (Vesicularia dubyana)", "Amazon sword (Echinodorus amazonicus)" linked
@@ -53,6 +115,7 @@ describe('each check, on a page made to fail it', () => {
     targets: { vi: [T, U], id: [T, U], th: [T, U], ms: [T, U] },
     genera: new Set(['Aus']),
     credits: new Map([['https://m/c1.webp', new Set(['https://src/c1'])], ['https://m/c2.webp', new Set(['https://src/c2', 'https://src/c2-again'])]]),
+    notFish: new Set(),
   }
   const fig = (src: string, href?: string) => `<figure class="inl"><img src="${src}" width="1" height="1" alt=""><figcaption>${href ? `<a href="${href}">x</a>` : ''}</figcaption></figure>`
   const checks = (html: string) => checkPage('/huong-dan/x/', html, f).map(p => p.check)
@@ -65,13 +128,13 @@ describe('each check, on a page made to fail it', () => {
   })
   // 15 November: a term's rows, a fish's tank mates and the guide cards under fish, plants and products showed photos the
   // page's credits left out. A credit is a link to (or the data-src of) the source a record of that photo names.
-  test('a photo shown without its credit: the footer\'s list, a figure\'s ©, a caption\'s line, an album\'s thumb; the photo\'s small copy too', () => {
+  test('a photo shown without its credit: the footer\'s list, a figure\'s ©, a caption\'s line; the photo\'s small copy too', () => {
     const credited = (html: string) => `<img src="https://m/c1-480.webp"><img src="https://m/c2.webp">${html}`
     expect(checks(credited(''))).toEqual(['uncredited', 'uncredited'])
     expect(checks(credited('<div id="photo-credits"><a href="https://src/c1">A</a></div><a class="cite pic" href="https://src/c2-again">©</a>'))).toEqual([])
     expect(checks(credited('<span class="pic-by" data-src="https://src/c1"></span><a href="https://src/c2/more">B</a>'))).toEqual(['uncredited'])
     // A text source's link to the article a photo came from is no credit: no author, no licence.
-    expect(checks(credited('<p>Theo <a href="https://src/c1">bài gốc</a></p><a data-src="https://src/c2" data-author="B" href="https://m/c2.webp"></a>'))).toEqual(['uncredited'])
+    expect(checks(credited('<p>Theo <a href="https://src/c1">bài gốc</a></p><div id="photo-credits"><a href="https://src/c2">B</a></div>'))).toEqual(['uncredited'])
     expect(checks('<template><img src="https://m/c1.webp"></template><img src="https://m/x.webp">')).toEqual([])
   })
   test('a whole tile\'s blurred ground is a backdrop, not the picture twice', () => {

@@ -3,6 +3,12 @@
   "name": "เทือกเขาอันนัม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T05:58:59.972Z",
+    "why": "Thai atlases usually call the Annamite range \"เทือกเขาตะนาวศรี\"-style names only for other ranges. For this one, the common name is \"เทือกเขาอันนัม\" or \"เทือกเขาจรูญเซิน\" (Truong Son), so this form is plausible but may be less standard than the Thai-transliterated Truong Son name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

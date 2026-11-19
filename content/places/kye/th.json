@@ -3,6 +3,12 @@
   "name": "คเย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T12:26:52.668Z",
+    "why": "คเย is a plausible Thai transliteration of \"Kye\", but it's a bare name for a region that is really the Kyé River area, and Thai usually writes \"ไค\" or \"คีเย\" for Kyé, so this spelling is doubtful."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "กีกุง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T00:39:15.506Z",
+    "why": "กีกุง is a reasonable Thai transliteration of Kỳ Cùng, but it omits the kind word แม่น้ำ that a Thai atlas would put before a river's name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

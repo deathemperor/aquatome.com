@@ -3,6 +3,12 @@
   "name": "ซังตาเรง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-19T00:37:54.818Z",
+    "why": "Santarém in Brazil is written in Thai as \"ซานตาเรม\" (or \"ซังตาเรม\"), but \"ซังตาเรง\" ends with the wrong final sound (ง instead of ม), so it misrepresents the Portuguese \"-ém\"."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

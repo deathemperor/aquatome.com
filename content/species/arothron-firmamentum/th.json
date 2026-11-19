@@ -1,0 +1,25 @@
+{
+  "slug": "arothron-firmamentum",
+  "name": "ปักเป้าสตาร์รี่โทอาโด",
+  "altNames": [
+    "Starry toado",
+    "ปักเป้าทะเล"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>ปลาปักเป้าทะเลที่ถูกจับได้ในน้ำจืดสนิทในประเทศพม่า (เมียนมา)</p>",
+    "notes:glaser": "<p>นี่เป็นครั้งแรกที่พบปลาปักเป้าทะเล Arothron firmamentum ในน้ำจืด หวังว่าจะมีรายละเอียดเพิ่มเติมตามมา</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.95
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

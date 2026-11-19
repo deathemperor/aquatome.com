@@ -3,6 +3,12 @@
   "name": "โบอัดซูลู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:18:24.243Z",
+    "why": "The Thai transliteration โบอัดซูลู is a plausible phonetic rendering of Boadzulu, but the place is an island (in Lake Malawi) and the Thai name lacks the kind word เกาะ, so it is incomplete."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

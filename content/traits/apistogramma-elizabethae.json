@@ -1,8 +1,13 @@
 {
   "id": "apistogramma-elizabethae",
-  "temperament": "semi-aggressive",
+  "temperament": null,
   "finNipper": false,
   "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-29T05:31:48.350Z"
+  "speciesUpdatedAt": "2026-11-17",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-17T13:45:38.845Z"
 }

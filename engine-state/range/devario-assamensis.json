@@ -1,8 +1,8 @@
 {
   "id": "devario-assamensis",
   "native": {
-    "input": "f333d0a97dd1d271",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "0f3aecd4d98a267b",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "IN",
@@ -16,8 +16,16 @@
         "code": "BT",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "If distribution records are correct this species occurs in both lowland and higher altitude environments, from around 250 m AMSL in Darrang to 1767 m in Mirik, and possibly higher in Bhutan.",
+        "quote": "Type locality is 'Streamlets near Tangla, Darrang District, Assam, India', but records also exist from the Mahananda River in West Bengal state and other tributaries of the lower Brahmaputra river system, some of which originate in Bhutan.",
         "words": "Bhutan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is a magnificently coloured barb that reaches about 10 cm and originates from eastern India.",
+        "words": "India",
         "ok": true
       }
     ],

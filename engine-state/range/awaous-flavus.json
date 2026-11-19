@@ -1,0 +1,148 @@
+{
+  "id": "awaous-flavus",
+  "native": {
+    "input": "ef42d690945a4109",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They are found in the lower reaches of rivers in Brazil, Guyana, Suriname, Venezuela, Colombia and on islands off the coast.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They are found in the lower reaches of rivers in Brazil, Guyana, Suriname, Venezuela, Colombia and on islands off the coast.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They are found in the lower reaches of rivers in Brazil, Guyana, Suriname, Venezuela, Colombia and on islands off the coast.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They are found in the lower reaches of rivers in Brazil, Guyana, Suriname, Venezuela, Colombia and on islands off the coast.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They are found in the lower reaches of rivers in Brazil, Guyana, Suriname, Venezuela, Colombia and on islands off the coast.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Awaous flavus",
+    "status": "ACCEPTED",
+    "taxonKey": 5208786,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        25
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY",
+      "SR",
+      "VE",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

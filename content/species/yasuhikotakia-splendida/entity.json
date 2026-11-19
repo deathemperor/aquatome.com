@@ -10,6 +10,69 @@
     "laos",
     "xe-pian"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA"
+      ],
+      "regions": [
+        "Xe Pian",
+        "Xe Khong",
+        "Mekong",
+        "Bolaven Plateau"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Officially known only from a handful of localities in the Xe Pian river, a tributary system of the Xe Khong (which itself drains into the Mekong river main channel) in Champasak and Attapeu provinces, southern Laos.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Xe Pian",
+            "Xe Khong",
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "According to the description by Roberts (1995) all collection localities were similar and comprised small, swiftly-running, headwater streams draining foothills of the Bolaven Plateau and contained clear water with substrates of rocks and cobbles.",
+          "countries": [],
+          "regions": [
+            "Bolaven Plateau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367785,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

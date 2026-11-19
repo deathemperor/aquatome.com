@@ -3,6 +3,12 @@
   "name": "Jacuhy",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-17T17:59:53.778Z",
+    "why": "\"Jacuhy\" omits the Malay kind word \"Sungai\" for a river; an atlas in Malaysia would write \"Sungai Jacuí\" (modern spelling) or \"Sungai Jacuhy\"."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

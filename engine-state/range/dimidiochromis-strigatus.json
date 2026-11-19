@@ -1,0 +1,59 @@
+{
+  "id": "dimidiochromis-strigatus",
+  "native": {
+    "input": "4b579b392ee0409f",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "The species occurs not exclusively in Lake Malawi, but also in Lake Malombe and the River Shire that connects the two lakes.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malombe",
+        "source": "glaser",
+        "quote": "The species occurs not exclusively in Lake Malawi, but also in Lake Malombe and the River Shire that connects the two lakes.",
+        "ok": true
+      },
+      {
+        "name": "Shire",
+        "source": "glaser",
+        "quote": "The species occurs not exclusively in Lake Malawi, but also in Lake Malombe and the River Shire that connects the two lakes.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW",
+        "MZ"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dimidiochromis strigatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2369863,
+    "datasets": [
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

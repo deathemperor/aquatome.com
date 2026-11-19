@@ -4,15 +4,16 @@ import { QUALITY_THRESHOLD } from '@aq/schema'
 import { HTMLElement, parse } from 'node-html-parser'
 import { breedFigures, figuresSaid, keepsFigures, moved, unitsLeft, withoutConcentrations, type BreedFigure, type PlacedFigure } from './breed-units'
 import { LlmError, type Llm } from './claude'
-import { dealerShelf, FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
+import { dealerShelf, FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { batchHalf, cutWhole, goesWhole, mendPart, words as mendWords } from './mend'
+import { mentions, PRODUCTS } from './market'
+import { batchHalf, cutWhole, goesWhole, holding, mendPart, words as mendWords } from './mend'
 import { fixedParts, loadPages, type Page } from './pages'
 import { piece } from './pieces'
 import { fieldOf as partOf, norm, type ReaderFinding } from './reader'
 import { metricFigures, TANK_RULE, US_UNITS } from './round'
-import { sentences } from './sentences'
+import { plain as visible, sentences } from './sentences'
 import { isShop } from './species-sources'
 
 /**
@@ -59,9 +60,10 @@ export function convertible(quote: string, en: string): boolean {
 export type Rewritten = Record<string, { at: string; hash: string }>
 /**
  * Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count);
- * `rule`, the way its parts were mended (none: MEND_RULE 1).
+ * `rule`, the way its parts were mended (none: MEND_RULE 1); `cut`, tried as a page with a foreign product, whose
+ * product sentences code cuts whole when the writer's cut is refused.
  */
-export type Tried = Record<string, { at: string; hash: string; n?: number; rule?: number }>
+export type Tried = Record<string, { at: string; hash: string; n?: number; rule?: number; cut?: true }>
 /**
  * How a fish, plant or breed page's parts are mended. 2: only the sentences a finding quotes (mend.ts, 13 Nov 2026). 3: a
  * part of three sentences or fewer that would lose every one comes off the page (14 Nov 2026). A page tried under an
@@ -75,6 +77,10 @@ export const MEND_RULE = 3
  */
 export const MAX_TRIES = 2
 
+/** The field a finding is on: its part's, else the first whose text holds its quote. */
+const fieldIn = (parts: { id: string; field: string; text: string }[], f: FitFinding) =>
+  parts.find(x => x.id === f.part)?.field ?? parts.find(x => f.quote && norm(x.text).includes(norm(f.quote)))?.field
+
 /** What a page's parts are wrong for: its current reading's findings this step mends, by the field each quotes. */
 export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
   const e = state[fitKey(p)]
@@ -82,7 +88,7 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
   const out = new Map<string, FitFinding[]>()
   if (!e || e.hash !== hash) return out
   const fs = fitFindings(p, e)
-  const fieldOf = (f: FitFinding) => parts.find(x => x.id === f.part)?.field ?? parts.find(x => f.quote && norm(x.text).includes(norm(f.quote)))?.field
+  const fieldOf = (f: FitFinding) => fieldIn(parts, f)
   for (const f of fs.filter(f => MENDED.includes(f.check) && f.check !== 'units')) {
     const field = fieldOf(f)
     if (field && PART_FIELD.test(field)) out.set(field, [...(out.get(field) ?? []), f])
@@ -105,6 +111,62 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
  * A page wrong for its reader on a check this step mends, by a reading of its current text with the current checklist (a
  * guide read before the kit check could be a kit); a kit is the gate's to hold.
  */
+/**
+ * Whether a page's saved read found a foreign product or medicine (the owner's complaint) whose words are still on it: a
+ * page code or a writer has cut it from is done, though its read is of the old text until it is read again.
+ */
+export const foreignProduct = (p: Page, entry?: FitEntry) => {
+  const fs = fitFindings(p, entry).filter(f => f.check === 'product' && !!f.quote)
+  if (!fs.length) return false
+  const raw = fitText(p).parts.map(x => x.text).join('\n'), text = norm(raw)
+  return fs.some(f => { const x = rowOf(f); return x ? mentions(x, raw) > 0 : text.includes(norm(f.quote!)) })
+}
+
+/**
+ * The market table's row a product finding names, by its product or its quote (a rule's quote is the row's name). A page
+ * spells it as the row's pattern allows, not always as its name: "Melafix" for "API Melafix", "EasyCarbo" for "Easy Carbo"
+ * (the readers of #1578, 17 Nov 2026).
+ */
+const rowOf = (f: { product?: string; quote?: string }) => {
+  const name = f.product?.trim() || f.quote?.trim()
+  return name ? PRODUCTS.find(x => new RegExp(x.match.source, 'iu').test(name)) : undefined
+}
+/**
+ * A product finding quoting the words the text shows for it, so the code cut finds its sentence: its own quote where the
+ * text shows that, else the first the row's pattern finds in what a reader sees, not in a link's address (the readers of
+ * #1578, 17 Nov 2026: "easygreen" in an address, or "one and only" in a sentence before "Dr. Tim's One & Only").
+ */
+const spelled = <F extends { check: FitCheck; product?: string; quote?: string }>(f: F, html: string): F => {
+  const x = f.check === 'product' ? rowOf(f) : undefined
+  if (!x) return f
+  // Whole words within one sentence, as the cut finds them ("Easy Carbo" isn't in "Easy Carbon"), and each sentence's own
+  // text apart, so a list item's or a cell's end doesn't run into the next one's start (the readers of #1578).
+  const pieces = sentences(html)
+  const shown = pieces.filter(p => p.sentence).map(p => visible(p.html))
+  const re = new RegExp(x.match.source, 'iu')
+  // The finding's own words, letter for letter as the sentence holding them has them, since the writer reads a quote
+  // so: with whichever apostrophe the page prints ("Dr. Tim’s", "Dr. Tim‘s"), else the pattern's match in that
+  // sentence. Never another sentence's: a phrase the pattern also takes there would be cut in the product's place
+  // (Codex's reads of #1578).
+  const held = f.quote ? holding(pieces, f.quote) : []
+  if (held.length) {
+    const own = ["'", '’', '‘', '`'].map(a => f.quote!.replace(/['’‘`]/g, a)).find(q => held.some(i => norm(shown[i]!).includes(norm(q))))
+    if (own) return own === f.quote ? f : { ...f, quote: own }
+    for (const i of held) {
+      const m = shown[i]!.match(re)
+      if (m) return { ...f, quote: m[0] }
+    }
+    return f
+  }
+  // Else the pattern's first match within one sentence: across two ("Easy" in one list item, "Green" the next) it's
+  // no name.
+  for (const t of shown) {
+    const m = t.match(re)
+    if (m) return { ...f, quote: m[0] }
+  }
+  return f
+}
+
 export const rewriteDue = (p: Page, state: FitState) =>
   p.lang === 'vi' && !fitDue([p], state).length && !fitFindings(p, state[fitKey(p)]).some(f => f.check === 'kit') &&
   (p.kind === 'guides' ? fitFindings(p, state[fitKey(p)]).some(f => f.check !== 'words' && f.check !== 'units') : mendable(p, state).size > 0)
@@ -156,7 +218,7 @@ export type RewriteReport = { rewritten: string[]; notKept: string[]; skipped: s
  * unless `retry`; stops on a model failure (usage limit) with what it has written. Writes the content files, each part as it
  * is kept, engine-state/rewritten.json and engine-state/_fit-rewrite.json.
  */
-export async function fitRewrite(root: string, pages: Page[], state: FitState, d: { llm: Llm; now: () => Date }, o: { limit: number; retry?: boolean; mend?: ReadonlySet<string> }): Promise<RewriteReport> {
+export async function fitRewrite(root: string, pages: Page[], state: FitState, d: { llm: Llm; now: () => Date }, o: { limit: number; retry?: boolean; mend?: ReadonlySet<string>; products?: ReadonlySet<string> }): Promise<RewriteReport> {
   const report: RewriteReport = { rewritten: [], notKept: [], skipped: [], failed: [], stopped: '', gone: [] }
   const names = JSON.parse(await readFile(join(root, 'content', 'sources.json'), 'utf8').catch(() => '{}')) as Record<string, { name: string }>
   const triedFile = join(root, 'engine-state', '_fit-rewrite.json')
@@ -164,17 +226,21 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
   const done: Page[] = []
   const at = d.now().toISOString()
   const triesOf = (k: string) => (tried[k] ? tried[k].n ?? 1 : 0)
+  // A page with a foreign product never tried with code's cut to fall back on: tried once more, on the same text and past
+  // MAX_TRIES, as the code cut is new (the chief of staff, 17 Nov 2026: of 74, 35 had been tried and refused, 1 twice).
+  const cutDue = (p: Page) => !!o.products?.has(fitKey(p)) && !tried[fitKey(p)]?.cut
   // Tried on this text, and (but a guide, which is written whole) by the way parts are mended now.
-  const triedOn = (p: Page) => tried[fitKey(p)]?.hash === fitText(p).hash && (p.kind === 'guides' || (tried[fitKey(p)]?.rule ?? 1) >= MEND_RULE)
+  const triedOn = (p: Page) => tried[fitKey(p)]?.hash === fitText(p).hash && (p.kind === 'guides' || (tried[fitKey(p)]?.rule ?? 1) >= MEND_RULE) && !cutDue(p)
   const due = pages.filter(p => rewriteDue(p, state) && !triedOn(p))
   // Tried MAX_TRIES times and due again: listed for a person to name (`--only`), never tried here.
-  const capped = o.retry ? [] : due.filter(p => triesOf(fitKey(p)) >= MAX_TRIES).map(fitKey)
+  const capped = o.retry ? [] : due.filter(p => triesOf(fitKey(p)) >= MAX_TRIES && !cutDue(p)).map(fitKey)
   if (capped.length) report.skipped.push(`${capped.length} page${capped.length > 1 ? 's' : ''} tried ${MAX_TRIES} times and due again, for a person to name: ${capped.slice(0, 10).join(', ')}${capped.length > 10 ? ', …' : ''}`)
-  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (!triedOn(p) && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
+  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (!triedOn(p) && (triesOf(fitKey(p)) < MAX_TRIES || cutDue(p))))).slice(0, o.limit)) {
     const key = fitKey(p)
     const before = tried[key]
+    const product = !!o.products?.has(key)
     // A page a person names doesn't use up one of its own tries.
-    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1), rule: MEND_RULE }
+    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1), rule: MEND_RULE, ...(product || (before?.cut && before.hash === fitText(p).hash) ? { cut: true as const } : {}) }
     let changed = 0
     try {
       // A guide is written whole from its facts, but one in `mend` (the lane's: no reader has read it, fit-front.ts) is mended
@@ -247,7 +313,9 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               mine.push(g)
               told.set(g, figures)
             }
-            const now = [...pass.filter(f => !units.includes(f)), ...mine]
+            // On a product page each product finding quotes the page's own spelling, for the writer as for code: a part whose
+            // only finding is the table's "API Melafix" on a page saying "Melafix" was skipped, its quote not in the text.
+            const now = [...pass.filter(f => !units.includes(f)), ...mine].map(f => (product ? spelled(f, before) : f))
             if (!now.some(f => f.check !== 'words')) continue
             // Each figure once: the check's own finding on "132 lít" and the model's on its sentence mend one figure.
             const seen = new Set<string>()
@@ -270,7 +338,18 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
               // beside a conversion (the chief of staff, 14 Nov 2026: a flagged sentence "is deleted or its foreign detail is deleted").
               // Not where a sentence is to go whole for another finding (a dealer's, the source's), which code leaves to the
               // writer, nor where the writer named a line that no longer reads: what code wrote would keep it (Astra's read).
-              const plain = !faq && !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check)) ? cutWhole(before, now) : undefined
+              // On a page with a foreign product, its product, shop and price sentences go whole by code beside those too,
+              // and the other findings wait for the page's next read and try (the chief of staff, 17 Nov 2026: the fallback
+              // never ran on 62 of the 74, each with a finding of another kind); still not where the writer named a line
+              // that no longer reads, or took one with the sentence before it, nor next to a sentence a finding other than
+              // the source's or one on where it applies quotes (a dose, its caution, a lethal level): cut of the product's
+              // name, a dose would read as a dose of whatever came before (the readers of #1578, 17 Nov 2026).
+              // Any finding on the part, not only those this step mends (a dose's purpose, a harm, a card), and any dose the read
+              // found in it, flagged or not (the readers of #1578).
+              const near = (f: FitFinding) => goesWhole(f.check) && f.check !== 'source' && f.check !== 'elsewhere'
+              const shown = norm(visible(before))
+              const beside = product ? [...[...now, ...fitFindings(p, state[key]).filter(f => !MENDED.includes(f.check) && fieldIn(fitText(p).parts, f) === field)].filter(near), ...(state[key]?.doses ?? []).filter(d => shown.includes(norm(d.quote)))] : []
+              const plain = !faq && (product ? !r.stranded.length && !r.follows.length : !mine.length && !r.whole.length && !now.some(f => goesWhole(f.check))) ? cutWhole(before, now, product ? { near: beside } : {}) : undefined
               if (!plain) { report.notKept.push(`${key} ${field} (${why})`); continue }
               next = plain.html
               gone = plain.gone

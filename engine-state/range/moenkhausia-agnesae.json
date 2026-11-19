@@ -1,23 +1,26 @@
 {
   "id": "moenkhausia-agnesae",
   "native": {
-    "input": "e6687d426bab7a8c",
-    "at": "2026-11-10T23:57:51.686Z",
+    "input": "5e81abdbfc07677a",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "PE",
         "status": "native",
         "source": "glaser",
-        "quote": "Origin: Peru.",
+        "quote": "Peru.",
         "words": "Peru",
-        "ok": true
+        "ok": false,
+        "why": "no sentence"
       }
     ],
     "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "PE"
+      ],
       "sourcesOnly": []
     }
   },
@@ -32,7 +35,7 @@
       ],
       [
         "d8cd16ba-bb74-4420-821e-083f2bac17c2",
-        2
+        3
       ],
       [
         "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
@@ -55,10 +58,8 @@
         1
       ]
     ],
-    "native": [
-      "PE"
-    ],
-    "requests": 11,
-    "at": "2026-11-10T23:57:51.686Z"
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
   }
 }

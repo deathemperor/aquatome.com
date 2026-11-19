@@ -2,16 +2,32 @@ import { isNonCommercial } from '@aq/schema/licence'
 import type { Photo, SourceId, SourceInfo } from '@aq/schema'
 import type { T } from './i18n'
 
-/** A licence's deed page, for structured data (Google Images shows "Licensable" with it). */
+/**
+ * A licence's deed page: the credits list links each licence's name to it (the licences ask for that link), and
+ * structured data names it (Google Images shows "Licensable" with it). Every CC licence by its elements ("CC BY-NC-SA
+ * 2.0" → by-nc-sa/2.0/) and a country's version by its code ("CC BY-SA 3.0 de" → by-sa/3.0/de/); with no version, 4.0.
+ * None for a photo a source let us use.
+ */
 export function licenceUrl(licence: string): string | undefined {
   const l = licence.toLowerCase()
   if (/cc0/.test(l)) return 'https://creativecommons.org/publicdomain/zero/1.0/'
   if (/public domain/.test(l)) return 'https://creativecommons.org/publicdomain/mark/1.0/'
   if (/unsplash/.test(l)) return 'https://unsplash.com/license'
+  const by = l.match(/\bby((?:[- ](?:nc|nd|sa)\b)*)/)
+  if (!by) return undefined
+  const kind = ['by', ...by[1]!.split(/[- ]/).filter(Boolean)].join('-')
   const v = l.match(/\d\.\d/)?.[0] ?? '4.0'
-  if (/by[- ]sa/.test(l)) return `https://creativecommons.org/licenses/by-sa/${v}/`
-  if (/\bby\b/.test(l)) return `https://creativecommons.org/licenses/by/${v}/`
-  return undefined
+  const country = l.match(/\d\.\d\s+([a-z]{2})\b/)?.[1]
+  return `https://creativecommons.org/licenses/${kind}/${v}/${country ? `${country}/` : ''}`
+}
+
+/**
+ * A licence's page as the credits list links it: Unsplash's with AquaTome's UTM, as Unsplash asks of every link to it
+ * (unsplash.ts); the others as licenceUrl. Structured data names the page itself.
+ */
+export const creditLicenceUrl = (licence: string): string | undefined => {
+  const url = licenceUrl(licence)
+  return url === 'https://unsplash.com/license' ? `${url}?utm_source=aquatome&utm_medium=referral` : url
 }
 
 /** A CC BY deed (any BY variant) requires saying the work was changed. CC0 and public domain use the public-domain deeds, not /licenses/. */
@@ -32,6 +48,22 @@ export const GALLERY_MIN = 6
 export const GALLERY_STRIP = 8
 /** Thumbnails at most in a fish page's photo column on a tall computer screen: the strip's, then the gallery's next ones. */
 export const GALLERY_COLUMN = 40
+
+/**
+ * "Xem tất cả" under a strip of an album of `photos` (GalleryStrip.astro; the Design Lead, 18 Nov): there unless the
+ * strip shows every photo, each a thumb or one the page shows already (null in `shown` or `more`, at its place).
+ * `phone`: a wrapped strip (not a column) shows 6 thumbs on a phone, so one of 7 or 8 keeps it there alone. `fit`: in a
+ * column with `more` thumbs, which a tall screen shows as many of as fit, the places of the photos the page shows
+ * already, for the album's script to hide it when the column shows the rest (scripts/album.ts).
+ */
+export function seeAll(photos: number, shown: readonly unknown[], more: readonly unknown[], column: boolean) {
+  const slots = [...shown, ...more]
+  const every = Array.from({ length: photos }, (_, i) => i < shown.length || (i < slots.length && !slots[i])).every(Boolean)
+  const phone = every && !column && shown.filter(Boolean).length > 6
+  const all = !every || phone
+  const fit = all && column && more.some(Boolean) ? slots.flatMap((p, i) => (p ? [] : [i])).join(' ') : undefined
+  return { all, phone, fit }
+}
 
 /** Photo sites by the address of a photo's own page. */
 const SITES: [RegExp, string][] = [[/(^|\.)inaturalist\.org$/, 'iNaturalist'], [/(^|\.)unsplash\.com$/, 'Unsplash'], [/(^|\.)flickr\.com$/, 'Flickr'], [/(^|\.)gbif\.org$/, 'GBIF'], [/(^|\.)wikimedia\.org$/, 'Wikimedia Commons']]
@@ -60,10 +92,3 @@ export function galleryNote(t: T, photos: Photo[], sources: Partial<Record<Sourc
   return t(open ? '{n} ảnh từ {from}, giấy phép mở.' : '{n} ảnh từ {from}.', { n: photos.length, from: fromWords(t, photos, sources) })
 }
 
-/** The same line on the gallery page itself, with no number: its title is the count. */
-export function galleryLine(t: T, photos: Photo[], sources: Partial<Record<SourceId, SourceInfo>>): string {
-  if (photos.every(p => p.generated) && photos.length) return t('Ảnh do AI tạo.')
-  if (photos.some(p => p.generated)) return t('Ảnh thật từ {from} và ảnh do AI tạo.', { from: fromWords(t, photos, sources) })
-  const open = photos.every(p => !p.source && !isNonCommercial(p.licence))
-  return t(open ? 'Ảnh từ {from}, giấy phép mở.' : 'Ảnh từ {from}.', { from: fromWords(t, photos, sources) })
-}

@@ -9,7 +9,8 @@
     "asia",
     "malaysia",
     "sarawak",
-    "indonesia"
+    "indonesia",
+    "kalimantan"
   ],
   "range": {
     "native": {
@@ -31,16 +32,9 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "R. sarawakensis originates from the part of Borneo that belongs to Malaysia.",
+          "quote": "Despite the specific name that suggests the fish originates from Sarawak (the part of Borneo belonging to Malaysia), this species has a much wider distribution on the island and can be found also in the Indonesian part.",
           "countries": [
-            "MY"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Rasbora sarawakensis is a small rasbora endemic to Borneo, found in Sarawak and the neighbouring Indonesian province of West Kalimantan.",
-          "countries": [
+            "MY",
             "ID"
           ],
           "regions": []
@@ -129,11 +123,11 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 5
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 5
       }
     ],
@@ -181,8 +175,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
-      "html": "<p>The genus Rasbora is very speciose and currently contains 82 described species. Nevertheless, only comparatively few species have ever been kept in aquaria. R. sarawakensis reaches about 5 cm in length. It is a pretty, completely undemanding schooling fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-sarawakensis-2/",
+      "html": "<p>This pretty Rasbora attains a maximum length of about 5 cm. It is a very peaceful fish that will not touch any plant in the tank. It prefers to swim in small schools along with conspecifics.</p>"
     },
     {
       "key": "quickFacts",
@@ -193,8 +187,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
-      "html": "<p>R. sarawakensis originates from the part of Borneo that belongs to Malaysia.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-sarawakensis-2/",
+      "html": "<p>Despite the specific name that suggests the fish originates from Sarawak (the part of Borneo belonging to Malaysia), this species has a much wider distribution on the island and can be found also in the Indonesian part.</p>"
     },
     {
       "key": "distribution",
@@ -233,10 +227,10 @@
       "html": "<p>Probably feeds mostly on invertebrates both aquatic and terrestrial in nature as with similar members of the genus. In the aquarium it should accept dried foods of a suitable size but should not be fed these exclusively. Daily meals of small live and frozen fare such as Daphnia, bloodworm and suchlike will result in the best colouration and encourage the fish to come into breeding condition.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora_sarawakensis_en/",
-      "html": "<p>A schooling fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-sarawakensis-2/",
+      "html": "<p>R. sarawakensis feeds readily on any type of usual fish food.</p>"
     },
     {
       "key": "behaviour",
@@ -282,7 +276,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "z_XqNZJ12R4",
+      "title": "Sungai Katibas biotoop bij Aquarium Speciaalzaak Utaka - Rasbora sarawakensis",
+      "durationSec": 111,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xaHWsk8KFh0",
+      "title": "Rasbora Sarawakensis",
+      "durationSec": 166,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "C_pXcaiV0J0",
+      "title": "Rasbora Sarawakensis Sparring",
+      "durationSec": 70,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tJVVpk4mSPA",
+      "title": "Sarawak Rasbora aka Blue Line Rasbora an understated beauty!  #Rasborasarawakensis",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -305,5 +324,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-17"
 }

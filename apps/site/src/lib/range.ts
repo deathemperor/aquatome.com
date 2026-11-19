@@ -4,6 +4,7 @@ import { citeGroup } from './cite'
 import { fmt } from './format'
 import { served, translator, type Lang } from './i18n'
 import { mapSvg, rangeMap, type RangeMap, type SquareKind } from './range-map'
+import { isFish } from './taxa-places'
 
 /**
  * A species' range as the app index gives it (AppItem.range; content `range`, protocols/range-vectors.json): what a page
@@ -130,6 +131,9 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
   const shown = records?.total ? records : undefined
   if (!native && !shown) return undefined
   const t = translator(lang)
+  // A crab's, a shrimp's or a snail's records aren't fish someone let go.
+  const species = c.species.find(x => x.id === s.id)
+  const fish = !species || isFish(species)
   const { num } = fmt(lang)
   const origins = originPages(lang, c)
   const nameOf = countryNames(lang, c.places, new Set(origins.map(p => p.id)))
@@ -161,7 +165,7 @@ export function rangeParts(lang: Lang, c: Content, s: { id: string; name: string
     ? `${t('GBIF có {n} ghi nhận ngoài tự nhiên.', { n: num(shown.total) })} ${t('Nguồn không ghi loài này sống tự nhiên ở nước nào, nên không tách được ghi nhận trong hay ngoài vùng bản địa.')}`
     : !outside
       ? t('GBIF có {n} ghi nhận ngoài tự nhiên, tất cả trong các nước trên.', { n: num(shown.total) })
-      : `${t('GBIF có {n} ghi nhận ngoài tự nhiên: {inside} trong các nước trên, {outside} ở nơi khác', { n: num(shown.total), inside: num(inside), outside: num(outside) })}${most.length ? ` (${t('nhiều nhất: {places}', { places: most.map(([code, n]) => `${esc(nameOf(code).name)} ${num(n)}`).join(', ') })})` : ''}. ${t('Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.')}`
+      : `${t('GBIF có {n} ghi nhận ngoài tự nhiên: {inside} trong các nước trên, {outside} ở nơi khác', { n: num(shown.total), inside: num(inside), outside: num(outside) })}${most.length ? ` (${t('nhiều nhất: {places}', { places: most.map(([code, n]) => `${esc(nameOf(code).name)} ${num(n)}`).join(', ') })})` : ''}. ${t(fish ? 'Ghi nhận ở nơi khác có thể là cá do người thả ra, hoặc nhận nhầm loài.' : 'Ghi nhận ở nơi khác có thể là con do người thả ra, hoặc nhận nhầm loài.')}`
 
   const pic = shown ? rangePicture(s.id, s.range) : undefined
   let map: RangeParts['map']

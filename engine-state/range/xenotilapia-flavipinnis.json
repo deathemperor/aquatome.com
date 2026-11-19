@@ -1,0 +1,57 @@
+{
+  "id": "xenotilapia-flavipinnis",
+  "native": {
+    "input": "c71ae4cf75b5bb51",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xenotilapia flavipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2369836,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        18
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

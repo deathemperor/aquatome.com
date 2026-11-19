@@ -1,0 +1,238 @@
+{
+  "id": "poecilia-caucana",
+  "native": {
+    "input": "c10eb9cacb96f629",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia, Venezuela and Panama, belongs to the smaller livebearers.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia, Venezuela and Panama, belongs to the smaller livebearers.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "With an overall length of 3–5 cm the Cauca Molly (Poecilia caucana), originating from Colombia, Venezuela and Panama, belongs to the smaller livebearers.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Poecilia caucana",
+    "status": "ACCEPTED",
+    "taxonKey": 5203742,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        1080
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        244
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        91
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        58
+      ],
+      [
+        "f582cb50-5bdf-458b-bd5e-35b871974179",
+        53
+      ],
+      [
+        "9cc67633-537a-4acc-8d37-92feeaddb2cd",
+        52
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        44
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        36
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        29
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        19
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        18
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        10
+      ],
+      [
+        "22615daa-7f09-4a71-8cdf-d168170e67dd",
+        8
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        6
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "0da80eab-199d-46cc-aabf-6a0c70313dad",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        5
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        5
+      ],
+      [
+        "14e51da8-2284-4fc6-8c9b-0146681910b9",
+        4
+      ],
+      [
+        "36a3db3b-b0dd-4e6a-8c8b-c75e8261aaad",
+        4
+      ],
+      [
+        "6a3aa184-0a82-41f1-bdef-dfb9eea5310e",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "0d055e8f-d1be-43dd-be4b-f44b53605554",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "9d17ddab-7d47-4ef7-bb28-ee90b593249c",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "dc0c723c-3713-4e1a-aa55-61ade632b15c",
+        3
+      ],
+      [
+        "d7d23b73-9119-494d-b3ca-40da6f7bd3ed",
+        2
+      ],
+      [
+        "13b4fdb0-92a0-4497-bc0a-16d2fdf806fd",
+        1
+      ],
+      [
+        "2bfa7a79-0309-46b7-a4ff-ecf6c865affd",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "54c9a743-6c30-4b1f-9a42-f704d5261714",
+        1
+      ],
+      [
+        "5cd7bc3e-3c7d-49a2-8619-70e8e692177b",
+        1
+      ],
+      [
+        "5fb7b99b-4340-438f-801e-2bd6162d03f7",
+        1
+      ],
+      [
+        "707b24b9-3ad8-4031-ad1d-2b81d76fef0c",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        1
+      ],
+      [
+        "e8b90a2e-4f09-4969-b591-40dfe16d32cb",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE",
+      "PA"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

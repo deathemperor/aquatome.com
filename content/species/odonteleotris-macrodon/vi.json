@@ -1,0 +1,24 @@
+{
+  "slug": "ca-bong-odonteleotris-macrodon",
+  "name": "Cá bống Odonteleotris macrodon",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Odonteleotris macrodon là cá nước lợ nhưng cũng sống được ở nước ngọt hoàn toàn. Đây là loài săn mồi, dài tối đa khoảng 30 cm. Theo những gì biết tới nay, cá con giai đoạn ấu trùng lớn lên ngoài biển.</p>",
+    "distribution:glaser": "<p>Loài này phân bố rất rộng, từ Ấn Độ tới Malaysia và Indonesia. Ở Thái Lan cũng có. Chuyện này không có gì lạ, nhưng tới giờ tài liệu khoa học vẫn chưa nhắc tới.</p>",
+    "notes:glaser": "<p>Năm con dài khoảng 15 cm được nhập về từ Thái Lan. Lúc đầu, người ta tưởng chúng là Oxyeleotris urophthalmus. Ở Thái Lan, chi Oxyeleotris có ba loài, trong đó hai loài có một đốm mắt ở phần trên cuống đuôi. Bostrychus sinensis cũng có đốm mắt và trông rất giống. Cả mấy loài này đều dài khoảng 20 cm. Khóa định loại tốt nhất hiện có cho ba loài là của Smith (1945). Theo khóa này, Bostrychus sinensis có vảy rất nhỏ, khoảng 140 vảy trên đường bên, còn răng rất nhỏ và mọc thành dải. Oxyeleotris thì có răng nanh. O. siamensis có khoảng 90 vảy trên đường bên (khoảng 40 vảy trước vây lưng), mỗi bên hàm trên có một sợi râu nhỏ, và mõm không có vảy. O. urophthalmus có 70-75 vảy trên đường bên (khoảng 30 vảy trước vây lưng), không có râu, và mõm có vảy.</p><p>Năm con cá nhập về có răng nanh, không có râu, khoảng 75 vảy trên đường bên và khoảng 20 vảy trước vây lưng (đếm qua ảnh). Trên mõm không thấy vảy. Kết quả này không khớp với loài Oxyeleotris nào cả. Tuy nhiên, vảy của chúng nhỏ và chìm trong lớp nhớt dày nên rất khó đếm cho chuẩn.</p><p>Odonteleotris macrodon cũng có đốm mắt. Số vảy không khớp hẳn, vì loài này thường có khoảng 90 vảy trên đường bên. Còn mọi đặc điểm bên ngoài khác thì đều khớp.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.92
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-18"
+  }
+}

@@ -3,6 +3,12 @@
   "name": "Ayeyarwaddy",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T00:44:08.010Z",
+    "why": "The place is a region (Ayeyarwady Region), and Malay atlases write \"Wilayah Ayeyarwady\" (or \"Ayeyarwady\"), so the bare name with the double-d spelling omits the kind word \"Wilayah\", while the source's text is about the river."
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

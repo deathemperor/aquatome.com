@@ -3,6 +3,12 @@
   "name": "สเปร์คีออส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T00:39:34.089Z",
+    "why": "สเปร์คีออส is a reasonable Thai transliteration of Sperchios, but it omits the kind word แม่น้ำ that an atlas in Thailand would put before a river's name."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -158,7 +158,9 @@ async function fromVi(url: URL, env: Env): Promise<Response> {
   let path = withoutVi(url.pathname).replace(/^[/\\]+/, '/')
   if (!path.endsWith('/') && !/\.[a-z0-9]+$/i.test(path)) path += '/'
   const renamed = await redirectFor(env.ASSETS, url.origin, path)
-  const location = !renamed ? `${path}${url.search}` : url.search ? `${renamed}${renamed.includes('?') ? '&' : '?'}${url.search.slice(1)}` : renamed
+  // An old photo page's address goes straight to its page too (galleryParent), not to its root form first.
+  const page = galleryParent(path) ?? path
+  const location = !renamed ? `${page}${url.search}` : url.search ? `${renamed}${renamed.includes('?') ? '&' : '?'}${url.search.slice(1)}` : renamed
   return new Response(null, { status: 301, headers: { location } })
 }
 
@@ -282,9 +284,11 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
-    const parent = galleryParent(url.pathname) ?? listParent(url.pathname)
+    // An album's address for good (it has no page of its own since 18 Nov), a list's numbered page for now (it can come back).
+    const album = galleryParent(url.pathname)
+    const parent = album ?? listParent(url.pathname)
     if (parent && (await env.ASSETS.fetch(new Request(`${url.origin}${parent}`))).ok) {
-      return finish(new Response(null, { status: 302, headers: { location: parent + url.search } }), env)
+      return finish(new Response(null, { status: album ? 301 : 302, headers: { location: parent + url.search } }), env)
     }
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)

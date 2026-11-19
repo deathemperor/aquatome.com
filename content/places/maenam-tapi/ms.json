@@ -3,6 +3,12 @@
   "name": "Sungai Tapi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T00:46:25.396Z",
+    "why": "The river is Maenam Tapi (Mae Nam Tapi) in Thailand, where \"Mae Nam\" already means \"river\", so \"Sungai Tapi\" is a translation of the kind word; an atlas would write \"Sungai Tapi\" in Malay, but it could be confused with the Tapi River in India, and the Thai name is usually kept as \"Sungai Tapi\" in Ma"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false
