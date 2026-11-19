@@ -146,7 +146,7 @@ const isDose = (fact: string) => (AMOUNT.test(fact) && (NAMES_TREATMENT.test(fac
  * site's short links (redd.it, fb.com) as the site.
  */
 const SHORT: Record<string, string> = { 'redd.it': 'reddit.com', 'fb.com': 'facebook.com', 'fb.me': 'facebook.com', 'youtu.be': 'youtube.com' }
-const siteOf = (url: string) => {
+export const siteOf = (url: string) => {
   let host: string
   try { host = new URL(url).hostname } catch { host = url.replace(/^\w+:\/\//, '').replace(/[/?#:].*$/, '') }
   const labels = host.toLowerCase().replace(/\.$/, '').split('.')
@@ -241,10 +241,13 @@ export async function checkGuide(llm: Llm, lang: string, forWriter: object, x: W
  * (a fact citing a page listed twice cites its first listing); a fact whose source was dropped goes with it, and the rest
  * are renumbered.
  */
-export function viFacts(researched: TopicFacts) {
+export function viFacts(researched: TopicFacts, o: { also?: boolean } = {}) {
   const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
   const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
-  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))
+  // `also`, renumbered as the facts cite their sources, for a reader that counts a claim's pages (glossary-facts.ts); the
+  // writers get none, as before.
+  const also = (f: TopicFacts['facts'][number]) => [...new Set((f.also ?? []).map(at))].filter(i => i >= 0 && i !== at(f.source))
+  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source), ...(o.also && also(f).length ? { also: also(f) } : {}) }))
   const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
   return { facts, refs, sources: kindsOf(researched, refs) }
 }
