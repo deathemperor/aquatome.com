@@ -48,7 +48,7 @@ function deps(root: string, o: { score?: number; answers?: Answers; draft?: obje
     return { sentences: typeof answers === 'function' ? answers(asked) : asked.map(x => ({ n: x.n, vi: answers[x.text] ?? x.text })) }
   }) as Llm
   const yt = { transcript: async () => (o.transcript !== undefined ? o.transcript : '[0:00] buy the filter at Petco for five dollars') }
-  return { mend: videoMend(root, { llm, yt, now }), prompts }
+  return { mend: videoMend(root, { llm, yt, now, sourceAndElsewhere: true }), prompts }
 }
 
 test('the sentences a finding names go to the editor numbered, with the transcript, and come back into the guide by code', async () => {
@@ -623,4 +623,30 @@ test('the eighth read\'s two: "nearly all" waits for a person, and a sentence wi
   const c = await setup({ body: `<p>${plainWall}</p><p>${LONG}</p>`, faq: [] })
   expect(await deps(c.root, { answers: { [plainWall]: '' } }).mend(page(), [{ check: 'elsewhere', part: 'P1', quote: plainWall, why: 'a wood-stud wall', by: 'model' }])).toBe(true)
   expect(JSON.parse(await readFile(c.file, 'utf8')).body).toBe(`<p>${LONG}</p>`)
+})
+
+// Codex's ninth read of #1690, on two held guides' own sentences: a source finding turned one betta's temper into the
+// reader's betta's, and another dropped the mineral-rich tap water a tank's method rested on. Until a mended guide is read
+// before it goes live, a source or an elsewhere finding waits for a person, and the editor takes only a shop's name, a
+// price or a product (the chief of staff, 19 Nov 2026).
+test('a source or an elsewhere finding waits for a person: no editor is called; a shop, a price or a product still goes', async () => {
+  const betta = 'Con cá xiêm trong bể này không chịu nổi cá nuôi chung, và vớt cá kia ra thì nó dịu lại ngay.'
+  const elsewhere: FitFinding = { check: 'elsewhere', part: 'P1', quote: 'cắt bớt khung gỗ', why: 'a wood-stud wall', by: 'model' }
+  for (const f of [{ ...own, quote: 'Con cá xiêm trong bể này' }, elsewhere]) {
+    const { root, file, was } = await setup({ body: `<p>${betta} Có thể cắt bớt khung gỗ.</p><p>${LONG}</p>`, faq: [] })
+    const prompts: string[] = []
+    const llm = (async (a: { prompt: string }) => { prompts.push(a.prompt); return { sentences: [] } }) as Llm
+    const mend = videoMend(root, { llm, yt: { transcript: async () => 'x' }, now })
+    expect(await mend(page(), [f]), f.check).toBeUndefined()
+    expect(prompts, f.check).toEqual([])
+    expect(await readFile(file, 'utf8'), f.check).toBe(was)
+  }
+  const { root, file } = await setup({})
+  const llm = (async (a: { prompt: string; schema: object }) => {
+    const props = Object.keys((a.schema as { properties: object }).properties)
+    if (props.includes('score')) return { score: 0.9, notes: ['fine'] }
+    return { sentences: askedOf(a.prompt).map(x => ({ n: x.n, vi: ANSWERS[x.text] ?? x.text })) }
+  }) as Llm
+  expect(await videoMend(root, { llm, yt: { transcript: async () => 'x' }, now })(page(), [shop, price])).toBe(true)
+  expect(JSON.parse(await readFile(file, 'utf8')).body).not.toContain('Petco')
 })

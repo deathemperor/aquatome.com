@@ -98,15 +98,15 @@ type Part = { field: string; html: boolean; text: string; pieces: Piece[] }
  * then the page's. False, and the file as it was: an answer that numbers a sentence twice or leaves one out, writes an
  * amount, says "không" more or less often than its sentence (amount.ts `negations`; a sentence that says it is never
  * dropped), leaves a quote in or empties a part, or a review under both.
- * Nothing, with no editor called, so the gate doesn't count it among a run's mends: not a Vietnamese video guide, a text
- * a person fixed, a quote in no sentence of the guide, nothing but units to mend, a sentence to send that holds an
+ * Nothing, with no editor called, so the gate doesn't count it among a run's mends: not a Vietnamese video guide, a
+ * source or an elsewhere finding (until a mended guide is read before it goes live), a text a person fixed, a quote in no sentence of the guide, nothing but units to mend, a sentence to send that holds an
  * amount, a sentence that says "không" a finding quotes whole, a dose that isn't the video's own tank's, no transcript
  * on this Mac. Nor is a mend tried when a product or a
  * price is quoted in a paragraph that holds an amount, at any place: the editor turns a product into its kind, and "5 ml
  * of that product for 200 litres" would become a dose for every product of the kind (the Writing Lead, 2026-11-11).
  * That text goes back.
  */
-export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts }): Mend => async (p: Page, findings: FitFinding[]) => {
+export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts; sourceAndElsewhere?: boolean }): Mend => async (p: Page, findings: FitFinding[]) => {
   if (p.lang !== 'vi' || p.kind !== 'guides' || !findings.length) return undefined
   const contentRoot = join(root, 'content')
   const dir = join(contentRoot, 'guides', p.id)
@@ -115,6 +115,11 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   if (e.source !== 'youtube' || !e.video || vi.bodyFixed || vi.faqFixed) return undefined
   // A title a person picked (nameFixed) isn't the editor's to change, so a fault quoted in it can't be mended here.
   if (vi.nameFixed && findings.some(f => f.part === 'T')) return undefined
+  // Until a mended guide stays held for its morning read, a source or an elsewhere finding isn't the editor's: it wrote one
+  // betta's temper as the reader's betta's, and dropped "nước máy nơi đó nhiều khoáng" from why a tank ran with no
+  // fertiliser (Codex's ninth read of #1690). No word list closes that; the guide waits for a person (the chief of staff,
+  // 19 Nov 2026). `sourceAndElsewhere` lets them in, for the tests and the change that brings that read.
+  if (!d.sourceAndElsewhere && findings.some(f => f.check === 'source' || f.check === 'elsewhere')) return undefined
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
 
   // The guide's parts, each cut into its sentences, and the ones each finding names: every sentence its quote is in, in
