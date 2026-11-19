@@ -18,10 +18,14 @@
       "regions": [
         "Xi Jiang",
         "Zhu Jiang",
-        "Liu Jiang"
+        "Nan Pan",
+        "Liu Jiang",
+        "Nanpan-jiang",
+        "Xi-jiang"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -40,7 +44,17 @@
           "quote": "Some records are from the Nan Pan river, a tributary system in the upper part of the drainage although the type locality appears to be within the Liu Jiang basin further east.",
           "countries": [],
           "regions": [
+            "Nan Pan",
             "Liu Jiang"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The habitat of this loach, described by Fang in 1930, is the Nanpan-jiang and Xi-jiang basins in Guangdong to Guangxi provinces in China.",
+          "countries": [],
+          "regions": [
+            "Nanpan-jiang",
+            "Xi-jiang"
           ]
         }
       ]

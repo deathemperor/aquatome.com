@@ -136,26 +136,19 @@
       ]
     }
   },
-  "dataCard": {
-    "sizeCm": [
-      {
-        "source": "glaser",
-        "value": 20
-      }
-    ]
-  },
+  "dataCard": {},
   "sections": [
     {
-      "key": "behaviour",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_compressus_en/",
-      "html": "<p>This species of Piranha are solitary fish that feed in their natural habitat preferably on the fins of other fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-compressus-a-very-interesting-piranha-from-peru/",
+      "html": "<p>The fish were imported from Peru. Piranhas determined as Serrasalmus compressus are often obtained from there.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_compressus_en/",
-      "html": "<p>The systematics of Piranhas are still poorly understood, especially young fish are very difficult to determine. Formerly this species has been often traded as S. hollandi.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-compressus-a-very-interesting-piranha-from-peru/",
+      "html": "<p>The fish with small spots fit very well to the piranhas often obtained from Peru and determined as Serrasalmus compressus in the past. The other animals certainly belong to the same closer relationship within Serrasalmus, but there is no scientifically accepted species other than S. compressus that fits. The only possible exception is the black piranha (S. rhombeus), which arrives from Peru from time to time. However, S. rhombeus is easily distinguished from other piranhas by its red eye, which should already be visible in animals 5-9 cm long.</p><p>As no matching name could be found for the second phenotype, all of them are offered under the name S. compressus, but it cannot be excluded that two species are involved, perhaps even a scientifically undescribed one.</p>"
     }
   ],
   "photos": [
@@ -219,5 +212,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-18"
 }

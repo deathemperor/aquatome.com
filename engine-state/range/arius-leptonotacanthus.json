@@ -1,0 +1,49 @@
+{
+  "id": "arius-leptonotacanthus",
+  "native": {
+    "input": "2ae8e77857f4e7d2",
+    "at": "2026-11-18T12:30:34.128Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Central Pacific: along the Gulf of Thailand and Indonesia; in coastal waters and estuaries.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Central Pacific: along the Gulf of Thailand and Indonesia; in coastal waters and estuaries.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Arius leptonotacanthus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345266,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T12:30:34.128Z"
+  }
+}

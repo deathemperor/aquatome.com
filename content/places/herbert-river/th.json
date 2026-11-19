@@ -1,8 +1,13 @@
 {
   "slug": "herbert-river",
-  "name": "เฮอร์เบิร์ต",
+  "name": "แม่น้ำเฮอร์เบิร์ต",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T17:54:36.472Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

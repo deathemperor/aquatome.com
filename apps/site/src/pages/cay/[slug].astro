@@ -27,7 +27,7 @@ const { p } = Astro.props as { p: Localized<PlantEntity> }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // What the page shows, chosen in page order (lib/plant-page.ts, which the app's copy reads too).
-const { gallery, galleryPath, strip, figures, guides, videoGuides, videoPhotos } = plantParts(lang, c, p)
+const { gallery, strip, figures, guides, videoGuides, videoPhotos } = plantParts(lang, c, p)
 // The plant itself is always a shopping item (sold on Shopee/Lazada), even when the engine proposed none.
 const slots = p.productSlots.some(s => s.category === 'cay-thuy-sinh') ? p.productSlots : [{ category: 'cay-thuy-sinh', keywords: [p.t.name, p.scientificName] }, ...p.productSlots]
 const facts: [string, string][] = [
@@ -54,7 +54,7 @@ const alternates = await alternatesOf('plants', p.id)
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={p.t.name} />}
+  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} name={p.t.name} />}
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} co2={p.co2} refs={p.refs} />
   {/* The guides that say more about it, then the shops (Vietnam's, Shopee/Lazada links: Vietnamese pages only). */}
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />

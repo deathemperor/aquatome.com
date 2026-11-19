@@ -1,10 +1,13 @@
 {
   "id": "sagittaria-subulata",
   "scientificName": "Sagittaria subulata",
+  "synonyms": [
+    "Sagittaria pusilla"
+  ],
   "difficulty": 1,
-  "light": "low",
+  "light": "medium",
   "co2": "optional",
-  "growth": "medium",
+  "growth": "fast",
   "placement": [
     "foreground",
     "midground"
@@ -17,48 +20,106 @@
       "html": "<ul><li>Origin: South America</li><li>Height: 5 - 30+ cm</li><li>Light demand: low</li><li>CO2 demand: medium</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Dwarf Sagittaria</li><li>Other names: Awl-leaf arrowhead, Narrow-leaved arrowhead, Hudson Sagittaria, Ribbon Wapato</li><li>Scientific name: Sagittaria subulata (Sagittaria pusilla)</li><li>Lighting: medium</li><li>GH: soft to hard</li><li>Substrate: nutrient-rich</li><li>Growth form: rosette</li><li>Growth rate: fast</li><li>Placement: foreground or mid-ground</li><li>Fertilizers: not needed to low</li><li>CO2: not needed to low</li><li>Propagation: by runners</li><li>Colour: green</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Dwarf Sagittaria is an aquatic plant from the family Alismataceae. It is native to the Atlantic coast of North America, including eastern US states with an Atlantic shoreline such as Massachusetts, Connecticut, North and South Carolina, New Jersey, Georgia and Florida. It is also native to South America (Colombia and Venezuela). It has become established as an invasive species in Great Britain, the Azores and Java in Indonesia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>This plant grows in marshes, estuaries and shallow waters (freshwater and brackish) in both emersed and submersed form.</p><p>It is a perennial up to 10–15 cm tall with bright green, narrowly linear leaves that are generally stiff, short and 1–7 mm wide. In its emersed state the flowers develop on very thin, long, light-green stalks; they are white, about 1 cm in diameter. The plant is monoecious, with two to five male flowers and one to two female flowers on a single plant. When the water dries out, it develops land forms with ovate leaves 25–50 mm long. Leaves are gathered in thick basal rosettes, and well-developed white roots go deep into the substrate (up to 5–8 cm).</p><p>Strictly speaking, Dwarf Sagittaria is itself a variety of Sagittaria subulata, bred by Dutch breeders and introduced into the hobby about 40 years ago.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Sagittaria subulata suits even the smallest tanks, nano or large. The recommended minimum tank size is 20 litres; choose a larger tank if you plan heavy stocking.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Sagittariasubulata(079TC)/18270",
       "html": "<p>Place individual plants 2-4 cm apart. Short runners form a compact group.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Care is relatively easy; it is one of the few plants that thrive in extreme pH, temperature and water hardness conditions.</p><p>The plants grow fast and may need regular trimming to achieve a nice carpet. Constant trimming also increases propagation by helping runners develop. However, it is a rosette plant, not a stem plant: trimming damages all the leaves growing from a central point, existing leaves may die back, and newer, smaller leaves grow. The more you trim, the smaller the plant becomes.</p><p>If the substrate lacks nutrients, regular fertilizer may be needed, at least once a week. If signs of iron deficiency appear, dose the water with an iron supplement such as Seachem Fluorish Iron.</p><p><strong>Planting:</strong> It suits the foreground or mid-ground. Four to five specimens with healthy roots are enough to form a dense carpet. Place plants into the substrate with tweezers (about 2–3 cm deep) without burying the crown too deep, to prevent rot. Space them 5–7 cm apart for better growth and a faster carpet. Do not glue them onto driftwood or anything else.</p><p><strong>Propagation:</strong> It produces runners that spread like a carpet across the tank floor; the runners can be pinched off, relocated and planted. To increase the rate, trim off a few leaves from each plant so it sends out more runners. It is also a good plant for the dry start method.</p><p><strong>Problems:</strong></p><ul><li>Yellowing leaves: caused by low iron. Monitor iron with a test kit and dose supplements when necessary.</li><li>Melting: results from transit damage, physical transfer or the change from emersed to submersed form. New leaves develop once the plant adapts.</li><li>Rot: occurs when the plant is buried too deep and the crown rots, eventually killing the plant.</li><li>Relocation: the root system is strong, so be careful when removing it or you may pull up a lot of substrate. Sometimes it is better to cut it off than pull it up.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>All varieties of Sagittaria subulata withstand hard water and water with a surplus of organic substances, and are not sensitive to temperature variations.</p><ul><li>Temperature: thrives at 20–27 °C and even lower without adverse effects.</li><li>pH: not fussy, but prefers 6.0–8.0.</li><li>Hardness: soft to hard water, 2–15 GH.</li><li>Lighting: moderate, best at 30–60 PAR. Very high light for a long time may turn it yellowish or make it melt. It survives in very low light but grows slower and a little taller.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Dwarf Sagittaria is a root feeder and is not efficient at absorbing nutrients through its leaves, so use nutrient-rich substrates such as ADA Amazonia soil, Mr. Aqua Aquarium Soil or Caribsea Eco-Complete. It is unlikely to do well in gravel- or sand-only substrate; in that case it needs root tabs.</p><p>It thrives without CO2 injection, but growth will be slower, and sometimes stunted if other water parameters are poor. If you inject CO2, provide more light and make sure fertilization needs are met to keep the tank balanced and avoid algae. Sagittaria is sensitive to low iron; yellowing leaves are often a sign of iron deficiency.</p><p>If you keep shrimp with it, note that high CO2 levels and copper (present in most fertilizers) are extremely dangerous to shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Sagittariasubulata(079TC)/18270",
       "html": "<p>Aquarium plant from tissue culture in closed cup. Sagittaria subulata from South America is an ideal, undemanding foreground plant whose short runners form a compact group. This plant may cause problems because in certain conditions it suddenly grows to a height of 50 cm when it grows older. But if it is then moved into the background it may become low again. In the aquarium it sometimes sends a long flower stem to the surface, and small white flowers unfold just above the water surface.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Varieties:</strong></p><ul><li>Sagittaria subulata var. gracillima (Narrowleaf Sagittaria): also has thin leaves (1–6 mm wide) and is hard to tell apart from Dwarf Sagittaria when small, but can grow to 40 cm or more, so it is only useful in the mid-ground and background. Its leaves form dense tangles when they reach the surface. It is darker green, while Dwarf Sagittaria is more lime green.</li><li>Sagittaria subulata var. kurziana (Broadleaf Sagittaria): one of the most decorative of the species, resembling some Vallisneria. Submersed leaves are 20–30 cm long and 7–15 mm wide.</li></ul><p><strong>Benefits:</strong></p><ul><li>Aquascape: one of the best choices for aquascapes, particularly Iwagumi.</li><li>Prevents gas pockets: its roots help break up anaerobic pockets in the substrate, including hydrogen sulfide, which can be dangerous to fish and shrimp.</li><li>Foraging place: a place for biofilm to grow, an ideal first food for newly hatched fry and baby shrimp.</li><li>Shelter: dense carpets shelter shrimp, small and shy fish, and serve as a breeding place for egg scatterers.</li><li>Oxygenation: like all plants, it oxygenates the water.</li></ul><p><strong>Tankmates:</strong> Its grasslike form contrasts with plants of different growth habit such as Anubias nana, Monte Carlo and Glossostigma elatinoides. Suitable tankmates are mostly livebearers, shrimp and snails: peaceful fish such as Otocinclus, pygmy corydoras, neon tetras, guppies, cherry barbs, green swordtails, rasboras and platies; all Neocaridina and Caridina shrimp, Amano, ghost, bamboo and vampire shrimp; snails such as ramshorn, nerite, Malaysian trumpet, Japanese trapdoor and mystery snails (beware of snails that eat the plant).</p><p>Avoid aggressive, digging and plant-eating fish such as goldfish, oscars and rainbowfish, which nibble the leaves. Do not keep it with crayfish or crabs, which eat and uproot plants.</p><p><strong>Buying and quarantine:</strong> It is widely available and inexpensive. Signs of a healthy plant are healthy roots and crown and bright green leaves free of discoloration and pests. Unless the plant was grown in vitro in an intact pot, quarantine and disinfect it first; a new plant may carry parasites, pest snails, predators (dragonfly or damselfly nymphs) or pesticide residues that are extremely poisonous to fish, shrimp and other invertebrates.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/176202c68b0ce62a.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/176202c68b0ce62a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-sagittaria-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/06e558e5f22ecc3c.webp",
+      "thumb": "https://media.aquatome.com/commons/06e558e5f22ecc3c-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sagittaria_subulata_kz01.jpg",
-      "caption": "Sagittaria subulata in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/06e558e5f22ecc3c-480.webp"
+      "caption": "Sagittaria subulata in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/9e9daa7c71641e2a.webp",
+      "thumb": "https://media.aquatome.com/commons/9e9daa7c71641e2a-480.webp",
       "width": 960,
       "height": 1441,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sagittaria_subulata_kz01_(cropped).jpg",
-      "caption": "Sagittaria subulata in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/9e9daa7c71641e2a-480.webp"
+      "caption": "Sagittaria subulata in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/b16acc6ad306e741.webp",
+      "thumb": "https://media.aquatome.com/commons/b16acc6ad306e741-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC0",
       "author": "Daderot",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sagittaria_subulata_-_Botanischer_Garten_-_Heidelberg,_Germany_-_DSC01290.jpg",
-      "caption": "Botanical specimen in the Botanischer Garten - Heidelberg, Germany.",
-      "thumb": "https://media.aquatome.com/commons/b16acc6ad306e741-480.webp"
+      "caption": "Botanical specimen in the Botanischer Garten - Heidelberg, Germany."
     }
   ],
   "productSlots": [
@@ -82,5 +143,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-17"
 }

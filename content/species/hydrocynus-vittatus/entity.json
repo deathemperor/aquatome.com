@@ -11,7 +11,8 @@
     "lake-tanganyika",
     "democratic-republic-of-the-congo",
     "tanzania",
-    "zambia"
+    "zambia",
+    "nigeria"
   ],
   "range": {
     "native": {
@@ -1001,6 +1002,10 @@
       {
         "source": "seriouslyfish",
         "value": 105
+      },
+      {
+        "source": "glaser",
+        "value": 60
       }
     ],
     "tankCm": [
@@ -1042,6 +1047,12 @@
       "html": "<p>Standard length: 105 cm SL. Aquarium base: 300 × 90 cm.</p><p>300 × 90 × 90 cm – approximately 2430 litres. Even an aquarium this size is too small for an adult specimen.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus-vittatus-2/",
+      "html": "<p>Hydrocynus vittatus is, compared with other species of that genus, comparatively small and becomes \"only\" about 60 cm long. Of course this fish is nevertheless only suited for owners of really big tanks.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrocynus-vittatus",
@@ -1060,10 +1071,22 @@
       "html": "<p>It is a piscivore by nature and many sources state that it will only feed on live fish. This is not true and it can be weaned onto whitebait and other dead foods fairly easily.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus-vittatus-2/",
+      "html": "<p>Hydrocynus feed exclusively on fish. Specimens that have adopted to the aquarium readily accept frozen fish.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrocynus-vittatus",
       "html": "<p>Should really only be kept alone or with other similarly sized members of the same species. There are reports of it being kept with Loricariids, cichlids etc. but these are usually young fish being kept with larger tankmates. Anything smaller than the tiger fish may be ripped to pieces without prior warning.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus-vittatus-2/",
+      "html": "<p>Against conspecifics the fish are rather peaceful, so if one has such a big tank and interest in keeping Hydrocynus it is best to try to keep it in groups.</p>"
     },
     {
       "key": "dimorphism",
@@ -1082,26 +1105,57 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrocynus-vittatus",
       "html": "<p>A voracious piscivore that hunts in large shoals in the wild, this species is perfectly designed for its lifestyle. It is very streamlined and muscular and has one of the most amazing sets of teeth of any freshwater fish. These are dagger-shaped and interlock, meaning the fish can rip chunks out of its prey. The teeth are visible even when the animal's mouth is closed, which makes for a fearsome sight. It is a popular game fish in its native range, with the largest specimen caught weighing in at 28 kg.</p><p>This is a species totally unsuited to aquarium life. Alarmingly, it is becoming easier to acquire, with small specimens showing up quite frequently in dealers' tanks over the last few years. When small, it makes an interesting and undeniably impressive addition to a large aquarium but, bearing in mind its massive adult size and the potential dangers associated with the maintenance of such a fearsome predator, it is recommended that it be avoided.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrocynus-vittatus-2/",
+      "html": "<p>The systematics of the wolf tetras from Africa remain unsatisfying. According to the most recent literature there do appear two species in Nigeria, namely Hydrocynus forskahlii and H. vittatus. Both are very similar to each other and at times they were regarded to be mere synonyms. However, currently they are (again) treated as valid species. The most important distinguishing feature is the black seam in the caudal fin in H. vittatus, which is lacking in H. forskahlii.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/7ffe7cce4567725c.webp",
+      "thumb": "https://media.aquatome.com/commons/7ffe7cce4567725c-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "Totti",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_vittatus_Gifu.jpg",
-      "caption": "タイガーフィッシュ。アクア・トトぎふ飼育展示個体。",
-      "thumb": "https://media.aquatome.com/commons/7ffe7cce4567725c-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/7ffe7cce4567725c-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Totti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrocynus_vittatus_Gifu.jpg",
+      "caption": "タイガーフィッシュ。アクア・トトぎふ飼育展示個体。"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Ok0BZdNHlsY",
+      "title": "Vittatus Tiger Fish || (Hydrocynus vittatus) 4K  #tigerfish #vittatus #aquarium #relax",
+      "durationSec": 33,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "h95E6yNaJzw",
+      "title": "African Vittatus Tiger Fish Hydrocynus Vittatus #fish #aquariumlife #water",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Yd0KL6YOFzU",
+      "title": "Tigerfish afrika (Hydrocynus vittatus) ikan air tawar paling cepat #ikanpredator #ikanhias #akuarium",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UUZBitihi78",
+      "title": "Hydrocynus vittatus aka tigerfish",
+      "durationSec": 11,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -1123,5 +1177,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-18"
 }

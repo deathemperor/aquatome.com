@@ -3,6 +3,12 @@
   "name": "อารีนุส-ฌูรูเอนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-18T05:59:30.153Z",
+    "why": "The name transliterates Portuguese Arinos-Juruena sensibly (อารีนุส, ฌูรูเอนา) without translating or repeating anything, but the exact Thai spelling and the kind word (ภูมิภาค) are uncertain for this obscure region."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

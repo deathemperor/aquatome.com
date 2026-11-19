@@ -3,6 +3,12 @@
   "name": "ฌาวาเอส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.65,
+    "at": "2026-11-18T12:25:11.156Z",
+    "why": "ฌาวาเอส is a sound Thai rendering of Javaés, but the source describes the rio Javaés, a river, and the name omits the kind word แม่น้ำ that an atlas would use."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

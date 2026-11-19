@@ -1,8 +1,8 @@
 {
   "id": "bagarius-suchus",
   "native": {
-    "input": "0782a76e35ced50d",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "40eb3703e15b1b1b",
+    "at": "2026-11-18T12:30:34.128Z",
     "claims": [
       {
         "code": "TH",
@@ -25,30 +25,6 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The crocodile catfish, Bagarius suchus, is a sisorid catfish from the Mekong system in Thailand, Laos and Cambodia and the Chao Phraya in Thailand.",
-        "words": "Cambodia",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Known from the Mekong river system in Thailand, Laos, and Cambodia, plus the Chao Phraya drainage in Thailand.",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "LA",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Known from the Mekong river system in Thailand, Laos, and Cambodia, plus the Chao Phraya drainage in Thailand.",
-        "words": "Laos",
-        "ok": true
-      },
-      {
-        "code": "KH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Known from the Mekong river system in Thailand, Laos, and Cambodia, plus the Chao Phraya drainage in Thailand.",
         "words": "Cambodia",
         "ok": true
       }

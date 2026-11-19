@@ -1,0 +1,219 @@
+{
+  "id": "vieja-maculicauda",
+  "native": {
+    "input": "78395a91d4020082",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blackbelt cichlid, Vieja maculicauda, is a large cichlid found from the Usumacinta basin in Guatemala south to the River Chagres in Panama.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blackbelt cichlid, Vieja maculicauda, is a large cichlid found from the Usumacinta basin in Guatemala south to the River Chagres in Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Atlantic slope, from the Usumacinta River drainage in Guatemala to the Chagres River in Panama.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Atlantic slope, from the Usumacinta River drainage in Guatemala to the Chagres River in Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of Central America, where its range extends southwards from the River Usumacinta basin in Guatemala through Honduras, Nicaragua and Costa Rica as far as the River Chagres in Panama.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of Central America, where its range extends southwards from the River Usumacinta basin in Guatemala through Honduras, Nicaragua and Costa Rica as far as the River Chagres in Panama.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of Central America, where its range extends southwards from the River Usumacinta basin in Guatemala through Honduras, Nicaragua and Costa Rica as far as the River Chagres in Panama.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "GT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of Central America, where its range extends southwards from the River Usumacinta basin in Guatemala through Honduras, Nicaragua and Costa Rica as far as the River Chagres in Panama.",
+        "words": "Guatemala",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Found throughout much of Central America, where its range extends southwards from the River Usumacinta basin in Guatemala through Honduras, Nicaragua and Costa Rica as far as the River Chagres in Panama.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Usumacinta",
+        "source": "seriouslyfish",
+        "quote": "The blackbelt cichlid, Vieja maculicauda, is a large cichlid found from the Usumacinta basin in Guatemala south to the River Chagres in Panama.",
+        "country": "GT",
+        "ok": true
+      },
+      {
+        "name": "Chagres",
+        "source": "seriouslyfish",
+        "quote": "The blackbelt cichlid, Vieja maculicauda, is a large cichlid found from the Usumacinta basin in Guatemala south to the River Chagres in Panama.",
+        "country": "PA",
+        "ok": true
+      },
+      {
+        "name": "Usumacinta",
+        "source": "glaser",
+        "quote": "Atlantic slope, from the Usumacinta River drainage in Guatemala to the Chagres River in Panama.",
+        "country": "GT",
+        "ok": true
+      },
+      {
+        "name": "Chagres",
+        "source": "glaser",
+        "quote": "Atlantic slope, from the Usumacinta River drainage in Guatemala to the Chagres River in Panama.",
+        "country": "PA",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BZ"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Vieja maculicauda",
+    "status": "ACCEPTED",
+    "taxonKey": 2372045,
+    "datasets": [
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        57
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        49
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        48
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        46
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        26
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        25
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        21
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        16
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        10
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "8049bed0-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        1
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        1
+      ]
+    ],
+    "native": [
+      "GT",
+      "PA",
+      "HN",
+      "NI",
+      "CR"
+    ],
+    "requests": 13,
+    "at": "2026-11-17T11:42:48.614Z"
+  }
+}

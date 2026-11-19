@@ -1,0 +1,293 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Type",
+      "value": "Electronically controlled, adjustable internal heater (Nano Heater Compact, earlier sold as Nano ThermoCompact)",
+      "source": 0
+    },
+    {
+      "key": "Temperature range",
+      "value": "20–33 °C",
+      "source": 0
+    },
+    {
+      "key": "Temperature range (other listing)",
+      "value": "18–36 °C",
+      "source": 3
+    },
+    {
+      "key": "Housing",
+      "value": "Flat, slim black plastic housing that will not shatter",
+      "source": 7
+    },
+    {
+      "key": "Mounting",
+      "value": "Two suction cups; can be mounted upright or lying flat",
+      "source": 0
+    },
+    {
+      "key": "Display",
+      "value": "Multi-colour LED showing the set temperature and the current water temperature",
+      "source": 0
+    },
+    {
+      "key": "Protection",
+      "value": "Overheating protection and automatic cut-off if run dry",
+      "source": 0
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 0
+    },
+    {
+      "key": "Control accuracy",
+      "value": "±0.5 °C",
+      "source": 4
+    },
+    {
+      "key": "Control accuracy (other listing)",
+      "value": "±1 °C",
+      "source": 5
+    },
+    {
+      "key": "Cable length",
+      "value": "1.6 m",
+      "source": 4
+    },
+    {
+      "key": "Max immersion depth",
+      "value": "80 cm",
+      "source": 4
+    },
+    {
+      "key": "Size (25 W)",
+      "value": "About 16 cm tall × 4.8 cm wide",
+      "source": 4
+    }
+  ],
+  "variants": [
+    {
+      "name": "Nano Heater Compact 25 W (art. 5697)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "25 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size (manufacturer)",
+          "value": "up to 30 L",
+          "source": 0
+        },
+        {
+          "key": "Tank size (retailer)",
+          "value": "10–30 L",
+          "source": 1
+        },
+        {
+          "key": "EU price",
+          "value": "€26.95 (listed as out of stock)",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "Nano Heater Compact 50 W (art. 5698)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "50 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size (manufacturer)",
+          "value": "up to 60 L",
+          "source": 0
+        },
+        {
+          "key": "EU price",
+          "value": "€29.95 (listed as out of stock)",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "Nano Heater Compact 100 W",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "100 W",
+          "source": 7
+        },
+        {
+          "key": "EU price",
+          "value": "€32.95",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "Nano Heater Compact 150 W",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "150 W",
+          "source": 7
+        },
+        {
+          "key": "Tank size",
+          "value": "90–180 L",
+          "source": 1
+        },
+        {
+          "key": "EU price",
+          "value": "€34.95",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "prices": [],
+  "fits": [
+    {
+      "fact": "The 25 W model suits nano tanks of about 10–30 L, and the 50 W model suits tanks up to about 60 L.",
+      "source": 0
+    },
+    {
+      "fact": "The broad, flat heating surface helps keep fish and shrimp from getting burned, so it suits shrimp tanks.",
+      "source": 0
+    },
+    {
+      "fact": "Works in both freshwater and marine tanks.",
+      "source": 0
+    },
+    {
+      "fact": "For a tank that must stay at 25 °C, Dennerle sells the separate Heater Constant line. It cannot be adjusted.",
+      "source": 11
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Put the heater close to the filter outlet so water keeps flowing past it.",
+      "source": 6
+    },
+    {
+      "fact": "The heater must always be fully under water while it is running.",
+      "source": 6
+    },
+    {
+      "fact": "If the water isn't warming up, check that it's plugged in and the indicator light is on.",
+      "source": 6
+    },
+    {
+      "fact": "Attach it with the two suction cups, either upright or lying flat.",
+      "source": 0
+    },
+    {
+      "fact": "Set the temperature electronically anywhere from 20 to 33 °C. The LED shows both the set value and the current water temperature.",
+      "source": 0
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Sources disagree on tank capacity for the 25 W model: one retailer says 10–25 L, others say 10–30 L, and the English manual says up to about 20 L. Choose with some margin.",
+      "source": 5
+    },
+    {
+      "fact": "Stated accuracy also varies between listings (±0.5 °C vs ±1 °C), and so does the temperature range (20–33 °C vs 18–36 °C). These may come from different product versions (ThermoCompact vs Heater Compact).",
+      "source": 3
+    },
+    {
+      "fact": "Many European retailers list the 25 W and 50 W models as sold out, so supply may be limited.",
+      "source": 2
+    },
+    {
+      "fact": "Another retailer also lists the 25 W as out of stock.",
+      "source": 9
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Heater CS 60",
+      "model": "25 W / 50 W",
+      "why": "Small heater sold at a Vietnamese shop for about 165,000–170,000 ₫. It is much cheaper and easy to find, but it has no Dennerle-style display or shatterproof housing.",
+      "source": 8
+    },
+    {
+      "brand": "Periha",
+      "model": "50 W",
+      "why": "Budget 50 W heater sold in Vietnam for about 160,000 ₫, a cheap choice for tanks of about 40–60 L.",
+      "source": 8
+    },
+    {
+      "brand": "Atman",
+      "model": "BH 100 W (black glass)",
+      "why": "Widely available in Vietnam for about 135,000 ₫. It is a glass heater, though, so it is more fragile than the Dennerle's plastic housing.",
+      "source": 8
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://dennerle.com/en/products/heizung/nano-heater-compact/",
+      "title": "Dennerle – Nano Heater Compact 25 W",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.aquasabi.com/Dennerle-Nano-Heater-Compact",
+      "title": "Aquasabi – Dennerle Nano Heater Compact",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquaristikshop.com/aquaristic/Dennerle-Nano-Heater-Compact/908080/",
+      "title": "Aquaristikshop – DENNERLE Nano Heater Compact",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.shrimpfarm-frankfurt.de/heizen-k%C3%BChlen/dennerle-nano-thermocompact-25w/",
+      "title": "Shrimpfarm Frankfurt – Dennerle Nano ThermoCompact 25W",
+      "kind": "shop"
+    },
+    {
+      "url": "https://webshop.aquacultureid.com/product/dennerle-nano-heater-compact-25-w-240v/",
+      "title": "AquacultureID – Dennerle Nano Heater Compact 25 W (240V)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.bol.com/nl/nl/p/dennerle-nano-thermo-compact-25w/9200000112005812/",
+      "title": "bol.com – Dennerle Nano Heater Compact 25W",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.manua.ls/dennerle/nano-heater-compact-25w/manual",
+      "title": "User manual Dennerle Nano Heater Compact 25W",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.aquasnails.com/shop/dennerle-nano-thermocompact-internal-heater/",
+      "title": "Aquasnails – Dennerle Nano ThermoCompact Internal Heater",
+      "kind": "shop"
+    },
+    {
+      "url": "https://kingaqua.vn/may-suoi-pc182040.html",
+      "title": "Kingaqua – Máy Sưởi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.recifathome.com/en/dennerle/24686-nano-thermocompact-25w-dennerle.html",
+      "title": "Recif at Home – Nano ThermoCompact 25W Dennerle",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dennerle.com/en/collections/aquarium-heizung",
+      "title": "Dennerle – Aquarium heaters collection",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.aquasabi.com/Dennerle-Heater-Constant",
+      "title": "Aquasabi – Dennerle Heater Constant",
+      "kind": "shop"
+    }
+  ]
+}

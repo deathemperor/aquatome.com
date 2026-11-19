@@ -23,13 +23,14 @@ final class Switcher {
   var changedRoles: [String: String] = [:]
   #endif
 
-  /// The outlet's role, from its record as it is now.
+  /// The outlet's role as it is now: a heater or CO2 when any record of the same strip marks it so, whichever record the
+  /// command was made from (TankStore.strictestRole, the chief, 18 Nov); else its record's own.
   func role(_ c: DeviceCommand) -> String? {
     guard let code = c.outlet else { return nil }
     #if DEBUG
     if let role = changedRoles[code] { return role }
     #endif
-    return tanks.store.device(c.device)?.outlets.first { $0.code == code }?.role
+    return tanks.store.strictestRole(device: c.device, outlet: code)
   }
 
   /// `set`, for the master button: refused unless the outlet's role now allows it (MasterButton.allows: CO2 never on, a

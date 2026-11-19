@@ -10,6 +10,47 @@
     "china",
     "zhujiang-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Zhujiang River",
+        "Xiuren River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: China, Zhujiang River.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Zhujiang River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The specific name xiurenensis refers to the Xiuren River, Pearl River drainage, Guangxi Province, China, the type locality.",
+          "countries": [],
+          "regions": [
+            "Xiuren River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342876,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

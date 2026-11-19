@@ -3,6 +3,12 @@
   "name": "Trat",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:00:38.135Z",
+    "why": "Trat is a Thai province, and Malay atlases usually write \"Wilayah Trat\" or \"Provinsi Trat\" for such regions. In Malaysia, Thai provinces are often called \"Wilayah\", so the bare \"Trat\" lacks the kind word, but the name itself is correct."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

@@ -1,0 +1,311 @@
+{
+  "id": "leporinus-nijsseni",
+  "scientificName": "Leporinus nijsseni",
+  "order": "Characiformes",
+  "family": "Anostomidae",
+  "genus": "Leporinus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "suriname",
+    "suriname-river-basin",
+    "saramacca-river-basin",
+    "brokopondo-district",
+    "french-guiana",
+    "brazil"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR",
+        "BR"
+      ],
+      "regions": [
+        "Saramacca"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Có nguồn ghi vùng phân bố này nằm ở Suriname và Guiana thuộc Pháp.",
+          "countries": [
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquatome",
+          "quote": "Eschmeyer's Catalog of Fishes thì liệt kê nó ở Brazil, Guiana thuộc Pháp và Suriname.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquatome",
+          "quote": "Loài này sống ở Nam Mỹ, trong lưu vực suối Saramacca và sông Suriname.",
+          "countries": [],
+          "regions": [
+            "Saramacca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355400,
+      "total": 258,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "GF",
+          145
+        ],
+        [
+          "BR",
+          77
+        ],
+        [
+          "SR",
+          31
+        ],
+        [
+          "GY",
+          3
+        ],
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -56.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          4.21875,
+          17,
+          17
+        ],
+        [
+          -53.4375,
+          1.40625,
+          44,
+          28
+        ],
+        [
+          -53.4375,
+          2.8125,
+          153,
+          36
+        ],
+        [
+          -53.4375,
+          4.21875,
+          10,
+          0
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          2.8125,
+          14,
+          12
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": 17,
+        "ref": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này đang được người chơi biết đến nhiều hơn vì màu đẹp, và vì nó hiền hơn các loài leporinus khác như banded leporinus. Cá có thể dài tới 18 cm, nên cần bể đủ rộng.</p><p>Bể thủy sinh không hợp với nó. Khi trong bể không có rêu để gặm, cá sẽ rỉa lá các loại cây mềm.</p>",
+      "refs": [
+        4
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này sống ở Nam Mỹ, trong lưu vực suối Saramacca và sông Suriname. Có nguồn ghi vùng phân bố này nằm ở Suriname và Guiana thuộc Pháp. Eschmeyer's Catalog of Fishes thì liệt kê nó ở Brazil, Guiana thuộc Pháp và Suriname.</p>",
+      "refs": [
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Leporinus nijsseni</em> là cá nước ngọt vùng nhiệt đới, sống ở cả tầng đáy lẫn tầng giữa. Chúng ở những đoạn nước chảy xiết, nhiều đá. Đến mùa mưa, cá di cư vào rừng ngập. Khi nước rút, một số con bị kẹt lại trong các hồ, ao trong đất liền.</p>",
+      "refs": [
+        3,
+        4
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Chưa có nguồn nào công bố chiều dài bể tối thiểu cho loài này. Bể phải có nắp đậy kín, vì cá nhảy rất giỏi và nhảy được xa. Cách bày hợp nhất là nền cát, vài tảng đá và mấy khúc lũa.</p>",
+      "refs": [
+        4
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này được mô tả là rất khỏe. Nhưng nhiệt độ, pH, độ cứng nước, độ khó khi nuôi và tuổi thọ thì đến nay chưa nguồn nào công bố số liệu.</p>",
+      "refs": [
+        4
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Có lúc cá bơi chúc đầu xuống để gặm rêu liên tục. Trong bể, nó chịu ăn ngay các loại thức ăn khô chất lượng tốt như cám hạt, cám viên chìm và thức ăn dạng mảnh.</p><p>Mỗi tuần có thể cho ăn thêm một hai lần trùng huyết, bo bo hoặc trùn chỉ, loại tươi sống, đông lạnh hay sấy khô đều được. Khoản này có lợi cho cá, nhưng không cho cũng không sao. Trùng huyết chỉ nên cho thỉnh thoảng vì khó tiêu và có thể làm cá bị tắc ruột.</p>",
+      "refs": [
+        4
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là loài bơi lội rất hiếu động. Với cá cùng cỡ thì nó thường hiền, nhưng những con trưởng thành có thể hay giành chỗ với nhau. Cá có thể rỉa vây cá khác, nên phải chọn kỹ cá nuôi chung. Trong một bể được tính toán kỹ, nó có thể là một con cá nuôi chung rất tốt.</p>",
+      "refs": [
+        4
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Rất khó phân biệt đực cái. Khác biệt dễ thấy duy nhất là con cái trưởng thành có bụng tròn hơn con đực.</p>",
+      "refs": [
+        4
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, cá bắt thành từng cặp riêng và đẻ ở những chỗ nhiều cỏ rậm.</p>",
+      "refs": [
+        3
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Leporinus nijsseni</em> là một loài cá thuộc họ Anostomidae, phân họ Leporininae, bộ Characiformes. Tên tiếng Anh của nó là Clown Spotted Leporinus. Loài này được Julio Cesar Garavello mô tả là loài mới cho khoa học vào năm 1990, từ mẫu thu ở Suriname. Nơi lấy mẫu chuẩn cách đập Village Dam trên suối Sara Creek, quận Brokopondo, Suriname khoảng 27 km về phía nam. Mẫu chuẩn mang số ZMA 107562. Cũng trong bài mô tả đó, Garavello mô tả lại hai loài họ hàng là <em>Leporinus granti</em> và <em>Leporinus gomesi</em>, đều ở lưu vực sông Aripuanã, bang Mato Grosso, Brazil.</p><p>Về tên gọi thì hiện nay Eschmeyer's Catalog of Fishes xếp loài này vào chi <em>Hypomasticus</em>, thành <em>Hypomasticus nijsseni</em>, và vẫn công nhận đây là một loài hợp lệ. Một số cơ sở dữ liệu khác cũng dùng tên <em>Hypomasticus nijsseni</em> và để <em>Leporinus nijsseni</em> làm tên đồng nghĩa. Tên loài đặt để vinh danh tiến sĩ Han Nijssen (1935–2013), nhà ngư học người Hà Lan chuyên nghiên cứu cá chuột (<em>Corydoras</em>). Tên chi <em>Leporinus</em> lấy từ chữ Latin <em>lepus, leporis</em>, nghĩa là con thỏ.</p><p>Thân cá dài, lưng cong lên và phần đuôi thon lại. Nền thân màu vàng ánh kim, rải rác những đốm đen to nhỏ không đều. Vây lưng, vây ngực và vây đuôi trong suốt. Một số con có vây bụng màu vàng cam, còn vây hậu môn có thể cùng màu với thân. Cá lớn dài khoảng 17 cm.</p><p>Trong Sách Đỏ IUCN, loài này được xếp hạng Ít quan ngại (Least Concern), theo đánh giá ngày 1 tháng 3 năm 2007.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "k9cAr4WvhZY",
+      "title": "Clown Spotted Leporinus - Leporinus nijsseni - Freshwater Fish Room Tour Aquarium Profile",
+      "durationSec": 243,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4_0NcMZqNQM",
+      "title": "Leporinus nijsseni. The UNSUAL spotted Leporinus! (Leopard Aquatic C090C)",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WZ_dZOwzN_U",
+      "title": "leporinus nijsseni- לפורוניס ניג'סני- חוות הדג המעופף",
+      "durationSec": 25,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-17",
+  "refs": [
+    {
+      "url": "https://repository.naturalis.nl/pub/505366",
+      "title": "A new species of the Anostomid genus Leporinus Spix from Suriname, with redescriptions of two related species (Pisces, Characiformes, Anostomidae)"
+    },
+    {
+      "url": "https://research.calacademy.org/research/Ichthyology/Catalog/fishcatget.asp?spid=58423",
+      "title": "CAS - Eschmeyer's Catalog of Fishes"
+    },
+    {
+      "url": "https://www.aquatab.net/system/species/14649/",
+      "title": "Hypomasticus nijsseni – leporinus Nijssenův | AQUATAB"
+    },
+    {
+      "url": "https://nrm-fishbaselinux01.nrm.se/summary/27849",
+      "title": "Leporinus nijsseni Garavello, 1990"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=k9cAr4WvhZY",
+      "title": "Clown Spotted Leporinus - Leporinus nijsseni - Freshwater Fish Room Tour Aquarium Profile"
+    }
+  ]
+}

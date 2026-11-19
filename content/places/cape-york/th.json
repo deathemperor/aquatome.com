@@ -1,8 +1,13 @@
 {
   "slug": "cape-york",
-  "name": "เคปยอร์ก",
+  "name": "คาบสมุทรเคปยอร์ก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-18T12:19:15.563Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -1,0 +1,16 @@
+{
+  "slug": "save",
+  "name": "Save",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T17:54:31.597Z",
+    "why": "\"Save\" is the Vietnamese rendering, but the Zimbabwean region/river is the Save (Sabi) and Malay atlases would typically write \"Sungai Save\" for the river; a bare \"Save\" is ambiguous and the place is described as a region, so the name is only partly settled."
+  },
+  "quality": {
+    "score": 0.1,
+    "indexable": false
+  }
+}

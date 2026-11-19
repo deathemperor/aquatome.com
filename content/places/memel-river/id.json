@@ -1,0 +1,16 @@
+{
+  "slug": "memel-river",
+  "name": "Memel",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-18T05:54:00.880Z",
+    "why": "Indonesian atlases write \"Sungai Memel\" with the kind word, so bare \"Memel\" drops it and reads like the city (Klaipėda) instead of the river."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

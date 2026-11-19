@@ -3,6 +3,12 @@
   "name": "Nam Mae Yuan",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T11:38:18.603Z",
+    "why": "The place is a river basin (a river), and Malay atlases would write \"Sungai Nam Mae Yuan\" with the kind word \"Sungai\"; the bare \"Nam Mae Yuan\" omits it (and \"Nam\" already means water/river in Thai, so it is not a kind word in Malay)."
+  },
   "quality": {
     "score": 0.45,
     "indexable": false

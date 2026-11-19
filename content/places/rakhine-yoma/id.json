@@ -3,6 +3,12 @@
   "name": "Pegunungan Rakhine",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:55:25.348Z",
+    "why": "Pegunungan Rakhine uses the right kind word, and Rakhine is the modern name of the Rakhine Yoma range, but Indonesian atlases and Indonesian Wikipedia usually write it as Pegunungan Arakan."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

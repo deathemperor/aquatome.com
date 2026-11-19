@@ -1,0 +1,130 @@
+{
+  "id": "gogo-ornatus",
+  "scientificName": "Gogo ornatus",
+  "order": "Siluriformes",
+  "family": "Anchariidae",
+  "genus": "Gogo",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "madagascar",
+    "mangoro"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MG"
+      ],
+      "regions": [
+        "Mangoro River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type Locality: Mangoro River, 200 metres upstream of the ferry crossing on the road to Marolambo, Toamasina Province, Madagascar.",
+          "countries": [
+            "MG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Gogo ornatus is only known from the Mangoro River drainage.",
+          "countries": [],
+          "regions": [
+            "Mangoro River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338030,
+      "total": 4,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MG",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          47.8125,
+          -21.09375,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_ornatus.htm",
+      "html": "<ul><li>Synonym: Ancharius brevibarbis</li><li>Conservation status: Endangered (IUCN 2016)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_ornatus.htm",
+      "html": "<p>Africa: Mangoro River drainage on the east coast of Madagascar. Type Locality: Mangoro River, 200 metres upstream of the ferry crossing on the road to Marolambo, Toamasina Province, Madagascar.</p><p>Gogo ornatus is only known from the Mangoro River drainage. The estimated Extent of Occurrence is less than 5,000 km² and it is known from only a single location.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_ornatus.htm",
+      "html": "<p>It is found in a clear, clean, well oxygenated river with a substrate of sand and gravel, with large scattered boulders.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_ornatus.htm",
+      "html": "<p>Gogo ornatus is distinguished from other members of Anchariidae by a highly mottled pigmentation pattern of contrasting light and dark patches, versus uniform colouration with or without isolated small scattered dark spots or subtle mottled brownish-gray colouration. It differs from Gogo brevibarbis in having unicuspid teeth on the upper and lower jaws (versus bicuspid) and a smaller eye, 9.2-13.6% of head length (versus 15.9%). It differs from Gogo arcuatus in having a smaller eye, 9.2-13.6% of head length (versus 17.7-18.0%), and a straight dorsoposterior margin of the dorsal fin (versus concave).</p><p>Dorsal spines (total): 2; dorsal soft rays (total): 6-7; anal spines: 0; anal soft rays: 12; vertebrae: 43-46.</p><p>Etymology: the specific name ornatus means ornate, decorated.</p><p>Continuing habitat loss due to deforestation of the catchment, and declines due to competition and predation from introduced exotic fish species, are suspected. The species is therefore listed as Endangered. Deforestation leading to habitat loss through increased sedimentation, and predation or competition from exotic invasive species, are possible threats (IUCN).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_ornatus.htm",
+      "html": "<p>FishBase team RMCA &amp; Sparks, J.S. 2016. Gogo ornatus. The IUCN Red List of Threatened Species 2016. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ). IUCN. 2016. The IUCN Red List of Threatened Species. Version 2016-3. Available at: www.iucnredlist.org. Ng, H.H. and J.S. Sparks, 2005. Revision of the endemic Malagasy catfish family Anchariidae (Teleostei: Siluriformes), with descriptions of a new genus and three new species. Ichthyol. Explor. Freshwat. 16(4):303-323.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3584094c548b7f06.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3584094c548b7f06-480.webp",
+      "width": 500,
+      "height": 182,
+      "licence": "dùng với sự cho phép",
+      "author": "Roger Bills / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_ornatus.htm",
+      "caption": "Gogo ornatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4cd8e51c9cbbfb13.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4cd8e51c9cbbfb13-480.webp",
+      "width": 500,
+      "height": 169,
+      "licence": "dùng với sự cho phép",
+      "author": "Roger Bills / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/anchariidae/gogo_ornatus.htm",
+      "caption": "Gogo ornatus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

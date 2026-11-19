@@ -2,18 +2,6 @@
   "id": "mayaheros-urophthalmus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/60515719.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/60515719-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY-SA",
-      "author": "Matteo Cassella",
-      "sourceUrl": "https://www.inaturalist.org/photos/60515719",
-      "caption": "Đàn cá cichlid Maya bơi trên nền rêu trong môi trường tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/commons/ca0297ff05e1101a.webp",
       "thumb": "https://media.aquatome.com/commons/ca0297ff05e1101a-480.webp",
       "width": 1200,
@@ -62,16 +50,64 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/128ea0e714d8dfa4.webp",
-      "thumb": "https://media.aquatome.com/commons/128ea0e714d8dfa4-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/487391870.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/487391870-480.webp",
       "width": 1200,
-      "height": 800,
-      "licence": "CC BY 4.0",
-      "author": "Paul Asman",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mayaheros_urophthalmus_189653588.jpg",
-      "caption": "Nhóm cá cichlid Maya nhỏ trong vùng nước có cây thủy sinh",
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Rainer Breitling",
+      "sourceUrl": "https://www.inaturalist.org/photos/487391870",
+      "caption": "Hai cá cichlid Maya bơi trên đáy cát ngoài tự nhiên",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58258221.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58258221-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Leonel Roget",
+      "sourceUrl": "https://www.inaturalist.org/photos/58258221",
+      "caption": "Cá cichlid Maya bơi trên đáy sỏi ở suối nước trong",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a305b53d861b7213.webp",
+      "thumb": "https://media.aquatome.com/commons/a305b53d861b7213-480.webp",
+      "width": 1200,
+      "height": 901,
+      "licence": "CC BY-SA 4.0",
+      "author": "HenryC88",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mayan_cichlid.jpg",
+      "caption": "Cá cichlid Maya trưởng thành sọc đen, vây đỏ trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/60515719.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/60515719-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY-SA",
+      "author": "Matteo Cassella",
+      "sourceUrl": "https://www.inaturalist.org/photos/60515719",
+      "caption": "Đàn cá cichlid Maya bơi trên nền rêu trong môi trường tự nhiên",
+      "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/40055495.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/40055495-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Christine Loew",
+      "sourceUrl": "https://www.inaturalist.org/photos/40055495",
+      "caption": "Cá cichlid Maya nhìn chính diện trong cenote nước xanh",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/58258233.webp",
@@ -98,16 +134,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/487391870.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/487391870-480.webp",
+      "url": "https://media.aquatome.com/commons/128ea0e714d8dfa4.webp",
+      "thumb": "https://media.aquatome.com/commons/128ea0e714d8dfa4-480.webp",
       "width": 1200,
-      "height": 900,
-      "licence": "CC BY",
-      "author": "Rainer Breitling",
-      "sourceUrl": "https://www.inaturalist.org/photos/487391870",
-      "caption": "Hai cá cichlid Maya bơi trên đáy cát ngoài tự nhiên",
+      "height": 800,
+      "licence": "CC BY 4.0",
+      "author": "Paul Asman",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mayaheros_urophthalmus_189653588.jpg",
+      "caption": "Nhóm cá cichlid Maya nhỏ trong vùng nước có cây thủy sinh",
       "best": false,
-      "kind": "habitat"
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/38612365.webp",
@@ -146,18 +182,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/58258221.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/58258221-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Leonel Roget",
-      "sourceUrl": "https://www.inaturalist.org/photos/58258221",
-      "caption": "Cá cichlid Maya bơi trên đáy sỏi ở suối nước trong",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/58908759.webp",
       "thumb": "https://media.aquatome.com/inaturalist/58908759-480.webp",
       "width": 1024,
@@ -180,30 +204,6 @@
       "caption": "Cá cichlid Maya vây đuôi vàng bơi trong nước ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/40055495.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/40055495-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Christine Loew",
-      "sourceUrl": "https://www.inaturalist.org/photos/40055495",
-      "caption": "Cá cichlid Maya nhìn chính diện trong cenote nước xanh",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a305b53d861b7213.webp",
-      "thumb": "https://media.aquatome.com/commons/a305b53d861b7213-480.webp",
-      "width": 1200,
-      "height": 901,
-      "licence": "CC BY-SA 4.0",
-      "author": "HenryC88",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mayan_cichlid.jpg",
-      "caption": "Cá cichlid Maya trưởng thành sọc đen, vây đỏ trong bể",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/6039897.webp",

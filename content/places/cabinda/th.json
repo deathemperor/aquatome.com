@@ -3,6 +3,12 @@
   "name": "กาบินดา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:18:58.081Z",
+    "why": "Thai atlases usually write Cabinda as คาบินดา (Portuguese c before a is \"k\" sound, transliterated with ค), and กาบินดา is a plausible but less standard variant."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -1,8 +1,13 @@
 {
   "slug": "dongting-lake",
-  "name": "ต้งถิง",
+  "name": "ทะเลสาบต่งถิง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-18T12:23:10.843Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

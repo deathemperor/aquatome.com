@@ -21,12 +21,12 @@
   "range": {
     "native": {
       "countries": [
+        "ID",
         "TH",
         "LA",
         "KH",
         "VN",
-        "MY",
-        "ID"
+        "MY"
       ],
       "regions": [
         "Mekong",
@@ -37,9 +37,18 @@
         "Java"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This barb with the extremely aerodynamic shape originates from Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Records exist from the Mekong River basin in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, respectively, various smaller drainages in peninsular Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
@@ -58,14 +67,6 @@
             "Sumatra",
             "Java"
           ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Pébak River, Java, Indonesia'.",
-          "countries": [
-            "ID"
-          ],
-          "regions": []
         }
       ]
     },
@@ -281,6 +282,10 @@
       {
         "source": "seriouslyfish",
         "value": 22
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -304,6 +309,12 @@
       "html": "<ul><li>Difficulty: Difficult, because it needs a tank at least 2 m long.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/luciosoma-setigerum-2/",
+      "html": "<p>This barb with the extremely aerodynamic shape originates from Indonesia. Despite the size the fish can reach – up to 25 cm – the peaceful and splendid colored fish is an ideal inhabitant for a community tank with other large barbs from Asia, like Bala sharks (Balantiocheilus) or Sahyadria denisonii.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/luciosoma-setigerum",
@@ -314,6 +325,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/luciosoma-setigerum",
       "html": "<p>As currently understood this species has an extremely wide distribution throughout much of Southeast Asia. Records exist from the Mekong River basin in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, respectively, various smaller drainages in peninsular Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java. It may also occur in eastern Myanmar but this remains in need of confirmation.</p><p>Type locality is 'Pébak River, Java, Indonesia'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/luciosoma-setigerum-2/",
+      "html": "<p>Indonesia.</p>"
     },
     {
       "key": "habitat",
@@ -370,18 +387,43 @@
       "thumb": "https://media.aquatome.com/inaturalist/226641296-480.webp",
       "width": 1024,
       "height": 528,
-      "licence": "CC BY",
-      "author": "desertnaturalist",
-      "sourceUrl": "https://www.inaturalist.org/photos/226641296",
-      "caption": "Cá apollo shark bơi trên nền cát trong suối",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/226641296-large.webp",
         "width": 2048,
         "height": 1056
-      }
+      },
+      "licence": "CC BY",
+      "author": "desertnaturalist",
+      "sourceUrl": "https://www.inaturalist.org/photos/226641296",
+      "caption": "Cá apollo shark bơi trên nền cát trong suối"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wbg2umECQt4",
+      "title": "Luciosoma setigerum (Apollo Shark @ Nyenyuar)",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "EHFbj3uEeYY",
+      "title": "apollo shark (Luciosoma setigerum) 22-25cm",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AsMY5PmP45o",
+      "title": "アポロシャーク　Apollo sharkminnow　Luciosoma setigerum",
+      "durationSec": 38,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UYGep8eMXqw",
+      "title": "Luciosoma setigerum @ Apollo Shark/Nyenyuar (Malaysia)",
+      "durationSec": 93,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -404,5 +446,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-17"
 }

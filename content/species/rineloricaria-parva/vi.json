@@ -10,7 +10,7 @@
     "distribution:seriouslyfish": "<p>Brazil, Paraguay và Argentina.</p>",
     "habitat:seriouslyfish": "<p>Loài này hầu như lúc nào cũng sống giữa lớp lá mục trên nền cát, ở cả vùng nước trong lẫn vùng nước trắng. Nước trắng ở đây là nước chứa nhiều phù sa, chứ không phải ghềnh nước chảy xiết.</p>",
     "aquariumSize:seriouslyfish": "<p>Loài này ít bơi lội. Một nhóm nhỏ nuôi trong bể khoảng 75 × 30 × 30 cm, chừng 68 lít, là được.</p>",
-    "maintenance:seriouslyfish": "<p>Bể biotope cho loài này có thể set rất đơn giản. Chỉ cần trải một lớp cát rồi rải lá khô lên trên. Lá sồi và lá dẻ gai (beech) không độc và rất hợp. Thêm vài cành cây cong queo (cành dẻ gai cũng tốt) và lác đác vài viên đá tròn cho đẹp. Nên đặt vài hang đá, hang lũa hoặc vài đoạn ống PVC để cá có chỗ đẻ. Trong bể thủy sinh trồng dày cây, nó cũng sống thoải mái như vậy. Nhưng bể kiểu nào thì nó cũng không thích đèn quá sáng.</p>",
+    "maintenance:seriouslyfish": "<p>Bể biotope cho loài này có thể set rất đơn giản. Chỉ cần trải một lớp cát rồi rải lá khô lên trên. Nên đặt vài hang đá, hang lũa hoặc vài đoạn ống PVC để cá có chỗ đẻ. Trong bể thủy sinh trồng dày cây, nó cũng sống thoải mái như vậy. Nhưng bể kiểu nào thì nó cũng không thích đèn quá sáng.</p>",
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–25°C</li><li>pH: 6.0–7.5</li><li>Độ cứng: 2–15 dGH</li></ul>",
     "diet:seriouslyfish": "<p>Ngoài tự nhiên, cá ăn aufwuchs (lớp rêu tảo và vi sinh vật bám trên đá, lũa) cùng các loài giáp xác nhỏ dưới nước. Trong bể, nó ăn tạp. Nó ăn được thức ăn khô loại chìm, rau như rau bina, bí ngòi, cải xoăn (kale) đã chần, và cả đồ tươi sống lẫn đông lạnh như trùng huyết hay bo bo.</p>",
     "behaviour:seriouslyfish": "<p>Đây là một trong những loài cá da trơn hiền nhất, nuôi chung được với nhiều loài khác. Trong bể biotope, có thể thả chung với cá characin nhỏ, Apistogramma, cá chuột và các loài cá lau kiếng hiền khác. Ngoài ra, nó cũng hợp với hầu hết các bể nuôi chung cá hiền. Đừng thả chung với cá quá hiếu động hoặc hung dữ. Ở cùng những con đó, nó sẽ trốn biệt và dễ bị giành hết thức ăn. Nó chỉ giành chỗ khi vào mùa đẻ, và nuôi theo nhóm nhỏ là tốt nhất. Lúc chọn cá nuôi chung, nhớ rằng loài này chịu nhiệt cao kém.</p>",
@@ -24,11 +24,5 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-10"
   }
 }

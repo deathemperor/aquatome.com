@@ -1,8 +1,13 @@
 {
   "slug": "trombetas",
-  "name": "Trombetas",
+  "name": "Sungai Trombetas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T18:00:42.824Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

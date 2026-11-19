@@ -1,6 +1,128 @@
 {
   "id": "thuc-an-kho",
   "en": "Dry food",
+  "refs": [
+    {
+      "url": "https://ukpetfood.org/pet-care-advice/fish-care-nutrition.html",
+      "title": "Fish health & nutrition advice"
+    },
+    {
+      "url": "https://cafishvet.com/?p=87701",
+      "title": "Store Fish Food Correctly"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/fish-food-guide",
+      "title": "How to Pick the Best Fish Foods That Aquarium Fish Can't Resist"
+    },
+    {
+      "url": "https://www.msdvetmanual.com/veterinary/exotic-and-laboratory-animals/aquarium-fish/nutritional-diseases-of-fish",
+      "title": "Nutritional Diseases of Fish"
+    },
+    {
+      "url": "https://m55.vn/cac-loai-thuc-an-cho-ca-canh-pho-bien-hien-nay/",
+      "title": "Các loại thức ăn cho cá cảnh phổ biến hiện nay"
+    },
+    {
+      "url": "https://thuysinhable.com/thuc-an-cho-ca-canh/",
+      "title": "Thức ăn cho cá cảnh: Hướng dẫn chọn lựa & cách cho ăn hiệu quả"
+    },
+    {
+      "url": "https://thegioicacanh.com.vn/thong-tin-ve-cac-loai-cam-thuc-an-cho-ca-canh-n124403.html",
+      "title": "Thông Tin Về Các Loại Cám Thức Ăn Cho Cá Cảnh"
+    },
+    {
+      "url": "https://gensou.sg/?p=31773",
+      "title": "Fish Food Storage in Tropical Climate Singapore: Humidity and Shelf Life"
+    },
+    {
+      "url": "https://chamca.vn/dinh-duong-cho-ca-canh/",
+      "title": "Dinh Dưỡng Cho Cá Cảnh Chuẩn Khoa Học Để Cá Luôn Khoẻ"
+    },
+    {
+      "url": "https://www.petmd.com/fish/what-do-fish-eat-your-guide-feeding-pet-fish",
+      "title": "What Do Fish Eat? Your Guide To Feeding Pet Fish"
+    },
+    {
+      "url": "https://bettafish.org/care/food-feeding/",
+      "title": "Best Betta Fish Food | What to Feed & How Much - Bettafish.org"
+    },
+    {
+      "url": "https://tetra.net/en-eu/products/tetramin-flakes",
+      "title": "TetraMin Flakes: Tetra"
+    },
+    {
+      "url": "https://tetra.net/en-eu/products/tetra-phyll-flakes-1",
+      "title": "Tetra Phyll Flakes: Tetra"
+    },
+    {
+      "url": "https://www.sera.de/us/product/freshwater-aquarium/sera-gvg-mix-royal-flakes",
+      "title": "sera GVG Mix Royal Flakes | sera"
+    },
+    {
+      "url": "https://www.jbl.de/en/blog/detail/631/feeding-in-the-community-aquarium-why-fish-have-sex-more-often-than-humans?country=ee",
+      "title": "Feeding in the community aquarium - Why fish have sex more often than humans"
+    },
+    {
+      "url": "https://www.aquariadise.com/does-fish-food-expire/",
+      "title": "Does Fish Food Expire? What Every Owner Should Know"
+    },
+    {
+      "url": "https://aquariumcare.vn/tin-tuc/1743/huong-dan-cach-cho-ca-thuy-sinh-an-chuan-nhat.html",
+      "title": "HƯỚNG DẪN CÁCH CHO CÁ THỦY SINH ĂN CHUẨN NHẤT - Vi Sinh Cá Cảnh Aquarium Care"
+    },
+    {
+      "url": "https://gensou.sg/?p=22564",
+      "title": "Aquarium Fish Food Types Explained: Flake, Pellet, Frozen and Live - Gensou Premium Aquascaping"
+    },
+    {
+      "url": "https://www.kwikpets.com/blogs/aquatic/what-do-fish-eat",
+      "title": "What Do Fish Eat ? A Complete Guide to Feeding Pet Fish"
+    },
+    {
+      "url": "https://wiki.petmall.co.nz/guides/fish-food-types-nz",
+      "title": "Fish Food Types NZ: Flakes, Pellets, Frozen and Live Food Explained"
+    },
+    {
+      "url": "https://www.swelluk.com/aquarium/food-testing-and-treatments/aquarium-fish-food/fish-fry-food",
+      "title": "Fish Fry Food"
+    },
+    {
+      "url": "https://roxyaquarium.com.au/product/hikari-micro-pellets-semi-floating/",
+      "title": "Hikari Micro Pellets Semi Floating - Roxy Aquarium"
+    },
+    {
+      "url": "https://www.sera.de/us/product/freshwater-aquarium/sera-cichlid-sticks",
+      "title": "sera Cichlid Sticks | sera"
+    },
+    {
+      "url": "https://www.tetra.net/en-roa/products/tetra-micro-sticks",
+      "title": "Tetra Micro Sticks"
+    },
+    {
+      "url": "https://www.modernaquarium.com/blog/types-of-fish-food-and-how-to-use-them/",
+      "title": "Types of Fish Food & How to Use Them"
+    },
+    {
+      "url": "https://gensou.sg/?p=21107",
+      "title": "Live Food vs Dry Food for Aquarium Fish: What Is Best?"
+    },
+    {
+      "url": "https://www.aquaticcommunity.com/?p=405",
+      "title": "Types Of Fish Food | Aquatic Community"
+    },
+    {
+      "url": "https://thuysinh4u.com/thuc-an-cho-ca-canh-thuy-sinh",
+      "title": "9 loại thức ăn cho cá cảnh thủy sinh tốt và kích màu cá nhanh"
+    }
+  ],
+  "related": [
+    "thuc-an-dong-lanh",
+    "thuc-an-song",
+    "trung-huyet",
+    "bo-bo",
+    "artemia",
+    "an-tap"
+  ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/fe9a60556ef04213.webp",

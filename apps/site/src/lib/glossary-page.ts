@@ -127,9 +127,16 @@ export function termTitle(g: Localized<GlossaryEntity>): string {
 export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntity>) {
   const key = `glossary:${g.id}`
   const name = g.t.name.toLowerCase()
-  // Each once, as first written; never the name itself.
+  // Each once, as first written; never the name itself, nor the English name the page prints on its own line (the chief
+  // of staff, 18 Nov 2026: "Tên khác: đông lạnh, Frozen food. Tiếng Anh: Frozen food").
   const own = new Set([name])
-  const otherNames = g.t.altNames.map(n => n.trim()).filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
+  // Case folded and one plural "s" off: "tannin" is Tannins' own English line (the chief of staff, 18 Nov 2026).
+  const english = (n: string) => n.trim().toLowerCase().replace(/s$/, '')
+  const en = english(g.en)
+  const otherNames = g.t.altNames.map(n => n.trim()).filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase())).filter(n => english(n) !== en)
+  // Its link phrases are its own names too, never printed: not linked on its page, and counted with its names when its
+  // guides are ranked, as when they were other names.
+  for (const n of g.t.linkNames ?? []) if (n.trim()) own.add(n.trim().toLowerCase())
   const targets = mentionIndex(c).targets
   const seen = new Set([key])
   const definition = g.t.definition ? linkTerms(escapeText(g.t.definition), targets, 'ml', seen, own).html : ''

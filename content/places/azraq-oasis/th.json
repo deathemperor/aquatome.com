@@ -3,6 +3,12 @@
   "name": "โอเอซิสอัซรัก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:59:44.500Z",
+    "why": "The name is Thai script and transliterates Azraq, but \"โอเอซิส\" is a Thai-script loan of the kind word \"oasis\", and Thai atlases usually write \"แอ่งน้ำอัซรัก\" or \"วาฮัตอัซรัก\"/\"โอเอซิสอัซรัก\" inconsistently, so it is uncertain and likely not the standard form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

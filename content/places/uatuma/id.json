@@ -3,6 +3,12 @@
   "name": "Uatumã",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:57:26.009Z",
+    "why": "Uatumã is a Brazilian river (and a municipality in Amazonas); the name is kept in Portuguese spelling, which is fine, but the record calls it a region and the name has no kind word, so an Indonesian atlas would likely write \"Sungai Uatumã\" for the river."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

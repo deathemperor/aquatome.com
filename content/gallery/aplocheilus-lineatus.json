@@ -38,54 +38,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/212679812.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/212679812-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Cheongweei Gan",
-      "sourceUrl": "https://www.inaturalist.org/photos/212679812",
-      "caption": "Cá sọc panchax đực bơi gần mặt nước trong tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/15f437df86537545.webp",
-      "thumb": "https://media.aquatome.com/commons/15f437df86537545-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Graf zu Pappenheim",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steifenhechtling_14.jpg",
-      "caption": "Cá sọc panchax thân vàng nâu bơi giữa cây thủy sinh",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/53178955.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/53178955-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ashwin Viswanathan",
-      "sourceUrl": "https://www.inaturalist.org/photos/53178955",
-      "caption": "Cá sọc panchax đực, vây đuôi đỏ cam, thân ánh xanh lục",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/212681139.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/212681139-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Cheongweei Gan",
-      "sourceUrl": "https://www.inaturalist.org/photos/212681139",
-      "caption": "Cá sọc panchax bơi trên nền cát ở suối nông",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/e795c182747cdd41.webp",
       "thumb": "https://media.aquatome.com/commons/e795c182747cdd41-480.webp",
       "width": 1200,
@@ -94,42 +46,6 @@
       "author": "Graf zu Pappenheim",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Streifenhechtling_11.jpg",
       "caption": "Cá sọc panchax đuôi vàng bơi dưới đèn trong bể thủy sinh",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/65035261.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65035261-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Christopher",
-      "sourceUrl": "https://www.inaturalist.org/photos/65035261",
-      "caption": "Cá sọc panchax đuôi đỏ nhìn gần ở mặt nước, có hình phản chiếu",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/230200524.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/230200524-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "Gannu03",
-      "sourceUrl": "https://www.inaturalist.org/photos/230200524",
-      "caption": "Cá sọc panchax đuôi đỏ bơi gần mặt nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/53178952.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/53178952-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ashwin Viswanathan",
-      "sourceUrl": "https://www.inaturalist.org/photos/53178952",
-      "caption": "Cá sọc panchax trưởng thành bơi trong bể, thân vàng nâu có sọc",
       "best": true,
       "kind": "other"
     },
@@ -158,6 +74,102 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/53178962.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/53178962-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ashwin Viswanathan",
+      "sourceUrl": "https://www.inaturalist.org/photos/53178962",
+      "caption": "Cá sọc panchax nhìn nghiêng, thân có sọc ngang rõ",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/53178955.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/53178955-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ashwin Viswanathan",
+      "sourceUrl": "https://www.inaturalist.org/photos/53178955",
+      "caption": "Cá sọc panchax đực, vây đuôi đỏ cam, thân ánh xanh lục",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/212679812.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/212679812-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Cheongweei Gan",
+      "sourceUrl": "https://www.inaturalist.org/photos/212679812",
+      "caption": "Cá sọc panchax đực bơi gần mặt nước trong tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/15f437df86537545.webp",
+      "thumb": "https://media.aquatome.com/commons/15f437df86537545-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Graf zu Pappenheim",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steifenhechtling_14.jpg",
+      "caption": "Cá sọc panchax thân vàng nâu bơi giữa cây thủy sinh",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65035261.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65035261-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Christopher",
+      "sourceUrl": "https://www.inaturalist.org/photos/65035261",
+      "caption": "Cá sọc panchax đuôi đỏ nhìn gần ở mặt nước, có hình phản chiếu",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/212681139.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/212681139-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Cheongweei Gan",
+      "sourceUrl": "https://www.inaturalist.org/photos/212681139",
+      "caption": "Cá sọc panchax bơi trên nền cát ở suối nông",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/53178952.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/53178952-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ashwin Viswanathan",
+      "sourceUrl": "https://www.inaturalist.org/photos/53178952",
+      "caption": "Cá sọc panchax trưởng thành bơi trong bể, thân vàng nâu có sọc",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/230200524.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/230200524-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Gannu03",
+      "sourceUrl": "https://www.inaturalist.org/photos/230200524",
+      "caption": "Cá sọc panchax đuôi đỏ bơi gần mặt nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/154907094.webp",
       "thumb": "https://media.aquatome.com/inaturalist/154907094-480.webp",
       "width": 768,
@@ -168,18 +180,6 @@
       "caption": "Cá sọc panchax bơi gần mặt nước có bèo, ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/906d4e0f5ff17dff.webp",
-      "thumb": "https://media.aquatome.com/commons/906d4e0f5ff17dff-480.webp",
-      "width": 1200,
-      "height": 582,
-      "licence": "CC BY 4.0",
-      "author": "Christopher",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aplocheilus_lineatus_68014539.jpg",
-      "caption": "Cá sọc panchax thân ánh xanh lấp lánh, cận cảnh",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/212679825.webp",
@@ -194,42 +194,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/b2d97ee9da3bf7c3.webp",
-      "thumb": "https://media.aquatome.com/commons/b2d97ee9da3bf7c3-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Graf zu Pappenheim",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steifenhechtling_12.jpg",
-      "caption": "Cá sọc panchax bơi gần mặt nước trong bể thủy sinh",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/230199287.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/230199287-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "Gannu03",
-      "sourceUrl": "https://www.inaturalist.org/photos/230199287",
-      "caption": "Cá sọc panchax nhìn gần, bơi sát mặt nước",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/98bf6ac301c7215b.webp",
-      "thumb": "https://media.aquatome.com/commons/98bf6ac301c7215b-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Graf zu Pappenheim",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steifenhechtling_16.jpg",
-      "caption": "Cá sọc panchax đốm nâu bơi gần mặt nước bể thủy sinh",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/234829915.webp",
       "thumb": "https://media.aquatome.com/inaturalist/234829915-480.webp",
       "width": 1024,
@@ -240,18 +204,6 @@
       "caption": "Cá sọc panchax trong vũng nước có rêu và lá",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/53178962.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/53178962-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ashwin Viswanathan",
-      "sourceUrl": "https://www.inaturalist.org/photos/53178962",
-      "caption": "Cá sọc panchax nhìn nghiêng, thân có sọc ngang rõ",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/234862923.webp",
@@ -312,6 +264,54 @@
       "caption": "Cá sọc panchax trên mặt nước xanh, ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/230199287.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/230199287-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Gannu03",
+      "sourceUrl": "https://www.inaturalist.org/photos/230199287",
+      "caption": "Cá sọc panchax nhìn gần, bơi sát mặt nước",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/906d4e0f5ff17dff.webp",
+      "thumb": "https://media.aquatome.com/commons/906d4e0f5ff17dff-480.webp",
+      "width": 1200,
+      "height": 582,
+      "licence": "CC BY 4.0",
+      "author": "Christopher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aplocheilus_lineatus_68014539.jpg",
+      "caption": "Cá sọc panchax thân ánh xanh lấp lánh, cận cảnh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/b2d97ee9da3bf7c3.webp",
+      "thumb": "https://media.aquatome.com/commons/b2d97ee9da3bf7c3-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Graf zu Pappenheim",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steifenhechtling_12.jpg",
+      "caption": "Cá sọc panchax bơi gần mặt nước trong bể thủy sinh",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/98bf6ac301c7215b.webp",
+      "thumb": "https://media.aquatome.com/commons/98bf6ac301c7215b-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Graf zu Pappenheim",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steifenhechtling_16.jpg",
+      "caption": "Cá sọc panchax đốm nâu bơi gần mặt nước bể thủy sinh",
+      "best": false,
+      "kind": "other"
     }
   ],
   "seen": 86,

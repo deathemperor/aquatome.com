@@ -1,5 +1,5 @@
 {
- "day": "2026-11-17",
+ "day": "2026-11-19",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4520,
-   "read": 3800,
-   "wrong": 1555,
-   "pct": 41,
-   "held": 536
+   "pages": 4748,
+   "read": 4048,
+   "wrong": 1606,
+   "pct": 40,
+   "held": 571
   },
   "id": {
-   "pages": 1517,
-   "read": 1337,
-   "wrong": 377,
+   "pages": 1594,
+   "read": 1431,
+   "wrong": 407,
    "pct": 28,
-   "held": 128
+   "held": 151
   },
   "th": {
-   "pages": 1505,
-   "read": 1307,
-   "wrong": 346,
+   "pages": 1585,
+   "read": 1396,
+   "wrong": 370,
    "pct": 27,
-   "held": 111
+   "held": 132
   },
   "ms": {
-   "pages": 388,
-   "read": 345,
-   "wrong": 97,
-   "pct": 28,
-   "held": 58
+   "pages": 462,
+   "read": 419,
+   "wrong": 121,
+   "pct": 29,
+   "held": 79
   }
  },
  "labels": {
@@ -59,24 +59,47 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/fish/esomus-metallicus/",
-   "url": "https://aquatome.com/th/fish/esomus-metallicus/",
-   "title": "ปลาซิวหนวดยาว",
-   "wrong": []
+   "path": "/th/fish/trigonopoma-gracile/",
+   "url": "https://aquatome.com/th/fish/trigonopoma-gracile/",
+   "title": "ซิวกราซิลิส",
+   "wrong": [
+    {
+     "check": "source",
+     "quote": "ได้รับการนำเข้ามาอีกครั้งผ่านทางสิงคโปร์ แหล่งที่มา: สิงคโปร์ ขนาดที่มีจำหน่าย: 3–4 ซม."
+    }
+   ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
+   "url": "https://aquatome.com/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
+   "title": "Phá bể cũ, chuẩn bị set bể biotope sông Rio Negro",
+   "wrong": [
+    {
+     "check": "elsewhere",
+     "quote": "Phòng có sưởi sẵn thì không cần lo khoản này."
+    },
+    {
+     "check": "source",
+     "quote": "Bể cũ có một khối lũa lớn chìa từ trên xuống, che thành một vùng tối ở phía sau."
+    },
+    {
+     "check": "source",
+     "quote": "Nước bể cũ nhìn qua thì trong, nhưng múc ra soi lên mới thấy có khá nhiều tannin"
+    }
+   ]
   },
   {
    "lang": "id",
-   "path": "/id/ikan/bulldog-pleco/",
-   "url": "https://aquatome.com/id/ikan/bulldog-pleco/",
-   "title": "Bulldog Pleco",
-   "wrong": []
-  },
-  {
-   "lang": "id",
-   "path": "/id/ikan/nemacheilus-saravacensis/",
-   "url": "https://aquatome.com/id/ikan/nemacheilus-saravacensis/",
-   "title": "Nemacheilus saravacensis",
-   "wrong": []
+   "path": "/id/ikan/betta-pallifina/",
+   "url": "https://aquatome.com/id/ikan/betta-pallifina/",
+   "title": "Betta pallifina",
+   "wrong": [
+    {
+     "check": "elsewhere",
+     "quote": "kayu beech atau oak biasa aman dipakai asalkan benar-benar kering dan kulit kayunya sudah dikupas"
+    }
+   ]
   }
  ]
 }

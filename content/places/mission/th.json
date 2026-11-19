@@ -1,8 +1,13 @@
 {
   "slug": "mission",
-  "name": "มิชชัน",
+  "name": "แม่น้ำมิชชัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-17T17:55:00.359Z"
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

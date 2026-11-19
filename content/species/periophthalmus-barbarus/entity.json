@@ -799,6 +799,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -815,6 +819,12 @@
     ]
   },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-barbarus-2/",
+      "html": "<p>The Atlantic Mudskipper (P. barbarus) attains a maximum length of about 15 cm and is one of the larger species of the genus.</p>"
+    },
     {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
@@ -840,6 +850,12 @@
       "html": "<p>A 120 cm x 30 cm x 30 cm, 110 litre tank is just about acceptable for a single fish. The more floor space the better though. Aim for a bare minimum of 60 cm x 30 cm territory space per fish, although if you end up with multiple males this will almost certainly not be enough.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-barbarus-2/",
+      "html": "<p>The tank for mudskippers should be furnished as an aqua-terrarium.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/periophthalmus-barbarus",
@@ -852,10 +868,22 @@
       "html": "<ul><li>Temperature: aim for air and water temperatures within the range 25–30°C.</li><li>pH: 7.0–8.5. Mudskippers will not do well in acidic conditions. Consider the use of crushed coral or other calcareous material to buffer the water if necessary.</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-barbarus-2/",
+      "html": "<p>A slight addition of seasalt (2-5 g/l) is positive for them, as it helps to keep the pH stable over 8. A lower pH is hardly tolerable for these fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/periophthalmus-barbarus",
       "html": "<p>Feeds chiefly on crabs, insects and other invertebrates in the wild but is surprisingly adaptable in captivity. It will accept live worms, crickets, flies, meal worms, beetles, small fish, crustaceans, frozen fare such as bloodworm or Artemia and even flake. However the feeding of dried food is not recommended as it can swell up in the animals stomach and cause bloating. A basic diet of frozen foods with regular live supplements is recommended.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-barbarus-2/",
+      "html": "<p>Feeding them is simple, as they take readily any type of usual fish food, even flakes.</p>"
     },
     {
       "key": "behaviour",
@@ -864,10 +892,22 @@
       "html": "<p>It is highly territorial with conspecifics and should not be kept with small fish as they may be eaten. In a well-designed, large set-up can be kept with other brackish species such as Anableps, Toxotes, Monodactylus, Scatophagus, Arius catfish and other gobies. A species tank is preferable in most cases though. Males are incredibly territorial with one another and it is not unusual for a hyper-dominant male to systematically eliminate any other mudskipper in the tank if conditions are cramped. It is suggested to purchase only a single specimen if space is limited. In a large tank a group of 5 or more can be kept. Keeping several like this will help to dissipate any territorial activity but there must be enough room for each fish to develop a territory.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-barbarus-2/",
+      "html": "<p>The mudskippers (Periophthalmus) are among the most fascinating fishes at all. One can observe mother nature's laboratory and how an aquatic animal becomes a land-dwelling animal based on the observation of these fishes.</p><p>Males are very aggressive against each other and it is hardly possible to keep two of them together on a long time sight. Females are somewhat less aggressive. One can compare the level of aggressiveness best with certain species of cichlids, like Tropheus or Petrochromis. Mudskippers are very intelligent and belong to the few species of small fish that really become tame. If the keeper is interested in this the mudskipper can be trained for example to come on the keeper's hand to take food from the fingers.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/periophthalmus-barbarus",
       "html": "<p>Outside the spawning season the sexes appear to be identical but they can be sexed by examination of the genital papillae, which is broader in females. The male also develops much brighter colouration when in spawning condition, although this change is most unlikely to occur in the aquarium. The easiest way to sex this species is by observing its behaviour; males are noticeably more aggressive and territorial than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/periophthalmus-barbarus-2/",
+      "html": "<p>Males can be easily recognized by the enormous large first dorsal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -885,38 +925,38 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/6256a9d08ec41fba.webp",
+      "thumb": "https://media.aquatome.com/commons/6256a9d08ec41fba-480.webp",
       "width": 960,
       "height": 685,
-      "licence": "CC BY-SA 4.0",
-      "author": "Bjørn Christian Tørrissen",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GambianMudskippers.jpg",
-      "caption": "Atlantic mudskippers (Periophthalmus barbarus) photographed on the shore near Tenda-Ba in The Gambia.",
-      "thumb": "https://media.aquatome.com/commons/6256a9d08ec41fba-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/6256a9d08ec41fba-large.webp",
         "width": 1682,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Bjørn Christian Tørrissen",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GambianMudskippers.jpg",
+      "caption": "Atlantic mudskippers (Periophthalmus barbarus) photographed on the shore near Tenda-Ba in The Gambia."
     },
     {
       "url": "https://media.aquatome.com/commons/23e08d4a87fcd91d.webp",
+      "thumb": "https://media.aquatome.com/commons/23e08d4a87fcd91d-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "NasserHalaweh",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobiidae_Periophthalmus_barbarus_1.3.jpg",
-      "caption": "Periophthalmus barbarus ATLANTIC MUDSKIPPER. Wilhelma Zoological-Botanical Garden Stuttgart.",
-      "thumb": "https://media.aquatome.com/commons/23e08d4a87fcd91d-480.webp"
+      "caption": "Periophthalmus barbarus ATLANTIC MUDSKIPPER. Wilhelma Zoological-Botanical Garden Stuttgart."
     },
     {
       "url": "https://media.aquatome.com/commons/d01bc2e68fcf8d7f.webp",
+      "thumb": "https://media.aquatome.com/commons/d01bc2e68fcf8d7f-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "Dezidor",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Periophthalmus_barbarus.jpg",
-      "caption": "lezec obojživelný",
-      "thumb": "https://media.aquatome.com/commons/d01bc2e68fcf8d7f-480.webp"
+      "caption": "lezec obojživelný"
     }
   ],
   "videos": [
@@ -974,5 +1014,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-18"
 }

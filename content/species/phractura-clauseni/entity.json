@@ -16,6 +16,160 @@
     "cameroon",
     "benue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [
+        "Comoe",
+        "Black Volta",
+        "Ogun River",
+        "Benoue"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "West-central Africa: tributaries of the Comoe and Black Volta Rivers, Upper Volta, Ogun River, Nigeria, and Upper Benoue River, Cameroon.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": [
+            "Comoe",
+            "Black Volta",
+            "Ogun River",
+            "Benoue"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340827,
+      "total": 56,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BJ",
+          31
+        ],
+        [
+          "NG",
+          13
+        ],
+        [
+          "GH",
+          5
+        ],
+        [
+          "BF",
+          3
+        ],
+        [
+          "CI",
+          2
+        ],
+        [
+          "CM",
+          1
+        ],
+        [
+          "TG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -5.625,
+          9.84375,
+          4,
+          0
+        ],
+        [
+          -5.625,
+          11.25,
+          1,
+          0
+        ],
+        [
+          -1.40625,
+          8.4375,
+          2,
+          0
+        ],
+        [
+          0,
+          5.625,
+          1,
+          0
+        ],
+        [
+          0,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          20,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          2.8125,
+          5.625,
+          4,
+          4
+        ],
+        [
+          2.8125,
+          11.25,
+          7,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          7.03125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          8.4375,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

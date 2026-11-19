@@ -1,10 +1,13 @@
 {
   "slug": "garonne",
-  "name": "Garonne",
-  "altNames": [],
+  "name": "sông Garonne",
+  "altNames": [
+    "Garonne"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

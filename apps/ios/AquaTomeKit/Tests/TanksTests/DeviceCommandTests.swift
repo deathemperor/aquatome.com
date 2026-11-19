@@ -97,6 +97,90 @@ func whatAStepMayDo() {
   #expect(!MasterButton.allows(DeviceCommand(device: plug, outlet: "switch_4", on: true), role: "heater"))
 }
 
+@Test("A strip saved twice: any live copy that marks an outlet a heater or CO2 counts, whichever copy a step was made from")
+func anyCopysRoleCounts() throws {
+  // The strip's first record marks switch_2 CO2 and switch_4 a heater (store()); a second record of the same strip (two
+  // phones each adding it) marks nothing, and a third strip's record marks its switch_1 a heater.
+  var s = try store()
+  let marked = s.liveDevices[0]
+  let tank = marked.tankId
+  let bare = try s.addPlug(tankId: tank, brand: "tuya", remoteId: "fake-strip-1", name: "Ổ cắm bể 60",
+                           outlets: [("switch_1", nil), ("switch_2", nil), ("switch_3", nil), ("switch_4", nil), ("switch_5", nil)], now: m0)
+  let other = try s.addPlug(tankId: tank, brand: "tuya", remoteId: "fake-strip-2", name: "Ổ khác", outlets: [("switch_1", nil)], now: m0)
+  try s.updateDevice(other.id, now: m0) { d in
+    var o = d.outlets
+    o[0].role = "heater"
+    d.outlets = o
+  }
+  #expect(s.liveDevices.filter { $0.remoteId == "fake-strip-1" }.count == 2)
+  for d in [marked.id, bare.id] {
+    #expect(s.strictestRole(device: d, outlet: "switch_4") == "heater")
+    #expect(s.strictestRole(device: d, outlet: "switch_2") == "co2")
+    // The heater never switched, either way; CO2 never on.
+    #expect(!MasterButton.allows(DeviceCommand(device: d, outlet: "switch_4", on: false), role: s.strictestRole(device: d, outlet: "switch_4")))
+    #expect(!MasterButton.allows(DeviceCommand(device: d, outlet: "switch_4", on: true), role: s.strictestRole(device: d, outlet: "switch_4")))
+    #expect(!MasterButton.allows(DeviceCommand(device: d, outlet: "switch_2", on: true), role: s.strictestRole(device: d, outlet: "switch_2")))
+    #expect(MasterButton.allows(DeviceCommand(device: d, outlet: "switch_2", on: false), role: s.strictestRole(device: d, outlet: "switch_2")))
+  }
+  // Otherwise each record's own: the marked copy's light and fan, the bare copy's nothing; another strip's heater no
+  // outlet of this one's.
+  #expect(s.strictestRole(device: marked.id, outlet: "switch_3") == "fan" && s.strictestRole(device: bare.id, outlet: "switch_3") == nil)
+  #expect(s.strictestRole(device: bare.id, outlet: "switch_1") == nil && s.strictestRole(device: other.id, outlet: "switch_1") == "heater")
+  // The chat's list goes by it too: the second copy now marks the heater's outlet a fan, and it isn't offered from either
+  // copy; the CO2 outlet is, from both.
+  try s.updateDevice(bare.id, now: m0) { d in
+    var o = d.outlets
+    o[3].role = "fan"
+    d.outlets = o
+  }
+  let chat = DeviceCommand.offerable(s, lamp: false)
+  #expect(!chat.contains(DeviceTarget(device: bare.id, outlet: "switch_4")) && !chat.contains(DeviceTarget(device: marked.id, outlet: "switch_4")))
+  #expect(chat.contains(DeviceTarget(device: bare.id, outlet: "switch_2")) && chat.contains(DeviceTarget(device: marked.id, outlet: "switch_2")))
+  // A copy taken off its tank no longer counts: the second copy's own role is left.
+  try s.deleteDevice(marked.id, now: m0.addingTimeInterval(60))
+  #expect(s.strictestRole(device: bare.id, outlet: "switch_4") == "fan" && s.strictestRole(device: marked.id, outlet: "switch_4") == nil)
+}
+
+@Test("A record that lists an outlet's code twice: a heater or CO2 on any entry counts, whichever comes first")
+func aCodeListedTwice() throws {
+  var s = TankStore()
+  let t = try s.addTank(name: "Bể 60", now: m0)
+  let p = try s.addPlug(tankId: t.id, brand: "tuya", remoteId: "fake-strip-1", name: "Ổ cắm bể 60",
+                        outlets: [("switch_1", nil), ("switch_1", nil), ("switch_2", nil), ("switch_2", nil), ("switch_3", nil)], now: m0)
+  // Each code's first entry bare; its second a heater (switch_1), CO2 (switch_2).
+  try s.updateDevice(p.id, now: m0) { d in
+    var o = d.outlets
+    o[1].role = "heater"
+    o[3].role = "co2"
+    d.outlets = o
+  }
+  #expect(s.strictestRole(device: p.id, outlet: "switch_1") == "heater")
+  #expect(s.strictestRole(device: p.id, outlet: "switch_2") == "co2")
+  #expect(!MasterButton.allows(DeviceCommand(device: p.id, outlet: "switch_1", on: false), role: s.strictestRole(device: p.id, outlet: "switch_1")))
+  #expect(!MasterButton.allows(DeviceCommand(device: p.id, outlet: "switch_2", on: true), role: s.strictestRole(device: p.id, outlet: "switch_2")))
+  // A code listed once reads as before.
+  #expect(s.strictestRole(device: p.id, outlet: "switch_3") == nil)
+}
+
+@Test("The master button's press, its CO2 held, its end and its sheet read an outlet's role through TankStore.strictestRole, as each command leaves")
+func theButtonReadsEveryCopysRole() throws {
+  // apps/ios/AquaTomeKit/Tests/TanksTests/this file → apps/ios/AquaTome/Master.
+  let master = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+    .deletingLastPathComponent().appendingPathComponent("AquaTome/Master")
+  let files = try FileManager.default.contentsOfDirectory(atPath: master.path).filter { $0.hasSuffix(".swift") }
+  var code = ""
+  for f in files.sorted() { code += try String(contentsOf: master.appendingPathComponent(f), encoding: .utf8) }
+  #expect(!code.isEmpty, "read nothing from \(master.path)")
+  // One record's own role, read anywhere in the button: none.
+  #expect(!code.contains("?.outlets.first { $0.code == code }?.role"))
+  #expect(!code.contains("role: o.role)"))
+  // The two reads, through the lookup: the role each command is checked against as it leaves (Switcher.role, which the
+  // press, CO2 held, the end and the sheet go by), and the sheet's list.
+  #expect(code.components(separatedBy: "strictestRole(device: c.device, outlet: code)").count - 1 == 1)
+  #expect(code.components(separatedBy: "role: store.strictestRole(device: p.id, outlet: o.code))").count - 1 == 1)
+  #expect(code.contains("func role(_ c: DeviceCommand) -> String? { switcher.role(c) }"))
+}
+
 @Test("At the end each outlet goes back to how it was; one already as asked, nowhere; one not known, the other way")
 func whatGoesBack() {
   let before: [String: Bool] = ["switch_2": false, "switch_3": true, "switch_1": true]

@@ -26,11 +26,11 @@
     "distribution:glaser": "<p>Saat ini tersedia ramirezi tangkapan alam asal Venezuela yang sudah berukuran dewasa penuh.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.88,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6,
-      "glaser": 0.6
+      "seriouslyfish": 0.88,
+      "glaser": 0.88
     }
   }
 }

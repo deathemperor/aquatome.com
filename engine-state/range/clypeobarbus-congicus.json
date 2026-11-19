@@ -1,8 +1,8 @@
 {
   "id": "clypeobarbus-congicus",
   "native": {
-    "input": "587b3851b8305145",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "dd88f4bea6f8d70d",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "CG",
@@ -26,6 +26,12 @@
         "name": "Congo River",
         "source": "seriouslyfish",
         "quote": "Native to parts of the Congo River drainage in both the Republic of Congo and the Democratic Republic of Congo.",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "glaser",
+        "quote": "Barbus congicus originates from the Congo river in Central Africa.",
         "ok": true
       }
     ],

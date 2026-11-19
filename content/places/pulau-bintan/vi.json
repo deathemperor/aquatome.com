@@ -1,10 +1,13 @@
 {
   "slug": "pulau-bintan",
-  "name": "Pulau Bintan",
-  "altNames": [],
+  "name": "đảo Bintan",
+  "altNames": [
+    "Pulau Bintan"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

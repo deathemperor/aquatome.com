@@ -12,6 +12,50 @@
     "republic-of-the-congo",
     "niari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Stanley Falls"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Africa: Stanley Falls (=Wagenia Falls) in the Democratic Republic of the Congo; possibly also in the Niari basin in the Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Stanley Falls"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340814,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "CD",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          23.90625,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

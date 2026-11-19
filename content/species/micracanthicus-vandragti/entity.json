@@ -1,0 +1,153 @@
+{
+  "id": "micracanthicus-vandragti",
+  "scientificName": "Micracanthicus vandragti",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Micracanthicus",
+  "group": "catfish",
+  "lNumber": "L280",
+  "places": [
+    "south-america",
+    "venezuela",
+    "ventuari"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Rio Ventuari"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This unusual suckermouth catfish originates from the Rio Ventuari in Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Rio Ventuari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167983,
+      "total": 7,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "VE",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          2.8125,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/micracanthicus-vandragti-l280-2/",
+      "html": "<p>L280 is a dwarf suckermouth catfish that hardly ever becomes bigger than 5 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/micracanthicus-vandragti-l280-2/",
+      "html": "<p>This unusual suckermouth catfish originates from the Rio Ventuari in Venezuela.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/micracanthicus-vandragti-l280-2/",
+      "html": "<p>One could think that this unusual suckermouth catfish represents the juvenile form of a Leporacanthicus, for example L240 or L241. But in fact L280 is a dwarf species that hardly ever becomes bigger than 5 cm.</p><p>Until now only single specimens appeared in the trade, but the current importation contained a good number of fish; so it is hoped that a breeder will now be able to breed this charming species and that an aquarium population of Micracanthicus vandragti can be established.</p><p>There are more than a thousand species of suckermouth catfish, but this one seems to be the best suited one for owners of small and medium sized tanks due to the small size in combination with the attractive coloration.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/85140227a86a0b6d.webp",
+      "thumb": "https://media.aquatome.com/glaser/85140227a86a0b6d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/micracanthicus-vandragti-l280-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f51e35ac8e2ad141.webp",
+      "thumb": "https://media.aquatome.com/glaser/f51e35ac8e2ad141-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/micracanthicus-vandragti-l280-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f746118a7b78a1fc.webp",
+      "thumb": "https://media.aquatome.com/glaser/f746118a7b78a1fc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/micracanthicus-vandragti-l280-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3db136f7612c9606.webp",
+      "thumb": "https://media.aquatome.com/glaser/3db136f7612c9606-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/micracanthicus-vandragti-l280-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể nhỏ",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

@@ -1,0 +1,38 @@
+{
+ "at": "2026-11-17T16:49:30Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Lô cá này",
+   "why": "a dealer's own batch or stock: news to no reader here"
+  },
+  {
+   "check": "source",
+   "quote": "Lô cá này nhập từ Venezuela.",
+   "why": "Refers to the source shop's own shipment of fish as if the reader knew it."
+  }
+ ],
+ "text": {
+  "slug": "ca-tetra-hemigrammus-rubrostriatus",
+  "name": "Cá tetra Hemigrammus rubrostriatus",
+  "altNames": [
+   "Red-Stripe tetra"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Loài tetra đẹp này đến năm 2015 mới được mô tả khoa học. Hoa văn ở đuôi nó giống cá tetra đầu và đuôi (Hemigrammus ocellifer và H. falsus), chỉ khác là đốm sáng ở đuôi có màu đỏ máu chứ không vàng. Sọc ngang màu đỏ rực không kém Hyphessobrycon amapaensis, còn phần bụng vàng óng thì ánh lên như cá tetra Kitty (Hyphessobrycon heliacus). Các vây phối đỏ trắng cũng rất đẹp. Nếu phải thiết kế ra một con tetra hợp nhất để nuôi chung với cá hiền, thì kết quả sẽ chính là loài này.</p>",
+   "beforeYouBuy:glaser": "<p>Lô cá này nhập từ Venezuela. Chúng dài khoảng 4–5 cm, đã lớn và lên màu đầy đủ. Đây là một trong những loài tetra nhỏ đẹp nhất.</p>",
+   "waterConditions:glaser": "<p>Hemigrammus rubrostriatus dễ nuôi như các loài cùng chi, vốn đã có mặt trong bể cá gần một thế kỷ nay. Nước máy nào cũng nuôi được. Nhưng nếu nước mềm, hơi chua và có thêm axit humic tiết ra từ lá khô, than bùn, quả tống quán sủ, rễ cây… thì màu cá sẽ đậm hơn.</p>"
+  },
+  "quality": {
+   "score": 0.82,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.82
+   },
+   "reason": "thin"
+  }
+ }
+}

@@ -3,6 +3,12 @@
   "name": "บันยูอาซิน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T06:00:20.248Z",
+    "why": "The Thai transliteration is \"บันยูอาซิน\", but Thai atlases usually write \"บันจูอาซิน\" (Banjuasin, with j as จ). The name also lacks the kind word for a river or region, such as \"แม่น้ำ\" or \"เขต\"."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

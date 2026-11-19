@@ -97,6 +97,75 @@
       "kept": false
     }
   ],
+  "vi/products/atman-rf-1301": [
+    {
+      "at": "2026-11-17T19:44:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.9,
+      "notes": [
+        "\"Bể của bạn rơi vào chỗ hai cỡ cùng ghi thì xem thêm chỗ đặt thùng và số khay mình cần\" is the page's own selection advice. The facts don't say this.",
+        "\"Mở đóng từ từ\" is an added tip. The facts only warn that the plastic latches can break if forced.",
+        "The page repeats \"nghe nói tốn ít điện hơn\" in several places. The facts do say this, but only as a vague claim, with no wattage comparison against the DF series."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-17T19:44:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.85,
+      "notes": [
+        "\"Nhà sản xuất ghi RF-1301 dành cho bể dài 90–150 cm\" (also \"khoảng nhà sản xuất ghi\"): the facts attribute this to a seller listing, not the manufacturer.",
+        "\"Bảng phiên bản của hãng lại ghi kích thước 260×260×470 mm\": the facts do not say this table comes from the manufacturer.",
+        "\"Bể nhỏ hơn 90 cm thì RF-1301 quá cỡ\": this is the page's own inference. The facts only give the recommended range.",
+        "\"Oase ... giá cao hơn hẳn\" and \"Sunsun ... giá gần với RF-1301\": the facts give no price for RF-1301, so these comparisons cannot be checked. The facts do give Sunsun at about 1.85–1.9M and Oase at about 6.2M."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/chihiros-45b-series": [
+    {
+      "at": "2026-11-18T08:24:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.82,
+      "notes": [
+        "\"Dải LED RGB\" – the facts say 9 RGB 3-in-1 LEDs, not a strip; minor wording.",
+        "\"Một số bản đèn chỉnh sáng qua bộ Bluetooth Commander 1 bán riêng\" – the facts say the module is separate, but \"bán riêng\" (sold separately) is only supported for the non-Bluetooth B45, not for all versions.",
+        "\"thanh gương phản quang (mua riêng)\" – the facts say the mirror strips are optional, not that they are bought separately; minor.",
+        "\"Nếu không cần RGB thì đây là lựa chọn ngang hàng, đơn giản hơn\" – the facts say \"a simple step sideways\"; \"ngang hàng\" is a slight stretch.",
+        "\"Chihiros A II 451 ... làm cho bể thủy sinh 45 cm\" and \"Week Aqua ... đứng cùng phân khúc\" are supported.",
+        "\"Khoảng bể của các cỡ gối lên nhau ở hai đầu. Chẳng hạn bể 60 cm nằm trong khoảng của cả B45 lẫn B60\" – this is derived from the ranges and is correct, but it is an added recommendation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-18T08:24:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.8,
+      "notes": [
+        "\"xem bảng phiên bản phía trên\" refers to a table that does not exist on the page.",
+        "\"Dòng B có cỡ cho bể từ 20 cm đến 140 cm\" is an inference from the variants. The facts give 20–30 cm up to 120–140 cm, so this is roughly supported.",
+        "\"Khoảng bể của các cỡ gối lên nhau... bể 60 cm nằm trong khoảng của cả B45 lẫn B60\" is the page's own inference. The B45 and B60 ranges do overlap at 60 cm, so this is fine, but the page never recommends one over the other.",
+        "\"Hãng làm B45 cho bể dài khoảng 45–65 cm\" and \"Hãng ghi B45 dùng cho bể 45–65 cm\" attribute the range to the manufacturer. The facts do not say who published it.",
+        "\"Có bản đèn không có Bluetooth trong thân. Bản đó chỉnh sáng qua bộ Commander 1 bán riêng, và app sẽ ghép với bộ này\" blends two facts. The facts say some versions are dimmed through the Commander 1. They do not say these are the non-Bluetooth versions.",
+        "\"Đèn này hợp bể trồng dày cây, đèn mạnh, có châm CO2\" matches the facts.",
+        "\"Nếu không cần RGB thì đây là lựa chọn ngang hàng, đơn giản hơn\" is a mild rewording of \"simple step sideways\", so it is acceptable.",
+        "\"Bảo hành 6 tháng qua nhà phân phối trong nước\" matches the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-a2-series": [
     {
       "at": "2026-11-11T04:45:26Z",
@@ -555,6 +624,42 @@
       "kept": false
     }
   ],
+  "vi/products/oase-biomaster-600-thermo": [
+    {
+      "at": "2026-11-18T19:46:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.82,
+      "notes": [
+        "\"Hiện chỉ có cỡ 600 được test thực tế\" – the facts only contain one test for the 600; it is not stated that no other size was tested (mild overreach).",
+        "\"Hãng và shop Việt Nam đều ghi cỡ này dùng cho bể đến 600 L\" – the facts say the manufacturer rates it up to 600 L and the shops use 600 L; this is supported, but \"Hãng ghi... bảo hành\" is okay too.",
+        "\"Lưu lượng của các cỡ đều là mức tối đa\" – the facts list only \"Flow rate\" for the variants, not that it is a maximum (small inference).",
+        "\"Theo bảng thông số của shop, mỗi cỡ dùng cho bể...\" – the variant sizes are sourced as spec data, but attributing them to shop tables is not stated for 250/350/850 (small attribution stretch).",
+        "\"Khi lọc phải đẩy nước lên độ cao thường gặp lúc đặt dưới tủ bể\" – the facts say \"typical cabinet head height\"; this is consistent.",
+        "\"cánh quạt kêu to hơn và có thể mau hỏng\" – supported by the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T19:46:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.88,
+      "notes": [
+        "\"khi lọc đặt trong tủ\" – the facts say 456 L/h at 80 cm head and mention a typical cabinet head height; the test being specifically in a cabinet is a mild embellishment.",
+        "\"Bảo hành 3 năm ... đăng ký online thêm 1 năm ... Bảo hành ở Việt Nam\" – the manufacturer warranty is presented under a Vietnam heading, but the facts do not say it applies in Vietnam.",
+        "\"Nhà phân phối chính hãng bảo hành 3 năm\" for EHEIM is supported, but \"cỡ nào cũng gọi theo dung tích bể mà nó lo được\" is a generalization; the 850 is correctly noted as 800 L.",
+        "\"Lưu lượng chỉnh được ở nhiều chỗ ... nên lúc tháo lọc ra ít bị đổ nước\" – the facts say the locks and valves help prevent spills, but the claim about spills on removal is a slight extension.",
+        "\"Nếu lọc kêu to dần và có bọt sủi ra bể, hãy kiểm tra chuyện khí lọt\" – this is an advice inference, not stated in the facts, though consistent with them.",
+        "\"Hãng ghi BioMaster 600 Thermo dùng cho bể đến khoảng 600 lít\" – fine; no major invented numbers were found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/oase-filtosmart-100-thermo": [
     {
       "at": "2026-11-17T07:48:40Z",
@@ -587,6 +692,41 @@
         "\"Lấy vật liệu lọc ra rửa\" – the facts only say the lid opens quickly to get at the media; washing is not mentioned.",
         "\"Chứa được nhiều vật liệu lọc hơn\" for the BioMaster – supported (more media).",
         "\"Tháo ra vệ sinh ít đổ nước\" – supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/tropica-aquasoil": [
+    {
+      "at": "2026-11-18T01:45:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.8,
+      "notes": [
+        "\"nhả amoni nhẹ hơn, bể chạy ổn nhanh hơn và giá thấp hơn\" is fine, but the FAQ \"Có, nhưng nhẹ hơn ADA Amazonia\" and the Anubias line are ok. Minor: the FAQ says the amoni was handled \"bằng cách thay nước nhiều, dùng lọc đã chạy lâu\", which matches the facts.",
+        "\"Nền trộn Việt Nam ... đây là các lớp lót nền giá rẻ\" - the facts say only low-cost local base layers, so this is supported. The \"giá rẻ\" claim for each is a mild generalisation.",
+        "\"Nó hợp bể thủy sinh và bể tép mới set, nhất là bể trồng cây dễ\" - \"nhất là\" is a mild emphasis not in the facts.",
+        "\"Nếu định ép tép lâu dài thì một bài so sánh thấy ADA Amazonia Ver.2 hợp hơn\" - the facts support ADA for shrimp-breeding tanks, so this is fine. \"vì nền đó giữ pH lâu hơn\" is also supported.",
+        "\"Trải một lớp là trồng được\" is a slight rewording of \"complete substrate\" with no extra claim.",
+        "\"phân nhét\" / \"nhét thêm phân nhét\" is a rewording of root tabs, not an error.",
+        "\"Hai nguồn ghi khác nhau\" in the FAQ on nutrient lifespan is accurate."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-18T01:45:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.326",
+      "score": 0.92,
+      "notes": [
+        "\"Bể trồng dày kiểu Dutch hay Nature thì một lớp Aquasoil có lẽ không đủ\" is an inference. The facts only say the shop suggests adding a layer underneath for such tanks.",
+        "\"Khi nhận hàng, nên xem lại bao trước\" is advice the facts don't give. It is a reasonable extension of the shipping-dust complaints.",
+        "\"Có số lít rồi thì chọn số bao cho đủ\" is a small addition. The facts list only the 9 L bag and the 3 L and 9 L Powder bags, with no guidance on choosing a bag count.",
+        "\"hàng trong nước\" for the Vietnamese mixed substrates goes slightly beyond \"low-cost local base layers\"."
       ],
       "attempt": "first",
       "kept": true

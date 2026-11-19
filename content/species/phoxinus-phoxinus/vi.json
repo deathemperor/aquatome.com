@@ -8,7 +8,7 @@
     "Minnow"
   ],
   "sections": {
-    "beforeYouBuy:aquatome": "<p>Loài này có bán trong ngành cá cảnh. Ngoài ra, người ta còn đánh bắt nó với quy mô nhỏ và hay dùng làm mồi câu.</p><p><em>Phoxinus phoxinus</em> là loài khỏe nhưng chịu nóng kém, nên phải nuôi trong nước mát.</p><p>Ngoài tiệm hay có hai loài khác bán dưới cái tên na ná: Rainbow minnow (<em>Notropis chrosomus</em>) và Gold minnow (<em>Pimephales promelas</em> 'Gold'). Đó là những loài khác hẳn, không phải loài này.</p>",
+    "beforeYouBuy:aquatome": "<p>Loài này có bán trong ngành cá cảnh. Ngoài ra, người ta còn đánh bắt nó với quy mô nhỏ và hay dùng làm mồi câu.</p><p><em>Phoxinus phoxinus</em> là loài khỏe nhưng chịu nóng kém, nên phải nuôi trong nước mát.</p>",
     "distribution:aquatome": "<p>Loài này phân bố rộng khắp lục địa Á-Âu, từ sông Garonne ở Pháp sang tới lưu vực sông Anadyr, sông Amur và bán đảo Triều Tiên. Nó có mặt ở các lưu vực đổ ra Đại Tây Dương, biển Bắc, biển Baltic, Bắc Băng Dương và bắc Thái Bình Dương. Ở Anh, nó lên tới vĩ độ 58° Bắc.</p><p><em>Phoxinus phoxinus</em> là cá bản địa của Anh. Riêng ở Ireland thì có thể nó do người thả vào.</p>",
     "habitat:aquatome": "<p>Ngoài tự nhiên, loài này sống trong nước lạnh, giàu oxy, từ những con suối nhỏ chảy xiết cho tới các hồ lớn. Nó thường sống chung chỗ với các loài cá họ hồi (cá hồi, cá hồi suối).</p><p>Chúng sống gần đáy, ở cả nước ngọt lẫn nước lợ, và có di cư trong sông.</p>",
     "aquariumSize:aquatome": "<p>Bể cho loài này tối thiểu phải 200 lít, rộng hơn thì càng tốt.</p><p>Chiều dài bể tối thiểu, độ khó và tuổi thọ của loài này hiện chưa có nguồn nào công bố.</p>",
@@ -25,11 +25,5 @@
     "bySource": {
       "aquatome": 0.9
     }
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-17"
   }
 }

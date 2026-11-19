@@ -18,9 +18,16 @@
         "EC",
         "PE"
       ],
-      "regions": [],
+      "regions": [
+        "Bobonaza",
+        "Marañon",
+        "Río Pastaza",
+        "Río Madre de Dios",
+        "Apurimac River"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -38,6 +45,25 @@
             "PE"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Bobonaza and Marañon River basins of Ecuador and Peru.",
+          "countries": [],
+          "regions": [
+            "Bobonaza",
+            "Marañon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Although there are few records of the species in the literature and ichthyological collections, Ernstichthys megistus seems to be potentially present in a large area, since these few records are from the Río Pastaza and Río Marañon basins in Ecuador and in the upper Río Madre de Dios and in the Apurimac River Valley in Peru.",
+          "countries": [],
+          "regions": [
+            "Río Pastaza",
+            "Río Madre de Dios",
+            "Apurimac River"
+          ]
         }
       ]
     },

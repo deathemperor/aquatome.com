@@ -3,6 +3,12 @@
   "name": "Aek Garoga",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-17T17:55:49.164Z",
+    "why": "\"Aek Garoga\" is the Indonesian/Batak local name, which keeps \"Aek\" (Batak for river) without the Malay kind word \"Sungai\", so a Malaysian atlas would write \"Sungai Aek Garoga\" or \"Sungai Garoga\"."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

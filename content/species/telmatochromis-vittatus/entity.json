@@ -125,6 +125,10 @@
       {
         "source": "seriouslyfish",
         "value": 8.5
+      },
+      {
+        "source": "glaser",
+        "value": 8.5
       }
     ],
     "tankCm": [
@@ -137,6 +141,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -148,10 +156,28 @@
       "html": "<p>Telmatochromis vittatus is a lamprologine cichlid endemic to Lake Tanganyika, found in open water near rocky areas at 5 to 20 metres. Similar in lifestyle to Julidochromis species, it suits the smaller Tanganyikan community. It is told from T. brichardi and T. bifrenatus by its larger size, smaller eyes and more rounded nose, and should be kept as a pair because it is aggressive towards conspecifics.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "html": "<p>Telmatochromis vittatus from Lake Tanganyika is a dwarf cichlid that grows to only about 8.5 cm long. It is perfectly suited for keeping and breeding in home aquaria. Keeping this fish is easy and can be compared with that of several Lamprologus species.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "html": "<p>Telmatochromis vittatus is found in the trade only comparatively rarely. Maybe this is due to the fact that the fish look somewhat similar to Julidochromis species but are not as brilliant.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/telmatochromis-vittatus",
       "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "html": "<p>Lake Tanganyika.</p>"
     },
     {
       "key": "habitat",
@@ -184,10 +210,22 @@
       "html": "<p>Live and frozen foods should comprise a large proportion of the diet. Dried foods can be fed and some vegetable matter such as spirulina or blanched spinach should also be offered.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "html": "<p>The fish loves to feed on small snails.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/telmatochromis-vittatus",
       "html": "<p>A territorial but shy species. It can be maintained successfully with other small to medium-sized Tanganyikan cichlids that occupy different areas of the tank such as Neolamprologus shelldwellers and Cyprichromis species. It should be kept as a pair as it is aggressive towards conspecifics. A suitably large aquarium is required if several are to be kept.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "html": "<p>Like Lamprologus species, T. vittatus is a biparental cave brooder and is kept best as a pair. The fish loves to feed on small snails, which led to the misleading popular name \"Striped Snail Telmatochromis\". However, hobbyists think that a snail cichlid is a species that prefers to breed in empty snail shells; T. vittatus does not usually do so.</p>"
     },
     {
       "key": "dimorphism",
@@ -196,10 +234,22 @@
       "html": "<p>Not a terribly easy species to sex. Adult males tend to be slightly larger than females and have a more slender shape.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "html": "<p>Males become larger than females and develop a small hump on the head.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/telmatochromis-vittatus",
       "html": "<p>Possible. Bi-parental cave spawner. The purchase of a group of young fish is suggested. Allow these to pair off naturally. Once a pair forms the other fish should be removed from the aquarium as the pair will remain together for life. The aquarium itself should be at least 76 cm in length and set up as suggested above. The pH should be around 8.2-9.0 and the temperature 25–26.5°C.</p><p>The pair will spawn very secretively in a cave or shell, with the female laying her eggs on the wall or roof. The courtship ritual is quite vigorous, but if you miss this it is often very difficult to tell if they have spawned until the fry are seen. Once spawning has occured the female will remain in the cave, tending to the eggs while the male guards the area around the cave.</p><p>When the fry become free swimming (around 2 weeks post spawning) you may wish to remove them or the parents to a separate aquarium. The fry are large enough to accept brine shrimp nauplii, microworm or powdered dry foods. Brood care is short-lived, with the adults losing interest in the fry once they are free swimming.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "html": "<p>Biparental cave brooder, kept best by pair.</p>"
     },
     {
       "key": "notes",
@@ -208,8 +258,74 @@
       "html": "<p>Similar in lifestyle to Julidochromis species, Telmatochromis vittatus is ideal for the smaller Tanganyikan community and is also a good choice for the beginner. It can be distinguished from the similar T. brichardi and T. bifrenatus primarily by its larger size, smaller eyes and more rounded nose. Like other Lamprologines, Telmatochromis have fang-like, caniform teeth, which they use for scraping microrganisms from rock surfaces. On adult specimens these are clearly visible.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/79974061ec916dad.webp",
+      "thumb": "https://media.aquatome.com/glaser/79974061ec916dad-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/40c5bcfe635c5cb8.webp",
+      "thumb": "https://media.aquatome.com/glaser/40c5bcfe635c5cb8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/71f3ff8c5af73755.webp",
+      "thumb": "https://media.aquatome.com/glaser/71f3ff8c5af73755-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/98c33ad2a3e5a1e0.webp",
+      "thumb": "https://media.aquatome.com/glaser/98c33ad2a3e5a1e0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/telmatochromis-vittatus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "D7J-liYuz_M",
+      "title": "Telmatochromis vittatus - spawning",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uYT_au-_5fk",
+      "title": "Telmatochromis vittatus - Tanganyika Planet",
+      "durationSec": 66,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pDNCrn2Eaas",
+      "title": "Underwater film from the aquarium - real sound. Telmatochromis vittatus,, Tanganicodus irsacae.",
+      "durationSec": 353,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "P7mZk6zb6VY",
+      "title": "Telmatochromis vittatus spawning",
+      "durationSec": 25,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -239,5 +355,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-18"
 }

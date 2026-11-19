@@ -8,7 +8,7 @@
   "sections": {
     "quickFacts:scotcat": "<ul><li>Tên thường gọi: loài này chưa có tên riêng, cả nhóm thường được gọi là 'African Whiptails'</li></ul>",
     "distribution:scotcat": "<p>Châu Phi: thác Stanley (tức thác Wagenia) ở Cộng hòa Dân chủ Congo. Loài này có thể có cả ở lưu vực sông Niari, Cộng hòa Congo. Nơi thu mẫu chuẩn: thác Stanley.</p>",
-    "habitat:scotcat": "<p>Loài cá da trơn này sống ở nước chảy xiết và bám trên lá cây thủy sinh khá nhiều thời gian. Trồng cây thân dài như Vallisneria trong bể thì sẽ thấy chúng bám lá như vậy.</p><p>Con cá trong ảnh do người góp ảnh bắt ở ghềnh Wagenia, Kisangani, tỉnh Orientale, CHDC Congo.</p>",
+    "habitat:scotcat": "<p>Loài cá da trơn này sống ở nước chảy xiết và bám trên lá cây thủy sinh khá nhiều thời gian. Trồng cây thân dài như Vallisneria trong bể thì sẽ thấy chúng bám lá như vậy.</p>",
     "maintenance:scotcat": "<p>Loài này và các loài khác trong họ cá suối châu Phi này không khỏe bằng những loài tương tự ở Nam Mỹ. Muốn nuôi chúng thì bể phải trồng cây, nhiều oxy, và phải thay nước đều đặn.</p>",
     "notes:scotcat": "<p>Loài này trông giống P. bovei, chỉ khác ở chỗ vây lưng và vây hậu môn ít hơn một tia. Mới nhìn qua, chúng hơi giống các loài whiptail Nam Mỹ, chẳng hạn các loài trong chi Rineloricaria/Hemiloricaria. Tên loài fasciata nghĩa là có vằn.</p><p>Danh sách đỏ IUCN: Phractura fasciata mới chỉ thấy ở nơi thu mẫu chuẩn là thác Wagenia (thác Stanley). Loài này có thể phân bố rộng hơn những gì đang biết. Cần thêm thông tin về vùng phân bố thì mới đánh giá được. Xếp hạng: Thiếu dữ liệu (IUCN 2010).</p>",
     "references:scotcat": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2016. FishBase. www.fishbase.org (06/2016).</li><li>Moelants, T. 2010. Phractura fasciata. The IUCN Red List of Threatened Species 2010.</li><li>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</li></ul>"
@@ -19,11 +19,5 @@
     "bySource": {
       "scotcat": 0.9
     }
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-17"
   }
 }

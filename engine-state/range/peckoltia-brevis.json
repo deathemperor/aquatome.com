@@ -1,8 +1,8 @@
 {
   "id": "peckoltia-brevis",
   "native": {
-    "input": "b7b0759f1f36e474",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "9611f3978dbfefa3",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "BR",
@@ -11,22 +11,38 @@
         "quote": "Type locality: near Sena Madureira, near the mouth of the River Macaua, a tributary of the Rio Iaco, itself a tributary of the Rio Purus, Amazonas, Brazil.",
         "words": "Brazil",
         "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "South America: Purus River basin, Brazil.",
-        "words": "Brazil",
-        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Purus",
+        "name": "Purus",
         "source": "planetcatfish",
-        "quote": "Type locality: near Sena Madureira, near the mouth of the River Macaua, a tributary of the Rio Iaco, itself a tributary of the Rio Purus, Amazonas, Brazil.",
+        "quote": "South America: Purus River basin, Brazil.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "It originates from affluents of the Amazon river, for example from the Rio Purus, the Rio Jurua, the Rio Manacapuru, and the Rio Tefé.",
+        "ok": true
+      },
+      {
+        "name": "Rio Jurua",
+        "source": "glaser",
+        "quote": "It originates from affluents of the Amazon river, for example from the Rio Purus, the Rio Jurua, the Rio Manacapuru, and the Rio Tefé.",
+        "ok": true
+      },
+      {
+        "name": "Rio Manacapuru",
+        "source": "glaser",
+        "quote": "It originates from affluents of the Amazon river, for example from the Rio Purus, the Rio Jurua, the Rio Manacapuru, and the Rio Tefé.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tefé",
+        "source": "glaser",
+        "quote": "It originates from affluents of the Amazon river, for example from the Rio Purus, the Rio Jurua, the Rio Manacapuru, and the Rio Tefé.",
         "ok": true
       }
     ],

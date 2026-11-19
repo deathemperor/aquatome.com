@@ -1,0 +1,26 @@
+{
+  "slug": "gigantic-sleeper",
+  "name": "Gigantic Sleeper",
+  "altNames": [
+    "Gigantic Sleeper Goby",
+    "Sleeper Goby"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Odonteleotris macrodon adalah spesies air payau yang juga ditemukan di air tawar murni. Ikan predator ini mencapai panjang maksimal sekitar 30 cm. Sejauh yang diketahui, larvanya berkembang di lingkungan laut.</p>",
+    "distribution:glaser": "<p>Spesies ini punya sebaran yang sangat luas, mulai dari India sampai Malaysia dan Indonesia. Ikan ini juga ada di Thailand. Hal ini tidak mengejutkan, tetapi sejauh ini belum pernah dilaporkan dalam literatur ilmiah.</p>",
+    "notes:glaser": "<p>Lima ekor berukuran sekitar 15 cm didapat dari Thailand. Awalnya ikan-ikan ini dikira Oxyeleotris urophthalmus. Di Thailand, genus Oxyeleotris diwakili oleh tiga spesies, dua di antaranya punya ocellus (bintik mata) di bagian atas pangkal ekor. Spesies lain yang sangat mirip dan juga punya ocellus adalah Bostrychus sinensis. Semuanya mencapai panjang sekitar 20 cm. Smith (1945) memberikan kunci identifikasi terbaik yang tersedia untuk ketiga spesies tersebut. Menurutnya, Bostrychus sinensis punya sisik yang sangat kecil, sekitar 140 sisik di gurat sisi, serta gigi yang sangat kecil dan tersusun dalam deretan berbentuk pita. Oxyeleotris punya gigi taring. O. siamensis punya sekitar 90 sisik di gurat sisi (sekitar 40 sisik predorsal), sungut kecil di kedua sisi rahang atas, dan moncong tanpa sisik. O. urophthalmus punya 70-75 sisik di gurat sisi (sekitar 30 sisik predorsal), tidak bersungut, dan moncongnya bersisik.</p><p>Ikan-ikan tersebut punya gigi taring, tidak bersungut, punya sekitar 75 sisik di gurat sisi dan sekitar 20 sisik predorsal (dihitung dari foto), dan tidak terlihat ada sisik di moncongnya. Hasil ini tidak cocok dengan spesies Oxyeleotris mana pun, walaupun sisik-sisik kecil yang tertanam di lapisan lendir tebal memang sulit dihitung dengan tepat.</p><p>Odonteleotris macrodon juga punya ocellus. Walaupun jumlah sisiknya tidak sepenuhnya cocok (spesies ini biasanya punya sekitar 90 sisik di gurat sisi), semua ciri luar lainnya cocok.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-18"
+  }
+}

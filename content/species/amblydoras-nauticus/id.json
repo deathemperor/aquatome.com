@@ -35,12 +35,12 @@
     "references:planetcatfish": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 26, pp 133.</p>"
   },
   "quality": {
-    "score": 0.72,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.72,
-      "planetcatfish": 0.72,
-      "glaser": 0.72
+      "seriouslyfish": 0.9,
+      "planetcatfish": 0.9,
+      "glaser": 0.9
     }
   }
 }

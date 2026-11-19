@@ -1,0 +1,35 @@
+{
+ "at": "2026-11-18T20:15:00Z",
+ "checks": [
+  "elsewhere"
+ ],
+ "findings": [
+  {
+   "check": "elsewhere",
+   "quote": "chúng sống hợp với nước máy ở hầu hết các vùng Trung Âu",
+   "why": "It describes the tap water of Central Europe as if it were the reader's own, which doesn't help a hobbyist in Vietnam."
+  }
+ ],
+ "text": {
+  "slug": "ca-molly-cauca",
+  "name": "Cá molly Cauca",
+  "altNames": [
+   "Cauca Molly"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Cá molly Cauca (Poecilia caucana) có nguồn gốc từ Colombia, Venezuela và Panama. Con trưởng thành dài tổng cộng 3–5 cm, thuộc nhóm cá đẻ con cỡ nhỏ. Con đực dễ nhận ra nhờ vây lưng vàng cam, thân ánh tím kim loại và một dải cam ở phần gốc vây đuôi.</p>",
+   "waterConditions:glaser": "<p>Ở những chỗ khác nhau dọc vùng sông Rio Cauca có loài cá này, nước có pH 8,2–8,6 và độ dẫn điện 360 và 420 µS/cm. Với các thông số đó, chúng sống hợp với nước máy ở hầu hết các vùng Trung Âu. Loài này thích nước ấm, khoảng 26–28 °C.</p>",
+   "diet:glaser": "<p>Cá molly Cauca là loài ăn rêu, lúc nào cũng lục lọi tìm đồ ăn. Các loại thức ăn cá thông thường chúng đều ăn ngấu nghiến.</p>",
+   "reproduction:glaser": "<p>Chăm đúng cách thì sớm muộn gì bể cũng có lứa cá con mới.</p>",
+   "notes:glaser": "<p>Cá đang bán hiện nay là cá trại ở Đông Nam Á.</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.9
+   },
+   "reason": "thin"
+  }
+ }
+}

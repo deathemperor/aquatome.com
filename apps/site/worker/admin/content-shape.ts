@@ -13,7 +13,7 @@ export type EntityKind = 'fish' | 'breed' | 'plant' | 'guide' | 'videoGuide' | '
 
 /**
  * A kind of built page: an item's own page, or one of the site's other pages. `gallery`: a fish's or plant's photo page
- * (/vi/ca/<slug>/anh/); `taxon`: /vi/phan-loai/…; `group`: /vi/nhom/…; `tool`: /vi/cong-cu/…; `list`: an index of a
+ * (/vi/ca/<slug>/anh/), built until 18 Nov, which still names past visits to one; `taxon`: /vi/phan-loai/…; `group`: /vi/nhom/…; `tool`: /vi/cong-cu/…; `list`: an index of a
  * section, its numbered pages, a video channel, the home page, search and latest; `other`: about, contact, privacy.
  */
 export type PageKind = EntityKind | 'gallery' | 'taxon' | 'group' | 'tool' | 'list' | 'other'

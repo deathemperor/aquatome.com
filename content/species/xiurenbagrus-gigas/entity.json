@@ -10,6 +10,38 @@
     "china",
     "hongshuihe-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Hongshuihe River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Hongshuihe River, Pearl [= Zhujiang] River basin, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Hongshuihe River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342878,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

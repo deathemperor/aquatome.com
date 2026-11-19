@@ -12,10 +12,11 @@
   ],
   "range": {
     "native": {
-      "countries": [],
+      "countries": [
+        "ID"
+      ],
       "regions": [
-        "Lake Matano",
-        "Sulawesi"
+        "Lake Matano"
       ],
       "sources": [
         "glaser"
@@ -23,11 +24,18 @@
       "quotes": [
         {
           "source": "glaser",
-          "quote": "They originate from Lake Matano in Sulawesi, where they can also be found under roots etc. on the shore.",
+          "quote": "Origin: Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Panther crabs were received from Lake Matano in Indonesia.",
           "countries": [],
           "regions": [
-            "Lake Matano",
-            "Sulawesi"
+            "Lake Matano"
           ]
         }
       ]
@@ -35,7 +43,7 @@
     "records": {
       "taxonKey": 5790840,
       "total": 9,
-      "fetched": "2026-11-12",
+      "fetched": "2026-11-17",
       "countries": [
         [
           "ID",
@@ -46,11 +54,13 @@
         [
           113.90625,
           0,
+          4,
           4
         ],
         [
           120.9375,
           -2.8125,
+          5,
           5
         ]
       ]

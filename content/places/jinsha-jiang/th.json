@@ -3,6 +3,12 @@
   "name": "จินชา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-18T12:25:27.963Z",
+    "why": "\"จินชา\" is a transliteration of Jinsha but omits the river kind word \"แม่น้ำ\"; Thai atlases write แม่น้ำจินซา (Jinsha Jiang, upper Yangtze), also commonly 金沙 as จินซา."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

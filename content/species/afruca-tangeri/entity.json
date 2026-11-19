@@ -381,62 +381,87 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_tangeri_en/",
-      "html": "<p>The eastern Atlantic from Portugal to Angola is the origin of the fiddler crab Uca tangeri, where it inhabits sand and mangrove coasts.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-tangeri-2/",
+      "html": "<p>The eastern Atlantic from Portugal to Angola is the origin of the fiddler crab Uca tangeri, where it inhabits sand and mangrove coasts. The animals are obtained from Nigeria.</p>"
     },
     {
       "key": "habitat",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_tangeri_en/",
-      "html": "<p>In their periodically flooded habitat they inhabit muddy burrows, which they leave at ebb-tide to take in food.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-tangeri-2/",
+      "html": "<p>In their periodically flooded habitat they inhabit muddy burrows, which they leave at ebb-tide for the intake of food.</p>"
     },
     {
       "key": "maintenance",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_tangeri_en/",
-      "html": "<p>For maintenance, try to imitate their habitat: the aquarium should have a land part with sand and gravel and a water part filled with brackish water. Some hiding places give them retreat possibilities.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-tangeri-2/",
+      "html": "<p>For maintenance it should be tried to imitate their habitat, i.e. a land part with sand and gravel and a water part filled with brackish water should be present in the aquarium. Some hiding places give them retreat possibilities.</p>"
     },
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_tangeri_en/",
-      "html": "<p>As omnivores they are not choosy and feed on nearly any organic matter the sea offers them. In home care, frozen and granulated food can be fed, as well as various fruits and vegetables.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-tangeri-2/",
+      "html": "<p>As omnivores they are not discriminating anything and feed on nearly each organic matter the sea is offering them. With the domestic care, frosted and granulated food can be fed, as well as different fruits and vegetables.</p>"
     },
     {
-      "key": "dimorphism",
+      "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca_tangeri_en/",
-      "html": "<p>The major claw of the males grows to an enormous size. It is used to attract females and in fights between rival males.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/uca-tangeri-2/",
+      "html": "<p>The to an enormous size grown major claw of the males is remarkable. It is used for attracting the females and for the fight between rivaling males.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/df24671cc13f9980.webp",
+      "thumb": "https://media.aquatome.com/commons/df24671cc13f9980-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Charles J. Sharp",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:West_African_fiddler_crab_(Uca_tangeri)_male.jpg",
-      "caption": "West African fiddler crab (Uca tangeri) male, The Gambia",
-      "thumb": "https://media.aquatome.com/commons/df24671cc13f9980-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/df24671cc13f9980-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Charles J. Sharp",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:West_African_fiddler_crab_(Uca_tangeri)_male.jpg",
+      "caption": "West African fiddler crab (Uca tangeri) male, The Gambia"
     },
     {
       "url": "https://media.aquatome.com/commons/99abce2e8390456c.webp",
+      "thumb": "https://media.aquatome.com/commons/99abce2e8390456c-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boca-cava-terra.jpg",
-      "caption": "Boca-cava-terra.jpg",
-      "thumb": "https://media.aquatome.com/commons/99abce2e8390456c-480.webp"
+      "caption": "Boca-cava-terra.jpg"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "MD3Kl4h0EG8",
+      "title": "Uca tangeri (cangrejo violinista europeo y norteafricano)",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UKrr1AkHbT8",
+      "title": "Male fiddler crab",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FnuG5GSlBms",
+      "title": "Purple Fiddler Crabs.",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HPgOjBSlPpw",
+      "title": "Fiddler crab producing \"feeding balls\"",
+      "durationSec": 26,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -460,5 +485,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17"
+  "updatedAt": "2026-11-18"
 }

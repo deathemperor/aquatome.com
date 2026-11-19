@@ -3,6 +3,12 @@
   "name": "Matacuni",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:34:46.911Z",
+    "why": "The place is the Matacuni River basin (a region), and the bare name \"Matacuni\" omits the Malay kind word \"Sungai\", so an atlas in Malaysia would write \"Sungai Matacuni\" or \"Lembangan Sungai Matacuni\"."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

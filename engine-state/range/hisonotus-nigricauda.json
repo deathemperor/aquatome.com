@@ -1,9 +1,42 @@
 {
   "id": "hisonotus-nigricauda",
   "native": {
-    "input": "e0831429e580f18e",
-    "at": "2026-11-17T05:18:20.405Z",
-    "claims": [],
+    "input": "a24fd86c95aca4c9",
+    "at": "2026-11-17T11:42:48.614Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Grande do Sul, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hisonotus nigricauda is distributed in the Patos Lagoon system and the Uruguay River basin, south of the mouth of the Ibicuí River (Brazil, Uruguay, and Argentina).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hisonotus nigricauda is distributed in the Patos Lagoon system and the Uruguay River basin, south of the mouth of the Ibicuí River (Brazil, Uruguay, and Argentina).",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hisonotus nigricauda is distributed in the Patos Lagoon system and the Uruguay River basin, south of the mouth of the Ibicuí River (Brazil, Uruguay, and Argentina).",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
     "regions": [
       {
         "name": "Paraná",
@@ -24,6 +57,12 @@
         "quote": "The species originates from subtropical regions; its natural distribution covers the river basins of the Paraná/Paraguay and Uruguay.",
         "ok": false,
         "why": "a country"
+      },
+      {
+        "name": "Patos Lagoon",
+        "source": "scotcat",
+        "quote": "Hisonotus nigricauda is distributed in the Patos Lagoon system and the Uruguay River basin, south of the mouth of the Ibicuí River (Brazil, Uruguay, and Argentina).",
+        "ok": true
       }
     ],
     "disputed": [],
@@ -93,8 +132,12 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-17T05:18:20.405Z"
+    "native": [
+      "BR",
+      "UY",
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T11:42:48.614Z"
   }
 }

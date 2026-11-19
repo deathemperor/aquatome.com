@@ -1,8 +1,8 @@
 {
   "id": "gyrinocheilus-aymonieri",
   "native": {
-    "input": "e1961e8d14db87ae",
-    "at": "2026-11-05T16:38:28.515Z",
+    "input": "0d3bcfcfc088faac",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "KH",
@@ -51,6 +51,46 @@
         "quote": "It's often seen on sale under the trade names 'Indian' or 'Chinese' algae eater but does not occur naturally in either country.",
         "words": "Chinese",
         "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
       }
     ],
     "regions": [
@@ -77,12 +117,23 @@
         "source": "seriouslyfish",
         "quote": "Described from the mountains of Samrong Tong, Kampong Speu province, Cambodia but is widely-distributed in the Mae Klong, Chao Phraya, Middle/Lower Mekong and Dong Nai river basins in Thailand, Laos, Cambodia and Vietnam.",
         "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "aquariumbreeder",
+        "quote": "Despite its name, it is found in the northern Malay Peninsula, the Chao Phraya, Mae Klong and Mekong basins of Cambodia, Yunnan province in China, Laos, Thailand and Vietnam.",
+        "ok": true
       }
     ],
-    "disputed": [],
+    "disputed": [
+      "CN"
+    ],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "CN",
+        "MY"
+      ],
       "sourcesOnly": []
     }
   },

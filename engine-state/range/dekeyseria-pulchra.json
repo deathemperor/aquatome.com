@@ -1,10 +1,27 @@
 {
   "id": "dekeyseria-pulchra",
   "native": {
-    "input": "a02d296a1d8a0887",
-    "at": "2026-11-07T16:21:07.852Z",
-    "claims": [],
-    "regions": [],
+    "input": "7e1ee393f9b57c7b",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Zonancistrus brachyurus originates from the Rio Negro system in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Zonancistrus brachyurus originates from the Rio Negro system in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -58,8 +75,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-07T16:21:07.852Z"
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T00:54:56.623Z"
   }
 }

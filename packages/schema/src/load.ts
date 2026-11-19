@@ -408,7 +408,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
-    // A non-commercial album photo stays in its album: it never leads a page (the owner's yes was for albums, 10 Nov).
+    // A non-commercial album photo stays in its album: it never leads a page (albums only: the rule this step was built with, 16 Nov).
     const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[]).filter(p=>!isNonCommercial(p.licence))].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])

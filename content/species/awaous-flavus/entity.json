@@ -1,0 +1,344 @@
+{
+  "id": "awaous-flavus",
+  "scientificName": "Awaous flavus",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Awaous",
+  "group": "gobies",
+  "places": [
+    "south-america",
+    "brazil",
+    "guyana",
+    "suriname",
+    "venezuela",
+    "colombia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GY",
+        "SR",
+        "VE",
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "They are found in the lower reaches of rivers in Brazil, Guyana, Suriname, Venezuela, Colombia and on islands off the coast.",
+          "countries": [
+            "BR",
+            "GY",
+            "SR",
+            "VE",
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208786,
+      "total": 68,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "SR",
+          23
+        ],
+        [
+          "BR",
+          15
+        ],
+        [
+          "GY",
+          13
+        ],
+        [
+          "CO",
+          7
+        ],
+        [
+          "VE",
+          7
+        ],
+        [
+          "GF",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          8.4375,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          12,
+          12
+        ],
+        [
+          -57.65625,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -56.25,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "html": "<p>The butterfly goby (Awaous flavus, formerly known aquaristically under the synonym A. strigatus) has a large distribution area along the Atlantic coast of South America. They are found in the lower reaches of rivers in Brazil, Guyana, Suriname, Venezuela, Colombia and on islands off the coast. Adults of this species, which is a maximum of 10 cm long, live in fresh water or shallow brackish water (approx. 0.4‰), but the larvae develop in the sea. This also explains why the species is found on islands in the Caribbean.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "html": "<p>The aquarium for butterfly gobies should be sparsely decorated at the bottom and have as large an area as possible. The height is of secondary importance. The bottom should consist of fine sand, at least in some areas, into which these fish occasionally burrow. The water temperature can be in the range of 24-28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "html": "<p>In the wild, the butterfly goby feeds on small particles that it filters out of the sandy, muddy bottom. In the aquarium, the animals are problem-free feeders, but the food particles must not be too coarse.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "html": "<p>The males become territorial when it comes to reproduction. Otherwise these gobies tend to be sociable. However, A. flavus requires a firm substrate for spawning, such as a flat stone, a root or similar. Such substrates are rather rare in the sandy-muddy biotope they inhabit, and the males defend a good spawning site with corresponding intensity. The fight between two males is spectacular: with wide open mouths, they push each other back and forth face to face, not unlike a deer fight.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "html": "<p>The males are recognizable by their greatly enlarged mouths, the colourful first dorsal fin and wider dark fringes in the fins, but to be absolutely sure, you have to look at the genital papillae, which are shaped differently in males and females.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/7d4d6d4315be62ef.webp",
+      "thumb": "https://media.aquatome.com/glaser/7d4d6d4315be62ef-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/14c9b8c6369c6fca.webp",
+      "thumb": "https://media.aquatome.com/glaser/14c9b8c6369c6fca-480.webp",
+      "width": 850,
+      "height": 377,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b7768f94da039122.webp",
+      "thumb": "https://media.aquatome.com/glaser/b7768f94da039122-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/36159faff49be8ed.webp",
+      "thumb": "https://media.aquatome.com/glaser/36159faff49be8ed-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/awaous-flavus-a-strigatus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "riR2drSJ7xc",
+      "title": "Awaous flavus",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NraxuevaFBA",
+      "title": "Apistogramma baenschi vs awaous flavus fight",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iu2yAZkLvVs",
+      "title": "Intimidation Awaous Flavus",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "KRFSV-0fVtA",
+      "title": "Awaous flavus female",
+      "durationSec": 25,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá bống",
+        "cát nền bể thủy sinh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá đáy rộng",
+        "bể cá 120 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

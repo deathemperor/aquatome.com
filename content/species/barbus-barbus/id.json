@@ -1,0 +1,28 @@
+{
+  "slug": "common-barbel",
+  "name": "Common barbel",
+  "altNames": [
+    "Barbel",
+    "Barbel Eropa",
+    "European barbel"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Spesies endemik ini dapat ditemukan di seluruh Eropa, mulai dari Prancis hingga Sungai Memel, di Inggris di Sungai Thames dan beberapa sungai lainnya, serta di Sungai Donau beserta anak-anak sungainya.</p>",
+    "diet:glaser": "<p>Ikan ini mau memakan segala jenis pakan hidup dan beku, semua jenis pakan nabati yang tersedia, juga pakan serpihan dan pakan tablet.</p>",
+    "dimorphism:glaser": "<p>Selama musim kawin, ikan jantan memiliki lapisan sekresi keruh di kepala dengan bintil-bintil putih. Ikan betina jauh lebih besar dan lebih gemuk dibandingkan ikan jantan.</p>",
+    "notes:glaser": "<p>Telur barb ini sedikit beracun. Ikan ini sangat menarik untuk akuarium ikan endemik dan tentu saja untuk akuarium air bersuhu sedang (temperate). Beberapa subspesies B. barbus telah dikenal dan dideskripsikan untuk Eropa, misalnya subspesies Prancis, Yugoslavia, dan Yunani.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.8
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-17"
+  }
+}

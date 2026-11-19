@@ -17,13 +17,18 @@
     "behaviour:seriouslyfish": "<p>Perilakunya agak sulit ditebak. Ada individu yang tetap damai bersama teman setangki yang ukurannya sepadan, tetapi ada juga yang bisa menjadi sangat galak setelah dewasa. Yang jelas, jangan coba memeliharanya bersama jenis yang jauh lebih kecil atau pemalu. Sebagian potensi agresinya bisa dikurangi dengan memeliharanya dalam kelompok, asalkan ruangnya cukup. Teman setangki lain di akuarium besar bisa berupa bichir, karasin besar, ikan cyprinid, ikan lele/catfish dan Loricariidae (pleco).</p>",
     "dimorphism:seriouslyfish": "<p>Belum diketahui.</p>",
     "reproduction:seriouslyfish": "<p>Belum ada catatan pemijahannya di dunia akuarium.</p>",
-    "notes:seriouslyfish": "<p>Termasuk segelintir Distichodus yang cukup rutin ditemui di dunia akuarium. Saat remaja, ikan ini tak bisa dipungkiri sangat menarik, tetapi sayangnya warna dan coraknya banyak memudar saat beranjak dewasa. Sekilas mirip D. sexfasciatus yang lebih sering dijumpai, tetapi ukuran dewasanya jauh lebih kecil dan kepalanya sempit serta runcing.</p>"
+    "notes:seriouslyfish": "<p>Termasuk segelintir Distichodus yang cukup rutin ditemui di dunia akuarium. Saat remaja, ikan ini tak bisa dipungkiri sangat menarik, tetapi sayangnya warna dan coraknya banyak memudar saat beranjak dewasa. Sekilas mirip D. sexfasciatus yang lebih sering dijumpai, tetapi ukuran dewasanya jauh lebih kecil dan kepalanya sempit serta runcing.</p>",
+    "quickFacts:glaser": "<p>Ikan ini bisa mencapai panjang hingga 40 cm.</p>",
+    "distribution:glaser": "<p>Distichodus moncong panjang tersebar sangat luas di lembah Sungai Kongo.</p>",
+    "diet:glaser": "<p>D. lusosso adalah ikan omnivora. Sebagian besar pakannya berupa bahan nabati, jadi akuarium biasanya tidak bisa diberi tanaman.</p>",
+    "behaviour:glaser": "<p>D. lusosso sebaiknya dipelihara dalam kelompok besar (10 ekor atau lebih) atau sendirian saja. Kalau distichodus moncong panjang dipelihara dalam kelompok yang terlalu kecil, biasanya ikan-ikan ini jadi sangat galak terhadap sesamanya.</p>"
   },
   "quality": {
     "score": 0.88,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.88
+      "seriouslyfish": 0.88,
+      "glaser": 0.9
     }
   }
 }

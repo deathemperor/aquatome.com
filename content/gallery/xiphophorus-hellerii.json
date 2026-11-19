@@ -12,26 +12,6 @@
       "caption": "Cá kiếm đực đuôi kiếm dài thân ánh tím cam trong bể"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/319722335.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/319722335-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/319722335",
-      "caption": "Cá kiếm đực màu đỏ có kiếm dài trong bể thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6bf33acc0e66e35a.webp",
-      "thumb": "https://media.aquatome.com/commons/6bf33acc0e66e35a-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Wojciech J. Płuciennik",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_hellerii_lyretail_young_female_02.jpg",
-      "caption": "Cá kiếm đỏ bơi giữa đám rong trong bể thủy sinh"
-    },
-    {
       "url": "https://media.aquatome.com/commons/21b6169a44b67de3.webp",
       "thumb": "https://media.aquatome.com/commons/21b6169a44b67de3-480.webp",
       "width": 1200,
@@ -50,6 +30,26 @@
       "author": "Adrian Torres B.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_hellerii_325785251.jpg",
       "caption": "Cá kiếm cái màu xanh lục ánh vàng ngoài tự nhiên"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/319722335.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319722335-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319722335",
+      "caption": "Cá kiếm đực màu đỏ có kiếm dài trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6bf33acc0e66e35a.webp",
+      "thumb": "https://media.aquatome.com/commons/6bf33acc0e66e35a-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Wojciech J. Płuciennik",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_hellerii_lyretail_young_female_02.jpg",
+      "caption": "Cá kiếm đỏ bơi giữa đám rong trong bể thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/97a075250167ebf1.webp",
@@ -306,16 +306,6 @@
         "width": 1965,
         "height": 1009
       }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/08c22c41f590a036.webp",
-      "thumb": "https://media.aquatome.com/commons/08c22c41f590a036-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Wojciech J. Płuciennik",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_hellerii_fry_06.jpg",
-      "caption": "Cá kiếm màu cam đỏ bơi giữa cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/556646006.webp",
@@ -658,6 +648,16 @@
       "caption": "Cá kiếm xanh sống ngoài tự nhiên, bơi trên nền bùn cát",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/08c22c41f590a036.webp",
+      "thumb": "https://media.aquatome.com/commons/08c22c41f590a036-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Wojciech J. Płuciennik",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_hellerii_fry_06.jpg",
+      "caption": "Cá kiếm màu cam đỏ bơi giữa cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/6e53fcfeb7a1f577.webp",

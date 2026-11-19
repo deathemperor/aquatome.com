@@ -10,6 +10,15 @@
     "sri-lanka",
     "bentota"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 5790917,
+      "total": 0,
+      "fetched": "2026-11-18",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -17,12 +26,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/ceylonthelphusa_kandanbyi_en/",
       "html": "<p>The leopard crab Ceylonthelphusa kandanbyi represents an attractive addition to the offered crustaceans. This species was scientifically described in 1999.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/ceylonthelphusa_kandanbyi_en/",
-      "html": "<p>The species originates from Sri Lanka, where it is found in the Bentota river system. According to the supplier, the animals were caught in the proximity of Mathugama city, a town in the western part of Sri Lanka.</p>"
     },
     {
       "key": "behaviour",

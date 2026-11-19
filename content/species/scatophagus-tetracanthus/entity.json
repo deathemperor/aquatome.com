@@ -1,0 +1,306 @@
+{
+  "id": "scatophagus-tetracanthus",
+  "scientificName": "Scatophagus tetracanthus",
+  "order": "Perciformes",
+  "family": "Scatophagidae",
+  "genus": "Scatophagus",
+  "group": "other",
+  "places": [
+    "africa"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2394729,
+      "total": 52,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MG",
+          25
+        ],
+        [
+          "MZ",
+          19
+        ],
+        [
+          "PH",
+          3
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "NC",
+          1
+        ],
+        [
+          "SG",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -33.75,
+          1
+        ],
+        [
+          32.34375,
+          -26.71875,
+          4
+        ],
+        [
+          33.75,
+          -21.09375,
+          1
+        ],
+        [
+          35.15625,
+          -23.90625,
+          1
+        ],
+        [
+          35.15625,
+          -22.5,
+          5
+        ],
+        [
+          35.15625,
+          -19.6875,
+          5
+        ],
+        [
+          36.5625,
+          -18.28125,
+          1
+        ],
+        [
+          37.96875,
+          -18.28125,
+          1
+        ],
+        [
+          37.96875,
+          -7.03125,
+          1
+        ],
+        [
+          39.375,
+          -16.875,
+          1
+        ],
+        [
+          42.1875,
+          -21.09375,
+          14
+        ],
+        [
+          43.59375,
+          -21.09375,
+          2
+        ],
+        [
+          45,
+          -16.875,
+          2
+        ],
+        [
+          46.40625,
+          -16.875,
+          1
+        ],
+        [
+          47.8125,
+          -22.5,
+          1
+        ],
+        [
+          47.8125,
+          -15.46875,
+          1
+        ],
+        [
+          47.8125,
+          -14.0625,
+          2
+        ],
+        [
+          49.21875,
+          -18.28125,
+          2
+        ],
+        [
+          102.65625,
+          0,
+          1
+        ],
+        [
+          122.34375,
+          11.25,
+          2
+        ],
+        [
+          123.75,
+          9.84375,
+          1
+        ],
+        [
+          127.96875,
+          -4.21875,
+          1
+        ],
+        [
+          164.53125,
+          -21.09375,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "html": "<p>Scatophagus tetracanthus is an omnivorous, peaceful, euryhaline scat. The maximum reported length is 30 cm, but it is usually fully grown at 15-20 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "html": "<p>This species comes from the Pacific coast of Eastern Africa.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "html": "<p>Like all scats this species is completely euryhaline, meaning it can change freely between the sea and freshwater; this is their typical behaviour in the wild. Much more important than the salt content is the pH: it must never drop below 8 over a longer period.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "html": "<p>They are omnivorous. They prefer small crustaceans, like artemia or cyclops, but they also feed on vegetables.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "html": "<p>African scats are quite peaceful fish that often swim in large schools. It is also recommended to keep them in groups in the aquarium, if necessary along with their green and spotted cousins from southeast Asia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "html": "<p>Be careful when catching the fish, as they produce a venom in glands under the first dorsal fin. A sting is very painful, but usually harmless. Only allergy sufferers should be careful and visit a medic if stung.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/c3cfb2532a3bab34.webp",
+      "thumb": "https://media.aquatome.com/glaser/c3cfb2532a3bab34-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ae314d8c8c880dab.webp",
+      "thumb": "https://media.aquatome.com/glaser/ae314d8c8c880dab-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/defc5d1c5d056875.webp",
+      "thumb": "https://media.aquatome.com/glaser/defc5d1c5d056875-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ebb889574f2b88de.webp",
+      "thumb": "https://media.aquatome.com/glaser/ebb889574f2b88de-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/scatophagus-tetracanthus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "OwUhs8pdQ8g",
+      "title": "Scatophagus tetracanthus (Tiger Scat)",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-Y9B-QJTvMI",
+      "title": "10\" Tiger Tetracanthus Scatophagus",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "mhjYyqDkkhI",
+      "title": "African Tiger Scats",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "de62ew8VCkU",
+      "title": "Scatophagus tetracanthus",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "thức ăn cá ăn tạp"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

@@ -32,11 +32,11 @@
     "references:seriouslyfish": "<ul><li>Conway, K. W., W.-J. Chen and R. L. Mayden (2008). The 'Celestial Pearl danio' is a miniature Danio (s.s) (Ostariophysi: Cyprinidae): evidence from morphology and molecules. Zootaxa 1686, 1-28</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654</li><li>Rüber, L. , M. Kottelat, H. H. Tan, P. K. L. Ng and R. Britz (2007). Evolution of miniaturization and the phylogenetic position of Paedocypris, comprising the world's smallest vertebrate. BMC Evolutionary Biology London 7(38), 1-10</li><li>Kottelat, M. and K.-E. Witte (1999). Two new species of Microrasbora from Thailand and Myanmar, with two new generic names for small southeast Asian cyprinid fishes (Teleostei: Cyprinidae). Journal of South Asian Natural History 4(1), 49-56</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Jiang, Y.-E., X.-Y. Chen and J.-X. Yang (2008). Microrasbora Annandale, a new genus record in China, with description of a new species (Teleostei: Cyprinidae). Environmental Biology of Fishes 83(3), 299-304</li></ul>"
   },
   "quality": {
-    "score": 0.55,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "bwaquatics": 0.55,
-      "seriouslyfish": 0.55
+      "bwaquatics": 0.85,
+      "seriouslyfish": 0.85
     }
   }
 }
