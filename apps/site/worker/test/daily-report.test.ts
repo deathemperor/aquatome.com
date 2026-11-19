@@ -538,7 +538,8 @@ test('POST /_ab/changelog: a merge\'s lines are on the card at once, and the rep
   expect(r.status).toBe(200)
   expect(await r.json()).toEqual({ ok: true, added: 2 })
   expect(changesKept(w)).toEqual(lines)
-  expect(todayPage(await loadToday(w.e as never, new URL('https://x.test/_ab/'), new Date(), 'Asia/Ho_Chi_Minh'))).toContain('Changelog · 2 in 24 h')
+  // The Shipped card counts them, the newest in its words.
+  expect(todayPage(await loadToday(w.e as never, new URL('https://x.test/_ab/'), new Date(), 'Asia/Ho_Chi_Minh'))).toMatch(/aria-labelledby="shipped">.*?<p class="fig">2<\/p><p class="line">1 site · 1 app<\/p><p class="newest">A comment waits for review\.<\/p>/)
 
   // The next push sends them again, and the report after it: kept once.
   expect(await (await land(w.e, JSON.stringify({ changes: lines }))).json()).toEqual({ ok: true, added: 0 })
