@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import type { Content } from '@aq/schema'
 import { drawnKinds, levelBlocks, PageDoc, PageShard, pageShard, shardCount, type Block, type Inline } from '@aq/schema/app-page'
 import { appBreeds, appEquipment, appGlossary, appGuides, appPlants, appSeries, appSpecies, type AppIndex } from '../src/lib/app-index'
-import { appPages, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
+import { appPages, glossaryDoc, guideDoc, listedPaths, PAGE_LEVELS, proseBlocks, shardsOf } from '../src/lib/app-page'
 import { getContent } from '../src/lib/content'
 import { GUIDE_KIND_LABELS } from '../src/lib/format'
 import { guideParts } from '../src/lib/guide-page'
@@ -117,6 +117,19 @@ test('in Indonesian: the Indonesian page\'s paths, links and words, and a Vietna
   }
   const d = guideDoc('id', c, withExtras(c), listed)
   expect(d.blocks.find(b => b.t === 'refs')).toMatchObject({ title: t('Nguồn tham khảo'), items: [{ title: `Thay nước cho bể cá (${t('tiếng Việt')})` }] })
+})
+
+// A term's source titled in Vietnamese says so on a page in another language, as a guide's does (the web page's live
+// check failed on three Indonesian, Thai and Malay term pages on 19 Nov 2026; the app's copy of them had the same gap).
+test('a term\'s source titled in Vietnamese says so in the app, on a page in another language', async () => {
+  const refs = async (lang: 'vi' | 'ms') => {
+    const c = await getContent(lang)
+    const g = appGlossary(lang, c).find(g => g.id === 'ca-dan')!
+    return glossaryDoc(lang, c, g, listedPaths(lang, c)).blocks.find(b => b.t === 'refs')
+  }
+  const vi = 'Cá bầy đàn: nuôi bao nhiêu con là đủ'
+  expect((await refs('vi'))?.items.map(i => i.title)).toEqual(['Shoal', vi])
+  expect((await refs('ms'))?.items.map(i => i.title)).toEqual(['Shoal', `${vi} (${translator('ms')('tiếng Việt')})`])
 })
 
 test('a page the app index leaves out is in no "pages" block; a link to it in the text stays, for the web', async () => {

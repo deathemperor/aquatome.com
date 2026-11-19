@@ -364,7 +364,7 @@ export function glossaryDoc(lang: Lang, c: Content, g: Localized<GlossaryEntity>
       ...(used.length ? [{ t: 'h' as const, text: t('Dùng trong {n} trang', { n: num(p.total) }) }, ...used] : []),
       // The rest are reached by the page's search link, which the web page shows: the app offers to open it there.
       ...(used.length && p.more ? [{ t: 'web' as const }] : []),
-      ...(p.refs.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: r.title, url: r.url })) }] : []),
+      ...(p.refs.length ? [{ t: 'refs' as const, title: t('Nguồn tham khảo'), id: 'nguon', items: p.refs.map(r => ({ title: lang !== 'vi' && isVietnamese(r.title) ? `${r.title} (${t('tiếng Việt')})` : r.title, url: r.url })) }] : []),
     ],
   }
 }
