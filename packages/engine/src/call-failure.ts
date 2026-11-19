@@ -81,7 +81,7 @@ function mainKind(message: string, result?: { subtype?: unknown; stop_reason?: u
   if (text !== undefined) return /usage limit|weekly limit/i.test(text) ? `usage limit${until()}` : /quota/i.test(text) ? 'quota exceeded' : /limit/i.test(text) ? `limit reached${until()}` : AUTH.test(text) ? 'credential refused' : text.trim() ? 'answer not JSON' : 'no answer'
   if (AUTH.test(message)) return 'credential refused'
   if (/quota/i.test(message)) return 'quota exceeded'
-  if (typeof result?.subtype === 'string' && SUBTYPES[result.subtype]) return SUBTYPES[result.subtype]
+  if (typeof result?.subtype === 'string' && SUBTYPES[result.subtype]) return SUBTYPES[result.subtype]!
   // The answer stopped at the most it may write (the Site lead, 19 Nov): not the same fix as an answer that isn't JSON.
   if (result?.stop_reason === 'max_tokens' || /output token maximum|stop_reason"?\s*[:=]\s*"?max_tokens|(?:response|answer|output) (?:was )?(?:cut off|truncated)/i.test(message)) return 'answer cut off'
   // The API couldn't read or fetch an image it was given (the Site lead, 19 Nov).
