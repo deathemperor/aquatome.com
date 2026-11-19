@@ -2449,7 +2449,7 @@ Written by `pnpm engine check-photos` (2026-11-19), most-read pages first. Rules
 
 ## Removed (1679)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -2460,6 +2460,8 @@ Written by `pnpm engine check-photos` (2026-11-19), most-read pages first. Rules
 | species/ageneiosus-inermis | [photo](https://media.aquatome.com/seriouslyfish/2b6ca1b988233a91.webp) | subject dead |
 | species/ageneiosus-inermis | [photo](https://media.aquatome.com/seriouslyfish/ff81a8bab5c07d9e.webp) | subject dead |
 | species/wallago-attu (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/48f09c0951615426.webp) | subject other |
+| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/0c8aeaa0cafc60a6.webp) | subject other |
+| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/c3adefdcaa27f12b.webp) | subject other |
 | breeds/balloon-molly | [photo](https://media.aquatome.com/commons/2cf1ed06e3421dee.webp) | subject other |
 | breeds/black-moor-goldfish | [photo](https://media.aquatome.com/commons/b2e0ff2ba234e7e2.webp) | subject other |
 | breeds/blood-parrot-cichlid | [photo](https://media.aquatome.com/commons/55ff185f1e2edada.webp) | subject yes; person |
@@ -3261,8 +3263,6 @@ Written by `pnpm engine check-photos` (2026-11-19), most-read pages first. Rules
 | species/nematogenys-inermis | [photo](https://media.aquatome.com/scotcat/47d64956a7984f07.webp) | subject yes; person |
 | species/nematogenys-inermis | [photo](https://media.aquatome.com/scotcat/655996881d6d6bfc.webp) | subject none |
 | species/nematogenys-inermis | [photo](https://media.aquatome.com/scotcat/953d1e8f9741a0ac.webp) | subject dead |
-| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/0c8aeaa0cafc60a6.webp) | subject other |
-| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/c3adefdcaa27f12b.webp) | subject other |
 | species/netuma-thalassina | [photo](https://media.aquatome.com/commons/32ee98d443d158bd.webp) | subject none |
 | species/netuma-thalassina | [photo](https://media.aquatome.com/commons/69cbf1bf302685c8.webp) | subject none |
 | species/netuma-thalassina | [photo](https://media.aquatome.com/commons/8ac6eb0c12bdc35c.webp) | subject none |

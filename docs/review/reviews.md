@@ -10,7 +10,7 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 1029 | 735 (vi 735) | 735 |
 | translation | 2089 | 310 (vi 310) | 310 |
-| vi-rewrite | 391 | 31 (vi 31) | 31 |
+| vi-rewrite | 395 | 33 (vi 33) | 33 |
 | reader-rewrite | 43 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
@@ -18,9 +18,9 @@ under `<lang>/<path>`.
 | product | 24 | 1 (vi 1) | 1 |
 | product-reviews | 18 | 0 | 0 |
 | summary | 2536 | 135 (vi 135) | 135 |
-| localize | 2612 | 897 (id 389, ms 68, th 440) | 897 |
+| localize | 2640 | 892 (id 389, ms 68, th 435) | 892 |
 | glossary | 19 | 0 | 0 |
-| places | 7319 | 4445 (id 1522, ms 1518, th 1306, vi 99) | 1283 |
+| places | 7363 | 4478 (id 1533, ms 1529, th 1317, vi 99) | 1308 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 20 | 0 | 0 |
@@ -222,19 +222,19 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-31 of 391 pages under the bar.
+33 of 395 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 29 | 77 |
-| Says what the source doesn't (invented, added) | 26 | 57 |
-| Wording: unnatural, literal, stiff or chatty | 25 | 47 |
+| Other | 31 | 80 |
+| Says what the source doesn't (invented, added) | 28 | 63 |
+| Wording: unnatural, literal, stiff or chatty | 27 | 49 |
+| Hobby terms and names | 21 | 30 |
 | Meaning changed or wrong | 20 | 36 |
-| Hobby terms and names | 19 | 27 |
 | A number, unit, dose or price | 14 | 16 |
+| Repeats itself (intro, summary, steps and FAQ) | 11 | 13 |
 | Leaves out what the source says | 10 | 17 |
-| Repeats itself (intro, summary, steps and FAQ) | 9 | 11 |
-| States as certain what the source hedges, or what garbled captions only hint at | 8 | 10 |
+| States as certain what the source hedges, or what garbled captions only hint at | 9 | 11 |
 | Text left in another language | 8 | 8 |
 | Names or points to the video, channel, creator or source | 1 | 1 |
 
@@ -256,17 +256,17 @@ under `<lang>/<path>`.
 - Item 8: 'golden mojarra' translated 'cá mojarra vàng (tức loài này)' is awkward; also 'Lago Izabel' → 'hồ Izabal' fine. 'Điều kiện là phải bày đá, lũa' adds 'đá, lũa' not in English (decor). — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - Item 3: 'Chúng đặc biệt hay ở vùng nước đen và nước trong' is awkward; better 'đặc biệt gắn với môi trường nước đen và nước trong'. — vi/species/helostoma-temminckii (seriouslyfish), 0.62
 
-### Meaning changed or wrong
-
-- Item 5: 'Batesian form of shoaling' was rendered as 'bắt chước kiểu Peckham' — 'Peckham' is wrong (Peckhamian mimicry is a different thing) and the original says Batesian. Use 'kiểu Bates' or 'mô phỏng kiểu Bates'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
-- Item 1: 'Cá răng đục' and 'tiệm cá' - 'tiệm cá' for 'the trade' is shop-like; use 'thị trường cá cảnh'. 'Max size: 300 mm SL' fine. The sentence 'kể cả khi nuôi trong bể rất lớn cũng phải chọn cá nuôi chung' alters meaning (English: in a v… — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
-- Item 11: 'cá lớn vẫn có kích thước nhỏ' is a mistranslation of 'small adult size'. Use 'cá trưởng thành kích thước nhỏ'. — vi/species/microdevario-gatesi (seriouslyfish), 0.62
-
 ### Hobby terms and names
 
 - Item 11: 'Màn hôn cũng có thể là một phần của chuyện tán tỉnh' OK; 'chỉ ít con sống được lâu' fine. 'Cho cá ăn mồi' okay. Item 1/11: 'Cá hường' for kissing gourami is non-standard but accepted common name. — vi/species/helostoma-temminckii (seriouslyfish), 0.62
 - Item 1: 'tiệm cá' is a non-standard term for the 'aquarium hobby' (use 'giới chơi cá cảnh'). Also, 'cá chép tí hon (họ Cyprinidae)' adds the family name. — vi/species/microdevario-gatesi (seriouslyfish), 0.62
 - Terminology: 'Tôm hùm đất' is used for crayfish, which is the established common name. 'Hệ thần kinh ... làm nhiều việc' for 'multifunctional' is a bit colloquial. 'dễ ăn, gặp gì ăn nấy' is slang for 'extremely opportunistic eaters', so pr… — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.70
+
+### Meaning changed or wrong
+
+- Item 5: 'Batesian form of shoaling' was rendered as 'bắt chước kiểu Peckham' — 'Peckham' is wrong (Peckhamian mimicry is a different thing) and the original says Batesian. Use 'kiểu Bates' or 'mô phỏng kiểu Bates'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
+- Item 1: 'Cá răng đục' and 'tiệm cá' - 'tiệm cá' for 'the trade' is shop-like; use 'thị trường cá cảnh'. 'Max size: 300 mm SL' fine. The sentence 'kể cả khi nuôi trong bể rất lớn cũng phải chọn cá nuôi chung' alters meaning (English: in a v… — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
+- Item 11: 'cá lớn vẫn có kích thước nhỏ' is a mistranslation of 'small adult size'. Use 'cá trưởng thành kích thước nhỏ'. — vi/species/microdevario-gatesi (seriouslyfish), 0.62
 
 ### A number, unit, dose or price
 
@@ -274,17 +274,17 @@ under `<lang>/<path>`.
 - Item 4: 'Volume: ~304 litres (~80 US gal)' converted to 'khoảng 304 lít' – per the tank table 80 US gal is not listed, so should be converted/rounded to whole litres (≈303 litres); check this. Acceptable, but 304 is slightly off (80 US gal… — vi/species/helostoma-temminckii (seriouslyfish), 0.62
 - Item 4: 45 × 30 cm base 'about 40 litres' is kept, which is fine, but check that the tank figure matches the source; OK. — vi/species/microdevario-gatesi (seriouslyfish), 0.62
 
-### Leaves out what the source says
-
-- Omitted: the link/reference line 'You can read more about “How Copper Affects Dwarf Shrimp” right here' is dropped. The similar 'Do Crabs, Crayfish or Shrimp Feel Pain?' pointer is also dropped. Restore both as neutral references, or keep … — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.70
-- "Nuôi trong bể nhỏ ... bể 40 lít": the original 10 gallons = 40 litres is right, but the sentence "Bể cho 3–5 con thì nên bắt đầu từ 40 lít" drops the recommendation framing ("I would recommend ... a tank size of 10 gallons"). Minor. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Omitted the "Related article" list and the "Leave a Reply" heading; the related-articles list is content, not shop talk, so it should be translated or kept. — vi/guides/aquariumbreeder-green-water-algae-profile-and-how-to-remove (aquariumbreeder), 0.70
-
 ### Repeats itself (intro, summary, steps and FAQ)
 
 - Item 10: 'Cá đẻ giống nhiều loài cichlid khác ... Cứ thế, có thể có tới 500 trứng' OK; but 'Trứng nở sau 2–3 ngày' repeats; fine. 'ống đẻ' should be 'ống đẻ trứng (ovipositor)' - acceptable. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - Item 9: "Có cá mục tiêu thì chúng còn kỹ hơn nữa, vì..." – adds a redundant causal clause; the English only restates it. Also "thay đổi thời gian" is OK, but "cá mục tiêu là những con để cichlid trút cơn dữ vào" is colloquial/awkward. — vi/species/crenicichla-compressiceps (seriouslyfish), 0.68
 - Item 1: "có thể bắt chước (nhại)" has a redundant bracketed synonym. Use "có thể nhại hình" (mimic) only. Also "các loài cá Pimelodella spp." is redundant: either "các loài Pimelodella" or "Pimelodella spp.". — vi/species/brachyrhamdia-heteropleura (scotcat), 0.70
+
+### Leaves out what the source says
+
+- Omitted: the link/reference line 'You can read more about “How Copper Affects Dwarf Shrimp” right here' is dropped. The similar 'Do Crabs, Crayfish or Shrimp Feel Pain?' pointer is also dropped. Restore both as neutral references, or keep … — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.70
+- "Nuôi trong bể nhỏ ... bể 40 lít": the original 10 gallons = 40 litres is right, but the sentence "Bể cho 3–5 con thì nên bắt đầu từ 40 lít" drops the recommendation framing ("I would recommend ... a tank size of 10 gallons"). Minor. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
+- Omitted the "Related article" list and the "Leave a Reply" heading; the related-articles list is content, not shop talk, so it should be translated or kept. — vi/guides/aquariumbreeder-green-water-algae-profile-and-how-to-remove (aquariumbreeder), 0.70
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
@@ -483,21 +483,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-897 of 2612 pages under the bar.
+892 of 2640 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 823 | 2291 |
-| Wording: unnatural, literal, stiff or chatty | 760 | 1558 |
-| Says what the source doesn't (invented, added) | 525 | 745 |
-| Meaning changed or wrong | 489 | 746 |
-| A number, unit, dose or price | 480 | 615 |
-| Hobby terms and names | 467 | 611 |
-| Text left in another language | 319 | 406 |
-| Leaves out what the source says | 266 | 306 |
-| Repeats itself (intro, summary, steps and FAQ) | 239 | 266 |
-| States as certain what the source hedges, or what garbled captions only hint at | 201 | 224 |
-| Copied from the transcript or source | 25 | 25 |
+| Other | 817 | 2266 |
+| Wording: unnatural, literal, stiff or chatty | 754 | 1538 |
+| Says what the source doesn't (invented, added) | 519 | 736 |
+| Meaning changed or wrong | 486 | 742 |
+| A number, unit, dose or price | 475 | 608 |
+| Hobby terms and names | 464 | 609 |
+| Text left in another language | 316 | 399 |
+| Leaves out what the source says | 261 | 302 |
+| Repeats itself (intro, summary, steps and FAQ) | 234 | 259 |
+| States as certain what the source hedges, or what garbled captions only hint at | 200 | 223 |
+| Copied from the transcript or source | 24 | 24 |
 | Off the title's topic | 2 | 2 |
 
 ### Other
@@ -577,13 +577,13 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4445 of 7319 pages under the bar.
+4478 of 7363 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1152 | 1242 |
+| Other | 1173 | 1266 |
 | Meaning changed or wrong | 71 | 71 |
-| Leaves out what the source says | 57 | 57 |
+| Leaves out what the source says | 61 | 61 |
 | Wording: unnatural, literal, stiff or chatty | 26 | 26 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 9 | 9 |
