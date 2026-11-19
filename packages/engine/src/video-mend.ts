@@ -6,14 +6,14 @@ import { machine, type Machine } from './ceiling'
 import type { Llm } from './claude'
 import { FIT_TITLE, givesDose, type FitFinding } from './fit'
 import type { Mend } from './gate'
-import { holding, inline, words } from './mend'
+import { inline, words } from './mend'
 import type { Page } from './pages'
 import { VI_STYLE as STYLE } from './phrases'
 import { norm, render } from './reader'
 import { logReviews } from './review-log'
 import { roundConverted } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentences'
+import { blockOf, places, plain, quoted, sentences, splice, type Piece } from './sentences'
 import { setHold } from './video-hold'
 import { reviewDraft, type WriteOpts, type YouTube } from './youtube'
 
@@ -54,14 +54,16 @@ export const ownTankDose = (sentence: string) => {
 }
 /** The label line a dropped dose leaves, in the words keepers write (the Writing Lead, 14 Nov 2026). */
 export const LABEL_DOSE = 'liều theo hướng dẫn trên bao bì'
-const isFigure = (w: string) => /^[.,-]?[\d½¼¾⅓⅔⅛]/u.test(w)
+/** Every fraction sign Unicode has ("½", "⅜", "⅒"), not a few (Codex's fourth read of #1690). */
+const FRACTION = '\u00BC-\u00BE\u2150-\u215E\u2189'
+const isFigure = (w: string) => new RegExp(`^[.,-]?[\\d${FRACTION}]`, 'u').test(w)
 /**
  * Each figure with the word after it, its unit, as often as the text has it. A percent is its figure's ("30%"), "60 x
  * 38" is "60 × 38", "4 cái nắp" is "4 nắp", "½" is a figure ("½nắp" too), and a number in words, one word or several,
  * counts before a dose's or a size's unit ("hai mươi nắp", "mười lít") (Grok's reads).
  */
 function figures(text: string): Map<string, number> {
-  const w = words(text.replace(/(\d)\s*%/gu, '$1 phầntrăm').replace(/(\d)\s*[×xX*]\s*(?=\d)/gu, '$1 ').replace(/([½¼¾⅓⅔⅛])(?=\p{L})/gu, '$1 ')
+  const w = words(text.replace(/(\d)\s*%/gu, '$1 phầntrăm').replace(/(\d)\s*[×xX*]\s*(?=\d)/gu, '$1 ').replace(new RegExp(`([${FRACTION}])(?=\\p{L})`, 'gu'), '$1 ')
     // A rate's "/giờ" stays with its unit ("300 lít/giờ" isn't "300 lít").
     .replace(/(\p{L})\s*\/\s*(\p{L}+)/gu, '$1 trên$2'))
   const m = new Map<string, number>()
@@ -100,6 +102,22 @@ const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?
  */
 const MARKS_AFTER = `"'”’»)“‘`
 const STOP_MARK = `[.?!…⋯‥][${MARKS_AFTER}]*`
+const CLOSING = new RegExp(`[${MARKS_AFTER}]+$`, 'u')
+const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'gu')
+/**
+ * The quote's own sentence at `at` in a sentence the cutter gave, cut at every stop: a neighbour the cutter keeps with it
+ * ("<strong>Châm 5 ml Seachem Prime.</strong> Bể này đã ổn định.") doesn't make a dose the tank's (Codex's fourth read
+ * of #1690). A quote that ends its sentence ends there.
+ */
+function finest(s: string, at: number, q: string): string {
+  const last = at + Math.max(1, q.replace(CLOSING, '').length) - 1
+  let start = 0, end = s.length
+  for (const m of s.matchAll(STOP)) {
+    if (m.index + m[0].length <= at) start = m.index + m[0].length
+    else if (m.index >= last) { end = m.index + m[0].length; break }
+  }
+  return s.slice(start, end).trim()
+}
 const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'u')).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
@@ -162,8 +180,13 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
     ...(vi.faq ?? []).flatMap((f, i) => [{ field: `faq.${i}.q`, html: false, text: f.q }, { field: `faq.${i}.a`, html: false, text: f.a }]),
   ].map(x => ({ ...x, pieces: sentences(x.html ? x.text : asHtml(x.text)) }))
   const said = parts.map(x => x.pieces.filter(q => q.sentence).map(q => q.html))
-  // Whole words, at every place (Codex's read of #1690: "ADA" named a sentence about Canada).
-  const holds = (pieces: Piece[], quote: string) => [...new Set([...quoted(pieces, quote, { whole: true }), ...holding(pieces, quote)])]
+  // Whole words, at every place, its punctuation as written (Codex's reads of #1690: "ADA" named a sentence about
+  // Canada, and "Bể mẫu" one with "từ bể, mẫu"). As the cut's matcher has it, the last word may be the English plural
+  // ("Wonder Shells") and an apostrophe either way ("Dr. Tim’s").
+  const holds = (pieces: Piece[], quote: string) => {
+    const forms = [quote, quote.replace(/[’‘`]/g, "'"), quote.replace(/'/g, '’')].flatMap(q => (/[a-z]$/i.test(q) ? [q, `${q}s`] : [q]))
+    return [...new Set(forms.flatMap(q => quoted(pieces, q, { whole: true })))].sort((a, b) => a - b)
+  }
   const at = (f: FitFinding) => parts.flatMap((x, k) => holds(x.pieces, f.quote).map(i => ({ k, i })))
   /** A sentence's words as the checks read them. */
   const txt = (k: number, h: string) => norm(parts[k]!.html ? plain(h) : asPlain(h))
@@ -175,6 +198,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // it. Any other waits for a person, and so does the guide.
   const doses = doseAt.map(({ k, i }) => txt(k, said[k]![i]!))
   if (doses.some(s => !ownTankDose(s))) return undefined
+  // And read on its own, cut at every stop, wherever the quote is in it.
+  if (findings.some(f => f.check === 'dose' && at(f).some(({ k, i }) => { const s = txt(k, said[k]![i]!), q = norm(f.quote); return places(s, q, true).some(p => !ownTankDose(finest(s, p, q))) }))) return undefined
   // A dose however it's written: any figure in a dose's unit, in figures, in words or as a fraction ("½ nắp").
   const dosed = (x: string) => givesDose(x) || [...figures(x).keys()].some(k => DOSE_UNIT.test(unit(k)))
   // A product or a price in a paragraph that gives a dose, at any place it's quoted, waits, but for the video's own tank's
@@ -276,17 +301,19 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // did, so a figure said again in a product's name ("Aqueon 10 Gallon"), which code leaves, isn't the tank's kept (Codex's
   // reads of #1690).
   // An answer to a dose's sentence keeps none of its doses, however written. And a sentence a units finding names keeps
-  // each figure code converts it to, as many times as the sentence converts to it: a figure it already had ("Bể 40 lít
-  // và bể 10 gallon", where 10 gallon is 40 lít) doesn't stand in for one dropped (Codex's third read).
+  // every figure code converts it to, as many times, but the other findings' quotes' figures: a figure it already had
+  // ("Bể 40 lít và bể 10 gallon", "20 lít (5 gallon)") doesn't stand in for one dropped (Codex's third and fourth reads).
   const units = new Set(convert.map(c => `${c.k}.${c.i}`))
   const unitFigures = figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n'))
+  const quotedFigures = figures(findings.filter(f => f.check !== 'units').map(f => norm(f.quote)).join('\n'))
   if (named.some(n => {
     const s = said[n.k]![n.i]!, a = raw[n.k]!.get(n.i)!, was = figures(txt(n.k, s)), now = figures(txt(n.k, a))
     if (more(now, was).length) return true
     if (isDose(n.k, n.i) && [...now.keys()].some(k => DOSE_UNIT.test(unit(k)))) return true
     if (!units.has(`${n.k}.${n.i}`)) return false
-    const conv = figures(txt(n.k, metric(s))), got = figures(txt(n.k, metric(a)))
-    return more(new Map([...was].filter(([f]) => unitFigures.has(f))), now).length > 0 || [...less(conv, was).keys()].some(k => (less(conv, was).get(k) ?? 0) > 0 && (got.get(k) ?? 0) < conv.get(k)!)
+    // Every figure the sentence converts to, but those of the other findings' quotes, which the editor is told to take out.
+    const keep = less(figures(txt(n.k, metric(s))), quotedFigures), got = figures(txt(n.k, metric(a)))
+    return more(new Map([...was].filter(([f]) => unitFigures.has(f))), now).length > 0 || more(keep, got).length > 0
   })) return false
 
   const review = await reviewDraft(d.llm, transcript, { viTitle: fixed.name, summary: fixed.summary, body: fixed.body, faq: fixed.faq }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)
