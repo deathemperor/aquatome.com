@@ -67,9 +67,9 @@ test("on GitHub a failed call says its kind in our words; on the Mac the CLI's t
 })
 
 test('every reader of a failure reads ours on GitHub as it reads the CLI\'s on the Mac', () => {
-  // What each reads off a failure: the steps' kind; the accounts' set-aside and reset; the cycle's check for a rejected
-  // credential; the gate's and the fit step's stop (accountsOut); the photo steps' stop; the photo check's kind.
-  const read = (m: string) => [errorKind(m), outOf(m), credentialRejected(`https://example.org/a: ${m}`), accountsOut(new LlmError(m)), photoModelStop(new LlmError(m)) === 'usage limit']
+  // What each reads off a failure: the steps' kind; the accounts' set-aside and reset, and the reset on its own; the cycle's
+  // check for a rejected credential; the gate's and the fit step's stop (accountsOut); the photo steps' stop; the photo check's kind.
+  const read = (m: string) => [errorKind(m), outOf(m), resetOf(m), credentialRejected(`https://example.org/a: ${m}`), accountsOut(new LlmError(m)), photoModelStop(new LlmError(m)) === 'usage limit']
   const cases: [string, string, string?][] = [
     ['claude failed (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC)"],
     ['claude failed (1)', "You've hit your limit · resets 3pm (Asia/Ho_Chi_Minh)"],
@@ -94,6 +94,10 @@ test('every reader of a failure reads ours on GitHub as it reads the CLI\'s on t
     ['claude failed (1)', words],
     ['claude returned non-JSON (1)', 'Invalid bearer token'],
     ['claude returned non-JSON (1)', "You've hit your weekly limit"],
+    ['claude returned non-JSON (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC)"],
+    ['claude returned non-JSON (1)', 'Claude AI usage limit reached|1762300800'],
+    ['claude returned non-JSON (1)', 'limit reached|1762300800'],
+    ['claude failed (1)', "You've hit your weekly limit · resets Nov 25 at 6am (UTC); Invalid bearer token"],
     ['claude returned non-JSON (1)', '<html>'],
     ['claude returned non-JSON (1)', 'fetch failed'],
     ['claude failed (1)', 'Failed to fetch image: HTTP 503'],

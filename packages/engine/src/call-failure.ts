@@ -70,15 +70,14 @@ function passingWord(message: string): string {
 
 function mainKind(message: string, result?: { subtype?: unknown; stop_reason?: unknown }): string {
   // As errorKind reads it first: a usage limit, then a failure that passes (the network, the browser).
-  if (errorKind(message) === 'usage') {
-    const at = resetOf(message)
-    return `${/usage limit|quota|weekly limit/i.test(message) ? 'usage limit' : 'limit reached'}${at ? ` until ${at}` : ''}`
-  }
+  // A limit says its reset, as the accounts read it off the CLI's text, after "until".
+  const until = () => { const at = resetOf(message); return at ? ` until ${at}` : '' }
+  if (errorKind(message) === 'usage') return `${/usage limit|quota|weekly limit/i.test(message) ? 'usage limit' : 'limit reached'}${until()}`
   if (errorKind(message) === 'transient') return `network (${passingWord(message)})`
   // Output that wasn't JSON: what the code reads off it, a rejected credential (the accounts), a limit or a quota (the
   // gate's and the photo steps' stop); else whether there was any.
   const text = /^claude returned non-JSON \([^)]*\): (.*)$/s.exec(message)?.[1]
-  if (text !== undefined) return AUTH.test(text) ? 'credential refused' : /usage limit|weekly limit/i.test(text) ? 'usage limit' : /quota/i.test(text) ? 'quota exceeded' : /limit/i.test(text) ? 'limit reached' : text.trim() ? 'answer not JSON' : 'no answer'
+  if (text !== undefined) return AUTH.test(text) ? 'credential refused' : /usage limit|weekly limit/i.test(text) ? `usage limit${until()}` : /quota/i.test(text) ? 'quota exceeded' : /limit/i.test(text) ? `limit reached${until()}` : text.trim() ? 'answer not JSON' : 'no answer'
   if (AUTH.test(message)) return 'credential refused'
   if (/quota/i.test(message)) return 'quota exceeded'
   if (typeof result?.subtype === 'string' && SUBTYPES[result.subtype]) return SUBTYPES[result.subtype]
