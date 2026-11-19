@@ -30,7 +30,7 @@ vi.mock('node:child_process', () => ({
   },
 }))
 const { LlmError, claudeCli } = await import('../src/claude')
-const { accountReport, envFor, NotTheAccount, onAccounts, onNextAccount, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
+const { accountReport, credentialRejected, envFor, NotTheAccount, onAccounts, onNextAccount, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
 const h = (t: string) => tokenHash(t)
@@ -169,11 +169,11 @@ test('CLAUDE_FIRST_ACCOUNT: a call starts at that position, goes round to the st
   }
 })
 
-test('every token out: the usage limit as before (errorKind usage), and later calls fail without calling', async () => {
+test("every token out: the usage limit as before (errorKind usage), in the engine's own words, and later calls fail without calling", async () => {
   setTokens('tok-weekly\r\ntok-session\r\n')
   const e = await call().catch(e => e)
   expect(e).toBeInstanceOf(LlmError)
-  expect(e.message).toBe('claude failed (1): Claude AI usage limit reached|1762300800')
+  expect(e.message).toBe(`claude failed (accounts): every account out of its usage limit until ${new Date(1762300800_000).toISOString()}`)
   expect(errorKind(e.message)).toBe('usage')
   expect(spawned).toHaveLength(2)
   await expect(call()).rejects.toThrow(e.message)
@@ -203,7 +203,9 @@ test('every token rejected: the rejection, which fails the cycle (cli.ts)', asyn
   setTokens(undefined, 'tok-bad')
   const e = await call().catch(e => e)
   expect(e).toBeInstanceOf(LlmError)
-  expect(e.message).toMatch(/Failed to authenticate/)
+  expect(e.message).toBe('claude failed (accounts): every account with its credential rejected')
+  // The cycle still fails on it, as on the CLI's own words with no accounts listed (cli.ts).
+  expect([credentialRejected(`https://example.org/a: ${e.message}`), credentialRejected('claude failed (1): Failed to authenticate. API Error: 401'), credentialRejected('claude failed (1): API Error: 500')]).toEqual([true, true, false])
   expect(rejectedTokens()).toBe(`token 1 (${h('tok-bad')}) in CLAUDE_CODE_OAUTH_TOKEN`) // the single secret: that is what to replace
 })
 
@@ -293,7 +295,7 @@ test("a call made for the next account goes once to the account after the one in
   // Out of its limit, it is set aside as any account is.
   setTokens('tok-broken\ntok-weekly')
   resetAccounts()
-  await expect(onNextAccount.run(true, call)).rejects.toThrow(/weekly limit/)
+  await expect(onNextAccount.run(true, call)).rejects.toThrow(`claude failed (accounts): the next account out of its usage limit until ${UNTIL}`)
   expect(accountReport()).toEqual([`token 1 (${h('tok-broken')}): 0 answered`, `token 2 (${h('tok-weekly')}): 0 answered; set aside: usage limit until ${UNTIL}`])
   // One account, or none: nothing is called.
   for (const list of ['tok-ok', undefined]) {

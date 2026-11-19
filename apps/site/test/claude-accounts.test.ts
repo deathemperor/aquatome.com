@@ -117,7 +117,9 @@ test('CLAUDE_FIRST_ACCOUNT: a review starts at that position and goes round to t
 test('every token out of its limit: skipped as the usage limit, and later reviews fail without calling', async () => {
   tokens('tok-weekly\ntok-session')
   const e: Error = await ask().catch(e => e)
-  expect(usageLimit(e.message)).toBe('Claude usage limit: Claude AI usage limit reached|1762300800')
+  // In our own words: none of the CLI's reach the reason, which the PR comment shows.
+  expect(e.message).toBe('claude failed (accounts): every account out of its usage limit')
+  expect(usageLimit(e.message)).toBe('Claude usage limit')
   await expect(ask()).rejects.toThrow(e.message)
   expect(calls()).toEqual(['tok-weekly', 'tok-session'])
 })
@@ -129,7 +131,7 @@ test('a rejected token is skipped; every token rejected fails the review (not a 
   resetAccounts()
   tokens(undefined, 'tok-bad')
   const e: Error = await ask().catch(e => e)
-  expect(e.message).toMatch(/^claude failed \(1\): Failed to authenticate/)
+  expect(e.message).toBe('claude failed (accounts): every account with its credential rejected')
   expect(usageLimit(e.message)).toBeUndefined()
   expect(logs.join('\n')).not.toMatch(/tok-/)
 })

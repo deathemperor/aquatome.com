@@ -34,7 +34,7 @@ export function startAt<T>(all: T[], first?: string): T[] {
 }
 
 const AUTH = /Failed to authenticate|Invalid bearer token/i
-type Account = { n: number; token: string; hash: string; out?: { why: 'usage' | 'auth'; message: string } }
+type Account = { n: number; token: string; hash: string; out?: { why: 'usage' | 'auth' } }
 let accounts: Account[] | undefined
 const list = (): Account[] => (accounts ??= startAt(parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN)
   .map((token, i) => ({ n: i + 1, token, hash: createHash('sha256').update(token).digest('hex').slice(0, 8) })), process.env.CLAUDE_FIRST_ACCOUNT))
@@ -104,7 +104,8 @@ export async function claude<T>(args: string[], cwd: string, input: string): Pro
   for (;;) {
     capped()
     const a = all.find(x => !x.out)
-    if (!a) throw new Error((all.findLast(x => x.out?.why === 'usage') ?? all.at(-1)!).out!.message)
+    // In our own words, none of the CLI's: the reason can reach the pull request's comment, which is public.
+    if (!a) throw new Error(`claude failed (accounts): every account ${all.some(x => x.out?.why === 'usage') ? 'out of its usage limit' : 'with its credential rejected'}`)
     try {
       return await once<T>(args, cwd, input, a.token)
     } catch (e) {
@@ -112,7 +113,7 @@ export async function claude<T>(args: string[], cwd: string, input: string): Pro
       const why = usageLimit(message) ? 'usage' : AUTH.test(message) ? 'auth' : undefined
       if (!why) throw e
       if (!a.out) {
-        a.out = { why, message }
+        a.out = { why }
         console.log(`claude: token ${a.n}${process.env.GITHUB_ACTIONS ? '' : ` (${a.hash})`} set aside: ${why === 'usage' ? 'usage limit' : 'credential rejected'}`)
       }
     }

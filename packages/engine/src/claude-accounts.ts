@@ -35,7 +35,7 @@ export function startAt<T>(all: T[], first?: string): T[] {
 export const tokenHash = (token: string) => createHash('sha256').update(token).digest('hex').slice(0, 8)
 
 /** Why an account was set aside: its usage limit (and when it lifts, as a UTC time), or its token rejected. */
-export type Out = { why: 'usage' | 'auth'; reset?: string; message: string }
+export type Out = { why: 'usage' | 'auth'; reset?: string }
 const AUTH = /Failed to authenticate|Invalid bearer token/i
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
@@ -77,8 +77,8 @@ export function resetOf(message: string, now = Date.now()): string | undefined {
 
 /** What a failed call says about its account: out of its limit, rejected, or neither (the call's own failure). */
 export function outOf(message: string): Out | undefined {
-  if (errorKind(message) === 'usage') return { why: 'usage', reset: resetOf(message), message }
-  if (AUTH.test(message)) return { why: 'auth', message }
+  if (errorKind(message) === 'usage') return { why: 'usage', reset: resetOf(message) }
+  if (AUTH.test(message)) return { why: 'auth' }
   return undefined
 }
 
@@ -123,10 +123,15 @@ export function envFor(token?: string): NodeJS.ProcessEnv {
  */
 export class NotTheAccount extends Error {}
 
+/** A call no account took, in the engine's own words and none of the CLI's; errorKind still reads a limit as 'usage'. */
+const noAccount = (who: string, o: Out) => `claude failed (accounts): ${who} ${o.why === 'usage' ? `out of its usage limit${o.reset ? ` until ${o.reset}` : ''}` : 'with its credential rejected'}`
+/** A failure that says Claude rejected a credential: the CLI's words, with no accounts listed, or ours (cli.ts fails the cycle on it). */
+export const credentialRejected = (error: string) => AUTH.test(error) || /claude failed \(accounts\): .* with its credential rejected/.test(error)
+
 /**
  * One call on the first account not set aside. Out of its limit or rejected, that account is set aside and the same call
- * goes to the next. With every account set aside it fails, without calling, with what the last one out of its limit said
- * (so errorKind still says 'usage'), else the last rejection. No accounts: the call as it is, on the CLI's own login.
+ * goes to the next. With every account set aside it fails, without calling, in the engine's own words: out of its usage
+ * limit if one was (so errorKind still says 'usage'), else rejected. No accounts: the call as it is, on the CLI's own login.
  */
 export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: (message: string) => Error): Promise<T> {
   const all = list()
@@ -144,8 +149,9 @@ export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: 
       const stop = stopped(e)
       if (stop) throw stop
       const out = outOf((e as Error).message)
-      if (out && !next.out) { next.out = out; console.log(`claude: ${name(next)} set aside: ${why(out)}`) }
-      throw e
+      if (!out) throw e
+      if (!next.out) { next.out = out; console.log(`claude: ${name(next)} set aside: ${why(out)}`) }
+      throw fail(noAccount('the next account', out))
     }
   }
   if (!all.length) {
@@ -157,7 +163,7 @@ export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: 
   }
   for (;;) {
     const a = all.find(x => !x.out)
-    if (!a) throw fail((all.findLast(x => x.out?.why === 'usage') ?? all.at(-1)!).out!.message)
+    if (!a) throw fail(noAccount('every account', (all.findLast(x => x.out?.why === 'usage') ?? all.at(-1)!).out!))
     try {
       const r = await call(a.token)
       a.answered++
