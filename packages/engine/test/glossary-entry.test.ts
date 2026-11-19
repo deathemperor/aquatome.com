@@ -3,6 +3,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { toneKey } from '@aq/schema'
 import type { Llm } from '../src/claude'
 import { LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, RULE_SIDE, ruleNumbers, sfGlossaryUrl, stops, type Draft } from '../src/glossary-entry'
 import { logReviews } from '../src/review-log'
@@ -975,6 +976,62 @@ test('a name the term\'s notes take off leaves its other names, saved or newly w
   expect(r).toMatchObject({ id: 'gh', score: 1 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/gh/vi.json'), 'utf8'))
   expect(vi.altNames).toEqual(['độ cứng tổng', 'độ cứng chung'])
+})
+
+// The chief of staff, 19 Nov 2026: "Oxy hoà tan", Oxy hòa tan's own name with its tone mark on the other vowel, came back
+// as its other name until its notes took it off by hand. A name is one name in either placing. The term here has no notes,
+// so nothing else takes the name off (Codex, 19 Nov 2026), and its own name in the other placing stays a link phrase: a page
+// that writes it so still links the term.
+test('a name that is the term\'s own, or another term\'s, in the other tone placing is never an other name; its own stays a link phrase', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/glossary/hoa-chat'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/hoa-chat/entity.json'), JSON.stringify({ id: 'hoa-chat', en: 'Aquarium chemicals' }))
+  await writeFile(join(root, 'content/glossary/hoa-chat/vi.json'), JSON.stringify({ slug: 'hoa-chat', name: 'Hóa chất', altNames: ['Hoá chất', 'Hóa chất bể cá', 'thuốc thủy sinh', 'thuốc thuỷ sinh'], sections: {}, definition: 'Chất pha vào nước bể.', quality: { score: 0.9, indexable: true } }))
+  await mkdir(join(root, 'content/glossary/thuy-sinh'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/thuy-sinh/entity.json'), JSON.stringify({ id: 'thuy-sinh', en: 'Planted tank' }))
+  await writeFile(join(root, 'content/glossary/thuy-sinh/vi.json'), JSON.stringify({ slug: 'thuy-sinh', name: 'Bể thủy sinh', altNames: [], sections: {}, definition: 'Bể trồng cây.', quality: { score: 0.9, indexable: true } }))
+  const named: TopicFacts = { ...facts, facts: [...facts.facts,
+    { section: 'other', fact: 'Name for the term: "HOÁ CHẤT".', source: 1 },
+    { section: 'other', fact: 'Name for the term: "bể thuỷ sinh".', source: 1 },
+    { section: 'other', fact: 'Name for the term: "thuốc xử lý nước".', source: 1 }] }
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    return { definition: 'Hóa chất là chất pha vào nước bể.', altNames: ['HOÁ CHẤT', 'bể thuỷ sinh', 'thuốc xử lý nước'], body: '<h3>Trong bể của bạn</h3><p>Pha hóa chất theo nhãn.</p>', related: [] } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => named as never, llm }, 'hoa-chat', { kind: 'care' })
+  expect(r).toMatchObject({ id: 'hoa-chat', score: 1 })
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/hoa-chat/vi.json'), 'utf8'))
+  // Its own name in the old placing goes from its other names, saved or newly written, and stays once as a link phrase, as
+  // does an other name in both placings; "bể thuỷ sinh" is another term's name, "Bể thủy sinh".
+  expect(vi.altNames).toEqual(['Hóa chất bể cá', 'thuốc thủy sinh', 'thuốc xử lý nước'])
+  expect(vi.linkNames).toEqual(['Hoá chất', 'thuốc thuỷ sinh'])
+  // Saved again, with the writer offering both placings in other letter cases, nothing changes: no other name turns into a
+  // link phrase, every name it had is still in one of the lists, and each other name is there once, never the term's own.
+  const again: TopicFacts = { ...named, facts: [...named.facts, { section: 'other', fact: 'Name for the term: "thuốc thuỷ sinh".', source: 1 }] }
+  const llm2: Llm = async a => (a.prompt.startsWith('GLOSSARY RULES') || isCheck(a.prompt) ? llm(a) : ({ ...(await llm(a) as object), altNames: ['HOÁ CHẤT', 'bể thuỷ sinh', 'thuốc xử lý nước', 'THUỐC THUỶ SINH', 'Thuốc Thủy Sinh'] } as never))
+  for (let i = 0; i < 2; i++) {
+    await makeGlossaryEntry(root, { research: async () => again as never, llm: llm2 }, 'hoa-chat', { kind: 'care' })
+    const now = JSON.parse(await readFile(join(root, 'content/glossary/hoa-chat/vi.json'), 'utf8'))
+    expect([now.altNames, now.linkNames]).toEqual([vi.altNames, vi.linkNames])
+    const has = new Set([now.name, ...now.altNames, ...now.linkNames].map((n: string) => n.toLowerCase()))
+    for (const n of ['Hoá chất', 'Hóa chất bể cá', 'thuốc thủy sinh', 'thuốc thuỷ sinh']) expect(has.has(n.toLowerCase())).toBe(true)
+    const keys = [now.name, ...now.altNames].map(toneKey)
+    expect(new Set(keys).size).toBe(keys.length)
+  }
+  // A name the term's notes take off comes back in neither placing, as an other name or a new link phrase (Oxy hòa tan's
+  // notes: "Oxy hoà tan").
+  await mkdir(join(root, 'content/glossary/oxy-hoa-tan'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/oxy-hoa-tan/entity.json'), JSON.stringify({ id: 'oxy-hoa-tan', en: 'Dissolved oxygen' }))
+  // A link phrase it has stays one when the writer offers it in the other placing.
+  await writeFile(join(root, 'content/glossary/oxy-hoa-tan/vi.json'), JSON.stringify({ slug: 'oxy-hoa-tan', name: 'Oxy hòa tan', altNames: ['Oxy hoà tan', 'OXY HÒA TAN'], linkNames: ['oxy hoà tan trong nước'], sections: {}, definition: 'Khí oxy hòa trong nước.', quality: { score: 0.9, indexable: true } }))
+  const inWater: TopicFacts = { ...named, facts: [...named.facts, { section: 'other', fact: 'Name for the term: "oxy hòa tan trong nước".', source: 1 }] }
+  const llm3: Llm = async a => (a.prompt.startsWith('GLOSSARY RULES') || isCheck(a.prompt) ? llm(a) : ({ ...(await llm(a) as object), altNames: ['HOÁ CHẤT', 'thuốc xử lý nước', 'Oxy hòa tan trong nước'] } as never))
+  await makeGlossaryEntry(root, { research: async () => inWater as never, llm: llm3 }, 'oxy-hoa-tan', { kind: 'care' })
+  const oxy = JSON.parse(await readFile(join(root, 'content/glossary/oxy-hoa-tan/vi.json'), 'utf8'))
+  // Hóa chất, just written, already has the writer's "thuốc xử lý nước", so no other name is left.
+  expect(oxy.altNames).toEqual([])
+  expect(oxy.linkNames).toEqual(['oxy hoà tan trong nước', 'Oxy hòa tan trong nước'])
 })
 
 // The chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing. A link phrase stays one, kept on

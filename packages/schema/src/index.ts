@@ -3,7 +3,7 @@ export { APPROVED_GENERATED_GATE, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, IMAG
 export { containsBox, coverWindow, validPixelBox, validCropGeometry, cropFitsFrame, markOutsideCrop, photoFitsHead, photoFitsWholeHead, photoFitsCard, boxFractions, frameOf, SUBJECT_CUT, SUBJECT_FRAMES, SUBJECT_SLACK, subjectFrame, subjectPixels, type CropGeometry, type PixelBox, type SubjectFractions, type SubjectFrame } from './image-geometry'
 export type * from './types'
 export { slugify } from './slug'
-export { isVietnamese, markVietnameseNames, nameKey } from './text'
+export { isVietnamese, markVietnameseNames, nameKey, toneKey } from './text'
 export { FIRST_GUIDES, FIRST_PLANTS, POPULAR, POPULAR_BREEDS, STAPLE_SPECIES } from './staples'
 export { PLACE_ALIASES } from './places'
 export { HAND_BOXES } from './hand-boxes'

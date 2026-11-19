@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
+import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, toneKey, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { refusedSite } from './cycle-only'
@@ -502,18 +502,33 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     }
   }
 
-  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames, ...x.linkNames]).map(n => n.toLowerCase()))
+  // A name is the same whichever vowel its tone mark sits on (toneKey): "Oxy hoà tan" is Oxy hòa tan's own.
+  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames, ...x.linkNames]).map(toneKey))
   // Written whole in one fact, as its own word: "gỗ lũ" is not in "gỗ lũa".
   const quoted = (n: string) => {
     const re = new RegExp(`(?<![\\p{L}\\p{N}])${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu')
     return facts.some(f => re.test(f.fact))
   }
-  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
+  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(toneKey(n)) && quoted(n)
   // A link phrase is never one of its names again; a name the writer adds stays only when it is the term's English name or
   // a fact gives it as the term's name (glossary-other-names.ts; the chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing).
-  const own = new Set([vi.name, ...(vi.linkNames ?? []), ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
   const isName = (n: string) => n.toLowerCase() === entity.en.toLowerCase() || givenAsName(n, facts.map(f => f.fact))
-  const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
+  const offered = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))]
+  // Each other name once, in either tone placing (toneKey). One the term already has in the other placing, its name or an
+  // other name kept before it ("Oxy hoà tan" beside "Oxy hòa tan"), stays a link phrase: a page that writes it so still links
+  // the term and counts toward it (Codex, 19 Nov 2026). A link phrase in the other placing turns only a name the writer adds
+  // into one, never a saved other name: that phrase may be a saved name's own other placing, kept by an earlier save. A name
+  // its notes take off isn't added back, in either placing, as an other name or a link phrase.
+  const off = new Set((asks.notNames ?? []).map(toneKey))
+  const otherKeys = new Set([toneKey(vi.name)]), linked = new Set((vi.linkNames ?? []).map(toneKey))
+  const literal = new Set([vi.name, ...(vi.linkNames ?? [])].map(n => n.toLowerCase()))
+  const altNames: string[] = [], variants: string[] = []
+  offered.forEach((n, i) => {
+    if (!n || off.has(toneKey(n))) return
+    const fresh = !literal.has(n.toLowerCase())
+    literal.add(n.toLowerCase())
+    if (otherKeys.has(toneKey(n)) || (i >= vi.altNames.length && linked.has(toneKey(n)))) { if (fresh) variants.push(n) } else if (fresh) { otherKeys.add(toneKey(n)); altNames.push(n) }
+  })
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
   // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
@@ -522,7 +537,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // kept, perhaps written while the writer still saw a refused site's facts, and nothing has read it against them since.
   const { bodyFixed: _cut, ...unmarked } = vi
   const t = TranslationSchema.parse(metricPage({
-    ...(o.accept ? vi : unmarked), altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
+    ...(o.accept ? vi : unmarked), altNames, ...(variants.length ? { linkNames: [...(vi.linkNames ?? []), ...variants] } : {}), definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
   // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,
