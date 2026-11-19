@@ -147,6 +147,19 @@ test('a text worse for a sentence the mender may fix is mended and read again, n
   expect(existsSync(join(root, PUT_BACK))).toBe(false)
 })
 
+// The mend converts no units (video-mend.ts, 19 Nov 2026): a live page's new text worse for units beside a shop would be
+// as worse once mended, so it goes back with no editor paid for.
+test('a live text worse for units beside a sentence the mender may fix goes back, with no mend', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p><p>Bể 10 gallon là đủ.</p>` })
+  const sent: FitFinding[][] = []
+  const r = await gate(root, { llm: reader(), now, mend: cutter(root, sent) })
+  expect(sent).toEqual([])
+  expect(r.report.mended).toEqual([])
+  expect(r.report.revert).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).body).not.toContain('Petco')
+})
+
 test('a text put back is kept, with its checks and their quotes: the text before a mend that failed, not the mend', async () => {
   const root = await repo()
   const before = await readFile(join(root, GUIDE), 'utf8')

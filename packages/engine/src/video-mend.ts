@@ -30,9 +30,9 @@ const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', impor
  * "không chỉ", "hai bể"), no other tank with a figure ("bể 500 ml") and no CO2 or ppm. Anything else is advice, or may be,
  * and waits for a person (the chief of staff, 14 Nov 2026; Grok's reads). Unsure, it waits.
  */
-const SIZE_UNIT = '(?:lít|litres?|liters?|l|cm|centimet|centimét|mm|m|mét|feet|ft|foot|inch(?:es)?|in|gallons?|gal|galông|galon)'
-const DOSE_WORDS = 'oz|ounces?|ml|mililít|mililit|cc|mg|kg|gam|gram|grams|gr|g|ppm|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachets?|tablets?|butir|caps?|scoops?|drops?|teaspoons?|tablespoons?|tsp|tbsp|pumps?'
-const NUMBER_WORDS = 'một|mốt|hai|ba|bốn|tư|năm|lăm|sáu|bảy|bẩy|tám|chín|mười|mươi|trăm|linh|lẻ|nửa|rưỡi'
+export const SIZE_UNIT = '(?:lít|litres?|liters?|l|cm|centimet|centimét|mm|m|mét|feet|ft|foot|inch(?:es)?|in|gallons?|gal|galông|galon)'
+export const DOSE_WORDS = 'oz|ounces?|ml|mililít|mililit|cc|mg|kg|gam|gram|grams|gr|g|ppm|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachets?|tablets?|butir|caps?|scoops?|drops?|teaspoons?|tablespoons?|tsp|tbsp|pumps?'
+export const NUMBER_WORDS = 'một|mốt|hai|ba|bốn|tư|năm|lăm|sáu|bảy|bẩy|tám|chín|mười|mươi|trăm|linh|lẻ|nửa|rưỡi'
 const OWN_TANK = new RegExp(`(?<![\\p{L}])(?:bể(?:\\s+(?:dài\\s+)?\\d[\\d.,]*\\s*${SIZE_UNIT})?\\s+này|bể ở đây|bể mình|bể của mình|bể trong video|bể mẫu|lần này|hôm đó)(?![\\p{L}])`, 'iu')
 const NOT_OWN = new RegExp(`(?<![\\p{L}])(?:cho|thì|trên|từ|theo|per|như|những|các|mọi|nào|loại|kiểu|cỡ|mấy|dạng|tất cả|bất kỳ|bất cứ|không chỉ|co2|co₂|ppm|mỗi(?!\\s+(?:ngày|tuần|tháng|lần|sáng|tối|buổi|đêm|giờ)(?![\\p{L}]))|(?:\\d[\\d.,]*|${NUMBER_WORDS})\\s+bể)(?![\\p{L}])|\\/`, 'iu')
 /** Another tank with a figure, beside the one the sentence names ("bể 500 ml châm 2 nắp"). */
@@ -90,7 +90,8 @@ type Part = { field: string; html: boolean; text: string; pieces: Piece[] }
  * The editor never writes or changes an amount, as amount.ts lists them (the chief of staff, 19 Nov 2026): a sentence it
  * is given holds none once the quotes it's told to take out (a price, the video's own tank's dose) are out, and its answer
  * holds none, but for the label line a dropped dose leaves. A units finding's sentence isn't the editor's, and the mend
- * converts nothing: units-mend.ts takes the guide once it is held for units alone.
+ * converts nothing: once the guide is held for units alone, units-mend.ts converts a tank's volume, and any other units
+ * finding (inches, feet, degrees, ounces) waits for a person.
  *
  * The file is written, and true returned, only when the edit took every quote out and its review is at the bar, or no
  * lower than the review of the text it mends (a mend never leaves a guide worse, as a redo never does). Its review is

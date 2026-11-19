@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest'
 import { amounts, chemicals, holdsAmount } from '../src/amount'
+import { DOSE_WORDS, NUMBER_WORDS, SIZE_UNIT } from '../src/video-mend'
 
 test('an amount is a figure, a number in words, a half or a few, a spoon or a cap, a unit, or a count of time, standing alone', () => {
   for (const s of [
@@ -9,6 +10,9 @@ test('an amount is a figure, a number in words, a half or a few, a spoon or a ca
     'Một thìa muối.', 'Một muỗng.', 'Một nắp.', 'Một giọt.', 'Một viên.', 'Một gói.', 'Một nắm thức ăn.', 'Một nhúm muối.', 'Một liều.', 'Two capfuls.', 'A teaspoon.',
     'Đèn 20 W.', 'Bể dài mét rưỡi.', 'Nhiệt độ ổn.', 'Độ cứng dGH.', 'Đèn 6500 K.', 'Bể vài gallon.',
     'Chờ một tuần.', 'Một tháng sau.', 'Sau một đêm.', 'Hôm sau thay nước.', 'Một buổi.', 'Mỗi ngày.', 'Một lần.', 'Ba tiếng.',
+    // A container, a weight in speech, a little (the measure words "một" could carry past the list).
+    'Một xô nước.', 'Một bát.', 'Một ống tiêm.', 'Một bình nước.', 'Một vốc sỏi.', 'Một ký muối.', 'Một lạng.', 'Một tấc.',
+    'Một chút muối.', 'Một xíu.', 'Fifty litres.', 'A cup.',
   ]) expect(holdsAmount(s), s).toBe(true)
   for (const s of ['Cây mọc khỏe.', 'Đặt bể gần cửa sổ.', 'Dùng phân nền cho cây.', 'Lọc treo dễ vệ sinh.', 'Ít cá thì nước sạch hơn.', 'Nhiều cây thì đẹp.']) expect(holdsAmount(s), s).toBe(false)
 })
@@ -56,4 +60,18 @@ test('a chemical name\'s digits are no amount; the name is counted apart, exactl
   expect(holdsAmount('Đường C6H12O6.')).toBe(true)
   // A figure beside a chemical is still an amount.
   expect(holdsAmount('NO3 dưới 20 ppm.')).toBe(true)
+})
+
+/** A pattern's words, as the mend's own patterns write them ("litres?", "inch(?:es)?"). */
+const expand = (alts: string) => alts.replace(/^\(\?:|\)$/g, '').split('|').flatMap(w => {
+  const m = /^(.*)\(\?:(\w+)\)\?$/.exec(w)
+  if (m) return [m[1]!, m[1]! + m[2]!]
+  return w.endsWith('?') ? [w.slice(0, -2), w.slice(0, -1)] : [w]
+})
+
+test('every word the mend\'s own dose, size and number patterns know is on the list, but the bare "một"', () => {
+  const known = [SIZE_UNIT, DOSE_WORDS, NUMBER_WORDS].flatMap(expand)
+  expect(known).toContain('inches')
+  expect(known).toContain('litres')
+  for (const w of known.filter(w => w !== 'một')) expect(holdsAmount(w), w).toBe(true)
 })

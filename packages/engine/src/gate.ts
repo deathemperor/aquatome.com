@@ -295,6 +295,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     // A page held already takes one of the run's `heldMends`; a new one, or a live one going back, one of its `mends`.
     const fromHeld = o.wasHeld && !o.isNew
     if (!d.mend || (fromHeld ? heldMends : mends) <= 0 || !editorMay(worse)) return undefined
+    // A live page's new text worse for units: the mend converts none (video-mend.ts), so the text would still be worse
+    // once mended, and goes back now, with no editor paid for. A new or held page is held for them, for units-mend.ts.
+    if (!o.isNew && !o.wasHeld && worse.includes('units')) return undefined
     // Held for what waits for a person: never to the editor. A dose is the editor's when it is the source's own tank's
     // (video-mend.ts decides), so only while the read still finds it, to be sent.
     if (o.wasHeld && waitsFor(f).some(c => c !== 'dose' || !worse.includes('dose'))) return undefined

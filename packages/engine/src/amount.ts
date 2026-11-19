@@ -10,37 +10,50 @@
  * An amount is any of these, as a whole word where it's a word:
  * - a digit, a fraction sign ("½", "⅜"), a superscript or subscript digit ("m³", "CO₂"), "%" or "‰";
  * - a number in words: mốt, hai, ba, bốn, tư, năm, lăm, sáu, bảy, bẩy, tám, chín, mười, mươi, trăm, nghìn, ngàn,
- *   vạn, triệu, tỷ, tỉ, linh, lẻ, chục, tá, and English one to twelve, twenty, thirty, hundred, thousand, dozen;
- * - a half, a few, a pair, a multiple: nửa, rưỡi, rưởi, vài, dăm, mấy, đôi, cặp, gấp, half, quarter, few, couple, twice,
- *   double, triple;
- * - a spoon, a cap, a drop, a tablet, a packet and the like: thìa, muỗng, nắp, giọt, viên, gói, túi, bao, chai, lọ, hũ,
- *   cốc, chén, ly, nắm, nhúm, dúm, liều, and spoon, teaspoon, tablespoon, tsp, tbsp, cap, capful, drop, tablet, pill,
- *   packet, sachet, scoop, pump, pinch;
- * - a unit of measure: ml, l, lít, cc, mg, g, gam, gram, kg, oz, ounce, lb, pound, ppm, ppt, cm, mm, m, mét, km, inch, in,
- *   ft, feet, foot, gallon, gal, galông, galon, độ, °, dh, dgh, dkh, kh, gh, w, watt, kw, k, kelvin, lumen, lux, par, v,
- *   volt, a;
+ *   vạn, triệu, tỷ, tỉ, linh, lẻ, chục, tá, and English one to twenty, twenty to ninety by tens, hundred, thousand,
+ *   million, billion, dozen;
+ * - a half, a few, a little, a pair, a multiple: nửa, rưỡi, rưởi, vài, dăm, mấy, chút, xíu, tí, đôi, cặp, gấp, half,
+ *   quarter, few, couple, twice, double, triple;
+ * - a spoon, a cap, a drop, a tablet, a packet, a container and the like: thìa, muỗng, nắp, giọt, viên, gói, túi, bao,
+ *   chai, lọ, hũ, cốc, chén, ly, bát, tô, xô, thùng, bình, ống, nắm, vốc, nhúm, dúm, liều, butir, and spoon, teaspoon,
+ *   tablespoon, tsp, tbsp, cup, pint, quart, cap, capful, drop, tablet, pill, packet, sachet, scoop, pump, pinch;
+ * - a unit of measure: ml, mililít, mililit, milliliter, millilitre, l, lít, lit, litre, liter, cc, mg, milligram, g, gr,
+ *   gam, gram, kg, kilogram, cân, ký, kí, lạng, oz, ounce, fl, lb, pound, ppm, ppt, cm, centimet, centimét, xentimét,
+ *   centimeter, centimetre, mm, millimeter, millimetre, m, mét, meter, metre, tấc, km, inch, in, ft, feet, foot, gallon,
+ *   gal, galông, galon, độ, °, dh, dgh, dkh, kh, gh, w, watt, kw, k, kelvin, lumen, lux, par, v, volt, a;
  * - a count of time: giây, phút, giờ, tiếng, ngày, đêm, hôm, buổi, tuần, tháng, năm, lần, second, minute, hour, day, week,
  *   month, year, time, times.
  *
  * Not on it, so a read can attack them: vague comparatives ("ít", "nhiều", "hơn", "lớn", "nhỏ"), which say more or less but
- * give no amount.
+ * give no amount; "phân" (fertilizer, and a centimetre in speech) and "phần" (a part), on which too many of a guide's
+ * sentences would wait; and the counting words ("con", "cái", "cây"), so "một con cá" holds no amount by them. Some words
+ * on it are other words too ("cân bằng", "ký sinh", "bình thường", "ống lọc", "thùng lọc"): they cost a mend, as erring
+ * wide does.
  */
 const WORDS = [
   // numbers in words
   'mốt', 'hai', 'ba', 'bốn', 'tư', 'năm', 'lăm', 'sáu', 'bảy', 'bẩy', 'tám', 'chín', 'mười', 'mươi', 'trăm', 'nghìn', 'ngàn',
   'vạn', 'triệu', 'tỷ', 'tỉ', 'linh', 'lẻ', 'chục', 'tá',
-  'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'twenty', 'thirty',
-  'hundred', 'thousand', 'dozen',
+  'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen',
+  'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy',
+  'eighty', 'ninety', 'hundred', 'thousand', 'million', 'billion', 'dozen',
   // halves, a few, pairs, multiples
-  'nửa', 'rưỡi', 'rưởi', 'vài', 'dăm', 'mấy', 'đôi', 'cặp', 'gấp', 'half', 'quarter', 'few', 'couple', 'twice', 'double', 'triple',
-  // spoons, caps, drops, tablets, packets
-  'thìa', 'muỗng', 'nắp', 'giọt', 'viên', 'gói', 'túi', 'bao', 'chai', 'lọ', 'hũ', 'cốc', 'chén', 'ly', 'nắm', 'nhúm', 'dúm', 'liều',
-  'spoon', 'spoons', 'teaspoon', 'teaspoons', 'tablespoon', 'tablespoons', 'tsp', 'tbsp', 'cap', 'caps', 'capful', 'capfuls',
+  'nửa', 'rưỡi', 'rưởi', 'vài', 'dăm', 'mấy', 'chút', 'xíu', 'tí', 'đôi', 'cặp', 'gấp', 'half', 'quarter', 'few', 'couple', 'twice',
+  'double', 'triple',
+  // spoons, caps, drops, tablets, packets, containers
+  'thìa', 'muỗng', 'nắp', 'giọt', 'viên', 'gói', 'túi', 'bao', 'chai', 'lọ', 'hũ', 'cốc', 'chén', 'ly', 'bát', 'tô', 'xô', 'thùng',
+  'bình', 'ống', 'nắm', 'vốc', 'nhúm', 'dúm', 'liều', 'butir',
+  'spoon', 'spoons', 'teaspoon', 'teaspoons', 'tablespoon', 'tablespoons', 'tsp', 'tbsp', 'cup', 'cups', 'pint', 'pints', 'quart',
+  'quarts', 'cap', 'caps', 'capful', 'capfuls',
   'drop', 'drops', 'tablet', 'tablets', 'pill', 'pills', 'packet', 'packets', 'sachet', 'sachets', 'scoop', 'scoops', 'pump',
   'pumps', 'pinch',
   // units of measure
-  'ml', 'l', 'lít', 'cc', 'mg', 'g', 'gam', 'gram', 'grams', 'kg', 'oz', 'ounce', 'ounces', 'lb', 'lbs', 'pound', 'pounds', 'ppm',
-  'ppt', 'cm', 'mm', 'm', 'mét', 'km', 'inch', 'inches', 'in', 'ft', 'feet', 'foot', 'gallon', 'gallons', 'gal', 'galông', 'galon',
+  'ml', 'mililít', 'mililit', 'milliliter', 'milliliters', 'millilitre', 'millilitres', 'l', 'lít', 'lit', 'litre', 'litres', 'liter',
+  'liters', 'cc', 'mg', 'milligram', 'milligrams', 'g', 'gr', 'gam', 'gram', 'grams', 'kg', 'kilogram', 'kilograms', 'cân', 'ký', 'kí',
+  'lạng', 'oz', 'ounce', 'ounces', 'fl', 'lb', 'lbs', 'pound', 'pounds', 'ppm', 'ppt', 'cm', 'centimet', 'centimét', 'xentimét',
+  'centimeter', 'centimeters', 'centimetre', 'centimetres', 'mm', 'millimeter', 'millimeters', 'millimetre', 'millimetres', 'm',
+  'mét', 'meter', 'meters', 'metre', 'metres', 'tấc', 'km', 'inch', 'inches', 'in', 'ft', 'feet', 'foot', 'gallon', 'gallons', 'gal',
+  'galông', 'galon',
   'độ', 'dh', 'dgh', 'dkh', 'kh', 'gh', 'w', 'watt', 'watts', 'kw', 'k', 'kelvin', 'lumen', 'lumens', 'lux', 'par', 'v', 'volt',
   'volts', 'a',
   // counts of time
