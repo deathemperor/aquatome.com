@@ -326,6 +326,10 @@
       {
         "source": "aquariumbreeder",
         "value": 7
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -383,6 +387,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/",
       "html": "<ul><li>Scientific name: Trichogaster lalius (formerly Colisa lalia)</li><li>Water type: freshwater</li><li>Minimum tank size: 15 gallons (~60 litres)</li><li>Breeding: easy to medium</li><li>Dwellers: top to mid-dwelling</li><li>Nitrate: less than 60</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Life span: up to 2 years</li><li>Colour form: predominantly scarlet with slanted stripes (natural colour)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-lalia-2/",
+      "html": "<p>The dwarf gourami is the perfect ornamental fish. It unites magnificent coloration, a peaceful mind and an interesting behaviour. It becomes only 3 cm (wild caught) or 6 cm (artificially bred sports) long and due to its calm habit it can be kept even in smaller tanks.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -488,6 +498,12 @@
       "html": "<p>Trichogaster lalius is omnivorous with a predominantly carnivorous appetite. They are not picky and will eat both animal and plant matter (algae). In the wild they feed on detritus, debris, micro-zooplankton, worms, insects and small crustaceans.</p><p>In aquariums they enjoy a wide variety of live foods, including brine shrimp, daphnia, bloodworms, tubifex worms, blackworms, grindal worms and cyclops. For best growth and colour, feeds should contain about 30–40% protein, 4–9% lipids and 30–40% carbohydrates. According to a study, 35% protein gave the greatest increase in weight and length; in general gouramis require 30–45% protein, 4–9% lipids and 30–40% carbohydrates.</p><p>They can also be reared on dry and freeze-dried foods such as flakes, pellets and crisps, as long as they suit the mouth size.</p><p>Colour enhancement: they cannot synthesise carotenoids and must obtain them from food. Astaxanthin and canthaxanthin are common carotenoid supplements that enhance colour, particularly red and orange hues. Foods containing astaxanthin, spirulina and krill (natural sources of astaxanthin) can improve colour over time.</p><p>Feeding: scientifically, daily food equivalent to about 3–5% of body weight is needed. In practice the “5-minute rule” works well: the fish should eat all the food within 5 minutes, and leftovers are a sign of overfeeding. Since they are not fast swimmers, food should be spread over a wider area if faster fish share the tank.</p><p>Fry: after yolk sac absorption, fry require live food (rotifers, vinegar eels, microworms or infusoria) for the next 2–3 weeks, then Artemia from the 3rd week. In one experiment, fry fed live food had a 100% survival rate, egg yolk 66%, and commercial pellets only 46%. Daphnia and cyclops are not recommended for fry: they can be too big, and large cyclops may harm or kill small fry. Hydras are among the worst enemies and can destroy a whole brood in a short time.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-lalia-2/",
+      "html": "<p>The dwarf gourami happily accepts any type of fish food, be it dried, frozen or alive. The only condition: food particles must not be too big, because the dwarf gourami has a tight throat.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichogaster-lalius",
@@ -560,6 +576,12 @@
       "html": "<p>Trichogaster lalius is generally compatible with aquarium plants and does not eat healthy plants. However, males are enthusiastic nest builders and may inadvertently damage delicate plants or uproot small ground-covering plants to incorporate fragments into their nests.</p><p>Etymology: the genus name Trichogaster comes from the Greek “trichos” and “gaster”, meaning “hair” and “belly”, referring to the hair-like pelvic appendages. The species name “lalius” is said to derive from a Latin word meaning “small” or “dwarf”, referring to its small size relative to other Trichogaster.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/colisa-lalia-2/",
+      "html": "<p>Sometimes the dwarf gourami is named Trichogaster lalius, but this is an opinion not followed here.</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/",
@@ -567,16 +589,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/aquariumbreeder/dcb3edac663c81e1.webp",
-      "thumb": "https://media.aquatome.com/aquariumbreeder/dcb3edac663c81e1-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Breeder",
-      "sourceUrl": "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/",
-      "source": "aquariumbreeder"
-    },
     {
       "url": "https://media.aquatome.com/sprucepets/bbe56de533bbea5c.webp",
       "thumb": "https://media.aquatome.com/sprucepets/bbe56de533bbea5c-480.webp",
@@ -587,6 +599,16 @@
       "sourceUrl": "https://www.thesprucepets.com/dwarf-gourami-1378310",
       "caption": "dwarf gourami",
       "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/dcb3edac663c81e1.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/dcb3edac663c81e1-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -644,5 +666,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-19"
 }

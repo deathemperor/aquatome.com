@@ -1,8 +1,13 @@
 {
   "id": "parosphromenus-linkei",
-  "temperament": null,
+  "temperament": "peaceful",
   "finNipper": false,
   "schoolMin": null,
-  "speciesUpdatedAt": "2026-11-06",
-  "generatedAt": "2026-11-06T21:19:18.710Z"
+  "speciesUpdatedAt": "2026-11-19",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-19T01:50:29.782Z"
 }

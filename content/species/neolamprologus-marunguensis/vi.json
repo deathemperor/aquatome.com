@@ -2,7 +2,9 @@
   "slug": "ca-neolamprologus-marunguensis",
   "name": "Cá Neolamprologus marunguensis",
   "altNames": [
-    "Cá Neolamprologus walteri"
+    "Cá Neolamprologus walteri",
+    "Cá marunguensis",
+    "Blue-eyed princess"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Neolamprologus marunguensis là một loài cichlid chỉ có ở hồ Tanganyika. Chúng sống ở những đoạn bờ đá quanh bờ tây nam của hồ. Loài này có đuôi chẻ sâu, trước đây từng được bán dưới tên Neolamprologus sp. 'walteri'. Bình thường nó khá hiền, nhưng tới mùa đẻ thì rất hay giành chỗ, nên tốt nhất là nuôi riêng một loài.</p>",
@@ -15,13 +17,17 @@
     "behaviour:seriouslyfish": "<p>Loài này khá hiền, nhưng tới mùa đẻ thì rất hay giành chỗ, nên tốt nhất là nuôi riêng một loài. Nếu bể lớn thì vẫn nuôi chung được với các loài cichlid Tanganyika cỡ nhỏ đến vừa sống ở tầng khác của bể, như các loài Cyprichromis. Các loài sống quanh đá khác như Julidochromis hay Altolamprologus cũng có thể thả chung, miễn là bể đủ lớn và đủ chỗ cho mỗi con chiếm một khu. Không nên nuôi chung với mbuna hay những loài náo động khác.</p>",
     "dimorphism:seriouslyfish": "<p>Loài này khó phân biệt trống mái. Con đực trưởng thành thường to hơn con cái một chút, và vây lưng, vây đuôi có phần kéo dài ra dài hơn.</p>",
     "reproduction:seriouslyfish": "<p>Cho đẻ khá dễ. Đây là loài đẻ trong hang. Nên nuôi một nhóm ít nhất sáu con non để chúng tự bắt cặp với nhau. Bể đẻ nên dài ít nhất 75 cm, nhóm ban đầu đông thì bể phải lớn hơn, và set như hướng dẫn ở trên. Giữ pH khoảng 8,2–9,0, nhiệt độ 25–26,5 °C. Không có loài nào khác trong bể thì tốt hơn nhiều, dù N. marunguensis vẫn thường đẻ được khi nuôi chung. Vỗ béo cả nhóm bằng thức ăn đa dạng như đã nói ở trên. Cá bơi chung thành nhóm rồi tự bắt cặp để đẻ. Cặp nào đã thành đôi thì giữ nhau cho những lứa sau. Mỗi cặp đẻ lén trong một cái hang, thường là hang chúng tự đào. Con cái đẻ trứng lên vách hoặc trần hang. Đẻ xong, con cái ở lại chăm trứng, còn con đực canh khu quanh hang. Trứng nở sau 2–3 ngày. Khoảng ngày thứ 7 thì cá bột tự bơi được.</p><p>Cá bột vừa nở đã đủ lớn để ăn Artemia mới nở, nhưng lớn khá chậm. Bố mẹ chăm con khá lâu, và các lứa trước được ở lại với bố mẹ cho tới khi đủ lớn để đẻ. Cặp bố mẹ vẫn tiếp tục đẻ, nên thường thấy nhiều lứa cùng sống chung trong một bể.</p>",
-    "notes:seriouslyfish": "<p>Loài này ít gặp hơn, nhưng đẹp, có đuôi chẻ sâu. Trước đây nó từng được bán dưới tên Neolamprologus sp. \"walteri\".</p>"
+    "notes:seriouslyfish": "<p>Loài này ít gặp hơn, nhưng đẹp, có đuôi chẻ sâu. Trước đây nó từng được bán dưới tên Neolamprologus sp. \"walteri\".</p>",
+    "quickFacts:glaser": "<p>Neolamprologus marunguensis là một loài cichlid lùn đẹp ở hồ Tanganyika, thuộc nhóm cá cảnh dễ nuôi, ít khi gây rắc rối. Nó là \"em gái\" mắt xanh nhỏ hơn của cá công chúa Burundi (Neolamprologus brichardi). Cá dài khoảng 6–7 cm và không bơi nhiều.</p>",
+    "aquariumSize:glaser": "<p>Không nên nuôi N. marunguensis trong bể quá nhỏ. Cá chỉ dài khoảng 6–7 cm và không bơi nhiều. Nhưng xem cả gia đình chúng sinh hoạt mới là cái thú khi nuôi loài này, và muốn vậy thì bể phải có chỗ.</p>",
+    "behaviour:glaser": "<p>Giống mọi loài công chúa khác, loài này thường có nhiều lứa con sống chung trong bể. Những con anh chị lớn hơn cũng phụ trông đám cá con nhỏ.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.8
     }
   }
 }

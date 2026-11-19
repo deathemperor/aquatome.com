@@ -732,6 +732,39 @@
       "kept": true
     }
   ],
+  "vi/products/tropica-substrate-powder": [
+    {
+      "at": "2026-11-19T01:47:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.92,
+      "notes": [
+        "\"Cây trải thảm rễ ngắn cũng bám tốt hơn trên hạt nhỏ\": the facts only say the smaller grain \"works well\" for short-rooted carpet plants. They give no comparison with larger grain.",
+        "\"nên 4 tuần đầu phải thay nước dày\": the facts only advise changing 25–50% of the water at least twice a week. They don't tie this to ammonia or cloudiness, and \"phải\" is stronger than the source."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T01:47:33Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.327",
+      "score": 0.88,
+      "notes": [
+        "\"Nhà sản xuất ghi 1–2 mm\" – facts attribute 1–2 mm to source 0, not explicitly the manufacturer.",
+        "\"Có thể dồn nền cao dần về phía sau cho bể có chiều sâu\" – facts only say it can be sloped for depth; the direction 'toward the back' is an unsupported detail.",
+        "\"Có, nhưng chỉ hạ nhẹ\" followed by test data – fine, but \"Đây là lý do tháng đầu phải thay nước dày\" links water changes to ammonia, which is an inference not stated in facts.",
+        "\"Châm nước nhẹ tay lúc đầu thì nền ít bị khuấy lên\" is presented as a fix for cloudy water; facts do not say this prevents cloudiness.",
+        "\"Tính ra số lít rồi so với dung tích túi 3 L và 9 L để mua cho đủ\" and the advice to calculate only the fine layer volume are advice not stated in the facts.",
+        "\"Có hai cách dùng\" in the \"Hợp với bể nào\" section is a rephrase of the facts and is supported.",
+        "\"thay nước nhiều\" in the opening says 'tháng đầu phải' – the facts say 'for the first 4 weeks', which is consistent."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/tuya-smart-life-power-strip": [
     {
       "at": "2026-11-09T06:23:13Z",

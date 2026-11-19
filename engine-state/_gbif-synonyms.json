@@ -1268,6 +1268,11 @@
     "Auchenipterus paysanduanus",
     "Euanemus nigripinnis"
   ],
+  "Auchenoglanis biscutatus": [
+    "Auchenaspis biscutatus",
+    "Auchenoglanis senegali",
+    "Pimelodus biscutatus"
+  ],
   "Auchenoglanis occidentalis": [
     "Auchenaspis occidentalis",
     "Auchenoglanis acuticeps",
@@ -1289,6 +1294,11 @@
   ],
   "Aulonocara maylandi": [],
   "Aulonocara stuartgranti": [],
+  "Aulonocranus dewindti": [
+    "Aulonocranus dewidtii",
+    "Paratilapia dewindti",
+    "Paratilapia lukugae"
+  ],
   "Auriglobus modestus": [
     "Chonerhinos africanus",
     "Chonerhinos modestus",
@@ -3342,6 +3352,7 @@
     "Corydoras dubius",
     "Corydoras episcopi"
   ],
+  "Corydoras urucu": [],
   "Corydoras virginiae": [],
   "Corydoras vittatus": [],
   "Corydoras weitzmani": [],
@@ -4849,6 +4860,7 @@
   "Geophagus taeniopareius": [],
   "Geophagus winemilleri": [],
   "Geosesarma hagen": [],
+  "Geosesarma krathing": [],
   "Girardinus falcatus": [
     "Girardichthys falcatus",
     "Glaridichthys atherinoides",
@@ -5114,6 +5126,7 @@
     "Peckoltia sabaji"
   ],
   "Hemiancistrus subviridis": [],
+  "Hemianthus callitriodes": [],
   "Hemianthus micranthemoides": [
     "Micranthemum micranthemoides",
     "Globifera micranthemoides",
@@ -5410,6 +5423,12 @@
     "Heterotis ehrenbergii",
     "Sudis adansonii",
     "Sudis niloticus"
+  ],
+  "Hexanematichthys mastersi": [
+    "Arius mastersi",
+    "Arius sagoroides",
+    "Sciades mastersi",
+    "Tachysurus godfreyi"
   ],
   "Hexanematichthys sagor": [
     "Arius sagor",
@@ -6001,6 +6020,7 @@
   "Kottelatlimia pristes": [
     "Lepidocephalichthys pristes"
   ],
+  "Krobia xinguensis": [],
   "Kronichthys heylandi": [
     "Plecostomus heylandi"
   ],
@@ -7192,6 +7212,69 @@
     "Melanochromis chipoke"
   ],
   "Melanochromis lepidiadaptes": [],
+  "Melanoides tuberculata": [
+    "Malanoides tuberculata",
+    "Melania baldwini",
+    "Melania beryllina",
+    "Melania cancellata",
+    "Melania commersoni",
+    "Melania distinguenda",
+    "Melania dominula",
+    "Melania exusta",
+    "Melania flammigera",
+    "Melania floricoma",
+    "Melania flyensis",
+    "Melania gracilina",
+    "Melania inhambanica",
+    "Melania javanica",
+    "Melania judaica",
+    "Melania layardi",
+    "Melania malayana",
+    "Melania mauriciae",
+    "Melania moesta",
+    "Melania nicobarica",
+    "Melania ornata",
+    "Melania pellicens",
+    "Melania punctulata",
+    "Melania pyramis",
+    "Melania rivularis",
+    "Melania rodericensis",
+    "Melania rothiana",
+    "Melania rubropunctata",
+    "Melania rustica",
+    "Melania scalariformis",
+    "Melania singularis",
+    "Melania suturalis",
+    "Melania tamsii",
+    "Melania terebra",
+    "Melania tigrina",
+    "Melania timorensis",
+    "Melania trunculata",
+    "Melania tuberculata",
+    "Melania turriculus",
+    "Melania virgula",
+    "Melania virgulata",
+    "Melania waigiensis",
+    "Melania wilkinsonii",
+    "Melania woodwardi",
+    "Melania zengana",
+    "Melanoides amabilis",
+    "Melanoides fasciolata",
+    "Melanoides flavidus",
+    "Melanoides pyramis",
+    "Melanoides terebra",
+    "Melanoides tigrina",
+    "Melanoides turriculus",
+    "Melanoides woodwardi",
+    "Nerita tuberculata",
+    "Stenomelania turriculus",
+    "Striatella tuberculata",
+    "Thiara baldwini",
+    "Thiara rodericensis",
+    "Thiara tuberculata",
+    "Turritella tuberculata",
+    "Turritella turricula"
+  ],
   "Melanorivulus punctatus": [
     "Rivulus punctatus"
   ],
@@ -8064,6 +8147,11 @@
     "Neritina testudinaria"
   ],
   "Neritina violacea": [],
+  "Neritona juttingae": [
+    "Nerita aculeata",
+    "Neritina aculeata",
+    "Neritina juttingae"
+  ],
   "Netuma bilineata": [
     "Arius andamanensis",
     "Arius bilineatus",
@@ -8073,6 +8161,11 @@
     "Bagrus rhodonotus",
     "Netuma osakae",
     "Netuna bilineata"
+  ],
+  "Netuma proxima": [
+    "Arius arafurensis",
+    "Arius proximus",
+    "Netuna proximus"
   ],
   "Netuma thalassina": [
     "Ariodes aeneus",
@@ -8528,6 +8621,19 @@
     "Rohita kuhli",
     "Rohita rostellatus",
     "Rohita vittata"
+  ],
+  "Osteogeneiosus militaris": [
+    "Osteogeneiosus blochii",
+    "Osteogeneiosus cantoris",
+    "Osteogeneiosus gracilis",
+    "Osteogeneiosus ingluvies",
+    "Osteogeneiosus longiceps",
+    "Osteogeneiosus macrocephalus",
+    "Osteogeneiosus miliataris",
+    "Osteogeneiosus sthenocephalus",
+    "Osteogeneiosus valenciennesi",
+    "Osteogeniosus sthenocephalus",
+    "Silurus militaris"
   ],
   "Osteoglossum bicirrhosum": [
     "Ischnosoma bicirrhosum",
@@ -9399,6 +9505,33 @@
     "Platystoma sturio"
   ],
   "Platythelphusa armata": [],
+  "Plicofollis argyropleuron": [
+    "Arius acutus",
+    "Arius argyropleuron",
+    "Arius colcloughi",
+    "Arius hamiltonis",
+    "Arius macrocephalus",
+    "Arius schlegeli",
+    "Hemipimelodes colcloughi",
+    "Hemipimelodus colcloughi",
+    "Tachysurus argyropleuron",
+    "Tachysurus broadbenti",
+    "Trachysurus broadbenti"
+  ],
+  "Plicofollis dussumieri": [
+    "Ariodes dussumieri",
+    "Arius dussumieri",
+    "Arius goniaspis",
+    "Arius kirkii",
+    "Tachysurus dussumieri"
+  ],
+  "Plicofollis nella": [
+    "Arius leiotetocephalus",
+    "Arius nella",
+    "Bagrus meyenii",
+    "Pimelodus nella",
+    "Tachysurus leiotetocephalus"
+  ],
   "Plotosus canius": [
     "Plotossus canius",
     "Plotosus horridus",
@@ -9569,6 +9702,20 @@
   "Poptella paraguayensis": [
     "Fowlerina paraguayensis"
   ],
+  "Poropanchax luxophthalmus": [
+    "Aplocheilichthys dispar",
+    "Aplocheilichthys hannerzi",
+    "Aplocheilichthys luxophthalmus",
+    "Aplocheilichthys macrophthalmus",
+    "Fundulopanchax luxophthalmus",
+    "Fundulus luxophthalmus",
+    "Fundulus luxophthamus",
+    "Micropanchax dispar",
+    "Micropanchax luxophthalmus",
+    "Micropanchax macrophtalmus",
+    "Poropanchax hannerzi",
+    "Poropanchax macrophthalmus"
+  ],
   "Poropanchax normani": [
     "Aplocheilichthys gambiensis",
     "Aplocheilichthys manni",
@@ -9638,6 +9785,7 @@
     "Typhlonectus kaupii"
   ],
   "Priapella chamulae": [],
+  "Priapella compressa": [],
   "Priapella olmecae": [
     "Priapella olmaceae"
   ],
@@ -9868,6 +10016,7 @@
     "Pseudomugil signata"
   ],
   "Pseudomugil tenellus": [],
+  "Pseudomystus funebris": [],
   "Pseudomystus heokhuii": [],
   "Pseudomystus siamensis": [
     "Leiocassis albicollaris",
@@ -11002,6 +11151,13 @@
     "Thiara torulosa",
     "Tiara crenulata"
   ],
+  "Stenorhynchus seticornis": [
+    "Cancer sagittarius",
+    "Cancer seticornis",
+    "Leptopodia lineata",
+    "Leptopodia ornata",
+    "Leptopodia sagittaria"
+  ],
   "Sternarchogiton preto": [],
   "Sternarchorhynchus goeldii": [],
   "Stigmatogobius sadanundio": [
@@ -11915,6 +12071,7 @@
     "Nematolebias myersi",
     "Simpsonichthys myersi"
   ],
+  "Xiphophorus andersi": [],
   "Xiphophorus continens": [],
   "Xiphophorus cortezi": [],
   "Xiphophorus evelynae": [],

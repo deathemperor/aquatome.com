@@ -1429,6 +1429,66 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/osteogeneiosus_militaris.htm": {
+    "entityIds": [
+      "species/osteogeneiosus-militaris"
+    ],
+    "updatedAt": "2026-11-19T00:07:59.441Z",
+    "hash": "2e070bafe5d166493002d0c6c53070174791be57972d546edb8e86e3a3439e50",
+    "processedHash": "2e070bafe5d166493002d0c6c53070174791be57972d546edb8e86e3a3439e50",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/pararius_mastersi.htm": {
+    "entityIds": [
+      "species/hexanematichthys-mastersi"
+    ],
+    "updatedAt": "2026-11-19T00:11:05.994Z",
+    "hash": "10c258a375b25a0e61438f88125c05156d2d45da5c911aae0ec9c5a78ae3ce91",
+    "processedHash": "10c258a375b25a0e61438f88125c05156d2d45da5c911aae0ec9c5a78ae3ce91",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/pararius_proximus.htm": {
+    "entityIds": [
+      "species/netuma-proxima"
+    ],
+    "updatedAt": "2026-11-19T00:11:57.862Z",
+    "hash": "cffacebb8100227a87f7f6e06dc8cd8a1bda5b7c6de5de1cabfd00903ff1e7cd",
+    "processedHash": "cffacebb8100227a87f7f6e06dc8cd8a1bda5b7c6de5de1cabfd00903ff1e7cd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm": {
+    "entityIds": [
+      "species/plicofollis-argyropleuron"
+    ],
+    "updatedAt": "2026-11-19T00:12:58.694Z",
+    "hash": "24eedbeca3fd00b538ed0460c4adcb21477b2f07e683783c41f63ccf3bcddf4f",
+    "processedHash": "24eedbeca3fd00b538ed0460c4adcb21477b2f07e683783c41f63ccf3bcddf4f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm": {
+    "entityIds": [
+      "species/plicofollis-dussumieri"
+    ],
+    "updatedAt": "2026-11-19T00:14:16.057Z",
+    "hash": "07199bbd8d10204e25a070b90e1b11f4adc64ce18f33a4a129c77b5074515a17",
+    "processedHash": "07199bbd8d10204e25a070b90e1b11f4adc64ce18f33a4a129c77b5074515a17",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/plicofollis_nella.htm": {
+    "entityIds": [
+      "species/plicofollis-nella"
+    ],
+    "updatedAt": "2026-11-19T00:17:41.350Z",
+    "hash": "de6c753daa8d46b2a49f8f5c4323c68b6d892928ada907c46753804ab2c52a3c",
+    "processedHash": "de6c753daa8d46b2a49f8f5c4323c68b6d892928ada907c46753804ab2c52a3c",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm": {
     "entityIds": [
       "species/amaralia-hypsiura"
@@ -1709,6 +1769,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/bagridae/sperata_acicularis.htm": {
+    "entityIds": [
+      "species/sperata-acicularis"
+    ],
+    "updatedAt": "2026-11-19T00:04:40.908Z",
+    "hash": "f62c064df6da9d3cb1f0312d80fdab8a3387088391f701e6d85d6a5a71683be2",
+    "processedHash": "f62c064df6da9d3cb1f0312d80fdab8a3387088391f701e6d85d6a5a71683be2",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/bagridae/tachysurus_argentivittatus.htm": {
     "entityIds": [
       "species/tachysurus-argentivittatus"
@@ -1766,6 +1836,16 @@
     "updatedAt": "2026-11-04T22:11:17.367Z",
     "hash": "8f7764f64facbfd24e088a4235e7eae1b0f8be2893b5a4fcd262440af59a02eb",
     "processedHash": "8f7764f64facbfd24e088a4235e7eae1b0f8be2893b5a4fcd262440af59a02eb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm": {
+    "entityIds": [
+      "species/corydoras-geoffroy"
+    ],
+    "updatedAt": "2026-11-18T23:59:27.230Z",
+    "hash": "b107a5f60aa9a21431f1a94d5c5de90d9a74a60eae685c85d08eec8a4ba7b3dc",
+    "processedHash": "b107a5f60aa9a21431f1a94d5c5de90d9a74a60eae685c85d08eec8a4ba7b3dc",
     "status": "processed",
     "attempts": 0
   },
@@ -2636,6 +2716,16 @@
     "updatedAt": "2026-11-15T17:55:00.979Z",
     "hash": "7d4563e7b4923563ac188c04816406ed960dbdb2d5d1e2f8def7fd547be1ffb0",
     "processedHash": "7d4563e7b4923563ac188c04816406ed960dbdb2d5d1e2f8def7fd547be1ffb0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/panaqolus_albomaculatus.htm": {
+    "entityIds": [
+      "species/panaqolus-albomaculatus"
+    ],
+    "updatedAt": "2026-11-19T00:02:17.583Z",
+    "hash": "28bec9e3bcf6c0ce132edf52d3e9715c96715423c2af02712e93ac232b6b626b",
+    "processedHash": "28bec9e3bcf6c0ce132edf52d3e9715c96715423c2af02712e93ac232b6b626b",
     "status": "processed",
     "attempts": 0
   },

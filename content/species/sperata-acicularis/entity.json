@@ -7,7 +7,8 @@
   "group": "catfish",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "irrawaddy"
   ],
   "range": {
     "native": {
@@ -83,7 +84,32 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 180
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
@@ -92,10 +118,22 @@
       "html": "<p>Catfish of the genus Sperata can be easily identified by the black spot in the adipose fin. Like all species of Sperata, this catfish is a giant. The largest specimen reported so far was 180 cm long, but the usual size is 30–40 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "html": "<p>Common name: Silver shovelnose catfish. Family: Bagridae. Synonyms: none. Size: 180 cm. Temperature: 23–26°C. pH: 6.0–7.2.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sperata-acicularis-2/",
       "html": "<p>Determining the four currently accepted species of Sperata is tricky. Only S. seenghala, a widespread species from India, can be comparatively easily identified, because in that species the eye is positioned in the first third of the skull, while in the other species it is at about half of the skull length. Bony structures of the skull and the foreback must be compared to identify the three remaining species, which is impossible to do in live juveniles.</p><p>Sperata acicularis was imported, or at least the fish were obtained under that name. The supplier is very reliable and S. acicularis is the only species of the genus reported so far for Burma, so there is no reason to doubt the identification.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "html": "<p>Determination of the four currently accepted species is a tricky thing. Only S. seenghala, a widespread species from India, can be comparatively easily identified, because in that species the eye is positioned in the first third of the skull, at about half of the skull length in the other species. So bony structures of the skull and the foreback must be compared to identify the three remaining species, a thing impossible to do in live juveniles. Sperata acicularis has a typical black spot on the adipose fin and can be easily identified by it.</p>"
     },
     {
       "key": "distribution",
@@ -104,16 +142,46 @@
       "html": "<p>S. acicularis is the only species of the genus reported so far for Burma (Myanmar).</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "html": "<p>Asia: Myanmar; Irrawaddy, Bago and Tenasserim River systems. Type locality: Myanmar, Yangon Division, South Oak-ka-lar-pa market (eastern Yangon).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "html": "<p>The genus Sperata is not intended to be housed in a community aquarium, because of aggression towards other fish and conspecifics, and it grows too large for normal home tanks, but this species of Sperata seems to grow to only 30–40 cm in the confines of an aquarium.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sperata-acicularis-2/",
       "html": "<p>Species of Sperata spawn in pits in the ground and guard eggs and fry.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "html": "<p>Oviparous, distinct pairing possibly like other members of the same genus.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sperata-acicularis-2/",
       "html": "<p>As these catfish are very popular as food fish, there are intentions to keep and breed them in aquaculture, but this has so far failed on a larger scale.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "html": "<p>Etymology: The genus name Sperata: a-, belonging to: Maria Adolfine Sperat, Holly's late mother-in-law, who had supported Holly's studies with \"great understanding\" or \"sympathy\" (depending on the translation) [replacement name for Macrones Duméril 1856, preoccupied by Macrones Newman 1841 in Coleoptera]. The specific name acicularis: needlelike, referring to the long, slender supraoccipital spine that most readily distinguishes it from its congeners.</p><p>IUCN Red List: Although there is no information on the global population and its trends for this species, current evidence indicates that it is still relatively widespread and abundant. Despite being targeted in artisanal fisheries, the level of exploitation is not deemed high enough to be a threat to long-term survival of this species. Sperata acicularis is therefore assessed as Least Concern, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "html": "<p>Breder, C.M. and D.E. Rosen 1966 Modes of reproduction in fishes. T.F.H. Publications, Neptune City, New Jersey. 941 p.</p><p>Eschmeyer, W.N. (ed.), 2003. Catalog of fishes. Updated database version of March 2003.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Ng, H.H. 2010. Sperata acicularis. The IUCN Red List of Threatened Species 2010.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -156,6 +224,28 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/sperata-acicularis-2/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/e1bf46168a5baf0a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e1bf46168a5baf0a-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "caption": "Sperata acicularis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9f50427ad61db854.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9f50427ad61db854-480.webp",
+      "width": 500,
+      "height": 330,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/sperata_acicularis.htm",
+      "caption": "Sperata acicularis: dorsal view",
+      "source": "scotcat"
     }
   ],
   "videos": [
@@ -184,6 +274,28 @@
       "lang": "en"
     }
   ],
-  "productSlots": [],
-  "updatedAt": "2026-11-18"
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 300w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
 }
