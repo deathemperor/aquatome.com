@@ -1,4 +1,5 @@
-import { execFileSync } from 'node:child_process'
+import { execFileSync, spawnSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -73,8 +74,23 @@ export function historyCandidates(pages: string[], rejected: Record<string, stri
   return out
 }
 
+/**
+ * The engine cycle running in this checkout, by its pid file (scripts/engine-cycle.sh), if any. The never-again list is
+ * read and written by one step at a time, so the step doesn't start beside one. It can't keep a cycle from starting
+ * after it: the hand run goes in a checkout no cycle runs in (the cycle runs in its own clone).
+ */
+export function cycleRunning(root: string): string | undefined {
+  let dir: string
+  try { dir = execFileSync('git', ['rev-parse', '--absolute-git-dir'], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() } catch { return undefined }
+  let pid = ''
+  try { pid = readFileSync(join(dir, 'aquatome-engine.pid'), 'utf8').trim() } catch { return undefined }
+  return /^\d+$/.test(pid) && spawnSync('ps', ['-p', pid, '-o', 'command='], { encoding: 'utf8' }).stdout.includes('cycle.sh') ? pid : undefined
+}
+
 /** `limit`: model calls this run. Stops on a model failure (usage limit); the rest wait for the next run. */
 export async function returnShopPhotos(root: string, candidates: ReturnCandidate[], d: ReturnDeps, o: { today: string; limit: number }) {
+  const cycle = cycleRunning(root)
+  if (cycle) throw new Error(`shop-return: an engine cycle (pid ${cycle}) is running in this checkout; run it once that cycle ends`)
   const state = join(root, 'engine-state'), content = join(root, 'content')
   const cacheFile = join(state, '_photo-watermarks.json'), rejectedFile = join(state, '_photo-rejected.json'), returnsFile = join(state, RETURNS_FILE)
   const old = await readJson<Record<string, unknown>>(cacheFile, {})

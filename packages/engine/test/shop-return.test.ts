@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process'
+import { execFileSync, spawn } from 'node:child_process'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -7,7 +7,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { retainedOwnMark } from '../src/own-mark'
-import { gitHistory, historyCandidates, returnShopPhotos, RETURNS_FILE, type History, type ReturnDeps } from '../src/shop-return'
+import { cycleRunning, gitHistory, historyCandidates, returnShopPhotos, RETURNS_FILE, type History, type ReturnDeps } from '../src/shop-return'
 
 // The return of Aquarium Glaser's photos the never-again list holds for a mark (the chief of staff, 19 Nov): only a photo
 // the rule passes comes off the list, one at a time, with its reason in the step's own record; a refused one stays.
@@ -222,4 +222,29 @@ test("the step's record keeps the list's reason as the list keeps it, never a re
   await returnShopPhotos(r, [{ page: PAGE, photo: photo(own) }], screen([false]), { today: '2026-11-20', limit: 5 })
   const line = (await json(r, `engine-state/${RETURNS_FILE}`))[own]
   expect(line.was).toMatch(/^watermark: withheld \[sha256:[a-f0-9]{64}\]$/)
+})
+
+test('the step does not start while an engine cycle runs in its checkout, by the cycle\'s pid file', async () => {
+  const own = g('own')
+  const r = await site({ [own]: listed('watermark') })
+  execFileSync('git', ['init', '-q'], { cwd: r })
+  const pidFile = join(execFileSync('git', ['rev-parse', '--absolute-git-dir'], { cwd: r, encoding: 'utf8' }).trim(), 'aquatome-engine.pid')
+  // A process of this test's own, named as a cycle is; stopped by its own pid at the end.
+  // Two commands, so the shell stays the process and keeps its name.
+  const cycle = spawn('/bin/sh', ['-c', 'sleep 30; true', 'engine-cycle.sh'], { stdio: 'ignore' })
+  await new Promise(done => cycle.once('spawn', done))
+  try {
+    await writeFile(pidFile, `${cycle.pid}\n`)
+    expect(cycleRunning(r)).toBe(String(cycle.pid))
+    await expect(returnShopPhotos(r, [{ page: PAGE, photo: photo(own) }], screen([true]), { today: '2026-11-20', limit: 5 })).rejects.toThrow(/an engine cycle \(pid \d+\) is running/)
+    expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [own]: listed('watermark') })
+    // A pid file naming a process that isn't a cycle, or no file: it starts.
+    await writeFile(pidFile, `${process.pid}\n`)
+    expect(cycleRunning(r)).toBeUndefined()
+  } finally {
+    cycle.kill()
+  }
+  await writeFile(pidFile, '')
+  expect(cycleRunning(r)).toBeUndefined()
+  expect((await returnShopPhotos(r, [{ page: PAGE, photo: photo(own) }], screen([true]), { today: '2026-11-20', limit: 5 })).returned).toEqual([`${PAGE}: ${own}`])
 })

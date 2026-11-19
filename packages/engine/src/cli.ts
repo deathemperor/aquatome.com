@@ -1,4 +1,3 @@
-import { execFileSync, spawnSync } from 'node:child_process'
 import { videoBudgetStopped } from './youtube'
 import { appendFileSync, readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
@@ -469,10 +468,6 @@ if (cmd === 'photo-privacy') {
   // Aquarium Glaser photos the never-again list holds for a mark, back on the pages in --pages (a file, `kind/id` a line),
   // where the watermark screen finds every mark the shop's own (shop-return.ts), on the chief of staff's word. A hand run.
   if (!values.pages) throw new Error('shop-return needs --pages <file>')
-  // The never-again list is read and written by one step at a time: not beside an engine cycle in this checkout.
-  const pidFile = join(execFileSync('git', ['rev-parse', '--absolute-git-dir'], { cwd: ROOT, encoding: 'utf8' }).trim(), 'aquatome-engine.pid')
-  const cyclePid = (await readFile(pidFile, 'utf8').catch(() => '')).trim()
-  if (/^\d+$/.test(cyclePid) && spawnSync('ps', ['-p', cyclePid, '-o', 'command='], { encoding: 'utf8' }).stdout.includes('cycle.sh')) throw new Error(`shop-return: an engine cycle (pid ${cyclePid}) is running in this checkout; run it once that cycle ends`)
   const pages = (await readFile(values.pages, 'utf8')).split('\n').map(x => x.trim()).filter(Boolean)
   const rejected = JSON.parse(await readFile(join(ROOT, 'engine-state/_photo-rejected.json'), 'utf8')) as Record<string, string>
   const candidates = historyCandidates(pages, rejected, gitHistory(ROOT))
