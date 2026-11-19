@@ -1221,6 +1221,34 @@
   ],
   "vi/glossary/ca-bot": [
     {
+      "at": "2026-11-19T01:39:27Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Miệng và dạ dày của chúng rất nhỏ nên cần được cho ăn nhiều bữa nhỏ mỗi ngày, và vì ăn nhiều sinh nhiều chất thải nên lúc đầu phải thay nước hằng ngày hoặc vài lần mỗi tuần.\": Rule 12: The definition must be word for word \"Cá bột là cá con vừa nở. Lúc mới n…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T01:39:27Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Theo bài tạp chí ở trên, loài không giữ con thì vớt cá bố mẹ ra sau khi đẻ, còn loài biết giữ con thì để chung với con được.\" is the old sentence. THIS TERM says to write \"Bài tạp chí ấy cũng ghi: loài không giữ con thì vớt cá bố mẹ ra sau khi đẻ, còn loài biết giữ con thì để chung với con được.\" in its place.",
+        "Rule 12: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" is the old sentence. THIS TERM says to write \"Cá bột rất nhỏ của một số loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" in its place.",
+        "Rule 12: \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn dày thì nước xuống cấp rất nhanh.\" is the old sentence. THIS TERM says to write \"... mà cho ăn nhiều bữa thì nước xuống cấp rất nhanh.\" in its place.",
+        "Rule 12: \"Cám bột nổi, vậy với cá bột sống sát đáy thì khuấy nhẹ nước lúc cho ăn.\" is the old sentence. THIS TERM says to write \"Cám bột nổi, nên với cá bột sống sát đáy thì khuấy nhẹ nước lúc cho ăn.\" in its place.",
+        "Rule 12: \"Để chia phần cám bột thì chấm cọ vẽ nhỏ vào cám rồi gõ nhẹ trên mặt bể.\" is the old sentence. THIS TERM says to write \"Để chia phần cám bột thì chấm cọ vẽ nhỏ vào cám rồi gõ nhẹ cọ phía trên bể.\" in its place.",
+        "Rule 12: \"Tách cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\" is the old sentence. THIS TERM says to write \"Tách cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành mồi của chúng.\" in its place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T19:10:16Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1266,34 +1294,6 @@
         "Rule 12: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" applies the magazine's limit to species that don't guard their fry (fact 32) to the shop's advice and states it as plain fact. It also leaves out that brood-caring species can stay with their fry. THIS TERM requires two items here, word for word: \"Tách cá bột khỏi cá trưởng thành.\" and then \"Theo bà…",
         "Rule 12: \"Dùng lọc nhẹ và giữ dòng chảy yếu.\" is in the plain list, but each half comes from only one page: gentle filtration from source 0 (fact 30) and low flow from the magazine (fact 31). A claim only one page makes has to say whose it is, so these belong under \"Một tiệm ghi:\" and \"Một bài tạp chí ghi:\" and not in the plain list.",
         "Rule 12: \"Chia cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\" uses \"chia\", which the entry also uses for portioning food. THIS TERM requires \"Tách cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T18:30:15Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Từ lúc đó, vì miệng và dạ dày còn rất nhỏ, chúng cần ăn nhiều bữa nhỏ mỗi ngày.\": Rule 4: Small meals several times a day are said twice: \"chúng cần ăn nhiều bữa nhỏ mỗi ngày\" in the definition and \"Cho ăn 3–5 bữa nhỏ mỗi ngày.\" under \"Một bài khá…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" (not \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\": Rule 12: \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\" is the magazine's claim alone (fact 34, source 4): only it separates guarding from non-guarding sp…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" (not \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ, chưa nuốt nổi artemia mới nở.\": Rule 6: \"cá killi\" in \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ,…",
-        "Rule 12: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" The limit to species that don't guard their fry is the magazine's alone (fact 33), but it sits in the plain list \"Nên làm gì\" as plain fact, with no opening. The line also stretches that limit to the shop's advice to move fry away from adults (fact 26), and fact 26 has no such limit. Either credit t…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T18:30:15Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 12: The magazine's first item is \"lúc nào bắt đầu cho ăn thì tùy loài: cá vàng bột không ăn trong 40–48 giờ đầu, còn các loài khác cần có thức ăn ngay.\" THIS TERM requires it word for word, starting with a capital: \"Lúc nào bắt đầu cho ăn thì tùy loài: …\".",
-        "Rule 12: The plain list has \"Thay nước ít một và thường xuyên.\" THIS TERM says this line must be \"Thay nước thường xuyên, lúc đầu mỗi ngày hoặc vài lần một tuần.\" (fact 27, two pages). \"Ít một\" (small changes) comes from only one page (fact 28), so it must stay out of the plain line and not be written as plain fact.",
-        "Rule 12: \"vinegar eel\" in \"Cá bột rất nhỏ ăn được nước xanh, trùng cỏ, cám bột cho cá bột và vinegar eel.\" Vinegar eels must be called \"giun giấm\", the name the site's own pages use. THIS TERM also gives this line word for word: \"Cá bột rất nhỏ ăn được nước xanh, trùng cỏ, cám bột cho cá bột và giun giấm.\""
       ],
       "attempt": "rewrite",
       "kept": false
