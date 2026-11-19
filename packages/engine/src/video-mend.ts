@@ -250,6 +250,13 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
     quality: { ...quality, score: review.score, indexable: review.score >= QUALITY_THRESHOLD, bySource: { youtube: review.score }, ...(held && review.score < QUALITY_THRESHOLD ? { chat: false as const } : {}) },
   })
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(next, null, 2)}\n`)
+  // Each sentence it changed, before and after, in the run's log: a reader reads every one against the video the next
+  // morning, for a week from the first night (the chief of staff, 19 Nov 2026). Git has no before-text of a new guide.
+  const shownText = (k: number, h: string) => (parts[k]!.html ? plain(h) : asPlain(h)).replace(/\s+/g, ' ').trim()
+  for (const n of named) {
+    const old = said[n.k]![n.i]!, fresh = changes[n.k]!.get(n.i)!
+    if (fresh !== old) console.log(`mended sentence: guides/${p.id} (${e.video.youtubeId}, ${parts[n.k]!.field}): ${JSON.stringify(shownText(n.k, old))} -> ${JSON.stringify(shownText(n.k, fresh))}`)
+  }
   if (held && review.score >= QUALITY_THRESHOLD) await setHold(contentRoot, p.id, false)
   await logReviews(root, 'video-guide', page, [review], review, { now, rewrite: true })
   return true

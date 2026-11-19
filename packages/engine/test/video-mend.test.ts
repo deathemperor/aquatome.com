@@ -1,7 +1,7 @@
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import type { Llm } from '../src/claude'
 import type { FitFinding } from '../src/fit'
 import type { Page } from '../src/pages'
@@ -84,6 +84,20 @@ test('the sentences a finding names go to the editor numbered, with the transcri
   expect(prompts[1]).toContain('turned into the comparison the price was there to make')
   expect(prompts[1]!.indexOf('fact kept, not lost')).toBeLessThan(prompts[1]!.indexOf('TRANSCRIPT:'))
   expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']).toMatchObject([{ score: 0.8, attempt: 'rewrite', kept: true }])
+})
+
+// The chief of staff, 19 Nov 2026: for a week from the first night, a reader reads every mended sentence against the
+// video each morning. The run's log has each, before and after, a new guide's too, whose before-text git never keeps.
+test('each sentence a mend changed is in the run\'s log, before and after, with its guide and video', async () => {
+  const { root } = await setup()
+  const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    expect(await deps(root).mend(page(), [shop, price])).toBe(true)
+    expect(log.mock.calls.map(c => c[0])).toEqual([
+      'mended sentence: guides/youtube-a1 (a1, body): "Mua lọc ở Petco, giá khoảng 5 USD." -> "Lọc mua ở tiệm cá cảnh."',
+      'mended sentence: guides/youtube-a1 (a1, faq.0.a): "Mua lọc ở Petco." -> "Ở tiệm cá cảnh."',
+    ])
+  } finally { log.mockRestore() }
 })
 
 // The chief of staff, 19 Nov 2026: 15 of the 21 held guides mended from 18 Nov were thrown away after paying, each for a
