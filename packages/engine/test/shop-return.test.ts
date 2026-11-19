@@ -1,4 +1,5 @@
 import { execFileSync, spawn } from 'node:child_process'
+import { once } from 'node:events'
 import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -229,10 +230,10 @@ test('the step does not start while an engine cycle runs in its checkout, by the
   const r = await site({ [own]: listed('watermark') })
   execFileSync('git', ['init', '-q'], { cwd: r })
   const pidFile = join(execFileSync('git', ['rev-parse', '--absolute-git-dir'], { cwd: r, encoding: 'utf8' }).trim(), 'aquatome-engine.pid')
-  // A process of this test's own, named as a cycle is; stopped by its own pid at the end.
-  // Two commands, so the shell stays the process and keeps its name.
-  const cycle = spawn('/bin/sh', ['-c', 'sleep 30; true', 'engine-cycle.sh'], { stdio: 'ignore' })
-  await new Promise(done => cycle.once('spawn', done))
+  // A process of this test's own, named as a cycle is, with no child of its own: stopped by its own pid at the end, and
+  // ends by itself after 30 s if that fails.
+  const cycle = spawn(process.execPath, ['-e', 'setTimeout(() => {}, 30_000)', 'engine-cycle.sh'], { stdio: 'ignore' })
+  await once(cycle, 'spawn')
   try {
     await writeFile(pidFile, `${cycle.pid}\n`)
     expect(cycleRunning(r)).toBe(String(cycle.pid))
@@ -242,7 +243,11 @@ test('the step does not start while an engine cycle runs in its checkout, by the
     await writeFile(pidFile, `${process.pid}\n`)
     expect(cycleRunning(r)).toBeUndefined()
   } finally {
-    cycle.kill()
+    if (cycle.exitCode === null && cycle.signalCode === null) {
+      const gone = once(cycle, 'exit')
+      cycle.kill()
+      await gone
+    }
   }
   await writeFile(pidFile, '')
   expect(cycleRunning(r)).toBeUndefined()
