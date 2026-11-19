@@ -207,17 +207,6 @@ export async function glossaryPhoto(root: string, o: { term: string; kind: strin
   return record
 }
 
-/**
- * Whether a photo is on the never-again list (isRejected), also where the list names the source's own address at
- * another size than the search finds it at: a Commons file and a Flickr photo have one key whatever size the address
- * asks for (mirrorPlan).
- */
-function neverAgain(rejected: Record<string, string>): (url: string) => boolean {
-  const listed = isRejected(rejected)
-  const keys = new Set(Object.keys(rejected).flatMap(u => { try { return [mirrorPlan(u)?.key ?? ''] } catch { return [] } }).filter(Boolean))
-  return url => listed(url) || keys.has(mirrorPlan(url)?.key ?? '')
-}
-
 /** A search's candidate: what a person needs to choose it by its own words, and the options that bring it in (glossaryPhoto). */
 export type GlossarySearchHit = { key: string; licence: string; author: string; sourceUrl: string; words: string; take: string }
 
@@ -231,7 +220,7 @@ const IMPORTABLE = /\.(jpe?g|png|webp)$/i
  * stored (`--search`): Commons' open-licence JPEG, PNG and WebP bitmaps of 800 px or more (searchCommons, its first 20
  * hits), then Openverse's open-licence Flickr photos of 800 px or more on its first page. The kind must be one the
  * term's entry lists, and the words must hold a letter or a digit, not quotes alone, both checked before any request;
- * photos on the never-again list are left out (neverAgain). Each hit's words are the source's own: Commons' description,
+ * photos on the never-again list are left out, by any of their addresses (photos.ts isRejected). Each hit's words are the source's own: Commons' description,
  * Openverse's title. Nothing is stored and no file of ours is written (Commons' client keeps its own rest after a
  * refusal): each hit says how to bring it in, which stores and screens it.
  */
@@ -242,7 +231,7 @@ export async function glossaryPhotoSearch(root: string, o: { term: string; kind:
   const phrase = search.replace(/"/g, '').trim()
   if (!/[\p{L}\p{N}]/u.test(phrase)) throw refuse('--search takes the words to search for')
   const rejected = await readMap<string>(join(root, 'engine-state/_photo-rejected.json'))
-  const blocked = neverAgain(rejected)
+  const blocked = isRejected(rejected)
   const hits: GlossarySearchHit[] = (await searchCommons(search, d.http, 20, { rejected })).flatMap(p => {
     const file = decodeURIComponent(new URL(p.sourceUrl).pathname.replace(/^\/wiki\//, '')).replace(/_/g, ' ')
     return IMPORTABLE.test(file) && !blocked(p.url) ? [{ key: file, licence: p.licence, author: p.author, sourceUrl: p.sourceUrl, words: p.caption ?? '', take: `--file ${shellWord(file)}` }] : []

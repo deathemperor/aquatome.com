@@ -6,6 +6,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
+import { mirrorPlan } from '../src/mirror-photos'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
 import { dropEmailsEverywhere, kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
@@ -1264,6 +1265,65 @@ test("a photo credited to someone its source's permission refuses leaves every p
 
 // Photo Sourcing, 14 Nov: the aquatic-plants equipment page still showed an Aquarium Co-op photo on the never-again list,
 // in all four languages. The never-again pass walked fish, plant, breed, guide and album files only.
+test('a photo the never-again list names by another address of the same photo leaves its page and album too: our copy of a Commons file listed by its thumbnail address, and a Flickr photo listed at another size (19 Nov)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  // A Commons file listed by the address it was found at, before it moved to our store, and a Flickr photo listed at its
+  // original size; both shown at another address of the same photo. One more, never listed, stays.
+  const thumb = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example_fish.jpg/960px-Example_fish.jpg'
+  const ours = photo(`https://media.aquatome.com/${mirrorPlan(thumb)!.key}`, 'Danio erythromicron')
+  const flickr = photo('https://live.staticflickr.com/65535/5550001_0123abcd45_b.jpg', 'Danio erythromicron')
+  const kept = photo('https://media.aquatome.com/inat/kept.webp', 'Danio erythromicron')
+  await put('species/danio-erythromicron/entity.json', species('danio-erythromicron', 'Danio erythromicron', { photos: [ours, kept] }))
+  await put('species/danio-erythromicron/vi.json', vi('Cá sóc đầu lửa', { 'distribution:seriouslyfish': '<p>Myanmar.</p>' }))
+  await put('gallery/danio-erythromicron.json', { id: 'danio-erythromicron', photos: [ours, flickr, kept], seen: 2, updatedAt: '2026-10-01' })
+  // The calendar names a day's picture by our copy's large size: it goes, and the app shows the page's own.
+  await put('curation.json', { version: 1, days: [{ date: '2026-11-19', ref: 'species/danio-erythromicron', img: ours.url.replace(/\.webp$/, '-large.webp') }] })
+  const list = { [thumb.replace('/960px-', '/1280px-')]: 'rejected: another fish', 'https://live.staticflickr.com/65535/5550001_0123abcd45_o.jpg': 'people: a hand' }
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify(list, null, 2)}\n`)
+  const r = await sweep(root)
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos).toEqual([kept])
+  expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos).toEqual([kept])
+  // Each line names the photo as shown and the reason it is listed under, in the list's withheld form.
+  expect((await json(root, 'content/curation.json')).days).toEqual([{ date: '2026-11-19', ref: 'species/danio-erythromicron' }])
+  expect(r.again.map(x => x.slice(0, x.indexOf(' ('))).sort()).toEqual([
+    `curation.json 2026-11-19 img: ${ours.url.replace(/\.webp$/, '-large.webp')}`,
+    `gallery/danio-erythromicron.json: ${flickr.url}`,
+    `gallery/danio-erythromicron.json: ${ours.url}`,
+    `species/danio-erythromicron/entity.json: ${ours.url}`,
+  ])
+  for (const line of r.again) expect(line).toMatch(/\((?:people|rejected): withheld \[sha256:[a-f0-9]{64}\]\)$/)
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual(list)
+  expect((await sweep(root)).again).toEqual([])
+})
+
+test("a page whose only photo the never-again list names by another address opens on the album photo a person picked: first on its page, the listed one gone (the chief of staff, 19 Nov)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const thumb = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example_fish.jpg/960px-Example_fish.jpg'
+  const listed = photo(`https://media.aquatome.com/${mirrorPlan(thumb)!.key}`, 'Danio erythromicron')
+  const other = photo('https://media.aquatome.com/commons/0123456789abcdef.webp', 'Danio erythromicron')
+  await put('species/danio-erythromicron/entity.json', species('danio-erythromicron', 'Danio erythromicron', { photos: [listed] }))
+  await put('species/danio-erythromicron/vi.json', vi('Cá sóc đầu lửa', { 'distribution:seriouslyfish': '<p>Myanmar.</p>' }))
+  await put('gallery/danio-erythromicron.json', { id: 'danio-erythromicron', photos: [listed, other], seen: 2, updatedAt: '2026-10-01' })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify({ [thumb]: 'rejected: another fish' }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), `${JSON.stringify({ 'species/danio-erythromicron': other.url }, null, 2)}\n`)
+  await sweep(root)
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([other.url])
+  expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos.map((p: { url: string }) => p.url)).toEqual([other.url])
+  // The next sweep leaves it so.
+  await sweep(root)
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([other.url])
+})
+
 test("a photo on the never-again list leaves every equipment page and each language's copy: a type's photo goes, a listed hero gives way to a type's", async () => {
   const root = await mkdtemp(join(tmpdir(), 'sweep-'))
   const c = join(root, 'content')

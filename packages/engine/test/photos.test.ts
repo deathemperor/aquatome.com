@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { findPhotos, paperFigure, searchCommons, unfitCommons } from '../src/photos'
+import { findPhotos, isRejected, paperFigure, searchCommons, unfitCommons } from '../src/photos'
+import { mirrorPlan } from '../src/mirror-photos'
 import { findVideos, videoTitle } from '../src/videos'
 
 const fixture = () => JSON.parse(readFileSync(new URL('./fixtures/commons/paracheirodon-axelrodi.json', import.meta.url), 'utf8'))
@@ -248,4 +249,28 @@ test("a file named as a paper's figure is no page's photo straight from the sear
   }] }])) } })
   expect((await findPhotos('Clarias leiacanthus', async () => search())).map(p => p.sourceUrl.split('File:')[1])).toEqual(['Betta_pair.jpg'])
   expect(await searchCommons('"Clarias leiacanthus"', async () => search(), 6)).toHaveLength(3)
+})
+
+test('the never-again list names a photo by any of its addresses, either way round: our copy listed and its source shown, its source listed and our copy shown, or the source at another size; another photo is not matched (19 Nov)', () => {
+  const thumb = (w: number) => `https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example_fish.jpg/${w}px-Example_fish.jpg`
+  const ours = `https://media.aquatome.com/${mirrorPlan(thumb(960))!.key}`
+  // Listed by the source's address: our copy, the same file at another size, and the Flickr photo at another size go.
+  const bySource = isRejected({ [thumb(1280)]: 'rejected: another fish', 'https://live.staticflickr.com/65535/5550001_0123abcd45_o.jpg': 'people: a hand', 'not an address': 'rejected: x' })
+  expect([ours, thumb(960), thumb(1280), 'https://live.staticflickr.com/65535/5550001_0123abcd45_b.jpg'].map(bySource)).toEqual([true, true, true, true])
+  // Listed by our copy: its source's address goes, as before.
+  expect(isRejected({ [ours]: 'rejected: another fish' })(thumb(960))).toBe(true)
+  // Another file, another Flickr photo, an address that isn't one, and an Unsplash photo listed only by its own address.
+  expect(['https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Other_fish.jpg/960px-Other_fish.jpg', 'https://live.staticflickr.com/65535/5550002_0123abcd45_b.jpg', 'https://media.aquatome.com/commons/0000000000000000.webp', 'another, not an address', 'https://images.unsplash.com/photo-2'].map(bySource)).toEqual([false, false, false, false, false])
+  expect(bySource('not an address')).toBe(true)
+  expect(isRejected({ 'https://images.unsplash.com/photo-1': 'rejected: x' })('https://images.unsplash.com/photo-1')).toBe(true)
+  // An iNaturalist photo listed at one size is our copy and every other size; another iNaturalist photo is not.
+  const inat = isRejected({ 'https://inaturalist-open-data.s3.amazonaws.com/photos/4242/medium.jpg': 'people: a hand' })
+  expect(['https://media.aquatome.com/inaturalist/4242.webp', 'https://inaturalist-open-data.s3.amazonaws.com/photos/4242/large.jpeg', 'https://static.inaturalist.org/photos/4242/original.jpg', 'https://inaturalist-open-data.s3.amazonaws.com/photos/4243/medium.jpg'].map(inat)).toEqual([true, true, true, false])
+  // A GBIF image listed at one size is our copy and the other size; another image of the same occurrence is not.
+  const gbif = (size: string, media = '0123456789abcdef0123456789abcdef') => `https://api.gbif.org/v1/image/cache/fit-in/${size}/occurrence/77/media/${media}`
+  const byGbif = isRejected({ [gbif('500x')]: 'dead: on ice' })
+  expect([gbif('1200x'), `https://media.aquatome.com/gbif/77-0123456789abcdef.webp`, gbif('500x', 'fedcba9876543210fedcba9876543210')].map(byGbif)).toEqual([true, true, false])
+  // A host our store doesn't copy has no key: only its own address matches, and two of its photos never meet.
+  const other = isRejected({ 'https://example.org/fish/a.jpg': 'rejected: x' })
+  expect(['https://example.org/fish/a.jpg', 'https://example.org/fish/b.jpg', 'https://example.org/fish/a.jpg?size=2'].map(other)).toEqual([true, false, false])
 })
