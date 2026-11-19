@@ -1,6 +1,6 @@
 import { existsSync, readdirSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import { glossaryKinds, PictureSet, slugify, toneKey, type GlossaryEntity, type Localized, type Photo } from '@aq/schema'
+import { glossaryKinds, PictureSet, slugify, type GlossaryEntity, type Localized, type Photo } from '@aq/schema'
 import { getContent } from '../src/lib/content'
 import { bodySections, glossaryParts, linkedTermPaths, nameCount, termTitle, tipLine, usedPictures, usedRows } from '../src/lib/glossary-page'
 import { smallSrc } from '../src/lib/img'
@@ -47,12 +47,8 @@ test('a term\'s other names never repeat its English line, nor print its link ph
 })
 
 // The chief of staff, 19 Nov 2026: "Oxy hoà tan" printed as Oxy hòa tan's other name, its own name with the tone mark on the
-// other vowel. A name is one name whichever vowel the mark sits on (toneKey).
+// other vowel. A name is one name in either placing (toneKey; its cases: packages/schema/test/text.test.ts).
 test('a term\'s other names never repeat its name, nor each other, with a tone mark on another vowel', async () => {
-  expect(toneKey('Oxy hoà tan')).toBe(toneKey('oxy hòa tan'))
-  expect(toneKey('thuỷ sinh')).toBe(toneKey('thủy sinh'))
-  expect(toneKey('hóa')).not.toBe(toneKey('hoa'))
-  expect(toneKey('ô')).not.toBe(toneKey('o'))
   const c = await getContent('vi')
   const gh = c.glossary.find(x => x.id === 'gh')!
   const p = glossaryParts('vi', c, term(gh, { name: 'Oxy hòa tan', altNames: ['Oxy hoà tan', 'thuỷ sinh', 'thủy sinh', 'Ôxy hòa tan'] }, 'Dissolved oxygen'))

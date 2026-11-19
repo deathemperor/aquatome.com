@@ -507,7 +507,13 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // a fact gives it as the term's name (glossary-other-names.ts; the chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing).
   const own = new Set([vi.name, ...(vi.linkNames ?? []), ...(asks.notNames ?? [])].map(toneKey))
   const isName = (n: string) => n.toLowerCase() === entity.en.toLowerCase() || givenAsName(n, facts.map(f => f.fact))
-  const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))].filter(n => n && !own.has(toneKey(n)) && own.add(toneKey(n)))
+  const offered = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))]
+  // The term's own name or link phrase in the other tone placing ("Oxy hoà tan" beside "Oxy hòa tan") is no other name, but
+  // stays a link phrase: a page that writes it so still links the term and counts toward it (Codex, 19 Nov 2026). A name its
+  // notes take off stays off.
+  const self = new Set([vi.name, ...(vi.linkNames ?? [])].map(toneKey)), written = new Set([vi.name, ...(vi.linkNames ?? []), ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
+  const variants = offered.filter((n, i) => n && self.has(toneKey(n)) && !written.has(n.toLowerCase()) && offered.findIndex(x => x.toLowerCase() === n.toLowerCase()) === i)
+  const altNames = offered.filter(n => n && !own.has(toneKey(n)) && own.add(toneKey(n)))
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
   // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
@@ -516,7 +522,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // kept, perhaps written while the writer still saw a refused site's facts, and nothing has read it against them since.
   const { bodyFixed: _cut, ...unmarked } = vi
   const t = TranslationSchema.parse(metricPage({
-    ...(o.accept ? vi : unmarked), altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
+    ...(o.accept ? vi : unmarked), altNames, ...(variants.length ? { linkNames: [...(vi.linkNames ?? []), ...variants] } : {}), definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
   // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,
