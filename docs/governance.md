@@ -658,7 +658,7 @@ The layers above still check the result.
     `packages/schema/src/image-policy.ts`), on from 18 Nov, on the chief of staff's yes of 17 Nov (the owner's yes, 10 Nov): iNaturalist's
     research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
     are the album step's last source, read once every open one has run dry and after every page's open sources in a run, pages with no photo of their own first,
-    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo but on a page that shows no strip, where they come right after its open photos that wait (`photo-check.ts`, the chief of staff, 19 Nov); they rank
+    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo but on a page whose album shows fewer than six, so no strip (counted from the files as the build fills the album, never too few), where they come right after the open photos that wait on such pages; as for every photo, a page's sheet with room left is filled from that page's later photos, a non-commercial one among them (`photo-check.ts`, the chief of staff, 19 Nov); they rank
     after every open photo, pass every screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
     head, card or fish-ID reference takes one. Their licence text is their mark (`isNonCommercial`, `licence.ts`), so with
     the switch off the site shows none and the sweep takes every one off every album and page (`dropNonCommercial`).

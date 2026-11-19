@@ -5,7 +5,7 @@ import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { isNonCommercial, realPhotosFirst } from '@aq/schema'
+import { isNonCommercial, photoFitsHead, realPhotosFirst } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { captionFlaw } from './content-rules'
@@ -441,11 +441,17 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const shown: Shown[] = []
   for (const s of all) {
     let bare = false
-    for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      const photos = ((await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(file))?.photos ?? []).filter(p => !p.generated)
+    const files = [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]
+    const [own, album] = await Promise.all(files.map(async f => (await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(f))?.photos ?? []))
+    // The photos the page's album shows, as the build fills it (packages/schema/src/load.ts): its file's photos that don't
+    // wait, AI pictures among them, and the page's own photos that can't lead it, which the build moves there. The build
+    // hides some and the site counts each picture once, so this can count a few too many, never too few. A breed's page
+    // shows its row at any length (apps/site/src/lib/breed-page.ts), so only a species' or a plant's is short.
+    const shows = album!.filter(p => p.unchecked !== true).length + own!.filter(p => p.headFit !== 'contain' && !photoFitsHead(p)).length
+    for (const [k, file] of files.entries()) {
+      const photos = (k ? album! : own!).filter(p => !p.generated)
       if (file.endsWith('entity.json')) bare = !photos.length
-      // A breed's page shows its row at any length (apps/site/src/lib/breed-page.ts), so only a species' or a plant's is short.
-      const short = s.kind !== 'breeds' && file.includes('/gallery/') && photos.filter(p => p.unchecked !== true).length < ALBUM
+      const short = s.kind !== 'breeds' && file.includes('/gallery/') && shows < ALBUM
       let place = 0
       for (const [i, p] of photos.entries()) {
         const origin = p.source ?? site(p.sourceUrl)

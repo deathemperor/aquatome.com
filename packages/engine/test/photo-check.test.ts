@@ -328,6 +328,34 @@ test("the photos that wait on a page that shows no strip go before the turns, th
   ])
 })
 
+test("an album's AI picture and a page's own photo that can't lead it, which the build moves to the album, count towards its strip: a non-commercial photo on a page they bring to six waits for last", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const shows = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}` })
+  const five = (p: string) => [1, 2, 3, 4, 5].map(i => `${p}${i}`)
+  // In page order: five album photos and an AI picture; five album photos and, of its own, one cropped too tight to
+  // lead (load.ts moves it to the album); a Commons photo readers see that nothing has judged.
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] },
+    { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b-own'] },
+    { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] },
+  ])
+  const entity = join(r, 'content/species/bbb-fish/entity.json')
+  const b = await json(r, 'content/species/bbb-fish/entity.json')
+  await writeFile(entity, JSON.stringify({ ...b, photos: [...b.photos, { ...photo('b-tight'), altered: [{ method: 'mark-crop', date: '2026-11-01', originalHash: 'x' }] }] }))
+  const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), JSON.stringify({ id, photos, seen: 0, updatedAt: '' }))
+  await gallery('aaa-fish', [...five('a').map(shows), { ...photo('a-ai'), generated: { model: 'sample' } }, nc('a-nc')])
+  await gallery('bbb-fish', [...five('b').map(shows), nc('b-nc')])
+  await gallery('ccc-fish', [{ ...photo('c1'), sourceUrl: 'https://commons.wikimedia.org/wiki/File:c1.jpg' }])
+  const seen = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  const judged: [string, string][] = [['a-own', 'aaa-fish'], ...five('a').map(n => [n, 'aaa-fish'] as [string, string]), ['b-own', 'bbb-fish'], ['b-tight', 'bbb-fish'], ...five('b').map(n => [n, 'bbb-fish'] as [string, string]), ['c-own', 'ccc-fish']]
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(Object.fromEntries(judged.map(([n, id]) => [url(n), { [id]: seen }]))))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  // Both pages show a strip: the Commons photo first, then the non-commercial ones in their last turn.
+  expect(d.seen.map(s => s.photos)[0]).toEqual(['c1'])
+  expect(d.seen.flatMap(s => s.photos).sort()).toEqual(['a-nc', 'b-nc', 'c1'])
+})
+
 test("the lead a page shows stays where the check passes it as typical, and gives way to a typical photo where it passes as less, can't be told, is taken off, or has not been judged", async () => {
   const pages = ['aaa', 'bbb', 'ccc', 'ddd', 'eee'].map(p => ({ id: `${p}-fish`, sci: `${p} fish`, photos: [`${p}-lead`, `${p}-typical`] }))
   const r = await root(pages)
