@@ -800,7 +800,7 @@ final class V2FlowTests: XCTestCase {
   /// reader: the glass is everyone's.
   func testNoPagesWordsReadUnderTheTabBarFromAnyTab() { noPagesWordsReadUnderTheTabBar() }
 
-  /// The same at the largest text, where letters outlast iOS's soft edge (Design, 15 Nov): there the hard one.
+  /// The same at the largest text, where letters outlast iOS's hard edge (Design, 15 Nov): there the fade.
   func testNoPagesWordsReadUnderTheTabBarAtTheLargestText() {
     noPagesWordsReadUnderTheTabBar("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
   }
@@ -848,14 +848,17 @@ final class V2FlowTests: XCTestCase {
     Thread.sleep(forTimeInterval: 0.5)
     XCTAssertLessThan(card.frame.minY, top - 100, "the drag didn't scroll Hôm nay: \(top) then \(card.frame.minY)")
     let shot = XCUIScreen.main.screenshot(), after = Pixels(shot)
-    func moved(_ from: CGFloat, _ to: CGFloat) -> Double {
-      let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in stride(from: from, to: to, by: 4).map { (x, $0) } }
+    func moved(_ from: CGFloat, _ to: CGFloat, across xs: (CGFloat, CGFloat) = (0, 0)) -> Double {
+      let right = xs.1 > xs.0 ? xs.1 : app.frame.width
+      let spots = stride(from: xs.0 + 6, to: right - 6, by: 6).flatMap { x in stride(from: from, to: to, by: 4).map { (x, $0) } }
       return Double(spots.filter { before.at($0.0, $0.1).distance(to: after.at($0.0, $0.1)) > 30 }.count) / Double(spots.count)
     }
-    // The bar's place; and the yardstick, a band above it and above any fade, where the page shows with the glass or
-    // without: there the colours passing at the bar's height show, so a reading under the bar of none means none came
-    // through, not that nothing passed.
-    let under = moved(bar.minY + 4, app.frame.maxY - 2), passing = moved(bar.minY - 140, bar.minY - 40)
+    // The bar's own place, its buttons' frames together: beside and below it the page shows whatever the bar is. And the
+    // yardstick, a band above it and above any fade, where the page shows with the glass or without: there the colours
+    // passing at the bar's height show, so a reading under the bar of none means none came through, not that nothing
+    // passed.
+    let pill = app.tabBarsOwnPlace
+    let under = moved(pill.minY + 4, pill.maxY - 4, across: (pill.minX, pill.maxX)), passing = moved(bar.minY - 140, bar.minY - 40)
     // Seen on a pass too, in the result's activities.
     XCTContext.runActivity(named: "GLASS moved: \(under) under the bar, \(passing) above it") { activity in
       let a = XCTAttachment(screenshot: shot)
@@ -1658,13 +1661,18 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(tab.waitForExistence(timeout: 10), "no Hôm nay")
     let at = CGPoint(x: 100, y: tab.frame.maxY + 10)
     // A card of the page's behind that point: hidden by the fade, still in the accessibility tree.
-    func behind(_ e: XCUIElementSnapshot) -> Bool {
-      e.elementType != .tabBar && ((e.elementType == .button && e.frame.contains(at)) || e.children.contains(where: behind))
-    }
-    XCTAssertTrue((try? app.snapshot()).map(behind) ?? false, "no card behind the bar to tap")
+    let card = app.cardAt(at)
+    XCTAssertTrue(card, "no card behind the bar to tap")
+    let calm = Pixels(XCUIScreen.main.screenshot())
     app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: at.x, dy: at.y)).tap()
     // A post's, a guide's and a fish's page each have a ⋯; Hôm nay has none.
     XCTAssertFalse(app.descendants(matching: .any)["page-more"].waitForExistence(timeout: 2), "a tap under the bar opened what's behind it")
+    // Any page pushed over Hôm nay, "Xem tất cả"'s list too (no ⋯, and v2's pages no iOS back button), changes the screen
+    // above the bar; a tap that opened nothing leaves it as it was.
+    let now = Pixels(XCUIScreen.main.screenshot()), foot = tab.frame.minY - 40
+    let spots = stride(from: 20.0, to: app.frame.width - 20, by: 12).flatMap { x in stride(from: 120.0, to: foot, by: 12).map { (x, $0) } }
+    let changed = Double(spots.filter { calm.at($0.0, $0.1).distance(to: now.at($0.0, $0.1)) > 30 }.count) / Double(spots.count)
+    XCTAssertLessThan(changed, 0.05, "a tap under the bar opened a page over Hôm nay: \(changed) of the screen changed")
     XCTAssertTrue(tab.isSelected, "a tap under the bar left Hôm nay")
   }
 

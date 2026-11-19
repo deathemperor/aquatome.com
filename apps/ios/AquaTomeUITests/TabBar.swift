@@ -67,9 +67,9 @@ extension XCUIApplication {
     XCTAssertLessThan(seen, 4, "\(screen): a band stands behind the bar", file: file, line: line)
   }
 
-  /// The screen's grey levels in `rect` (in points), row by row.
-  private func grey(in rect: CGRect) -> (px: [UInt8], w: Int, h: Int)? {
-    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return nil }
+  /// The screen's grey levels in `rect` (in points), row by row: of `screenshot` if given, else of a new one.
+  private func grey(in rect: CGRect, of screenshot: XCUIScreenshot? = nil) -> (px: [UInt8], w: Int, h: Int)? {
+    guard let shot = (screenshot ?? XCUIScreen.main.screenshot()).image.cgImage else { return nil }
     let scale = CGFloat(shot.width) / frame.width
     let band = CGRect(x: rect.minX * scale, y: rect.minY * scale, width: rect.width * scale, height: rect.height * scale).integral
     guard let box = shot.cropping(to: band) else { return nil }
@@ -141,6 +141,23 @@ extension XCUIApplication {
     return sharp
   }
 
+  /// The tab bar's own place (on iOS 26 its glass, narrower and shorter than its frame): its buttons' frames together.
+  var tabBarsOwnPlace: CGRect {
+    tabBars.buttons.allElementsBoundByIndex.map { $0.frame }.reduce(CGRect.null) { $0.union($1) }
+  }
+
+  /// Whether a button of the page's, a card's size, stands at `p` (points), seen or hidden: not the tab bar's, nor a
+  /// navigation bar's.
+  func cardAt(_ p: CGPoint) -> Bool {
+    guard let snap = try? snapshot() else { return false }
+    func walk(_ e: XCUIElementSnapshot) -> Bool {
+      if e.elementType == .tabBar || e.elementType == .navigationBar { return false }
+      if e.elementType == .button, e.frame.contains(p), e.frame.height < 600 { return true }
+      return e.children.contains(where: walk)
+    }
+    return walk(snap)
+  }
+
   /// Dragged up a little at a time, without a fling, until one of the page's lines of words crosses into the tab bar's
   /// frame (the bar's own names are shorter than a line), then whether it did. Or until a bar of the page's own stands on
   /// ours over its foot, so nothing of the page goes under ours: Đèn's notice (`notice`), which at the largest text on
@@ -179,12 +196,14 @@ extension XCUIApplication {
   func wordsUnderTheTabBar(_ screen: String) -> (under: Int, above: Int, page: Int) {
     let bar = tabBars.firstMatch.frame
     let top = max(bar.minY - 48 - bar.height, 0)
+    // The shot kept with the results is the one measured.
     func shot(_ name: String) -> (px: [UInt8], w: Int, h: Int)? {
-      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      let s = XCUIScreen.main.screenshot()
+      let a = XCTAttachment(screenshot: s)
       a.name = "\(screen), \(name)"
       a.lifetime = .keepAlways
       XCTContext.runActivity(named: a.name ?? name) { $0.add(a) }
-      return grey(in: frame)
+      return grey(in: frame, of: s)
     }
     guard let a = shot("before") else { return (.max, 0, 0) }
     let from = coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
