@@ -7,10 +7,10 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
-import { fitRules } from '../src/fit'
+import { checklistLines, fitPrompt, fitRules } from '../src/fit'
 import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, editDraft, flatEntries, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, ytDlp, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, editDraft, fixDraft, flatEntries, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, writeDraft, ytApi, ytDlp, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -651,4 +651,28 @@ test('the editor of a guide that names its video drops a story of the day, and w
   expect(prompts[0]).toContain('câu chỉ kể chuyện hôm làm ("Hôm đó làm đến tối") thì bỏ')
   expect(prompts[0]).toContain('viết thành một ví dụ tự nói rõ cỡ bể ("Ví dụ, một bể dài 45 cm…")')
   expect(prompts[0]).not.toContain('thì viết lại thành lời nói thẳng')
+})
+
+// The chief of staff, 19 Nov 2026: of the 58 video guides first written from Tue 17 to Thu 19 and held, 48 were held for
+// talking about the video's source and 14 for advice for somewhere else. The writer is told both of the check's rules, in
+// the check's own words, read from its file; the mend has its own findings.
+test("the writer and the reviewer's fix are told the check's source and elsewhere rules in its own words; the mend isn't", async () => {
+  const rules = checklistLines(['source', 'elsewhere'], 'vi', 'guides', true)
+  expect(rules.split('\n')[0]).toMatch(/^- source: the page makes the reader meet someone they don't know/)
+  expect(rules).toContain('  - its own tank or story as if the reader knew it: "bể mẫu"')
+  expect(rules).toContain('On a guide written from the video above it')
+  expect(rules).toMatch(/^- elsewhere: anything else written for a reader who lives somewhere else/m)
+  expect(rules).toContain("For this reader the North's winter is their own")
+  expect(rules).toContain('beech or oak leaves')
+  expect(rules).not.toMatch(/^- (shop|units|words|kit|harm):/m)
+  expect(fitPrompt('vi', 'guides', true)).toContain(rules.split('\n- elsewhere:')[0])
+  const draft = { relevant: true, kind: 'care', viTitle: 'T', summary: ['a'], body: '<p>b</p>', faq: [], chapters: [] }
+  const prompts: string[] = []
+  const llm = (async (a: { prompt: string }) => { prompts.push(a.prompt); return draft }) as never
+  await writeDraft(llm, meta('v1'), 'transcript')
+  await fixDraft(llm, 'transcript', draft as never, ['a note'])
+  await fixDraft(llm, 'transcript', draft as never, ['a note'], { reader: true })
+  expect(prompts[0]).toContain(rules)
+  expect(prompts[1]).toContain(rules)
+  expect(prompts[2]).not.toContain(rules)
 })

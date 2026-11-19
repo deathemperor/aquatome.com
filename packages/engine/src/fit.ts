@@ -118,6 +118,21 @@ export const fitPrompt = (lang: Lang, kind?: PageKind, video = false) => TEMPLAT
   .replace('{{PRICE_NOTE}}', lang === 'vi' ? '' : ' Vietnamese đồng counts too.')
   .replace('{{WORDS_NOTE}}', PHRASES[lang]?.length ? ` Another check counts these, so leave them out: ${PHRASES[lang]!.map(p => p.say).join(', ')}.` : '')
 
+/**
+ * The checklist's own lines for `checks`, as the check reads a page of `kind` in `lang` (a video guide with its note):
+ * each check's line and the lines indented under it, word for word, so a writer told them is told what the check holds a
+ * page for, in the check's words (the chief of staff, 19 Nov 2026).
+ */
+export function checklistLines(checks: readonly FitCheck[], lang: Lang, kind?: PageKind, video = false): string {
+  const lines = fitPrompt(lang, kind, video).split('\n')
+  return checks.map(c => {
+    const i = lines.findIndex(l => l.startsWith(`- ${c}:`))
+    if (i < 0) throw new Error(`prompts/fit.md has no line for ${c}`)
+    const end = lines.findIndex((l, j) => j > i && !l.startsWith('  '))
+    return lines.slice(i, end < 0 ? undefined : end).join('\n')
+  }).join('\n')
+}
+
 /** The text a reader gets, in numbered parts, without what comes from elsewhere as it is (photo captions, reference lists). */
 export function fitText(p: Page): { parts: { id: string; field: string; text: string }[]; text: string; hash: string } {
   const parts = [
