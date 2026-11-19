@@ -74,7 +74,7 @@ test('a read is told each list\'s opening and the verdicts that stop: a one-site
   expect(calls[0]).toContain('SENTENCES:\n1. Cá bột là cá con vừa nở.\n2. Một tiệm ghi:\n[under the opening "Một tiệm ghi:"]\n3. Cho ăn 3–5 bữa nhỏ mỗi ngày.\n[no heading, under no opening]\n4. Cá bột sẽ chết nếu cho ăn quá tay.')
   expect(calls[0]).toContain('- uncredited: the facts carry it, but every fact that carries it comes from one site')
   expect(calls[0]).toContain('"sẽ" for "can" is unsupported')
-  expect(calls[0]).toContain('A hedge or an amount changed is never loose')
+  expect(calls[0]).toContain('Never loose, but unsupported: a hedge or an amount changed, a claim said more strongly or of more than its fact')
   expect(calls[0]).toContain('the sources list gives each number\'s kind and site')
   expect(r.stops.map(x => x.text)).toEqual([plainOne])
   expect(stopNote(r.stops[0]!)).toBe(`"${plainOne}": the facts don't carry it (uncredited, uncredited, supported): one site, plain / one site`)
