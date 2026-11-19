@@ -4,11 +4,12 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { SpeciesSchema } from '@aq/schema'
 import { rankGallery } from '../src/gallery'
-import { cantTellOn, captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { ASIDE_FILE, cantTellOn, captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { modelFailureKind, photoModelStop } from '../src/photo-observations'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -894,10 +895,87 @@ test('--only takes several pages, comma-separated, and judges those alone', asyn
 
 test.each(['usage limit', 'invalid model answer'])('a species-check failure retains only the controlled stop kind: %s',async kind=>{
  const r=await root([{id:'danio-rerio',sci:'Danio rerio',photos:['a','b']}]),trip=['TEST','ONLY','FAILED','MODEL','WORDS'].join('_')
- const report=await checkPagePhotos(r,{get:async()=>new Uint8Array(await jpeg),look:async()=>{throw new LlmError(kind+' '+trip)}},{limit:10})
- expect(report.stopped).toBe('danio-rerio: '+(kind==='usage limit'?'usage limit':'photo model unavailable'))
+ const report=await checkPagePhotos(r,{get:async()=>new Uint8Array(await jpeg),look:async()=>{throw new LlmError(kind+' '+trip)}},{limit:10,retryAfterMs:0})
+ // A limit stops the run; any other failure is tried again, then the sheet is set aside, its kind in a word of ours.
+ expect(report.stopped).toBe(kind==='usage limit'?'danio-rerio: usage limit':'')
+ expect(report.aside).toEqual(kind==='usage limit'?[]:['danio-rerio: other'])
  expect(JSON.stringify(report)).not.toContain(trip)
+ expect(await readFile(join(r,'engine-state',ASIDE_FILE),'utf8').catch(()=>'')).not.toContain(trip)
  expect(await urls(r,'content/species/danio-rerio/entity.json')).toEqual(['a','b'])
+})
+
+test("a model failure that isn't a limit: the sheet again after a minute on the same account, then once on the next, each try's kind kept in a word of ours, never the tool's text (the chief of staff, 19 Nov)", async () => {
+  const trip = ['TEST', 'ONLY', 'MODEL', 'WORDS'].join('_')
+  const flaky = (fails: string[], next?: string | null) => {
+    const base = model({})
+    let tries = 0, asked = 0
+    const d: PhotoCheckDeps = {
+      get: base.get,
+      look: async (sheet, prompt) => { if (tries < fails.length) throw new LlmError(fails[tries++]!); tries++; return base.look(sheet, prompt) },
+      ...(next !== undefined ? { lookNext: async (sheet: string, prompt: string) => { asked++; if (next) throw new LlmError(next); return base.look(sheet, prompt) } } : {}),
+    }
+    return { d, tries: () => tries, asked: () => asked }
+  }
+  const page = () => root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a', 'b'] }])
+  // Once overloaded, then answered: a minute's wait, by default, on the same account.
+  const real = globalThis.setTimeout, waits: number[] = []
+  const spy = vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: (...a: unknown[]) => void, ms?: number, ...rest: unknown[]) => {
+    if (ms === 60_000) { waits.push(ms); fn(); return 0 }
+    return real(fn, ms, ...rest)
+  }) as typeof setTimeout)
+  const one = flaky(['API Error: 529 {"type":"error","error":{"type":"overloaded_error","message":"' + trip + '"}}'], null)
+  const a = await checkPagePhotos(await page(), one.d, { limit: 10 })
+  spy.mockRestore()
+  expect(waits).toEqual([60_000])
+  expect([a.retried, a.judged, a.aside, a.stopped, one.asked()]).toEqual([['danio-rerio: overloaded; answered a minute later'], 2, [], '', 0])
+  // Twice a server error: the next account, once, answers.
+  const two = flaky(['API Error: 500 {"type":"error","error":{"type":"api_error","message":"' + trip + '"}}', 'API Error: 500 ' + trip])
+  const b = await checkPagePhotos(await page(), { ...two.d, lookNext: async (sheet, prompt) => model({}).look(sheet, prompt) }, { limit: 10, retryAfterMs: 0 })
+  expect(b.retried).toEqual(['danio-rerio: server error (500), then server error (500) a minute later; the next account answered'])
+  // Nothing answers: set aside, with the last kind, each photo first in the next run; none of the tool's words kept.
+  const r = await page()
+  const three = flaky(['claude failed (null): ' + trip, 'claude failed (null): ' + trip], 'API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"' + trip + '"}}')
+  const c = await checkPagePhotos(r, three.d, { limit: 10, retryAfterMs: 0, today: '2026-11-19' })
+  expect([three.tries(), three.asked()]).toEqual([2, 1])
+  expect(c.retried).toEqual(['danio-rerio: timed out, then timed out a minute later, then other (400 invalid_request_error) on the next account; nothing answered'])
+  expect([c.aside, c.stopped, c.judged]).toEqual([['danio-rerio: other (400 invalid_request_error)'], '', 0])
+  const aside = await json(r, `engine-state/${ASIDE_FILE}`)
+  expect(Object.keys(aside)).toEqual([`danio-rerio ${url('a')}`, `danio-rerio ${url('b')}`])
+  expect(aside[`danio-rerio ${url('a')}`]).toEqual({ kind: 'other (400 invalid_request_error)', at: '2026-11-19' })
+  expect(JSON.stringify([c, aside])).not.toContain(trip)
+})
+
+test('a second sheet set aside stops the run; a sheet set aside goes first in the next run, and leaves the list once judged or gone from its page', async () => {
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b1'] }, { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c1'] }])
+  let looks = 0
+  const failing: PhotoCheckDeps = { get: async () => new Uint8Array(await jpeg), look: async () => { looks++; throw new LlmError('API Error: 500') } }
+  const x = await checkPagePhotos(r, failing, { limit: 10, retryAfterMs: 0 })
+  expect(x.aside).toHaveLength(2)
+  expect(x.stopped).toMatch(/: two sheets set aside, the last server error \(500\)$/)
+  expect(looks).toBe(4)
+  // The next run: with room for one sheet, it goes to a photo set aside, whatever its page's turn.
+  const aside = await json(r, `engine-state/${ASIDE_FILE}`)
+  const [first] = Object.keys(aside).sort().reverse()
+  await writeFile(join(r, `engine-state/${ASIDE_FILE}`), JSON.stringify({ [first!]: aside[first!], [`ccc-fish ${url('gone')}`]: { kind: 'other', at: '2026-11-19' } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([[name(first!.split(' ')[1]!)]])
+  // Judged, it leaves the list; one its page no longer shows leaves too.
+  expect(await json(r, `engine-state/${ASIDE_FILE}`)).toEqual({})
+})
+
+test("a model failure's kind is a word of ours, with a status number and an error's class name where the tool gave them, never its text", () => {
+  const words = 'TEST_ONLY_WORDS'
+  expect(modelFailureKind(new Error(`claude failed (null): ${words}`))).toBe('timed out')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 529 {"type":"error","error":{"type":"overloaded_error","message":"${words}"}}`))).toBe('overloaded')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 500 {"type":"error","error":{"type":"api_error","message":"${words}"}}`))).toBe('server error (500)')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"${words}"}}`))).toBe('other (400 invalid_request_error)')
+  expect(modelFailureKind(new Error('spawn claude ENOENT'))).toBe('other (ENOENT)')
+  expect(modelFailureKind(new Error('fetch failed: ECONNRESET'))).toBe('network')
+  expect(modelFailureKind(new Error(`claude failed (1): ${words}`))).toBe('other')
+  // The other photo steps' stop (guide photos, the dead-fish screen, the watermark screen, video stills) says it too.
+  expect(photoModelStop(new LlmError(`claude failed (1): API Error: 529 ${words}`))).toBe('photo model unavailable: overloaded')
+  expect(photoModelStop(new LlmError(`claude failed (1): usage limit reached ${words}`))).toBe('usage limit')
 })
 
 test("a head a person picked stays first though the check can't tell it and passed another photo, so the steps before the sweep see the head a person chose", async () => {

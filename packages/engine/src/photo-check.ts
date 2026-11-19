@@ -1,5 +1,6 @@
-import { piece } from './pieces'
-import { compactVerdict, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
+import { piece, PieceAdmissionError } from './pieces'
+import { errorKind } from './state'
+import { compactVerdict, modelFailureKind, photoHints, photoReason, deadNote, peopleNote, photoFailure, photoModelStop, type PhotoHints } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { writeImageCache } from './image-cache-write'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -38,7 +39,11 @@ export type PhotoVerdict = { ok: 'yes' | 'other' | 'none' | 'habitat' | 'unsure'
 export type PhotoCheckDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
+  /** The same question to the next account, once (claude-accounts.ts onNextAccount); none: not asked. */
+  lookNext?: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & PhotoVerdict)[] }>
 }
+/** Sheets the model failed on, each photo by `page url`, which go first in the next run (checkPagePhotos). */
+export const ASIDE_FILE = '_photo-check-aside.json'
 const VERDICTS = ['yes', 'other', 'none', 'unsure', 'dead'] as const
 export const PHOTO_CHECK_SCHEMA = {
   type: 'object', required: ['photos'],
@@ -385,7 +390,8 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 
  * - A gallery photo a step added waits (`unchecked`, gallery.ts) and no page shows it: judged and left on, it loses the
  *   mark here and shows from the next build.
  *
- * The order: the leads nothing has looked at, the pages with no photo of their own and the pages with no strip (see
+ * The order: a sheet set aside last run (ASIDE_FILE), first; then the leads nothing has looked at, the pages with no
+ * photo of their own and the pages with no strip (see
  * `turn`), then `turn`'s, and
  * within each most-read pages first (`rank`), the photos a page shows itself before the rest of its gallery. A page's
  * lead is judged in the first sheet a run gives the page, so no photo of the page is judged before it. A page's last
@@ -397,7 +403,7 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number }) {
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
@@ -425,7 +431,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     heads: { moved: [] as string[], emptied: [] as string[], held: [] as string[], named: [] as string[] },
     /** A head a person picked that the check calls "none": it stays, listed for a person each run. */
     picked: [] as string[],
+    /** A sheet the model failed on for a reason not its limit, each try's kind (modelFailureKind) and what answered. */
+    retried: [] as string[],
+    /** A sheet no try answered: set aside, `page: kind`, first in the next run. */
+    aside: [] as string[],
   }
+  // Sheets set aside before: their photos go first (the phase `aside`), and stay listed until judged.
+  const asideFile = join(root, 'engine-state', ASIDE_FILE)
+  const asideBefore = (await readJson<Record<string, { kind: string; at: string }>>(asideFile)) ?? {}
+  const judgedNow = new Set<string>(), asideNow: Record<string, { kind: string; at: string }> = {}
   // Heads the box step found no animal in (engine-state/_photo-boxes.json: null), on a fish's or a breed's page.
   const boxes = (await readJson<Record<string, unknown>>(join(root, 'engine-state/_photo-boxes.json'))) ?? {}
 
@@ -523,8 +537,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), the photos
     // that wait on a page with no strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in
     // order.
-    const phase = (x: Shown, now: 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
-      now === 'noAnimal' ? noAnimal(x)
+    const phase = (x: Shown, now: 'aside' | 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
+      now === 'aside' ? `${x.page} ${x.url}` in asideBefore
+      : now === 'noAnimal' ? noAnimal(x)
       : now === 'first' ? !!x.sourced
       : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
       : now === 'bare' ? !!x.bare
@@ -533,7 +548,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     // A head with no animal in it goes before everything: a page whose head is a river should not wait (the chief of
     // staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
     let firstAt = from
-    for (const now of ['noAnimal', 'first', 'lead0', 'lead1', 'bare', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
+    for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
       if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill)) break
       if (only && !only.has(s.id)) continue
@@ -576,22 +591,50 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // A guide's caption goes with a photo judged here only because of it (a photo on the page itself is the page's).
       const caption = (url: string) => (shown.some(x => x.url === url && x.page === s.id && !x.guide) ? undefined : shown.find(x => x.url === url && x.page === s.id)?.caption)
       const captions = ok.map(x => caption(x.url))
+      // A failure that isn't a limit: the same sheet again on the same account after a minute, then once on the next
+      // account, then set aside, first in the next run; a second sheet set aside stops the run (the chief of staff, 19 Nov).
+      // Each failed try is kept as its kind in a word of ours (modelFailureKind), never the tool's text.
+      const kinds: string[] = []
+      let v: Awaited<ReturnType<PhotoCheckDeps['look']>> | undefined
       try {
-        const sheet = join(dir, `sheet-${i}.jpg`)
+        const sheet = join(dir, `sheet-${i}.jpg`), prompt = subjectPrompt(s, captions)
         await writeFile(sheet, await contactSheet(ok.map(x => x.b), 640, 480, 2, 'contain'))
-        const v = await piece(s.id, () => d.look(sheet, subjectPrompt(s, captions)))
-        report.sheets++
-        for (const p of v.photos ?? []) {
-          const x = ok[p.n - 1]
-          if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
-          cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(p.ok === 'yes' && !captions[p.n - 1] ? { young: !!p.young } : {}), ...(captions[p.n - 1] ? { guide: true } : {}) }) }
-          if (p.logo) logos.add(x.url)
-          if (p.ok === 'other' && !captions[p.n - 1]) others.add(`${s.id}\n${x.url}`)
-          report.judged++
+        for (const ask of [d.look, d.look, d.lookNext]) {
+          if (!ask) break
+          if (kinds.length === 1) await new Promise(r => setTimeout(r, o.retryAfterMs ?? 60_000))
+          try {
+            v = await piece(s.id, () => ask(sheet, prompt))
+            break
+          } catch (err) {
+            // A limit, the account's or the engine's own for the day, stops the run as before.
+            if (!(err instanceof LlmError) || err instanceof PieceAdmissionError || errorKind(err.message) === 'usage' || photoModelStop(err) === 'usage limit') throw err
+            kinds.push(modelFailureKind(err))
+          }
         }
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= `${s.id}: ${photoModelStop(err)}`
         else report.failed.push(`${s.id}: ${photoFailure(err)}`)
+        return
+      }
+      if (kinds.length) {
+        const tried = [`${kinds[0]}`, ...(kinds[1] ? [`then ${kinds[1]} a minute later`] : []), ...(kinds[2] ? [`then ${kinds[2]} on the next account`] : [])].join(', ')
+        report.retried.push(`${s.id}: ${tried}; ${!v ? (d.lookNext ? 'nothing answered' : 'no next account asked') : kinds.length === 1 ? 'answered a minute later' : 'the next account answered'}`)
+      }
+      if (!v) {
+        for (const { url } of ok) asideNow[`${s.id} ${url}`] = { kind: kinds.at(-1)!, at: o.today ?? new Date().toISOString().slice(0, 10) }
+        report.aside.push(`${s.id}: ${kinds.at(-1)}`)
+        if (report.aside.length >= 2) report.stopped ||= `${s.id}: two sheets set aside, the last ${kinds.at(-1)}`
+        return
+      }
+      report.sheets++
+      for (const p of v.photos ?? []) {
+        const x = ok[p.n - 1]
+        if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
+        cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(p.ok === 'yes' && !captions[p.n - 1] ? { young: !!p.young } : {}), ...(captions[p.n - 1] ? { guide: true } : {}) }) }
+        if (p.logo) logos.add(x.url)
+        if (p.ok === 'other' && !captions[p.n - 1]) others.add(`${s.id}\n${x.url}`)
+        judgedNow.add(`${s.id} ${x.url}`)
+        report.judged++
       }
     })
   try {
@@ -621,6 +664,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   } finally {
     await rm(dir, { recursive: true, force: true })
   }
+  // The sheets set aside: this run's, and those from before it hasn't judged yet that their page still shows.
+  const still = new Set(shown.map(x => `${x.page} ${x.url}`))
+  const aside = { ...Object.fromEntries(Object.entries(asideBefore).filter(([k]) => !judgedNow.has(k) && still.has(k))), ...asideNow }
+  if (Object.keys(aside).length || Object.keys(asideBefore).length) await writeFile(asideFile, `${JSON.stringify(Object.fromEntries(Object.entries(aside).sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0))), null, 2)}\n`)
 
   // 2. Rejected photos leave their pages; a photo everywhere it is shown rejects is rejected for good, and one that shows
   // a dead fish, a person or a logo wherever it was judged.

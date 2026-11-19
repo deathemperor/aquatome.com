@@ -1,3 +1,4 @@
+import { AsyncLocalStorage } from 'node:async_hooks'
 import { createHash } from 'node:crypto'
 import { errorKind } from './state'
 
@@ -100,6 +101,22 @@ export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: 
   const all = list()
   // A stop that isn't the account's goes straight up: no account is set aside for it, and the next isn't tried.
   const stopped = (e: unknown) => (e instanceof NotTheAccount ? fail(e.message) : undefined)
+  if (onNextAccount.getStore()) {
+    const [first, next] = all.filter(x => !x.out)
+    if (!next) throw fail('no other account to ask')
+    try {
+      const r = await call(next.token)
+      next.answered++
+      console.log(`claude: ${name(next)} answered for ${name(first!)}`)
+      return r
+    } catch (e) {
+      const stop = stopped(e)
+      if (stop) throw stop
+      const out = outOf((e as Error).message)
+      if (out && !next.out) { next.out = out; console.log(`claude: ${name(next)} set aside: ${why(out)}`) }
+      throw e
+    }
+  }
   if (!all.length) {
     try {
       return await call()
@@ -126,6 +143,13 @@ export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: 
     }
   }
 }
+
+/**
+ * A call made inside this goes once to the account after the one calls go to now, and nowhere else: the photo check's
+ * last try for a sheet the first account failed twice, for a reason not its limit (the chief of staff, 19 Nov). Out of
+ * its limit or rejected, that account is set aside as any other. No other account: it fails without calling.
+ */
+export const onNextAccount = new AsyncLocalStorage<true>()
 
 /** Per account: its number and hash, calls answered, and why it was set aside. Empty with no accounts or no call made. */
 export function accountReport(): string[] {

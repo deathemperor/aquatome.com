@@ -75,4 +75,20 @@ export function compactRejection(s:string):string {
 }
 export const compactRejections = (v:Record<string,string>):Record<string,string> => Object.fromEntries(Object.entries(v).map(([u,s])=>[u,compactRejection(s)]))
 export const photoFailure = (e:unknown) => {const s=e instanceof Error?e.message:String(e);return /^photo operation unavailable \[sha256:[a-f0-9]{64}\]$/.test(s)?s:`photo operation unavailable [sha256:${observationHash(s)}]`}
-export const photoModelStop = (e:unknown) => /usage limit|quota|weekly limit/i.test(e instanceof Error?e.message:String(e))?'usage limit':'photo model unavailable'
+/**
+ * The kind of failure that stopped a model call, in a word of ours, never the tool's text (the chief of staff, 19 Nov):
+ * timed out (the engine's own timer), overloaded, server error, network, or other, with the status number and the
+ * error's class name where it gave them, so one "other" can be told from the next.
+ */
+export function modelFailureKind(e:unknown):string {
+  const m=e instanceof Error?e.message:String(e)
+  if(/^claude failed \(null\)/.test(m)||/\btimed? ?out\b|ETIMEDOUT/i.test(m))return 'timed out'
+  if(/overloaded|\b529\b/i.test(m))return 'overloaded'
+  if(/\b(?:ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE)\b|socket hang up|fetch failed/i.test(m))return 'network'
+  const status=/\b(?:API Error:?|status:?)\s*([1-5]\d\d)\b/i.exec(m)?.[1]
+  const cls=/"type"\s*:\s*"([a-z]+(?:_[a-z]+)*_error)"/.exec(m)?.[1]??/\b(ENOENT|EACCES|EPERM|EMFILE)\b/.exec(m)?.[1]
+  if(status?.startsWith('5')||cls==='api_error')return `server error${status?` (${status})`:''}`
+  const told=[status,cls].filter(Boolean)
+  return told.length?`other (${told.join(' ')})`:'other'
+}
+export const photoModelStop = (e:unknown) => /usage limit|quota|weekly limit/i.test(e instanceof Error?e.message:String(e))?'usage limit':`photo model unavailable: ${modelFailureKind(e)}`
