@@ -1077,6 +1077,27 @@
   ],
   "vi/glossary/luu-vuc": [
     {
+      "at": "2026-11-19T01:30:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T01:30:38Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: The meaning still has the saved wording \"bể biotope chép theo\". THIS TERM says it must be replaced word for word with \"Trong nuôi cá cảnh, lưu vực, hay hệ sông, được xét như một vùng địa lý mà bể biotope mô phỏng: cá, cây và đồ trang trí đều lấy từ cùng một nơi ngoài tự nhiên, như sông Amazon.\" Only \"mô phỏng\" replaces \"chép theo\".",
+        "Rule 12: The plants sentence still has the saved order \"Hygrophila, và Crinum natans hoặc cây crinum calamistratum.\" THIS TERM says it must be replaced word for word with \"Cây gồm Cryptocoryne dọc mép nước lặng, Vallisneria (cỏ lươn) trồng trên cát chỗ dòng vừa, Hygrophila, và cây crinum calamistratum hoặc Crinum natans.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-18T19:21:54Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1117,32 +1138,35 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
+    }
+  ],
+  "vi/glossary/oxy-hoa-tan": [
     {
-      "at": "2026-11-18T18:26:24Z",
+      "at": "2026-11-19T01:35:50Z",
       "model": "sonnet",
       "cli": "2.1.327",
       "score": 1,
       "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chọn nền, đá và lũa hợp với nơi sống đó.\" (not \"Chọn nền và vật liệu trang trí cứng (hardscape) hợp với nơi sống đó.\": it drops the advice \"đá\")"
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" (not \"Với phần lớn cá, oxy hòa tan trên 5 mg/L là tốt nhất.\": Rule 12: \"Với phần lớn cá, oxy hòa tan trên 5 mg/L là tốt nhất.\" replaces a sentence that must stay word for word: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" (not \"Oxy hòa tan thường thấp nhất vào sáng sớm, nhưng cũng có thể xuống thấp bất cứ lúc nào.\": Rule 12: \"Oxy hòa tan thường thấp nhất vào sáng sớm, nhưng cũng có thể xuống thấp bất cứ lúc nào.\" replaces a sentence that must stay word for w…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tăng sục khí ngay: bật máy sủi.\" (not \"Nếu có máy sủi, bật máy sủi để thêm oxy cho nước.\": it drops the advice \"Tăng sục khí ngay\")"
       ],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-18T18:26:24Z",
+      "at": "2026-11-19T01:35:50Z",
       "model": "sonnet",
       "cli": "2.1.327",
       "score": 1,
       "notes": [
-        "Rule 12: Step 3 reads \"Bài gợi ý bể 60–80 lít cho bể biotope đầu tiên, và cần xem sàn nhà có chịu nổi sức nặng không.\" It leaves out the weight (fact 23), which goes in an eighth item, \"Đừng quên sức nặng: một bể biotope 80 lít set xong có thể nặng khoảng 100 kg.\" THIS TERM says the guide's seven steps go in order and the weight belongs in step 3, beside the floor check, never as its own item. St…",
-        "Rule 12: Step 7 reads \"Chạy vi sinh cho bể từ bốn đến sáu tuần, rồi thả dần cá, tép, ốc, bắt đầu từ loài khỏe nhất.\" \"cá, tép, ốc\" are another page's words (fact 18). Step 7 must be, word for word: \"Chạy vi sinh cho bể từ bốn đến sáu tuần, rồi mới thả dần các loài vào bể, bắt đầu từ loài khỏe nhất.\""
+        "Rule 12: \"Một tiệm ở Việt Nam ghi là khuấy nhẹ 5–10 phút, cứ 30–60 phút làm lại một lần, hoặc chạy máy sủi bằng pin, hoặc chuyển bớt cá sang một bể dự phòng đã chuẩn bị sẵn.\" is the old saved sentence. THIS TERM says to replace it word for word with \"Một tiệm ở Việt Nam ghi: khuấy nhẹ 5–10 phút, cứ 30–60 phút làm lại một lần, hoặc chạy máy sủi bằng pin, hoặc chuyển bớt cá sang một bể dự phòng đã …",
+        "Rule 12: \"Giữ lọc sạch, giữ nhiệt độ ổn định và thay khoảng 20–30% nước mỗi một hoặc hai tuần.\" is the old saved sentence. THIS TERM says to replace it word for word with \"Giữ lọc sạch, giữ nhiệt độ ổn định và cứ 1–2 tuần thay khoảng 20–30% nước một lần.\"",
+        "Rule 12: \"Oxy có thể tụt do nuôi quá đông cá, chất hữu cơ thối rữa, tảo chết hàng loạt, dùng thuốc hay hóa chất, lọc hỏng, và mất điện làm máy sủi ngưng.\" still has the comma before \"và\". THIS TERM says to write it word for word as \"... lọc hỏng và mất điện làm máy sủi ngưng.\""
       ],
       "attempt": "rewrite",
       "kept": false
-    }
-  ],
-  "vi/glossary/oxy-hoa-tan": [
+    },
     {
       "at": "2026-11-18T19:34:33Z",
       "model": "sonnet",
@@ -1193,41 +1217,37 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
-    {
-      "at": "2026-11-18T19:27:51Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" (not \"Với phần lớn loài cá, oxy hòa tan trên 5 mg/L là mức tốt nhất.\": Rule 12: \"Với phần lớn loài cá, oxy hòa tan trên 5 mg/L là mức tốt nhất.\" Only one page says this (the vet page, fact 4), but it is written as plain fact. The entry al…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tăng sục khí ngay: bật máy sủi.\" (not \"Chạy máy sủi có đầu khuếch tán vào những giờ tối sẽ thêm oxy cho bể.\": Rule 12: \"Chạy máy sủi có đầu khuếch tán vào những giờ tối sẽ thêm oxy cho bể.\" The first step has to open with exactly \"Tăng sục khí ngay: bật máy sủi.\" This sentence also states a claim that onl…",
-        "Rule 12: \"Oxy vào nước theo hai đường: cây và tảo quang hợp, và oxy từ không khí thấm qua mặt nước.\" adds algae, which only the Florida page gives. The line must be written word for word as \"Oxy vào nước theo hai đường: cây quang hợp, và oxy từ không khí thấm qua mặt nước.\"",
-        "Rule 12: \"Ban ngày cây và tảo nhả oxy, còn ban đêm cây lại dùng oxy.\" adds algae again. The line must be written word for word as \"Ban ngày cây nhả oxy, còn ban đêm cây lại dùng oxy.\"",
-        "Rule 12: the causes sentence keeps \"dùng thuốc hay hóa chất quá liều\". \"quá liều\" is one page's word and must come out, leaving the sentence word for word as \"... dùng thuốc hay hóa chất, lọc hỏng, và mất điện làm máy sủi ngưng.\"",
-        "Rule 12: \"Mất điện thì khuấy mặt nước bằng tay.\" puts a power cut into the hand-stirring sentence. The line must be written word for word as \"Không có máy sủi thì khuấy mặt nước bằng tay.\"",
-        "Rule 12: the first-aid steps under \"Nên làm gì\" are a numbered list (<ol>). They must be a plain list, because no page puts aerating before the water change.",
-        "Rule 4: the dawn timing is said twice. The definition says \"thường vào lúc gần sáng\", and the body says it again in \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\"",
-        "Rule 12: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" The 'warm-water fish' figure comes from the Florida page (fact 3), but here it is stated without its place. The other page (fact 4) says 'most finfish', not warm-water fish. So the figure must be said of Florida, or worded as fact 4 words it."
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T19:06:05Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Phần lớn cá nước ấm cần khoảng 5 mg/L oxy hòa tan trở lên để khỏe.\" (not \"Với phần lớn loài cá, mức oxy hòa tan trên 5 mg/L là tốt nhất.\": Rule 12: \"Với phần lớn loài cá, mức oxy hòa tan trên 5 mg/L là tốt nhất.\" comes from one page only (the vet manual, fact 4) but is written as plain fact with no credit…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Trong bể, oxy xuống thấp nhất vào sáng sớm, trước lúc trời sáng.\" (not \"Oxy hòa tan thường xuống thấp nhất vào sáng sớm.\": it drops the advice \"Trong bể\", the advice \"trước lúc trời sáng\")",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tăng sục khí ngay: bật máy sủi.\" (not \"Khi thiếu oxy, cần làm mặt nước chuyển động để tăng trao đổi khí.\": Rule 12: The first step has to open with \"Tăng sục khí ngay: bật máy sủi.\" word for word, but it opens with \"Khi thiếu oxy, cần làm mặt nước chuyển động để tăng trao đổi khí.\" That replacement senten…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
     }
   ],
   "vi/glossary/ca-bot": [
+    {
+      "at": "2026-11-19T01:39:27Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Miệng và dạ dày của chúng rất nhỏ nên cần được cho ăn nhiều bữa nhỏ mỗi ngày, và vì ăn nhiều sinh nhiều chất thải nên lúc đầu phải thay nước hằng ngày hoặc vài lần mỗi tuần.\": Rule 12: The definition must be word for word \"Cá bột là cá con vừa nở. Lúc mới n…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T01:39:27Z",
+      "model": "sonnet",
+      "cli": "2.1.327",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Theo bài tạp chí ở trên, loài không giữ con thì vớt cá bố mẹ ra sau khi đẻ, còn loài biết giữ con thì để chung với con được.\" is the old sentence. THIS TERM says to write \"Bài tạp chí ấy cũng ghi: loài không giữ con thì vớt cá bố mẹ ra sau khi đẻ, còn loài biết giữ con thì để chung với con được.\" in its place.",
+        "Rule 12: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" is the old sentence. THIS TERM says to write \"Cá bột rất nhỏ của một số loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" in its place.",
+        "Rule 12: \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn dày thì nước xuống cấp rất nhanh.\" is the old sentence. THIS TERM says to write \"... mà cho ăn nhiều bữa thì nước xuống cấp rất nhanh.\" in its place.",
+        "Rule 12: \"Cám bột nổi, vậy với cá bột sống sát đáy thì khuấy nhẹ nước lúc cho ăn.\" is the old sentence. THIS TERM says to write \"Cám bột nổi, nên với cá bột sống sát đáy thì khuấy nhẹ nước lúc cho ăn.\" in its place.",
+        "Rule 12: \"Để chia phần cám bột thì chấm cọ vẽ nhỏ vào cám rồi gõ nhẹ trên mặt bể.\" is the old sentence. THIS TERM says to write \"Để chia phần cám bột thì chấm cọ vẽ nhỏ vào cám rồi gõ nhẹ cọ phía trên bể.\" in its place.",
+        "Rule 12: \"Tách cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\" is the old sentence. THIS TERM says to write \"Tách cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành mồi của chúng.\" in its place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-18T19:10:16Z",
       "model": "sonnet",
@@ -1277,37 +1297,31 @@
       ],
       "attempt": "rewrite",
       "kept": false
-    },
+    }
+  ],
+  "vi/glossary/chieu-dai-chuan": [
     {
-      "at": "2026-11-18T18:30:15Z",
+      "at": "2026-11-19T01:41:10Z",
       "model": "sonnet",
       "cli": "2.1.327",
       "score": 1,
-      "notes": [
-        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Từ lúc đó, vì miệng và dạ dày còn rất nhỏ, chúng cần ăn nhiều bữa nhỏ mỗi ngày.\": Rule 4: Small meals several times a day are said twice: \"chúng cần ăn nhiều bữa nhỏ mỗi ngày\" in the definition and \"Cho ăn 3–5 bữa nhỏ mỗi ngày.\" under \"Một bài khá…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" (not \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\": Rule 12: \"Ở loài không giữ con, vớt cá bố mẹ ra sau khi đẻ.\" is the magazine's claim alone (fact 34, source 4): only it separates guarding from non-guarding sp…",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" (not \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ, chưa nuốt nổi artemia mới nở.\": Rule 6: \"cá killi\" in \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ,…",
-        "Rule 12: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" The limit to species that don't guard their fry is the magazine's alone (fact 33), but it sits in the plain list \"Nên làm gì\" as plain fact, with no opening. The line also stretches that limit to the shop's advice to move fry away from adults (fact 26), and fact 26 has no such limit. Either credit t…"
-      ],
+      "notes": [],
       "attempt": "rewrite",
       "kept": true
     },
     {
-      "at": "2026-11-18T18:30:15Z",
+      "at": "2026-11-19T01:41:10Z",
       "model": "sonnet",
       "cli": "2.1.327",
       "score": 1,
       "notes": [
-        "Rule 12: The magazine's first item is \"lúc nào bắt đầu cho ăn thì tùy loài: cá vàng bột không ăn trong 40–48 giờ đầu, còn các loài khác cần có thức ăn ngay.\" THIS TERM requires it word for word, starting with a capital: \"Lúc nào bắt đầu cho ăn thì tùy loài: …\".",
-        "Rule 12: The plain list has \"Thay nước ít một và thường xuyên.\" THIS TERM says this line must be \"Thay nước thường xuyên, lúc đầu mỗi ngày hoặc vài lần một tuần.\" (fact 27, two pages). \"Ít một\" (small changes) comes from only one page (fact 28), so it must stay out of the plain line and not be written as plain fact.",
-        "Rule 12: \"vinegar eel\" in \"Cá bột rất nhỏ ăn được nước xanh, trùng cỏ, cám bột cho cá bột và vinegar eel.\" Vinegar eels must be called \"giun giấm\", the name the site's own pages use. THIS TERM also gives this line word for word: \"Cá bột rất nhỏ ăn được nước xanh, trùng cỏ, cám bột cho cá bột và giun giấm.\""
+        "Rule 12: \"Giới nghiên cứu đo SL cho hầu hết các loài cá xương.\" should have been replaced, word for word, by \"Các nhà nghiên cứu đo SL cho hầu hết các loài cá xương.\"",
+        "Rule 12: \"Chiều dài toàn thân (TL) thì tính luôn cả vây đuôi.\" should have been replaced by \"Chiều dài toàn thân (TL) thì tính luôn cả vây đuôi. Một nguồn người nuôi ghi: con số SL trông nhỏ hơn chiều dài cả con cá tính cả đuôi; một con cá vàng có SL 30 cm thì tính cả đuôi dài khoảng 38 cm.\" That puts the keeper's two claims (fact 21) right after the TL sentence, in the same paragraph, under one …",
+        "Rule 12: the \"Sai lầm hay gặp\" heading, its opening \"Một nguồn người nuôi ghi:\" and its two items (\"Con số SL trông nhỏ hơn chiều dài đầy đủ của con cá, tính cả đuôi.\" and \"Một con cá vàng có SL 30 cm thì tính cả đuôi dài khoảng 38 cm.\") should come out. Fact 21 doesn't call these a mistake, and nothing else stands under that heading."
       ],
       "attempt": "rewrite",
       "kept": false
-    }
-  ],
-  "vi/glossary/chieu-dai-chuan": [
+    },
     {
       "at": "2026-11-18T19:29:53Z",
       "model": "sonnet",
@@ -1353,32 +1367,6 @@
         "Rule 12: \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch. Nhìn thì chúng dài cỡ 1 foot, nhưng cân nặng chỉ như một con 6 inch.\" The Comet goldfish example (fact 22) must be removed in full, because the site has no Comet page.",
         "Rule 12: \"Khi chọn cỡ bể, cân nặng của cá mới là thứ cần tính.\" This is the weight point of the Comet example, and it must be removed along with the example.",
         "Rule 6: \"cá vàng Comet\" in \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": this is not the name of a page in PAGES. The page for Carassius auratus is \"Cá vàng\", and no Comet page exists."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T17:15:28Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 6: \"cá vàng Comet\" in \"Một số cá vàng Comet có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": Carassius auratus has a page, and the page's name is \"Cá vàng\". The fish should be called \"cá vàng\", not \"cá vàng Comet\".",
-        "Rule 4: The point that an SL figure is shorter than the fish's length with its tail is made twice. It appears in \"con số TL của cùng một con cá bao giờ cũng dài hơn SL\" and again in \"Sai lầm hay gặp là đọc con số SL rồi nghĩ con cá chỉ dài chừng đó\". It should be said once, in one place."
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "1062e49ce6545b42dbd418bbfc68a47917d95165519e26f856fe6ad9330047c8"
-    },
-    {
-      "at": "2026-11-18T17:15:28Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 0.94,
-      "notes": [
-        "\"Một số cá vàng có thân dài khoảng 6 inch và đuôi dài thêm khoảng 6 inch.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'comet' qualifier; source says comet goldfish / source says comet goldfish; qualifier dropped",
-        "Rule 12: \"nhất là ở mẫu cá ngâm bảo quản\" in \"Vây đuôi rất dễ rách, gãy, nhất là ở mẫu cá ngâm bảo quản, và đo TL trên một cái đuôi đã hỏng thì ra con số sai\": the point about preserved specimens comes from only one reference page (source 0), but it is stated as plain fact with no credit. The entry already names three pages (\"Một tài liệu tham khảo về cá\", \"một tiệm ở Việt Nam\", \"Một nguồn người …",
-        "Rule 12: \"Sai lầm hay gặp là đọc con số SL rồi nghĩ con cá chỉ dài chừng đó.\": the claim that an SL figure looks smaller than the fish's full length comes from a single keeper page (source 9), but it is stated as plain fact before the opening \"Một nguồn người nuôi ghi:\". It should go under that same opening, not stand outside it without credit."
       ],
       "attempt": "rewrite",
       "kept": false
