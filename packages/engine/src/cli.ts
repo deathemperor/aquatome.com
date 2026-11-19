@@ -1,3 +1,4 @@
+import { execFileSync, spawnSync } from 'node:child_process'
 import { videoBudgetStopped } from './youtube'
 import { appendFileSync, readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
@@ -468,6 +469,10 @@ if (cmd === 'photo-privacy') {
   // Aquarium Glaser photos the never-again list holds for a mark, back on the pages in --pages (a file, `kind/id` a line),
   // where the watermark screen finds every mark the shop's own (shop-return.ts), on the chief of staff's word. A hand run.
   if (!values.pages) throw new Error('shop-return needs --pages <file>')
+  // The never-again list is read and written by one step at a time: not beside an engine cycle in this checkout.
+  const pidFile = join(execFileSync('git', ['rev-parse', '--absolute-git-dir'], { cwd: ROOT, encoding: 'utf8' }).trim(), 'aquatome-engine.pid')
+  const cyclePid = (await readFile(pidFile, 'utf8').catch(() => '')).trim()
+  if (/^\d+$/.test(cyclePid) && spawnSync('ps', ['-p', cyclePid, '-o', 'command='], { encoding: 'utf8' }).stdout.includes('cycle.sh')) throw new Error(`shop-return: an engine cycle (pid ${cyclePid}) is running in this checkout; run it once that cycle ends`)
   const pages = (await readFile(values.pages, 'utf8')).split('\n').map(x => x.trim()).filter(Boolean)
   const rejected = JSON.parse(await readFile(join(ROOT, 'engine-state/_photo-rejected.json'), 'utf8')) as Record<string, string>
   const candidates = historyCandidates(pages, rejected, gitHistory(ROOT))
@@ -475,14 +480,14 @@ if (cmd === 'photo-privacy') {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
   }, { today: vnDate(new Date()), limit: values.limit ? Number(values.limit) : 20 })
-  console.log(`shop-return: ${pages.length} pages, ${candidates.length} listed photos they showed, ${r.returned.length} back, ${r.refused.length} refused, ${r.unanswered.length} with no answer, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  console.log(`shop-return: ${pages.length} pages, ${candidates.length} listed photos they showed, ${r.returned.length} back, ${r.resumed.length} back from a run that stopped, ${r.refused.length} refused, ${r.relisted.length} left listed (listed again, or no page left), ${r.unanswered.length} with no answer, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.returned) console.log(`back: ${x}`)
   for (const x of r.refused) console.log(`refused, stays listed: ${x}`)
   for (const x of r.unanswered) console.log(`no answer, asked next run: ${x}`)
   for (const x of r.skipped) console.log(`skipped: ${x}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
   for (const x of r.resumed) console.log(`back, finished from a run that stopped: ${x}`)
-  for (const x of r.relisted) console.log(`listed again for another reason, stays listed: ${x}`)
+  for (const x of r.relisted) console.log(`stays listed, listed again or no page left: ${x}`)
 } else if (cmd === 'photos') {
   // Pages with fewer than 3 photos: re-read their source pages for photos the picker used to miss (monthly per page).
   // --only id,id: these pages alone, read now (first in line).

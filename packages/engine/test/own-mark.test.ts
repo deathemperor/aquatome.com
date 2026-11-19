@@ -339,6 +339,14 @@ test('the sweep leaves a page\'s own Glaser kept-mark photos past its cap out of
   const picked = await sweep(r, {})
   expect((await json(r, `content/species/${ID}/entity.json`)).photos.map((p: { url: string }) => p.url)).toEqual([k[4], CLEAN, k[0], k[1]])
   expect(picked.ownKeptOut).toEqual([`species/${ID}: ${k[2]}`])
+  // A pick among the page's own photos, past the cap where it sits: it stays and leads, and another goes.
+  const e = await json(r, `content/species/${ID}/entity.json`)
+  await put(`species/${ID}/entity.json`, { ...e, photos: [clean, ...k.slice(0, 3).map(g), g(k[5]!)] })
+  await put(`gallery/${ID}.json`, { id: ID, photos: [], seen: 2, updatedAt: '2026-11-19' })
+  await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: k[5] }))
+  const own = await sweep(r, {})
+  expect((await json(r, `content/species/${ID}/entity.json`)).photos.map((p: { url: string }) => p.url)).toEqual([k[5], CLEAN, k[0], k[1]])
+  expect(own.ownKeptOut).toEqual([`species/${ID}: ${k[2]}`])
 })
 
 test('the album order leaves the Glaser kept-mark photos past the cap out of the album file, stored still and off the never-again list', async () => {

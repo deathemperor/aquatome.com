@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import type { Photo } from '@aq/schema'
@@ -7,6 +7,7 @@ import { LlmError } from './claude'
 import { waiting, type GalleryPhoto } from './gallery'
 import { screenedShop } from './own-mark'
 import { compactRejection, compactScreen, photoFailure, photoModelStop } from './photo-observations'
+import { writeImageCache } from './image-cache-write'
 import { writePhotoState } from './photo-state'
 import { piece } from './pieces'
 import { judgeSheet, type ShopPhoto, type WatermarkDeps, type WatermarkEntry } from './watermarks'
@@ -28,7 +29,9 @@ import { judgeSheet, type ShopPhoto, type WatermarkDeps, type WatermarkEntry } f
  * The writes for a photo that passes go in an order a stopped run can pick up from: its kept record, then its line here
  * with the photo it puts back (`photo`), then off the list, then into its albums, then the line loses `photo`. A line that
  * still has `photo` is finished first, at the start of the next run. A photo listed again for another reason since it
- * was asked (another step's entry in place of the mark's) stays listed and comes back nowhere, and its line says so.
+ * was asked (another step's entry in place of the mark's), or with no page left to take it, stays listed and comes back
+ * nowhere, and its line says so. Each file is written whole or not at all. The list is read and written by one step at a
+ * time only while no other engine step runs in the same checkout: the command refuses to start beside a cycle.
  */
 export const RETURNS_FILE = '_shop-photo-returns.json'
 export type ReturnEntry = { at: string; pages: string[]; answer: 'returned' | 'refused'; was: string; why: string; photo?: Photo }
@@ -80,7 +83,18 @@ export async function returnShopPhotos(root: string, candidates: ReturnCandidate
   const returns = await readJson<Record<string, ReturnEntry>>(returnsFile, {})
   const sources = await readJson<Record<string, { name?: string; homepage?: string }>>(join(content, 'sources.json'), {})
   const report = { returned: [] as string[], refused: [] as string[], unanswered: [] as string[], skipped: [] as string[], failed: [] as string[], stopped: '', resumed: [] as string[], relisted: [] as string[] }
-  const saveReturns = () => writeFile(returnsFile, `${JSON.stringify(Object.fromEntries(Object.entries(returns).sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0))), null, 2)}\n`)
+  // Every file this step writes is written whole or not at all (a temporary file, then a rename), so a stop mid-write
+  // leaves the last whole copy for the next run to pick up from.
+  const saveReturns = () => writeImageCache(returnsFile, `${JSON.stringify(Object.fromEntries(Object.entries(returns).sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0))), null, 2)}\n`)
+  const album = async (page: string, change: (photos: GalleryPhoto[]) => GalleryPhoto[]) => {
+    const id = page.split('/')[1]!, file = join(content, 'gallery', `${id}.json`)
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    const g = raw ? JSON.parse(raw) as { photos?: GalleryPhoto[] } : { id, photos: [], seen: 0, updatedAt: o.today }
+    const next = change(g.photos ?? [])
+    if (raw && next.length === (g.photos ?? []).length && next.every((p, i) => p === g.photos![i])) return
+    g.photos = next
+    await writeImageCache(file, `${JSON.stringify(g, null, raw?.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+  }
 
   // Each photo once, with every page it goes back to. A page that shows it already, or a copy cleaned of its mark
   // (`original`), takes it no more.
@@ -95,24 +109,24 @@ export async function returnShopPhotos(root: string, candidates: ReturnCandidate
   // each of its pages' albums that doesn't show it, waiting for the photo check.
   const finish = async (url: string) => {
     const e = returns[url]!, now = await readJson<Record<string, string>>(rejectedFile, {})
-    if (url in now && compactRejection(now[url]!) !== e.was) {
-      const { photo: _p, ...rest } = e
-      returns[url] = { ...rest, answer: 'refused', why: 'listed again for another reason before it came off' }
+    const { photo: _p, ...line } = e
+    const pages: string[] = []
+    for (const page of e.pages) if ((await shows(page, url)) !== undefined) pages.push(page)
+    const relisted = url in now && compactRejection(now[url]!) !== e.was
+    if (relisted || !pages.length) {
+      // Listed again meanwhile, or no page left to take it: it stays listed, and any copy an earlier stopped run put
+      // back, still waiting, comes out of its albums.
+      for (const page of e.pages) await album(page, ps => ps.filter(p => !(p.url === url && p.unchecked)))
+      // Taken off by a run that stopped, with no page left now: back on the list as it was.
+      if (!(url in now)) { now[url] = e.was; await writePhotoState(rejectedFile, now) }
+      returns[url] = { ...line, answer: 'refused', why: relisted ? 'listed again for another reason before it came off' : 'no page left to take it' }
       report.relisted.push(url)
       return
     }
     if (url in now) { delete now[url]; await writePhotoState(rejectedFile, now) }
-    for (const page of e.pages) {
-      if ((await shows(page, url)) !== false) continue
-      const id = page.split('/')[1]!, file = join(content, 'gallery', `${id}.json`)
-      const raw = await readFile(file, 'utf8').catch(() => null)
-      const g = raw ? JSON.parse(raw) as { photos?: GalleryPhoto[] } : { id, photos: [], seen: 0, updatedAt: o.today }
-      const { unchecked: _u, ...clean } = e.photo as GalleryPhoto
-      g.photos = [...(g.photos ?? []), waiting(clean)]
-      await writeFile(file, `${JSON.stringify(g, null, raw?.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
-    }
-    const { photo: _p, ...done } = e
-    returns[url] = done
+    const { unchecked: _u, ...clean } = e.photo as GalleryPhoto
+    for (const page of pages) if ((await shows(page, url)) === false) await album(page, ps => [...ps, waiting(clean)])
+    returns[url] = { ...line, pages }
   }
   // A run that stopped between its writes: its passed photos are finished first.
   const pending = Object.keys(returns).filter(u => returns[u]!.photo)

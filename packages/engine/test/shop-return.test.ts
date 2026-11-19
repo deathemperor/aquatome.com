@@ -180,6 +180,27 @@ test('a run that stopped between its writes is finished by the next: the photo c
   expect(await json(r, `engine-state/${RETURNS_FILE}`)).toEqual({ [own]: line })
 })
 
+test('a stopped run finished after another step listed the photo again takes back the copy it had put in the album; with no page left, the photo goes back on the list', async () => {
+  const own = g('own')
+  const nothing: ReturnDeps = { get: async () => { throw new Error('nothing to fetch') }, look: async () => { throw new Error('nothing to ask') } }
+  const line = { at: '2026-11-20', pages: [PAGE], answer: 'returned', was: listed('watermark'), why: "every mark the shop's own (the watermark screen)" }
+  // Stopped after the album write; then another step listed it for a person.
+  const r = await site({ [own]: listed('people', 'f') }, [{ ...photo(own), unchecked: true } as Photo])
+  await writeFile(join(r, `engine-state/${RETURNS_FILE}`), JSON.stringify({ [own]: { ...line, photo: photo(own) } }))
+  const a = await returnShopPhotos(r, [], nothing, { today: '2026-11-21', limit: 5 })
+  expect([a.resumed, a.relisted]).toEqual([[], [own]])
+  expect((await json(r, `content/gallery/${ID}.json`)).photos).toEqual([])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [own]: listed('people', 'f') })
+  expect((await json(r, `engine-state/${RETURNS_FILE}`))[own]).toEqual({ ...line, answer: 'refused', why: 'listed again for another reason before it came off' })
+  // Stopped after the list write, and its only page is gone since: back on the list as it was, and the line says why.
+  const r2 = await site({})
+  await writeFile(join(r2, `engine-state/${RETURNS_FILE}`), JSON.stringify({ [own]: { ...line, pages: ['species/no-such-fish'], photo: photo(own) } }))
+  const b = await returnShopPhotos(r2, [], nothing, { today: '2026-11-21', limit: 5 })
+  expect(b.relisted).toEqual([own])
+  expect(await json(r2, 'engine-state/_photo-rejected.json')).toEqual({ [own]: listed('watermark') })
+  expect((await json(r2, `engine-state/${RETURNS_FILE}`))[own]).toEqual({ ...line, pages: ['species/no-such-fish'], answer: 'refused', why: 'no page left to take it' })
+})
+
 test("a fetch that fails, or a model that stops on its limit, leaves the photos listed and unrecorded, to be asked next run", async () => {
   const a = g('a'), b = g('b')
   const r = await site({ [a]: listed('watermark'), [b]: listed('watermark', 'b') })

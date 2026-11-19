@@ -839,8 +839,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       // keptCapOwn; the chief of staff, 19 Nov). The album step leaves its own past what is left (gallery.ts orderAlbums).
       if (now.some(x => kept(x.url))) {
         const album = (JSON.parse(await readFile(join(content, 'gallery', `${p.id}.json`), 'utf8').catch(() => '{}')) as { photos?: Photo[] }).photos ?? []
-        const capped = keptCapOwn(now, album, kept)
-        now = capped.own
+        // A standing pick stays wherever it sits: the cap counts it first, as the pick loop below puts it first.
+        const capped = keptCapOwn(at >= 0 ? [photos[at]!, ...now.filter(x => x !== photos[at])] : now, album, kept)
+        now = now.filter(x => !capped.out.includes(x))
         report.ownKeptOut.push(...capped.out.map(x => `${ref}: ${x.url}`))
       }
       if (now.length === photos.length && now.every((x, i) => x.url === photos[i]!.url)) continue
