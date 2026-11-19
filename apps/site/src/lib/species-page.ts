@@ -1,6 +1,6 @@
 import type { Content, Localized, SectionKey, SpeciesEntity } from '@aq/schema'
 import { breedsOf } from './breeds'
-import { companionsOf } from './companions'
+import { companionsOf, matePhoto } from './companions'
 import { GALLERY_COLUMN, GALLERY_STRIP } from './gallery'
 import { albumOf, hasAlbum } from './photo-page'
 import { translator, type Lang } from './i18n'
@@ -69,6 +69,9 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const more = strip.some(Boolean) ? morePhotos(pics, gallery, strip, GALLERY_COLUMN) : []
   const mates = await companionsOf(lang, c, s.id)
   const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
+  // A tank mate's picture is one the page shows (Companions.astro), so a video card doesn't take it again: the Sterba's
+  // corydoras page showed the angelfish's under "Tránh" and on an angelfish guide's card (the live checks, 19 Nov 2026).
+  if (showMates) for (const m of [...mates.good, ...mates.avoid]) pics.add(matePhoto(m.s)?.url)
   const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
   // A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
   const text = foldNearEmpty(s.sections, s.t, t)
