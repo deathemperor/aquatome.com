@@ -1,7 +1,78 @@
 {
   "id": "betta-bellica",
-  "photos": [],
-  "seen": 2,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/110661848.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/110661848-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC-SA",
+      "author": "Aiman Azmi",
+      "sourceUrl": "https://www.inaturalist.org/photos/110661848",
+      "caption": "Cá betta bellica cái màu nâu vàng trong bể thủy sinh",
+      "best": true,
+      "kind": "female",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/385394070.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/385394070-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "jerome_1",
+      "sourceUrl": "https://www.inaturalist.org/photos/385394070",
+      "caption": "Hai cá betta bellica cái có sọc nâu trong bể ảnh nhỏ",
+      "best": true,
+      "kind": "pair",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/110661853.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/110661853-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC-SA",
+      "author": "Aiman Azmi",
+      "sourceUrl": "https://www.inaturalist.org/photos/110661853",
+      "caption": "Cá betta bellica cái bơi giữa rong trong bể trồng cây",
+      "best": true,
+      "kind": "female",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/385394108.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/385394108-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "jerome_1",
+      "sourceUrl": "https://www.inaturalist.org/photos/385394108",
+      "caption": "Cá betta bellica cái màu nâu cam trong bể ảnh nhỏ",
+      "best": false,
+      "kind": "female",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/286143774.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/286143774-480.webp",
+      "width": 771,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Akmal Idham",
+      "sourceUrl": "https://www.inaturalist.org/photos/286143774",
+      "caption": "Cá betta bellica màu nhạt trong hộp nhựa trong",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    }
+  ],
+  "seen": 29,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

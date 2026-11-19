@@ -27,11 +27,11 @@
     "references:seriouslyfish": "<ul><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>de Carvalho, F. R. (2011). Sistemática de Hyphessobrycon Durbin, 1908 (Ostariophysi: Characidae). unpublished PHD Thesis, i-xxiii + 1-365</li><li>Steindachner, F. (1882). Beiträge zur Kenntniss der Flussfische Südamerika's (IV). Anzeiger der Akademie der Wissenschaften in Wien, Mathematisch-Naturwissenschaftliche Classe v. 19 (no. 19), 175-180</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.6,
-      "seriouslyfish": 0.6
+      "glaser": 0.9,
+      "seriouslyfish": 0.9
     }
   }
 }

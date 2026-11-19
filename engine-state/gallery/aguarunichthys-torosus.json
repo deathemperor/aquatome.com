@@ -2,11 +2,13 @@
  "queue": [],
  "judged": [
   "File:Aguarunichthys torosus (Santarem, Brazil, 26 August 1865).jpg",
-  "File:Aguarunichthys torosus Napo.png"
+  "File:Aguarunichthys torosus Napo.png",
+  "inat:92689070",
+  "inat:292695631",
+  "inat:292695700",
+  "inat:666164984"
  ],
- "hashes": {
-  "https://media.aquatome.com/scotcat/96e9135b0a008192.webp": "54723645069bf107"
- },
+ "hashes": {},
  "inat": {
   "taxon": 619178,
   "pass": "done",
@@ -22,6 +24,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 364895437,
+  "done": true
  },
  "exhausted": "2026-11-10"
 }

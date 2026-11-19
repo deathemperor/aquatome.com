@@ -1,8 +1,13 @@
 {
   "slug": "musi-river",
-  "name": "Musi",
+  "name": "Sungai Musi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-18T05:54:12.542Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

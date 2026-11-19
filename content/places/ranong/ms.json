@@ -3,6 +3,12 @@
   "name": "Ranong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T11:35:44.380Z",
+    "why": "Ranong is a Thai province, and Malay atlases usually write \"Wilayah Ranong\" or \"Provinsi Ranong\"; in Malaysia \"Wilayah\" is not used for Thai provinces, so \"Wilayah Ranong\" or \"Wilayah Ranong\" would be the atlas form, and the bare \"Ranong\" omits the kind word."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

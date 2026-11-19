@@ -1,0 +1,275 @@
+{
+  "id": "oase-filtosmart-100-thermo",
+  "brand": "Oase",
+  "model": "Filtosmart 100 Thermo",
+  "category": "loc",
+  "type": "thung",
+  "specs": [
+    {
+      "key": "Recommended tank size",
+      "value": "up to 100 L (30 US gal)",
+      "source": 0
+    },
+    {
+      "key": "Flow rate",
+      "value": "600 L/h (160 GPH)",
+      "source": 1
+    },
+    {
+      "key": "Filter power",
+      "value": "11 W",
+      "source": 1
+    },
+    {
+      "key": "Heater power",
+      "value": "100 W, adjustable (integrated HeatUp heater)",
+      "source": 1
+    },
+    {
+      "key": "Max head height",
+      "value": "1.4 m (4.6 ft)",
+      "source": 1
+    },
+    {
+      "key": "Max head height (other listing)",
+      "value": "1.1 m",
+      "source": 2
+    },
+    {
+      "key": "Dimensions",
+      "value": "205 × 139 × 260 mm",
+      "source": 1
+    },
+    {
+      "key": "Weight",
+      "value": "2.4 kg",
+      "source": 1
+    },
+    {
+      "key": "Filter media volume",
+      "value": "1.3 L total, of which 0.7 L is pre-filter",
+      "source": 1
+    },
+    {
+      "key": "Hose size",
+      "value": "12/16 mm (½\" and ⅝\"), 8 ft of tubing included",
+      "source": 1
+    },
+    {
+      "key": "Power cord",
+      "value": "2 m",
+      "source": 1
+    },
+    {
+      "key": "Voltage (US version)",
+      "value": "120 V / 60 Hz",
+      "source": 0
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and marine",
+      "source": 0
+    },
+    {
+      "key": "Filtration stages",
+      "value": "2 stages: mechanical and biological",
+      "source": 1
+    },
+    {
+      "key": "Included",
+      "value": "20 ppi and 10 ppi foams, ceramic bio media, intake tube with strainer, spray bar, diffuser nozzle, hoses, adapters and suction cups",
+      "source": 1
+    },
+    {
+      "key": "Heater safety",
+      "value": "Bi-metal temperature control with thermal shut-off",
+      "source": 8
+    },
+    {
+      "key": "Warranty",
+      "value": "3 years (as stated by the retailer)",
+      "source": 3
+    }
+  ],
+  "variants": [
+    {
+      "name": "FiltoSmart Thermo 100",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 100 L",
+          "source": 0
+        },
+        {
+          "key": "Flow rate",
+          "value": "600 L/h",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "11 W filter + 100 W heater",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "FiltoSmart Thermo 200",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 200 L",
+          "source": 9
+        },
+        {
+          "key": "Flow rate",
+          "value": "800 L/h (210 GPH)",
+          "source": 9
+        },
+        {
+          "key": "Power",
+          "value": "17 W filter + 200 W heater",
+          "source": 9
+        }
+      ]
+    },
+    {
+      "name": "FiltoSmart Thermo 300",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 300 L",
+          "source": 10
+        },
+        {
+          "key": "Flow rate",
+          "value": "1000 L/h (260 GPH)",
+          "source": 10
+        },
+        {
+          "key": "Power",
+          "value": "23 W filter + 300 W heater",
+          "source": 10
+        }
+      ]
+    },
+    {
+      "name": "FiltoSmart 100 (no heater)",
+      "specs": [
+        {
+          "key": "Tank size",
+          "value": "up to 100 L",
+          "source": 11
+        },
+        {
+          "key": "Flow rate",
+          "value": "600 L/h",
+          "source": 11
+        },
+        {
+          "key": "Power",
+          "value": "11 W",
+          "source": 11
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.oase.com/en-US/aquarium/filtosmart-thermo-100",
+      "title": "OASE – FiltoSmart Thermo 100",
+      "kind": "manufacturer",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://aquascaperoom.ca/oase-filtosmart-thermo-100/",
+      "title": "Aquascape Room – Oase FiltoSmart Thermo 100",
+      "kind": "shop",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://aquasabi.com/Oase-FiltoSmart-Thermo-100",
+      "title": "Aquasabi – Oase FiltoSmart Thermo",
+      "kind": "shop",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://sevenports.com/product/oase-filtosmart-thermo-100-canister-filter-with-heater/",
+      "title": "Sevenports – OASE FiltoSmart Thermo 100 Canister Filter with Heater",
+      "kind": "shop",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://shrimphome.vn/loc-thung-mini-oase-filtosmart-60-100-200-300",
+      "title": "Shrimp Home – Lọc thùng mini Oase FiltoSmart 60/100/200/300",
+      "kind": "shop",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-filtosmart-60/",
+      "title": "Mỹ Đình Aquarium – Lọc Oase Filtosmart",
+      "kind": "shop",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://thuysinhbichphuong.com/sp/oase-filtosmart-60100200300-loc-thung-cao-cap",
+      "title": "Thủy sinh Bích Phương – Oase Filtosmart 60/100/200/300",
+      "kind": "shop",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://aquasabi.com/ratings/Oase-FiltoSmart-Thermo",
+      "title": "Aquasabi – customer ratings, Oase FiltoSmart Thermo",
+      "kind": "review",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://www.plantsnfins.com/oase-filtosmart-thermo-100-external-filter.html",
+      "title": "PlantsnFins – Oase FiltoSmart Thermo 100",
+      "kind": "shop",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://us.oase.com/products/oase-filtosmart-thermo-200",
+      "title": "OASE US – FiltoSmart Thermo 200",
+      "kind": "manufacturer",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://www.oase.com/en-US/aquarium/filtosmart-thermo-300",
+      "title": "OASE – FiltoSmart Thermo 300",
+      "kind": "manufacturer",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://www.oase.com/en/aquarium/filtosmart-100-cn",
+      "title": "OASE – FiltoSmart 100 CN",
+      "kind": "manufacturer",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://www.oase.com/en/aquarium/filtosmart-thermo-100-gb",
+      "title": "OASE – FiltoSmart Thermo 100 GB",
+      "kind": "manufacturer",
+      "at": "2026-11-17"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kRWvvY9Bh4Y",
+      "title": "Oase filtosmart 100 thermo REVIEW / You NEED to KNOW this!",
+      "kind": "video",
+      "at": "2026-11-17"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-17",
+    "videos": [
+      {
+        "youtubeId": "kRWvvY9Bh4Y",
+        "title": "Oase filtosmart 100 thermo REVIEW / You NEED to KNOW this!",
+        "durationSec": 501,
+        "lang": "en",
+        "channel": "Nordicscaper Aquascaping "
+      }
+    ]
+  },
+  "updatedAt": "2026-11-17"
+}

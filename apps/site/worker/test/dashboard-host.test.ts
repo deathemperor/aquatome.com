@@ -3,10 +3,9 @@ import { fileURLToPath } from 'node:url'
 import { exportJWK, generateKeyPair, SignJWT, type JWK } from 'jose'
 import { afterEach, beforeAll, beforeEach, expect, test, vi } from 'vitest'
 import { LANG, LANGS } from '@aq/schema/langs'
-import { emailHash } from '../accounts/email'
 import { createSession } from '../accounts/session'
-import { TESTER_ADDRESS } from '../accounts/tester'
-import { signInWith } from '../accounts/users'
+import { TESTER_ID } from '../accounts/tester'
+import { testerAccount } from '../accounts/tester-sign-in'
 import { CHANGELOG_PATH, hostPath, innerPath, REPORT_PATH, SCOREBOARD_PATH, WEB_PAGES } from '../admin/shell'
 import { RUNS_PATH, runPath, runsJsonPath } from '../admin/runs'
 import { APP_PAGES } from '../app-switch'
@@ -365,28 +364,40 @@ test('configured: what isn\'t a browser asking for a page stays on the site, unc
   expect((await site('/_ab/', e, { ...browser, cookie: reader })).status).toBe(301)
 })
 
-test('the chat\'s test account is a reader to the dashboard: its sessions open no page, no owner action and no owner API', async () => {
-  const { db, reader, app: ownerApp } = await accounts()
-  const hash = await emailHash('k', TESTER_ADDRESS!)
-  const tester = await signInWith(db, { kind: 'email', subject: hash, emailHash: hash }, new Date())
-  const web = `__Host-aq_session=${await createSession(db, tester, 'web', new Date())}`
-  const app = await createSession(db, tester, 'app', new Date())
-  await db.prepare('INSERT INTO users (id, created_at) VALUES (?, ?)').bind('reader-2', '2026-11-01T00:00:00Z').run()
-  const readerApp = await createSession(db, 'reader-2', 'app', new Date())
-  const { e } = env({ DB: db, ACCOUNT_HMAC_KEY: 'k' } as Partial<Env>)
-  const form = (cookie: string) => site('/_ab/hidden', e, { ...browser, cookie, 'content-type': 'application/x-www-form-urlencoded' }, { method: 'POST', body: new URLSearchParams({ url: '/ca/x/', action: 'hide' }) })
-  expect((await site('/_ab/', e, { ...browser, cookie: web })).status).toBe((await site('/_ab/', e, { ...browser, cookie: reader })).status)
-  expect((await form(web)).status).toBe(404)
-  const ownerApi = async (token: string) => (await site('/api/owner/dashboard', e, { authorization: `Bearer ${token}` })).status
-  expect(await ownerApi(ownerApp)).toBe(200)
-  expect(await ownerApi(app)).toBe(await ownerApi(readerApp))
-  expect(await ownerApi(app)).not.toBe(200)
+// The chat's test account asks the chat and nothing else (accounts/tester.ts): its sessions are none here. Codex's read
+// of #1440 found the old test passed on Access's redirect before any visitor check ran: so with Access unset too, where
+// /_ab/ on the site is the dashboard itself.
+test('the chat\'s test account opens no dashboard, no owner action, no owner API and no owner report, and gets no owner bar, with Access set or unset: its sessions are none here', async () => {
+  const { db, owner, app: ownerApp } = await accounts()
+  expect(await testerAccount(db, 'k', new Date())).toBe(true)
+  // As a session never issued: a cookie's and a token's.
+  const none = `__Host-aq_session=${'x'.repeat(43)}`
+  const noneApp = 'x'.repeat(43)
+  const web = `__Host-aq_session=${await createSession(db, TESTER_ID, 'web', new Date())}`
+  const app = await createSession(db, TESTER_ID, 'app', new Date(), 15)
+  for (const vars of [{}, ...UNSET]) {
+    const { e, store } = env({ DB: db, ACCOUNT_HMAC_KEY: 'k', CHAT_TESTER: 'on', ...vars } as Partial<Env>)
+    const page = async (cookie: string) => { const r = await site('/_ab/', e, { ...browser, cookie }); return { status: r.status, dashboard: isDashboard(await r.text()), flag: r.headers.getSetCookie().some(c => c.startsWith('aq_owner=')) } }
+    const form = (cookie: string) => site('/_ab/hidden', e, { ...browser, cookie, 'content-type': 'application/x-www-form-urlencoded' }, { method: 'POST', body: new URLSearchParams({ url: '/ca/x/', action: 'hide' }) })
+    const ownerApi = async (token: string) => (await site('/api/owner/dashboard', e, { authorization: `Bearer ${token}` })).status
+    const feedback = async (h: Record<string, string>) => { const r = await site('/api/feedback', e, { ...h, origin: SITE, 'sec-fetch-site': 'same-origin', 'content-type': 'multipart/form-data; boundary=x' }, { method: 'POST', body: '--x--' }); return [r.status, await r.text()] }
+    if (!('ACCESS_TEAM_DOMAIN' in vars)) expect((await page(owner)).status).toBe(301)
+    else expect(await page(owner)).toEqual({ status: 200, dashboard: true, flag: true })
+    expect(await page(web)).toEqual(await page(none))
+    expect(await page(web)).toMatchObject({ dashboard: false, flag: false })
+    expect((await form(web)).status).toBe((await form(none)).status)
+    expect(store.get('hidden')).toBeUndefined()
+    expect(await ownerApi(ownerApp)).toBe(200)
+    expect(await ownerApi(app)).toBe(await ownerApi(noneApp))
+    expect(await feedback({ authorization: `Bearer ${app}` })).toEqual(await feedback({ authorization: `Bearer ${noneApp}` }))
+    expect(await feedback({ cookie: web })).toEqual(await feedback({ cookie: none }))
+  }
 })
 
 test('the machine endpoints are not on the host: without a token 403, and with one nothing answers them', async () => {
   const { db } = await accounts()
   const { e } = env({ DB: db } as Partial<Env>)
-  for (const path of ['/_aff/products', '/_c/admin/queue', '/_c/admin/decisions', '/_p/admin/queue', '/api/owner/dashboard']) {
+  for (const path of ['/_aff/products', '/_c/admin/queue', '/_c/admin/decisions', '/_p/admin/queue', '/api/owner/dashboard', '/api/v1/chat-tester/code']) {
     expect((await dash(path, { token: null, headers: { authorization: 'Bearer tok' } }, e)).status, path).toBe(403)
     expect((await dash(path, { headers: { authorization: 'Bearer tok' } }, e)).status, path).toBe(404)
   }

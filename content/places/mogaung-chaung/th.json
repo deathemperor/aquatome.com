@@ -3,6 +3,12 @@
   "name": "โมกอง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T18:21:04.954Z",
+    "why": "\"โมกอง\" renders only Mogaung, dropping \"Chaung\" (stream/river), so it is cut short; Thai atlases would write the river as \"แม่น้ำโมกองจอง\" or similar with the kind word."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

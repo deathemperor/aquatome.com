@@ -14,19 +14,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/32258547.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/32258547-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Kyle Elshoff",
-      "sourceUrl": "https://www.inaturalist.org/photos/32258547",
-      "caption": "Ốc đĩa non màu nâu đốm bơi trong nước",
-      "best": true,
-      "kind": "juvenile",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/02b539e52d009948.webp",
       "thumb": "https://media.aquatome.com/commons/02b539e52d009948-480.webp",
       "width": 1200,
@@ -48,8 +35,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/46656528",
       "caption": "Ốc đĩa bám trên lá cây trong bể thủy sinh",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/e7fe10a4527947df.webp",
@@ -165,6 +151,30 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/commons/b34a40ad8b39072d.webp",
+      "thumb": "https://media.aquatome.com/commons/b34a40ad8b39072d-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dat doris",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planorbella_duryi_04.jpg",
+      "caption": "Ốc đĩa vỏ màu cam vàng trên đá trong bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1d6221e9cf6d8c2b.webp",
+      "thumb": "https://media.aquatome.com/commons/1d6221e9cf6d8c2b-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Dat doris",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planorbella_duryi_02.jpg",
+      "caption": "Ốc đĩa vỏ hồng tím trên nền sỏi trong bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
       "url": "https://media.aquatome.com/commons/97db4a417a17edcb.webp",
       "thumb": "https://media.aquatome.com/commons/97db4a417a17edcb-480.webp",
       "width": 1200,
@@ -189,28 +199,16 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/b34a40ad8b39072d.webp",
-      "thumb": "https://media.aquatome.com/commons/b34a40ad8b39072d-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Dat doris",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planorbella_duryi_04.jpg",
-      "caption": "Ốc đĩa vỏ màu cam vàng trên đá trong bể",
-      "best": false,
-      "kind": "form"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/1d6221e9cf6d8c2b.webp",
-      "thumb": "https://media.aquatome.com/commons/1d6221e9cf6d8c2b-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Dat doris",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planorbella_duryi_02.jpg",
-      "caption": "Ốc đĩa vỏ hồng tím trên nền sỏi trong bể",
-      "best": false,
-      "kind": "form"
+      "url": "https://media.aquatome.com/inaturalist/32258547.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/32258547-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kyle Elshoff",
+      "sourceUrl": "https://www.inaturalist.org/photos/32258547",
+      "caption": "Ốc đĩa non màu nâu đốm bơi trong nước",
+      "best": true,
+      "kind": "juvenile"
     }
   ],
   "seen": 63,

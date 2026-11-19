@@ -2,18 +2,6 @@
   "id": "herichthys-carpintis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/f3d9ff792cb211bf.webp",
-      "thumb": "https://media.aquatome.com/commons/f3d9ff792cb211bf-480.webp",
-      "width": 1200,
-      "height": 629,
-      "licence": "CC BY-SA 4.0",
-      "author": "Theo Kruse Burgers' Zoo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pearlscale_cichlid_(Herichthys_carpintis).jpg",
-      "caption": "Cá rô phi Mexico đực sẫm màu đốm xanh ánh",
-      "best": true,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/commons/6ac591361d759904.webp",
       "thumb": "https://media.aquatome.com/commons/6ac591361d759904-480.webp",
       "width": 1200,
@@ -72,6 +60,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/commons/f3d9ff792cb211bf.webp",
+      "thumb": "https://media.aquatome.com/commons/f3d9ff792cb211bf-480.webp",
+      "width": 1200,
+      "height": 629,
+      "licence": "CC BY-SA 4.0",
+      "author": "Theo Kruse Burgers' Zoo",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pearlscale_cichlid_(Herichthys_carpintis).jpg",
+      "caption": "Cá rô phi Mexico đực sẫm màu đốm xanh ánh",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/144263586.webp",
       "thumb": "https://media.aquatome.com/inaturalist/144263586-480.webp",
       "width": 1024,
@@ -108,30 +108,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/154193742.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/154193742-480.webp",
-      "width": 1024,
-      "height": 767,
-      "licence": "CC BY",
-      "author": "José Francisco Colorado-Dapa",
-      "sourceUrl": "https://www.inaturalist.org/photos/154193742",
-      "caption": "Cá rô phi Mexico có sọc đậm giữa các tảng đá",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/154195475.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/154195475-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "José Francisco Colorado-Dapa",
-      "sourceUrl": "https://www.inaturalist.org/photos/154195475",
-      "caption": "Cá rô phi Mexico bơi trên đá trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/91b5cf422b300263.webp",
       "thumb": "https://media.aquatome.com/commons/91b5cf422b300263-480.webp",
       "width": 960,
@@ -156,18 +132,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/commons/5fd9297ce7494a7c.webp",
-      "thumb": "https://media.aquatome.com/commons/5fd9297ce7494a7c-480.webp",
-      "width": 1200,
-      "height": 901,
-      "licence": "CC BY-SA 4.0",
-      "author": "José Francisco Colorado-Dapa",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herichthys_carpintis_-_Jos%C3%A9_Francisco_Colorado-Dapa_-_shoal.jpeg",
-      "caption": "Cá rô phi Mexico sống trong suối đá tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/142984975.webp",
       "thumb": "https://media.aquatome.com/inaturalist/142984975-480.webp",
       "width": 1024,
@@ -178,18 +142,6 @@
       "caption": "Cá Herichthys carpintis đốm ánh xanh dưới gờ đá trong tự nhiên",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/de2f5b168a96f863.webp",
-      "thumb": "https://media.aquatome.com/commons/de2f5b168a96f863-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY-SA 4.0",
-      "author": "Гурьева Светлана",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlasoma_sp.jpg",
-      "caption": "Cá rô phi Mexico màu nhạt trong bể có đá",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/142764458.webp",
@@ -214,6 +166,54 @@
       "caption": "Cá Herichthys carpintis có đốm xanh nấp dưới mỏm đá",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154193742.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154193742-480.webp",
+      "width": 1024,
+      "height": 767,
+      "licence": "CC BY",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/154193742",
+      "caption": "Cá rô phi Mexico có sọc đậm giữa các tảng đá",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154195475.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154195475-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://www.inaturalist.org/photos/154195475",
+      "caption": "Cá rô phi Mexico bơi trên đá trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5fd9297ce7494a7c.webp",
+      "thumb": "https://media.aquatome.com/commons/5fd9297ce7494a7c-480.webp",
+      "width": 1200,
+      "height": 901,
+      "licence": "CC BY-SA 4.0",
+      "author": "José Francisco Colorado-Dapa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herichthys_carpintis_-_Jos%C3%A9_Francisco_Colorado-Dapa_-_shoal.jpeg",
+      "caption": "Cá rô phi Mexico sống trong suối đá tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/de2f5b168a96f863.webp",
+      "thumb": "https://media.aquatome.com/commons/de2f5b168a96f863-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Гурьева Светлана",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlasoma_sp.jpg",
+      "caption": "Cá rô phi Mexico màu nhạt trong bể có đá",
+      "best": false,
+      "kind": "other"
     }
   ],
   "seen": 78,

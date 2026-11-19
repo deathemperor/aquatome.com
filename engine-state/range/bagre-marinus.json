@@ -1,8 +1,8 @@
 {
   "id": "bagre-marinus",
   "native": {
-    "input": "c0b3bd6a571c901c",
-    "at": "2026-11-14T05:39:06.336Z",
+    "input": "d92d07ff537e439e",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "US",
@@ -19,6 +19,119 @@
         "quote": "Western Atlantic: coast of Gulf of Mexico, Cuba, western margin of the Caribbean, and the northern margin of South America.",
         "words": "Cuba",
         "ok": true
+      },
+      {
+        "code": "US",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "CU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Cuba",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Belize",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Surinam",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "French Guyana",
+        "ok": false,
+        "why": "\"French Guyana\" is not GF"
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Eastern America: United States, Mexico, Cuba, Belize, Honduras, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Guyana, Surinam, French Guyana and Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
@@ -33,7 +146,7 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "VE"
+        "GF"
       ],
       "sourcesOnly": []
     }
@@ -354,9 +467,20 @@
     ],
     "native": [
       "US",
-      "CU"
+      "CU",
+      "MX",
+      "BZ",
+      "HN",
+      "NI",
+      "CR",
+      "PA",
+      "CO",
+      "VE",
+      "GY",
+      "SR",
+      "BR"
     ],
     "requests": 13,
-    "at": "2026-11-14T05:39:06.336Z"
+    "at": "2026-11-18T00:54:56.623Z"
   }
 }

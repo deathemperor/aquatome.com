@@ -192,6 +192,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -215,6 +219,18 @@
       "html": "<p>The banded 'cory', Scleromystax barbatus, is an armoured catfish from coastal rivers in south-east Brazil, between Rio de Janeiro and Santa Catarina. At 90-100 mm it is the largest of the Corydoradinae, and it was formerly included in Corydoras. The hobby also knows it as 'bearded cory', 'checkerboard cory' and 'filigree cory'. Males are aggressively territorial towards one another and cannot be kept together in smaller aquaria.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/scleromystax-barbatus/",
+      "html": "<p>A cory from the south of Brazil, among the most beautiful species of cory at all. Keeping this fish is usually problem-free, but breeding is not easy due to the high demands (cool, very clean water with a low pH).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/scleromystax-barbatus/",
+      "html": "<p>Sadly it is not exported from Brazil currently. Even the professional breeders from Southeast Asia cannot supply S. barbatus in great amounts, but there are breeders who know what to do, so the fish can be offered quite regularly, though always in limited numbers. Currently young adults are available, 5-6 cm long; they will grow 2-3 cm longer.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/scleromystax-barbatus",
@@ -225,6 +241,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/scleromystax-barbatus",
       "html": "<p>Although found in coastal basins, the fish only occurs in freshwater; this and all species in the genus inhabit small flowing tributary streams and still ponds having a substrate of sand or fine pebbles often covered by mud (Britto &amp; Reis, 2005)[7].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/scleromystax-barbatus/",
+      "html": "<p>It inhabits cool blackwater brooks near the coast in the south of Brazil.</p>"
     },
     {
       "key": "aquariumSize",
@@ -243,6 +265,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/scleromystax-barbatus",
       "html": "<ul><li>Temperature: 16–24°C (61–75°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/scleromystax-barbatus/",
+      "html": "<p>Cool, very clean water with a low pH is needed; a temperature of 16-18°C is mentioned.</p>"
     },
     {
       "key": "diet",
@@ -370,5 +398,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-18"
 }

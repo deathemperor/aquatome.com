@@ -1,0 +1,20 @@
+{
+  "slug": "ca-nannopetersius-ansorgii",
+  "name": "Cá Nannopetersius ansorgii",
+  "altNames": [
+    "Cá tetra Congo"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài cá này có nguồn gốc từ Zaire và được bắt ở hồ Mai Ndombe. Ngày trước hồ này có tên là hồ Leopold II.</p>",
+    "habitat:glaser": "<p>Mai Ndombe là một hồ nước đen.</p>",
+    "waterConditions:glaser": "<p>Cá nào từ hồ nước đen này cũng nên nuôi ở pH khoảng 6,0.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "id": "vaillantella-maassi",
+  "native": {
+    "input": "9127c116b1bd254e",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "V. maassi is widespread in the peat-swamp areas of Malaysia and Borneo, a habitat extremely endangered through destruction for oil palm plantations.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The fork-tailed loach, Vaillantella maassi, is a loach from Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The fork-tailed loach, Vaillantella maassi, is a loach from Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Kampar Kiri River system, central Sumatra, Indonesia and since recorded from the Batang Hari drainage a little further south on the island, plus the Kapuas River basin in West Kalimantan province, Indonesian Borneo, and streams flowing into Kalimantan from the neighbouring Malaysian state of Sarawak.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "The fork-tailed loach, Vaillantella maassi, is a loach from Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "The fork-tailed loach, Vaillantella maassi, is a loach from Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Kampar Kiri",
+        "source": "seriouslyfish",
+        "quote": "Described from the Kampar Kiri River system, central Sumatra, Indonesia and since recorded from the Batang Hari drainage a little further south on the island, plus the Kapuas River basin in West Kalimantan province, Indonesian Borneo, and streams flowing into Kalimantan from the neighbouring Malaysian state of Sarawak.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "Described from the Kampar Kiri River system, central Sumatra, Indonesia and since recorded from the Batang Hari drainage a little further south on the island, plus the Kapuas River basin in West Kalimantan province, Indonesian Borneo, and streams flowing into Kalimantan from the neighbouring Malaysian state of Sarawak.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Described from the Kampar Kiri River system, central Sumatra, Indonesia and since recorded from the Batang Hari drainage a little further south on the island, plus the Kapuas River basin in West Kalimantan province, Indonesian Borneo, and streams flowing into Kalimantan from the neighbouring Malaysian state of Sarawak.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "V. maassi is widespread in the peat-swamp areas of Malaysia and Borneo, a habitat extremely endangered through destruction for oil palm plantations.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Vaillantella maassi",
+    "status": "ACCEPTED",
+    "taxonKey": 2358663,
+    "datasets": [
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH",
+      "ID"
+    ],
+    "requests": 13,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

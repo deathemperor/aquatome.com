@@ -32,8 +32,8 @@ export type ViewerOptions = {
 }
 
 export type Viewer = {
-  /** Open on photo i. `from`: the tile tapped, which the photo grows from; `under`: see viewerHistory().open. */
-  open(i: number, o?: { from?: HTMLElement; under?: string }): void
+  /** Open on photo i. `from`: the tile tapped, which the photo grows from; `under`, `adopt`: see viewerHistory().open. */
+  open(i: number, o?: { from?: HTMLElement; under?: string; adopt?: boolean }): void
   /** Open on the photo the current history entry had open (a reload, Forward), if it is this viewer's. */
   restore(): boolean
 }
@@ -93,8 +93,17 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
       finish()
       zoom(1, { x: 0, y: 0 }, false)
       points.clear()
-      hist.close()
-      tile(at)?.focus()
+      // Focus goes to the tile of the photo it closed on: one on the screen, even partly, takes it where it is, the page
+      // left where it was; one off it is brought into view. With Back under way, only once it has put the page's scroll
+      // back as it was left, which can undo a scroll or take a tile off the screen (closed after Forward): the frame
+      // after its popstate (at the popstate itself, Chromium's restoring cancelled the focus's scroll).
+      const i = at, back = hist.close()
+      const give = () => {
+        const t = tile(i), r = t?.getBoundingClientRect()
+        t?.focus({ preventScroll: !!r && r.bottom > 0 && r.top < innerHeight })
+      }
+      if (back) addEventListener('popstate', () => requestAnimationFrame(give), { once: true })
+      else give()
     })
     track.addEventListener('transitionend', e => { if (e.target === track) finish() })
     new ResizeObserver(layout).observe(stage)
@@ -295,14 +304,14 @@ export function createViewer({ id, photos, tile, address }: ViewerOptions): View
     ], { duration: 280, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' })
   }
 
-  function open(i: number, o: { from?: HTMLElement; under?: string } = {}) {
+  function open(i: number, o: { from?: HTMLElement; under?: string; adopt?: boolean } = {}) {
     if (!d) build()
     d!.classList.toggle('pv-one', n() < 2)
     const first = !d!.open
     if (first) d!.showModal()
     layout()
     show(i)
-    hist.open(i, address?.(i), o.under)
+    hist.open(i, address?.(i), o.under, o.adopt)
     if (first && o.from) grow(o.from)
   }
 

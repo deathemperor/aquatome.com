@@ -3,7 +3,8 @@
   "name": "Cá L106",
   "altNames": [
     "Cá lau kiếng L106",
-    "Spotted orange seam plec"
+    "Spotted orange seam plec",
+    "Cá tỳ bà L106"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>L106, Hemiancistrus guahiborum, là một loài cá da trơn miệng hút. Đến nay, người ta mới chỉ ghi nhận loài này ở lưu vực sông Orinoco thuộc Venezuela. Cá còn có tên gọi khác là spotted orange seam plec. Chúng sống giữa đá ở vùng nước chảy, vì vậy cần nước giàu oxy và có chút dòng chảy. Loài này được mô tả năm 2005 và có thể chính là L122, một loài chưa được mô tả. Tuy vậy, L122 có thân dẹt hơn, nên nhiều khả năng đây là hai loài khác nhau.</p><ul><li>Kích thước tối đa: 150 mm SL</li><li>Kích thước bể: 120 × 30 cm</li><li>Nhiệt độ: 22–26°C</li><li>pH: 6,0–7,5</li><li>Độ cứng: 3–12 dGH</li></ul>",
@@ -16,13 +17,20 @@
     "behaviour:seriouslyfish": "<p>Đây là lựa chọn khá ổn cho bể cộng đồng. Nếu set bể biotope, bạn có thể nuôi chung với các loài cá characin như Anostomus, Hemiodus, Semaprochilodus và Metynnis, các loài cichlid ưa nước chảy như Retroculus, cùng những loài Loricariid khác cần điều kiện tương tự. Nếu muốn, bạn cũng có thể nuôi cá trong bể cộng đồng thông thường. Khi nuôi từ hai con trở lên, mỗi con cần có một chỗ trú riêng để làm nhà. Dù vậy, bạn vẫn nên chuẩn bị tinh thần là chúng sẽ có chút tranh chấp lãnh thổ.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Nhiều người cho rằng chưa ai cho loài này sinh sản thành công trong giới chơi cá. Xét theo môi trường sống tự nhiên, có lẽ đây là loài đẻ trong hang.</p>",
-    "notes:seriouslyfish": "<p>Giới khoa học mãi đến năm 2005 mới mô tả loài này. Tên loài đặt theo tên một bộ tộc địa phương. Nhờ hoa văn trên thân, cá còn có tên gọi spotted orange seam plec. Ngoài tự nhiên, chúng sống chung với các loài Loricariid khác, trong đó có Peckoltia và một số loài Hemiancistrus khác. Hiện vẫn còn tranh luận chuyện loài này và L122 (một loài chưa được mô tả) có phải là một hay không. Lý do là có vẻ cả hai đều nằm trong bản mô tả khoa học nói trên. Xét về hình dáng thì hai loài có vẻ khác nhau, vì L122 có thân dẹt hơn H. guahiborum.</p>"
+    "notes:seriouslyfish": "<p>Giới khoa học mãi đến năm 2005 mới mô tả loài này. Tên loài đặt theo tên một bộ tộc địa phương. Nhờ hoa văn trên thân, cá còn có tên gọi spotted orange seam plec. Ngoài tự nhiên, chúng sống chung với các loài Loricariid khác, trong đó có Peckoltia và một số loài Hemiancistrus khác. Hiện vẫn còn tranh luận chuyện loài này và L122 (một loài chưa được mô tả) có phải là một hay không. Lý do là có vẻ cả hai đều nằm trong bản mô tả khoa học nói trên. Xét về hình dáng thì hai loài có vẻ khác nhau, vì L122 có thân dẹt hơn H. guahiborum.</p>",
+    "quickFacts:glaser": "<p>L106 có nguồn gốc ở Venezuela. Nó có một mã L khác trông rất giống là L122, nhưng thân L106 cao hơn. Cỡ lớn nhất từng gặp ở L106 vào khoảng 15 cm.</p>",
+    "distribution:glaser": "<p>Loài này sống ở lưu vực sông Orinoco. Mẫu chuẩn được thu ở sông Ventuari, chỗ thác Tencua.</p>",
+    "notes:glaser": "<p>Werneke, Armbruster, Lujan &amp; Taphorn mô tả loài này năm 2005 với tên Hemiancistrus guahiborum. Theo các tác giả, điểm phân biệt loài này với mọi loài đã mô tả khác trong nhóm Hemiancistrus/Peckoltia là viền cam rộng trên vây lưng và vây đuôi. Người chơi cá L đều thống nhất rằng xếp loài này vào chi Guyanancistrus là hợp nhất.</p>",
+    "diet:glaser": "<p>L106 chủ yếu ăn Aufwuchs, tức lớp rêu tảo và sinh vật nhỏ bám trên đá, lũa.</p>",
+    "behaviour:glaser": "<p>Loài này rất hiền.</p>",
+    "waterConditions:glaser": "<p>Cũng như mọi cá L từ lưu vực Orinoco, L106 cần nuôi ở nhiệt độ khá cao, chẳng hạn 28-30°C. Ngoài chuyện đó ra thì cá không khó tính.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.9
     }
   }
 }

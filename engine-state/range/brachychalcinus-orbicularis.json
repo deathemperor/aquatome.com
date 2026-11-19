@@ -1,8 +1,8 @@
 {
   "id": "brachychalcinus-orbicularis",
   "native": {
-    "input": "0660794abb236a9d",
-    "at": "2026-11-10T04:57:39.069Z",
+    "input": "025b10517bb6dbbd",
+    "at": "2026-11-17T11:42:48.614Z",
     "claims": [
       {
         "code": "GY",
@@ -34,6 +34,22 @@
         "source": "seriouslyfish",
         "quote": "Generally considered endemic to coastal watersheds of Guyana and Suriname with type locality the Essequibo River, Guyana, but recent records suggest it or a similar-looking, unidentified congener may also occur in the Orinoco and Negro drainages in Venezuela and Brazil.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of this species is the coastal drainages of Suriname and Guyana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution of this species is the coastal drainages of Suriname and Guyana.",
+        "words": "Guyana",
         "ok": true
       }
     ],

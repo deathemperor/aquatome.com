@@ -1,0 +1,24 @@
+{
+  "slug": "ca-chuot-geoffroy",
+  "name": "Cá chuột geoffroy",
+  "altNames": [
+    "Geoffroy's corydoras"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Trong một thời gian rất dài, loài cá chuột này chỉ được biết đến như một huyền thoại, dù nó là loài chuẩn (type species) của cả chi Corydoras. Đến giờ nó vẫn thuộc hàng hiếm nhất trong các loài cá chuột.</p><p>Kurt Jülich, một người ép đẻ, đã cho loài này đẻ thành công từ cá bắt ngoài tự nhiên. Cá con lứa này màu còn khá nhạt, nên ảnh cá lớn là do Ernst-Otto von Drachenfels và Jürgen Glaser gửi.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

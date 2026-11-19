@@ -189,7 +189,7 @@ export type SpeciesDeps = { research: Llm; llm: Llm; http: (url: string) => Prom
  * page from a source gets them (open licences, screened later by the cycle); a video only when it can be embedded.
  * Never over a page from a licensed source. Files: content/species/<id>/{entity,vi}.json.
  */
-export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o: { researchModel?: string; writeModel?: string; reuse?: boolean } = {}) {
+export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o: { researchModel?: string; writeModel?: string; reuse?: boolean; namedOnly?: boolean } = {}) {
   const content = join(root, 'content')
   const taxon = await speciesTaxon(a.name, d.http)
   if (!taxon?.family || !taxon.order) return { id: slugify(a.name), skipped: `${a.name}: GBIF has no species of that name` }
@@ -204,8 +204,22 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   const researched = withoutRefused(kept ?? await d.research<SpeciesFacts>({ system: 'You research fish species carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(taxon, a.videos ?? []), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })).kept
   if (!kept) { await mkdir(join(root, 'engine-state/species-research'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${sci}: no published source describes it` }
-  const c = citeResearch(researched, a.videos ?? [])
+  const cited = citeResearch(researched, a.videos ?? [])
+  // With `namedOnly`, a new page opens only under a name a Vietnamese page gives that begins with a kind word fitting the
+  // animal ("Cá …", "Tép …", `kindWord`), and isn't the scientific name after it or one of its English names: the rest
+  // are left out (17 Nov 2026: "Hyphessobrycon cochui" from a .vn page would have named Cochu's blue tetra's page, and
+  // "Jewel Gourami", which no kind word judges, could have named a gourami's). Compared as `kindWord` reads a name, so a
+  // doubled, no-break or zero-width space or a hyphen doesn't let one through (the Codex reads, 17 Nov).
+  const fold = (s: string) => s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim()
+  const taxonOf = { order: taxon.order, family: taxon.family, genus: taxon.genus ?? sci.split(' ')[0] }
+  const foreign = (n: string) => fold(n).includes(fold(sci)) || cited.enNames.some(e => fold(e) === fold(n))
+  const c = o.namedOnly && !was ? { ...cited, viNames: cited.viNames.filter(n => !foreign(n) && kindWord(n, taxonOf)?.fits === true) } : cited
   if (!c.facts.length) return { id, skipped: `${sci}: no cited facts` }
+  // `namedOnly`: no new page under its scientific name. Without a Vietnamese name that passes the naming rule (the one the
+  // page would open under, below), it waits for the Writing Lead, before the page is written.
+  if (o.namedOnly && !was && !c.viNames.some(n => !wrongKind(n, taxonOf))) {
+    return { id, skipped: `${sci}: no Vietnamese name that passes the naming rule; the page waits for the Writing Lead` }
+  }
 
   const forWriter = {
     species: { scientificName: sci, family: taxon.family, order: taxon.order },

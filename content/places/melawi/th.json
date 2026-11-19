@@ -3,6 +3,12 @@
   "name": "เมลาวี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-18T18:20:18.354Z",
+    "why": "เมลาวี is a reasonable Thai transliteration of Melawi, but the place is a regency/river basin and an atlas in Thailand would likely write it with a kind word such as \"แม่น้ำเมลาวี\" (the source refers to the Sungai Melawi river basin), so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

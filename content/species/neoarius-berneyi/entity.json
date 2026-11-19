@@ -1,0 +1,134 @@
+{
+  "id": "neoarius-berneyi",
+  "scientificName": "Neoarius berneyi",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Neoarius",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia",
+    "gulf-of-carpentaria",
+    "papua-new-guinea"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 45
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "html": "<p>Common names: Lesser Salmon Catfish, Highfin Catfish. Family: Ariidae. The Australian species of the Ariidae family have been revised and placed in a new genus, Neoarius. \"Neo\" means new in Latin.</p><p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 7; anal spines: 0; anal soft rays: 16–19. The species of Neoarius can be differentiated from all other genera of Ariidae by the combination of two shared characters: (1) lateral face of third pharyngobranchial conspicuous and acute (shared with Arius, Brustiarius, Nedystoma, Netuma, Plicofollis and Potamosilurus); (2) anterior process of first pharyngobranchial on the central part of this bone (shared with Netuma).</p><p>IUCN Red List: Least Concern, because it is widespread, locally common and there are no major threats (IUCN 2019).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "html": "<p>Oceania: Northern Australia, inhabits coastal rivers and streams in the Gulf of Carpentaria and northern areas of the Northern Territory as far west as the Mary River system, and New Guinea. Type locality: Pools of Flinders River, near Hughender and Richmond, Queensland, Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "html": "<p>Occurs in rivers and smaller streams, frequently in slow-flowing, turbid conditions, and also in lakes and lagoons. Sometimes found in brackish estuaries.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "html": "<p>Temperature: 20–30°C. pH: 6.5–8.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "html": "<p>Feeds on aquatic plants, benthic crustaceans, insect larvae, bottom detritus and also fishes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "html": "<p>Etymology: the genus name Neoarius: Neo means \"new\" in Latin and Arius is derived from the Greek word Apelos (pronounced Araios) which means \"sanctified by the god of war\", and refers to the bony structure extending from the skull covering to the powerful thorn of the first dorsal fin ray. The specific name berneyi: after ornithologist F. L. Berney.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (05/2009). Hammer, M. &amp; Kennard, M. 2019. Arius (Neoarius) berneyi. The IUCN Red List of Threatened Species 2019. Marceniuk P. Alexandre &amp; Menzes A. Naircio. Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera (Zootaxa 1416) 126 pp.; 30 cm. 2007.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/5e2637ea9ed319d7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5e2637ea9ed319d7-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/neoarius_berneyi.htm",
+      "caption": "Neoarius berneyi",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "hfe7M6C9luU",
+      "title": "Neoarius berneyi THE SENSIBLE Berneyi Shark Catfish. (Leopard Aquatic B081A)",
+      "durationSec": 55,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1_Whj1uCz4Y",
+      "title": "10cm Catfish - Berneyi",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài",
+        "máy lọc bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "sangha-river",
+  "name": "ซังกา",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T17:55:25.129Z",
+    "why": "ซังกา is a Thai transcription of \"Sangha\" but lacks the river word แม่น้ำ, which Thai atlases normally add (แม่น้ำซังกา), so it reads as a bare name rather than a river."
+  },
+  "quality": {
+    "score": 0.5,
+    "indexable": false
+  }
+}

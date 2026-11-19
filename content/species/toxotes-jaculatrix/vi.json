@@ -4,7 +4,8 @@
   "altNames": [
     "Cá bắn cung vằn",
     "Cá phun nước",
-    "Banded Archerfish"
+    "Banded archerfish",
+    "Archerfish"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá bắn cung vằn (Toxotes jaculatrix) là một loài cá bắn cung có mặt từ Ấn Độ, qua Đông Nam Á, tới các đảo Thái Bình Dương và miền bắc Australia. Trong các loài cá bắn cung, đây là loài dễ mua nhất. Đôi khi cửa hàng bán nó dưới tên T. jaculator. Cá có tài phun tia nước bắn hạ côn trùng đậu trên cành lá chìa ra mặt nước. Nơi sống chính của nó là rừng ngập mặn nước lợ và vùng cửa sông. Người ta cho rằng cá bơi ra hẳn vùng nước biển để sinh sản.</p><ul><li>Kích thước tối đa: 300 mm SL (chiều dài chuẩn)</li><li>Kích thước bể: 120 × 60 cm</li><li>Nhiệt độ: 25–30°C</li><li>pH: 7,0–8,0</li><li>Độ cứng: 20–30 dGH</li></ul>",
@@ -17,13 +18,16 @@
     "behaviour:seriouslyfish": "<p>Nhìn chung cá khá hiền, nhưng có thể ăn những con cá nhỏ hơn nó nhiều. Cá cũng có thể gây gổ với đồng loại. Bạn có thể giảm chuyện này bằng cách nuôi theo nhóm 4 hoặc 5 con. Cá nuôi chung được với các loài cá nước lợ cỡ lớn khác như cá nâu (scat), cá mono và cá chromide xanh.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Hiện chưa có ghi nhận nào về việc cá sinh sản trong bể nuôi. Người ta cho rằng loài này bơi ra hẳn vùng nước biển để đẻ. Điều kiện như vậy rất khó tạo lại trong bể.</p>",
-    "notes:seriouslyfish": "<p>Cá bắn cung vằn thuộc một nhóm cá rất thú vị, đã tiến hóa ra kiểu săn mồi độc đáo này. Họ cá bắn cung có sáu loài. Trong đó Toxotes jaculatrix là loài dễ mua nhất, và đôi khi bị bán nhầm tên thành T. jaculator. Ở Anh, thỉnh thoảng cũng có bán Toxotes chatareus, một loài có hoa văn tương tự, nhưng hiếm gặp hơn nhiều. Có ghi nhận cho rằng cá bắn cung con nuôi được trong nước ngọt. Dù vậy, lời khuyên vẫn là lúc nào cũng nên nuôi chúng trong bể nước lợ. Ở nhiều nước thuộc vùng phân bố tự nhiên, người ta bắt loài này làm cá ăn.</p>"
+    "notes:seriouslyfish": "<p>Cá bắn cung vằn thuộc một nhóm cá rất thú vị, đã tiến hóa ra kiểu săn mồi độc đáo này. Họ cá bắn cung có sáu loài. Trong đó Toxotes jaculatrix là loài dễ mua nhất, và đôi khi bị bán nhầm tên thành T. jaculator. Ở Anh, thỉnh thoảng cũng có bán Toxotes chatareus, một loài có hoa văn tương tự, nhưng hiếm gặp hơn nhiều. Có ghi nhận cho rằng cá bắn cung con nuôi được trong nước ngọt. Dù vậy, lời khuyên vẫn là lúc nào cũng nên nuôi chúng trong bể nước lợ. Ở nhiều nước thuộc vùng phân bố tự nhiên, người ta bắt loài này làm cá ăn.</p>",
+    "distribution:glaser": "<p>Hiện người ta biết bảy loài cá cung thủ (Toxotes). Ba loài trong số đó thường sống ở nước ngọt, gồm T. lorentzi và T. kimberleyensis ở Úc, cùng T. microlepis ở Đông Nam Á. Hai loài khác thì hầu như chưa ai biết tới, ít ra là đến nay chưa có ai nuôi trong bể. Đó là T. blythi ở Myanmar và T. oligolepis ở quần đảo Moluccas. Hai loài còn lại sống trải rất rộng khắp vùng Ấn Độ Dương – Tây Thái Bình Dương. Chúng ở nước lợ (nhất là T. chatareus), có loài còn sống hẳn ngoài biển (T. jaculatrix).</p>",
+    "notes:glaser": "<p>Toxotes chatareus dễ nhận ra nhờ kiểu hoa văn riêng, với đốm lớn và đốm nhỏ nằm xen kẽ nhau. Còn T. jaculatrix là loài cá cung thủ duy nhất chỉ có 4 gai ở vây lưng, các loài khác đều có 5. Cả hai đặc điểm này nhìn được ngay trên cá sống, và người ta dựa vào chúng để định loài.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.92
     }
   }
 }

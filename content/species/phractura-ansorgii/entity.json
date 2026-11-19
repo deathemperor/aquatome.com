@@ -1,0 +1,233 @@
+{
+  "id": "phractura-ansorgii",
+  "scientificName": "Phractura ansorgii",
+  "order": "Siluriformes",
+  "family": "Amphiliidae",
+  "genus": "Phractura",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "nigeria",
+    "niger"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [
+        "Niger delta",
+        "Oshun River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Phractura ansorgii occurs in the Lower Niger, Niger delta and Oshun River in Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Niger delta",
+            "Oshun River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340812,
+      "total": 15,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BJ",
+          13
+        ],
+        [
+          "CM",
+          1
+        ],
+        [
+          "NG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          1.40625,
+          5.625,
+          7,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          3,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          8.4375,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "html": "<ul><li>Common name: African Whiptailed Catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "html": "<p>Africa: Lower Niger River. Type locality: Agberi [Nigeria].</p><p>Phractura ansorgii occurs in the Lower Niger, Niger delta and Oshun River in Nigeria. While it has a relatively large extent of occurrence (EOO) of 26,658 km2, the best estimate of its area of occupancy (AOO) is 12-500 km2. Oil exploration in the Niger delta as well as deforestation and agricultural and urban development throughout its range are causing continuing declines in its habitat quality, EOO, AOO and number of locations. It is known from only three locations based on these threats. Hence, P. ansorgii is listed as Endangered (IUCN 2020).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "html": "<p>These catfish inhabit fast flowing waters and spend a lot of their time clinging to aquatic leaves, and if you provide long stemmed plants, such as Vallisneria for instance, you will see this habit.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "html": "<p>To keep this species and other members of this African hillstream family you will have to provide a well oxygenated planted aquarium and keep up your water changes, as they are not as hardy as their South American equivalents.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "html": "<p>These catfish, commonly known as 'African Whiptails', seem to support the theory that the Americas and Africa were once one great mass of land, as at first glance they look superficially like South American 'Whiptails', such as those of the Rineloricaria/Hemiloricaria genera.</p><p>Etymology: The specific name ansorgii is in honour of Dr. W.J. Ansorge, the English collector.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Olaosebikan, B.D. &amp; FishBase team RMCA. 2020. Phractura ansorgii. The IUCN Red List of Threatened Species 2020.</p><p>ScotCat Factsheet no.59. May 2001.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/80d31bdfa112ad0c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/80d31bdfa112ad0c-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "caption": "Phractura ansorgii (female)",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/56d72585e02d3d84.webp",
+      "thumb": "https://media.aquatome.com/scotcat/56d72585e02d3d84-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "caption": "Phractura ansorgii ( male)",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7664d4329760e15f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7664d4329760e15f-480.webp",
+      "width": 500,
+      "height": 283,
+      "licence": "dùng với sự cho phép",
+      "author": "Serge Mevellec / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amphiliidae/phractura_ansorgii.htm",
+      "caption": "Phractura ansorgii",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "5uyxO99YHE0",
+      "title": "Phractura ansorgii (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm sục khí",
+        "lọc thác bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi nền bể thủy sinh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây Vallisneria"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test pH nước"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

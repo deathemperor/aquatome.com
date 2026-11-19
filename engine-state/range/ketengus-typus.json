@@ -1,0 +1,80 @@
+{
+  "id": "ketengus-typus",
+  "native": {
+    "input": "63bf681b6ae71fb4",
+    "at": "2026-11-18T12:30:34.128Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Occurs in coastal waters from Thailand to Indonesia and westward to the Andaman Islands.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Occurs in coastal waters from Thailand to Indonesia and westward to the Andaman Islands.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Peninsula",
+        "source": "scotcat",
+        "quote": "Asia: Eastern Bay of Bengal and Malay Peninsula; in nearshore coastal waters, estuaries, and lower reaches of rivers (Kailola, 1999).",
+        "ok": true
+      },
+      {
+        "name": "Andaman Islands",
+        "source": "scotcat",
+        "quote": "Occurs in coastal waters from Thailand to Indonesia and westward to the Andaman Islands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ketengus typus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345205,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T12:30:34.128Z"
+  }
+}

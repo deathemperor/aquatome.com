@@ -13,13 +13,20 @@
     "behaviour:planetcatfish": "<p>Cocok dicampur dengan ikan laut air dingin hingga sejuk lainnya yang ukurannya terlalu besar untuk dimangsa ikan ini.</p>",
     "reproduction:planetcatfish": "<p>Belum ada laporan pemijahan di akuarium. Diketahui bahwa di alam pemijahan berlangsung pada bulan Mei hingga Juni, dan ikan jantan mengerami telur-telur yang besar dan sudah dibuahi di dalam mulutnya hingga dua bulan sampai menetas. Selama masa pengeraman, ikan jantan tidak makan.</p>",
     "notes:planetcatfish": "<p>Identifikasi: tubuh keseluruhan berwarna abu-abu dengan kilau kebiruan. Sungut pada rahang atas tampak jelas pipih. Filamen panjang pada sirip dada dan sirip punggung mencapai hampir sampai atau melewati sirip anal. Sirip ekor bercagak dalam dengan lobus atas sedikit lebih panjang. Sirip anal dengan tepi cekung. Memiliki 22–26 jari-jari sirip anal dan 7–12 tapis insang pada lengkung insang pertama. Di tempat yang populasinya melimpah, ikan ini ditangkap dengan rawai, pukat dasar, pukat pantai, jala lempar, serta pancing. Di Amerika Utara tidak dianggap sebagai ikan konsumsi, tetapi dimakan di seluruh Karibia dan bagian utara Amerika Selatan, di mana dagingnya dianggap lezat.</p>",
-    "references:planetcatfish": "<p>Transactions of the Literary and Philosophical Society of New-York v. 1 (art. 5) (for 1814), pp 433.</p>"
+    "references:planetcatfish": "<p>Transactions of the Literary and Philosophical Society of New-York v. 1 (art. 5) (for 1814), pp 433.</p>",
+    "quickFacts:scotcat": "<p>Famili: Ariidae. Ukuran: 40 cm. Suhu: 12–26 °C. pH: 7,0–8,5. Jari-jari lunak sirip anal: 22–28. Sungut rahang atas, jari-jari pertama sirip punggung, dan jari-jari pertama sirip dada memanjang membentuk filamen panjang yang pipih. Ada sepasang sungut di dagu. Sirip punggung dan sirip dada masing-masing memiliki duri bergerigi yang bisa ditegakkan, dan keduanya berbisa.</p>",
+    "distribution:scotcat": "<p>Amerika bagian timur: Amerika Serikat, Meksiko, Kuba, Belize, Honduras, Nikaragua, Kosta Rika, Panama, Kolombia, Venezuela, Guyana, Suriname, Guyana Prancis, dan Brasil. Lokasi tipe: New York, Amerika Serikat.</p>",
+    "habitat:scotcat": "<p>Sebagian besar hidup di laut, tetapi juga masuk ke muara payau yang salinitasnya relatif tinggi.</p>",
+    "diet:scotcat": "<p>Makanan utamanya ikan-ikan kecil dan invertebrata. Ikan ini sering dipancing orang dari jembatan, dermaga, dan titian. Dagingnya dianggap enak.</p>",
+    "notes:scotcat": "<p>Etimologi: nama spesies marinus berarti 'dari laut', merujuk pada 'Salt-water Catfish' dari negara bagian New York (AS).</p><p>Daftar Merah IUCN: spesies yang tersebar luas ini umum dan melimpah di perairan pesisir dangkal dan muara tempat ia hidup. Ikan ini merupakan sumber daya perikanan yang bernilai di Teluk Meksiko di lepas pantai Meksiko, dan tingkat pemanfaatannya dianggap sudah berada pada hasil tangkapan lestari maksimum. Spesies ini kemungkinan rentan terhadap penangkapan berlebih karena masih berlangsungnya penangkapan ilegal yang menyasar induk-induk yang sedang memijah. Ikan ini juga tertangkap sebagai tangkapan sampingan pukat dan dalam tangkapan nelayan tradisional di lepas pantai Brasil. Di perairan AS, spesies ini tidak menopang perikanan yang berarti. Saat ini tidak ada indikasi penurunan yang signifikan di tingkat global. Karena itu, spesies ini digolongkan Risiko Rendah (Least Concern) dengan rekomendasi agar pemantauan dan pengaturan perikanan di Meksiko ditingkatkan (IUCN 2015).</p>",
+    "references:scotcat": "<ul><li>Chao, L., Vega-Cendejas, M., Tolan, J., Jelks, H. &amp; Espinosa-Perez, H. 2015. Bagre marinus. The IUCN Red List of Threatened Species 2015.</li><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2009).</li><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li><li>The ETYFish Project Fish Name Etymology Database.</li></ul>"
   },
   "quality": {
     "score": 0.9,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
+      "planetcatfish": 0.9,
+      "scotcat": 0.9
     }
   }
 }

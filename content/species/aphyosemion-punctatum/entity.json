@@ -1,0 +1,171 @@
+{
+  "id": "aphyosemion-punctatum",
+  "scientificName": "Aphyosemion punctatum",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "gabon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This gorgeous killi originates from Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348371,
+      "total": 12,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "GA",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          11.25,
+          0,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          0,
+          10,
+          10
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/",
+      "html": "<p>This gorgeous killi originates from Gabon. Its red and yellow colours are very attractive. It grows up to 4.5 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/",
+      "html": "<p>Gabon.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/",
+      "html": "<p>Keeping and breeding this species can be compared with the by far better known lyretail killi, Aphyosemion australe.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/62ba894e37076275.webp",
+      "thumb": "https://media.aquatome.com/glaser/62ba894e37076275-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c551f160092ccd29.webp",
+      "thumb": "https://media.aquatome.com/glaser/c551f160092ccd29-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5e02c26ed9a9f28d.webp",
+      "thumb": "https://media.aquatome.com/glaser/5e02c26ed9a9f28d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0e106d09ab5e5e90.webp",
+      "thumb": "https://media.aquatome.com/glaser/0e106d09ab5e5e90-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion-punctatum-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "51JnSfXjA_Y",
+      "title": "Aphyosemion punctatum Buong Bai",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wCnBqMTAzH0",
+      "title": "Aphyosemion punctatum - Killifisch - Punktierter Prachtkäpfling",
+      "durationSec": 69,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9kjtGry7Kdw",
+      "title": "Aphyosemion Punctatum Jumping",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40 lít",
+        "bể cá killi"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

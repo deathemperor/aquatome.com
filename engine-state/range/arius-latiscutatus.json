@@ -1,8 +1,8 @@
 {
   "id": "arius-latiscutatus",
   "native": {
-    "input": "cdd5660eb5c41575",
-    "at": "2026-11-16T00:17:52.050Z",
+    "input": "e8b6a57999c0be46",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "GQ",
@@ -16,7 +16,7 @@
         "code": "SN",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo. Reported from Gambia and the lower Niger basin.",
+        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo.",
         "words": "Senegal",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "AO",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo. Reported from Gambia and the lower Niger basin.",
+        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo.",
         "words": "Angola",
         "ok": true
       },
@@ -32,23 +32,151 @@
         "code": "GM",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo. Reported from Gambia and the lower Niger basin.",
+        "quote": "Reported from Gambia and the lower Niger basin.",
         "words": "Gambia",
+        "ok": true
+      },
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "GW",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Guinea Bissau",
+        "ok": true
+      },
+      {
+        "code": "GQ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Equatorial Guinea",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "GH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Ghana",
+        "ok": true
+      },
+      {
+        "code": "TG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Togo",
+        "ok": true
+      },
+      {
+        "code": "BJ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Benin",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Congo",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Zaire",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "NA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia.",
+        "words": "Namibia",
+        "ok": true
+      },
+      {
+        "code": "MR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species can be found from Mauritania to Namibia, is mainly found in estuaries and can be locally abundant.",
+        "words": "Mauritania",
         "ok": true
       }
     ],
     "regions": [
       {
         "name": "Fernando Póo Island",
-        "source": "planetcatfish",
-        "quote": "Type locality: Fernando Póo Island [Bioco Island], Equatorial Guinea, Gulf of Guinea.",
+        "source": "scotcat",
+        "quote": "Western Africa: Senegal, Guinea Bissau, Equatorial Guinea, Sierra Leone, Liberia, Ghana, Togo, Benin, Nigeria, Cameroon, Gabon, Congo, Zaire, Angola and Namibia. Type locality: Fernando Póo Island, Equatorial Guinea, Gulf of Guinea.",
         "country": "GQ",
         "ok": true
       },
       {
         "name": "Niger",
         "source": "planetcatfish",
-        "quote": "Eastern Atlantic: Dakar, Senegal to Angola; one record from Fernando Poo. Reported from Gambia and the lower Niger basin.",
+        "quote": "Reported from Gambia and the lower Niger basin.",
         "ok": false,
         "why": "a country"
       }
@@ -57,10 +185,11 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "NG",
         "NE"
       ],
-      "sourcesOnly": []
+      "sourcesOnly": [
+        "CG"
+      ]
     }
   },
   "records": {
@@ -145,9 +274,22 @@
       "GQ",
       "SN",
       "AO",
-      "GM"
+      "GM",
+      "GW",
+      "SL",
+      "LR",
+      "GH",
+      "TG",
+      "BJ",
+      "NG",
+      "CM",
+      "GA",
+      "CG",
+      "CD",
+      "NA",
+      "MR"
     ],
     "requests": 13,
-    "at": "2026-11-16T00:17:52.050Z"
+    "at": "2026-11-18T06:03:35.101Z"
   }
 }

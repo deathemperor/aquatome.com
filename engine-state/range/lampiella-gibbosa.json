@@ -1,9 +1,17 @@
 {
   "id": "lampiella-gibbosa",
   "native": {
-    "input": "f98892b711e698a7",
-    "at": "2026-11-17T00:14:47.070Z",
+    "input": "2ffdf9b27ee99912",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Maximum size: 5 cm. Origin: Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
       {
         "code": "BR",
         "status": "native",
@@ -15,8 +23,16 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "glaser",
-        "quote": "Maximum size: 5 cm. Origin: Brazil.",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Ribeira de Iguape River basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Lampiella gibbosa is endemic to Brazil, occurring in the Ribeira do Iguape river basin.",
         "words": "Brazil",
         "ok": true
       }
@@ -27,6 +43,19 @@
         "source": "glaser",
         "quote": "The species occurs in the Brazilian state of Sao Paulo in the Rio Betari.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Ribeira de Iguape",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Ribeira de Iguape River basin.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Bethary",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Bethary.",
         "ok": true
       }
     ],

@@ -141,20 +141,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_from_the_rio_tapajos_l263_and_l264_en/",
-      "html": "<p>Two species of fairly carnivorous loricariids were received from Brazil. L264 has been scientifically described as Leporacanthicus joselimai, whereas L263 is still waiting for a scientist to examine it more closely. Both species reach a maximum length of about 15–20 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l264-leporacanthicus-joselimai-german-bred/",
+      "html": "<p>Leporacanthicus joselimai (L264) comes from the Rio Tapajós in Brazil and grows 15-20 cm long.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-joselimai",
       "html": "<p>Rio Tapajós, Brazil.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_from_the_rio_tapajos_l263_and_l264_en/",
-      "html": "<p>Both forms originate from the Rio Tapajós in Brazil, where they even occur syntopically.</p>"
     },
     {
       "key": "habitat",
@@ -187,10 +181,22 @@
       "html": "<p>These prefer a meaty diet, which can consist of live and frozen foods such as bloodworm, chopped mussel and prawn and sinking dried foods. Algae and other vegetable matter is not often taken, but the occasional slice of cucumber or courgette might be nibbled at.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l264-leporacanthicus-joselimai-german-bred/",
+      "html": "<p>It belongs to the carnivorous species of suckermouth catfish and should therefore be fed with a wide range of feed, such as frozen food, granules, flakes, etc. Since most of the food is eaten at night, it is necessary to plan feeding accordingly.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-joselimai",
       "html": "<p>Ideal tankmates include characins, peaceful South American cichlids and catfish such as Corydoras and other small Loricariids. In a biotope setup with a lot of water movement choices are more limited, but possibilities include characins such as Anostomus, Hemiodus and reophilic cichlids like Retroculus or Steatocranus. It's territorial with conspecifics, with this behaviour being particularly pronounced among males, so make sure there is plenty of tank space and potential territories if you want to keep a group.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l264-leporacanthicus-joselimai-german-bred/",
+      "html": "<p>In the group maintained L. joselimai are very lively and tolerant, while individually kept animals are very shy and often react aggressively to other tankmates.</p>"
     },
     {
       "key": "dimorphism",
@@ -205,16 +211,16 @@
       "html": "<p>Has been achieved in the hobby, but the report has not been read. It's a cave spawner and presumably this occurs in a similar fashion to Ancistrus but on a larger scale.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l264-leporacanthicus-joselimai-german-bred/",
+      "html": "<p>The breeding of these beautiful catfish is not yet an everyday event, and offspring of currently 4-6 cm length are available as German bred ones.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-joselimai",
       "html": "<p>Leporacanthicus species are commonly referred to as \"vampire plecs\". This is derived from the unique upper jaw dentition exhibited by members of this genus, unsurprisingly consisting of two large teeth or \"fangs\". The exact use for these is unknown, but they're probably utilised to grip prey items such as snails or other aquatic invertebrates in some way. Another feature shared by all Leporacanthicus is a small bony growth of unknown use on top of the head. This particular species is a very good looking fish, particularly when young when it has striking white fin tips. Unfortunately these fade as the fish grows and often disappear completely. When buying one of these (or any Loricariid), be sure to check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_from_the_rio_tapajos_l263_and_l264_en/",
-      "html": "<p>It is very unusual for two closely related species to live together in the wild, as usually one species will dominate the other. In this case it obviously works. Both L-numbers certainly represent separate species, as both have already been bred successfully in aquaria.</p>"
     }
   ],
   "photos": [
@@ -223,15 +229,15 @@
       "thumb": "https://media.aquatome.com/commons/d92d97f105270310-480.webp",
       "width": 960,
       "height": 718,
-      "licence": "CC BY-SA 2.0",
-      "author": "Thomas Siems",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporacanthicus_joselimai,_Wei%C3%9Fspitzen-R%C3%BCsselzahnwels,_L_264_(10227361116).jpg",
-      "caption": "Leporacanthicus joselimai, Weißspitzen-Rüsselzahnwels, L 264",
       "large": {
         "url": "https://media.aquatome.com/commons/d92d97f105270310-large.webp",
         "width": 1605,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 2.0",
+      "author": "Thomas Siems",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leporacanthicus_joselimai,_Wei%C3%9Fspitzen-R%C3%BCsselzahnwels,_L_264_(10227361116).jpg",
+      "caption": "Leporacanthicus joselimai, Weißspitzen-Rüsselzahnwels, L 264"
     }
   ],
   "videos": [
@@ -288,5 +294,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-18"
 }

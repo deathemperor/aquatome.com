@@ -1,0 +1,198 @@
+{
+  "id": "kneria-stappersii",
+  "scientificName": "Kneria stappersii",
+  "order": "Gonorynchiformes",
+  "family": "Kneriidae",
+  "genus": "Kneria",
+  "group": "other",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lubumbashi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Congo",
+        "Lubumbashi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Kneria stappersii originates from the upper Congo basin, where it inhabits exclusively the Lubumbashi river.",
+          "countries": [],
+          "regions": [
+            "Congo",
+            "Lubumbashi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5213337,
+      "total": 95,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "CD",
+          94
+        ],
+        [
+          "ZM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          23.90625,
+          -11.25,
+          1
+        ],
+        [
+          25.3125,
+          -11.25,
+          46
+        ],
+        [
+          26.71875,
+          -12.65625,
+          39
+        ],
+        [
+          26.71875,
+          -11.25,
+          7
+        ],
+        [
+          28.125,
+          -11.25,
+          1
+        ],
+        [
+          28.125,
+          -9.84375,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "html": "<p>Kneria (shellears) are not bought for bright coloration. They reach about 5–7.5 cm depending on the species. They can move the head left, right and upwards, which is very unusual for a fish. Shellears can also breathe atmospheric air like anabantoids do.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "html": "<p>Kneria stappersii originates from the upper Congo basin, where it inhabits exclusively the Lubumbashi river.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "html": "<p>Keep Kneria in aquaria with a good current and not too warm (18–24°C).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "html": "<p>The omnivorous fish are easy to feed; any type of usual fish food is accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "html": "<p>The fish lives bottom-orientated and also searches for food there. The males have an adhesive organ on the sides of the head that looks a bit like an ear in the shape of a shell, hence the name. It is used by the male to attach to the female during mating, but the exact purpose is not yet understood.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "html": "<p>The fish are free spawners that do not take care of the eggs or fry.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/c5cbe626d2fab484.webp",
+      "thumb": "https://media.aquatome.com/glaser/c5cbe626d2fab484-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c6353b495ebcf59b.webp",
+      "thumb": "https://media.aquatome.com/glaser/c6353b495ebcf59b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1906cdde9dca8f41.webp",
+      "thumb": "https://media.aquatome.com/glaser/1906cdde9dca8f41-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f2b62d2d33600b35.webp",
+      "thumb": "https://media.aquatome.com/glaser/f2b62d2d33600b35-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/32-all-the-rest/kneria-stappersii-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá ăn tạp",
+        "thức ăn cá cảnh dạng viên"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-18"
+}

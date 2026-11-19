@@ -1,8 +1,14 @@
 {
   "id": "bagre-marinus",
-  "input": "a6468e8f600f23ac",
-  "at": "2026-11-14T05:49:41.575Z",
+  "input": "e4918375cafb030e",
+  "at": "2026-11-18T01:04:30.434Z",
   "claims": [
+    {
+      "kind": "marine",
+      "source": "planetcatfish",
+      "quote": "This is a true marine fish.",
+      "ok": true
+    },
     {
       "kind": "marine",
       "source": "planetcatfish",

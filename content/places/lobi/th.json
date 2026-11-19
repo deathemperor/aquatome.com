@@ -3,6 +3,12 @@
   "name": "โลบี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:17:24.129Z",
+    "why": "The Thai transliteration โลบี matches the name Lobi, but the place is a region or river basin in Cameroon, and the Thai name has no kind word (such as ลุ่มแม่น้ำ) to say so, so it is somewhat ambiguous."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

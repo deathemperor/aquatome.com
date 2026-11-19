@@ -1,12 +1,16 @@
 {
   "id": "tetraodon-miurus",
-  "summary": "Cá nóc Congo (Tetraodon miurus) hợp với người nuôi đã có kinh nghiệm, muốn một bể riêng cho loài săn mồi nằm phục. Cá dài 15 cm, bể tối thiểu 75 cm, nước 24–28 °C, pH 6,8–7,5, độ cứng 10–15 dGH, độ khó 4/8. Khó nhất là tính nết: nuôi chung với bất cứ con gì cũng không thật sự an toàn, với đồng loại thì cá không chịu nổi.",
+  "summary": "Loài này không hợp với người chơi bình thường, chỉ hợp người chịu dành riêng một bể cho một con và không có ý nuôi chung. Bể tối thiểu 75 cm (75 × 30 × 30 cm, khoảng 68 lít) là đủ vì cá ít bơi, nước 24–28 °C, pH 6,8–7,5, độ cứng 10–15 dGH, độ khó 4/8. Khó nhất là tính nết: cá nào vừa miệng là bị nuốt, cá to hơn bị cắn từng miếng, đồng loại cũng không chịu nổi.",
   "mistakes": [
-    "Thả chung với cá khác vì thấy bể còn rộng; nên nuôi riêng một bể, vì cá nào vừa miệng nó cũng nuốt, cá to hơn thì bị cắn từng miếng.",
-    "Lót nền mỏng hoặc dùng nền cứng; nên trải lớp cát dày để cá vùi mình đúng tập tính, nếu không nó sẽ giả làm hòn đá phủ rêu.",
-    "Nuôi hai con cùng bể; nên chỉ nuôi một con, vì với đồng loại nó hoàn toàn không chịu nổi."
+    "Thả chung với cá khác hoặc nuôi hai con cùng bể; nên nuôi riêng, mỗi bể một con.",
+    "Để nền mỏng hoặc không có cát; nên trải lớp cát dày 5–8 cm để cá vùi mình được.",
+    "Cho ăn đồ không phải thịt; nên cho tôm, giun đất, trai, và nếu con mới về chỉ chịu đồ tươi sống thì cho đồ tươi sống trước."
   ],
   "speciesUpdatedAt": "2026-11-10",
-  "generatedAt": "2026-11-10T17:06:25.798Z",
-  "review": "approved"
+  "writtenFrom": "d4b515ab6e06fd46",
+  "generatedAt": "2026-11-18T19:58:53.180Z",
+  "review": "pending",
+  "problems": [
+    "\"5–8 cm\" is neither the card's adult size (15 cm) nor its minimum tank (75 cm)"
+  ]
 }

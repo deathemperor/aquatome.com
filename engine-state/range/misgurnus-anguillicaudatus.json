@@ -1,8 +1,8 @@
 {
   "id": "misgurnus-anguillicaudatus",
   "native": {
-    "input": "5275582977cdcb7b",
-    "at": "2026-11-10T12:58:20.267Z",
+    "input": "74a6af4bc869c102",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "MM",
@@ -61,38 +61,6 @@
         "ok": true
       },
       {
-        "code": "CN",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
-        "words": "China",
-        "ok": true
-      },
-      {
-        "code": "KR",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
-        "words": "Korea",
-        "ok": true
-      },
-      {
-        "code": "JP",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
-        "words": "Japan",
-        "ok": true
-      },
-      {
-        "code": "VN",
-        "status": "native",
-        "source": "sprucepets",
-        "quote": "Origin: China, Korea, Japan, Northern Vietnam, Siberia, Sakhalin",
-        "words": "Vietnam",
-        "ok": true
-      },
-      {
         "code": "AU",
         "status": "native",
         "source": "sprucepets",
@@ -106,6 +74,38 @@
         "source": "sprucepets",
         "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
         "words": "Canada",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "words": "Vietnam",
         "ok": true
       },
       {
@@ -291,9 +291,23 @@
         "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
         "words": "Australia",
         "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Misgurnus anguillicaudatus originates from China and can survive in Central Europe the whole year through under outdoor conditions.",
+        "words": "China",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Sakhalin Island",
+        "source": "sprucepets",
+        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
+        "ok": true
+      },
       {
         "name": "Siberia",
         "source": "seriouslyfish",
@@ -304,18 +318,6 @@
         "name": "Sakhalin",
         "source": "seriouslyfish",
         "quote": "Native to Siberia, Sakhalin island, Korea, Japan, China, northern Vietnam and possibly Laos (it remains unknown whether the species is native or was introduced there) but alien populations are now established in Germany, Spain, Italy, Kazakhstan, Uzbekistan, Turkmenistan, the Philippines, U.S.A. (including Hawaii), Canada and Australia.",
-        "ok": true
-      },
-      {
-        "name": "Siberia",
-        "source": "sprucepets",
-        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
-        "ok": true
-      },
-      {
-        "name": "Sakhalin Island",
-        "source": "sprucepets",
-        "quote": "Weather loaches are native to Australia, Canada, China, Japan, Korea, Northern Vietnam, Sakhalin Island, and Siberia.",
         "ok": true
       }
     ],

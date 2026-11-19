@@ -1,0 +1,19 @@
+{
+  "slug": "brochiloricaria-macrodon",
+  "name": "Brochiloricaria macrodon",
+  "altNames": [
+    "ปลาแคทฟิชหางแส้",
+    "ปลาซักเกอร์หางแส้",
+    "Whiptail catfish"
+  ],
+  "sections": {
+    "diet:glaser": "<p>ปลาในสกุล Brochiloricaria มีโครงสร้างปากและพฤติกรรมการกินอาหารที่แตกต่างจาก Lamontichthys โดยสิ้นเชิง ปลากลุ่มนี้เหมือนกับปลาแคทฟิชหางแส้ส่วนใหญ่ที่ฟักไข่ในปาก คือสนใจอาหารเนื้อสัตว์มากกว่าตะไคร่และสิ่งมีชีวิตเล็ก ๆ ที่เกาะอยู่ตามพื้นผิว (Aufwuchs)</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  }
+}

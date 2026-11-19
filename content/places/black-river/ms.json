@@ -3,6 +3,12 @@
   "name": "Sungai Hitam",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.25,
+    "at": "2026-11-18T00:44:56.586Z",
+    "why": "\"Sungai Hitam\" translates the English \"Black River\" word by word, whereas a Malaysian atlas would keep the Vietnamese proper name as \"Sungai Đà\" (or \"Sungai Da\")."
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

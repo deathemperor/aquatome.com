@@ -28,7 +28,7 @@ export const plantTitle = (lang: Lang, name: string, sci: string) => named(lang,
 export const glossaryTitle = (lang: Lang, name: string) => translator(lang)('{name} là gì?', { name })
 
 /** Description led by the page's own numbers, which is what makes a result worth clicking. */
-export function speciesDescription(lang: Lang, name: string, sci: string, card: SpeciesEntity['dataCard']): string {
+export function speciesDescription(lang: Lang, name: string, sci: string, card: SpeciesEntity['dataCard'], fish = true): string {
   const t = translator(lang)
   const { num, range } = fmt(lang)
   const v = (f: keyof SpeciesEntity['dataCard']) => resolveDataCard(card[f] ?? [], f)?.value
@@ -40,7 +40,7 @@ export function speciesDescription(lang: Lang, name: string, sci: string, card: 
     tank !== undefined && t('bể từ {v} cm', { v: num(typeof tank === 'number' ? tank : tank.min) }),
     diff !== undefined && t('độ khó {v}/8', { v: num(typeof diff === 'number' ? diff : diff.max) }),
   ].filter(Boolean)
-  return `${withSci(name, sci)}${facts.length ? `: ${facts.join(', ')}` : ''}. ${t('Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản.')}`
+  return `${withSci(name, sci)}${facts.length ? `: ${facts.join(', ')}` : ''}. ${t(fish ? 'Cách nuôi, thức ăn, nuôi chung với cá gì, sinh sản.' : 'Cách nuôi, thức ăn, nuôi chung với con gì, sinh sản.')}`
 }
 
 const plain = (html: string) => html.replace(/<a class="cite[^"]*"[^>]*>[\s\S]*?<\/a>/g, '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim()

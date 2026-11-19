@@ -1,5 +1,6 @@
 import type { Page } from '@playwright/test'
 import { expect, openCard, test } from './fixtures'
+import { albumIn } from './album'
 import { sourcePages } from './pages'
 
 // A species' numbers agree wherever the page shows them (resolveDataCard in @aq/schema): here the data card's temperature
@@ -162,8 +163,10 @@ test('species page: each "Tránh" chip says why; a size reason gives a size of t
 
 /** A species page with its photo and its gallery's thumbnails (a breed's top has no `.facts`), from the build or the sitemap. */
 async function speciesWithGallery(page: Page) {
-  for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p))) {
-    await page.goto(gallery.replace(/anh\/$/, ''))
+  // An album of 6 photos or more, as the photo pages it was found by had (gone since 18 Nov).
+  for (const path of sourcePages().filter(p => /^\/ca\/[^/]+\/$/.test(p)).slice(0, 60)) {
+    if ((albumIn(await (await page.request.get(path)).text())?.photos.length ?? 0) < 6) continue
+    await page.goto(path)
     if (await page.locator('header.top > .facts').count() && await page.locator('header.top .photo').count() && await page.locator('main section.strip').count()) return (await openCard(page), true)
   }
   return false
@@ -182,7 +185,7 @@ test('species page: the gallery\'s thumbnails sit under the photo, beside the fa
   const srcs = await strip.locator('li img').evaluateAll(is => is.map(i => i.getAttribute('src')!))
   expect(srcs.length, 'thumbnails').toBeGreaterThan(0)
   expect(srcs.length, 'thumbnails').toBeLessThanOrEqual(40) // the strip's 8, then on a tall computer screen as many as the column has room for
-  const more = await strip.locator('.head a').count() ? Number(/\d+/.exec((await strip.locator('.head a').textContent())!)![0]) : srcs.length
+  const more = await strip.locator('.head [data-all]').count() ? Number(/\d+/.exec((await strip.locator('.head [data-all]').textContent())!)![0]) : srcs.length
   expect(more, '"Xem tất cả N ảnh"').toBeGreaterThanOrEqual(srcs.length)
   const onPage = await page.locator('main img').evaluateAll(is => is.map(i => i.getAttribute('src')))
   for (const src of srcs) expect(onPage.filter(s => s === src), `${src} on the page`).toHaveLength(1)
@@ -234,7 +237,7 @@ test('species page on a computer: the photo column stays in view while the facts
   test.skip(!(await speciesWithGallery(page)), 'no species page with a gallery strip')
   const strip = page.locator('main section.strip')
   const head = strip.locator('.head')
-  const last = strip.locator('li').nth(await strip.locator('li a').evaluateAll(as => as.findLastIndex(a => Number(/#a(\d+)$/.exec(a.getAttribute('href')!)?.[1] ?? 1) <= 8)))
+  const last = strip.locator('li').nth(await strip.locator('li a').evaluateAll(as => as.findLastIndex(a => Number((a as HTMLElement).dataset.i) < 8))) // the strip's own 8
   const [top, end] = [(await head.boundingBox())!, (await last.boundingBox())!]
   // The column beside the photo's: the name, the card and the summary.
   const beside = await page.locator('header.top').evaluate(t => Math.max(...[...t.children].filter(c => !c.classList.contains('side')).map(c => c.getBoundingClientRect().bottom + scrollY)))
@@ -247,14 +250,14 @@ test('species page on a computer: the photo column stays in view while the facts
   }
 })
 
-/** A fish page whose gallery has photos enough to fill its photo column on the screens tried here ("Xem tất cả N ảnh",
- * N ≥ 40): of the first 20 galleries in the build or the sitemap. */
+/** A fish page whose album has photos enough to fill its photo column on the screens tried here (40 or more, as its
+ * strip carries it): of the first 60 fish pages in the build or the sitemap. The album has no page of its own to look
+ * for since 18 Nov. */
 async function speciesWithBigGallery(page: Page) {
-  for (const gallery of sourcePages().filter(p => /^\/ca\/[^/]+\/anh\/$/.test(p)).slice(0, 20)) {
-    const path = gallery.replace(/anh\/$/, '')
+  for (const path of sourcePages().filter(p => /^\/ca\/[^/]+\/$/.test(p)).slice(0, 60)) {
+    if ((albumIn(await (await page.request.get(path)).text())?.photos.length ?? 0) < 40) continue
     await page.goto(path)
-    const all = page.locator('main section.strip .head a') // in the photo column (on a phone, for screen readers only)
-    if (await page.locator('header.top > .facts').count() && await all.count() && Number(/\d+/.exec((await all.textContent())!)![0]) >= 40) return path
+    if (await page.locator('header.top > .facts').count()) return path
   }
   return undefined
 }
@@ -281,7 +284,7 @@ async function photoColumn(page: Page, path: string, width: number, height: numb
     const list = strip.querySelector('ul')!.getBoundingClientRect()
     const thumbs = [...strip.querySelectorAll('li')].map(li => {
       const b = li.getBoundingClientRect()
-      return { n: Number(/#a(\d+)$/.exec(li.querySelector('a')!.getAttribute('href')!)?.[1]), src: li.querySelector('img')!.src, top: b.top, bottom: b.bottom, shown: b.height > 0 && b.bottom > list.top && b.top < list.bottom }
+      return { n: Number(li.querySelector('a')!.dataset.i) + 1, src: li.querySelector('img')!.src, top: b.top, bottom: b.bottom, shown: b.height > 0 && b.bottom > list.top && b.top < list.bottom }
     })
     // The column beside it: the name, the card and the summary.
     return { thumbs, list: list.bottom, facts: Math.max(...[...top.children].filter(c => !c.classList.contains('side')).map(c => c.getBoundingClientRect().bottom)), window: innerHeight }
@@ -340,7 +343,7 @@ test('species page on a phone: the strip\'s 8 thumbnails in one swiping row, the
     for (const t of thumbs.filter(t => !t.shown)) expect(t.downloaded, `${width} px: #a${t.n}, not shown, not downloaded`).toBe(false)
     const row = page.locator('main section.strip ul')
     expect(await row.evaluate(u => u.scrollWidth > u.clientWidth), `${width} px: the row swipes`).toBe(true)
-    const all = (await page.locator('main section.strip a.all').boundingBox())!
+    const all = (await page.locator('main section.strip .all').boundingBox())!
     expect(all.x + all.width, `${width} px: the gallery's link on the screen, at the row's end`).toBeLessThanOrEqual(width)
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth), `${width} px: sideways scroll`).toBeLessThanOrEqual(0)
   }

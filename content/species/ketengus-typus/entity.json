@@ -1,0 +1,169 @@
+{
+  "id": "ketengus-typus",
+  "scientificName": "Ketengus typus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Ketengus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "indonesia",
+    "kalimantan",
+    "india",
+    "andaman-islands"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "ID"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Andaman Islands"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Occurs in coastal waters from Thailand to Indonesia and westward to the Andaman Islands.",
+          "countries": [
+            "TH",
+            "ID"
+          ],
+          "regions": [
+            "Andaman Islands"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Eastern Bay of Bengal and Malay Peninsula; in nearshore coastal waters, estuaries, and lower reaches of rivers (Kailola, 1999).",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345205,
+      "total": 8,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "ID",
+          3
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          90,
+          14.0625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          112.5,
+          2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<ul><li>Common name: Bigmouth sea catfish</li><li>Synonym: Pimelodus pectinidens</li><li>IUCN Red List: Not Evaluated</li></ul><p>Teeth are absent from the roof of the mouth, and the mouth opens wide, extending far beyond the eye. Only one species is recorded (monotypic genus).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Asia: Eastern Bay of Bengal and Malay Peninsula; in nearshore coastal waters, estuaries, and lower reaches of rivers (Kailola, 1999). Occurs in coastal waters from Thailand to Indonesia and westward to the Andaman Islands. Type locality: Banjarmasin, in rivers (in fluviis).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Found in the lower parts of rivers in either fresh or brackish waters.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Feeds on invertebrates and small fishes.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "html": "<p>Etymology: The genus name Ketengus is a latinisation of Keteng, the Madurese name for this catfish in eastern Java, Indonesia. The specific name typus means serving as type of the genus.</p><p>Remarks: Caught with trawls, seines, and traps.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a6e891707a5af29c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a6e891707a5af29c-480.webp",
+      "width": 500,
+      "height": 289,
+      "licence": "dùng với sự cho phép",
+      "author": "Pirayu / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/ketengus_typus.htm",
+      "caption": "Ketengus typus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

@@ -1,8 +1,13 @@
 {
   "slug": "upper-parana-river",
-  "name": "Paraná Hulu",
+  "name": "Hulu Sungai Paraná",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T05:15:09.707Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

@@ -1,0 +1,27 @@
+{
+  "slug": "piraputanga",
+  "name": "Piraputanga",
+  "altNames": [
+    "Brycon",
+    "Piraputanga brycon"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Kiriman \"Salminus\" pertama tahun ini dari Sungai Orinoco sudah datang, dan ternyata semua ikannya Brycon hilarii. Untungnya, tahun lalu sempat diambil foto Salminus dengan ukuran yang mirip, jadi keduanya bisa dibandingkan. Di internet banyak beredar foto dengan nama Salminus maxillosus yang sebenarnya menampilkan Brycon hilarii.</p>",
+    "diet:glaser": "<p>Pada dasarnya ikan ini pemakan tumbuhan dan buah, walaupun ikan yang sangat kecil juga akan dimakannya.</p>",
+    "behaviour:glaser": "<p>Brycon hilarii termasuk ikan yang cukup damai. Tentu saja ikan yang sangat kecil tetap akan disantapnya sebagai camilan, tetapi pada dasarnya ikan ini pemakan tumbuhan dan buah. Dengan sesamanya ikan ini sangat damai, berbeda dengan Salminus yang bisa cukup suka berkelahi.</p>",
+    "notes:glaser": "<p>Nama ilmiah yang tepat untuk ikan-ikan kiriman ini tidak mudah ditentukan. Pada awal 2017 terbit revisi ilmiah genus Brycon. Menurut revisi itu, ada empat spesies Brycon yang punya pita gelap di sirip ekor: B. orthotaenia, B. hilarii, B. whitei, dan B. polylepis. Dari keempatnya, hanya dua yang terakhir yang hidup secara alami di Orinoco, tetapi keduanya tampak sama sekali berbeda dari ikan kiriman ini. B. whitei punya pita gelap yang jelas di sepanjang tubuh, sedangkan bentuk tubuh B. polylepis sama sekali berbeda (jauh lebih ramping daripada ikan-ikan ini). B. orthotaenia sangat mirip dengan ikan-ikan ini, tetapi spesies itu endemik di Rio São Francisco. Jadi nama Brycon hilarii tetap dipakai, walaupun spesies ini tercatat hanya hidup alami di Sungai Amazon dan Sungai Paraguay. Meski begitu, ikan ini dibudidayakan dan ditebar sebagai ikan konsumsi di banyak daerah. Penelitian yang masih berjalan mungkin akan menunjukkan bahwa ikan-ikan ini termasuk spesies lain.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "gogo-brevibarbis",
+  "native": {
+    "input": "afc5e8b7b594880a",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Mananjary River basin in the southeastern highlands of Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mananjary",
+        "source": "scotcat",
+        "quote": "Africa: Mananjary River basin in the southeastern highlands of Madagascar.",
+        "country": "MG",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gogo brevibarbis",
+    "status": "ACCEPTED",
+    "taxonKey": 2338031,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MG"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

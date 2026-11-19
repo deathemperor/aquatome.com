@@ -50,18 +50,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/550426191.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/550426191-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Tom Kennedy",
-      "sourceUrl": "https://www.inaturalist.org/photos/550426191",
-      "caption": "Cá Rivulus hartii sẫm màu giữa lá rụng trong suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/183072890.webp",
       "thumb": "https://media.aquatome.com/inaturalist/183072890-480.webp",
       "width": 768,
@@ -95,6 +83,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/541257207",
       "caption": "Cá Rivulus hartii nằm trên đá và lá trong suối",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/550426191.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/550426191-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Kennedy",
+      "sourceUrl": "https://www.inaturalist.org/photos/550426191",
+      "caption": "Cá Rivulus hartii sẫm màu giữa lá rụng trong suối",
+      "best": true,
       "kind": "habitat"
     }
   ],

@@ -1,9 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/scotcat/be3985fc9cd6fe2d.webp": "6278131a3ce88380"
- },
+ "hashes": {},
  "commons": "2026-11-02",
  "inat": {
   "taxon": 610042,
@@ -19,6 +17,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  },
  "exhausted": "2026-11-10"
 }

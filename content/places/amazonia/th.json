@@ -3,6 +3,12 @@
   "name": "แอมะโซเนีย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T05:58:35.206Z",
+    "why": "Thai atlases usually write the Amazon region as \"แอมะซอน\" or \"อเมซอน\" (ลุ่มแม่น้ำอเมซอน), and the Royal Institute spelling \"แอมะซอน\" differs from \"แอมะโซเนีย\", which is a rare, uncommon form."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -1,8 +1,8 @@
 {
   "id": "iriatherina-werneri",
   "native": {
-    "input": "9a087666a7fc06dd",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "aa6136cdecb74154",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "ID",
@@ -49,7 +49,7 @@
       {
         "name": "New Guinea",
         "source": "seriouslyfish",
-        "quote": "It's distributed along a relatively short section of New Guinea's southern coast, between Merauke and the mouth of the Fly River across the border in Papua New Guinea, and in the latter watershed has been recorded over 500 km inland.",
+        "quote": "Described from 'Merauke, Irian Jaya, Indonesia' which corresponds to modern day Merauke Regency, Papua province, Indonesia, on the island of New Guinea.",
         "ok": true
       },
       {
@@ -73,17 +73,17 @@
         "why": "its name is not in the quote"
       },
       {
+        "name": "Lake Kala",
+        "source": "seriouslyfish",
+        "quote": "Populations are also known from Lakes Bosset and Kala.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
         "name": "Jardine River",
         "source": "aquariumbreeder",
         "quote": "In Australia, Threadfin Rainbowfish occur in the Jardine River swamps, and in some river systems on the western and eastern sides of Cape York Peninsula.",
         "ok": true
-      },
-      {
-        "name": "Merauke River",
-        "source": "aquariumbreeder",
-        "quote": "In New Guinea, this species can be found between the Merauke and the Fly Rivers (more than 500 km upstream from its mouth), from lakes Bosset and Kala.",
-        "ok": false,
-        "why": "its name is not in the quote"
       }
     ],
     "disputed": [],

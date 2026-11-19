@@ -10,6 +10,44 @@
     "china",
     "guangxi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Pearl River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "This species only occurs in one county and underground cave system in Guangxi Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "All three species of the genus are distributed in the Pearl River basin.",
+          "countries": [],
+          "regions": [
+            "Pearl River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7540286,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

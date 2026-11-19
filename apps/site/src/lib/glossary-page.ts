@@ -1,5 +1,5 @@
 import { capitalFirst, cleanPhoto, FIRST_PLANTS, kindLine, kindsSection, linkTerms, photoFitsCard, plainText, POPULAR, slugify, STAPLE_SPECIES, type Content, type GlossaryEntity, type GuideEntity, type Localized, type Photo } from '@aq/schema'
-import { BREED_KIND } from './breeds'
+import { breedIsFish, breedKind } from './breeds'
 import { partsHtml, photoCredit, unsplashLine } from './cite'
 import { LANG, translator, type Lang } from './i18n'
 import { tilePhoto } from './img'
@@ -62,7 +62,7 @@ function termUses(lang: Lang, c: Content): Map<string, Uses> {
   }
   for (const b of c.breeds) {
     const body = b.t.body ? linkTerms(b.t.body, targets, 'ml', new Set([`breed:${b.id}`])).html : ''
-    pages.push({ kind: 'fish', use: { href: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...pic(tilePhoto(tilePhotos(b.photos)[0])), kind: t(BREED_KIND[b.kind]) }, rank: KNOWN.length, size: size(b), terms: terms([body]) })
+    pages.push({ kind: 'fish', use: { href: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...pic(tilePhoto(tilePhotos(b.photos)[0])), kind: t(breedKind(b.kind, breedIsFish(c, b))) }, rank: KNOWN.length, size: size(b), terms: terms([body]) })
   }
   for (const p of c.plants) {
     const parts = sectionParts(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], co2: p.co2 })
@@ -127,9 +127,16 @@ export function termTitle(g: Localized<GlossaryEntity>): string {
 export function glossaryParts(lang: Lang, c: Content, g: Localized<GlossaryEntity>) {
   const key = `glossary:${g.id}`
   const name = g.t.name.toLowerCase()
-  // Each once, as first written; never the name itself.
+  // Each once, as first written; never the name itself, nor the English name the page prints on its own line (the chief
+  // of staff, 18 Nov 2026: "Tên khác: đông lạnh, Frozen food. Tiếng Anh: Frozen food").
   const own = new Set([name])
-  const otherNames = g.t.altNames.map(n => n.trim()).filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
+  // Case folded and one plural "s" off: "tannin" is Tannins' own English line (the chief of staff, 18 Nov 2026).
+  const english = (n: string) => n.trim().toLowerCase().replace(/s$/, '')
+  const en = english(g.en)
+  const otherNames = g.t.altNames.map(n => n.trim()).filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase())).filter(n => english(n) !== en)
+  // Its link phrases are its own names too, never printed: not linked on its page, and counted with its names when its
+  // guides are ranked, as when they were other names.
+  for (const n of g.t.linkNames ?? []) if (n.trim()) own.add(n.trim().toLowerCase())
   const targets = mentionIndex(c).targets
   const seen = new Set([key])
   const definition = g.t.definition ? linkTerms(escapeText(g.t.definition), targets, 'ml', seen, own).html : ''

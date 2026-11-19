@@ -1,0 +1,48 @@
+{
+  "id": "zaireichthys-wamiensis",
+  "native": {
+    "input": "7fa7341647730c7e",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Wami River basin, Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Wami River",
+        "source": "scotcat",
+        "quote": "Africa: Wami River basin, Tanzania.",
+        "country": "TZ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Zaireichthys wamiensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340774,
+    "datasets": [
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

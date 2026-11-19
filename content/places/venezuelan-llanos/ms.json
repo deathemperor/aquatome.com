@@ -3,6 +3,12 @@
   "name": "Llanos Venezuela",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T18:02:00.757Z",
+    "why": "The proper name is right, but it drops the kind word Malay would use for this region, such as \"Dataran\", and \"Llanos Venezuela\" also reads as a bare name instead of \"Dataran Llanos Venezuela\"."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

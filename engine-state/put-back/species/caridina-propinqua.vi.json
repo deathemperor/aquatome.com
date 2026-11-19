@@ -1,0 +1,37 @@
+{
+ "at": "2026-11-17T02:29:19Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Những lần thử cho đẻ đầu tiên vẫn đang làm.",
+   "why": "This is the source's own news about breeding attempts it has under way, which the reader knows nothing about."
+  }
+ ],
+ "text": {
+  "slug": "tep-cam-caridina-propinqua",
+  "name": "Tép cam Caridina propinqua",
+  "altNames": [
+   "Tép cam",
+   "Orange Shrimp",
+   "Tép Sulawesi mandarin",
+   "Mandarin shrimp"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Xuất xứ: Sulawesi. Con cái dài tới 2 cm, con đực nhỏ hơn một chút. Tới giờ thì loài này nuôi khá dễ.</p>",
+   "distribution:glaser": "<p>Loài tép này có nguồn gốc từ đảo Sulawesi.</p>",
+   "notes:glaser": "<p>Có tin đồn đây là tép nước lợ, nhưng nuôi thực tế thì chưa thấy gì xác nhận chuyện đó. Những lần thử cho đẻ đầu tiên vẫn đang làm.</p>",
+   "dimorphism:glaser": "<p>Con cái dài tới 2 cm, còn con đực nhỏ hơn một chút.</p>"
+  },
+  "quality": {
+   "score": 0.9,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.9
+   },
+   "reason": "thin"
+  }
+ }
+}

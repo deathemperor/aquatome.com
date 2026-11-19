@@ -3,6 +3,12 @@
   "name": "Bassac",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T05:16:13.113Z",
+    "why": "\"Bassac\" is the French/Vietnamese-style spelling; Malay atlases would more likely write \"Bassac\" only for the river (Sungai Bassac), and for a region in Cambodia the usual form is Basak, so the name is plausible but not the standard Malay form."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

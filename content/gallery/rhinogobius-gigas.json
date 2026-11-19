@@ -12,8 +12,7 @@
       "caption": "Cá bống Rhinogobius gigas trên đá cuội trong suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/560274482.webp",
@@ -26,50 +25,7 @@
       "caption": "Cá bống Rhinogobius gigas trên đá trong suối nước trong",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/560882674.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/560882674-480.webp",
-      "width": 1024,
-      "height": 584,
-      "licence": "CC BY",
-      "author": "呂一起(Lyu yi-chi)",
-      "sourceUrl": "https://www.inaturalist.org/photos/560882674",
-      "caption": "Cá bống Rhinogobius gigas đứng trên tảng đá trong suối",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/259648767.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/259648767-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "呂一起(Lyu yi-chi)",
-      "sourceUrl": "https://www.inaturalist.org/photos/259648767",
-      "caption": "Cá bống Rhinogobius gigas trên nền sỏi đá dưới suối",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/29794488.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/29794488-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Cheng-Te Hsu",
-      "sourceUrl": "https://www.inaturalist.org/photos/29794488",
-      "caption": "Cá bống Rhinogobius gigas cạnh thước đo trên ván gỗ",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/560274486.webp",
@@ -82,8 +38,33 @@
       "caption": "Cá bống Rhinogobius gigas nằm trên đá dưới suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/560882674.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/560882674-480.webp",
+      "width": 1024,
+      "height": 584,
+      "licence": "CC BY",
+      "author": "呂一起(Lyu yi-chi)",
+      "sourceUrl": "https://www.inaturalist.org/photos/560882674",
+      "caption": "Cá bống Rhinogobius gigas đứng trên tảng đá trong suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/259648767.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/259648767-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "呂一起(Lyu yi-chi)",
+      "sourceUrl": "https://www.inaturalist.org/photos/259648767",
+      "caption": "Cá bống Rhinogobius gigas trên nền sỏi đá dưới suối",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/560882658.webp",
@@ -96,8 +77,7 @@
       "caption": "Cá bống Rhinogobius gigas bám trên đá ở suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 13,

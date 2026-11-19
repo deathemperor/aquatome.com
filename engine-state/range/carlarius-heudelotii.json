@@ -1,0 +1,147 @@
+{
+  "id": "carlarius-heudelotii",
+  "native": {
+    "input": "173de95ade452415",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "MR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "West coast of Africa: from Mauritania to Gabon and, possibly, to Angola; in marine waters and estuaries.",
+        "words": "Mauritania",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "West coast of Africa: from Mauritania to Gabon and, possibly, to Angola; in marine waters and estuaries.",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "AO",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "West coast of Africa: from Mauritania to Gabon and, possibly, to Angola; in marine waters and estuaries.",
+        "words": "Angola",
+        "ok": true
+      },
+      {
+        "code": "CI",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon, mainly in the Niger and Volta basins, but appears sparsely distributed and may be rare.",
+        "words": "Cote d'Ivoire",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon, mainly in the Niger and Volta basins, but appears sparsely distributed and may be rare.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "scotcat",
+        "quote": "The species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon, mainly in the Niger and Volta basins, but appears sparsely distributed and may be rare.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Volta",
+        "source": "scotcat",
+        "quote": "The species is relatively widespread within western Africa, from Cote d'Ivoire to Cameroon, mainly in the Niger and Volta basins, but appears sparsely distributed and may be rare.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SN",
+        "GN"
+      ],
+      "sourcesOnly": [
+        "CI",
+        "CM"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Carlarius heudelotii",
+    "status": "ACCEPTED",
+    "taxonKey": 5851761,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        8
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "4704d25f-7944-4c1b-89bb-ed4a2007085b",
+        2
+      ],
+      [
+        "7d3ad006-2cec-4488-ad1f-6e5998602de0",
+        2
+      ],
+      [
+        "db3b4f9d-87ca-4661-a002-c868b7417878",
+        2
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        2
+      ],
+      [
+        "176717fb-96fb-4580-94e4-70f5a8472a19",
+        1
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        1
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        1
+      ],
+      [
+        "59f5ba07-1c5f-43dc-bbd5-6e4a7ced0f30",
+        1
+      ],
+      [
+        "ca3318a3-b706-4bbb-bf9d-d383780f9d2d",
+        1
+      ]
+    ],
+    "native": [
+      "MR",
+      "GA",
+      "CI",
+      "CM"
+    ],
+    "requests": 13,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

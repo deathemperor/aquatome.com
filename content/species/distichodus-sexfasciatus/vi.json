@@ -17,13 +17,18 @@
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có ghi nhận nào về việc cho loài này sinh sản trong bể nuôi.</p>",
     "notes:seriouslyfish": "<p>Trong số ít loài Distichodus thường xuất hiện ở các tiệm cá, đây là loài phổ biến nhất. Đáng buồn là người ta hay bán nó như cá hợp với bể cộng đồng thông thường. Thực tế thì không phải vậy, cả về tính nết lẫn kích thước cá có thể đạt tới. Nếu không đủ điều kiện nuôi nó trọn đời thì đừng mua. Cá thường được bán khi mới dài khoảng 5 cm. Ở cỡ này nó rất đẹp, thân sọc cam xen đen, vây đỏ rực. Tiếc là phần lớn màu sắc và hoa văn ấy sẽ phai dần khi cá lớn. Hiếm khi thấy cá trưởng thành được bán, và nghĩ đến chuyện phần lớn số cá này rồi sẽ ra sao thì thật buồn.</p>",
-    "notes:glaser": "<p>Loài này thường có sáu sọc ở hai bên thân. Bảy sọc thường chỉ có ở một bên thân, còn bên kia vẫn đủ số sọc như bình thường.</p>"
+    "notes:glaser": "<p>Loài này thường có sáu sọc ở hai bên thân. Bảy sọc thường chỉ có ở một bên thân, còn bên kia vẫn đủ số sọc như bình thường.</p>",
+    "distribution:glaser": "<p>Distichodus sexfasciatus sống ở lưu vực sông Congo, thuộc Cộng hòa Dân chủ Congo (trước đây gọi là Zaire).</p>",
+    "quickFacts:glaser": "<p>Nuôi trong bể, loài characin này lớn tới khoảng 30 cm. Nó là cá ăn thực vật chính hiệu.</p>",
+    "equipment:glaser": "<p>Cần lọc đủ mạnh, vì loài này hơi nhạy với nitrit. Còn các chỉ số nước thì không quan trọng lắm khi nuôi chúng.</p>",
+    "diet:glaser": "<p>Đây là cá ăn thực vật chính hiệu, nên cây nào lá mềm, trơn thì chúng cũng coi là đồ ăn.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.85
     }
   }
 }

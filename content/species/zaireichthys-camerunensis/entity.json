@@ -12,6 +12,47 @@
     "nigeria",
     "niger"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "NG"
+      ],
+      "regions": [
+        "Bénoué"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Bénoué basin at Lakdo, Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: only in the Niger basin, including the Upper Niger and the Bénoué (Upper Bénoué), in Nigeria and Cameroon.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Bénoué"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340783,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

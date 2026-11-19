@@ -106,6 +106,10 @@
       {
         "source": "seriouslyfish",
         "value": 13.8
+      },
+      {
+        "source": "glaser",
+        "value": 13
       }
     ],
     "tankCm": [
@@ -127,6 +131,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-calvus",
       "html": "<p>The calvus cichlid, Altolamprologus calvus, is a laterally compressed predatory cichlid endemic to the rocky shores and islands of Lake Tanganyika. Its shape lets it enter crevices in the rockwork to prey on eggs, fry and small fish, and its thick scales have serrated edges. Several colour forms from different parts of the lake are regularly available and should be kept apart so they do not hybridise. Wild fish are sensitive to changes in water chemistry.</p><ul><li>Max size: 13.8 cm SL (5 in)</li><li>Aquarium size: 91 × 46 cm (36 × 18 in)</li><li>Temperature: 24–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–20 dGH</li><li>Difficulty: moderate (4 of 8)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus-calvus-2/",
+      "html": "<p>This cichlid belongs to the most attractive species of the family from Lake Tanganyika. It attains a maximum length of about 13 cm.</p>"
     },
     {
       "key": "distribution",
@@ -165,10 +175,22 @@
       "html": "<p>Most meaty live and frozen foods are readily accepted. It won't usually take dried varieties.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus-calvus-2/",
+      "html": "<p>Astonishingly, although Altolamprologus calvus is for sure a predator in the wild it happily accepts even flake food in the aquarium.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/altolamprologus-calvus",
       "html": "<p>Although territorial, it's generally peaceful towards fish it can't fit into its mouth, and is a good addition to a Tanganyikan community. However it tends to be quite shy, so aggressive or very vigorous tankmates such as Mbuna should be avoided. Good choices include Julidochromis, Neolamprologus, Cyprichromis and Tanganyikan Synodontis catfish. It can be maintained either as a pair or as a colony in a suitably sized tank.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/altolamprologus-calvus-2/",
+      "html": "<p>Despite the lurky look the fish is one of the most peaceful species of cichlid at all. One can say as a rule: if another fish is too large to serve as food it will become simply ignored.</p>"
     },
     {
       "key": "dimorphism",
@@ -198,21 +220,46 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/a3c759fb1d47d73e.webp",
+      "thumb": "https://media.aquatome.com/commons/a3c759fb1d47d73e-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altolamprologus_calvus_-_Perlhuhn-Buntbarsch.jpg",
-      "caption": "Altolamprologus calvus, lateral view.",
-      "thumb": "https://media.aquatome.com/commons/a3c759fb1d47d73e-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/a3c759fb1d47d73e-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altolamprologus_calvus_-_Perlhuhn-Buntbarsch.jpg",
+      "caption": "Altolamprologus calvus, lateral view."
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "CssTzkaCmnc",
+      "title": "Altolamprologus calvus (Black Calvus) Care Guide",
+      "durationSec": 887,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yTP8vo11xyw",
+      "title": "Tanganjika Aquarium - Altolamprologus Calvus Yellow Nkamba",
+      "durationSec": 42,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "GAEz-PoVP8E",
+      "title": "Stocking my 5 FOOT AQUARIUM with Altolamprologus calvus",
+      "durationSec": 642,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "rRpfzTAvNIY",
+      "title": "Breeding Altolamprologus Calvus / Compressiceps - An In-depth Species Profile",
+      "durationSec": 1224,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -242,5 +289,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-17"
 }

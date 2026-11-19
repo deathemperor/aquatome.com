@@ -86,18 +86,6 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/5587632.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/5587632-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Julien Renoult",
-      "sourceUrl": "https://www.inaturalist.org/photos/5587632",
-      "caption": "Cá severum Heros efasciatus ngoài tự nhiên, dưới nước đục",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c0c3ca2bd3f0766c.webp",
       "thumb": "https://media.aquatome.com/commons/c0c3ca2bd3f0766c-480.webp",
       "width": 1200,
@@ -108,6 +96,18 @@
       "caption": "Cá severum đực đầu đỏ cam, thân vàng",
       "best": true,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e3ac6ee6d28e66a3.webp",
+      "thumb": "https://media.aquatome.com/commons/e3ac6ee6d28e66a3-480.webp",
+      "width": 1200,
+      "height": 901,
+      "licence": "CC BY-SA 4.0",
+      "author": "NasserHalaweh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Heros_efasciatus_1.jpg",
+      "caption": "Nhóm cá severum nhiều màu trong bể cát",
+      "best": false,
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/3d10d5d6abc5a3b4.webp",
@@ -122,16 +122,16 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/commons/e3ac6ee6d28e66a3.webp",
-      "thumb": "https://media.aquatome.com/commons/e3ac6ee6d28e66a3-480.webp",
-      "width": 1200,
-      "height": 901,
-      "licence": "CC BY-SA 4.0",
-      "author": "NasserHalaweh",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_Heros_efasciatus_1.jpg",
-      "caption": "Nhóm cá severum nhiều màu trong bể cát",
-      "best": false,
-      "kind": "group"
+      "url": "https://media.aquatome.com/inaturalist/5587632.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5587632-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/5587632",
+      "caption": "Cá severum Heros efasciatus ngoài tự nhiên, dưới nước đục",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/67bf8fffef35b65a.webp",

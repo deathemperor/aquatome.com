@@ -1,0 +1,18 @@
+{
+  "slug": "ca-chinh-gai-mastacembelus-pantherinus",
+  "name": "Cá chình gai Mastacembelus pantherinus",
+  "altNames": [
+    "Spiny eel"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Mastacembelus pantherinus đến từ Myanmar. Cho tới nay, người ta mới chỉ bắt được loài này ở hồ Indawgyi và các sông suối đổ vào hồ.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  }
+}

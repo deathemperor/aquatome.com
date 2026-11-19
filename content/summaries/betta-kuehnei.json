@@ -1,12 +1,17 @@
 {
   "id": "betta-kuehnei",
-  "summary": "Cá betta Kuehne (Betta kuehnei) hợp với người đã nuôi cá vừa tay (độ khó 4/8), thích cá nhỏ dài 6 cm, nuôi riêng hoặc theo cặp, nhóm nhỏ. Cần bể dài từ 60 cm (đáy 60 × 30 cm, khoảng 54 lít), nước 21–25 °C, pH 6–7,5, độ cứng 0–5 dGH. Nên bày rễ, lá khô và cây nổi cho có chỗ râm, vì loài này có vẻ hợp nhất với ánh sáng khá yếu. Điểm khó nhất là chọn bạn chung bể: loài này không hợp bể cộng đồng thông thường, cá lớn hơn hẳn hoặc hiếu động nhiều khả năng sẽ làm nó sợ và giành hết phần ăn.",
+  "summary": "Cá betta Kuehne (Betta kuehnei) dài 6 cm, hợp người muốn nuôi một cặp hoặc nhóm nhỏ, nuôi riêng hoặc chung với loài thật hiền, độ khó 4/8. Cần bể từ 60 × 30 cm (khoảng 54 lít), nước 21–25 °C, pH 6–7,5, độ cứng 0–5 dGH, ánh sáng yếu, lọc nhẹ và nhiều góc râm. Điểm khó nhất là chọn bạn cùng bể vì loài này không hợp bể cộng đồng thông thường, cộng thêm việc phải đậy kín bể và không cho ăn quá tay.",
   "mistakes": [
-    "Thả vào bể cộng đồng thông thường: nên nuôi riêng, hoặc chỉ chung với loài thật hiền như một số loài cá họ chép cỡ nhỏ và cá chạch.",
-    "Để bể hở hoặc đổ nước đầy tới miệng: nên đậy bể thật kín và chừa khoảng trống, vì cá nhảy rất giỏi và cần lớp không khí ẩm trên mặt nước.",
-    "Cho ăn quá tay: nên cho ăn vừa phải, đổi món giữa bo bo, Artemia, trùng huyết, vì Betta có vẻ rất dễ bị béo phì."
+    "Thả chung vào bể cộng đồng thông thường thì cá bị cá lớn hoặc hiếu động dọa và giành hết phần ăn; nên nuôi riêng hoặc chỉ nuôi với loài thật hiền.",
+    "Để bể hở hoặc đổ nước đầy tới miệng thì cá dễ nhảy ra ngoài; nên đậy bể thật kín và chừa lớp không khí ẩm phía trên mặt nước cho cá ngoi lên thở.",
+    "Cho ăn quá tay làm cá dễ béo phì; nên cho ăn vừa phải và thường xuyên đổi sang thức ăn sống hoặc đông lạnh cỡ nhỏ như bo bo, Artemia, trùng huyết."
   ],
   "speciesUpdatedAt": "2026-11-09",
-  "generatedAt": "2026-11-09T11:06:26.485Z",
-  "review": "approved"
+  "writtenFrom": "b1c5218941fcb96b",
+  "generatedAt": "2026-11-18T01:58:57.059Z",
+  "review": "pending",
+  "problems": [
+    "\"thì cá bị cá lớn hoặc hiếu động dọa và giành hết phần ăn\": the page says only \"nhiều khả năng sẽ làm nó sợ và giành hết phần ăn\" (likely), but the summary states it as certain.",
+    "\"Cho ăn quá tay làm cá dễ béo phì\": the page hedges (\"các loài Betta có vẻ rất dễ bị béo phì\", it seems), but the summary states it as fact. The fix also ties \"thường xuyên đổi sang thức ăn sống hoặc đông lạnh\" to overfeeding. The page gives frequent live or frozen food for colour and condition, not as a remedy for overfeeding."
+  ]
 }

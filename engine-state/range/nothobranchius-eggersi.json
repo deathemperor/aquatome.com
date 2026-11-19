@@ -1,8 +1,8 @@
 {
   "id": "nothobranchius-eggersi",
   "native": {
-    "input": "868bbbb7a7e88da6",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "0b5b2390d4a8f6f4",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "TZ",
@@ -15,8 +15,8 @@
       {
         "code": "TZ",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Rufiji River near Utete, eastern Tanzania', and this species is apparently endemic to the lower Rufiji including the Selous Game Reserve and freshwater parts of the Rufiji delta region.",
+        "source": "glaser",
+        "quote": "It was discovered on an expedition in winter 1980/81 by Lothar Seegers, Gerd Eggers, and Christel Kasselmann in eastern Tanzania.",
         "words": "Tanzania",
         "ok": true
       }
@@ -26,6 +26,19 @@
         "name": "Rufiji",
         "source": "seriouslyfish",
         "quote": "Nothobranchius eggersi is an annual killifish apparently endemic to the lower Rufiji in eastern Tanzania, including freshwater parts of the delta.",
+        "country": "TZ",
+        "ok": true
+      },
+      {
+        "name": "Ruhoi River",
+        "source": "glaser",
+        "quote": "The type locality is south of Kibiti on the bank of the Ruhoi river, where the first four specimens were collected in a ditch.",
+        "ok": true
+      },
+      {
+        "name": "Selous Game Reserve",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rufiji River near Utete, eastern Tanzania', and this species is apparently endemic to the lower Rufiji including the Selous Game Reserve and freshwater parts of the Rufiji delta region.",
         "country": "TZ",
         "ok": true
       }

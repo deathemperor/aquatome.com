@@ -18,10 +18,14 @@
       "regions": [
         "Xi Jiang",
         "Zhu Jiang",
-        "Liu Jiang"
+        "Nan Pan",
+        "Liu Jiang",
+        "Nanpan-jiang",
+        "Xi-jiang"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -40,7 +44,17 @@
           "quote": "Some records are from the Nan Pan river, a tributary system in the upper part of the drainage although the type locality appears to be within the Liu Jiang basin further east.",
           "countries": [],
           "regions": [
+            "Nan Pan",
             "Liu Jiang"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The habitat of this loach, described by Fang in 1930, is the Nanpan-jiang and Xi-jiang basins in Guangdong to Guangxi provinces in China.",
+          "countries": [],
+          "regions": [
+            "Nanpan-jiang",
+            "Xi-jiang"
           ]
         }
       ]
@@ -88,6 +102,13 @@
           "min": 6.5,
           "max": 8
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
       }
     ],
     "gh": [
@@ -103,6 +124,10 @@
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -126,6 +151,12 @@
       "html": "<ul><li>Max size: 110 mm SL (4 in)</li><li>Aquarium size: 75 × 30 cm (30 × 12 in)</li><li>Temperature: 20–24°C (68–75°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–15 dGH</li><li>Difficulty: moderate</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinogastromyzon-wui/",
+      "html": "<p>The maximum size is about 8-10 cm.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-wui",
@@ -136,6 +167,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-wui",
       "html": "<p>Known only from parts of the Xi Jiang (West River) watershed, the major affluent of the extensive Zhu Jiang (Pearl River), in Guangxi Autonomous Region and Guangdong Province, southern China.</p><p>Type locality is given as 'San-fang, Lo-ching-shien, Kwangsi, China, elevation 1800 feet'.</p><p>Some records are from the Nan Pan river, a tributary system in the upper part of the drainage although the type locality appears to be within the Liu Jiang basin further east.</p><p>The Nan Pan originates in Yunnan province and before entering the Xi is joined by the Beipan Jiang, which flows mostly through Guizhou province, so the possibility that S. wui has a larger range than currently recognised cannot be ruled out.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinogastromyzon-wui/",
+      "html": "<p>The habitat of this loach, described by Fang in 1930, is the Nanpan-jiang and Xi-jiang basins in Guangdong to Guangxi provinces in China.</p>"
     },
     {
       "key": "habitat",
@@ -162,10 +199,28 @@
       "html": "<ul><li>Temperature: 20–24°C (68–75°F)</li><li>pH: 6.5–8.0</li><li>Hardness: 5–15 dGH</li></ul><p>Temperature: Though mountainous, Guangxi has a subtropical climate with average air temperatures varying between 17–23°C (62.6–73.4°F).</p><p>Provided its oxygen requirements are maintained this species can tolerate higher temperatures, but for general aquarium care a value within the range 20–24°C (68–75°F) is recommended.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinogastromyzon-wui/",
+      "html": "<p>They should be kept in cold water, not over 22-23°C, and they have very high oxygen requirements. The pH should be from 7.0 to 8.0.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinogastromyzon-wui/",
+      "html": "<p>Use a pump to create a heavy stream in the tank, because they live in fast-flowing hill rivers.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-wui",
       "html": "<p>Sinogastromyzon spp. are specialised micropredators and biofilm grazers feeding on small crustaceans, insect larvae, and other invertebrates with some algae taken as well.</p><p>In captivity some sinking dried foods may be accepted but daily meals of live or frozen Daphnia, Artemia, bloodworm, etc., are essential for the maintenance of good health and it's highly preferable if the tank contains rock and other solid surfaces with growths of algae and other aufwuchs.</p><p>If unable to grow sufficient algae in the main tank or you have a community containing numerous herbivorous fishes which consume what's available quickly it may be necessary to maintain a separate tank in which to grow algae on rocks and switch them with those in the main tank on a cyclical basis.</p><p>Such a 'nursery' doesn't have to be very large, requires only strong lighting and in warmer climates can be kept outdoors.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct.</p><p>A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a constant source of suitable foods in the absence of competitors if they're to recover.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/sinogastromyzon-wui/",
+      "html": "<p>This species feeds, like only some others of its family, mainly on carnivorous food. Algae will not be eaten.</p>"
     },
     {
       "key": "behaviour",
@@ -220,6 +275,28 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-wui",
       "caption": "Some specimens have a brownish background body colouration...",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d7ae8d7a074bf816.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d7ae8d7a074bf816-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-wui",
+      "caption": "Detail of head and anterior portion of body.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/92f45eb1b21b4c72.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/92f45eb1b21b4c72-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sinogastromyzon-wui",
+      "caption": "Dorsal view.",
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -252,5 +329,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-17"
 }

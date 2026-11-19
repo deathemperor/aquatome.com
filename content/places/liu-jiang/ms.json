@@ -3,6 +3,12 @@
   "name": "Sungai Liu",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T17:58:05.413Z",
+    "why": "Liu Jiang is a river, and Malay would write \"Sungai Liu Jiang\" (or \"Sungai Liujiang\"); \"Sungai Liu\" cuts off the proper name's \"Jiang\" element, which already means river."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

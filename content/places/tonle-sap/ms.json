@@ -3,6 +3,12 @@
   "name": "Tonle Sap",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-17T18:00:25.616Z",
+    "why": "Malay atlases in Malaysia write the lake as \"Tasik Tonle Sap\" (Tonlé Sap is a lake/river system), so bare \"Tonle Sap\" lacks the Malay kind word \"Tasik\", though the proper-name spelling is fine."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

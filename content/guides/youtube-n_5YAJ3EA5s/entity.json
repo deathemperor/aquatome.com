@@ -92,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lũa và cây thủy sinh trong bể mới, có cá con bơi gần đó.",
-            "sharpness": 759.1
+            "sharpness": 759.1,
+            "person": false
           },
           {
             "t": 40,
@@ -100,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể mới set với lũa, cây thủy sinh và nền cát.",
-            "sharpness": 1196
+            "sharpness": 1196,
+            "person": false
           }
         ],
         "photo": {
@@ -123,7 +125,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vài con cá bơi gần lũa và cây trong bể mới thả cá.",
-            "sharpness": 271.7
+            "sharpness": 271.7,
+            "person": false
           },
           {
             "t": 250,
@@ -131,7 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi giữa lũa và cây thủy sinh trong bể sông châu Phi.",
-            "sharpness": 308.8
+            "sharpness": 308.8,
+            "person": false
           }
         ],
         "photo": {
@@ -154,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể mới trồng cây, bố trí lũa rêu xanh.",
-            "sharpness": 1734.8
+            "sharpness": 1734.8,
+            "person": false
           },
           {
             "t": 310,
@@ -162,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lũa và cây, vài con cá nhỏ bơi phía trước.",
-            "sharpness": 877.5
+            "sharpness": 877.5,
+            "person": false
           }
         ],
         "photo": {
@@ -177,19 +183,6 @@
         }
       },
       {
-        "heading": "Cho ăn bao nhiêu là đủ",
-        "moments": [
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/n_5YAJ3EA5s/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm hộp thức ăn dạng vảy, chuẩn bị cho cá ăn ở mép bể.",
-            "sharpness": 959.9
-          }
-        ]
-      },
-      {
         "heading": "Cho trùng huyết đông lạnh như món thêm",
         "moments": [
           {
@@ -198,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa và cây, nơi thả trùng huyết cho cá ăn.",
-            "sharpness": 431.8
+            "sharpness": 431.8,
+            "person": false
           },
           {
             "t": 510,
@@ -206,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá bơi gần đáy bể cát sỏi, nơi phần trùng huyết chìm xuống.",
-            "sharpness": 363.6
+            "sharpness": 363.6,
+            "person": false
           }
         ]
       },
@@ -219,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới trồng với các mảng Riccia và cây thủy sinh trên nền cát.",
-            "sharpness": 441.3
+            "sharpness": 441.3,
+            "person": false
           },
           {
             "t": 360,
@@ -227,7 +223,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu Riccia xanh mướt đang dựng lên trên khúc lũa.",
-            "sharpness": 164.7
+            "sharpness": 164.7,
+            "person": false
           }
         ]
       }

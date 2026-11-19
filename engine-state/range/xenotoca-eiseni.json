@@ -1,9 +1,26 @@
 {
   "id": "xenotoca-eiseni",
   "native": {
-    "input": "e51e88fc9377b31a",
-    "at": "2026-11-08T18:57:48.756Z",
-    "claims": [],
+    "input": "8a70e386ce9f48b8",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The redtail goodeid, Xenotoca eiseni, is a livebearer from Mexico, found in habitats from clear mountain streams to polluted roadside ditches.",
+        "words": "Mexico",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mexico. Found in a variety of habitats from clear mountain streams to polluted roadside ditches.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
     "regions": [],
     "disputed": [],
     "outranked": [],
@@ -66,8 +83,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-08T18:57:48.756Z"
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
   }
 }

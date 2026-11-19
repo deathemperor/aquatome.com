@@ -1,0 +1,109 @@
+{
+  "id": "filopaludina-martensi",
+  "native": {
+    "input": "eec8f1f552e121d0",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Filopaludina martensi",
+    "status": "ACCEPTED",
+    "taxonKey": 7711008,
+    "datasets": [
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "51c49096-dc31-4077-b35c-4510a8ee1ee8",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "TH",
+      "MY",
+      "VN",
+      "KH",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

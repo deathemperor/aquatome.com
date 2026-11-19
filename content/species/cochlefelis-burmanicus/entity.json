@@ -1,0 +1,150 @@
+{
+  "id": "cochlefelis-burmanicus",
+  "scientificName": "Cochlefelis burmanicus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cochlefelis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "myanmar",
+    "irrawaddy",
+    "thailand",
+    "india",
+    "bangladesh"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH",
+        "IN",
+        "BD"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Salween",
+        "Malay Peninsula"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Asia: Myanmar; reported from Thailand.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "The species also occurs in India and Bangladesh.",
+          "countries": [
+            "IN",
+            "BD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is known from the lower reaches and estuaries of the Irrawaddy and Salween drainages eastwards to the western part of the Malay Peninsula.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Salween",
+            "Malay Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4286772,
+      "total": 1,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MM",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_burmanicus.htm",
+      "html": "<ul><li>Synonym: Cochlefelis burmanicus</li><li>Common name: none</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_burmanicus.htm",
+      "html": "<p>Asia: Myanmar; reported from Thailand. Type locality: Irrawaddy, Bassein district, and Salween in the Tenasserim provinces, Burma. The species also occurs in India and Bangladesh. It is known from the lower reaches and estuaries of the Irrawaddy and Salween drainages eastwards to the western part of the Malay Peninsula.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_burmanicus.htm",
+      "html": "<p>Freshwater; brackish; benthopelagic; amphidromous. Found in freshwaters and tidal rivers.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_burmanicus.htm",
+      "html": "<p>The specific name burmanicus means Burmese, referring to the type locality at Salween, Burma (now Myanmar). It is still found on some online searches listed as Cochlefelis burmanicus.</p><p>IUCN Red List: assessed as Least Concern given its presence in a number of river basins and the absence of known threats, although information on the species' range, distribution and threats is lacking. The species should be reassessed if further information becomes available on the likely or actual impact of hydropower dams on the Irrawaddy and Salween rivers (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_burmanicus.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2019 ).</li><li>Grant, Steven. pers. comm. 2019.</li><li>Ng, H.H. 2010. Cochlefelis burmanicus. The IUCN Red List of Threatened Species 2010.</li><li>Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/b92bb167e9512933.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b92bb167e9512933-480.webp",
+      "width": 500,
+      "height": 343,
+      "licence": "dùng với sự cho phép",
+      "author": "Worawich Prasittiphat / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_burmanicus.htm",
+      "caption": "Arius burmanicus: juvenile showing body pattern",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/2a39811530f379b4.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2a39811530f379b4-480.webp",
+      "width": 500,
+      "height": 360,
+      "licence": "dùng với sự cho phép",
+      "author": "Worawich Prasittiphat / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_burmanicus.htm",
+      "caption": "Arius burmanicus: juvenile",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

@@ -3,6 +3,12 @@
   "name": "Laguna Grande San Pedro",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T17:57:52.388Z",
+    "why": "The name is just the Spanish original, and a Malaysian atlas would write the kind word \"Tasik\" (Tasik Laguna Grande San Pedro) instead of keeping the Spanish \"Laguna\" (\"lagoon\") untranslated."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

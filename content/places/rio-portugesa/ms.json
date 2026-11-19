@@ -3,6 +3,12 @@
   "name": "Portuguesa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-17T05:08:42.838Z",
+    "why": "The name \"Portuguesa\" omits the kind word \"Sungai\" that Malay atlases put before a river's name, so it reads as a bare name, not a river name (the river is Río Portuguesa in Venezuela)."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

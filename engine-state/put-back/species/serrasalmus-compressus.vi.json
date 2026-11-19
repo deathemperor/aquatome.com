@@ -1,0 +1,47 @@
+{
+ "at": "2026-11-18T20:14:38Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Lô cá này",
+   "why": "a dealer's own batch or stock: news to no reader here"
+  },
+  {
+   "check": "source",
+   "quote": "lô này",
+   "why": "a dealer's own batch or stock: news to no reader here"
+  },
+  {
+   "check": "source",
+   "quote": "Lô cá này nhập từ Peru.",
+   "why": "Refers to the source shop's own imported batch as if the reader knew it."
+  },
+  {
+   "check": "source",
+   "quote": "cả lô đều được bán dưới tên S. compressus",
+   "why": "Describes how the source shop is selling its stock."
+  }
+ ],
+ "text": {
+  "slug": "ca-piranha-serrasalmus-compressus",
+  "name": "Cá piranha Serrasalmus compressus",
+  "altNames": [
+   "Piranha"
+  ],
+  "sections": {
+   "distribution:glaser": "<p>Lô cá này nhập từ Peru. Từ Peru thường có những con piranha được định danh là Serrasalmus compressus.</p>",
+   "notes:glaser": "<p>Những con đốm nhỏ rất giống các con piranha thường nhập từ Peru mà trước đây vẫn được định danh là Serrasalmus compressus. Số còn lại chắc chắn thuộc cùng nhóm họ hàng gần trong chi Serrasalmus. Nhưng ngoài S. compressus, không có loài nào được khoa học công nhận mà khớp với chúng. Ngoại lệ duy nhất có thể là cá piranha đen (S. rhombeus), loài thỉnh thoảng cũng có trong hàng nhập từ Peru. Tuy nhiên, S. rhombeus dễ phân biệt với các loài piranha khác vì có mắt đỏ, và ở cỡ 5-9 cm thì đáng lẽ đã thấy được đặc điểm này.</p><p>Vì không tìm được tên nào hợp với kiểu hình thứ hai nên cả lô đều được bán dưới tên S. compressus. Có điều, vẫn không loại trừ được khả năng lô này gồm hai loài, thậm chí có thể có một loài khoa học chưa mô tả.</p>"
+  },
+  "quality": {
+   "score": 0.95,
+   "indexable": false,
+   "bySource": {
+    "glaser": 0.95
+   },
+   "reason": "thin"
+  }
+ }
+}

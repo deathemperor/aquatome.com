@@ -3,6 +3,12 @@
   "name": "อีวาอี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:25:07.619Z",
+    "why": "Ivaí in Brazilian Portuguese is pronounced roughly \"อีวาอี\" (stress final), a plausible transliteration, but the place is a region/river in Paraná and Thai atlases would typically write \"อิวาอี\" with the kind word, so the bare form is uncertain."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

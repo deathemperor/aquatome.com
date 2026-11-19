@@ -2,6 +2,20 @@
   "id": "pacifastacus-leniusculus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/13896795.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/13896795-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "carnifex",
+      "sourceUrl": "https://www.inaturalist.org/photos/13896795",
+      "caption": "Nhiều tôm càng tín hiệu trong xô nước trắng",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/58cbb2ca3671de9b.webp",
       "thumb": "https://media.aquatome.com/commons/58cbb2ca3671de9b-480.webp",
       "width": 1200,
@@ -23,8 +37,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/52583",
       "caption": "Tôm càng tín hiệu với đốm trắng ở khớp càng, nhìn chính diện",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/7baf4da5133793fd.webp",
@@ -72,18 +85,6 @@
       "author": "Astacoides",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Signal_crayfish_female_Pacifastacus_leniusculus.JPG",
       "caption": "Tôm càng tín hiệu dưới nước đang giơ càng trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/60c32b8fc125e1bd.webp",
-      "thumb": "https://media.aquatome.com/commons/60c32b8fc125e1bd-480.webp",
-      "width": 1200,
-      "height": 803,
-      "licence": "CC BY-SA 3.0",
-      "author": "Christian Lindner",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edelkrebs_(Astacus_astacus).jpg",
-      "caption": "Tôm càng tín hiệu màu cam nâu trên nền đá",
       "best": true,
       "kind": "habitat"
     },
@@ -152,28 +153,32 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/commons/ec4dd7d369ca3c16.webp",
-      "thumb": "https://media.aquatome.com/commons/ec4dd7d369ca3c16-480.webp",
-      "width": 1200,
-      "height": 749,
-      "licence": "Public domain",
-      "author": "USFWS - Pacific Region",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Signal_Crayfish_Roger_Tabor_(USFWS)_(6092822807).jpg",
-      "caption": "Tôm càng tín hiệu giữa sỏi đá ở suối",
-      "best": false,
-      "kind": "habitat"
+      "url": "https://media.aquatome.com/inaturalist/9023963.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/9023963-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Gabbie Byers",
+      "sourceUrl": "https://www.inaturalist.org/photos/9023963",
+      "caption": "Tôm càng tín hiệu càng cam trong lưới ở suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/commons/103e46db07c5171e.webp",
-      "thumb": "https://media.aquatome.com/commons/103e46db07c5171e-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "KENPEI",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus1.jpg",
-      "caption": "Tôm càng tín hiệu bò trên sỏi trong bể",
-      "best": false,
-      "kind": "other"
+      "url": "https://media.aquatome.com/inaturalist/10123365.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/10123365-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/10123365",
+      "caption": "Tôm càng tín hiệu nâu cam trên đá rêu dưới suối",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/834091.webp",
@@ -187,18 +192,6 @@
       "best": false,
       "kind": "habitat",
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a2fd4744a565daad.webp",
-      "thumb": "https://media.aquatome.com/commons/a2fd4744a565daad-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "KENPEI",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus2.jpg",
-      "caption": "Tôm càng tín hiệu trong bể nền sỏi cạnh đá",
-      "best": false,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/4852150.webp",
@@ -249,9 +242,45 @@
       "caption": "Tôm càng tín hiệu giơ càng đỏ trong bể",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ec4dd7d369ca3c16.webp",
+      "thumb": "https://media.aquatome.com/commons/ec4dd7d369ca3c16-480.webp",
+      "width": 1200,
+      "height": 749,
+      "licence": "Public domain",
+      "author": "USFWS - Pacific Region",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Signal_Crayfish_Roger_Tabor_(USFWS)_(6092822807).jpg",
+      "caption": "Tôm càng tín hiệu giữa sỏi đá ở suối",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/103e46db07c5171e.webp",
+      "thumb": "https://media.aquatome.com/commons/103e46db07c5171e-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "KENPEI",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus1.jpg",
+      "caption": "Tôm càng tín hiệu bò trên sỏi trong bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a2fd4744a565daad.webp",
+      "thumb": "https://media.aquatome.com/commons/a2fd4744a565daad-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "KENPEI",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacifastacus_leniusculus2.jpg",
+      "caption": "Tôm càng tín hiệu trong bể nền sỏi cạnh đá",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 101,
-  "updatedAt": "2026-11-11",
-  "builtAt": "2026-11-11"
+  "seen": 121,
+  "updatedAt": "2026-11-17",
+  "builtAt": "2026-11-17"
 }

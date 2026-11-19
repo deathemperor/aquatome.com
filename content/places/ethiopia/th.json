@@ -3,6 +3,12 @@
   "name": "เอธิโอเปีย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-18T12:23:24.811Z",
+    "why": "The standard Thai name for Ethiopia is เอธิโอเปีย in the Royal Institute spelling (ethiopia = เอธิโอเปีย), so this matches the Thai atlas form well, though the common variant อธิโอเปีย is not used here."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

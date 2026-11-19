@@ -1,8 +1,7 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { isTombstone, type Device, type Tank as SavedTank } from '@aq/schema/tanks'
-import { emailHash } from '../accounts/email'
 import { sameSiteOk, sessionOf, tokenOf } from '../accounts/session'
-import { TESTER_ADDRESS } from '../accounts/tester'
+import { TESTER_ID, TESTER_PER_DAY, testerOn } from '../accounts/tester'
 import { loadStore } from '../accounts/tanks'
 import { accountDayKey } from '../comments/api'
 import { kvHealth } from '../fishid/api'
@@ -50,6 +49,8 @@ export type ChatEnv = {
   CHAT?: string
   /** The owner's account ids, comma-separated (a Worker secret, as the dashboard reads it). */
   OWNER_ACCOUNTS?: string
+  /** "on": the test account (accounts/tester.ts) may ask. Anything else, or missing: its session is no session here. */
+  CHAT_TESTER?: string
   CHAT_MODEL?: string
   /** The search that hands Claude sections before its first call (handover.ts): Workers AI embeds the reader's words, Vectorize finds the sections. */
   AI?: Ai
@@ -151,22 +152,18 @@ export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStre
 /** Who asks, as chat counts and tags it: an owner's account (OWNER_ACCOUNTS), the test account (accounts/tester.ts), or a reader. */
 export type { Role }
 /**
- * The asker's role. Nobody signed in, or an owner's account, needs no query; anyone else, one lookup for a sign-in with
- * the tester's address. A lookup that fails is logged and reads as a reader's: chat on for everyone stays on, and on for
- * the owner, the tester finds it off until the next try.
+ * The asker's role: an owner's account (OWNER_ACCOUNTS), the test account by its fixed id (accounts/tester.ts: never by
+ * an address another sign-in carries, as a Google one can), or a reader. No lookup: the session gave the id.
  */
 export async function roleOf(env: ChatEnv, userId: string | undefined): Promise<Role> {
   if (userId === undefined) return 'reader'
   if ((env.OWNER_ACCOUNTS ?? '').split(',').map(id => id.trim()).includes(userId)) return 'owner'
-  if (!TESTER_ADDRESS || !env.DB || !env.ACCOUNT_HMAC_KEY) return 'reader'
-  try {
-    const hash = await emailHash(env.ACCOUNT_HMAC_KEY, TESTER_ADDRESS)
-    return (await env.DB.prepare('SELECT 1 AS x FROM credentials WHERE user_id = ? AND email_hash = ? LIMIT 1').bind(userId, hash).first()) ? 'tester' : 'reader'
-  } catch (e) {
-    console.error('chat role:', e)
-    return 'reader'
-  }
+  return userId === TESTER_ID ? 'tester' : 'reader'
 }
+/** The chat's sessions: the test account's too, while it is on. */
+export const chatSession = (req: Request, env: ChatEnv & { DB: D1Database }, now: Date) => sessionOf(req, env.DB, now, { tester: testerOn(env) })
+/** Questions a day for this asker: the test account's are fewer (accounts/tester.ts), and its off-topic ones count too. */
+const perAsker = (perAccount: number, role: Role) => (role === 'tester' ? Math.min(perAccount, TESTER_PER_DAY) : perAccount)
 /** On for this asker: everyone's while CHAT is "1"; while it is "owner", the owner's accounts' and the test account's. */
 export const askable = (env: ChatEnv, role: Role) => env.CHAT !== 'owner' || role !== 'reader'
 export const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
@@ -285,9 +282,11 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const maxTurns = limit(env.CHAT_MAX_TURNS, MAX_TURNS)
   if (req.method === 'GET') {
     if (!live(env)) return json({ on: false })
-    if (env.CHAT === 'owner' && !askable(env, await roleOf(env, (await sessionOf(req, env.DB, now).catch(() => null))?.userId))) return json({ on: false })
+    // Who asks, where it changes the answer: the gate while chat is the owner's, and a signed-in asker's cap.
+    const role = env.CHAT === 'owner' || tokenOf(req) ? await roleOf(env, (await chatSession(req, env, now).catch(() => null))?.userId) : 'reader'
+    if (!askable(env, role)) return json({ on: false })
     const resting = !(await healthyKeys((await keysOf(env.ANTHROPIC_KEYS)).keys, kvHealth(env.AB), now.getTime())).length
-    return json({ on: true, resting, perAccount, maxTurns, maxChars })
+    return json({ on: true, resting, perAccount: perAsker(perAccount, role), maxTurns, maxChars })
   }
   if (req.method !== 'POST') return new Response(null, { status: 405 })
   if (!live(env)) return json({ error: 'chat_off' }, 503)
@@ -296,7 +295,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   // Who asks: a bearer is the app's session or nothing; a cookie only from the site's own pages.
   const bearer = req.headers.has('authorization')
   if (!bearer && tokenOf(req)?.via === 'cookie' && !sameSiteOk(req, true)) return json({ error: 'cross-origin' }, 403)
-  const session = await sessionOf(req, env.DB, now)
+  const session = await chatSession(req, env, now)
   const role = await roleOf(env, session?.userId)
   // On for the owner and the tester only: anyone else finds it off, signed in or not, before anything is read or counted.
   if (!askable(env, role)) return json({ error: 'chat_off' }, 503)
@@ -348,7 +347,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const ledger = ledgerClient(env.FISHID_LEDGER)
   const day = now.toISOString().slice(0, 10)
   const reader = `chat:acct:${(await accountDayKey(env.COMMENT_HMAC_KEY, session.userId, now)).slice(3)}`
-  const admitted = await ledger.admit({ day, reader, perReader: perAccount, perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap: usdCap(env.FISH_ID_USD_PER_DAY), reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat', role, key: idem ? stopKey(account, idem) : undefined })
+  const admitted = await ledger.admit({ day, reader, perReader: perAsker(perAccount, role), perDay: limit(env.CHAT_PER_DAY, PER_DAY), usdCap: usdCap(env.FISH_ID_USD_PER_DAY), reserve: chatWorstCost(model), healthy: healthy.length > 0, kind: 'chat', role, key: idem ? stopKey(account, idem) : undefined })
     .catch(e => { console.error('chat ledger:', e); return null })
   if (!admitted) return json({ error: 'unavailable' }, 503)
   if (!admitted.ok && admitted.error === 'cancelled') return json(stopBody(admitted), 410)
@@ -534,7 +533,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const ok = turn ? wrote : undefined
     const offTopic = done.status === 200 && trail?.answer?.offTopic === true
     const cutOff = !turn && wordsAt !== undefined && !stopped
-    await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+    // The test account's count never comes back (accounts/tester.ts): a run that began may have been paid for.
+    await ledger.settle({ day, run, refund: role !== 'tester' && (done.status === 503 || cutOff), ...(offTopic && role !== 'tester' ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
   /** Then, once the reader has the answer: the transcript, and the check for an account deleted meanwhile. */
   const after = async (done: { status: number; body: Record<string, unknown> }) => {

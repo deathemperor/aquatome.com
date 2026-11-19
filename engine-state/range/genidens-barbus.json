@@ -1,0 +1,143 @@
+{
+  "id": "genidens-barbus",
+  "native": {
+    "input": "b4cd7e6d222bab89",
+    "at": "2026-11-18T12:30:34.128Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Eastern Brazil south to northern Patagonia (Argentina).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Eastern Brazil south to northern Patagonia (Argentina).",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "It is an oceanodromous species that is found between the mouth of the Negro River in Patagonia and eastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Negro River",
+        "source": "scotcat",
+        "quote": "It is an oceanodromous species that is found between the mouth of the Negro River in Patagonia and eastern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Patagonia",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Eastern Brazil south to northern Patagonia (Argentina).",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Genidens barbus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345063,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        190
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        111
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        43
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        31
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        6
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "cc47cd0b-7cdb-452d-b41c-c3e340092c09",
+        1
+      ],
+      [
+        "fd7f9a48-0712-4a5d-8428-17cc6935f869",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "AR"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T12:30:34.128Z"
+  }
+}

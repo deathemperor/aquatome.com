@@ -7,14 +7,14 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/aquariumcoop/5946316eb6c9969e.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/5946316eb6c9969e-480.webp",
       "width": 1000,
       "height": 667,
       "licence": "dùng với sự cho phép",
       "author": "Aquarium Co-op",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/aquarium-salt-for-sick-fish",
       "caption": "Aquarium Salt: When and How to Use It Properly - Aquarium Co-Op",
-      "source": "aquariumcoop",
-      "thumb": "https://media.aquatome.com/aquariumcoop/5946316eb6c9969e-480.webp"
+      "source": "aquariumcoop"
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/3a5246039a67827d.webp",
@@ -51,5 +51,5 @@
     }
   ],
   "mentions": [],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-17"
 }

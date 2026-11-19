@@ -1,0 +1,88 @@
+{
+  "id": "arius-manillensis",
+  "native": {
+    "input": "8d29860c26913c4d",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Arius manillensis is a species of marine catfish endemic to the island of Luzon, Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Luzon",
+        "source": "scotcat",
+        "quote": "Arius manillensis is a species of marine catfish endemic to the island of Luzon, Philippines.",
+        "country": "PH",
+        "ok": true
+      },
+      {
+        "name": "Pasig River",
+        "source": "scotcat",
+        "quote": "It is found in the area around Manila, Bataan, Laguna, Cavite, and Rizal, including the Pasig River and Laguna de Bay.",
+        "ok": true
+      },
+      {
+        "name": "Laguna de Bay",
+        "source": "scotcat",
+        "quote": "It is found in the area around Manila, Bataan, Laguna, Cavite, and Rizal, including the Pasig River and Laguna de Bay.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Arius manillensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2345237,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        68
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "PH"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

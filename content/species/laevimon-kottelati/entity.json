@@ -1,0 +1,133 @@
+{
+  "id": "laevimon-kottelati",
+  "scientificName": "Laevimon kottelati",
+  "order": "Decapoda",
+  "family": "Potamidae",
+  "genus": "Laevimon",
+  "group": "other",
+  "places": [
+    "asia",
+    "vietnam"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is endemic to Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5790558,
+      "total": 2,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          19.6875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/",
+      "html": "<p>Laevimon kottelati is a freshwater crab that reaches a size of about 4.5 cm carapace width. It is endemic to Vietnam.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/",
+      "html": "<p>Endemic to Vietnam. It was discovered there in 1998 and scientifically described in 2005 as a new species in a new genus.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/",
+      "html": "<p>It lives amphibiously in the shallow water of the banks of small rivers.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/789ddd3f7657e8cc.webp",
+      "thumb": "https://media.aquatome.com/glaser/789ddd3f7657e8cc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/58c5daded87539ff.webp",
+      "thumb": "https://media.aquatome.com/glaser/58c5daded87539ff-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8e92747c75d1ce8a.webp",
+      "thumb": "https://media.aquatome.com/glaser/8e92747c75d1ce8a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4f89cd2be4ea4b48.webp",
+      "thumb": "https://media.aquatome.com/glaser/4f89cd2be4ea4b48-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/laevimon-kottelati-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cua nước ngọt",
+        "bể bán cạn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

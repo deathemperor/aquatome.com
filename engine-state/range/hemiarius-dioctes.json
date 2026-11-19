@@ -1,0 +1,76 @@
+{
+  "id": "hemiarius-dioctes",
+  "native": {
+    "input": "7041262ade25551f",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Oceania: Southern New Guinea and Australia. Type locality: Norman River at Karumba (17º29'S, 140º50'E), Queensland, Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "scotcat",
+        "quote": "Oceania: Southern New Guinea and Australia. Type locality: Norman River at Karumba (17º29'S, 140º50'E), Queensland, Australia.",
+        "ok": true
+      },
+      {
+        "name": "Norman River",
+        "source": "scotcat",
+        "quote": "Oceania: Southern New Guinea and Australia. Type locality: Norman River at Karumba (17º29'S, 140º50'E), Queensland, Australia.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiarius dioctes",
+    "status": "ACCEPTED",
+    "taxonKey": 2344917,
+    "datasets": [
+      [
+        "3f4d4bf1-5f9a-43f2-a0d8-ff6ed5952796",
+        7022
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        18
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        4
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        4
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        3
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

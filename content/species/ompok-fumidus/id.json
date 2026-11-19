@@ -13,13 +13,19 @@
     "distribution:glaser": "<p>Ompok fumidus tersebar luas di Semenanjung Malaya, Sumatra, Kalimantan, Kepulauan Riau, dan Thailand.</p>",
     "habitat:glaser": "<p>Ikan ini biasanya ditemukan di anak sungai dangkal berair gambut.</p>",
     "aquariumSize:glaser": "<p>Dengan \"wels catfish versi mini\" ini, akuaris yang akuariumnya relatif kecil pun bisa memelihara lele jenis ini.</p>",
-    "behaviour:glaser": "<p>Ikan ini terbukti sangat damai, tetapi ikan kecil akan dimangsanya.</p>"
+    "behaviour:glaser": "<p>Ikan ini terbukti sangat damai, tetapi ikan kecil akan dimangsanya.</p>",
+    "quickFacts:scotcat": "<p>Famili: Siluridae. Ukuran: 15 cm. Suhu: 21–27 °C. pH: 6,0–7,0. Dulu dikenal sebagai O. leiacanthus, tetapi kemudian dideskripsikan sebagai spesies baru oleh Tan &amp; Ng (1996). Deskripsi: jari-jari lunak sirip anal 53–60. Etimologi: nama spesies fumidus berasal dari bahasa Latin yang berarti berwarna seperti asap, merujuk pada warnanya yang seragam, abu-abu sampai hitam.</p>",
+    "distribution:scotcat": "<p>Asia: Semenanjung Malaysia (Terengganu, Selangor, Perak, dan Pahang); Pulau Bintan (Kepulauan Riau), serta Kalimantan Barat dan Kalimantan Tengah (Kalimantan). Lokasi tipe: hutan rawa gambut Selangor Utara, 43 km di jalan dari Tanjong Malim ke Sungai Besar, Selangor, Malaysia.</p><p>Menurut IUCN Red List, spesies ini tersebar dari daerah aliran sungai Mae Nam Kolok ke selatan hingga daerah aliran Sungai Pahang di Semenanjung Malaya; Pulau Bintan (Kepulauan Riau); daerah aliran Batang Hari di Sumatra bagian tengah; serta daerah aliran Sungai Kapuas ke selatan hingga daerah aliran Sungai Arut di Kalimantan, dengan perkiraan luas wilayah keberadaan (EOO) 573.960 km². Meskipun belum ada informasi rinci tentang status populasinya, data survei menunjukkan bahwa ikan ini masih melimpah di banyak bagian wilayah sebarannya yang diketahui. Namun, habitatnya (hutan rawa gambut berair hitam) telah mengalami kerusakan dan degradasi berskala besar, dan diduga akan terjadi penurunan populasi sekitar 25% dalam sepuluh tahun ke depan akibat degradasi dan hilangnya habitat. Karena itu, Ompok fumidus dinilai berstatus Hampir Terancam (Near Threatened), hampir memenuhi kriteria A3c (IUCN 2020).</p>",
+    "habitat:scotcat": "<p>Bersifat stenotopik terhadap gambut, artinya hanya hidup di habitat gambut. Dikoleksi dari perairan hitam (blackwater) dangkal di rawa gambut yang rusak berat akibat kegiatan penebangan hutan.</p>",
+    "diet:scotcat": "<p>Pakannya terutama larva serangga, sedangkan ikan dewasa beralih memangsa ikan.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Ng, H.H. &amp; Van Veen, F. 2020. Ompok fumidus. The IUCN Red List of Threatened Species 2020. Tan, T.H.T. and P.K.L. Ng, 1996. Catfishes of the Ompok leiacanthus (Bleeker, 1853) species group (Teleostei: Siluridae) from Southeast Asia, with description of a new species. Raffles Bull. Zool. 44(2):531-542. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
-      "glaser": 0.75
+      "glaser": 0.75,
+      "scotcat": 0.85
     }
   },
   "held": {

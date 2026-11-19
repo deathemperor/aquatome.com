@@ -1,0 +1,74 @@
+{
+  "id": "heterotilapia-buttikoferi",
+  "native": {
+    "input": "36a7fb92bbfd2076",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Tilapia buettikoferi originates from western Africa (Guinea, Liberia, Sierra Leone).",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Tilapia buettikoferi originates from western Africa (Guinea, Liberia, Sierra Leone).",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Tilapia buettikoferi originates from western Africa (Guinea, Liberia, Sierra Leone).",
+        "words": "Sierra Leone",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Heterotilapia buttikoferi",
+    "status": "ACCEPTED",
+    "taxonKey": 9466990,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        20
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        20
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ]
+    ],
+    "native": [
+      "GN",
+      "LR",
+      "SL"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

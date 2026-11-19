@@ -119,7 +119,7 @@ test('served: the pilot pages; a link to a page the language lacks keeps its tex
   const { served, toVi } = await import('../src/lib/i18n')
   expect(served('vi', '/vi/thiet-bi/loc/')).toBe(true)
   expect(served('id', '/vi/ca/x/?q=1')).toBe(true)
-  expect(served('id', '/vi/ca/x/anh/')).toBe(true)
+  expect(served('id', '/vi/ca/x/anh/')).toBe(false) // an album opens over its fish's page: no page of its own since 18 Nov
   expect(served('id', '/vi/video/x/')).toBe(false)
   expect(served('th', '/vi/cong-cu/the-tich-be/')).toBe(true)
   expect(served('id', '/vi/cong-cu/nuoi-chung/?ca=x')).toBe(true)

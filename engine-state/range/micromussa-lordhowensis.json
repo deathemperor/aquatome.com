@@ -1,0 +1,114 @@
+{
+  "id": "micromussa-lordhowensis",
+  "native": {
+    "input": "a4e5cbc44fe544f9",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is also found around Australia in Flinders Reef, Elizabeth Reef, Middleton Reef, the Dampier Archipelago and the Burrup Peninsula.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Dampier Archipelago",
+        "source": "aquariumbreeder",
+        "quote": "It is also found around Australia in Flinders Reef, Elizabeth Reef, Middleton Reef, the Dampier Archipelago and the Burrup Peninsula.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Burrup Peninsula",
+        "source": "aquariumbreeder",
+        "quote": "It is also found around Australia in Flinders Reef, Elizabeth Reef, Middleton Reef, the Dampier Archipelago and the Burrup Peninsula.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Flinders Reef",
+        "source": "aquariumbreeder",
+        "quote": "It is also found around Australia in Flinders Reef, Elizabeth Reef, Middleton Reef, the Dampier Archipelago and the Burrup Peninsula.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Elizabeth Reef",
+        "source": "aquariumbreeder",
+        "quote": "It is also found around Australia in Flinders Reef, Elizabeth Reef, Middleton Reef, the Dampier Archipelago and the Burrup Peninsula.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Middleton Reef",
+        "source": "aquariumbreeder",
+        "quote": "It is also found around Australia in Flinders Reef, Elizabeth Reef, Middleton Reef, the Dampier Archipelago and the Burrup Peninsula.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "SB"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Micromussa lordhowensis",
+    "status": "ACCEPTED",
+    "taxonKey": 8965841,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        90
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        51
+      ],
+      [
+        "be62fffc-d0e7-45f2-9404-d4bc4322bc57",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "adb92d68-aaff-47ba-b197-d3d26f72f728",
+        3
+      ],
+      [
+        "7bafc0d6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        2
+      ],
+      [
+        "e5d47a25-9e51-40db-9b5c-3f766be5c7b5",
+        2
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 13,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

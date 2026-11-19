@@ -3,6 +3,12 @@
   "name": "โล่เกียนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-18T12:24:04.950Z",
+    "why": "\"โล่เกียนา\" translates \"Shield\" word by word (โล่) and omits the usual Thai term; Thai sources write \"ไกอานาชีลด์\" or \"เทือกเขา/ที่ราบสูงกายอานา\", with Guiana usually spelled กายอานา/กียานา."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

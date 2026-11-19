@@ -1,8 +1,8 @@
 {
   "id": "distichodus-lusosso",
   "native": {
-    "input": "6abc3954f02f0e4e",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "d181928fceff7859",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "CM",
@@ -29,30 +29,6 @@
         "ok": true
       },
       {
-        "code": "CM",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
-        "words": "Cameroon",
-        "ok": true
-      },
-      {
-        "code": "CG",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
-        "words": "Republic of Congo",
-        "ok": true
-      },
-      {
-        "code": "CD",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Cameroon, Republic of Congo, Democratic Republic of Congo, Angola, Central African Republic.",
-        "words": "Democratic Republic of Congo",
-        "ok": true
-      },
-      {
         "code": "AO",
         "status": "native",
         "source": "seriouslyfish",
@@ -69,7 +45,14 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Congo basin",
+        "source": "glaser",
+        "quote": "The longsnout distichodus has a very wide distribution in the Congo basin.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

@@ -3,10 +3,15 @@
   "facts": [
     {
       "section": "other",
+      "fact": "Vietnamese name: \"Artemia\"; one source says it is also called \"tôm vụn\".",
+      "source": 4
+    },
+    {
+      "section": "other",
       "fact": "Vietnamese name for the eggs: \"trứng Artemia\".",
       "source": 3,
       "also": [
-        8
+        9
       ]
     },
     {
@@ -14,23 +19,29 @@
       "fact": "Vietnamese name for the newly hatched larvae: \"ấu trùng Artemia\".",
       "source": 3,
       "also": [
-        8
+        9,
+        4
       ]
     },
     {
       "section": "other",
-      "fact": "Vietnamese product name: \"Artemia Tách Vỏ Sấy Khô\".",
+      "fact": "Vietnamese name for the dried form: \"Artemia sấy khô\".",
       "source": 4
     },
     {
       "section": "other",
-      "fact": "Vietnamese product name: \"Trứng Artemia sấy khô tách vỏ ăn liền\", and its English name on the same page: \"Decapsulated Artemia Cysts\".",
+      "fact": "Vietnamese product name: \"Artemia Tách Vỏ Sấy Khô\".",
       "source": 5
     },
     {
       "section": "other",
+      "fact": "Vietnamese product name: \"Trứng Artemia sấy khô tách vỏ ăn liền\", and its English name on the same page: \"Decapsulated Artemia Cysts\".",
+      "source": 6
+    },
+    {
+      "section": "other",
       "fact": "English name used for the shell-free eggs: \"Decapsulated Brine Shrimp Eggs\".",
-      "source": 7
+      "source": 8
     },
     {
       "section": "what",
@@ -40,7 +51,7 @@
     {
       "section": "what",
       "fact": "Artemia larvae are used to feed baby and young ornamental fish and dwarf shrimp.",
-      "source": 8
+      "source": 9
     },
     {
       "section": "what",
@@ -63,6 +74,11 @@
       "source": 3
     },
     {
+      "section": "what",
+      "fact": "Artemia larvae live only a few hours in fresh water, so feed them as soon as they are harvested.",
+      "source": 4
+    },
+    {
       "section": "signs",
       "fact": "After hatching and with the air off, empty shells and unhatched cysts rise to the surface and the orange nauplii gather near the bottom.",
       "source": 0
@@ -77,7 +93,8 @@
       "fact": "Nauplii are drawn to light, so a flashlight can be used to gather them for siphoning.",
       "source": 3,
       "also": [
-        8
+        9,
+        4
       ]
     },
     {
@@ -85,8 +102,13 @@
       "fact": "trứng Artemia: with seawater, use about 1 g of eggs per 1 L; without seawater, dissolve about 30 g of non-iodized salt in 1 L of dechlorinated water.",
       "source": 3,
       "also": [
-        8
+        9
       ]
+    },
+    {
+      "section": "steps",
+      "fact": "trứng Artemia: dissolve 60 g of non-iodized coarse salt in 2 litres of fresh water, then aerate for about 1 hour before adding about 1/4 teaspoon (0.5–1 g) of eggs.",
+      "source": 4
     },
     {
       "section": "steps",
@@ -130,18 +152,29 @@
     },
     {
       "section": "steps",
+      "fact": "Keep the hatching water at 25–30°C; the eggs usually hatch after 16–24 hours.",
+      "source": 4
+    },
+    {
+      "section": "steps",
       "fact": "Use steady, moderate aeration from an airline without an airstone, placed near the bottom of the jar.",
       "source": 0
     },
     {
       "section": "steps",
       "fact": "Aerate strongly at first to keep the eggs moving, then reduce the air once the eggs have taken up water so they are not thrown out.",
-      "source": 3
+      "source": 3,
+      "also": [
+        4
+      ]
     },
     {
       "section": "steps",
       "fact": "Keep the hatching tank lit for the first 24 hours.",
-      "source": 3
+      "source": 3,
+      "also": [
+        4
+      ]
     },
     {
       "section": "steps",
@@ -160,13 +193,33 @@
     },
     {
       "section": "steps",
+      "fact": "Rinse the larvae in dechlorinated fresh water before feeding.",
+      "source": 4
+    },
+    {
+      "section": "steps",
       "fact": "The shrimp can be fed with their salt water if the tank needs minerals for live plants or hard-water fish.",
       "source": 1
     },
     {
       "section": "steps",
+      "fact": "Feed fry 0–3 days old 3–4 small meals a day, fry 4–10 days old 4–5 meals a day, and fry over 10 days old 2–3 meals a day.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Stop feeding when the fry's bellies look slightly orange; remove leftovers after 15–20 minutes.",
+      "source": 4
+    },
+    {
+      "section": "steps",
       "fact": "Storing nauplii below 10°C with light aeration slows their development and keeps them usable for more than 24 hours.",
       "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "For short storage: dilute brine of 5–10 ppt, light aeration, a fridge at 4°C, for at most 24 hours; nutrition still drops.",
+      "source": 4
     },
     {
       "section": "prevention",
@@ -209,7 +262,15 @@
     {
       "section": "mistakes",
       "fact": "Using iodized salt for hatching.",
-      "source": 3
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Common errors: overfeeding and leaving leftovers that foul the water, using dead or expired eggs, hatching water below 22°C, wrong salinity, too little oxygen or light, undechlorinated water, hatching large batches to store, and not cleaning the hatcher.",
+      "source": 4
     },
     {
       "section": "mistakes",
@@ -234,77 +295,77 @@
     {
       "section": "what",
       "fact": "Decapsulated Brine Shrimp Eggs: with the shell removed, all of the eggs, hatched or not, can be fed, and empty casings do not end up in fry tanks, which lowers the risk of gut blockage.",
-      "source": 7
+      "source": 8
     },
     {
       "section": "what",
       "fact": "Decapsulated Brine Shrimp Eggs: dried cysts are about 200–250 µm, smaller than nauplii at 470–550 µm, so they suit smaller fish.",
-      "source": 7
+      "source": 8
     },
     {
       "section": "what",
       "fact": "Decapsulated Brine Shrimp Eggs: claimed to carry about 30% more nutrients than newly hatched nauplii and to last longer in fresh water than nauplii.",
-      "source": 7
+      "source": 8
     },
     {
       "section": "mistakes",
       "fact": "Decapsulated Brine Shrimp Eggs: freshly decapsulated cysts may sink too fast for larvae that do not feed off the bottom; dried cysts float better and sink more slowly.",
-      "source": 7
+      "source": 8
     },
     {
       "section": "steps",
       "fact": "Decapsulated Brine Shrimp Eggs: dried, properly treated cysts can be stored for years and fed without hatching; cysts dehydrated in brine keep a long time in the fridge.",
-      "source": 7
+      "source": 8
     },
     {
       "section": "steps",
       "fact": "Artemia Tách Vỏ Sấy Khô: fed directly without hatching, scattered on the surface twice a day, morning and evening, only as much as the fish eat.",
-      "source": 4
+      "source": 5
     },
     {
       "section": "signs",
       "fact": "Artemia Tách Vỏ Sấy Khô: the shop describes it as a floating powder.",
-      "source": 4
+      "source": 5
     },
     {
       "section": "mistakes",
       "fact": "Artemia Tách Vỏ Sấy Khô: overfeeding clouds the water.",
-      "source": 4
+      "source": 5
     },
     {
       "section": "steps",
       "fact": "Trứng Artemia sấy khô tách vỏ ăn liền: feed 2–3 times a day in very small amounts, sprinkled slowly so fish catch the eggs while they drift down.",
-      "source": 5
+      "source": 6
     },
     {
       "section": "mistakes",
       "fact": "Trứng Artemia sấy khô tách vỏ ăn liền: uneaten eggs settle on the bottom and quickly cloud and foul the water.",
-      "source": 5
+      "source": 6
     },
     {
       "section": "prevention",
       "fact": "Trứng Artemia sấy khô tách vỏ ăn liền: seal the lid after use and keep in a dry, cool, ventilated place, or in the fridge for long-term storage.",
-      "source": 5
+      "source": 6
     },
     {
       "section": "what",
       "fact": "Thức Ăn Cá Cảnh Artemia Sấy Khô: the egg shells are removed so fish do not bloat from eating hard shells; it can be fed directly to young and small fish.",
-      "source": 6
+      "source": 7
     },
     {
       "section": "mistakes",
       "fact": "Thức Ăn Cá Cảnh Artemia Sấy Khô: eggs that sink to the bottom are wasted and pollute the tank water.",
-      "source": 6
+      "source": 7
     },
     {
       "section": "vietnam",
       "fact": "For Betta fry, the Vietnamese shop recommends live Vĩnh Châu Artemia biomass (\"sinh khối vĩnh châu\") over its dried decapsulated product.",
-      "source": 4
+      "source": 5
     },
     {
       "section": "vietnam",
       "fact": "Vietnamese guides use non-iodized coarse salt (\"muối hột không có iot\") instead of seawater, with tap water that has been dechlorinated.",
-      "source": 8,
+      "source": 9,
       "also": [
         3
       ]
@@ -317,82 +378,82 @@
     {
       "section": "vietnam",
       "fact": "Some Vietnamese hobbyists load medicine into Artemia larvae to feed sick fish.",
-      "source": 8
+      "source": 9
     },
     {
       "section": "what",
       "fact": "Brine shrimp are the genus Artemia, small crustaceans in the class Branchiopoda, order Anostraca. Artemia is the only genus in the family Artemiidae.",
-      "source": 9
+      "source": 10
     },
     {
       "section": "what",
       "fact": "Wild brine shrimp live worldwide, mainly in inland saltwater lakes. They only occasionally occur in the sea.",
-      "source": 9
+      "source": 10
     },
     {
       "section": "what",
       "fact": "Brine shrimp can tolerate salinity from 2.5% to 25%; their optimum is 6%–10%. Living in very salty water keeps them away from most predators, such as fish.",
-      "source": 9
+      "source": 10
     },
     {
       "section": "what",
       "fact": "Artemia lives in hypersaline lakes, and one review calls it the only macro-planktonic animal found in salty lakes.",
-      "source": 10
+      "source": 11
     },
     {
       "section": "what",
       "fact": "Under stress, such as low oxygen or salinity above 15%, females produce dormant eggs called cysts. Dry, oxygen-free cysts can stay dormant for about two years and hatch within a few hours once put in salt water.",
-      "source": 9
-    },
-    {
-      "section": "what",
-      "fact": "When seasonal lakes dry out, Artemia survives as a highly resistant encysted embryo (cyst).",
       "source": 10
     },
     {
       "section": "what",
+      "fact": "When seasonal lakes dry out, Artemia survives as a highly resistant encysted embryo (cyst).",
+      "source": 11
+    },
+    {
+      "section": "what",
       "fact": "Because cysts can be stored and hatched when needed, the nauplii (newly hatched larvae) are the most widely used live food for larval fish and crustaceans. Most of the world's dried cysts come from the Great Salt Lake in Utah.",
-      "source": 9
+      "source": 10
     },
     {
       "section": "vietnam",
       "fact": "Vietnam had no native Artemia. In the early 1980s, the San Francisco Bay (USA) strain of Artemia franciscana was introduced into the Vĩnh Châu salt fields in Sóc Trăng province.",
-      "source": 11
-    },
-    {
-      "section": "vietnam",
-      "fact": "Artemia farming in Vĩnh Châu covers about 800 ha of salt fields and more than 700 households. The area produces 40–60 t of cysts a year, and farming has spread to other Mekong Delta salt fields.",
-      "source": 11
-    },
-    {
-      "section": "vietnam",
-      "fact": "Vĩnh Châu (Sóc Trăng) is known for high-quality brine shrimp eggs. They are raised in ponds and salt fields, mostly from November to April, and sold in Vietnam and exported to Asian countries, the US and Russia.",
       "source": 12
     },
     {
       "section": "vietnam",
+      "fact": "Artemia farming in Vĩnh Châu covers about 800 ha of salt fields and more than 700 households. The area produces 40–60 t of cysts a year, and farming has spread to other Mekong Delta salt fields.",
+      "source": 12
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vĩnh Châu (Sóc Trăng) is known for high-quality brine shrimp eggs. They are raised in ponds and salt fields, mostly from November to April, and sold in Vietnam and exported to Asian countries, the US and Russia.",
+      "source": 13
+    },
+    {
+      "section": "vietnam",
       "fact": "Vĩnh Châu Artemia eggs are described as small compared with eggs from elsewhere, with high nutritional content and a high hatching rate. No measurements are given.",
-      "source": 13
-    },
-    {
-      "section": "vietnam",
-      "fact": "Vĩnh Châu eggs are expensive (the co-operative buys at VND 1.1–1.2 million/kg), so they are rarely used in Vietnam despite their quality. Imported eggs made up over 99% of the domestic market in 2023.",
-      "source": 13
-    },
-    {
-      "section": "vietnam",
-      "fact": "Vĩnh Châu Artemia eggs are exported to Japan, Thailand and several European countries.",
-      "source": 13
-    },
-    {
-      "section": "vietnam",
-      "fact": "In December 2020, Vietnam's Intellectual Property Office granted a geographical indication (chỉ dẫn địa lý) to Artemia Vĩnh Châu. The product is said to compete well on price and quality with Artemia from elsewhere in the world.",
       "source": 14
     },
     {
       "section": "vietnam",
-      "fact": "Artemia farming is a traditional trade on the coasts of Bạc Liêu and Sóc Trăng. The leader of the Vĩnh Châu – Bạc Liêu co-operative claims the eggs are better than other products in the world, but gives no test data.",
+      "fact": "Vĩnh Châu eggs are expensive (the co-operative buys at VND 1.1–1.2 million/kg), so they are rarely used in Vietnam despite their quality. Imported eggs made up over 99% of the domestic market in 2023.",
+      "source": 14
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vĩnh Châu Artemia eggs are exported to Japan, Thailand and several European countries.",
+      "source": 14
+    },
+    {
+      "section": "vietnam",
+      "fact": "In December 2020, Vietnam's Intellectual Property Office granted a geographical indication (chỉ dẫn địa lý) to Artemia Vĩnh Châu. The product is said to compete well on price and quality with Artemia from elsewhere in the world.",
       "source": 15
+    },
+    {
+      "section": "vietnam",
+      "fact": "Artemia farming is a traditional trade on the coasts of Bạc Liêu and Sóc Trăng. The leader of the Vĩnh Châu – Bạc Liêu co-operative claims the eggs are better than other products in the world, but gives no test data.",
+      "source": 16
     }
   ],
   "species": [
@@ -419,6 +480,11 @@
     {
       "url": "https://www.petmart.vn/cach-nuoi-au-trung-artemia-lam-thuc-an-cho-ca-bot",
       "title": "Cách Nuôi Ấu Trùng Artemia Làm Thức ăn Cho Cá Bột | Pet Mart Cửa Hàng Thú Cưng",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cabaymau.vn/cach-cho-ca-bot-an-artemia/",
+      "title": "Cách cho Cá Bột Ăn Artemia: Hướng Dẫn Từ A-Z",
       "kind": "shop"
     },
     {

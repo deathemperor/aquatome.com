@@ -3,6 +3,12 @@
   "name": "Chili",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.1,
+    "at": "2026-11-18T00:47:20.013Z",
+    "why": "The Indonesian name for the country is \"Cile\" (KBBI/atlas spelling); \"Chili\" is the Dutch spelling, and in Indonesian it is confused with \"cabai\" (chili pepper)."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

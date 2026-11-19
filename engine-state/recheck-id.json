@@ -1,0 +1,608 @@
+{
+  "abramites-hypselonotus": {
+    "hash": "47c7d42020521f764b1b790c086368225bb1da1458a0844749f61c98b1e354e1",
+    "at": "2026-11-18T05:46:18.779Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "acanthocobitis-pavonacea": {
+    "hash": "99069d067a0130c0e0af912ee8e19e4a8fee931542320d5ce8e5c8ee48279b90",
+    "at": "2026-11-18T05:46:27.473Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "acanthocobitis-rubidipinnis": {
+    "hash": "f81213f6dcb991b01d07b6e471207d2a62c62f5c3058c06c15cf8559dd96d0ee",
+    "at": "2026-11-18T12:09:33.568Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "acanthodoras-cataphractus": {
+    "hash": "15596a994997d7070896a05851cb32da09c0e614dc0d0c692e75051ff725655a",
+    "at": "2026-11-18T12:09:42.224Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "acanthodoras-spinosissimus": {
+    "hash": "c35cc56d556ef0e0c28a1b2c6e61611a9ace5c08ed18e4bebe01d579db5f3e70",
+    "at": "2026-11-18T12:09:53.916Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "acentrogobius-viridipunctatus": {
+    "hash": "7f7fc78dc32d1f6339a2591a25406c5271d2b5b10a6c371fd1fb5eed7f4ea0e4",
+    "at": "2026-11-18T12:10:02.709Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "acestrorhynchus-altus": {
+    "hash": "b376567dd2e012bb31a8ff2797e49d1101ca47a412e7b4fac8204f53445ad3a9",
+    "at": "2026-11-18T12:10:36.273Z",
+    "sonnet": 0.93,
+    "opus": 0.85,
+    "back": true
+  },
+  "acestrorhynchus-isalineae": {
+    "hash": "a03ea19eb08158194feb489e282c37bb297d9c6a0f369aef5c01dbbe94f4d775",
+    "at": "2026-11-18T12:11:21.053Z",
+    "sonnet": 0.85,
+    "opus": 0.7,
+    "back": false
+  },
+  "acestrorhynchus-microlepis": {
+    "hash": "355f6bc6e75d6cdd219ac4710aa87057da423a2e34312e22e2e6c5a4abbc5456",
+    "at": "2026-11-18T12:11:55.827Z",
+    "sonnet": 0.88,
+    "opus": 0.9,
+    "back": true
+  },
+  "acestrorhynchus-pantaneiro": {
+    "hash": "933bca7f8d18eea589c347ebbe9dc28bc68f100e4e59be460b7a6a7d38eda719",
+    "at": "2026-11-18T12:12:31.014Z",
+    "sonnet": 0.95,
+    "opus": 0.85,
+    "back": true
+  },
+  "agamyxis-pectinifrons": {
+    "hash": "b421cb0d3464b7f92ec734be2cea1e3da7f52e1d7b0cd63eaf546601808df7a2",
+    "at": "2026-11-18T00:33:39.115Z",
+    "sonnet": 0.9,
+    "opus": 0.93,
+    "back": true
+  },
+  "ageneiosus-inermis": {
+    "hash": "4752df94da73aeab98723622a87ed53edcb373e99405c97b56276120126d86d9",
+    "at": "2026-11-18T12:12:41.223Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "ageneiosus-marmoratus": {
+    "hash": "828792d458045ad26599f99cc4d7e77aaf90245afb8fd201ed196bfd88e6b5da",
+    "at": "2026-11-18T12:13:19.114Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "ageneiosus-ucayalensis": {
+    "hash": "0440f656950e7f73fc812b93f6b783beade46647165332d58fa3ccb53c692421",
+    "at": "2026-11-18T12:13:51.618Z",
+    "sonnet": 0.9,
+    "opus": 0.95,
+    "back": true
+  },
+  "aguarunichthys-tocantinsensis": {
+    "hash": "3da98d1828e5560fec2e03f67229b661ee3bdefc18d04e5faadf6ddac7757327",
+    "at": "2026-11-18T18:06:43.711Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "akysis-brachybarbatus": {
+    "hash": "b8293ab3a017e50406673b3003bfadde3c5efefe9c511d33472a2eeca466ce74",
+    "at": "2026-11-18T18:06:54.090Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "akysis-variegatus": {
+    "hash": "19195cbc84d92e2373e00e22c7029fe51b09fd78718938541e8b8f61703b2f03",
+    "at": "2026-11-18T18:07:05.869Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "akysis-varius": {
+    "hash": "e765bdc8bed51d86287db4aec238090a717f0d817aff8152dbe9346a1cfdd14a",
+    "at": "2026-11-18T18:07:18.387Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 17: \"alat bisa (venom)\" is awkward. \"Kelenjar bisa\" or \"struktur penyuntik bisa\" is more natural."
+    ]
+  },
+  "akysis-vespertinus": {
+    "hash": "51e12a429478d808371d4f99c14cab973f50f81aead67fb25460e84e23d48e95",
+    "at": "2026-11-18T18:07:55.460Z",
+    "sonnet": 0.85,
+    "opus": 0.88,
+    "back": false,
+    "held": [
+      "Item 11: \"body depth at anus 135-16.0 % SL\" – the source typo is copied; \"kulit ... kamuflase\" fine, but \"sungut rahang atas\" and \"kelenjar bisa\" for venom apparatus okay. \"sirip ekor rata atau sedikit berlekuk\" fine. Also 'Pseudobagarius' group text is OK."
+    ]
+  },
+  "alcolapia-alcalica": {
+    "hash": "28dde55dd511d53a30b696658fe56ec0da5cea5799aed4875d0ad72902bb7a11",
+    "at": "2026-11-18T18:08:08.809Z",
+    "sonnet": 0.72,
+    "back": false,
+    "held": [
+      "Item 10: 'sg reading of 1.2+' became 'Berat jenis (SG) airnya juga 1,2+'. This is fine, but 'kH 7000+' has no unit. Check whether the source's unit (ppm) is missing, and use the standard 'KH'."
+    ]
+  },
+  "alcolapia-grahami": {
+    "hash": "ad8c5f4c1914fd1372b42425a81bcce258174ea27c975f59706686a720d10be6",
+    "at": "2026-11-18T18:08:41.687Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "alestopetersius-caudalis": {
+    "hash": "8cb816ce0552d19d542df7e31c6c601e312b8b4cb91a6a429b48f8845251adbc",
+    "at": "2026-11-18T18:08:52.479Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "amaralia-hypsiura": {
+    "hash": "92210296fa61853ec74c714b3f1ee83ea337d2384a2a36e94e1398a80d7194a7",
+    "at": "2026-11-18T18:09:03.739Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "amatitlania-nanolutea": {
+    "hash": "9add2364c0c5cff07e754aef03987351771861d8b13a50033c52c5ea87544920",
+    "at": "2026-11-18T18:09:31.178Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "amatitlania-nigrofasciata": {
+    "hash": "603ff5aecc6e0a0b376391573f4c4a1180e28ea58e01b5ce8ec6ec32a92b6951",
+    "at": "2026-11-18T18:09:59.791Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "amblydoras-nauticus": {
+    "hash": "63897e2ec72b3f1d6608ac55cff7d9a4859eaf0ebddc4e751f9c877b7b96689e",
+    "at": "2026-11-18T18:10:30.280Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "ambystoma-mexicanum": {
+    "hash": "9aad3e8e75ec0eea53223600fb90fa0dc4469440500250f43c2d3a8f13747de5",
+    "at": "2026-11-18T05:43:38.638Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 4: \"treated as a delicacy\" became \"hidangan istimewa\"; better \"dijadikan santapan/makanan lezat\" – minor."
+    ]
+  },
+  "ameca-splendens": {
+    "hash": "7c18105b8f505ffbbf1bf40e002249be413809c194571ff8b902d2c19cfaa3a2",
+    "at": "2026-11-18T18:10:54.841Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": true
+  },
+  "arius-oetik": {
+    "hash": "94dd834488a22919ed08b92e8fc88cc09c0ba1aec8f77c8e7cea8de78cedbeae",
+    "at": "2026-11-18T05:44:03.431Z",
+    "sonnet": 0.8,
+    "opus": 0.95,
+    "back": true
+  },
+  "asolene-spixii": {
+    "hash": "eb30d6e18c04352505775c3c46b21e5900554946145321266e8a8233a53eaa64",
+    "at": "2026-11-18T12:08:44.960Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 1: \"Dwellers: mid and bottom\" rendered as \"Area hidup\" is acceptable, but \"Nitrat: kurang dari 20\" lacks a unit (mg/L); add it."
+    ]
+  },
+  "astacus-astacus": {
+    "hash": "b9a1016a94ff4d0e0b3a629da87d837fda031b789737f23732f857a7126778d4",
+    "at": "2026-11-17T11:23:26.170Z",
+    "sonnet": 0.75,
+    "opus": 0.9,
+    "back": true
+  },
+  "astronotus-ocellatus": {
+    "hash": "c55402c3497f0fbfdee2b5570c56a5d7aa81ec0d6bd0f91b6f15d54baec307de",
+    "at": "2026-11-17T11:23:04.088Z",
+    "sonnet": 0.92,
+    "opus": 0.65,
+    "back": false
+  },
+  "bagarius-suchus": {
+    "hash": "2fede4027778b8248167acfdfc02979342839d9898cc1a309db69bc7e3d2ae8f",
+    "at": "2026-11-18T12:08:59.309Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-simplex": {
+    "hash": "e8e22287a63e2f2ea2cfe7d63a609b65381622ac926f419f01bb24c5d391cf51",
+    "at": "2026-11-18T00:29:03.853Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-splendens": {
+    "hash": "8fca59ac7754b7e9e7604087811d7eb1d4c6dcecd3b87a2f10508ca84a1643bf",
+    "at": "2026-11-17T17:49:06.882Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "brachychalcinus-orbicularis": {
+    "hash": "860a4365720de71049f69d9543ff4a50950fc0a28c6cc319b2cf5665526fe520",
+    "at": "2026-11-17T11:23:39.463Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "caquetaia-myersi": {
+    "hash": "7369a31ceb4d1105bb2e26677406592964768d6389004342300d73cf83ea9398",
+    "at": "2026-11-17T11:23:49.887Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "carassius-auratus": {
+    "hash": "afb77d4fdf7ad3685ec20026dc1e45a14d973a30f621c1b7e6af899b62110fc2",
+    "at": "2026-11-18T00:30:52.098Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "cathorops-dasycephalus": {
+    "hash": "ccf665a3527aaedadbb19de441af33797979c67dfb401ca26361c46196006603",
+    "at": "2026-11-18T18:06:10.697Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "centropomus-unionensis": {
+    "hash": "09d271fd8a807983c01b8cadaae3e5262a9a170e7dff1505fd9b690540664000",
+    "at": "2026-11-17T11:24:00.461Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "chaetobranchopsis-australis": {
+    "hash": "cf27d92f7187c2a922a0e06cbc7a85fa0086b61332259a9f6b5997fb744a0691",
+    "at": "2026-11-17T17:44:56.750Z",
+    "sonnet": 0.75,
+    "opus": 0.95,
+    "back": true
+  },
+  "chitala-blanci": {
+    "hash": "a12e1b53fbf41d167a6fe6ca948179caeff964a4f9fe364002a5648def58cf81",
+    "at": "2026-11-18T00:29:14.680Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-bifasciatus": {
+    "hash": "b36a7e2a3f04063aeaeef63454cbe5154ebc1bbd75bcc3222b5d9819a0b53885",
+    "at": "2026-11-17T11:24:15.208Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-paleatus": {
+    "hash": "69e392c1e92e997e10b4f1178e72a840e885f175c09ba08301d9b3ac86c1c0e1",
+    "at": "2026-11-18T05:45:53.973Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-panda": {
+    "hash": "2068d234ffb9beb511fde253249c3c8231acf5edbff8f699fd218b0021732f88",
+    "at": "2026-11-18T00:31:07.046Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "corydoras-sterbai": {
+    "hash": "bd6b33f81ca29f2cc2212b9ad3d5993ab10b540b90098462abf62071d0b5f6b3",
+    "at": "2026-11-18T00:31:39.584Z",
+    "sonnet": 0.92,
+    "opus": 0.9,
+    "back": true
+  },
+  "danio-aesculapii": {
+    "hash": "74c5389cd5f9474e6b0c220bb1f4e8556ef2c6bff938be902419d571df09ae66",
+    "at": "2026-11-17T11:24:29.567Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "devario-chrysotaeniatus": {
+    "hash": "15dee50668df115afb2c82dce352b8408373cd50c4d70e40ad59287ae026e23b",
+    "at": "2026-11-17T11:25:02.699Z",
+    "sonnet": 0.78,
+    "opus": 0.85,
+    "back": true
+  },
+  "devario-devario": {
+    "hash": "9530e17c2ccf823b790cbed2bd97c301de96e5582d5c5449ed0ade02ef579edf",
+    "at": "2026-11-17T11:25:21.672Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "devario-pathirana": {
+    "hash": "163249a85cf332930c39a974f1ce1d6587bf5dd016a862993df378bc6ec597b4",
+    "at": "2026-11-17T11:25:27.946Z",
+    "sonnet": 0.3,
+    "back": false
+  },
+  "devario-regina": {
+    "hash": "ddc59d8028998a1f76a62f10ea12083302f8f39a5fb3ff60e2debcdc09269de5",
+    "at": "2026-11-17T11:25:40.528Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "dicrossus-maculatus": {
+    "hash": "ee1f5ac8743ef92f4d7060b54bd6e7e539027fc48c546e8b27ac68ccafc4faa4",
+    "at": "2026-11-17T11:25:52.941Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "discherodontus-ashmeadi": {
+    "hash": "c54dbfbff67261b6ee07ba6f826788f76c9506b1925b7f6adb9ecb45e077b8b7",
+    "at": "2026-11-17T11:26:04.459Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "discherodontus-schroederi": {
+    "hash": "7bb71e03ebe610a3430b643fcb170b3a68b24d9e3d6ec934f29a72ccb919cd7f",
+    "at": "2026-11-17T11:26:17.983Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "distichodus-affinis": {
+    "hash": "1f8b3c786ef761b0e1147ad1bf1e7a01eaf60b0318f3428ec53382fc6d7e94ae",
+    "at": "2026-11-17T11:26:25.829Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "distichodus-sexfasciatus": {
+    "hash": "287f7c045993a16d2cbc128859f300b79f237b03195abf07bdce66c0a61a532f",
+    "at": "2026-11-17T17:45:28.097Z",
+    "sonnet": 0.88,
+    "opus": 0.9,
+    "back": true
+  },
+  "duncanopsammia-axifuga": {
+    "hash": "c6c2002f9278c36bb62524bfbf02f286cf6ad12d209e5d668e408d2b7159454f",
+    "at": "2026-11-17T17:46:02.613Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "#7: \"Duncan mengalami bleaching pada suhu tinggi (32 °C)\" turns a reported observation into a general rule. Use \"Duncan diketahui mengalami bleaching...\" or \"pernah mengalami bleaching...\" to keep the source's past-tense finding."
+    ]
+  },
+  "ectodus-descampsii": {
+    "hash": "68b81174d22a807a302891410f9e70138c2ca1c0cc778e336fc0b47937b70415",
+    "at": "2026-11-17T17:46:33.824Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
+  "electrophorus-electricus": {
+    "hash": "81e338e0ac5a20e092b9be4c187daf8f560beadb0e29647b25fd00ef0bc7e587",
+    "at": "2026-11-17T17:46:47.447Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "enteromius-fasciolatus": {
+    "hash": "f898c86432073a58ca562ec00eb2886f3a7456725149a0494d25c3b80143d34d",
+    "at": "2026-11-17T17:47:00.076Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 4: \"Awalnya spesies ini berasal dari Afrika bagian tenggara\" – the source says southeastern Africa, but item 2 says \"Afrika bagian tengah-selatan\". The translation is faithful, but it is inconsistent. Consider harmonising the region wording."
+    ]
+  },
+  "enteromius-guirali": {
+    "hash": "e1ff534f1a03070877fcc340665fdb131b410cac97fc25d329e2e615815a37cc",
+    "at": "2026-11-17T17:47:11.952Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "enteromius-holotaenia": {
+    "hash": "e16f4ea7807dbb2edeaca62c9f610ef018d343fcf62c8aff7461237541ed60aa",
+    "at": "2026-11-17T17:47:24.707Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "epalzeorhynchos-kalopterus": {
+    "hash": "bf6521158b00aad6d98a152415b93b5ec69199fdcc1e1fda27770c5bed223466",
+    "at": "2026-11-18T05:44:45.747Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "gastromyzon-punctulatus": {
+    "hash": "7f4e31e08717e43d71a18465c60692ae3addde22a75870c252f7d82f1a233c5c",
+    "at": "2026-11-17T17:47:39.604Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 12: \"fights are always harmless\" became \"perkelahiannya selalu tidak berbahaya\". This is acceptable, but \"Sesamanya\" is awkward. Use \"Sesama ikan ini\"."
+    ]
+  },
+  "gymnothorax-polyuranodon": {
+    "hash": "1a3f6ab005382ac94819acb54a94ccf243cac210403151d8af0f6bca132c20a4",
+    "at": "2026-11-18T05:44:14.288Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "helostoma-temminckii": {
+    "hash": "f1001110c9f9bee174543197df296c24c2512a55eb32ed07eb2637a94a27b58e",
+    "at": "2026-11-18T05:44:31.751Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "hemigrammus-bleheri": {
+    "hash": "d8e8a079e754ea794740905c94fb6d5518751426f7b616aecbc5ad106b9de855",
+    "at": "2026-11-18T05:46:06.745Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "hemirhamphodon-tengah": {
+    "hash": "dae8dcb98221805268f101be218738b005fcbb426793b5057e1beabc6532c8bb",
+    "at": "2026-11-17T17:47:50.016Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "hyphessobrycon-eques": {
+    "hash": "1a635721e275664611f8fb59bc6e94614a591bacb8f6959f6064fa26aea84c80",
+    "at": "2026-11-18T00:32:34.140Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "hyphessobrycon-sweglesi": {
+    "hash": "4287d270b359321736b8da6ab4fa806674eecb7ed8c7d468d211f2f4807043dc",
+    "at": "2026-11-18T00:33:05.104Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": true
+  },
+  "kottelatia-brittani": {
+    "hash": "cd5752651179e57e3c4c7601c156799943a371a5aa75967d63366cec3fcddb9e",
+    "at": "2026-11-17T17:48:08.437Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "kryptopterus-vitreolus": {
+    "hash": "3c970281fd47c31dc3a8c902dd0ac90b06178c4a50ee310a7d17696b65fdb436",
+    "at": "2026-11-18T00:34:06.960Z",
+    "sonnet": 0.95,
+    "opus": 0.9,
+    "back": true
+  },
+  "marisa-cornuarietis": {
+    "hash": "303565fecd565163975e54cb5bf93a7b8c4d4ddef723ebdd9ca94ba25edabe6b",
+    "at": "2026-11-18T12:09:13.964Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 13: 'mortality is about twice as high at the lower temperature' became 'pada suhu yang lebih rendah' but the sentence about 35–37 °C is ambiguous in the source; keep, but check. Main issue: item 4 'thermal stream' translated 'sungai air panas' – better 'sungai air hangat (termal)'.",
+      "Item 8: 'Mortality is 100% after 8 h at 8 °C' fine; 'keong dewasa mungkin bertahan' ok. 'Pakan: omnivora' fine.",
+      "Section 13: \"mortality is about twice as high at the lower temperature\" is translated as \"pada suhu yang lebih rendah\", but in context the original is ambiguous; check that it refers to 35 °C versus 37 °C as intended."
+    ]
+  },
+  "maylandia-estherae": {
+    "hash": "3e18bf404ea7cf4afed0e4a44236bc672353536adfc88ed4a049a811e5be4e74",
+    "at": "2026-11-18T05:45:22.831Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "mikrogeophagus-ramirezi": {
+    "hash": "08f12294cad7ba729bc3be9017777a19c219869d8a950c50de6b728b5e097e32",
+    "at": "2026-11-18T00:30:22.448Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
+    "back": true
+  },
+  "nemapteryx-nenga": {
+    "hash": "fef8b23e43367f4a31b70b1d754be3faf7f30e1e27efe166f352c0868768e7cd",
+    "at": "2026-11-18T18:06:33.409Z",
+    "sonnet": 0.96,
+    "opus": 0.8,
+    "back": false,
+    "held": [
+      "Item 9: the English says \"Nemapteryx nenga\" is an older name for this species. The ID is faithful, but the species is named Nemapteryx nenga in item 1 while item 9 treats it as the outdated name Kyataphisa nenga. That is a source inconsistency, not a translation error."
+    ]
+  },
+  "neocaridina-davidi": {
+    "hash": "da5d146e7121c0be630bc7e2c7006b5e02c3dc6478bf72e6e3c6868ed71cd082",
+    "at": "2026-11-17T17:49:26.436Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "oryzias-dancena": {
+    "hash": "304f5381cf6435ce8b107bdebfbc4cbc9c35da00afaba0040075d4c32c664f83",
+    "at": "2026-11-17T17:48:20.067Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "osphronemus-goramy": {
+    "hash": "9e0da00095f4f7f3a8d09a3e7d09e694c955e0ca6189bd683a1665179c99d568",
+    "at": "2026-11-18T00:34:18.478Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 11: 'Gurami sering dijual' - original says 'They' (O. goramy); also 'finnage' rendered as 'siripnya yang merah' loses 'red finnage' nuance slightly (fine). Item 11: 'dying' mistranslation check: 'varian yang diwarnai' correct but 'we strongly advise' became passive 'sangat disarankan' OK."
+    ]
+  },
+  "paracheirodon-axelrodi": {
+    "hash": "591f04bb0c80c26cc263605f77dedee6aa70bcd3fb6e5afc70ed80f1877236a4",
+    "at": "2026-11-18T05:43:25.259Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "pethia-conchonius": {
+    "hash": "5b515427ea92a270b8f70b5c56546e5070a90f786dd59743a15da1576597e3da",
+    "at": "2026-11-18T05:44:51.647Z",
+    "sonnet": 0.45,
+    "back": false
+  },
+  "puntigrus-tetrazona": {
+    "hash": "491974de47db083d86890588b0814d4d7ecdb119e478fbebc19b8814e844c12f",
+    "at": "2026-11-18T00:31:50.963Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "rasbora-sarawakensis": {
+    "hash": "84fdfb7f26a3b906746ddb8fc01e69f2cdcda282242c4eb73434238b4e17aab5",
+    "at": "2026-11-18T00:29:45.757Z",
+    "sonnet": 0.85,
+    "opus": 0.88,
+    "back": true
+  },
+  "sahyadria-denisonii": {
+    "hash": "4cb18c33a65d46917b36bf2a9792cfd909a3acc21cf14f4b832a99e19a9a89d9",
+    "at": "2026-11-18T00:32:04.747Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "sphaerichthys-vaillanti": {
+    "hash": "3701d22e6e77749ac7ad9cf70de94953acce044cb4d6c7dd9faea01adbb94d8e",
+    "at": "2026-11-18T05:44:20.449Z",
+    "sonnet": 0.3,
+    "back": false
+  },
+  "trichogaster-lalius": {
+    "hash": "35847b8e3df4bbc4fc27d1837e9e0ea19c7abc1ed16cdcd22c9ed7355af94654",
+    "at": "2026-11-18T05:45:42.395Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 3: the 'Minimum tank size: 15 gallons (~60 litres)' figure is fine, but 'Nitrat: kurang dari 60' is left without a unit (mg/L). Add the unit.",
+      "Item 16: 'dipaparkan hingga 4 g/L' is awkward; use 'dapat terpapar'. Also 'Nitrat: kurang dari 60' lacks a unit.",
+      "Item 3: 'Minimum tank size: 15 gallons (~60 litres)' is fine, but the 'Nitrate: less than 60' line is left without a unit (mg/L). Add the unit or keep as in the source."
+    ]
+  },
+  "xiphophorus-hellerii": {
+    "hash": "c32b8f67ededd350dc6b18cd432c2d446ad22d49cc4f59ed4a15d6617fc5bad0",
+    "at": "2026-11-18T05:45:29.051Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "Item 3: 'Nitrat: kurang dari 60' lacks a unit (mg/L or ppm), as in the source; add the unit if known."
+    ]
+  },
+  "xiphophorus-maculatus": {
+    "hash": "28e5bb514c0a0be50891b04475cc8d6fd9bf97ea80b24287324e09f1ec08a334",
+    "at": "2026-11-18T00:30:38.723Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Item 15: \"Ikan yang diaklimatisasi pada suhu lebih rendah dapat memperluas batas toleransi suhu bawahnya\" is fine, but \"Platy menyukai cahaya redup\" in item 16 ok. Item 3: \"Nitrat: kurang dari 60\" lacks unit mg/L, but source also lacks it, so this is minor.",
+      "Item 3: \"Nitrat: kurang dari 60\" lacks the unit (mg/L); add it, or flag as per source. \"Akuarium minimal: 60 liter\" is correct per the table.",
+      "Item 3: 'Nitrat: kurang dari 60' — unit (mg/L) missing in the source too, but the Indonesian gives no unit; add 'mg/L' only if the source had it, otherwise fine."
+    ]
+  }
+}

@@ -1,8 +1,13 @@
 {
   "slug": "fly",
-  "name": "ฟลาย",
+  "name": "แม่น้ำฟลาย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T12:23:32.153Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false
