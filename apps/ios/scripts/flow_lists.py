@@ -75,9 +75,11 @@ SHOTS = {
               'testTheOwnersNeedsInTheLargestText', 'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
               'testAnOwnersSectionInTheDark', 'testAnOwnersSectionInTheLargestText', 'testTheOwnersComments',
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
-    # v2's Hôm nay, its fish of the day's page and Khám phá; and its glass bar over a page's text, a page from each tab.
+    # v2's Hôm nay, its fish of the day's page and Khám phá; its glass bar over a page's text, a page from each tab; and
+    # its big titles, headers and chips, each tab at rest and scrolled with two groups' pages.
     'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText',
-           'testTheBarOverAPagesTextFromEachTab', 'testTheBarOverAPagesTextFromEachTabInTheDark'],
+           'testTheBarOverAPagesTextFromEachTab', 'testTheBarOverAPagesTextFromEachTabInTheDark',
+           'testTheTitles', 'testTheTitlesInTheDark', 'testTheTitlesInTheLargestText', 'testTheTitlesInTheLargestTextInTheDark'],
     # The chat screen: an answer with its cards, from the stand-in's recordings.
     'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText', 'testTheChatsOpenSectionAndBackFromACardsPage',
              'testTheReport', 'testTheReportInTheDark', 'testTheReportInTheLargestText'],
@@ -326,9 +328,11 @@ def check(runs, left, reached):
                   [APP + 'Handbook/HandbookView.swift']):
         assert runs(paths) == sorted(smoke + HANDBOOK_SHOTS), paths
     # Every page shot, the class whole, when it reaches every flow (the app's start, a path no rule names), or edits it.
+    # Past one job's line (LINE_SECONDS) the shots fill more than one part of job `handbook`: the class whole in one,
+    # less the shots the others name.
     for paths in ([APP + 'AquaTomeApp.swift'], [APP + 'FishID/FishIDView.swift'], [KIT + 'Sources/FishID/Model.swift'],
                   ['apps/ios/Gemfile'], [f'apps/ios/{UI}/PageShotsFlowTests.swift']):
-        assert runs(paths) == sorted(smoke + ['PageShotsFlowTests']), paths
+        assert [t for t in runs(paths) if not t.startswith('PageShotsFlowTests/')] == sorted(smoke + ['PageShotsFlowTests']), paths
     for paths in ([APP + 'AquaTomeApp.swift'], [APP + 'Telemetry.swift'], ['apps/ios/Gemfile']):
         assert left(paths) == 'every flow', paths
     # Nothing: the kit's tests, the vectors, the budgets, the catalog's Info.plist strings, the scripts `perf` runs, the

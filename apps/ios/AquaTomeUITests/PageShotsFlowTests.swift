@@ -185,6 +185,11 @@ final class PageShotsFlowTests: XCTestCase {
   func testV2InTheDark() { shootV2("v2-dark", dark: true) }
   func testV2InTheLargestText() { shootV2("v2-largest-light", size: largest) }
   func testV2InMalayInTheDarkAtTheLargestText() { shootV2("v2-ms-largest-dark", dark: true, size: largest, lang: ("ms", "ms_MY", "Teroka")) }
+  // The big titles, the headers and Khám phá's chips (spec-titles.md, spec-chips.md), for Design's parity.
+  func testTheTitles() { shootTitles("titles-light") }
+  func testTheTitlesInTheDark() { shootTitles("titles-dark", dark: true) }
+  func testTheTitlesInTheLargestText() { shootTitles("titles-largest-light", size: largest) }
+  func testTheTitlesInTheLargestTextInTheDark() { shootTitles("titles-largest-dark", dark: true, size: largest) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -395,8 +400,74 @@ final class PageShotsFlowTests: XCTestCase {
     app.swipeUp()
     shot()
     app.openTab(lang.khamPha)
-    XCTAssertTrue(app.navigationBars[lang.khamPha].waitForExistence(timeout: 5), "no Khám phá")
+    // Its title is the page's own, with no bar over it (spec-titles.md).
+    XCTAssertTrue(app.scrollViews.staticTexts[lang.khamPha].firstMatch.waitForExistence(timeout: 5), "no Khám phá")
     shot()
+  }
+
+  /// Every tab at rest and scrolled, Khám phá's chips, and two groups' pages, each at rest and scrolled. On the site's own
+  /// index where the runner's `SHOT_INDEX` names its file (`TEST_RUNNER_SHOT_INDEX`): Ali's and Cá chuột's pages, as
+  /// Design asked; else the fixed one's Tetra and Cá nhỏ.
+  private func shootTitles(_ name: String, dark: Bool = false, size: String? = nil) {
+    let live = ProcessInfo.processInfo.environment["SHOT_INDEX"]
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults"]
+      + (live.map { ["-index-file", $0] } ?? ["-fixed-handbook", "-fixed-pictures"])
+      + (dark ? ["-dark"] : []) + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+    app.launchForFlow(.v2)
+    var n = 0
+    func shot() {
+      n += 1
+      settle()
+      let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+      a.name = String(format: "shot-%@-%02d", name, n)
+      a.lifetime = .keepAlways
+      add(a)
+    }
+    func atRestAndScrolled() {
+      shot()
+      app.swipeUp()
+      shot()
+      app.swipeDown()
+      app.swipeDown()
+    }
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no Hôm nay")
+    atRestAndScrolled()
+    app.openTab("Khám phá")
+    let chips = app.buttons.matching(identifier: "v2-chip")
+    XCTAssertTrue(chips.firstMatch.waitForExistence(timeout: 10), "no chips on Khám phá")
+    atRestAndScrolled()
+    for group in live == nil ? ["Tetra", "Cá nhỏ"] : ["Ali", "Cá chuột"] {
+      guard let chip = chipInView(app, group) else { XCTFail("no \(group) chip"); continue }
+      chip.tap()
+      XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "\(group)'s page didn't open")
+      atRestAndScrolled()
+      app.leavePage()
+    }
+    // The search tab last: on iOS 26.5 (CI's) its field takes the tab bar's place, and the other tabs aren't buttons there.
+    for tab in ["Bể của tôi", "Đèn", "Tìm kiếm"] {
+      app.openTab(tab)
+      atRestAndScrolled()
+    }
+  }
+
+  /// Khám phá's chip for `group`, its row dragged until the chip is whole on screen, by as much as it lies past the edge
+  /// (at the largest text the live row is about 6,000 points long, and Cá chuột its 16th). Whole before it's asked
+  /// whether it can be tapped: asked of a chip off the screen, XCUITest fails the test.
+  private func chipInView(_ app: XCUIApplication, _ group: String) -> XCUIElement? {
+    let chips = app.buttons.matching(identifier: "v2-chip")
+    let chip = chips.matching(NSPredicate(format: "label BEGINSWITH %@", group + ",")).firstMatch
+    guard chip.waitForExistence(timeout: 5) else { return nil }
+    let w = app.frame.width, y = chips.firstMatch.frame.midY, o = app.coordinate(withNormalizedOffset: .zero)
+    for _ in 0..<30 {
+      let f = chip.frame
+      if f.minX >= 0 && f.maxX <= w { return chip.isHittable ? chip : nil }
+      let dx = f.maxX > w ? -min(f.maxX - w + 24, w * 0.7) : min(24 - f.minX, w * 0.7)
+      let x = dx < 0 ? w * 0.85 : w * 0.15
+      o.withOffset(CGVector(dx: x, dy: y))
+        .press(forDuration: 0.05, thenDragTo: o.withOffset(CGVector(dx: x + dx, dy: y)), withVelocity: .slow, thenHoldForDuration: 0.2)
+    }
+    return nil
   }
 
   /// Tìm's first screen: its tools, fish ID's card leading them, then their tiles (at the largest text, the next screen

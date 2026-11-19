@@ -148,6 +148,81 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
   }
 
+  /// A group's page (a chip's) is v2's own, and v1's Tìm, which shares Khám phá's stack, has no screen for it: switched
+  /// back, Tìm opens at its top (the Codex read of 18 Nov).
+  func testSwitchingBackWithAGroupsPageOpenLeavesTimAtItsTop() {
+    let app = launch()
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    app.openTab("Khám phá")
+    let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 5), "no Cá nhỏ chip on Khám phá")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    app.openTab("Hôm nay")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "Tìm isn't at its top")
+    XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm's top")
+  }
+
+  /// A fish's page above a group's: a push, which keeps the mark at the group's page, so the switch cuts both (a fresh read,
+  /// 19 Nov: a push the path's equality took for a replacement would hand v1 the group's page).
+  func testSwitchingBackWithAFishOpenFromAGroupsPageLeavesTimAtItsTop() {
+    let app = launch()
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    app.openTab("Khám phá")
+    let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 5), "no Cá nhỏ chip on Khám phá")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Cá nhỏ's page")
+    neon.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "Cá neon's page didn't open")
+    app.openTab("Hôm nay")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "Tìm isn't at its top")
+    XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm's top")
+  }
+
+  /// A group's page at Khám phá's root, then the sheet's kept row, which replaces the path with the kept shelf (the same
+  /// length, one): switched back, Tìm shows that shelf, which the old look draws, not its top (a fresh read, 19 Nov).
+  func testSwitchingBackAfterTheKeptRowReplacedAGroupsPageLeavesTheShelf() {
+    let app = launch()
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    // A guide kept, on the old look's Tìm (as testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay), then v2 again.
+    flip(app)
+    XCTAssertTrue(app.handbookShown(timeout: 10), "no handbook")
+    let topic = app.buttons.matching(NSPredicate(format: "identifier == 'shelf' AND label BEGINSWITH %@", "Chăm sóc")).firstMatch
+    app.scrolledDown(to: topic).tap()
+    XCTAssertTrue(app.navigationBars["Chăm sóc"].waitForExistence(timeout: 5), "not the topic's guides")
+    app.buttons["keep-offline"].tap()
+    XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't open")
+    app.openTab("Khám phá")
+    let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 5), "no Cá nhỏ chip on Khám phá")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    app.openTab("Hôm nay")
+    app.openAccount()
+    let row = app.buttons["kept-row"]
+    repeatUntil(row.exists && row.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(row.exists, "the sheet doesn't list the kept pages")
+    row.tap()
+    XCTAssertTrue(app.navigationBars["Đã tải để đọc offline"].waitForExistence(timeout: 5), "the kept shelf didn't show")
+    app.openTab("Hôm nay")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    XCTAssertTrue(app.navigationBars["Đã tải để đọc offline"].waitForExistence(timeout: 5), "Tìm lost the kept shelf")
+  }
+
   func testTheHomeFromOutsideIsHomNaysTop() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -726,9 +801,14 @@ final class V2FlowTests: XCTestCase {
   func testForTheOwnerThePageShowsUnderTheTabBarAndItsSwitchBringsTheFadeBack() {
     let app = XCUIApplication()
     // Khám phá long enough to scroll well past a drag (`-familiar`): the fixed index's own is about a screen tall, and
-    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar.
+    // with the rows' 3:2 pictures it scrolled about 30 points, its blank foot all that went under the bar. Three of them
+    // read (`-read-familiar`), so "Đọc gần đây" stands above the fish shelf and pushes it down: on GitHub's iPhone 17 the
+    // shelf's last row, a fish's name and its lines, is under the bar at rest, and the drag takes it away and brings the
+    // next shelf's heading in. Without it, with the chips under the title, only the grey guide card and blank ground
+    // passed, which iOS 26.5's glass (CI's) frosts to near one colour: 0.77% of the bar's place changed with the trial on
+    // (17 Nov), against 6% on 27.2. Main, before the chips, passes on 26.5 on words passing alone.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
-                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-familiar", "8"]
+                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-familiar", "8", "-read-familiar", "3"]
     app.launch()
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "no Hôm nay")
     app.openAccount()
@@ -737,14 +817,21 @@ final class V2FlowTests: XCTestCase {
     app.closeAccount()
     app.tabBars.buttons["Khám phá"].tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
-    // The page dragged up a little, from its top, so it has more to show under the bar: the share of the bar's place,
-    // glass and all, that changed. The bar's own words stay where they are; only the page under it moves.
+    // The page dragged up, from its top, so it has more to show under the bar: the share of the bar's place, glass and
+    // all, that changed. The bar's own words stay where they are; only the page under it moves. 200 points, past the
+    // height of one shelf's card: with the chips under the title, 60 left the one grey card of "Bắt đầu từ đây" under
+    // the bar before and after, and 0.14% of its place changed (27.2, 17 Nov). At 200: 6% with the switch on, 0 with it
+    // off (27.2, 17 Nov).
     func moved() -> Double {
       let bar = app.tabBars.firstMatch.frame
+      // A shelf's heading, to know the drag scrolled the page: with the switch off, "nothing changed" means something only
+      // if the page moved (a fresh read, 17 Nov).
+      let shelf = app.scrollViews.staticTexts["Loài quen thuộc"].firstMatch, top = shelf.frame.minY
       let before = Pixels(XCUIScreen.main.screenshot())
       let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
-      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -60)), withVelocity: .slow, thenHoldForDuration: 0.5)
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -200)), withVelocity: .slow, thenHoldForDuration: 0.5)
       Thread.sleep(forTimeInterval: 0.5)
+      XCTAssertLessThan(shelf.frame.minY, top - 100, "the drag didn't scroll Khám phá: \(top) then \(shelf.frame.minY)")
       let after = Pixels(XCUIScreen.main.screenshot())
       let spots = stride(from: 6.0, to: app.frame.width - 6, by: 6).flatMap { x in
         // From just inside the bar's top: the fade, with the trial off, ends there.
@@ -764,6 +851,8 @@ final class V2FlowTests: XCTestCase {
     app.tabBars.buttons["Khám phá"].tap()
     Thread.sleep(forTimeInterval: 1)
     let off = moved()
+    // Seen on a pass too, in the result's activities: the figures its comment gives.
+    XCTContext.runActivity(named: "GLASS TRIAL moved: \(on) on, \(off) off") { _ in }
     XCTAssertGreaterThan(on, 0.01, "nothing of the page under the tab bar: \(on) of the bar's place moved, \(off) with the trial off")
     XCTAssertLessThan(off, 0.002, "the page still under the tab bar with the trial off: \(off) of the bar's place moved, \(on) with it on")
   }
@@ -1362,30 +1451,169 @@ final class V2FlowTests: XCTestCase {
     reads("after the colour")
   }
 
-  /// Hôm nay's bar keeps its own words, the clock's too, while a dark card passes under its band: iOS picked white for them
-  /// from the card, white on the white band.
-  func testHomNaysBarReadsWhileACardPassesUnderIt() {
+  /// Hôm nay has no bar (spec-titles.md): once a card passes under the clock, a band of the page's ground stands behind it
+  /// and the clock reads on it. A dark card under it once turned the clock white on the white band.
+  func testHomNaysClockReadsOnItsBandWhileACardPassesUnderIt() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
-    let bar = app.navigationBars["Hôm nay"]
     func step() {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.62)), withVelocity: .slow, thenHoldForDuration: 0.3)
     }
-    repeatUntil(fish.frame.minY < bar.frame.maxY - 30, times: 10) { step() }
-    XCTAssertLessThan(fish.frame.minY, bar.frame.maxY - 30, "the card never went under the bar")
-    XCTAssertGreaterThan(fish.frame.maxY, bar.frame.maxY + 40, "the card went past the bar")
-    let title = bar.staticTexts["Hôm nay"]
-    XCTAssertTrue(title.waitForExistence(timeout: 2), "no title in the bar once the large one has gone")
-    let shot = Pixels(XCUIScreen.main.screenshot()), ground = shot.at(4, title.frame.midY)
-    func strongest(_ f: CGRect) -> Double {
-      stride(from: f.minX, to: f.maxX, by: 1).flatMap { x in stride(from: f.minY, to: f.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
+    // The card under the whole of the clock's line, from above its figures to below them.
+    repeatUntil(fish.frame.minY < 8, times: 12) { step() }
+    XCTAssertLessThan(fish.frame.minY, 8, "the card never went under the clock")
+    XCTAssertGreaterThan(fish.frame.maxY, 50, "the card went past the clock")
+    XCTAssertFalse(app.navigationBars.firstMatch.exists, "Hôm nay has a bar")
+    let shot = Pixels(XCUIScreen.main.screenshot())
+    // Over the card, above and under the clock's figures: the page's ground, not the card.
+    let page = XCUIDevice.shared.appearance == .dark ? Pixels.RGB(r: 0, g: 0, b: 0) : Pixels.RGB(r: 255, g: 255, b: 255)
+    for y in [CGFloat(4), 44] {
+      XCTAssertLessThan(shot.at(60, y).distance(to: page), 8, "no band of the page's ground behind the clock at \(y): \(shot.at(60, y))")
     }
-    XCTAssertGreaterThan(strongest(title.frame), 120, "the bar's title doesn't read on its band")
-    // The clock, left of the island.
-    XCTAssertGreaterThan(strongest(CGRect(x: 20, y: 8, width: 90, height: 34)), 120, "the clock doesn't read on the band")
+    let ground = shot.at(60, 4), clock = CGRect(x: 20, y: 8, width: 90, height: 34)
+    let strongest = stride(from: clock.minX, to: clock.maxX, by: 1).flatMap { x in stride(from: clock.minY, to: clock.maxY, by: 1).map { shot.at(x, $0).distance(to: ground) } }.max()!
+    XCTAssertGreaterThan(strongest, 120, "the clock doesn't read on the band")
+  }
+
+  /// Hôm nay's and Khám phá's headers are the page's own (spec-titles.md; the owner, 12 and 13 Nov): the name big at the
+  /// left with the account button on its line, and no bar. Scrolled 600 points, both gone and no name in a bar: nothing at
+  /// the top but the clock.
+  func testHomNaysAndKhamPhasHeadersScrollAwayWithThePage() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    for tab in ["Hôm nay", "Khám phá"] {
+      app.openTab(tab)
+      let heading = app.scrollViews.staticTexts[tab].firstMatch, account = app.buttons["profile"].firstMatch
+      XCTAssertTrue(heading.waitForExistence(timeout: 5), "no heading on \(tab)")
+      XCTAssertLessThanOrEqual(heading.frame.minX, 20.5, "\(tab)'s heading isn't at the left")
+      XCTAssertTrue(account.isHittable, "no account button on \(tab)")
+      XCTAssertEqual(account.frame.midY, heading.frame.midY, accuracy: 8, "\(tab)'s heading and account button aren't on one line")
+      XCTAssertFalse(app.navigationBars.firstMatch.exists, "\(tab) has a bar")
+      for _ in 0..<3 {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.57)), withVelocity: .slow, thenHoldForDuration: 0.3)
+      }
+      XCTAssertFalse(heading.exists && heading.isHittable, "\(tab)'s heading stayed")
+      XCTAssertFalse(account.exists && account.isHittable, "\(tab)'s account button stayed")
+      XCTAssertFalse(app.navigationBars.firstMatch.exists, "\(tab) has a bar once scrolled")
+    }
+  }
+
+  /// Every tab's title big at the left at rest (spec-titles.md), its left edge within 20 points of the screen's: Tìm first,
+  /// opened after a launch with animations on, where iOS drew it small and centred (10 Nov), its field shown at rest too.
+  func testEveryTabsTitleIsBigAtTheLeftAtRest() {
+    // Tanks enough for Bể của tôi to scroll.
+    let app = launch("-v2", "YES", "-seed-tanks", "many")
+    app.launch()
+    // The open tab's account button: each tab has its own, and the others' stay in the tree.
+    func account() -> XCUIElement {
+      app.buttons.matching(identifier: "profile").allElementsBoundByIndex.first { $0.isHittable } ?? app.buttons["profile"].firstMatch
+    }
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    app.openTab("Tìm kiếm")
+    let tim = app.navigationBars.staticTexts["Tìm"].firstMatch
+    XCTAssertTrue(tim.waitForExistence(timeout: 5), "no title on Tìm")
+    XCTAssertLessThanOrEqual(tim.frame.minX, 20.5, "Tìm's title isn't big at the left: \(tim.frame)")
+    // Drawn, not only there: Tìm's band, shown at rest, stood over it (Design, 17 Nov). So every title, and what else
+    // a check could find there while nothing of it shows: the account button, Hôm nay's date, Tìm's field.
+    app.largeTitleIsOnScreen("Tìm")
+    XCTAssertTrue(app.searchFields.firstMatch.isHittable, "no search field on Tìm at rest")
+    app.inked(app.searchFields.firstMatch, "Tìm's field at rest")
+    app.inked(account(), "Tìm's account button")
+    for tab in ["Hôm nay", "Khám phá", "Bể của tôi", "Đèn"] {
+      app.openTab(tab)
+      // Hôm nay's and Khám phá's in the page; the others iOS's, in the bar.
+      let title = tab == "Hôm nay" || tab == "Khám phá" ? app.scrollViews.staticTexts[tab].firstMatch : app.navigationBars.staticTexts[tab].firstMatch
+      XCTAssertTrue(title.waitForExistence(timeout: 5), "no title on \(tab)")
+      XCTAssertLessThanOrEqual(title.frame.minX, 20.5, "\(tab)'s title isn't at the left: \(title.frame)")
+      app.inked(title, "\(tab)'s title at rest", atLeast: 200)
+      app.inked(account(), "\(tab)'s account button")
+      if tab == "Hôm nay" {
+        // The faintest words on the screen: read at a smaller step.
+        let date = app.scrollViews.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "tháng")).firstMatch
+        app.inked(date, "Hôm nay's date", apart: 30)
+      }
+    }
+    // Scrolled: the small title in the bar, and Tìm's field under it, drawn. The search tab last: on iOS 26.5 (CI's) its
+    // field takes the tab bar's place, and the other tabs aren't buttons there.
+    for (tab, title) in [("Bể của tôi", "Bể của tôi"), ("Đèn", "Đèn"), ("Tìm kiếm", "Tìm")] {
+      app.openTab(tab)
+      app.swipeUp()
+      app.inked(app.navigationBars.staticTexts[title].firstMatch, "\(title)'s title once scrolled")
+      if title == "Tìm" { app.inked(app.searchFields.firstMatch, "Tìm's field once scrolled") }
+    }
+  }
+
+  /// A list's title is drawn, not only there (a band shown at rest stood over Tìm's big title, 17 Nov): "Tất cả loài", from
+  /// Khám phá's "Xem tất cả".
+  func testAListsTitleIsDrawn() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let more = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Xem tất cả")).firstMatch
+    XCTAssertTrue(more.waitForExistence(timeout: 5), "no Xem tất cả on Khám phá")
+    more.tap()
+    app.largeTitleIsOnScreen("Tất cả loài", big: false)
+  }
+
+  /// A page pushed from Khám phá has iOS's bar, its back button named "Khám phá"; back by the edge swipe, from a fish's page
+  /// and from a group's, Khám phá has no bar and is where it was (spec-titles.md: no bar flashing on the way back).
+  func testBackFromAPageKhamPhaHasNoBarAndIsWhereItWas() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let heading = app.scrollViews.staticTexts["Khám phá"].firstMatch
+    XCTAssertTrue(heading.waitForExistence(timeout: 5), "no heading on Khám phá")
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    let at = heading.frame.minY
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    neon.tap()
+    let shown = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(shown.waitForExistence(timeout: 5), "the fish's page didn't open")
+    XCTAssertEqual(app.pageBack.label, "Khám phá", "the back button isn't Khám phá's")
+    edgeSwipe(app, fast: false, at: offRows(app, 0.5))
+    XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the edge swipe didn't go back")
+    XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Khám phá has a bar after the way back")
+    XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Khám phá isn't where it was")
+    // And from a group's page, a chip's.
+    let tetra = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Tetra")).firstMatch
+    XCTAssertTrue(tetra.isHittable, "no Tetra chip in view")
+    tetra.tap()
+    let group = app.descendants(matching: .any)["v2-chip-page"]
+    XCTAssertTrue(group.waitForExistence(timeout: 5), "the group's page didn't open")
+    edgeSwipe(app, fast: false, at: offRows(app, 0.5))
+    XCTAssertTrue(group.waitForNonExistence(timeout: 5), "the edge swipe didn't go back from the group's page")
+    XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Khám phá has a bar after the way back from a group")
+    XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Khám phá isn't where it was after a group's page")
+  }
+
+  /// Back from a Hôm nay post, Hôm nay has no bar (spec-titles.md: no bar flashing on the way back).
+  func testBackFromAHomNayPostHomNayHasNoBar() {
+    // With animations on: iOS's swipe doesn't close a zoomed post without them (EdgeSwipe.swift).
+    let app = launch("-v2", "YES")
+    app.launch()
+    let card = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    let heading = app.scrollViews.staticTexts["Hôm nay"].firstMatch
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.7))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    let at = heading.frame.minY
+    let shown = app.descendants(matching: .any)["v2-species"]
+    // Closed by its ✕, then by the swipe from the left edge (spec-titles.md: either way, no bar, Hôm nay where it was).
+    for way in ["its ✕", "the edge swipe"] {
+      card.tap()
+      XCTAssertTrue(shown.waitForExistence(timeout: 8), "the fish of the day didn't open (\(way))")
+      if way == "its ✕" { app.buttons["v2-close-post"].firstMatch.tap() } else { edgeSwipe(app, .slow, at: offRows(app, 0.5)) }
+      XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "the post didn't close by \(way)")
+      XCTAssertFalse(app.navigationBars.firstMatch.waitForExistence(timeout: 1), "Hôm nay has a bar after \(way)")
+      XCTAssertEqual(heading.frame.minY, at, accuracy: 1, "Hôm nay isn't where it was after \(way)")
+    }
   }
 
   /// A page's end stops above the fade over the tab bar: the last of Khám phá isn't dimmed for good.
@@ -1414,18 +1642,208 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(fish.isHittable, "a tap under the bar opened what's behind it")
   }
 
-  /// A group's tile says what its number counts ("474 loài"), not a bare number; so does its row at the largest text.
-  func testAGroupsTileSaysWhatItCounts() {
+  /// Khám phá's chips (Design's spec-chips.md): a row under the title, from its left edge, two or more whole at size L; the
+  /// Cá section's group tiles gone; scrolled 600 points, no chip left. At the largest text the row is there too.
+  func testKhamPhasChipsAreUnderItsTitleAndScrollAwayWithIt() {
     for size in [[], ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]] {
       let app = XCUIApplication()
-      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + size
+      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fixed-pictures", "-reset-defaults",
+                             "-v2", "YES"] + size
       app.launchForFlow()
       app.openTab("Khám phá")
-      let tile = app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch
-      repeatUntil(tile.exists, times: 6) { app.swipeUp() }
-      XCTAssertTrue(tile.exists, "no group's tile with what it counts \(size)")
+      let title = app.scrollViews.staticTexts["Khám phá"].firstMatch, chips = app.buttons.matching(identifier: "v2-chip")
+      XCTAssertTrue(chips.firstMatch.waitForExistence(timeout: 5), "no chips on Khám phá \(size)")
+      let first = chips.firstMatch.frame
+      XCTAssertGreaterThan(first.minY, title.frame.maxY, "the chips aren't under the title \(size)")
+      XCTAssertEqual(first.minX, title.frame.minX, accuracy: 2, "the chips don't start at the title's left edge \(size)")
+      // Each drawn (Design, 17 Nov), not only there: its pictures loaded.
+      Thread.sleep(forTimeInterval: 1)
+      if size.isEmpty {
+        let whole = chips.allElementsBoundByIndex.filter { $0.frame.minX >= 0 && $0.frame.maxX <= app.frame.width }
+        XCTAssertGreaterThanOrEqual(whole.count, 2, "fewer than two whole chips on the screen")
+        // Tapped over 44 points, drawn at 38 (spec-chips.md).
+        XCTAssertGreaterThanOrEqual(chips.firstMatch.frame.height, 43.5, "a chip's tap is under 44 points: \(chips.firstMatch.frame)")
+        for c in whole {
+          // At L: the picture 33 × 22, 8 in from the chip's left, the name 8 after it and 14 short of the right; Cá thử has
+          // no photo, its name 14 in.
+          let f = c.frame, pictured = !c.label.hasPrefix("Cá thử"), lead: CGFloat = pictured ? 8 + 33 + 8 : 14
+          XCTAssertGreaterThan(app.ink(in: CGRect(x: f.minX + lead, y: f.midY - 9, width: f.width - lead - 14, height: 18)), 50,
+                               "\(c.label): its name isn't drawn")
+          if pictured {
+            XCTAssertGreaterThan(app.spread(in: CGRect(x: f.minX + 10, y: f.midY - 9, width: 29, height: 18)), 40,
+                                 "\(c.label): its picture is the chip's flat fill, not a photo")
+          }
+        }
+      } else {
+        // The chip the screen's edge cuts: its fill runs on to the edge, with no fade or dimming over it. Read just under
+        // its top edge, above its picture and its name's marks.
+        let w = app.frame.width
+        // Read 60 points in from the edge, so on a chip that covers at least the last 80: where the edge cuts one nearer its
+        // start (at the largest text, the third starts 40 from it), the row is drawn along till one does.
+        let row = chips.firstMatch.frame.midY / app.frame.height
+        if let near = chips.allElementsBoundByIndex.first(where: { $0.frame.minX >= w - 80 && $0.frame.minX < w }) {
+          let by = near.frame.minX - (w - 140)
+          app.coordinate(withNormalizedOffset: CGVector(dx: 0.7, dy: row))
+            .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.7, dy: row)).withOffset(CGVector(dx: -by, dy: 0)),
+                   withVelocity: .slow, thenHoldForDuration: 0.5)
+          Thread.sleep(forTimeInterval: 0.5)
+        }
+        if let cut = chips.allElementsBoundByIndex.first(where: { $0.frame.minX < w - 80 && $0.frame.maxX > w }) {
+          let y = cut.frame.minY + 3, inside = app.greyAt(CGPoint(x: w - 60, y: y)), edge = app.greyAt(CGPoint(x: w - 2, y: y))
+          XCTAssertLessThanOrEqual(abs(edge - inside), 4, "the chip the edge cuts fades or dims there: \(inside) inside, \(edge) at the edge")
+        } else {
+          XCTFail("no chip cut by the screen's edge at the largest text")
+        }
+      }
+      XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch.exists, "a group's tile is still on Khám phá \(size)")
+      for _ in 0..<3 {
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8))
+          .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.57)), withVelocity: .slow, thenHoldForDuration: 0.3)
+      }
+      XCTAssertFalse(chips.allElementsBoundByIndex.contains { $0.isHittable }, "a chip stayed once scrolled \(size)")
       app.terminate()
     }
+  }
+
+  /// With no chips in the index (a phone's kept one from before them, offline), Khám phá opens as if the row never existed:
+  /// no row, no empty strip and no gap under the title (Design, 16 Nov). The first shelf moves up by the row and the room
+  /// around it, nothing less.
+  func testKhamPhaWithNoChipsHasNoRowAndNoGap() {
+    var gaps: [CGFloat] = []
+    for more in [[], ["-no-chips"]] {
+      let app = XCUIApplication()
+      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"] + more
+      app.launchForFlow()
+      app.openTab("Khám phá")
+      let title = app.scrollViews.staticTexts["Khám phá"].firstMatch, shelf = app.scrollViews.staticTexts["Loài quen thuộc"].firstMatch
+      XCTAssertTrue(shelf.waitForExistence(timeout: 5), "no fish shelf on Khám phá \(more)")
+      XCTAssertEqual(app.descendants(matching: .any)["v2-chips"].exists, more.isEmpty, "the chips' row with \(more.isEmpty ? "chips" : "none")")
+      gaps.append(shelf.frame.minY - title.frame.maxY)
+      app.terminate()
+    }
+    // The row as drawn at size L (38), the 12 over it and the header's 4 between its title and what's under it: the whole
+    // difference, with no strip or gap left (27.2, 17 Nov: 69.8 against 19.8 with 8 over it).
+    XCTAssertEqual(gaps[0] - gaps[1], 38 + 12 + 4, accuracy: 2, "Khám phá with no chips keeps room under its title: \(gaps)")
+  }
+
+  /// What a chip opens (spec-chips.md): a group of one page and no guide, that page; one with a guide, a pushed page under
+  /// the chip's name with iOS's back button, whose photo the chip shows, a wide card (not the grid), then its guides and
+  /// video guides; from six pages, the grid.
+  func testAChipOpensItsGroupAsItsSizeSays() {
+    // Square photos, as many are: a 3:2 card covers with one, some of it laid out above and below the card (Design, 17
+    // Nov: the first card's photo took the taps of the photo line above it, which opened that card's fish).
+    let app = launch("-v2", "YES", "-equipment", "-fixed-pictures", "-square-pictures")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    func chip(_ name: String) -> XCUIElement { app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch }
+    XCTAssertTrue(chip("Dĩa").waitForExistence(timeout: 5), "no Dĩa chip")
+    chip("Dĩa").tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "a group of one page didn't open it")
+    app.leavePage()
+    chip("Tetra").tap()
+    let page = app.descendants(matching: .any)["v2-chip-page"]
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "the chip's page didn't open")
+    XCTAssertTrue(app.navigationBars["Tetra"].exists, "the chip's page isn't under its name")
+    XCTAssertTrue(app.pageBack.exists, "no back button on the chip's page")
+    XCTAssertTrue(app.staticTexts["1 trang · 1 bài viết"].exists, "the chip's page doesn't say what it holds")
+    // Whose photo the chip shows, named, and opening that fish's page (the chief, 15 Nov).
+    let photoOf = app.links["v2-chip-photo-of"]
+    XCTAssertEqual(photoOf.label, "Ảnh đại diện nhóm: Cá neon", "the chip's page doesn't name whose photo it shows")
+    // Drawn: its big title, and the fish's name in the tint, not only a link that's there (Design, 17 Nov).
+    app.largeTitleIsOnScreen("Tetra")
+    XCTAssertGreaterThan(app.tinted(in: photoOf.frame), 30, "the photo line's fish isn't in the tint")
+    // Tapped 10 points above its words, in the reach of its 44-point tap (its frame holds the reach: 12 each side).
+    photoOf.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0)).withOffset(CGVector(dx: 0, dy: 2)).tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the photo's fish didn't open")
+    app.leavePage()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on the chip's page")
+    // The grid has the list's filter; wide cards have none.
+    XCTAssertFalse(app.buttons["filter"].exists, "a group of one page in the grid")
+    XCTAssertTrue(app.staticTexts["Bài viết"].exists && app.staticTexts["Video"].exists, "no guides or video guides under the group")
+    app.leavePage()
+    // The fish the site names (`imgOf`), not the group's first: Cá nhỏ's photo is its second page's, Cá ngựa vằn.
+    chip("Cá nhỏ").tap()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    XCTAssertEqual(photoOf.label, "Ảnh đại diện nhóm: Cá ngựa vằn", "Cá nhỏ's page names another fish than its photo's")
+    // A small group's wide card: one stop for VoiceOver, the row under its photo, and its photo drawn above that row.
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon"))
+    XCTAssertEqual(neon.count, 1, "a wide card is \(neon.count) stops for VoiceOver, not one")
+    let row = neon.firstMatch.frame, side = app.frame.width - 40
+    XCTAssertGreaterThan(app.spread(in: CGRect(x: 36, y: row.minY - 10 - side * 2 / 3 + 16, width: side - 32, height: side * 2 / 3 - 32)), 40,
+                         "the wide card's photo isn't drawn")
+    // A member with no photo: its row alone, with no grey box over it (Design, 17 Nov): its row under the last one's, not a
+    // photo's height further down.
+    let bare = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá thử 1")).firstMatch
+    let above = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
+    XCTAssertTrue(bare.exists && above.exists, "no Cá thử 1 or Cá ngựa vằn on Cá nhỏ's page")
+    XCTAssertLessThan(bare.frame.minY - above.frame.maxY, 60, "a member with no photo has a photo's box: \(above.frame) then \(bare.frame)")
+    let count = app.staticTexts["3 trang"].firstMatch.frame
+    photoOf.tap()
+    let fish = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "the photo's fish didn't open")
+    XCTAssertTrue(fish.staticTexts["Cá ngựa vằn"].firstMatch.exists, "the photo's line opened another fish than Cá ngựa vằn")
+    app.leavePage()
+    XCTAssertTrue(page.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
+    // As it was left: its big title back and drawn, its lines where they were (Design, 17 Nov: Dĩa's came back 60 points
+    // up, its title folded into the bar).
+    app.largeTitleIsOnScreen("Cá nhỏ")
+    XCTAssertEqual(app.staticTexts["3 trang"].firstMatch.frame.minY, count.minY, accuracy: 1, "Cá nhỏ's page isn't where it was after back")
+    // Scrolled: its title small in the bar, drawn.
+    app.swipeUp()
+    app.inked(app.navigationBars.staticTexts["Cá nhỏ"].firstMatch, "Cá nhỏ's title once scrolled")
+    app.leavePage()
+    // Along the row, at its own height, till the last chip is whole.
+    let many = chip("Cá thử"), y = many.frame.midY / app.frame.height
+    repeatUntil(many.frame.maxX <= app.frame.width, times: 4) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.8, dy: y))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: y)), withVelocity: .slow, thenHoldForDuration: 0.2)
+    }
+    many.tap()
+    XCTAssertTrue(app.buttons["filter"].waitForExistence(timeout: 5), "a group of eight pages not in the grid")
+    XCTAssertFalse(app.links["v2-chip-photo-of"].exists, "a chip with no photo names one")
+  }
+
+
+  /// A chip whose photo is a breed's (the site's Dĩa: the pigeon blood's): its line names the breed and opens the breed's
+  /// own page, not its species' (Design, 17 Nov). Square photos: the species' card under the line overflows its box, as
+  /// Dĩa's did on the site.
+  func testABreedsPhotoLineOpensTheBreedsPage() {
+    let app = launch("-v2", "YES", "-breeds", "-fixed-pictures", "-square-pictures")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let dia = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Dĩa,")).firstMatch
+    XCTAssertTrue(dia.waitForExistence(timeout: 5), "no Dĩa chip")
+    dia.tap()
+    let line = app.links["v2-chip-photo-of"]
+    XCTAssertTrue(line.waitForExistence(timeout: 5), "Dĩa's page names no photo")
+    XCTAssertEqual(line.label, "Ảnh đại diện nhóm: Cá đĩa Pigeon Blood", "Dĩa's line doesn't name the breed")
+    line.tap()
+    let fish = app.descendants(matching: .any)["v2-species"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "the line opened no page")
+    XCTAssertTrue(fish.staticTexts["Cá đĩa Pigeon Blood"].firstMatch.exists, "Dĩa's line opened another page than the breed's")
+  }
+
+  /// A group's page is back as it was left, from a fish's page opened by its row (Design, 17 Nov: Dĩa's came back 55
+  /// points up, its big title folded into the bar): its title big and drawn, its lines where they were.
+  func testAGroupsPageIsBackAsItWasLeft() {
+    // `-equipment`: Cá nhỏ's third page, Cá thử 1, is one of the kit's fish.
+    let app = launch("-v2", "YES", "-equipment", "-fixed-pictures", "-square-pictures")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let chip = app.buttons.matching(identifier: "v2-chip").matching(NSPredicate(format: "label BEGINSWITH %@", "Cá nhỏ")).firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 5), "no Cá nhỏ chip")
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-chip-page"].waitForExistence(timeout: 5), "Cá nhỏ's page didn't open")
+    let count = app.staticTexts["3 trang"].firstMatch
+    XCTAssertTrue(count.waitForExistence(timeout: 5), "Cá nhỏ's page doesn't say what it holds")
+    let at = count.frame.minY
+    app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    app.leavePage()
+    XCTAssertTrue(count.waitForExistence(timeout: 5), "not back on Cá nhỏ's page")
+    Thread.sleep(forTimeInterval: 0.5)
+    app.largeTitleIsOnScreen("Cá nhỏ")
+    XCTAssertEqual(count.frame.minY, at, accuracy: 1, "Cá nhỏ's page isn't where it was left")
   }
 
   func testAPageReadIsOnOneShelfOfKhamPha() {
