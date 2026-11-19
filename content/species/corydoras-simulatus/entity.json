@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "colombia",
-    "meta"
+    "meta",
+    "rio-meta"
   ],
   "range": {
     "native": {
@@ -115,6 +116,12 @@
       "html": "<p>Type locality is given as 'Río Ocoá near Puerto López, 4°06'N, 72°57'W, River Meta system, Meta, Colombia', and this species is known only from the upper Meta watershed.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-simulatus-2/",
+      "html": "<p>Corydoras simulatus comes from Colombia. There it lives in the same rivers – the Rio Meta and its tributaries – as the round-snouted Corydoras metae.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-simulatus",
@@ -151,6 +158,12 @@
       "html": "<p>This species can be identified from most similar-looking congeners by possession of a pair of small rictal barbels.</p><p>Unfortunately additional diagnostic characters cannot be provided since the type description could not be obtained, and little has been written about this species since it was published.</p><p>Its colour pattern can vary considerably depending on collection locality, with some forms having been misidentified as other species in the past.</p><p>Those possessing a dark marking on the sides of the body are sometimes referred to as Corydoras sp. 'olga'.</p><p>The genus Corydoras held over 150 valid species until Dias et al. (2024) divided it into five genera.</p><p>It's included in the family Callichthyidae, of which members are often referred to collectively as 'armoured' or 'mailed' catfishes due to the presence of bony plates in place of scales on the body.</p><p>Their taxonomy can be confusing, and numerous undescribed species are also thought to exist.</p><p>Fish of unconfirmed identification entering the aquarium hobby are therefore typically assigned a 'C' or 'CW' number for purposes of reference and organisation.</p><p>They are facultative air breathers and possess a modified, highly vascularised intestine which has evolved to facilitate uptake of atmospheric oxygen and aid survival in oxygen-deprived environments. In the aquarium you'll occasionally see them rising to the surface to take in gulps of air.</p><p>The stiffened pectoral-fin spines are capable of piercing human skin and a 'sting' can be very painful indeed, so care should be exercised when handling them.</p><p>It's thought that secretions from the axillary glands at the base of each spine may even be mildly toxic or venomous.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-simulatus-2/",
+      "html": "<p>Because C. metae has been known for a long time already, the scientific describers of C. simulatus chose the species name \"simulatus\", in the sense of \"only apparently a metae\". Apart from the different head form (long-snouted), C. simulatus has other barbel structures than C. metae and a pattern in the tail fin, which C. metae always lacks.</p><p>In fact, many C. simulatus are coloured like C. metae, but there is also a colour variant with a dark wedge on the flank as C. metae never shows, and there are forms of C. simulatus that stand between these two extremes. From aquarium experience, all these colour variants of C. simulatus mate with each other and cross fertilely; they are therefore really only colour variants and not different species.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/corydoras-simulatus",
@@ -181,7 +194,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "LcOYEUyMHDc",
+      "title": "Huge update on the duplicate corydoras in my sandbank biotope aquarium!",
+      "durationSec": 94,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "1OhXZG3pm-c",
+      "title": "Corydoras Simulatus",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "yaSxdQGy5pc",
+      "title": "Corydoras Simulatus Breeding",
+      "durationSec": 208,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Emq16NcFuBo",
+      "title": "Corydoras simulatus aquarium fish",
+      "durationSec": 120,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -212,5 +250,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-19"
 }

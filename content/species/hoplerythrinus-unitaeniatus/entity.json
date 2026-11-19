@@ -20,7 +20,9 @@
     "central-america",
     "panama",
     "north-america",
-    "trinidad-and-tobago"
+    "trinidad-and-tobago",
+    "colombia",
+    "orinoco"
   ],
   "range": {
     "native": {
@@ -1803,6 +1805,10 @@
       {
         "source": "seriouslyfish",
         "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -1824,6 +1830,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplerythrinus-unitaeniatus",
       "html": "<ul><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplerythrinus-unitaeniatus-orinoco/",
+      "html": "<p>The Orinoco colour variant of the striped wolf tetra, Hoplerythrinus unitaeniatus, was imported from Colombia. Final size is 20-25 cm.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -1874,10 +1886,22 @@
       "html": "<p>Despite its fearsome appearance, it can be combined with other similarly-sized species in a large tank. In order to see it act naturally, though, it's much better off when kept alone as a single specimen. Smaller fish will be eaten, and it's very intolerant of conspecifics, often fighting with them to the death.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplerythrinus-unitaeniatus-orinoco/",
+      "html": "<p>They are very aggressive predatory fish that are incompatible with each other (don't be deceived by the photos; such peaceful coexistence is only possible for a short time). Like all trahiras or wolf tetras, they have auxiliary respiration and must regularly draw air at the water surface.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplerythrinus-unitaeniatus",
       "html": "<p>Unconfirmed. Mature females are likely to be rounder in the belly than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplerythrinus-unitaeniatus-orinoco/",
+      "html": "<p>Compared to females, males have darker orange fins and a larger anal fin.</p>"
     },
     {
       "key": "reproduction",
@@ -1890,6 +1914,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplerythrinus-unitaeniatus",
       "html": "<p>Also known as the golden trahira, H. unitaeniatus is the only one of the three recognised species currently in the genus to appear in the trade with any regularity. It's really a fish suitable only for the specialist, and as with any predatory species, care must be taken when performing tank maintenance. It's a representative of an ancient group of fishes, and possesses a modified, highly vascularised swim bladder that acts as an accessory breathing organ, allowing the fish to survive in oxygen-deficient and stagnant waters. It can often be seen rising to the surface to take in gulps of air in the aquarium. It's also been known to travel over land for short distances to new habitats, when seasonally inundated waters begin to dry up. It's used as a food fish in some of its native countries.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplerythrinus-unitaeniatus-orinoco/",
+      "html": "<p>The systematics of these fish, which are spread over almost the entire South America, is poorly understood. Only one species, H. unitaeniatus, is commonly recognized, but there are many synonyms, among them the occasionally (without justification) recognized species H. cinereus (Trinidad and Tobago) and H. gronovii (French Guyana). The Orinoco colour variant is often referred to on the Internet as H. cinereus or \"Golden Trahira\".</p>"
     }
   ],
   "photos": [
@@ -1898,15 +1928,45 @@
       "thumb": "https://media.aquatome.com/inaturalist/325926094-480.webp",
       "width": 1024,
       "height": 683,
-      "licence": "CC BY",
-      "author": "Douglas Lopes",
-      "sourceUrl": "https://www.inaturalist.org/photos/325926094",
-      "caption": "Cá sói vàng nhỏ có sọc đen dọc thân trong bể kính",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/325926094-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY",
+      "author": "Douglas Lopes",
+      "sourceUrl": "https://www.inaturalist.org/photos/325926094",
+      "caption": "Cá sói vàng nhỏ có sọc đen dọc thân trong bể kính"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b1dbdf3842e20d67.webp",
+      "thumb": "https://media.aquatome.com/glaser/b1dbdf3842e20d67-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplerythrinus-unitaeniatus-orinoco/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ccf48f299ffe2148.webp",
+      "thumb": "https://media.aquatome.com/glaser/ccf48f299ffe2148-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplerythrinus-unitaeniatus-orinoco/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/dda840a4f0180d86.webp",
+      "thumb": "https://media.aquatome.com/glaser/dda840a4f0180d86-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hoplerythrinus-unitaeniatus-orinoco/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -1963,5 +2023,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-19"
 }

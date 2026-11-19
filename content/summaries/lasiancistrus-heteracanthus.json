@@ -1,11 +1,16 @@
 {
   "id": "lasiancistrus-heteracanthus",
-  "summary": "Cá lau kiếng mắt đỏ (Lasiancistrus heteracanthus) hợp với người muốn nuôi loài ăn rêu giỏi, khá dễ nuôi, thả chung được với cá hiền nếu bể đủ rộng. Giữ nước ấm 25–29 °C, pH 6–7,5. Cá lớn tới 18 cm nên cần bể rộng. Khó nhất là loài này hiếm, chỉ nhập từ Peru với số lượng ít, và con đực lớn có thể hay giành chỗ.",
+  "summary": "Cá lau kiếng mắt đỏ (Lasiancistrus heteracanthus) hợp người muốn con cá ăn rêu hiền, khá dễ nuôi, nuôi chung được với cá hiền nếu bể đủ rộng. Cần nước ấm 25–29 °C, pH 6–7,5, cá lớn tới 18 cm nên cần bể rộng. Khó nhất là tìm mua vì loài hiếm, nhập về ít, và con đực lớn hay giành chỗ.",
   "mistakes": [
-    "Đừng ép nước xuống pH thấp vì loài này không cần pH thấp; giữ pH 6–7,5.",
-    "Đừng cho ăn toàn đồ động vật vì đây là loài ăn thực vật; cho thức ăn có rau, viên chìm, viên nén và gỗ mềm."
+    "Để pH tụt xuống dưới 6,5 vì tưởng cá thích nước chua; loài này không cần pH thấp, nên giữ pH ổn định trong khoảng 6,5–7,5.",
+    "Nuôi trong bể không đủ rộng thì con đực lớn dễ giành chỗ; nên chọn bể đủ rộng.",
+    "Chỉ cho ăn đồ động vật; đây là loài ăn thực vật, nên cho thức ăn có rau, viên chìm, viên nén và có gỗ mềm trong bể."
   ],
   "speciesUpdatedAt": "2026-11-14",
-  "generatedAt": "2026-11-14T05:04:27.905Z",
-  "review": "approved"
+  "writtenFrom": "da5e4d263cdfcff2",
+  "generatedAt": "2026-11-19T20:04:00.796Z",
+  "review": "pending",
+  "problems": [
+    "Mistake 1 says to keep pH \"trong khoảng 6,5–7,5\". The card range is pH 6–7,5, and the summary itself says 6–7,5. The 6,5 lower bound is a different pH range from the card, and the page only says to avoid dropping below 6,5."
+  ]
 }

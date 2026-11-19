@@ -1,0 +1,141 @@
+{
+  "id": "bunocephalus-larai",
+  "scientificName": "Bunocephalus larai",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Bunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "parana"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "html": "<p>South America: Paraná River basin, Brazil. Type locality: Rio Piracicaba, junto ao Salto; ao 20 klm abaixo (ilha das Flechas) [São Paulo, Brazil].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "html": "<p>Individuals of Bunocephalus species are usually found on submerged foliage or buried in the mud of rivers and backwater creeks.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "html": "<p>This small species is very peaceful and will do well in a quiet community tank where the tank mates are non-aggressive. It hides in the sand or amongst plants. Provide a sand substrate due to its habit and a planted dark area to make it feel more secure in its surroundings.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "html": "<p>Tablet foods, insect larvae and tubifex.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "html": "<p>Etymology: The genus name Bunocephalus: buno-, mound or knob; cephalus, head, referring to rounded cusps or bumps on the head. The specific name larai: in honor of Rodolpho Lara Campos, sponsor of the expedition that collected the type.</p><p>Banjo catfishes are characterised by their body shape, which resembles the musical instrument known as the banjo (Myers, 1960).</p><p>IUCN Red List: Bunocephalus larai is endemic to Brazil, restricted to the upper Paraná basin, in sections of the states of Minas Gerais, Mato Grosso do Sul, São Paulo, and Paraná. The species is quite rare in collections, possibly due to sampling bias, and depends on environments with good riparian forest conditions and leaf litter accumulation. However, its distribution is wide, and the species has been recorded in recent years. Therefore, B. larai was assessed as Least Concern (LC) (IUCN 2022).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/223317a6aeb8049b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/223317a6aeb8049b-480.webp",
+      "width": 500,
+      "height": 152,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "caption": "Bunocephalus larai",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bda4f2615231ebfd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bda4f2615231ebfd-480.webp",
+      "width": 500,
+      "height": 316,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "caption": "Bunocephalus larai: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a42d8a9dfa0894a6.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a42d8a9dfa0894a6-480.webp",
+      "width": 500,
+      "height": 374,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "caption": "Bunocephalus larai: ventral view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b8665eb54a4d81e4.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b8665eb54a4d81e4-480.webp",
+      "width": 500,
+      "height": 378,
+      "licence": "dùng với sự cho phép",
+      "author": "Stuart Brown / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm",
+      "caption": "Bunocephalus larai pair-dorsal view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá da trơn",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá đáy",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

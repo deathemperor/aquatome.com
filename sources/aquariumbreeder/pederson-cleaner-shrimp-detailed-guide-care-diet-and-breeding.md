@@ -1,7 +1,7 @@
 ---
 url: https://aquariumbreeder.com/pederson-cleaner-shrimp-detailed-guide-care-diet-and-breeding/
 title: Pederson Cleaner Shrimp – Detailed Guide: Care, Diet, and Breeding - Shrimp and Snail Breeder
-fetchedAt: 2026-11-19T06:31:35.886Z
+fetchedAt: 2026-11-19T18:08:28.192Z
 hash: b834f1e26411e020dd981343cea3b7557dd3d6adbfa43bc4f5cff7df8fcb8b09
 ---
 

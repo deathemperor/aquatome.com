@@ -737,6 +737,44 @@
       "kept": true
     }
   ],
+  "vi/products/seachem-fluorite": [
+    {
+      "at": "2026-11-19T19:46:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.8,
+      "notes": [
+        "\"Rải nền xong thì đặt một cái bát lên mặt sỏi\" - the facts say to rinse first and pour water into a bowl on the gravel; the page's order is fine, but \"Rải nền xong\" is a small addition.",
+        "\"Rửa rồi nước vẫn đục khoảng 2–12 tiếng, tùy lọc\" in the FAQ - the facts give 2–12 hours of clearing for the initial cloudiness after filling, not cloudiness after rinsing. This slightly twists the fact.",
+        "\"Theo hãng, nó chạy tốt nhất khi dùng riêng một mình\" - the facts have source 0 (the manufacturer's page), so this is supported. The \"Đi kèm Flourite thì không cần laterite\" line is also supported.",
+        "\"Lót bông lọc\" - the facts say filter floss speeds clearing; \"lót\" (lining) is a slightly different action, a minor wording drift.",
+        "\"Nền dùng được với lọc đáy\" is supported by the undergravel filter compatibility fact, so it is not an issue.",
+        "\"Hợp với cây khó hơn\" for Amazonia is supported (suits demanding plants), so no issue."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T19:46:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.8,
+      "notes": [
+        "\"Có bốn bản ... Chúng khác nhau chủ yếu ở màu\": facts give color only for Red; saying the variants differ mainly in color is a generalization.",
+        "\"Bản Black tối màu hơn, hợp với ráy, Bucephalandra và các loại dương xỉ\": supported only in the alternatives section, but it is fine.",
+        "\"Làm vậy thì nước không xới tung nền lên\": the facts say only that water overflows gently; the stated purpose is slightly inferred.",
+        "\"đường vận chuyển làm sỏi va nhau ra bụi\": the facts say it gets dusty in transit, but not the mechanism of gravel knocking together.",
+        "\"Lót thêm bông lọc\": the facts say 'filter floss', which is fine.",
+        "\"Nếu bể của bạn cần nước mềm, pH thấp cho cây hay cá thì nó không lo được phần đó\" and \"Ai trồng cây khó... nên cân nhắc loại khác\": a recommendation that goes beyond the facts, though it is loosely supported by the Amazonia comparison.",
+        "\"Nên xem bảng giá trước khi chốt\": refers to a price table that does not exist, since no prices are given. \"Nhét phân cạnh gốc cây\" is an embellishment of root tabs.",
+        "\"nên cứ rửa kỹ cho yên tâm\" and \"nên dành nhiều thời gian rửa hơn\": advice not in the facts, and mild."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/tropica-aquasoil": [
     {
       "at": "2026-11-18T01:45:49Z",

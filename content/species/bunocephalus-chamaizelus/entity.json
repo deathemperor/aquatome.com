@@ -1,0 +1,102 @@
+{
+  "id": "bunocephalus-chamaizelus",
+  "scientificName": "Bunocephalus chamaizelus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Bunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "essequibo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm",
+      "html": "<p>South America: Essequibo River basin, Guyana. Type locality: Erukin, British Guiana.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm",
+      "html": "<p>Very peaceful species which will do well in a quiet community tank where the tank mates are non-aggressive. Provide a sand substrate for them to bury themselves and a planted dark area to make them feel more secure in their surroundings.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm",
+      "html": "<p>Live and frozen foods such as mosquito larvae, tubifex and small crustacea. Tablet foods and sunken flake that lies on the bottom is also taken. Better to feed at lights out or in a dimly lit tank so they can get their share of any foodstuffs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm",
+      "html": "<p>Etymology: The genus name Bunocephalus: buno-, mound or knob; cephalus, head, referring to rounded cusps or bumps on head. The specific name chamaizelus: etymology not explained, perhaps derived from chamai, dwarf, referring to small size of Eigenmann's specimens (22–44 mm) [likely belongs in a new or different genus].</p><p>IUCN Red List: the species has a restricted range in the Essequibo-Potaro and Cuyuni-Mazaruni basins. The best estimate of the extent of occurrence (EOO) is 21,956 km². The subpopulations of the lower Potaro, Kuribrong and Mazaruni rivers have been affected by a reduction in the area of occupancy and in the extent and quality of habitat, inferred based on gold mining activities and its habit of living in submerged foliage or buried in the sand of rivers. Not much is known about the population. Bunocephalus chamaizelus is assessed as Near Threatened (NT).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm",
+      "html": "<p>Calegari, B.B. 2022. Bunocephalus chamaizelus. The IUCN Red List of Threatened Species 2022. Friel, J.P., 2003. Aspredinidae (Banjo catfishes). p. 261-267. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2019 ). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/237a09d82de4045a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/237a09d82de4045a-480.webp",
+      "width": 500,
+      "height": 308,
+      "licence": "dùng với sự cho phép",
+      "author": "Donald Taphorn / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm",
+      "caption": "Bunocephalus chamaizelus - tributory of Ireng River, Guyana",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá đáy",
+        "nền cát bể thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá đáy",
+        "trùng chỉ đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

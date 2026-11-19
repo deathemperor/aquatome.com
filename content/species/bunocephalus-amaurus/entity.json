@@ -1,0 +1,168 @@
+{
+  "id": "bunocephalus-amaurus",
+  "scientificName": "Bunocephalus amaurus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Bunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "konawaruk"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>Similar looking to B. coracoideus but is rarer in imports. The Aspredinidae family is divided into two subfamilies, Bunocephalinae and Aspredininae, which can be told apart by the longer anal fin of the latter, and also the longer body.</p><p>These catfish are quite often overlooked by the aquarist, most likely because they usually hide in the tank or look as if they are dead. The appearance of death is a natural defence against predators, as not many fish would be interested in eating something resembling a fallen leaf. Their typical colouration, which is predominantly brown, also helps them blend in with their natural surroundings.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>South America: coastal rivers of northern South America between the Orinoco and Amazon mouths. Type locality: Konawaruk, British Guiana.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>Frequently occurs in creeks where it plays the role of a typical bottom cleaner, with a broad food spectrum. Present in all freshwater rivers except the Marowijne River, where it is replaced by B. aloikae.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>Can be kept in groups and are non-aggressive in a shallow tank. The main problem is seeing them, as they are a nocturnal species; you may spot them if you feed at lights out, in the dusk of a half-lit room.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<ul><li>Temperature: 25–28°C</li><li>pH: 6.0–8.0</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>Provide sand as a substrate, as they will dig themselves into it and will smell food as it is introduced.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>Sexing this species is not easy, but as a rule of thumb females are larger, fuller in the belly and usually a little darker in colouration.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>Etymology: the genus name Bunocephalus: buno-, mound or knob; cephalus, head, referring to rounded cusps or bumps on the head. The specific name amaurus: dark, referring to the dark chocolate colouration.</p><p>IUCN Red List: Bunocephalus amaurus is widespread and occurs in several protected and remote areas. Data do not suggest a perceptible reduction in the population, so it is evaluated as Least Concern (IUCN 2021).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "html": "<p>Friel, J.P. 2003 Aspredinidae (Banjo catfishes). p. 261-267. In: R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/2011).</p><p>Mojica, J.I., Rodríguez-Olarte, D., Taphorn, D.C., Usma, S., Villa-Navarro, F. &amp; Herrera-Collazos, E.E. 2021. Bunocephalus amaurus. The IUCN Red List of Threatened Species 2021.</p><p>ScotCat Factsheet no. 275. May 2019.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/49df74cb29da018b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/49df74cb29da018b-480.webp",
+      "width": 500,
+      "height": 158,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "caption": "Bunocephalus amaurus: female",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/53c9802cde27d581.webp",
+      "thumb": "https://media.aquatome.com/scotcat/53c9802cde27d581-480.webp",
+      "width": 500,
+      "height": 312,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "caption": "Bunocephalus amaurus - dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/28dc830ee3bfe734.webp",
+      "thumb": "https://media.aquatome.com/scotcat/28dc830ee3bfe734-480.webp",
+      "width": 500,
+      "height": 166,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm",
+      "caption": "Bunocephalus amaurus - male",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "po3L1TzbfQQ",
+      "title": "Bunocephalus amaurus Camouflaged banjo catfish",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "IRAQr9XnAQg",
+      "title": "Camouflaged catfish playing dead (Bunocephalus amaurus)",
+      "durationSec": 34,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đáy",
+        "thức ăn viên chìm cho cá trê"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

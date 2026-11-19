@@ -1579,6 +1579,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm": {
+    "entityIds": [
+      "species/bunocephalus-amaurus"
+    ],
+    "updatedAt": "2026-11-19T17:42:53.562Z",
+    "hash": "833979847e0a1d17ceb774a13e870e8dbc1ee247e1919cbb185086723ed20e5b",
+    "processedHash": "833979847e0a1d17ceb774a13e870e8dbc1ee247e1919cbb185086723ed20e5b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm": {
+    "entityIds": [
+      "species/bunocephalus-chamaizelus"
+    ],
+    "updatedAt": "2026-11-19T17:45:26.554Z",
+    "hash": "633e6cb4ed0b11ba2bd22f3f32f02b1226bc0264d667356b6d110db8ed14eb57",
+    "processedHash": "633e6cb4ed0b11ba2bd22f3f32f02b1226bc0264d667356b6d110db8ed14eb57",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/bunocephalus_colombianus.htm": {
     "entityIds": [
       "species/bunocephalus-colombianus"
@@ -1589,6 +1609,74 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_coracoideus.htm": {
+    "entityIds": [
+      "species/bunocephalus-coracoideus"
+    ],
+    "updatedAt": "2026-11-19T17:46:32.472Z",
+    "hash": "bd55f414ea455e6e36e9cdd55d935de1f3c755d5cbd0a533e043eab90afadff5",
+    "processedHash": "bd55f414ea455e6e36e9cdd55d935de1f3c755d5cbd0a533e043eab90afadff5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_doriae.htm": {
+    "entityIds": [
+      "species/bunocephalus-doriae"
+    ],
+    "updatedAt": "2026-11-19T17:48:38.050Z",
+    "hash": "40a3a7f3c6a1d671fa6a49416ce88735442927aad90d01443aba1584c6da911e",
+    "processedHash": "40a3a7f3c6a1d671fa6a49416ce88735442927aad90d01443aba1584c6da911e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm": {
+    "entityIds": [
+      "species/bunocephalus-knerii"
+    ],
+    "updatedAt": "2026-11-19T17:51:23.789Z",
+    "hash": "7c87ef25b4535c8fa3737026da0067a7ed085f1298219bc93fb8fb0b55c4efd1",
+    "processedHash": "7c87ef25b4535c8fa3737026da0067a7ed085f1298219bc93fb8fb0b55c4efd1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm": {
+    "entityIds": [
+      "species/bunocephalus-larai"
+    ],
+    "updatedAt": "2026-11-19T17:53:30.591Z",
+    "hash": "3301e32734850b84179edd51b714e970e849b6ed1d81620858336c48cd9944ec",
+    "processedHash": "3301e32734850b84179edd51b714e970e849b6ed1d81620858336c48cd9944ec",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm": {
+    "entityIds": [
+      "species/bunocephalus-verrucosus"
+    ],
+    "updatedAt": "2026-11-19T17:55:58.008Z",
+    "hash": "ea7c9670a40028a34265d5155c9d128bfefd07f9a3ee3aa89dc4589a6527d46f",
+    "processedHash": "ea7c9670a40028a34265d5155c9d128bfefd07f9a3ee3aa89dc4589a6527d46f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm": {
+    "entityIds": [
+      "species/dupouyichthys-sapito"
+    ],
+    "updatedAt": "2026-11-19T17:58:23.958Z",
+    "hash": "0c1d4474dd46203d9349bf172b239eb855314f3a05d9280734dfca5bdf847c62",
+    "processedHash": "0c1d4474dd46203d9349bf172b239eb855314f3a05d9280734dfca5bdf847c62",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/ernstichthys_casalinuovoi.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-19T18:01:33.470Z",
+    "hash": "c12cf8ba4a8a2f956241d55f6b26620f997138f145ef13d77e210fd582d573fc",
+    "processedHash": "c12cf8ba4a8a2f956241d55f6b26620f997138f145ef13d77e210fd582d573fc",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm": {
     "entityIds": [
       "species/ernstichthys-megistus"
@@ -1596,6 +1684,26 @@
     "updatedAt": "2026-11-17T05:43:23.165Z",
     "hash": "60d1ae2a91f54b646539f8c525b6070ba5cb47cc0d243d3c834b9d8b5982c5ff",
     "processedHash": "60d1ae2a91f54b646539f8c525b6070ba5cb47cc0d243d3c834b9d8b5982c5ff",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm": {
+    "entityIds": [
+      "species/hoplomyzon-papillatus"
+    ],
+    "updatedAt": "2026-11-19T18:02:55.257Z",
+    "hash": "9a2447c630bcd224ad519e8dfc2ce8b71960e6f7e4b42ad08bdc50948cf68950",
+    "processedHash": "9a2447c630bcd224ad519e8dfc2ce8b71960e6f7e4b42ad08bdc50948cf68950",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm": {
+    "entityIds": [
+      "species/hoplomyzon-sexpapilostoma"
+    ],
+    "updatedAt": "2026-11-19T18:04:45.434Z",
+    "hash": "e5cce54913b22fd0354db53d8000f03bdd40f7960c2411e3dc625623eea05461",
+    "processedHash": "e5cce54913b22fd0354db53d8000f03bdd40f7960c2411e3dc625623eea05461",
     "status": "processed",
     "attempts": 0
   },

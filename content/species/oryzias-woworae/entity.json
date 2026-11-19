@@ -70,13 +70,6 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 23,
-          "max": 27
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 23,
@@ -89,18 +82,25 @@
           "min": 22,
           "max": 30
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
       }
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
           "min": 6,
           "max": 7.5
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 6,
           "max": 7.5
@@ -109,23 +109,19 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 2.5
-      },
-      {
         "source": "seriouslyfish",
         "value": 3
       },
       {
         "source": "glaser",
         "value": 4
+      },
+      {
+        "source": "bwaquatics",
+        "value": 2.8
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 2
-      },
       {
         "source": "seriouslyfish",
         "value": 2
@@ -165,7 +161,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
-      "html": "<ul><li><strong>Size:</strong> up to 1 inch (about 2.5 cm)</li><li><strong>Temperament:</strong> Peaceful</li><li><strong>Lifespan:</strong> 2-3 years</li><li><strong>Diet:</strong> Omnivore</li></ul>"
+      "html": "<ul><li>Genus: Oryzias (ricefish)</li><li>IUCN Red List: Endangered (very high risk of extinction in the wild)</li><li>Origin: captive bred</li><li>Temperament: peaceful</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -192,10 +188,16 @@
       "html": "<p>Described and known only from a single locality, a stream named Mata air Fotuno, in Parigi district on the island of Muna, South East Sulawesi (Sulawesi Tenggara) province, Indonesia, but may occur over a wider area.</p><p>Sulawesi represents a particular centre of diversity for the genus, with 17 endemic Oryzias species described to date.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>Oryzias woworae was described in 2010 and is found only on Muna Island, off southeastern Sulawesi, Indonesia.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
-      "html": "<p>Beautiful fish from Sulawesi that is perfect for those looking to add colors to a small aquarium. They have a nice blue metallic shine in the light with a red accent on the body edges.</p>"
+      "html": "<p>It lives in small, shaded forest streams and pools.</p>"
     },
     {
       "key": "habitat",
@@ -228,10 +230,16 @@
       "html": "<p>These ricefishes can be kept in moderately hard water, so it is usually not necessary to mix a special water for them. The water temperature for keeping, breeding and rearing may lie between 22 and 30°C.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<ul><li>Temperature: 23 to 27°C</li><li>pH: prefers slightly acidic to neutral water (6.0 to 7.5), but it can also be kept in tap water with high TDS and pH.</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
-      "html": "<p>Omnivore (eats flakes, brine shrimp, bloodworms, and mosquito larvae).</p>"
+      "html": "<p>Omnivore. Eats flakes, brine shrimp, bloodworms and mosquito larvae.</p>"
     },
     {
       "key": "diet",
@@ -249,7 +257,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
-      "html": "<p>They are schooling fish, so it is recommended to keep them in groups of at least 6 or more. They are also known to jump, so a secure lid is a must for your aquarium.</p>"
+      "html": "<p>Peaceful. They are schooling fish, so keep them in groups of at least 6. They are known jumpers, so a secure lid is a must.</p>"
     },
     {
       "key": "behaviour",
@@ -261,7 +269,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
-      "html": "<p>Males typically have a translucent bluish body, while females and juveniles are more yellow.</p>"
+      "html": "<p>Males typically have a translucent bluish body, while females and juveniles are more yellow. Males have longer dorsal and anal fins, with red edges on the tail and on the anal fin and belly. Body colour is metallic blue, with red on the lower body and fin edges in males.</p>"
     },
     {
       "key": "dimorphism",
@@ -282,6 +290,12 @@
       "html": "<p>Keeping and breeding this fish is very easy and even beginners will be successful. In all Oryzias species, the female carries the eggs along with her for some time after spawning and then strips them onto fine water plants. Hatching depends on the water temperature but usually takes 2 to 3 weeks. The adults show no interest in the eggs, which can be left in the breeding tank. The newly hatched offspring swim immediately under the water surface. Although very tiny, they are easily recognised by their shining eyes that look like sparks. They should now be separated using a spoon and reared in a separate tank.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>The female carries a cluster of eggs at her vent for a few hours before brushing them onto fine plants or moss. Remove eggs or adults to protect them; fry take infusoria, then baby brine shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-woworae",
@@ -292,6 +306,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_cf_woworae_en/",
       "html": "<p>Oryzias: derived from the scientific name of rice (Oryza), meaning \"belonging to the rice\". woworae: a dedication name for Daisy Wowor, a carcinologist at the Museum Zoologicum Bogoriense, who first collected the species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/oryzias-woworae-daisy-ricefish",
+      "html": "<p>Body shape: small, slender body with a flat back and upturned mouth. A beautiful fish for adding colour to a small aquarium, with a blue metallic shine in the light and red accents on the edges of the body and fins.</p>"
     },
     {
       "key": "references",
@@ -381,5 +401,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-15"
+  "updatedAt": "2026-11-19"
 }

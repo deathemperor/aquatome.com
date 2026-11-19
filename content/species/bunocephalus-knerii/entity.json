@@ -1,0 +1,168 @@
+{
+  "id": "bunocephalus-knerii",
+  "scientificName": "Bunocephalus knerii",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Bunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "amazon",
+    "ecuador",
+    "peru"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "html": "<p>South America: Upper Amazon River basin of Colombia, Ecuador, and Peru. Type locality: Canelos, Ecuador.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "html": "<p>Very peaceful species which will do well in a quiet community tank where the tank mates are non-aggressive. Hides in the sand or amongst plants. Provide a sand substrate due to its habit and a planted dark area to make them feel more secure in their surroundings.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "html": "<p>Tablet foods, insect larvae and tubifex.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "html": "<p>Etymology: The genus name Bunocephalus: buno-, mound or knob; cephalus, head, referring to rounded cusps or bumps on the head. The specific name knerii: named in honour of Dr. Rudolf Kner, the Austrian ichthyologist.</p><p>IUCN Red List: This species is assessed as Least Concern due to its large distribution and the lack of major threats. Further research is needed into the taxonomy of this species (IUCN 2021).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p.</p><p>Frederico, R.G., Reis, R. &amp; Lima, F. 2021. Bunocephalus knerii. The IUCN Red List of Threatened Species 2021.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4e56b3beb3b7a09c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4e56b3beb3b7a09c-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Klaus Dreymann / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "caption": "Bunocephalus knerii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b2ee7a86053dfe60.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b2ee7a86053dfe60-480.webp",
+      "width": 500,
+      "height": 250,
+      "licence": "dùng với sự cho phép",
+      "author": "Klaus Dreymann / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "caption": "Bunocephalus knerii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b46bfbd21b6213ce.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b46bfbd21b6213ce-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "caption": "Bunocephalus knerii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/df9b7862ebf207d0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/df9b7862ebf207d0-480.webp",
+      "width": 500,
+      "height": 321,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm",
+      "caption": "Bunocephalus knerii",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "AgRAIM0xY9c",
+      "title": "Bunocephalus knerii",
+      "durationSec": 114,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "DAcF6SGc0pY",
+      "title": "Bunocephalus wirft Schnecke ab (2v3)",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Agt0cJvCSVs",
+      "title": "Wirbellose mobben Bunocephalus (3v3)",
+      "durationSec": 272,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QPE6qUHpWfg",
+      "title": "Schnecke kitzelt Bunocephalus (1v3)",
+      "durationSec": 81,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn bể cá",
+        "nền cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá nheo",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh tạo bóng râm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}
