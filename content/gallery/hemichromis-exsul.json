@@ -2,34 +2,6 @@
   "id": "hemichromis-exsul",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/126670833.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/126670833-480.webp",
-      "width": 1011,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Agnes Trekker",
-      "sourceUrl": "https://www.inaturalist.org/photos/126670833",
-      "caption": "Cá cichlid ngọc đỏ ánh đỏ bơi trong môi trường tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/166206572.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/166206572-480.webp",
-      "width": 1024,
-      "height": 867,
-      "licence": "CC BY",
-      "author": "Andrew Durso",
-      "sourceUrl": "https://www.inaturalist.org/photos/166206572",
-      "caption": "Cá cichlid ngọc đỏ bên cạnh thực vật thủy sinh",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/465326013.webp",
       "thumb": "https://media.aquatome.com/inaturalist/465326013-480.webp",
       "width": 1024,
@@ -40,8 +12,7 @@
       "caption": "Cá cichlid ngọc đỏ trong nước nông, trên nền sỏi tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/171963142.webp",
@@ -54,8 +25,7 @@
       "caption": "Cá cichlid ngọc đỏ trưởng thành trong bể chụp ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/171963159.webp",
@@ -68,8 +38,7 @@
       "caption": "Cá cichlid ngọc đỏ Turkana trong hộp ảnh trong suốt",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/171963115.webp",
@@ -82,36 +51,7 @@
       "caption": "Cá cichlid Turkana nhìn nghiêng trong hộp ảnh nhỏ",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/208846155.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/208846155-480.webp",
-      "width": 1024,
-      "height": 698,
-      "licence": "CC BY",
-      "author": "Zakqary Roy",
-      "sourceUrl": "https://www.inaturalist.org/photos/208846155",
-      "caption": "Cá cichlid Turkana có sọc ngang trong hộp ảnh",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/119849572.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/119849572-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "lukexl",
-      "sourceUrl": "https://www.inaturalist.org/photos/119849572",
-      "caption": "Cá cichlid ngọc đỏ trong xô nước để chụp ảnh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/208846248.webp",
@@ -124,8 +64,46 @@
       "caption": "Cá cichlid Turkana màu vàng nhạt trong hộp ảnh",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/126670833.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/126670833-480.webp",
+      "width": 1011,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Agnes Trekker",
+      "sourceUrl": "https://www.inaturalist.org/photos/126670833",
+      "caption": "Cá cichlid ngọc đỏ ánh đỏ bơi trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/166206572.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/166206572-480.webp",
+      "width": 1024,
+      "height": 867,
+      "licence": "CC BY",
+      "author": "Andrew Durso",
+      "sourceUrl": "https://www.inaturalist.org/photos/166206572",
+      "caption": "Cá cichlid ngọc đỏ bên cạnh thực vật thủy sinh",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/119849572.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/119849572-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "lukexl",
+      "sourceUrl": "https://www.inaturalist.org/photos/119849572",
+      "caption": "Cá cichlid ngọc đỏ trong xô nước để chụp ảnh",
+      "best": false,
+      "kind": "other",
+      "setup": true
     }
   ],
   "seen": 60,

@@ -7,8 +7,8 @@ Written by `pnpm engine gallery` (2026-11-19). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 775 | 31 | 9 | 26 | 789 |
-| rest | 20 | 1860 | 80 | 0 | 106 | 1834 |
+| covered | 30 | 787 | 31 | 9 | 26 | 801 |
+| rest | 20 | 1871 | 80 | 0 | 110 | 1841 |
 
 ## Short of target: every source read (697)
 
@@ -74,8 +74,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/koi-betta | shop | 1 | 60 |
 | plants/ludwigia-arcuata | shop | 36 | 60 |
 | breeds/full-red-guppy | shop | 2 | 60 |
-| species/puntigrus-tetrazona | shop | 21 | 60 |
 | plants/taxiphyllum-barbieri | shop | 4 | 60 |
+| species/puntigrus-tetrazona | shop | 21 | 60 |
 | breeds/koi-guppy | shop | 0 | 60 |
 | species/corydoras-aeneus | shop | 26 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
@@ -273,6 +273,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/akysis-vespa | covered | 0 | 30 |
 | species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
+| species/acrochordonichthys-rugosus | covered | 0 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
 | species/akysis-portellus | covered | 0 | 30 |
 | species/amblydoras-nauticus | covered | 0 | 30 |
@@ -335,7 +336,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/acestrorhynchus-pantaneiro | covered | 3 | 30 |
 | species/acheilognathus-macropterus | covered | 1 | 30 |
 | species/acnodon-normani | covered | 1 | 30 |
-| species/acrochordonichthys-rugosus | covered | 0 | 30 |
 | species/ageneiosus-magoi | covered | 0 | 30 |
 | species/aguarunichthys-tocantinsensis | covered | 0 | 30 |
 | species/akysis-hendricksoni | covered | 0 | 30 |

@@ -446,18 +446,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/366034873.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/366034873-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Richard Fuller",
-      "sourceUrl": "https://www.inaturalist.org/photos/366034873",
-      "caption": "Lá Cây mao lương nổi trên mặt nước trong",
-      "best": false,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/598066452.webp",
       "thumb": "https://media.aquatome.com/inaturalist/598066452-480.webp",
       "width": 577,
@@ -707,6 +695,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/347392300",
       "caption": "Cây mao lương lá xẻ mảnh mọc nhô lên khỏi mặt nước",
       "best": true,
+      "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/366034873.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/366034873-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Richard Fuller",
+      "sourceUrl": "https://www.inaturalist.org/photos/366034873",
+      "caption": "Lá Cây mao lương nổi trên mặt nước trong",
+      "best": false,
       "kind": "emersed"
     },
     {

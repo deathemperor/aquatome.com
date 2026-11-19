@@ -2,32 +2,17 @@
   "id": "elassoma-evergladei",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/175916299.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/175916299-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/494400878.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/494400878-480.webp",
       "width": 1024,
       "height": 683,
       "licence": "CC BY",
-      "author": "Tom Kennedy",
-      "sourceUrl": "https://www.inaturalist.org/photos/175916299",
-      "caption": "Cá thái dương lùn Everglades đực nền đen, vây xanh lam",
+      "author": "Tom Field",
+      "sourceUrl": "https://www.inaturalist.org/photos/494400878",
+      "caption": "Cá đực thân sẫm với đốm ánh xanh trong hộp chụp",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/630211988.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/630211988-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Arturo Santos",
-      "sourceUrl": "https://www.inaturalist.org/photos/630211988",
-      "caption": "Cá cái đốm nâu cạnh thước đo trong hộp nhỏ",
-      "best": true,
-      "kind": "female",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/627706409.webp",
@@ -40,8 +25,7 @@
       "caption": "Hai cá thái dương lùn đốm nâu trong hộp ảnh",
       "best": true,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/257976061.webp",
@@ -54,22 +38,7 @@
       "caption": "Cá thái dương lùn trong hộp chụp ảnh nhỏ, thân nâu đốm",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/494400878.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/494400878-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Tom Field",
-      "sourceUrl": "https://www.inaturalist.org/photos/494400878",
-      "caption": "Cá đực thân sẫm với đốm ánh xanh trong hộp chụp",
-      "best": true,
-      "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/563997222.webp",
@@ -82,8 +51,7 @@
       "caption": "Cá đực sẫm màu, vây đuôi cam, trong bể ảnh nhỏ",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/494400663.webp",
@@ -96,8 +64,7 @@
       "caption": "Cá thái dương lùn đốm ánh xanh, vây lưng xòe",
       "best": false,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/251770437.webp",
@@ -110,8 +77,33 @@
       "caption": "Cá thái dương lùn trong hộp nhựa trong, chụp bên hông",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/630211988.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/630211988-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Arturo Santos",
+      "sourceUrl": "https://www.inaturalist.org/photos/630211988",
+      "caption": "Cá cái đốm nâu cạnh thước đo trong hộp nhỏ",
+      "best": true,
+      "kind": "female",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/175916299.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/175916299-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Kennedy",
+      "sourceUrl": "https://www.inaturalist.org/photos/175916299",
+      "caption": "Cá thái dương lùn Everglades đực nền đen, vây xanh lam",
+      "best": true,
+      "kind": "male",
+      "setup": false
     }
   ],
   "seen": 38,

@@ -16,21 +16,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/commons/367f601082470ef6.webp",
-      "thumb": "https://media.aquatome.com/commons/367f601082470ef6-480.webp",
-      "width": 1200,
-      "height": 637,
-      "licence": "CC BY-SA 3.0",
-      "author": "CHUCAO",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnogeophagus_meridionalis_(2).JPG",
-      "caption": "Cá ăn đất cầu vồng nhỏ trưởng thành trên nền cát trong bể",
-      "sourceCaption": "Gymnogeophagus meridionalis.",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/610e5a2ea942f40c.webp",
       "thumb": "https://media.aquatome.com/commons/610e5a2ea942f40c-480.webp",
       "width": 1200,
@@ -42,8 +27,7 @@
       "sourceCaption": "Gymnogeophagus meridionalis.",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/94ac1e1db3f4eb86.webp",
@@ -57,50 +41,7 @@
       "sourceCaption": "A pair of the Stripefin eartheater, Gymnogeophagus rhabdotus (Hensel, 1870), with offspring in the aquarium.",
       "best": false,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/115934340.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/115934340-480.webp",
-      "width": 1024,
-      "height": 710,
-      "licence": "CC0",
-      "author": "Diego Carús",
-      "sourceUrl": "https://www.inaturalist.org/photos/115934340",
-      "caption": "Cá bơi trên đáy cát ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/36472780.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/36472780-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Diego Carús",
-      "sourceUrl": "https://www.inaturalist.org/photos/36472780",
-      "caption": "Cá có vằn sọc thân trong bể ảnh nhỏ",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/36850803.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/36850803-480.webp",
-      "width": 1024,
-      "height": 480,
-      "licence": "CC0",
-      "author": "Diego Carús",
-      "sourceUrl": "https://www.inaturalist.org/photos/36850803",
-      "caption": "Cá có đốm đen giữa thân, ánh hồng, nền xanh",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/b629183b74e14cda.webp",
@@ -114,8 +55,7 @@
       "sourceCaption": "Gymnogeophagus meridionalis.",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/1bfacdb3daa265d4.webp",
@@ -129,8 +69,7 @@
       "sourceCaption": "Gymnogeophagus meridionalis.",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/83b3a56fdeb9dbf2.webp",
@@ -144,8 +83,47 @@
       "sourceCaption": "Gymnogeophagus meridionalis.",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/367f601082470ef6.webp",
+      "thumb": "https://media.aquatome.com/commons/367f601082470ef6-480.webp",
+      "width": 1200,
+      "height": 637,
+      "licence": "CC BY-SA 3.0",
+      "author": "CHUCAO",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnogeophagus_meridionalis_(2).JPG",
+      "caption": "Cá ăn đất cầu vồng nhỏ trưởng thành trên nền cát trong bể",
+      "sourceCaption": "Gymnogeophagus meridionalis.",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/115934340.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/115934340-480.webp",
+      "width": 1024,
+      "height": 710,
+      "licence": "CC0",
+      "author": "Diego Carús",
+      "sourceUrl": "https://www.inaturalist.org/photos/115934340",
+      "caption": "Cá bơi trên đáy cát ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/36850803.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/36850803-480.webp",
+      "width": 1024,
+      "height": 480,
+      "licence": "CC0",
+      "author": "Diego Carús",
+      "sourceUrl": "https://www.inaturalist.org/photos/36850803",
+      "caption": "Cá có đốm đen giữa thân, ánh hồng, nền xanh",
+      "best": false,
+      "kind": "other",
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/commons/f8b01e3f1ab99e2a.webp",
@@ -184,6 +162,19 @@
       "sourceUrl": "https://www.inaturalist.org/photos/36472761",
       "caption": "Cá trưởng thành có đốm đen bên thân trong bể ảnh nhỏ",
       "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/36472780.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/36472780-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Diego Carús",
+      "sourceUrl": "https://www.inaturalist.org/photos/36472780",
+      "caption": "Cá có vằn sọc thân trong bể ảnh nhỏ",
+      "best": false,
       "kind": "other",
       "setup": true
     }

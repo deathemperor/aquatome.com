@@ -63,6 +63,22 @@
     ],
     "swaps": []
   },
+  "vi/guides/youtube-6R-aFWdSN6Y 2026-11-19T23:04:32.363Z": {
+    "key": "vi/guides/youtube-6R-aFWdSN6Y",
+    "at": "2026-11-19T23:04:32.363Z",
+    "read": "7f181744a42448dc",
+    "cuts": [
+      {
+        "field": "body",
+        "before": "Phủ một lớp giấy nến (giấy nướng bánh) lên trên đèn cho ánh sáng tỏa ra.",
+        "html": "Cách này chưa được thử, chỉ là một lựa chọn.",
+        "check": "source",
+        "why": "The original writer's own voice saying they have not tried this method.",
+        "quote": "Cách này chưa được thử, chỉ là một lựa chọn."
+      }
+    ],
+    "swaps": []
+  },
   "vi/guides/youtube-DkuoQLxF7u8 2026-11-15T15:47:39.278Z": {
     "key": "vi/guides/youtube-DkuoQLxF7u8",
     "at": "2026-11-15T15:47:39.278Z",
@@ -267,6 +283,22 @@
         "check": "source",
         "why": "Refers to the original writer's personal experience as an unnamed person the reader is meant to know.",
         "quote": "Phần so sánh bể là kinh nghiệm và ý thích của một người chơi theo hướng bố cục."
+      }
+    ],
+    "swaps": []
+  },
+  "vi/guides/youtube-Pn0-xaW8S3w 2026-11-19T23:04:32.363Z": {
+    "key": "vi/guides/youtube-Pn0-xaW8S3w",
+    "at": "2026-11-19T23:04:32.363Z",
+    "read": "19fcfad21d5410e6",
+    "cuts": [
+      {
+        "field": "body",
+        "before": "Ví dụ, một bể sinh thái nuôi cá Endler để ở 16 °C mà đàn cá vẫn khỏe.",
+        "html": "Đàn cá này được cho đẻ ở nước mát từ trước, và ít nhất một con cái đang mang bầu căng tròn.",
+        "check": "source",
+        "why": "Refers to the source's own fish and their history as if the reader knew them.",
+        "quote": "Đàn cá này được cho đẻ ở nước mát từ trước, và ít nhất một con cái đang mang bầu căng tròn"
       }
     ],
     "swaps": []
