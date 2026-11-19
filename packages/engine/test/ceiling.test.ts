@@ -263,8 +263,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-16T00:00:00+07:00', to: '2026-11-16T23:59:00+07:00', whole: true, steps: 498, backstop: 508, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 37, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22 },
     { from: '2026-11-17T00:00:00+07:00', to: '2026-11-17T23:59:00+07:00', whole: true, steps: 506, backstop: 516, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 8, glossary: 40, material: 8, ask: 2, ideas: 4, judge: 24, photos: 22, titles: 22, titlesCheck: 15 },
     { from: '2026-11-18T00:00:00+07:00', to: '2026-11-18T23:59:00+07:00', whole: true, steps: 503, backstop: 562, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 12, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 20, recheck: 12 },
-    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 507, backstop: 566, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
-    { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 526, backstop: 585, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
+    { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 521, backstop: 580, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
+    { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 540, backstop: 599, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
     { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 536, backstop: 595, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
     { from: '2026-11-21T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 522, backstop: 595, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25 },
     { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 443, backstop: 516, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 6 },
@@ -335,6 +335,11 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // (the chief of staff, 17 Nov 2026).
     expect(cap(when, 'github', 'recheck')).toBe(p.recheck ?? p.small)
     expect(cap(when, 'mac', 'recheck')).toBe(p.small)
+    // The video writer's check rules: $14 on the Mac on 19 Nov alone, with the Mac's backstop $14 higher, for about ten of
+    // Wed 18's held video guides written again from the new instructions and read by the check, before the change merges
+    // (the chief of staff, 19 Nov 2026).
+    expect(cap(when, 'mac', 'writer-evidence')).toBe(p.writer ?? p.small)
+    expect(cap(when, 'github', 'writer-evidence')).toBe(p.small)
     if (p.recheck) expect(t.github.backstop).toBe(180 + p.recheck)
     // A step that runs on the other machine, or a new one, has the small ceiling, never none.
     expect(cap(when, 'github', 'run')).toBe(p.small)
