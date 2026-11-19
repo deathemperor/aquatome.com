@@ -37,6 +37,7 @@ import { pageGroup } from './gbif'
 import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { rejectedEntry } from './photos'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
@@ -471,11 +472,20 @@ export async function ownPages(content: string, rows: readonly FishName[] = FISH
  * letters and digits. Where one caption sits under several figures, the first decides, as the picker keeps the first
  * figure of a caption. A photo with no caption, and one the saved copy doesn't show, can't be told and stay.
  */
-/** The never-again list as the sweep strips it: a listed photo leaves every page, but one a shop's own mark keeps (watermarks.ts keptOwnMark). */
+/**
+ * The never-again list as the sweep strips it: a listed photo leaves every page, by any of its addresses (photos.ts
+ * rejectedEntry), but one a shop's own mark keeps (watermarks.ts keptOwnMark) where it is listed for that mark.
+ * `why`: the reason it is listed under, for the report.
+ */
 async function neverAgain(root: string) {
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
-  return { rejected, listed: (url: string) => url in rejected && !kept(url) }
+  const entry = rejectedEntry(rejected)
+  const listed = (url: string) => {
+    const e = entry(url)
+    return !!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))
+  }
+  return { rejected, listed, why: (url: string) => entry(url)?.[1] ?? '' }
 }
 
 async function refusedByCredit(root: string, content: string): Promise<Map<string, string>> {
@@ -1060,7 +1070,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
   // (cycle-checks.sh swept_pull). What a second look agreed on joined the list above.
-  const { rejected, listed } = await neverAgain(root)
+  const { rejected, listed, why: listedWhy } = await neverAgain(root)
   const shownIn = async (kind: string) => (await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(id => join(content, kind, id, 'entity.json'))
   const galleryFiles = (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, 'gallery', f))
   // Equipment pages too (a category's hero and its types' photos, each language's copy): the photo check strips every
@@ -1074,7 +1084,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const removed: string[] = []
     stripPhotos(data, listed, removed, [])
     if (!removed.length) continue
-    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(rejected[url]!)})`)
+    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))
   }
@@ -1140,8 +1150,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // next plans. A loop whose poster is listed goes whole: the poster is required, and the footage shows what it shows.
   const unsplash = (url: string) => (url.startsWith('https://images.unsplash.com/') ? url.split('?')[0]! : url)
   const listedBase = new Map(Object.keys(rejected).filter(listed).map(u => [unsplash(u), u]))
-  // The address itself first: a large copy can be listed by its own address too.
-  const listedImg = (url: string) => listedBase.get(unsplash(url)) ?? listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp')))
+  // The address itself first: a large copy can be listed by its own address too. Then by another address of the same
+  // photo (listed): our copy whose source the list names, or the other way round.
+  const listedImg = (url: string) => listedBase.get(unsplash(url)) ?? listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp'))) ?? [url, url.replace(/-large\.webp$/, '.webp')].find(listed)
   const calFile = join(content, 'curation.json')
   const calRaw = await readFile(calFile, 'utf8').catch(() => null)
   if (calRaw) {
@@ -1154,7 +1165,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         if (!page) continue
         delete o![k]
         off++
-        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${compactRejection(rejected[page]!)})`)
+        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${compactRejection(rejected[page] ?? listedWhy(page))})`)
       }
     }
     for (const d of cal.days ?? []) {
