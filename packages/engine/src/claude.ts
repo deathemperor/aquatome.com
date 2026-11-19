@@ -75,7 +75,10 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], env: envFor(token) })
     let out = ''
     let err = ''
-    const timer = setTimeout(() => child.kill('SIGTERM'), opts.timeoutMs ?? 10 * 60_000)
+    // The engine's own timer: a call it stops says so, whatever the stopped process printed.
+    const ms = opts.timeoutMs ?? 10 * 60_000
+    let timedOut = false
+    const timer = setTimeout(() => { timedOut = true; child.kill('SIGTERM') }, ms)
     // Decoded across chunks: the pipe cuts a long answer at any byte, and a chunk decoded by itself turns a character cut
     // in two into U+FFFD (a Thai letter is three bytes: 38 Thai pages had one, 2026-11-10).
     child.stdout.setEncoding('utf8')
@@ -93,6 +96,7 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     child.on('error', e => reject(new LlmError(e.message)))
     child.on('close', code => {
       clearTimeout(timer)
+      if (timedOut) return reject(new LlmError(`claude timed out after ${Math.round(ms / 1000)} s`))
       try {
         const r = opts.onEvent ? JSON.parse(out.trim().split('\n').reverse().find(l => l.includes('"type":"result"')) ?? '') : JSON.parse(out)
         opts.onResult?.(r)

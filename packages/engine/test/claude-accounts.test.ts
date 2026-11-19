@@ -18,9 +18,11 @@ vi.mock('node:child_process', () => ({
   spawn: (_cmd: string, _args: string[], opts: { env?: NodeJS.ProcessEnv }) => {
     const token = opts.env?.CLAUDE_CODE_OAUTH_TOKEN
     spawned.push({ token: opts.env ? token : undefined, list: !!opts.env?.CLAUDE_CODE_OAUTH_TOKENS })
-    const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
+    // 'tok-hang' never answers, and ends only when the engine's timer kills it.
+    const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => { if (token === 'tok-hang') setImmediate(() => child.emit('close', null)); return true } })
     const a = token ? ANSWERS[token]! : ANSWERS['tok-ok']!
     child.stdin.on('finish', () => {
+      if (token === 'tok-hang') return
       child.stdout.end(JSON.stringify(a.json))
       setImmediate(() => child.emit('close', a.code))
     })
@@ -28,7 +30,7 @@ vi.mock('node:child_process', () => ({
   },
 }))
 const { LlmError, claudeCli } = await import('../src/claude')
-const { accountReport, envFor, NotTheAccount, onAccounts, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
+const { accountReport, envFor, NotTheAccount, onAccounts, onNextAccount, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
 const h = (t: string) => tokenHash(t)
@@ -236,4 +238,51 @@ test('the report and the log name tokens by number and hash, never the token', a
   const text = [...accountReport(), ...logs, rejectedTokens()].join('\n')
   expect(text).toContain(`token 3 (${h('tok-ok-2')}): 1 answered`)
   expect(text).not.toMatch(/tok-/)
+})
+
+test("a call made for the next account goes once to the account after the one in use, and nowhere else (the chief of staff, 19 Nov)", async () => {
+  setTokens('tok-broken\ntok-ok\ntok-ok-2')
+  // The first account fails for its own reason: it stays in use, and the next is asked once.
+  await expect(call()).rejects.toThrow('prompt is too long')
+  expect(await onNextAccount.run(true, call)).toEqual({ ok: true })
+  expect(spawned.map(x => x.token)).toEqual(['tok-broken', 'tok-ok'])
+  expect(logs).toContain(`claude: token 2 (${h('tok-ok')}) answered for token 1 (${h('tok-broken')})`)
+  // Calls after it go to the first account again.
+  await expect(call()).rejects.toThrow('prompt is too long')
+  expect(spawned.at(-1)!.token).toBe('tok-broken')
+  // The next account failing for its own reason: the call fails, and no third account is asked.
+  setTokens('tok-broken\ntok-broken-too\ntok-ok')
+  resetAccounts()
+  spawned.length = 0
+  ANSWERS['tok-broken-too'] = ANSWERS['tok-broken']!
+  await expect(onNextAccount.run(true, call)).rejects.toThrow('prompt is too long')
+  expect(spawned.map(x => x.token)).toEqual(['tok-broken-too'])
+  // Out of its limit, it is set aside as any account is.
+  setTokens('tok-broken\ntok-weekly')
+  resetAccounts()
+  await expect(onNextAccount.run(true, call)).rejects.toThrow(/weekly limit/)
+  expect(accountReport()).toEqual([`token 1 (${h('tok-broken')}): 0 answered`, `token 2 (${h('tok-weekly')}): 0 answered; set aside: usage limit until Nov 5 at 6am (UTC)`])
+  // One account, or none: nothing is called.
+  for (const list of ['tok-ok', undefined]) {
+    setTokens(list)
+    resetAccounts()
+    spawned.length = 0
+    await expect(onNextAccount.run(true, call)).rejects.toThrow('no other account to ask')
+    expect(spawned).toEqual([])
+  }
+})
+
+test("a call the engine's own timer stops says so, and isn't read as its account's failure", async () => {
+  setTokens('tok-hang\ntok-ok')
+  vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] })
+  try {
+    const stopped = expect(call()).rejects.toThrow(/^claude timed out after 600 s$/)
+    await vi.advanceTimersByTimeAsync(10 * 60_000)
+    await stopped
+  } finally {
+    vi.useRealTimers()
+  }
+  // No account is set aside for it (the report lists none), and the next isn't tried.
+  expect(accountReport()).toEqual([])
+  expect(spawned.map(x => x.token)).toEqual(['tok-hang'])
 })

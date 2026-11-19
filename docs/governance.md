@@ -740,7 +740,14 @@ The layers above still check the result.
     iNaturalist's 7), then the waiting photos of a page with no photo of its own, then the other waiting photos, the
     most-read pages first within each. A page's lead is judged in the first sheet its page gets, whatever its turn, so
     no photo judged before it goes ahead of it. Before all of them, `PHOTO_CHECK_FILL` of a cycle's sheets go to a
-    permitted source's photos that fill a page with none. And before the turns, since 2026-11-11: a page's lead that
+    permitted source's photos that fill a page with none. A sheet the model fails on for a reason that isn't a limit is
+    asked again on the same account after a minute, then once on the next account (`claude-accounts.ts`
+    `onNextAccount`); one no try answers is set aside (`engine-state/_photo-check-aside.json`) and goes first in the
+    next run, before everything else, until it is judged or its page no longer shows it, and a second sheet set aside
+    stops the run. A limit, the account's or the engine's own for the day, stops the run as before. Each failed try is
+    kept as its kind in a word of ours (timed out, overloaded, server error, network, or other with the status number
+    and the error's class name where the tool gave them), never the tool's text (the chief of staff, 19 Nov: three of
+    the eight runs from 18 Nov 11:10 judged nothing, each stopped by one failed call). And before the turns, since 2026-11-11: a page's lead that
     neither check has a verdict on that counts (a first check's "can't tell" does not), Flickr's and Commons' first and then the other sources', each on a sheet filled from
     its page; then the gallery of a page with no photo of its own. The owner had found a parasite paper's plate as a
     page's only photo, three days on the page and not yet judged, behind every more-read page's gallery (the chief of
@@ -759,7 +766,7 @@ The layers above still check the result.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
     the firemouth's and the flame tetra's only photos, a lake and a stream with no fish, led their pages, their index
     cards and the tank-mates blocks (a design review's find). Such a verdict is asked again (below).
-    Before everything else, since 2026-11-12: a fish's or a breed's head the box step found no animal in
+    Before everything else but a sheet set aside last run (above; the chief of staff, 19 Nov), since 2026-11-12: a fish's or a breed's head the box step found no animal in
     (`_photo-boxes.json`: null), on a sheet filled from its page. On 12 Nov 34 heads were a river, a lake or open water,
     and none had been judged (the chief of staff). Such a head is "not a photo of it", as above: it leaves the page, and
     a page with nothing else shows no photo, its tile "Chưa có ảnh" (no photo yet), until a photo of the fish arrives. A
