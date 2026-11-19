@@ -38,7 +38,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
-import { keptLast } from './own-mark'
+import { keptCapOwn, keptLast } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
 
@@ -163,6 +163,8 @@ export type SweepReport = {
   albums: string[]
   /** Aquarium Glaser kept-mark photos past what an album shows, left out of its file (own-mark.ts keptCap), `id: url`. */
   albumKeptOut: string[]
+  /** Aquarium Glaser kept-mark photos past what a page shows, left out of the page's own photos (own-mark.ts keptCapOwn), `kind/id: url`. */
+  ownKeptOut: string[]
   /**
    * Non-commercial photos taken off an album or a page (gallery.ts dropNonCommercial), `file: url`: every one with
    * IMAGE_SWITCHES.inatNonCommercial off, all but iNaturalist's album photos with it on.
@@ -537,7 +539,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -833,7 +835,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         now = grownFirst(now, x => ageOf(subjects[x.url]?.[p.id]) === true, x => grown(x, p.id) && !!lead && cls(x) <= cls(lead))
       }
       if (at >= 0) now.splice(at, 0, photos[at]!)
-      if (now.every((x, i) => x.url === photos[i]!.url)) continue
+      // No more of a screened shop's kept-mark photos than the page shows, its album read for a clean photo (own-mark.ts
+      // keptCapOwn; the chief of staff, 19 Nov). The album step leaves its own past what is left (gallery.ts orderAlbums).
+      if (now.some(x => kept(x.url))) {
+        const album = (JSON.parse(await readFile(join(content, 'gallery', `${p.id}.json`), 'utf8').catch(() => '{}')) as { photos?: Photo[] }).photos ?? []
+        const capped = keptCapOwn(now, album, kept)
+        now = capped.own
+        report.ownKeptOut.push(...capped.out.map(x => `${ref}: ${x.url}`))
+      }
+      if (now.length === photos.length && now.every((x, i) => x.url === photos[i]!.url)) continue
       if (now[0]!.url !== photos[0]!.url) report.named.push(`${ref}: ${photos[0]!.url} -> ${now[0]!.url}`)
       await write(p.file, p.raw, { ...p.e, photos: now })
       changed(`${ref}/entity.json`)

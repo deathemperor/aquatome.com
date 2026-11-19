@@ -299,25 +299,26 @@ function byKind(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
  * wherever six others show (the chief of staff, 2026-11-14: a measuring board led the green swordtail's 60), ordered the
  * same way among themselves. Then, whatever their rank, the photos the photo check could not tell show the page's subject
  * (`cantTell`: photo-check.ts cantTellOn), so a later run keeps the place the check gave them; then the photos with a
- * cleared shop's own mark kept (`kept`, own-mark.ts), ordered the same way among themselves (the chief of staff, 15 Nov);
- * AI pictures last. Each part is ordered on its own, so ordering an album twice changes nothing: the sweep orders every
+ * cleared shop's own mark kept (`kept`, own-mark.ts), ordered the same way among themselves (the chief of staff, 15 Nov),
+ * after every other real photo, a non-commercial one too (below); AI pictures last. Each part is ordered on its own, so ordering an album twice changes nothing: the sweep orders every
  * album so each cycle (orderAlbums), with the same `looks` as the album step, so the two agree. A photo its source names
  * only with "cf.", to its genus or as another fish (`named`, photo-named.ts) goes behind those it names better, among
  * the photos the check is sure of and among those it can't tell alike, so the photo check's moving the latter last keeps
  * the order (the chief of staff, 2026-11-14). A non-commercial photo (isNonCommercial: iNaturalist's CC BY-NC and CC
- * BY-NC-SA, behind their switch) comes after every open one, before the AI pictures, those ordered the same way among
- * themselves (the owner's yes, 10 Nov).
+ * BY-NC-SA, behind their switch) comes after every open one with no mark, those ordered the same way among themselves
+ * (the owner's yes, 10 Nov), and before the kept-mark photos: the owner was told a banner photo sits below the clean
+ * ones, and a non-commercial photo is a clean one (the chief of staff, 19 Nov).
  */
 export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false, at: ScreenedAt = () => undefined, looks: Looks = () => ({}), named: (p: GalleryPhoto) => Named = () => SPECIES, kept: (url: string) => boolean = () => false): GalleryPhoto[] {
-  const nc = photos.filter(p => !isGenerated(p) && isNonCommercial(p.licence))
-  if (nc.length && nc.length < photos.length) {
-    const rest = rankGallery(photos.filter(p => !nc.includes(p)), cantTell, at, looks, named, kept)
-    return [...rest.filter(p => !isGenerated(p)), ...rankGallery(nc, cantTell, at, looks, named, kept), ...rest.filter(isGenerated)]
-  }
   const marked = photos.filter(p => !isGenerated(p) && kept(p.url))
   if (marked.length) {
     const rest = rankGallery(photos.filter(p => !marked.includes(p)), cantTell, at, looks, named)
     return [...rest.filter(p => !isGenerated(p)), ...rankGallery(marked, cantTell, at, looks, named), ...rest.filter(isGenerated)]
+  }
+  const nc = photos.filter(p => !isGenerated(p) && isNonCommercial(p.licence))
+  if (nc.length && nc.length < photos.length) {
+    const rest = rankGallery(photos.filter(p => !nc.includes(p)), cantTell, at, looks, named)
+    return [...rest.filter(p => !isGenerated(p)), ...rankGallery(nc, cantTell, at, looks, named), ...rest.filter(isGenerated)]
   }
   const real = photos.filter(p => !isGenerated(p))
   const sure = real.filter(p => !cantTell(p.url)), unsure = real.filter(p => cantTell(p.url))

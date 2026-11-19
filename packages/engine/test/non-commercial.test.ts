@@ -269,13 +269,16 @@ test("the album step's iNaturalist byte cap, crossed: the batch under way finish
   expect(st.queue.map((c: { key: string }) => c.key)).toEqual(expect.arrayContaining(Array.from({ length: 8 }, (_, i) => `inat:${101 + i}`)))
 })
 
-test('album order: non-commercial photos after every open one, AI pictures last; a second pass changes nothing', () => {
+test('album order: non-commercial photos after every open one with no mark, the kept-mark (banner) photos after them, AI pictures last; a second pass changes nothing (the chief of staff, 19 Nov)', () => {
+  // Until 19 Nov the banner photos came before the non-commercial ones. The owner was told a banner photo sits below the
+  // clean ones, and a non-commercial photo is a clean one.
   const p = (n: string, licence: string, extra: Partial<GalleryPhoto> = {}): GalleryPhoto => ({ url: `https://media.aquatome.com/g/${n}.webp`, width: 1024, height: 768, licence, author: 'Sampletown', sourceUrl: `https://example.org/${n}`, kind: 'male', ...extra })
   const ai = p('ai', 'AI-generated', { generated: { model: 'm', driverModel: 'd', date: '2026-11-16', prompt: 'fish', referenceHash: 'a'.repeat(64) } })
-  const photos = [p('nc1', 'CC BY-NC', { best: true }), p('open1', 'CC BY'), ai, p('nc2', 'CC BY-NC-SA'), p('open2', 'CC0', { best: true })]
-  const once = rankGallery(photos)
-  expect(once.map(x => x.url.split('/').pop())).toEqual(['open2.webp', 'open1.webp', 'nc1.webp', 'nc2.webp', 'ai.webp'])
-  expect(rankGallery(once)).toEqual(once)
+  const photos = [p('banner', 'used with permission', { best: true }), p('nc1', 'CC BY-NC', { best: true }), p('open1', 'CC BY'), ai, p('nc2', 'CC BY-NC-SA'), p('open2', 'CC0', { best: true })]
+  const banner = (u: string) => u.endsWith('/banner.webp')
+  const once = rankGallery(photos, undefined, undefined, undefined, undefined, banner)
+  expect(once.map(x => x.url.split('/').pop())).toEqual(['open2.webp', 'open1.webp', 'nc1.webp', 'nc2.webp', 'banner.webp', 'ai.webp'])
+  expect(rankGallery(once, undefined, undefined, undefined, undefined, banner)).toEqual(once)
 })
 
 test('a non-commercial album photo never leads a page', () => {

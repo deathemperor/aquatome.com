@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -6,10 +6,11 @@ import { expect, test } from 'vitest'
 import { cardWorthy, ownMarkOnly, type Verdicts } from '../src/curation'
 import { galleries, orderAlbums, rankGallery, type GalleryPhoto } from '../src/gallery'
 import { leadChoice } from '../src/lead-photo'
-import { keptCap, OWN_MARK_SHOPS, retainedOwnMark } from '../src/own-mark'
+import { keptCap, keptCapOwn, OWN_MARK_SHOPS, retainedOwnMark } from '../src/own-mark'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { compactScreen } from '../src/photo-observations'
 import { SOURCES } from '../src/sources'
+import { sweep } from '../src/sweep'
 import { screenWatermarks, WATERMARK_SCHEMA, type WatermarkDeps } from '../src/watermarks'
 
 // A cleared shop's own mark on its own photo, kept by a record (the chief of staff, 15 Nov): through the watermark
@@ -289,6 +290,45 @@ test('an album shows at most three Glaser kept-mark photos, six where its page h
   // At or under its cap, the album as it was.
   const two = [clean, k[0]!, k[1]!]
   expect(keptCap(two, [], kept).album).toBe(two)
+})
+
+test('a page shows at most three Glaser kept-mark photos, its own and its album\'s together, six where it has no clean photo, its own first (the chief of staff, 19 Nov)', () => {
+  const k = [1, 2, 3, 4, 5, 6, 7, 8].map(n => ({ url: `https://media.aquatome.com/glaser/k${n}.webp` })), clean = { url: CLEAN }
+  const kept = (u: string) => u.includes('/glaser/')
+  // Four of its own and a clean photo in its album: three on the page, none in the album.
+  expect(keptCapOwn(k.slice(0, 4), [clean, k[4]!], kept)).toEqual({ own: k.slice(0, 3), out: [k[3]] })
+  expect(keptCap([clean, k[4]!], k.slice(0, 3), kept)).toEqual({ album: [clean], out: [k[4]] })
+  // Two of its own beside a clean one: one more in the album.
+  expect(keptCap(k.slice(2, 6), [clean, k[0]!, k[1]!], kept)).toEqual({ album: [k[2]], out: k.slice(3, 6) })
+  // No clean photo anywhere: six together, the page's own first.
+  expect(keptCapOwn(k.slice(0, 4), k.slice(4), kept).out).toEqual([])
+  expect(keptCap(k.slice(4), k.slice(0, 4), kept)).toEqual({ album: k.slice(4, 6), out: k.slice(6) })
+})
+
+test('the sweep leaves a page\'s own Glaser kept-mark photos past its cap out of the page\'s file and gives its album only the room left (the chief of staff, 19 Nov)', async () => {
+  const r = await mkdtemp(join(tmpdir(), 'aq-own-mark-sweep-'))
+  const c = join(r, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(r, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const k = [1, 2, 3, 4, 5, 6].map(n => `https://media.aquatome.com/glaser/k${n}.webp`)
+  const g = (u: string) => photo(u, 'glaser', PAGE.glaser), clean = { ...photo(CLEAN), licence: 'CC BY' }
+  const sections = [{ key: 'distribution', source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.com/x', html: '<p>Rivers.</p>' }]
+  await put(`species/${ID}/entity.json`, { id: ID, scientificName: 'Betta x', order: 'O', family: 'F', genus: 'Betta', group: 'g', places: [], dataCard: {}, sections, photos: [clean, ...k.slice(0, 4).map(g)], videos: [], productSlots: [], updatedAt: '2026-11-19' })
+  await put(`species/${ID}/vi.json`, { slug: 'ca-x', name: 'Cá x', altNames: [], sections: { 'distribution:seriouslyfish': '<p>Sông.</p>' }, quality: { score: 0.9, indexable: true } })
+  await put(`gallery/${ID}.json`, { id: ID, photos: k.slice(4).map(g), seen: 2, updatedAt: '2026-11-19' })
+  const rec = { ocr: [], watermark: true, kind: 'logo', retainedOwnMark: { source: 'glaser', sourceUrl: PAGE.glaser, owner: 'source' } }
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ [CLEAN]: { ocr: [], watermark: false, kind: 'none' }, ...Object.fromEntries(k.map(u => [u, rec])) }))
+  const report = await sweep(r, {})
+  expect((await json(r, `content/species/${ID}/entity.json`)).photos.map((p: { url: string }) => p.url)).toEqual([CLEAN, ...k.slice(0, 3)])
+  expect(await album(r)).toEqual([])
+  expect(report.ownKeptOut).toEqual([`species/${ID}: ${k[3]}`])
+  expect(report.albumKeptOut).toEqual(k.slice(4).map(u => `${ID}: ${u}`))
+  // Stored still and off the never-again list; a second sweep changes nothing.
+  expect(await json(r, 'engine-state/_photo-rejected.json').catch(() => ({}))).toEqual({})
+  const again = await sweep(r, {})
+  expect([again.ownKeptOut, again.albumKeptOut]).toEqual([[], []])
 })
 
 test('the album order leaves the Glaser kept-mark photos past the cap out of the album file, stored still and off the never-again list', async () => {
