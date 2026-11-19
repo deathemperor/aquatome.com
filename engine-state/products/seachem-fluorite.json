@@ -1,0 +1,300 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Product type",
+      "value": "Porous clay gravel substrate, specially fractured, for planted aquariums",
+      "source": 0
+    },
+    {
+      "key": "Composition",
+      "value": "Natural mineral ore; no coating or chemical treatment",
+      "source": 0
+    },
+    {
+      "key": "pH effect",
+      "value": "Does not change water pH",
+      "source": 0
+    },
+    {
+      "key": "Bag sizes",
+      "value": "3.5 kg and 7 kg",
+      "source": 0
+    },
+    {
+      "key": "Lifespan",
+      "value": "Lasts as long as the aquarium; never needs replacing (Seachem). Vietnamese shops say at least 3 years.",
+      "source": 0
+    },
+    {
+      "key": "Durability",
+      "value": "Stays intact when wet; does not soften or break down",
+      "source": 0
+    },
+    {
+      "key": "Origin",
+      "value": "USA",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "None",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "Flourite (original, dark grey/black)",
+      "specs": [
+        {
+          "key": "Bag sizes",
+          "value": "3.5 kg / 7 kg",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Flourite Black",
+      "specs": [
+        {
+          "key": "Colour",
+          "value": "Black",
+          "source": 3
+        },
+        {
+          "key": "Bag sizes",
+          "value": "3.5 kg / 7 kg",
+          "source": 3
+        },
+        {
+          "key": "Suggested plants",
+          "value": "Vallisneria, aroids (ráy), ferns",
+          "source": 4
+        }
+      ]
+    },
+    {
+      "name": "Flourite Red",
+      "specs": [
+        {
+          "key": "Note",
+          "value": "Part of the same range on Seachem's site; sold in Vietnam",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Flourite Dark",
+      "specs": [
+        {
+          "key": "Note",
+          "value": "Separate product in the same range; do not mix it up with Flourite Black",
+          "source": 4
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/seachem-flourite",
+      "variant": "Flourite 3.5 kg",
+      "vnd": 380000,
+      "source": 1
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/seachem-flourite",
+      "variant": "Flourite 7 kg",
+      "vnd": 650000,
+      "source": 1
+    },
+    {
+      "shop": "ShopThuySinh.com",
+      "url": "https://shopthuysinh.com/dat-nen-seachem-flourite-chuyen-dung-cho-cay-thuy-sinh",
+      "variant": "Flourite 3.5 kg",
+      "vnd": 290000,
+      "source": 2
+    },
+    {
+      "shop": "ShopThuySinh.com",
+      "url": "https://shopthuysinh.com/dat-nen-seachem-flourite-chuyen-dung-cho-cay-thuy-sinh",
+      "variant": "Flourite 7 kg",
+      "vnd": 490000,
+      "source": 2
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/seachem-flourite-black",
+      "variant": "Flourite Black 3.5 kg",
+      "vnd": 430000,
+      "source": 3
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://www.greendeal.vn/seachem-flourite-black",
+      "variant": "Flourite Black 7 kg",
+      "vnd": 750000,
+      "source": 3
+    },
+    {
+      "shop": "Wikicacanh (reference price)",
+      "url": "https://wikicacanh.com/seachem-flourite-black.html",
+      "variant": "Flourite Black 3.5 kg",
+      "vnd": 300000,
+      "source": 4
+    },
+    {
+      "shop": "Wikicacanh (reference price)",
+      "url": "https://wikicacanh.com/seachem-flourite-black.html",
+      "variant": "Flourite Black 7 kg",
+      "vnd": 530000,
+      "source": 4
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Made mainly for planted tanks, but works in any freshwater aquarium",
+      "source": 0
+    },
+    {
+      "fact": "Works best as the only substrate, but can be mixed with other gravel; no laterite needed",
+      "source": 0
+    },
+    {
+      "fact": "Can be used with an under-gravel filter",
+      "source": 0
+    },
+    {
+      "fact": "The shop says it is shrimp-safe",
+      "source": 1
+    },
+    {
+      "fact": "Can hold shrimp but is not optimised for them; a substrate made for shrimp may be better",
+      "source": 4
+    },
+    {
+      "fact": "Flourite Black is suggested for Bucephalandra, aroids and ferns",
+      "source": 4
+    },
+    {
+      "fact": "Because it does not change pH, it suits low-tech tanks where you don't want to soften the water",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "It comes pre-washed but can get dusty in transit, so rinse it before use (shops say 1–2 times)",
+      "source": 0
+    },
+    {
+      "fact": "Fill the tank slowly by pouring water into a bowl set on the substrate",
+      "source": 0
+    },
+    {
+      "fact": "Cloudy water at first is normal. Use filter floss and, if you like, Seachem Clarity to clear it faster",
+      "source": 0
+    },
+    {
+      "fact": "Water usually clears in about 2–12 hours, depending on the filter",
+      "source": 1
+    },
+    {
+      "fact": "To estimate how much you need: tank length (cm) × width (cm) ÷ 180 = kg. Example: a 100×40 cm tank needs about 22 kg",
+      "source": 4
+    },
+    {
+      "fact": "To add it to a running tank, add small rinsed batches 12–24 hours apart; fine particles may clog mechanical filter media",
+      "source": 0
+    },
+    {
+      "fact": "No need to replace it when nutrients run out; add liquid fertiliser or root tabs instead. Flourish, Flourish Tabs and Flourish Iron are optional add-ons",
+      "source": 1
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Hobbyists report heavy cloudiness and dust when setting up, and cloudiness again when gravel-vacuuming hard",
+      "source": 6
+    },
+    {
+      "fact": "Independent reviews say it does not feed plants on its own, so root feeders need root tabs. This contradicts shop claims that it supplies nutrients",
+      "source": 7
+    },
+    {
+      "fact": "Because it is crushed stone, it releases only limited nutrients",
+      "source": 4
+    },
+    {
+      "fact": "Prices vary widely between shops: the 3.5 kg bag ranges from 290,000 to 380,000 VND",
+      "source": 2
+    },
+    {
+      "fact": "The Greendeal listing contradicts itself on the colour of the original Flourite (dark grey/black vs dark red)",
+      "source": 1
+    },
+    {
+      "fact": "The Black version costs more than the original at the same shop: 430,000 vs 380,000 VND for 3.5 kg",
+      "source": 3
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Aquario",
+      "model": "Neo Soil (No CO2)",
+      "why": "A cheaper aqua soil (about 280,000 VND) made for low-tech planted tanks. Unlike Flourite, it is a nutrient soil, but it breaks down over time"
+    },
+    {
+      "brand": "ADA",
+      "model": "Aqua Soil Amazonia",
+      "why": "A premium, nutrient-rich soil that lowers pH; better for demanding stem plants and shrimp, but costs more and has a shorter life than Flourite"
+    },
+    {
+      "brand": "JBL",
+      "model": "Manado",
+      "why": "A cheaper, inert porous clay substrate with a similar long-lasting, non-decomposing role; needs root tabs too"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.seachem.com/flourite.php",
+      "title": "Seachem Flourite – product page",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.greendeal.vn/seachem-flourite",
+      "title": "SEACHEM - Flourite – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shopthuysinh.com/dat-nen-seachem-flourite-chuyen-dung-cho-cay-thuy-sinh",
+      "title": "Đất nền Seachem Flourite – ShopThuySinh.com",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.greendeal.vn/seachem-flourite-black",
+      "title": "SEACHEM - Flourite Black – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "https://wikicacanh.com/seachem-flourite-black.html",
+      "title": "Seachem Flourite Black – Wikicacanh",
+      "kind": "review"
+    },
+    {
+      "url": "https://thuysinhbichphuong.com/sp/seachem-flourite-black-phan-nen-dat-nen-thuy-sinh",
+      "title": "Thủy Sinh Bích Phương – product listing (Aquario Neo Soil)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.fishlore.com/aquariumfishforum/threads/seachem-fluorite-super-cloudy-dusty.376573/",
+      "title": "Seachem Fluorite super cloudy/dusty – FishLore forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.hepper.com/seachem-flourite-black-sand-review/",
+      "title": "Seachem Flourite Black Sand Review – Hepper",
+      "kind": "review"
+    }
+  ]
+}

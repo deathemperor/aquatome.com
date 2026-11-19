@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (154)
+# Tóm tắt chờ duyệt (155)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -292,6 +292,13 @@ Cá lược đuôi Sri Lanka (Belontia signata) có độ khó 4/8, cỡ 12 cm, 
 
 Kiểm tra:
 - The summary says "Cần ... bày nhiều chỗ ẩn, ánh sáng khá tối và có cây nổi", which presents these as requirements. The page only calls dim light and floating plants the most popular layout ("được chuộng nhất"). It also says that what else goes in the tank is mostly personal preference. Only the hiding places are advised ("nên chừa thật nhiều chỗ cho cá ẩn nấp").
+
+## Cá betta compuncta (Betta compuncta)
+id: `betta-compuncta`
+
+Hợp với người muốn dành riêng một bể cho loài betta ăn thịt, trưởng thành 7,6 cm. Cần nước 22–28 °C, pH 5–7; cá ưa nước mát hơn, nhưng nhiệt cao thì lên màu đẹp hơn. Khó nhất là tính hung dữ và cái miệng to, nên tốt nhất không ghép chung với cá khác.
+
+- Ghép chung với cá khác: cá ăn được bất cứ thứ gì lọt miệng và có thể hung dữ, nên nuôi riêng một bể.
 
 ## Cá betta Kuehne (Betta kuehnei)
 id: `betta-kuehnei`

@@ -889,6 +889,7 @@
     "matchType": "EXACT"
   },
   "Algumas especies": null,
+  "Alguns aspectos": null,
   "Allelon ngh": null,
   "Allelopathy trong": null,
   "Allelopathy xua": null,
@@ -1207,6 +1208,7 @@
     "genus": "Ameiurus",
     "matchType": "EXACT"
   },
+  "Americae fluviis": null,
   "Amiurus brunneus": {
     "canonicalName": "Ameiurus brunneus",
     "order": "Siluriformes",
@@ -3713,12 +3715,28 @@
     "genus": "Bagrus",
     "matchType": "EXACT"
   },
+  "Bagrus mesops": {
+    "canonicalName": "Sciades herzbergii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Sciades",
+    "matchType": "EXACT"
+  },
   "Bagrus micropogon": {
     "canonicalName": "Leiocassis micropogon",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Leiocassis",
+    "matchType": "EXACT"
+  },
+  "Bagrus proops": {
+    "canonicalName": "Sciades proops",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Sciades",
     "matchType": "EXACT"
   },
   "Bagrus thalassinus": {
@@ -7442,6 +7460,15 @@
     "genus": "Mayaheros",
     "matchType": "EXACT"
   },
+  "Ciliopagurus strigatus": {
+    "canonicalName": "Ciliopagurus strigatus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Diogenidae",
+    "genus": "Ciliopagurus",
+    "matchType": "EXACT"
+  },
   "Cincelichthys bocourti": {
     "canonicalName": "Cincelichthys bocourti",
     "order": "Perciformes",
@@ -9571,6 +9598,7 @@
   },
   "Cua mini": null,
   "Cua mua": null,
+  "Cua trong": null,
   "Cua xanh": null,
   "Cualac tessellatus": {
     "canonicalName": "Cualac tessellatus",
@@ -10169,6 +10197,15 @@
     "order": "Perciformes",
     "family": "Ambassidae",
     "genus": "Denariusa",
+    "matchType": "EXACT"
+  },
+  "Dendropoma petraeum": {
+    "canonicalName": "Dendropoma cristatum",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Littorinimorpha",
+    "family": "Vermetidae",
+    "genus": "Dendropoma",
     "matchType": "EXACT"
   },
   "Denkschriften der": null,
@@ -11043,6 +11080,15 @@
   "Endler lime": null,
   "Endler nguy": null,
   "Endler trong": null,
+  "Engina mendicaria": {
+    "canonicalName": "Engina mendicaria",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Neogastropoda",
+    "family": "Pisaniidae",
+    "genus": "Engina",
+    "matchType": "EXACT"
+  },
   "Engraulicypris sardella": {
     "canonicalName": "Engraulicypris sardella",
     "order": "Cypriniformes",
@@ -15996,6 +16042,7 @@
   "Juveniles occurred": null,
   "Juxtastiphodon has": null,
   "Kalaymyo lies": null,
+  "Kalimantan localities": null,
   "Kalimantan provinces": null,
   "Kalimantan tengah": null,
   "Kallada drainages": null,
@@ -18918,6 +18965,15 @@
     "family": "Nemacheilidae",
     "genus": "Nemacheilus",
     "matchType": "EXACT"
+  },
+  "Mespila globulus": {
+    "canonicalName": "Mespilia globulus",
+    "phylum": "Echinodermata",
+    "class": "Echinoidea",
+    "order": "Camarodonta",
+    "family": "Temnopleuridae",
+    "genus": "Mespilia",
+    "matchType": "FUZZY"
   },
   "Mespilia globulus": {
     "canonicalName": "Mespilia globulus",
@@ -22418,6 +22474,15 @@
     "genus": "Paedocypris",
     "matchType": "EXACT"
   },
+  "Paguristes cadenati": {
+    "canonicalName": "Paguristes cadenati",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Diogenidae",
+    "genus": "Paguristes",
+    "matchType": "EXACT"
+  },
   "Pahang states": null,
   "Palaemonetes sinensis": {
     "canonicalName": "Palaemon sinensis",
@@ -23816,6 +23881,15 @@
     "genus": "Perrunichthys",
     "matchType": "EXACT"
   },
+  "Petaloconchus varians": {
+    "canonicalName": "Petaloconchus varians",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Littorinimorpha",
+    "family": "Vermetidae",
+    "genus": "Petaloconchus",
+    "matchType": "EXACT"
+  },
   "Petenia splendida": {
     "canonicalName": "Petenia splendida",
     "order": "Perciformes",
@@ -24687,6 +24761,14 @@
   },
   "Plicofollis nella": {
     "canonicalName": "Plicofollis nella",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Plicofollis",
+    "matchType": "EXACT"
+  },
+  "Plicofollis platystomus": {
+    "canonicalName": "Plicofollis platystomus",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Ariidae",
@@ -25900,6 +25982,14 @@
     "family": "Bagridae",
     "genus": "Pseudomystus",
     "matchType": "EXACT"
+  },
+  "Pseudomystus heokkuii": {
+    "canonicalName": "Pseudomystus heokhuii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Pseudomystus",
+    "matchType": "FUZZY"
   },
   "Pseudomystus leiacanthus": {
     "canonicalName": "Pseudomystus leiacanthus",
@@ -28589,6 +28679,14 @@
     "genus": "Orthochromis",
     "matchType": "EXACT"
   },
+  "Sciadeichthys proops": {
+    "canonicalName": "Sciades proops",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Sciades",
+    "matchType": "EXACT"
+  },
   "Sciades herzbergii": {
     "canonicalName": "Sciades herzbergii",
     "order": "Siluriformes",
@@ -28739,6 +28837,14 @@
   "Seiryu trong": null,
   "Selangor states": null,
   "Selatan provinces": null,
+  "Selenapsis herzbergii": {
+    "canonicalName": "Sciades herzbergii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Ariidae",
+    "genus": "Sciades",
+    "matchType": "EXACT"
+  },
   "Selenotoca multifasciata": {
     "canonicalName": "Selenotoca multifasciata",
     "order": "Perciformes",

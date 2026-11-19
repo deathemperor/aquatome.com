@@ -8,8 +8,7 @@
       "guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria",
       "guides/youtube-0xEdMSmpNHo"
     ],
-    "mentions": 54,
-    "onSource": "https://www.aquariumcoop.com/blogs/aquarium/our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria"
+    "mentions": 54
   },
   "lemna-minor": {
     "name": "Lemna minor",
@@ -163,8 +162,7 @@
       "species/baryancistrus-beggini",
       "species/baryancistrus-demantoides"
     ],
-    "mentions": 15,
-    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
+    "mentions": 15
   },
   "vesicularia-dubyana": {
     "name": "Vesicularia dubyana",
@@ -507,6 +505,17 @@
     ],
     "mentions": 7
   },
+  "lysmata-wurdemanni": {
+    "name": "Lysmata wurdemanni",
+    "mentionedIn": [
+      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew",
+      "species/babylonia-spirata",
+      "species/margarites-pupillus",
+      "species/mespilia-globulus",
+      "species/micromussa-lordhowensis"
+    ],
+    "mentions": 6
+  },
   "bombina-orientalis": {
     "name": "Bombina orientalis",
     "mentionedIn": [
@@ -834,17 +843,6 @@
       "species/syncrossus-beauforti",
       "species/syncrossus-berdmorei",
       "species/systomus-orphoides"
-    ],
-    "mentions": 5
-  },
-  "lysmata-wurdemanni": {
-    "name": "Lysmata wurdemanni",
-    "mentionedIn": [
-      "species/babylonia-spirata",
-      "species/margarites-pupillus",
-      "species/mespilia-globulus",
-      "species/micromussa-lordhowensis",
-      "species/turbo-fluctuosus"
     ],
     "mentions": 5
   },
@@ -2011,6 +2009,30 @@
     ],
     "mentions": 2
   },
+  "rhynchocinetes-durbanensis": {
+    "name": "Rhynchocinetes durbanensis",
+    "mentionedIn": [
+      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew",
+      "guides/aquariumbreeder-reasons-why-corals-die-in-aquariums"
+    ],
+    "mentions": 2
+  },
+  "lysmata-boggessi": {
+    "name": "Lysmata boggessi",
+    "mentionedIn": [
+      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew",
+      "species/micromussa-lordhowensis"
+    ],
+    "mentions": 2
+  },
+  "echinometra-lucunter": {
+    "name": "Echinometra lucunter",
+    "mentionedIn": [
+      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew",
+      "species/gnathophyllum-americanum"
+    ],
+    "mentions": 2
+  },
   "amphiprion-clarkii": {
     "name": "Amphiprion clarkii",
     "mentionedIn": [
@@ -2481,14 +2503,6 @@
     "mentionedIn": [
       "species/amblyceps-arunachalense",
       "species/devario-devario"
-    ],
-    "mentions": 2
-  },
-  "sciades-herzbergii": {
-    "name": "Sciades herzbergii",
-    "mentionedIn": [
-      "species/anableps-anableps",
-      "species/ariopsis-assimilis"
     ],
     "mentions": 2
   },
@@ -3617,6 +3631,20 @@
     ],
     "mentions": 1
   },
+  "ciliopagurus-strigatus": {
+    "name": "Ciliopagurus strigatus",
+    "mentionedIn": [
+      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew"
+    ],
+    "mentions": 1
+  },
+  "paguristes-cadenati": {
+    "name": "Paguristes cadenati",
+    "mentionedIn": [
+      "guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew"
+    ],
+    "mentions": 1
+  },
   "penaeus-vannamei": {
     "name": "Penaeus vannamei",
     "mentionedIn": [
@@ -3715,13 +3743,6 @@
     ],
     "mentions": 1
   },
-  "rhynchocinetes-durbanensis": {
-    "name": "Rhynchocinetes durbanensis",
-    "mentionedIn": [
-      "guides/aquariumbreeder-reasons-why-corals-die-in-aquariums"
-    ],
-    "mentions": 1
-  },
   "brachionus-plicatilis": {
     "name": "Brachionus plicatilis",
     "mentionedIn": [
@@ -3733,6 +3754,13 @@
     "name": "Brachionus rotundiformis",
     "mentionedIn": [
       "guides/aquariumbreeder-rotifers-profile-and-culture-guide"
+    ],
+    "mentions": 1
+  },
+  "engina-mendicaria": {
+    "name": "Engina mendicaria",
+    "mentionedIn": [
+      "guides/aquariumbreeder-saltwater-aquarium-snails-pros-and-cons"
     ],
     "mentions": 1
   },
@@ -3789,6 +3817,20 @@
     "name": "Micranthemum tweedei",
     "mentionedIn": [
       "guides/aquariumbreeder-top-8-carpeting-plants-for-planted-tanks"
+    ],
+    "mentions": 1
+  },
+  "petaloconchus-varians": {
+    "name": "Petaloconchus varians",
+    "mentionedIn": [
+      "guides/aquariumbreeder-vermetid-snails-how-to-remove-them"
+    ],
+    "mentions": 1
+  },
+  "dendropoma-cristatum": {
+    "name": "Dendropoma cristatum",
+    "mentionedIn": [
+      "guides/aquariumbreeder-vermetid-snails-how-to-remove-them"
     ],
     "mentions": 1
   },
@@ -6568,13 +6610,6 @@
     ],
     "mentions": 1
   },
-  "echinometra-lucunter": {
-    "name": "Echinometra lucunter",
-    "mentionedIn": [
-      "species/gnathophyllum-americanum"
-    ],
-    "mentions": 1
-  },
   "hymenocera-picta": {
     "name": "Hymenocera picta",
     "mentionedIn": [
@@ -7172,13 +7207,6 @@
   },
   "serratia-marcescens": {
     "name": "Serratia marcescens",
-    "mentionedIn": [
-      "species/micromussa-lordhowensis"
-    ],
-    "mentions": 1
-  },
-  "lysmata-boggessi": {
-    "name": "Lysmata boggessi",
     "mentionedIn": [
       "species/micromussa-lordhowensis"
     ],
