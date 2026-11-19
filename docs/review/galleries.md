@@ -1,26 +1,26 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-18). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-19). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 759 | 31 | 9 | 26 | 773 |
-| rest | 20 | 1850 | 79 | 0 | 105 | 1824 |
+| covered | 30 | 760 | 31 | 9 | 26 | 774 |
+| rest | 20 | 1849 | 79 | 0 | 104 | 1824 |
 
-## Short of target: every source read (694)
+## Short of target: every source read (697)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
 | Page | Tier | Photos | Target |
 | --- | --- | --- | --- |
-| species/betta-mahachaiensis | covered | 9 | 30 |
+| species/betta-mahachaiensis | covered | 8 | 30 |
 | species/ageneiosus-inermis | rest | 5 | 20 |
 | species/amphilius-frieli | rest | 0 | 20 |
 | species/amphilius-kivuensis | rest | 0 | 20 |
-| species/barbodes-dunckeri | rest | 6 | 20 |
+| species/barbodes-dunckeri | rest | 4 | 20 |
 | species/cryptarius-truncatus | covered | 0 | 30 |
 | species/hemiancistrus-landoni | covered | 1 | 30 |
 | species/hypostomus-hemicochliodon | covered | 2 | 30 |
@@ -30,20 +30,19 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/neoplecostomus-microps | covered | 0 | 30 |
 | species/pachypterus-atherinoides | covered | 0 | 30 |
 | species/parailia-occidentalis | covered | 0 | 30 |
-| species/paravandellia-oxyptera | covered | 3 | 30 |
-| species/wallago-attu | covered | 3 | 30 |
+| species/paravandellia-oxyptera | covered | 1 | 30 |
+| species/wallago-attu | covered | 2 | 30 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 30 | 100 |
 | species/trigonostigma-heteromorpha | staple | 27 | 100 |
-| species/symphysodon-aequifasciatus | staple | 64 | 100 |
-| species/puntius-titteya | staple | 15 | 100 |
-| species/danio-rerio | staple | 34 | 100 |
+| species/symphysodon-aequifasciatus | staple | 63 | 100 |
+| species/puntius-titteya | staple | 14 | 100 |
+| species/danio-rerio | staple | 44 | 100 |
 | species/mikrogeophagus-ramirezi | staple | 28 | 100 |
 | breeds/balloon-molly | shop | 2 | 60 |
 | species/anentome-helena | shop | 14 | 60 |
 | plants/anubias-barteri | shop | 14 | 60 |
 | breeds/flowerhorn-cichlid | shop | 21 | 60 |
-| plants/microsorum-pteropus | shop | 32 | 60 |
 | species/gymnocorymbus-ternetzi | shop | 50 | 60 |
 | plants/blyxa-japonica | shop | 2 | 60 |
 | breeds/oranda-goldfish | shop | 29 | 60 |
@@ -259,7 +258,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/datnioides-microlepis | popular | 2 | 40 |
 | species/datnioides-pulcher | popular | 2 | 40 |
 | species/pangasianodon-hypophthalmus | popular | 30 | 40 |
-| species/dichotomyctere-nigroviridis | popular | 13 | 40 |
+| species/dichotomyctere-nigroviridis | popular | 12 | 40 |
 | species/pomacea-diffusa | popular | 16 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
@@ -710,3 +709,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/metaloricaria-nijsseni | covered | 0 | 30 |
 | species/microctenopoma-fasciolatum | covered | 1 | 30 |
 | species/nannostomus-anduzei | covered | 0 | 30 |
+| species/neblinichthys-pilosus | covered | 0 | 30 |
+| species/nematogenys-inermis | covered | 2 | 30 |
+| species/neolebias-ansorgii | covered | 10 | 30 |
+| species/netuma-thalassina | covered | 0 | 30 |

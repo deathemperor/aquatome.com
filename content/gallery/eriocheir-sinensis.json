@@ -62,57 +62,29 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/395366345.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/395366345-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://www.inaturalist.org/photos/395366345",
-      "caption": "Cua len Trung Quốc giơ càng trên nền bùn",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/87289211.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/87289211-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/136932974.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/136932974-480.webp",
       "width": 1024,
-      "height": 682,
+      "height": 768,
       "licence": "CC BY",
-      "author": "Lars Willighagen",
-      "sourceUrl": "https://www.inaturalist.org/photos/87289211",
-      "caption": "Cua len Trung Quốc bò trên bãi cát ven sông",
+      "author": "Andrea",
+      "sourceUrl": "https://www.inaturalist.org/photos/136932974",
+      "caption": "Cua len Trung Quốc trưởng thành bên bờ nước, nhìn rõ càng lông",
       "best": true,
       "kind": "habitat",
       "setup": false,
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/87289218.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/87289218-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/136933306.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/136933306-480.webp",
       "width": 1024,
-      "height": 682,
+      "height": 768,
       "licence": "CC BY",
-      "author": "Lars Willighagen",
-      "sourceUrl": "https://www.inaturalist.org/photos/87289218",
-      "caption": "Cua len Trung Quốc trên cát ẩm dưới nắng",
+      "author": "Andrea",
+      "sourceUrl": "https://www.inaturalist.org/photos/136933306",
+      "caption": "Cua len Trung Quốc đang bò trên đá ven sông",
       "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/395366159.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/395366159-480.webp",
-      "width": 1200,
-      "height": 1600,
-      "licence": "CC BY",
-      "author": "Michael Bakker Paiva",
-      "sourceUrl": "https://www.inaturalist.org/photos/395366159",
-      "caption": "Cua len nhỏ bò trên bùn ven sông",
-      "best": false,
       "kind": "habitat",
       "setup": false,
       "unchecked": true
@@ -252,18 +224,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/2fcefe87926e7f92.webp",
-      "thumb": "https://media.aquatome.com/commons/2fcefe87926e7f92-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Peter van der Sluijs",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wolhandkrabben_kunnen_zeer_groot_worden.jpg",
-      "caption": "Cua len Trung Quốc bò trên nền đá ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c39e9bdc58a8ff91.webp",
       "thumb": "https://media.aquatome.com/commons/c39e9bdc58a8ff91-480.webp",
       "width": 1200,
@@ -274,9 +234,35 @@
       "caption": "Cua len Trung Quốc trên bãi cát cạnh vỏ sò",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/87289211.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/87289211-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Lars Willighagen",
+      "sourceUrl": "https://www.inaturalist.org/photos/87289211",
+      "caption": "Cua len Trung Quốc bò trên bãi cát ven sông",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/87289218.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/87289218-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Lars Willighagen",
+      "sourceUrl": "https://www.inaturalist.org/photos/87289218",
+      "caption": "Cua len Trung Quốc trên cát ẩm dưới nắng",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
-  "seen": 114,
-  "updatedAt": "2026-11-18",
-  "builtAt": "2026-11-18"
+  "seen": 134,
+  "updatedAt": "2026-11-19",
+  "builtAt": "2026-11-19"
 }

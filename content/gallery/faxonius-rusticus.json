@@ -2,18 +2,6 @@
   "id": "faxonius-rusticus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/75456771.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/75456771-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Nick Tobler (Cowturtle)",
-      "sourceUrl": "https://www.inaturalist.org/photos/75456771",
-      "caption": "Hai con tôm càng đỏ gỉ trên đá ngoài tự nhiên",
-      "best": true,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/25379915.webp",
       "thumb": "https://media.aquatome.com/inaturalist/25379915-480.webp",
       "width": 768,
@@ -26,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/5838607.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/5838607-480.webp",
-      "width": 1000,
-      "height": 664,
-      "licence": "CC BY-SA",
-      "author": "psweet",
-      "sourceUrl": "https://www.inaturalist.org/photos/5838607",
-      "caption": "Tôm càng đỏ gỉ càng lớn trên bãi cát",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/30927920.webp",
       "thumb": "https://media.aquatome.com/inaturalist/30927920-480.webp",
       "width": 1024,
@@ -48,18 +24,6 @@
       "caption": "Tôm càng đỏ gỉ với đốm đỏ đặc trưng bên bờ nước",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/81960078.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/81960078-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Dan Riley",
-      "sourceUrl": "https://www.inaturalist.org/photos/81960078",
-      "caption": "Tôm càng đỏ gỉ trưởng thành với càng lớn trên nền gỗ",
-      "best": true,
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/35149474.webp",
@@ -194,6 +158,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/75456771.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/75456771-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/75456771",
+      "caption": "Hai con tôm càng đỏ gỉ trên đá ngoài tự nhiên",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/commons/77062fb0e30bb3fc.webp",
       "thumb": "https://media.aquatome.com/commons/77062fb0e30bb3fc-480.webp",
       "width": 1200,
@@ -204,6 +180,18 @@
       "caption": "Tôm càng đỏ gỉ nhìn chính diện, càng xanh lục trong tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/81960078.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/81960078-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Dan Riley",
+      "sourceUrl": "https://www.inaturalist.org/photos/81960078",
+      "caption": "Tôm càng đỏ gỉ trưởng thành với càng lớn trên nền gỗ",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/0aa896a0a6bebd0c.webp",

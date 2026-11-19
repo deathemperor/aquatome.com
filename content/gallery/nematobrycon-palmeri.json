@@ -50,6 +50,48 @@
       "kind": "male"
     },
     {
+      "url": "https://media.aquatome.com/flickr/31547544986.webp",
+      "thumb": "https://media.aquatome.com/flickr/31547544986-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY 2.0",
+      "author": "brian.gratwicke",
+      "sourceUrl": "https://www.flickr.com/photos/19731486@N07/31547544986",
+      "caption": "Cá emperor tetra đực với vây kéo dài trên nền tối",
+      "best": true,
+      "kind": "male",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/43706789271.webp",
+      "thumb": "https://media.aquatome.com/flickr/43706789271-480.webp",
+      "width": 1023,
+      "height": 655,
+      "licence": "CC0 1.0",
+      "author": "deczak",
+      "sourceUrl": "https://www.flickr.com/photos/159675085@N03/43706789271",
+      "caption": "Cá emperor tetra bơi trong bể có cây thủy sinh",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/43706787731.webp",
+      "thumb": "https://media.aquatome.com/flickr/43706787731-480.webp",
+      "width": 1023,
+      "height": 655,
+      "licence": "CC0 1.0",
+      "author": "deczak",
+      "sourceUrl": "https://www.flickr.com/photos/159675085@N03/43706787731",
+      "caption": "Cá emperor tetra đực ánh xanh trong bể thủy sinh",
+      "best": true,
+      "kind": "male",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/9440ac5d46c16b6b.webp",
       "thumb": "https://media.aquatome.com/commons/9440ac5d46c16b6b-480.webp",
       "width": 1200,
@@ -110,7 +152,7 @@
       "kind": "other"
     }
   ],
-  "seen": 14,
-  "updatedAt": "2026-11-02",
-  "builtAt": "2026-11-02"
+  "seen": 20,
+  "updatedAt": "2026-11-19",
+  "builtAt": "2026-11-19"
 }
