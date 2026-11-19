@@ -100,7 +100,7 @@ export async function judgeSheet(photos: { b: Buffer; ocr: WatermarkEntry['ocr']
     if(!(PHOTO_MARK_KINDS as readonly unknown[]).includes(p.kind))continue
     const shop = photos[p.n - 1]!.shop
     if (shop && typeof p.own !== 'boolean') continue
-    const keep = shop && p.watermark && p.own ? { retainedOwnMark: { source: shop.source, sourceUrl: shop.sourceUrl, owner: 'source' } } : {}
+    const keep = shop && p.watermark && p.own ? { retainedOwnMark: { source: shop.source, sourceUrl: shop.sourceUrl, owner: 'source', by: 'screen' } } : {}
     const {ocr:_ocr,...record}=compactScreen({ocr:[],watermark:p.watermark,kind:p.watermark?p.kind:'none',locations:p.locations,what:p.what,...keep})
     out[p.n - 1] = record
   }

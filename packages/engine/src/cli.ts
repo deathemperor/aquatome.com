@@ -118,6 +118,7 @@ import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
 import { askAlbums, askSchema, type AskTile } from './album-ask'
 import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
+import { gitHistory, historyCandidates, returnShopPhotos } from './shop-return'
 import { imageSteps } from './image-steps'
 import { runPhotoPrivacyCommand } from './photo-privacy'
 import { calibrateGenerated, calibrateMarks, type CalibrationCase } from './image-calibration'
@@ -468,6 +469,25 @@ if (cmd === 'photo-privacy') {
   for (const x of r.held) console.log(`held for a second look: ${x}`)
   for (const x of r.kept) console.log(`kept (a required hero with nothing to replace it): ${x}`)
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
+} else if (cmd === 'shop-return') {
+  // Aquarium Glaser photos the never-again list holds for a mark, back on the pages in --pages (a file, `kind/id` a line),
+  // where the watermark screen finds every mark the shop's own (shop-return.ts), on the chief of staff's word. A hand run.
+  if (!values.pages) throw new Error('shop-return needs --pages <file>')
+  const pages = (await readFile(values.pages, 'utf8')).split('\n').map(x => x.trim()).filter(Boolean)
+  const rejected = JSON.parse(await readFile(join(ROOT, 'engine-state/_photo-rejected.json'), 'utf8')) as Record<string, string>
+  const candidates = historyCandidates(pages, rejected, gitHistory(ROOT))
+  const r = await returnShopPhotos(ROOT, candidates, {
+    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
+  }, { today: vnDate(new Date()), limit: values.limit ? Number(values.limit) : 20 })
+  console.log(`shop-return: ${pages.length} pages, ${candidates.length} listed photos they showed, ${r.returned.length} back, ${r.resumed.length} back from a run that stopped, ${r.refused.length} refused, ${r.relisted.length} left listed (listed again, or no page left), ${r.unanswered.length} with no answer, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.returned) console.log(`back: ${x}`)
+  for (const x of r.refused) console.log(`refused, stays listed: ${x}`)
+  for (const x of r.unanswered) console.log(`no answer, asked next run: ${x}`)
+  for (const x of r.skipped) console.log(`skipped: ${x}`)
+  for (const x of r.failed) console.log(`failed: ${x}`)
+  for (const x of r.resumed) console.log(`back, finished from a run that stopped: ${x}`)
+  for (const x of r.relisted) console.log(`stays listed, listed again or no page left: ${x}`)
 } else if (cmd === 'photos') {
   // Pages with fewer than 3 photos: re-read their source pages for photos the picker used to miss (monthly per page).
   // --only id,id: these pages alone, read now (first in line).
@@ -622,7 +642,7 @@ if (cmd === 'photo-privacy') {
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
   for (const x of [...r.secondLook.map(x => `held for a second look: ${x}`), ...r.agreed.map(x => `second look agreed, now never-again: ${x}`)]) console.log(x)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
-  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`), ...r.albums.map(x => `album lead: ${x}`), ...r.albumKeptOut.map(x => `album kept-mark photo past its cap, left out: ${x}`)]) console.log(x)
+  for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`), ...r.albums.map(x => `album lead: ${x}`), ...r.albumKeptOut.map(x => `album kept-mark photo past its cap, left out: ${x}`), ...r.ownKeptOut.map(x => `page's own kept-mark photo past its cap, left out: ${x}`)]) console.log(x)
   // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
   const dated = await updatePageDates(join(ROOT, 'content'))
   console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
