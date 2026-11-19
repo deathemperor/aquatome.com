@@ -20,6 +20,9 @@ test("the edge is the ray's airport code, and the address keeps its query but no
   expect(edgeOf({ 'cf-ray': 'malformed' })).toBe('?')
   expect(edgeOf()).toBe('?')
   expect(pathOf('https://aquatome.com/tim-kiem/?q=neon')).toBe('/tim-kiem/?q=neon')
+  expect(pathOf('https://aquatome.com/cong-cu/the-tich-be/?l=60&w=30&h=36')).toBe('/cong-cu/the-tich-be/?l=60&w=30&h=36')
+  // Any key not the checks' own cuts the whole query: it can carry a code or a token.
+  expect(pathOf('https://aquatome.com/ca/x/?q=neon&token=abc123')).toBe('/ca/x/?…')
 })
 
 // The night of 18 Nov: three Lighthouse runs missed the desktop paint budget on a round trip to the site of 112 to 169 ms
@@ -32,20 +35,23 @@ test("a Lighthouse line's route: the document's edge and the round trip to each 
 })
 
 // The same night: three bursts of page loads past 30 s, and no network log to tell which request held each page's load.
-test('a check that ran out of time names what its page was still waiting on, longest first, five at most, queries cut', () => {
+test('a check that ran out of time names what its page was still waiting on, longest first, five at most, nothing secret', () => {
   const own = 'https://aquatome.com'
   const open = [
     { url: `${own}/_astro/a.js`, type: 'script', ms: 3_400 },
     { url: `${own}/api/sign-in?code=123456`, type: 'fetch', ms: 29_600 },
-    { url: 'https://media.aquatome.com/commons/x.webp', type: 'image', ms: 28_200 },
+    { url: 'https://media.aquatome.com/commons/x.webp?sig=abc', type: 'image', ms: 28_200 },
     ...Array.from({ length: 4 }, (_, i) => ({ url: `${own}/f${i}.woff2`, type: 'font', ms: 1_000 + i })),
   ]
+  // The site's own query keys print (pathOf); another host prints its name alone, never its path or query.
   expect(waitingLines(open, own)).toEqual([
     'live load: waiting on /api/sign-in?… (fetch) for 30 s',
-    'live load: waiting on media.aquatome.com/commons/x.webp (image) for 28 s',
+    'live load: waiting on media.aquatome.com (image) for 28 s',
     'live load: waiting on /_astro/a.js (script) for 3 s',
     'live load: waiting on /f3.woff2 (font) for 1 s',
     'live load: waiting on /f2.woff2 (font) for 1 s',
   ])
+  expect(waitingLines([{ url: `${own}/tim-kiem/?q=betta`, type: 'fetch', ms: 6_000 }, { url: 'https://accounts.example.com/o/oauth2/x/abc123def', type: 'document', ms: 5_000 }], own))
+    .toEqual(['live load: waiting on /tim-kiem/?q=betta (fetch) for 6 s', 'live load: waiting on accounts.example.com (document) for 5 s'])
   expect(waitingLines([], own)).toEqual([])
 })
