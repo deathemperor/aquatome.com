@@ -19,6 +19,7 @@ import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
 import { retitleGuide, sourceTitle, titleClashes, titleKey } from './guide-titles'
+import { refusedSweep } from './refused-sources'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
 import { viSearchWords, viWording } from './sanitize'
@@ -154,6 +155,8 @@ export type SweepReport = {
   noAnimal: string[]
   /** Photos the photo check refused, kept off a page or an album it is back on (photo-check.ts refusedOn), `file: url (why)`. */
   refused: string[]
+  /** A refused site's facts taken out of the research kept, and its pages out of a page's reference list (refused-sources.ts), `file: what left`. */
+  refusedSources: string[]
   /** Pages that rule leaves as they are: held by the check's last run, or more than EMPTY_CAP of them it would leave with no photo, `kind/id (why)`. */
   refusedHeld: string[]
   /** Albums put in the album order (gallery.ts orderAlbums) whose lead photo changed, `id: old -> new`. */
@@ -532,13 +535,18 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
   // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
   // school size and the text read the page as it is now (Astra, 2026-11-13).
   for (const f of report.folds = await foldPages(root)) changed(`species/${f.split(' → ')[1]}`)
+  // A refused site's facts out of the research kept, and its pages out of every page's reference list (refused-sources.ts):
+  // on the merge at a cycle's push too, so a run on older code that wrote them again doesn't bring them back (the chief of
+  // staff, 17 Nov 2026). Before the pages are read, so they're read as they are now.
+  const cleaned = await refusedSweep(root)
+  report.refusedSources = [...cleaned.facts.map(f => `${f.file}: ${f.dropped} out`), ...cleaned.refs.map(f => `${f.file}: refs lose ${f.urls.length}`), ...cleaned.failed.map(f => `${f} (not cleaned)`)]
   // A group its order doesn't allow, before anything reads the group.
   for (const id of report.regrouped = await regroupPages(content)) changed(`species/${id}/entity.json`)
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so

@@ -113,6 +113,12 @@ test("a guide never cites a page research may not read: a marketplace's, the mag
   }
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
   expect(e.refs.map((x: { url: string }) => x.url)).toEqual(['https://edis.ifas.ufl.edu/x', 'https://example.org/epsom'])
+  // The research kept holds no refused site's page, nor what it alone says; the other pages research may not read stay in
+  // it, as before (the chief of staff, 17 Nov 2026: Thursday's change, refused-sources.ts).
+  const kept = JSON.parse(await readFile(join(root, 'engine-state/topics/aquatome-ca-bi-loi-mat-popeye.json'), 'utf8')) as TopicFacts
+  expect(kept.sources.map(x => x.url)).toEqual([...facts.sources.map(x => x.url), ...off.slice(0, 5)])
+  expect(kept.facts.map(f => f.fact)).not.toContain('Only off-limits 5')
+  expect(kept.facts.map(f => f.fact)).toContain('Only off-limits 4')
   // Checked again later (review-backfill.ts), against the facts its writer had: the same facts, numbered the same, none of
   // the refused pages' (Codex's read, 14 Nov 2026: the recheck read the research as saved, before the refusal).
   const factsOf = (p: string) => { const f = JSON.parse(p.slice(p.indexOf('FACTS:\n') + 7, p.indexOf('\n\nGUIDE:'))); return { facts: f.facts, sources: f.sources } }
@@ -512,7 +518,9 @@ test('a guide\'s research keeps a figure to its page\'s place and adds Vietnam n
   const r = await makeTopic(root, { research: async ({ prompt }) => { asked = prompt; return { ...facts, found: false } as never }, llm: async () => { throw new Error('nothing is written') } }, { topic: 'Cá bỏ ăn', kind: 'care' })
   expect(r).toMatchObject({ skipped: 'Cá bỏ ăn: nothing reliable found' })
   expect(asked).toContain('A figure keeps its page\'s place: a figure a page gives for one country, city or climate (room temperatures in Singapore, a pond\'s in Florida) names that place in the fact, as the page does.')
-  expect(asked).toContain('Never add that a fact applies to Vietnam, or to anywhere wider than the page names')
-  expect(asked).toContain('a fact from a page outside Vietnam says Vietnam only where the page itself does')
+  expect(asked).not.toContain('anywhere wider than the page names')
+  expect(asked).toContain('A fact from a page outside Vietnam says Vietnam only where the page itself does')
+  // Not "anywhere wider than the page names", which reads loosely (the chief of staff, 17 Nov 2026, on the reader's point).
+  expect(asked).toContain('A fact names no place its page doesn\'t name: never add Vietnam, a region or a climate ("the tropics", "Southeast Asia", "hot countries") to what a page says')
   expect(asked).toContain('vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there)')
 })

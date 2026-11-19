@@ -16,6 +16,7 @@ import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 import { TANK_RULE, withTanks } from './round'
 import { foreignSeasons, rendered } from './seasons'
+import { withoutRefused } from './refused-sources'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -85,7 +86,7 @@ Prefer aquatic vets, universities and extension services (for example UF/IFAS, M
 - sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind, by who wrote it and for whom: ${KINDS.map(k => `${k}: ${SOURCE_KINDS[k]}`).join('; ')}.
 - found: false if this is not a real fishkeeping topic or nothing reliable was found.
 
-Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. A figure keeps its page's place: a figure a page gives for one country, city or climate (room temperatures in Singapore, a pond's in Florida) names that place in the fact, as the page does. Never add that a fact applies to Vietnam, or to anywhere wider than the page names ("relevant to Vietnam's hot season", "applies equally to Vietnam"): a fact from a page outside Vietnam says Vietnam only where the page itself does. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Leave out a test's lethal level (LC50, LD50, the level that killed half the animals tested): give what the source says is safe or harmful, or that the substance is toxic at low levels. Never fetch Shopee, Lazada or Tiki pages.`
+Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. A figure keeps its page's place: a figure a page gives for one country, city or climate (room temperatures in Singapore, a pond's in Florida) names that place in the fact, as the page does. A fact names no place its page doesn't name: never add Vietnam, a region or a climate ("the tropics", "Southeast Asia", "hot countries") to what a page says, nor that it applies there ("relevant to Vietnam's hot season", "applies equally to Vietnam"). A fact from a page outside Vietnam says Vietnam only where the page itself does. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Leave out a test's lethal level (LC50, LD50, the level that killed half the animals tested): give what the source says is safe or harmful, or that the substance is toxic at low levels. Never fetch Shopee, Lazada or Tiki pages.`
 
 /**
  * A dose a reader would measure out, in a fact's words: an amount, or a salt's percentage. The owner's chief, 8 Nov 2026,
@@ -281,7 +282,8 @@ function localFacts(researched: TopicFacts, entity: GuideEntity) {
 export async function recheckTopic(root: string, llm: Llm, id: string, lang: 'vi' | TargetLang): Promise<Grounded> {
   const dir = join(root, 'content/guides', id)
   const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
-  const researched = await read<TopicFacts>(join(root, 'engine-state/topics', `${id}.json`))
+  // As every reader of kept research: without a refused site's facts (refused-sources.ts).
+  const researched = withoutRefused(await read<TopicFacts>(join(root, 'engine-state/topics', `${id}.json`))).kept
   const entity = await read<GuideEntity>(join(dir, 'entity.json'))
   const t = await read<Translation>(join(dir, `${lang}.json`))
   const vi = lang === 'vi' ? t : await read<Translation>(join(dir, 'vi.json'))
@@ -339,7 +341,8 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   const kept = o.reuse ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as TopicFacts | null : null
   // Forum threads on the topic (engine forum notes): a translated post leads to its original, the source to cite.
   const leads = kept ? '' : topicLeads(await readForumState(join(root, 'engine-state/forum/diendancacanh.json')), a.topic) + (o.leads ?? '')
-  const researched = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  const researched = withoutRefused(kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(a) + leads, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })).kept
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 
@@ -408,7 +411,7 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   const file = join(root, 'content/guides', id, `${lang}.json`)
   if (!o.redo && (await readFile(file, 'utf8').then(() => true, () => false))) return { id, skipped: 'done' }
   return piece(`${lang}/${id}`, async () => {
-    const researched = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts
+    const researched = withoutRefused(JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts).kept
     const vi = JSON.parse(await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')) as { name: string }
     const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
     const { facts, refs, sources } = localFacts(researched, entity)

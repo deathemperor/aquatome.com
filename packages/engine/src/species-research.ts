@@ -19,6 +19,7 @@ import type { VideoMeta } from './youtube'
 import { VI_STYLE as STYLE } from './phrases'
 import { TANK_RULE, withTanks } from './round'
 import { WikimediaRefused } from './wikimedia-rest'
+import { withoutRefused } from './refused-sources'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/species.md', import.meta.url), 'utf8'))
 
@@ -199,7 +200,8 @@ export async function makeSpecies(root: string, d: SpeciesDeps, a: SpeciesAsk, o
   if (was?.sections.some(s => s.source !== 'aquatome')) return { id, skipped: `${sci}: a licensed source has its page` }
   const factsFile = join(root, 'engine-state/species-research', `${id}.json`)
   const kept = o.reuse ? await read<SpeciesFacts>(factsFile) : null
-  const researched = kept ?? await d.research<SpeciesFacts>({ system: 'You research fish species carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(taxon, a.videos ?? []), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  const researched = withoutRefused(kept ?? await d.research<SpeciesFacts>({ system: 'You research fish species carefully and cite every fact. Reply only with JSON.', prompt: researchPrompt(taxon, a.videos ?? []), schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })).kept
   if (!kept) { await mkdir(join(root, 'engine-state/species-research'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${sci}: no published source describes it` }
   const cited = citeResearch(researched, a.videos ?? [])

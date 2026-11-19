@@ -44,6 +44,7 @@ import { readerReport, readPages } from './reader'
 import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
 import { sweep } from './sweep'
+import { refusedSweep, WAITING } from './refused-sources'
 import { dropFacePhotos, visionFaces } from './faces'
 import { boxPhotos, visionSubjects } from './photo-boxes'
 import { backfillPhotos } from './photo-backfill'
@@ -585,6 +586,15 @@ if (cmd === 'photo-privacy') {
   // records back. It can go once it has run everywhere.
   const r = await redoUnread(ROOT)
   console.log(`redo-unread: ${r.restored.length} put back, ${r.left.length} left as they are`)
+} else if (cmd === 'refused-sweep') {
+  // One pass, no model, over what is kept (refused-sources.ts refusedSweep): a refused site's facts leave every facts file,
+  // and its pages every page's reference list, in every language; the step's own research does the same from then on.
+  const r = await refusedSweep(ROOT)
+  for (const f of r.facts) console.log(`${f.file}: ${f.dropped} item${f.dropped === 1 ? '' : 's'} out, from ${f.refused.map(x => `${x.url} (${x.items})`).join(', ')}; facts moved: ${JSON.stringify(f.moved)}`)
+  for (const f of r.refs) console.log(`${f.file}: refs lose ${f.urls.join(', ')}`)
+  for (const f of r.failed) console.log(`not cleaned: ${f}`)
+  for (const [file, w] of Object.entries(WAITING)) console.log(`waiting: ${file}: ${w.owner}, ${w.day}: ${w.why}`)
+  console.log(`refused-sweep: ${r.facts.length} facts files, ${r.refs.length} reference lists`)
 } else if (cmd === 'sweep') {
   // The content rules' safe fixes on every page, each cycle before the build (sweep.ts): the source site's comments and
   // related posts cut, empty headings, repeated paragraphs and labels out of order fixed, photos of another fish or a map
@@ -597,6 +607,7 @@ if (cmd === 'photo-privacy') {
   const photoCap = values['photo-cap'] ? { photoCap: Number(values['photo-cap']) } : {}
   const r = await sweep(ROOT, { ...(titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {}), ...photoCap })
   console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.named.length} heads behind one named to the species; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+  for (const x of r.refusedSources) console.log(`refused source: ${x}`)
   if (r.noAnimal.length) console.log(`sweep: ${r.noAnimal.length} heads with no animal in them and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json)`)
   for (const x of r.noAnimal) console.log(`no animal: ${x}`)
   for (const x of r.named) console.log(`head behind one named to the species: ${x}`)

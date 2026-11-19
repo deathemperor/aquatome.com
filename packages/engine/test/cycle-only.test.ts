@@ -25,7 +25,7 @@ test('research never reads a source the engine reads only through the Archive, o
     expect(off(u), u).toBe(true)
   // Every other copy of a page (the Writing Lead, 14 Nov 2026): archive.today's names, Google's cache and its Translate
   // proxy, whose host is made from any site's, and a reader proxy.
-  for (const u of ['https://wayback.archive.org/web/x', 'https://archive.ph/abc', 'https://archive.is/abc', 'https://archive.today/abc', 'https://archive.li/abc', 'https://archive.md/abc', 'https://archive.vn/abc', 'https://webcache.googleusercontent.com/search?q=cache:x', 'https://r.jina.ai/https://www.thesprucepets.com/', 'https://www-thesprucepets-com.translate.goog/x', 'https://forum-planetcatfish-com.translate.goog/x'])
+  for (const u of ['https://wayback.archive.org/web/x', 'https://archive.ph/abc', 'https://archive.is/abc', 'https://archive.today/abc', 'https://archive.li/abc', 'https://archive.md/abc', 'https://archive.vn/abc', 'https://webcache.googleusercontent.com/search?q=cache:x', 'https://archive.fo/abc', 'https://translate.goog/x', 'https://sub.r.jina.ai/x', 'https://x.webcache.googleusercontent.com/x', 'https://r.jina.ai/https://www.thesprucepets.com/', 'https://www-thesprucepets-com.translate.goog/x', 'https://forum-planetcatfish-com.translate.goog/x'])
     expect(off(u), u).toBe(true)
   // Matched as WebFetch matches: any case, a trailing dot.
   expect(off('https://WWW.TheSprucePets.com./x')).toBe(true)

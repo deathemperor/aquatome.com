@@ -13,6 +13,7 @@ import { sanitizeHtml, unescapePlain } from './sanitize'
 import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts } from './topics'
+import { withoutRefused } from './refused-sources'
 import { givenAsName } from './glossary-other-names'
 
 const WRITE = withTanks(readFileSync(new URL('./prompts/glossary-entry.md', import.meta.url), 'utf8'))
@@ -281,7 +282,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       asks.read?.length ? `Read these pages and keep what they say: ${asks.read.join(', ')}.` : '',
     ].filter(Boolean).join(' ')
     const found = await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: `${researchPrompt({ topic: `${vi.name} (${entity.en}): only what is asked below; research already kept covers the rest`, kind: o.kind })}\n\n${ask}`, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
-    const researched = addResearch(saved, found)
+    const researched = withoutRefused(addResearch(saved, found)).kept
     await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`)
     const key = (f: TopicFacts['facts'][number]) => `${f.section}|${f.fact.trim().toLowerCase()}`
     const had = new Set(saved.facts.map(key))
@@ -329,16 +330,18 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const found = kept ?? await d.research<TopicFacts>({ system: 'You research fishkeeping topics carefully and cite every fact. Reply only with JSON.', prompt: `${researchPrompt({ topic, kind: o.kind })}${lead}${cover ? `\n\n${cover}` : ''}`, schema: FACTS_SCHEMA, model: o.researchModel ?? 'opus' })
   // New research adds to what was kept unless told to start over (the chief of staff, 14 Nov 2026: Lũa's second research
   // replaced its first, and the kinds sold here went with it).
-  const researched = !kept && saved && !o.fresh ? addResearch(saved, found) : found
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  const cleaned = withoutRefused(!kept && saved && !o.fresh ? addResearch(saved, found) : found)
+  const researched = cleaned.kept
   if (!kept) { await mkdir(join(root, 'engine-state/glossary'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: 'nothing reliable found' }
   // A refused site's page, cited by research kept before it was refused, is named in the run's log as it goes, with the
   // facts that cite it (the Writing Lead, 16 Nov 2026, on the chief of staff's Thursday ruling for refused sources).
-  for (const url of new Set(researched.sources.filter(x => refusedSite(x.url)).map(x => x.url))) {
-    const n = researched.facts.filter(f => researched.sources[f.source]?.url === url).length
+  for (const { url, items: n } of cleaned.refused) {
     ;(d.log ?? console.error)(`${id}: ${url} is refused as a source: its link and the ${n} fact${n === 1 ? '' : 's'} citing it don't reach the writer`)
   }
-  // Such a page goes, with the facts that cite it, before the writer sees them: no address, no source (viFacts).
+  // Any other page research may not read goes the same way, with the facts that cite it, before the writer sees them: no
+  // address, no source (viFacts).
   const { facts, refs, sources } = viFacts({ ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) })
   if (!facts.length) return { id, skipped: 'no cited facts' }
 
