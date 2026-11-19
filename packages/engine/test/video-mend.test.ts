@@ -9,8 +9,8 @@ import { readReviews } from '../src/review-log'
 import { ownTankDose, videoMend } from '../src/video-mend'
 
 const LONG = 'Cây khỏe và mọc nhanh thì rêu hại khó chen vào. '.repeat(6).trim()
-const BODY = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD. Bể 38 lít là vừa.</p><p>${LONG}</p>`
-const FIXED = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Lọc mua ở tiệm cá cảnh. Bể 38 lít là vừa.</p><p>${LONG}</p>`
+const BODY = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD. Lọc treo dễ vệ sinh.</p><p>Bể 38 lít là vừa.</p><p>${LONG}</p>`
+const FIXED = `<p>Bể nhỏ dễ dựng.</p><h3>Mua đồ</h3><p>Lọc mua ở tiệm cá cảnh. Lọc treo dễ vệ sinh.</p><p>Bể 38 lít là vừa.</p><p>${LONG}</p>`
 const shop: FitFinding = { check: 'shop', part: 'P1', quote: 'Mua lọc ở Petco', why: 'a US shop', by: 'model' }
 const price: FitFinding = { check: 'price', part: 'P1', quote: 'giá khoảng 5 USD', why: 'a price in dollars', by: 'rule' }
 const page = (over: Partial<Page> = {}): Page => ({ lang: 'vi', kind: 'guides', id: 'youtube-a1', title: 'Dựng bể nhỏ', path: '/vi/huong-dan/dung-be-nho/', fields: [], lines: [], captions: [], latinNames: [], card: [], ...over })
@@ -56,8 +56,8 @@ test('the sentences a finding names go to the editor numbered, with the transcri
   const { mend, prompts } = deps(root, { score: 0.8 })
   expect(await mend(page(), [shop, price])).toBe(true)
   const vi = JSON.parse(await readFile(file, 'utf8'))
-  // Only the named sentence changed: "Bể 38 lít là vừa." beside it is as it was, byte for byte (the whole-guide mend
-  // rounded it to 40 lít, a sentence no finding names).
+  // Only the named sentence changed: the one beside it and "Bể 38 lít là vừa." after it are as they were, byte for byte
+  // (the whole-guide mend rounded it to 40 lít, a sentence no finding names).
   expect(vi.body).toBe(FIXED)
   // The quote said again in the FAQ is named there too.
   expect(vi.faq).toEqual([{ q: 'Mua lọc ở đâu?', a: 'Ở tiệm cá cảnh.' }])
@@ -76,6 +76,9 @@ test('the sentences a finding names go to the editor numbered, with the transcri
   expect(prompts[0]).toContain('viết lại thành điều mà cái giá ấy muốn nói')
   expect(prompts[0]).toContain('trừ khi video nêu giá bằng đồng Việt Nam')
   expect(prompts[0]).toContain('Câu nào cho liều của một sản phẩm thì giữ tên sản phẩm; không đổi thành loại.')
+  // It writes no amount, and is told so.
+  expect(prompts[0]).toContain('Câu bạn viết không có số, số đo, liều, lượng hay khoảng thời gian nào')
+  expect(prompts[0]).not.toContain('bằng đúng các số bài đang ghi')
   expect(prompts[1]).toContain('TRANSCRIPT:')
   expect(prompts[1]).toContain('by MJ Aquascaping')
   expect(prompts[1]).toContain('turned into the comparison the price was there to make')
@@ -86,12 +89,12 @@ test('the sentences a finding names go to the editor numbered, with the transcri
 // The chief of staff, 19 Nov 2026: 15 of the 21 held guides mended from 18 Nov were thrown away after paying, each for a
 // sentence no finding named that the editor changed. An editor that would tidy one can't now: it isn't shown one to write.
 test('every sentence no finding names stays byte for byte, whatever the editor would do with it', async () => {
-  const before = `<p>Bể nhỏ dễ dựng. Cá ăn vào buổi sáng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD. Bể 38 lít là vừa.</p><p>Lọc nên mua ở tiệm Petco cho rẻ.</p><p>${LONG}</p>`
+  const before = `<p>Bể nhỏ dễ dựng. Cá ăn vào buổi sáng.</p><h3>Mua đồ</h3><p>Mua lọc ở Petco, giá khoảng 5 USD.</p><p>Bể 38 lít là vừa.</p><p>Lọc nên mua ở tiệm Petco cho rẻ.</p><p>${LONG}</p>`
   const { root, file } = await setup({ body: before })
   // Asked for the whole guide (the mend before this change), the editor rewords one sentence and tidies another that
   // says the same thing another way: that mend was refused. Asked for sentences, it answers those, and some it wasn't
   // asked, which are left alone.
-  const tidied = { body: `<p>Bể nhỏ dễ dựng. Cá ăn buổi sáng.</p><h3>Mua đồ</h3><p>Lọc mua ở tiệm cá cảnh. Bể 38 lít là vừa.</p><p>Lọc nên mua ở tiệm cá cảnh.</p><p>${LONG}</p>` }
+  const tidied = { body: `<p>Bể nhỏ dễ dựng. Cá ăn buổi sáng.</p><h3>Mua đồ</h3><p>Lọc mua ở tiệm cá cảnh.</p><p>Bể 38 lít là vừa.</p><p>Lọc nên mua ở tiệm cá cảnh.</p><p>${LONG}</p>` }
   const extra = (asked: { n: number; text: string }[]) => [...asked.map(x => ({ n: x.n, vi: ANSWERS[x.text] ?? x.text })), { n: 0, vi: 'Cá ăn buổi sáng.' }, { n: 99, vi: 'Lọc nên mua ở tiệm cá cảnh.' }]
   const { mend, prompts } = deps(root, { draft: tidied, answers: extra })
   expect(await mend(page(), [shop, price])).toBe(true)
@@ -105,16 +108,16 @@ test('every sentence no finding names stays byte for byte, whatever the editor w
 
 test('a sentence is one as the sentence cutter has it: two it can\'t tell apart go together, and the next one after a stop stays', async () => {
   // "…Petco.“ Cá…": an opening mark after the stop, so the cutter keeps the two as one, and the editor has both.
-  const one = await setup({ body: `<p>Ông nói “Mua lọc ở Petco.“ Cá ăn vào buổi sáng.</p><p>${LONG}</p>`, faq: [] })
-  const a = deps(one.root, { answers: { 'Ông nói “Mua lọc ở Petco.“ Cá ăn vào buổi sáng.': 'Cá ăn vào buổi sáng.' } })
+  const one = await setup({ body: `<p>Ông nói “Mua lọc ở Petco.“ Cá rất khỏe.</p><p>${LONG}</p>`, faq: [] })
+  const a = deps(one.root, { answers: { 'Ông nói “Mua lọc ở Petco.“ Cá rất khỏe.': 'Cá rất khỏe.' } })
   expect(await a.mend(page(), [shop])).toBe(true)
-  expect(JSON.parse(await readFile(one.file, 'utf8')).body).toBe(`<p>Cá ăn vào buổi sáng.</p><p>${LONG}</p>`)
-  // A plain stop: the quote's sentence alone, the next as it was.
+  expect(JSON.parse(await readFile(one.file, 'utf8')).body).toBe(`<p>Cá rất khỏe.</p><p>${LONG}</p>`)
+  // A plain stop: the quote's sentence alone, the next as it was, and the units sentence too, for the units step.
   const two = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể này dùng khoảng 4 nắp. Cá ăn vào buổi sáng.</p><p>${LONG}</p>`, faq: [] })
   const b = deps(two.root, { answers: { 'Bể này dùng khoảng 4 nắp.': 'Châm vi sinh, liều theo hướng dẫn trên bao bì.' } })
   expect(await b.mend(page(), [gallons, { ...caps, quote: 'Bể này dùng khoảng 4 nắp.' }])).toBe(true)
   expect(askedOf(b.prompts[0]!).map(x => x.text)).toEqual(['Bể này dùng khoảng 4 nắp.'])
-  expect(JSON.parse(await readFile(two.file, 'utf8')).body).toMatch(/^<p>Bể \d+ lít là đủ\.<\/p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì\. Cá ăn vào buổi sáng\.<\/p>/)
+  expect(JSON.parse(await readFile(two.file, 'utf8')).body).toBe(`<p>Bể 10 gallon là đủ.</p><p>Châm vi sinh, liều theo hướng dẫn trên bao bì. Cá ăn vào buổi sáng.</p><p>${LONG}</p>`)
 })
 
 test('a mend the page can\'t have leaves the file as it was', async () => {
@@ -221,14 +224,14 @@ test('a product or a price quoted in a sentence that gives a dose is not mended:
 test('a mend never leaves a guide worse: under the bar it is kept only when no lower than the text it mends, whose reviews say which', async () => {
   const low = { quality: { score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false } }
   const a = await setup(low)
-  expect(await deps(a.root, { score: 0.6 }).mend(page(), [shop])).toBe(true)
+  expect(await deps(a.root, { score: 0.6 }).mend(page(), [shop, price])).toBe(true)
   expect(JSON.parse(await readFile(a.file, 'utf8')).quality).toEqual({ score: 0.6, indexable: false, bySource: { youtube: 0.6 }, chat: false }) // still held out of the chat
   const b = await setup(low)
-  expect(await deps(b.root, { score: 0.5 }).mend(page(), [shop])).toBe(false)
+  expect(await deps(b.root, { score: 0.5 }).mend(page(), [shop, price])).toBe(false)
   expect((await readReviews(b.root, 'video-guide'))['vi/guides/youtube-a1']).toMatchObject([{ score: 0.5, attempt: 'rewrite', kept: false }])
   // At the bar, a guide held out of the chat is let back, as when the video writer writes one.
   const c = await setup(low)
-  expect(await deps(c.root, { score: 0.8 }).mend(page(), [shop])).toBe(true)
+  expect(await deps(c.root, { score: 0.8 }).mend(page(), [shop, price])).toBe(true)
   expect(JSON.parse(await readFile(c.file, 'utf8')).quality).toEqual({ score: 0.8, indexable: true, bySource: { youtube: 0.8 } })
 })
 
@@ -239,12 +242,13 @@ test('the title is the editor\'s only when a fault was in it', async () => {
 })
 
 test('a title a person picked stays, even when a check quotes it', async () => {
-  // Nor does code convert its units for another finding's mend (Codex's fifth read of #1690).
+  // Nor is it rounded for another finding's mend, nor the units sentence: the mend converts nothing, units-mend.ts does
+  // (Codex's fifth read of #1690).
   const fixed = await setup({ name: 'Bể 38 lít với lớp nền 2 inch', nameFixed: true, body: `<p>Lớp nền dày 2 inch.</p><p>Mua đá ở Petco.</p><p>${LONG}</p>`, faq: [] })
   expect(await deps(fixed.root, { answers: { 'Mua đá ở Petco.': 'Mua đá ở tiệm cá cảnh.' } }).mend(page(), [{ ...gallons, quote: '2 inch' }, { ...shop, quote: 'Petco' }])).toBe(true)
   const after = JSON.parse(await readFile(fixed.file, 'utf8'))
   expect(after.name).toBe('Bể 38 lít với lớp nền 2 inch')
-  expect(after.body).toMatch(/^<p>Lớp nền dày \d+ cm\.<\/p><p>Mua đá ở tiệm cá cảnh\.<\/p>/)
+  expect(after.body).toBe(`<p>Lớp nền dày 2 inch.</p><p>Mua đá ở tiệm cá cảnh.</p><p>${LONG}</p>`)
   for (const f of [{ ...shop, quote: 'Mua lọc ở Petco cho bể nhỏ', part: 'T' }, shop]) {
     const { root, file } = await setup({ name: 'Mua lọc ở Petco cho bể nhỏ', nameFixed: true })
     const { mend, prompts } = deps(root)
@@ -255,32 +259,31 @@ test('a title a person picked stays, even when a check quotes it', async () => {
 })
 
 // The chief of staff, 14 Nov 2026: the editor takes a source line and a dose that is the video's own tank's, which it
-// drops, figure and brand, for the label; units are code's. A dose given as advice waits for a person. Every figure in is
-// every figure out, but those of the sentences the editor is given.
-const OWN = `<p>Bể dùng ở đây là loại nông: dài 80 cm, sâu 30 cm.</p><p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, ví dụ Quick Start, bể này dùng khoảng 4 nắp.</p><p>${LONG}</p>`
+// drops, figure and brand, for the label. A dose given as advice waits for a person. From 19 Nov the editor writes no
+// amount at all, and the mend converts no units: units-mend.ts does, once the guide is held for units alone.
+const P1 = 'Bể dùng ở đây là loại nông, đáy trải cát.'
+const P3 = 'Châm vi sinh ngay, ví dụ Quick Start, bể này dùng khoảng 4 nắp.'
+const OWN = `<p>${P1}</p><p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>${P3}</p><p>${LONG}</p>`
 const own: FitFinding = { check: 'source', part: 'P1', quote: 'Bể dùng ở đây là loại nông', why: 'the video\'s own tank', by: 'model' }
 const gallons: FitFinding = { check: 'units', part: 'P2', quote: 'Bể 10 gallon', why: 'a US tank', by: 'rule' }
 const caps: FitFinding = { check: 'dose', part: 'P3', quote: 'bể này dùng khoảng 4 nắp', why: 'an amount of a named product', by: 'model' }
 const brand: FitFinding = { check: 'product', part: 'P3', quote: 'Quick Start', why: 'a US product', by: 'model' }
-const P1 = 'Bể dùng ở đây là loại nông: dài 80 cm, sâu 30 cm.'
-const P3 = 'Châm vi sinh ngay, ví dụ Quick Start, bể này dùng khoảng 4 nắp.'
 /** The source line gone and the dose's sentence as given. */
 const ownTank = (p3: string) => ({ answers: { [P1]: '', [P3]: p3 } })
-test('the editor takes a source line and the video\'s own dose, code the units, and no figure comes of its own', async () => {
+test('the editor takes a source line and the video\'s own dose; the units sentence stays as it was, for the units step', async () => {
   const { root, file } = await setup({ body: OWN, faq: [] })
   const { mend, prompts } = deps(root, ownTank('Châm vi sinh ngay, liều theo hướng dẫn trên bao bì.'))
   expect(await mend(page(), [own, gallons, caps, brand])).toBe(true)
-  const body = JSON.parse(await readFile(file, 'utf8')).body as string
-  // Code converts the units sentence, which the editor isn't shown; the dose and the brand are gone for the label.
-  expect(body).not.toMatch(/gallon|4 nắp|Quick Start|80 cm/)
-  expect(body).toMatch(/^<p>Bể \d+ lít là đủ cho một đàn nhỏ\.<\/p><p>Châm vi sinh ngay, liều theo hướng dẫn trên bao bì\.<\/p>/)
+  // The source line is gone, the dose and the brand are gone for the label, and the units sentence, which the editor
+  // isn't shown, is as it was.
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toBe(`<p>Bể 10 gallon là đủ cho một đàn nhỏ.</p><p>Châm vi sinh ngay, liều theo hướng dẫn trên bao bì.</p><p>${LONG}</p>`)
   expect(askedOf(prompts[0]!).map(x => x.text)).toEqual([P1, P3])
   expect(prompts[0]).not.toContain('"Bể 10 gallon":')
   expect(prompts[0]).toContain('[2] (thân bài) Châm vi sinh ngay, ví dụ Quick Start, bể này dùng khoảng 4 nắp.\n- "bể này dùng khoảng 4 nắp": A dose tied to a foreign product (an amount of a named product). Đây là liều của chính bể trong video: bỏ con số liều và tên sản phẩm, giữ bước làm, viết "…, liều theo hướng dẫn trên bao bì."\n- "Quick Start": ')
   expect(prompts[0]).toContain('Chỉ khi ghi chú nói đó là liều của chính bể trong video thì bỏ con số liều và tên sản phẩm')
 })
 
-test('a figure the editor adds, keeps of the video\'s own dose, or writes in another way leaves the file as it was', async () => {
+test('an amount the editor adds, keeps of the video\'s own dose, or writes in another way leaves the file as it was', async () => {
   const cases: [string, string][] = [
     ['a dose figure of its own', 'Châm vi sinh ngay, khoảng 5 ml, liều theo hướng dẫn trên bao bì.'],
     ['the dose kept', 'Châm vi sinh ngay, bể này dùng khoảng 4 nắp.'],
@@ -298,9 +301,12 @@ test('a figure the editor adds, keeps of the video\'s own dose, or writes in ano
     expect(await deps(root, ownTank(p3)).mend(page(), [own, gallons, caps]), name).toBe(false)
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
-  // An ounce is a dose's unit: the video's own dose in ounces goes, not into grams (Codex's fifth read; main too).
+  // The ounces beside the video's own dose stay in its sentence once the dose's quote is out: it waits, and no editor
+  // gets it (Codex's fifth read; main too).
   const oz = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể này dùng 4 thìa muối (½ oz).</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(oz.root, { answers: { 'Bể này dùng 4 thìa muối (½ oz).': 'Thêm ½ oz muối, liều theo hướng dẫn trên bao bì.' } }).mend(page(), [gallons, { ...caps, quote: 'Bể này dùng 4 thìa muối' }])).toBe(false)
+  const o = deps(oz.root, { answers: { 'Bể này dùng 4 thìa muối (½ oz).': 'Thêm ½ oz muối, liều theo hướng dẫn trên bao bì.' } })
+  expect(await o.mend(page(), [gallons, { ...caps, quote: 'Bể này dùng 4 thìa muối' }])).toBeUndefined()
+  expect(o.prompts).toEqual([])
   expect(await readFile(oz.file, 'utf8')).toBe(oz.was)
   // A dose added to a shop's mend, in figures, caps, words or against its unit (Grok's fifth read).
   for (const fix of ['Lọc mua ở tiệm cá cảnh. Châm 5 ml vi sinh.', 'Lọc mua ở tiệm cá cảnh. Châm 5 caps vi sinh.', 'Lọc mua ở tiệm cá cảnh. Châm hai mươi nắp.', 'Lọc mua ở tiệm cá cảnh. Châm ½nắp.']) {
@@ -326,49 +332,60 @@ test('a dose given as advice, or with nothing naming the video\'s tank, waits fo
   }
 })
 
-test('a figure in a sentence the editor is given keeps its percent, its half, its rate and its size in words (Grok\'s reads)', async () => {
+// The chief of staff, 19 Nov 2026: six reads of #1690 each found a new way an amount the editor was given came back
+// changed (a percent, a half, a size or a rate in words, a fraction, a figure moved to another sentence). A sentence that
+// holds one isn't given: it waits for a person, whatever the editor would write.
+test('a sentence a finding names that holds an amount, once its price or its tank\'s dose is out, waits for a person: no editor is called', async () => {
   const at = (quote: string): FitFinding => ({ ...own, quote })
-  const cases: [string, string, string, FitFinding[]][] = [
-    ['a percent sign dropped', 'Thay 30% nước mỗi tuần.', 'Thay 30 nước mỗi tuần.', [at('Thay 30% nước')]],
-    // A size in words changed (Grok's fifth read).
-    ['a size in words changed', 'Bể mười lít là đủ cho một đàn nhỏ.', 'Bể năm mươi lít là đủ cho một đàn nhỏ.', [at('Bể mười lít')]],
-    // A half, a range in words, a rate (Grok's sixth read).
-    ['a half in words dropped', 'Bể mười lít rưỡi là đủ.', 'Bể mười lít là đủ.', [at('Bể mười lít rưỡi')]],
-    ['a half dropped', 'Bể 10 lít rưỡi là đủ.', 'Bể 10 lít là đủ.', [at('Bể 10 lít rưỡi')]],
-    ['a range in words changed', 'Bể từ mười đến hai mươi lít là đủ.', 'Bể từ năm đến hai mươi lít là đủ.', [at('Bể từ mười')]],
-    ['a rate in words made a volume', 'Bơm ba trăm lít/giờ.', 'Bơm ba trăm lít.', [at('Bơm ba trăm')]],
-    ['a rate made a volume', 'Bơm 300 lít/giờ.', 'Bơm 300 lít.', [at('Bơm 300')]],
-    // A fraction in words is one figure: a quarter cap isn't three quarters (Codex's fifth read; main too).
-    ['a written fraction changed', 'Theo video, châm một phần tư nắp vi sinh.', 'Châm ba phần tư nắp vi sinh.', [at('Theo video')]],
-    // A units quote's figure is code's, even in a sentence a shop's finding gives the editor.
-    ['a units figure dropped beside a shop', 'Bể 10 gallon mua ở Petco.', 'Bể mua ở tiệm cá cảnh.', [{ ...gallons, quote: 'Bể 10 gallon' }, { ...shop, quote: 'mua ở Petco' }]],
-    // A units quote of the unit alone keeps its sentence's figure too (Codex's read of #1690).
-    ['a units figure dropped beside a shop, its quote the unit alone', 'Bể 10 gallon mua ở Petco.', 'Bể mua ở tiệm cá cảnh.', [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'mua ở Petco' }]],
-    // The same figure kept in a product's name, which code doesn't convert, isn't the tank's kept (Codex's second read).
-    ['a units figure dropped, the same figure kept in a product\'s name', 'Bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.', [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'bán ở Petco' }]],
+  const cases: [string, string, FitFinding[]][] = [
+    ['a percent', '<p>Thay 30% nước mỗi tuần.</p>', [at('Thay 30% nước')]],
+    ['a size in words', '<p>Bể mười lít là đủ cho một đàn nhỏ.</p>', [at('Bể mười lít')]],
+    ['a half in words', '<p>Bể mười lít rưỡi là đủ.</p>', [at('Bể mười lít rưỡi')]],
+    ['a range in words', '<p>Bể từ mười đến hai mươi lít là đủ.</p>', [at('Bể từ mười')]],
+    ['a rate', '<p>Bơm 300 lít/giờ.</p>', [at('Bơm 300')]],
+    ['a fraction in words', '<p>Theo video, châm một phần tư nắp vi sinh.</p>', [at('Theo video')]],
+    ['a count of time', '<p>Theo video, chờ một tuần rồi thả cá.</p>', [at('Theo video')]],
+    ['a few', '<p>Theo video, thả vài con cá trước.</p>', [at('Theo video')]],
+    ['a size beside the times', '<p>Theo video, kích thước 60 x 38 x 30 cm là vừa.</p>', [at('Theo video')]],
+    ['a units figure beside a shop', '<p>Bể 10 gallon mua ở Petco.</p>', [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'mua ở Petco' }]],
+    ['a figure beside a price', '<p>Bể 10 gallon giá 20 USD.</p>', [{ ...gallons, quote: 'gallon' }, { ...price, quote: 'giá 20 USD' }]],
+    ['one of two the editor would be given', '<p>Bể mẫu dài 30 cm, mua ở Petco.</p><p>Đèn mua ở Amazon.</p>', [at('Bể mẫu dài 30 cm'), { ...shop, quote: 'mua ở Amazon' }]],
   ]
-  for (const [name, before, after, findings] of cases) {
-    const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
-    expect(await deps(root, { answers: { [before]: after } }).mend(page(), findings), name).toBe(false)
+  for (const [name, before, findings] of cases) {
+    const { root, file, was } = await setup({ body: `${before}<p>${LONG}</p>`, faq: [] })
+    const { mend, prompts } = deps(root)
+    expect(await mend(page(), findings), name).toBeUndefined()
+    expect(prompts, name).toEqual([])
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
-  // A figure that leaves one answer for another: the page's counts hold, its sentences' don't (Codex's read of #1690).
-  const moved = await setup({ body: `<p>Bể mẫu dài 30 cm, mua ở Petco.</p><p>Đèn mua ở Amazon, công suất 20 W.</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(moved.root, { answers: { 'Bể mẫu dài 30 cm, mua ở Petco.': 'Bể mua ở tiệm cá cảnh.', 'Đèn mua ở Amazon, công suất 20 W.': 'Đèn mua trên mạng, treo cách mặt nước 30 cm, công suất 20 W.' } }).mend(page(), [at('Bể mẫu dài 30 cm'), { ...shop, quote: 'mua ở Amazon' }])).toBe(false)
-  expect(await readFile(moved.file, 'utf8')).toBe(moved.was)
-  // The units figure kept beside the shop gone: code converts it.
-  const kept = await setup({ body: `<p>Bể 10 gallon mua ở Petco.</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(kept.root, { answers: { 'Bể 10 gallon mua ở Petco.': 'Bể 10 gallon mua ở tiệm cá cảnh.' } }).mend(page(), [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'mua ở Petco' }])).toBe(true)
-  expect(JSON.parse(await readFile(kept.file, 'utf8')).body).toMatch(/^<p>Bể \d+ lít mua ở tiệm cá cảnh\.<\/p>/)
-  // "60 x 38 x 30 cm" written "60 × 38 × 30 cm" is the same figures.
-  const x = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể mẫu kích thước 60 x 38 x 30 cm là vừa.</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(x.root, { answers: { 'Bể mẫu kích thước 60 x 38 x 30 cm là vừa.': 'Một bể kích thước 60 × 38 × 30 cm là vừa.' } }).mend(page(), [gallons, at('Bể mẫu')])).toBe(true)
-  // A sentence two findings quote is sent once with both notes, and the same figure kept in the sentence after it stays.
-  const two = await setup({ body: `<p>Bể mẫu dài 30 cm, mua ở Petco. Đèn cách mặt nước 30 cm.</p><p>${LONG}</p>`, faq: [] })
-  const d = deps(two.root, { answers: { 'Bể mẫu dài 30 cm, mua ở Petco.': 'Bể mua ở tiệm cá cảnh.' } })
-  expect(await d.mend(page(), [at('Bể mẫu dài 30 cm'), { ...shop, quote: 'mua ở Petco' }])).toBe(true)
-  expect(askedOf(d.prompts[0]!)).toHaveLength(1)
-  expect(JSON.parse(await readFile(two.file, 'utf8')).body).toBe(`<p>Bể mua ở tiệm cá cảnh. Đèn cách mặt nước 30 cm.</p><p>${LONG}</p>`)
+  // In a line too: a summary point, here.
+  const point = await setup({ summary: ['Theo video, bể 60 lít là vừa.'] })
+  const d = deps(point.root)
+  expect(await d.mend(page(), [at('Theo video')])).toBeUndefined()
+  expect(d.prompts).toEqual([])
+  expect(await readFile(point.file, 'utf8')).toBe(point.was)
+})
+
+// Codex's sixth read of #1690 found four that main has too, each an amount the editor could change: two capfuls of a
+// product made the kind's, a teaspoon made a tablespoon, a separate 5 ml taken with the tank's dose past a semicolon, and
+// a 60-litre tank lost beside another finding's "60 lít". Each sentence now stays held.
+test('the sixth read\'s four that main has too stay held, no editor called: two capfuls, a teaspoon, a semicolon, another finding\'s 60 litres', async () => {
+  const product: FitFinding = { check: 'product', part: 'P1', quote: 'API Quick Start', why: 'a product not sold here', by: 'model' }
+  const cases: [string, string, FitFinding[], Record<string, string>][] = [
+    ['two capfuls', '<p>Châm 2 capfuls API Quick Start sau khi thay nước.</p>', [product], { 'Châm 2 capfuls API Quick Start sau khi thay nước.': 'Châm 2 capfuls vi sinh sau khi thay nước.' }],
+    ['a teaspoon', '<p>Trong video, hòa một thìa cà phê muối vào nước.</p>', [{ ...own, quote: 'Trong video' }], { 'Trong video, hòa một thìa cà phê muối vào nước.': 'Hòa một thìa canh muối vào nước.' }],
+    ['a semicolon', '<p>Bể này đã châm 4 nắp vi sinh; khi thay nước, cứ châm 5 ml vi sinh.</p>', [{ ...caps, quote: 'Bể này đã châm 4 nắp vi sinh' }], { 'Bể này đã châm 4 nắp vi sinh; khi thay nước, cứ châm 5 ml vi sinh.': 'Châm vi sinh, liều theo hướng dẫn trên bao bì.' }],
+    ['another finding\'s 60 litres', '<p>Trong video, dùng bể 10 gallon hoặc bể 60 lít có vách ngăn.</p><p>Bể 60 lít cũ của tác giả đã hỏng.</p>',
+      [{ ...gallons, quote: '10 gallon' }, { ...own, quote: 'Trong video' }, { ...own, quote: 'Bể 60 lít cũ của tác giả đã hỏng' }],
+      { 'Trong video, dùng bể 10 gallon hoặc bể 60 lít có vách ngăn.': 'Dùng bể 10 gallon.', 'Bể 60 lít cũ của tác giả đã hỏng.': '' }],
+  ]
+  for (const [name, before, findings, answers] of cases) {
+    const { root, file, was } = await setup({ body: `${before}<p>${LONG}</p>`, faq: [] })
+    const { mend, prompts } = deps(root, { answers })
+    expect(await mend(page(), findings), name).toBeUndefined()
+    expect(prompts, name).toEqual([])
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
 })
 
 test('the video\'s own dose is one that names its tank and gives no rate; a rate per volume or per tank, a CO2 rate, or a bare "ở đây" waits (Grok\'s read)', () => {
@@ -438,7 +455,7 @@ test('crossed: a product or a price in a paragraph that gives a dose waits, howe
   }
 })
 
-test('crossed: a dose quote is the tank\'s own at every place it\'s said, or the guide waits; and no answer to a dose\'s sentence keeps one of its doses', async () => {
+test('crossed: a dose quote is the tank\'s own at every place it\'s said, or the guide waits; and a dose\'s sentence that keeps another amount waits too', async () => {
   const q = 'Bể này dùng khoảng 4 nắp'
   for (const [name, body, faq] of [
     ['advice said again later', `<p>${q}.</p><p>${q} cho mỗi 200 lít.</p><p>${LONG}</p>`, []],
@@ -467,41 +484,76 @@ test('crossed: a dose quote is the tank\'s own at every place it\'s said, or the
     expect(prompts, name).toEqual([])
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
-  // Both the tank's own, the second with another dose: an answer that keeps it, however written, is refused.
+  // Both the tank's own, the second with another dose: once the quote is out, that sentence still holds an amount,
+  // however it's written, so the guide waits and no editor gets it.
   for (const more of ['2 nắp', 'hai nắp', '½ nắp']) {
     const second = `Bể này dùng khoảng 4 nắp thuốc khử clo và ${more} vi sinh.`
     const { root, file, was } = await setup({ body: `<p>Bể này dùng khoảng 4 nắp thuốc khử clo.</p><p>${second}</p><p>${LONG}</p>`, faq: [] })
     const answers = { 'Bể này dùng khoảng 4 nắp thuốc khử clo.': 'Châm thuốc khử clo, liều theo hướng dẫn trên bao bì.', [second]: `Châm ${more} vi sinh.` }
-    expect(await deps(root, { answers }).mend(page(), [{ ...caps, quote: q }]), more).toBe(false)
+    const { mend, prompts } = deps(root, { answers })
+    expect(await mend(page(), [{ ...caps, quote: q }]), more).toBeUndefined()
+    expect(prompts, more).toEqual([])
     expect(await readFile(file, 'utf8'), more).toBe(was)
   }
 })
 
-test('crossed: a sentence a units finding names keeps every figure code converts it to, whatever figure it already had', async () => {
+test('crossed: a sentence a units finding names is never the editor\'s; one another finding names keeps its amount, so it waits', async () => {
   const units: FitFinding[] = [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'bán ở Petco' }]
-  const cases: [string, string][] = [
-    ['Bể 40 lít và bể 10 gallon bán ở Petco.', 'Bể 40 lít bán ở tiệm cá cảnh.'],
-    ['Bể 38 lít và bể 10 gallon bán ở Petco.', 'Bể 38 lít bán ở tiệm cá cảnh.'],
-    ['Bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.'],
-    ['Bể 40 lít, bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bể 40 lít và bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.'],
-    ['Bể 38 lít, bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bể 38 lít và bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.'],
-  ]
-  for (const [before, after] of cases) {
+  for (const before of ['Bể 40 lít và bể 10 gallon bán ở Petco.', 'Bể 38 lít và bể 10 gallon bán ở Petco.', 'Bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.',
+    'Bể 40 lít, bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Cá cần bể tối thiểu 20 lít (5 gallon), bán ở Petco.']) {
     const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
-    expect(await deps(root, { answers: { [before]: after } }).mend(page(), units), before).toBe(false)
+    const { mend, prompts } = deps(root, { answers: { [before]: before.replace('bán ở Petco', 'bán ở tiệm cá cảnh') } })
+    expect(await mend(page(), units), before).toBeUndefined()
+    expect(prompts, before).toEqual([])
     expect(await readFile(file, 'utf8'), before).toBe(was)
   }
-  // A figure the sentence had before code converts it is kept too: "20 lít (5 gallon)" is one 20 lít once converted
-  // (Codex's fourth read).
-  const min = 'Cá cần bể tối thiểu 20 lít (5 gallon), theo video.'
-  const m = await setup({ body: `<p>${min}</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(m.root, { answers: { [min]: 'Cá cần bể phù hợp.' } }).mend(page(), [{ ...gallons, quote: 'gallon' }, { ...own, quote: 'theo video' }])).toBe(false)
-  expect(await readFile(m.file, 'utf8')).toBe(m.was)
-  // A price beside the units goes, as the editor is told: its figure is the finding's.
-  const priced = await setup({ body: `<p>Bể 10 gallon giá 20 USD.</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(priced.root, { answers: { 'Bể 10 gallon giá 20 USD.': 'Bể 10 gallon giá rẻ.' } }).mend(page(), [{ ...gallons, quote: 'gallon' }, { ...price, quote: 'giá 20 USD' }])).toBe(true)
-  // Every figure kept: code converts it.
-  const ok = await setup({ body: `<p>Bể 40 lít và bể 10 gallon bán ở Petco.</p><p>${LONG}</p>`, faq: [] })
-  expect(await deps(ok.root, { answers: { 'Bể 40 lít và bể 10 gallon bán ở Petco.': 'Bể 40 lít và bể 10 gallon bán ở tiệm cá cảnh.' } }).mend(page(), units)).toBe(true)
+  // In a sentence of its own, apart from the shop's: the shop's is mended, and the units sentence stays as it was, for
+  // units-mend.ts.
+  const apart = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Lọc bán ở Petco.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(apart.root, { answers: { 'Lọc bán ở Petco.': 'Lọc bán ở tiệm cá cảnh.' } }).mend(page(), units)).toBe(true)
+  expect(JSON.parse(await readFile(apart.file, 'utf8')).body).toBe(`<p>Bể 10 gallon là đủ.</p><p>Lọc bán ở tiệm cá cảnh.</p><p>${LONG}</p>`)
 })
 
+// Codex's sixth read of #1690: "Bể mẫu" matched a heading's last word and the next paragraph's first.
+test('a quote is matched within one block, not across a heading and the paragraph after it', async () => {
+  const { root, file } = await setup({ body: `<h3>Chọn bể</h3><p>Mẫu này dễ nuôi.</p><p>Bể mẫu có nền cát.</p><p>${LONG}</p>`, faq: [] })
+  const { mend, prompts } = deps(root, { answers: { 'Bể mẫu có nền cát.': 'Bể có nền cát.' } })
+  expect(await mend(page(), [{ ...own, quote: 'Bể mẫu' }])).toBe(true)
+  expect(askedOf(prompts[0]!).map(x => x.text)).toEqual(['Bể mẫu có nền cát.'])
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toBe(`<h3>Chọn bể</h3><p>Mẫu này dễ nuôi.</p><p>Bể có nền cát.</p><p>${LONG}</p>`)
+})
+
+// Codex's sixth read of #1690: a title's "38 lít" was rounded to 40 beside another finding's mend. The mend converts
+// nothing now, so a sentence no finding names keeps its amounts, wherever it is.
+test('a title that holds an amount, which no finding names, stays as it was beside another finding\'s mend', async () => {
+  const { root, file } = await setup({ name: 'Châm 1 ml khi thay đúng 38 lít nước', body: `<p>Bể 10 gallon là đủ.</p><p>Mua lọc ở Petco.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(root, { answers: { 'Mua lọc ở Petco.': 'Lọc mua ở tiệm cá cảnh.' } }).mend(page(), [gallons, shop])).toBe(true)
+  const after = JSON.parse(await readFile(file, 'utf8'))
+  expect(after.name).toBe('Châm 1 ml khi thay đúng 38 lít nước')
+  expect(after.body).toBe(`<p>Bể 10 gallon là đủ.</p><p>Lọc mua ở tiệm cá cảnh.</p><p>${LONG}</p>`)
+})
+
+// The chief of staff, 19 Nov 2026: the bare "một" is the article "a" too, so an answer may have it; any other word on
+// amount.ts's list it may not.
+test('an answer that holds an amount is refused, the bare "một" aside', async () => {
+  for (const fix of ['Lọc mua ở tiệm cá cảnh, chờ một tuần là có.', 'Lọc mua ở tiệm cá cảnh, mua hai cái.', 'Lọc mua ở tiệm cá cảnh, rẻ hơn một nửa.', 'Lọc mua ở vài tiệm cá cảnh.']) {
+    const { root, file, was } = await setup()
+    expect(await deps(root, { answers: { ...ANSWERS, 'Mua lọc ở Petco, giá khoảng 5 USD.': fix } }).mend(page(), [shop, price]), fix).toBe(false)
+    expect(await readFile(file, 'utf8'), fix).toBe(was)
+  }
+  const { root, file } = await setup()
+  expect(await deps(root, { answers: { ...ANSWERS, 'Mua lọc ở Petco, giá khoảng 5 USD.': 'Lọc mua ở một tiệm cá cảnh.' } }).mend(page(), [shop, price])).toBe(true)
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toBe(FIXED.replace('Lọc mua ở tiệm cá cảnh.', 'Lọc mua ở một tiệm cá cảnh.'))
+})
+
+// The chief of staff, 19 Nov 2026: a chemical name's digits aren't an amount, so a sentence that names one can go to the
+// editor; its answer may drop the name, never add or swap one (NO2 for NO3).
+test('a chemical name in a sentence the editor is given may be dropped, never added or swapped', async () => {
+  const s = 'Theo video, NO3 cao thì rêu mọc nhanh.'
+  for (const [answer, out] of [['NO2 cao thì rêu mọc nhanh.', false], ['NO₂ cao thì rêu mọc nhanh.', false], ['NO3 và NH4 cao thì rêu mọc nhanh.', false], ['NO3 cao thì rêu mọc nhanh.', true], ['Nitrat cao thì rêu mọc nhanh.', true]] as const) {
+    const { root, file, was } = await setup({ body: `<p>${s}</p><p>${LONG}</p>`, faq: [] })
+    expect(await deps(root, { answers: { [s]: answer } }).mend(page(), [{ ...own, quote: 'Theo video' }]), answer).toBe(out)
+    if (out) expect(JSON.parse(await readFile(file, 'utf8')).body, answer).toBe(`<p>${answer}</p><p>${LONG}</p>`)
+    else expect(await readFile(file, 'utf8'), answer).toBe(was)
+  }
+})

@@ -105,16 +105,21 @@ export function places(text: string, q: string, whole = false): number[] {
 
 /**
  * The sentences (their places among the sentences, from 0) that a quote lies in; one that runs across sentences names
- * each. Nothing when the quote isn't in the part. `whole`: its words whole, at every place the part says it.
+ * each. Nothing when the quote isn't in the part. `whole`: its words whole, at every place the part says it. `blocks`:
+ * within one block.
  */
-export function quoted(pieces: Piece[], quote: string, o: { whole?: boolean } = {}): number[] {
+export function quoted(pieces: Piece[], quote: string, o: { whole?: boolean; blocks?: number[] } = {}): number[] {
   const texts = pieces.filter(p => p.sentence).map(p => norm(plain(p.html)))
   const q = norm(quote)
   const joined = texts.join(' ')
   const out = new Set<number>()
   for (const at of places(joined, q, o.whole)) {
+    const these: number[] = []
     let start = 0
-    texts.forEach((t, i) => { const end = start + t.length; if (start < at + q.length && at < end) out.add(i); start = end + 1 })
+    texts.forEach((t, i) => { const end = start + t.length; if (start < at + q.length && at < end) these.push(i); start = end + 1 })
+    // `blocks` (each sentence's, `blockOf`): a place that runs from one block into the next isn't the quote's.
+    if (o.blocks && these.some(i => o.blocks![i] !== o.blocks![these[0]!])) continue
+    these.forEach(i => out.add(i))
   }
   return [...out].sort((a, b) => a - b)
 }

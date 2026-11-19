@@ -49,8 +49,8 @@ export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
 export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewhere', 'product']
 /**
  * Whether a page's checks are the video editor's to fix (the chief of staff, 14 Nov 2026): each one it mends, units beside
- * one of them (never alone, which is units-mend's), and a dose, which video-mend.ts takes only when it is the source's own
- * tank's and leaves a person otherwise. The editor writes, keeps or converts no figure: video-mend.ts holds them.
+ * one of them (whose sentence the mend leaves for units-mend.ts), and a dose, which video-mend.ts takes only when it is the
+ * source's own tank's and leaves a person otherwise. The editor writes or changes no amount (amount.ts, 19 Nov 2026).
  */
 export const editorMay = (checks: readonly FitCheck[]) =>
   checks.some(c => c !== 'units') && checks.every(c => MENDABLE.includes(c) || c === 'units' || c === 'dose')
