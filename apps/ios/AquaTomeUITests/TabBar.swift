@@ -142,9 +142,15 @@ extension XCUIApplication {
   }
 
   /// Dragged up a little at a time, without a fling, until one of the page's lines of words crosses into the tab bar's
-  /// frame (the bar's own names are shorter than a line), then whether it did.
+  /// frame (the bar's own names are shorter than a line), then whether it did. Or until a bar of the page's own stands on
+  /// ours over its foot, so nothing of the page goes under ours: Đèn's notice (`notice`), which at the largest text on
+  /// 26.5's iPhone 17 covers the page's foot, its words stopping above it (20 Nov).
   func wordsReachTheTabBar(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
     let bar = tabBars.firstMatch.frame
+    func covered() -> Bool {
+      let n = descendants(matching: .any)["notice"]
+      return n.exists && n.frame.maxY > bar.minY - 40 && n.frame.maxY <= bar.minY + 8
+    }
     func there() -> Bool {
       guard let snap = try? snapshot() else { return false }
       func walk(_ e: XCUIElementSnapshot) -> Bool {
@@ -156,10 +162,10 @@ extension XCUIApplication {
       return walk(snap)
     }
     let from = coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
-    for _ in 0..<10 where !there() {
+    for _ in 0..<10 where !there() && !covered() {
       from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -120)), withVelocity: .slow, thenHoldForDuration: 0.4)
     }
-    XCTAssertTrue(there(), "\(screen): no words reached the tab bar", file: file, line: line)
+    XCTAssertTrue(there() || covered(), "\(screen): no words reached the tab bar", file: file, line: line)
   }
 
   /// How readable the page's words are under the tab bar, against the same page's just above it. Two shots, the page dragged
