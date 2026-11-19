@@ -14,7 +14,7 @@ import { pickStands, readPersonYes } from './person-yes'
 import { holdForSecondLook, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { keptOwnMark, LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
-import { keptLast } from './own-mark'
+import { keptLast, screenedShop } from './own-mark'
 import { ageOf, ageUnasked, grownFirst, grownHead, headAsksAge, youngUnasked } from './young-heads'
 import { CF, namedOn, namedOrder, passesHead, SPECIES } from './photo-named'
 import { readAvoid } from './curation'
@@ -448,11 +448,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
   }
   const index = nameIndex(all)
+  // A guide photo's own page, for the wait on a Glaser logo alone (ownMarkWaits): not as its `source`, which would
+  // change its turn in the queue (`turn`).
+  const guideFrom = new Map<string, string>()
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const g = await readJson<{ photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } }>(file)
     for (const p of [...(g?.photos ?? []), ...(g?.video?.figures ?? []).flatMap(f => (f.photo ? [f.photo] : []))].filter(p => !p.generated)) {
       const page = p.caption ? captionSubject(p.caption, index.names, index.genera) : undefined
+      if (p.sourceUrl) guideFrom.set(p.url, p.sourceUrl)
       shown.push({ file, url: p.url, guide: true, ...(page ? { page, caption: p.caption } : {}) })
     }
   }
@@ -627,8 +631,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
   const label = (id: string) => { const s = byId.get(id)!; return s.kind === 'breeds' ? (s.names[0] ?? id) : s.sci }
   const added: Record<string, string> = {}
+  // An Aquarium Glaser photo from Glaser's own pages that the watermark screen hasn't judged yet: its logo waits for the
+  // screen, which asks whose the mark is and keeps it where every mark is the shop's own (own-mark.ts SCREENED_OWN_MARK;
+  // the chief of staff, 16 Nov). The check runs before the screen in a cycle, and a logo listed here never reaches that
+  // question. No public build shows the photo meanwhile (photo-screen.ts awaitsScreen). Dead fish and people still list it.
+  const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source ?? (x.guide ? guideFrom.get(x.url) : undefined))).map(x => x.url))
   for (const url of everywhere.keys()) {
-    const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url))
+    const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
   // Not one its file name took off: a photo of the species it names, which that species' page may still take.
