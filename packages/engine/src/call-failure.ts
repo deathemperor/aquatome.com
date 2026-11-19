@@ -18,11 +18,16 @@ const NETWORK: [RegExp, (m: RegExpExecArray) => string][] = [
 ]
 const NET_WORDS = 'ECONNRESET|ECONNREFUSED|ENOTFOUND|EAI_AGAIN|EHOSTUNREACH|ENETUNREACH|EPIPE|ETIMEDOUT|socket hang up|fetch failed|HTTP (?:408|429|5\\d\\d)|net::ERR_|Navigation timeout|Target closed'
 const TYPES = API_ERRORS.join('|')
+/** The photo steps' stop on a limit (photo-observations.ts photoModelStop) and the gate's and the fit step's (gate.ts accountsOut): call-failure.test.ts holds them to the readers. */
+const PHOTO_STOP = /usage limit|quota|weekly limit/i
+const GATE_STOP = /limit|rejected|no account/i
 /**
- * Every kind below, from fixed words and numbers only: a failed call's message that ends in one is ours already and is
- * read back as it is. A CLI message that happens to read the same says nothing of its own.
+ * Every kind below, from fixed words and numbers only: a failed call's message that ends in one, or several joined by
+ * "; ", is ours already and is read back as it is. A CLI message that happens to read the same says nothing of its own.
  */
-const KIND = new RegExp(`^(?:(?:usage limit|limit reached)(?: until \\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d\\.\\d{3}Z)?|credential refused|quota exceeded|answer cut off|image refused|prompt too long|refused by the model's safeguards|answer failed its schema|answer not JSON|no answer|stopped: out of (?:turns|budget)|timed out|overloaded|network \\((?:${NET_WORDS})\\)|server error(?: \\([1-5]\\d\\d\\))?|other(?: \\((?:killed|[1-5]\\d\\d(?: (?:${TYPES}))?|${TYPES}|ENOENT|EACCES|EPERM|EMFILE)\\))?)$`)
+const KIND = `(?:named a limit or a rejection|(?:usage limit|limit reached)(?: until \\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d\\.\\d{3}Z)?|credential refused|quota exceeded|answer cut off|image refused|prompt too long|refused by the model's safeguards|answer failed its schema|answer not JSON|no answer|stopped: out of (?:turns|budget)|timed out|overloaded|network \\((?:${NET_WORDS})\\)|server error(?: \\([1-5]\\d\\d\\))?|other(?: \\((?:killed|[1-5]\\d\\d(?: (?:${TYPES}))?|${TYPES}|ENOENT|EACCES|EPERM|EMFILE)\\))?)`
+/** One kind or several, each from the fixed words above. */
+const KINDS = new RegExp(`^${KIND}(?:; ${KIND})*$`)
 
 /**
  * What a failed model call was, in the engine's own words, decided by code from what the CLI said (and the subtype of its
@@ -34,25 +39,42 @@ const KIND = new RegExp(`^(?:(?:usage limit|limit reached)(?: until \\d{4}-\\d\\
  * limit ("usage limit", or "limit reached" for another, as a rate limit) and its passing network failures (the word each is known by);
  * the accounts' reset, as a UTC time after "until", and a rejected credential ("credential refused", which the gate's stop
  * on a limit or a rejection doesn't read, as it doesn't the CLI's words for it); the photo steps' stop on a limit or a quota
- * ("quota exceeded"). No other kind says "limit", "rejected" or "quota".
+ * ("quota exceeded"). No other kind says "limit", "rejected" or "quota". What the CLI's text says that the main kind
+ * doesn't, each of those readers' signals, is said after it in the same fixed words.
  */
 export function failureKind(message: string, result?: { subtype?: unknown; stop_reason?: unknown }): string {
   if (/^claude timed out after \d+ s$/.test(message)) return 'timed out'
   if (/^claude (?:failed|returned non-JSON) \(null\)/.test(message)) return 'other (killed)'
   const ours = /^claude (?:failed|returned non-JSON) \([^)]*\): (.*)$/s.exec(message)?.[1]
-  if (ours && KIND.test(ours)) return ours
-  // As errorKind reads it first: a usage limit, then a failure that passes (the network, the browser), whatever else the
-  // message says, so the steps try it again as they would on the Mac.
+  if (ours && KINDS.test(ours)) return ours
+  // The main kind, read in errorKind's order (a usage limit, then a failure the steps try again), then each thing the code
+  // reads off a failure that the CLI's text says and the kind doesn't, as a fixed word of ours that reads the same: a
+  // rejected credential, the photo steps' limit or quota, the gate's limit or rejection. A failure that is two things says both.
+  const head = /^claude (?:failed|returned non-JSON) \([^)]*\)/.exec(message)?.[0] ?? 'claude failed (1)'
+  const parts = [mainKind(message, result)]
+  const said = () => `${head}: ${parts.join('; ')}`
+  if (AUTH.test(message) && !AUTH.test(said())) parts.push('credential refused')
+  if (PHOTO_STOP.test(message) && !PHOTO_STOP.test(said())) parts.push('quota exceeded')
+  if (GATE_STOP.test(message) && !GATE_STOP.test(said())) parts.push('named a limit or a rejection')
+  return [...new Set(parts)].join('; ')
+}
+
+/** The word of a failure the steps try again (errorKind 'transient'), one they read as passing on its own. */
+function passingWord(message: string): string {
+  for (const [re, word] of NETWORK) {
+    const m = re.exec(message)
+    if (m && errorKind(word(m)) === 'transient') return word(m)
+  }
+  return 'fetch failed'
+}
+
+function mainKind(message: string, result?: { subtype?: unknown; stop_reason?: unknown }): string {
+  // As errorKind reads it first: a usage limit, then a failure that passes (the network, the browser).
   if (errorKind(message) === 'usage') {
     const at = resetOf(message)
     return `${/usage limit|quota|weekly limit/i.test(message) ? 'usage limit' : 'limit reached'}${at ? ` until ${at}` : ''}`
   }
-  if (errorKind(message) === 'transient') {
-    for (const [re, word] of NETWORK) {
-      const m = re.exec(message)
-      if (m) return `network (${word(m)})`
-    }
-  }
+  if (errorKind(message) === 'transient') return `network (${passingWord(message)})`
   // Output that wasn't JSON: what the code reads off it, a rejected credential (the accounts), a limit or a quota (the
   // gate's and the photo steps' stop); else whether there was any.
   const text = /^claude returned non-JSON \([^)]*\): (.*)$/s.exec(message)?.[1]

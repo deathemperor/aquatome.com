@@ -98,6 +98,13 @@ test('every reader of a failure reads ours on GitHub as it reads the CLI\'s on t
     ['claude returned non-JSON (1)', 'fetch failed'],
     ['claude failed (1)', 'Failed to fetch image: HTTP 503'],
     ['claude failed (1)', 'API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"prompt is too long"}} after HTTP 503'],
+    ['claude failed (1)', 'Failed to authenticate; fetch failed'],
+    ['claude failed (1)', 'quota exceeded; HTTP 503'],
+    ['claude returned non-JSON (1)', 'fetch failed: EHOSTUNREACH'],
+    ['claude failed (1)', 'connect EHOSTUNREACH 10.0.0.1:443'],
+    ['claude failed (1)', "You've hit your weekly limit; Invalid bearer token"],
+    ['claude failed (1)', 'API Error: 403 request rejected'],
+    ['claude failed (1)', 'Reached max turns limit', 'error_max_turns'],
     ['claude returned non-JSON (143)', ''],
     ['claude returned non-JSON (null)', ''],
   ]
@@ -148,6 +155,9 @@ test("beside a failed call on GitHub, a line of ours: the kind, the model, the s
   expect(refusedAt(`API Error: 400 {"type":"error","error":{"type":"permission_error","message":"other.field: ${words}"},"meta":{"type":"invalid_request_error"}}`)).toBeUndefined()
   expect(refusedAt(`API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"no place ${words}"}} "message":"other.field: x"`)).toBeUndefined()
   expect(refusedAt(`${refused('messages.1.content: x')} and then ${words}`)).toBe('messages.1.content')
+  // The object read whole: an escaped quote or a nested object inside it, and one cut short (the review keeps 300 characters) is nothing.
+  expect(refusedAt(`API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"messages.2.text: a \\"quoted\\" {brace}"},"x":{"y":{}}}`)).toBe('messages.2.text')
+  expect(refusedAt(refused('messages.3.text: x').slice(0, 60))).toBeUndefined()
   // None of the tool's words but that place.
   expect(failureDetail({ ...base, message: 'claude failed (1): other', text: other })).not.toContain(words)
 })
