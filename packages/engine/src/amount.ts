@@ -19,6 +19,9 @@
  *   sepuluh, sebelas, belas, puluh, ratus, ribu, juta, seratus, seribu, sejuta;
  * - a half, a few, a little, a pair, a multiple: nửa, rưỡi, rưởi, vài, dăm, mấy, chút, xíu, tí, đôi, cặp, gấp, half,
  *   quarter, few, couple, twice, double, triple, setengah, separuh, seperempat, beberapa;
+ * - how much of a thing, all of it, most or nearly: hết, tất (tất cả), mọi, hầu (hầu hết, hầu như), gần (gần như), cả, all,
+ *   every, most, almost, nearly, whole, entire (Codex's eighth read of #1690: "cây gần như tàn hết", nearly all the plants,
+ *   could come back as all of them);
  * - a spoon, a cap, a drop, a tablet, a packet, a container and the like: thìa, muỗng, nắp, giọt, viên, gói, túi, bao,
  *   chai, lọ, hũ, cốc, chén, ly, bát, tô, xô, thùng, bình, ống, nắm, vốc, nhúm, dúm, liều, butir, and spoon, teaspoon,
  *   tablespoon, tsp, tbsp, cup, pint, quart, cap, capful, drop, tablet, pill, packet, sachet, scoop, pump, pinch;
@@ -30,11 +33,12 @@
  *   month, year, time, times.
  *
  * Not on it, so a read can attack them: vague comparatives ("ít", "nhiều", "hơn", "lớn", "nhỏ"), which say more or less but
- * give no amount; "phân" (fertilizer, and a centimetre in speech) and "phần" (a part), on which too many of a guide's
+ * give no amount; how often and how sure ("thường", "luôn", "đôi khi", "có thể", "chắc chắn"), whose change is the morning
+ * read's (the chief of staff, 19 Nov 2026: how much of a thing is an amount, how often or how sure is not); "phân" (fertilizer, and a centimetre in speech) and "phần" (a part), on which too many of a guide's
  * sentences would wait; the counting words ("con", "cái", "cây", "ekor"), which "một" or a figure beside them holds; and
  * number words of languages the guides aren't written or sourced in (French, Spanish, German). Some words
- * on it are other words too ("cân bằng", "ký sinh", "bình thường", "ống lọc", "thùng lọc"): they cost a mend, as erring
- * wide does.
+ * on it are other words too ("cân bằng", "ký sinh", "bình thường", "ống lọc", "thùng lọc", "cả … lẫn", "đặt gần", "tất
+ * nhiên"): they cost a mend, as erring wide does.
  */
 const WORDS = [
   // numbers in words
@@ -48,6 +52,8 @@ const WORDS = [
   // halves, a few, pairs, multiples
   'nửa', 'rưỡi', 'rưởi', 'vài', 'dăm', 'mấy', 'chút', 'xíu', 'tí', 'đôi', 'cặp', 'gấp', 'half', 'quarter', 'few', 'couple', 'twice',
   'double', 'triple', 'setengah', 'separuh', 'seperempat', 'beberapa',
+  // all of a thing, most or nearly
+  'hết', 'tất', 'mọi', 'hầu', 'gần', 'cả', 'all', 'every', 'most', 'almost', 'nearly', 'whole', 'entire',
   // spoons, caps, drops, tablets, packets, containers
   'thìa', 'muỗng', 'nắp', 'giọt', 'viên', 'gói', 'túi', 'bao', 'chai', 'lọ', 'hũ', 'cốc', 'chén', 'ly', 'bát', 'tô', 'xô', 'thùng',
   'bình', 'ống', 'nắm', 'vốc', 'nhúm', 'dúm', 'liều', 'butir',

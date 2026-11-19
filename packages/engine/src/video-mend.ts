@@ -96,11 +96,12 @@ type Part = { field: string; html: boolean; text: string; pieces: Piece[] }
  * The file is written, and true returned, only when the edit took every quote out and its review is at the bar, or no
  * lower than the review of the text it mends (a mend never leaves a guide worse, as a redo never does). Its review is
  * then the page's. False, and the file as it was: an answer that numbers a sentence twice or leaves one out, writes an
- * amount, says "không" more or less often than its sentence (amount.ts `negations`), leaves a quote in or empties a
- * part, or a review under both.
+ * amount, says "không" more or less often than its sentence (amount.ts `negations`; a sentence that says it is never
+ * dropped), leaves a quote in or empties a part, or a review under both.
  * Nothing, with no editor called, so the gate doesn't count it among a run's mends: not a Vietnamese video guide, a text
  * a person fixed, a quote in no sentence of the guide, nothing but units to mend, a sentence to send that holds an
- * amount, a dose that isn't the video's own tank's, no transcript on this Mac. Nor is a mend tried when a product or a
+ * amount, a sentence that says "không" a finding quotes whole, a dose that isn't the video's own tank's, no transcript
+ * on this Mac. Nor is a mend tried when a product or a
  * price is quoted in a paragraph that holds an amount, at any place: the editor turns a product into its kind, and "5 ml
  * of that product for 200 litres" would become a dose for every product of the kind (the Writing Lead, 2026-11-11).
  * That text goes back.
@@ -172,6 +173,14 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   }
   if (!named.length) return undefined
   if (vi.nameFixed && named.some(n => n.k === 0)) return undefined
+  // A sentence that says "không" is never dropped (below), and one a finding quotes whole isn't sent at all: the editor
+  // could only drop it, taking its condition from the sentence beside it, or write it again as a rule for every tank (the
+  // chief of staff, 19 Nov 2026, after Codex's eighth read dropped "Vách kiểu này không chịu lực, nên…"). It waits.
+  const bare = (t: string) => t.toLowerCase().replace(/[\s.?!…⋯‥"'”’»)“‘]+$/u, '').trim()
+  if (findings.some(f => f.check !== 'units' && at(f).some(({ k, i }) => {
+    const s = txt(k, said[k]![i]!)
+    return negations(s) > 0 && bare(norm(f.quote)).includes(bare(s))
+  }))) return undefined
   if (named.some(n => holdsAmount(rest(txt(n.k, said[n.k]![n.i]!))))) return undefined
   named.sort((a, b) => a.k - b.k || a.i - b.i)
   const lang = e.video.lang ?? 'en'
@@ -198,14 +207,15 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   }
   if (answers.size < named.length) return false
   // What the editor wrote, as the part keeps it. Coming out, an answer holds no amount, but for the label line a dropped
-  // dose leaves, whose words are fixed and give none; and it says "không" as often as its sentence did, or is empty.
+  // dose leaves, whose words are fixed and give none; and it says "không" as often as its sentence did, so a sentence
+  // that says it is never dropped.
   const changes = parts.map(() => new Map<number, string>())
   for (const [j, n] of named.entries()) {
     const v = answers.get(j + 1)!
     const t = parts[n.k]!.html ? inline(v) : asHtml(flat(v))
     const a = txt(n.k, t)
     if (holdsAmount(a.split(LABEL_DOSE).join(' '))) return false
-    if (a.trim() && negations(a) !== negations(txt(n.k, said[n.k]![n.i]!))) return false
+    if (negations(a) !== negations(txt(n.k, said[n.k]![n.i]!))) return false
     changes[n.k]!.set(n.i, t)
   }
   const before = parts.map(x => x.text)

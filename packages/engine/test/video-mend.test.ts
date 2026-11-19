@@ -182,10 +182,10 @@ test('a quote names only the sentences that hold its words whole', async () => {
   expect(await d.mend(page(), [ada])).toBe(true)
   expect(askedOf(d.prompts[0]!).map(x => x.text)).toEqual(['Phân nền ADA Amazonia giữ màu nước.'])
   // Nor across a comma: "bể, mẫu" isn't "Bể mẫu" (Codex's fourth read).
-  const comma = await setup({ body: `<p>Bể mẫu đặt gần cửa sổ.</p><p>Sau khi lấy nước từ bể, mẫu cần được đo ngay.</p><p>${LONG}</p>`, faq: [] })
-  const c = deps(comma.root, { answers: { 'Bể mẫu đặt gần cửa sổ.': 'Đặt bể gần cửa sổ.' } })
+  const comma = await setup({ body: `<p>Bể mẫu đặt cạnh cửa sổ.</p><p>Sau khi lấy nước từ bể, mẫu cần được đo ngay.</p><p>${LONG}</p>`, faq: [] })
+  const c = deps(comma.root, { answers: { 'Bể mẫu đặt cạnh cửa sổ.': 'Đặt bể cạnh cửa sổ.' } })
   expect(await c.mend(page(), [{ ...own, quote: 'Bể mẫu' }])).toBe(true)
-  expect(askedOf(c.prompts[0]!).map(x => x.text)).toEqual(['Bể mẫu đặt gần cửa sổ.'])
+  expect(askedOf(c.prompts[0]!).map(x => x.text)).toEqual(['Bể mẫu đặt cạnh cửa sổ.'])
 })
 
 test('a sentence comes back as the part keeps it: inline markup in the body, plain words in a line, an "&" either way', async () => {
@@ -577,13 +577,16 @@ test('the seventh read\'s amounts: a sentence that holds one waits, and an answe
 // The chief of staff, 19 Nov 2026: "không" is also "not", so it isn't on the list; but "không nên cho ăn" turned "nên cho
 // ăn", or a "bằng không" written in, changes what a reader does. An answer says it as often as its sentence did, or the
 // sentence goes. A negation moved from one clause to another, the count the same, is the morning read's.
-test('an answer says "không" exactly as often as its sentence, or the sentence goes', async () => {
+// Codex's eighth read: an empty answer skipped the count, and a dropped "Vách kiểu này không chịu lực, nên…" left the next
+// sentence's condition to stand alone. A sentence that says "không" is written again with it, never dropped.
+test('an answer says "không" exactly as often as its sentence, and a sentence that says it is never dropped', async () => {
   const theo: FitFinding = { ...own, quote: 'Theo video' }
   const cases: [string, string, boolean][] = [
     ['Theo video, không nên cho cá ăn quá nhiều.', 'Nên cho cá ăn quá nhiều.', false],
     ['Theo video, cá đực nên nuôi riêng.', 'Cá đực nên nuôi riêng, với số cá cái bằng không.', false],
     ['Theo video, không nên cho cá ăn quá nhiều.', 'Không nên cho cá ăn quá nhiều.', true],
-    ['Theo video, không nên cho cá ăn quá nhiều.', '', true],
+    ['Theo video, không nên cho cá ăn quá nhiều.', '', false],
+    ['Theo video, cá đực nên nuôi riêng.', '', true],
   ]
   for (const [before, answer, out] of cases) {
     const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
@@ -591,4 +594,33 @@ test('an answer says "không" exactly as often as its sentence, or the sentence 
     if (out) expect(JSON.parse(await readFile(file, 'utf8')).body, answer).toBe(answer ? `<p>${answer}</p><p>${LONG}</p>` : `<p>${LONG}</p>`)
     else expect(await readFile(file, 'utf8'), answer).toBe(was)
   }
+})
+
+// Codex's eighth read of #1690, on two held guides' own sentences (main had both too): a source finding on "gần như tàn
+// hết" (nearly all) waits, as "hết" says how much; and an elsewhere finding on a sentence that says "không" can't be met by
+// dropping it, which took the wall's "không chịu lực" away from the step after it.
+test('the eighth read\'s two: "nearly all" waits for a person, and a sentence with "không" in it is not dropped', async () => {
+  const puffer = 'Bể cá nóc này có lúc cây gần như tàn hết và rêu lam (cyano) bám khắp.'
+  const a = await setup({ body: `<p>${puffer}</p><p>${LONG}</p>`, faq: [] })
+  const one = deps(a.root, { answers: { [puffer]: 'Trong bể cá nóc, cây có thể tàn hết và rêu lam (cyano) có thể bám khắp bể.' } })
+  expect(await one.mend(page(), [{ ...own, quote: puffer }])).toBeUndefined()
+  expect(one.prompts).toEqual([])
+  expect(await readFile(a.file, 'utf8')).toBe(a.was)
+  const wall = 'Vách kiểu này không chịu lực, nên có thể cắt bớt khung gỗ rồi đóng lại theo kích thước bể.'
+  const next = 'Nếu vách đã nhét cách nhiệt mà chưa bịt thạch cao thì có thể gỡ lớp cách nhiệt ra rồi sửa khung.'
+  const b = await setup({ body: `<p>Một chỗ có thể chọn là vách của tủ kỹ thuật trong phòng tắm. ${wall} ${next}</p><p>${LONG}</p>`, faq: [] })
+  // Quoted whole, it isn't sent: the editor could only drop it or make it every wall's (the chief of staff, 19 Nov 2026).
+  const two = deps(b.root, { answers: { [wall]: '' } })
+  expect(await two.mend(page(), [{ check: 'elsewhere', part: 'P1', quote: wall, why: 'a wood-stud wall', by: 'model' }])).toBeUndefined()
+  expect(two.prompts).toEqual([])
+  expect(await readFile(b.file, 'utf8')).toBe(b.was)
+  // Quoted in part, it's sent, and an answer that drops it is refused.
+  const part: FitFinding = { check: 'elsewhere', part: 'P1', quote: 'cắt bớt khung gỗ', why: 'a wood-stud wall', by: 'model' }
+  expect(await deps(b.root, { answers: { [wall]: '' } }).mend(page(), [part])).toBe(false)
+  expect(await readFile(b.file, 'utf8')).toBe(b.was)
+  // A sentence with no "không" a finding quotes whole is still the editor's, and may go.
+  const plainWall = 'Vách kiểu này dễ cắt, nên có thể cắt bớt khung gỗ rồi đóng lại theo kích thước bể.'
+  const c = await setup({ body: `<p>${plainWall}</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(c.root, { answers: { [plainWall]: '' } }).mend(page(), [{ check: 'elsewhere', part: 'P1', quote: plainWall, why: 'a wood-stud wall', by: 'model' }])).toBe(true)
+  expect(JSON.parse(await readFile(c.file, 'utf8')).body).toBe(`<p>${LONG}</p>`)
 })

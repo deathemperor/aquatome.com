@@ -25,8 +25,8 @@ test('a number is one however it is written: in any script, behind a character t
     expect(holdsAmount(s), JSON.stringify(s)).toBe(true)
   }
   // Vietnamese letters are Latin ones.
-  for (const s of ['Đặt bể gần cửa sổ.', 'Ưu tiên cây dễ trồng.', 'Rêu Java bám lũa.']) expect(holdsAmount(s), s).toBe(false)
-  for (const s of ['Cây mọc khỏe.', 'Đặt bể gần cửa sổ.', 'Dùng phân nền cho cây.', 'Lọc treo dễ vệ sinh.', 'Ít cá thì nước sạch hơn.', 'Nhiều cây thì đẹp.']) expect(holdsAmount(s), s).toBe(false)
+  for (const s of ['Đặt bể cạnh cửa sổ.', 'Ưu tiên cây dễ trồng.', 'Rêu Java bám lũa.']) expect(holdsAmount(s), s).toBe(false)
+  for (const s of ['Cây mọc khỏe.', 'Đặt bể cạnh cửa sổ.', 'Dùng phân nền cho cây.', 'Lọc treo dễ vệ sinh.', 'Ít cá thì nước sạch hơn.', 'Nhiều cây thì đẹp.']) expect(holdsAmount(s), s).toBe(false)
 })
 
 // Codex's seventh read of #1690: "một" is a count of one ("chỉ thả đúng một con cá đực" became "mỗi nhóm…"), so it is
@@ -82,6 +82,20 @@ test('every word the mend\'s own dose, size and number patterns know is on the l
   expect(known).toContain('inches')
   expect(known).toContain('litres')
   for (const w of known.filter(w => w !== 'một')) expect(holdsAmount(w), w).toBe(true)
+})
+
+// Codex's eighth read of #1690: "cây gần như tàn hết" (nearly all the plants died back) could come back as "cây có thể tàn
+// hết" (all of them). A word for all, every, most, nearly or whole says how much, as a number does.
+test('all, every, most, nearly and whole are amounts, in Vietnamese and in English', () => {
+  for (const s of ['Cây gần như tàn hết.', 'Cây tàn hết.', 'Tất cả cây đều tàn.', 'Mọi cây đều tàn.', 'Hầu hết cây đều tàn.', 'Cây hầu như tàn.', 'Rêu bám cả bể.',
+    'All the plants died.', 'Every plant died.', 'Most plants died.', 'The plants almost died.', 'The plants nearly died.', 'The whole tank.', 'The entire tank.']) {
+    expect(holdsAmount(s), s).toBe(true)
+  }
+  // Erring wide: "gần" beside a window, "cả … lẫn", and "đôi khi" by its "đôi" (a pair, on the list before), cost a mend:
+  // Friday's list has no carve-out (the chief of staff, 19 Nov 2026).
+  for (const s of ['Đặt bể gần cửa sổ.', 'Có cả cá lẫn tép.', 'Đôi khi cá nhảy.']) expect(holdsAmount(s), s).toBe(true)
+  // How often and how sure aren't amounts: their change is the morning read's.
+  for (const s of ['Cá thường trốn.', 'Luôn thay nước.', 'Thỉnh thoảng cá nhảy.', 'Có thể thả cá.', 'Chắc chắn cá sống.']) expect(holdsAmount(s), s).toBe(false)
 })
 
 test('"không" is counted as a reader reads it, and is not on the list', () => {
