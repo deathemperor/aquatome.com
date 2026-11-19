@@ -3,6 +3,12 @@
   "name": "ปิราซิกาบา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:51:42.854Z",
+    "why": "Transliteration is plausible, but Thai usage writes Portuguese \"ci\" as ปิราซิกาบา for the city and the place is a region, so it needs the proper kind word and the common form is ปีราซีกาบา."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

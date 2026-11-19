@@ -3,6 +3,12 @@
   "name": "วอชิทอ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T18:51:18.909Z",
+    "why": "วอชิทอ is a plausible transliteration of Ouachita but lacks the Thai kind word แม่น้ำ (river) that an atlas in Thailand would use, so it reads as incomplete."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

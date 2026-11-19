@@ -3,6 +3,12 @@
   "name": "ปาไรบา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-19T18:52:49.467Z",
+    "why": "ปาไรบา is a transliteration of Parahyba/Paraíba but omits the Thai kind word แม่น้ำ, so it reads as a bare name rather than the river."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

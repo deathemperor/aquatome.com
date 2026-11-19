@@ -3,6 +3,12 @@
   "name": "การอกา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-19T18:55:49.147Z",
+    "why": "\"การอกา\" drops \"Aek\" (Batak for river) and garbles \"Garoga\" (should be กาโรกา), with no Thai river word, so it isn't a proper Thai rendering of Aek Garoga."
+  },
   "quality": {
     "score": 0.82,
     "indexable": true

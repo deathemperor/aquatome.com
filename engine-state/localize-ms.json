@@ -4738,6 +4738,269 @@
       "notes:seriouslyfish": "2a1c1f3383b1"
     }
   },
+  "apistogramma-hongsloi": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apistogramma hongsloi",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "#7: \"Kebanyakannya karnivor, dan ... kebanyakannya memakan\" repeats \"kebanyakannya\"; use \"Terutamanya karnivor\" for \"Primarily carnivorous\".",
+      "#1: \"membesar hingga 55 hingga 60 mm\" is awkward; use \"membesar sehingga 55–60 mm\" and \"betina 40–45 mm\".",
+      "#8: \"diternak dalam kurungan\" is stiff; \"ikan hasil ternakan\" is more natural for captive-raised fish."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "365fd4ce337d",
+      "distribution:seriouslyfish": "a47269ecd19b",
+      "habitat:seriouslyfish": "b665f7afae82",
+      "aquariumSize:seriouslyfish": "b7c3277ce24f",
+      "maintenance:seriouslyfish": "b30fe5513b82",
+      "waterConditions:seriouslyfish": "cdd1d4f5f5ed",
+      "diet:seriouslyfish": "b62a7d1b482f",
+      "behaviour:seriouslyfish": "a85e79e13738",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "69527005a06d"
+    }
+  },
+  "apistogramma-iniridae": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apistogramma iniridae",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "#2 \"sangat tahan lasak\" for \"very stable\" shifts the meaning slightly; \"stabil\" or \"mudah dijaga\" would be closer.",
+      "#3 \"dalam tangki yang banyak tumbuhan\" is awkward; use \"tangki yang ditanam dengan banyak tumbuhan\".",
+      "#5 \"makanan sejuk beku\" is non-standard; hobbyists say \"makanan beku\".",
+      "#6 \"menayangkan\" is awkward; use \"mempamerkan\".",
+      "#6 \"sirip dorsal\" could be \"sirip belakang\", but this is acceptable.",
+      "#8 \"Yunani\" is dated; use \"Yunani\" or \"Greek\" with \"bahasa Greek kuno\".",
+      "#8 \"lokasi jenis (type locality)\" is stiff; use \"lokasi spesimen jenis\"."
+    ],
+    "parts": {
+      "quickFacts:glaser": "bfd3c5ad4e6d",
+      "beforeYouBuy:glaser": "0991511b88a5",
+      "maintenance:glaser": "3559001166f0",
+      "waterConditions:glaser": "961697cfcb35",
+      "diet:glaser": "00ad17d90f74",
+      "behaviour:glaser": "949b4d803cd9",
+      "dimorphism:glaser": "f46d800903b7",
+      "notes:glaser": "875be8cff92d"
+    }
+  },
+  "apistogramma-macmasteri": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apisto macmasteri",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "Item 10: \"terlalu agresif\" understates \"hyper-aggressive\"; use \"sangat agresif\" or \"amat agresif\".",
+      "Item 5: \"tumbuhan akuatik daripada genus seperti\" is slightly stilted; \"tumbuhan daripada genus seperti ...\" reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "81d26da4f1bd",
+      "distribution:seriouslyfish": "0b66a0ef659f",
+      "distribution:glaser": "0a5416992a69",
+      "aquariumSize:seriouslyfish": "bcaafb93b8ef",
+      "maintenance:seriouslyfish": "06edc94d0e07",
+      "waterConditions:seriouslyfish": "b2daa1646305",
+      "diet:seriouslyfish": "60b70b0af893",
+      "behaviour:seriouslyfish": "c2f915c208d4",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "20dd8194f07c"
+    }
+  },
+  "apistogramma-megaptera": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apistogramma megaptera",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"bahasa Yunani kuno\" is better written \"bahasa Greek purba\" (the usual Malaysian term); \"Yunani\" is Indonesian usage.",
+      "\"Perkataan Jerman\" could be \"Perkataan bahasa Jerman\" for more natural Malay.",
+      "\"dihuraikan secara saintifik\" is slightly awkward; \"diperihalkan secara saintifik\" is the usual Malaysian term for 'described' in taxonomy.",
+      "\"tangki\" is fine, but \"akuarium\" is also common for a tank; \"dasar\" could be \"substrat\" or \"lantai\"."
+    ],
+    "parts": {
+      "quickFacts:glaser": "8830480852c2",
+      "distribution:glaser": "04af6f398737",
+      "waterConditions:glaser": "fe1571068390",
+      "equipment:glaser": "2f08c64a2f39",
+      "dimorphism:glaser": "56c8e685525e",
+      "notes:glaser": "865010a0717a"
+    }
+  },
+  "apistogramma-mendezi": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apisto mendezi",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 1/5/etc.: \"hutan yang dinaiki air\" is awkward for flooded forest; use \"hutan banjir\" (or \"hutan tenggelam\").",
+      "Item 21: \"tauke ternakan lembu\" is a loose rendering of \"cattle barons\"; \"pemilik ladang ternakan besar\" would be more natural.",
+      "Item 20: \"sub-keturunan\" and \"keturunan\" for sublineage/lineage are slightly stiff; keep \"sublineage\"/\"lineage\" in brackets or use \"salasilah\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "8aad1a495df9",
+      "beforeYouBuy:glaser": "d12bfeaf2472",
+      "distribution:seriouslyfish": "d679250f679e",
+      "distribution:glaser": "34f1c8478418",
+      "habitat:seriouslyfish": "a25185bb9b8a",
+      "habitat:glaser": "7cd9679c9fa5",
+      "aquariumSize:seriouslyfish": "6f26209f0b4a",
+      "maintenance:seriouslyfish": "e6d242d5c431",
+      "waterConditions:seriouslyfish": "3758afb74931",
+      "waterConditions:glaser": "163cbca25503",
+      "equipment:glaser": "39e97487a732",
+      "diet:seriouslyfish": "7fe186d759e5",
+      "diet:glaser": "76e2334d0e6d",
+      "behaviour:seriouslyfish": "aaaacc897c41",
+      "behaviour:glaser": "6ed6ad47c3dd",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "dimorphism:glaser": "f8aa458b36f5",
+      "reproduction:seriouslyfish": "b7f1c45a7ee4",
+      "reproduction:glaser": "5878a2fd36c9",
+      "notes:seriouslyfish": "694357963ff0",
+      "notes:glaser": "83b3aa9079cc",
+      "references:seriouslyfish": "6902fd615560"
+    }
+  },
+  "apistogramma-nijsseni": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apisto Panda",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 11: 'tribe' is left in English ('tiga 'tribe''); use a Malay term such as 'puak (tribe)' or 'tribus'.",
+      "Item 7: 'nampaknya kebanyakannya memakan' is awkward with the repeated 'kebanyakan'; try 'nampaknya terutamanya memakan'.",
+      "Item 8: 'sebaiknya' is used twice in one sentence; vary the wording.",
+      "Item 10: 'Bertelur di atas substrat' is a stiff rendering of 'substrate spawner'; 'pembiak substrat' or 'bertelur pada permukaan pepejal' reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "5b236392bf1b",
+      "distribution:seriouslyfish": "f04760931e59",
+      "habitat:seriouslyfish": "268c9698ebc1",
+      "aquariumSize:seriouslyfish": "6ac63195ad2a",
+      "maintenance:seriouslyfish": "a3371c497f00",
+      "waterConditions:seriouslyfish": "096341cccafb",
+      "diet:seriouslyfish": "60b70b0af893",
+      "behaviour:seriouslyfish": "c2f915c208d4",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "533a9f012a86"
+    }
+  },
+  "apistogramma-norberti": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apistogramma norberti",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [
+      "Item 4: the volume is given as \"kira-kira 40 liter\", although the English gives about 41 litres. This is acceptable, but \"liter\" is better written \"liter\" or \"L\" consistently with the rest of the handbook."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "b6ff2ef1dc04",
+      "distribution:seriouslyfish": "b54d976a364d",
+      "habitat:seriouslyfish": "d72262d9775f",
+      "aquariumSize:seriouslyfish": "adca9f6a16fd",
+      "maintenance:seriouslyfish": "094bf90ef397",
+      "waterConditions:seriouslyfish": "80c2bf638c7c",
+      "diet:seriouslyfish": "6c07a426191d",
+      "behaviour:seriouslyfish": "a85e79e13738",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "5e9dcc44d819"
+    }
+  },
+  "apistogramma-panduro": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apistogramma panduro",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "#10: \"hyper-aggressive\" is rendered as \"terlalu agresif\", which is slightly weaker. Use \"sangat agresif\" or \"amat agresif\".",
+      "#2: \"Wilayah Requena, Wilayah Loreto\" uses \"Wilayah\" twice for different levels. Use \"Wilayah Loreto\" for the region and \"Daerah\"/\"Provinsi\" (or keep Requena Province as \"Wilayah Requena\") with a clear distinction."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "71e45ec73013",
+      "distribution:seriouslyfish": "74fd09b92e3c",
+      "habitat:seriouslyfish": "3425a9296838",
+      "aquariumSize:seriouslyfish": "f12c3e3db82d",
+      "maintenance:seriouslyfish": "80c379596549",
+      "waterConditions:seriouslyfish": "d776453944ec",
+      "diet:seriouslyfish": "f3c80588a3d7",
+      "behaviour:seriouslyfish": "18016b8e6bde",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "89e4b1781252",
+      "references:seriouslyfish": "e5d8dc2ca6c4",
+      "distribution:glaser": "119b59faa326",
+      "dimorphism:glaser": "d6341acbbfaf",
+      "notes:glaser": "bf97c28dbbd2"
+    }
+  },
+  "apistogramma-pantalone": {
+    "at": "2026-11-19",
+    "from": "2026-10-29",
+    "name": "Apisto pantalone",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "e0fdb33f1ece",
+      "distribution:seriouslyfish": "e93c2e9aa41c",
+      "habitat:seriouslyfish": "4f3c0a7ceb28",
+      "aquariumSize:seriouslyfish": "ed896de998ae",
+      "maintenance:seriouslyfish": "6b6f847ddc6b",
+      "waterConditions:seriouslyfish": "c44e617016d1",
+      "diet:seriouslyfish": "243aad775721",
+      "behaviour:seriouslyfish": "b63acf44d466",
+      "dimorphism:seriouslyfish": "2b6f3047ce2d",
+      "reproduction:seriouslyfish": "ebe0eee7113c",
+      "notes:seriouslyfish": "df4b0ebc60d2",
+      "references:seriouslyfish": "19223814522f"
+    }
+  },
+  "apistogramma-paulmuelleri": {
+    "at": "2026-11-19",
+    "from": "2026-11-09",
+    "name": "Apistogramma paulmuelleri",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "Item 10: \"terlalu agresif\" is weaker than \"hyper-aggressive\"; use \"sangat agresif\" or \"amat agresif\".",
+      "Item 10: \"Ikan betina yang kebanyakannya menjaga telur\" is awkward; use \"Penjagaan telur dan anak ikan selepas bertelur kebanyakannya dilakukan oleh ikan betina\".",
+      "Item 11: \"bergantung pada mood\" leaves English \"mood\" in place; use \"bergantung pada keadaan/emosi ikan\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "8907c4dda68d",
+      "distribution:seriouslyfish": "74151821643c",
+      "habitat:seriouslyfish": "9042741a7c84",
+      "aquariumSize:seriouslyfish": "9ca33f7552ef",
+      "maintenance:seriouslyfish": "4cc57a8bb712",
+      "waterConditions:seriouslyfish": "c9edd867e2ee",
+      "diet:seriouslyfish": "7fe186d759e5",
+      "behaviour:seriouslyfish": "aaaacc897c41",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "b7f1c45a7ee4",
+      "notes:seriouslyfish": "94d9347c5450",
+      "references:seriouslyfish": "2ca548140402",
+      "quickFacts:glaser": "45e1f20a6f6e",
+      "distribution:glaser": "6c5b4ff9004d",
+      "habitat:glaser": "92804c7f9878",
+      "waterConditions:glaser": "68c1dcd0e3e4",
+      "dimorphism:glaser": "54323cfff50c",
+      "notes:glaser": "c141fe9e91c1"
+    }
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-16",
     "from": "2026-11-16",

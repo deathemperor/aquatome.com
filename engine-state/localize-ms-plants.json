@@ -2369,5 +2369,79 @@
       "notes:aquariumbreeder": "a5f393d8fb2c",
       "references:aquariumbreeder": "fef0d720cf00"
     }
+  },
+  "murdannia-keisak": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Murdannia keisak",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "cdcf5fbf4029",
+      "maintenance:tropica": "ef314b434849",
+      "notes:tropica": "21879a6dd261"
+    }
+  },
+  "myriophyllum-elatinoides": {
+    "at": "2026-11-19",
+    "from": "2026-10-30",
+    "name": "Myriophyllum elatinoides",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 4: the tank size is \"80 liter\", which follows the table for 20 gallons, so it is correct. Ignore this as an error.",
+      "Item 7: \"Ia tidak tahan dilindungi daripada cahaya\" is awkward for \"does not tolerate shading\". Use \"Ia tidak tahan dinaungi/teduhan untuk jangka masa panjang\".",
+      "Item 7: \"menjadi panjang dan kurus\" for \"leggy\" is slightly clumsy. Use \"menjadi kurus dan jarang\".",
+      "Item 5: \"nyahjangkit\" is non-standard in hobby usage. Use \"nyahkuman\" or \"disinfeksi\".",
+      "Item 5: \"Melainkan tumbuhan itu memang pasti selamat\" is stiff. Use \"Melainkan anda pasti tumbuhan itu selamat\".",
+      "Item 8: \"Jambak bunganya ... membentuk pancang\" is stiff terminology. Use \"Jambak bunga biasanya berbentuk spikelet/tangkai di hujung batang\".",
+      "Item 8: \"Mencari makanan\" for the foraging benefit reads oddly. Use \"Sumber makanan\".",
+      "Item 8: \"bersaing ... dan mengatasinya\" adds the sense of winning. The English says \"outcompetes\", which does carry that, so this is fine; only the wording is clumsy."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "23c48a55bfd9",
+      "distribution:aquariumbreeder": "b7aa9c4f501a",
+      "habitat:aquariumbreeder": "3a519609b047",
+      "aquariumSize:aquariumbreeder": "755e45cfb934",
+      "maintenance:aquariumbreeder": "290cee08f7ed",
+      "waterConditions:aquariumbreeder": "b47bc08d6a13",
+      "equipment:aquariumbreeder": "e9c0526d6c97",
+      "notes:aquariumbreeder": "fefb287eb20f",
+      "references:aquariumbreeder": "c2d28571f584"
+    }
+  },
+  "myriophyllum-mattogrossense": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Myriophyllum mattogrossense",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"seperti bulu pelepah\" is awkward and unclear for \"feather-like\"; use \"berbulu halus seperti bulu burung\" or \"seperti bulu pelepah (bulu burung)\".",
+      "\"decorative\" translated as \"yang cantik\" is acceptable but \"hiasan\" is closer; \"membentuk seperti kipas\" is redundant, use \"membentuk kipas\".",
+      "\"Rio Amazonas\" with \"di\" is fine, but \"Mato Grosso di Rio Amazonas\" may be clearer as \"Mato Grosso di lembangan Amazon\" (minor).",
+      "\"Sesuai sebagai tumbuhan untuk permulaan\" is stiff; use \"Tumbuhan yang sesuai untuk pemula\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "4c5cefb0fba6",
+      "maintenance:tropica": "4a8d86085484"
+    }
+  },
+  "myriophyllum-sp-guyana": {
+    "at": "2026-11-19",
+    "from": "2026-10-31",
+    "name": "Myriophyllum 'Guyana'",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 3: 'Aquarium plant' rendered as 'Tumbuhan akuatik' is acceptable but 'tumbuhan akuarium' is the term more commonly used by hobbyists; consider changing it.",
+      "Item 2: 'selalunya perlu dipangkas' adds 'ke semua bahagiannya' ('to all parts'), which is not in the source; consider simplifying to 'untuk mengekalkan akses kepada cahaya dan aliran air'."
+    ],
+    "parts": {
+      "quickFacts:tropica": "271e170a7ec0",
+      "maintenance:tropica": "1cb6cf22b28d",
+      "notes:tropica": "445e293387eb"
+    }
   }
 }

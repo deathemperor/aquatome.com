@@ -466,9 +466,87 @@
     "opus": 0.65,
     "back": false
   },
+  "astyanax-bimaculatus": {
+    "hash": "5281beb6c8459b490891cecb1206e560f536f639cf3d2a30051138c34ffaca99",
+    "at": "2026-11-19T18:38:19.698Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "aulonocara-baenschi": {
+    "hash": "3fbb034468b5d91e3d29b1500a6cc2737b569aac4b4f83c9b5a5fb1d135b4960",
+    "at": "2026-11-19T18:38:49.644Z",
+    "sonnet": 0.92,
+    "opus": 0.93,
+    "back": true
+  },
+  "austrolebias-nigripinnis": {
+    "hash": "d3d665dfaa33a073c3ea490bfa87c1406d7ee485f8e6bcb229f0557f211b7980",
+    "at": "2026-11-19T18:39:09.320Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
+  },
+  "axelrodia-stigmatias": {
+    "hash": "e1cb08a8afe788ceb392daf8e1076934026eea36454ffff40e388c142c59d094",
+    "at": "2026-11-19T18:39:21.638Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "babylonia-spirata": {
+    "hash": "a996962740914c40f3b48afd8d7cd20e2cc64d4dcf2a7dc0a0fca8596fb8921b",
+    "at": "2026-11-19T18:39:53.244Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": false,
+    "held": [
+      "Item 7: 'Nitrat sebaiknya tetap di bawah 20 ppm' is fine. But 'Pada 34 °C... Keong bahkan tidak bisa masuk sepenuhnya ke dalam cangkang' is OK, so no change is needed there. The real problem: 'Salinitas di bawah 1,015 (19 ppt) mematikan' keeps the source's inconsistent figures, so check it."
+    ]
+  },
+  "badis-assamensis": {
+    "hash": "3727b3a0f0614e37e7b7492abc3418306c16736fb29405f3d2b7cf35a94717ab",
+    "at": "2026-11-19T18:40:35.806Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
+  "badis-blosyrus": {
+    "hash": "9b9ad448b9751b1d24c1bf5051533c58daa4d95222edcc312f2b7182b419d950",
+    "at": "2026-11-19T18:40:50.013Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "badis-corycaeus": {
     "hash": "a95a18b6f9a20565cfba0b6107e235e6391b3a0262c8aff1c1e9fbd0ea43f083",
     "at": "2026-11-19T00:25:46.536Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "badis-khwae": {
+    "hash": "e82a81e2dca75ef49e8c187619602fbbfae777862b3d1073cd5317836c8aaf29",
+    "at": "2026-11-19T18:41:02.205Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 7: English says bloodworm is a good live/frozen food but later says bloodworm and Tubifex should be omitted. The Indonesian keeps 'cacing darah' in the recommended foods, so the contradiction stays. This is a source inconsistency, but the translation should still not lead to harmful advice. Consider flagging it."
+    ]
+  },
+  "badis-pyema": {
+    "hash": "b9199d1ffd570b3f3e59385b715baacf2e334f336018d378a14bfcc80c4ee7e2",
+    "at": "2026-11-19T18:41:43.197Z",
+    "sonnet": 0.95,
+    "opus": 0.7,
+    "back": false
+  },
+  "badis-ruber": {
+    "hash": "d55d875fbc5933f539f3d5feef449cb97a94b80bde7e6832f356c4288ad432ff",
+    "at": "2026-11-19T18:41:58.010Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "badis-siamensis": {
+    "hash": "870089d8312f8ba71c05173ef58b54ec4a6276904c9bfd17b18a81970370e476",
+    "at": "2026-11-19T18:42:11.204Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -687,6 +765,31 @@
     "hash": "393590bbe970b8a2f75543c19febe3968fef31f0d972eba4708c336f43cf93c5",
     "at": "2026-11-19T12:35:41.870Z",
     "sonnet": 0.7,
+    "back": false
+  },
+  "epiplatys-sexfasciatus": {
+    "hash": "38b13955a2edd2274aa558056cb496900325b1ebaf54bc480274830d7f4ce855",
+    "at": "2026-11-19T18:37:23.174Z",
+    "sonnet": 0.8,
+    "opus": 0.95,
+    "back": true
+  },
+  "eretmodus-cyanostictus": {
+    "hash": "46b874b98960b9a197e8c1e3c62ba815c7bc7c1762bcab7c373a73a9b314fa89",
+    "at": "2026-11-19T18:37:35.919Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "esmaeilius-vladykovi": {
+    "hash": "8c27f4b06e03402d2682b2264090f3ae1da646ffe7555cf5db1768206a9057d5",
+    "at": "2026-11-19T18:37:48.681Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "esomus-danrica": {
+    "hash": "915e449bbf5086de93fcd1ffbe0bd62911f1ed8f3f3a780b908f2f420c03dcc2",
+    "at": "2026-11-19T18:37:54.709Z",
+    "sonnet": 0.5,
     "back": false
   },
   "gastromyzon-punctulatus": {

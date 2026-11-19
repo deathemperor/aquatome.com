@@ -530,6 +530,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-9QSxJymRBak#body": [
+    {
+      "at": "2026-11-19T19:02:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Bể càng dài thì đèn chuyên dụng càng đắt\" adds a claim about price. BEFORE only says the specialised light is also long (\"đèn chuyên dụng cũng dài theo\").",
+        "\"tự làm\" is added, though it is implied by BEFORE. This is a small nuance."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-AAjZ3Ldk4go#body": [
     {
       "at": "2026-11-09T06:27:20Z",

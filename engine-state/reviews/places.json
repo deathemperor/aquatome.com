@@ -6028,6 +6028,18 @@
       "kept": true
     }
   ],
+  "id/places/kahayan-river": [
+    {
+      "at": "2026-11-19T18:05:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kaira-river": [
     {
       "at": "2026-11-09T22:55:04Z",
@@ -7239,6 +7251,18 @@
       "at": "2026-11-08T05:20:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-chad-basin": [
+    {
+      "at": "2026-11-19T18:05:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -15174,6 +15198,18 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rungan-river": [
+    {
+      "at": "2026-11-19T18:05:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26067,6 +26103,20 @@
       "kept": true
     }
   ],
+  "ms/places/kahayan-river": [
+    {
+      "at": "2026-11-19T18:30:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All three Malay names are correct: Sungai Kahayan, Lembangan Tasik Chad, Sungai Rungan."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/kaira-river": [
     {
       "at": "2026-11-10T10:07:22Z",
@@ -27384,6 +27434,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/lake-chad-basin": [
+    {
+      "at": "2026-11-19T18:30:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All three Malay names are correct: Sungai Kahayan, Lembangan Tasik Chad, Sungai Rungan."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35621,6 +35685,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rungan-river": [
+    {
+      "at": "2026-11-19T18:30:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [
+        "All three Malay names are correct: Sungai Kahayan, Lembangan Tasik Chad, Sungai Rungan."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -46124,6 +46202,18 @@
       "kept": true
     }
   ],
+  "th/places/kahayan-river": [
+    {
+      "at": "2026-11-19T18:11:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kaira-river": [
     {
       "at": "2026-11-09T22:57:23Z",
@@ -47426,6 +47516,18 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-chad-basin": [
+    {
+      "at": "2026-11-19T18:11:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -55789,6 +55891,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rungan-river": [
+    {
+      "at": "2026-11-19T18:11:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "รุงัน (Rungan River): malformed Thai; \"รุงัน\" is not a proper syllable structure. It should be รูงัน or รุงัน with a vowel, e.g. \"รุงาน\" or \"รูงัน\" (Rungan). Transliteration is unreliable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -67147,6 +67263,17 @@
       "kept": true
     }
   ],
+  "vi/places/kahayan-river": [
+    {
+      "at": "2026-11-19T18:05:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kaira-river": [
     {
       "at": "2026-11-09T22:53:55Z",
@@ -68812,6 +68939,17 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-chad-basin": [
+    {
+      "at": "2026-11-19T18:05:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -78440,6 +78578,17 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rungan-river": [
+    {
+      "at": "2026-11-19T18:05:04Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }

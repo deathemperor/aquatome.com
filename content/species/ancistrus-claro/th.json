@@ -22,10 +22,10 @@
     "references:seriouslyfish": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Bifi, A. G., C. S. Pavanelli and C. H. Zawadzki (2009). Three new species of Ancistrus Kner, 1854 (Siluriformes: Loricariidae) from the Rio Iguaçu basin, Paraná State, Brazil. Zootaxa 2275, 41-59</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.85
     }
   }
 }

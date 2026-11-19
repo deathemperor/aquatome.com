@@ -3,6 +3,12 @@
   "name": "Conchos",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:54:53.522Z",
+    "why": "Conchos is a Mexican river/region name; an atlas in Malaysia would likely write \"Sungai Conchos\" for the river, so the bare name omits the Malay kind word, though the name itself is not wrong."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

@@ -1,0 +1,424 @@
+{
+  "found": true,
+  "species": [
+    "Carassius auratus",
+    "Danio rerio"
+  ],
+  "sources": [
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA006",
+      "title": "Ichthyophthirius multifiliis (White Spot) Infections in Fish",
+      "kind": "university"
+    },
+    {
+      "url": "https://vcahospitals.com/know-your-pet/fish-white-spot-disease",
+      "title": "Fish: White Spot Disease (Ich)",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquarium-fishes/mycotic-diseases-of-fish",
+      "title": "Mycotic Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquarium-fishes/bacterial-diseases-of-fish",
+      "title": "Bacterial Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://petmd.com/fish/conditions/skin/c_fi_saprolegnia",
+      "title": "Fish Fungal Infections: 3 Common Types and Treatments",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquarium-fish/parasitic-diseases-of-fish",
+      "title": "Parasitic Diseases of Fish",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.sera.de/fileadmin/epapers/aqua-health-en/page32.html",
+      "title": "sera guide - Healthy aquarium fish",
+      "kind": "maker"
+    },
+    {
+      "url": "https://aquahouse.vn/ca-bi-dom-trang/",
+      "title": "Cá bị đốm trắng là bệnh gì? Nguyên nhân và cách điều trị hiệu quả",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/hinh-anh-cac-loai-thuoc-tri-benh-cho-ca.30825/",
+      "title": "Hình ảnh các loại thuốc trị bệnh cho cá",
+      "kind": "forum"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "White spot disease (Ich) is caused by the ciliate protozoan Ichthyophthirius multifiliis. It affects freshwater aquarium fish and farmed fish.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Ich can cause rapid, high mortality. One parasite can produce up to 1,024 offspring in one generation.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Ich completes its life cycle on fish without a second host. Adult parasites leave the fish, encyst in the tank and release many free-swimming infective stages.",
+      "source": 5,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Only the free-swimming theront stage can be killed by treatment. Parasites on the fish are shielded by the fish's skin and mucus.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "At 75–79°F, the Ich life cycle takes about 3 to 6 days. In cool water it takes weeks.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Saprolegnia and other Oomycota, often called fish 'fungus', are fungus-like protists rather than true fungi.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Aquatic fungi are usually secondary invaders. They follow injury, infection, poor water quality or low water temperature, and many grow on decaying organic matter.",
+      "source": 2,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Ich shows as small white spots or salt-grain-like dots on the skin and fins.",
+      "source": 0,
+      "also": [
+        1,
+        5
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Early Ich signs, before spots appear, include flashing (rubbing against objects), extra mucus, lethargy and poor appetite.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Other Ich signs include clamped fins and darker colour.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Gill-only Ich infections may show no spots. Gills look pale and swollen, and many fish can die.",
+      "source": 0,
+      "also": [
+        5
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "When gills are infected, fish may breathe rapidly or gasp at the surface.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "White spots alone should never be used to diagnose Ich, because other diseases look similar. Confirm by examining skin, gill or fin samples under a microscope.",
+      "source": 0,
+      "also": [
+        1,
+        5
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Lymphocystis and some sporozoan infections can look like white spot disease.",
+      "source": 6
+    },
+    {
+      "section": "signs",
+      "fact": "Velvet (Piscinoodinium) in freshwater fish gives a brownish-gold, rust or gold-dust look, with small golden spots rather than white ones.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Fungal or water-mould infections look like fuzzy, cotton-like white, tan or yellowish patches on the body, fins, eyes or gills.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Bacterial infections such as columnaris, and damaged tissue, can look like fungus.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Columnaris (Flavobacterium columnare) can appear as creamy material on goldfish gills and as 'haystacks' of bacteria on Corydoras skin. A microscope wet mount shows many filamentous, motile bacteria.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Ich can be brought in with new fish, substrates, plants or equipment.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Ich spreads from infected water or newly added infected fish and is highly contagious.",
+      "source": 1
+    },
+    {
+      "section": "causes",
+      "fact": "Water mist or spray can carry Ich between nearby tanks.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Fungal infections are linked to poor water quality, waste buildup, overcrowding, aggressive tank mates, skin or fin injuries, and dead fish left in the tank.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Columnaris is most common in warmwater species.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "If even one Ich parasite is found, start treatment immediately. As the infection advances, fish may die even with treatment.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "For fungal infections, correct the stressors first: water quality, diet, overcrowding and aggression. Mild cases may improve once these are fixed.",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Remove dead fish quickly. Ich parasites leave dead fish and multiply in the tank.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Ich salt treatment: a prolonged bath of 4 to 5 g/L for 7 to 10 days at 75–79°F, for smaller systems.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Merck lists raising salinity to 5 g/L for one week at 24°C or higher as a freshwater Ich treatment, if the species tolerates it.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Most freshwater fish tolerate 5 ppt salt for several weeks. Salt tolerance varies by species, so check each species' limits.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Aquarium plants and small-pond plants may not tolerate raised salinity.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "VCA says salt treatment is suitable only for scaled fish. Use aquarium salt, not table salt, and remove it afterwards with several water changes.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Ich formalin treatment: 25 mg/L (1 mL per 10 gallons). Formalin-sensitive species get half that, 12.5 mg/L.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Give strong aeration during formalin treatment, especially if gills are damaged. If fish look stressed or try to jump, flush with clean, oxygenated water.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Copper sulfate dose for Ich (mg/L) = total alkalinity (mg/L) ÷ 100. Do not use it if alkalinity is below 50 mg/L. An overdose kills fish.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "UF/IFAS does not recommend potassium permanganate for Ich. Using it more than once a week damages skin, gills and eyes.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Ich treatment schedule at 75–79°F: treat daily, at least 3 to 5 treatments. At 60°F, space treatments 3 to 5 days apart, at least 5 treatments.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Merck: at warm aquarium temperatures (above 26°C), treat Ich daily for 3 to 7 treatments. Formalin or copper are the drugs of choice.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Most Ich strains cannot survive above 86°F (30°C). Raise the temperature slowly and add oxygen, because not all fish tolerate heat.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Sera advises raising the temperature slightly for a few days for white spot, with about 31°C (88°F) as ideal if the fish tolerate it. Afterwards, lower it slowly.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Sera costapur for white spot: treat on days 1 and 3, and again on days 5 and 7 if new spots appear. Keep lights off on treatment days and aerate well.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Some invertebrates are sensitive to sera's white spot treatment, so sera suggests using a quarantine tank.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Cartilaginous fish such as sharks and rays do not tolerate malachite green or similar compounds.",
+      "source": 6
+    },
+    {
+      "section": "treatment",
+      "fact": "Malachite green is effective against Ich and is in many over-the-counter products. Merck says vets should not dispense it because of regulatory concerns, and it must never be used on food fish.",
+      "source": 5
+    },
+    {
+      "section": "treatment",
+      "fact": "Moving fish to a clean, uninfected tank every 24 hours can clear Ich within a few days. Colder water needs longer.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "An 80-micron mesh filter can remove Ich stages from the water.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "For freshwater fungal infections, aquarium salt at 1–2 g/L may reduce fungal growth. Measure it accurately and keep salinity stable during water changes.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Severe fungal infections such as Branchiomyces are hard to treat, and humane euthanasia may be recommended.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "For bacterial hemorrhagic septicemia (Aeromonas, Pseudomonas), first remove causes such as low oxygen, poor water and handling stress. Use antibiotics if fish are dying, chosen by sensitivity testing where possible.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Merck: no effective treatment eliminates mycobacteria (fish tuberculosis), and the infection can pass to people handling fish.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Metronidazole is the only available treatment for the intestinal flagellate Spironucleus in ornamental fish. Give it orally, or as a bath if fish will not eat.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Ich steps: confirm the diagnosis, treat repeatedly on a schedule set by temperature, clean the tank daily to remove cysts in debris, and continue until deaths stop.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Quarantine all new fish for at least 30 days. Ich can appear 1 to 3 weeks after shipping in warm water.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Before adding plants, substrate or decorations, hold them without fish for one life cycle at current temperature, or disinfect them.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Do not share nets or siphons between tanks unless they have been disinfected.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Fungus prevention: clean water tested regularly for ammonia, nitrite and nitrate, a balanced diet, no overcrowding, and managed aggression.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Leaving a tank empty of fish (fallow) breaks the Ich cycle. Cysts resist chemicals, so clean gravel and debris thoroughly.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "A common mistake is giving a single Ich treatment or stopping too early. Treatment must be repeated until deaths stop.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Fish that recover from Ich can carry the infection to other fish.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using copper sulfate without testing alkalinity is a common error. It is extremely toxic to fish in low-alkalinity water.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Moving fish to a hospital tank for 48 hours lets parasites in the main tank die off, but this alone does not cure Ich.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Natural methods are less reliable than chemical treatment for Ich, and resistant strains can develop.",
+      "source": 1
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese shops call Ich 'bệnh đốm trắng' ('cá bị đốm trắng'). They mention methylene blue ('xanh methylen'), malachite green and non-iodized salt as treatments.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese forum keeper reports buying tetracycline, potassium permanganate ('thuốc tím'), metronidazole, ampicillin, tinidazole and ciprofloxacin at human pharmacies ('tiệm thuốc tây') to treat fish.",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same Vietnamese keeper reports 'Tetra Nhật' antibiotic powder and BIOFISH digestive probiotic ('men tiêu hóa') sold in fish shops.",
+      "source": 8
+    },
+    {
+      "section": "myths",
+      "fact": "Calling every white spot 'Ich' is wrong, say UF/IFAS and sera: lymphocystis, sporozoans and other diseases look similar.",
+      "source": 0,
+      "also": [
+        6
+      ]
+    },
+    {
+      "section": "myths",
+      "fact": "Fish 'fungus' is mostly not true fungus: PetMD's vet author says it is often water moulds, and Merck classes Saprolegnia as fungus-like protists.",
+      "source": 4,
+      "also": [
+        2
+      ]
+    }
+  ]
+}

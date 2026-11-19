@@ -1,8 +1,13 @@
 {
   "slug": "cumberland-river",
-  "name": "คัมเบอร์แลนด์",
+  "name": "แม่น้ำคัมเบอร์แลนด์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-19T18:47:58.869Z"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

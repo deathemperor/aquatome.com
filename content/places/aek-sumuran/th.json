@@ -3,6 +3,12 @@
   "name": "ซูมูรัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-19T18:55:52.787Z",
+    "why": "ซูมูรัน transliterates \"Sumuran\" but drops the river's kind word \"Aek\" (a river), so it reads as a bare name and isn't the full Thai atlas name for the river."
+  },
   "quality": {
     "score": 0.82,
     "indexable": true

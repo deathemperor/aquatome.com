@@ -210,6 +210,57 @@
     "sonnet": 0.7,
     "back": false
   },
+  "anabas-testudineus": {
+    "hash": "e4a1ae2f9f6a8475f9bfb7ed30420de3439329ae27f8f22932ec71c1a9479896",
+    "at": "2026-11-19T18:44:34.532Z",
+    "sonnet": 0.88,
+    "opus": 0.88,
+    "back": true
+  },
+  "anadoras-grypus": {
+    "hash": "fea946cc2d7940ff7a0251cde1abfd1d56b69e7c271acd5c7a3dfdfe67e073b8",
+    "at": "2026-11-19T18:44:48.167Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "anatolichthys-anatoliae": {
+    "hash": "2e9a7011571e9f0ce6aa45d5301d6df6e8b9c89fb8f777979275dcc16a2af817",
+    "at": "2026-11-19T18:45:08.915Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "anatolichthys-danfordii": {
+    "hash": "19925a34551a0356409ee63a1d3c34f4d0ee7d6eea88aebc2db441d1327b92a0",
+    "at": "2026-11-19T18:45:23.336Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "anatolichthys-sureyanus": {
+    "hash": "09b2a239afbb2bff96945abd22d074bffaf30494d7e34aefd743713deefe5489",
+    "at": "2026-11-19T18:46:08.060Z",
+    "sonnet": 0.88,
+    "opus": 0.85,
+    "back": true
+  },
+  "anatolichthys-villwocki": {
+    "hash": "e2e4db02adeb6fa891f39e89170521b22b68cfe90dee0bf512e5652e836a5bb5",
+    "at": "2026-11-19T18:46:15.017Z",
+    "sonnet": 0.45,
+    "back": false
+  },
+  "ancistrus-cirrhosus": {
+    "hash": "f259e9996483d795b2ef314deb21ca4b7ef72cc570e05d99e686e725ba804b00",
+    "at": "2026-11-19T18:46:22.186Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "ancistrus-claro": {
+    "hash": "e6f6abc1e04cecc5a5cf5cc914939cfb19156e3cca5d55cdafa1d4f4da619d7d",
+    "at": "2026-11-19T18:46:55.959Z",
+    "sonnet": 0.85,
+    "opus": 0.95,
+    "back": true
+  },
   "apistogramma-cacatuoides": {
     "hash": "7f783286c6c79d55645896c1d96c9b7933342bef009e510bc5cc75e7920f9870",
     "at": "2026-11-17T11:29:12.554Z",
@@ -570,6 +621,42 @@
       "Item 4: \"น้ำที่มีเชื้อโรคน้อย\" for \"low-germ water\" is a medical-sounding term. Use \"น้ำสะอาดที่มีแบคทีเรียต่ำ\" or similar for aquarium water quality."
     ]
   },
+  "epiplatys-duboisi": {
+    "hash": "a099345da9c3c45ac2ab0a3d6c993f5f60382d1ee5076f35a837951d2e82d9ac",
+    "at": "2026-11-19T18:42:24.490Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "epiplatys-lamottei": {
+    "hash": "b70cab845feb380007cc31e70cd3d078ac3f2e39b84d49e1c3fddfd3006b8df9",
+    "at": "2026-11-19T18:42:37.634Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "eretmodus-cyanostictus": {
+    "hash": "23657384f0922459d34c7c044a86911b9758ff4002d8d7c3408951946d086b54",
+    "at": "2026-11-19T18:42:54.424Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "erythrinus-erythrinus": {
+    "hash": "626cf05ef91db05d1f8ed87a2245b2eb45eef9ab5f64a044b6c663b7b5691427",
+    "at": "2026-11-19T18:43:08.923Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "esmaeilius-vladykovi": {
+    "hash": "c430008de654b79fa3bf744eab5acff510e12a033069c340f106d2b3781a1a87",
+    "at": "2026-11-19T18:43:24.487Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "etroplus-canarensis": {
+    "hash": "96e151070f95ca0084b6e48f743a0375e232a9fe418631816f51025d1c646e4d",
+    "at": "2026-11-19T18:43:40.361Z",
+    "sonnet": 0.5,
+    "back": false
+  },
   "garra-flavatra": {
     "hash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685",
     "at": "2026-11-17T11:27:29.902Z",
@@ -767,9 +854,9 @@
     ]
   },
   "pseudomystus-funebris": {
-    "hash": "811eacdf9c54fb9c52a2368a658d565c11cf1c4a947abce121abcdd281fa2659",
-    "at": "2026-11-19T12:41:58.808Z",
-    "sonnet": 0.72,
+    "hash": "98f10a6c8b09cde14f83dc97d05e55a491b64ed23612327a49c8dd8d1707d7a6",
+    "at": "2026-11-19T18:43:54.070Z",
+    "sonnet": 0.6,
     "back": false
   },
   "sewellia-breviventralis": {

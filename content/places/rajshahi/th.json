@@ -3,6 +3,12 @@
   "name": "ราชศาหี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-19T18:51:57.662Z",
+    "why": "ราชศาหี is a Thai-script attempt at Rajshahi, but the usual Thai rendering is ราชชาฮี, and for a division the name normally carries the kind word เขต, which is missing here."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true
