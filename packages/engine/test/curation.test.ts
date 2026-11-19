@@ -721,7 +721,7 @@ test("a page whose head is on avoid gives the faces for more than one fish its f
   const card = cardPhotos(pages, v2, hand, held, avoid)
   expect(card).toEqual({ a: u(3), e: u(10), f: u(11), g: u(22), k: u(25), h: u(32), j: u(34) })
   // None of them is on the list, by either address.
-  const all = pages.flatMap(p => p.photos)
+  const all: { url: string; large?: { url: string } }[] = pages.flatMap(p => p.photos)
   for (const url of Object.values(card)) for (const x of [url, all.find(p => p.url === url)?.large?.url]) if (x) expect(x in avoid).toBe(false)
   // The planner carries the map, and the calendar's schema keeps it on the way back in (the site reads the file).
   const cur = CurationSchema.parse({ version: 1, weeks: [], days: [] })
