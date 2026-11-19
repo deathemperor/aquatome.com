@@ -332,11 +332,14 @@ export type WriteOpts = { style?: boolean; edit?: boolean; model?: string }
  * held, 48 were held for talking about the video's source and 14 for advice for somewhere else (the chief of staff,
  * 19 Nov 2026). The first draft and the reviewer's fix get them; the mend has its findings.
  */
-export const CHECK_RULES = `Sau khi viết, bài được đọc lại theo danh sách kiểm tra cho người đọc ở Việt Nam (tiếng Anh, nguyên văn bên dưới). Một câu vướng một trong hai mục này thì cả bài bị giữ lại, không lên trang:\n${checklistLines(['source', 'elsewhere'], 'vi', 'guides', true)}`
+let rulesCut: string | undefined
+// Cut when a prompt is first made, not when the module loads: a heading renamed in fit.md stops the writer and its fix
+// with the error, never the mend or another engine command.
+export const checkRules = () => (rulesCut ??= `Sau khi viết, bài được đọc lại theo danh sách kiểm tra cho người đọc ở Việt Nam (tiếng Anh, nguyên văn bên dưới). Một câu vướng một trong hai mục này thì cả bài bị giữ lại, không lên trang:\n${checklistLines(['source', 'elsewhere'], 'vi', 'guides', true)}`)
 
 const videoPrompt = (m: VideoMeta, transcript: string, notes?: string[], style?: boolean) => [
   WRITE,
-  CHECK_RULES,
+  checkRules(),
   ...(style ? [STYLE] : []),
   `Tiêu đề video: ${m.title}`,
   `Chương (${m.chapters.length}):\n${m.chapters.map(c => `- [${clock(c.start)}] ${c.title}`).join('\n') || '(không có)'}`,
@@ -366,7 +369,7 @@ export async function editDraft(llm: Llm, d: Draft, model?: string): Promise<Dra
  */
 export async function fixDraft(llm: Llm, transcript: string, d: Draft, notes: string[], o: WriteOpts & { lang?: string; /** The notes are the reader-fit check's (video-mend.ts): what the video says but a reader here can't use. */ reader?: boolean } = {}): Promise<Draft | null> {
   const own = o.lang === 'vi' ? ['Video bằng tiếng Việt: không chép lại câu nói trong bản ghi; chỗ nào sửa thì viết bằng lời của bạn.'] : []
-  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.reader ? [MEND] : [CHECK_RULES]), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `${o.reader ? 'Ghi chú về người đọc' : 'Ghi chú của người duyệt'}:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
+  const e = await llm<Draft>({ system: SYSTEM, prompt: [FIX, ...(o.reader ? [MEND] : [checkRules()]), ...(o.style ? [STYLE] : []), ...own, `Bản ghi:\n${transcript.slice(0, 120_000)}`, `Bài cần sửa (JSON):\n${JSON.stringify(d)}`, `${o.reader ? 'Ghi chú về người đọc' : 'Ghi chú của người duyệt'}:\n${notes.map(n => `- ${n}`).join('\n')}`].join('\n\n'), schema: DRAFT_SCHEMA, model: o.model })
   if (!e.relevant || !usable(e)) return null
   return { ...e, kind: d.kind, relevant: d.relevant, chapters: e.chapters.length === d.chapters.length ? e.chapters : d.chapters }
 }

@@ -675,4 +675,28 @@ test("the writer and the reviewer's fix are told the check's source and elsewher
   expect(prompts[0]).toContain(rules)
   expect(prompts[1]).toContain(rules)
   expect(prompts[2]).not.toContain(rules)
+  // None of it leaks into the mend, line by line.
+  for (const line of rules.split('\n').filter(l => l.trim().length > 20)) expect(prompts[2], line).not.toContain(line.trim())
+})
+
+// The reader's find (#1677): the writer's lines are cut when a prompt is made, so a heading renamed in fit.md stops the
+// writer and its fix with the error, never loading the engine, the mend or another command.
+test('a renamed check heading stops the writer and its fix, never the engine loading or the mend', async () => {
+  expect(() => checklistLines(['nope' as never], 'vi', 'guides', true)).toThrow('prompts/fit.md has no line for nope')
+  vi.resetModules()
+  vi.doMock('../src/fit', async (orig: () => Promise<object>) => ({ ...(await orig()), checklistLines: () => { throw new Error('prompts/fit.md has no line for source') } }))
+  try {
+    const y = await import('../src/youtube')
+    const draft = { relevant: true, kind: 'care', viTitle: 'T', summary: ['a'], body: '<p>b</p>', faq: [], chapters: [] }
+    let calls = 0
+    const llm = (async () => { calls++; return draft }) as never
+    await expect(y.writeDraft(llm, meta('v1'), 'transcript')).rejects.toThrow('no line for source')
+    await expect(y.fixDraft(llm, 'transcript', draft as never, ['a note'])).rejects.toThrow('no line for source')
+    expect(calls).toBe(0)
+    await y.fixDraft(llm, 'transcript', draft as never, ['a note'], { reader: true })
+    expect(calls).toBe(1)
+  } finally {
+    vi.doUnmock('../src/fit')
+    vi.resetModules()
+  }
 })
