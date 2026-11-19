@@ -119,6 +119,30 @@ test('the meaning is read under [the definition]: one site may define it alone, 
   expect(sentences(e).map(s => s.meaning ?? false)).toEqual([true, true, false])
 })
 
+// Codex, 19 Nov 2026: a stop on a body sentence that repeats one of the meaning's let the meaning's copy go too, and a
+// rewrite could cut it from the meaning unnoticed.
+test('a stop on a body sentence never lets the meaning\'s copy of it go', () => {
+  const step = { facts: [{ fact: 'Soak new wood 2 weeks before use.' }] }
+  const s = 'Ngâm 2 tuần.'
+  const inBody = sentences({ definition: '', body: `<p>${s}</p>` })
+  expect(inBody.map(x => [x.text, x.meaning ?? false])).toEqual([[s, false]])
+  const before = { definition: `Lũa là gỗ. ${s}`, body: `<p>${s}</p>` }
+  expect(droppedInRewrite(before, { definition: 'Lũa là gỗ.', body: '' }, step, inBody)[0]).toContain('the advice "Ngâm 2 tuần"')
+  // The body's copy goes on its stop; the meaning's stays.
+  expect(droppedInRewrite(before, { definition: `Lũa là gỗ. ${s}`, body: '' }, step, inBody)).toEqual([])
+})
+
+// Codex, 19 Nov 2026: the rewording, told to join its page's credit where one stands beside the sentence, saw only the
+// sentence's own paragraph, not the credit in the paragraph before.
+test('a rewording sees the sentences just before and after its sentence, across paragraphs', async () => {
+  const e = { definition: 'Lũa là gỗ.', body: '<p>Một tiệm ghi: lũa mới nổi vài ngày.</p><p>Gỗ ngấm nước thì chìm.</p>' }
+  const flag = (t: string) => ({ ...sentences(e).find(x => x.text === t)!, verdicts: ['loose' as const, 'loose' as const], why: ['wider'] })
+  const { llm, calls } = model([{}, {}, {}])
+  await rewordLoose(llm, 'opus', facts, e, [flag('Gỗ ngấm nước thì chìm.')])
+  expect(calls[0]).toContain('1. CÂU: Gỗ ngấm nước thì chìm.\n   ĐOẠN: Gỗ ngấm nước thì chìm.\n   LÝ DO: wider\n   CÂU TRƯỚC: Một tiệm ghi: lũa mới nổi vài ngày.\n   CÂU SAU: (không có)')
+  expect(calls[0]).toContain('lời mở của trang ấy đứng ngay cạnh câu (CÂU TRƯỚC, CÂU SAU) thì nối theo nó')
+})
+
 // Codex, 14 Nov 2026: a paragraph inside a kind's item lost the kind's name, and could read as another wood's.
 test('a kind\'s name holds for everything inside its item: a paragraph or a list in it, under a name of its own too', () => {
   const at = (body: string) => sentences({ definition: 'Lũa là gỗ.', body }).slice(1).map(s => `${s.item ?? '-'}: ${s.text}`)
@@ -216,7 +240,7 @@ test('a rewording left with one site\'s claim opens with that page\'s credit, or
   const flag = (t: string) => ({ ...all.find(x => x.text === t)!, verdicts: ['loose' as const, 'loose' as const], why: ['wider'] })
   const { llm, calls } = model([{}, {}, {}])
   await rewordLoose(llm, 'opus', facts, e, [flag('Chúng cần nước sạch.'), flag('Cho ăn 3–5 bữa nhỏ mỗi ngày.')])
-  expect(calls[0]).toContain('Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn.')
+  expect(calls[0]).toContain('Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu (CÂU TRƯỚC, CÂU SAU) thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn.')
   expect(calls[0]).not.toContain('"có tiệm ghi"')
   expect(calls[0]).toContain('1. CÂU: Chúng cần nước sạch.\n   ĐOẠN: Cá bột là cá con vừa nở. Chúng cần nước sạch.\n   PHẦN: NGHĨA của thuật ngữ\n   LÝ DO: wider')
   expect(calls[0]).toContain('2. CÂU: Cho ăn 3–5 bữa nhỏ mỗi ngày.\n   ĐOẠN: Cho ăn 3–5 bữa nhỏ mỗi ngày.\n   LỜI MỞ: Một tiệm ghi:\n   LÝ DO: wider')

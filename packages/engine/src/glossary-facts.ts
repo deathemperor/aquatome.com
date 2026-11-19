@@ -190,7 +190,7 @@ export const stopNote = (s: Flagged) => s.unjudged
   ? `"${s.text}": the reads left it unjudged (${s.verdicts.length} of ${s.unjudged} gave a verdict)`
   : `"${s.text}": the facts don't carry it (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
 
-const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
+const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu (CÂU TRƯỚC, CÂU SAU) thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
 const REWORD_SCHEMA = { type: 'object', required: ['sentences'], properties: { sentences: { type: 'array', items: { type: 'object', required: ['n', 'text'], properties: { n: { type: 'number' }, text: { type: 'string' } } } } } }
 const escapeText = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
@@ -330,9 +330,12 @@ export async function rewordLoose<E extends { definition: string; body: string }
   const here = loose.filter(s => (s.text === lead && s.block === plain(e.definition) ? (log.push(`Loose, left as written (the definition's first sentence): "${s.text}"`), false) : true)
     && ((occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false)))
   if (!here.length) return { entry: e, log, stops: [] }
-  // Each sentence with its list's opening, so a one-site rewording joins its page's credit, and the meaning marked, which
-  // opens with none (the chief of staff, 19 Nov 2026).
-  const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}${s.meaning ? '\n   PHẦN: NGHĨA của thuật ngữ' : ''}${s.opening ? `\n   LỜI MỞ: ${s.opening}` : ''}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
+  // Each sentence with its list's opening and the sentences beside it, so a one-site rewording joins its page's credit
+  // where it stands, even in the paragraph before (Codex, 19 Nov 2026), and the meaning marked, which opens with none (the
+  // chief of staff, 19 Nov 2026).
+  const all = sentences(e)
+  const beside = (s: Flagged) => { const i = all.findIndex(x => x.text === s.text); return `\n   CÂU TRƯỚC: ${all[i - 1]?.text ?? '(không có)'}\n   CÂU SAU: ${all[i + 1]?.text ?? '(không có)'}` }
+  const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}${s.meaning ? '\n   PHẦN: NGHĨA của thuật ngữ' : ''}${s.opening ? `\n   LỜI MỞ: ${s.opening}` : ''}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}${beside(s)}`).join('\n')
   const r = await llm<{ sentences?: { n: number; text: string }[] }>({ system: 'You reword sentences of a Vietnamese aquarium glossary entry to what its facts carry. Reply only with JSON.', model, schema: REWORD_SCHEMA, prompt: `${REWORD}\n\n--- CÂU ---\n${listed}\n\n--- DỮ KIỆN ---\n${JSON.stringify(facts)}` })
   const now = here.map((s, i) => ({ s, to: (r.sentences ?? []).find(x => x.n === i + 1)?.text.replace(/\s+/g, ' ').trim() ?? '' }))
   // Puts rewordings into the entry as written, in order, each where its sentence stands: the same sentences in the same
@@ -418,13 +421,14 @@ const DROP = 'The rewrite dropped from "'
  * definition). A kind's sentence keeps its advice in its kind's item, while that item stands. One note for each such
  * sentence, naming what it lost, for the writer to write it as it was.
  */
-export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item'>[], names: string[] = [], free: string[] = []): string[] {
+export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item' | 'meaning'>[], names: string[] = [], free: string[] = []): string[] {
   const placed = (e: { definition: string; body: string }) => [
     ...sentences({ definition: e.definition, body: '' }).map(s => ({ ...s, key: `d ${s.text}` })),
     ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.heading ?? ''}\n${s.item ?? ''}\n${s.text}` })),
   ]
   const was = placed(before), is = placed(after)
-  const stopped = (s: Sentence) => stops.some(x => x.text === s.text && (x.heading ?? '') === (s.heading ?? '') && (x.item ?? '') === (s.item ?? ''))
+  // A stop on a body sentence never frees the meaning's copy of it, nor the other way (Codex, 19 Nov 2026).
+  const stopped = (s: Sentence) => stops.some(x => x.text === s.text && (x.heading ?? '') === (s.heading ?? '') && (x.item ?? '') === (s.item ?? '') && !x.meaning === !s.meaning)
   // A listed passage frees each of its own sentences, never one that is only words inside another sentence (Grok's third
   // read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
   const whole = (s: Sentence) => stopped(s) || free.some(q => q === s.text || (q.includes(s.text) && sentences({ definition: q, body: '' }).some(x => x.text === s.text)))

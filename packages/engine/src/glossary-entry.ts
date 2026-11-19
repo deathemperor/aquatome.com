@@ -12,7 +12,7 @@ import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
 import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
-import { FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts } from './topics'
+import { FACTS_SCHEMA, researchPrompt, siteOf, type TopicFacts, viFacts } from './topics'
 import { withoutRefused } from './refused-sources'
 import { givenAsName } from './glossary-other-names'
 
@@ -347,9 +347,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   if (!facts.length) return { id, skipped: 'no cited facts' }
   // The fact check reads what the writer reads, with each source's site and each fact's other sources ("also"), so it can
   // count a claim's sites: two pages of one site are one source, and a claim only one site gives is that site's and is
-  // credited (the chief of staff, 19 Nov 2026). The writer's own facts don't change.
+  // credited (the chief of staff, 19 Nov 2026). A site as topics.ts counts one (siteOf): its registered domain, so a shop's
+  // blog on a subdomain is the shop (Codex, 19 Nov 2026). The writer's own facts don't change.
   const checked = viFacts(usable, { also: true })
-  const site = (url: string) => { try { return new URL(url).hostname.toLowerCase().replace(/^www\./, '') } catch { return url } }
 
   // The other terms: what `related` may name, and the names an added other name may not take.
   const others: { id: string; name: string; altNames: string[]; linkNames: string[]; definition: string }[] = []
@@ -359,7 +359,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     if (t) others.push({ id: x, name: t.name, altNames: t.altNames, linkNames: t.linkNames ?? [], definition: t.definition ?? '' })
   }
   const forWriter = { term: vi.name, english: entity.en, sources, facts }
-  const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: site(checked.refs[x.source]!.url) })), facts: checked.facts }
+  const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)
   const terms = others.map(x => `${x.id}: ${x.name}: ${x.definition}`).join('\n')

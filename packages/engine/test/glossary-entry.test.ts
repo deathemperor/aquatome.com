@@ -48,7 +48,7 @@ const isCheck = (prompt: string) => prompt.startsWith('Below are FACTS')
  * A prompt for one sentence alone gets that sentence's.
  */
 const verdicts = (prompt: string, say: (text: string) => string | undefined = () => undefined) => {
-  const one = /\n\nSENTENCE:\n(.*)$/s.exec(prompt)
+  const one = /\n\nSENTENCE:\n(.*?)(?:\n\nBEFORE:\n[\s\S]*)?$/s.exec(prompt)
   const v = (text: string) => { const [verdict, why] = (say(text) ?? 'supported').split(': '); return { verdict, ...(why ? { why } : {}) } }
   if (one) return v(one[1]!.trim())
   return { verdicts: [...prompt.split('\n\nSENTENCES:\n')[1]!.matchAll(/^(\d+)\. (.*)$/gm)].map(m => ({ n: Number(m[1]), ...v(m[2]!) })) }
@@ -1011,10 +1011,44 @@ test('the fact check reads each source\'s site and each fact\'s other sources ("
   await makeGlossaryEntry(root, { research: async () => withAlso as never, llm }, 'lua', { kind: 'aquascaping' })
   const check = prompts.find(isCheck)!
   const writer = prompts.find(p => p.startsWith('Bạn viết'))!
-  expect(check).toContain('{"source":0,"kind":"university","site":"edis.ifas.ufl.edu"}')
+  expect(check).toContain('{"source":0,"kind":"university","site":"ufl.edu"}')
   expect(check).toContain('{"source":1,"kind":"keeper","site":"example.org"}')
   // Its own source never counts again as another.
   expect(check).toContain('"source":0,"also":[1]}')
   expect(writer).not.toContain('"site"')
   expect(writer).not.toContain('"also"')
+})
+
+// Codex, 19 Nov 2026: a host is not a site. A shop's blog on a subdomain is the shop, as topics.ts counts a site (siteOf),
+// and a blog host's blogs are each their own.
+test('a source\'s site is its registered domain: a shop\'s subdomain is the shop, a blog host\'s blogs are each one', async () => {
+  const root = await site()
+  const pages: TopicFacts = { ...facts, sources: [
+    { url: 'https://example.org/a', title: 'A', kind: 'shop' }, { url: 'https://blog.example.org./b', title: 'B', kind: 'shop' },
+    { url: 'https://a.blogspot.com/x', title: 'C', kind: 'keeper' }, { url: 'https://b.blogspot.com/y', title: 'D', kind: 'keeper' }],
+    facts: [0, 1, 2, 3].map(i => ({ section: 'what', fact: `Driftwood fact ${i}`, source: i })) }
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => { prompts.push(prompt); return (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : written) as never }
+  await makeGlossaryEntry(root, { research: async () => pages as never, llm }, 'lua', { kind: 'aquascaping' })
+  const sites = JSON.parse(/"sources":(\[[^\]]*\])/.exec(prompts.find(isCheck)!)![1]!).map((x: { site: string }) => x.site)
+  expect(sites).toEqual(['example.org', 'example.org', 'a.blogspot.com', 'b.blogspot.com'])
+})
+
+// Codex, 19 Nov 2026: the one-sentence reads' replies were matched to their sentence with the neighbours the read now
+// shows still attached, so a stop the re-reads gave read as supported. Two re-reads of three that stop a sentence one
+// read stopped keep the entry from being saved.
+test('a sentence one read stops and two of its three re-reads stop keeps the entry from being saved', async () => {
+  const root = await site()
+  const bad = 'Ngâm lũa mới 1–2 tuần.'
+  let all = 0, alone = 0
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt) && prompt.includes('\n\nSENTENCE:\n')) { alone++; return verdicts(prompt, t => (t === bad && alone % 3 !== 0 ? 'uncredited: one site, plain' : undefined)) as never }
+    if (isCheck(prompt)) { all++; return verdicts(prompt, t => (t === bad && all % 3 === 1 ? 'uncredited: one site' : undefined)) as never }
+    return written as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(alone).toBeGreaterThan(0)
+  expect(r).toMatchObject({ id: 'lua', skipped: 'stopped by 1 note' })
+  expect((r as { notes: string[] }).notes[0]).toBe(`"${bad}": the facts don't carry it (uncredited, supported, supported, uncredited, uncredited, supported): one site / one site, plain`)
 })

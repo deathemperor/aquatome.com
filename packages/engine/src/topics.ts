@@ -146,7 +146,7 @@ const isDose = (fact: string) => (AMOUNT.test(fact) && (NAMES_TREATMENT.test(fac
  * site's short links (redd.it, fb.com) as the site.
  */
 const SHORT: Record<string, string> = { 'redd.it': 'reddit.com', 'fb.com': 'facebook.com', 'fb.me': 'facebook.com', 'youtu.be': 'youtube.com' }
-const siteOf = (url: string) => {
+export const siteOf = (url: string) => {
   let host: string
   try { host = new URL(url).hostname } catch { host = url.replace(/^\w+:\/\//, '').replace(/[/?#:].*$/, '') }
   const labels = host.toLowerCase().replace(/\.$/, '').split('.')
