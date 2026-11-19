@@ -123,6 +123,9 @@ export function quoted(pieces: Piece[], quote: string, o: { whole?: boolean } = 
  * a line break or a hard space, goes (Codex's read of #1690: "<p><br></p>" was a body).
  */
 export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): string {
+  // A sentence this splice empties is marked, so only a block it emptied goes: a separator or an empty block already in
+  // the part stays as it was (Codex's second read of #1690).
+  const GONE = '\u0000'
   const out = pieces.map(p => ({ ...p }))
   let n = -1
   out.forEach((p, i) => {
@@ -130,18 +133,22 @@ export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): s
     n++
     const next = changes.get(n)
     if (next === undefined) return
-    p.html = next
+    p.html = next || GONE
     if (next) return
     const after = out[i + 1]
     // The space before it, past any sentence already gone and its space: two going together at a paragraph's end leave
     // none ("Orinoco. </p>").
     let j = i - 1
-    while (j >= 0 && out[j]!.html === '') j--
+    while (j >= 0 && (out[j]!.html === '' || out[j]!.html === GONE)) j--
     const before = out[j]
     if (after && !after.sentence && /^\s+$/.test(after.html)) after.html = ''
     else if (before && !before.sentence && /\s$/.test(before.html)) before.html = before.html.replace(/\s+$/, '')
   })
   let html = out.map(p => p.html).join('')
-  for (let i = 0; i < 3; i++) html = html.replace(/<(p|li|h[1-6]|dd|dt|blockquote)>(?:\s|&nbsp;|<br\s*\/?>)*<\/\1>/g, '').replace(/<(ul|ol)>\s*<\/\1>/g, '')
-  return html
+  const blank = `(?:\\s|&nbsp;|<br\\s*\\/?>|${GONE})*`
+  for (let i = 0; i < 3; i++) {
+    html = html.replace(new RegExp(`<(p|li|h[1-6]|dd|dt|blockquote)>${blank}${GONE}${blank}<\\/\\1>`, 'g'), GONE)
+      .replace(new RegExp(`<(ul|ol)>\\s*${GONE}[\\s${GONE}]*<\\/\\1>`, 'g'), GONE)
+  }
+  return html.replaceAll(GONE, '')
 }

@@ -47,4 +47,8 @@ test('spliced, only the changed sentences differ; one left out takes its space, 
   // A block left with only a line break or a hard space is empty too (Codex's read of #1690).
   expect(splice(sentences('<p>Mua lọc ở Petco.<br></p><p>Câu khác.</p>'), new Map([[0, '']]))).toBe('<p>Câu khác.</p>')
   expect(splice(sentences('<p>Câu khác.</p><p>Mua lọc ở Petco.&nbsp;<br/></p>'), new Map([[1, '']]))).toBe('<p>Câu khác.</p>')
+  // Only a block this splice emptied goes: a separator or an empty block already there stays (Codex's second read of #1690).
+  expect(splice(sentences('<p>Cá khỏe.</p><p><br></p><p>Mua lọc ở Petco.</p>'), new Map([[1, '']]))).toBe('<p>Cá khỏe.</p><p><br></p>')
+  expect(splice(sentences('<p>Cá khỏe.</p><p></p><ul></ul><p>Mua lọc.</p>'), new Map([[1, '']]))).toBe('<p>Cá khỏe.</p><p></p><ul></ul>')
+  expect(splice(sentences('<ul><li>Mua lọc.</li></ul><p>Cá khỏe.</p>'), new Map([[0, '']]))).toBe('<p>Cá khỏe.</p>')
 })

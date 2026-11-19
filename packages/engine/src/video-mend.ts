@@ -195,8 +195,6 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // lít"): a "bể này" in the next sentence doesn't make a dose the tank's (Grok's read of "Châm 5 ml. Bể này ổn.").
   const cased = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(x => x.normalize('NFC').replace(/\s+/g, ' ').trim())
   if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote))) && ownTankDose(sentenceOf(paragraphs, norm(f.quote), cased)))) return undefined
-  const sentence = (f: FitFinding) => sentenceOf(paragraphs, norm(f.quote))
-  if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentence(f)) && !doses.includes(sentence(f)))) return undefined
 
   // The guide's parts, each cut into its sentences, and the ones each finding names: every sentence its quote is in, in
   // any part (a quote said again in the FAQ is named there too), each sent once with all its notes.
@@ -212,10 +210,14 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const at = (f: FitFinding) => parts.flatMap((x, k) => holds(x.pieces, f.quote).map(i => ({ k, i })))
   /** A sentence's words as the checks read them. */
   const txt = (k: number, h: string) => norm(parts[k]!.html ? plain(h) : asPlain(h))
-  // A product or a price in a dose at any place it's quoted, not its first only, waits, but for the video's own tank's
-  // dose, which the editor takes (Codex's read of #1690).
+  // Every place a dose's quote is said is the tank's own, not its first only: each gets the note to drop the dose (Codex's
+  // second read of #1690).
+  if (findings.some(f => f.check === 'dose' && at(f).some(({ k, i }) => !ownTankDose(txt(k, said[k]![i]!))))) return undefined
+  // A product or a price in a dose, in figures or in words, at any place it's quoted (whole words: "ADA" isn't in
+  // "Canada"), waits, but for the video's own tank's dose, which the editor takes (Codex's reads of #1690).
   const ownDoses = doses.map(s => s.replace(/^(?:## |- |\| )/, ''))
-  if (findings.some(f => (f.check === 'product' || f.check === 'price') && at(f).some(({ k, i }) => givesDose(ownDoses.reduce((t, s) => t.replace(s, ' '), txt(k, said[k]![i]!)))))) return undefined
+  const dosed = (x: string) => givesDose(x) || WORD_DOSE(x)
+  if (findings.some(f => (f.check === 'product' || f.check === 'price') && at(f).some(({ k, i }) => dosed(ownDoses.reduce((t, s) => t.replace(s, ' '), txt(k, said[k]![i]!)))))) return undefined
   const named: { k: number; i: number; notes: string[] }[] = []
   const convert: { k: number; i: number }[] = []
   for (const f of findings) {
@@ -273,8 +275,11 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const [checked, written] = [assemble(raw), assemble(out)]
   // A part it would empty: the title, the body, or one side of a question and its answer, which would leave the other about nothing.
   const faqAt = (k: number) => /^faq\.(\d+)\.[qa]$/.exec(parts[k]!.field)?.[1]
-  if (!written[0] || (before[parts.findIndex(x => x.field === 'body')] && !written[parts.findIndex(x => x.field === 'body')])) return false
-  if (parts.some((x, k) => faqAt(k) !== undefined && !written[k] && written[parts.findIndex((y, m) => m !== k && faqAt(m) === faqAt(k))])) return false
+  // Empty is no words, whatever tags are left ("<table>…<td></td>…</table>", Codex's second read of #1690).
+  const empty = (k: number) => !(parts[k]!.html ? plain(written[k]!) : written[k]!).trim()
+  const bodyAt = parts.findIndex(x => x.field === 'body')
+  if (empty(0) || (plain(before[bodyAt]!) && empty(bodyAt))) return false
+  if (parts.some((x, k) => faqAt(k) !== undefined && empty(k) && written[parts.findIndex((y, m) => m !== k && faqAt(m) === faqAt(k))])) return false
   const draftOf = (v: string[]) => {
     const get = (f: string) => v[parts.findIndex(x => x.field === f)]!
     return {
@@ -301,16 +306,18 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // which stay for code to convert (a shop's mend made "80 cm" "90 cm", Grok's read).
   const taken = less(figures(named.map(n => norm(parts[n.k]!.html ? plain(said[n.k]![n.i]!) : asPlain(said[n.k]![n.i]!))).join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
   if (more(has, had).length || more(less(had, taken), has).length) return false
-  // And sentence by sentence: an answer's figures are its own sentence's, so none moves from one answer to another; and a
-  // sentence a units finding names keeps each figure code converts, whatever the quote (Codex's read of #1690: a quote of
-  // "gallon" left "10 gallon" unguarded).
+  // And sentence by sentence: an answer's figures are its own sentence's, so none moves from one answer to another. A
+  // sentence a units finding names keeps its units quotes' figures, and its answer converts to every figure the sentence
+  // did, so a figure said again in a product's name ("Aqueon 10 Gallon"), which code leaves, isn't the tank's kept (Codex's
+  // reads of #1690).
   const units = new Set(convert.map(c => `${c.k}.${c.i}`))
   const unitFigures = figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n'))
   if (named.some(n => {
-    const s = said[n.k]![n.i]!, was = figures(txt(n.k, s)), now = figures(txt(n.k, raw[n.k]!.get(n.i)!))
+    const s = said[n.k]![n.i]!, a = raw[n.k]!.get(n.i)!, was = figures(txt(n.k, s)), now = figures(txt(n.k, a))
     if (more(now, was).length) return true
-    const converted = figures(txt(n.k, metric(s)))
-    return units.has(`${n.k}.${n.i}`) && more(new Map([...was].filter(([f]) => unitFigures.has(f) || !converted.has(f))), now).length > 0
+    if (!units.has(`${n.k}.${n.i}`)) return false
+    const made = less(figures(txt(n.k, metric(s))), was)
+    return more(new Map([...was].filter(([f]) => unitFigures.has(f))), now).length > 0 || more(made, figures(txt(n.k, metric(a)))).length > 0
   })) return false
 
   const review = await reviewDraft(d.llm, transcript, { viTitle: fixed.name, summary: fixed.summary, body: fixed.body, faq: fixed.faq }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)

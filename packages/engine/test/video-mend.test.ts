@@ -135,6 +135,8 @@ test('a mend the page can\'t have leaves the file as it was', async () => {
     ['a question emptied, its answer left', [{ faq: [{ q: 'Mua lọc ở Petco không?', a: 'Có.' }] }], { answers: { ...ANSWERS, 'Mua lọc ở Petco không?': '' } }, {}, [shop, price], false],
     // Its only sentence gone, a body left with a line break is empty (Codex's read of #1690).
     ['a body emptied but for a line break', [{ body: '<p>Mua lọc ở Petco.<br></p>', faq: [] }], { answers: { 'Mua lọc ở Petco.': '' } }, {}, [shop], false],
+    // A body is empty when it has no words, whatever tags are left (Codex's second read of #1690).
+    ['a body emptied but for a table', [{ body: '<table><tbody><tr><td>Mua lọc ở Petco.</td></tr></tbody></table>', faq: [] }], { answers: { 'Mua lọc ở Petco.': '' } }, {}, [shop], false],
     ['a review under the bar and under the page\'s', [], { score: 0.7 }, {}, [shop, price], false],
   ]
   for (const [name, s, d, p, findings, out] of cases) {
@@ -155,6 +157,11 @@ test('a quote names only the sentences that hold its words whole', async () => {
   expect(await mend(page(), [ada])).toBe(true)
   expect(askedOf(prompts[0]!).map(x => x.text)).toEqual(['Phân nền ADA Amazonia giữ màu nước.'])
   expect(JSON.parse(await readFile(file, 'utf8')).body).toBe(`<p>Cá nhập từ Canada rất khỏe. Phân nền giữ màu nước.</p><p>${LONG}</p>`)
+  // Nor does a dose in the sentence about Canada hold the guide back (Codex's second read).
+  const dosed = await setup({ body: `<p>Châm 5 ml thuốc khử clo cho bể cá nhập từ Canada.</p><p>Phân nền ADA Amazonia giữ màu nước.</p><p>${LONG}</p>`, faq: [] })
+  const d = deps(dosed.root, { answers: { 'Phân nền ADA Amazonia giữ màu nước.': 'Phân nền giữ màu nước.' } })
+  expect(await d.mend(page(), [ada])).toBe(true)
+  expect(askedOf(d.prompts[0]!).map(x => x.text)).toEqual(['Phân nền ADA Amazonia giữ màu nước.'])
 })
 
 test('a sentence comes back as the part keeps it: inline markup in the body, plain words in a line, an "&" either way', async () => {
@@ -183,6 +190,8 @@ test('a product or a price quoted in a sentence that gives a dose is not mended:
   for (const [name, body, f] of [
     ['a product named first with no dose, then in one', `<p>Seachem Prime là loại khử clo quen thuộc.</p><p>Châm 5 ml Seachem Prime cho 200 lít mỗi lần thay nước.</p><p>${LONG}</p>`, product],
     ['a price said first alone, then beside an amount', `<p>Lọc giá 5 USD.</p><p>Thức ăn Hikari gói 20 g giá 5 USD là đủ dùng lâu.</p><p>${LONG}</p>`, packet],
+    // A dose in words is a dose (Codex's second read).
+    ['a product named first with no dose, then in a dose in words', `<p>Seachem Prime là loại khử clo quen thuộc.</p><p>Châm hai nắp Seachem Prime cho mỗi 50 lít.</p><p>${LONG}</p>`, product],
   ] as const) {
     const { root, file, was } = await setup({ body, faq: [] })
     const { mend, prompts } = deps(root)
@@ -287,6 +296,12 @@ test('a figure the editor adds, keeps of the video\'s own dose, or writes in ano
 })
 
 test('a dose given as advice, or with nothing naming the video\'s tank, waits for a person: no editor is called', async () => {
+  // Every place the dose's quote is said: the tank's own the first time, advice the next (Codex's second read of #1690).
+  const twice = await setup({ body: `<p>Bể này dùng khoảng 4 nắp.</p><p>Lần sau, bể này dùng khoảng 4 nắp cho mỗi 200 lít.</p><p>${LONG}</p>`, faq: [] })
+  const t = deps(twice.root)
+  expect(await t.mend(page(), [{ ...caps, quote: 'Bể này dùng khoảng 4 nắp' }])).toBeUndefined()
+  expect(t.prompts).toEqual([])
+  expect(await readFile(twice.file, 'utf8')).toBe(twice.was)
   for (const line of ['Châm 5 ml vi sinh cho mỗi 50 lít nước.', 'Châm khoảng 4 nắp vi sinh.', 'Bể này châm 2 ml cho mỗi 10 lít.']) {
     const { root, file, was } = await setup({ body: `<p>${line}</p><p>${LONG}</p>`, faq: [] })
     const { mend, prompts } = deps(root)
@@ -312,6 +327,8 @@ test('a figure in a sentence the editor is given keeps its percent, its half, it
     ['a units figure dropped beside a shop', 'Bể 10 gallon mua ở Petco.', 'Bể mua ở tiệm cá cảnh.', [{ ...gallons, quote: 'Bể 10 gallon' }, { ...shop, quote: 'mua ở Petco' }]],
     // A units quote of the unit alone keeps its sentence's figure too (Codex's read of #1690).
     ['a units figure dropped beside a shop, its quote the unit alone', 'Bể 10 gallon mua ở Petco.', 'Bể mua ở tiệm cá cảnh.', [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'mua ở Petco' }]],
+    // The same figure kept in a product's name, which code doesn't convert, isn't the tank's kept (Codex's second read).
+    ['a units figure dropped, the same figure kept in a product\'s name', 'Bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.', [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'bán ở Petco' }]],
   ]
   for (const [name, before, after, findings] of cases) {
     const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
