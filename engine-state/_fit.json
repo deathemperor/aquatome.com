@@ -71982,21 +71982,23 @@
   "products": []
  },
  "vi/guides/youtube-2zibYpNcE0o": {
-  "at": "2026-11-11",
-  "hash": "e92dfb28a3b9f450",
+  "at": "2026-11-19",
+  "hash": "ee34d4376e1c5214",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
+    "check": "words",
     "part": "P1",
-    "quote": "trữ nước máy trong thùng lớn trong phòng có sưởi để nước lên đúng nhiệt độ",
-    "why": "Assumes a heated room to warm stored water, a cold-climate household habit, not a Vietnamese one.",
-    "by": "model"
+    "quote": "Red root floater cho thêm điểm đỏ trên mặt nước",
+    "why": "English trade name left untranslated; keepers in Vietnam call this plant by a local name.",
+    "by": "model",
+    "fix": "bèo rễ đỏ"
    }
   ],
-  "products": [],
-  "mendTried": "2026-11-16"
+  "products": [
+   "keo 502"
+  ]
  },
  "vi/guides/youtube-34R1VF2bzmg": {
   "at": "2026-11-16",
@@ -74554,7 +74556,7 @@
   "products": [
    "Twinstar"
   ],
-  "mendTried": "2026-11-16"
+  "mendTried": "2026-11-19"
  },
  "vi/guides/youtube-85iF2nhleGM": {
   "at": "2026-11-09",
@@ -77238,7 +77240,8 @@
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-19"
  },
  "vi/guides/youtube-BKdHgA1uO2E": {
   "at": "2026-11-09",
@@ -95384,7 +95387,8 @@
     "by": "model"
    }
   ],
-  "products": []
+  "products": [],
+  "mendTried": "2026-11-19"
  },
  "vi/guides/youtube-sFCtqYbZQBg": {
   "at": "2026-11-08",

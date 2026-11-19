@@ -2812,6 +2812,20 @@
   ],
   "vi/guides/youtube-2zibYpNcE0o": [
     {
+      "at": "2026-11-19T05:51:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.75,
+      "notes": [
+        "\"chúng sẽ rất thích bể này\": \"bể này\" is a bare reference that reads like a translation. Rewrite it as \"chúng sẽ rất thích môi trường bowl\", or say \"bowl\" directly.",
+        "\"Đây là lỗi rất dễ gặp\": the video only says the creator has made this mistake many times and that it is annoying. Hedge it, for example \"lũa rất dễ nổi nếu dán không kỹ\", or drop the claim that it is a common mistake.",
+        "\"tránh các đợt tăng vọt chất độc giai đoạn đầu\": the video only says the bacteria \"stop spikes early on\" and names no toxin. Say \"hạn chế các đợt tăng vọt giai đoạn đầu\" without \"chất độc\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-16T00:28:47Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -20073,6 +20087,23 @@
     }
   ],
   "vi/guides/youtube-SF9pWfVUGjo": [
+    {
+      "at": "2026-11-19T05:51:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.55,
+      "notes": [
+        "\"Cá nóc ăn mạnh, thải nhiều\": the video never says the puffer eats a lot. Remove \"ăn mạnh\" and keep only that the waste and the feeding left a lot of waste.",
+        "\"rồi rêu hại mọc theo\" (in the section on why plants die, and in the FAQ answer \"Vì sao cây trong bể cá nóc cứ chết dần?\"): the video doesn't give algae as a result of the puffer's waste. Remove it.",
+        "\"nhưng bể vẫn xấu, set lại thì nhanh hơn\": the video doesn't give this comparison or reason for resetting. Remove it, and say only that the plants slowly came back when the light was lowered and the tank left alone.",
+        "\"Bài này nói chuyện khác nhau giữa cá nóc rồng và cá nóc mini\": the guide never sets out the differences between the two species. Drop this promise and say the guide covers the tank reset. \"nói chuyện khác nhau\" is also awkward Vietnamese.",
+        "\"Cây ít thì không đủ sức giữ bể\": this is the writer's own explanation. The video only says that tanks with few plants and bright light get algae. Remove or reword to match.",
+        "\"Cá nóc rồng ở tiệm rất dạn\" and \"Cá ở tiệm trông dạn là do bể chật, nó không có chỗ nào để trốn\" are stated as firm fact. Hedge them (\"có thể\"), because the video gives this as the creator's explanation of the fish's odd behaviour."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
     {
       "at": "2026-11-18T18:18:19Z",
       "model": "sonnet",

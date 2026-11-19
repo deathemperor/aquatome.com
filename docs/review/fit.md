@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4807 | 4088 | 1612 | 36 | 43 | 199 | 43 | 1135 | 342 | 2635 | 477 | 9 | 11 | 0 | 2 | 5 | 3 | 1 |
+| Vietnamese | 4807 | 4088 | 1611 | 36 | 43 | 199 | 43 | 1135 | 342 | 2636 | 476 | 9 | 11 | 0 | 2 | 5 | 3 | 1 |
 | Indonesian | 1615 | 1454 | 411 | 23 | 10 | 4 | 5 | 202 | 37 | 66 | 191 | 0 | 1 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1607 | 1423 | 373 | 19 | 3 | 5 | 3 | 179 | 40 | 92 | 173 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 483 | 440 | 125 | 11 | 3 | 0 | 2 | 60 | 17 | 25 | 50 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
@@ -74,7 +74,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 ## Products the market table has no row for, Vietnamese pages
 
 - repashy: 48
-- keo 502: 38
+- keo 502: 39
 - panacur: 34
 - ada: 26
 - tropica: 24

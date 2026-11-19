@@ -643,6 +643,46 @@
       "kept": false
     }
   ],
+  "vi/species/corydoras-granti#LNuP5t1ByxM": [
+    {
+      "at": "2026-11-19T05:42:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.45,
+      "notes": [
+        "[distribution] Brazil, Ecuador, Peru, Colombia: the page already says the species is widespread in the upper Amazon, and the sentence is a thin restatement of that.",
+        "[habitat] 'Nhánh Igarapé Ya-Mirim nơi cá sống thuộc vùng nước trắng của Rio Negro': the page already has the Igarapé Ya-Mirim type locality. The video's own wording is also muddled (Rio Cauaburi, white-water area), so this is a garbled mix.",
+        "[reproduction] 'Một người nuôi mô tả cách làm...': the video states the method as general fact, not as one keeper's account. This is wrongly attributed. 'Khó cho đẻ hơn nhiều loài' also overstates the video, which says it is 'one of the more tricky' corys.",
+        "[beforeYouBuy] 'Loài này không hợp với người mới chơi' and the sensitive barbels claim: the video does say this, but 'bubbles' is a transcription error for barbels, so the claim is inferred. 'Vi khuẩn tích lại' is fine.",
+        "[diet] 'viên tảo cho cá đáy, artemia, đông khô': the video says frozen, live and freeze-dried foods such as bloodworm, daphnia and brine shrimp. NEW drops the bloodworm and daphnia and misattributes the foods. Bloodworm is already on the page.",
+        "[behaviour] Tank mates were translated word for word ('spotfin hatchetfish', 'swamp blue-eye'). The video also names rainbow fish, which NEW omits, and the Vietnamese names read as translation.",
+        "[dimorphism] 'Cá cái to và bè hơn' repeats the page's dimorphism line (females larger and rounder) and adds little.",
+        "[notes] Colour and stripe description partly overlaps the page's stripe description (dark arched stripe from snout to lower back). 'Hiếu động và khỏe' stands in for 'active, hardy' but is loosely rendered."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T05:42:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.6,
+      "notes": [
+        "[dimorphism] \"cá cái to và bè hơn hẳn\" repeats what the page already says (female bigger and rounder than male). The only new detail is the view from above.",
+        "[distribution] \"khắp vùng thượng nguồn Amazon\" repeats the page's distribution line almost word for word.",
+        "[habitat] \"Nơi thu mẫu chuẩn thuộc vùng nước trắng của sông Rio Negro\" overlaps the page's type locality (Igarapé Ya-Mirim, Cauaburi, Rio Negro). The video says the fish is native there. It does not call it a type locality.",
+        "[notes] \"Sọc sẫm hình vòng cung chạy tới phần lưng dưới\" repeats the page's stripe description. Only the split and the tail-fin edge are new.",
+        "[reproduction] The video calls the species tricky to breed and describes ordinary cory spawning. The page says only one captive breeding report exists. NEW doesn't flag this difference, and its \"Thường làm vậy là cá sẽ đẻ\" sounds more certain than the page.",
+        "[reproduction] \"vớt cá con ra bể riêng\" adds a separate tank. The video only says to remove the fry from the tank.",
+        "[diet] \"thức ăn sấy khô\" is a loose rendering of freeze-dried. \"viên tảo cho cá đáy\" is acceptable.",
+        "[beforeYouBuy] The video says the barbels are sensitive and wear away. \"Râu\" fits, but the sentence is stated flatly as a rule."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/corydoras-pantanalensis#CVc-EzMdCeY": [
     {
       "at": "2026-11-13T19:08:10Z",
