@@ -27,7 +27,7 @@ const { b } = Astro.props as { b: Breed }
 const { t, lang } = i18n(Astro.url)
 const c = await getContent(lang)
 // Put together with the app's copy of it (lib/breed-page.ts).
-const { key, parent, parents, card, sources, gallery, galleryPath, strip, lines, linePhotos, body, guides, videoGuides, videoPhotos } = breedParts(lang, c, b)
+const { key, parent, parents, card, sources, gallery, strip, lines, linePhotos, body, guides, videoGuides, videoPhotos } = breedParts(lang, c, b)
 const url = new URL(`/vi/ca/${b.t.slug}/`, Astro.site).href
 // A shrimp's line (the blue velvet shrimp, a cherry shrimp's) isn't under "Loài cá" and isn't called a fish.
 const fish = breedIsFish(c, b)
@@ -66,7 +66,7 @@ const alternates = await alternatesOf('breeds', b.id)
     </div>
   </header>
 
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} href={galleryPath} name={b.t.name} />}
+  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} name={b.t.name} />}
   {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>{t('Tóm tắt')}</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
   {body && <div class="wrap"><div class="prose body" set:html={body} /></div>}
 

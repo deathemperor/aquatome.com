@@ -16,7 +16,7 @@ test('a fish with every part: five chips, breeding and the tank give way, the ph
   const s = withTankText(c.species.find(x => x.id === 'paracheirodon-axelrodi')!)
   const { jumps, gallery } = await speciesParts('vi', c, s)
   expect(jumps.map(j => [j.label, j.href])).toEqual([
-    ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], [`Ảnh ${gallery.length}`, `/vi/ca/${s.t.slug}/anh/`],
+    ['Nước', '#muc-waterConditions'], ['Thức ăn', '#muc-diet'], ['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do'], [`Ảnh ${gallery.length}`, '#a1'],
   ])
   expect(jumps.at(-1)!.end).toBe(true)
 })
@@ -25,6 +25,6 @@ test('a row that fits gives nothing up; past five, only as many as it takes, bre
   const chip = (href: string) => ({ href })
   const care = ['#muc-aquariumSize', '#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#muc-reproduction'].map(chip)
   expect(jumpRow(care)).toEqual(care)
-  expect(jumpRow([...care, chip('/ca/x/anh/')]).map(c => c.href)).toEqual(['#muc-aquariumSize', '#muc-waterConditions', '#muc-diet', '#muc-behaviour', '/ca/x/anh/'])
-  expect(jumpRow([...care, chip('#mua-do'), chip('/ca/x/anh/')]).map(c => c.href)).toEqual(['#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#mua-do', '/ca/x/anh/'])
+  expect(jumpRow([...care, chip('#a1')]).map(c => c.href)).toEqual(['#muc-aquariumSize', '#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#a1'])
+  expect(jumpRow([...care, chip('#mua-do'), chip('#a1')]).map(c => c.href)).toEqual(['#muc-waterConditions', '#muc-diet', '#muc-behaviour', '#mua-do', '#a1'])
 })

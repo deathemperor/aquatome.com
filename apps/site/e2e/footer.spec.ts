@@ -62,9 +62,9 @@ for (const path of ['/', '/ca/ca-neon-vua/']) {
 // (the chief of staff and Photo Sourcing, 17 Nov: the footer's own pale link ink won over the list's); the first link
 // alone passed (the Unsplash rows' links carried the list's ink). A licence's name links its own page, as the licences
 // ask.
-// The chief of staff's three (a fish's, its photos', a glossary term's; on the fixture, a term with photos), then of every
-// other kind the first of its first three pages that has a list.
-const NAMED = LIVE ? ['/ca/ca-neon-vua/', '/ca/ca-neon-vua/anh/', '/thuat-ngu/lua/'] : ['/ca/ca-neon-vua/', '/ca/ca-neon-vua/anh/', '/thuat-ngu/ca-dan/']
+// The chief of staff's three (a fish's, its photos', a glossary term's; on the fixture, a term with photos; a fish's photos
+// are on its page since 18 Nov), then of every other kind the first of its first three pages that has a list.
+const NAMED = LIVE ? ['/ca/ca-neon-vua/', '/thuat-ngu/lua/'] : ['/ca/ca-neon-vua/', '/thuat-ngu/ca-dan/']
 const byKind = new Map<string, string[]>()
 for (const p of sourcePages().filter(p => !NAMED.some(n => templateOf(n) === templateOf(p)))) byKind.set(templateOf(p), [...(byKind.get(templateOf(p)) ?? []), p])
 const KINDS = [...NAMED.map(p => [p]), ...byKind.values()].map(ps => ps.slice(0, 3))

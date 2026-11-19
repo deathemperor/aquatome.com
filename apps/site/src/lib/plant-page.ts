@@ -1,7 +1,7 @@
 import type { Content, Localized, PlantEntity } from '@aq/schema'
 import { GALLERY_STRIP } from './gallery'
-import { albumOf, hasPhotoPage } from './photo-page'
-import { served, type Lang } from './i18n'
+import { albumOf, hasAlbum } from './photo-page'
+import type { Lang } from './i18n'
 import { guideImages, guidesMentioning } from './mentions'
 import { pagePictures, takeEach } from './pictures'
 
@@ -14,10 +14,12 @@ import { pagePictures, takeEach } from './pictures'
 export function plantParts(lang: Lang, c: Content, p: Localized<PlantEntity>) {
   const pics = pagePictures(c)
   pics.add(p.photos[0]?.url)
-  // Its gallery's first photos, linking the gallery page, once there are enough for one.
+  // Its album's first photos, once there are enough for one: each opens the viewer over the page.
   const gallery = albumOf(c, 'plants', p)
+  // The app's gallery still links the album's old address (app-page.ts galleryBlock), which forwards to this page; the app
+  // doesn't open it, and protocols/page-vectors.json holds it until the protocols next change.
   const galleryPath = `/vi/cay/${p.t.slug}/anh/`
-  const strip = hasPhotoPage(gallery) && served(lang, galleryPath) ? gallery.slice(0, GALLERY_STRIP).map(x => pics.take([x]) ?? null) : []
+  const strip = hasAlbum(gallery) ? gallery.slice(0, GALLERY_STRIP).map(x => pics.take([x]) ?? null) : []
   const figures = p.photos.slice(1).filter(x => pics.take([x]))
   const mentioning = guidesMentioning(c, `plant:${p.id}`)
   const videoGuides = mentioning.filter(g => g.video)
