@@ -827,6 +827,18 @@
     "vi/species/vieja-fenestrata": "passed"
    },
    "wrong": []
+  },
+  {
+   "at": "2026-11-19T16:15:54.407Z",
+   "keys": [
+    "id/species/epiplatys-annulatus",
+    "vi/species/lepidocephalichthys-goalparensis"
+   ],
+   "outcomes": {
+    "id/species/epiplatys-annulatus": "given its old text back for units",
+    "vi/species/lepidocephalichthys-goalparensis": "passed"
+   },
+   "wrong": []
   }
  ]
 }

@@ -5,7 +5,7 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 8786 (Vietnamese 4879, Indonesian 1681, Thai 1674, Malay 552). Imperial units
+Pages checked: 8831 (Vietnamese 4879, Indonesian 1697, Thai 1690, Malay 565). Imperial units
 beside a metric figure: feet 1, gallon 18.
 
 ## Numbered headings broken or miscounted (2)

@@ -11,16 +11,16 @@ under `<lang>/<path>`.
 | video-guide | 1029 | 735 (vi 735) | 735 |
 | translation | 2089 | 310 (vi 310) | 310 |
 | vi-rewrite | 395 | 33 (vi 33) | 33 |
-| reader-rewrite | 43 | 0 | 0 |
+| reader-rewrite | 45 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 122 | 6 (id 1, ms 1, th 4) | 6 |
 | product | 24 | 1 (vi 1) | 1 |
 | product-reviews | 18 | 0 | 0 |
 | summary | 2536 | 135 (vi 135) | 135 |
-| localize | 2640 | 892 (id 389, ms 68, th 435) | 892 |
+| localize | 2689 | 895 (id 385, ms 69, th 441) | 895 |
 | glossary | 19 | 0 | 0 |
-| places | 7363 | 4478 (id 1533, ms 1529, th 1317, vi 99) | 1308 |
+| places | 7395 | 4502 (id 1541, ms 1537, th 1325, vi 99) | 1328 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 20 | 0 | 0 |
@@ -304,7 +304,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 43 pages under the bar.
+0 of 45 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -483,21 +483,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-892 of 2640 pages under the bar.
+895 of 2689 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 817 | 2266 |
-| Wording: unnatural, literal, stiff or chatty | 754 | 1538 |
-| Says what the source doesn't (invented, added) | 519 | 736 |
-| Meaning changed or wrong | 486 | 742 |
-| A number, unit, dose or price | 475 | 608 |
-| Hobby terms and names | 464 | 609 |
-| Text left in another language | 316 | 399 |
-| Leaves out what the source says | 261 | 302 |
-| Repeats itself (intro, summary, steps and FAQ) | 234 | 259 |
-| States as certain what the source hedges, or what garbled captions only hint at | 200 | 223 |
-| Copied from the transcript or source | 24 | 24 |
+| Other | 815 | 2258 |
+| Wording: unnatural, literal, stiff or chatty | 749 | 1533 |
+| Says what the source doesn't (invented, added) | 522 | 741 |
+| Meaning changed or wrong | 484 | 742 |
+| A number, unit, dose or price | 479 | 609 |
+| Hobby terms and names | 461 | 603 |
+| Text left in another language | 310 | 395 |
+| Leaves out what the source says | 256 | 297 |
+| Repeats itself (intro, summary, steps and FAQ) | 241 | 267 |
+| States as certain what the source hedges, or what garbled captions only hint at | 203 | 229 |
+| Copied from the transcript or source | 23 | 23 |
 | Off the title's topic | 2 | 2 |
 
 ### Other
@@ -522,31 +522,31 @@ under `<lang>/<path>`.
 
 - Item 7: 'Air payau ... bersalinitas rendah (>8,4 g/l)' keeps the English's odd '>' sign. Verify against the original (probably <8.4 g/l) rather than copying a likely error. — id/plants/azolla, 0.20
 - Item 2: the English source is actually Vietnamese, not English. The translation is faithful to it, but flag the source-language mismatch to the pipeline owner. Fix the source text if this is an error. — id/plants/microsorum-pteropus-narrow, 0.30
-- Item 9: "blackworms" is translated as "ไส้เดือนน้ำ". Use "หนอนแดงน้ำจืด" or "ไส้เดือนน้ำ" consistently. Blackworms are Lumbriculus, so "ไส้เดือนน้ำ" is acceptable, but "หนอนแดง" in the same sentence risks confusing readers. — th/species/betta-patoti, 0.30
+- Item 3: 'silver sharks' rendered as 'ปลาหางไหม้' — wrong fish. Silver shark (Balantiocheilos melanopterus) is ปลากระพงเงิน/ปลาตะเพียนเงิน/'ปลาฉลามเงิน'; ปลาหางไหม้ is a different species. Change it. — th/species/clarias-insolitus, 0.30
 
 ### A number, unit, dose or price
 
 - Item 4: 'minimal 40 liter' is fine, but 'Fairy moss' is rendered as 'Azolla' throughout while the common name stays elsewhere. Keep the term consistent. — id/plants/azolla, 0.20
-- Item 1: "Maximum size: 3.5 inches (about 9 cm)" is rendered as "ขนาดโตเต็มที่" (adult size), which is not the same as maximum size. Use "ขนาดใหญ่สุด". — th/species/betta-patoti, 0.30
 - Item 6: '5 gallons (about 19 litres)' is fine, but item 7: '45 × 30 cm' is original metric; no issue.  — th/species/betta-persephone, 0.30
+- Item 6: "Volume: ~243 liter" — the tank volume should follow the table. For a 120 × 45 cm base, use a keeper-standard size, not an exact conversion. — id/species/devario-pathirana, 0.30
 
 ### Hobby terms and names
 
 - Item 8: 'lobster air tawar' for crayfish is fine, but 'siput' for snails is inconsistent with 'keong' in item 5. Use one term. — id/plants/azolla, 0.20
 - Item 5: 'pokok' is used where the English says 'plants'; 'tumbuhan' would be more consistent. '(pearling)' is an added English term, but it is acceptable. — ms/plants/micranthemum-callitrichoides, 0.20
-- Item 1: "Endangered" translated as "ใกล้สูญพันธุ์" — this is the Thai term for Near Threatened; Endangered is "ใกล้สูญพันธุ์" only loosely, so use "ใกล้สูญพันธุ์ (EN)" correctly as "ใกล้สูญพันธุ์" vs "ถูกคุกคาม" carefully; the standard Tha… — th/species/betta-patoti, 0.30
+- Item 1: 'Endangered' translated as 'ใกล้สูญพันธุ์' — that is Near Threatened/Vulnerable in Thai usage; Endangered = 'ใกล้สูญพันธุ์' is used by IUCN Thai for EN actually, but Item 5 uses 'ใกล้สูญพันธุ์อย่างยิ่ง' for Critically Endangered, w… — th/species/betta-persephone, 0.30
 
 ### Text left in another language
 
 - Item 1: 'Frond (daun)' and later 'frond-nya' leave English untranslated. Use 'daun' or 'helai daun' consistently. — id/plants/azolla, 0.20
 - Item 2: 'Java Fern Narrow' is left in English with a wrong word order. Use 'Paku Jawa (Java Fern) Narrow' or 'Microsorum pteropus Narrow'. — id/plants/microsorum-pteropus-narrow, 0.30
-- Item 10: "Daphnia" is translated as "ไรแดง" and "Artemia" as "ไรทะเล". Thai hobbyists use "ไรน้ำ/ไรแดง" for Daphnia and "อาร์ทีเมีย" or "ไรทะเล" for Artemia, so this is acceptable. "bloodworm" is rendered as "หนอนแดง" and also left in Engl… — th/species/betta-patoti, 0.30
+- Item 3: 'spanner barb' left in English and slash-joined with 'ปลาตะเพียนหางแดง'. Spanner barb is Barbichthys laevis, ปลาตะเพียนจันทร์/ปลาสะแป้นแก้ม is not right either; use a correct Thai or trade name and do not merge two different fish. — th/species/clarias-insolitus, 0.30
 
 ### Leaves out what the source says
 
 - Item 4: 'creeps over the bottom' is fine, but 'akarnya akan mati' drops the 'causing root death' cause-and-effect link. Rephrase as 'menyebabkan akar mati'. — ms/plants/micranthemum-callitrichoides, 0.20
 - Item 4: 'was given to Tropica by Thomas Barr' is changed to 'diperoleh daripada Thomas Barr'. The Tropica link is dropped, so a fact is omitted. Say it was given to Tropica by Thomas Barr from the USA. — ms/plants/eleocharis-pusilla, 0.30
-- Item 4: translation is missing ("left out"). The whole paragraph on type locality and colour forms must be translated. — th/species/betta-patoti, 0.30
+- Item 1: 'SL (วัดความยาวมาตรฐาน ไม่รวมครีบหาง)' is fine, but the English '5.5"' was dropped correctly; no change needed here. — th/species/clarias-insolitus, 0.30
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
@@ -577,13 +577,13 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4478 of 7363 pages under the bar.
+4502 of 7395 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1173 | 1266 |
+| Other | 1192 | 1285 |
 | Meaning changed or wrong | 71 | 71 |
-| Leaves out what the source says | 61 | 61 |
+| Leaves out what the source says | 62 | 62 |
 | Wording: unnatural, literal, stiff or chatty | 26 | 26 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Hobby terms and names | 9 | 9 |
