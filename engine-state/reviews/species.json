@@ -148,6 +148,43 @@
       "kept": false
     }
   ],
+  "vi/plants/limnophila-sessiliflora#mlYQQMO-Q6s": [
+    {
+      "at": "2026-11-19T21:44:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.6,
+      "notes": [
+        "\"số cây trong video\" refers to the video itself, which must not be named or referenced.",
+        "\"Một người nuôi loài này lâu năm\" – the video never says the keeper has kept it for many years, so \"lâu năm\" is invented.",
+        "\"Phần mọc cạn ... lá xanh đậm\" repeats the page, which already says emersed leaves are \"màu xanh đậm\".",
+        "The page says the plant needs medium-to-high nutrients and regular liquid fertiliser. The no-fertiliser result contradicts that, but NEW doesn't say so plainly.",
+        "\"cây có thể lên rất đẹp mà không tốn công\" – the video says only \"amazing growth easily\", so \"không tốn công\" is an embellishment.",
+        "\"Cây lên nhanh nên chỉ cần mua một cây\" is a loose paraphrase. The video says you can start with a single plant, not that buying one is enough.",
+        "\"Một người nuôi ... Người này cũng lấy hai ngọn nhỏ từ bể khác\" is clumsy and reads like a translation. The ownership of the tank and the timeline are muddled.",
+        "\"trong video\" names the video or its channel: state the fact directly"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T21:44:30Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.78,
+      "notes": [
+        "[reproduction] \"cắt ngọn của cây mẹ rồi cắm xuống\" repeats the page's existing tip-cutting propagation (\"Sinh dưỡng (giâm ngọn)... cắt ngọn rồi trồng xuống\"). Only the runner (\"bò ngó\") detail is new.",
+        "[maintenance] The keeper grows it with no fertiliser and only fish waste. The page says the plant needs medium-to-high nutrients and regular liquid fertiliser (\"Phân bón: Cần\"). NEW never says the video differs from the page here.",
+        "[maintenance] \"Nếu dùng phân nền và châm thêm chút phân thì cây còn lên đẹp hơn nữa\" is stated as a general rule. The video says this only loosely (\"you can accomplish amazing growth\").",
+        "[notes] \"màu xanh lá nhạt\" is fine, but it could say plainly that it contrasts with the dark green of emersed growth. That contrast is in the video, and the page doesn't give it.",
+        "[reproduction] \"chỉ từ hai ngọn nhỏ, sau hơn một tháng đã có cả một khóm cây\" is a paraphrase. The video only says it grew in a little over a month from two trimmings, and \"cả một khóm\" is a slight embellishment."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/najas-guadalupensis#EY13FDXeW3Q": [
     {
       "at": "2026-11-15T23:29:56Z",
@@ -2419,6 +2456,41 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/trigonostigma-heteromorpha#M7rh2d9l3oQ": [
+    {
+      "at": "2026-11-19T21:43:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.6,
+      "notes": [
+        "\"Cá trại vẫn kém màu hơn cá hoang dã\" is not said in the video. The page already has it (\"cá trại kém màu hơn nhiều so với cá hoang dã\"), so it is both unsupported and a repeat.",
+        "\"đang bị nhốt trong bể trống\" is not in the video. The keeper only says the fish are immature and not coloured up in the shop. The cause given (a bare tank) is invented.",
+        "\"cá thường quanh quẩn ở những khoảng trống giữa các cụm cây\" and \"bơi thành một khối\" overlap with the page's \"bơi thành đàn sát nhau\" and the open-swimming-space text. They add little that is new.",
+        "The sentence that cá thấy yên tâm và lên màu đẹp hơn when they see plants and other fish is written as a general rule, not as one keeper's view. The page already says fish colour better in a fully decorated tank.",
+        "In dimorphism, the NEW text does not say plainly that it differs from the page. The page lists several ways to tell the sexes apart, while the keeper sees no difference."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T21:43:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.78,
+      "notes": [
+        "[behaviour] \"bể 450 lít dài gần 1,8 m\": the video says a 125-gallon tank, 6 feet long. 125 gallons is about 473 L, so 450 L is a loose conversion.",
+        "[dimorphism] The video sees no difference between the sexes, but the page describes clear differences. NEW never says plainly that the video disagrees with the page.",
+        "[maintenance] \"nitrit và nitrat vẫn phải giữ ở mức vừa phải\" repeats what the page already says about clean water and nitrate under 40.",
+        "[maintenance] \"dù nước có hơi bẩn chúng vẫn sống khỏe\" is one keeper's experience and leans toward a general claim. The page says disease flares up in dirty water.",
+        "[beforeYouBuy] \"Cá ngoài tiệm kém màu không có nghĩa là nuôi lâu vẫn kém màu\" is stated as a rule, not as one keeper's experience. It also doesn't mention the page's point that farm-bred fish are duller than wild ones.",
+        "[behaviour] \"hiếm khi rời nhau quá vài giây\" overlaps the page's \"bơi thành đàn sát nhau\". It adds a new detail but is partly repeated."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/xiphophorus-maculatus#ETOaNDemwVM": [

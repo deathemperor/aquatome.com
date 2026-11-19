@@ -61,7 +61,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá con nhỏ bơi ra chỗ trống phía trước đám cây.",
-            "sharpness": 703.6
+            "sharpness": 703.6,
+            "person": false
           },
           {
             "t": 175,
@@ -69,7 +70,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cây rậm rạp, có nhiều sinh vật con li ti đang sống.",
-            "sharpness": 963.1
+            "sharpness": 963.1,
+            "person": false
           }
         ],
         "photo": {
@@ -92,7 +94,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thân mọc cao phía sau và thảm cây nền xanh mượt phía trước.",
-            "sharpness": 2102.8
+            "sharpness": 2102.8,
+            "person": false
           },
           {
             "t": 255,
@@ -122,38 +125,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh sau khi vớt bèo, nước còn vụn lá lơ lửng.",
-            "sharpness": 1974.6
-          },
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/tzhH9OPm0g8/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng miếng chà kính cạo lớp rêu hại bám trên kính bể.",
-            "sharpness": 1252.5
+            "sharpness": 1974.6,
+            "person": false
           }
         ]
       },
       {
         "heading": "Giữ lại bao nhiêu cây nổi",
-        "moments": [
-          {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/tzhH9OPm0g8/at485-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vớt bớt bèo phủ dày trên mặt bể.",
-            "sharpness": 736.1
-          },
-          {
-            "t": 490,
-            "url": "https://media.aquatome.com/video/tzhH9OPm0g8/at490-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay thả lại lớp cây nổi mỏng trên mặt bể.",
-            "sharpness": 1067.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/tzhH9OPm0g8/p3-fbWlub3JfKS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/tzhH9OPm0g8/p3-fbWlub3JfKS5qcGc-480.webp",

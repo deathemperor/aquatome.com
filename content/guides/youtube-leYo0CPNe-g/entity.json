@@ -260,20 +260,13 @@
         "heading": "Lọc, cây nổi và chuẩn bị nước trước khi thả cá",
         "moments": [
           {
-            "t": 1180,
-            "url": "https://media.aquatome.com/video/leYo0CPNe-g/at1180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm lọc trong loại nano trước bể thủy sinh nhỏ.",
-            "sharpness": 3027
-          },
-          {
             "t": 1260,
             "url": "https://media.aquatome.com/video/leYo0CPNe-g/at1260-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ đã trồng cây và lũa, sẵn sàng chạy nước.",
-            "sharpness": 2656.6
+            "sharpness": 2656.6,
+            "person": false
           }
         ],
         "photo": {

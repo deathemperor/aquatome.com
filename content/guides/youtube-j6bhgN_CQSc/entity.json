@@ -1,0 +1,80 @@
+{
+  "id": "youtube-j6bhgN_CQSc",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=j6bhgN_CQSc",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus",
+    "eleocharis-parvula",
+    "hydrocotyle-tripartita"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "j6bhgN_CQSc",
+    "title": "How To Make A No Filter 3 Gallon Fish Bowl Aquarium  (No Filter No Ferts No Co2 No Heater Aquascape)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 875,
+    "publishedAt": "2019-10-10",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 63
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/j6bhgN_CQSc/sddefault.jpg",
+      "width": 640,
+      "height": 480
+    },
+    "taxa": [
+      "Micranthemus tweediei",
+      "Microsorum pteropus",
+      "Taxiphyllum sp.",
+      "Hemianthus callitrichoides",
+      "Eleocharis parvula",
+      "Hydrocotyle tripartita"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 30
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Aqua Soil",
+        "t": 130
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Plant Substrate",
+        "t": 150
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 160
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 160
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "reu",
+        "t": 160
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 180
+      }
+    ]
+  }
+}

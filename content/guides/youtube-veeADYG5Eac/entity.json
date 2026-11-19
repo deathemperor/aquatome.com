@@ -69,20 +69,13 @@
         "heading": "Làm nền thế nào cho bể cá vàng",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/veeADYG5Eac/at10-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nền cát sỏi trộn lẫn với đá lớn và cây đắp phía sau.",
-            "sharpness": 1611.3
-          },
-          {
             "t": 160,
             "url": "https://media.aquatome.com/video/veeADYG5Eac/at160-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp cát trắng được trải phẳng trên đáy bể.",
-            "sharpness": 375.6
+            "sharpness": 375.6,
+            "person": false
           }
         ]
       },
@@ -90,20 +83,13 @@
         "heading": "Vì sao bố cục cho cá vàng phải thấp",
         "moments": [
           {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/veeADYG5Eac/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm đá thấp xen cây trên nền cát, phía trước để trống rộng.",
-            "sharpness": 1804
-          },
-          {
             "t": 840,
             "url": "https://media.aquatome.com/video/veeADYG5Eac/at840-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể trải cát với vài cụm đá thấp và cây trồng thấp phía sau.",
-            "sharpness": 1463.6
+            "sharpness": 1463.6,
+            "person": false
           }
         ]
       },
@@ -116,30 +102,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh mới mua còn nguyên bó, có thẻ giá.",
-            "sharpness": 609
+            "sharpness": 609,
+            "person": false
           }
         ]
       },
       {
         "heading": "Cây dính rêu tóc thì xử lý thế nào",
-        "moments": [
-          {
-            "t": 1200,
-            "url": "https://media.aquatome.com/video/veeADYG5Eac/at1200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm cụm cỏ nhỏ lá mảnh trên tay để kiểm tra rêu hại.",
-            "sharpness": 279.5
-          },
-          {
-            "t": 1210,
-            "url": "https://media.aquatome.com/video/veeADYG5Eac/at1210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh trồng nhiều cây, rêu hại dễ bám nếu cây mang từ bể khác.",
-            "sharpness": 486
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/veeADYG5Eac/p4-lyX0FsZ2FlLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/veeADYG5Eac/p4-lyX0FsZ2FlLmpwZw-480.webp",
@@ -155,20 +125,13 @@
         "heading": "Từ lúc đổ nước đến khi chuyển lọc",
         "moments": [
           {
-            "t": 1260,
-            "url": "https://media.aquatome.com/video/veeADYG5Eac/at1260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể vừa trồng xong, đang chuẩn bị xịt nước và đổ nước.",
-            "sharpness": 627.8
-          },
-          {
             "t": 1330,
             "url": "https://media.aquatome.com/video/veeADYG5Eac/at1330-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh vừa trồng xong với đá và cây, nước đang trong dần.",
-            "sharpness": 1160.4
+            "sharpness": 1160.4,
+            "person": false
           }
         ],
         "photo": {
@@ -191,15 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá vàng đỏ bơi trong bể mới có đá và cây thủy sinh.",
-            "sharpness": 937.6
-          },
-          {
-            "t": 1650,
-            "url": "https://media.aquatome.com/video/veeADYG5Eac/at1650-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai con cá vàng bơi thoải mái trong bể mới sau khi thả.",
-            "sharpness": 1057.2
+            "sharpness": 937.6,
+            "person": false
           }
         ],
         "photo": {

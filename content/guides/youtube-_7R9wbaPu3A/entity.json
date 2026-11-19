@@ -1,0 +1,73 @@
+{
+  "id": "youtube-_7R9wbaPu3A",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=_7R9wbaPu3A",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "rotala-rotundifolia",
+    "hygrophila-polysperma",
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "_7R9wbaPu3A",
+    "title": "Aquascape Tutorial: 2.6 gal IKEBANA Nano AQUARIUM (How To: Step By Step | NO FILTER NO FERTS NO CO2)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1149,
+    "publishedAt": "2020-07-05",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 83
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/_7R9wbaPu3A/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Limnophila sp.",
+      "Rotala rotundifolia",
+      "Hygrophila polysperma",
+      "Neocaridina davidi"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 66
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 215
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 275
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 443
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Substrate Powder",
+        "t": 443
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Aquasoil",
+        "t": 474
+      }
+    ]
+  }
+}

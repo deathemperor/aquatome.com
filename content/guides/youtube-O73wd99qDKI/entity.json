@@ -1,0 +1,62 @@
+{
+  "id": "youtube-O73wd99qDKI",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=O73wd99qDKI",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens",
+    "poecilia-reticulata",
+    "neocaridina-davidi",
+    "carassius-auratus",
+    "astronotus-ocellatus"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "O73wd99qDKI",
+    "title": "These Are NOT Pests, But They Can Be Pests",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 1094,
+    "publishedAt": "2026-06-28",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D22HpYCoYOd-7fWROlvG9hV",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/O73wd99qDKI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Planorbella sp.",
+      "Anentome sp.",
+      "Physella acuta",
+      "Betta splendens",
+      "Poecilia reticulata",
+      "Neocaridina davidi",
+      "Carassius auratus",
+      "Pomacea sp.",
+      "Astronotus ocellatus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 805
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 660
+      },
+      {
+        "category": "phan-nen",
+        "type": "la",
+        "t": 280
+      }
+    ]
+  }
+}

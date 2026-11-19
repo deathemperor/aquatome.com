@@ -1,0 +1,60 @@
+{
+  "id": "youtube-3DsCnBa9360",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=3DsCnBa9360",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "eleocharis-acicularis",
+    "poecilia-reticulata",
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "3DsCnBa9360",
+    "title": "2 GALLON Planted Nano Tank | NO WATER CHANGE: 3 months (How To: No Filter No Ferts No co2 No Heater)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 846,
+    "publishedAt": "2019-09-14",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 54
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/3DsCnBa9360/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Lemna minor",
+      "Eleocharis acicularis",
+      "Poecilia reticulata",
+      "Neocaridina davidi"
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "diu",
+        "t": 180
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 0
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 465
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 465
+      }
+    ]
+  }
+}

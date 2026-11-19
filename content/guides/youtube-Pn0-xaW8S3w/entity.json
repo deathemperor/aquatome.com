@@ -1,0 +1,60 @@
+{
+  "id": "youtube-Pn0-xaW8S3w",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Pn0-xaW8S3w",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "pogostemon-helferi",
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "Pn0-xaW8S3w",
+    "title": "Growing An Ecosystem Aquarium....No Filter No Ferts No co2 No Heater",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 603,
+    "publishedAt": "2019-10-19",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 67
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Pn0-xaW8S3w/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Bacopa sp.",
+      "Pogostemon helferi",
+      "Lemna minor",
+      "Echinodorus sp.",
+      "Neocaridina davidi",
+      "Vesicularia sp.",
+      "Ludwigia sp."
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 0
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "t": 0
+      },
+      {
+        "category": "be-ca",
+        "t": 0
+      }
+    ]
+  }
+}
