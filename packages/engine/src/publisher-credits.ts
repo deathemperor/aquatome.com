@@ -27,30 +27,39 @@ const CAPTION_CUT = 200
 const lettersOf = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim()
 
 /**
- * The credit a line gives after a photo's caption, as printed: what follows the copyright sign where the line has one (the
- * caption may run on before it), else the rest of the line, which must read as a credit (a person, an organisation, a
- * business, or one word, a handle) and not as more of the caption. Two different credits after two signs: none.
+ * The credit a line gives after a photo's caption, as printed: what follows the copyright sign where the line has one,
+ * else the rest of the line, which must read as a credit (a person, an organisation, a business, or one word, a handle)
+ * and not as more of the caption. Two different credits after two signs: none. Words between the caption and the sign,
+ * or a space between the caption and a credit with no sign, are a longer caption that starts with this one: another
+ * picture's ("Male" in "Male in colour"), whose credit this photo doesn't take. Seriously Fish's copy prints a credit
+ * with no sign right after the caption, with no space (every one of the 1,503 so tied on main, 19 Nov), and a credit
+ * with a sign after nothing but spaces and stops (all 64).
  */
 export function creditAfter(rest: string): { name: string } | { why: 'two credits in its line' | 'not a credit' } {
   const parts = rest.split(/©|\(c\)/i)
   // What sits between the caption and the name (a full stop, the sign) isn't the name; a full stop that ends it ("et al.") is.
   const clean = (s: string) => lettersOf(s).replace(/^[^\p{L}\p{N}]+/u, '').replace(/[\s,;:·-]+$/u, '').trim()
   if (parts.length > 1) {
+    if (/[\p{L}\p{N}]/u.test(parts[0]!)) return { why: 'not a credit' }
     const names = [...new Set(parts.slice(1).map(clean).filter(Boolean))]
     if (names.length > 1) return { why: 'two credits in its line' }
     return names[0] && !sentence(names[0]) ? { name: names[0] } : { why: 'not a credit' }
   }
   const name = clean(rest)
-  if (!name || sentence(name)) return { why: 'not a credit' }
+  if (/^\s/.test(rest) || !name || sentence(name)) return { why: 'not a credit' }
   return creditKind(name) !== 'unclear' || !/\s/.test(name) ? { name } : { why: 'not a credit' }
 }
 
 /**
  * More words of the page, not a credit: a line of the text that starts with the caption's words (a caption that is only
  * the fish's name, and a paragraph that opens with it: "<name> is a small cichlid from…"). A credit doesn't start in
- * lower case, holds no full stop after a word that ends a sentence, and is short.
+ * lower case, holds no full stop after a word that ends a sentence, and is short. One that ends with a stop holds no
+ * word in lower case but a name's particles ("van der", "et al."): "These fish swim together." is a sentence, a name
+ * with a stop after it, initials, or a paper's authors are not.
  */
+const PARTICLES = new Set(['van', 'der', 'den', 'von', 'de', 'del', 'della', 'di', 'da', 'dos', 'das', 'du', 'le', 'la', 'ter', 'ten', 'y', 'e', 'et', 'al'])
 const sentence = (s: string) => /^\p{Ll}/u.test(s) || /\p{Ll}{2}[.!?]\s/u.test(s) || s.length > 80
+  || (/[.!?]$/.test(s) && (s.match(/\p{L}+/gu) ?? []).some(w => /^\p{Ll}/u.test(w) && !PARTICLES.has(w)))
 
 /** The credit a stored copy prints after this caption: the one line that starts with the caption and goes on. */
 export function tiedCredit(caption: string | undefined, lines: readonly string[] | undefined): { name: string } | { why: Untied } {
@@ -60,7 +69,8 @@ export function tiedCredit(caption: string | undefined, lines: readonly string[]
   if (!lines) return { why: 'no stored copy' }
   const rests = [...new Set(lines.filter(l => l.startsWith(cap) && l.length > cap.length).map(l => l.slice(cap.length)))]
   if (!rests.length) return { why: 'caption not in the stored copy' }
-  if (rests.length > 1) return { why: 'two lines for its caption' }
+  // The caption alone on a line too: another picture's caption, or this one's with its credit on another line.
+  if (rests.length > 1 || lines.includes(cap)) return { why: 'two lines for its caption' }
   return creditAfter(rests[0]!)
 }
 
@@ -105,14 +115,18 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
   const lines = new Map<string, Set<string>>()
   for (const file of files) {
     const raw = await readFile(file, 'utf8').catch(() => '')
-    if (![...names.values()].some(n => raw.includes(JSON.stringify(n)))) continue
+    // A publisher's name at the end of a credit: its photos alone, and those already named.
+    if (![...names.values()].some(n => raw.includes(`${n}"`))) continue
     const data = JSON.parse(raw) as unknown
     const photos: (PhotoLike & Record<string, unknown>)[] = []
     const visit = (x: unknown): void => {
       if (Array.isArray(x)) return x.forEach(visit)
       if (!x || typeof x !== 'object') return
       const o = x as Record<string, unknown>
-      if (isPhoto(o) && typeof o.source === 'string' && names.get(o.source as SourceId) === o.author && o.licence === SOURCE_PHOTO_LICENCE) photos.push(o)
+      const publisher = isPhoto(o) && typeof o.source === 'string' && o.licence === SOURCE_PHOTO_LICENCE ? names.get(o.source as SourceId) : undefined
+      if (publisher && o.author === publisher) photos.push(o as PhotoLike & Record<string, unknown>)
+      // A copy named already is one of its picture's copies too: a copy that ties to another line keeps the publisher alone.
+      else if (publisher && (o.author as string).endsWith(` / ${publisher}`)) lines.set(o.url as string, (lines.get(o.url as string) ?? new Set()).add((o.author as string).slice(0, -` / ${publisher}`.length)))
       Object.values(o).forEach(visit)
     }
     visit(data)
