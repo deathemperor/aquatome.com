@@ -87,25 +87,40 @@ export function blockOf(pieces: Piece[]): number[] {
 export const plain = (html: string) => parse(html).text.replace(/\s+/g, ' ').trim()
 
 /**
- * The sentences (their places among the sentences, from 0) that a quote lies in; one that runs across sentences names
- * each. Nothing when the quote isn't in the part.
+ * Where a quote stands in a text, both as `norm` gives them: its first place, or, `whole`, every place where its ends that
+ * are a letter or a figure meet no letter or figure ("ADA" isn't in "Canada", "$5" is in "giá $5"; Codex's read of #1690).
  */
-export function quoted(pieces: Piece[], quote: string): number[] {
-  const texts = pieces.filter(p => p.sentence).map(p => norm(plain(p.html)))
-  const q = norm(quote)
-  if (!q) return []
-  const joined = texts.join(' ')
-  const at = joined.indexOf(q)
-  if (at < 0) return []
+export function places(text: string, q: string, whole = false): number[] {
+  const word = (c?: string) => !!c && /[\p{L}\p{N}]/u.test(c)
   const out: number[] = []
-  let start = 0
-  texts.forEach((t, i) => { const end = start + t.length; if (start < at + q.length && at < end) out.push(i); start = end + 1 })
+  for (let at = q ? text.indexOf(q) : -1; at >= 0; at = text.indexOf(q, at + 1)) {
+    if (!whole) return [at]
+    if ((word(q[0]) && word(text[at - 1])) || (word(q.at(-1)) && word(text[at + q.length]))) continue
+    out.push(at)
+  }
   return out
 }
 
 /**
+ * The sentences (their places among the sentences, from 0) that a quote lies in; one that runs across sentences names
+ * each. Nothing when the quote isn't in the part. `whole`: its words whole, at every place the part says it.
+ */
+export function quoted(pieces: Piece[], quote: string, o: { whole?: boolean } = {}): number[] {
+  const texts = pieces.filter(p => p.sentence).map(p => norm(plain(p.html)))
+  const q = norm(quote)
+  const joined = texts.join(' ')
+  const out = new Set<number>()
+  for (const at of places(joined, q, o.whole)) {
+    let start = 0
+    texts.forEach((t, i) => { const end = start + t.length; if (start < at + q.length && at < end) out.add(i); start = end + 1 })
+  }
+  return [...out].sort((a, b) => a - b)
+}
+
+/**
  * The part with some of its sentences changed (by their places among the sentences) and every other piece as it was. An
- * empty sentence goes, with the space after it (or before it, at a block's end); a block left with nothing in it goes.
+ * empty sentence goes, with the space after it (or before it, at a block's end); a block left with nothing in it, or only
+ * a line break or a hard space, goes (Codex's read of #1690: "<p><br></p>" was a body).
  */
 export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): string {
   const out = pieces.map(p => ({ ...p }))
@@ -127,6 +142,6 @@ export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): s
     else if (before && !before.sentence && /\s$/.test(before.html)) before.html = before.html.replace(/\s+$/, '')
   })
   let html = out.map(p => p.html).join('')
-  for (let i = 0; i < 3; i++) html = html.replace(/<(p|li|h[1-6]|dd|dt|blockquote)>\s*<\/\1>/g, '').replace(/<(ul|ol)>\s*<\/\1>/g, '')
+  for (let i = 0; i < 3; i++) html = html.replace(/<(p|li|h[1-6]|dd|dt|blockquote)>(?:\s|&nbsp;|<br\s*\/?>)*<\/\1>/g, '').replace(/<(ul|ol)>\s*<\/\1>/g, '')
   return html
 }

@@ -29,6 +29,12 @@ test('a quote names the sentences it lies in, entities read; one not in the part
   expect(quoted(p, 'Ảnh & chữ')).toEqual([2])
   expect(quoted(p, 'mọc nhanh. Dài 2,5-5')).toEqual([0, 1])
   expect(quoted(p, 'cá betta')).toEqual([])
+  // Whole words, when asked, at every place: "ADA" isn't in "Canada" (Codex's read of #1690).
+  const ada = sentences('<p>Cá từ Canada. Phân ADA tốt. Lại là ADA. Giá $5 thôi.</p>')
+  expect(quoted(ada, 'ADA')).toEqual([0])
+  expect(quoted(ada, 'ADA', { whole: true })).toEqual([1, 2])
+  expect(quoted(ada, '$5', { whole: true })).toEqual([3])
+  expect(quoted(ada, 'là ADA. Giá', { whole: true })).toEqual([2, 3])
 })
 
 test('spliced, only the changed sentences differ; one left out takes its space, and an emptied block goes', () => {
@@ -38,4 +44,7 @@ test('spliced, only the changed sentences differ; one left out takes its space, 
   expect(splice(p, new Map([[0, '']]))).toBe('<p>Ở một số quần thể, con cái trông như B. brigittae còn con đực lại giống B. merah. Còn ở đợt cá mới nhập về thì có vẻ cả đực lẫn cái đều mang màu của B. merah.</p>')
   expect(splice(sentences(PARTS[1]!), new Map([[1, '']]))).toBe('<ul><li>Bể tối thiểu: 8 lít</li></ul>')
   expect(splice(sentences('<p>Một câu.</p><p>Câu khác.</p>'), new Map([[0, '']]))).toBe('<p>Câu khác.</p>')
+  // A block left with only a line break or a hard space is empty too (Codex's read of #1690).
+  expect(splice(sentences('<p>Mua lọc ở Petco.<br></p><p>Câu khác.</p>'), new Map([[0, '']]))).toBe('<p>Câu khác.</p>')
+  expect(splice(sentences('<p>Câu khác.</p><p>Mua lọc ở Petco.&nbsp;<br/></p>'), new Map([[1, '']]))).toBe('<p>Câu khác.</p>')
 })

@@ -133,6 +133,8 @@ test('a mend the page can\'t have leaves the file as it was', async () => {
     ['an answer that leaves a sentence out', [], { answers: asked => asked.slice(1).map(x => ({ n: x.n, vi: '' })) }, {}, [shop, price], false],
     ['an edit that left a quote in, here in the FAQ', [], { answers: { ...ANSWERS, 'Mua lọc ở Petco.': 'Mua lọc ở Petco.' } }, {}, [shop, price], false],
     ['a question emptied, its answer left', [{ faq: [{ q: 'Mua lọc ở Petco không?', a: 'Có.' }] }], { answers: { ...ANSWERS, 'Mua lọc ở Petco không?': '' } }, {}, [shop, price], false],
+    // Its only sentence gone, a body left with a line break is empty (Codex's read of #1690).
+    ['a body emptied but for a line break', [{ body: '<p>Mua lọc ở Petco.<br></p>', faq: [] }], { answers: { 'Mua lọc ở Petco.': '' } }, {}, [shop], false],
     ['a review under the bar and under the page\'s', [], { score: 0.7 }, {}, [shop, price], false],
   ]
   for (const [name, s, d, p, findings, out] of cases) {
@@ -142,6 +144,17 @@ test('a mend the page can\'t have leaves the file as it was', async () => {
     expect(prompts.length > 0, name).toBe(out === false)
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
+})
+
+// Codex's read of #1690: a quote's words are whole words wherever the guide says them. "ADA" isn't in "Canada", and the
+// sentence that says "Canada" is neither the editor's nor a quote left in.
+test('a quote names only the sentences that hold its words whole', async () => {
+  const ada: FitFinding = { check: 'product', part: 'P1', quote: 'ADA', why: 'a product not sold here', by: 'model' }
+  const { root, file } = await setup({ body: `<p>Cá nhập từ Canada rất khỏe. Phân nền ADA Amazonia giữ màu nước.</p><p>${LONG}</p>`, faq: [] })
+  const { mend, prompts } = deps(root, { answers: { 'Phân nền ADA Amazonia giữ màu nước.': 'Phân nền giữ màu nước.' } })
+  expect(await mend(page(), [ada])).toBe(true)
+  expect(askedOf(prompts[0]!).map(x => x.text)).toEqual(['Phân nền ADA Amazonia giữ màu nước.'])
+  expect(JSON.parse(await readFile(file, 'utf8')).body).toBe(`<p>Cá nhập từ Canada rất khỏe. Phân nền giữ màu nước.</p><p>${LONG}</p>`)
 })
 
 test('a sentence comes back as the part keeps it: inline markup in the body, plain words in a line, an "&" either way', async () => {
@@ -164,6 +177,17 @@ test('a product or a price quoted in a sentence that gives a dose is not mended:
     const { mend, prompts } = deps(root)
     expect(await mend(page(), [...findings]), name).toBeUndefined()
     expect(prompts, name).toEqual([]) // no editor, no reviewer: the text goes back as before
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+  // Said first with no dose and again in one, the product or the price waits just the same (Codex's read of #1690).
+  for (const [name, body, f] of [
+    ['a product named first with no dose, then in one', `<p>Seachem Prime là loại khử clo quen thuộc.</p><p>Châm 5 ml Seachem Prime cho 200 lít mỗi lần thay nước.</p><p>${LONG}</p>`, product],
+    ['a price said first alone, then beside an amount', `<p>Lọc giá 5 USD.</p><p>Thức ăn Hikari gói 20 g giá 5 USD là đủ dùng lâu.</p><p>${LONG}</p>`, packet],
+  ] as const) {
+    const { root, file, was } = await setup({ body, faq: [] })
+    const { mend, prompts } = deps(root)
+    expect(await mend(page(), [f]), name).toBeUndefined()
+    expect(prompts, name).toEqual([])
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
   // The same product named where no dose is given goes to the editor as before, and so does a shop in a guide that gives
@@ -286,12 +310,22 @@ test('a figure in a sentence the editor is given keeps its percent, its half, it
     ['a rate made a volume', 'Bơm 300 lít/giờ.', 'Bơm 300 lít.', [at('Bơm 300')]],
     // A units quote's figure is code's, even in a sentence a shop's finding gives the editor.
     ['a units figure dropped beside a shop', 'Bể 10 gallon mua ở Petco.', 'Bể mua ở tiệm cá cảnh.', [{ ...gallons, quote: 'Bể 10 gallon' }, { ...shop, quote: 'mua ở Petco' }]],
+    // A units quote of the unit alone keeps its sentence's figure too (Codex's read of #1690).
+    ['a units figure dropped beside a shop, its quote the unit alone', 'Bể 10 gallon mua ở Petco.', 'Bể mua ở tiệm cá cảnh.', [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'mua ở Petco' }]],
   ]
   for (const [name, before, after, findings] of cases) {
     const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
     expect(await deps(root, { answers: { [before]: after } }).mend(page(), findings), name).toBe(false)
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
+  // A figure that leaves one answer for another: the page's counts hold, its sentences' don't (Codex's read of #1690).
+  const moved = await setup({ body: `<p>Bể mẫu dài 30 cm, mua ở Petco.</p><p>Đèn mua ở Amazon, công suất 20 W.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(moved.root, { answers: { 'Bể mẫu dài 30 cm, mua ở Petco.': 'Bể mua ở tiệm cá cảnh.', 'Đèn mua ở Amazon, công suất 20 W.': 'Đèn mua trên mạng, treo cách mặt nước 30 cm, công suất 20 W.' } }).mend(page(), [at('Bể mẫu dài 30 cm'), { ...shop, quote: 'mua ở Amazon' }])).toBe(false)
+  expect(await readFile(moved.file, 'utf8')).toBe(moved.was)
+  // The units figure kept beside the shop gone: code converts it.
+  const kept = await setup({ body: `<p>Bể 10 gallon mua ở Petco.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(kept.root, { answers: { 'Bể 10 gallon mua ở Petco.': 'Bể 10 gallon mua ở tiệm cá cảnh.' } }).mend(page(), [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'mua ở Petco' }])).toBe(true)
+  expect(JSON.parse(await readFile(kept.file, 'utf8')).body).toMatch(/^<p>Bể \d+ lít mua ở tiệm cá cảnh\.<\/p>/)
   // "60 x 38 x 30 cm" written "60 × 38 × 30 cm" is the same figures.
   const x = await setup({ body: `<p>Bể 10 gallon là đủ.</p><p>Bể mẫu kích thước 60 x 38 x 30 cm là vừa.</p><p>${LONG}</p>`, faq: [] })
   expect(await deps(x.root, { answers: { 'Bể mẫu kích thước 60 x 38 x 30 cm là vừa.': 'Một bể kích thước 60 × 38 × 30 cm là vừa.' } }).mend(page(), [gallons, at('Bể mẫu')])).toBe(true)

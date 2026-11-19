@@ -207,7 +207,15 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
     ...(vi.faq ?? []).flatMap((f, i) => [{ field: `faq.${i}.q`, html: false, text: f.q }, { field: `faq.${i}.a`, html: false, text: f.a }]),
   ].map(x => ({ ...x, pieces: sentences(x.html ? x.text : asHtml(x.text)) }))
   const said = parts.map(x => x.pieces.filter(q => q.sentence).map(q => q.html))
-  const at = (f: FitFinding) => parts.flatMap((x, k) => [...new Set([...quoted(x.pieces, f.quote), ...holding(x.pieces, f.quote)])].map(i => ({ k, i })))
+  // Whole words, at every place (Codex's read of #1690: "ADA" named a sentence about Canada).
+  const holds = (pieces: Piece[], quote: string) => [...new Set([...quoted(pieces, quote, { whole: true }), ...holding(pieces, quote)])]
+  const at = (f: FitFinding) => parts.flatMap((x, k) => holds(x.pieces, f.quote).map(i => ({ k, i })))
+  /** A sentence's words as the checks read them. */
+  const txt = (k: number, h: string) => norm(parts[k]!.html ? plain(h) : asPlain(h))
+  // A product or a price in a dose at any place it's quoted, not its first only, waits, but for the video's own tank's
+  // dose, which the editor takes (Codex's read of #1690).
+  const ownDoses = doses.map(s => s.replace(/^(?:## |- |\| )/, ''))
+  if (findings.some(f => (f.check === 'product' || f.check === 'price') && at(f).some(({ k, i }) => givesDose(ownDoses.reduce((t, s) => t.replace(s, ' '), txt(k, said[k]![i]!)))))) return undefined
   const named: { k: number; i: number; notes: string[] }[] = []
   const convert: { k: number; i: number }[] = []
   for (const f of findings) {
@@ -276,8 +284,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   }
   const c = draftOf(checked), fixed = draftOf(written)
   const text = norm([c.name, ...c.summary, render(sanitizeHtml(c.body)), ...c.faq.flatMap(f => [f.q, f.a])].join('\n'))
-  // A units finding's figures stay as written, for code to convert; every other quote goes.
-  if (findings.some(f => f.check !== 'units' && text.includes(norm(f.quote)))) return false
+  // A units finding's figures stay as written, for code to convert; every other quote goes, wherever the guide would say it.
+  if (findings.some(f => f.check !== 'units' && checked.some((t, k) => holds(sentences(parts[k]!.html ? t : asHtml(t)), f.quote).length))) return false
   // No dose figure comes out that didn't go in (the chief of staff, 14 Nov 2026: "every figure in equals every figure
   // out").
   const had = figures(paragraphs.join('\n')), has = figures(text)
@@ -293,6 +301,17 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // which stay for code to convert (a shop's mend made "80 cm" "90 cm", Grok's read).
   const taken = less(figures(named.map(n => norm(parts[n.k]!.html ? plain(said[n.k]![n.i]!) : asPlain(said[n.k]![n.i]!))).join('\n')), figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n')))
   if (more(has, had).length || more(less(had, taken), has).length) return false
+  // And sentence by sentence: an answer's figures are its own sentence's, so none moves from one answer to another; and a
+  // sentence a units finding names keeps each figure code converts, whatever the quote (Codex's read of #1690: a quote of
+  // "gallon" left "10 gallon" unguarded).
+  const units = new Set(convert.map(c => `${c.k}.${c.i}`))
+  const unitFigures = figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n'))
+  if (named.some(n => {
+    const s = said[n.k]![n.i]!, was = figures(txt(n.k, s)), now = figures(txt(n.k, raw[n.k]!.get(n.i)!))
+    if (more(now, was).length) return true
+    const converted = figures(txt(n.k, metric(s)))
+    return units.has(`${n.k}.${n.i}`) && more(new Map([...was].filter(([f]) => unitFigures.has(f) || !converted.has(f))), now).length > 0
+  })) return false
 
   const review = await reviewDraft(d.llm, transcript, { viTitle: fixed.name, summary: fixed.summary, body: fixed.body, faq: fixed.faq }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)
   const page = { id: `guides/${p.id}`, lang: 'vi' }
