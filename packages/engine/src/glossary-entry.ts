@@ -507,19 +507,21 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // a fact gives it as the term's name (glossary-other-names.ts; the chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing).
   const isName = (n: string) => n.toLowerCase() === entity.en.toLowerCase() || givenAsName(n, facts.map(f => f.fact))
   const offered = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))]
-  // Each other name once, in either tone placing (toneKey). One the term already has in the other placing, its name, a link
-  // phrase or an other name kept before it ("Oxy hoà tan" beside "Oxy hòa tan"), stays a link phrase: a page that writes it
-  // so still links the term and counts toward it (Codex, 19 Nov 2026). A name its notes take off stays off, in either placing.
+  // Each other name once, in either tone placing (toneKey). One the term already has in the other placing, its name or an
+  // other name kept before it ("Oxy hoà tan" beside "Oxy hòa tan"), stays a link phrase: a page that writes it so still links
+  // the term and counts toward it (Codex, 19 Nov 2026). A link phrase in the other placing turns only a name the writer adds
+  // into one, never a saved other name: that phrase may be a saved name's own other placing, kept by an earlier save. A name
+  // its notes take off isn't added back, in either placing, as an other name or a link phrase.
   const off = new Set((asks.notNames ?? []).map(toneKey))
-  const own = new Set([vi.name, ...(vi.linkNames ?? [])].map(toneKey))
+  const otherKeys = new Set([toneKey(vi.name)]), linked = new Set((vi.linkNames ?? []).map(toneKey))
   const literal = new Set([vi.name, ...(vi.linkNames ?? [])].map(n => n.toLowerCase()))
   const altNames: string[] = [], variants: string[] = []
-  for (const n of offered) {
-    if (!n || off.has(toneKey(n))) continue
+  offered.forEach((n, i) => {
+    if (!n || off.has(toneKey(n))) return
     const fresh = !literal.has(n.toLowerCase())
     literal.add(n.toLowerCase())
-    if (!own.has(toneKey(n))) { own.add(toneKey(n)); altNames.push(n) } else if (fresh) variants.push(n)
-  }
+    if (otherKeys.has(toneKey(n)) || (i >= vi.altNames.length && linked.has(toneKey(n)))) { if (fresh) variants.push(n) } else if (fresh) { otherKeys.add(toneKey(n)); altNames.push(n) }
+  })
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
   // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
