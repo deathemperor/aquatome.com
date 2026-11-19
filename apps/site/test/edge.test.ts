@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { edgeOf, loadLine, pathOf } from '../e2e/edge'
+import { edgeOf, loadLine, pathOf, routeLine, waitingLines } from '../e2e/edge'
 
 // The night of 16 Nov: live checks failed on far Cloudflare edges and dropped connections, and the browser checks didn't
 // say which. Each live page load now prints one line in one shape, so a week of logs can be counted by edge.
@@ -20,4 +20,32 @@ test("the edge is the ray's airport code, and the address keeps its query but no
   expect(edgeOf({ 'cf-ray': 'malformed' })).toBe('?')
   expect(edgeOf()).toBe('?')
   expect(pathOf('https://aquatome.com/tim-kiem/?q=neon')).toBe('/tim-kiem/?q=neon')
+})
+
+// The night of 18 Nov: three Lighthouse runs missed the desktop paint budget on a round trip to the site of 112 to 169 ms
+// (34 to 55 ms on the runs that passed), and their lines named neither the edge nor the round trip.
+test("a Lighthouse line's route: the document's edge and the round trip to each of the site's own hosts, largest first", () => {
+  const rtts = [{ origin: 'https://aquatome.com', rtt: 112.4 }, { origin: 'https://challenges.cloudflare.com', rtt: 9 }, { origin: 'https://media.aquatome.com', rtt: 140.6 }]
+  expect(routeLine({ 'cf-ray': 'a5b7deb9cd0a2581-VIE' }, rtts, 'https://aquatome.com')).toBe('edge VIE, round trip media.aquatome.com 141 ms, aquatome.com 112 ms')
+  // Another site's host isn't the site's, even one ending in its name; nothing measured says so.
+  expect(routeLine({}, [{ origin: 'https://notaquatome.com', rtt: 5 }], 'https://aquatome.com')).toBe('edge ?, round trip ?')
+})
+
+// The same night: three bursts of page loads past 30 s, and no network log to tell which request held each page's load.
+test('a check that ran out of time names what its page was still waiting on, longest first, five at most, queries cut', () => {
+  const own = 'https://aquatome.com'
+  const open = [
+    { url: `${own}/_astro/a.js`, type: 'script', ms: 3_400 },
+    { url: `${own}/api/sign-in?code=123456`, type: 'fetch', ms: 29_600 },
+    { url: 'https://media.aquatome.com/commons/x.webp', type: 'image', ms: 28_200 },
+    ...Array.from({ length: 4 }, (_, i) => ({ url: `${own}/f${i}.woff2`, type: 'font', ms: 1_000 + i })),
+  ]
+  expect(waitingLines(open, own)).toEqual([
+    'live load: waiting on /api/sign-in?… (fetch) for 30 s',
+    'live load: waiting on media.aquatome.com/commons/x.webp (image) for 28 s',
+    'live load: waiting on /_astro/a.js (script) for 3 s',
+    'live load: waiting on /f3.woff2 (font) for 1 s',
+    'live load: waiting on /f2.woff2 (font) for 1 s',
+  ])
+  expect(waitingLines([], own)).toEqual([])
 })

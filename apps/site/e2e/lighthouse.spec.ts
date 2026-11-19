@@ -1,6 +1,7 @@
 import { chromium, expect, test } from '@playwright/test'
 import lighthouse from 'lighthouse'
 import desktopConfig from 'lighthouse/core/config/desktop-config.js'
+import { routeLine } from './edge'
 import { loadPolicy, onlyMonitorBreaks, policyNames, scoreWith } from './lighthouse-edge'
 import { documentHeaders, headerLines } from './lighthouse-headers'
 import { lighthouseFlags } from './lighthouse-flags'
@@ -79,8 +80,9 @@ for (const path of pages) {
         // Lighthouse 13 counts the page's elements in an insight (the dom-size audit is gone).
         dom: value('dom-size-insight'),
       }
-      // The numbers in the log, to see the margin a budget has.
-      console.log(`${form} ${path} ${JSON.stringify(got)} (machine speed ${Math.round(lhr.environment.benchmarkIndex)})`)
+      // The numbers in the log, to see the margin a budget has, and how far the runner's route was (edge.ts routeLine).
+      const rtts = (lhr.audits['network-rtt']?.details as { items?: { origin: string; rtt: number }[] } | undefined)?.items ?? []
+      console.log(`${form} ${path} ${JSON.stringify(got)} (machine speed ${Math.round(lhr.environment.benchmarkIndex)}; ${routeLine(documentHeaders(log, page), rtts, own)})`)
 
       // Each miss with what Lighthouse found wrong in that category, so the failure says what to fix.
       const failed = (k: string) => (lhr.categories[k]?.auditRefs ?? []).filter(r => r.weight > 0 && !excused.includes(r.id) && (lhr.audits[r.id]?.score ?? 1) < 0.9).map(r => `${r.id}: ${lhr.audits[r.id]!.title}`).join('; ')
