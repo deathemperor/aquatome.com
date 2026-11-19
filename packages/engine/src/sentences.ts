@@ -74,12 +74,14 @@ export function sentences(html: string): Piece[] {
  * Each sentence's block (numbered from 0, one entry a sentence): a paragraph, a list item, a cell or a line, so a
  * neighbour across one is never in the same paragraph or list item (the Writing Lead, 13 Nov 2026).
  */
-export function blockOf(pieces: Piece[]): number[] {
+export function blockOf(pieces: Piece[], o: { lines?: boolean } = {}): number[] {
+  // `lines: false`: a line break or a rule doesn't end a block, so a paragraph is one ("Châm 5 ml<br> Seachem Prime…").
+  const ends = (t: string) => BLOCK.test(t) && (o.lines !== false || !/^<(br|hr)\b/i.test(t))
   let block = 0
   const out: number[] = []
   for (const p of pieces) {
     if (p.sentence) out.push(block)
-    else if (p.html.split(/(<[^>]*>)/).some(t => BLOCK.test(t))) block++
+    else if (p.html.split(/(<[^>]*>)/).some(ends)) block++
   }
   return out
 }
@@ -124,8 +126,12 @@ export function quoted(pieces: Piece[], quote: string, o: { whole?: boolean } = 
  */
 export function splice(pieces: Piece[], changes: ReadonlyMap<number, string>): string {
   // A sentence this splice empties is marked, so only a block it emptied goes: a separator or an empty block already in
-  // the part stays as it was (Codex's second read of #1690).
-  const GONE = '\u0000'
+  // the part stays as it was (Codex's second read of #1690). The mark is a character neither the part nor a change holds
+  // (Codex's third read: a NUL already in a block).
+  const all = [...pieces.map(p => p.html), ...changes.values()].join('')
+  let code = 0xe000
+  while (all.includes(String.fromCharCode(code))) code++
+  const GONE = String.fromCharCode(code)
   const out = pieces.map(p => ({ ...p }))
   let n = -1
   out.forEach((p, i) => {

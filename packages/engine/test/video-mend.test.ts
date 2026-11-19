@@ -394,3 +394,71 @@ test('a dose whose sentence reads on past an initial or an abbreviation waits fo
     expect(await readFile(file, 'utf8'), line).toBe(was)
   }
 })
+
+// Codex's three reads of #1690 found these one by one; here they're crossed: where a quote is said (first, later, the
+// FAQ), how a dose is written (figures, words, a fraction, a compound), what stands between the quote and the dose (one
+// sentence, a line break, a stop), and a figure the sentence already has.
+test('crossed: a product or a price in a paragraph that gives a dose waits, however the dose is written and wherever the quote is said', async () => {
+  const product: FitFinding = { check: 'product', part: 'P1', quote: 'Seachem Prime', why: 'a product not sold here', by: 'model' }
+  const usd: FitFinding = { check: 'price', part: 'P1', quote: '7 USD', why: 'a price in dollars', by: 'rule' }
+  for (const f of [product, usd]) {
+    const q = f === usd ? 'thuốc giá 7 USD' : f.quote
+    for (const dose of ['5 ml', 'hai nắp', '½ nắp', 'hai mươi giọt']) {
+      for (const line of [`Châm ${dose} ${q} cho mỗi 50 lít.`, `Châm ${dose}<br> ${q} cho mỗi 50 lít.`, `Dùng ${q} cho nhanh. Châm ${dose} cho mỗi 50 lít.`]) {
+        for (const place of ['first', 'later', 'faq']) {
+          const intro = `<p>Có loại ${q} quen thuộc.</p>`
+          const body = place === 'first' ? `<p>${line}</p><p>${LONG}</p>` : place === 'later' ? `${intro}<p>${line}</p><p>${LONG}</p>` : `${intro}<p>${LONG}</p>`
+          const faq = place === 'faq' ? [{ q: 'Châm bao nhiêu?', a: line.replace('<br>', '') }] : []
+          const { root, file, was } = await setup({ body, faq })
+          const { mend, prompts } = deps(root)
+          const name = `${f.check}, ${dose}, ${place}: ${line}`
+          expect(await mend(page(), [f]), name).toBeUndefined()
+          expect(prompts, name).toEqual([])
+          expect(await readFile(file, 'utf8'), name).toBe(was)
+        }
+      }
+    }
+  }
+})
+
+test('crossed: a dose quote is the tank\'s own at every place it\'s said, or the guide waits; and no answer to a dose\'s sentence keeps one of its doses', async () => {
+  const q = 'Bể này dùng khoảng 4 nắp'
+  for (const [name, body, faq] of [
+    ['advice said again later', `<p>${q}.</p><p>${q} cho mỗi 200 lít.</p><p>${LONG}</p>`, []],
+    ['advice after a line break', `<p>${q}.</p><p>Lần sau.<br> ${q} cho mỗi 200 lít.</p><p>${LONG}</p>`, []],
+    ['advice in the FAQ', `<p>${q}.</p><p>${LONG}</p>`, [{ q: 'Châm bao nhiêu?', a: `${q} cho mỗi 200 lít.` }]],
+  ] as const) {
+    const { root, file, was } = await setup({ body, faq: [...faq] })
+    const { mend, prompts } = deps(root)
+    expect(await mend(page(), [{ ...caps, quote: q }]), name).toBeUndefined()
+    expect(prompts, name).toEqual([])
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+  // Both the tank's own, the second with another dose: an answer that keeps it, however written, is refused.
+  for (const more of ['2 nắp', 'hai nắp', '½ nắp']) {
+    const second = `Bể này dùng khoảng 4 nắp thuốc khử clo và ${more} vi sinh.`
+    const { root, file, was } = await setup({ body: `<p>Bể này dùng khoảng 4 nắp thuốc khử clo.</p><p>${second}</p><p>${LONG}</p>`, faq: [] })
+    const answers = { 'Bể này dùng khoảng 4 nắp thuốc khử clo.': 'Châm thuốc khử clo, liều theo hướng dẫn trên bao bì.', [second]: `Châm ${more} vi sinh.` }
+    expect(await deps(root, { answers }).mend(page(), [{ ...caps, quote: q }]), more).toBe(false)
+    expect(await readFile(file, 'utf8'), more).toBe(was)
+  }
+})
+
+test('crossed: a sentence a units finding names keeps every figure code converts it to, whatever figure it already had', async () => {
+  const units: FitFinding[] = [{ ...gallons, quote: 'gallon' }, { ...shop, quote: 'bán ở Petco' }]
+  for (const [before, after] of [
+    ['Bể 40 lít và bể 10 gallon bán ở Petco.', 'Bể 40 lít bán ở tiệm cá cảnh.'],
+    ['Bể 38 lít và bể 10 gallon bán ở Petco.', 'Bể 38 lít bán ở tiệm cá cảnh.'],
+    ['Bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.'],
+    ['Bể 40 lít, bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bể 40 lít và bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.'],
+    ['Bể 38 lít, bể 10 gallon và bộ Aqueon 10 Gallon bán ở Petco.', 'Bể 38 lít và bộ Aqueon 10 Gallon bán ở tiệm cá cảnh.'],
+  ]) {
+    const { root, file, was } = await setup({ body: `<p>${before}</p><p>${LONG}</p>`, faq: [] })
+    expect(await deps(root, { answers: { [before]: after } }).mend(page(), units), before).toBe(false)
+    expect(await readFile(file, 'utf8'), before).toBe(was)
+  }
+  // Every figure kept: code converts it.
+  const ok = await setup({ body: `<p>Bể 40 lít và bể 10 gallon bán ở Petco.</p><p>${LONG}</p>`, faq: [] })
+  expect(await deps(ok.root, { answers: { 'Bể 40 lít và bể 10 gallon bán ở Petco.': 'Bể 40 lít và bể 10 gallon bán ở tiệm cá cảnh.' } }).mend(page(), units)).toBe(true)
+})
+

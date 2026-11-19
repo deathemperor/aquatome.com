@@ -13,7 +13,7 @@ import { norm, render } from './reader'
 import { logReviews } from './review-log'
 import { roundConverted } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { plain, quoted, sentences, splice, type Piece } from './sentences'
+import { blockOf, plain, quoted, sentences, splice, type Piece } from './sentences'
 import { setHold } from './video-hold'
 import { reviewDraft, type WriteOpts, type YouTube } from './youtube'
 
@@ -21,41 +21,6 @@ import { reviewDraft, type WriteOpts, type YouTube } from './youtube'
 const MEND = readFileSync(new URL('./prompts/video-mend.md', import.meta.url), 'utf8')
 /** What the mender's editor is told to do, said to its reviewer: a foreign price turned into the comparison it makes is a fact kept (the Writing Lead's ruling, 2026-11-11). */
 const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', import.meta.url), 'utf8')
-
-/**
- * The sentence a quote sits in, within its paragraph (both as `norm` gives them); the quote alone when no paragraph has it
- * whole. A quote that ends its sentence ("…4 nắp.", as the reader stores one) ends there, not at the next sentence's stop
- * (Grok's read).
- *
- * `cased`, the same paragraphs with their capitals: then only a stop after a word of three letters or more (not "P.",
- * "vd.", "v.v.", "sp.", "spp.") that the next sentence starts after with a capital or a figure ends it, so a dose's
- * sentence reads on to a rate after an abbreviation (Grok's reads). A paragraph whose two forms don't line up is read
- * whole: unsure, more is read, and a dose waits.
- */
-function sentenceOf(paragraphs: string[], quote: string, cased?: string[]): string {
-  for (const [k, p] of paragraphs.entries()) {
-    const i = p.indexOf(quote)
-    if (i < 0) continue
-    const c = cased?.[k]
-    if (cased && c?.length !== p.length) return p
-    const ends = (m: RegExpMatchArray) => {
-      if (!c) return true
-      const word = /[\p{L}\d]+$/u.exec(c.slice(0, m.index))?.[0] ?? ''
-      if (/^\p{L}{1,2}$/u.test(word) || /^(?:spp|ssp|var|aff|etc|cf)$/iu.test(word)) return false
-      return /^\s*["'“‘«(]*(?:[\p{Lu}\d]|$)/u.test(c.slice(m.index! + m[0].length))
-    }
-    // The quote's own last mark, past a closing quote mark: a stop there ends the sentence; one inside the quote doesn't.
-    const last = i + Math.max(1, quote.replace(CLOSING, '').length) - 1
-    let start = 0, end = p.length
-    for (const m of p.matchAll(STOP)) {
-      if (!ends(m)) continue
-      if (m.index + m[0].length <= i) start = m.index + m[0].length
-      else if (m.index >= last) { end = m.index + m[0].length; break }
-    }
-    return p.slice(start, end).trim()
-  }
-  return quote
-}
 
 /**
  * A dose that is the video's own tank's, not advice ("bể này dùng khoảng 4 nắp", "ở bể 60 lít này là khoảng 3 ml"): the
@@ -134,9 +99,7 @@ const unit = (k: string) => k.split(' ').slice(1).find(p => DOSE_UNIT.test(p)) ?
  * no sentence rides along with a named one (Grok's reads).
  */
 const MARKS_AFTER = `"'”’»)“‘`
-const CLOSING = new RegExp(`[${MARKS_AFTER}]+$`, 'u')
 const STOP_MARK = `[.?!…⋯‥][${MARKS_AFTER}]*`
-const STOP = new RegExp(`${STOP_MARK}(?=\\s|$)`, 'gu')
 const split = (t: string) => t.split(new RegExp(`\\n|(?<=${STOP_MARK})\\s+`, 'u')).map(x => x.trim()).filter(Boolean)
 /** What `a` has more of than `b`. */
 const more = (a: Map<string, number>, b: Map<string, number>) => [...a].flatMap(([k, n]) => (n > (b.get(k) ?? 0) ? [k] : []))
@@ -176,7 +139,7 @@ type Part = { field: string; html: boolean; text: string; pieces: Piece[] }
  * in, a figure moved, a part it would empty, or a review under both. Nothing, with no editor called, so the gate doesn't
  * count it among a run's mends: not a Vietnamese video guide, a text a person fixed, a quote in no sentence of the
  * guide, nothing but units to mend, no transcript on this Mac. Nor is a mend tried when a product or a price is quoted in
- * a sentence that gives a dose: the editor turns a product into its kind, and "5 ml of that product for 200 litres" would
+ * a paragraph that gives a dose, at any place: the editor turns a product into its kind, and "5 ml of that product for 200 litres" would
  * become a dose for every product of the kind (the Writing Lead, 2026-11-11). That text goes back.
  */
 export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts }): Mend => async (p: Page, findings: FitFinding[]) => {
@@ -189,12 +152,6 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // A title a person picked (nameFixed) isn't the editor's to change, so a fault quoted in it can't be mended here.
   if (vi.nameFixed && findings.some(f => f.part === 'T')) return undefined
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
-  // A dose the editor may take is the source's own tank's; any other waits for a person, and so does the guide.
-  const doses = findings.filter(f => f.check === 'dose').map(f => sentenceOf(paragraphs, norm(f.quote)))
-  // The tank's own in its own sentence, and nothing of advice read on past an abbreviation ("loài P. aethiopicus, mỗi 10
-  // lít"): a "bể này" in the next sentence doesn't make a dose the tank's (Grok's read of "Châm 5 ml. Bể này ổn.").
-  const cased = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(x => x.normalize('NFC').replace(/\s+/g, ' ').trim())
-  if (!findings.filter(f => f.check === 'dose').every(f => ownTankDose(sentenceOf(paragraphs, norm(f.quote))) && ownTankDose(sentenceOf(paragraphs, norm(f.quote), cased)))) return undefined
 
   // The guide's parts, each cut into its sentences, and the ones each finding names: every sentence its quote is in, in
   // any part (a quote said again in the FAQ is named there too), each sent once with all its notes.
@@ -210,14 +167,22 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const at = (f: FitFinding) => parts.flatMap((x, k) => holds(x.pieces, f.quote).map(i => ({ k, i })))
   /** A sentence's words as the checks read them. */
   const txt = (k: number, h: string) => norm(parts[k]!.html ? plain(h) : asPlain(h))
-  // Every place a dose's quote is said is the tank's own, not its first only: each gets the note to drop the dose (Codex's
-  // second read of #1690).
-  if (findings.some(f => f.check === 'dose' && at(f).some(({ k, i }) => !ownTankDose(txt(k, said[k]![i]!))))) return undefined
-  // A product or a price in a dose, in figures or in words, at any place it's quoted (whole words: "ADA" isn't in
-  // "Canada"), waits, but for the video's own tank's dose, which the editor takes (Codex's reads of #1690).
-  const ownDoses = doses.map(s => s.replace(/^(?:## |- |\| )/, ''))
-  const dosed = (x: string) => givesDose(x) || WORD_DOSE(x)
-  if (findings.some(f => (f.check === 'product' || f.check === 'price') && at(f).some(({ k, i }) => dosed(ownDoses.reduce((t, s) => t.replace(s, ' '), txt(k, said[k]![i]!)))))) return undefined
+  // One reading of where a finding stands, for every check: each sentence `at` names (Codex's reads of #1690: a first-place
+  // reading missed a dose, a price and a product said again).
+  const doseAt = [...new Map(findings.filter(f => f.check === 'dose').flatMap(f => at(f)).map(w => [`${w.k}.${w.i}`, w])).values()]
+  const isDose = (k: number, i: number) => doseAt.some(w => w.k === k && w.i === i)
+  // A dose the editor may take is the source's own tank's, at every place its quote is said: each gets the note to drop
+  // it. Any other waits for a person, and so does the guide.
+  const doses = doseAt.map(({ k, i }) => txt(k, said[k]![i]!))
+  if (doses.some(s => !ownTankDose(s))) return undefined
+  // A dose however it's written: any figure in a dose's unit, in figures, in words or as a fraction ("½ nắp").
+  const dosed = (x: string) => givesDose(x) || [...figures(x).keys()].some(k => DOSE_UNIT.test(unit(k)))
+  // A product or a price in a paragraph that gives a dose, at any place it's quoted, waits, but for the video's own tank's
+  // dose, which the editor takes. A paragraph, not a sentence: the cutter cuts at a line break ("Châm 5 ml<br> Seachem
+  // Prime…"); a line (the title, a point, a question or an answer) is one.
+  const para = parts.map(x => (x.html ? blockOf(x.pieces, { lines: false }) : said[parts.indexOf(x)]!.map(() => 0)))
+  const around = (k: number, i: number) => said[k]!.flatMap((h, j) => (para[k]![j] === para[k]![i] && !isDose(k, j) ? [txt(k, h)] : [])).join(' ')
+  if (findings.some(f => (f.check === 'product' || f.check === 'price') && at(f).some(({ k, i }) => dosed(around(k, i))))) return undefined
   const named: { k: number; i: number; notes: string[] }[] = []
   const convert: { k: number; i: number }[] = []
   for (const f of findings) {
@@ -310,14 +275,18 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   // sentence a units finding names keeps its units quotes' figures, and its answer converts to every figure the sentence
   // did, so a figure said again in a product's name ("Aqueon 10 Gallon"), which code leaves, isn't the tank's kept (Codex's
   // reads of #1690).
+  // An answer to a dose's sentence keeps none of its doses, however written. And a sentence a units finding names keeps
+  // each figure code converts it to, as many times as the sentence converts to it: a figure it already had ("Bể 40 lít
+  // và bể 10 gallon", where 10 gallon is 40 lít) doesn't stand in for one dropped (Codex's third read).
   const units = new Set(convert.map(c => `${c.k}.${c.i}`))
   const unitFigures = figures(findings.filter(f => f.check === 'units').map(f => norm(f.quote)).join('\n'))
   if (named.some(n => {
     const s = said[n.k]![n.i]!, a = raw[n.k]!.get(n.i)!, was = figures(txt(n.k, s)), now = figures(txt(n.k, a))
     if (more(now, was).length) return true
+    if (isDose(n.k, n.i) && [...now.keys()].some(k => DOSE_UNIT.test(unit(k)))) return true
     if (!units.has(`${n.k}.${n.i}`)) return false
-    const made = less(figures(txt(n.k, metric(s))), was)
-    return more(new Map([...was].filter(([f]) => unitFigures.has(f))), now).length > 0 || more(made, figures(txt(n.k, metric(a)))).length > 0
+    const conv = figures(txt(n.k, metric(s))), got = figures(txt(n.k, metric(a)))
+    return more(new Map([...was].filter(([f]) => unitFigures.has(f))), now).length > 0 || [...less(conv, was).keys()].some(k => (less(conv, was).get(k) ?? 0) > 0 && (got.get(k) ?? 0) < conv.get(k)!)
   })) return false
 
   const review = await reviewDraft(d.llm, transcript, { viTitle: fixed.name, summary: fixed.summary, body: fixed.body, faq: fixed.faq }, { title: e.video.title, channel: e.video.channel, lang }, REVIEW_NOTE)

@@ -51,4 +51,8 @@ test('spliced, only the changed sentences differ; one left out takes its space, 
   expect(splice(sentences('<p>Cá khỏe.</p><p><br></p><p>Mua lọc ở Petco.</p>'), new Map([[1, '']]))).toBe('<p>Cá khỏe.</p><p><br></p>')
   expect(splice(sentences('<p>Cá khỏe.</p><p></p><ul></ul><p>Mua lọc.</p>'), new Map([[1, '']]))).toBe('<p>Cá khỏe.</p><p></p><ul></ul>')
   expect(splice(sentences('<ul><li>Mua lọc.</li></ul><p>Cá khỏe.</p>'), new Map([[0, '']]))).toBe('<p>Cá khỏe.</p>')
+  // Whatever the part holds, a sentence rewritten empties nothing (Codex's third read: a NUL already in a block).
+  const nul = '<p>Cá khỏe.</p><p>\u0000<br></p><p>Mua lọc ở Petco.</p>'
+  const at = sentences(nul).filter(p => p.sentence).findIndex(p => p.html.includes('Petco'))
+  expect(splice(sentences(nul), new Map([[at, 'Mua lọc trên mạng.']]))).toBe(nul.replace('Mua lọc ở Petco.', 'Mua lọc trên mạng.'))
 })
