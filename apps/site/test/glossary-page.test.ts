@@ -53,6 +53,16 @@ test('a term\'s other names never repeat its name, nor each other, with a tone m
   const gh = c.glossary.find(x => x.id === 'gh')!
   const p = glossaryParts('vi', c, term(gh, { name: 'Oxy hòa tan', altNames: ['Oxy hoà tan', 'thuỷ sinh', 'thủy sinh', 'Ôxy hòa tan'] }, 'Dissolved oxygen'))
   expect(p.otherNames).toEqual(['thuỷ sinh', 'Ôxy hòa tan'])
+  // The engine keeps a name's other placing as a link phrase (Codex, 19 Nov 2026): another term's page links it, it counts
+  // toward the term, and its own page doesn't link it to itself.
+  const variant = 'độ cứng tổng hoà tan'
+  const withVariant = { ...c, glossary: c.glossary.map(x => (x.id === 'gh' ? term(x, { linkNames: [variant] }) : x)) }
+  const ph = c.glossary.find(x => x.id === 'ph')!
+  expect(glossaryParts('vi', withVariant, term(ph, { definition: `pH khác với ${variant}.` })).definition).toContain('<a href="/vi/thuat-ngu/gh/" class="gl"')
+  expect(nameCount([variant])(`Đo ${variant} mỗi tuần.`)).toBe(1)
+  const self = glossaryParts('vi', withVariant, term(withVariant.glossary.find(x => x.id === 'gh')!, { definition: `GH là ${variant}.` }))
+  expect(self.definition).not.toContain('/vi/thuat-ngu/gh/')
+  expect(self.otherNames).not.toContain(variant)
 })
 
 test('a page\'s link to a term is found however it is written: either quote, a #part; never another address', () => {

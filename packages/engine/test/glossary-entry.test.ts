@@ -985,7 +985,7 @@ test('a name that is the term\'s own, or another term\'s, in the other tone plac
   const root = await site()
   await mkdir(join(root, 'content/glossary/hoa-chat'), { recursive: true })
   await writeFile(join(root, 'content/glossary/hoa-chat/entity.json'), JSON.stringify({ id: 'hoa-chat', en: 'Aquarium chemicals' }))
-  await writeFile(join(root, 'content/glossary/hoa-chat/vi.json'), JSON.stringify({ slug: 'hoa-chat', name: 'Hóa chất', altNames: ['Hoá chất', 'Hóa chất bể cá'], sections: {}, definition: 'Chất pha vào nước bể.', quality: { score: 0.9, indexable: true } }))
+  await writeFile(join(root, 'content/glossary/hoa-chat/vi.json'), JSON.stringify({ slug: 'hoa-chat', name: 'Hóa chất', altNames: ['Hoá chất', 'Hóa chất bể cá', 'thuốc thủy sinh', 'thuốc thuỷ sinh'], sections: {}, definition: 'Chất pha vào nước bể.', quality: { score: 0.9, indexable: true } }))
   await mkdir(join(root, 'content/glossary/thuy-sinh'), { recursive: true })
   await writeFile(join(root, 'content/glossary/thuy-sinh/entity.json'), JSON.stringify({ id: 'thuy-sinh', en: 'Planted tank' }))
   await writeFile(join(root, 'content/glossary/thuy-sinh/vi.json'), JSON.stringify({ slug: 'thuy-sinh', name: 'Bể thủy sinh', altNames: [], sections: {}, definition: 'Bể trồng cây.', quality: { score: 0.9, indexable: true } }))
@@ -1001,10 +1001,19 @@ test('a name that is the term\'s own, or another term\'s, in the other tone plac
   const r = await makeGlossaryEntry(root, { research: async () => named as never, llm }, 'hoa-chat', { kind: 'care' })
   expect(r).toMatchObject({ id: 'hoa-chat', score: 1 })
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/hoa-chat/vi.json'), 'utf8'))
-  // Its own name in the old placing goes from its other names, saved or newly written, and stays once as a link phrase;
-  // "bể thuỷ sinh" is another term's name, "Bể thủy sinh".
-  expect(vi.altNames).toEqual(['Hóa chất bể cá', 'thuốc xử lý nước'])
-  expect(vi.linkNames).toEqual(['Hoá chất'])
+  // Its own name in the old placing goes from its other names, saved or newly written, and stays once as a link phrase, as
+  // does an other name in both placings; "bể thuỷ sinh" is another term's name, "Bể thủy sinh".
+  expect(vi.altNames).toEqual(['Hóa chất bể cá', 'thuốc thủy sinh', 'thuốc xử lý nước'])
+  expect(vi.linkNames).toEqual(['Hoá chất', 'thuốc thuỷ sinh'])
+  // A name the term's notes take off stays off in either placing, never a link phrase (Oxy hòa tan's notes: "Oxy hoà tan").
+  await mkdir(join(root, 'content/glossary/oxy-hoa-tan'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/oxy-hoa-tan/entity.json'), JSON.stringify({ id: 'oxy-hoa-tan', en: 'Dissolved oxygen' }))
+  await writeFile(join(root, 'content/glossary/oxy-hoa-tan/vi.json'), JSON.stringify({ slug: 'oxy-hoa-tan', name: 'Oxy hòa tan', altNames: ['Oxy hoà tan', 'OXY HÒA TAN'], sections: {}, definition: 'Khí oxy hòa trong nước.', quality: { score: 0.9, indexable: true } }))
+  await makeGlossaryEntry(root, { research: async () => named as never, llm }, 'oxy-hoa-tan', { kind: 'care' })
+  const oxy = JSON.parse(await readFile(join(root, 'content/glossary/oxy-hoa-tan/vi.json'), 'utf8'))
+  // Hóa chất, just written, already has the writer's "thuốc xử lý nước", so nothing is left.
+  expect(oxy.altNames).toEqual([])
+  expect(oxy.linkNames).toBeUndefined()
 })
 
 // The chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing. A link phrase stays one, kept on
