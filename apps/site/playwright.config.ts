@@ -14,8 +14,8 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  // Four browsers at a time everywhere. GitHub's runners have 4 cores (Playwright's CI default is 1). On this Mac its
-  // local default is half the cores, 8 browsers, and on 18 Nov from 16:56 to 17:58 a lead's runs at 8, beside the engine,
+  // Four browsers at a time everywhere. GitHub's runners have 4 cores. On this Mac Playwright's own default is half the
+  // cores, 8 browsers, and on 18 Nov from 16:56 to 17:58 a lead's runs at 8, beside the engine,
   // took the Mac's small job from under 2 s to 7-26 s (the chief of staff: 4 for every lead's run). --workers still wins.
   workers: 4,
   // E2E_JSON: results as JSON too, for scripts/site-watch.mjs (production checks).
