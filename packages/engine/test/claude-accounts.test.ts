@@ -106,6 +106,21 @@ test("the reset is a UTC time the code reads, or nothing: none of the CLI's word
   expect(outOf(`claude failed (1): usage limit reached · resets ${words}`)).toMatchObject({ why: 'usage', reset: undefined })
 })
 
+test("on GitHub a call failing for its own reason says its kind in our words, and a limit still sets its account aside with when it lifts (the chief of staff, 19 Nov)", async () => {
+  process.env.GITHUB_ACTIONS = 'true'
+  setTokens('tok-broken')
+  await expect(call()).rejects.toThrow(/^claude failed \(1\): prompt too long$/)
+  resetAccounts()
+  setTokens('tok-weekly\ntok-ok')
+  expect(await call()).toEqual({ ok: true })
+  expect(accountReport()).toEqual([`token 1: 0 answered; set aside: usage limit until ${UNTIL}`, 'token 2: 1 answered'])
+  // On the Mac, the CLI's own text, as before.
+  delete process.env.GITHUB_ACTIONS
+  resetAccounts()
+  setTokens('tok-broken')
+  await expect(call()).rejects.toThrow('claude failed (1): API Error: 400 prompt is too long')
+})
+
 test('on GitHub, where the log and the run summary are public, an account is named by its number alone; elsewhere with its hash too', async () => {
   setTokens('tok-weekly\ntok-bad\ntok-ok')
   process.env.GITHUB_ACTIONS = 'true'

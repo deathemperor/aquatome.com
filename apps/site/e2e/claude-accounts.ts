@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { appendFileSync, readFileSync } from 'node:fs'
-import { usageLimit } from './claude-limit'
+import { AUTH, failureMessage, usageLimit } from './claude-limit'
 
 /**
  * Headless Claude Code on the owner's Claude subscription accounts, as the engine uses them
@@ -33,7 +33,6 @@ export function startAt<T>(all: T[], first?: string): T[] {
   return [...all.slice(i), ...all.slice(0, i)]
 }
 
-const AUTH = /Failed to authenticate|Invalid bearer token/i
 type Account = { n: number; token: string; hash: string; out?: { why: 'usage' | 'auth' } }
 let accounts: Account[] | undefined
 const list = (): Account[] => (accounts ??= startAt(parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN)
@@ -137,12 +136,13 @@ function once<T>(args: string[], cwd: string, input: string, token?: string): Pr
     child.on('error', reject)
     child.on('close', code => {
       try {
-        const r = JSON.parse(out) as { is_error?: boolean; result?: string; structured_output?: T; total_cost_usd?: number; usage?: Record<string, number | undefined> }
+        const r = JSON.parse(out) as { is_error?: boolean; subtype?: string; result?: string; structured_output?: T; total_cost_usd?: number; usage?: Record<string, number | undefined> }
         // Before anything is made of the answer: a call that failed part way was paid for too.
         logCost(r, args, started, token)
-        if (r.is_error || code !== 0 || !r.structured_output) return reject(new Error(`claude failed (${code}): ${(r.result ?? err).slice(0, 300)}`))
+        // On GitHub, whose logs and pull request comments are public, what failed is said in our words (claude-limit.ts).
+        if (r.is_error || code !== 0 || !r.structured_output) return reject(new Error(failureMessage(`claude failed (${code})`, (r.result ?? err).slice(0, 300), r)))
         resolve(r.structured_output)
-      } catch { reject(new Error(`claude returned non-JSON (${code}): ${(out || err).slice(0, 300)}`)) }
+      } catch { reject(new Error(failureMessage(`claude returned non-JSON (${code})`, (out || err).slice(0, 300)))) }
     })
     child.stdin.end(input)
   })

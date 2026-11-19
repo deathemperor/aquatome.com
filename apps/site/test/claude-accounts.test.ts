@@ -92,6 +92,18 @@ test('on GitHub, where the log is public, an account set aside is named by its n
   expect(logs).toEqual(['claude: token 1 set aside: usage limit', 'claude: token 2 set aside: credential rejected'])
 })
 
+test("on GitHub a review's failed call says its kind in our words, none of the CLI's, and a limit is still a skip (the chief of staff, 19 Nov)", async () => {
+  process.env.GITHUB_ACTIONS = 'true'
+  tokens('tok-broke')
+  const e: Error = await ask().catch(e => e)
+  expect(e.message).toBe('claude failed (1): other')
+  tokens('tok-weekly')
+  resetAccounts()
+  const limit: Error = await ask().catch(e => e)
+  expect(usageLimit(limit.message)).toBe('Claude usage limit')
+  expect(logs).toEqual(['claude: token 1 set aside: usage limit'])
+})
+
 // The cloud's list begins with the Mac's two sign-ins; the chief of staff (2026-11-12): the cloud starts on its third.
 test('CLAUDE_FIRST_ACCOUNT: a review starts at that position and goes round to the start when it is out; no position, the first', async () => {
   const saved = process.env.CLAUDE_FIRST_ACCOUNT

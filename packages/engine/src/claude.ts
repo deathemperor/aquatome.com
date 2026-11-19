@@ -3,6 +3,7 @@ import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { failureMessage } from './call-failure'
 import { ceilingMessage, costLog, inPiece, stepName } from './ceiling'
 import { envFor, NotTheAccount, onAccounts, tokenHash } from './claude-accounts'
 import { cycleOnlyHosts } from './cycle-only'
@@ -113,10 +114,11 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }
         }
-        if (r.is_error || code !== 0) return reject(new LlmError(`claude failed (${code}): ${r.result ?? err}`.slice(0, 500)))
+        // On GitHub, whose logs are public, what failed is said in our words and none of the CLI's (call-failure.ts).
+        if (r.is_error || code !== 0) return reject(new LlmError(failureMessage(`claude failed (${code})`, String(r.result ?? err), r.subtype).slice(0, 500)))
         resolve(r.structured_output as T)
       } catch {
-        reject(new LlmError(`claude returned non-JSON (${code}): ${(out || err).slice(0, 300)}`))
+        reject(new LlmError(failureMessage(`claude returned non-JSON (${code})`, (out || err).slice(0, 300))))
       }
     })
     child.stdin.end(prompt)
