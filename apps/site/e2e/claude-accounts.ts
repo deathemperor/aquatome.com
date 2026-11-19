@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { appendFileSync, readFileSync } from 'node:fs'
-import { usageLimit } from './claude-limit'
+import { AUTH, failureDetail, failureMessage, usageLimit } from './claude-limit'
 
 /**
  * Headless Claude Code on the owner's Claude subscription accounts, as the engine uses them
@@ -33,7 +33,6 @@ export function startAt<T>(all: T[], first?: string): T[] {
   return [...all.slice(i), ...all.slice(0, i)]
 }
 
-const AUTH = /Failed to authenticate|Invalid bearer token/i
 type Account = { n: number; token: string; hash: string; out?: { why: 'usage' | 'auth' } }
 let accounts: Account[] | undefined
 const list = (): Account[] => (accounts ??= startAt(parseTokens(process.env.CLAUDE_CODE_OAUTH_TOKENS, process.env.CLAUDE_CODE_OAUTH_TOKEN)
@@ -101,13 +100,14 @@ export async function claude<T>(args: string[], cwd: string, input: string): Pro
   const capped = () => { const stop = ceilingStop(); if (stop) throw new Error(stop) }
   const all = list()
   if (!all.length) { capped(); return once<T>(args, cwd, input) }
+  let attempt = 0 // each account tried is one
   for (;;) {
     capped()
     const a = all.find(x => !x.out)
     // In our own words, none of the CLI's: the reason can reach the pull request's comment, which is public.
     if (!a) throw new Error(`claude failed (accounts): every account ${all.some(x => x.out?.why === 'usage') ? 'out of its usage limit' : 'with its credential rejected'}`)
     try {
-      return await once<T>(args, cwd, input, a.token)
+      return await once<T>(args, cwd, input, a.token, ++attempt)
     } catch (e) {
       const message = (e as Error).message
       const why = usageLimit(message) ? 'usage' : AUTH.test(message) ? 'auth' : undefined
@@ -120,7 +120,7 @@ export async function claude<T>(args: string[], cwd: string, input: string): Pro
   }
 }
 
-function once<T>(args: string[], cwd: string, input: string, token?: string): Promise<T> {
+function once<T>(args: string[], cwd: string, input: string, token?: string, attempt = 1): Promise<T> {
   return new Promise((resolve, reject) => {
     // This account's token, and not the list: the call needs only its own.
     const { CLAUDE_CODE_OAUTH_TOKENS: _, ...env } = process.env
@@ -135,14 +135,26 @@ function once<T>(args: string[], cwd: string, input: string, token?: string): Pr
     child.stdout.on('data', d => (out += d))
     child.stderr.on('data', d => (err += d))
     child.on('error', reject)
-    child.on('close', code => {
+    child.on('close', (code, signal) => {
+      // On GitHub, a line of ours beside the failure for whoever debugs a cloud run (claude-limit.ts failureDetail).
+      const failed = (message: string, text: string) => {
+        if (process.env.GITHUB_ACTIONS) console.log(failureDetail({ message, text, model: args.includes('--model') ? args[args.indexOf('--model') + 1] : undefined, step: process.env.CLAUDE_COST_STEP, attempt, code, signal }))
+        return new Error(message)
+      }
       try {
-        const r = JSON.parse(out) as { is_error?: boolean; result?: string; structured_output?: T; total_cost_usd?: number; usage?: Record<string, number | undefined> }
+        const r = JSON.parse(out) as { is_error?: boolean; subtype?: string; stop_reason?: string; result?: string; structured_output?: T; total_cost_usd?: number; usage?: Record<string, number | undefined> }
         // Before anything is made of the answer: a call that failed part way was paid for too.
         logCost(r, args, started, token)
-        if (r.is_error || code !== 0 || !r.structured_output) return reject(new Error(`claude failed (${code}): ${(r.result ?? err).slice(0, 300)}`))
+        // On GitHub, whose logs and pull request comments are public, what failed is said in our words (claude-limit.ts).
+        if (r.is_error || code !== 0 || !r.structured_output) {
+          const text = (r.result ?? err).slice(0, 300)
+          return reject(failed(failureMessage(`claude failed (${code})`, text, r), text))
+        }
         resolve(r.structured_output)
-      } catch { reject(new Error(`claude returned non-JSON (${code}): ${(out || err).slice(0, 300)}`)) }
+      } catch {
+        const text = (out || err).slice(0, 300)
+        reject(failed(failureMessage(`claude returned non-JSON (${code})`, text), text))
+      }
     })
     child.stdin.end(input)
   })

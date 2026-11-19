@@ -106,12 +106,32 @@ test("the reset is a UTC time the code reads, or nothing: none of the CLI's word
   expect(outOf(`claude failed (1): usage limit reached · resets ${words}`)).toMatchObject({ why: 'usage', reset: undefined })
 })
 
+test("on GitHub a call failing for its own reason says its kind in our words, and a limit still sets its account aside with when it lifts (the chief of staff, 19 Nov)", async () => {
+  process.env.GITHUB_ACTIONS = 'true'
+  setTokens('tok-broken')
+  await expect(call()).rejects.toThrow(/^claude failed \(1\): prompt too long$/)
+  resetAccounts()
+  setTokens('tok-weekly\ntok-ok')
+  expect(await call()).toEqual({ ok: true })
+  expect(accountReport()).toEqual([`token 1: 0 answered; set aside: usage limit until ${UNTIL}`, 'token 2: 1 answered'])
+  // On the Mac, the CLI's own text, as before.
+  delete process.env.GITHUB_ACTIONS
+  resetAccounts()
+  setTokens('tok-broken')
+  await expect(call()).rejects.toThrow('claude failed (1): API Error: 400 prompt is too long')
+})
+
 test('on GitHub, where the log and the run summary are public, an account is named by its number alone; elsewhere with its hash too', async () => {
   setTokens('tok-weekly\ntok-bad\ntok-ok')
   process.env.GITHUB_ACTIONS = 'true'
   await call()
   expect(accountReport()).toEqual([`token 1: 0 answered; set aside: usage limit until ${UNTIL}`, 'token 2: 0 answered; set aside: credential rejected', 'token 3: 1 answered'])
-  expect(logs).toEqual([`claude: token 1 set aside: usage limit until ${UNTIL}`, 'claude: token 2 set aside: credential rejected'])
+  expect(logs.filter(l => l.startsWith('claude: token'))).toEqual([`claude: token 1 set aside: usage limit until ${UNTIL}`, 'claude: token 2 set aside: credential rejected'])
+  // Beside each failed try, a line of ours: the kind, the model, the step, the try and the exit code (call-failure.ts).
+  expect(logs.filter(l => l.startsWith('claude: a call failed'))).toEqual([
+    expect.stringMatching(new RegExp(`^claude: a call failed: usage limit until ${UNTIL!.replace(/\./g, '\\.')}; model \\S+; step \\S+; try 1; exit 1$`)),
+    expect.stringMatching(/^claude: a call failed: credential refused; model \S+; step \S+; try 2; exit 1$/),
+  ])
   expect(rejectedTokens()).toBe('token 2 in CLAUDE_CODE_OAUTH_TOKENS')
   delete process.env.GITHUB_ACTIONS
   expect(accountReport()[2]).toBe(`token 3 (${h('tok-ok')}): 1 answered`)
