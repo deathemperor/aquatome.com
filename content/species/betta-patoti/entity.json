@@ -60,30 +60,30 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 21,
           "max": 27
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
-          "min": 5,
+          "min": 4,
           "max": 7
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 4,
           "max": 7
@@ -92,19 +92,15 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 9
-      },
-      {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "bwaquatics",
+        "value": 10.7
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 5
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -131,7 +127,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
-      "html": "<ul><li>From the Betta unimaculata complex.</li><li>IUCN Red List: Endangered (a very high risk of extinction in the wild).</li><li>Wild caught, from Tanah Grogot.</li><li>Maximum size: 3.5 inches (about 9 cm).</li><li>Breeding: mouthbrooder.</li></ul>"
+      "html": "<p>From the Betta unimaculata complex. IUCN Red List: Endangered (very high risk of extinction in the wild). Origin: wild caught (Tanah Grogot, East Kalimantan).</p><p>Betta patoti, sometimes called the tiger betta, is a large mouthbrooder known for the dark vertical bars on the lower body. Colour varies by locality, and this Tanah Grogot form has a more reddish body than the normal type.</p>"
     },
     {
       "key": "quickFacts",
@@ -146,16 +142,34 @@
       "html": "<p>Type locality is the Mangar River some 25 km from the seaport of Balikpapan City, East Kalimantan (Kalimantan Timur) province, Indonesian Borneo but the species apparently ranges into Kutai Kartanegara Regency to the north. Colour pattern differs depending on collection locality, with populations around Balikpapan exhibiting blackish body bars and those from further north appearing more reddish. One form, said to be collected near Samarinda, has a greenish iridescence to the body.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
+      "html": "<p>Betta patoti was described in 1922 from the Mangar River near Balikpapan, East Kalimantan, Borneo.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-patoti",
       "html": "<p>Type locality is the Mangar River some 25 km from the seaport of Balikpapan City, East Kalimantan (Kalimantan Timur) province, Indonesian Borneo but the species apparently ranges into Kutai Kartanegara Regency to the north. Colour pattern differs depending on collection locality, with populations around Balikpapan exhibiting blackish body bars and those from further north appearing more reddish. One form, said to be collected near Samarinda, has a greenish iridescence to the body.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
+      "html": "<p>Forest streams in southern East Kalimantan, from the Balikpapan area north into Kutai Kartanegara.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-patoti",
       "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent, about 72 litres, is sufficient for a pair.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
+      "html": "<p>Recommended 1 pair per 40 litres, or 80 litres for breeding. Give a pair plenty of caves and cover to break line of sight.</p>"
     },
     {
       "key": "maintenance",
@@ -167,7 +181,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
-      "html": "<ul><li>TDS: ~60–100</li><li>pH: 5.0–7.0</li><li>Temperature: 72–82°F (22–28°C); they prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviour.</li></ul>"
+      "html": "<ul><li>TDS: 60 to 100</li><li>pH: 4.0 to 7.0</li><li>Temperature: 22 to 28°C (they prefer cooler water, but warmer water brings out colour and breeding behaviour)</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -179,7 +193,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
-      "html": "<p>Carnivorous. Fed on live, frozen and dried foods: blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -191,7 +205,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
-      "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. They should be kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
+      "html": "<p>Aggressive. Best kept in a species-only tank, since they will eat any fish that fits in their mouth.</p>"
     },
     {
       "key": "behaviour",
@@ -203,7 +217,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
-      "html": "<p>Females have less iridescence. Fully grown adult males have longer ventral fins.</p>"
+      "html": "<p>Fully grown males have longer pelvic fins. Females have less iridescence.</p>"
     },
     {
       "key": "dimorphism",
@@ -215,7 +229,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
-      "html": "<p>Mouthbrooder.</p>"
+      "html": "<p>Paternal mouthbrooder. The female collects the eggs during spawning and passes them to the male, who holds them in his mouth for about 2 to 3 weeks. Keep the tank quiet and leave a holding male alone, since a disturbed male may swallow or spit out the brood. He releases fully formed fry that can eat baby brine shrimp right away.</p>"
     },
     {
       "key": "reproduction",
@@ -227,7 +241,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-patoti-tanah-grogot-red-wild-type-bettas",
-      "html": "<p>They have a brown base body with blue iridescence on the opercular cheeks, body and tail; females have less iridescence. Both males and females can occasionally show tiger-like stripes on the sides of the body. Fully grown adult males have longer ventral fins. This specific type has a more reddish body than the normal type.</p>"
+      "html": "<p>Physical characteristics: long and slender body with a large, blunt head. Lance-shaped caudal fin, with no bars on the dorsal, anal or caudal fins. Blue iridescent scales on the cheeks and gill plates, with scattered iridescent scales on the body. Reddish-brown body with blue iridescence on the cheeks, body and fins, and 10 to 14 dark vertical bars on the lower body that show more at some times than others. Maximum size: about 10.7 cm.</p><p>Health: fish in this complex are reported to be very prone to ich and velvet during the first few weeks after import, so watch new arrivals closely.</p>"
     },
     {
       "key": "notes",
@@ -298,7 +312,32 @@
       "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "8wlIFP-XhVE",
+      "title": "Moving betta patoti",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xxIfbgVvYxQ",
+      "title": "Betta Patoti Mating",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hYDNiur0gBY",
+      "title": "Rare Wild Betta Patoti Care Guide - Everything You Need To Know",
+      "durationSec": 630,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "OrO-8x6d2mU",
+      "title": "Betta Patoti Spawning",
+      "durationSec": 19,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -328,5 +367,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

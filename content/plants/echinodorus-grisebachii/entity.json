@@ -1,13 +1,16 @@
 {
   "id": "echinodorus-grisebachii",
   "scientificName": "Echinodorus grisebachii",
+  "synonyms": [
+    "Echinodorus amazonicus",
+    "Echinodorus parviflorus"
+  ],
   "difficulty": 1,
-  "light": "low",
-  "co2": "none",
+  "light": "medium",
+  "co2": "optional",
   "growth": "medium",
   "placement": [
-    "background",
-    "midground"
+    "background"
   ],
   "sections": [
     {
@@ -17,19 +20,83 @@
       "html": "<ul><li>Type: Rosulate</li><li>Origin: South America</li><li>Height: 20 - 30+ cm</li><li>Light demand: Low</li><li>CO2: Low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<table><tr><th>Common name</th><td>Amazon Sword Plant</td></tr><tr><th>Scientific name</th><td>Echinodorus (genus)</td></tr><tr><th>Difficulty</th><td>Easy</td></tr><tr><th>Lighting</th><td>Medium</td></tr><tr><th>Optimal pH</th><td>6.0 – 8.0</td></tr><tr><th>Optimal GH</th><td>2 – 12</td></tr><tr><th>Optimal temperature</th><td>22 – 27 °C</td></tr><tr><th>Substrate</th><td>Needed</td></tr><tr><th>Growth rate</th><td>Moderate</td></tr><tr><th>Placement in tank</th><td>Background</td></tr><tr><th>Height</th><td>Up to 30 – 50 cm</td></tr><tr><th>Fertilizers</th><td>Not needed to low</td></tr><tr><th>CO2</th><td>Not needed to low</td></tr><tr><th>Propagation</th><td>Through adventitious plantlets or splitting at the crown</td></tr></table><p>Amazon Sword Plant (Echinodorus genus) is a versatile and hardy plant used in decorating the background of planted tanks. It is very popular among hobbyists because of its long lifespan, hardiness, and ability to withstand a wide range of water temperature conditions/parameters. It is suitable even for beginner aquarists, requires minimal care and can survive in all kinds of tanks (low-tech to high-tech).</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Amazon Sword Plant is a popular aquarium plant and widely available in aquarium stores. Larger specimens cost more.</p><p>When buying this plant, look for ones with long, healthy green leaves, free from holes, cuts, or brown/yellow spots. Plants with a healthy-looking robust stem and root structure are a huge plus for their survival.</p><p>Do not panic if the plant drops all of its leaves after being put in the tank. It needs time to acclimate. Sometimes it can take a few weeks before the plant is ready to grow new ones. However, if you see that the crown becomes mushy, it is often already too late.</p><p>Quarantine the plant before putting it into your aquarium. The plant can carry parasites, pests such as snails, or even predators (dragonfly and damselfly nymphs, etc.). It could also have been treated with chemicals (pesticides) to remove parasites, snails, etc. However, these chemicals are extremely poisonous to fish, shrimp, and other invertebrates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Amazon Sword Plant is native to the Amazon River Basin in South America. It can also be found in Central and South American countries (Colombia, Brazil, Bolivia, Nicaragua) and in the Caribbean (Cuba).</p><p>The whole Echinodorus genus can be regarded as Amazon Sword Plant, although many aquarists refer to Echinodorus bleheri and Echinodorus grisebachii (or Echinodorus amazonicus) as the true Amazon Sword Plants. The main difference is that the leaves of Echinodorus bleheri are a little wider than those of Echinodorus grisebachii.</p><p>The plant got its scientific name Echinodorus grisebachii from the Greek words “echius” (rough husk) and “doros” (leathern bottle), and from the names of two German plant biologists, August Heinrich Grisebach and Heiko Bleher.</p><p>Classification: Kingdom Plantae; Clade Tracheophytes; Clade Angiosperms; Order Alismatales; Family Alismataceae; Genus Echinodorus; Species Echinodorus grisebachii, Echinodorus bleheri. At the moment there are almost 30 species of genus Echinodorus.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<p>This plant is dominant in the Amazon River Basin. It can also be found in freshwater rivers, lakes, and ponds in tropical regions of Central and South America.</p><p>Amazon Sword Plant has a short stem with visibly long and broad green leaves. These leaves extend from the roots on shrill scapes and can reach about 30 – 60 cm in size; the leaf blades are lanceolate or narrowly oval.</p><p>Echinodorus grisebachii develops a large, conspicuous rosette with many leaves; a single plant can consist of 1 – 20 leaf whorls. The plant is called ‘Amazon Sword Plant’ because it is native to the Amazon River and the leaves strongly resemble pointed sword blades.</p><p>In good water conditions, expect the plant to have a slightly dark green color. Well-growing submersed plants sprout 1 to 2 new leaves per week and often develop long flower stalks with adventitious plantlets.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The required tank size for this durable species is a minimum of 40 litres, which makes it hard to use in nano tanks.</p><p>A tank of 80 litres or more is better because of the large size and mass of this plant. It grows fast and takes up a large amount of surface area in the tank after a while.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Echinodorusgrisebachii'Bleherae'(071BDT)/4513",
       "html": "<p>A nutritious bottom promotes growth, but the plant needs pruning to prevent it depriving plants underneath of light. Echinodorus bleheri does well even in poorly illuminated aquariums, as it grows towards the light.</p><p>A bundle of stems or young plants gathered in an anchor. Remove the anchor and split into separate plants. Regarding stem plants, remove the leaves from the lowest 5 cm. Remove any damaged leaves. Plant the individual plants with some distance into the bottom substrate. Roots will develop soon and the plant starts growing.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<h3>Planting</h3><p>Amazon Sword Plant is suitable for planting in the background of the tank, as its thick foliage gives the tank an all-round great look. Plant it by rooting it in the substrate: scoop out a small hole wide enough to cover the root of the plant and place the plant in it.</p><p>The hole should be deep enough that the crown of the plant is visible at the soil line. Make sure you have not buried the crown too deeply in the substrate. It has to be above the substrate or it can rot.</p><p>After setting the plant in the hole, fill the planted area back with substrate to hold it in place and prevent it from floating up to the surface.</p><p>Since Amazon Sword Plant requires a great deal of nutrients, extra nutrients in the form of root tabs will be well appreciated.</p><p>If you are planting a newly bought Amazon Sword Plant, you might want to remove some of the leaves. Most plants are grown emersed at the nursery, so those leaves will die off anyway. By cutting them down, the plant saves energy to acclimate and puts it into new growth.</p><h3>Propagation</h3><p>Propagation of this species is easy. Amazon Sword Plant propagates through adventitious plantlets. The main plant will shoot out a really long stem on which plantlets start to appear.</p><p>After a while, the plantlets develop their own roots and a couple of leaves. Once you notice no more growth, cut off the plantlets and plant them in the tank so growth continues.</p><p>Chop off the stem as close to the bottom of the plant as possible. Next, clip off the plantlets and replant them. Many people let the newly separated plant float in the tank for a day or two before planting, which gives the new plant time to save some energy.</p><p>Sometimes Amazon Sword plants can split at the crown into two plants. If there are fully developed distinct rosettes of leaves, it is a sign that the plant is ready to be split. However, it takes a lot of time for the plant to propagate this way and it is pretty rare.</p><h3>Trimming</h3><p>Systematically remove leaves that are too big, damaged, transparent (pale), yellowing, or brown. Find where the leaf goes all the way down to the base and trim it as close to the root as possible.</p><p>Do not trim all leaves even if you think there is some kind of problem with them, as it can shock and kill the plant. Only trim when there are new leaves coming up.</p><h3>Care</h3><ul><li>Trim the plants from time to time to prevent them from covering the whole tank and depriving some inhabitants of enough light and nutrients. The plant is tall and can grow all the way up and out of the tank if adequate care is not taken.</li><li>Remove dead or dying (thin) leaves, which is essential for good hygiene in the tank.</li><li>Check the tank water regularly; a drastic change in water chemistry or quality can kill off aquatic species in the tank.</li><li>The recommended lighting is medium, for 10 – 12 hours per day for optimal growth and good health of the plant.</li><li>Regular dosing of plant fertilizer and iron-rich fertilizer should be encouraged; Amazon Sword Plant also benefits from pressurized CO2 and root tabs.</li><li>Check for algae growth on the plants; you can wipe it off the leaves with a clean cloth during water changes. You can also introduce algae-eating aquatic species to devour the algae filaments.</li></ul><h3>Problems</h3><p><strong>Leaves turning yellow:</strong> most often a symptom of iron deficiency. Look for plant fertilizers containing soluble iron and dose adequately. The plant also appreciates root tabs and additional CO2. Providing potassium will help reduce the formation of holes in the leaves.</p><p><strong>Melting:</strong> it is often considered normal for the leaves to die off (shed) after the plant is added to the tank. Trim off the dead or dying leaves from the base of the plant. When the plant has fully adjusted to its new home, it will sprout new leaves.</p><p><strong>Outgrowth:</strong> it can take months or even years, but Amazon Sword Plant will outgrow almost everything in the tank and can have a negative effect on other plants, so you need to control its growth.</p><p><strong>Relocation:</strong> relocating an old Amazon Sword Plant can turn into a nightmare. Once settled in, the plants form huge roots that can uproot half of your tank. Therefore, some aquarists do not plant them but keep them in separate pots.</p><p><strong>Leaves turning brown:</strong> the plant can turn brown when some parts of it rise above the water. It requires high humidity, so cover the tank to prevent dryness in plants growing above the water.</p><p><strong>Leaf burn:</strong> it can happen if you use high light in a shallow tank. Amazon Sword plants prefer tall tanks, with some separation between the light and the plant itself.</p><p><strong>Algae growth on leaves:</strong> the leaves are highly susceptible to algae, especially with excessive lighting and adverse water conditions. This is why regular water changes are advised, and you should always remove organic matter and waste from the tank to prevent it from building up, because it promotes the growth of algae filaments on the leaves. You can also wipe algae off the leaves, gently, to avoid damaging them.</p><p>If your tank setup allows, you can introduce algae-eating species such as Amano shrimp, Nerite snail, and Otocinclus catfish. They are great algae eaters and together will do a phenomenal job.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Water temperature: the optimal range is 22 – 27 °C.</p><p>pH: the optimal pH is 6.0 – 8.0, which is best for the plant. Nonetheless, the plant can easily adapt to almost any pH as long as extremes are avoided.</p><p>Hardness: the plant tolerates hard and soft water equally. However, a hardness of 2 – 12 dGH is recommended.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<h3>Lighting</h3><p>Amazon Sword Plant should be provided with medium lighting, at least 20 – 30 PAR with full-spectrum lighting (5000 and 7000 K). Lighting duration per day should be 8 – 10 hours if you do not use CO2.</p><p>The plant can survive even in a low-light environment. However, the growth rate will be slow and the leaves will become darker in color.</p><h3>Filter</h3><p>Plants are natural filters; however, a mechanical filter will help reduce the filtration load on the plants. Keep a normal filtration system in the tank to help wash pollutants out of the water.</p><h3>Substrate</h3><p>This plant grows best in a loosely packed substrate or a good alternative such as aquarium gravel. The substrate should be 6 – 8 cm deep at the base of the tank.</p><p>The roots of Amazon Sword Plant grow quite large and extensive, deep and wide in the tank, so enough substrate depth helps to accommodate the plant and keeps it rooted properly.</p><p>ADA Amazonia soil, Caribsea Eco-Complete Aquasoil, Seachem Flourite Black Sand, etc. are excellent choices and are rich in essential nutrients.</p><p>If you have sand or gravel, it is still possible to keep Amazon Sword Plant. However, you will have to use root tabs to provide the necessary nutrients to the plant.</p><p>Amazon Sword Plants are heavy root-feeders. They can out-compete plants around them and eventually choke them out. Sometimes people just leave them in ornament pots to prevent this.</p><h3>Supplements</h3><p>Amazon Sword Plant does not require CO2 for healthy growth. However, adding it will significantly increase the growth rate. Fertilizer application also depends on the tank setup. For example, if your substrate is rich in minerals, it can be enough.</p><p>In other cases, the plant will not perform well in tanks without fertilizer, so you will have to add some from time to time to maintain a normal growth rate and good overall health.</p><p>Iron and potassium supplements will help it maintain its appealing green coloration and healthy leaf structure, while additional pressurized CO2 will ensure it grows faster and wider.</p><p>Important: if you keep shrimp in the tank with Amazon Sword Plant, note that a high level of CO2 and copper (most fertilizers contain copper) is extremely dangerous to shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Echinodorusgrisebachii'Bleherae'(071BDT)/4513",
       "html": "<p>Echinodorus bleheri from South America is undemanding and beautiful, and becomes 20-50 cm tall. It is a hardy and easy solitary plant for both beginners and the more experienced with quite large aquariums. It has been sold under the name \"Paniculatus\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "html": "<h3>Benefits</h3><ul><li>Aquascape: these beautiful plants make amazing focal points in the tank for a jungle aquascape. In some aquariums, Amazon swords are used as a centerpiece, because they tend to spread horizontally as well as vertically.</li><li>Foraging place: acts as a buffet of biofilm, an ideal first food for newly hatched fry and shrimplets.</li><li>Shelter: provides shelter and hiding spots for shy fish and shrimp.</li><li>Removal of excess nutrients: helps eliminate excess nutrients and nitrates from the tank water. As it grows, the plant needs lots of nutrients.</li><li>Oxygenation: helps in oxygenating the water column.</li><li>Prevents gas pockets: it has a massive root system that helps break up anaerobic pockets in the substrate. Hydrogen sulfide pockets (H2S, a gas that smells like rotten eggs) can kill fish or shrimp.</li></ul><h3>Tankmates</h3><p>Before planting Amazon Swords in the tank, you need to know which other plants and animals can co-exist peacefully with it.</p><p>For compatible plants, you can plant Amazon Sword together with, for example, Anubias nana, Egeria densa (Anacharis), Java fern, and water wisteria (Hygrophila difformis). Pick plants that will not compete with Amazon Sword for the nutrients in the substrate and can live in its shade, or floating plants.</p><p>You can keep Amazon Sword Plant in a tank with the following animals:</p><ul><li>Fish (such as angelfish, clown loach, discus, platies, tetras, zebra danio, Otocinclus catfish, etc.)</li><li>Shrimp (all varieties of Neocaridina (Red Cherry Shrimp, Blue Velvet Shrimp, Black Rose, Snowball shrimp, Orange Sakura, Green Jade, Rili Shrimp, etc.) or Caridina species (for example, Crystal Red Shrimp, Caridina cf. babaulti, Blue Tiger Shrimp, etc.), Amano shrimp, ghost shrimp, bamboo shrimp, vampire shrimp, etc. Basically, you can keep any shrimp species with it.</li><li>Snails (for example, ramshorn snails, Nerite snails, Malaysian trumpet snails, Japanese trapdoor snails, mystery snails).</li></ul><p>Fish species to avoid: goldfish, Oscars, plecos, Jack Dempsey. These species can easily damage the plant leaves regardless of its hardy nature.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/2cd493d342c18998.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/2cd493d342c18998-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/amazon-sword-plant-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
     {
       "url": "https://media.aquatome.com/tropica/c7bbaa054aba51cb.webp",
       "thumb": "https://media.aquatome.com/tropica/c7bbaa054aba51cb-480.webp",
@@ -47,23 +114,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/1795c1866ce8fbb9.webp",
+      "thumb": "https://media.aquatome.com/commons/1795c1866ce8fbb9-480.webp",
       "width": 960,
       "height": 1440,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinodorus_grisebachii_kz01.jpg",
-      "caption": "Echinodorus grisebachii in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/1795c1866ce8fbb9-480.webp"
+      "caption": "Echinodorus grisebachii in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/fb267a0e9d9dc4a9.webp",
+      "thumb": "https://media.aquatome.com/commons/fb267a0e9d9dc4a9-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "Ude",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinodorus_bleheri_inflorescence_closed.JPG",
-      "caption": "Inflorescence of Echinodorus bleheri (closed).",
-      "thumb": "https://media.aquatome.com/commons/fb267a0e9d9dc4a9-480.webp"
+      "caption": "Inflorescence of Echinodorus bleheri (closed)."
     }
   ],
   "productSlots": [
@@ -82,9 +149,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30",
-  "synonyms": [
-    "Echinodorus amazonicus",
-    "Echinodorus parviflorus"
-  ]
+  "updatedAt": "2026-11-19"
 }

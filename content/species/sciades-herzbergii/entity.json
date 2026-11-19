@@ -1,0 +1,148 @@
+{
+  "id": "sciades-herzbergii",
+  "scientificName": "Sciades herzbergii",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Sciades",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "colombia",
+    "french-guiana",
+    "guyana",
+    "suriname",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 97
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Family: Ariidae. Common name: Pemecou sea catfish. This species may be confused with Sciades couma, but it is much more frequent than S. couma.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>South America: Caribbean and Atlantic draining rivers and estuaries from Colombia to Brazil: Brazil, Colombia, French Guiana, Guyana, Suriname and Venezuela. Habitat: brackish, marine.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Adults occur in turbid estuaries, mangrove-lined lagoons and lower parts of rivers, being very tolerant to changes in salinity. Found on shallow soft bottoms.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Grows too large for the home aquarium. Size: 97.0 cm TL.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Temperature: 22-26°C. pH: 7.0-8.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Feeds on a large variety of bottom-living and pelagic organisms including those found among the roots of mangroves.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Occurs between September and December. A female lays 20-30 eggs, with a diameter of 10-12 mm. Males incubate the eggs in their mouth. Females reach maturity at a younger age than males and grow faster. The male incubates 28-40 eggs in the mouth and 200-400 eggs that are fixed in a glutinous mass on its head. Incubation takes 10-12 days. After 50-60 days fully functional young (6-6.5 cm TL) are released.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>IUCN Red List: This species is widely distributed and can be very common. It is targeted in artisanal fisheries, principally in the north and northeast of Brazil. It may be susceptible to habitat loss in mangrove, estuarine areas. At present neither habitat loss nor fishing pressure is considered a major threat to this species. It is listed as Least Concern with a recommendation to monitor its fished population and study its life history (IUCN 2010).</p><p>Etymology: The genus name Sciades: sciado-, canopy or umbrella, probably referring to the occipital process, described as a \"distinct bony helmet\" (translation). The specific name herzbergii: patronym not identified, possibly in honour of Count Ewald Friedrich von Herzberg (also spelled Hertzberg, 1725-1795), a Prussian statesman who was one of Bloch's sponsors.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "html": "<p>Betancur, R., Marceniuk, A.P., Giarrizzo, T. &amp; Fredou, F.L. 2015. Sciades herzbergii. The IUCN Red List of Threatened Species 2015.</p><p>Chacon, J.O., M.I.M. Alves and M.S.C. de Mesquita, 1994. Alguns aspectos da reprodução do bagre branco, Selenapsis herzbergii (Bloch 1794), Pisces: Ostariophysi, Siluriformes, Ariidae. Bol. Tec. DNOCS. 47/52(1/2):43-78.</p><p>Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2016 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/074ff3c5c3f84e02.webp",
+      "thumb": "https://media.aquatome.com/scotcat/074ff3c5c3f84e02-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Cecile de Souza Gama / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "caption": "Sciades herzbergii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c62b8ba666572973.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c62b8ba666572973-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "By / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "caption": "Sciades herzbergii: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c49afb16d11f99cc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c49afb16d11f99cc-480.webp",
+      "width": 500,
+      "height": 278,
+      "licence": "dùng với sự cho phép",
+      "author": "Erling Holm / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "caption": "Sciades herzbergii",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a091ad0f0e6a7287.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a091ad0f0e6a7287-480.webp",
+      "width": 500,
+      "height": 321,
+      "licence": "dùng với sự cho phép",
+      "author": "The IUCN Red List of Threatened Species / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_herzbergii.htm",
+      "caption": "Sciades herzbergii: habitat locations",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

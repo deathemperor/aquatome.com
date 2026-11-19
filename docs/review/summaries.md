@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (153)
+# Tóm tắt chờ duyệt (154)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -655,6 +655,15 @@ Cá pike cichlid hổ (Crenicichla tigrina) hợp với người đã có kinh n
 
 Kiểm tra:
 - "hợp với người đã có kinh nghiệm": the page never says the species needs an experienced keeper. The card rates difficulty 4/8, which is medium. This claim about who it suits is not on the page.
+
+## Cá ctenopoma đốm đuôi (Ctenopoma kingsleyae)
+id: `ctenopoma-kingsleyae`
+
+Loài này hợp với người đã có bể dài, muốn một con cá mê cung to, sống lâu và dễ nuôi (độ khó 2/8). Cá lớn tới 18,2 cm, cần bể dài tối thiểu 150 cm, nước 25–28 °C, pH 6–8, độ cứng 5–20 dGH. Khó nhất là nó săn mồi, con nào vừa miệng đều bị ăn nên không hợp bể cộng đồng thông thường. Cá còn nhảy rất giỏi nên nắp bể phải kín.
+
+- Thả chung với cá nhỏ hoặc tép: chúng sẽ bị ăn, nên chỉ ghép với cá khỏe, cỡ tương đương.
+- Để nắp bể hở khe: loài này nhảy rất có tiếng, nên đậy thật khít.
+- Bể sáng chói và trống trải: cá ưa ánh sáng yếu, nên dùng đèn dịu hoặc cây nổi, thêm lũa, đá, bụi cây để trốn và chừa khoảng trống để bơi.
 
 ## Cá Cyprichromis vảy nhỏ (Cyprichromis microlepidotus)
 id: `cyprichromis-microlepidotus`

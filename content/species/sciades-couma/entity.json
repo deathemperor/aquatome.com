@@ -1,0 +1,97 @@
+{
+  "id": "sciades-couma",
+  "scientificName": "Sciades couma",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Sciades",
+  "group": "catfish",
+  "places": [
+    "south-america"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 97
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<ul><li>Common name: Couma sea catfish</li></ul><p>The head is rounded and flattened on the upper part. The mouth is slightly inferior. It has 3 pairs of barbels (1 pair of maxillary barbels and 2 pairs of mandibular barbels). The cephalic surface is very rough. Dorsal spines (total): 1.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>South America: Atlantic draining rivers of South America, from the Gulf of Paria to the mouth of the Amazon. Type locality: Surinam, probably neighbourhood of Paramaribo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Brackish, marine. Confined chiefly to turbid waters in estuaries and the lower parts of rivers. Two annual cycles of slower growth are known during the two dry seasons (March and August to November). Probably has a short life span.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Grows too large for the home aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Feeds mainly on crustaceans.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>At the beginning of reproduction, the male's mouth changes to function as an egg repository (buccal incubation). The female lays her eggs in a sandy depression, then after fertilization, the male puts the eggs into its mouth, which is provided with ventilation until hatching. Egg diameter is about 2 mm and the number varies from 100 to 165 per female.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "html": "<p>Its delicate flesh is highly valued. IUCN Red List: assessed as Least Concern. The range extends from Venezuela to northern Brazil, restricted to turbid waters in estuaries and the lower reaches of rivers. The species is harvested as a food source, but this is not thought to be a major threat to the global population; it is common where it occurs and appears to be coping with current fishing pressures. More information on harvest levels and population trends is needed to be certain.</p><p>Etymology: The genus name Sciades: sciado-, canopy or umbrella, probably referring to the occipital process, described as a \"distinct bony helmet\". The specific name couma: from couma-couma, local name for this catfish in French Guiana, onomatopoeic for the sound it makes when pulled from the water.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/ec483919ae69c948.webp",
+      "thumb": "https://media.aquatome.com/scotcat/ec483919ae69c948-480.webp",
+      "width": 500,
+      "height": 276,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Ram / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/sciades_couma.htm",
+      "caption": "Sciades couma",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

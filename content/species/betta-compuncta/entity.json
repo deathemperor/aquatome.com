@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "melak"
+    "melak",
+    "mahakam"
   ],
   "range": {
     "records": {
@@ -49,15 +50,15 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 3.7,
+          "max": 5.5
         }
       }
     ],
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 7.6
+        "value": 7.5
       }
     ]
   },
@@ -66,25 +67,61 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
-      "html": "<p>From the Betta unimaculata complex. IUCN Red List: N/A. Wild-caught Betta compuncta from Melak.</p><ul><li>Maximum size: 3+ inches</li><li>TDS: ~60–100</li><li>pH: ~5.0–7.0</li><li>Temperature: 72–82°F (prefers cooler temperatures, but higher temperatures induce coloration and breeding behaviour)</li><li>Breeding: Mouthbrooder</li></ul>"
+      "html": "<ul><li>Belongs to the Betta unimaculata complex.</li><li>IUCN Red List: Data Deficient (not enough information to assess its risk).</li><li>Origin: wild caught (Melak, East Kalimantan).</li><li>Temperament: aggressive.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Fish in this complex are very prone to ich and velvet during the first few weeks after import, so watch new arrivals closely.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Betta compuncta was described in 2006 from a stream in the Mahakam basin near Long Iram, East Kalimantan, not far upriver from Melak. It is a close relative of Betta pallifina. The name means \"tattooed\", for the distinct black pattern on the body, which is usually strongest in females.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Mostly small, slow-flowing streams in swampy heath forest, sometimes larger, faster tributaries. FishBase records very acidic water, pH 3.7 to 5.3.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Recommended 1 pair per 10 gallons (40 litres), or 20 gallons (80 litres) for breeding. Give a pair plenty of caves and cover to break line of sight.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<ul><li>Temperature: 72 to 82°F (22 to 28°C). They prefer cooler water, but warmer water brings out color and breeding behavior.</li><li>pH: 3.7 to 5.5</li><li>TDS: 60 to 100</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
-      "html": "<p>Carnivorous. Fed on live, frozen and dried foods, such as blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Suitable foods include live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
-      "html": "<p>Like many species in this complex, the largest bettas can be aggressive. They are best kept in a species-only tank, as they can eat anything that fits in their big mouth.</p>"
+      "html": "<p>Aggressive. Best kept in a species-only tank, since they will eat any fish that fits in their mouth.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
-      "html": "<p>Light brown to tan base body with light blue iridescence on the opercular cheeks and lower jaws, body and tails; females have less iridescence. Fully grown adult males have longer ventral fins and larger bodies.</p>"
+      "html": "<p>Body shape: long and slender. Males have broader heads than females. Fins: long anal fin and pointed caudal fin; fully grown males have longer pelvic fins. Scaling: light blue iridescent scales on the cheeks and lower jaw, with scattered iridescent scales along the body. Coloration: light brown to tan body with light blue iridescence on the cheeks, lower jaw, body and fins. Females have less iridescence and a stronger black body pattern.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-cumpuncta-melak-wild-type-bettas",
+      "html": "<p>Paternal mouthbrooder. The female collects the eggs during spawning and passes them to the male, who holds them in his mouth for about 12 to 18 days (usually around 14). Keep the tank quiet and leave a holding male alone, since a disturbed male may swallow or spit out the brood. He releases fully formed fry that can eat baby brine shrimp right away.</p>"
     }
   ],
   "photos": [
@@ -99,7 +136,20 @@
       "source": "bwaquatics"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Wb-b2dNtc6E",
+      "title": "The Ultra Rare Wild Betta Compuncta \"Melak\" - Care Info & How to Spawn This Mouth Brooding Fìish",
+      "durationSec": 1339,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "w8WIQ9WAEok",
+      "title": "Betta Compuncta Var Candy / Sp Candy",
+      "durationSec": 23,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -128,5 +178,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-19"
 }

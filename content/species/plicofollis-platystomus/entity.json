@@ -1,0 +1,96 @@
+{
+  "id": "plicofollis-platystomus",
+  "scientificName": "Plicofollis platystomus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Plicofollis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "sri-lanka",
+    "pakistan",
+    "myanmar",
+    "bangladesh"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 31
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm",
+      "html": "<ul><li><strong>Common name:</strong> Flat mouthed catfish</li></ul><p><strong>Description:</strong> Dorsal 1, 7. Anal 14–16. Pectoral 1, 12. Very few scattered granulations over the posterior part of the head. Maxillary barbels reach just beyond the base of the pectorals, the others are shorter. Villiform teeth in the premaxillaries are 6 times longer than wide. Palatine teeth are obtusely conic, in 2 pyriform patches.</p><p><strong>Colouration:</strong> Bluish on the back, lighter on the sides and below. Fins with a slight tinge of grey. No black mark on the adipose fin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm",
+      "html": "<p>Indian Ocean: India and Sri Lanka. Also reported from Pakistan, Myanmar and Bangladesh. Type locality: Canara [India].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm",
+      "html": "<p>Occurs in coastal waters and estuaries.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm",
+      "html": "<p>Feeds mainly on invertebrates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm",
+      "html": "<p>Caught mainly with bottom trawls, stake traps, shore seines, set bagnets and on hook and line. An important food fish (Munro Ian S.R. 2000).</p><p><strong>Etymology:</strong> The genus name Plicofollis: plico, fold; follis, bellows or windbag, referring to the creased or scalloped swim bladder characteristic of the genus. The specific name platystomus: platys, wide; stomus, mouth; the width of the gape of the mouth is 4/7 of the length of the head.</p><p><strong>Remarks:</strong> It is listed as Least Concern in the IUCN Red List of Threatened Species. This species has a broad distribution, and although it is a commercially important food source, fishing is not considered a major threat to the population at present. Further research and monitoring of population numbers and harvest levels is recommended, to determine whether it is likely to suffer a significant population decline in the future (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm",
+      "html": "<ul><li>Betancur, R. 2010. Plicofollis platystomus (errata version published in 2017). The IUCN Red List of Threatened Species 2010.</li><li>De Bruin, G.H.P., B.C. Russell and A. Bogusch, 1995 FAO species identification field guide for fishery purposes. The marine fishery resources of Sri Lanka.</li><li>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, (11/2022).</li><li>Ian S R Munroe. The Marine and Fresh Water Fishes of Ceylon. Biotech Books. 1123/74. Tri Nagar. Dheli-110035.</li><li>Jayaram, K.C., 1984. Ariidae. In W. Fischer and G. Bianchi (eds.) FAO species identification sheets for fishery purposes. Western Indian Ocean fishing area 51. Vol. 1. FAO, Rome. pag. var.</li><li>Kailola, P. J. 2022 (29 Sept.) Family Ariidae, Sea catfishes (Pp. 182-198, Pls. 27-29). In: Heemstra, P. C. et al. 2022: Coastal fishes of the western Indian Ocean. Volume 2.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/3983309c4b23d7e5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3983309c4b23d7e5-480.webp",
+      "width": 500,
+      "height": 316,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm",
+      "caption": "Plicofollis platystomus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

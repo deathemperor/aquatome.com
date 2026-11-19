@@ -660,6 +660,46 @@
       "kept": true
     }
   ],
+  "vi/products/oase-biomaster-850": [
+    {
+      "at": "2026-11-19T06:37:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.8,
+      "notes": [
+        "\"rẻ hơn bản 850\" for BioMaster 600: the facts give the 600's price (about 9.2–10.2 million VND) but no 850 price, so the comparison is unsupported.",
+        "\"Mấy hôm đầu\" (the first few days): the facts say only \"at first\", with no timeframe.",
+        "\"Bông lọc chính cũng dùng được lâu hơn\" is supported, but \"Oase gắn khóa... để chống rò nước\" is slightly reworded. The facts say the locks and check valves are \"designed to prevent leaks\".",
+        "\"hay gặp ở các bể từ 500 L trở lên\" for the Fluval FX4: the facts say it is a common choice for tanks of 500 L or more. This is roughly supported.",
+        "\"Một shop trong nước lại ghi BioMaster 2 làm lại\" is OK, but \"lưu lượng cao hơn trên 25%\" omits the facts' comparison base. This is a minor point.",
+        "\"Trên lọc có nhiều chỗ chỉnh lưu lượng, nên dùng cho bể thủy sinh khá tiện\" is supported. \"Spray bar (thanh phun nhiều lỗ)\" is an added explanation, which is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T06:37:38Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.72,
+      "notes": [
+        "\"Bản Thermo... Bể cần giữ nhiệt mà không muốn cắm thêm sưởi riêng thì lấy bản này\" is an inference. The facts only say the Thermo has a built-in heater.",
+        "\"Hãng làm vậy để chống rò nước\" is okay, but \"Cặn thô gom hết ở đó\" is an embellishment. The facts only say coarse debris can be cleaned without opening the main canister.",
+        "\"Nếu kéo dài thì bấm nút mồi để đẩy khí ra\" is not in the facts. The facts only say noise should fade as the air clears, and that you press the priming button when priming.",
+        "\"Oase BioMaster 600: rẻ hơn\" drops the price (about 9.2–10.2 million VND). It is supported only as a comparison.",
+        "\"Fluval FX4... hay gặp ở các bể từ 500 L trở lên\" and \"bán nhiều ở Việt Nam\" are supported by the facts. \"Máy tự xả khí\" is also supported.",
+        "\"Điểm đáng giá nhất là ngăn lọc thô EasyClean\" is an editorial ranking not found in the facts.",
+        "\"Spray bar cho dòng chảy êm\" and \"bể nuôi chung cá hiền\" add detail. The facts say only \"community tanks\" and don't say the flow is gentle.",
+        "\"Chia cỡ... xem bảng phiên bản phía trên\" refers to a table that does not exist in the page.",
+        "\"Số Oase công bố cho BioMaster² 850 lại thấp hơn bản cũ một chút\" is an inference. It is arithmetically consistent with the facts but contrasts the sources in a way the facts don't state.",
+        "\"Hãng làm vậy để chống rò nước\" states the design intent, which the facts support (\"designed to prevent leaks\")."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/oase-filtosmart-100-thermo": [
     {
       "at": "2026-11-17T07:48:40Z",

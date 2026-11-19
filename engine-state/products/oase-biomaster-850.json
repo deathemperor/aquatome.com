@@ -1,0 +1,385 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Flow rate (original BioMaster 850)",
+      "value": "1,550 L/h",
+      "source": 0
+    },
+    {
+      "key": "Power (original BioMaster 850)",
+      "value": "230V/50Hz, 32 W",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "2.2 m",
+      "source": 0
+    },
+    {
+      "key": "Filter media volume",
+      "value": "8 L",
+      "source": 0
+    },
+    {
+      "key": "Dimensions",
+      "value": "24 × 24 × 54 cm",
+      "source": 0
+    },
+    {
+      "key": "Hose connection",
+      "value": "Ø16 mm inlet/outlet",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "under 800 L (shop); up to 850 L (Oase)",
+      "source": 0
+    },
+    {
+      "key": "Origin",
+      "value": "Made in Italy, German engineering, UL certified (per distributor)",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Vietnam distributor)",
+      "value": "3 years from receipt; removable parts excluded",
+      "source": 0
+    },
+    {
+      "key": "Warranty (Shrimp Home)",
+      "value": "1 year from receipt",
+      "source": 1
+    },
+    {
+      "key": "Flow rate (BioMaster² 850, Oase)",
+      "value": "max 1,500 L/h",
+      "source": 3
+    },
+    {
+      "key": "Power (BioMaster² 850, Oase)",
+      "value": "about 21.4 W in operation",
+      "source": 3
+    },
+    {
+      "key": "Manufacturer warranty",
+      "value": "3 years + 1 year with online registration; 1.5 m power cable",
+      "source": 3
+    },
+    {
+      "key": "Included items",
+      "value": "16 mm hose, filter wool and basic media; no heater",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster 250",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "900 L/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 L",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 250 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×37 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 350",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,100 L/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 L",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 350 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×43 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,250 L/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 L",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 600 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×48 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 850",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1,550 L/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 0
+        },
+        {
+          "key": "Media volume",
+          "value": "8 L",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "under 800 L",
+          "source": 0
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×54 cm",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "BioMaster Thermo 850 / BioMaster² Thermo 850",
+      "specs": [
+        {
+          "key": "Difference",
+          "value": "Same filter with built-in HeatUp heater",
+          "source": 9
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "variant": "BioMaster 850",
+      "vnd": 12000000,
+      "source": 0
+    },
+    {
+      "shop": "Shrimp Home",
+      "url": "https://shrimphome.vn/loc-thung-oase-biomaster-2-filter-250-350-600-850",
+      "variant": "BioMaster 2 850",
+      "vnd": 12360000,
+      "source": 1
+    },
+    {
+      "shop": "Mỹ Đình Aquarium",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-850/",
+      "variant": "BioMaster 850 (listing may be old)",
+      "vnd": 10000000,
+      "source": 2
+    }
+  ],
+  "fits": [
+    {
+      "fact": "The 850 is the largest size in the range and the distributor rates it for tanks under about 800 L. Oase rates it for up to 850 L.",
+      "source": 0
+    },
+    {
+      "fact": "Smaller tanks are better served by the 250, 350 or 600 sizes, each matched to a tank volume.",
+      "source": 0
+    },
+    {
+      "fact": "Flow can be adjusted at several points on the filter, which helps when using it on planted tanks.",
+      "source": 1
+    },
+    {
+      "fact": "A setup guide suggests a spray bar for planted or community tanks and the standard outlet when stronger flow is needed.",
+      "source": 6
+    },
+    {
+      "fact": "The standard model has no heater. Buy the Thermo version, or add a HeatUp heater later, if the tank needs heating.",
+      "source": 9
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Install the canister below the tank's water level on a flat, stable surface, with room above it to open the lid.",
+      "source": 6
+    },
+    {
+      "fact": "Load media from coarse foam to fine foam to biological media, without overpacking the baskets. Check that all locking clips are closed.",
+      "source": 6
+    },
+    {
+      "fact": "Keep hose runs short with no kinks. Fill the tank completely before priming.",
+      "source": 6
+    },
+    {
+      "fact": "To prime, open the valves and press the priming button repeatedly until the canister fills and air is pushed out.",
+      "source": 7
+    },
+    {
+      "fact": "Bubbles, gurgling and some noise are normal at first and should fade as the air clears.",
+      "source": 6
+    },
+    {
+      "fact": "Air must be purged again after a thorough cleaning.",
+      "source": 7
+    },
+    {
+      "fact": "The EasyClean pre-filter module comes off on its own, so coarse debris can be cleaned without opening the main canister. This also extends the life of the main filter wool.",
+      "source": 1
+    },
+    {
+      "fact": "Suggested schedule: rinse the pre-filter and sponges in tank water every 2–4 weeks. Check the impeller and hoses every 2–3 months. Service the main media and check the seals every 4–6 months.",
+      "source": 6
+    },
+    {
+      "fact": "Locks on the handle and pre-filter, plus check valves in the connections, are designed to prevent leaks.",
+      "source": 0
+    },
+    {
+      "fact": "For online orders, the shop advises filming the unboxing to support any warranty claim.",
+      "source": 1
+    }
+  ],
+  "issues": [
+    {
+      "fact": "UKAPS owners report noise and repeated air expulsion on the 850, including air trouble from the very first run. Some say Oase changed the internals (new intake tube and plate) with mixed results.",
+      "source": 4
+    },
+    {
+      "fact": "Hobbyists report leaks and failures at the inlet/outlet head, which sometimes needs replacing, and some poor experiences with Oase support.",
+      "source": 5
+    },
+    {
+      "fact": "Specs differ between versions. The original 850 is listed at 1,550 L/h and 32 W. Oase lists the BioMaster² 850 at 1,500 L/h and about 21.4 W.",
+      "source": 3
+    },
+    {
+      "fact": "Shrimp Home says the redesigned BioMaster 2 has a 4-stage sealed filtration system with more than 25% higher flow.",
+      "source": 1
+    },
+    {
+      "fact": "Warranty terms differ by shop in Vietnam: 3 years at one distributor, 1 year at another.",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Eheim",
+      "model": "Professionel 4+ 600",
+      "why": "Rated for tanks up to 600 L at 1,250 L/h but uses only 16 W. It has a larger 9.2 L canister, a strong reputation for reliability and quiet running, and an Xtender for longer gaps between cleanings."
+    },
+    {
+      "brand": "Oase",
+      "model": "BioMaster 600",
+      "why": "Cheaper (about 9.2–10.2 million VND) and enough for tanks up to about 600 L, with the same EasyClean pre-filter design."
+    },
+    {
+      "brand": "Fluval",
+      "model": "FX4",
+      "why": "A high-flow canister for large tanks, widely sold in Vietnam. It purges air automatically and is a common choice for tanks of 500 L or more."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "title": "OASE BIOMASTER FILTER - LỌC THÙNG CAO CẤP (Thủy Sinh Bích Phương)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shrimphome.vn/loc-thung-oase-biomaster-2-filter-250-350-600-850",
+      "title": "Lọc thùng Oase BioMaster 2 Filter 250/350/600/850 - Shrimp Home",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-850/",
+      "title": "LỌC OASE Biomaster 850 - Mỹ Đình Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.oase.com/en-us/aquarium/biomaster-2-850",
+      "title": "BioMaster² 850 - OASE",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/oase-bio-master-850-noisy-air-problems.68957/page-2",
+      "title": "Oase BioMaster 850 noisy / air problems - UKAPS",
+      "kind": "forum"
+    },
+    {
+      "url": "https://scapecrunch.com/threads/bad-oase-support-experience.3169/",
+      "title": "Bad Oase support experience - ScapeCrunch",
+      "kind": "forum"
+    },
+    {
+      "url": "https://charterhouse-aquatics.com/blogs/help-guides/setting-up-your-oase-biomaster-thermo-step-by-step",
+      "title": "Setting Up Your Oase BioMaster² Thermo: Step-by-Step - Charterhouse Aquatics",
+      "kind": "review"
+    },
+    {
+      "url": "https://manuals.plus/asin/B0F3LPPPHH",
+      "title": "OASE BioMaster 2 350 manual - manuals.plus",
+      "kind": "other"
+    },
+    {
+      "url": "https://eheim.com/en_GB/aquatics/technology/external-filters/professionel-4/professionel-4plus-600",
+      "title": "EHEIM professionel 4+ 600",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.oase.com/en/aquarium/biomaster-thermo-850-int",
+      "title": "BioMaster² Thermo 850 INT - OASE",
+      "kind": "manufacturer"
+    }
+  ]
+}
