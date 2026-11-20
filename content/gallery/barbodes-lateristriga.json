@@ -26,54 +26,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/390646399.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/390646399-480.webp",
-      "width": 1024,
-      "height": 718,
-      "licence": "CC BY",
-      "author": "lunarjade",
-      "sourceUrl": "https://www.inaturalist.org/photos/390646399",
-      "caption": "Cá barb T bơi trên nền cát sỏi trong suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/532223105.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/532223105-480.webp",
-      "width": 1024,
-      "height": 767,
-      "licence": "CC BY",
-      "author": "Rainer Breitling",
-      "sourceUrl": "https://www.inaturalist.org/photos/532223105",
-      "caption": "Cá barb T với các sọc đen ngang thân trong suối nước trong",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/630712333.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/630712333-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Zac Peterson",
-      "sourceUrl": "https://www.inaturalist.org/photos/630712333",
-      "caption": "Cá barb T bơi trên nền cát trong suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/112111521.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/112111521-480.webp",
-      "width": 1024,
-      "height": 508,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/112111521",
-      "caption": "Cá barb T bơi trên nền cát sỏi trong suối",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/382449244.webp",
       "thumb": "https://media.aquatome.com/inaturalist/382449244-480.webp",
       "width": 1024,
@@ -94,6 +46,30 @@
       "author": "lunarjade",
       "sourceUrl": "https://www.inaturalist.org/photos/390649489",
       "caption": "Cá barb T bơi gần đáy cát trong suối",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/390646399.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/390646399-480.webp",
+      "width": 1024,
+      "height": 718,
+      "licence": "CC BY",
+      "author": "lunarjade",
+      "sourceUrl": "https://www.inaturalist.org/photos/390646399",
+      "caption": "Cá barb T bơi trên nền cát sỏi trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/112111521.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/112111521-480.webp",
+      "width": 1024,
+      "height": 508,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/112111521",
+      "caption": "Cá barb T bơi trên nền cát sỏi trong suối",
       "best": false,
       "kind": "habitat"
     },
@@ -134,18 +110,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/474928533.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/474928533-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Edmundas Greimas",
-      "sourceUrl": "https://www.inaturalist.org/photos/474928533",
-      "caption": "Cá barb T bơi trên nền đáy sỏi trong suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/747304085.webp",
       "thumb": "https://media.aquatome.com/inaturalist/747304085-480.webp",
       "width": 1024,
@@ -166,18 +130,6 @@
       "author": "Tero Linjama",
       "sourceUrl": "https://www.inaturalist.org/photos/256243563",
       "caption": "Cá barb T trên nền sỏi suối",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/263657282.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/263657282-480.webp",
-      "width": 1024,
-      "height": 726,
-      "licence": "CC BY",
-      "author": "lunarjade",
-      "sourceUrl": "https://www.inaturalist.org/photos/263657282",
-      "caption": "Cá barb T nhìn từ trên trong suối nước trong",
       "best": false,
       "kind": "habitat"
     },
@@ -251,6 +203,54 @@
       "sourceUrl": "https://www.inaturalist.org/photos/112111527",
       "caption": "Cá barb T cận cảnh trong suối cát sỏi",
       "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/474928533.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/474928533-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Edmundas Greimas",
+      "sourceUrl": "https://www.inaturalist.org/photos/474928533",
+      "caption": "Cá barb T bơi trên nền đáy sỏi trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/532223105.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/532223105-480.webp",
+      "width": 1024,
+      "height": 767,
+      "licence": "CC BY",
+      "author": "Rainer Breitling",
+      "sourceUrl": "https://www.inaturalist.org/photos/532223105",
+      "caption": "Cá barb T với các sọc đen ngang thân trong suối nước trong",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/630712333.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/630712333-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Zac Peterson",
+      "sourceUrl": "https://www.inaturalist.org/photos/630712333",
+      "caption": "Cá barb T bơi trên nền cát trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/263657282.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/263657282-480.webp",
+      "width": 1024,
+      "height": 726,
+      "licence": "CC BY",
+      "author": "lunarjade",
+      "sourceUrl": "https://www.inaturalist.org/photos/263657282",
+      "caption": "Cá barb T nhìn từ trên trong suối nước trong",
+      "best": false,
       "kind": "habitat"
     }
   ],

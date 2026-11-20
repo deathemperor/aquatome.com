@@ -28,18 +28,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/189652012.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/189652012-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Paul Asman",
-      "sourceUrl": "https://www.inaturalist.org/photos/189652012",
-      "caption": "Cá vược công sọc xanh bơi trong nước tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/189652028.webp",
       "thumb": "https://media.aquatome.com/inaturalist/189652028-480.webp",
       "width": 1024,
@@ -180,18 +168,6 @@
       "caption": "Cá vược công non với các sọc đen trong bể có cây thủy sinh",
       "best": false,
       "kind": "juvenile"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/65592069.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65592069-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ben Machado",
-      "sourceUrl": "https://www.inaturalist.org/photos/65592069",
-      "caption": "Cá vược công bơi trong nước xanh ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/130807505.webp",
@@ -361,6 +337,30 @@
       "sourceUrl": "https://www.inaturalist.org/photos/177205590",
       "caption": "Cá vược công có đốm đuôi bơi giữa cỏ nước",
       "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/189652012.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/189652012-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Paul Asman",
+      "sourceUrl": "https://www.inaturalist.org/photos/189652012",
+      "caption": "Cá vược công sọc xanh bơi trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65592069.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65592069-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ben Machado",
+      "sourceUrl": "https://www.inaturalist.org/photos/65592069",
+      "caption": "Cá vược công bơi trong nước xanh ngoài tự nhiên",
+      "best": false,
       "kind": "habitat"
     },
     {

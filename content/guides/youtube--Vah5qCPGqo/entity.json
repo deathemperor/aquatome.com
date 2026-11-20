@@ -82,24 +82,7 @@
     "figures": [
       {
         "heading": "Có những loại mồi tươi sống nào",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/-Vah5qCPGqo/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mấy gói mồi đông lạnh xếp cạnh nhau trên kệ bể.",
-            "sharpness": 1419.9
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/-Vah5qCPGqo/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mồi được lọc ra vợt nhỏ, đổ vào cốc để chuẩn bị cho cá ăn.",
-            "sharpness": 376.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/-Vah5qCPGqo/p0-xlX2FkdWx0LmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/-Vah5qCPGqo/p0-xlX2FkdWx0LmpwZw-480.webp",
@@ -113,24 +96,7 @@
       },
       {
         "heading": "Thả bo bo vào bể có dòng chảy mạnh thế nào",
-        "moments": [
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/-Vah5qCPGqo/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vợt tép sạch dùng để lọc bo bo trước khi thả vào bể.",
-            "sharpness": 368
-          },
-          {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/-Vah5qCPGqo/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắt túi, đổ bo bo qua vợt cho nước chảy ra, giữ mồi lại.",
-            "sharpness": 1188.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/-Vah5qCPGqo/p1-xlX2FkdWx0LmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/-Vah5qCPGqo/p1-xlX2FkdWx0LmpwZw-480.webp",
@@ -151,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá phủ rêu và nền cát trong bể, có nhiều khe cho cá trốn.",
-            "sharpness": 206
+            "sharpness": 206,
+            "person": false
           }
         ],
         "photo": {
@@ -174,7 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá bơi giữa đám cây thủy sinh trong hồ nhỏ.",
-            "sharpness": 720.3
+            "sharpness": 720.3,
+            "person": false
           },
           {
             "t": 770,
@@ -182,7 +150,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Trùng huyết đã chìm xuống nền sỏi đáy hồ.",
-            "sharpness": 678
+            "sharpness": 678,
+            "person": false
           }
         ]
       },
@@ -195,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm áp sát góc bể, giữa đám cây rậm.",
-            "sharpness": 459.5
+            "sharpness": 459.5,
+            "person": false
           },
           {
             "t": 670,
@@ -203,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm đỏ bơi trong bể thủy sinh nhiều rêu và cây.",
-            "sharpness": 609.7
+            "sharpness": 609.7,
+            "person": false
           }
         ],
         "photo": {
@@ -226,7 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Axolotl hồng nằm yên trên nền cát trắng, nhìn thẳng ra phía trước.",
-            "sharpness": 211.1
+            "sharpness": 211.1,
+            "person": false
           },
           {
             "t": 990,
@@ -234,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Axolotl bơi sát nền cát trắng trong bể, thấy rõ mang và thân.",
-            "sharpness": 232.7
+            "sharpness": 232.7,
+            "person": false
           }
         ],
         "photo": {

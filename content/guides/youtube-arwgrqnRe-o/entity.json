@@ -100,15 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khối lũa lớn có hình khối rõ làm bố cục chính của bể.",
-            "sharpness": 2922.2
-          },
-          {
-            "t": 760,
-            "url": "https://media.aquatome.com/video/arwgrqnRe-o/at760-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây xanh cắm trên đỉnh lũa như một cây bonsai nhỏ.",
-            "sharpness": 1487
+            "sharpness": 2922.2,
+            "person": false
           }
         ]
       },
@@ -116,35 +109,19 @@
         "heading": "Chuẩn bị bể và mặt kính sau",
         "moments": [
           {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/arwgrqnRe-o/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rửa sạch bể kính trống bằng vòi nước ngoài sân.",
-            "sharpness": 990.5
-          },
-          {
             "t": 410,
             "url": "https://media.aquatome.com/video/arwgrqnRe-o/at410-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Mặt kính sau đã sơn trắng, nền hơi ánh xanh của kính.",
-            "sharpness": 803.5
+            "sharpness": 803.5,
+            "person": false
           }
         ]
       },
       {
         "heading": "Dựng lũa kiểu cây đổ",
-        "moments": [
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/arwgrqnRe-o/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục lũa to dựng đứng như gốc cây đổ trong bể.",
-            "sharpness": 2069.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/arwgrqnRe-o/p2-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/arwgrqnRe-o/p2-YXJkc2NhcGUuanBn-480.webp",
@@ -172,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy lọc đặt sau bố cục lũa, được giấu khỏi tầm nhìn.",
-            "sharpness": 1019.6
+            "sharpness": 1019.6,
+            "person": false
           }
         ]
       },
@@ -199,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nước ngả vàng nâu với lũa và lá khô rải dưới đáy.",
-            "sharpness": 1635.4
+            "sharpness": 1635.4,
+            "person": false
           }
         ]
       },
@@ -212,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi đựng tép thả nổi trong bể mới để cân bằng nhiệt độ.",
-            "sharpness": 1818.4
+            "sharpness": 1818.4,
+            "person": false
           },
           {
             "t": 1010,
@@ -220,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nghiêng túi để thả tép vào bể thủy sinh có lũa và rêu.",
-            "sharpness": 2404.2
+            "sharpness": 2404.2,
+            "person": false
           }
         ],
         "photo": {

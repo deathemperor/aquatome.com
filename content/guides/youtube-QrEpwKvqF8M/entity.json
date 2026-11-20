@@ -77,7 +77,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh được phủ màng bọc ở miệng, có lọc mini bên cạnh.",
-            "sharpness": 464.2
+            "sharpness": 464.2,
+            "person": false
           },
           {
             "t": 70,
@@ -85,33 +86,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Miệng bể được che bằng màng bọc thực phẩm có đục lỗ.",
-            "sharpness": 1223.1
-          }
-        ]
-      },
-      {
-        "heading": "Cách tự cắt nắp kính từ bể cũ",
-        "moments": [
-          {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/QrEpwKvqF8M/at115-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng dao lam cắt lớp keo silicon ở mối nối bể kính cũ.",
-            "sharpness": 374.5
-          }
-        ]
-      },
-      {
-        "heading": "Có nắp thì bể kém đẹp, có đáng không",
-        "moments": [
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/QrEpwKvqF8M/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ có nắp kính phía trên, đèn led chiếu sáng và cây thủy sinh bên trong.",
-            "sharpness": 1082
+            "sharpness": 1223.1,
+            "person": false
           }
         ]
       }

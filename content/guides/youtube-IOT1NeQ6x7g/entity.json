@@ -73,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bát thủy tinh tròn trồng rêu và dương xỉ phủ trên đá.",
-            "sharpness": 2031
+            "sharpness": 2031,
+            "person": false
           },
           {
             "t": 100,
@@ -81,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bát thủy tinh, đá nham thạch, máy bơm mini và đèn bàn.",
-            "sharpness": 1231.2
+            "sharpness": 1231.2,
+            "person": false
           }
         ]
       },
@@ -94,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thân máy bơm đặt dưới đáy, xung quanh xếp đá núi lửa.",
-            "sharpness": 1277.1
+            "sharpness": 1277.1,
+            "person": false
           },
           {
             "t": 250,
@@ -102,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá xếp kín quanh bơm và ống trong bát thủy tinh, ống nằm ở đỉnh.",
-            "sharpness": 4843.2
+            "sharpness": 4843.2,
+            "person": false
           }
         ]
       },
@@ -115,7 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đống đá trong bể thủy tinh đã đổ nước, sẵn sàng chạy thử bơm.",
-            "sharpness": 3991.7
+            "sharpness": 3991.7,
+            "person": false
           },
           {
             "t": 320,
@@ -123,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bơm đẩy nước lên đỉnh đống đá, nước chảy xuống thành dòng thác.",
-            "sharpness": 2626.9
+            "sharpness": 2626.9,
+            "person": false
           }
         ]
       },
@@ -136,7 +142,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vài nhánh rễ trắng cắm xen giữa các tảng đá trong bể thủy tinh.",
-            "sharpness": 6537
+            "sharpness": 6537,
+            "person": false
           },
           {
             "t": 400,
@@ -144,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đống đá nhìn như có bộ rễ bên dưới nhờ các nhánh lũa nhỏ.",
-            "sharpness": 7021.9
+            "sharpness": 7021.9,
+            "person": false
           }
         ],
         "photo": {
@@ -160,24 +168,7 @@
       },
       {
         "heading": "Gói dương xỉ để trồng trên đá",
-        "moments": [
-          {
-            "t": 425,
-            "url": "https://media.aquatome.com/video/IOT1NeQ6x7g/at425-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây dương xỉ to được tỉa bớt lá trước khi gói.",
-            "sharpness": 868.8
-          },
-          {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/IOT1NeQ6x7g/at485-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gói gốc dương xỉ bằng bông lọc thành túi nhỏ.",
-            "sharpness": 845.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/IOT1NeQ6x7g/p4-ybl9zb3JpLmpwZWc.webp",
           "thumb": "https://media.aquatome.com/video/IOT1NeQ6x7g/p4-ybl9zb3JpLmpwZWc-480.webp",
@@ -198,7 +189,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đang châm nước vào bát có cây và rêu.",
-            "sharpness": 2773.2
+            "sharpness": 2773.2,
+            "person": false
           },
           {
             "t": 615,
@@ -206,7 +198,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bát thủy sinh đã châm nước, cây và rêu xanh mướt.",
-            "sharpness": 1641.3
+            "sharpness": 1641.3,
+            "person": false
           }
         ]
       }

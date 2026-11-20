@@ -60,7 +60,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đầy cây mọc um tùm, kính phía trên bị lóa sáng.",
-            "sharpness": 1578.6
+            "sharpness": 1578.6,
+            "person": false
           }
         ]
       },
@@ -68,20 +69,13 @@
         "heading": "Cây nổi giúp gì cho bể không châm phân",
         "moments": [
           {
-            "t": 265,
-            "url": "https://media.aquatome.com/video/7kDO92rirUI/at265-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh phủ kín bèo xanh trên mặt nước, rễ buông xuống.",
-            "sharpness": 2339.3
-          },
-          {
             "t": 305,
             "url": "https://media.aquatome.com/video/7kDO92rirUI/at305-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp bèo xanh phủ mặt bể, nhìn bể rất tự nhiên.",
-            "sharpness": 829.7
+            "sharpness": 829.7,
+            "person": false
           }
         ],
         "photo": {
@@ -104,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi cây mọc um tùm quá đà bên cạnh góc lũa.",
-            "sharpness": 2686.3
+            "sharpness": 2686.3,
+            "person": false
           },
           {
             "t": 405,
@@ -112,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi tỉa, phía trước để trống, có lũa và cây gọn gàng.",
-            "sharpness": 3013.8
+            "sharpness": 3013.8,
+            "person": false
           }
         ]
       },
@@ -120,35 +116,19 @@
         "heading": "Dọn rác sau khi tỉa",
         "moments": [
           {
-            "t": 435,
-            "url": "https://media.aquatome.com/video/7kDO92rirUI/at435-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống hút hút vụn cây và rễ bèo trong bể thủy sinh.",
-            "sharpness": 3221.2
-          },
-          {
             "t": 440,
             "url": "https://media.aquatome.com/video/7kDO92rirUI/at440-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đầu ống hút đưa sát gốc lũa để hút sạch rác.",
-            "sharpness": 1032.6
+            "sharpness": 1032.6,
+            "person": false
           }
         ]
       },
       {
         "heading": "Thả tép red crystal",
-        "moments": [
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/7kDO92rirUI/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi lưới đựng tép treo ở thành bể thủy sinh để tép làm quen nước.",
-            "sharpness": 1793
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/7kDO92rirUI/p4-LXJlZC1iZWUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/7kDO92rirUI/p4-LXJlZC1iZWUuanBn-480.webp",

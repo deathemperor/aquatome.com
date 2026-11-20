@@ -96,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hòn đảo đá đặt giữa bể cube trống, chưa có nước.",
-            "sharpness": 2299
+            "sharpness": 2299,
+            "person": false
           }
         ]
       },
@@ -116,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá xếp thành vòng trên đáy bể, chừa chỗ trũng ở giữa.",
-            "sharpness": 2459.3
+            "sharpness": 2459.3,
+            "person": false
           }
         ]
       },
@@ -129,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ lớp sỏi xuống đáy bể quanh những khối đá.",
-            "sharpness": 3157.3
+            "sharpness": 3157.3,
+            "person": false
           }
         ]
       },
@@ -142,36 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vài nhánh lũa mảnh dựng thẳng lên từ cụm đá giữa bể.",
-            "sharpness": 3222.7
-          },
-          {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/e5tjn3Tm2fQ/at500-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn nhánh lũa vào cụm đá, chừa khe để sau buộc cây.",
-            "sharpness": 2838.8
-          }
-        ]
-      },
-      {
-        "heading": "Chọn cây và trồng cây",
-        "moments": [
-          {
-            "t": 670,
-            "url": "https://media.aquatome.com/video/e5tjn3Tm2fQ/at670-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây buộc trên lũa và đá trong bể, lá xanh tươi.",
-            "sharpness": 1628.1
-          },
-          {
-            "t": 750,
-            "url": "https://media.aquatome.com/video/e5tjn3Tm2fQ/at750-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các chậu dương xỉ, ráy và Bucephalandra bày sẵn để buộc lên lũa.",
-            "sharpness": 1046.3
+            "sharpness": 3222.7,
+            "person": false
           }
         ]
       },
@@ -229,7 +204,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc rồng núp giữa cây thủy sinh và đá, mắt nhìn rất tinh.",
-            "sharpness": 189.3
+            "sharpness": 189.3,
+            "person": false
           },
           {
             "t": 1170,
@@ -237,7 +213,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh nóc rồng nằm rình trong bụi cây, mắt to tròn.",
-            "sharpness": 307.8
+            "sharpness": 307.8,
+            "person": false
           }
         ]
       }

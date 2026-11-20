@@ -14,13 +14,13 @@ under `<lang>/<path>`.
 | reader-rewrite | 46 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
-| topic | 128 | 6 (id 1, ms 1, th 4) | 6 |
+| topic | 131 | 6 (id 1, ms 1, th 4) | 6 |
 | product | 27 | 2 (vi 2) | 2 |
 | product-reviews | 21 | 0 | 0 |
 | summary | 2612 | 144 (vi 144) | 144 |
-| localize | 2819 | 877 (id 379, ms 67, th 431) | 877 |
+| localize | 2822 | 870 (id 375, ms 66, th 429) | 870 |
 | glossary | 35 | 0 | 0 |
-| places | 7492 | 4555 (id 1559, ms 1555, th 1342, vi 99) | 1350 |
+| places | 7507 | 4559 (id 1563, ms 1555, th 1342, vi 99) | 1351 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 22 | 0 | 0 |
@@ -339,7 +339,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-6 of 128 pages under the bar.
+6 of 131 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -495,20 +495,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-877 of 2819 pages under the bar.
+870 of 2822 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 795 | 2184 |
-| Wording: unnatural, literal, stiff or chatty | 726 | 1473 |
-| Says what the source doesn't (invented, added) | 501 | 710 |
-| A number, unit, dose or price | 476 | 606 |
-| Meaning changed or wrong | 474 | 720 |
-| Hobby terms and names | 430 | 565 |
-| Text left in another language | 299 | 377 |
-| Leaves out what the source says | 243 | 286 |
-| Repeats itself (intro, summary, steps and FAQ) | 230 | 253 |
-| States as certain what the source hedges, or what garbled captions only hint at | 184 | 208 |
+| Other | 785 | 2150 |
+| Wording: unnatural, literal, stiff or chatty | 718 | 1444 |
+| Says what the source doesn't (invented, added) | 492 | 694 |
+| A number, unit, dose or price | 476 | 608 |
+| Meaning changed or wrong | 471 | 715 |
+| Hobby terms and names | 421 | 556 |
+| Text left in another language | 298 | 378 |
+| Leaves out what the source says | 241 | 282 |
+| Repeats itself (intro, summary, steps and FAQ) | 227 | 249 |
+| States as certain what the source hedges, or what garbled captions only hint at | 182 | 205 |
 | Copied from the transcript or source | 21 | 21 |
 | Off the title's topic | 2 | 2 |
 
@@ -568,9 +568,9 @@ under `<lang>/<path>`.
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
+- Item 10: "Spesies ini dinilai sebagai" drops the 'in the author's opinion' hedge; rephrase as 'Menurut pengamatan penulis' or 'Menurut pendapat...' neutral version to keep the opinion marker. — id/species/botia-histrionica, 0.40
 - Item 18: the sentence 'ซึ่งปลาที่นำเข้าในอดีตเคยถูกจัดไว้เพียง 3 ชนิด ที่ต้องระบุชนิดใหม่' is garbled. The English says 33 species, which were assigned to 3 species in earlier imports, must now be redetermined. Restructure it. — th/species/gastromyzon-punctulatus, 0.40
 - Item 11: "pangkal depan sirip punggung" for "dorsal-fin origin" is acceptable, but "pita tegak" for "bar" is unclear; use "pita vertikal". — id/species/barbodes-kuchingensis, 0.45
-- Item 20: 'one or two pairs should then be introduced' became 'satu atau dua pasang dimasukkan', which loses the advisory tone; use 'sebaiknya dimasukkan'. In 'spawning should take place the following morning', 'biasanya' is an added hedge;… — id/species/pethia-conchonius, 0.45
 
 ### Copied from the transcript or source
 
@@ -589,11 +589,11 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4555 of 7492 pages under the bar.
+4559 of 7507 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1212 | 1306 |
+| Other | 1213 | 1307 |
 | Meaning changed or wrong | 72 | 72 |
 | Leaves out what the source says | 62 | 62 |
 | Wording: unnatural, literal, stiff or chatty | 26 | 26 |

@@ -66,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh mọc rậm, thân vươn lên khỏi mặt nước trong bể sinh thái.",
-            "sharpness": 3139.8
+            "sharpness": 3139.8,
+            "person": false
           }
         ],
         "photo": {
@@ -89,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh xanh um trong bể, cần tỉa và vớt bớt thường xuyên.",
-            "sharpness": 2902.8
+            "sharpness": 2902.8,
+            "person": false
           }
         ],
         "photo": {
@@ -107,20 +109,13 @@
         "heading": "Thay nước và hút cặn bao nhiêu là vừa",
         "moments": [
           {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/Pn0-xaW8S3w/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống siphon hút cặn dưới đáy bể thủy sinh.",
-            "sharpness": 2477.5
-          },
-          {
             "t": 185,
             "url": "https://media.aquatome.com/video/Pn0-xaW8S3w/at185-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã rút bớt nước, mực nước hạ thấp để lộ nền và đá.",
-            "sharpness": 1773.9
+            "sharpness": 1773.9,
+            "person": false
           }
         ]
       },
@@ -133,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi dương xỉ và cây trên lũa, phần thân đã được tỉa gọn.",
-            "sharpness": 3152.2
+            "sharpness": 3152.2,
+            "person": false
           },
           {
             "t": 295,
@@ -141,7 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh sau khi tỉa, cây mọc thoáng và gọn.",
-            "sharpness": 3325.3
+            "sharpness": 3325.3,
+            "person": false
           }
         ]
       },
@@ -161,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá bơi giữa lũa và cây trong bể thủy sinh không lọc.",
-            "sharpness": 706.3
+            "sharpness": 706.3,
+            "person": false
           }
         ],
         "photo": {
@@ -184,7 +182,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể sinh thái không sưởi với cây thủy sinh và lũa.",
-            "sharpness": 2366.3
+            "sharpness": 2366.3,
+            "person": false
           },
           {
             "t": 465,
@@ -192,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa, đá xếp và rêu xanh, không dùng sưởi.",
-            "sharpness": 1151.9
+            "sharpness": 1151.9,
+            "person": false
           }
         ],
         "photo": {

@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-20). Targets: packages/engine/src/gall
 | covered | 30 | 813 | 32 | 9 | 28 | 826 |
 | rest | 20 | 1884 | 80 | 0 | 111 | 1853 |
 
-## Short of target: every source read (704)
+## Short of target: every source read (708)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -73,6 +73,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | breeds/koi-betta | shop | 1 | 60 |
 | breeds/full-red-guppy | shop | 2 | 60 |
 | plants/taxiphyllum-barbieri | shop | 4 | 60 |
+| species/puntigrus-tetrazona | shop | 35 | 60 |
 | breeds/koi-guppy | shop | 0 | 60 |
 | species/corydoras-aeneus | shop | 26 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
@@ -349,7 +350,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/altolamprologus-compressiceps | covered | 1 | 30 |
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
-| species/anabas-testudineus | covered | 8 | 30 |
+| species/anabas-testudineus | covered | 7 | 30 |
 | species/anadoras-grypus | covered | 3 | 30 |
 | species/ancharius-fuscus | covered | 0 | 30 |
 | species/ancistrus-macrophthalmus | covered | 4 | 30 |
@@ -371,7 +372,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-panduro | covered | 3 | 30 |
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
 | species/apistogramma-trifasciata | covered | 3 | 30 |
-| species/ariopsis-felis | covered | 26 | 30 |
+| species/ariopsis-felis | covered | 21 | 30 |
 | species/ariopsis-seemanni | covered | 0 | 30 |
 | species/arius-latiscutatus | covered | 0 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
@@ -719,4 +720,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/parosphromenus-bintan | covered | 0 | 30 |
 | species/pelvicachromis-taeniatus | covered | 11 | 30 |
 | species/polypterus-retropinnis | covered | 0 | 30 |
-| species/pseudoplatystoma-corruscans | covered | 5 | 30 |
+| species/pseudoplatystoma-corruscans | covered | 1 | 30 |
+| species/retroculus-acherontos | covered | 0 | 30 |
+| species/rhadinoloricaria-rhami | covered | 0 | 30 |
+| species/rhinodoras-boehlkei | covered | 0 | 30 |

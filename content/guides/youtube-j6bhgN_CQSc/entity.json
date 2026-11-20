@@ -78,27 +78,6 @@
     ],
     "figures": [
       {
-        "heading": "Lót nền thế nào",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải lớp nền dinh dưỡng và aqua soil xuống đáy bể thủy tinh.",
-            "sharpness": 1720
-          },
-          {
-            "t": 265,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at265-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay dồn lớp aqua soil cao dần về phía sau trong bể tròn.",
-            "sharpness": 4677.7
-          }
-        ]
-      },
-      {
         "heading": "Đặt lũa sao cho không bị nổi",
         "moments": [
           {
@@ -107,7 +86,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa đặt nghiêng trong bể cầu có lớp cát nền, chưa châm nước.",
-            "sharpness": 1278.1
+            "sharpness": 1278.1,
+            "person": false
           }
         ],
         "photo": {
@@ -125,41 +105,13 @@
         "heading": "Sắp đá",
         "moments": [
           {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at365-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ba viên sỏi cuội đặt trên bàn, chuẩn bị bỏ vào bể.",
-            "sharpness": 3642.7
-          },
-          {
             "t": 385,
             "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at385-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ba viên sỏi cuội tròn đặt cạnh lũa trên nền cát đen trong bể cầu.",
-            "sharpness": 2469.1
-          }
-        ]
-      },
-      {
-        "heading": "Gắn rêu lên lũa bằng keo 502",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu đã gắn lên lũa, đặt cạnh mấy viên đá trên nền đen.",
-            "sharpness": 2904.7
-          },
-          {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang ấn miếng rêu xanh lên lũa trong bể thủy sinh.",
-            "sharpness": 2633
+            "sharpness": 2469.1,
+            "person": false
           }
         ]
       },
