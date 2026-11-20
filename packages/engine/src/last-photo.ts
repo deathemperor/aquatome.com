@@ -1,5 +1,6 @@
+import { execFileSync } from 'node:child_process'
 import { mkdir, readdir, readFile } from 'node:fs/promises'
-import { dirname, join } from 'node:path'
+import { dirname, join, relative } from 'node:path'
 import { compactRejection } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
 import { writePhotoState } from './photo-state'
@@ -20,9 +21,16 @@ import { writePhotoState } from './photo-state'
  *
  * A photo we hold no permission for isn't held: the credit rule (sweep.ts `refusedByCredit`) and the never-again list
  * written by hand take it off at once.
+ *
+ * The rule protects a photo a page already shows (the chief of staff, 20 Nov 2026, amending the rule of 14 Nov). One a
+ * step added that the photo check calls dead, a person or a logo before any page showed it doesn't start showing, on an
+ * empty page or as a page's only photo: it comes off, onto the never-again list (the list every step that adds photos
+ * skips, so none brings it back), and waits for its look marked `unshown`. The page had nothing and loses nothing.
+ * - "agree": it stays on the never-again list, as above.
+ * - "clear": the sweep takes it off the never-again list, so a step can bring it back, and no verdict takes it off again.
  */
 export type Look = { said: 'agree' | 'clear'; by: string; on: string }
-export type SecondLook = { why: string; step: string; pages: string[]; at: string; look?: Look }
+export type SecondLook = { why: string; step: string; pages: string[]; at: string; unshown?: true; look?: Look }
 export type SecondLooks = Record<string, SecondLook>
 export const SECOND_LOOK_FILE = '_photo-second-look.json'
 
@@ -52,6 +60,8 @@ export function looks(sl: SecondLooks) {
     agreed: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'agree',
     /** Held with no answer yet: it stays on every page. */
     waiting: (url: string) => has(sl, url) && !lookOf(sl[url]),
+    /** Taken off before any page showed it, and on the never-again list while it waits (above). */
+    unshown: (url: string) => has(sl, url) && sl[url]!.unshown === true && !lookOf(sl[url]),
     /** Neither waiting nor cleared: a step's verdict may act on it. */
     open: (url: string) => !has(sl, url) || lookOf(sl[url])?.said === 'agree',
   }
@@ -95,16 +105,51 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 const today = () => new Date().toISOString().slice(0, 10)
 
 /**
+ * The photos each page file held when the run began: the file at the commit the cycle started from (engine-cycle.sh pulls
+ * main and commits only at its end): every photo in it, a guide's figures too, but an album's that waited. A file the
+ * commit didn't have held none.
+ * Undefined where it can't be told (no repository, a file that can't be read): every photo there counts as shown.
+ */
+export function shownAtStart(root: string): (file: string) => Set<string> | undefined {
+  const git = (args: string[]) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 64 << 20, stdio: ['ignore', 'pipe', 'ignore'] })
+  let repo = true
+  try { git(['rev-parse', '--verify', '-q', 'HEAD^{commit}']) } catch { repo = false }
+  const seen = new Map<string, Set<string> | undefined>()
+  return file => {
+    if (!repo) return undefined
+    if (seen.has(file)) return seen.get(file)
+    const at = `HEAD:./${relative(root, file)}`
+    let out: Set<string> | undefined
+    try {
+      git(['cat-file', '-e', at])
+      try {
+        const urls = new Set<string>()
+        const walk = (x: unknown): void => {
+          if (Array.isArray(x)) return x.forEach(walk)
+          if (!object(x)) return
+          if (typeof x.url === 'string' && x.unchecked !== true) urls.add(x.url)
+          Object.values(x).forEach(walk)
+        }
+        walk(JSON.parse(git(['show', at])))
+        out = urls
+      } catch { out = undefined }
+    } catch { out = new Set() }
+    seen.set(file, out)
+    return out
+  }
+}
+
+/**
  * Puts each photo a step holds on the second look, once. An entry already there, with its look, is kept as it is; the
  * record is read again first, so what another step wrote meanwhile stays. Returns the photos newly put there.
  */
-export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[] }>, step: string, at = today()): Promise<string[]> {
+export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[]; unshown?: true }>, step: string, at = today()): Promise<string[]> {
   if (!held.size) return []
   const sl = await readSecondLook(root)
   const added: string[] = []
   for (const [url, h] of held) {
     if (has(sl, url)) continue
-    sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at }
+    sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.unshown ? { unshown: true as const } : {}) }
     added.push(url)
   }
   if (added.length) await writeSecondLook(root, sl)
@@ -134,4 +179,21 @@ export async function listAgreed(root: string): Promise<string[]> {
   await writePhotoState(rejectedFile, rejected)
   await writeSecondLook(root, sl)
   return agreed
+}
+
+/**
+ * The sweep's part for a photo taken off before any page showed it (`unshown`): a "clear" takes it off the never-again
+ * list, so the step that found it can bring it back. Returns them.
+ */
+export async function unlistCleared(root: string): Promise<string[]> {
+  const sl = await readSecondLook(root)
+  const l = looks(sl)
+  const cleared = Object.keys(sl).filter(u => sl[u]!.unshown === true && l.cleared(u))
+  if (!cleared.length) return []
+  const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
+  const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const out = cleared.filter(u => Object.hasOwn(rejected, u))
+  for (const u of out) delete rejected[u]
+  if (out.length) await writePhotoState(rejectedFile, rejected)
+  return out
 }

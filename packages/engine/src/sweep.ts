@@ -38,7 +38,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
+import { holdForSecondLook, listAgreed, looks, readSecondLook, unlistCleared } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -146,6 +146,8 @@ export type SweepReport = {
   secondLook: string[]
   /** Photos a second look agreed on, put on the never-again list in this pass (last-photo.ts). */
   agreed: string[]
+  /** Photos taken off before they were shown that the second look cleared, off the never-again list (last-photo.ts). */
+  unlisted: string[]
   /** A page's only photo that its source's caption calls unwell: left on the page, off every card, `kind/id: url (word; …)`. */
   unwell: string[]
   /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, picks not found on the page, or picks that lapsed with their person's yes. */
@@ -549,7 +551,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -913,6 +915,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // counts none of them as a photo its page keeps. Counted as kept, a photo a guide's check had listed while the page
   // still had another let the unwell rule take that other, and the page was left with none (the guard's read, 14 Nov).
   report.agreed.push(...await listAgreed(root))
+  // One taken off before it was shown that the look cleared may come back: off the never-again list (last-photo.ts).
+  report.unlisted.push(...await unlistCleared(root))
   const credit = await refusedByCredit(root, content)
   const already = (await neverAgain(root)).listed
   const captionOff = new Map([...off].map(([k, v]) => [k, new Map(v)]))
