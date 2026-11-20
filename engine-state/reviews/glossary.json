@@ -1627,5 +1627,64 @@
       "attempt": "rewrite",
       "kept": true
     }
+  ],
+  "vi/glossary/suc-khi": [
+    {
+      "at": "2026-11-20T08:55:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:55:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: definition \"Sục khí là đưa không khí vào bể bằng máy sủi, dây dẫn khí và đá sủi khí hoặc lọc mút, cho oxy hòa vào nước.\" should read, word for word: \"Sục khí là đưa không khí vào bể bằng máy sủi, dây dẫn khí và một đầu ra khí như đá sủi khí hoặc lọc mút.\" Fact 0's \"such as\" stays, and the purpose isn't part of fact 0.",
+        "Rule 12: \"Oxy trong không khí hòa vào nước ở mặt nevertheless\" — correction: \"Oxy trong không khí hòa vào nước ở mặt nước, và CO2 cũng thoát ra ở đó.\" is stated plainly, but only the first shop gives it (fact 1). It should go into that shop's list as \"trao đổi khí diễn ra ở mặt nước: CO2 thoát ra và oxy từ không khí hòa vào\".",
+        "Rules 10 and 12: \"Mặt nước càng gợn mạnh thì trao đổi khí càng tốt.\" turns the facts' 'best' into a sliding scale. It should read \"Mặt nước gợn mạnh cho trao đổi khí tốt nhất.\"",
+        "Rule 12: \"Thiếu oxy thì cá thở mang nhanh và nổi lên mặt nước đớp khí, gọi là piping.\" should read \"Dấu hiệu thiếu oxy gồm cá thở mang nhanh và đớp khí ở mặt nước.\" Facts 12 and 13 give signs, not a certainty, and \"piping\" is the farm page's word for dying fish.",
+        "Rule 12: the list opens \"Một tiệm ghi thêm:\". It should open \"Một tiệm ghi:\".",
+        "Rule 12: \"Một số thuốc và hóa chất trị bệnh là nguyên nhân hay gặp làm tụt oxy.\" should read \"Một số thuốc hoặc cách xử lý bằng hóa chất là nguyên nhân hay gặp làm tụt oxy.\" Fact 15 has no \"trị bệnh\".",
+        "Rule 12: \"Mặt nước phẳng lặng chỉ cho khoảng 5% lượng khí so với mặt nước gợn sóng cùng diện tích.\" should read \"Mặt nước phẳng lặng chỉ cho khoảng 5% mức sục khí của mặt nước gợn sóng cùng diện tích.\" Fact 3 talks about aeration, not an amount of air.",
+        "Rule 12: \"Bọt khí sục khí được là nhờ làm mặt nước cuộn lên khi nổi tới đó.\" should read \"Bọt khí nổi lên làm mặt nước gợn mạnh, và đó là cách chúng sục khí.\"",
+        "Rule 12: \"Máy nhỏ bán kèm bộ bể hay bán ngoài tiệm sục được ít khí.\" should read \"Máy sủi nhỏ bán kèm bộ bể hay bán ở tiệm sục được ít khí.\"",
+        "Rule 12: \"Tiệm này còn ghi rằng lúc cá thiếu oxy gấp\" comes right after a heading, and the keeper was the last page named. It should read \"Tiệm thứ nhất còn ghi rằng lúc cá thiếu oxy gấp\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:27:10Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Tiệm thứ nhất cũng ghi là để cây nổi phủ kín mặt nước sẽ cản trao đổi khí. Trong một lần thử của tiệm này, cây nổi phủ mặt một bể 55 gallon làm oxy thấp hơn hẳn.\" These are two claims in a row from the same shop, but each sentence has its own opening (\"Tiệm thứ nhất cũng ghi\", then \"Trong một lần thử của tiệm này\"). Put them under one opening, either as a list or as one sentence with se…",
+        "Rule 12: \"Mặt nước phẳng lặng chỉ cho khoảng 5% lượng khí so với mặt nước gợn sóng cùng diện tích\". The fact says about 5% of the aeration (the amount of air mixed into the water). \"lượng khí\" means 'amount of air', so the claim no longer names what its fact names. Say \"khoảng 5% mức sục khí\" or similar."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:27:10Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Cá thiếu oxy còn hay nằm đáy và kém ăn.\": the facts don't carry it (unsupported, unsupported, unsupported): adds 'often' (hay); fact only lists these as signs / adds 'often' hedge to listed signs / adds 'often' (hay); fact only lists signs",
+        "Rule 12: \"cây nổi phủ mặt một bể 200 lít\" changes the fact's \"55-gallon tank\" into a rounded figure in another unit. Every number must keep the unit its fact gives, and amounts are never rounded, so it should read \"bể 55 gallon\".",
+        "Rule 12: \"Cá thiếu oxy còn hay nằm đáy và kém ăn.\" adds the hedge \"hay\" (often). The shop's fact only lists resting on the bottom and low appetite as signs. A fact's hedges are never added.",
+        "Rule 4: \"Bể low-tech ít cá có thể bỏ sục khí, còn bể nuôi vừa phải thì cần.\" is followed by \"Với bể nuôi vừa hay nuôi dày, chỉ trông vào khí tự khuếch tán qua mặt nước là không đủ.\" Both say that moderately stocked tanks need aeration. It should be said once.",
+        "Rule 12: \"dây oxy\" in \"bằng máy sủi, dây oxy và đá sủi khí hoặc lọc mút\" (also in \"trên dây oxy\" and \"vào dây oxy và máy sủi\") names the airline tubing after oxygen. The tubing carries air, not oxygen, and no fact gives this name. A tool is named as its fact names it (airline tubing, for example \"dây dẫn khí\").",
+        "Rule 12: \"Thiếu oxy thì cá có thể ngạt, nhất là ở bể nuôi dày hoặc khi nước ấm.\" in the definition says what oxygen does for fish, which is in Oxy hòa tan's entry (\"Khi oxy tụt, cá ngạt\"). THIS TERM says that entry is linked for what oxygen does, not repeated here."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
