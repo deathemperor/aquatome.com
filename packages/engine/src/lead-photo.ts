@@ -66,7 +66,10 @@ export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640,
 export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0, kept: (p: Photo) => boolean = () => false, age: (p: Photo) => boolean | undefined = () => undefined, held: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
   // A non-commercial album photo leads a page only where it's the one way to show that fish: no own photo, and no album
   // photo that passes or that a shop's own mark leaves to lead. Any of those takes its place at the next run, with no
-  // model call (the chief of staff's rule, 17 Nov).
+  // model call (the chief of staff's rule, 17 Nov). Head and album differ on purpose (the chief of staff, 20 Nov): the
+  // head follows that line, and a Glaser photo with its mark is a way to show the fish, one the owner asked for, so it
+  // leads before a non-commercial one; the album follows looks: clean photos, then non-commercial, then banner photos
+  // (gallery.ts rankGallery).
   const open = (p: Photo) => !isNonCommercial(p.licence)
   const byBest = (a: GalleryPhoto, b: GalleryPhoto) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square')
   own=own.filter(photoFitsHead)

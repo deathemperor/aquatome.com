@@ -308,6 +308,21 @@ test("a non-commercial album photo leads only a page with nothing else to lead, 
   expect(leadChoice([nc], [p('nc2', 'CC BY-NC-SA')], () => true, {})).toBeUndefined()
 })
 
+test("a page holding both a Glaser photo kept with its mark and a non-commercial one: the Glaser photo leads, and in the album the non-commercial one comes first (head and album differ on purpose, the chief of staff, 20 Nov)", () => {
+  // The head follows the chief of staff's line of 17 Nov: a non-commercial photo shows only where it is the one way to show
+  // that fish, and a Glaser photo with its mark is a way, one the owner asked for. The album follows looks: clean photos,
+  // then non-commercial, then banner photos. No page on main held both on 20 Nov.
+  const glaser: GalleryPhoto = { url: 'https://media.aquatome.com/glaser/0000000000000001.webp', width: 850, height: 567, licence: 'used with permission', author: 'Aquarium Glaser', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.example/en/examplia/' }
+  const nc: GalleryPhoto = { url: 'https://media.aquatome.com/inaturalist/2.webp', width: 1600, height: 1200, licence: 'CC BY-NC', author: 'Sampletown', sourceUrl: INAT(2), best: true }
+  // The Glaser photo passes the head test but for its mark (`marked`); the non-commercial one passes outright.
+  const passes = (q: Photo) => q.url !== glaser.url, marked = (q: Photo) => q.url === glaser.url
+  expect(leadChoice([], [nc, glaser], passes, {}, marked)).toEqual({ lead: glaser })
+  // Led by the non-commercial photo, the page gives it up for the Glaser one, with no model call.
+  expect(leadChoice([nc], [glaser], passes, {}, marked)).toEqual({ lead: glaser })
+  // The album: the non-commercial photo before the banner photo.
+  expect(rankGallery([glaser, nc], undefined, undefined, undefined, undefined, u => u === glaser.url).map(x => x.url)).toEqual([nc.url, glaser.url])
+})
+
 const photo = (id: number, licence: string, o: Partial<Photo> = {}): Photo => ({ url: `https://media.aquatome.com/inaturalist/${id}.webp`, width: 1024, height: 768, licence, author: 'Sampletown', sourceUrl: INAT(id), caption: SCI, ...o })
 async function swept() {
   const r = await mkdtemp(join(tmpdir(), 'aq-nc-sweep-'))

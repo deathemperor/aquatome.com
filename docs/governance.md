@@ -665,7 +665,10 @@ The layers above still check the result.
     leads a page only where the page has no photo of its own, no album photo that passes as its head and none a shop's
     own mark lets lead (`lead-photo.ts`), and an open one that passes, or such a shop's photo, takes its place at the next
     run with no model call, after which it is in its album alone; a person's pick of one follows the same rule (the
-    sweep). The page's own card shows it as it shows any head, so lists and search do; it is never the day's card, a
+    sweep). Head and album differ on purpose (the chief of staff, 20 Nov). The head follows the line of 17 Nov: a
+    non-commercial photo shows only where it is the one way to show that fish, and a Glaser photo with its mark is a way,
+    one the owner asked for, so it leads before a non-commercial one. The album follows looks: clean photos, then
+    non-commercial, then banner photos. The page's own card shows it as it shows any head, so lists and search do; it is never the day's card, a
     featured card, a group tile, a Khám phá chip or the app's top cards (`curation.ts`: on the engine's avoid list, no
     card photo), never a fish-ID reference, and a page it leads offers the site's own picture to shares and search
     (`shareImage`). Its credit with the licence sits by it, as in the album. The site shows one on a page only as its one
