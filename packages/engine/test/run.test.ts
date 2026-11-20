@@ -412,10 +412,30 @@ test('a page the list reads early is read early once: after a failed request or 
   }
 })
 
+test("a page read for its lines and processed in one go names no stored photo past its other copies: one named by another line holds the rest", async () => {
+  // Found in Codex's read, 20 Nov 2026: the photo step named a stored copy by its own page alone, after the line read had
+  // held it for a copy named by another line.
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`, file = join(root, 'content/species/paracheirodon-axelrodi/entity.json'), album = join(root, 'content/gallery/paracheirodon-axelrodi.json')
+  const stored = JSON.parse(await readFile(file, 'utf8'))
+  for (const p of stored.photos) p.author = 'Seriously Fish'
+  await writeFile(file, JSON.stringify(stored, null, 2))
+  await mkdir(join(root, 'content/gallery'), { recursive: true })
+  await writeFile(album, JSON.stringify({ id: 'paracheirodon-axelrodi', photos: stored.photos.map((p: { author: string }) => ({ ...p, author: 'Bo Sample / Seriously Fish' })) }, null, 2))
+  await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff' } }))
+  const r = await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'], force: true, only: /paracheirodon-axelrodi/ })
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 1, processed: 1 })
+  const authors = (JSON.parse(await readFile(file, 'utf8')).photos as { author: string }[]).map(p => p.author)
+  expect(authors.length).toBeGreaterThan(0)
+  expect(authors.every(a => a === 'Seriously Fish')).toBe(true)
+  expect((JSON.parse(await readFile(album, 'utf8')).photos as { author: string }[]).every(p => p.author === 'Bo Sample / Seriously Fish')).toBe(true)
+})
+
 test("a ScotCat page on the list asks each picture page once, though the same read names our photos and processes the page; a picture page that fails keeps the page on the list for its own turn", async () => {
   // Found in Codex's read, 20 Nov 2026: the line read and the page's photos each read the picture pages, and a failed one
   // took the page off the list with its lines unread.
-  for (const failing of [false, true]) {
+  for (const failing of [false, 'thrown', 'answered'] as const) {
     const root = await fresh()
     const page = 'https://www.scotcat.com/examplidae/examplia_sampla.htm'
     const pics = [1, 2].map(n => `https://www.scotcat.com/examplidae/examplia_sampla${n}.htm`)
@@ -427,7 +447,9 @@ test("a ScotCat page on the list asks each picture page once, though the same re
     d.fetcher.get = async (u: string) => {
       asked.set(u, (asked.get(u) ?? 0) + 1)
       const n = pics.indexOf(u)
-      if (failing && n === 1) throw new Error('net::ERR_CONNECTION_RESET')
+      if (failing === 'thrown' && n === 1) throw new Error('net::ERR_CONNECTION_RESET')
+      // The browser's fetcher returns an error page rather than failing.
+      if (failing === 'answered' && n === 1) return { status: 404, html: '<html><body><img src="/examplidae/notfound.jpg" width="900" height="600"><p>&copy; Bo Sample</p></body></html>', finalUrl: u }
       if (n >= 0) return { status: 200, html: `<html><body><img src="/examplidae/big${n}.jpg" width="900" height="600"><p>&copy; Ann Example</p></body></html>`, finalUrl: u }
       return { status: 200, html: `<html><body><div class="top-padding-10"><h1>Examplia sampla</h1><p>A small catfish from Sampletown.</p><a href="examplia_sampla1.htm"><img src="t1.jpg"></a><a href="examplia_sampla2.htm"><img src="t2.jpg"></a></div></body></html>`, finalUrl: u }
     }

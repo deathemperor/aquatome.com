@@ -86,7 +86,7 @@ test('stores picked photos once, credited to the source', async () => {
   expect(uploads).toHaveLength(1)
 })
 
-test("a photo is stored with the line its page prints with it, and one stored before with the publisher alone takes it on the page's next read", async () => {
+test("a photo is stored with the line its page prints with it; one stored already keeps its credit at a read, for the sweep or the line-read list to name", async () => {
   // The chief of staff, 10 and 17 Nov 2026: a publisher's photo names its photographer, the line as printed.
   const deps = {
     bytes: async () => jpeg(),
@@ -95,8 +95,10 @@ test("a photo is stored with the line its page prints with it, and one stored be
   const credited = [{ src: 'https://www.seriouslyfish.com/images/a.jpg', alt: 'Adult male.', width: 800, height: 600, credit: 'Ann Example' }]
   const [stored] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [])
   expect(stored!.author).toBe('Ann Example / Seriously Fish')
+  // Only a step that reads every copy of a photo names a stored one (found in Codex's read, 20 Nov 2026: another copy may
+  // carry another line).
   const [again] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [{ ...stored!, author: 'Seriously Fish' }])
-  expect(again!.author).toBe('Ann Example / Seriously Fish')
+  expect(again!.author).toBe('Seriously Fish')
   // A line that reads as a sentence, or none, keeps the publisher alone; a named photo keeps its name.
   const [sentence] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, [{ ...credited[0]!, credit: 'these fish swim together.' }], deps, [])
   expect(sentence!.author).toBe('Seriously Fish')

@@ -109,16 +109,17 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
 /**
  * Photos kept on pages of their own (ScotCat): the species page shows thumbnails, each linking to a page with the
  * full image and "© <photographer>". The first `max` photo pages are read (each is a request to the source). `missed`,
- * when given, gets each photo page whose request failed.
+ * when given, gets each photo page whose request failed or that the source answered with an error.
  */
-export async function linkedPhotos(html: string, pageUrl: string, photoPage: RegExp, get: (url: string) => Promise<{ html: string }>, max = 4, missed?: string[]): Promise<PageImage[]> {
+export async function linkedPhotos(html: string, pageUrl: string, photoPage: RegExp, get: (url: string) => Promise<{ html: string; status?: number }>, max = 4, missed?: string[]): Promise<PageImage[]> {
   const pages = [...new Set(parse(html).querySelectorAll('a[href]').filter(a => a.querySelector('img')).flatMap(a => {
     try { return [new URL(a.getAttribute('href')!, pageUrl).href] } catch { return [] }
   }).filter(u => photoPage.test(u)))].slice(0, max)
   const out: PageImage[] = []
   for (const u of pages) {
     let page: string
-    try { page = (await get(u)).html } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); missed?.push(u); continue }
+    // A page the source answers with an error (the browser's fetcher returns it rather than failing) is a failed request too.
+    try { const r = await get(u); if ((r.status ?? 200) >= 400) throw new Error(`HTTP ${r.status}`); page = r.html } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); missed?.push(u); continue }
     const img = parse(page).querySelectorAll('img').filter(i => !/\.(gif|png)$|thumbnails\//i.test(i.getAttribute('src') ?? '')).sort((a, b) => Number(b.getAttribute('width') ?? 0) - Number(a.getAttribute('width') ?? 0))[0]
     if (!img?.getAttribute('src')) continue
     // The credit follows the image; the site's own "©2026 SCOTCAT.COM" footer is further down.
@@ -220,11 +221,9 @@ export async function storeSourcePhotos(
       const key = keyFor(img.src)
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
       const known = existing.find(p => p.url === deps.media.urlFor(key))
-      if (known) {
-        // A photo stored before its page's line was read takes the line now (the chief of staff, 17 Nov 2026).
-        const named = known.author === sourceName && line(img) ? { ...known, author: `${line(img)} / ${sourceName}` } : known
-        out.push(img.heading ? { ...named, heading: img.heading } : named); group.done = true; break
-      }
+      // A photo stored already keeps its credit here: only the sweep and the line-read list name a stored one, since they
+      // read every copy of it first (publisher-credits.ts; found in Codex's read, 20 Nov 2026).
+      if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); group.done = true; break }
       if (extraRequest) {
         if (extra >= EXTRA_DOWNLOADS) continue
         extra++
