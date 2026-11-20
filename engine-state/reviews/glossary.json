@@ -2591,5 +2591,90 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/an-tap": [
+    {
+      "at": "2026-11-20T11:06:50Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T11:06:50Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 4 and 12: \"Cá ăn tạp ăn được cả thức ăn của cá săn mồi lẫn của cá ăn tảo.\" is still in the shop's list under \"Sai lầm hay gặp\". THIS TERM says to cut it: it isn't a mistake, so under that heading it reads like one, and the next item, \"Cá ăn tạp ăn gần như mọi thứ, kể cả cơm, nên người nuôi dễ cho ăn sai.\", already says the same thing."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:29:18Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:29:18Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Ăn tạp là kiểu ăn của những loài cá cần cả thức ăn động vật lẫn thực vật.\" is the old sentence. THIS TERM gives this wording, word for word: \"Ăn tạp là kiểu ăn của những loài cá ăn cả thức ăn động vật lẫn thực vật.\" Only fact 4 says \"need\", and the meaning rests on two sites.",
+        "Rule 12: \"Cá cảnh chủ yếu là cá ăn tạp, như cá bảy màu và cá molly.\" should be replaced, word for word, with \"Phần lớn cá cảnh là cá ăn tạp, như cá bảy màu và cá molly.\"",
+        "Rules 4 and 12: \"Cá ăn tạp rất dễ dãi chuyện ăn uống.\" should be cut from the keeper's list. The shop's \"Cá ăn tạp ăn gần như mọi thứ …\" already says this.",
+        "Rule 12: \"Cá betta (cá xiêm), cá kiếm xanh và cá vàng cũng là cá ăn tạp.\" should be \"Cá betta, cá kiếm xanh và cá vàng cũng là cá ăn tạp.\" with \"(cá xiêm)\" cut. The keeper's fact says bettas, and a name in brackets under a page's credit must be that page's own word.",
+        "Rules 6 and 12: \"cá gặm tảo bám\" in \"Hầu như loài cá gặm tảo bám nào thật ra cũng ăn tạp, và chúng ăn nhiều đạm động vật. Trong nghề nuôi cá cảnh không có loài nào thật sự chỉ ăn thực vật.\": the writer made up this group name. THIS TERM gives the wording word for word: \"Đúng ra thì hầu như mọi loài cá grazer đều là cá ăn tạp, và chúng ăn nhiều đạm động vật. Trong thú chơi cá cảnh không có loài nà…",
+        "Rule 12: \"Rau cho cá ăn có thể là rau củ luộc, như dưa leo.\" should be replaced, word for word, with \"Cá ăn tạp có thể ăn rau củ luộc, như dưa leo.\" Facts 16 and 18 say this of omnivores, not of all fish.",
+        "Rule 12: \"Cho ăn nhiều loại, có cả thức ăn sống lẫn thức ăn bán sẵn, giúp cá đủ chất và không quen chỉ ăn một thứ.\" should end \"… và không phải ăn mãi một thứ.\", as THIS TERM gives it.",
+        "Rule 12: \"Cá tầng đáy cần thức ăn chìm nhanh, còn cá ăn trên mặt nước cần thức ăn nổi.\" should be \"Cá tầng đáy nên được cho ăn thức ăn chìm nhanh, còn cá ăn trên mặt nước nên được cho ăn thức ăn nổi.\" This keeps fact 23's \"should get\".",
+        "Rule 12: \"Trông cho cá tầng đáy như loricariid và Corydoras sống nhờ thức ăn thừa của cá khác là không được. Phải cho chúng ăn riêng.\" should be replaced, word for word, with \"Trông chờ cá tầng đáy như loricariid và Corydoras sống nhờ thức ăn thừa của cá khác là không được. Phải có thức ăn dành riêng cho chúng.\"",
+        "Rules 10 and 12: \"Lấy kiểu ăn của một loài áp cho loài trông giống nhưng không họ hàng là nguy hiểm.\" should have \"trông\" cut, giving \"… áp cho loài giống nhưng không họ hàng là nguy hiểm.\" Fact 30 says similar, not similar-looking."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T05:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Cá cảnh thường cần được cho ăn ít nhất mỗi ngày một lần.\" → \"Phần lớn cá cảnh nên được cho ăn ít nhất mỗi ngày một lần.\" (supported)",
+        "Rules 4 and 12: \"Cá ăn tạp rất dễ dãi chuyện ăn uống.\" (under the keeper's credit) and \"Cá ăn tạp ăn gần như mọi thứ, kể cả cơm, nên người nuôi dễ cho ăn sai.\" (under the shop's credit) make the same point twice. Two sites carry it (source 1 says 'very flexible', source 2 says 'eat almost anything'), so it should appear once, as a plain sentence, not under two separate credits.",
+        "Rule 12: \"Với cá ăn tạp, có thể cho ăn khoảng hai lần mỗi tuần.\" leaves out the limit the fact gives ('for omnivores such as guppies and mollies'). That makes the claim wider than the fact. Right after it, \"Cá vàng ... càng dễ bị ảnh hưởng nếu ăn cơm thường xuyên\" talks about goldfish, which are also omnivores. Say the fact's examples (cá bảy màu, cá molly) beside the claim.",
+        "Rule 12: \"Lấy kiểu ăn của một loài áp cho loài trông giống nhưng không họ hàng là nguy hiểm.\" narrows the fact. It says 'a similar but unrelated species'; 'trông giống' limits 'similar' to looks, which the fact doesn't say."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T05:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.89,
+      "notes": [
+        "\"Cá ăn tạp ăn được cả mồi của cá săn mồi lẫn thức ăn của cá ăn rêu.\": the facts don't carry it (uncredited, uncredited, uncredited): only aquasetup.com says this, and the sentence has no credit / only aquasetup.com says this; no credit given / only aquasetup.com says this, and the sentence gives no credit",
+        "\"Cá non cần ít nhất 40% đạm (tốt hơn là trên 50%) và ít nhất 10% chất béo.\": the facts don't carry it (unsupported, unsupported, unsupported): the source says juveniles 'benefit from' this, but 'cần' (need) makes it stronger / fact says juveniles 'benefit from' this; sentence says they 'need' it / 'benefit from' made stronger as 'need'",
+        "\"Corydoras và cá lau kiếng không sống được nhờ thức ăn thừa của cá khác.\": the facts don't carry it (unsupported, loose, loose, unsupported, unsupported, unsupported): the source says relying on leftovers is 'not acceptable', not that the fish can't survive on them / fact says relying on leftovers is 'not acceptable'; sentence says they 'cannot survive' on them / 'not acceptable to expect' reword…",
+        "Rule 12: \"Cá ăn tạp ăn được cả mồi của cá săn mồi lẫn thức ăn của cá ăn rêu.\" is written as plain fact, but only one site (source 2, a shop) gives it. It needs that shop's credit and belongs with the shop's other claims.",
+        "Rule 11: \"cá ăn rêu\" in \"…lẫn thức ăn của cá ăn rêu\" uses \"rêu\" (moss) for algae. The fact says algae eaters, so it should use \"tảo\".",
+        "Rule 11: \"cá gặm rêu bám\" in \"Hầu như loài cá gặm rêu bám nào thật ra cũng ăn tạp\" uses \"rêu\" for the periphyton (algae film) that grazers eat. Algae is \"tảo\".",
+        "Rule 4: Guppies and mollies are given as example omnivores three times: in the definition (\"như cá bảy màu và cá molly\"), in \"Cá bảy màu và cá molly đều thuộc nhóm này.\", and again in the rice item (\"Với cá ăn tạp như cá bảy màu và cá molly\"). This should be said once.",
+        "Rule 4: Varied feeding is said twice: \"Cho cá ăn đa dạng, kết hợp thức ăn khô với thức ăn đông lạnh hoặc thức ăn sống.\" and the vet item \"Cho ăn nhiều loại, có cả thức ăn sống lẫn thức ăn bán sẵn…\". It should be said in one place.",
+        "Rule 12: \"Cá non cần ít nhất 40% đạm (tốt hơn là trên 50%) và ít nhất 10% chất béo\" turns the fact's hedge \"juveniles benefit from\" into \"cần\" (need). The fact's hedge must stay as given.",
+        "Rule 6: \"cá lau kiếng\" in \"Corydoras và cá lau kiếng không sống được nhờ thức ăn thừa của cá khác.\" names a group that has no line in PAGES with a Vietnamese name the fact doesn't give. The fact's own word is \"loricariids\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
