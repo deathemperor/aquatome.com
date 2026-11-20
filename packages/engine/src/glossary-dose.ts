@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { toneKey } from '@aq/schema'
 import { sentences } from './glossary-facts'
 
 /**
@@ -53,6 +54,25 @@ export function houseForm(text: string, guides: DiseaseGuide[]): boolean {
   const pointer = /^Cách chữa (.+?): xem bài (.+)\.$/u.exec(text)
   if (!pointer || !titles.has(pointer[2]!)) return false
   return new RegExp(`(?<![\\p{L}\\p{N}])${escape(pointer[1]!.trim())}(?![\\p{L}\\p{N}])`, 'iu').test(pointer[2]!)
+}
+
+/**
+ * The pointer to the site's own entry (the Writing Lead, 20 Nov 2026, with the chief of staff's yes): a sentence that only
+ * sends the reader to another of the site's terms is no claim and needs no outside source, "<what>: xem mục <entry>.".
+ * Each entry it names (one, or a list joined by ", " and " và ") is a term's
+ * name as the site writes it, in either case or tone placing, and <what> is the name of an entry it points to, as Thức ăn
+ * sống's "Artemia: xem mục Artemia.". Anything more in <what> can say something of its own: a word list let "Cá chết vì
+ * thiếu oxy: …" through, and a topic shape ("Cách …", "Về …") let "Cách amoniac giết cá: …" through (the readers, 21 Nov
+ * 2026). So any other <what>, Cá bột's "Cách ấp artemia" too, is read by the fact check as any other sentence, as it was
+ * before, and so is a sentence with anything after the entry or an entry that is no term of the site's.
+ */
+export function pointerForm(text: string, entries: string[]): boolean {
+  const m = /^([^:]+?)\s*:\s*xem mục (.+)\.$/u.exec(text.normalize('NFC'))
+  if (!m) return false
+  const names = new Set(entries.map(toneKey))
+  const named = m[2]!.split(/, | và /u).map(x => x.trim())
+  if (!named.length || !named.every(x => names.has(toneKey(x)))) return false
+  return named.some(x => toneKey(x) === toneKey(m[1]!.trim()))
 }
 
 /**

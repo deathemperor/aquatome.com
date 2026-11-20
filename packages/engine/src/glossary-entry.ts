@@ -10,7 +10,7 @@ import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { guideNotes, houseForm, openDiseaseGuides } from './glossary-dose'
+import { guideNotes, houseForm, openDiseaseGuides, pointerForm } from './glossary-dose'
 import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, siteOf, type TopicFacts, viFacts } from './topics'
@@ -374,9 +374,11 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)
-  // The house form for a medicine's dose is the site's own sentence, not the facts' claim: the fact check passes it whole.
+  // The house form for a medicine's dose, and the pointer to another of the site's terms, are the site's own sentences, not
+  // the facts' claims: the fact check passes them whole.
   const guides = await openDiseaseGuides(root)
-  const pass = (text: string) => houseForm(text, guides)
+  const entries = others.map(x => x.name)
+  const pass = (text: string) => houseForm(text, guides) || pointerForm(text, entries)
   const terms = others.map(x => `${x.id}: ${x.name}: ${x.definition}`).join('\n')
   const kinds = [
     asks.local?.length ? `--- LOẠI BÁN Ở VIỆT NAM ---\n${asks.local.join('\n')}` : '',
