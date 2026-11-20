@@ -15,34 +15,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/730608692.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/730608692-480.webp",
-      "width": 577,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Andrew Parker",
-      "sourceUrl": "https://www.inaturalist.org/photos/730608692",
-      "caption": "Nhóm cá nâu bạc sọc đứng bơi gần mặt nước",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/641733187.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/641733187-480.webp",
-      "width": 1024,
-      "height": 644,
-      "licence": "CC BY",
-      "author": "Thomas Mesaglio",
-      "sourceUrl": "https://www.inaturalist.org/photos/641733187",
-      "caption": "Đàn cá nâu bạc nhỏ trong vùng nước nâu ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/730608979.webp",
       "thumb": "https://media.aquatome.com/inaturalist/730608979-480.webp",
       "width": 1200,
@@ -53,6 +25,19 @@
       "caption": "Đàn cá nâu bạc có sọc đang bơi gần mặt nước",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/730608692.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/730608692-480.webp",
+      "width": 577,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Andrew Parker",
+      "sourceUrl": "https://www.inaturalist.org/photos/730608692",
+      "caption": "Nhóm cá nâu bạc sọc đứng bơi gần mặt nước",
+      "best": true,
+      "kind": "group",
+      "setup": false
     }
   ],
   "seen": 34,

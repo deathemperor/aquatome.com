@@ -2,20 +2,6 @@
   "id": "neopetrolisthes-maculatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/43203118.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/43203118-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Dan Schofield",
-      "sourceUrl": "https://www.inaturalist.org/photos/43203118",
-      "caption": "Cua sứ đốm càng trắng chấm nâu cạnh hải quỳ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/243652515.webp",
       "thumb": "https://media.aquatome.com/inaturalist/243652515-480.webp",
       "width": 1024,
@@ -26,8 +12,7 @@
       "caption": "Cua sứ trắng đốm đỏ giữa hải quỳ, nhìn rõ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/243652504.webp",
@@ -40,8 +25,7 @@
       "caption": "Cua sứ trắng đốm đỏ chính diện trong hải quỳ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/244231814.webp",
@@ -54,8 +38,7 @@
       "caption": "Cua sứ đốm đỏ nhìn từ trên, giữa xúc tu hải quỳ",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/279286972.webp",
@@ -68,8 +51,7 @@
       "caption": "Cua sứ đốm đỏ trắng trên hải quỳ xanh lục",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/287042589.webp",
@@ -81,6 +63,126 @@
       "sourceUrl": "https://www.inaturalist.org/photos/287042589",
       "caption": "Cua sứ đốm đỏ giơ càng trên hải quỳ",
       "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/43490204.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/43490204-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Dan Schofield",
+      "sourceUrl": "https://www.inaturalist.org/photos/43490204",
+      "caption": "Cua sứ đốm đỏ trên hải quỳ ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/44091477.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/44091477-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Dan Schofield",
+      "sourceUrl": "https://www.inaturalist.org/photos/44091477",
+      "caption": "Cua sứ đốm đỏ nâu bám trên hải quỳ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/243652496.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/243652496-480.webp",
+      "width": 1024,
+      "height": 791,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/243652496",
+      "caption": "Cua sứ trắng đốm đỏ giương càng trên hải quỳ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/244231835.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/244231835-480.webp",
+      "width": 1024,
+      "height": 785,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/244231835",
+      "caption": "Cua sứ đốm đỏ trên hải quỳ trong tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/244231798.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/244231798-480.webp",
+      "width": 1024,
+      "height": 938,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/244231798",
+      "caption": "Cua sứ đốm đỏ bám trên hải quỳ xanh",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/339660374.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/339660374-480.webp",
+      "width": 991,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/339660374",
+      "caption": "Cua sứ đốm nâu đỏ trên hải quỳ ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/339660379.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/339660379-480.webp",
+      "width": 937,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/339660379",
+      "caption": "Cua sứ đốm giơ càng lớn trên hải quỳ nâu",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/340437401.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/340437401-480.webp",
+      "width": 1024,
+      "height": 1021,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/340437401",
+      "caption": "Cua sứ đốm giữa các xúc tu hải quỳ xanh",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/340437391.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/340437391-480.webp",
+      "width": 1024,
+      "height": 1015,
+      "licence": "CC BY",
+      "author": "portioid",
+      "sourceUrl": "https://www.inaturalist.org/photos/340437391",
+      "caption": "Cua sứ đốm trên hải quỳ, nhìn từ phía trên",
+      "best": false,
       "kind": "habitat",
       "setup": false,
       "unchecked": true
@@ -96,8 +198,7 @@
       "caption": "Cua sứ đốm đỏ hồng giữa xúc tu hải quỳ",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/15651020.webp",
@@ -110,36 +211,7 @@
       "caption": "Cua sứ đốm trên hải quỳ nền hạt tròn",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/43490204.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/43490204-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Dan Schofield",
-      "sourceUrl": "https://www.inaturalist.org/photos/43490204",
-      "caption": "Cua sứ đốm đỏ trên hải quỳ ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/44091477.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/44091477-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Dan Schofield",
-      "sourceUrl": "https://www.inaturalist.org/photos/44091477",
-      "caption": "Cua sứ đốm đỏ nâu bám trên hải quỳ",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/60843257.webp",
@@ -152,8 +224,20 @@
       "caption": "Cua sứ đốm đỏ chấm trắng trên hải quỳ",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/43203118.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/43203118-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Dan Schofield",
+      "sourceUrl": "https://www.inaturalist.org/photos/43203118",
+      "caption": "Cua sứ đốm càng trắng chấm nâu cạnh hải quỳ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/64240950.webp",
@@ -166,81 +250,10 @@
       "caption": "Cua sứ đốm đỏ trên hải quỳ trong tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/178589996.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/178589996-480.webp",
-      "width": 640,
-      "height": 960,
-      "licence": "CC BY",
-      "author": "Pauline Walsh Jacobson",
-      "sourceUrl": "https://www.inaturalist.org/photos/178589996",
-      "caption": "Cua sứ đốm đỏ trên hải quỳ xanh lá",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/243652496.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/243652496-480.webp",
-      "width": 1024,
-      "height": 791,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/243652496",
-      "caption": "Cua sứ trắng đốm đỏ giương càng trên hải quỳ",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/244231835.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/244231835-480.webp",
-      "width": 1024,
-      "height": 785,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/244231835",
-      "caption": "Cua sứ đốm đỏ trên hải quỳ trong tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/244231798.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/244231798-480.webp",
-      "width": 1024,
-      "height": 938,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/244231798",
-      "caption": "Cua sứ đốm đỏ bám trên hải quỳ xanh",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/279800576.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/279800576-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY",
-      "author": "Pauline Walsh Jacobson",
-      "sourceUrl": "https://www.inaturalist.org/photos/279800576",
-      "caption": "Cua sứ màu đỏ cam trên hải quỳ",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
-  "seen": 60,
+  "seen": 80,
   "updatedAt": "2026-11-20",
   "builtAt": "2026-11-20"
 }

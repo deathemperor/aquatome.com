@@ -9,7 +9,7 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1067 | 763 (vi 763) | 763 |
-| translation | 2162 | 318 (vi 318) | 318 |
+| translation | 2165 | 318 (vi 318) | 318 |
 | vi-rewrite | 403 | 37 (vi 37) | 37 |
 | reader-rewrite | 46 | 0 | 0 |
 | title | 25 | 0 | 0 |
@@ -19,7 +19,7 @@ under `<lang>/<path>`.
 | product-reviews | 20 | 0 | 0 |
 | summary | 2612 | 144 (vi 144) | 144 |
 | localize | 2758 | 892 (id 385, ms 70, th 437) | 892 |
-| glossary | 19 | 0 | 0 |
+| glossary | 21 | 0 | 0 |
 | places | 7422 | 4505 (id 1541, ms 1537, th 1328, vi 99) | 1329 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
@@ -126,7 +126,7 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-318 of 2162 pages under the bar.
+318 of 2165 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -572,7 +572,7 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 19 pages under the bar.
+0 of 21 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 

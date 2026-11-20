@@ -2,19 +2,6 @@
   "id": "pimelodus-pictus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/328402210.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/328402210-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Matthew Inabinett",
-      "sourceUrl": "https://www.inaturalist.org/photos/328402210",
-      "caption": "Cá pictus bơi gần đáy sỏi trong bể cá",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/cd0cb436272cd3f4.webp",
       "thumb": "https://media.aquatome.com/commons/cd0cb436272cd3f4-480.webp",
       "width": 1200,
@@ -35,6 +22,18 @@
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pimelodus_pictus_lateral.jpg",
       "caption": "Cá pictus nhìn nghiêng với râu dài trong bể nền sỏi",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/328402210.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/328402210-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/328402210",
+      "caption": "Cá pictus bơi gần đáy sỏi trong bể cá",
       "best": true,
       "kind": "other"
     }

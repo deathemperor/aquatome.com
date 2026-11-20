@@ -132,26 +132,26 @@ A Loricariidae fish with an L or LDA number on record whose name in a language g
 
 - none
 
-## Words hobbyists rarely write (2962)
+## Words hobbyists rarely write (2960)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
-- vi · "dù vậy" → "nhưng", "tuy nhiên": 1669 pages, 3918 times
+- vi · "dù vậy" → "nhưng", "tuy nhiên": 1669 pages, 3917 times
 - vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1642 pages, 3696 times
-- vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1591 pages, 3970 times
+- vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1590 pages, 3968 times
 - vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1097 pages, 2137 times
 - vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 999 pages, 1591 times
-- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 941 pages, 1431 times
+- vi · "thức ăn sống" → "thức ăn tươi sống", "đồ tươi": 939 pages, 1428 times
 - vi · "bể cộng đồng" → "nuôi chung", "thả chung với cá hiền": 844 pages, 1297 times
 - vi · "gần như không" → "hầu như không", "ít khi", hoặc nói thẳng: 600 pages, 833 times
-- vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 564 pages, 750 times
+- vi · "bạn cùng bể" → "cá nuôi chung", "nuôi chung với…": 563 pages, 749 times
 - vi · "lý tưởng" → "hợp nhất", "tốt nhất", hoặc nói thẳng con số ("nên giữ 24–26 °C"): 556 pages, 762 times
-- vi · "không xương sống" → gọi tên con: "tép, ốc": 540 pages, 624 times
+- vi · "không xương sống" → gọi tên con: "tép, ốc": 539 pages, 623 times
 - vi · "giới chơi" → "người chơi", hoặc bỏ: 536 pages, 783 times
-- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 507 pages, 618 times
-- vi · "lý do là" → "vì", "là do": 487 pages, 535 times
-- vi · "nhìn chung" → "thường", hoặc bỏ: 426 pages, 576 times
-- vi · "hung hăng" → "dữ", "hung dữ": 385 pages, 613 times
+- vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 506 pages, 617 times
+- vi · "lý do là" → "vì", "là do": 486 pages, 534 times
+- vi · "nhìn chung" → "thường", hoặc bỏ: 425 pages, 575 times
+- vi · "hung hăng" → "dữ", "hung dữ": 385 pages, 612 times
 - vi · "dân chơi" → thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai: 373 pages, 489 times
 - vi · "bơi tự do" → "tự bơi được", "bơi được": 337 pages, 397 times
 - vi · "khẩu phần" → "thức ăn", "cho ăn…": 329 pages, 408 times

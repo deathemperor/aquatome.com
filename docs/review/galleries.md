@@ -304,7 +304,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-isbrueckeri | covered | 0 | 30 |
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
-| species/lepthoplosternum-pectorale | covered | 4 | 30 |
+| species/lepthoplosternum-pectorale | covered | 3 | 30 |
 | species/loricaria-simillima | covered | 0 | 30 |
 | species/macropodus-spechti | covered | 0 | 30 |
 | species/mastiglanis-asopos | covered | 0 | 30 |
