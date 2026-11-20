@@ -9,18 +9,18 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1067 | 763 (vi 763) | 763 |
-| translation | 2165 | 318 (vi 318) | 318 |
+| translation | 2202 | 323 (vi 323) | 323 |
 | vi-rewrite | 409 | 38 (vi 38) | 38 |
 | reader-rewrite | 46 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 128 | 6 (id 1, ms 1, th 4) | 6 |
-| product | 26 | 1 (vi 1) | 1 |
-| product-reviews | 20 | 0 | 0 |
+| product | 27 | 2 (vi 2) | 2 |
+| product-reviews | 21 | 0 | 0 |
 | summary | 2612 | 144 (vi 144) | 144 |
-| localize | 2789 | 878 (id 382, ms 67, th 429) | 878 |
-| glossary | 27 | 0 | 0 |
-| places | 7476 | 4547 (id 1555, ms 1551, th 1342, vi 99) | 1347 |
+| localize | 2819 | 877 (id 379, ms 67, th 431) | 877 |
+| glossary | 35 | 0 | 0 |
+| places | 7492 | 4555 (id 1559, ms 1555, th 1342, vi 99) | 1350 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 22 | 0 | 0 |
@@ -126,18 +126,18 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-318 of 2165 pages under the bar.
+323 of 2202 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 304 | 890 |
-| Says what the source doesn't (invented, added) | 264 | 509 |
-| Wording: unnatural, literal, stiff or chatty | 237 | 441 |
-| Meaning changed or wrong | 194 | 297 |
-| Hobby terms and names | 155 | 205 |
-| Leaves out what the source says | 110 | 149 |
-| Text left in another language | 109 | 135 |
-| States as certain what the source hedges, or what garbled captions only hint at | 90 | 105 |
+| Other | 308 | 903 |
+| Says what the source doesn't (invented, added) | 269 | 521 |
+| Wording: unnatural, literal, stiff or chatty | 240 | 445 |
+| Meaning changed or wrong | 196 | 299 |
+| Hobby terms and names | 156 | 206 |
+| Leaves out what the source says | 111 | 150 |
+| Text left in another language | 110 | 136 |
+| States as certain what the source hedges, or what garbled captions only hint at | 92 | 107 |
 | A number, unit, dose or price | 77 | 100 |
 | Repeats itself (intro, summary, steps and FAQ) | 59 | 70 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
@@ -386,34 +386,47 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-1 of 26 pages under the bar.
+2 of 27 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1 | 6 |
-| Meaning changed or wrong | 1 | 2 |
+| Other | 2 | 10 |
+| Meaning changed or wrong | 2 | 4 |
+| Says what the source doesn't (invented, added) | 2 | 2 |
+| Leaves out what the source says | 1 | 2 |
 | A number, unit, dose or price | 1 | 1 |
-| Says what the source doesn't (invented, added) | 1 | 1 |
+| Repeats itself (intro, summary, steps and FAQ) | 1 | 1 |
 
 ### Other
 
 - "Cần mạnh hơn nữa thì có WRGB2 Slim" is placed after A2 Max, and that is supported. — vi/products/chihiros-a2-series, 0.62
+- "Bao đã mở thì buộc kín miệng lại" - the facts say reseal, which is close, but "buộc" (tie) is a small embellishment. — vi/products/tropica-aquarium-soil, 0.72
 
 ### Meaning changed or wrong
 
 - "Bảng phiên bản cho thấy cỡ 35 cm và cỡ 40 cm có cùng công suất và độ sáng" is wrong: 35 cm is 15 W, 1700 lm and 40 cm is also 15 W, 1700 lm. They match, but the 35 and 40 cm models also differ in LED count? No, both have 40 LEDs. This is … — vi/products/chihiros-a2-series, 0.62
+- "nghe nói giữ pH lâu hơn so với số tiền bỏ ra" - supported. The page omits that the facts say Dennerle is "good for shrimp tanks", but this is not an error. — vi/products/tropica-aquarium-soil, 0.72
+
+### Says what the source doesn't (invented, added)
+
+- "Muốn treo đèn cao hơn thì phải mua chân nâng" and "treo cao hơn mặt bể" go beyond the facts. The facts say riser legs are sold separately, but not that they are for hanging the light higher. — vi/products/chihiros-a2-series, 0.62
+- "Hàng chiết lẻ: ... hỏi lại shop xem được bao nhiêu lít" - this is an invented recommendation. It is mild and not in the facts. — vi/products/tropica-aquarium-soil, 0.72
+
+### Leaves out what the source says
+
+- The intro says it is a complete nutrient substrate and "hợp với bể Hà Lan". It states the comparison's claim accurately, but it never notes the shop claim that the soil lowers pH, so it ignores that spec. This is a minor omission and not a… — vi/products/tropica-aquarium-soil, 0.72
 
 ### A number, unit, dose or price
 
 - "Kẹp chân acrylic trong suốt lên viền bể" is given as an install step for every unit. The facts only say clear acrylic legs clamp on the rim, which is acceptable. — vi/products/chihiros-a2-series, 0.62
 
-### Says what the source doesn't (invented, added)
+### Repeats itself (intro, summary, steps and FAQ)
 
-- "Muốn treo đèn cao hơn thì phải mua chân nâng" and "treo cao hơn mặt bể" go beyond the facts. The facts say riser legs are sold separately, but not that they are for hanging the light higher. — vi/products/chihiros-a2-series, 0.62
+- "Trồng cây tiền cảnh nhỏ và cây trải thảm trên loại này dễ hơn" (Powder bullet) - supported by the alternatives entry, but the Powder is described as finer grain "dành cho cây tiền cảnh", and the page repeats the claim. — vi/products/tropica-aquarium-soil, 0.72
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 20 pages under the bar.
+0 of 21 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
@@ -482,20 +495,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-878 of 2789 pages under the bar.
+877 of 2819 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 798 | 2188 |
-| Wording: unnatural, literal, stiff or chatty | 729 | 1488 |
-| Says what the source doesn't (invented, added) | 501 | 711 |
-| A number, unit, dose or price | 477 | 607 |
-| Meaning changed or wrong | 469 | 712 |
-| Hobby terms and names | 433 | 570 |
-| Text left in another language | 303 | 386 |
-| Leaves out what the source says | 244 | 287 |
-| Repeats itself (intro, summary, steps and FAQ) | 230 | 255 |
-| States as certain what the source hedges, or what garbled captions only hint at | 191 | 215 |
+| Other | 795 | 2184 |
+| Wording: unnatural, literal, stiff or chatty | 726 | 1473 |
+| Says what the source doesn't (invented, added) | 501 | 710 |
+| A number, unit, dose or price | 476 | 606 |
+| Meaning changed or wrong | 474 | 720 |
+| Hobby terms and names | 430 | 565 |
+| Text left in another language | 299 | 377 |
+| Leaves out what the source says | 243 | 286 |
+| Repeats itself (intro, summary, steps and FAQ) | 230 | 253 |
+| States as certain what the source hedges, or what garbled captions only hint at | 184 | 208 |
 | Copied from the transcript or source | 21 | 21 |
 | Off the title's topic | 2 | 2 |
 
@@ -572,20 +585,20 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 27 pages under the bar.
+0 of 35 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4547 of 7476 pages under the bar.
+4555 of 7492 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1210 | 1304 |
+| Other | 1212 | 1306 |
 | Meaning changed or wrong | 72 | 72 |
 | Leaves out what the source says | 62 | 62 |
 | Wording: unnatural, literal, stiff or chatty | 26 | 26 |
+| Hobby terms and names | 10 | 10 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
-| Hobby terms and names | 9 | 9 |
 | Text left in another language | 8 | 8 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |
 
@@ -613,17 +626,17 @@ under `<lang>/<path>`.
 - "Perbukitan Kardamom" for Cardamom Hills in India: the usual Indonesian form is 'Bukit Kardamom' or 'Perbukitan Cardamom'. The spelling is doubtful. — id/places/cardamom-hills, 0.30
 - 'กาเวรี' for 'Chauvery': the standard Thai form is 'กาเวรี' (Kaveri), but 'Chauvery' is an odd spelling, so I'm uncertain it matches. — th/places/chauvery, 0.30
 
-### States as certain what the source hedges, or what garbled captions only hint at
-
-- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/barapani-lake, 0.30
-- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/kabini-river, 0.30
-- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/likoma-island, 0.30
-
 ### Hobby terms and names
 
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/rio-orinoco, 0.30
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/river-congo, 0.30
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/sadong-river, 0.30
+
+### States as certain what the source hedges, or what garbled captions only hint at
+
+- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/barapani-lake, 0.30
+- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/kabini-river, 0.30
+- The task asks for Thai place names, and the Thai names themselves are mostly plausible. But every source name is Vietnamese (e.g. 'hồ Barapani', 'sông Kabini', 'đảo Likoma'), and the labels are also Vietnamese. The mapping is therefore unc… — th/places/likoma-island, 0.30
 
 ### Text left in another language
 

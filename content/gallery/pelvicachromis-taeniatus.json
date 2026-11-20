@@ -12,8 +12,7 @@
       "caption": "Cá kribensis sọc đực bên đá đen",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/407767142.webp",
@@ -26,8 +25,7 @@
       "caption": "Cá kribensis sọc cái bụng vàng vây đỏ",
       "best": true,
       "kind": "female",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/407767184.webp",
@@ -40,8 +38,7 @@
       "caption": "Cá kribensis sọc cái vây đuôi hồng giữa rễ cây",
       "best": true,
       "kind": "female",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/357602849.webp",
@@ -54,8 +51,7 @@
       "caption": "Cá kribensis sọc đực bơi gần cây thủy sinh",
       "best": false,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/358103777.webp",
@@ -68,8 +64,7 @@
       "caption": "Cá kribensis sọc bụng vàng trên nền cát",
       "best": false,
       "kind": "female",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/407764356.webp",
@@ -82,64 +77,7 @@
       "caption": "Cá kribensis sọc trên đá trong bể",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/407756612.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/407756612-480.webp",
-      "width": 1024,
-      "height": 690,
-      "licence": "CC BY-NC-SA",
-      "author": "jeanlouisamiet",
-      "sourceUrl": "https://www.inaturalist.org/photos/407756612",
-      "caption": "Cá kribensis sọc đực bên đá trong bể",
-      "best": false,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/407756482.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/407756482-480.webp",
-      "width": 1024,
-      "height": 690,
-      "licence": "CC BY-NC-SA",
-      "author": "jeanlouisamiet",
-      "sourceUrl": "https://www.inaturalist.org/photos/407756482",
-      "caption": "Cá kribensis sọc bụng vàng giữa cây thủy sinh",
-      "best": false,
-      "kind": "female",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/407756647.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/407756647-480.webp",
-      "width": 1024,
-      "height": 690,
-      "licence": "CC BY-NC-SA",
-      "author": "jeanlouisamiet",
-      "sourceUrl": "https://www.inaturalist.org/photos/407756647",
-      "caption": "Cá kribensis sọc đực với sọc đen dọc thân",
-      "best": false,
-      "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/407767182.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/407767182-480.webp",
-      "width": 1024,
-      "height": 690,
-      "licence": "CC BY-NC-SA",
-      "author": "jeanlouisamiet",
-      "sourceUrl": "https://www.inaturalist.org/photos/407767182",
-      "caption": "Cá kribensis sọc cái bụng vàng trong bể có đá",
-      "best": false,
-      "kind": "female",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/407762798.webp",
@@ -152,8 +90,59 @@
       "caption": "Cá kribensis sọc bơi bên đá trong bể",
       "best": false,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/407756482.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/407756482-480.webp",
+      "width": 1024,
+      "height": 690,
+      "licence": "CC BY-NC-SA",
+      "author": "jeanlouisamiet",
+      "sourceUrl": "https://www.inaturalist.org/photos/407756482",
+      "caption": "Cá kribensis sọc bụng vàng giữa cây thủy sinh",
+      "best": false,
+      "kind": "female",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/407767182.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/407767182-480.webp",
+      "width": 1024,
+      "height": 690,
+      "licence": "CC BY-NC-SA",
+      "author": "jeanlouisamiet",
+      "sourceUrl": "https://www.inaturalist.org/photos/407767182",
+      "caption": "Cá kribensis sọc cái bụng vàng trong bể có đá",
+      "best": false,
+      "kind": "female",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/407756612.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/407756612-480.webp",
+      "width": 1024,
+      "height": 690,
+      "licence": "CC BY-NC-SA",
+      "author": "jeanlouisamiet",
+      "sourceUrl": "https://www.inaturalist.org/photos/407756612",
+      "caption": "Cá kribensis sọc đực bên đá trong bể",
+      "best": false,
+      "kind": "male",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/407756647.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/407756647-480.webp",
+      "width": 1024,
+      "height": 690,
+      "licence": "CC BY-NC-SA",
+      "author": "jeanlouisamiet",
+      "sourceUrl": "https://www.inaturalist.org/photos/407756647",
+      "caption": "Cá kribensis sọc đực với sọc đen dọc thân",
+      "best": false,
+      "kind": "male",
+      "setup": false
     }
   ],
   "seen": 17,

@@ -38,6 +38,34 @@
       "kind": "pair"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/286806296.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/286806296-480.webp",
+      "width": 1009,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Paulmathi Vinod",
+      "sourceUrl": "https://www.inaturalist.org/photos/286806296",
+      "caption": "Hai cá sọc panchax bơi gần mặt nước trong bể thủy sinh",
+      "best": true,
+      "kind": "group",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/255260037.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/255260037-480.webp",
+      "width": 1024,
+      "height": 708,
+      "licence": "CC BY",
+      "author": "Tejas M",
+      "sourceUrl": "https://www.inaturalist.org/photos/255260037",
+      "caption": "Cá sọc panchax ở môi trường tự nhiên, nhìn nghiêng",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/e795c182747cdd41.webp",
       "thumb": "https://media.aquatome.com/commons/e795c182747cdd41-480.webp",
       "width": 1200,
@@ -48,6 +76,20 @@
       "caption": "Cá sọc panchax đuôi vàng bơi dưới đèn trong bể thủy sinh",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/255260094.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/255260094-480.webp",
+      "width": 1024,
+      "height": 708,
+      "licence": "CC BY",
+      "author": "Tejas M",
+      "sourceUrl": "https://www.inaturalist.org/photos/255260094",
+      "caption": "Cá sọc panchax bơi gần mặt nước ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/ab986051ba6b556d.webp",
@@ -74,6 +116,20 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/497262397.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/497262397-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Alen Alex Pathisseril",
+      "sourceUrl": "https://www.inaturalist.org/photos/497262397",
+      "caption": "Cá sọc panchax bơi trên nền đá dưới nước",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/53178962.webp",
       "thumb": "https://media.aquatome.com/inaturalist/53178962-480.webp",
       "width": 1024,
@@ -84,6 +140,20 @@
       "caption": "Cá sọc panchax nhìn nghiêng, thân có sọc ngang rõ",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/672673292.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/672673292-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Alen Alex Pathisseril",
+      "sourceUrl": "https://www.inaturalist.org/photos/672673292",
+      "caption": "Cá sọc panchax có sọc dọc thân trong nước có rêu",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/53178955.webp",
@@ -314,7 +384,7 @@
       "kind": "other"
     }
   ],
-  "seen": 86,
-  "updatedAt": "2026-11-06",
-  "builtAt": "2026-11-06"
+  "seen": 106,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

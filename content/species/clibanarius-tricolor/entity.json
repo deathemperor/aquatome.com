@@ -140,7 +140,12 @@
       "author": "RevolverOcelot",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hermit_crab_cropped.jpg",
       "caption": "A blue-legged hermit crab cleaning shells in an aquarium",
-      "thumb": "https://media.aquatome.com/commons/3f729dd61be9307d-480.webp"
+      "thumb": "https://media.aquatome.com/commons/3f729dd61be9307d-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/3f729dd61be9307d-large.webp",
+        "width": 1635,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/9cad563cee9471b5.webp",
