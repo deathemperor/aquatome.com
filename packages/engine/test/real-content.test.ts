@@ -1034,6 +1034,20 @@ test('the fire-bellied toad guide is held by hand in every language it has', () 
   for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
 })
 
+// Corydoras geoffroy: a run's read held its Vietnamese for its source on 19 Nov; a push dropped that hold, and the gate's
+// own mark put back on 20 Nov 08:09 went at 08:27, when the next gate read the page again and let it out. The chief of
+// staff, 20 Nov: held by hand, in every language it has, until a person lifts it; no read lets it out.
+test('Corydoras geoffroy is held by hand in every language it has', () => {
+  const id = 'corydoras-geoffroy'
+  const byHand = JSON.parse(readFileSync(fileURLToPath(new URL('../../../engine-state/held-by-hand.json', import.meta.url)), 'utf8')) as Record<string, { checks: string[]; at: string }>
+  const hold = { checks: ['source'], at: '2026-11-20' }
+  expect(byHand[`species/${id}`]).toMatchObject(hold)
+  const dir = fileURLToPath(new URL(`../../../content/species/${id}`, import.meta.url))
+  const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
+  expect(langs).toContain('vi.json')
+  for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
 // The chief of staff, 17 Nov 2026: three pages a foreign seller's products or medicines make up go off for good. The
 // shopping list goes to the guides list, the iron fertiliser to the guide on choosing a fertiliser, and the quarantine video
 // built on three medicines sold abroad to our general quarantine guide. Each target is a page and stays.
