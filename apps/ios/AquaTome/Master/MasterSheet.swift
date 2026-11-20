@@ -143,6 +143,8 @@ private struct StepChoice: View {
   @Binding var draft: MasterButton
   let target: DeviceTarget
   @State private var asking = false
+  /// A colour's dot grows with its name (Design, 19 Nov: at the largest text it stayed small beside the large names).
+  @ScaledMetric(relativeTo: .body) private var dot: CGFloat = 22
 
   var body: some View {
     if let i = draft.steps.firstIndex(where: { $0.target == target }) {
@@ -197,7 +199,7 @@ private struct StepChoice: View {
   private func row(_ title: String, swatch: Color? = nil, chosen: Bool, _ pick: @escaping () -> Void) -> some View {
     Button(action: pick) {
       HStack(spacing: 12) {
-        if let swatch { Circle().fill(swatch).frame(width: 22, height: 22).overlay { Circle().strokeBorder(Color.primary.opacity(0.3)) } }
+        if let swatch { Circle().fill(swatch).frame(width: dot, height: dot).overlay { Circle().strokeBorder(Color.primary.opacity(0.3)) } }
         Text(verbatim: title).foregroundStyle(Color.primary)
         Spacer()
         if chosen { Image(systemName: "checkmark").foregroundStyle(Color.accentColor).accessibilityHidden(true) }

@@ -626,7 +626,9 @@ final class LoveEcologyModel {
 
 extension LoveEcologyModel {
   /// The line's words. "Đã gửi" (sent), never that the light took it: it may not have.
-  var words: String {
+  var words: String { Self.words(line) }
+
+  static func words(_ line: Line) -> String {
     switch line {
     case .never: return String(localized: "Chưa gửi lệnh nào từ máy này")
     case .moving(let s): return String(localized: "Ngừng kéo để gửi \(Self.subject(s.choice)), \(s.level)%")
@@ -655,15 +657,31 @@ extension LoveEcologyModel {
   }
 
   /// The colour the line's dot shows: none for Bật, Tắt or a problem.
-  var dot: Color? {
+  var dot: Color? { Self.dot(line) }
+
+  static func dot(_ line: Line) -> Color? {
     let s: Send? = switch line {
-    case .moving(let s), .going(let s, _), .cut(let s): s
+    case .moving(let s), .going(let s, _): s
     case .sent(let t), .last(let t): t.send
-    case .never, .problem: nil
+    case .never, .problem, .cut: nil
     }
-    guard let s, !s.isRecording, !isCut else { return nil }
-    return Self.look(s.choice)
+    guard let s, !s.isRecording else { return nil }
+    return look(s.choice)
   }
+
+  /// The lines that wrap the most, drawn hidden under the card's line so its row is that tall from the first frame and no
+  /// state moves what's below, at the largest text too (Design, 20 Nov): Bluetooth not allowed, a send not known to have
+  /// gone, a trial sent (its ten seconds' ask), and one cut by leaving the app (with Gửi lại) and the last sent, yesterday,
+  /// each at the longest subject and level.
+  static let tallest: [Line] = {
+    let swatches = commands.filter { look(.swatch($0.id)) != nil }.map(\.id)
+    let longest = swatches.max { name($0).count < name($1).count } ?? "white"
+    let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: .now) ?? .distantPast
+    let sends = [Send(choice: .wheel(Wheel(hue: 0, saturation: 1)), level: 100), Send(choice: .swatch(longest), level: 100)]
+    let trial = Send(choice: .recording("trial-on-recorded"), level: 100)
+    return [.problem(.refused), .problem(.cut), .sent(Sent(send: trial, at: yesterday))]
+      + sends.flatMap { [Line.cut($0), .last(Sent(send: $0, at: yesterday))] }
+  }()
 
   var isCut: Bool { if case .cut = line { true } else { false } }
 
@@ -875,8 +893,9 @@ private struct OtherWell: View {
   }
 }
 
-/// The line: a row two lines high from the first frame, so a wrap or "Gửi lại" moves nothing below. On the card, and
-/// under the wheel, which covers the card's.
+/// The line: a row at least two lines high from the first frame, and as tall as the tallest line it may say at this width
+/// and size (`LoveEcologyModel.tallest`, drawn hidden under it), so a wrap or "Gửi lại" moves nothing below, at the
+/// largest text too (Design, 20 Nov). On the card, and under the wheel, which covers the card's.
 struct LampLine: View {
   let lamp: LoveEcologyModel
   @Environment(\.dynamicTypeSize) private var size
@@ -884,47 +903,64 @@ struct LampLine: View {
   @ScaledMetric(relativeTo: .footnote) private var dot: CGFloat = 10
 
   var body: some View {
-    let problem: Bool = switch lamp.line { case .cut, .problem: true; default: false }
+    ZStack(alignment: .topLeading) {
+      ForEach(Array(LoveEcologyModel.tallest.enumerated()), id: \.offset) { _, l in
+        content(l, words: LoveEcologyModel.words(l), dot: LoveEcologyModel.dot(l), live: false)
+          .hidden()
+          .accessibilityHidden(true)
+      }
+      content(lamp.line, words: lamp.words, dot: lamp.dot, live: true)
+    }
+    .font(.footnote)
+  }
+
+  /// The row for `line`: the live one, or a hidden one that only takes its room.
+  private func content(_ line: LoveEcologyModel.Line, words: String, dot colour: Color?, live: Bool) -> some View {
+    let problem: Bool = switch line { case .cut, .problem: true; default: false }
+    let cut: Bool = if case .cut = line { true } else { false }
     // Centred: on its words' baseline, "Gửi lại" would reach above two lines of them and make the row taller. At the
     // accessibility sizes the dot or triangle stays by the first line, and Gửi lại has its own row.
     let row = HStack(alignment: size.isAccessibilitySize ? .firstTextBaseline : .center, spacing: size.isAccessibilitySize ? 12 : 6) {
       if problem {
         Image(systemName: "exclamationmark.triangle.fill").accessibilityHidden(true)
-      } else if let c = lamp.dot {
-        Circle().fill(c).overlay { Circle().strokeBorder(.primary.opacity(scheme == .dark ? 0.5 : 0.25)) }
+      } else if let colour {
+        Circle().fill(colour).overlay { Circle().strokeBorder(.primary.opacity(scheme == .dark ? 0.5 : 0.25)) }
           .frame(width: min(dot, 24), height: min(dot, 24))
           .accessibilityHidden(true)
       }
-      Text(verbatim: lamp.words)
-        .foregroundStyle(problem ? HierarchicalShapeStyle.primary : lamp.line == .never ? .tertiary : .secondary)
+      Text(verbatim: words)
+        .foregroundStyle(problem ? HierarchicalShapeStyle.primary : line == .never ? .tertiary : .secondary)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .accessibilityIdentifier("lamp-status")
-      if lamp.isCut, !size.isAccessibilitySize { again }
+        .accessibilityIdentifier(live ? "lamp-status" : "lamp-room")
+      if cut, !size.isAccessibilitySize { again(live) }
     }
-    VStack(alignment: .leading, spacing: 8) {
+    return VStack(alignment: .leading, spacing: 8) {
       // Two lines' room, measured off two lines of the same words' style: Vietnamese lines are taller than the font's
       // size alone says (two footnote lines are 37.7 pt at L, not 36).
       ZStack(alignment: .leading) {
         Text(verbatim: "Đ\nĐ").hidden().accessibilityHidden(true)
         row
       }
-      if lamp.isCut, size.isAccessibilitySize { again }
+      if cut, size.isAccessibilitySize { again(live) }
     }
-    .font(.footnote)
   }
 
   /// A small bordered button whose tap target reaches 44 pt past the row's height; full width at the accessibility sizes.
-  private var again: some View {
-    Button { lamp.again() } label: {
-      Text("Gửi lại").font(.subheadline)
-        .padding(.horizontal, 12).frame(minHeight: 28)
-        .frame(maxWidth: size.isAccessibilitySize ? .infinity : nil)
-        .background(Color(.secondarySystemFill), in: Capsule())
-        .padding(.vertical, 8).contentShape(Rectangle())
+  /// Not `live`: its look alone, taking its room under the live row.
+  @ViewBuilder private func again(_ live: Bool) -> some View {
+    let label = Text("Gửi lại").font(.subheadline)
+      .padding(.horizontal, 12).frame(minHeight: 28)
+      .frame(maxWidth: size.isAccessibilitySize ? .infinity : nil)
+      .background(Color(.secondarySystemFill), in: Capsule())
+      .padding(.vertical, 8).contentShape(Rectangle())
+    if live {
+      Button { lamp.again() } label: { label }
+        .buttonStyle(.plain)
+        .foregroundStyle(.tint)
+        .padding(.vertical, -8)
+        .accessibilityIdentifier("lamp-again")
+    } else {
+      label.padding(.vertical, -8)
     }
-    .buttonStyle(.plain)
-    .foregroundStyle(.tint)
-    .padding(.vertical, -8)
-    .accessibilityIdentifier("lamp-again")
   }
 }
