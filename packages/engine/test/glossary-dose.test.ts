@@ -133,33 +133,31 @@ test('the forms the writer is given are the forms the check passes', () => {
 // check passes it; a sentence that also says what a thing is, does or belongs to is no pointer, and is read.
 test('the pointer names only the site\'s own terms, as the site writes them, and says nothing more', () => {
   const entries = ['Artemia', 'Thức ăn khô', 'Thức ăn đông lạnh', 'Thức ăn sống', 'Bể cộng đồng', 'Oxy hòa tan', 'CO2']
-  // As main's entries write them (Cá bột, Ăn tạp, Cá đàn, Trùng huyết, Thức ăn sống, Sục khí).
-  expect(pointerForm('Cách ấp artemia: xem mục Artemia.', entries)).toBe(true)
-  expect(pointerForm('Cách chọn và bảo quản từng loại thức ăn: xem mục Thức ăn khô, Thức ăn đông lạnh và Thức ăn sống.', entries)).toBe(true)
-  expect(pointerForm('Mức oxy cần giữ trong bể: xem mục Oxy hoà tan.', entries)).toBe(true)
-  expect(pointerForm('Về CO2 trong bể thủy sinh: xem mục CO2.', entries)).toBe(true)
+  // As main's entries write it (Thức ăn sống), in either case or tone placing, in either Unicode form.
   expect(pointerForm('Thức ăn đông lạnh: xem mục Thức ăn đông lạnh.', entries)).toBe(true)
-  // Main's two others aren't either shape: read, as before.
-  expect(pointerForm('Chọn cá nuôi chung: xem mục bể cộng đồng.', entries)).toBe(false)
-  expect(pointerForm('Trùng huyết đông khô : xem mục Thức ăn khô.', entries)).toBe(false)
-  // A claim before the pointer, with or without a word that says what a thing is (the reader, 21 Nov 2026).
-  for (const what of ['Cá chết vì thiếu oxy', 'Artemia rất độc với cá', 'Thay 30% nước mỗi tuần', 'Ấp artemia 24 giờ ở 28 độ', 'Có lẽ artemia tốt hơn bo bo',
-    'Cách ấp artemia trong 24 giờ', 'Cách ấp artemia (trứng bóc vỏ)', 'Cách ấp artemia; trứng nở sau một ngày', 'Về artemia — thức ăn tốt nhất cho cá bột',
-    'Cách ấp artemia để cá bột lớn nhanh hơn mọi thức ăn khác trong bể', 'Artemia rất độc với cá: xem mục Artemia. Artemia'])
+  expect(pointerForm('artemia : xem mục Artemia.', entries)).toBe(true)
+  expect(pointerForm('Oxy hoà tan: xem mục Oxy hòa tan.', entries)).toBe(true)
+  expect(pointerForm('Thức ăn khô: xem mục Thức ăn khô và Thức ăn sống.', entries)).toBe(true)
+  expect(pointerForm(`${'Thức ăn khô'.normalize('NFD')}: xem mục Thức ăn khô.`, entries)).toBe(true)
+  // Anything more than an entry's name is read, as before: main's topic labels (Cá bột, Ăn tạp, Cá đàn, Sục khí,
+  // Trùng huyết), and a claim with an opener or without, with one of the words that say what a thing is or without,
+  // in either Unicode form (the readers, 21 Nov 2026).
+  for (const what of ['Cách ấp artemia', 'Cách chọn và bảo quản từng loại thức ăn', 'Chọn cá nuôi chung', 'Mức oxy cần giữ trong bể',
+    'Về CO2 trong bể thủy sinh', 'Trùng huyết đông khô', 'Cá chết vì thiếu oxy', 'Artemia rất độc với cá', 'Thay 30% nước mỗi tuần',
+    'Cách cá chết vì thiếu oxy', 'Về việc artemia rất độc với cá', 'Về bể phải có sục khí', 'Cách thay một phần ba nước mỗi tuần',
+    'Trùng huyết đông khô là thức ăn khô', 'Cách artemia gây chết cá'.normalize('NFD'), 'Artemia, Bo bo', 'Artemia Artemia'])
     expect(pointerForm(`${what}: xem mục Artemia.`, entries), what).toBe(false)
-  // A claim in it, a name that is no term of the site's, or anything after the entry.
-  expect(pointerForm('Trùng huyết đông khô là thức ăn khô: xem mục Thức ăn khô.', entries)).toBe(false)
-  expect(pointerForm('Bo bo giúp cá lên màu: xem mục Thức ăn sống.', entries)).toBe(false)
-  expect(pointerForm('Cách ấp artemia: xem mục Artemia và Cá bột.', entries)).toBe(false)
-  expect(pointerForm('Cách ấp artemia: xem mục Artemia, ngâm trứng 24 giờ.', entries)).toBe(false)
-  expect(pointerForm('Cách ấp artemia: xem mục Artemia', entries)).toBe(false)
+  // A name that is no term of the site's, or anything after the entry.
+  expect(pointerForm('Artemia: xem mục Artemia và Cá bột.', entries)).toBe(false)
+  expect(pointerForm('Artemia: xem mục Artemia, ngâm trứng 24 giờ.', entries)).toBe(false)
+  expect(pointerForm('Artemia: xem mục Artemia', entries)).toBe(false)
   expect(pointerForm('Xem mục Artemia.', entries)).toBe(false)
-  expect(pointerForm('Cách ấp artemia: xem mục Artemia.', [])).toBe(false)
+  expect(pointerForm('Artemia: xem mục Artemia.', [])).toBe(false)
 })
 
 test('the fact check passes the pointer unread, and reads a claim that ends by linking the same entry', async () => {
   const pass = (t: string) => pointerForm(t, ['Artemia'])
-  const e = { definition: '', body: '<p>Cách ấp artemia: xem mục Artemia.</p><p>Artemia là thức ăn tốt nhất cho cá bột: xem mục Artemia.</p>' }
+  const e = { definition: '', body: '<p>Artemia: xem mục Artemia.</p><p>Artemia là thức ăn tốt nhất cho cá bột: xem mục Artemia.</p>' }
   const { llm, given } = stopAll()
   const r = await checkSentences(llm, { facts: [] }, e, pass)
   expect(given[0]).toEqual(['Artemia là thức ăn tốt nhất cho cá bột: xem mục Artemia.'])
