@@ -132,7 +132,8 @@ LOVE_ECOLOGY = ['LightFlowTests/' + t for t in (
     'testKhacsWheelSendsOncePerDragAndIsTwoValuesToAdjust', 'testAKeptRecordWithoutALevelOrWithAHueBelowZeroStillReads',
     'testLeavingTheLightsScreenDropsWhatWaits', 'testAStartThatDoesntAnswerGivesUpAndItsLateAnswerCreditsNothing',
     'testSigningOutDropsWhatWaits', 'testSigningOutOnAnotherTabStopsTheCardsSendOnAir',
-    'testAStartBluetoothHadThatNeverAnswersIsNotSaidNotSent')]
+    'testAStartBluetoothHadThatNeverAnswersIsNotSaidNotSent',
+    'testWhatWaitsAfterAStartBluetoothCutStillWaitsTheGap')]
 # The master button's flows that share the lamp's broadcast with the Love Ecology card: its put-back to the colour the
 # card sent, the card's send its lamp step cuts short, and the light's gap both ways (the card's next send after the
 # step, seen or not; the step after the card's send).

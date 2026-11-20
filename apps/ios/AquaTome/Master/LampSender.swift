@@ -30,9 +30,15 @@ enum LampRadio {
   /// not by the card, which may not have seen the button's step (Đèn not showing).
   private(set) static var lastEnded: ContinuousClock.Instant?
 
+  /// A start Bluetooth had and cut before it answered (stopped, replaced, or Bluetooth reset as it began) may have gone:
+  /// its end is marked as it's told, so the next broadcast, either's, waits the gap after it (Codex, 20 Nov).
   static func start(_ uuids: [String], by who: AnyObject, allowed: @escaping @MainActor () -> Bool = { true },
-                    done: @escaping @MainActor (LampAirError?) -> Void) {
+                    done told: @escaping @MainActor (LampAirError?) -> Void) {
     holder = ObjectIdentifier(who)
+    let done: @MainActor (LampAirError?) -> Void = { e in
+      if e == .cut { lastEnded = .now }
+      told(e)
+    }
     air.start(uuids, allowed: allowed, done: done)
   }
 
