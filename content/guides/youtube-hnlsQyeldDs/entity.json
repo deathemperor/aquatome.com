@@ -1,0 +1,70 @@
+{
+  "id": "youtube-hnlsQyeldDs",
+  "kind": "disease",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=hnlsQyeldDs",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens"
+  ],
+  "updatedAt": "2026-11-20",
+  "video": {
+    "youtubeId": "hnlsQyeldDs",
+    "title": "Top Tips For Curing Your Sick Betta Fish!",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 640,
+    "publishedAt": "2021-02-07",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D3M0cs1kMNjuGfDri7B1f7u",
+      "position": 12
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/hnlsQyeldDs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Betta splendens",
+      "Terminalia catappa"
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Maracyn",
+        "t": 230
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "ParaCleanse",
+        "t": 353
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Super Ich Cure",
+        "t": 169
+      },
+      {
+        "category": "khac",
+        "brand": "API",
+        "model": "Fungus Cure",
+        "t": 230
+      },
+      {
+        "category": "phan-nen",
+        "type": "la",
+        "t": 199
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 105
+      }
+    ]
+  }
+}

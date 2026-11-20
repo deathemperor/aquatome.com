@@ -1,0 +1,67 @@
+{
+  "id": "youtube-sV6LatlgWNg",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=sV6LatlgWNg",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens",
+    "microsorum-pteropus",
+    "aegagropila-linnaei"
+  ],
+  "updatedAt": "2026-11-20",
+  "video": {
+    "youtubeId": "sV6LatlgWNg",
+    "title": "Watch This Before Buying Your First Betta Tank!",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 664,
+    "publishedAt": "2019-11-17",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D3M0cs1kMNjuGfDri7B1f7u",
+      "position": 17
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/sV6LatlgWNg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "transcribed": true,
+    "taxa": [
+      "Betta splendens",
+      "Microsorum pteropus",
+      "Anubias sp.",
+      "Aegagropila linnaei"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 165
+      },
+      {
+        "category": "loc",
+        "brand": "Aquion",
+        "t": 201
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 211
+      },
+      {
+        "category": "den",
+        "t": 297
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Seachem",
+        "model": "EcoComplete",
+        "t": 330
+      }
+    ]
+  }
+}

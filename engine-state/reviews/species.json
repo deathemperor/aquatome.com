@@ -835,6 +835,42 @@
       "kept": false
     }
   ],
+  "vi/species/corydoras-sterbai#o8kFvl5duq8": [
+    {
+      "at": "2026-11-20T20:24:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"có những chấm li ti rất nhạt\": the video says the fins have a \"delicate, subtle dotted pattern\". \"Li ti\" (tiny) and \"rất nhạt\" (very faint) are a bit stronger than that.",
+        "\"Trong bể, rải cát mềm là hợp nhất\": the video only recommends soft sand. \"Hợp nhất\" (the best fit) makes it a superlative.",
+        "\"cho xen với viên chìm\": the video bases the diet on flakes and sinking pellets together. It doesn't say to alternate them. The page already has sinking pellets as the main food, so only the flakes are new.",
+        "\"Cá có nguồn gốc ở vùng thượng nguồn Rio Guaporé\": this is supported by the video. It is very thin, and the page already gives Rio Guaporé."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T20:24:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.62,
+      "notes": [
+        "[habitat] The sandy-substrate fact is already on the PAGE in [maintenance] and notes, which already cover gentle substrate and barbels. It is only partly new.",
+        "[maintenance] 'Nên rải nền cát mềm... giữ cho vùng râu nhạy cảm không bị trầy' repeats the habitat point. The PAGE already covers clean substrate and barbel loss.",
+        "[diet] 'thức ăn khô dạng mảnh' and 'viên chìm' partly duplicate the PAGE diet line about sinking pellets as the main food. Only the flakes are new.",
+        "[diet] 'Ngoài thức ăn chìm, cá chịu ăn cả thức ăn khô dạng mảnh' contradicts itself. The next sentence says daily meals can rest on flakes plus sinking pellets.",
+        "[notes] 'Gặp đèn chiếu vào, đôi vây ngực ánh vàng lên rất bắt mắt' is an embellishment. The video only says the golden fins catch the light.",
+        "[notes] 'Điểm nổi bật nhất' is stated as a rule. The video calls the gold one of the most striking features, not the single most striking one.",
+        "[notes] 'những chấm nhỏ mờ' loosely translates 'delicate, subtle dotted pattern'. The wording reads a little translated.",
+        "[notes] The body colour and spot description sits under notes, and the PAGE already says the head is dark with light spots. That overlaps partly."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/corydoras-trilineatus#dgzW8B32GO0": [
     {
       "at": "2026-11-13T20:42:32Z",
@@ -1301,6 +1337,45 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/hyphessobrycon-negodagua": [
+    {
+      "at": "2026-11-20T20:29:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"Đây là một nhánh sông ngắn\" is fine, but \"Các mẫu dùng để mô tả loài được thu ở Rio Pratinha\" is okay. No issue there.",
+        "\"Lúc mô tả, các tác giả xếp nó vào chi Hyphessobrycon thuộc họ Characidae\" is a slight inference. The facts say it was described in Hyphessobrycon and placed in Characidae. This is a minor point.",
+        "\"con đực uốn mình bập bềnh như cánh bướm\" goes beyond the facts, which only say males make fluttering courtship displays.",
+        "\"ăn trùng cỏ (infusoria)\" translates infusoria as trùng cỏ (paramecia), which is a small unsupported specification.",
+        "\"Nước mềm, chua\" and \"Bể để tối\" are fine, as the facts say a dim tank and soft acidic water.",
+        "\"đàn cá chọn lấy một góc bể làm chỗ của mình\" is fine, since the facts say the fish claimed one section of the tank.",
+        "\"Hyphessobrycon negodagua là một loài tetra nhỏ của Brazil\" uses the old name as the lead name. The facts say the valid name is Hasemania negodagua, so this is a minor framing issue.",
+        "\"Có nguồn khuyên đàn từ 8 con trở lên\" is supported by the quick-facts table."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T20:29:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"Cũng vì vậy mà IUCN xếp nó ở mức Sắp bị đe dọa\" - the facts don't say the IUCN rating is because of the decline or tourism; this causal link is invented.",
+        "\"hay bơi từ tầng đáy lên tầng giữa\" and \"hay bơi gần đáy và ở tầng giữa\" - the facts say it uses bottom to middle levels. \"Hay\" (often) and the \"gần đáy\" wording are a slight stretch.",
+        "\"Loài này thả chung với cá hiền được\" - the facts only say it is suitable for community aquariums. The \"cá hiền\" limit is an addition.",
+        "\"Lúc tán cái\" - the facts say courtship displays, and this is a loose rendering of \"tán cái\". It is minor.",
+        "\"cái hồ nhỏ\" - the facts say the water forms a lagoon, and \"nhỏ\" (small) is not supported.",
+        "\"loài này khá khỏe\" - the facts say it was hardy in the video's tanks. Stating it as a general trait is a small generalisation.",
+        "\"không đánh thật\" - the facts only say the spats are limited to fin flaring and display."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/hyphessobrycon-vilmae#DY6gcyX2Stk": [
@@ -2646,6 +2721,38 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/xiphophorus-hellerii#oCNgBx6j9PY": [
+    {
+      "at": "2026-11-20T20:25:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.55,
+      "notes": [
+        "Notes: \"Sọc này không nằm trên vây đuôi hay trên cây kiếm\" is not said in the video. The video only says the black stripe runs along the lower lobe of the anal fin. The writer added this inference.",
+        "Dimorphism: the video says the female's anal fin is triangular, but the page says \"hình quạt\". NEW doesn't say it differs from the page.",
+        "waterConditions: the video gives 20–28 °C, but the page and card say 16–28 °C. NEW gives the figure without saying it differs from the page's range.",
+        "Diet: the page already says adults eat more plants and the species is omnivorous. NEW partly repeats this, though the video's protein-plus-vegetation advice is a valid point."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T20:25:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"dọc mép thùy dưới vây đuôi, tức là dọc theo cây kiếm\": the video says the black stripe runs along the lower lobe of the anal fin, not the tail fin or sword. This changes where the stripe is.",
+        "\"đồ thực vật chiếm phần lớn trong thức ăn\": the video says only \"a large part\" of the diet is vegetation. \"Phần lớn\" reads as most, which overstates it.",
+        "The diet paragraph mostly repeats the page, which already says the fish is omnivorous, eats algae and plants, and should get varied food. It adds little that is new.",
+        "The notes paragraph does not say where the video differs from the page. The page says males have a gonopodium and a sword on the tail. The video says the stripe is on the anal fin."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/xiphophorus-maculatus#ETOaNDemwVM": [

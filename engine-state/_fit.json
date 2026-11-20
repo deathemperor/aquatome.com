@@ -120652,22 +120652,22 @@
   },
   "vi/species/corydoras-sterbai": {
     "at": "2026-11-20",
-    "hash": "4b14155e57b55522",
+    "hash": "40758ead6a0491e6",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P13",
-        "quote": "Mùa mưa ở đó trùng với mùa đông ở Anh.",
-        "why": "Spawning timing advice is tied to UK seasons, written for a reader in England.",
+        "part": "P16",
+        "quote": "Mùa mưa ở đó trùng với mùa đông ở Anh. Vì vậy, nếu thử cho đẻ vào mùa hè mà không được",
+        "why": "Breeding timing is keyed to UK seasons as if they were the reader's own.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P13",
+        "part": "P16",
         "quote": "Bạn cũng có thể thả một quả alder (alder cone) vào thùng ấp",
-        "why": "Alder cones come from a European tree that keepers in Vietnam don't gather or usually buy.",
+        "why": "Alder cones come from a European tree that keepers in Vietnam don't buy or gather.",
         "by": "model"
       }
     ],
@@ -144686,6 +144686,433 @@
         "by": "model"
       }
     ],
+    "products": []
+  },
+  "vi/guides/youtube-_6k5YEYOcRQ": {
+    "at": "2026-11-20",
+    "hash": "ef590199c38bb787",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-3GQOKsu0QYA": {
+    "at": "2026-11-20",
+    "hash": "6430eba468e328f1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-aED7TUlUTkY": {
+    "at": "2026-11-20",
+    "hash": "3463d52292eeeb55",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này có trồng thêm cây sống, vì betta thích cây sống.",
+        "why": "A bare \"bể này\" points at the source's own tank as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-Ajr1tozLqDQ": {
+    "at": "2026-11-20",
+    "hash": "e23b6a26ea0fb72d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Xtreme",
+      "Xtreme Community Crave",
+      "Xtreme Betta",
+      "Hikari Bio-Pure"
+    ]
+  },
+  "vi/guides/youtube-avxOsXarRig": {
+    "at": "2026-11-20",
+    "hash": "b8ef90f836487787",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể cube không viền 53 lít",
+        "why": "53 litres is a converted 14-gallon tank size; keepers in Vietnam give a cube tank by its sides in cm.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Con cá trong ví dụ được nuôi tạm và chữa bằng API Betta Fix",
+        "why": "Tells the source video's own fish story as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Aqueon",
+      "Eco Complete",
+      "API",
+      "API Quick Start",
+      "API Betta Fix"
+    ]
+  },
+  "vi/guides/youtube-bhJ_FFL7ORw": {
+    "at": "2026-11-20",
+    "hash": "1d8ed45f01302711",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-C2Miod2l9Q8": {
+    "at": "2026-11-20",
+    "hash": "d9a42670b709fbaf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-d1IqnjVMBnI": {
+    "at": "2026-11-20",
+    "hash": "cda4a3a31556652b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "API",
+      "Hikari"
+    ]
+  },
+  "vi/guides/youtube-dNMQlFf2HKc": {
+    "at": "2026-11-20",
+    "hash": "01208465092d01bb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Aqueon"
+    ]
+  },
+  "vi/guides/youtube-gxAOSUOjveA": {
+    "at": "2026-11-20",
+    "hash": "cbf685afa0aca721",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-hnlsQyeldDs": {
+    "at": "2026-11-20",
+    "hash": "0ed18bef8139982d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz",
+      "Super Ich Cure",
+      "Fungus Cure",
+      "Maracyn",
+      "Maracyn 2",
+      "ParaCleanse"
+    ]
+  },
+  "vi/guides/youtube-HrKxhPEA1q4": {
+    "at": "2026-11-20",
+    "hash": "ed2d65797bfdcd59",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-Ig7niE0c78E": {
+    "at": "2026-11-20",
+    "hash": "5722078f76f3b208",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-J9EoNDNgJzQ": {
+    "at": "2026-11-20",
+    "hash": "71684fbb233d2de9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-Jjbg-DFwfYU": {
+    "at": "2026-11-20",
+    "hash": "ced446552ec0850a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-KFONbDKnLC8": {
+    "at": "2026-11-20",
+    "hash": "2f45c49191fcf4a9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là đánh giá riêng của một người chơi, không phải bảng xếp hạng chung.",
+        "why": "Brings in the original writer's personal ranking, a person the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Lọc coi như hệ thống duy trì sự sống của bể",
+        "why": "Literal calque of the English 'life support system'.",
+        "by": "model",
+        "fix": "trái tim của bể"
+      }
+    ],
+    "products": [
+      "Seachem Tidal",
+      "Fluval AquaClear",
+      "Marineland Penguin Pro",
+      "Fluval M series",
+      "Eheim Jäger"
+    ]
+  },
+  "vi/guides/youtube-KYQc-uWNhEA": {
+    "at": "2026-11-20",
+    "hash": "59d2d3a98476e4a8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "mua ở tiệm thú cưng",
+        "why": "Calque of the US 'pet store'; in Vietnam betta are bought at aquarium fish shops.",
+        "by": "model",
+        "fix": "tiệm cá cảnh"
+      }
+    ],
+    "products": [
+      "Fluval Bug Bites"
+    ]
+  },
+  "vi/guides/youtube-MA5D5sRPaDk": {
+    "at": "2026-11-20",
+    "hash": "54f738949e68cf82",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cá tetra mũi đỏ (rummy nose tetra) mua về, chẳng hạn, đã được cách ly 6 tuần.",
+        "why": "Refers to the original writer's own fish as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "cá sóc (danio)",
+        "why": "In Vietnam 'cá sóc' means medaka/ricefish, not danio; mistranslation.",
+        "by": "model",
+        "fix": "cá ngựa vằn / cá danio"
+      }
+    ],
+    "products": [
+      "General Cure"
+    ]
+  },
+  "vi/guides/youtube-mmg1EIMdbkU": {
+    "at": "2026-11-20",
+    "hash": "2fa4c2b0ae72639a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Loài này đã có trong nghề từ lâu",
+        "why": "Calque of 'in the hobby'; keepers in Vietnam don't say 'trong nghề' for the aquarium hobby.",
+        "by": "model",
+        "fix": "đã có mặt trong giới chơi cá từ lâu"
+      }
+    ],
+    "products": [
+      "NorthFin",
+      "Xtreme"
+    ]
+  },
+  "vi/guides/youtube-OBvaJ0FgHPI": {
+    "at": "2026-11-20",
+    "hash": "56188cc8f9b8e401",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Dennerle"
+    ]
+  },
+  "vi/guides/youtube-pIRgBwsDaps": {
+    "at": "2026-11-20",
+    "hash": "65bb5b5d78e9c201",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Hikari",
+      "Arowana Formula",
+      "NorthFin",
+      "Tetra Jumbo Krill"
+    ]
+  },
+  "vi/guides/youtube-SkR_Mbh3qzE": {
+    "at": "2026-11-20",
+    "hash": "3fafb40f22ea69e6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Xtreme",
+      "Northfin",
+      "Hikari",
+      "Fritz pH Neutralizer",
+      "Fritz Dark Water"
+    ]
+  },
+  "vi/guides/youtube-sV6LatlgWNg": {
+    "at": "2026-11-20",
+    "hash": "b949c4ecad9ade1d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Aqueon",
+      "Eco-Complete"
+    ]
+  },
+  "vi/guides/youtube-sZAb8NAcvEo": {
+    "at": "2026-11-20",
+    "hash": "ac7d7b2223cc3063",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-V0r5E1ctpow": {
+    "at": "2026-11-20",
+    "hash": "cb1224ab7394cb3a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Hikari",
+      "Northfin",
+      "Xtreme",
+      "Repashy",
+      "Daichi",
+      "Marineland",
+      "AquaClear"
+    ]
+  },
+  "vi/guides/youtube-vHAw3347CLE": {
+    "at": "2026-11-20",
+    "hash": "d4c6e9efb004bf0c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz Dark Water"
+    ]
+  },
+  "vi/guides/youtube-Wn83YjGJhQg": {
+    "at": "2026-11-20",
+    "hash": "144d6d8fc0787297",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-YLRwuzmqz6Y": {
+    "at": "2026-11-20",
+    "hash": "813a2d2b56d3b47d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Fritz Dark Water",
+      "API Master Test Kit",
+      "Extreme Betta Pellets"
+    ]
+  },
+  "vi/guides/youtube-ZJV8f7Ug0-M": {
+    "at": "2026-11-20",
+    "hash": "5b6898d9e7502e88",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể vuông không viền khoảng 53 lít",
+        "why": "53 litres is a converted 14-gallon tank size that keepers in Vietnam would not use.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Lọc nên dùng loại lọc trong (internal filter)",
+        "why": "'Lọc trong' is a calque of 'internal filter'; Vietnamese keepers call it lọc chìm.",
+        "by": "model",
+        "fix": "lọc chìm"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "có thể thả một con betta vua (king betta, còn gọi là giant betta)",
+        "why": "'Betta vua' is a calque of 'king betta'; local keepers say betta khổng lồ or betta giant.",
+        "by": "model",
+        "fix": "betta khổng lồ (betta giant)"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-zrY1Uz_O_bA": {
+    "at": "2026-11-20",
+    "hash": "04d21916b9465744",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể khoảng 1363 lít nuôi 2 ngân long với 2 Oscar",
+        "why": "1363 litres is a converted 360-gallon tank size that no keeper in Vietnam would use.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-zYwObJhuJ5k": {
+    "at": "2026-11-20",
+    "hash": "a3f6d3fc3a2df6f6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hyphessobrycon-negodagua": {
+    "at": "2026-11-20",
+    "hash": "f594f0633428abf0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
     "products": []
   }
 }

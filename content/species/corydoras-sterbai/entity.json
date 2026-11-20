@@ -162,10 +162,28 @@
       "html": "<p>Bolivia and Brazil. The type specimen was collected from the Rio Guaporé. It can be difficult to get hold of wild specimens these days, though. Virtually all of the fish entering the trade are produced commercially on farms. Most of the ones on sale in the UK originate from Eastern Europe or the Far East. These captive-bred fish are generally more hardy and adaptable than their wild counterparts, having been raised in conditions far removed from their natural habitat.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá có nguồn gốc ở vùng thượng nguồn Rio Guaporé.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-sterbai",
       "html": "<p>Small tributaries, creeks, pools and areas of flooded forest.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đáy sông suối nơi chúng sống thường là cát, và chúng sục mõm qua lớp cát để kiếm ăn. Trong bể, rải cát mềm là hợp nhất để cá kiếm ăn như ngoài tự nhiên mà không làm xước râu.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "aquariumSize",
@@ -192,6 +210,15 @@
       "html": "<p>Omnivorous and easy to feed. Use a good quality sinking pellet or tablet as the staple diet. Supplement this with live and frozen foods such as Daphnia, Artemia, bloodworm and similar.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Thức ăn dạng mảnh loại tốt cũng làm thức ăn chính được, cho xen với viên chìm.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-sterbai",
@@ -214,6 +241,15 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-sterbai",
       "html": "<p>There are currently over 180 described species of Corydoras (commonly shortened to \"cory\"), making it one of the most speciose of all South American fish genera. There are also loads of undescribed species, many of which have been assigned a \"C number\" for identification purposes. This is a very simple system of numbering and is similar to the L number scheme used to identify undescribed Loricariids. Both systems were implemented by the German aquarium magazine DATZ (Die Aquarien und Terrarienzeitschrift), but have proved to be invaluable tools and are now used widely by aquarists worldwide. It's partly this tremendous diversity (along with their undeniably cute looks) that puts corys among the most popular fish in the hobby. They're also very peaceful aquarium residents. Although they'll consume bite-sized items such as eggs or fry, aggression towards other species is virtually unheard of. Intraspecific hostility is similarly unusual, occurring in only a handful of species (mainly being confined to the \"long-nosed\" varieties). Provided space isn't an issue this rarely results in physical damage, though.</p><p>In nature most species occur in large schools and as such do best when kept in a group in captivity. Most corys are primarily benthic (bottom dwelling), although a handful of exceptions do spend the majority of their time in open water. Unfortunately this behaviour often means that they're purchased and sold as scavengers that will \"clean the bottom\" of your community tank. While they'll certainly polish off any uneaten morsels that reach the substrate, they won't keep the substrate \"clean\" as such. In fact maintenance of the substrate becomes more of a primary concern if your tank contains a few corys, as they can develop nasty infections of the barbels if kept in dirty or otherwise unfavourable conditions. It should also be said that they won't do well if expected to survive on the scraps of food that escape the fish above. Always use sinking varieties to ensure your corys receive the right amount of food.</p><p>All corys are facultative air breathers, meaning they have the ability to breathe atmospheric air to a certain extent if necessary. They possess a modified, highly vascularised intestine to aid in the uptake of atmospheric oxygen. This adaptation allows them to survive if their habitat becomes oxygen-deprived for any reason. In the aquarium you'll see them darting to the surface to take in gulps of air on occasion. This is perfectly natural and no cause for concern unless water conditions are deteriorating, in which case the frequency of visits to the surface will usually rise correspondingly.</p><p>Corys are part of the \"armoured\" catfish group, and instead of scales possess two rows of bony plates running along the flanks. The genus name is composed of the Greek words cory, meaning helmet and doras, meaning skin (here used incorrectly to denote \"armour\"). They also have very sharp pectoral fin spines, which are easily caught in the mesh of aquarium nets and can also produce a painful \"sting\" if they penetrate the skin. Care should therefore be exercised when handling or moving corys for any reason.</p><p>This popular, attractive species is superficially similar to Brochis haraldschultzi, but can be distinguished by examining the patterning on the head of the fish in question. In Hoplisoma sterbai this is composed of light spotted markings over a dark background, whereas in B. haraldschultzi the markings are dark and the background colour light. B. haraldschultzi also has a more elongated snout. In recent years a commercially-produced albino form has become available and achieved a fair degree of popularity in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Thân cá màu nâu đậm, điểm nhiều đốm và vệt trắng đủ hình dạng. Vây hơi trong, có những chấm li ti rất nhạt. Một trong những điểm đẹp nhất của loài này là các mảng ánh vàng trên thân và dọc mép vây, rõ nhất ở đôi vây ngực. Khi có ánh đèn, phần vàng này bắt sáng rất đẹp.</p>",
+      "refs": [
+        0
+      ]
     }
   ],
   "photos": [
@@ -233,45 +269,45 @@
       "thumb": "https://media.aquatome.com/commons/0fada46707e939af-480.webp",
       "width": 960,
       "height": 594,
-      "licence": "CC BY-SA 3.0",
-      "author": "Tino Strauss",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sterbai_02.jpg",
-      "caption": "Sterba's Catfish",
       "large": {
         "url": "https://media.aquatome.com/commons/0fada46707e939af-large.webp",
         "width": 1940,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Tino Strauss",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_sterbai_02.jpg",
+      "caption": "Sterba's Catfish"
     },
     {
       "url": "https://media.aquatome.com/commons/0cf400ce85679e97.webp",
       "thumb": "https://media.aquatome.com/commons/0cf400ce85679e97-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "Public domain",
-      "author": "Matthew Mannell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_Sterbai.jpg",
-      "caption": "Aquarium shot of the species Corydoras sterbai.",
       "large": {
         "url": "https://media.aquatome.com/commons/0cf400ce85679e97-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "Public domain",
+      "author": "Matthew Mannell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_Sterbai.jpg",
+      "caption": "Aquarium shot of the species Corydoras sterbai."
     },
     {
       "url": "https://media.aquatome.com/commons/97574188d24dda3c.webp",
       "thumb": "https://media.aquatome.com/commons/97574188d24dda3c-480.webp",
       "width": 960,
       "height": 470,
-      "licence": "Public domain",
-      "author": "Matthew Mannell",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_Sterbai_(clipped).png",
-      "caption": "Aquarium shot of the species Corydoras sterbai.",
       "large": {
         "url": "https://media.aquatome.com/commons/97574188d24dda3c-large.webp",
         "width": 1887,
         "height": 923
-      }
+      },
+      "licence": "Public domain",
+      "author": "Matthew Mannell",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Corydoras_Sterbai_(clipped).png",
+      "caption": "Aquarium shot of the species Corydoras sterbai."
     },
     {
       "url": "https://media.aquatome.com/commons/a96f10a210cb97aa.webp",
@@ -285,6 +321,12 @@
     }
   ],
   "videos": [
+    {
+      "youtubeId": "o8kFvl5duq8",
+      "title": "Discover the Enchanting Sterbai Corydoras: A Must-Have for any Aquarium",
+      "durationSec": 184,
+      "lang": "en"
+    },
     {
       "youtubeId": "gjbQgeGICeA",
       "title": "Sterbai Corydoras: What I Learned",
@@ -339,5 +381,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-20",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=o8kFvl5duq8",
+      "title": "Discover the Enchanting Sterbai Corydoras: A Must-Have for any Aquarium"
+    }
+  ]
 }
