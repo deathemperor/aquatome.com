@@ -859,7 +859,10 @@ final class V2FlowTests: XCTestCase {
     // passing at the bar's height show, so a reading under the bar of none means none came through, not that nothing
     // passed.
     let pill = app.tabBarsOwnPlace
-    let under = moved(pill.minY + 4, pill.maxY - 4, across: (pill.minX, pill.maxX)), passing = moved(bar.minY - 140, bar.minY - 40)
+    // On iOS 26 the whole bar, the strip below its buttons to the screen's foot too, where 26's soft edge left a photo
+    // credit sharp: with the fade nothing there moves. On 27 the glass alone.
+    let under = softEdgeHolds ? moved(pill.minY + 4, pill.maxY - 4, across: (pill.minX, pill.maxX)) : moved(bar.minY + 4, bar.maxY - 2)
+    let passing = moved(bar.minY - 140, bar.minY - 40)
     // Seen on a pass too, in the result's activities.
     XCTContext.runActivity(named: "GLASS moved: \(under) under the bar, \(passing) above it") { activity in
       let a = XCTAttachment(screenshot: shot)
@@ -1666,6 +1669,8 @@ final class V2FlowTests: XCTestCase {
     app.launchForFlow()
     let tab = app.tabBars.buttons["Hôm nay"]
     XCTAssertTrue(tab.waitForExistence(timeout: 10), "no Hôm nay")
+    // Hôm nay's cards drawn before one is sought behind the tap point.
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     let at = CGPoint(x: 100, y: tab.frame.maxY + 10)
     // A card of the page's behind that point: hidden by the fade, still in the accessibility tree.
     let card = app.cardAt(at)
