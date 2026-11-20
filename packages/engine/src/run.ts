@@ -280,9 +280,16 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   }
   // Source pages whose pictures' lines a read still has to learn (publisher-credits.ts LINE_READS): each read once, then off.
   const lineWaiting = await soft('line reads', () => readLineReads(root), {})
-  const lineRead = async (source: SourceId, url: string, images: PageImage[]) => {
+  // `missed`: the picture pages (ScotCat's) whose request failed. The page then stays on the list for its own turn, so
+  // those pictures' lines are read then; what this read named stays named.
+  const lineRead = async (source: SourceId, url: string, images: PageImage[], missed: readonly string[]) => {
     const n = await namePictureLines(root, source, sourceNames[source]?.name ?? source, images, url, k => deps.media.urlFor(k), sourceNames[source]?.permission ?? {})
     if (n) console.log(`line read: ${url}: ${n} photo places named from its pictures' lines`)
+    if (missed.length) {
+      await lineTurn(url)
+      report.errors.push(`${url}: ${missed.length} picture page${missed.length > 1 ? 's' : ''} not read, the page waits for its own turn for their lines`)
+      return
+    }
     const reads = await readLineReads(root)
     if (url in reads) { delete reads[url]; await writeLineReads(root, reads) }
     delete lineWaiting[url]
@@ -532,6 +539,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     // A guide off the site for good (@aq/schema retired.ts) is never read again: no call is spent on a page that stays held.
     const due = found.filter(f => !retiredTo(guideId(id, f.url)) && (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || (f.url in lineWaiting && !lineWaiting[f.url]!.turn) || needsFetch(state[f.url], f.lastmod, deps.now())))
     const todo = runOrder(due, state, deeper).slice(0, opts.limit ?? Infinity)
+    // Pages read now only because the line-read list asks: a failed read leaves their state as it was, so no error state
+    // brings them back before their own turn.
+    const early = new Set(due.filter(f => !forced(f.url) && f.url in lineWaiting && !lineWaiting[f.url]!.turn && !needsFetch(state[f.url], f.lastmod, deps.now())).map(f => f.url))
 
     let networkFailures = 0
     for (const { url, lastmod } of todo) {
@@ -556,9 +566,15 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
         // Its own try: a failure here is ours, not the page's, so the page keeps its read and its turn, and its credits wait for the next one.
         if (creditWaiting.has(url)) await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
+        // The page's pictures, read once for both the line read and the page's photos: ScotCat's from each picture's own page.
+        let linked: Promise<{ images: PageImage[]; missed: string[] }> | undefined
+        const pictures = () => (linked ??= (async () => {
+          const missed: string[] = []
+          return { images: src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get, undefined, missed) : o.images, missed }
+        })())
         // A page on the line-read list: its pictures' lines name our photos credited to the publisher alone (publisher-credits.ts).
         // ScotCat prints its line on each picture's own page, read as the photo step reads it. Its own try, like the credits'.
-        if (url in lineWaiting) await (async () => lineRead(id, url, src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images))().catch((e: unknown) => { report.errors.push(`${url}: lines not read, the page waits for its next read: ${(e as Error).message.slice(0, 200)}`) })
+        if (url in lineWaiting) await pictures().then(p => lineRead(id, url, p.images, p.missed)).catch((e: unknown) => { report.errors.push(`${url}: lines not read, the page waits for its next read: ${(e as Error).message.slice(0, 200)}`) })
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev
@@ -567,7 +583,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         }
         await piece(url, async () => {
           const { page, score, tries } = await translate({ source: id, url, title: o.title, outline: o.outline, glossary })
-          const images = src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images
+          const { images } = await pictures()
           const entityIds = await apply(id, url, page, score, images, bytes)
           // The last translation reviewed is the page's, unless another source outranks this one there; a page is reviewed per source.
           for (const e of entityIds ?? []) {
@@ -589,7 +605,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         counts.errors++
         report.errors.push(`${url}: ${message}`)
         // A usage limit uses no attempt; a transient failure (browser, network, usage limit) runs first next time (state.ts, depth.ts).
-        await save({ ...base, ...keep(prev), status: 'error', attempts: attemptsAfter(prev, message), error: message.slice(0, 300) })
+        // A page read early for its lines alone keeps its state, and so its own turn.
+        if (!early.has(url)) await save({ ...base, ...keep(prev), status: 'error', attempts: attemptsAfter(prev, message), error: message.slice(0, 300) })
         // The browser itself is gone (crash, closed window): every later page would fail the same way.
         if (BROWSER_GONE.test(message)) {
           report.errors.push('stopping: the browser closed — the next cycle starts a fresh one')

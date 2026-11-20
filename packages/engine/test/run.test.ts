@@ -388,18 +388,57 @@ test('a page the list leaves to its own turn is not read early', async () => {
 
 test('a page the list reads early is read early once: after a failed request or a failed read of its lines, it waits for its own turn', async () => {
   const lines = (root: string) => readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8').then(JSON.parse)
-  for (const fail of ['request', 'lines'] as const) {
+  for (const fail of ['request', 'network', 'lines'] as const) {
     const root = await fresh()
     await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
     const url = `${SF}paracheirodon-axelrodi`
+    const before = JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))[url]
     await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff' } }))
     const failing = deps(root, { urls: ['paracheirodon-axelrodi'] })
     if (fail === 'request') failing.d.fetcher.get = async () => { throw new Error('HTTP 404') }
+    else if (fail === 'network') failing.d.fetcher.get = async () => { throw new Error('net::ERR_CONNECTION_RESET') }
     else failing.d.media.urlFor = () => { throw new Error('no media address') }
     expect((await runEngine(failing.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(1)
     expect((await lines(root))[url]).toMatchObject({ turn: true })
-    expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+    // A failed request leaves the page's state as it was: no error state brings it back before its own turn, at the next
+    // run (a network fault) or after six hours (any other).
+    if (fail !== 'lines') expect(JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8'))[url]).toEqual(before)
+    for (const at of ['2026-10-28T10:00:00Z', '2026-10-28T17:00:00Z']) {
+      const later = deps(root, { urls: ['paracheirodon-axelrodi'] })
+      later.d.now = () => new Date(at)
+      expect((await runEngine(later.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+    }
     expect(Object.keys(await lines(root))).toEqual([url])
+  }
+})
+
+test("a ScotCat page on the list asks each picture page once, though the same read names our photos and processes the page; a picture page that fails keeps the page on the list for its own turn", async () => {
+  // Found in Codex's read, 20 Nov 2026: the line read and the page's photos each read the picture pages, and a failed one
+  // took the page off the list with its lines unread.
+  for (const failing of [false, true]) {
+    const root = await fresh()
+    const page = 'https://www.scotcat.com/examplidae/examplia_sampla.htm'
+    const pics = [1, 2].map(n => `https://www.scotcat.com/examplidae/examplia_sampla${n}.htm`)
+    await mkdir(join(root, 'engine-state'), { recursive: true })
+    await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [page]: { source: 'scotcat', at: '2026-11-20', by: 'the chief of staff' } }))
+    const { d } = deps(root)
+    const asked = new Map<string, number>()
+    d.fetcher.links = async (u: string) => (u.endsWith('family.htm') ? [page] : [])
+    d.fetcher.get = async (u: string) => {
+      asked.set(u, (asked.get(u) ?? 0) + 1)
+      const n = pics.indexOf(u)
+      if (failing && n === 1) throw new Error('net::ERR_CONNECTION_RESET')
+      if (n >= 0) return { status: 200, html: `<html><body><img src="/examplidae/big${n}.jpg" width="900" height="600"><p>&copy; Ann Example</p></body></html>`, finalUrl: u }
+      return { status: 200, html: `<html><body><div class="top-padding-10"><h1>Examplia sampla</h1><p>A small catfish from Sampletown.</p><a href="examplia_sampla1.htm"><img src="t1.jpg"></a><a href="examplia_sampla2.htm"><img src="t2.jpg"></a></div></body></html>`, finalUrl: u }
+    }
+    const r = await runEngine(d, { sources: ['scotcat'] })
+    expect(r.perSource.scotcat?.fetched).toBe(1)
+    for (const u of pics) expect(asked.get(u)).toBe(1)
+    const left = JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8'))
+    if (failing) {
+      expect(left[page]).toMatchObject({ turn: true })
+      expect(r.errors.some(e => e.startsWith(`${page}: 1 picture page not read`))).toBe(true)
+    } else expect(left).toEqual({})
   }
 })
 

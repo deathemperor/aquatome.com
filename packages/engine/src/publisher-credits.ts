@@ -112,6 +112,15 @@ export function pageCredit(caption: string | undefined, lines: readonly string[]
   return { name }
 }
 
+/**
+ * A copy that shows another credit, or a line the guard refuses, keeps every copy of its photo with the publisher alone,
+ * not itself only: one photo is one picture, and a copy with nothing to say can't outvote one that says otherwise. For a
+ * page-wide line, "not a credit" is the guard's line that goes on past a name; for a caption's line it says only that no
+ * credit follows, and another copy may still tie.
+ */
+const CONFLICT: ReadonlySet<Untied> = new Set(['two credits in its line', 'its own line differs', 'two lines for its page', 'more than one person'])
+const vetoes = (why: Untied, pageWide: boolean) => CONFLICT.has(why) || (pageWide && why === 'not a credit')
+
 type PhotoLike = { url: string; author: string; licence?: string; source?: string; sourceUrl?: string; caption?: string }
 const isPhoto = (o: Record<string, unknown>): o is PhotoLike & Record<string, unknown> => typeof o.url === 'string' && typeof o.author === 'string'
 
@@ -152,6 +161,7 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
   // line its other copies tie to; copies that tie to different lines keep the publisher alone.
   const found: { file: string; data: unknown; photos: { p: PhotoLike & Record<string, unknown>; t: ReturnType<typeof tiedCredit> }[] }[] = []
   const lines = new Map<string, Set<string>>()
+  const vetoed = new Map<string, Untied>()
   for (const file of files) {
     const raw = await readFile(file, 'utf8').catch(() => '')
     // A publisher's name at the end of a credit: its photos alone, and those already named.
@@ -176,6 +186,7 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
       const pageLine = PAGE_CREDITS[p.source as SourceId]
       const t = pageLine ? pageCredit(p.caption, copy, pageLine) : tiedCredit(p.caption, copy)
       if ('name' in t) lines.set(p.url, (lines.get(p.url) ?? new Set()).add(t.name))
+      else if (vetoes(t.why, !!pageLine) && !vetoed.has(p.url)) vetoed.set(p.url, t.why)
       tied.push({ p, t })
     }
     found.push({ file, data, photos: tied })
@@ -186,7 +197,8 @@ export async function namePublisherCredits(root: string, sources: readonly Sourc
   for (const f of found) {
     let any = false
     for (const { p, t } of f.photos) {
-      const one = lines.get(p.url)
+      const one = lines.get(p.url), veto = vetoed.get(p.url)
+      if (veto) { untied.push({ file: relative(root, f.file), url: p.url, why: veto }); continue }
       if (!one || one.size > 1) { untied.push({ file: relative(root, f.file), url: p.url, why: one ? 'two lines across its copies' : 'why' in t ? t.why : 'not a credit' }); continue }
       p.author = `${[...one][0]} / ${p.author}`
       named[p.source!] = (named[p.source!] ?? 0) + 1
@@ -234,7 +246,8 @@ export const writeLineReads = (root: string, v: Record<string, LineRead>) => wri
 /**
  * Each photo of ours a read page shows, credited to the publisher alone, gets "<its picture's line> / <publisher>"
  * (`pictureCredit`) wherever it is: on pages, in albums and in the glossary. A picture's copies (sizes, a srcset) are one
- * picture; copies that print different lines name none. Returns how many places were named.
+ * picture; copies that print different lines name none, and a photo of ours one of whose copies is named already by
+ * another line keeps its other copies with the publisher alone. Returns how many places were named.
  */
 export async function namePictureLines(root: string, source: SourceId, sourceName: string, images: readonly PageImage[], page: string, urlFor: (key: string) => string, terms: CreditTerms = {}): Promise<number> {
   const pictures = new Map<string, { urls: Set<string>; names: Set<string> }>()
@@ -250,11 +263,26 @@ export async function namePictureLines(root: string, source: SourceId, sourceNam
   const named = new Map<string, string>()
   for (const p of pictures.values()) if (p.names.size === 1) for (const u of p.urls) named.set(u, [...p.names][0]!)
   if (!named.size) return 0
-  let places = 0
+  // A photo one of whose copies is named already, by another line: its copies credited to the publisher alone stay so.
+  const files: { file: string; raw: string; data: unknown }[] = []
+  const already = (o: Record<string, unknown>) => isPhoto(o) && o.source === source && o.licence === SOURCE_PHOTO_LICENCE && named.has(o.url) && o.author.endsWith(` / ${sourceName}`) ? o.author.slice(0, -` / ${sourceName}`.length) : undefined
   for (const file of await photoFiles(join(root, 'content'))) {
     const raw = await readFile(file, 'utf8').catch(() => '')
     if (![...named.keys()].some(u => raw.includes(u))) continue
     const data = JSON.parse(raw) as unknown
+    files.push({ file, raw, data })
+    const visit = (x: unknown): void => {
+      if (Array.isArray(x)) return x.forEach(visit)
+      if (!x || typeof x !== 'object') return
+      const o = x as Record<string, unknown>
+      const name = already(o)
+      if (name !== undefined && name !== named.get(o.url as string)) named.delete(o.url as string)
+      Object.values(o).forEach(visit)
+    }
+    visit(data)
+  }
+  let places = 0
+  for (const { file, raw, data } of files) {
     let here = 0
     const visit = (x: unknown): void => {
       if (Array.isArray(x)) return x.forEach(visit)

@@ -108,16 +108,17 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
 
 /**
  * Photos kept on pages of their own (ScotCat): the species page shows thumbnails, each linking to a page with the
- * full image and "© <photographer>". The first `max` photo pages are read (each is a request to the source).
+ * full image and "© <photographer>". The first `max` photo pages are read (each is a request to the source). `missed`,
+ * when given, gets each photo page whose request failed.
  */
-export async function linkedPhotos(html: string, pageUrl: string, photoPage: RegExp, get: (url: string) => Promise<{ html: string }>, max = 4): Promise<PageImage[]> {
+export async function linkedPhotos(html: string, pageUrl: string, photoPage: RegExp, get: (url: string) => Promise<{ html: string }>, max = 4, missed?: string[]): Promise<PageImage[]> {
   const pages = [...new Set(parse(html).querySelectorAll('a[href]').filter(a => a.querySelector('img')).flatMap(a => {
     try { return [new URL(a.getAttribute('href')!, pageUrl).href] } catch { return [] }
   }).filter(u => photoPage.test(u)))].slice(0, max)
   const out: PageImage[] = []
   for (const u of pages) {
     let page: string
-    try { page = (await get(u)).html } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); continue }
+    try { page = (await get(u)).html } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); missed?.push(u); continue }
     const img = parse(page).querySelectorAll('img').filter(i => !/\.(gif|png)$|thumbnails\//i.test(i.getAttribute('src') ?? '')).sort((a, b) => Number(b.getAttribute('width') ?? 0) - Number(a.getAttribute('width') ?? 0))[0]
     if (!img?.getAttribute('src')) continue
     // The credit follows the image; the site's own "©2026 SCOTCAT.COM" footer is further down.
