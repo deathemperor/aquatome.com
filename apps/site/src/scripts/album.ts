@@ -96,22 +96,38 @@ if (box && json) {
     if (from) opener = from
     v.open(i, { ...how(), from })
   }, () => {})
+  // A retired album URL requests the first photo unless it carried a specific photo's fragment.
+  const entry = new URL(location.href)
+  const legacy = entry.searchParams.get('album') === '1'
+  if (legacy) {
+    entry.searchParams.delete('album')
+    if (at() === null) entry.hash = '#a1'
+    history.replaceState(history.state, '', entry)
+  }
   if (mine()) void view().then(v => v.restore(), () => {})
-  else if (at() !== null) openHere(() => (arrived() ? { under: location.pathname + location.search } : { adopt: true }))
+  else if (at() !== null) openHere(() => (legacy || arrived() ? { under: location.pathname + location.search } : { adopt: true }))
   addEventListener('hashchange', () => { if (at() !== null && !mine()) openHere(() => ({ adopt: true })) })
-  // The tall screen's column shows as many whole rows of thumbs as fit (GalleryStrip.astro): when they're every photo,
-  // given those the page shows already (data-fit, their places), "Xem tất cả" goes (data-fits; the Design Lead, 18 Nov).
+  // Measure against the full row width so showing or hiding its button cannot change the result.
   const fit = box.dataset.fit, list = box.querySelector('ul')
   if (fit !== undefined && list) {
     const elsewhere = new Set(fit.split(' ').filter(Boolean).map(Number))
+    const mobile = matchMedia('(max-width: 860px)')
+    const thumbs = [...list.querySelectorAll<HTMLAnchorElement>('a[data-i]')]
+    const capped = box.classList.contains('column') ? thumbs.filter(a => !a.closest('.more')).slice(6) : []
     const fits = () => {
+      for (const a of capped) a.closest('li')!.hidden = mobile.matches
       const v = list.getBoundingClientRect()
-      const seen = new Set([...list.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => shows(a, v)).map(a => Number(a.dataset.i)))
+      const right = v.left + box.clientWidth
+      const seen = new Set(thumbs.filter(a => shows(a, v) && (!mobile.matches ||
+        a.getBoundingClientRect().right + list.scrollLeft <= right + 1)).map(a => Number(a.dataset.i)))
       const every = photos.every((_, i) => seen.has(i) || elsewhere.has(i))
       for (const b of box.querySelectorAll('[data-all]')) b.toggleAttribute('data-fits', every)
     }
     fits()
-    new ResizeObserver(fits).observe(list)
+    const observer = new ResizeObserver(fits)
+    observer.observe(box)
+    observer.observe(list)
+    mobile.addEventListener('change', fits)
   }
   box.setAttribute('data-ready', '')
 }

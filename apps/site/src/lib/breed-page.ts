@@ -44,7 +44,7 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   const pics = pagePictures(c)
   pics.add(b.photos[0]?.url)
   const gallery = albumOf(c, 'breeds', b)
-  const strip = gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null)
+  const strip = hasAlbum(gallery) ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
   const lines = breedsOf(lang, c, b.id)
   const linePhotos = takeEach(pics, lines, x => x.photos)
   // Its own text links the species, glossary terms and other pages it names, never itself. The list is the one
@@ -59,7 +59,7 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
     // The app's link to its album, once there are enough photos for one: the album's old address, which forwards to this
     // page (the app doesn't open it; protocols/page-vectors.json holds it until the protocols next change).
-    galleryPath: hasAlbum(gallery) ? `/vi/ca/${b.t.slug}/anh/` : undefined,
+    galleryPath: gallery.length >= 6 ? `/vi/ca/${b.t.slug}/anh/` : undefined,
     lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: takeEach(pics, videoGuides, g => guideImages(c, g)),
   }
 }

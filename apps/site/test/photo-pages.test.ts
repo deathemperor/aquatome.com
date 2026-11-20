@@ -5,6 +5,7 @@ import { loadAll, type Content } from '@aq/schema'
 import { LANGS } from '@aq/schema/langs'
 import { localizePath } from '../src/lib/i18n'
 import { albumOf, hasAlbum } from '../src/lib/photo-page'
+import { plantParts } from '../src/lib/plant-page'
 import { renamedPages } from '../src/lib/renamed'
 import { sitemapEntries } from '../src/lib/sitemap'
 import { galleryParent } from '../worker/paths'
@@ -22,28 +23,56 @@ beforeAll(async () => {
   base = await loadAll({ root: fileURLToPath(new URL('./fixture-content', import.meta.url)), lang: 'vi', publicBuild: false })
 })
 
-// Six pictures far apart, and the same six with the last a second file of the first (one bit off: the same picture).
+// Distinct pictures and two files of the same picture (one bit apart).
 const FAR = ['0000000000000000', 'ffffffffffffffff', '00000000ffffffff', 'ffffffff00000000', '0000ffff0000ffff', 'ffff0000ffff0000']
-const ONE_SHORT = [...FAR.slice(0, 5), '0000000000000001']
+const SAME = [FAR[0]!, '0000000000000001']
 const PLANT = 'cryptocoryne-wendtii'
 
-/** The fixture with the plant's gallery as six photos whose pictures have these hashes. */
+/** The fixture with the plant's gallery as photos whose pictures have these hashes. */
 function withGallery(hashes: string[]): Content {
-  const photos = base.galleries[PLANT]!.slice(0, 6)
-  expect(photos).toHaveLength(6)
+  const photos = base.galleries[PLANT]!.slice(0, hashes.length)
+  expect(photos).toHaveLength(hashes.length)
   return { ...base, galleries: { ...base.galleries, [PLANT]: photos }, pictureHashes: { ...base.pictureHashes, ...Object.fromEntries(photos.map((p, i) => [p.url, hashes[i]!])) } }
 }
 
-test('a gallery of six files is an album only when they are six pictures', () => {
+test('one distinct picture is enough for an album', () => {
   const plant = { id: PLANT }
-  expect(albumOf(withGallery(ONE_SHORT), 'plants', plant)).toHaveLength(5)
-  expect(hasAlbum(albumOf(withGallery(ONE_SHORT), 'plants', plant))).toBe(false)
-  expect(hasAlbum(albumOf(withGallery(FAR), 'plants', plant))).toBe(true)
+  const album = albumOf(withGallery(SAME), 'plants', plant)
+  expect(album).toHaveLength(1)
+  expect(hasAlbum(album)).toBe(true)
+  expect(hasAlbum([])).toBe(false)
+})
+
+test('a plant shows a strip only when the album adds a picture to its lead', () => {
+  const plant = base.plants.find(p => p.id === PLANT)!
+  const lead = plant.photos[0]!
+  const extra = base.galleries[PLANT]!.find(p => p.url !== lead.url)!
+  const withPhotos = (...photos: typeof plant.photos) =>
+    plantParts('vi', { ...base, galleries: { ...base.galleries, [PLANT]: photos }, pictureHashes: {} }, plant)
+
+  expect(withPhotos(lead, extra).strip).toEqual([null, extra])
+  expect(withPhotos(lead).strip.filter(Boolean)).toEqual([])
+})
+
+test('marked Glaser photos follow the clean photos in a short album', () => {
+  const clean = base.galleries[PLANT]![0]!
+  const marked = { ...base.galleries[PLANT]![1]!, source: 'glaser' as const }
+  const content = { ...base, galleries: { [PLANT]: [marked, clean] }, pictureHashes: {} }
+  expect(albumOf(content, 'plants', { id: PLANT })).toEqual([clean, marked])
+})
+
+test('the browser fixtures have a two-photo album with its lead and a lead-only album', async () => {
+  for (const [id, count] of [['paracheirodon-innesi', 2], ['boraras-brigittae', 1]] as const) {
+    const fish = base.species.find(s => s.id === id)!
+    const album = albumOf(base, 'species', fish)
+    expect(album).toHaveLength(count)
+    expect(album[0]?.url).toBe(fish.photos[0]?.url)
+  }
 })
 
 test('the sitemap lists no photo page, in any language, a plant with an album or not', async () => {
   const slug = base.plants.find(p => p.id === PLANT)!.t.slug
-  for (const c of [withGallery(FAR), withGallery(ONE_SHORT)]) {
+  for (const c of [withGallery(FAR), withGallery([])]) {
     content = c
     const entries = await sitemapEntries()
     expect(entries.filter(e => e.path.includes(`/${slug}/`)).length, 'the plant\'s own pages are listed').toBeGreaterThanOrEqual(LANGS.length)
@@ -51,13 +80,13 @@ test('the sitemap lists no photo page, in any language, a plant with an album or
   }
 })
 
-test("a renamed plant's old photo address leads to its page in one step, when it had a photo page", () => {
+test("a renamed plant's old photo address leads to its page in one step, at any album length", () => {
   const renamed = (c: Content): Content => ({ ...c, plants: c.plants.map(p => (p.id === PLANT ? { ...p, t: { ...p.t, redirectFrom: [{ slug: 'ten-cu', name: 'Tên cũ' }] } } : p)) })
   const slug = base.plants.find(p => p.id === PLANT)!.t.slug
   expect(renamedPages(renamed(withGallery(FAR)))['/cay/ten-cu/anh/']).toBe(`/cay/${slug}/`)
-  const short = renamedPages(renamed(withGallery(ONE_SHORT)))
+  const short = renamedPages(renamed(withGallery([])))
   expect(short['/cay/ten-cu/']).toBe(`/cay/${slug}/?tu=ten-cu`)
-  expect(short['/cay/ten-cu/anh/']).toBeUndefined()
+  expect(short['/cay/ten-cu/anh/']).toBe(`/cay/${slug}/`)
 })
 
 // Each language's photo page addresses, written out: the Worker forwards each to its fish's or plant's page, and is asked

@@ -89,7 +89,7 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
 
 // The photos' chip stays at the row's end, in sight while the others scroll beside it, and opens the album over the page.
 test('a fish\'s jump row ends with the photos and their count, in sight, and opens the album', async ({ page, request, errors }, info) => {
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length > 0 && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
   test.skip(!found, 'no fish with a jump row and an album in this build')
   const { path, album } = found!
   await page.goto(path)
@@ -165,7 +165,7 @@ test('album: a thumb tapped while the album\'s script loads opens its photo over
 // Two thumbs tapped before the album's script has run: the second photo opens once it runs, on one entry: one Back
 // closes it, the next leaves.
 test('album: two thumbs tapped while the album\'s script loads open the second, and one Back closes it', async ({ page, request, errors }) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 2)
   test.skip(!found, 'no fish album in this build')
   const { path, album } = found!
   let release = () => {}
@@ -196,7 +196,7 @@ test('album: two thumbs tapped while the album\'s script loads open the second, 
 
 // Back pressed while the viewer's code is still on its way: nothing opens once it arrives, and the page stays as it was.
 test('album: Back pressed while the viewer loads opens nothing once it arrives', async ({ page, request, errors }) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 3)
   test.skip(!found, 'no fish album in this build')
   const { path } = found!
   let release = () => {}, asked = () => {}
@@ -224,7 +224,7 @@ test('album: Back pressed while the viewer loads opens nothing once it arrives',
 // A photo's address typed into the address bar on the page: the photo opens on that entry, Back closes it on the page,
 // and the next Back leaves (no second copy of the page in the history).
 test('album: a photo\'s address typed on the page opens it there; Back closes it, the next Back leaves', async ({ page, request, errors }) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 3)
   test.skip(!found, 'no fish album in this build')
   const { path, album } = found!
   await page.goto('/')
@@ -299,7 +299,7 @@ test('album: "Xem tất cả" only where the strip doesn\'t show every photo', a
 // stays where it was (the Design Lead, 18 Nov).
 test('album, a phone: closed on a photo whose thumb is past the row\'s edge, the row scrolls it into view, focused', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 5 && /class="strip column/.test(html))
   test.skip(!found, 'no fish page with a photo row in this build')
   const { path } = found!
   await page.goto(path)
@@ -336,7 +336,7 @@ test('album, a phone: closed on a photo whose thumb is past the row\'s edge, the
 // past the row's edge: the page stays where it was, and focus goes back to the chip, not to a thumb off the screen.
 test('album, a phone: closed with the strip off the screen, the page stays, focus on the chip that opened it', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 5 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
   test.skip(!found, 'no fish page with a photo row and a jump row in this build')
   const { path } = found!
   await page.goto(path)
@@ -373,7 +373,7 @@ test('album, a phone: closed with the strip off the screen, the page stays, focu
 // is, and the page stays where it was (Codex's read, 18 Nov).
 test('album, a phone: the row partly on the screen, closed on the thumb beside the one tapped, focus there, the page still', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 2 && /class="strip column/.test(html))
   test.skip(!found, 'no fish page with a photo row in this build')
   await page.goto(found!.path)
   await page.waitForLoadState()
@@ -410,7 +410,7 @@ test('album, a phone: the row partly on the screen, closed on the thumb beside t
 // 18 Nov).
 test('album, a phone: closed on a thumb under a bar at the screen\'s top, focus goes to the chip', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 2 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
   test.skip(!found, 'no fish page with a photo row and a jump row in this build')
   const { path } = found!
   await page.goto(path)
@@ -555,7 +555,7 @@ test('album, a tall computer screen: "Xem tất cả" goes when the column shows
 // On a phone the Back button closes the photo, not the page; the photo follows a swipe to the next one; a photo's own
 // address (#a3, a shared photo's) opens it over the page.
 test('album viewer: #a3 opens photo 3, a swipe goes to the next, Back closes it and stays on the page', async ({ page, request, errors }, info) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 4)
   test.skip(!found, 'no fish album in this build')
   const { path, album } = found!
   const n = album.photos.length
@@ -587,7 +587,7 @@ test('album viewer: #a3 opens photo 3, a swipe goes to the next, Back closes it 
 // Zoomed in (a pinch or a double tap on a phone, the wheel or a double click on a computer), a drag pans the photo
 // instead of going to the next one; a double tap or click zooms back out, and the swipe works again.
 test('album viewer: a zoomed photo pans rather than swiping; a double tap zooms back out', async ({ page, request, errors }, info) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 2)
   test.skip(!found, 'no fish album in this build')
   const touch = info.project.name === 'phone'
   // The album's widest photo: zoomed on a computer's wide screen, a tall one can stay narrower than the screen, with
@@ -648,12 +648,44 @@ test('album viewer: one click zooms in with a mouse, the next zooms out; a doubl
   expect(errors).toEqual([])
 })
 
+test('a short album adds one thumbnail beside the lead and opens it over the page', async ({ page }) => {
+  test.skip(LIVE, 'uses the fixture whose two-photo album includes its lead')
+  await page.goto('/ca/ca-neon-xanh/')
+  const strip = page.locator('[data-album]')
+  const thumb = strip.locator('li a[data-i]')
+  await expect(thumb).toHaveCount(1)
+  await expect(strip.locator('[data-all]:visible')).toHaveCount(0)
+  await expect.poll(() => strip.locator('ul').evaluate(ul => ul.scrollWidth - ul.clientWidth)).toBe(0)
+  await expect(strip).toHaveAttribute('data-ready', '')
+  await thumb.click()
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('2/2')
+})
+
+test('a lead-only album has no strip', async ({ page }) => {
+  test.skip(LIVE, 'uses the lead-only fixture')
+  await page.goto('/ca/ca-boraras-do/')
+  await expect(page.locator('header.top #anh img')).toBeVisible()
+  await expect(page.locator('section.strip, nav.jump a[href="#a1"]')).toHaveCount(0)
+  await page.goto('/ca/ca-boraras-do/#a1')
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('1/1')
+})
+
+test('a short album opens on the photo carried through a legacy redirect', async ({ page }) => {
+  test.skip(LIVE, 'uses the two-photo fixture')
+  await page.goto('/ca/ca-neon-xanh/?album=1#a2')
+  await expect(page).toHaveURL(at('/ca/ca-neon-xanh/', '#a2'))
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('2/2')
+  await page.goto('/ca/ca-neon-xanh/?album=1')
+  await expect(page).toHaveURL(at('/ca/ca-neon-xanh/', '#a1'))
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('1/2')
+})
+
 // Live only (the Worker forwards; the local server is files alone): an album's old address, as Google and old links keep
 // it, lands on its page, and the browser keeps the photo's #aN across the forward, which opens it there.
 test('an album\'s old address forwards to its page, and its #a2 opens photo 2 there', async ({ page, request, errors }) => {
   test.skip(!LIVE, 'the Worker forwards it: live only')
-  const found = await albumPage(request, 'ca')
-  test.skip(!found, 'no fish album on the site')
+  const found = await albumPage(request, 'ca', a => a.photos.length === 2)
+  test.skip(!found, 'no two-photo fish album in the sample')
   const { path, album } = found!
   await page.goto(`${path}anh/#a2`)
   await expect(page).toHaveURL(at(path, '#a2'))

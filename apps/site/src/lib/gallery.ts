@@ -42,8 +42,8 @@ export function alterationNotice(p: Pick<Photo, 'licence' | 'altered'>): 'Ảnh 
   if (p.altered.every(a => a.method === 'mark-crop') && !ccRequiresChangeNote(p.licence)) return
   return 'Ảnh đã chỉnh sửa'
 }
-/** A gallery page needs enough photos to be worth a page of its own. */
-export const GALLERY_MIN = 6
+/** One distinct album photo can open the viewer over its page. */
+export const GALLERY_MIN = 1
 /** Photos shown in the strip on the species page. */
 export const GALLERY_STRIP = 8
 /** Thumbnails at most in a fish page's photo column on a tall computer screen: the strip's, then the gallery's next ones. */

@@ -866,12 +866,19 @@ describe('photo gallery', () => {
     expect(dom.querySelector('[data-album] script[type="application/json"]')!.innerHTML).not.toContain('<')
     expect(html).not.toMatch(/href="[^"]*\/anh\//)
   })
-  test('a species with too few photos gets no strip, no album and no chip for its photos: its photo is right above the row', () => {
+  test('a species with one album photo besides its lead shows one thumb', () => {
     const { dom } = page('/ca/ca-neon-xanh/')
-    expect(dom.querySelector('section.strip')).toBeNull()
-    expect(dom.querySelector('[data-album]')).toBeNull()
-    expect(dom.querySelectorAll('nav.jump a').map(a => [a.text, a.getAttribute('href')])).toEqual([['Nuôi chung', '#muc-behaviour'], ['Mua đồ', '#mua-do']])
+    expect(albumOf(dom).photos).toHaveLength(2)
+    expect(dom.querySelectorAll('section.strip li a').map(a => a.getAttribute('data-i'))).toEqual(['1'])
+    expect(dom.querySelector('section.strip [data-all]:not([data-fits])')).toBeNull()
+    expect(dom.querySelector('nav.jump a[href="#a1"]')?.text).toBe('Ảnh 2')
+  })
+  test('a species whose album contains only its lead has no strip or photo chip', () => {
+    const { dom } = page('/ca/ca-boraras-do/')
     expect(dom.querySelector('header.top #anh img')).not.toBeNull()
+    expect(dom.querySelector('section.strip')).toBeNull()
+    expect(albumOf(dom).photos).toHaveLength(1)
+    expect(dom.querySelector('nav.jump a[href="#a1"]')).toBeNull()
   })
   test('no photo page is built in any language, and no sitemap lists one', () => {
     const forms = ['/ca/ca-neon-vua/anh/', '/cay/cryptocoryne-wendtii/anh/', '/ca/ca-la-han/anh/', '/id/ikan/ca-neon-vua/foto/', '/th/fish/ca-neon-vua/photos/', '/ms/ikan/ca-neon-vua/foto/', '/id/tanaman/cryptocoryne-wendtii/foto/', '/th/plants/cryptocoryne-wendtii/photos/', '/ms/tumbuhan/cryptocoryne-wendtii/foto/']

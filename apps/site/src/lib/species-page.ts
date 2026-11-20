@@ -56,8 +56,7 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   // The app's gallery still links the album's old address (app-page.ts galleryBlock), which forwards to this page; the app
   // doesn't open it, and protocols/page-vectors.json holds it until the protocols next change.
   const galleryPath = `/vi/ca/${s.t.slug}/anh/`
-  const grid = hasAlbum(gallery)
-  const strip = grid ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
+  const strip = hasAlbum(gallery) ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
   const figures = s.photos.slice(1).filter(p => pics.take([p]))
   // Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.
   const vn = lang === 'vi'
@@ -81,7 +80,7 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const jumps = jumpRow<JumpChip>([
     ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
     ...(kit ? [{ href: '#mua-do', label: t('Mua đồ') }] : []),
-    ...(grid ? [{ href: '#a1', label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
+    ...(strip.some(Boolean) ? [{ href: '#a1', label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
   ])
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   // The video guides' cards last, as on the page: two of one channel can carry the same photo.

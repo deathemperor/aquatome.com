@@ -163,9 +163,8 @@ test('species page: each "Tránh" chip says why; a size reason gives a size of t
 
 /** A species page with its photo and its gallery's thumbnails (a breed's top has no `.facts`), from the build or the sitemap. */
 async function speciesWithGallery(page: Page) {
-  // An album of 6 photos or more, as the photo pages it was found by had (gone since 18 Nov).
   for (const path of sourcePages().filter(p => /^\/ca\/[^/]+\/$/.test(p)).slice(0, 60)) {
-    if ((albumIn(await (await page.request.get(path)).text())?.photos.length ?? 0) < 6) continue
+    if ((albumIn(await (await page.request.get(path)).text())?.photos.length ?? 0) === 0) continue
     await page.goto(path)
     if (await page.locator('header.top > .facts').count() && await page.locator('header.top .photo').count() && await page.locator('main section.strip').count()) return (await openCard(page), true)
   }

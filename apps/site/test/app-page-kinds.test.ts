@@ -266,7 +266,7 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       expect(trust?.rows.map(r => [r.field, r.label, !!r.conflict, !!r.marked, r.note, r.items]) ?? [], d.path).toEqual(rows.map(r => [
         r.getAttribute('data-src-field'), txt(r.querySelector('dt')), r.getAttribute('data-conflict') === 'true', !!r.querySelector('dt .mark'), r.querySelector('dd > p') ? txt(r.querySelector('dd > p')) : undefined, r.querySelectorAll('li').map(txt),
       ]))
-      // The gallery's strip; its album's photos when it has its own address (6 photos or more), and no "Xem tất cả" under that.
+      // The gallery's strip and the photos it opens in the viewer.
       const g = one(d, 'gallery')
       const strip = dom.querySelectorAll('.strip li:not(.more) img')
       expect(!!g, d.path).toBe(strip.length > 0)
@@ -274,7 +274,7 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       else if (g) {
         expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
         expect(g.strip.map(i => g.photos[i]!.thumb ?? g.photos[i]!.src), d.path).toEqual(strip.map(i => i.getAttribute('src')))
-        expect(dom.querySelector('.strip [data-all]'), d.path).toBeNull()
+        expect(dom.querySelector('.strip [data-all]:not([data-fits])'), d.path).toBeNull()
       }
       // The summary, its text with the pages it names, its lines, the questions.
       const summary = one(d, 'summary')
