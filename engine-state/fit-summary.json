@@ -1,5 +1,5 @@
 {
- "day": "2026-11-20",
+ "day": "2026-11-21",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -58,38 +58,38 @@
  },
  "sample": [
   {
-   "lang": "th",
-   "path": "/th/fish/charax-stenopterus/",
-   "url": "https://aquatome.com/th/fish/charax-stenopterus/",
-   "title": "เรนโบว์ร็อบเบอร์เตตร้า",
-   "wrong": []
-  },
-  {
    "lang": "vi",
-   "path": "/vi/ca/ca-da-tron-ong-nghe-khong-lo/",
-   "url": "https://aquatome.com/ca/ca-da-tron-ong-nghe-khong-lo/",
-   "title": "Cá da trơn ong nghệ khổng lồ",
-   "wrong": []
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/huong-dan/tu-lam-ho-mini-trong-nha-tu-chau-nhua-co-thac-nuoc-va-cay/",
-   "url": "https://aquatome.com/huong-dan/tu-lam-ho-mini-trong-nha-tu-chau-nhua-co-thac-nuoc-va-cay/",
-   "title": "Tự làm hồ mini trong nhà từ chậu nhựa, có thác nước và cây",
+   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
+   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
+   "title": "Cá Hemibagrus microphthalmus",
    "wrong": [
     {
-     "check": "price",
-     "quote": "10 USD"
+     "check": "words",
+     "quote": "Nhiều khả năng"
     },
     {
-     "check": "price",
-     "quote": "mua hàng xả kho khoảng 10 USD"
+     "check": "words",
+     "quote": "giữ lãnh thổ"
     },
     {
-     "check": "units",
-     "quote": "Dùng ống PVC cỡ khoảng 1,3 cm và các cút góc ba ngả"
+     "check": "words",
+     "quote": "ghi nhận"
     }
    ]
+  },
+  {
+   "lang": "th",
+   "path": "/th/fish/corydoras-paleatus/",
+   "url": "https://aquatome.com/th/fish/corydoras-paleatus/",
+   "title": "แพะพริกไทย",
+   "wrong": []
+  },
+  {
+   "lang": "id",
+   "path": "/id/ikan/flat-head-pleco/",
+   "url": "https://aquatome.com/id/ikan/flat-head-pleco/",
+   "title": "Flat Head Pleco L151",
+   "wrong": []
   }
  ]
 }
