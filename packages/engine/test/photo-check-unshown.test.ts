@@ -277,6 +277,34 @@ test("a photo marked off whose never-again entry is a mark the shop's own kept i
   expect(await shownOn()).toEqual([url('g-fish')])
 })
 
+test("a refused photo a glossary term borrowed from a fish page leaves the term too; a kind left with no photo has no record", async () => {
+  const r = await store({ sss: ['s-dead', 's-fish'] })
+  const term = join(r, 'content/glossary/term')
+  await mkdir(term, { recursive: true })
+  await writeFile(join(term, 'entity.json'), `${JSON.stringify({ id: 'term', en: 'term', photos: [photo('s-dead')], kinds: [{ id: 'one', photo: photo('s-dead') }, { id: 'two', photo: photo('s-fish') }] }, null, 2)}\n`)
+  const other = join(r, 'content/glossary/other')
+  await mkdir(other, { recursive: true })
+  await writeFile(join(other, 'entity.json'), `${JSON.stringify({ id: 'other', en: 'other', kinds: [{ id: 'only', photo: photo('s-dead') }] }, null, 2)}\n`)
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('s-dead')]: compactRejection('dead: a fish on a board') }))
+  await sweep(r)
+  expect(await photosOf(r, 'sss')).toEqual(['s-fish'])
+  const t = await json(r, 'content/glossary/term/entity.json')
+  expect(t.photos).toEqual([])
+  expect(t.kinds.map((k: { id: string; photo: { url: string } }) => [k.id, name(k.photo.url)])).toEqual([['two', 's-fish']])
+  expect('kinds' in (await json(r, 'content/glossary/other/entity.json'))).toBe(false)
+})
+
+test("an agree on a photo marked off whose waiting entry is for another reason makes the entry the record's reason", async () => {
+  const r = await store({ hhh: ['h-fish'] })
+  const rec = { why: compactRejection('dead: a fish on a board'), step: 'the photo check', pages: ['species/hhh'], at: '2026-11-20', off: true, look: { said: 'agree', by: 'the chief of staff', on: '2026-11-20' } }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('h-dead')]: rec }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('h-dead')]: waitingEntry(compactRejection('people: another reason')) }))
+  const out = await sweep(r)
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[url('h-dead')]).toBe(rec.why)
+  expect(await json(r, 'engine-state/_photo-second-look.json')).toEqual({})
+  expect(out.waitingOdd).toEqual([])
+})
+
 test("a clear takes the waiting entry off the never-again list, and where a step puts the photo back no verdict takes it off again; an agree gives the entry the verdict's own reason and the record leaves", async () => {
   const r = await store({ mmm: ['m-dead'], nnn: ['n-dead'] })
   await checkPagePhotos(r, model({ 'm-dead': dead, 'n-dead': dead }), { limit: 10 })

@@ -1091,13 +1091,18 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // content file, so one listed after an equipment page was written stayed on it until the next check
   // (an Aquarium Co-op photo on the aquatic-plants page, in all four languages, 14 Nov).
   const everyJson = async (kind: string) => (await readdir(join(content, kind), { recursive: true }).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, kind, f))
-  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment'))]) {
+  // The glossary's too: a term shows a photo from a fish page, and one refused there stayed on the term (the independent
+  // reader, 20 Nov). A kind left with no photo has no record (GlossarySchema `kinds`).
+  const glossaryFiles = (await readdir(join(content, 'glossary')).catch(() => [] as string[])).sort().map(id => join(content, 'glossary', id, 'entity.json'))
+  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
     const data = JSON.parse(raw) as unknown
     const removed: string[] = []
     stripPhotos(data, listed, removed, [])
     if (!removed.length) continue
+    const g = data as { kinds?: { photo?: unknown }[] }
+    if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))
