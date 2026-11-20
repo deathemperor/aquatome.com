@@ -764,8 +764,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // the chief of staff, 16 Nov). The check runs before the screen in a cycle, and a logo listed here never reaches that
   // question. No public build shows the photo meanwhile (photo-screen.ts awaitsScreen). Dead fish and people still list it.
   const ownMarkWaits = new Set(shown.filter(x => marks[x.url]?.watermark === undefined && screenedShop(x.url, x.source ?? (x.guide ? guideFrom.get(x.url) : undefined))).map(x => x.url))
+  // This run's own verdicts of dead or a person on a photo that never passed the check: a first verdict (last-photo.ts).
+  // A verdict cached from before doesn't count, nor does this run's verdict of anything else.
+  const freshBad = new Set([...judgedNow].flatMap(k => { const i = k.indexOf(' '), u = k.slice(i + 1), v = cache[u]?.[k.slice(0, i)]; return v && (v.ok === 'dead' || v.person === true) && !passed.has(u) ? [u] : [] }))
+  // A photo held for a second look, or one it cleared, isn't taken off on a verdict; but a hold on another reason doesn't
+  // keep a photo from its first verdict of dead or a person (the independent reader, 20 Nov).
+  const spared = (url: string) => !sl.open(url) && !(sl.waiting(url) && freshBad.has(url))
   for (const url of everywhere.keys()) {
-    const why = url in rejected || !sl.open(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
+    const why = url in rejected || spared(url) ? undefined : blockedFor(cache[url], keepLogo(url) || ownMarkWaits.has(url))
     if (why) { added[url] = why; report.blocked.push(`${url}: ${why}`) }
   }
   // Not one its file name took off: a photo of the species it names, which that species' page may still take.
@@ -774,10 +780,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // The hold protects a photo that passed the check before (the chief of staff, 20 Nov 2026). This run's first verdict of
   // dead or a person, on a photo that never passed, isn't held: it comes off, even as a page's last photo, and waits for
   // its look marked on both lists (last-photo.ts), as does one already marked.
-  const newly = new Set([...judgedNow].map(k => k.slice(k.indexOf(' ') + 1)))
-  const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && newly.has(url) && !passed.has(url))
+  const first = (url: string) => sl.off(url) || (FIRST_OFF.test(added[url] ?? '') && freshBad.has(url))
   const offAt = new Set(shown.filter(off).map(x => `${x.file}\n${x.url}`))
-  const blocked = (file: string) => (url: string) => (url in rejected && !keepLogo(url)) || url in added || offAt.has(`${file}\n${url}`)
+  // One marked off at its first verdict is off wherever it shows, its never-again entry there or not (last-photo.ts).
+  const blocked = (file: string) => (url: string) => (url in rejected && !keepLogo(url)) || url in added || offAt.has(`${file}\n${url}`) || sl.off(url)
   // Pages this run would leave with no photo of their own: more than the cap, and none of them loses any.
   const real = (ps: Photo[] | undefined) => (ps ?? []).filter(p => !p.generated)
   const ownPhotos = async (file: string) => real((await readJson<{ photos?: Photo[] }>(file))?.photos)

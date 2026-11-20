@@ -4,6 +4,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
+import { looks, readSecondLook } from './last-photo'
 
 type Photo = { url: string; thumb?: string; width: number; height: number; licence: string; author: string; sourceUrl: string }
 type Stored = Awaited<ReturnType<Media['put']>>
@@ -71,6 +72,9 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
+  // A photo off at its first verdict is coming off every page: it isn't copied, so its waiting entry and its record keep
+  // one address (last-photo.ts; the independent reader, 20 Nov).
+  const marked = looks(await readSecondLook(root)).off
   for (const file of await files(join(root, 'content'))) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
@@ -78,7 +82,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     let changed = false
     for (const p of photosIn(data)) {
       const plan = mirrorPlan(p.url)
-      if (!plan) continue
+      if (!plan || marked(p.url)) continue
       if (isNonCommercial(p.licence) && !(nc && file.startsWith(albums) && isInatNonCommercial(p))) continue
       let stored = done.get(plan.key)
       if (!stored) {

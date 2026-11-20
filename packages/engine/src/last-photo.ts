@@ -136,7 +136,8 @@ export async function holdForSecondLook(root: string, held: Map<string, { why: s
   const sl = await readSecondLook(root)
   const added: string[] = []
   for (const [url, h] of held) {
-    if (has(sl, url)) continue
+    // A first verdict's mark takes the place of a hold on another reason that has no answer yet (photo-check.ts spared).
+    if (has(sl, url) && !(h.off && !sl[url]!.off && !lookOf(sl[url]))) continue
     sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}) }
     added.push(url)
   }

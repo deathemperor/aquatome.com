@@ -143,11 +143,12 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
   // a second look (last-photo.ts); one the second look cleared stays too.
   const sl = looks(await readSecondLook(root))
-  const going = new Set(off.filter(x => !x.video && sl.open(x.url)).map(x => x.url))
+  // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
+  const passed = off.some(x => !x.video) ? await readPassedBefore(root) : new Set<string>()
+  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed.has(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
   const last = going.size ? new Map([...lastPhotos(await pagesShowing(content), u => going.has(u) || u in photoRejected)].filter(([u]) => going.has(u))) : new Map<string, string[]>()
   // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
-  const passed = last.size ? await readPassedBefore(root) : new Set<string>()
   const held = new Map([...last].filter(([u]) => passed.has(u)))
   const firstOff = new Map([...last].filter(([u]) => !passed.has(u)))
   const holding = new Map<string, { why: string; pages: string[]; off?: true }>()

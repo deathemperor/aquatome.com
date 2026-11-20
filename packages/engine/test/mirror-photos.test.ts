@@ -100,3 +100,17 @@ test("a guide's Commons photo moves too, keeping the section it illustrates", as
   const g = JSON.parse(await read(r, 'guides/aquatome-a/entity.json'))
   expect(g.photos[0]).toMatchObject({ url: `https://media.aquatome.com/${mirrorPlan(G)!.key}`, section: { vi: 'Màu' } })
 })
+
+test('a photo off at its first verdict, waiting for its second look, is not copied: its waiting entry and its record keep one address', async () => {
+  const r = await root()
+  const why = 'dead: withheld [sha256:' + 'a'.repeat(64) + ']'
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [INAT]: { why, step: 'face detection', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true } }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [INAT]: 'waiting: withheld [sha256:' + 'a'.repeat(64) + ']' }))
+  const { d, put } = deps()
+  await mirrorPhotos(r, d)
+  expect(put).not.toContain('inaturalist/617421644.webp')
+  expect(await read(r, 'gallery/astronotus-ocellatus.json')).toContain(INAT)
+  expect(Object.keys(JSON.parse(await readFile(join(r, 'engine-state/_photo-rejected.json'), 'utf8')))).toEqual([INAT])
+  // The others still move.
+  expect(put).toContain(mirrorPlan(C1280)!.key)
+})

@@ -135,6 +135,61 @@ test('a dead verdict given before the rule, on a page\'s only photo, is held as 
   expect(out.heads.held).toEqual([`species/rrr: ${url('r-dead')}`])
 })
 
+test("a fresh verdict of anything else beside an old dead verdict isn't a first verdict: the photo is held as before", async () => {
+  // x-old's dead verdict on aaa is from before; this run judges it on bbb for the first time, and calls it a live fish.
+  const r = await store({ aaa: ['x-old'], bbb: ['x-old', 'b-fish'] }, { 'x-old': { aaa: { ...dead, person: false, logo: false } } })
+  const out = await checkPagePhotos(r, model({}), { limit: 10 })
+  expect(out.judged).toBeGreaterThan(0)
+  expect(await photosOf(r, 'aaa')).toEqual(['x-old'])
+  expect(out.firstOff).toEqual([])
+  expect(out.heads.held).toContain(`species/aaa: ${url('x-old')}`)
+  expect((await json(r, 'engine-state/_photo-second-look.json'))[url('x-old')]?.off).toBeUndefined()
+})
+
+test("a hold on another reason with no answer doesn't keep a photo from its first verdict: it comes off and its record takes the mark", async () => {
+  // Each page's only photo is held for a mark (the watermark screen's hold), and has never passed the check.
+  const r = await store({ aaa: ['a-mark'], bbb: ['b-mark'], ccc: ['c-mark'], ddd: ['d-mark'] }, { 'd-mark': { ddd: oldPass } })
+  const markHold = (id: string) => ({ why: compactRejection('watermark: a logo bottom left'), step: 'the watermark screen', pages: [`species/${id}`], at: '2026-11-19' })
+  const holds = { [url('a-mark')]: markHold('aaa'), [url('b-mark')]: markHold('bbb'), [url('c-mark')]: markHold('ccc'), [url('d-mark')]: markHold('ddd') }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify(holds))
+  // The dead-fish screen on b-mark and the face screen on c-mark, which run before the check has judged them.
+  let sheet: string[] = []
+  const d: DeadScreenDeps = {
+    get: async u => { sheet.push(u); return new Uint8Array(await sharp({ create: { width: 480, height: 360, channels: 3, background: '#468' } }).png().toBuffer()) },
+    look: async () => { const tiles = sheet.map((u, i) => ({ n: i + 1, dead: /b-mark\.webp$/.test(u), note: 'a fish on a board' })); sheet = []; return { tiles } },
+  }
+  const dead2 = await screenDead(r, d, { limit: 48 })
+  expect(dead2.firstOff).toEqual([`${url('b-mark')}: species/bbb`])
+  expect(await photosOf(r, 'bbb')).toEqual([])
+  const faces = await dropFacePhotos(join(r, 'content'), join(r, 'engine-state/_photo-faces.json'), { get: async (u: string) => new TextEncoder().encode(u), detect: async (files: string[]) => Promise.all(files.map(async f => ((await readFile(f, 'utf8')).includes('c-mark') ? 1 : 0))) }, join(r, 'engine-state/_photo-rejected.json'), r)
+  expect(faces.firstOff).toEqual([`${url('c-mark')}: species/ccc`])
+  expect(await photosOf(r, 'ccc')).toEqual([])
+  let sl = await json(r, 'engine-state/_photo-second-look.json')
+  // The check: a-mark is a dead fish; d-mark passed before, so its dead verdict leaves it held.
+  const out = await checkPagePhotos(r, model({ 'a-mark': dead, 'd-mark': dead }), { limit: 10 })
+  expect(await photosOf(r, 'aaa')).toEqual([])
+  expect(await photosOf(r, 'ddd')).toEqual(['d-mark'])
+  expect(out.firstOff).toEqual([`species/aaa: ${url('a-mark')}`])
+  sl = await json(r, 'engine-state/_photo-second-look.json')
+  expect(sl[url('a-mark')]).toMatchObject({ step: 'the photo check', pages: ['species/aaa'], off: true })
+  expect(sl[url('a-mark')].why).toMatch(/^dead: /)
+  expect(sl[url('d-mark')]).toEqual(holds[url('d-mark')])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[url('a-mark')]).toBe(waitingEntry(sl[url('a-mark')].why))
+  sl = await json(r, 'engine-state/_photo-second-look.json')
+  expect(sl[url('b-mark')]).toMatchObject({ step: 'the dead-fish screen', off: true })
+  expect(sl[url('c-mark')]).toMatchObject({ step: 'face detection', off: true })
+  const listed = await json(r, 'engine-state/_photo-rejected.json')
+  expect(listed[url('b-mark')]).toBe(waitingEntry(sl[url('b-mark')].why))
+  expect(listed[url('c-mark')]).toBe(waitingEntry(sl[url('c-mark')].why))
+})
+
+test('a photo marked off at its first verdict whose waiting entry is missing comes off a page with other photos in the next check', async () => {
+  const r = await store({ eee: ['e-back', 'e-fish'] }, { 'e-back': { eee: { ...dead, person: false, logo: false } } })
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('e-back')]: { why: compactRejection('dead: a fish on a board'), step: 'the photo check', pages: ['species/zzz'], at: '2026-11-20', off: true } }))
+  await checkPagePhotos(r, model({}), { limit: 10 })
+  expect(await photosOf(r, 'eee')).toEqual(['e-fish'])
+})
+
 test("the dead-fish screen's first verdict on a page's only photo that never passed takes it off, marked; one that passed before is held", async () => {
   const r = await store({ iii: ['i-dead'], jjj: ['j-dead'] })
   // jjj's photo passed the check's first version, which didn't ask about dead fish, so the screen still looks at it.
@@ -179,7 +234,7 @@ test("the face screen's first verdict on a page's only photo that never passed t
   expect(later.held).toContain(`${url('k-face')}: species/kkk`)
 })
 
-test("a clear takes the waiting entry off the never-again list and the photo can come back at the next run; an agree gives the entry the verdict's own reason and the record leaves", async () => {
+test("a clear takes the waiting entry off the never-again list, and where a step puts the photo back no verdict takes it off again; an agree gives the entry the verdict's own reason and the record leaves", async () => {
   const r = await store({ mmm: ['m-dead'], nnn: ['n-dead'] })
   await checkPagePhotos(r, model({ 'm-dead': dead, 'n-dead': dead }), { limit: 10 })
   const file = join(r, 'engine-state/_photo-second-look.json')

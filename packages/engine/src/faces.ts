@@ -64,11 +64,12 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   // A face takes a photo off, unless its going would leave a species, plant or breed page with nothing: then it stays,
   // held for a second look (last-photo.ts). One the second look cleared stays too.
   const sl = looks(await readSecondLook(root))
-  const face = (u: string) => cache[u]! > 0 && sl.open(u)
+  // A hold on another reason doesn't keep a photo that never passed from a face found now, its first verdict (photo-check.ts spared).
+  const passed = await readPassedBefore(root)
+  const face = (u: string) => cache[u]! > 0 && (sl.open(u) || (sl.waiting(u) && screened.has(u) && !passed.has(u)))
   const last = new Map([...lastPhotos(await pagesShowing(contentRoot), u => face(u) || u in rejected)].filter(([u]) => face(u) && !(u in rejected)))
   // Only one that passed the check before is held; a face found now, on one that never did, takes it off, marked on both
   // lists (last-photo.ts).
-  const passed = last.size ? await readPassedBefore(root) : new Set<string>()
   const firstOff = new Map([...last].filter(([u]) => screened.has(u) && !passed.has(u)))
   for (const u of firstOff.keys()) last.delete(u)
   const why = 'people: a face (face detection)'
