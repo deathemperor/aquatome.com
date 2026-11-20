@@ -1097,7 +1097,7 @@ test("the Writing Lead's answers on two guides of ours and two video guides hold
   handFixesHold('held-dropped-1120.json', '')
   const light = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-FqNP9rxudYs/vi.json', import.meta.url)), 'utf8')) as { faq: { q: string; a: string }[] }
   const fixture = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-dropped-1120.json', import.meta.url)), 'utf8')) as Record<string, { in: string; now?: string }[]>
-  const answer = fixture['youtube-FqNP9rxudYs'].find(e => e.in === 'faq')?.now
+  const answer = fixture['youtube-FqNP9rxudYs']!.find(e => e.in === 'faq')?.now
   // The question and its answer, as one pair, second in the FAQ: the helper reads all answers together.
   expect(light.faq[1]?.q).toBe('Bể mới trồng cây để đèn sáng cả đêm có hại không?')
   expect(answer).toBeTruthy()
