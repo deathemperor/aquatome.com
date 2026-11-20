@@ -497,6 +497,30 @@ test('a rewrite\'s drop check: a part with one word left, a figure by its number
     .toEqual([note('Cá cần nước sạch.', 'the advice "Cá cần nước sạch"')])
 })
 
+// The chief of staff, 20 Nov 2026: a heading renamed, its sentences kept, loses no advice by its plain words (Cá đàn's
+// "Trong bể của bạn" and Đường bên's "Nên làm gì" were refused on "bạn" and "gì"); its figures, names and cautions stay held,
+// and so does its frame: a mistakes heading renamed to a do-this heading turns each mistake under it into advice.
+test('a rewrite\'s drop check: a heading renamed with its sentences kept saves, but not its figures, nor a sentence that loses advice, nor a mistakes heading\'s frame', () => {
+  const said = { facts: [{ fact: 'Cardinals live below pH 5.5' }, { fact: 'Soak new wood 1–2 weeks, then rinse it well' }] }
+  const drop = (before: string, after: string, free: string[] = []) => droppedInRewrite({ definition: 'Một câu.', body: before }, { definition: 'Một câu.', body: after }, said, [], [], free)
+  const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and nothing lets that sentence go: write it as it was, word for word.`
+  // The rename that was refused: every sentence kept, under a heading whose words are new.
+  const school = '<p>Cá đàn tụ lại thành nhóm lỏng.</p><p>Nuôi ít nhất 6 con.</p>'
+  expect(drop(`<h3>Trong bể của bạn</h3>${school}<h3>Nên làm gì</h3><p>Thả từ từ.</p>`, `<h3>Tụ nhóm và bơi đồng loạt</h3>${school}<h3>Các bước</h3><p>Thả từ từ.</p>`)).toEqual([])
+  // A sentence under the renamed heading that loses a piece of advice is still refused, and the heading isn't.
+  expect(drop('<h3>Trong bể của bạn</h3><p>Ngâm lũa mới 1–2 tuần, rồi tráng thật kỹ.</p>', '<h3>Chuẩn bị lũa</h3><p>Ngâm lũa mới 1–2 tuần.</p>'))
+    .toEqual([note('Ngâm lũa mới 1–2 tuần, rồi tráng thật kỹ.', 'the advice "tráng thật kỹ"')])
+  // A heading's figure the facts carry stays held.
+  expect(drop('<h3>Khi pH dưới 5,5</h3><p>Cá neon vua sống khỏe.</p>', '<h3>Nước chua</h3><p>Cá neon vua sống khỏe.</p>')).toEqual([note('Khi pH dưới 5,5', 'the figure 5,5')])
+  // A mistakes heading renamed to a do-this heading, every sentence kept, is refused; to another mistakes heading it isn't.
+  const mistakes = '<ul><li>Cho cá ăn quá nhiều.</li><li>Thay hết nước một lần.</li></ul>'
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Nên làm gì</h3>${mistakes}`)).toEqual([note('Sai lầm hay gặp', 'the frame "sai lầm" over 2 sentences that now stand under "Nên làm gì"')])
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Sai lầm cần tránh</h3>${mistakes}`)).toEqual([])
+  // Its frame stays held with the heading on the free list; a sentence under it the free list lets go doesn't count.
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Nên làm gì</h3>${mistakes}`, ['Sai lầm hay gặp'])).toEqual([note('Sai lầm hay gặp', 'the frame "sai lầm" over 2 sentences that now stand under "Nên làm gì"')])
+  expect(drop(`<h3>Sai lầm hay gặp</h3>${mistakes}`, `<h3>Nên làm gì</h3>${mistakes}`, ['Cho cá ăn quá nhiều.', 'Thay hết nước một lần.'])).toEqual([])
+})
+
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
   const e = { definition: 'Một câu.', body: '<p>Đá &amp; san hô làm pH lên.</p>' }
   const loose = [{ text: 'Đá & san hô làm pH lên.', block: 'Đá & san hô làm pH lên.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] }]

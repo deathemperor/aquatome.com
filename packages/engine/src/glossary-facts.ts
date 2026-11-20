@@ -404,6 +404,14 @@ export async function rewordLoose<E extends { definition: string; body: string }
 
 const DROP = 'The rewrite dropped from "'
 /**
+ * The words that make a heading the frame of what stands under it: a mistake, a thing to avoid, a warning (the chief of
+ * staff, 20 Nov 2026: "sai lầm" is none of the caution words, so "Sai lầm hay gặp" renamed to a do-this heading, its
+ * sentences kept whole, would turn every mistake under it into advice). "Sai lầm hay gặp" and "Sai lầm cần tránh" are main's
+ * mistakes headings, "… dấu hiệu cần để ý" its one heading of signs to watch for.
+ */
+const FRAMES = ['sai lầm', 'lỗi', 'tránh', 'cảnh báo', 'lưu ý', 'để ý', 'nguy hiểm', 'cẩn thận']
+const framesIn = (heading?: string) => (heading ? FRAMES.filter(w => has(heading, w)) : [])
+/**
  * What a rewrite on notes took out that nothing let go (the chief of staff, 15 Nov 2026: pH's trim for length dropped
  * "pH đổi đột ngột có thể làm cá chết." and the log scale's worked example, and nothing checked the rewrite). Two things
  * let a sentence go, and nothing else: a stop on it, a sentence the fact check stopped (the facts don't carry it, or the
@@ -421,6 +429,13 @@ const DROP = 'The rewrite dropped from "'
  * sentences: a repeat taken out goes by the free list too (GH's notes line: what GH measures is said once, in the
  * definition). A kind's sentence keeps its advice in its kind's item, while that item stands. One note for each such
  * sentence, naming what it lost, for the writer to write it as it was.
+ *
+ * A heading renamed (the chief of staff, 20 Nov 2026) loses no advice by its plain words: "Trong bể của bạn" and "Nên làm
+ * gì" are no step to stand anew, and the sentences under it move with it, each held as any moved sentence is. Its figures,
+ * names and cautions are counted over the entry as any sentence's. Its frame stays held, free list or not: a heading of
+ * mistakes, things to avoid or warnings (FRAMES) can't be renamed to one that isn't while the sentences under it still
+ * stand, under no frame heading, since each would read as the opposite. A sentence under it that a stop or the free list
+ * lets go doesn't count.
  */
 export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item' | 'meaning'>[], names: string[] = [], free: string[] = []): string[] {
   const placed = (e: { definition: string; body: string }) => [
@@ -436,7 +451,14 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   const unfreed = (t: string) => free.filter(q => t.includes(q)).reduce((s, q) => s.split(q).join(' '), t)
   const now = new Set(is.map(s => s.key)), then = new Set(was.map(s => s.key))
   const gone = was.filter(s => !now.has(s.key) && !whole(s)).map(s => ({ ...s, u: unfreed(s.text) }))
-  if (!gone.length) return []
+  const isHeading = (s: Sentence) => !s.meaning && s.heading !== undefined && s.block === s.heading
+  // Each frame heading gone, and the sentences under it that now stand under no frame heading.
+  const frames = new Map(was.filter(h => isHeading(h) && !now.has(h.key) && framesIn(h.text).length).flatMap(h => {
+    const flipped = was.filter(s => !isHeading(s) && s.heading === h.text && !whole(s) && is.some(x => x.text === s.text) && !is.some(x => x.text === s.text && framesIn(x.heading).length))
+    const under = [...new Set(flipped.flatMap(s => is.filter(x => x.text === s.text).map(x => x.heading ?? 'no heading')))]
+    return flipped.length ? [[h.key, `the frame "${framesIn(h.text).join('", "')}" over ${flipped.length} sentence${flipped.length > 1 ? 's' : ''} that now stand${flipped.length > 1 ? '' : 's'} under ${under.map(x => `"${x}"`).join(', ')}`] as const] : []
+  }))
+  if (!gone.length && !frames.size) return []
   const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
   const rest = was.filter(s => !whole(s)).map(s => unfreed(s.text)).join(' ')
   const all = is.map(s => s.text).join(' ')
@@ -449,7 +471,8 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   // Each thing lost goes to the first gone sentence that had it. A figure goes by its number, named as that sentence wrote
   // it (Grok: "pH 4,0" cut, with "4 tuần" still standing, left a 4 no sentence wrote as "4" to take it).
   const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
-  return gone.flatMap(({ text: t, u, item }) => {
+  const note = (t: string, lost: string[]) => `${DROP}${t}" ${[...new Set(lost)].join(', ')}, and nothing lets that sentence go: write it as it was, word for word.`
+  return [...gone.flatMap(({ text: t, u, item, ...s }) => {
     const own = figures(u, true), as = (f: Figure) => own.find(g => g.reads.some(r => f.reads.includes(r)))
     // Each piece stands in one new or moved sentence, not in their words pooled (the eighth read's Sonnet reviewer: "Cá cần
     // nước sạch." cut read as kept, its words scattered through a longer sentence added beside it).
@@ -458,8 +481,11 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
       ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
       ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
       ...take(warned, w => cautionWords(u).includes(w)).map(w => `the caution "${w}"`),
-      ...adviceLost(u, '', true).filter(p => fresh.every(f => adviceLost(p, f, true).length)).map(p => `the advice "${p}"${item && items.has(item) ? ` under ${item}` : ''}`),
+      ...(isHeading({ text: t, ...s }) ? [] : adviceLost(u, '', true).filter(p => fresh.every(f => adviceLost(p, f, true).length)).map(p => `the advice "${p}"${item && items.has(item) ? ` under ${item}` : ''}`)),
+      ...(frames.has(s.key) ? [frames.get(s.key)!] : []),
     ]
-    return lost.length ? [`${DROP}${t}" ${[...new Set(lost)].join(', ')}, and nothing lets that sentence go: write it as it was, word for word.`] : []
-  })
+    return lost.length ? [note(t, lost)] : []
+  }),
+  // A frame heading the free list or a stop lets go still holds its frame.
+  ...was.filter(h => frames.has(h.key) && whole(h)).map(h => note(h.text, [frames.get(h.key)!]))]
 }
