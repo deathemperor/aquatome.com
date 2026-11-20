@@ -62,25 +62,53 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ]
+  },
   "sections": [
     {
       "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-en/",
-      "html": "<p>The Dwarf Suriname Toad from Venezuela is a real rarity in aquaria. A new breeder is able to offer some specimens every now and then. The animals on offer are captive bred.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "html": "<p>Pipa parva is a real rarity in the aquarium. At first sight these animals resemble dwarf clawed frogs (Hymenochirus), but they can always be told apart by the branched fingertips, which are typical for all Pipa species.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-en/",
-      "html": "<p>Venezuela.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "html": "<p>The dwarf Surinam toad (Pipa parva) comes from Venezuela.</p>"
     },
     {
-      "key": "notes",
+      "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-en/",
-      "html": "<p>At first glimpse these nice animals resemble Dwarf Clawed Frogs (Hymenochirus). However, like all other Pipa species, P. parva has ramifications on the top of each finger, which always allow a correct identification.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "html": "<p>Pipa parva should be kept and bred at water temperatures between 26 and 28°C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "html": "<p>Complete covering of the aquarium is very important. Otherwise the Surinam toads sooner or later go wandering, which usually ends fatally in an apartment.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "html": "<p>The dwarf Surinam toad is easy to feed with all kinds of frozen food for ornamental fish. Many specimens also get used to granulated food.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "html": "<p>The eggs of all Surinam toads develop, after they have been laid and fertilized, in the back skin of the female, which completely grows over the eggs. In the Great Surinam toad (Pipa pipa and closely related species), fully developed young frogs hatch from the back skin. In the dwarf Surinam toad, tadpoles break through the mother's back skin and begin an independent life. The tadpoles have a broad mouth and feed on plankton animals (freshly hatched Artemia nauplii in the aquarium).</p>"
     }
   ],
   "photos": [
@@ -112,6 +140,36 @@
       "licence": "dùng với sự cho phép",
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa_parva_en/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bd1e16de2183c0a7.webp",
+      "thumb": "https://media.aquatome.com/glaser/bd1e16de2183c0a7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9daab31a868bc8c0.webp",
+      "thumb": "https://media.aquatome.com/glaser/9daab31a868bc8c0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/988bd29546022922.webp",
+      "thumb": "https://media.aquatome.com/glaser/988bd29546022922-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/pipa-parva-3/",
       "source": "glaser"
     }
   ],
@@ -163,5 +221,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17"
+  "updatedAt": "2026-11-20"
 }

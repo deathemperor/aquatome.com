@@ -1,0 +1,125 @@
+{
+  "id": "astroblepus-ardiladuartei",
+  "scientificName": "Astroblepus ardiladuartei",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "surata"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 12.1
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "html": "<ul><li>Size: the largest specimen collected was 121.3 mm (12.1 cm).</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "html": "<p>South America: Colombia, Department of Santander, Dirty Creek, a tributary of the River Suratá, Municipality of Suratá.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "html": "<p>Fishes of the family Astroblepidae are found in freshwater streams (between 61 and 4,085 m above sea level) of the tropical Andes from Panama to Bolivia, and occur in both the western Pacific and eastern Amazonian slope drainage systems in South and Central America.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "html": "<p>Not an easy family of catfishes to keep, so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet, but you may wish to try glassworm and blackworm (although these won't tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "html": "<p>Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae.</p><p>Description: Vertebrae: 24, premaxilla with 0-1 bicuspid teeth and 6-10 conic teeth in external row, 7 soft radii, and 24 vertebrae. Astroblepus ardiladuartei is recognised among the other species of the genus by the lack of an adipose fin in adults.</p><p>Colouration: The head is a light brown colour with two large vertical patches of dark colour to each side of the nostrils, black eyes. Oral disc medium (7.1-13.2 mm). Lateral region of the body with background light brown and dark brown irregular blotches. Caudal fin with a vertical band broadband light brown colour at the base and spokes without stripes; the first simple spokes are the same and a little long. Abdomen pale brown.</p><p>Etymology: The specific name is a tribute to the author's son, biologist Carlos Alfonso Ardila Duarte, with whom they collected this species in its type locality.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "html": "<p>Ardila Rodríguez, Carlos A.; Five New Species of Astroblepus Fish for Colombian Andes. Universidad Metropolitana, Barranquilla, Colombia. Vol. 1, Núm. 27 (2015). Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ). Ochoa LE, Melo BF, García-Melo JE, Maldonado-Ocampo JA, Souza CS, Albornoz-Garzón JG, Conde-Saldaña CC, Villa-Navarro F, Ortega-Lara A, Oliveira C. Species delimitation reveals an underestimated diversity of Andean catfishes of the family Astroblepidae (Teleostei: Siluriformes). Neotrop Ichthyol. 2020; 18(4).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/7f56b62b5d87d676.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7f56b62b5d87d676-480.webp",
+      "width": 500,
+      "height": 142,
+      "licence": "dùng với sự cho phép",
+      "author": "Carlos A. Ardila Rodriguez / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "caption": "Astroblepus ardiladuartei",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/86759a4e333522ba.webp",
+      "thumb": "https://media.aquatome.com/scotcat/86759a4e333522ba-480.webp",
+      "width": 500,
+      "height": 173,
+      "licence": "dùng với sự cho phép",
+      "author": "Ochoa LE., et al 2020 / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm",
+      "caption": "Astroblepus ardiladuartei",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "máy sục khí",
+        "máy thổi khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina",
+        "trùng huyết đông lạnh",
+        "thức ăn cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

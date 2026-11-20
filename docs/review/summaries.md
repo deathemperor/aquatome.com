@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (158)
+# Tóm tắt chờ duyệt (161)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -879,6 +879,15 @@ Kiểm tra:
 - The mistake "nên giữ nước sạch và sục khí tốt" gives a fix (aeration) that the page never states. The page only says the river water is clear, clean and oxygen-rich. The phrase "Nước tù" (stagnant water) is also not on the page.
 - The summary says the page has no tank information ("chưa đủ để nói bể nào hợp"), yet both mistakes give tank-keeping instructions. This is inconsistent and goes beyond what the page supports.
 
+## Cá thủy tinh lùn (Gymnochanda ploegi)
+id: `gymnochanda-ploegi`
+
+Cá thủy tinh lùn (Gymnochanda ploegi) chỉ hợp người nuôi đã có kinh nghiệm, độ khó 8/8. Cá dài khoảng 3 cm, cần nước đen rất mềm, axit (pH 5–6,5, 0–2 dGH, 24–28 °C), sạch, ổn định, nhiều oxy, dòng chảy nhẹ, đèn dịu, có cây nổi. Khó nhất là giữ nước đúng thông số vì cá rất yếu, lại ăn thịt, chuyên mồi sống tí hon.
+
+- Cho muối vào bể: tuyệt đối không dùng muối, cá không chịu nổi.
+- Nuôi lẻ hoặc ghép cá hung dữ, bơi nhanh, cá đẻ con: nuôi đàn từ 6 con trở lên, ghép với loài nhỏ, hiền, ưa nước mềm như rasbora Boraras.
+- Cho ăn cám khô ngay khi mới thả: ban đầu cho mồi sống tí hon như micro-worm, daphnia, Artemia mới nở, khi cá quen bể mới thử đồ đông lạnh băm nhuyễn.
+
 ## Cá ăn đất cầu vồng nhỏ (Gymnogeophagus meridionalis)
 id: `gymnogeophagus-meridionalis`
 
@@ -1390,6 +1399,24 @@ Hợp với người có bể dài từ 120 cm và muốn nuôi đàn cá chạc
 Kiểm tra:
 - "vì cá thích sống theo đàn": the page hedges this as "chúng có vẻ thích sống theo đàn" (they seem to prefer living in groups). The summary states it as certain.
 - "cá bảy màu hay cichlid": the page says "nhiều loài cichlid" (many cichlid species), not all cichlids. The summary generalises it to every cichlid.
+
+## Cá thần tiên filamentosus (Parosphromenus filamentosus)
+id: `parosphromenus-filamentosus`
+
+Cá thần tiên filamentosus (Parosphromenus filamentosus) hợp với người đã quen nuôi cá nhỏ, chịu khó giữ một bể nhỏ riêng một loài. Cá dài tối đa 3 cm, cần nước mềm, có tính axit: 22–28 °C, pH 3–6,5, độ cứng 1–4 dGH, độ khó 5/8. Khó nhất là cá chỉ ăn thức ăn sống, lại hiền và nhút nhát.
+
+- Cho ăn đồ không sống: loài này chỉ ăn thức ăn sống, nên cho đồ tươi sống cỡ nhỏ.
+- Thả chung với cá khác trong bể lớn: cá nhút nhát và thích bể nhỏ nuôi riêng một loài, nên giữ bể riêng.
+- Để bể trống, ít chỗ náu: cá hay trốn giữa cây, sau lũa và đá, nên bố trí đủ các vật này.
+
+## Cá chân kiếm Sumatra (Parosphromenus sumatranus)
+id: `parosphromenus-sumatranus`
+
+Cá chân kiếm Sumatra (Parosphromenus sumatranus) khó nuôi, độ khó 6/8, hợp người đã quen cá nhỏ và chịu khó lo mồi sống đều đặn. Cá dài tối đa 3,5 cm, cần nước chua pH 3–6,5, rất mềm 1–4 dGH, nhiệt độ 22–28 °C, bể có nhiều cây, lũa, đá để trốn. Khó nhất là chuyện ăn: cá chỉ ăn mồi sống.
+
+- Cho ăn thức ăn chết hoặc khô: cá chỉ ăn mồi sống, nên cho động vật không xương sống nhỏ và ấu trùng côn trùng còn sống.
+- Để bể trống, ít chỗ nấp: cá hiền và nhát, nên bố trí đám cây, lũa và đá để cá trốn.
+- Nhầm với Parosphromenus bintan hay P. deissneri khi mua: nhìn đốm đen rõ ở cuối gốc vây lưng, loài này có còn hai loài kia thì không.
 
 ## Cá nheo Tachysurus intermedius (Pelteobagrus intermedius)
 id: `pelteobagrus-intermedius`

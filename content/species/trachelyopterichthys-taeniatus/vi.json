@@ -3,20 +3,28 @@
   "name": "Cá da trơn lũa sọc",
   "altNames": [
     "Driftwood catfish",
-    "Striped woodcat"
+    "Striped woodcat",
+    "Cá woodcat sọc"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Nhóm cá nheo gỗ lũa có vài loài màu khá đẹp. Chuyện này hơi lạ, vì chúng thường chỉ hoạt động về đêm, còn ban ngày thì trốn trong hang hoặc khe đá. Nhưng con nào đã quen bể thì thường chui ra khi tới giờ cho ăn.</p><p>Trachelyopterichthys taeniatus là một trong những loài đẹp thật sự. Đây không phải cá nhỏ, vì nó dài tới khoảng 15 cm.</p>",
     "behaviour:glaser": "<p>Điểm này cần biết, vì cá nhỏ như neon cardinal là một trong những món loài cá nheo này hay ăn. Ngoài chuyện đó ra, nó hiền với cá nuôi chung.</p>",
     "dimorphism:glaser": "<p>T. taeniatus thụ tinh trong, nên ở con đực, mấy tia đầu của vây hậu môn biến đổi khác đi.</p>",
-    "reproduction:glaser": "<p>T. taeniatus thụ tinh trong. Về sau con cái tự đẻ trứng, không cần con đực ở bên. Hiện chưa thấy ai cho loài này đẻ trong bể, nhưng có thể chỉ là do nó rất hiếm khi có bán.</p>"
+    "reproduction:glaser": "<p>T. taeniatus thụ tinh trong. Về sau con cái tự đẻ trứng, không cần con đực ở bên. Hiện chưa thấy ai cho loài này đẻ trong bể, nhưng có thể chỉ là do nó rất hiếm khi có bán.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Striped Woodcat</li><li>Tên đồng nghĩa: Trachelyopterus taeniatus</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: thượng nguồn lưu vực sông Amazon. Nơi thu mẫu chuẩn: Rio Guaporé, Brazil.</p>",
+    "maintenance:scotcat": "<p>Loài này khá hiền, nhưng khi lớn thì sẽ ăn cá nhỏ hơn nó. Cá hoạt động về đêm, vì vậy cần thả cây nổi cho nó có chỗ khuất. Ban ngày nó cần hang hoặc ống để trốn.</p>",
+    "dimorphism:scotcat": "<p>Muốn phân biệt đực cái ở giống này thì nhìn vây hậu môn. Cứ hình dung con đực, con cái ở hầu hết các loài cá đẻ con (họ Goodeidae) là không sai mấy. Con cái có vây hậu môn bình thường. Ở con đực, vây này biến thành cơ quan giao phối, với tia thứ nhất và thứ hai dày và dài hơn. Người ta cho rằng con đực dùng nó để kẹp giữ con cái lúc hai con ôm nhau đẻ.</p>",
+    "reproduction:scotcat": "<p>Giống mọi loài trong họ này, cá thụ tinh trong. Trứng đẻ lên một chỗ đã dọn sạch từ trước.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: Trachelyopterichthys ghép từ ba chữ Hy Lạp: trachelos là cổ, pteron là vây, ichthys là cá. Tên này ám chỉ tấm giáp sọ dài, làm vây lưng trông như mọc ra từ vùng cổ. Tên loài taeniatus nghĩa là có sọc hoặc có vằn.</p><p>Sách Đỏ IUCN: thông tin về loài này còn ít, nhưng nó vẫn được xếp vào mức Ít quan tâm vì phân bố rộng và không gặp mối đe dọa trực tiếp nào (IUCN 2023).</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. Frederico, R.G. 2023. Trachelyopterichthys taeniatus. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet. April 2024. no. 334.</p>"
   },
   "quality": {
     "score": 0.78,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.78
-    },
-    "reason": "thin"
+      "glaser": 0.78,
+      "scotcat": 0.9
+    }
   }
 }

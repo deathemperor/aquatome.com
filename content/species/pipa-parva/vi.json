@@ -3,18 +3,22 @@
   "name": "Cóc Suriname lùn",
   "altNames": [
     "Cóc Pipa lùn",
-    "Dwarf Suriname Toad"
+    "Dwarf Suriname Toad",
+    "Dwarf Surinam toad"
   ],
   "sections": {
-    "beforeYouBuy:glaser": "<p>Cóc Suriname lùn từ Venezuela là loài rất hiếm gặp trong bể nuôi. Thỉnh thoảng mới có trại bán ra vài con.</p>",
-    "distribution:glaser": "<p>Venezuela.</p>",
-    "notes:glaser": "<p>Mới nhìn qua, loài cóc xinh xắn này trông giống ếch móng vuốt lùn (Hymenochirus). Nhưng cũng như mọi loài Pipa khác, P. parva có các nhánh tỏa ra ở đầu mỗi ngón tay. Cứ nhìn vào đặc điểm này là nhận ra đúng loài.</p>"
+    "distribution:glaser": "<p>Cóc Surinam lùn (Pipa parva) có nguồn gốc ở Venezuela.</p>",
+    "beforeYouBuy:glaser": "<p>Pipa parva rất hiếm gặp trong bể nuôi. Mới nhìn thì chúng trông giống ếch móng vuốt lùn (Hymenochirus), nhưng lúc nào cũng phân biệt được nhờ đầu ngón tay chẻ nhánh. Đây là nét riêng của mọi loài Pipa.</p>",
+    "waterConditions:glaser": "<p>Nên nuôi và cho Pipa parva đẻ ở nhiệt độ nước 26–28°C.</p>",
+    "equipment:glaser": "<p>Bể phải đậy kín hoàn toàn. Để hở thì sớm muộn gì cóc Surinam cũng bò ra ngoài, và ra khỏi bể trong nhà thì chúng thường chết.</p>",
+    "diet:glaser": "<p>Cóc Surinam lùn dễ cho ăn, mọi loại thức ăn đông lạnh cho cá cảnh chúng đều nhận. Nhiều con còn quen được cả thức ăn viên.</p>",
+    "reproduction:glaser": "<p>Ở mọi loài cóc Surinam, trứng sau khi đẻ và thụ tinh sẽ phát triển trong lớp da lưng con cái. Da lưng mọc phủ kín lên trứng. Với cóc Surinam lớn (Pipa pipa và các loài gần với nó), ếch con chui ra khỏi da lưng khi đã hoàn chỉnh. Còn ở cóc Surinam lùn thì nòng nọc phá da lưng mẹ chui ra và tự sống từ đó. Nòng nọc có miệng rộng, ăn động vật phù du. Trong bể thì cho chúng ăn ấu trùng Artemia mới nở.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.9,
     "indexable": false,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.9
     },
     "reason": "thin"
   }

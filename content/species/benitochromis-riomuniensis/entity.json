@@ -68,32 +68,98 @@
   "dataCard": {},
   "sections": [
     {
-      "key": "distribution",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
-      "html": "<p>Wild-collected specimens of Benitochromis riomuniensis come from Cameroon.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "html": "<p>Benitochromis are closely related to the Pelvicachromis species and can be compared quite well with these peaceful and colorful cichlids regarding aquarium biology.</p>"
     },
     {
-      "key": "behaviour",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
-      "html": "<p>Benitochromis is closely related to the Pelvicachromis species and can be compared quite well with these peaceful and colorful cichlids regarding aquarium biology.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "html": "<p>This species originates from Cameroon.</p>"
     },
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
-      "html": "<p>In contrast to Pelvicachromis, which are cave brooders, Benitochromis are biparental, ovophilous mouthbrooders. This means that both parents take care of eggs and fry; eggs and fry are passed from parent to parent several times per day. The eggs are taken in the mouth immediately after spawning (= ovophilous).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "html": "<p>In contrast to Pelvicachromis, which are cave brooders, Benitochromis are biparental, ovophilous mouthbrooders. This means that both parents take care of eggs and fry; eggs and fry are passed from parent to parent several times per day. The eggs are taken into the mouth immediately after spawning (= ovophilous).</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
-      "html": "<p>There is no common name for this species so far; due to the pretty yellow lips and throat the name \"Golden Throated King Cichlid\" is suggested.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "html": "<p>There is no common name for this species so far; the fish shown are German-bred. Due to the pretty yellow lips and throat, the name \"Golden Throated King Cichlid\" is suggested.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/19ef72f929b0c665.webp",
+      "thumb": "https://media.aquatome.com/glaser/19ef72f929b0c665-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/16beef522260ebc1.webp",
+      "thumb": "https://media.aquatome.com/glaser/16beef522260ebc1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ca1356238647a458.webp",
+      "thumb": "https://media.aquatome.com/glaser/ca1356238647a458-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/8577196ebd4d16a9.webp",
+      "thumb": "https://media.aquatome.com/glaser/8577196ebd4d16a9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/benitochromis-riomuniensis-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "iImS8HDDrKA",
+      "title": "Benitochromis riomuniensis mit ihren Babys. Habe die Jungen heute abgefischt.",
+      "durationSec": 24,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8l7UnUfXszw",
+      "title": "Benitochromis riomuniensis oto akok mit fast erwachsenen Jungfischen.",
+      "durationSec": 57,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dlNRdZH2iTc",
+      "title": "Benitochromis riomuniensis oto akok mit Eiern im Maul",
+      "durationSec": 10,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "sC3hzC_bgNA",
+      "title": "Benitochromis Riomuniensis spawned!!!!!",
+      "durationSec": 239,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -122,5 +188,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-20"
 }

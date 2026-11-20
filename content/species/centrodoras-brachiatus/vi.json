@@ -7,14 +7,22 @@
     "habitat:glaser": "<p>Vùng phân bố của loài này rộng, vậy mà chuyện chúng sống ra sao ngoài tự nhiên thì hầu như chưa ai biết.</p>",
     "diet:glaser": "<p>Hàm dưới của chúng có một đệm răng lớn. Đây là dấu hiệu cho thấy chúng có thể gặm lớp rêu và chất bám trên bề mặt.</p>",
     "behaviour:glaser": "<p>Những con cá này hay \"nín thở\". Sau vài nhịp thở mạnh, chúng lại ngừng thở một lúc khá lâu, ít nhất là nhìn từ ngoài thì không thấy cử động thở nào. Chưa ai thấy hành vi này ở loài cá nào khác.</p>",
-    "notes:glaser": "<p>Điểm dễ nhận ra loài này là hàng giáp xương dọc thân. Các tấm giáp ngay dưới vây lưng rất to, rồi nhỏ đi rất nhanh về phía đuôi. Loài này cực kỳ hiếm khi được nhập về.</p>"
+    "notes:glaser": "<p>Điểm dễ nhận ra loài này là hàng giáp xương dọc thân. Các tấm giáp ngay dưới vây lưng rất to, rồi nhỏ đi rất nhanh về phía đuôi. Loài này cực kỳ hiếm khi được nhập về.</p>",
+    "quickFacts:scotcat": "<p>Họ: Doradidae. Tên đồng nghĩa: Doras brachiatus. Cỡ tối đa 35 cm. Nhiệt độ 22–26°C, pH 6,0–7,5.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon.</p>",
+    "habitat:scotcat": "<p>Loài này được mô tả khoa học từ năm 1872 và sống trên một vùng rộng. Vậy mà đến nay người ta vẫn hầu như không biết gì về cách chúng sống ngoài tự nhiên.</p>",
+    "maintenance:scotcat": "<p>Cá này khá hiếm khi có trong các đợt cá nhập về. Nuôi thì cứ chăm như mọi loài cá Dorad cỡ lớn khác. Có thể nuôi chung với cá cỡ lớn hoặc cỡ vừa.</p>",
+    "diet:scotcat": "<p>Hàm dưới của chúng có một mảng răng lớn. Đó là dấu hiệu cho thấy chúng có thể gặm lớp sinh vật bám trên bề mặt.</p>",
+    "behaviour:scotcat": "<p>Điểm lạ ở loài này là chúng hay \"nín thở\". Sau vài nhịp thở mạnh, chúng lại ngừng thở khá lâu, ít nhất là nhìn vào không thấy mang cử động gì. Chuyện này lặp đi lặp lại nhiều lần. Đây là kiểu hành vi chưa thấy ở loài cá nào khác (Aquarium Glaser 2019).</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài brachiatus trong tiếng Latin nghĩa là có nhánh như cánh tay. Cái tên này có lẽ nói đến cặp gai vây ngực \"rất lớn\" của chúng.</p>",
+    "references:scotcat": "<p>The ETYFish Project Fish Name Etymology Database. www.aquariumglaser.de</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.9
-    },
-    "reason": "thin"
+      "glaser": 0.9,
+      "scotcat": 0.93
+    }
   }
 }

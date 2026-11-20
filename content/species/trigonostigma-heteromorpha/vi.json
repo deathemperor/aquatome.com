@@ -55,7 +55,8 @@
     "maintenance:aquatome": "<p>Bể thủy sinh dùng đèn ánh ấm, loại ngả hồng, thì cá tam giác nổi màu hẳn lên. Một người nuôi loài này lâu năm chưa từng thấy con nào bị nấm, dù nước có hơi bẩn chúng vẫn sống khỏe. Nhưng khỏe không có nghĩa là chịu được nước tồi, nitrit và nitrat vẫn phải giữ ở mức vừa phải.</p>",
     "behaviour:aquatome": "<p>Một người nuôi loài này lâu năm thấy cá tam giác bơi đàn sát hơn hẳn cá neon và cá hồng nhung (cherry barb) thả chung bể. Neon chỉ túm lại khi hoảng, quen bể rồi thì tản ra. Còn cá tam giác hiếm khi rời nhau quá vài giây, kể cả lúc đã yên tâm. Thế nên thả 20 con vào bể 450 lít dài gần 1,8 m vẫn thấy rõ cả đàn bơi cùng nhau.</p>",
     "dimorphism:aquatome": "<p>Một người nuôi loài này lâu năm lại không nhìn ra khác biệt nào giữa con đực và con cái. Theo người này, cá vừa nhỏ vừa bơi nhanh, nên chuyện con cái tròn bụng hơn rất khó thấy được bằng mắt.</p>",
-    "reproduction:aquatome": "<p>Một người nuôi loài này lâu năm cho rằng muốn cá tam giác đẻ thì phải chuyển sang nước đen: hạ pH thật sâu và lọc gần hết khoáng, đưa nước về mức gần như nước nuôi cá đĩa. Cá vẫn sống vui trong nước pH cao có khoáng, nhưng với nước đó thì khó mà cho đẻ.</p>"
+    "reproduction:aquatome": "<p>Một người nuôi loài này lâu năm cho rằng muốn cá tam giác đẻ thì phải chuyển sang nước đen: hạ pH thật sâu và lọc gần hết khoáng, đưa nước về mức gần như nước nuôi cá đĩa. Cá vẫn sống vui trong nước pH cao có khoáng, nhưng với nước đó thì khó mà cho đẻ.</p>",
+    "notes:glaser": "<p>Về cá tam giác (Trigonostigma heteromorpha) thì còn gì để nói mà chưa ai nói cả nghìn lần? Nó đơn giản là một trong những loài cá cảnh đẹp nhất, lại được người ta nuôi lâu năm và thấy là dễ nuôi. Ngắm đến lần thứ 1.001 vẫn thấy thích mắt. Nếu trên đời chưa có loài này thì người ta cũng phải nghĩ ra nó! Hiện đang có những lứa cá con rất đẹp, do các trại ở Đức cho đẻ.</p>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -69,14 +70,15 @@
     }
   ],
   "quality": {
-    "score": 0.78,
-    "indexable": true,
+    "score": 0.7,
+    "indexable": false,
     "bySource": {
-      "glaser": 0.8,
+      "glaser": 0.7,
       "sprucepets": 0.88,
       "seriouslyfish": 0.92,
       "aquariumbreeder": 0.9,
       "aquatome": 0.78
-    }
+    },
+    "reason": "score"
   }
 }
