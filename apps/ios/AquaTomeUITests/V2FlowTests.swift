@@ -147,11 +147,10 @@ final class V2FlowTests: XCTestCase {
     app.openTab("Khám phá")
     flip(app)
     XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
-    // v1's page: the app's own, or its facts' head while the site's is read, then the site's.
-    let page = app.descendants(matching: .any).matching(NSPredicate(format: "identifier IN %@", ["native-page", "page", "page-head"])).firstMatch
-    XCTAssertTrue(page.waitForExistence(timeout: 8), "Tìm shows a page it can't draw, not the post's")
+    // v1's page, the app's own (Cá neon's, in the fixture), drawn: not its head while it's read.
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 8), "Tìm shows a page it can't draw, not the post's")
     XCTAssertTrue(app.tabBars.buttons["Tìm"].isSelected, "the old look opened another tab")
-    XCTAssertTrue(app.navigationBars["Cá neon"].exists, "Tìm shows another page than the post's")
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "Tìm shows another page than the post's")
 
     app.openTab("Bể của tôi")
     flip(app)
