@@ -1439,7 +1439,7 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'fish-synonyms') {
   // Each fish's older scientific names from GBIF, kept so each is asked once (fish-synonyms.ts). pnpm engine fish-synonyms [--limit 300]
   const r = await fetchFishSynonyms(ROOT, http, { limit: values.limit ? Number(values.limit) : 300 })
-  console.log(`fish-synonyms: ${r.asked} fish asked, ${r.left} left, GBIF failed on ${r.failed.length} (asked again next run); ${(await fishOlderNames(ROOT)).size} fish with older names${r.failed.length ? `\n${r.failed.slice(0, 10).join('\n')}` : ''}`)
+  console.log(`fish-synonyms: ${'off' in r ? r.off : `${r.asked} fish asked, ${r.left} left, GBIF failed on ${r.failed.length} (asked again next run)`}; ${(await fishOlderNames(ROOT)).size} fish with older names${r.failed.length ? `\n${r.failed.slice(0, 10).join('\n')}` : ''}`)
 } else if (cmd === 'shop-list') {
   // What fish (or plant) shops in the language's country sell, from their own lists (web research, never marketplaces):
   // pnpm engine shop-list --lang vi|id|th|ms [--kind plants] [--seed file.json (an array of trade names from one shop's list)]
