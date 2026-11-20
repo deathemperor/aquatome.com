@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
 import { CurationSchema, LANGS, type Content, type Photo } from '@aq/schema'
 import { appBreeds, appIndex, appSpecies, cardSrc, chipsFor, photoBox } from '../src/lib/app-index'
+import { cropOnly } from '../src/lib/curation'
 import { getContent } from '../src/lib/content'
 import type { Lang } from '../src/lib/i18n'
 
@@ -10,9 +11,9 @@ import type { Lang } from '../src/lib/i18n'
 // the order the chief of staff's (14 Nov), kept in the curation file as a plain list the owner may change.
 const chips = (xs: unknown[]) => CurationSchema.parse({ version: 1, weeks: [], days: [], chips: xs }).chips
 const AMERICAS = ['south-america', 'central-america', 'north-america']
-async function row(lang: Lang, xs: unknown[], edit: (c: Content) => Content = c => c) {
+async function row(lang: Lang, xs: unknown[], edit: (c: Content) => Content = c => c, judged?: { avoid: Record<string, string>; cardPhoto?: Record<string, string> }) {
   const vi = await getContent('vi'), c = edit({ ...(await getContent(lang)) })
-  return chipsFor(lang, c, vi.species, chips(xs), { species: appSpecies(lang, c), breeds: appBreeds(lang, c) })
+  return chipsFor(lang, c, vi.species, chips(xs), { species: appSpecies(lang, c), breeds: appBreeds(lang, c) }, judged)
 }
 
 test("a chip holds the species its rule names, the breeds that are forms or crosses of them, and the breeds it names", async () => {
@@ -75,32 +76,56 @@ test("a chip's picture keeps its fish in a 3:2 crop, by a box the engine found; 
   expect([am!.img, am!.imgBox]).toEqual([undefined, undefined])
 })
 
-// Astra's read of 14 Nov: the pick took each member's head alone, so a head that didn't qualify hid the photo after it.
-// Heads still come first, wider ones before narrower: a page's head is the photo the engine ranked best.
-test("a chip's picture is a member's head where one qualifies, wider first, else another of a member's photos", async () => {
-  const fits = (name: string, w: number) => photo(name, w, w * 2 / 3, { subject: { x0: w * 0.3, y0: w * 0.2, x1: w * 0.7, y1: w * 0.45 } })
-  const madeUp = photo('made-up', 960, 640, { subject: { x0: 0, y0: 0, x1: 960, y1: 640 } }), second = fits('second', 960)
-  const narrowHead = fits('narrow-head', 480), wideOther = fits('wide-other', 960), wideHead = fits('wide-head', 960)
-  const photos: Record<string, Photo[]> = {
+// A chip stands for many fish, so its picture is a member's face, never a photo no check has judged (Photo Sourcing,
+// Curation and the Site lead, 17 Nov): a member's head, wider first; a head that doesn't qualify passes to the next
+// member, not to that member's other photos (Astra's read of 14 Nov took those; their photos from a page's text are
+// unjudged). Each names the member whose face it is (the Lab, 16 Nov: the app credits the fish).
+const fitting = (name: string, w: number) => photo(name, w, w * 2 / 3, { subject: { x0: w * 0.3, y0: w * 0.2, x1: w * 0.7, y1: w * 0.45 } })
+const onlyThese = (photos: Record<string, Photo[]>) => (c: Content): Content => ({ ...c, species: c.species.map(s => ({ ...s, photos: photos[s.id] ?? [] })), breeds: c.breeds.map(b => ({ ...b, photos: [] })) })
+const CHIPS = [
+  { id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'] } },
+  { id: 'ong-tien', names: { vi: 'Ông tiên' }, match: { genus: ['Pterophyllum'] } },
+  { id: 'cichlid-chau-my', names: { vi: 'Cichlid châu Mỹ' }, match: { group: ['cichlids'], places: AMERICAS } },
+]
+
+test("a chip's picture is a member's head where one qualifies, wider first, else the next member's; never a member's other photo", async () => {
+  const madeUp = photo('made-up', 960, 640, { subject: { x0: 0, y0: 0, x1: 960, y1: 640 } }), second = fitting('second', 960)
+  const narrowHead = fitting('narrow-head', 480), wideOther = fitting('wide-other', 960), wideHead = fitting('wide-head', 960)
+  const [dia, tien, am] = await row('vi', CHIPS, onlyThese({
     'symphysodon-aequifasciatus': [madeUp, second],
     'pterophyllum-scalare': [narrowHead, wideOther],
     'apistogramma-cacatuoides': [wideHead],
-  }
-  const edit = (c: Content): Content => ({ ...c, species: c.species.map(s => ({ ...s, photos: photos[s.id] ?? [] })), breeds: c.breeds.map(b => ({ ...b, photos: [] })) })
-  const [dia, tien, am] = await row('vi', [
-    { id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'] } },
-    { id: 'ong-tien', names: { vi: 'Ông tiên' }, match: { genus: ['Pterophyllum'] } },
-    { id: 'cichlid-chau-my', names: { vi: 'Cichlid châu Mỹ' }, match: { group: ['cichlids'], places: AMERICAS } },
-  ], edit)
-  // Dĩa's head has only the loader's made-up box: its second photo serves.
-  expect(dia!.img).toBe(cardSrc(second))
-  // A narrow head still beats a wide photo that isn't one.
-  expect(tien!.img).toBe(cardSrc(narrowHead))
-  // The wider chip, with the others' photos taken: a head first (the cockatoo cichlid's), before the angelfish's other photo.
-  expect(am!.img).toBe(cardSrc(wideHead))
-  // Each names the member whose photo it is, a head or not (the Lab, 16 Nov: Cá chuột's was a photo from a page's text, no
-  // head matched it, and the app couldn't credit the fish).
-  expect([dia!.imgOf, tien!.imgOf, am!.imgOf]).toEqual(['symphysodon-aequifasciatus', 'pterophyllum-scalare', 'apistogramma-cacatuoides'])
+  }))
+  // Dĩa's one fish with photos has a head with only the loader's made-up box, and its second photo isn't a face.
+  expect(dia!.img).toBeUndefined()
+  // A narrow head, not a wider photo that isn't one.
+  expect([tien!.img, tien!.imgOf]).toEqual([cardSrc(narrowHead), 'pterophyllum-scalare'])
+  // The wider chip, the angelfish's head taken: the cockatoo cichlid's.
+  expect([am!.img, am!.imgOf]).toEqual([cardSrc(wideHead), 'apistogramma-cacatuoides'])
+})
+
+// The chief of staff (16 Nov): pictures that stand for more than one fish never show a held, failed or marked head.
+test("a head on avoid passes to its page's cardPhoto, else to the next member; a reason only about a card's crop doesn't count", async () => {
+  const head = fitting('head', 960), card = fitting('card', 960), other = fitting('other', 960), next = fitting('next', 800)
+  const edit = onlyThese({ 'apistogramma-cacatuoides': [head, other, card], 'mikrogeophagus-ramirezi': [next] })
+  const am = async (judged?: { avoid: Record<string, string>; cardPhoto?: Record<string, string> }) => (await row('vi', [CHIPS[2]], edit, judged))[0]!
+  // Nothing judged against it: the head.
+  expect((await am()).img).toBe(cardSrc(head))
+  // On avoid, and no map (before Photo Sourcing's is on main): the next member's head, never the page's other photos.
+  const avoid = { [head.url]: 'engine: held for a second look' }
+  expect(await am({ avoid })).toMatchObject({ img: cardSrc(next), imgOf: 'mikrogeophagus-ramirezi' })
+  // With the map: the page's cardPhoto, the photo a check passed.
+  expect(await am({ avoid, cardPhoto: { 'apistogramma-cacatuoides': card.url } })).toMatchObject({ img: cardSrc(card), imgOf: 'apistogramma-cacatuoides' })
+  // A cardPhoto the page no longer has is none.
+  expect((await am({ avoid, cardPhoto: { 'apistogramma-cacatuoides': 'https://media.aquatome.com/commons/gone.webp' } })).img).toBe(cardSrc(next))
+  // The card's crop alone (the chief of staff, 16 Nov 12:14, the panda cory's head): the chip checks its own crop.
+  expect((await am({ avoid: { [head.url]: "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)" } })).img).toBe(cardSrc(head))
+})
+
+// The avoid list's reasons as content/curation.json words them on 17 Nov: the two about a card's crop, and the rest.
+test("only a reason about a card's crop is the crop's alone", () => {
+  for (const why of ["head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)", "snout cut by the card's left edge (the chief of staff, 2026-11-10)"]) expect(cropOnly(why), why).toBe(true)
+  for (const why of ['engine: the check can\'t tell', 'engine: held for a second look', 'engine: not typical', 'engine: a dead fish', "a wholesaler's logo banner with lettering across the photo: kept off cards wherever it sits on its page, so a reorder can't make it a card; it stays in the album (chief of staff, 2026-11-15)", 'a person', 'fish out of water', 'two photos joined side by side, with a slanted seam across the card', 'dark: cards only, it stays on its page until a clearer photo turns up (chief of staff, 2026-11-10)']) expect(cropOnly(why), why).toBe(false)
 })
 
 // The chips as the curation file holds them, in every language's index on the fixture: whole and consistent.

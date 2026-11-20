@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
-import { CardSchema, CurationSchema, type Curation } from '@aq/schema'
+import { CardSchema, CurationSchema, type Curation, type Photo } from '@aq/schema'
 import { appIndex } from '../src/lib/app-index'
-import { curationFor } from '../src/lib/curation'
+import { curationFor, type Faces } from '../src/lib/curation'
 import { getContent } from '../src/lib/content'
 
 // The editorial calendar (content/curation.json) as each language's app index carries it: Hôm nay's days, the week's
@@ -134,6 +134,47 @@ test("a picture the build holds back for the watermark screen is left off the ca
   const ix = appIndex('vi', { ...vi, photoWaits: address => address === IMG }, new Map(), vi.species, { calendar, today: '2026-11-10' })
   expect(ix.home.days?.length).toBe(2)
   expect([...ix.home.days!, ...ix.home.hero!].filter(x => x.img)).toEqual([])
+})
+
+// The chief of staff's line (16 Nov): a picture that stands for more than one fish never shows a held, failed or marked
+// photo. The planner named the days' and the week's pictures before some went on `avoid`, so the build checks them again:
+// the page's cardPhoto (Photo Sourcing's map) instead, else the pick goes, since with no picture the app shows the page's
+// own head, the photo on `avoid`.
+test("a day's fish and a top card whose photo went on avoid take the page's cardPhoto, else the pick goes", () => {
+  const OTHER = 'https://media.aquatome.com/commons/0000000000000002.webp', CARD = 'https://media.aquatome.com/commons/0000000000000003-large.webp'
+  const cur = CurationSchema.parse({
+    version: 1,
+    weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'Tuần' }, hero: [{ page: 'species/a', img: IMG }, { page: 'species/b', img: OTHER }, { page: 'species/c', img: IMG }] }],
+    days: [{ date: '2026-11-11', fish: 'species/a', img: IMG, guide: 'guides/g' }, { date: '2026-11-12', fish: 'species/c', img: IMG }, { date: '2026-11-13', fish: 'species/b', img: OTHER }],
+  })
+  const of = (faces?: Faces, waits?: (address: string) => boolean) => curationFor(cur, 'vi', '2026-11-11', ref => `/${ref}/`, [], waits, undefined, undefined, faces)
+  expect(of().days?.map(d => [d.fish, d.img])).toEqual([['/species/a/', IMG], ['/species/c/', IMG], ['/species/b/', OTHER]])
+  expect(of().hero?.map(h => h.img)).toEqual([IMG, OTHER, IMG])
+  const faces: Faces = { avoided: u => u === IMG, instead: ref => (ref === 'species/a' ? CARD : undefined) }
+  // a's page has a cardPhoto; c's has none, so its day goes without a fish, and with nothing else that day it goes.
+  expect(of(faces).days).toEqual([{ date: '2026-11-11', fish: '/species/a/', img: CARD, guide: '/guides/g/' }, { date: '2026-11-13', fish: '/species/b/', img: OTHER }])
+  expect(of(faces).hero).toEqual([{ path: '/species/a/', img: CARD }, { path: '/species/b/', img: OTHER }])
+  // A cardPhoto the watermark screen holds back is none.
+  expect(of(faces, u => u === CARD).hero).toEqual([{ path: '/species/b/', img: OTHER }])
+})
+
+test("the app's index asks avoid by the photo, whichever copy the calendar names, and gives a cardPhoto's large copy", async () => {
+  const vi = await getContent('vi')
+  const pic = (n: number, large: boolean) => ({ url: `https://media.aquatome.com/commons/${String(n).padStart(16, '0')}.webp`, width: 1600, height: 1200, licence: 'CC BY 4.0', author: 'a', sourceUrl: 'https://example.org', ...(large ? { large: { url: `https://media.aquatome.com/commons/${String(n).padStart(16, '0')}-large.webp`, width: 1600, height: 1200 } } : {}) }) as Photo
+  const head = pic(4, true), next = pic(5, true)
+  const c = { ...vi, species: vi.species.map(s => (s.id === 'paracheirodon-axelrodi' ? { ...s, photos: [head, next] } : s)) }
+  const parsed = CurationSchema.parse({
+    ...calendar,
+    weeks: [{ ...calendar.weeks[0], hero: [{ page: 'species/paracheirodon-axelrodi', img: head.large!.url }] }],
+    days: [{ date: '2026-11-10', fish: 'species/paracheirodon-axelrodi', img: head.large!.url }],
+    avoid: { [head.url]: 'engine: held for a second look' },
+  })
+  // The map is Photo Sourcing's (on main Wed 18); the site reads it as optional.
+  const ix = (cardPhoto?: Record<string, string>) => appIndex('vi', c, new Map(), vi.species, { calendar: { ...parsed, ...(cardPhoto ? { cardPhoto } : {}) } as Curation, today: '2026-11-10' }).home
+  expect([ix().days, ix().hero]).toEqual([undefined, undefined])
+  const withMap = ix({ 'paracheirodon-axelrodi': next.url })
+  expect(withMap.days?.map(d => d.img)).toEqual([next.large!.url])
+  expect(withMap.hero?.map(h => h.img)).toEqual([next.large!.url])
 })
 
 test('Tìm\'s suggested searches reach each language\'s index as written; a language with none gets no section', async () => {
