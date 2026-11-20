@@ -1,15 +1,19 @@
 {
   "slug": "nen-cat",
   "name": "Nền cát",
-  "altNames": [],
+  "altNames": [
+    "Cát bể cá",
+    "cát trơ"
+  ],
   "sections": {},
   "linkNames": [
     "cát mịn",
     "lớp nền cát"
   ],
-  "definition": "Lớp vật liệu phủ đáy bể; nền cát mịn, không cạnh sắc là bắt buộc với cá hay vùi mình hoặc sàng cát như cá chạch, cá chuột (Corydoras) và Geophagus. Sỏi thô có thể làm các loài này trầy râu, căng thẳng và ăn kém.",
+  "body": "<h3>Trong bể của bạn</h3>\n<p>Trên cát màu trắng, chất thải lộ rõ nếu không hút nền thường xuyên.</p>\n<p>Một tiệm ghi rằng Corydoras bới cát tìm mồi và nhờ đó giúp giữ cát sạch; cát có thể bị yếm khí; nền yếm khí làm hại cây trồng dưới nền; dấu hiệu là những mảng sẫm màu dưới đá và đồ trang trí, khuấy lên thì bốc mùi trứng thối. Một nguồn người nuôi thì ghi rằng chuyện nền cát dày bị yếm khí rồi nhả khí H2S chỉ là lời đồn.</p>\n<h3>Các loại cát</h3>\n<p>Một tiệm khác ghi rằng cát trơ được trải thẳng vào bể, dày khoảng 3–5 cm, và ghi về các loại cát sau:</p>\n<ul>\n<li><strong>Cát thạch anh</strong>: màu trắng, trong và bóng.</li>\n<li><strong>Cát muối tiêu</strong>: không làm tăng pH, chỉ làm pH đổi chút ít.</li>\n<li><strong>Cát sông</strong>: cát tự nhiên, lẫn nhiều loại khoáng, không mùi, người ta nói là không ảnh hưởng chất lượng nước. Loại này hợp với cá nước mềm như Corydoras.</li>\n<li><strong>Cát san hô</strong>: làm từ san hô tự nhiên, làm tăng độ cứng và độ kiềm của nước. Loại này hợp với bể nước mặn và bể nước cứng.</li>\n</ul>\n<h3>Nên làm gì</h3>\n<ol>\n<li>Rửa kỹ cát trước khi cho vào bể. Với nền trơ mới, tiệm thứ nhất cũng ghi là rửa dưới nước máy và khuấy đảo đến khi nước trong.</li>\n<li>Hút nền thường xuyên để lấy xác hữu cơ ra.</li>\n</ol>\n<h3>Sai lầm hay gặp</h3>\n<p>Tiệm thứ nhất cũng ghi:</p>\n<ul>\n<li>Cát xây dựng thường lẫn vôi. Vôi làm tăng pH và độ cứng, lại làm đục nước.</li>\n<li>Cát bãi biển và cát trong hố chơi của trẻ con không phù hợp làm nền, vì chúng chứa silicat làm tảo mọc.</li>\n<li>Cát mịn trải trên lớp sỏi thô sẽ lọt dần xuống dưới, còn cá hay đào thì trộn lẫn hai lớp.</li>\n</ul>",
+  "definition": "Nền cát là lớp cát trải dưới đáy bể. Cát làm nền có nhiều loại, khác nhau về màu và cỡ hạt.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }
