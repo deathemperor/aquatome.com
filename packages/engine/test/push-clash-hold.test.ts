@@ -8,6 +8,7 @@ import { expect, test } from 'vitest'
 import { fitKey, fitText } from '../src/fit'
 import { GATED_KINDS } from '../src/gate'
 import { loadCards, loadPages } from '../src/pages'
+// @ts-expect-error a plain script
 import { read, same } from '../../../scripts/main-holds.mjs'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
