@@ -115,9 +115,12 @@ test('dead-screen: a frame YouTube does not have is passed over, and a verdict f
   expect(await screenDead(root, third.d, { limit: 48, backCheck: true })).toMatchObject({ sheets: 0, judged: 0 })
 })
 
-test("dead-screen: a page's only photo it calls dead stays where it is, off the never-again list, held for a second look; a page with another photo loses it as before", async () => {
+test("dead-screen: a page's only photo it calls dead, one that passed the check before, stays where it is, off the never-again list, held for a second look; a page with another photo loses it as before", async () => {
   // The chief of staff, 2026-11-14: a page's last photo doesn't come off on an automatic check's word alone (last-photo.ts).
+  // Since 20 Nov the hold protects a photo that passed the check before (here the check's first version, which didn't ask
+  // about dead fish); one that never passed comes off (photo-check-unshown.test.ts).
   const root = await store()
+  await writeFile(join(root, 'engine-state/_photo-check.json'), JSON.stringify({ 'https://m/d-only.webp': { ok: 'yes', typical: true, note: 'a live fish' } }))
   await mkdir(join(root, 'content/species/d'), { recursive: true })
   await writeFile(join(root, 'content/species/d/entity.json'), JSON.stringify({ id: 'd', photos: [photo('https://m/d-only.webp')], videos: [] }))
   DEAD.add('https://m/d-only.webp')

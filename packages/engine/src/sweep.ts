@@ -38,7 +38,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
+import { holdForSecondLook, listAgreed, looks, mendWaiting, readSecondLook, unlistCleared } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -146,6 +146,12 @@ export type SweepReport = {
   secondLook: string[]
   /** Photos a second look agreed on, put on the never-again list in this pass (last-photo.ts). */
   agreed: string[]
+  /** Photos off at their first verdict that the second look cleared, off the never-again list (last-photo.ts). */
+  unlisted: string[]
+  /** Photos marked off at their first verdict whose never-again entry was missing, written back in this pass (last-photo.ts mendWaiting). */
+  waitingBack: string[]
+  /** Where the two lists still disagree on a photo off at its first verdict, each kept off, `url: what` (last-photo.ts mendWaiting). */
+  waitingOdd: string[]
   /** A page's only photo that its source's caption calls unwell: left on the page, off every card, `kind/id: url (word; …)`. */
   unwell: string[]
   /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, picks not found on the page, or picks that lapsed with their person's yes. */
@@ -481,9 +487,12 @@ async function neverAgain(root: string) {
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
   const entry = rejectedEntry(rejected)
+  // One marked off at its first verdict is off whatever its entry says: a mark the shop's own kept doesn't keep a dead
+  // fish on the page (last-photo.ts; the independent reader, 20 Nov).
+  const marked = looks(await readSecondLook(root)).off
   const listed = (url: string) => {
     const e = entry(url)
-    return !!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))
+    return (!!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))) || marked(url)
   }
   return { rejected, listed, why: (url: string) => entry(url)?.[1] ?? '' }
 }
@@ -549,7 +558,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], waitingBack: [], waitingOdd: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -913,6 +922,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // counts none of them as a photo its page keeps. Counted as kept, a photo a guide's check had listed while the page
   // still had another let the unwell rule take that other, and the page was left with none (the guard's read, 14 Nov).
   report.agreed.push(...await listAgreed(root))
+  report.unlisted.push(...await unlistCleared(root))
+  // Where the two lists disagree, the record wins and the photo stays off (last-photo.ts mendWaiting).
+  const mended = await mendWaiting(root)
+  report.waitingBack.push(...mended.back)
+  report.waitingOdd.push(...mended.other, ...mended.alone)
   const credit = await refusedByCredit(root, content)
   const already = (await neverAgain(root)).listed
   const captionOff = new Map([...off].map(([k, v]) => [k, new Map(v)]))
@@ -1077,13 +1091,18 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // content file, so one listed after an equipment page was written stayed on it until the next check
   // (an Aquarium Co-op photo on the aquatic-plants page, in all four languages, 14 Nov).
   const everyJson = async (kind: string) => (await readdir(join(content, kind), { recursive: true }).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, kind, f))
-  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment'))]) {
+  // The glossary's too: a term shows a photo from a fish page, and one refused there stayed on the term (the independent
+  // reader, 20 Nov). A kind left with no photo has no record (GlossarySchema `kinds`).
+  const glossaryFiles = (await readdir(join(content, 'glossary')).catch(() => [] as string[])).sort().map(id => join(content, 'glossary', id, 'entity.json'))
+  for (const file of [...(await shownIn('species')), ...(await shownIn('plants')), ...(await shownIn('breeds')), ...galleryFiles, ...(await shownIn('guides')), ...(await everyJson('equipment')), ...glossaryFiles]) {
     const raw = await readFile(file, 'utf8').catch(() => null)
     if (!raw) continue
     const data = JSON.parse(raw) as unknown
     const removed: string[] = []
     stripPhotos(data, listed, removed, [])
     if (!removed.length) continue
+    const g = data as { kinds?: { photo?: unknown }[] }
+    if (glossaryFiles.includes(file) && Array.isArray(g.kinds)) { g.kinds = g.kinds.filter(k => k.photo); if (!g.kinds.length) delete g.kinds }
     for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))

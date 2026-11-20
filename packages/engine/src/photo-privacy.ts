@@ -23,7 +23,7 @@ function decisions(name:string,data:Record<string,any>):unknown {
  if(name==='_video-stills.json')return mapValues(data,v=>({...v,...(v.failed!==undefined?{failed:!!v.failed}:{}),...(v.kept?{kept:mapValues(v.kept,why=>!!why)}:{})}))
  return mapValues(data,verdict)
 }
-const rejectedPattern=/^(?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected): withheld \[sha256:[a-f0-9]{64}\]$/
+const rejectedPattern=/^(?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected|waiting): withheld \[sha256:[a-f0-9]{64}\]$/
 const previousOwnerNote='Two independent original species passes; crop preserves all retained pixels.'
 export function photoPrivacyViolations(file:string,data:unknown):{code:string;locationHash:string}[] {
  const out:{code:string;locationHash:string}[]=[],name=basename(file),add=(code:string,path:string)=>out.push({code,locationHash:observationHash(path)})
