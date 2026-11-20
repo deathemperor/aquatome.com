@@ -135,8 +135,6 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
  */
 function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>, name: string, gallery: Photo[], strip: (Photo | null)[], viPath: string | undefined): Block[] {
   const t = translator(lang)
-  // The app's album keeps its six (APP_GALLERY_MIN), though the site's strip shows a shorter one.
-  if (gallery.length < APP_GALLERY_MIN) return []
   // The installed app's full album grid does not draw credit labels. Keep AI pictures out until it does.
   gallery = gallery.filter(p => !p.generated)
   strip = strip.map(p => p?.generated ? null : p)
@@ -247,7 +245,9 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
       ...trustBlock(t, lang, p.card as SpeciesEntity['dataCard'], p.sources),
       mates,
       ...(p.vn ? climateBlock(t, s.dataCard) : []),
-      ...galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath),
+      // A fish's or a plant's album shows in the app from six photos (APP_GALLERY_MIN), though the site's strip shows a
+      // shorter one; a breed's shows whenever its strip does, as before (Design, 20 Nov 2026).
+      ...(p.gallery.length >= APP_GALLERY_MIN ? galleryBlock(lang, c.sources, s.t.name, p.gallery, p.strip, p.galleryPath) : []),
       ...summary,
       ...text,
       ...breeds,
@@ -327,7 +327,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
     ...(lead ? { lead } : {}),
     talk: { comments: commentsKey(lang, `plant:${p.id}`) },
     blocks: [
-      ...galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath),
+      ...(parts.gallery.length >= APP_GALLERY_MIN ? galleryBlock(lang, c.sources, p.t.name, parts.gallery, parts.strip, parts.galleryPath) : []),
       ...text,
       ...pagesBlock(lang, listed, t('Bài viết nhắc đến cây này'), parts.guides.map(g => `/vi/huong-dan/${g.t.slug}/`), 8),
       ...pagesBlock(lang, listed, t('Có trong video hướng dẫn'), parts.videoGuides.map(g => `/vi/huong-dan/${g.t.slug}/`), 6),

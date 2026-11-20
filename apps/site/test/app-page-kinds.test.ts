@@ -69,7 +69,9 @@ function pictured(d: PageDoc, dom: HTMLElement, bySource: Map<string, Photo[]>, 
   // The footer's "Nguồn ảnh" names each photo by its own page: every one the page shows is in the copy, credited. (The
   // footer also credits a photo the text had no room for; the copy doesn't show that one either.)
   const ours = new Set(images(d).map(i => i.credit!.url))
-  const shown = new Set(dom.querySelectorAll('img').map(i => i.getAttribute('src')))
+  // A fish's or a plant's strip under six photos is the site's alone (APP_GALLERY_MIN): the copy has no album to credit it in.
+  const album: HTMLElement[] = one(d, 'gallery') ? [] : dom.querySelectorAll('[data-album] img')
+  const shown = new Set(dom.querySelectorAll('img').filter(i => !album.includes(i)).map(i => i.getAttribute('src')))
   for (const a of dom.querySelectorAll('#photo-credits li a')) {
     const href = a.getAttribute('href')!
     if (!(bySource.get(href) ?? []).some(p => shown.has(p.url) || shown.has(smallSrc(p)))) continue
@@ -275,7 +277,7 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       // The gallery's strip and the photos it opens in the viewer.
       const g = one(d, 'gallery')
       const strip = dom.querySelectorAll('.strip li:not(.more) img')
-      expect(!!g, d.path).toBe(strip.length > 0 && albumCount(dom) >= APP_GALLERY_MIN)
+      expect(!!g, d.path).toBe(strip.length > 0)
       if (g?.href) gallery(d, dom)
       else if (g) {
         expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))

@@ -1,7 +1,7 @@
 import { linkTerms, type Content } from '@aq/schema'
 import { slugify } from '@aq/schema/slug'
 import { basedOn, breedsOf, careCard, type Breed } from './breeds'
-import { GALLERY_STRIP } from './gallery'
+import { APP_GALLERY_MIN, GALLERY_STRIP } from './gallery'
 import { albumOf, hasAlbum } from './photo-page'
 import { isVietnamese, type Lang } from './i18n'
 import { guideImages, guidesMentioning, mentionIndex } from './mentions'
@@ -59,7 +59,7 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
     key, parent: basedOn(c, b), parents, ...careCard(b), gallery, strip,
     // The app's link to its album, once there are enough photos for one: the album's old address, which forwards to this
     // page (the app doesn't open it; protocols/page-vectors.json holds it until the protocols next change).
-    galleryPath: gallery.length >= 6 ? `/vi/ca/${b.t.slug}/anh/` : undefined,
+    galleryPath: gallery.length >= APP_GALLERY_MIN ? `/vi/ca/${b.t.slug}/anh/` : undefined,
     lines, linePhotos, body, guides: mentioning.filter(g => !g.video), videoGuides, videoPhotos: takeEach(pics, videoGuides, g => guideImages(c, g)),
   }
 }
