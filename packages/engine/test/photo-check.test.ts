@@ -109,7 +109,7 @@ test("a photo listed as another fish keeps the id of the kind its answer named, 
 
 test("an id only for an answer naming one other kind and not denying it, the judged page's own kind named only denied: a name inside one of the page's own gives way, and a breed's species is its own", async () => {
   const r = await root([
-    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'neither-one', 'not-ccc', 'possible', 'same-genus', 'ruled-out', 'out', 'like', 'confused', 'cross', 'rather'] },
+    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'neither-one', 'not-ccc', 'possible', 'same-genus', 'ruled-out', 'out', 'like', 'look-alike', 'lookalike', 'confused', 'cross', 'rather'] },
     { id: 'bbb-fish', sci: 'Bbb fish', vi: { name: 'Cá bbb', altNames: ['Sample tetra'] } },
     { id: 'ccc-fish', sci: 'Ccc fish' },
     { id: 'bbb-other', sci: 'Bbb other' },
@@ -134,6 +134,8 @@ test("an id only for an answer naming one other kind and not denying it, the jud
     'ruled-out': { ok: 'other', note: 'Bbb fish is ruled out; an unidentified cichlid' },
     out: { ok: 'other', note: 'Bbb fish? That one is out' },
     like: { ok: 'other', note: 'a Bbb fish-like tetra' },
+    'look-alike': { ok: 'other', note: 'a Bbb fish look-alike with a deeper body' },
+    lookalike: { ok: 'other', note: 'a Bbb fish lookalike' },
     confused: { ok: 'other', note: 'could be confused with Bbb fish' },
     cross: { ok: 'other', note: 'a cross of Bbb fish' },
     rather: { ok: 'other', note: 'a Bbb fish rather than an Aaa fish' },
@@ -144,7 +146,7 @@ test("an id only for an answer naming one other kind and not denying it, the jud
   })
   await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })
   const listed = await json(r, 'engine-state/_photo-rejected.json')
-  for (const n of ['green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'neither-one', 'not-ccc', 'possible', 'same-genus', 'ruled-out', 'out', 'like', 'confused', 'cross', 'rather', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
+  for (const n of ['green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'neither-one', 'not-ccc', 'possible', 'same-genus', 'ruled-out', 'out', 'like', 'look-alike', 'lookalike', 'confused', 'cross', 'rather', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
   expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('denied')]: 'species/ccc-fish', [url('isnt')]: 'species/bbb-fish', [url('rather')]: 'species/bbb-fish', [url('line-other')]: 'species/bbb-fish' })
 })
 
