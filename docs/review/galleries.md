@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-20). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 37 | 199 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 813 | 32 | 9 | 28 | 826 |
-| rest | 20 | 1884 | 80 | 0 | 111 | 1853 |
+| covered | 30 | 825 | 32 | 9 | 28 | 838 |
+| rest | 20 | 1894 | 81 | 0 | 114 | 1861 |
 
-## Short of target: every source read (708)
+## Short of target: every source read (709)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -35,7 +35,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/neolamprologus-pulcher | covered | 3 | 30 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 30 | 100 |
-| species/trigonostigma-heteromorpha | staple | 27 | 100 |
+| species/trigonostigma-heteromorpha | staple | 26 | 100 |
 | species/symphysodon-aequifasciatus | staple | 63 | 100 |
 | species/puntius-titteya | staple | 14 | 100 |
 | species/danio-rerio | staple | 44 | 100 |
@@ -75,7 +75,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/taxiphyllum-barbieri | shop | 4 | 60 |
 | species/puntigrus-tetrazona | shop | 35 | 60 |
 | breeds/koi-guppy | shop | 0 | 60 |
-| species/corydoras-aeneus | shop | 26 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
 | species/chromobotia-macracanthus | shop | 20 | 60 |
 | plants/aegagropila-linnaei | shop | 34 | 60 |
@@ -253,7 +252,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/channa-barca | popular | 0 | 40 |
 | species/channa-bleheri | popular | 1 | 40 |
 | species/channa-micropeltes | popular | 14 | 40 |
-| species/datnioides-microlepis | popular | 3 | 40 |
+| species/datnioides-microlepis | popular | 2 | 40 |
 | species/datnioides-pulcher | popular | 2 | 40 |
 | species/pangasianodon-hypophthalmus | popular | 30 | 40 |
 | species/dichotomyctere-nigroviridis | popular | 12 | 40 |
@@ -288,6 +287,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brochis-multiradiatus | covered | 3 | 30 |
 | species/colomesus-asellus | covered | 2 | 30 |
 | species/corydoras-arcuatus | covered | 1 | 30 |
+| species/corydoras-atropersonatus | covered | 0 | 30 |
 | species/corydoras-duplicareus | covered | 0 | 30 |
 | species/corydoras-elegans | covered | 0 | 30 |
 | species/corydoras-eques | covered | 0 | 30 |
@@ -307,6 +307,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 3 | 30 |
+| species/leptodoras-cataniai | covered | 1 | 30 |
 | species/loricaria-simillima | covered | 0 | 30 |
 | species/macropodus-spechti | covered | 0 | 30 |
 | species/mastiglanis-asopos | covered | 0 | 30 |
@@ -372,7 +373,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-panduro | covered | 3 | 30 |
 | species/apistogramma-paulmuelleri | covered | 0 | 30 |
 | species/apistogramma-trifasciata | covered | 3 | 30 |
-| species/ariopsis-felis | covered | 21 | 30 |
+| species/ariopsis-felis | covered | 20 | 30 |
 | species/ariopsis-seemanni | covered | 0 | 30 |
 | species/arius-latiscutatus | covered | 0 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
@@ -482,7 +483,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/copella-arnoldi | covered | 1 | 30 |
 | species/corydoras-amandajanea | covered | 0 | 30 |
 | species/corydoras-armatus | covered | 0 | 30 |
-| species/corydoras-atropersonatus | covered | 0 | 30 |
 | species/corydoras-axelrodi | covered | 0 | 30 |
 | species/corydoras-britskii | covered | 0 | 30 |
 | species/corydoras-burgessi | covered | 0 | 30 |
@@ -518,7 +518,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ctenopoma-acutirostre | covered | 1 | 30 |
 | species/ctenopoma-kingsleyae | covered | 1 | 30 |
 | species/ctenops-nobilis | covered | 0 | 30 |
-| species/cyclocheilichthys-janthochir | covered | 2 | 30 |
+| species/cyclocheilichthys-janthochir | covered | 1 | 30 |
 | species/cyprichromis-leptosoma | covered | 5 | 30 |
 | species/danio-aesculapii | covered | 0 | 30 |
 | species/danio-albolineatus | covered | 3 | 30 |
@@ -683,7 +683,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/leporinus-friderici | covered | 5 | 30 |
 | species/leptobarbus-hoevenii | covered | 2 | 30 |
 | species/leptobotia-elongata | covered | 2 | 30 |
-| species/leptodoras-cataniai | covered | 1 | 30 |
 | species/leptodoras-linnelli | covered | 0 | 30 |
 | species/limia-melanogaster | covered | 0 | 30 |
 | species/limia-nigrofasciata | covered | 4 | 30 |
@@ -724,3 +723,5 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/retroculus-acherontos | covered | 0 | 30 |
 | species/rhadinoloricaria-rhami | covered | 0 | 30 |
 | species/rhinodoras-boehlkei | covered | 0 | 30 |
+| species/rineloricaria-eigenmanni | covered | 0 | 30 |
+| species/rita-kuturnee | covered | 0 | 30 |

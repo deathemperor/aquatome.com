@@ -192,18 +192,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/230200524.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/230200524-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "Gannu03",
-      "sourceUrl": "https://www.inaturalist.org/photos/230200524",
-      "caption": "Cá sọc panchax đuôi đỏ bơi gần mặt nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/53178952.webp",
       "thumb": "https://media.aquatome.com/inaturalist/53178952-480.webp",
       "width": 1024,
@@ -214,18 +202,6 @@
       "caption": "Cá sọc panchax trưởng thành bơi trong bể, thân vàng nâu có sọc",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/154907094.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/154907094-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Navaneeth Sini George",
-      "sourceUrl": "https://www.inaturalist.org/photos/154907094",
-      "caption": "Cá sọc panchax bơi gần mặt nước có bèo, ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/212679825.webp",
@@ -324,14 +300,26 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/230199287.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/230199287-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/230200524.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/230200524-480.webp",
       "width": 1024,
       "height": 1024,
       "licence": "CC BY-SA",
       "author": "Gannu03",
-      "sourceUrl": "https://www.inaturalist.org/photos/230199287",
-      "caption": "Cá sọc panchax nhìn gần, bơi sát mặt nước",
+      "sourceUrl": "https://www.inaturalist.org/photos/230200524",
+      "caption": "Cá sọc panchax đuôi đỏ bơi gần mặt nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154907094.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154907094-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Navaneeth Sini George",
+      "sourceUrl": "https://www.inaturalist.org/photos/154907094",
+      "caption": "Cá sọc panchax bơi gần mặt nước có bèo, ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
     },
@@ -346,6 +334,18 @@
       "caption": "Cá sọc panchax thân ánh xanh lấp lánh, cận cảnh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/230199287.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/230199287-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Gannu03",
+      "sourceUrl": "https://www.inaturalist.org/photos/230199287",
+      "caption": "Cá sọc panchax nhìn gần, bơi sát mặt nước",
+      "best": false,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/b2d97ee9da3bf7c3.webp",

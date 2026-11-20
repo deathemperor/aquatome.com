@@ -104,17 +104,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/tropica/460b760571773f0d.webp",
-      "thumb": "https://media.aquatome.com/tropica/460b760571773f0d-480.webp",
-      "width": 1000,
-      "height": 1000,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumumbrosum(048ST)/19793",
-      "source": "tropica",
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/172522997.webp",
       "thumb": "https://media.aquatome.com/inaturalist/172522997-480.webp",
       "width": 1024,
@@ -141,6 +130,19 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/48410738.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/48410738-480.webp",
+      "width": 1024,
+      "height": 686,
+      "licence": "CC BY-SA",
+      "author": "Douglas Goldman",
+      "sourceUrl": "https://www.inaturalist.org/photos/48410738",
+      "caption": "Thân và lá tròn Micranthemum umbrosum trên nền tối",
+      "best": false,
+      "kind": "detail",
+      "setup": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/54485937.webp",
       "thumb": "https://media.aquatome.com/inaturalist/54485937-480.webp",
       "width": 768,
@@ -152,17 +154,6 @@
       "best": false,
       "kind": "habitat",
       "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/tropica/f9098a063e0fe53c.webp",
-      "thumb": "https://media.aquatome.com/tropica/f9098a063e0fe53c-480.webp",
-      "width": 1000,
-      "height": 1000,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumumbrosum(048ST)/19793",
-      "source": "tropica",
-      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/tropica/ac1eddddfea10c69.webp",
@@ -265,17 +256,26 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/48410738.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/48410738-480.webp",
-      "width": 1024,
-      "height": 686,
-      "licence": "CC BY-SA",
-      "author": "Douglas Goldman",
-      "sourceUrl": "https://www.inaturalist.org/photos/48410738",
-      "caption": "Thân và lá tròn Micranthemum umbrosum trên nền tối",
-      "best": false,
-      "kind": "detail",
-      "setup": true
+      "url": "https://media.aquatome.com/tropica/460b760571773f0d.webp",
+      "thumb": "https://media.aquatome.com/tropica/460b760571773f0d-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumumbrosum(048ST)/19793",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/f9098a063e0fe53c.webp",
+      "thumb": "https://media.aquatome.com/tropica/f9098a063e0fe53c-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Micranthemumumbrosum(048ST)/19793",
+      "source": "tropica",
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/172522989.webp",

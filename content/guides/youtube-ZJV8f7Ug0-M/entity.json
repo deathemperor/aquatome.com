@@ -108,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể vuông không viền đặt trên bàn gỗ dài, kiểu dáng gọn và hiện đại.",
-            "sharpness": 887.8
+            "sharpness": 887.8,
+            "person": false
           }
         ]
       },
@@ -116,64 +117,19 @@
         "heading": "Sỏi hay cát",
         "moments": [
           {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/ZJV8f7Ug0-M/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sỏi nhỏ màu tự nhiên đổ sẵn cạnh bao cát để chọn nền.",
-            "sharpness": 1426
-          },
-          {
             "t": 920,
             "url": "https://media.aquatome.com/video/ZJV8f7Ug0-M/at920-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nền sỏi nhỏ màu tự nhiên trong bể, đặt lũa đen lên trên.",
-            "sharpness": 829.4
-          }
-        ]
-      },
-      {
-        "heading": "Vì sao betta cần cây, và dùng cây giả có được không",
-        "moments": [
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/ZJV8f7Ug0-M/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây xanh vừa được trồng vào lớp sỏi trong bể.",
-            "sharpness": 1789.7
-          },
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/ZJV8f7Ug0-M/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang chỉnh bụi cây trong bể nhỏ trước khi thả cá.",
-            "sharpness": 718.3
+            "sharpness": 829.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Bố trí lũa",
-        "moments": [
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/ZJV8f7Ug0-M/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã đặt khúc lũa lớn cùng cây xanh, nhìn khá tự nhiên.",
-            "sharpness": 1185
-          },
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/ZJV8f7Ug0-M/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa xù xì trong bể, có cây thủy sinh mọc bên cạnh.",
-            "sharpness": 1031.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/ZJV8f7Ug0-M/p3-aXNoYm93bC5qcGVn.webp",
           "thumb": "https://media.aquatome.com/video/ZJV8f7Ug0-M/p3-aXNoYm93bC5qcGVn-480.webp",
@@ -222,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta trắng hồng bơi giữa bụi cây lá xanh trong hồ.",
-            "sharpness": 227.6
+            "sharpness": 227.6,
+            "person": false
           },
           {
             "t": 1080,
@@ -230,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con betta to, thân hồng, bơi gần cây thủy sinh.",
-            "sharpness": 335.2
+            "sharpness": 335.2,
+            "person": false
           }
         ]
       }

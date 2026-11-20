@@ -119,20 +119,13 @@
         "heading": "Trồng cây trải nền và dương xỉ",
         "moments": [
           {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at495-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp cắm nhúm cây trải nền xuống lớp nền còn khô.",
-            "sharpness": 4201.8
-          },
-          {
             "t": 525,
             "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at525-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây trải nền đã mọc kín phía trước và hai bên bể.",
-            "sharpness": 3482.7
+            "sharpness": 3482.7,
+            "person": false
           }
         ]
       },
@@ -140,20 +133,13 @@
         "heading": "Vì sao nên dùng cây đã lên dạng thủy sinh",
         "moments": [
           {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một cụm cây thủy sinh xanh tươi cầm trên tay, cạnh bể cầu.",
-            "sharpness": 950.2
-          },
-          {
             "t": 615,
             "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at615-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các bó cây thân mảnh xếp trên bàn, sẵn sàng để trồng.",
-            "sharpness": 2538.3
+            "sharpness": 2538.3,
+            "person": false
           }
         ]
       },
@@ -161,20 +147,13 @@
         "heading": "Châm nước rồi mới trồng cây cắt cắm",
         "moments": [
           {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh cây trồng trong bể bát nhìn như được phóng to.",
-            "sharpness": 792.1
-          },
-          {
             "t": 690,
             "url": "https://media.aquatome.com/video/j6bhgN_CQSc/at690-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể bát đã đầy nước, cây cắt cắm xanh tốt cùng lũa và đá.",
-            "sharpness": 813.4
+            "sharpness": 813.4,
+            "person": false
           }
         ]
       },
@@ -187,7 +166,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cầu thủy sinh đầy nước, cây và đá nhìn rõ.",
-            "sharpness": 1045.5
+            "sharpness": 1045.5,
+            "person": false
           },
           {
             "t": 750,
@@ -195,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh thảm cây và đá trong bể cầu sau khi thay nước.",
-            "sharpness": 791.4
+            "sharpness": 791.4,
+            "person": false
           }
         ]
       }

@@ -15,14 +15,14 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/commons/cee317775e0fd0e3.webp",
-      "thumb": "https://media.aquatome.com/commons/cee317775e0fd0e3-480.webp",
+      "url": "https://media.aquatome.com/commons/c2deb93b30a51658.webp",
+      "thumb": "https://media.aquatome.com/commons/c2deb93b30a51658-480.webp",
       "width": 1200,
       "height": 900,
       "licence": "CC BY 3.0 us",
       "author": "Forest and Kim Starr",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-110124-0347-Nymphoides_aquatica-flowering_habit_in_water_garden-Sacred_Garden_of_Maliko-Maui_(24442547284).jpg",
-      "caption": "Hoa trắng nở giữa các lá tròn lớn của Cây chuối thủy sinh",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-121108-0695-Nymphoides_aquatica-flowering_habit-Pali_o_Waipio-Maui_(24828205989).jpg",
+      "caption": "Bụi Cây chuối thủy sinh có hoa trắng và rễ chuối",
       "best": true,
       "kind": "flower"
     },
@@ -38,18 +38,6 @@
       "best": true,
       "kind": "habitat",
       "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/commons/c2deb93b30a51658.webp",
-      "thumb": "https://media.aquatome.com/commons/c2deb93b30a51658-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 3.0 us",
-      "author": "Forest and Kim Starr",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-121108-0695-Nymphoides_aquatica-flowering_habit-Pali_o_Waipio-Maui_(24828205989).jpg",
-      "caption": "Bụi Cây chuối thủy sinh có hoa trắng và rễ chuối",
-      "best": true,
-      "kind": "flower"
     },
     {
       "url": "https://media.aquatome.com/commons/9eac0bf64118d127.webp",
@@ -116,16 +104,17 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/commons/da2a2adbf88a4093.webp",
-      "thumb": "https://media.aquatome.com/commons/da2a2adbf88a4093-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 3.0 us",
-      "author": "Forest and Kim Starr",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-110124-0022-Nymphoides_aquatica-habit_in_water_garden-Sacred_Garden_of_Maliko-Maui_(24776516260).jpg",
-      "caption": "Cây chuối thủy sinh trồng trong chậu, lá tròn nổi",
+      "url": "https://media.aquatome.com/inaturalist/132456651.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/132456651-480.webp",
+      "width": 899,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Jochen Essig",
+      "sourceUrl": "https://www.inaturalist.org/photos/132456651",
+      "caption": "Lá lớn và hoa trắng của cây mọc trên cạn",
       "best": false,
-      "kind": "emersed"
+      "kind": "emersed",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/c034316f8372d32d.webp",
@@ -163,19 +152,6 @@
       "caption": "Cụm lá và hoa Cây chuối thủy sinh mọc ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/132456651.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/132456651-480.webp",
-      "width": 899,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jochen Essig",
-      "sourceUrl": "https://www.inaturalist.org/photos/132456651",
-      "caption": "Lá lớn và hoa trắng của cây mọc trên cạn",
-      "best": false,
-      "kind": "emersed",
       "setup": false
     },
     {
@@ -241,6 +217,30 @@
       "best": false,
       "kind": "detail",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/cee317775e0fd0e3.webp",
+      "thumb": "https://media.aquatome.com/commons/cee317775e0fd0e3-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 3.0 us",
+      "author": "Forest and Kim Starr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-110124-0347-Nymphoides_aquatica-flowering_habit_in_water_garden-Sacred_Garden_of_Maliko-Maui_(24442547284).jpg",
+      "caption": "Hoa trắng nở giữa các lá tròn lớn của Cây chuối thủy sinh",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/da2a2adbf88a4093.webp",
+      "thumb": "https://media.aquatome.com/commons/da2a2adbf88a4093-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 3.0 us",
+      "author": "Forest and Kim Starr",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr-110124-0022-Nymphoides_aquatica-habit_in_water_garden-Sacred_Garden_of_Maliko-Maui_(24776516260).jpg",
+      "caption": "Cây chuối thủy sinh trồng trong chậu, lá tròn nổi",
+      "best": false,
+      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/4518179.webp",

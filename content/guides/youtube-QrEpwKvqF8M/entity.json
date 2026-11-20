@@ -77,7 +77,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh che màng bọc trên miệng, có lọc mini bên cạnh.",
-            "sharpness": 464.2
+            "sharpness": 464.2,
+            "person": false
           },
           {
             "t": 70,
@@ -85,22 +86,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Miệng bể được che bằng màng bọc thực phẩm có đục vài lỗ nhỏ.",
-            "sharpness": 1223.1
+            "sharpness": 1223.1,
+            "person": false
           }
         ]
       },
       {
         "heading": "Cách tự cắt nắp kính từ bể cũ",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/QrEpwKvqF8M/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng thước cuộn đo kích thước để đánh dấu lên tấm kính.",
-            "sharpness": 747.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/QrEpwKvqF8M/p3-NzbmlqZGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/QrEpwKvqF8M/p3-NzbmlqZGVyLmpwZw-480.webp",
@@ -121,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nắp kính trên miệng bể, có chút hơi nước đọng bên dưới.",
-            "sharpness": 1144.3
+            "sharpness": 1144.3,
+            "person": false
           }
         ]
       }

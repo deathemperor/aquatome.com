@@ -82,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta được nhốt trong các cốc nhựa xếp trên kệ ở tiệm.",
-            "sharpness": 743.4
+            "sharpness": 743.4,
+            "person": false
           },
           {
             "t": 70,
@@ -90,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta được nuôi riêng trong từng chai thủy tinh ở trại.",
-            "sharpness": 231.1
+            "sharpness": 231.1,
+            "person": false
           }
         ]
       },
@@ -111,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các loại bình, lọ thủy tinh nhỏ bày bán để nuôi betta.",
-            "sharpness": 715.9
+            "sharpness": 715.9,
+            "person": false
           }
         ],
         "photo": {
@@ -124,19 +127,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_betta_fish_super_delta.JPG",
           "caption": "Cá betta tím trong bình nhỏ có cây và bi thủy tinh, kiểu bày bán phổ biến."
         }
-      },
-      {
-        "heading": "Cho betta ăn gì",
-        "moments": [
-          {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/SkR_Mbh3qzE/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các loại thức ăn làm riêng cho betta cạnh một chú cá bơi trong bể.",
-            "sharpness": 1601.2
-          }
-        ]
       },
       {
         "heading": "Có nuôi chung nhiều con betta được không",
@@ -155,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con betta với vây xòe rõ, trông dữ dằn trong bể trống.",
-            "sharpness": 199.6
+            "sharpness": 199.6,
+            "person": false
           }
         ],
         "photo": {
@@ -178,7 +169,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta bơi luồn bên cạnh bụi cây sống rậm rạp.",
-            "sharpness": 184.7
+            "sharpness": 184.7,
+            "person": false
           },
           {
             "t": 610,
@@ -186,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta ẩn mình giữa tán lá cây sống xanh um.",
-            "sharpness": 284.4
+            "sharpness": 284.4,
+            "person": false
           }
         ]
       },

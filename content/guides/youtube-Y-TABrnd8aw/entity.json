@@ -65,20 +65,13 @@
         "heading": "Đèn nào dùng được cho bể bát",
         "moments": [
           {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/Y-TABrnd8aw/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhỏ có cây xanh và lũa, lên tốt dưới đèn.",
-            "sharpness": 1715.3
-          },
-          {
             "t": 100,
             "url": "https://media.aquatome.com/video/Y-TABrnd8aw/at100-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đèn kẹp bàn thông thường đặt trên bàn, có thể dùng cho bể nhỏ.",
-            "sharpness": 1197
+            "sharpness": 1197,
+            "person": false
           },
           {
             "t": 110,
@@ -92,30 +85,8 @@
         ]
       },
       {
-        "heading": "Làm lớp đất nền từ đất vườn",
-        "moments": [
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/Y-TABrnd8aw/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đất đã xử lý được cho vào chậu để chuẩn bị làm nền.",
-            "sharpness": 542.3
-          }
-        ]
-      },
-      {
         "heading": "Rải cát và đất theo kiểu vòng bánh donut",
-        "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/Y-TABrnd8aw/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rắc đất vào khoảng trống giữa vòng cát trong bát.",
-            "sharpness": 1303.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Y-TABrnd8aw/p2-RvbV9zYW5kLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/Y-TABrnd8aw/p2-RvbV9zYW5kLmpwZw-480.webp",
@@ -136,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba viên sỏi to được thử xếp cạnh nhau trên mặt sàn.",
-            "sharpness": 687.7
+            "sharpness": 687.7,
+            "person": false
           },
           {
             "t": 450,
@@ -153,7 +125,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba viên đá xếp thoáng trên lớp cát trắng trong bể thủy tinh tròn.",
-            "sharpness": 968.1
+            "sharpness": 968.1,
+            "person": false
           }
         ],
         "photo": {
@@ -176,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp cắm cây tiền cảnh vào lớp cát trong bể bát.",
-            "sharpness": 1137.6
+            "sharpness": 1137.6,
+            "person": false
           },
           {
             "t": 590,
@@ -184,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây tiền cảnh đã trồng xong quanh các hòn đá trong bể.",
-            "sharpness": 1722.5
+            "sharpness": 1722.5,
+            "person": false
           }
         ],
         "photo": {
@@ -202,20 +177,13 @@
         "heading": "Châm nước không làm xáo nền",
         "moments": [
           {
-            "t": 640,
-            "url": "https://media.aquatome.com/video/Y-TABrnd8aw/at640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh lớn đã đầy nước, cây mọc cao thấp đều và rõ chỗ trống.",
-            "sharpness": 3288.8
-          },
-          {
             "t": 680,
             "url": "https://media.aquatome.com/video/Y-TABrnd8aw/at680-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể cầu đã châm đầy nước, cây thấp đứng thẳng quanh mấy hòn đá.",
-            "sharpness": 2263.5
+            "sharpness": 2263.5,
+            "person": false
           },
           {
             "t": 700,
@@ -246,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây cắt cắm đỏ và xanh tươi trồng phía sau hòn đá trong bể tròn.",
-            "sharpness": 2764.1
+            "sharpness": 2764.1,
+            "person": false
           },
           {
             "t": 910,
@@ -254,7 +223,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể tròn nhỏ với mảng cây đỏ và xanh sau đá.",
-            "sharpness": 1730.6
+            "sharpness": 1730.6,
+            "person": false
           }
         ],
         "photo": {

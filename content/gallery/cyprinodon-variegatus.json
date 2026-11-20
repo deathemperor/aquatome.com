@@ -2,14 +2,14 @@
   "id": "cyprinodon-variegatus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/77231070.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/77231070-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/119431505.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/119431505-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 741,
       "licence": "CC BY",
-      "author": "johnyochum",
-      "sourceUrl": "https://www.inaturalist.org/photos/77231070",
-      "caption": "Cá pupfish đực màu xanh ánh kim bơi trong nước nông",
+      "author": "Jim Moore (Maryland)",
+      "sourceUrl": "https://www.inaturalist.org/photos/119431505",
+      "caption": "Cá pupfish đực có gáy xanh ánh kim bơi ở vùng nước nông",
       "best": true,
       "kind": "male"
     },
@@ -24,56 +24,6 @@
       "caption": "Cặp cá pupfish sheepshead, con đực ánh xanh, dưới nước",
       "best": true,
       "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/172055781.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/172055781-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Tom Kennedy",
-      "sourceUrl": "https://www.inaturalist.org/photos/172055781",
-      "caption": "Cá pupfish sheepshead trên nền cát trong tự nhiên",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/35402466.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/35402466-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY",
-      "author": "Dr. Andrew G. Cannizzaro",
-      "sourceUrl": "https://www.inaturalist.org/photos/35402466",
-      "caption": "Cá pupfish sheepshead trưởng thành dưới đáy nước nông ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/119431505.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/119431505-480.webp",
-      "width": 1024,
-      "height": 741,
-      "licence": "CC BY",
-      "author": "Jim Moore (Maryland)",
-      "sourceUrl": "https://www.inaturalist.org/photos/119431505",
-      "caption": "Cá pupfish đực có gáy xanh ánh kim bơi ở vùng nước nông",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/246172929.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/246172929-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Alessandro Franchini",
-      "sourceUrl": "https://www.inaturalist.org/photos/246172929",
-      "caption": "Nhóm cá pupfish sheepshead sọc vằn trong hộp chụp ảnh",
-      "best": true,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/8812753.webp",
@@ -146,6 +96,20 @@
       "caption": "Cá pupfish sheepshead đực ánh xanh trong vùng nước nông có thực vật",
       "best": true,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/246172929.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246172929-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Alessandro Franchini",
+      "sourceUrl": "https://www.inaturalist.org/photos/246172929",
+      "caption": "Nhóm cá pupfish sheepshead sọc vằn trong hộp chụp ảnh",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/58154458.webp",
@@ -376,6 +340,30 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/77231070.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/77231070-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "johnyochum",
+      "sourceUrl": "https://www.inaturalist.org/photos/77231070",
+      "caption": "Cá pupfish đực màu xanh ánh kim bơi trong nước nông",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/172055781.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/172055781-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Kennedy",
+      "sourceUrl": "https://www.inaturalist.org/photos/172055781",
+      "caption": "Cá pupfish sheepshead trên nền cát trong tự nhiên",
+      "best": true,
+      "kind": "group"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/4662031.webp",
       "thumb": "https://media.aquatome.com/inaturalist/4662031-480.webp",
       "width": 768,
@@ -386,6 +374,18 @@
       "caption": "Đàn cá pupfish sheepshead bơi trong vùng nước nông tự nhiên",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/35402466.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/35402466-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Dr. Andrew G. Cannizzaro",
+      "sourceUrl": "https://www.inaturalist.org/photos/35402466",
+      "caption": "Cá pupfish sheepshead trưởng thành dưới đáy nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 215,

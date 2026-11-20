@@ -8,39 +8,39 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 1067 | 763 (vi 763) | 763 |
-| translation | 2203 | 323 (vi 323) | 323 |
+| video-guide | 1098 | 780 (vi 780) | 780 |
+| translation | 2239 | 334 (vi 334) | 334 |
 | vi-rewrite | 409 | 38 (vi 38) | 38 |
 | reader-rewrite | 46 | 0 | 0 |
-| title | 25 | 0 | 0 |
+| title | 26 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 131 | 6 (id 1, ms 1, th 4) | 6 |
-| product | 27 | 2 (vi 2) | 2 |
-| product-reviews | 21 | 0 | 0 |
-| summary | 2612 | 144 (vi 144) | 144 |
+| product | 28 | 2 (vi 2) | 2 |
+| product-reviews | 22 | 0 | 0 |
+| summary | 2658 | 150 (vi 150) | 150 |
 | localize | 2822 | 870 (id 375, ms 66, th 429) | 870 |
 | glossary | 35 | 0 | 0 |
 | places | 7507 | 4559 (id 1563, ms 1555, th 1342, vi 99) | 1351 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
-| species | 22 | 0 | 0 |
+| species | 24 | 0 | 0 |
 | material | 2 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-763 of 1067 pages under the bar.
+780 of 1098 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| States as certain what the source hedges, or what garbled captions only hint at | 669 | 1968 |
-| Other | 667 | 1707 |
-| Says what the source doesn't (invented, added) | 555 | 1304 |
-| Wording: unnatural, literal, stiff or chatty | 330 | 467 |
-| A number, unit, dose or price | 245 | 354 |
-| Repeats itself (intro, summary, steps and FAQ) | 156 | 183 |
-| Meaning changed or wrong | 133 | 152 |
-| Hobby terms and names | 54 | 56 |
-| Leaves out what the source says | 53 | 55 |
+| States as certain what the source hedges, or what garbled captions only hint at | 683 | 1998 |
+| Other | 680 | 1725 |
+| Says what the source doesn't (invented, added) | 562 | 1314 |
+| Wording: unnatural, literal, stiff or chatty | 332 | 469 |
+| A number, unit, dose or price | 247 | 356 |
+| Repeats itself (intro, summary, steps and FAQ) | 157 | 184 |
+| Meaning changed or wrong | 135 | 154 |
+| Leaves out what the source says | 55 | 57 |
+| Hobby terms and names | 55 | 57 |
 | Names or points to the video, channel, creator or source | 35 | 39 |
 | Copied from the transcript or source | 27 | 29 |
 | Off the title's topic | 27 | 27 |
@@ -88,17 +88,17 @@ under `<lang>/<path>`.
 - "Đèn đang để ở 80%" and "mặt cát sáng gần gấp đôi": the creator said the lights read 80% and the sand is 'doubly light'. Also the bullet "Giảm đèn khoảng 40% vì nền cát sáng màu hắt ánh sáng gấp đôi" is wrong, because the lights were made … — vi/guides/youtube-AZKwyFdqe50, 0.40
 - "Nên dùng nhiều cách cùng lúc, vì mỗi cách đơn lẻ đều có lúc sai": the video says polarized glasses depend on conditions, and that one indicator is usually enough. Remove the claim that every method can be wrong, and the advice to use seve… — vi/guides/youtube-C4W86NMP3CU, 0.40
 
-### Hobby terms and names
-
-- Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
-- "Dân chơi gọi hiện tượng này là cây "thở" (pearling)": the "dân chơi gọi" generalisation and the English term "pearling" are not in the video; remove the English and say it neutrally, e.g. the creator describes the plants as "thở". — vi/guides/youtube-H-A6KwMSa9s, 0.50
-- "Bể đẹp tới đâu còn tùy bố cục, và với paludarium thì chuyện này càng quan trọng": reword to hedge and follow the video, a build is only as good as its scape, especially a paludarium. Also "dây nhỏ giọt" for "drip vine" is a clumsy term; u… — vi/guides/youtube-HK0vWQGwNOE, 0.50
-
 ### Leaves out what the source says
 
 - "Lắp từ dưới lên thì hợp lý hơn" / "Thứ tự đó khó theo" and "Nhà sản xuất có làm video hướng dẫn lắp, nên xem qua trước khi bắt tay vào": he said the manual made no sense to him and that he would watch the tutorial, but then dropped the ma… — vi/guides/youtube-JpAXeFEVws8, 0.40
 - "Nên dùng mica thay cho kính vì mica dễ cắt, dễ phay và dễ dán hơn nhiều" (also in FAQ and the summary): the video only says he chose acrylic because it is much easier to machine; no comparison on cutting/gluing and no recommendation. Redu… — vi/guides/youtube-seBch2HWlZs, 0.40
 - Remove "Hiểu sai một lần là mất luôn một mùa sinh sản". The video only says no babies were made because there were no plants. It never says a whole breeding season was lost. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+
+### Hobby terms and names
+
+- Remove the advice "Hạn chế mở nắp trong thời gian đo" and "Đo kéo dài vài tháng" as instructions. The video gives neither as a step. It only mentions wanting long-term data, and only as the speaker's own plan. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+- "Dân chơi gọi hiện tượng này là cây "thở" (pearling)": the "dân chơi gọi" generalisation and the English term "pearling" are not in the video; remove the English and say it neutrally, e.g. the creator describes the plants as "thở". — vi/guides/youtube-H-A6KwMSa9s, 0.50
+- "Bể đẹp tới đâu còn tùy bố cục, và với paludarium thì chuyện này càng quan trọng": reword to hedge and follow the video, a build is only as good as its scape, especially a paludarium. Also "dây nhỏ giọt" for "drip vine" is a clumsy term; u… — vi/guides/youtube-HK0vWQGwNOE, 0.50
 
 ### Names or points to the video, channel, creator or source
 
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-323 of 2203 pages under the bar.
+334 of 2239 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 308 | 903 |
-| Says what the source doesn't (invented, added) | 269 | 521 |
-| Wording: unnatural, literal, stiff or chatty | 240 | 445 |
-| Meaning changed or wrong | 196 | 299 |
-| Hobby terms and names | 156 | 206 |
-| Leaves out what the source says | 111 | 150 |
-| Text left in another language | 110 | 136 |
-| States as certain what the source hedges, or what garbled captions only hint at | 92 | 107 |
-| A number, unit, dose or price | 77 | 100 |
-| Repeats itself (intro, summary, steps and FAQ) | 59 | 70 |
+| Other | 318 | 927 |
+| Says what the source doesn't (invented, added) | 280 | 536 |
+| Wording: unnatural, literal, stiff or chatty | 247 | 454 |
+| Meaning changed or wrong | 201 | 304 |
+| Hobby terms and names | 163 | 219 |
+| Leaves out what the source says | 114 | 153 |
+| Text left in another language | 113 | 139 |
+| States as certain what the source hedges, or what garbled captions only hint at | 94 | 111 |
+| A number, unit, dose or price | 78 | 101 |
+| Repeats itself (intro, summary, steps and FAQ) | 61 | 72 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 | Off the title's topic | 1 | 1 |
@@ -308,7 +308,7 @@ under `<lang>/<path>`.
 
 ## title: titles rewritten to promise only what the text has
 
-0 of 25 pages under the bar.
+0 of 26 pages under the bar.
 
 ## breed: breed pages, against their research
 
@@ -386,7 +386,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 27 pages under the bar.
+2 of 28 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -426,22 +426,23 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 21 pages under the bar.
+0 of 22 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
-144 of 2612 pages under the bar.
+150 of 2658 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Says what the source doesn't (invented, added) | 72 | 85 |
-| States as certain what the source hedges, or what garbled captions only hint at | 57 | 62 |
-| Other | 45 | 53 |
+| Says what the source doesn't (invented, added) | 75 | 88 |
+| States as certain what the source hedges, or what garbled captions only hint at | 59 | 64 |
+| Other | 48 | 55 |
+| Meaning changed or wrong | 13 | 14 |
 | A number, unit, dose or price | 12 | 13 |
-| Meaning changed or wrong | 11 | 12 |
-| Leaves out what the source says | 11 | 12 |
+| Leaves out what the source says | 12 | 13 |
 | Wording: unnatural, literal, stiff or chatty | 2 | 2 |
 | Off the title's topic | 1 | 1 |
+| Repeats itself (intro, summary, steps and FAQ) | 1 | 1 |
 | Hobby terms and names | 1 | 1 |
 
 ### Says what the source doesn't (invented, added)
@@ -453,26 +454,26 @@ under `<lang>/<path>`.
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - "chủ yếu hoạt động về đêm" is stated as fact about this species. The page hedges it ("có vẻ chủ yếu hoạt động về đêm") and says it about Acrochordonichthys species in general, so the hedge became a certainty. — vi/species/acrochordonichthys-septentrionalis, 0.00
-- "con \"Green Stripe\" từ Peru thuộc nhóm nhỏ hơn" turns a hedge into a certainty. The page says only that it "hợp với Tympanopleura hơn" and "có vẻ" is an undescribed species. — vi/species/ageneiosus-lineatus, 0.00
 - "chỉ nuôi với cá họ chép, cá da trơn, cichlid hoặc cá chạch sông": the page says only that these tank mates "thường nuôi chung được" if they are of suitable size and the tank is wide enough. It never says they are the only suitable ones, a… — vi/species/anabas-testudineus, 0.00
+- "Bỏ qua mùa đông thì cá đẻ kém, sống ngắn hơn": the page hedges with "nhiều khả năng" (most likely), and the summary states it as a certainty. — vi/species/anatolichthys-sureyanus, 0.00
 
 ### Other
 
-- The summary treats this species as the "Green Stripe" ("cá \"Green Stripe\" nhập từ Peru hay bị nhầm với Ageinosus vittatus"). The page says the Green Stripe is not part of the reclassification and looks like an undescribed species. It doe… — vi/species/ageneiosus-lineatus, 0.00
 - "Đừng để nước đứng; nên tạo dòng chảy": the page only says the species lives in fast-flowing streams and rivers. It gives no aquarium advice about water flow, so this fix is advice the page doesn't give. It also conflicts with the summary'… — vi/species/amblyceps-arunachalense, 0.00
 - "nên cần cho ăn đúng loại mồi giun": the page only says that in the tank they "thích" (prefer) worms such as frozen bloodworm and white worms. It does not say that feeding must be exactly worms, or that their frantic feeding is the reason.… — vi/species/amblyceps-tenuispinis, 0.00
-
-### A number, unit, dose or price
-
-- "Cá cần nước mát": this makes the water parameters a requirement and adds the reason that they match the wild habitat. The page gives only the numbers and no such explanation. — vi/species/aphyosemion-mimbon, 0.00
-- "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
-- "Đừng để nước ấm hơn mức cá cần": the page never warns against warm water or says this is a mistake. Only the card's 20–24 °C range exists, so this mistake and its fix are not on the page. — vi/species/cranoglanis-henrici, 0.00
+- "hợp với người thích cá lạ và chịu tự tìm hiểu thêm" says who the species suits. The page doesn't state or imply this. — vi/species/ammoglanis-multidentatus, 0.00
 
 ### Meaning changed or wrong
 
 - "đèn sáng" listed as a mistake and "đèn khá tối" as the fix: the page only says the most popular tanks tend to have fairly dim light. It gives no rule that bright light is wrong, so this is advice the page doesn't give. — vi/species/anabas-testudineus, 0.00
 - "Đừng tự thêm muối hay tìm nắng trực tiếp cho cá" turns the page's "không cần" (not needed) into a prohibition. The page never says salt or sun is harmful. It also recommends putting the fish in an outdoor tank in summer, so avoiding sunli… — vi/species/aphanius-vladykovi, 0.00
 - Mistake 3, "Dựng đá và bày bể kín chỗ", treats building rock structures as an error. The page only says "Bể không cần dựng đá" and adds that rocks can still be arranged if tank mates live around rocks. "Not needed" has become "a mistake", … — vi/species/buccochromis-lepturus, 0.00
+
+### A number, unit, dose or price
+
+- "Cá cần nước mát": this makes the water parameters a requirement and adds the reason that they match the wild habitat. The page gives only the numbers and no such explanation. — vi/species/aphyosemion-mimbon, 0.00
+- "khó nhất là giữ nước mát": the page never says keeping water cool is hard. It only gives the 10–22 °C range, so this hardest point is the summary's own inference. — vi/species/channa-burmanica, 0.00
+- "Đừng để nước ấm hơn mức cá cần": the page never warns against warm water or says this is a mistake. Only the card's 20–24 °C range exists, so this mistake and its fix are not on the page. — vi/species/cranoglanis-henrici, 0.00
 
 ### Leaves out what the source says
 
@@ -488,6 +489,10 @@ under `<lang>/<path>`.
 ### Off the title's topic
 
 - "Ngoài tự nhiên cá gặp ở cả suối nhánh chảy xiết lẫn vũng nước, hồ": the page says this about the genus ("Các loài Nematabramis sống ở đủ kiểu nơi"), not about N. alestes. The summary turns a genus-level statement into a certain fact about… — vi/species/nematabramis-alestes, 0.00
+
+### Repeats itself (intro, summary, steps and FAQ)
+
+- "Nuôi chung nhiều con đồng loại khi cá đã lớn, lúc này mỗi con giữ một khoảnh riêng": this repeats the same error. The territorial stage is the 5–6 cm juvenile stage, not the adult stage. — vi/species/terapon-jarbua, 0.00
 
 ### Hobby terms and names
 
@@ -660,7 +665,7 @@ under `<lang>/<path>`.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 
-0 of 22 pages under the bar.
+0 of 24 pages under the bar.
 
 ## material: hobby materials' pages (lũa, đá, nền), against their research
 

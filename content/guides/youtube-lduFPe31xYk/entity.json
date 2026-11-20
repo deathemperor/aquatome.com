@@ -90,20 +90,13 @@
         "heading": "Low-tech cần những gì",
         "moments": [
           {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/lduFPe31xYk/at20-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh low-tech với cây và lũa được tỉa tạo bố cục.",
-            "sharpness": 3327.8
-          },
-          {
             "t": 30,
             "url": "https://media.aquatome.com/video/lduFPe31xYk/at30-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể nano trồng nhiều cây xanh tốt, có đèn phía trên.",
-            "sharpness": 2589.9
+            "sharpness": 2589.9,
+            "person": false
           }
         ]
       },
@@ -116,7 +109,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá xếp thành viền phía trước bể, cát đang được rải xuống.",
-            "sharpness": 1608.7
+            "sharpness": 1608.7,
+            "person": false
           }
         ]
       },

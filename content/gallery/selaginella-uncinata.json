@@ -50,14 +50,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/eeb9277145039e0f.webp",
-      "thumb": "https://media.aquatome.com/commons/eeb9277145039e0f-480.webp",
+      "url": "https://media.aquatome.com/commons/a3d65292c005134f.webp",
+      "thumb": "https://media.aquatome.com/commons/a3d65292c005134f-480.webp",
       "width": 1200,
-      "height": 800,
+      "height": 900,
       "licence": "CC BY-SA 4.0",
-      "author": "Photo by David J. Stang",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selaginella_uncinata_6zz.jpg",
-      "caption": "Cụm Selaginella uncinata xanh lam mọc dày đặc",
+      "author": "Salicyna",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selaginella_uncinata_2017-05-31_2574b.jpg",
+      "caption": "Cây Selaginella uncinata mọc trên nền sỏi đất đỏ",
       "best": false,
       "kind": "emersed"
     },
@@ -84,18 +84,6 @@
       "caption": "Selaginella uncinata ánh xanh lam mọc trên mặt đất ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/a3d65292c005134f.webp",
-      "thumb": "https://media.aquatome.com/commons/a3d65292c005134f-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Salicyna",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selaginella_uncinata_2017-05-31_2574b.jpg",
-      "caption": "Cây Selaginella uncinata mọc trên nền sỏi đất đỏ",
-      "best": false,
-      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/commons/b3c3f54f2caf8d3b.webp",
@@ -234,6 +222,18 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/eeb9277145039e0f.webp",
+      "thumb": "https://media.aquatome.com/commons/eeb9277145039e0f-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Photo by David J. Stang",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Selaginella_uncinata_6zz.jpg",
+      "caption": "Cụm Selaginella uncinata xanh lam mọc dày đặc",
+      "best": false,
+      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/commons/8c02597e15bfb2f6.webp",

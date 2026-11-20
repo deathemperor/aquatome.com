@@ -110,18 +110,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/23786292.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/23786292-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC0",
-      "author": "Andrew Deacon",
-      "sourceUrl": "https://www.inaturalist.org/photos/23786292",
-      "caption": "Cá trê phi con màu vàng nâu, thấy rõ râu",
-      "best": true,
-      "kind": "juvenile"
-    },
-    {
       "url": "https://media.aquatome.com/commons/155eb1bb64d8f551.webp",
       "thumb": "https://media.aquatome.com/commons/155eb1bb64d8f551-480.webp",
       "width": 1200,
@@ -372,6 +360,18 @@
       "caption": "Cá trê phi bơi giữa rong rêu dưới nước",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/23786292.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/23786292-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "Andrew Deacon",
+      "sourceUrl": "https://www.inaturalist.org/photos/23786292",
+      "caption": "Cá trê phi con màu vàng nâu, thấy rõ râu",
+      "best": true,
+      "kind": "juvenile"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/43531436.webp",
