@@ -398,9 +398,12 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testAnEndDueWhileSignedOutWaitsForTheOwner() {
-    // Ends 25 s after the press; the owner signs out before then. Nothing goes back while signed out: the light's outlet
-    // goes back once they're signed in again (the master log notes each account change, "account").
-    let app = launch(["-master-ends-in", "25"])
+    // Ends a minute after the press; the owner signs out well before then. Nothing goes back while signed out: the light's
+    // outlet goes back once they're signed in again (the master log notes each account change, "account"). At 25 s, on
+    // GitHub's Mac (main, 19 Nov, both tries) the sign-out landed after the end came due: the end went while still signed
+    // in, so the flow failed though the app had sent nothing signed out. It now says so if the sign-out lands that late.
+    let endsIn: TimeInterval = 60
+    let app = launch(["-master-ends-in", "\(Int(endsIn))"])
     tap(app, "master-create")
     add(app, "master-add-Đèn")
     tap(app, "master-step-Đèn")
@@ -408,12 +411,18 @@ final class MasterFlowTests: XCTestCase {
     app.navigationBars.buttons.element(boundBy: 0).tap()
     tap(app, "master-end-60")
     tap(app, "master-done")
+    // The press's clock starts after this and before its step is logged.
+    let tapped = Date()
     tap(app, "master-start")
     expect(app, "master-log", contains: "switch_1 off", timeout: 40)
+    let stepped = Date()
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
-    RunLoop.current.run(until: Date().addingTimeInterval(30))
+    let out = Date().timeIntervalSince(tapped)
+    XCTAssertLessThan(out, endsIn, "signed out \(Int(out)) s after the press, its end due at \(Int(endsIn)) s: the end came signed in, and this proves nothing")
+    // Past the end, signed out.
+    RunLoop.current.run(until: stepped.addingTimeInterval(endsIn + 5))
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-log", contains: "switch_1 back on", timeout: 40)
