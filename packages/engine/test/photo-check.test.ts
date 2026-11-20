@@ -109,7 +109,7 @@ test("a photo listed as another fish keeps the id of the kind its answer named, 
 
 test("an answer naming the judged page's own kind and not denying it names a second kind, so no id: a name inside one of the page's own gives way, and a breed's species is its own", async () => {
   const r = await root([
-    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt', 'neither', 'not-ccc'] },
+    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'not-ccc'] },
     { id: 'bbb-fish', sci: 'Bbb fish', vi: { name: 'Cá bbb', altNames: ['Sample tetra'] } },
     { id: 'ccc-fish', sci: 'Ccc fish' },
     { kind: 'breeds', id: 'aaa-line', vi: { name: 'Aaa line' }, photos: ['line-1', 'line-own', 'line-other'], extra: { kind: 'variety', basedOn: 'aaa-fish', parents: [] } },
@@ -123,6 +123,8 @@ test("an answer naming the judged page's own kind and not denying it names a sec
     isnt: { ok: 'other', note: "Bbb fish; it isn't Aaa fish" },
     // A name the answer denies names nothing, nor does its genus.
     neither: { ok: 'other', note: 'not Aaa fish, not Bbb fish either; an unidentified cichlid' },
+    nor: { ok: 'other', note: 'not Aaa fish, nor Bbb fish; an unidentified cichlid' },
+    'neither-nor': { ok: 'other', note: 'neither Bbb fish nor Ccc fish, some cichlid' },
     'not-ccc': { ok: 'other', note: 'Bbb fish, not Ccc fish' },
     'line-1': { typical: true },
     // Another line of the breed's own species.
@@ -131,7 +133,7 @@ test("an answer naming the judged page's own kind and not denying it names a sec
   })
   await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })
   const listed = await json(r, 'engine-state/_photo-rejected.json')
-  for (const n of ['green', 'or', 'denied', 'isnt', 'neither', 'not-ccc', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
+  for (const n of ['green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'not-ccc', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
   expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('denied')]: 'species/ccc-fish', [url('isnt')]: 'species/bbb-fish', [url('not-ccc')]: 'species/bbb-fish', [url('line-other')]: 'species/bbb-fish' })
 })
 

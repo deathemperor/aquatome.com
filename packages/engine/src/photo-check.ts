@@ -248,8 +248,8 @@ function nameHits(c: string, index: Map<string, string>) {
   return hits.filter(h => !hits.some(o => o !== h && o.from <= h.from && o.to >= h.to && o.to - o.from > h.to - h.from))
 }
 
-/** Words that deny the name after them: "X, not Y", "isn't a Y", "rather than Y" (norm drops the apostrophe). */
-const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|rather than|instead of|unlike)\s+(?:(?:an?|the)\s+)?$/
+/** Words that deny the name after them: "X, not Y", "isn't a Y", "neither Y nor Z" (norm drops the apostrophe). */
+const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|neither|nor|rather than|instead of|unlike)\s+(?:(?:an?|the)\s+)?$/
 
 /**
  * The page an "another fish" answer names: a name of exactly one other species or plant page, as `captionSubject` reads
