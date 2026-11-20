@@ -6,7 +6,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4944 | 4228 | 697 | 1587 | 37 | 44 | 197 | 44 | 1125 | 346 | 2662 | 452 | 9 | 12 | 0 | 3 | 5 | 4 | 0 |
+| Vietnamese | 5002 | 4289 | 694 | 1601 | 38 | 44 | 197 | 44 | 1133 | 349 | 2691 | 456 | 9 | 12 | 0 | 3 | 5 | 4 | 0 |
 | Indonesian | 1685 | 1533 | 152 | 426 | 25 | 12 | 4 | 5 | 205 | 38 | 71 | 194 | 0 | 2 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1673 | 1506 | 167 | 393 | 21 | 3 | 5 | 3 | 190 | 42 | 97 | 181 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 537 | 495 | 42 | 137 | 13 | 3 | 0 | 2 | 70 | 17 | 27 | 50 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
@@ -76,7 +76,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 ## Products the market table has no row for, Vietnamese pages
 
-- repashy: 48
+- repashy: 49
 - keo 502: 40
 - panacur: 34
 - ada: 26
@@ -84,7 +84,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - ada amazonia aqua soil: 22
 - ada amazonia: 21
 - fluval stratum: 19
-- dennerle: 16
+- dennerle: 17
 - seachem fluorite: 16
 - hikari shrimp cuisine: 15
 - hikari first bites: 14
@@ -97,11 +97,12 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - 1-2-grow: 11
 - apt fix: 11
 - aquario neo soil: 11
+- hikari: 11
 - tropica aquarium soil: 11
 - twinstar: 11
+- aquaclear: 10
 - ge silicone 1: 10
 - jbl: 10
-- aquaclear: 9
 - reef roids: 9
 - repashy soilent green: 9
 - tetramin: 9
@@ -109,10 +110,9 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - api leaf zone: 8
 - fluval: 8
 - tropica specialised nutrition: 8
+- api: 7
 - easy shrimp and snail shells: 7
+- fluval bug bites: 7
 - fluval plant and shrimp stratum: 7
-- hikari: 7
 - instant ocean: 7
 - krylon fusion: 7
-- seachem flourite: 7
-- seachem flourite dark: 7
