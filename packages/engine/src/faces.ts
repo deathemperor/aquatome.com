@@ -29,7 +29,7 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  * Runs each cycle, so a re-picked photo never publishes. `root`: where engine-state is, for the second look
  * (last-photo.ts).
  */
-export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; removed: string[]; held: string[]; failed: string[] }> {
+export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
