@@ -413,6 +413,18 @@ The layers above still check the result.
   - **The style rewrite takes the pages out of search for their score first** (`rewriteExisting`, `vi-backfill.ts`),
     then the rest in its kinds' order: a kept rewrite is what brings such a page back, and in folder order the last of
     them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
+    - **`--phrases` takes a page up once for each listed word it has**, as the list matches it (`phraseRun`,
+      `phrases.ts`; the words are kept in its line of `engine-state/vi-rewrite.json`).
+      - A word the rewrite leaves, in a part the reviewer failed or a fixed part, doesn't bring the page back at the next
+        run.
+      - A word new to the list, as a new row or added to a row's pattern, does. A row's label changed alone doesn't.
+      - Each word a row matches is its own mark, case aside: a rewrite that swaps one of a row's words for another of the
+        same row ("bạn nên" for "bạn cần") brings the page back once, for the new word.
+      - A page whose rewrite failed isn't marked, so it comes back. A page the gate holds back gets its old line back, with
+        its old marks, so it comes back too.
+      - A marked word in text written later, such as a new source's section, doesn't bring the page back.
+      - Found 2026-11-16: 544 of the 758 pages it had rewritten still had a listed phrase, and every run took them all up
+        again, each part a write and a review.
   - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
     (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
     2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
