@@ -181,12 +181,15 @@ let masterCardList = #"""
 - unreached · `static func unreached(` · "Không tới được ổ …": only where nothing went.
 
 ### AquaTome/Master/LampSender.swift
-- air · `private static var holder: ObjectIdentifier?` · Who broadcasts now: the lamp's card or the master button.
+- gap · `private static var holder: ObjectIdentifier?` · Who broadcasts now: the lamp's card or the master button.
 - start · `holder = ObjectIdentifier(who)` · The last to start.
 - start · `air.start(uuids, allowed: allowed, done: done)` · The phone's one broadcaster (LampAirCore on a phone).
-- stop · `guard holder == ObjectIdentifier(who) else { return }` · A stop from another (the card's three seconds ending after the button took over) is ignored: it never cuts the other's start.
+- holds · `static func holds(_ who: AnyObject) -> Bool { holder == ObjectIdentifier(who) }` · Whether one still broadcasts. A stop from another (the card's three seconds ending after the button took over) is ignored: it never cuts the other's start. The card's send ending without it says it may have gone (LoveEcology's `unknown`).
 - stop · `holder = nil` · Stopped.
 - stop · `air.stop()` · The same.
+- take · `guard let h = holder, h != ObjectIdentifier(who) else { return }` · The button's first lamp recording takes the broadcaster from the card's send still going:
+- take · `holder = nil` · the card no longer holds it, so its send says it may have gone (`unknown`), never sent, never not sent;
+- take · `air.stop()` · its broadcast ends here (a start handed and not yet answered is told cut, LampAirCore), and the step waits the gap after it.
 - mayHaveGone · `var mayHaveGone: Int { sent.count + cut.count }` · Recordings sent, or cut after they were handed to Bluetooth.
 - send · `guard !list.isEmpty else { return .failed }` · No recording: nothing went.
 - send · `guard allowed() else {` · Asked before each recording:

@@ -55,6 +55,92 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 10), "not ready again")
   }
 
+  /// The card's send cut short by the button's lamp step isn't shown as gone, nor as not sent: it may have reached the
+  /// light, so the line says that isn't known (since Fri 20, with main's Bluetooth core), never yesterday's white again,
+  /// and nothing more is broadcast. The card's send is held on air two minutes here, so the step surely comes during it.
+  func testACardSendTheButtonsLampStepCutsIsNotShownAsSent() {
+    let at = Date().addingTimeInterval(-86_400).timeIntervalSinceReferenceDate
+    let kept = #"{"last":{"send":{"choice":{"swatch":{"_0":"white"}},"level":100},"at":\#(at)},"colour":{"swatch":{"_0":"white"}},"level":100}"#
+    let app = launch(["-lamp-on-air", "120", "-loveEcology.sent", "\"" + kept.replacingOccurrences(of: "\"", with: "\\\"") + "\""])
+    make(app, end: "tap")
+    tap(app, "lamp-red")
+    let red = Date()
+    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
+    top(app)
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
+    XCTAssertLessThan(Date().timeIntervalSince(red), 110, "the step came after red's time on air: the check proves nothing")
+    // Red's time on air ends with the broadcaster taken from it: it may have reached the light, so the card says that isn't
+    // known, never sent, nor yesterday's white said again as the last this phone sent.
+    expect(app, "lamp-status", contains: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", timeout: 130)
+    expect(app, "lamp-lines", lacks: "Đã gửi “Đỏ”")
+    expect(app, "lamp-lines", lacks: "Lần cuối máy này gửi")
+    XCTAssertEqual(element(app, "lamp-sent").label, "red@100", "the card sent more")
+    // Started three times: red, then the step's on and white.
+    XCTAssertEqual(element(app, "lamp-starts").label, "3", "the lamp was sent more")
+  }
+
+  /// After the button's lamp step, the card's next send waits the light's gap, as after one of its own (five minutes here):
+  /// the lamp takes nothing begun too soon after the last.
+  func testTheCardsNextSendWaitsTheGapAfterTheButtonsLampStep() {
+    let app = launch(["-lamp-gap", "300"])
+    make(app, end: "tap")
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
+    // Tapped once the button's steps have ended (the swatch waits for them).
+    tap(app, "lamp-red")
+    let red = Date()
+    expect(app, "lamp-status", contains: "Đang gửi “Đỏ”, 100%…")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "a moment")], timeout: 5)
+    // Still waiting: the lamp started twice, for the step's on and white.
+    XCTAssertEqual(element(app, "lamp-starts").label, "2", "red went without the gap")
+    XCTAssertLessThan(Date().timeIntervalSince(red), 240, "checked past the gap: the check proves nothing")
+  }
+
+  /// The other way: the button's lamp step waits the light's gap after the card's send has ended (a minute here), as the
+  /// card's waits after the step. Đỏ tapped, then "Bắt đầu" within the gap: an "off" begun then may not be taken, and the
+  /// phone would keep it as sent (17 Nov).
+  func testTheButtonsLampStepWaitsTheGapAfterTheCardsSend() {
+    let app = launch(["-lamp-gap", "60"])
+    make(app, end: "tap")
+    tap(app, "lamp-red")
+    expect(app, "lamp-status", contains: "Đã gửi “Đỏ”", timeout: 20)
+    let ended = Date()
+    top(app)
+    tap(app, "master-start")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "a moment")], timeout: 5)
+    // Still waiting: the lamp started once, for red.
+    XCTAssertEqual(element(app, "lamp-starts").label, "1", "the button's lamp step went without the gap")
+    XCTAssertLessThan(Date().timeIntervalSince(ended), 50, "checked past the gap: the check proves nothing")
+    // Then it goes, the gap after red passed.
+    expect(app, "master-log", contains: "lamp on+white", timeout: 120)
+  }
+
+  /// The button's lamp step put back by the clock while Đèn wasn't showing: the card saw nothing of it, and its next send
+  /// still waits the light's gap after it (a minute here), which the phone's one broadcaster keeps, not the card.
+  func testTheCardsSendWaitsTheGapAfterALampStepPutBackWhileAway() {
+    let app = launch(["-master-ends-in", "6", "-lamp-gap", "60"])
+    // The card's yellow, sent before: what the lamp goes back to.
+    tap(app, "lamp-yellow")
+    expect(app, "lamp-status", contains: "Đã gửi “Vàng”", timeout: 20)
+    make(app, end: "tap", light: true)
+    top(app)
+    tap(app, "master-start")
+    // Away from Đèn while the step goes out and the clock puts it back: yellow, the step's on and white, then back on and
+    // yellow, each stopped at its end.
+    app.openTab("Bể của tôi")
+    let five = expectation(for: NSPredicate(format: "label == %@", "5"), evaluatedWith: element(app, "lamp-stops"))
+    XCTAssertEqual(XCTWaiter.wait(for: [five], timeout: 300), .completed, "not put back while away: \(element(app, "lamp-stops").label) stopped")
+    let back = Date()
+    app.openTab("Đèn")
+    tap(app, "lamp-red")
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "a moment")], timeout: 5)
+    // Still waiting: started five times, red not yet.
+    XCTAssertEqual(element(app, "lamp-starts").label, "5", "red went without the gap after the put-back")
+    XCTAssertLessThan(Date().timeIntervalSince(back), 50, "checked past the gap: the check proves nothing")
+    expect(app, "master-log", contains: "lamp back on+yellow")
+  }
+
   func testTheUntilKetThucButtonShowsWhenItStarted() {
     let app = launch()
     make(app, end: "tap")
@@ -312,9 +398,12 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testAnEndDueWhileSignedOutWaitsForTheOwner() {
-    // Ends 25 s after the press; the owner signs out before then. Nothing goes back while signed out: the light's outlet
-    // goes back once they're signed in again (the master log notes each account change, "account").
-    let app = launch(["-master-ends-in", "25"])
+    // Ends a minute after the press; the owner signs out well before then. Nothing goes back while signed out: the light's
+    // outlet goes back once they're signed in again (the master log notes each account change, "account"). At 25 s, on
+    // GitHub's Mac (main, 19 Nov, both tries) the sign-out landed after the end came due: the end went while still signed
+    // in, so the flow failed though the app had sent nothing signed out. It now says so if the sign-out lands that late.
+    let endsIn: TimeInterval = 60
+    let app = launch(["-master-ends-in", "\(Int(endsIn))"])
     tap(app, "master-create")
     add(app, "master-add-Đèn")
     tap(app, "master-step-Đèn")
@@ -322,12 +411,18 @@ final class MasterFlowTests: XCTestCase {
     app.navigationBars.buttons.element(boundBy: 0).tap()
     tap(app, "master-end-60")
     tap(app, "master-done")
+    // The press's clock starts after this and before its step is logged.
+    let tapped = Date()
     tap(app, "master-start")
     expect(app, "master-log", contains: "switch_1 off", timeout: 40)
+    let stepped = Date()
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
-    RunLoop.current.run(until: Date().addingTimeInterval(30))
+    let out = Date().timeIntervalSince(tapped)
+    XCTAssertLessThan(out, endsIn, "signed out \(Int(out)) s after the press, its end due at \(Int(endsIn)) s: the end came signed in, and this proves nothing")
+    // Past the end, signed out.
+    RunLoop.current.run(until: stepped.addingTimeInterval(endsIn + 5))
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-log", contains: "switch_1 back on", timeout: 40)

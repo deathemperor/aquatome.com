@@ -182,13 +182,18 @@ struct ChannelSlider: View {
   let title: String
   let swatch: Color?
   let value: Int
+  /// From 1 for a light whose 0 isn't known to mean off (Love Ecology's).
+  var range: ClosedRange<Int> = 0...100
   let onChange: (Int) -> Void
+  /// The finger lifted: a light sent a value only once it settles (Love Ecology's) sends it now.
+  var onLift: () -> Void = {}
   @Environment(\.dynamicTypeSize) private var size
   @ScaledMetric private var titleWidth: CGFloat = 96
   @ScaledMetric private var valueWidth: CGFloat = 48
 
   var body: some View {
-    let slider = Slider(value: Binding { Double(value) } set: { v in if Int(v) != value { onChange(Int(v)) } }, in: 0...100, step: 1)
+    let slider = Slider(value: Binding { Double(value) } set: { v in if Int(v) != value { onChange(Int(v)) } },
+                        in: Double(range.lowerBound)...Double(range.upperBound), step: 1) { editing in if !editing { onLift() } }
       .tint(swatch ?? .accentColor)
       .accessibilityLabel(title)
       .accessibilityValue(Text(verbatim: "\(value)%"))
