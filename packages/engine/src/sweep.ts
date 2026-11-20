@@ -38,7 +38,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { holdForSecondLook, listAgreed, looks, readSecondLook, unlistCleared } from './last-photo'
+import { holdForSecondLook, listAgreed, listsDisagree, looks, readSecondLook, unlistCleared } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -146,8 +146,10 @@ export type SweepReport = {
   secondLook: string[]
   /** Photos a second look agreed on, put on the never-again list in this pass (last-photo.ts). */
   agreed: string[]
-  /** Photos taken off before they were shown that the second look cleared, off the never-again list (last-photo.ts). */
+  /** Photos off at their first verdict that the second look cleared, off the never-again list (last-photo.ts). */
   unlisted: string[]
+  /** Where the second look and the never-again list disagree on a photo off at its first verdict: nothing taken off on the list's word. */
+  disagree: string[]
   /** A page's only photo that its source's caption calls unwell: left on the page, off every card, `kind/id: url (word; …)`. */
   unwell: string[]
   /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, picks not found on the page, or picks that lapsed with their person's yes. */
@@ -483,11 +485,13 @@ async function neverAgain(root: string) {
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
   const entry = rejectedEntry(rejected)
+  // While the two lists disagree on a photo off at its first verdict, nothing comes off on this list's word (last-photo.ts).
+  const disagree = listsDisagree(await readSecondLook(root), rejected)
   const listed = (url: string) => {
     const e = entry(url)
-    return !!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))
+    return !disagree.length && !!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))
   }
-  return { rejected, listed, why: (url: string) => entry(url)?.[1] ?? '' }
+  return { rejected, listed, why: (url: string) => entry(url)?.[1] ?? '', disagree }
 }
 
 async function refusedByCredit(root: string, content: string): Promise<Map<string, string>> {
@@ -551,7 +555,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], disagree: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -915,7 +919,6 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // counts none of them as a photo its page keeps. Counted as kept, a photo a guide's check had listed while the page
   // still had another let the unwell rule take that other, and the page was left with none (the guard's read, 14 Nov).
   report.agreed.push(...await listAgreed(root))
-  // One taken off before it was shown that the look cleared may come back: off the never-again list (last-photo.ts).
   report.unlisted.push(...await unlistCleared(root))
   const credit = await refusedByCredit(root, content)
   const already = (await neverAgain(root)).listed
@@ -1074,7 +1077,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
   // (cycle-checks.sh swept_pull). What a second look agreed on joined the list above.
-  const { rejected, listed, why: listedWhy } = await neverAgain(root)
+  const { rejected, listed, why: listedWhy, disagree } = await neverAgain(root)
+  report.disagree.push(...disagree)
   const shownIn = async (kind: string) => (await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(id => join(content, kind, id, 'entity.json'))
   const galleryFiles = (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, 'gallery', f))
   // Equipment pages too (a category's hero and its types' photos, each language's copy): the photo check strips every
