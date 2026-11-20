@@ -54,6 +54,9 @@ struct HandbookView: View {
         }
       }
       .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item), at: $0.at) }
+      // A Hôm nay post v2 had open, handed to the old look by its switch (V2Root): the post's page, as v1 draws a page.
+      // Without it, a blank page with SwiftUI's warning triangle.
+      .navigationDestination(for: Post.self) { PageView(item: $0.item, url: handbook.url($0.item)) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }

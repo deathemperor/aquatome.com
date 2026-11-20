@@ -131,6 +131,8 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
   }
 
+  /// A Hôm nay post (the fish of the day) open as the switch goes: the old look's Tìm shows its page, not a blank one with
+  /// SwiftUI's warning triangle and a back button (20 Nov).
   func testSwitchingBackWithAPageOpenOnHomNayLeavesItOnTim() {
     let app = launch()
     app.launchForFlow(nil)
@@ -142,6 +144,9 @@ final class V2FlowTests: XCTestCase {
     app.openTab("Khám phá")
     flip(app)
     XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    // v1's page: the app's own, or its facts' head while the site's is read, then the site's.
+    let page = app.descendants(matching: .any).matching(NSPredicate(format: "identifier IN %@", ["native-page", "page", "page-head"])).firstMatch
+    XCTAssertTrue(page.waitForExistence(timeout: 8), "Tìm shows a page it can't draw, not the post's")
     let back = app.navigationBars.buttons.element(boundBy: 0)
     XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
     back.tap()
