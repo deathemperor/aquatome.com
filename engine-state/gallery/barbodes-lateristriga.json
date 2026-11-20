@@ -68,30 +68,31 @@
   "inat:747304085"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/90bc61c01525542b.webp": "1a12421b034b676a",
   "https://media.aquatome.com/commons/b794c9dfbeeb197e.webp": "959603170f432320",
-  "https://media.aquatome.com/commons/067f6dfa0f96b89e.webp": "1c1932323c1d1105",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/3216541/large.jpg": "8c10450f334f8fa7",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/112111527/large.jpg": "b8de5f73731e4f4c",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/112111521/large.jpg": "0d1e16d0e4357278",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/224499566/large.jpg": "6665e4b5d1e4f343",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/256243563/large.jpg": "1f1f1951333bb793",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/263657282/large.jpeg": "cc4a60f0a18193a9",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/284974333/large.jpg": "db4d6567724b0d65",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/355455218/large.jpeg": "b9683d717071191f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/382449244/large.jpeg": "adae3e2727341e1f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/388414035/large.jpeg": "38c1238145660c8b",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/388415606/large.jpeg": "7f7f3e7bcfefdd86",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/390646399/large.jpeg": "2721e464978d7470",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/390649489/large.jpeg": "1969ce426ce1e358",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/474928404/large.jpeg": "1e2b367648c52b3d",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/474928533/large.jpeg": "1712337671961d0d",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/513339792/large.jpg": "c914b2326431246c",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/532223105/large.jpg": "22b7c5e3bb4c4e73",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/597640593/large.jpg": "fb9d343428871b98",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/630712333/large.jpg": "7f3f3f3f67071707",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/663356172/large.jpg": "f03150e0d69c1170",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/747304085/large.jpg": "b9cbcb9e86e3cbcf"
+  "https://media.aquatome.com/glaser/6a88f87525297ea3.webp": "8fad9d7f279b49d9",
+  "https://media.aquatome.com/glaser/0d45d9585de7fec1.webp": "693343d3d3a30f29",
+  "https://media.aquatome.com/glaser/6d388c25e4f54f42.webp": "b211e3b3190b6929",
+  "https://media.aquatome.com/inaturalist/224499566.webp": "666564f5d1e46303",
+  "https://media.aquatome.com/inaturalist/388414035.webp": "3ac123a141270c0b",
+  "https://media.aquatome.com/inaturalist/390646399.webp": "27e1e4449fed7430",
+  "https://media.aquatome.com/inaturalist/532223105.webp": "26a5c5e2bb4cce73",
+  "https://media.aquatome.com/inaturalist/630712333.webp": "7f3f2f3b270f1707",
+  "https://media.aquatome.com/inaturalist/112111521.webp": "071e16d4e43570f8",
+  "https://media.aquatome.com/inaturalist/382449244.webp": "a5ae2e2727341f1f",
+  "https://media.aquatome.com/inaturalist/390649489.webp": "1949c64664e1e178",
+  "https://media.aquatome.com/inaturalist/3216541.webp": "8c10410f134f8fa7",
+  "https://media.aquatome.com/inaturalist/663356172.webp": "f03150c096189370",
+  "https://media.aquatome.com/inaturalist/355455218.webp": "38683d3570380d1f",
+  "https://media.aquatome.com/inaturalist/474928533.webp": "1512337471141d0d",
+  "https://media.aquatome.com/inaturalist/747304085.webp": "b9c3daae87c3d9df",
+  "https://media.aquatome.com/inaturalist/256243563.webp": "0f1f1951333b97b3",
+  "https://media.aquatome.com/inaturalist/263657282.webp": "cc4a4060a3819369",
+  "https://media.aquatome.com/inaturalist/284974333.webp": "e24d6b67734b0d75",
+  "https://media.aquatome.com/inaturalist/388415606.webp": "df7f3e7bcfef8c86",
+  "https://media.aquatome.com/inaturalist/474928404.webp": "1e2b3674ccd12b37",
+  "https://media.aquatome.com/inaturalist/513339792.webp": "c98430302431642c",
+  "https://media.aquatome.com/inaturalist/597640593.webp": "fb9f343428061a08",
+  "https://media.aquatome.com/inaturalist/112111527.webp": "b8de5f73731e4f4c"
  },
  "commons": "2026-11-06",
  "inat": {
@@ -101,5 +102,12 @@
    "research": 406720569,
    "agree": 363113431
   }
+ },
+ "gbif": {
+  "key": 2364073,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

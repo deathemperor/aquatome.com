@@ -38,35 +38,7 @@
       "caption": "Bụi Rotala indica dày với lá ngả đỏ cam",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/240928329.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/240928329-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Cheng-Te Hsu",
-      "sourceUrl": "https://www.inaturalist.org/photos/240928329",
-      "caption": "Rotala indica mọc thẳng giữa cỏ ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2381c670a7c61b9f.webp",
-      "thumb": "https://media.aquatome.com/commons/2381c670a7c61b9f-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "Public domain",
-      "author": "Loasa",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_indica_var_uliginosa_flower02.jpg",
-      "caption": "Cận cảnh hoa hồng và thân Rotala indica mọc cạn",
-      "best": false,
-      "kind": "flower",
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/359007293.webp",
@@ -79,8 +51,19 @@
       "caption": "Thân đỏ của Rotala indica bò trên nền bùn",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2381c670a7c61b9f.webp",
+      "thumb": "https://media.aquatome.com/commons/2381c670a7c61b9f-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "Public domain",
+      "author": "Loasa",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_indica_var_uliginosa_flower02.jpg",
+      "caption": "Cận cảnh hoa hồng và thân Rotala indica mọc cạn",
+      "best": false,
+      "kind": "flower"
     },
     {
       "url": "https://media.aquatome.com/commons/2e2b5814b82428be.webp",
@@ -117,6 +100,19 @@
       "caption": "Bụi Rotala indica xanh tốt trong bể thủy sinh",
       "best": true,
       "kind": "scape"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/240928329.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/240928329-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Cheng-Te Hsu",
+      "sourceUrl": "https://www.inaturalist.org/photos/240928329",
+      "caption": "Rotala indica mọc thẳng giữa cỏ ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 19,

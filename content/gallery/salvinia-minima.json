@@ -205,18 +205,6 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/4716064.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/4716064-480.webp",
-      "width": 1024,
-      "height": 743,
-      "licence": "CC BY",
-      "author": "Even Dankowicz",
-      "sourceUrl": "https://www.inaturalist.org/photos/4716064",
-      "caption": "Lá Cây bèo ong nhỏ nổi trên mặt nước, nhìn cận cảnh",
-      "best": false,
-      "kind": "detail"
-    },
-    {
       "url": "https://media.aquatome.com/commons/54e4455db8276713.webp",
       "thumb": "https://media.aquatome.com/commons/54e4455db8276713-480.webp",
       "width": 1024,
@@ -337,17 +325,6 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/tropica/83dab6454866a459.webp",
-      "thumb": "https://media.aquatome.com/tropica/83dab6454866a459-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Salviniaminima(011TC)/4767",
-      "source": "tropica",
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/354feb231b1ee854.webp",
       "thumb": "https://media.aquatome.com/commons/354feb231b1ee854-480.webp",
       "width": 1200,
@@ -380,6 +357,29 @@
       "author": "Alex Abair",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_minima_52544851.jpg",
       "caption": "Cận cảnh lông tơ hình chùm trên mặt lá bèo ong nhỏ",
+      "best": false,
+      "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/83dab6454866a459.webp",
+      "thumb": "https://media.aquatome.com/tropica/83dab6454866a459-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Salviniaminima(011TC)/4767",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/4716064.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/4716064-480.webp",
+      "width": 1024,
+      "height": 743,
+      "licence": "CC BY",
+      "author": "Even Dankowicz",
+      "sourceUrl": "https://www.inaturalist.org/photos/4716064",
+      "caption": "Lá Cây bèo ong nhỏ nổi trên mặt nước, nhìn cận cảnh",
       "best": false,
       "kind": "detail"
     },

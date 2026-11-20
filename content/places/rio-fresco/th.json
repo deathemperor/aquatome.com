@@ -3,6 +3,12 @@
   "name": "เฟรสโก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T11:56:29.736Z",
+    "why": "เฟรสโก is only the transliteration of \"Fresco\" and omits the Thai kind word for a river, so an atlas in Thailand would write แม่น้ำเฟรสโก (or \"ริโอเฟรสโก\" in the Portuguese form)."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

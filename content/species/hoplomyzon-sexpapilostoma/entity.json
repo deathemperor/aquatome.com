@@ -11,6 +11,119 @@
     "orinoco",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Masparro",
+        "Ariari",
+        "Guaviare",
+        "Apure"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Orinoco River basin of Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "In Colombia it occurs in rivers Ariari, Caja, Upamena, Cusiana, and Cravo Norte.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Ariari"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Hoplomyzon sexpapilostoma was described from Masparro river at Masparro dam, Barinas state (Taphorn and Marrero 1990).",
+          "countries": [],
+          "regions": [
+            "Masparro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is widely distributed in Western Andean tributaries of the Orinoco basin, along the piedmont region from the river Ariari (Guaviare drainage) to the Guache river in Portuguesa drainage (Taphorn and Marrero 1990).",
+          "countries": [],
+          "regions": [
+            "Guaviare"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "In Venezuela the species is reported from rivers Torbes, Bumbum, La Yuca, Masparro, Boconó, Guanare, Las Marías and Guache, all in Apure drainage.",
+          "countries": [],
+          "regions": [
+            "Apure"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340538,
+      "total": 34,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "VE",
+          34
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          8.4375,
+          24,
+          24
+        ],
+        [
+          -60.46875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -51,41 +164,7 @@
       "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Friel, J.P., 2003. Aspredinidae (Banjo catfishes). p. 261-267. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2022).</p><p>Mojica, J.I., DoNascimiento, C., Taphorn, D.C., Usma, S., Villa-Navarro, F. &amp; Herrera-Collazos, E.E. 2021. Hoplomyzon sexpapilostoma. The IUCN Red List of Threatened Species 2021.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/46dc967dacffb64c.webp",
-      "thumb": "https://media.aquatome.com/scotcat/46dc967dacffb64c-480.webp",
-      "width": 500,
-      "height": 139,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
-      "caption": "Hoplomyzon sexpapilostoma: Venezuela (Bolivarian Republic of)",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/6f35c6ec5218ff8f.webp",
-      "thumb": "https://media.aquatome.com/scotcat/6f35c6ec5218ff8f-480.webp",
-      "width": 500,
-      "height": 244,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
-      "caption": "Hoplomyzon sexpapilostoma: Dorsal view-Venezuela (Bolivarian Republic of)",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/7009af99eb7df639.webp",
-      "thumb": "https://media.aquatome.com/scotcat/7009af99eb7df639-480.webp",
-      "width": 500,
-      "height": 224,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
-      "caption": "Hoplomyzon sexpapilostoma: Ventral view-Venezuela (Bolivarian Republic of)",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [],
   "updatedAt": "2026-11-19"

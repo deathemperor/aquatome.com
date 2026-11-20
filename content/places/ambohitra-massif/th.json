@@ -3,6 +3,12 @@
   "name": "อัมโบฮิตรา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T01:50:42.276Z",
+    "why": "\"อัมโบฮิตรา\" transliterates Ambohitra correctly but omits the Thai kind word for a massif, so it is incomplete; an atlas would write \"เทือกเขาอัมโบฮิตรา\" or \"มาซีฟอัมโบฮิตรา\"."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

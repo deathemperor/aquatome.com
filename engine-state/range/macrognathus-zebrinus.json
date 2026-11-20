@@ -1,8 +1,8 @@
 {
   "id": "macrognathus-zebrinus",
   "native": {
-    "input": "cdde1c853f19fff0",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "ae129d2de46cef02",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "MM",
@@ -19,16 +19,61 @@
         "quote": "Myanmar, Indonesia.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Perhaps the prettiest is Macrognathus zebrinus from Burma.",
+        "words": "Burma",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "glaser",
+        "quote": "In addition, the species is also found in Nepal and allegedly also in Indonesia, but is imported from Burma or as bred ones.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "In addition, the species is also found in Nepal and allegedly also in Indonesia, but is imported from Burma or as bred ones.",
+        "words": "Indonesia",
+        "ok": true
       }
     ],
-    "regions": [],
-    "disputed": [],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "glaser",
+        "quote": "It inhabits the basins of big rivers Irrawaddy, Sittang and Salween.",
+        "ok": true
+      },
+      {
+        "name": "Sittang",
+        "source": "glaser",
+        "quote": "It inhabits the basins of big rivers Irrawaddy, Sittang and Salween.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "glaser",
+        "quote": "It inhabits the basins of big rivers Irrawaddy, Sittang and Salween.",
+        "ok": true
+      }
+    ],
+    "disputed": [
+      "ID"
+    ],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
-      "sourcesOnly": [
+      "pagesOnly": [
         "ID"
-      ]
+      ],
+      "sourcesOnly": []
     }
   },
   "records": {
@@ -51,9 +96,9 @@
     ],
     "native": [
       "MM",
-      "ID"
+      "NP"
     ],
     "requests": 11,
-    "at": "2026-11-09T20:43:02.940Z"
+    "at": "2026-11-20T07:13:45.828Z"
   }
 }

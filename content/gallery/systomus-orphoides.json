@@ -48,8 +48,7 @@
       "caption": "Cá Systomus orphoides vây đỏ trong bể chụp ảnh có lưới",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/298289258.webp",
@@ -62,8 +61,7 @@
       "caption": "Cá Systomus orphoides thân ánh vàng bạc, vây đuôi đỏ cam",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/404812191.webp",
@@ -76,8 +74,7 @@
       "caption": "Cá Systomus orphoides có đốm đen cuống đuôi, cạnh thước đo",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406500880.webp",
@@ -90,8 +87,7 @@
       "caption": "Cá Systomus orphoides vây đỏ cam trong hộp chụp có thước",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406500911.webp",
@@ -104,22 +100,7 @@
       "caption": "Cá Systomus orphoides thân bạc, đuôi cam viền đen, trong hộp chụp",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/298702360.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/298702360-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/298702360",
-      "caption": "Cá Systomus orphoides nhỏ có đốm đen, bên cạnh thước đo",
-      "best": false,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406077228.webp",
@@ -156,22 +137,7 @@
       "caption": "Cá Systomus orphoides trưởng thành, vây đuôi và vây bụng đỏ",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/404814651.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/404814651-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/404814651",
-      "caption": "Cá Systomus orphoides trong hộp chụp nhỏ bên thước đo",
-      "best": false,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/406502134.webp",
@@ -184,8 +150,33 @@
       "caption": "Cá Systomus orphoides thân bạc ánh vàng trong hộp chụp có thước",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/298702360.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/298702360-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/298702360",
+      "caption": "Cá Systomus orphoides nhỏ có đốm đen, bên cạnh thước đo",
+      "best": false,
+      "kind": "juvenile",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/404814651.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/404814651-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/404814651",
+      "caption": "Cá Systomus orphoides trong hộp chụp nhỏ bên thước đo",
+      "best": false,
+      "kind": "other",
+      "setup": true
     }
   ],
   "seen": 52,

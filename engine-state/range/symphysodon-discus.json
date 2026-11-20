@@ -1,8 +1,8 @@
 {
   "id": "symphysodon-discus",
   "native": {
-    "input": "7f6a823589875c2e",
-    "at": "2026-11-18T12:30:34.128Z",
+    "input": "85b0d3404300966b",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "VE",
@@ -37,44 +37,17 @@
         "ok": true
       },
       {
-        "name": "Rio Negro",
-        "source": "glaser",
-        "quote": "The name Tumbira refers to a Tukano community on the bank of the Rio Negro, below Sao Gabriel de Cachoeira.",
-        "ok": true
-      },
-      {
         "name": "Lake Tefé",
         "source": "sprucepets",
         "quote": "A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus.",
         "country": "BR",
-        "ok": false,
-        "why": "in BR, which only a general site gives"
+        "ok": true
       }
     ],
     "disputed": [],
-    "outranked": [
-      {
-        "code": "VE",
-        "source": "sprucepets",
-        "quote": "Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins."
-      },
-      {
-        "code": "PE",
-        "source": "sprucepets",
-        "quote": "Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins."
-      },
-      {
-        "code": "BR",
-        "source": "sprucepets",
-        "quote": "A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus."
-      }
-    ],
+    "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "BR",
-        "VE",
-        "PE"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -120,8 +93,12 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-18T12:30:34.128Z"
+    "native": [
+      "VE",
+      "PE",
+      "BR"
+    ],
+    "requests": 13,
+    "at": "2026-11-20T07:13:45.828Z"
   }
 }

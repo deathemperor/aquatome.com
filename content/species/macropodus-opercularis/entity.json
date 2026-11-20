@@ -12,7 +12,8 @@
     "taiwan",
     "vietnam",
     "mekong",
-    "laos"
+    "laos",
+    "hainan"
   ],
   "range": {
     "native": {
@@ -23,23 +24,30 @@
       ],
       "regions": [
         "Yangtze",
-        "Hainan Island"
+        "Hainan"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "bwaquatics"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+          "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
           "countries": [
             "CN",
             "VN",
             "LA"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+          "countries": [],
           "regions": [
             "Yangtze",
-            "Hainan Island"
+            "Hainan"
           ]
         }
       ]
@@ -460,11 +468,11 @@
         "value": 8
       },
       {
-        "source": "bwaquatics",
-        "value": 6.4
+        "source": "glaser",
+        "value": 6
       },
       {
-        "source": "glaser",
+        "source": "bwaquatics",
         "value": 6
       }
     ],
@@ -496,7 +504,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>A colorful gourami-like fish with striking red and green stripes on its flank. IUCN Red List: LC (Least Concern). Very hardy and tolerant of different water temperatures, making it a good beginner fish.</p>"
+      "html": "<p>Macropodus opercularis (Paradise Fish) was described by Linnaeus in 1758 and was one of the first ornamental tropical fish brought to Europe, so it is often called the founding fish of the aquarium hobby. IUCN Red List: Least Concern. It is a colorful, gourami-like fish with striking red and blue-green stripes on its flanks. It is very hardy and tolerant of different temperatures, which makes it a great beginner fish.</p>"
     },
     {
       "key": "quickFacts",
@@ -520,7 +528,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>Very widespread and widely distributed throughout Asia.</p>"
+      "html": "<p>Native to southern China (south of the Yangtze, including Taiwan and Hainan), Vietnam and Laos.</p>"
     },
     {
       "key": "distribution",
@@ -535,6 +543,12 @@
       "html": "<p>This species can survive in a wide range of habitat types and ecological conditions. It can be found in many types of lowland habitat, from streams, river backwaters, and natural ponds to irrigation canals, rice paddies, and artificial reservoirs. In some areas it also inhabits upland hill streams.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
+      "html": "<p>It lives in ponds, rice paddies, ditches and slow streams, where water temperature changes with the seasons. Habitat: still and slow waters.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-opercularis",
@@ -544,7 +558,7 @@
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>A pair can be kept together in a 5 to 10-gallon tank. Recommended stocking: one pair per 5 gallons of water.</p>"
+      "html": "<p>A pair can be kept together in a 20 to 40 litre tank.</p>"
     },
     {
       "key": "maintenance",
@@ -562,7 +576,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<ul><li>Temperature: 70–83°F (21–28°C). Does well in cooler temperatures, but higher temperatures bring out coloration and breeding behaviour.</li><li>pH: 6.0–7.8 (prefers softer water).</li><li>TDS: ~60+ (can tolerate high TDS water but prefers low TDS water).</li></ul>"
+      "html": "<ul><li>Temperature: 21 to 28°C. It does well in cooler water, but higher temperatures bring out color and breeding behavior. Constant high temperatures can shorten its life.</li><li>pH: about 6.0 to 7.8 (prefers softer water)</li><li>TDS: about 60+ ppm (can tolerate high TDS water but prefers low TDS)</li></ul>"
     },
     {
       "key": "diet",
@@ -574,7 +588,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>Carnivorous. Readily takes dried foods. Fed on blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous, but readily takes dried foods. Blackworms, frozen bloodworms and pellets are fed.</p>"
     },
     {
       "key": "behaviour",
@@ -586,7 +600,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space. Unlike bettas, these fish tolerate their peers and usually establish a pecking order in groups.</p>"
+      "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space. Unlike bettas, these fish tolerate their peers and usually establish a pecking order in groups. Males may fight with other males and with similar-sized fish.</p>"
     },
     {
       "key": "behaviour",
@@ -604,7 +618,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>Males have extended anal, dorsal and caudal fins, while females have a much rounder body.</p>"
+      "html": "<p>Males have long, pointed dorsal and anal fins and a long forked tail. Females have a much rounder body and shorter fins.</p>"
     },
     {
       "key": "reproduction",
@@ -616,7 +630,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>Bubble nester.</p>"
+      "html": "<p>Bubble nester. The male builds a nest at the surface and guards the eggs and fry. Remove the female after spawning.</p>"
     },
     {
       "key": "reproduction",
@@ -634,7 +648,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
-      "html": "<p>Maximum size: 2.5 inches (about 6.4 cm).</p>"
+      "html": "<p>Body shape: elongated, compressed labyrinth fish. Coloration: alternating red-orange and blue-green vertical bars, a dark spot on the gill cover and red tail. Blue, black and albino forms exist in the hobby. Maximum size: about 6 cm body length; up to 10 cm including the tail.</p>"
     },
     {
       "key": "notes",
@@ -741,5 +755,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19"
 }

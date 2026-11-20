@@ -1,8 +1,13 @@
 {
   "slug": "mohawk-river",
-  "name": "โมฮอว์ก",
+  "name": "แม่น้ำโมฮอว์ก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-20T01:45:36.583Z"
+  },
   "quality": {
     "score": 0.82,
     "indexable": true

@@ -4,7 +4,7 @@
   "altNames": [
     "Cá banjo",
     "Cá trê banjo",
-    "Banjo Catfish",
+    "Banjo catfish",
     "Guitarrita",
     "Banjo Cat"
   ],
@@ -27,14 +27,18 @@
     "diet:scotcat": "<p>Cá lớn đã quen bể thì không kén ăn. Có thể cho chúng ăn các loại giun, như trùng huyết đông lạnh và trùn chỉ, thêm thức ăn viên chìm lúc tắt đèn.</p>",
     "reproduction:scotcat": "<p>Đây là một trong số ít loài cá banjo đã đẻ được trong bể nuôi. Cá đẻ trứng trong cát, mỗi lứa có thể tới 4.000 trứng. Có lẽ nên chuyển trứng sang một bể nhỏ hơn hoặc hộp riêng thì tốt hơn. Trứng nở xong và cá bột tiêu hết túi noãn hoàng thì cần cho ăn thức ăn thật nhỏ như artemia và giun vi trùng (micro worm). Sau đó có thể tập dần cho chúng ăn các loại giun nhỏ như giun grindal và trùn chỉ.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: tên chi Bunocephalus ghép từ buno- (gò, u) và cephalus (đầu), ý chỉ những mấu tròn, những cái bướu trên đầu cá. Tên loài coracoideus nghĩa là giống con quạ, màu đen.</p><p>Danh sách Đỏ IUCN: loài này được xếp vào mức Ít quan tâm, vì phân bố rộng, số lượng nhiều và chưa thấy mối đe dọa lớn nào (IUCN 2021).</p>",
-    "references:scotcat": "<p>Frederico, R.G., Reis, R. &amp; Lima, F. 2021. Bunocephalus coracoideus. The IUCN Red List of Threatened Species 2021. ScotCat Factsheet no. 87. Sept. 2003.</p>"
+    "references:scotcat": "<p>Frederico, R.G., Reis, R. &amp; Lima, F. 2021. Bunocephalus coracoideus. The IUCN Red List of Threatened Species 2021. ScotCat Factsheet no. 87. Sept. 2003.</p>",
+    "beforeYouBuy:glaser": "<p>Ngoài tự nhiên, cá banjo (Bunocephalus) rất phổ biến. Chúng thường được bán dưới tên Bunocephalus coracoideus, và nhiều khi tên này có thể đúng. Nhưng một mẻ cá banjo lúc nào cũng lẫn cả những loài khác. Thường thì khó mà xác định được đó là loài gì nếu không bỏ ra quá nhiều công sức, còn tách riêng từng loài thì chắc chắn là không làm được.</p>",
+    "distribution:glaser": "<p>Cá banjo đang có trên thị trường hiện nay đến từ Colombia và Venezuela.</p>",
+    "behaviour:glaser": "<p>Nuôi một đàn chừng 20 con trong bể rồi ngồi ngắm chúng thì rất thú vị. Màu của chúng thay đổi nhiều. Hình dáng cơ thể giữa các con cũng khác nhau rõ, nhất là các gờ xương chạy dọc giữa lưng, ngay trước vây lưng. Có loài cũng thích vùi mình xuống cát hơn hẳn các loài khác.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.9,
-      "scotcat": 0.85
+      "scotcat": 0.85,
+      "glaser": 0.88
     }
   }
 }

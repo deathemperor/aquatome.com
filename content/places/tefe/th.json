@@ -3,6 +3,12 @@
   "name": "เตเฟ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:58:34.864Z",
+    "why": "Tefé is a Brazilian Amazonas town/lake; Thai transliteration would be เตเฟ (Portuguese stress é gives \"เตเฟ\" plausibly), but it's a transliteration of a place with no kind word, and typical Thai rendering is \"เตเฟ\" so mostly right, though uncertain without a source."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

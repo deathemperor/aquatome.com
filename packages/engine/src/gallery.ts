@@ -13,6 +13,7 @@ import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
 import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
+import { looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -499,7 +500,9 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // judged off Heckel's discus by eye, and the gallery's own screening put it back (2026-11-08).
   const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
   const offBy = new Map<string, Record<string, string>>()
-  for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
+  // One a second look cleared isn't off on that verdict, so the album may take it again (last-photo.ts).
+  const cleared = looks(await readSecondLook(root)).cleared
+  for (const [url, pages] of Object.entries(subjects)) if (!cleared(url)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const looksOn = await albumLooks(root, subjects)
   const on = await namedOn(content)

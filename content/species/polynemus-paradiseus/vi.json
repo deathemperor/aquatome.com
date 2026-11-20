@@ -6,20 +6,19 @@
     "Paradise threadfin"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Người chơi cá cảnh hầu như không biết đến họ Polynemidae. Qua mấy thế kỷ, người ta đã mô tả 96 loài thuộc họ này, và 42 loài trong số đó vẫn còn hợp lệ. Ở nơi chúng sống, đây là cá thực phẩm quan trọng. Chi Polynemus có hai loài chỉ có 7 gai ở vây lưng thứ nhất, trong khi đa số các loài có 8 gai. Hai loài đó là P. paradiseus, do Linné mô tả năm 1758, và P. hornadyai, do Myers mô tả năm 1936.</p>",
+    "quickFacts:glaser": "<p>Người chơi cá cảnh hầu như không biết đến họ Polynemidae. Qua nhiều thế kỷ, người ta đã mô tả 96 loài thuộc họ này, và 42 loài trong số đó vẫn còn hợp lệ. Ở quê nhà của chúng, đây là cá thực phẩm quan trọng. Chi Polynemus có hai loài chỉ có 7 gai ở vây lưng thứ nhất, trong khi đa số các loài có 8 gai. Hai loài đó là P. paradiseus, do Linné mô tả năm 1758, và P. hornadyai, do Myers mô tả năm 1936.</p>\n<p>Cá con từ Thái Lan là cá trại, chỉ dài 6–8 cm. Vậy mà các sợi vây dài của chúng còn dài hơn hẳn cả thân lẫn vây đuôi. Những sợi này mọc ra từ vây ngực và làm nhiệm vụ cảm giác, giống vây bụng của cá sặc (Colisa và Trichogaster). Cỡ lớn nhất từng thấy ở P. polynemus là 30 cm, nhưng rất hiếm khi bắt được con dài quá 17 cm.</p>",
     "distribution:glaser": "<p>P. paradiseus sống trên một vùng rất rộng, dọc khắp bờ biển phía đông của tiểu lục địa Ấn Độ cho tới Thái Lan. Còn P. hornadyai thì đến nay mới chỉ thấy ở phần đảo Borneo thuộc Malaysia.</p>",
     "habitat:glaser": "<p>Về cơ bản, cá Polynemus sống ở cửa sông và ưa nước lợ.</p>",
-    "aquariumSize:glaser": "<p>Nên nuôi loài này trong bể lớn, nền cát và bài trí càng ít càng tốt, vì chúng cần khoảng trống để bơi.</p>",
-    "waterConditions:glaser": "<p>Loài này cần nước giàu oxy và rất nhạy với chất bẩn hữu cơ trong nước. Cá ở chỗ nhà cung cấp đã quen với nước ngọt hoàn toàn. Nhưng về lâu dài thì vẫn nên nuôi chúng trong nước lợ đậm (10–15 g muối mỗi lít) hoặc nước biển hẳn.</p>",
-    "diet:glaser": "<p>Chúng ăn các con mồi nhỏ như trùng, giun, tép tí hon. Trùng huyết là món rất hợp với chúng.</p>",
-    "behaviour:glaser": "<p>P. paradiseus rất hiền, không gây sự với đồng loại hay cá khác. Có điều phải để ý không cho cá khác rỉa mấy sợi vây dài của nó.</p>"
+    "aquariumSize:glaser": "<p>Nên nuôi loài này trong bể lớn, nền cát và bày trí càng ít càng tốt, vì chúng cần khoảng trống để bơi.</p>",
+    "waterConditions:glaser": "<p>Loài này cần nước nhiều oxy và rất nhạy với ô nhiễm hữu cơ. Về lâu dài nên nuôi chúng trong nước lợ đậm (10–15 g muối mỗi lít) hoặc nước biển hẳn, dù cá ở chỗ nhà cung cấp đã quen với nước ngọt hoàn toàn.</p>",
+    "diet:glaser": "<p>Chúng ăn những con vật nhỏ không có xương sống. Trùng huyết là thức ăn hợp nhất với chúng.</p>",
+    "behaviour:glaser": "<p>P. paradiseus hoàn toàn hiền với đồng loại và với cá khác. Có điều phải để ý không cho cá khác cắn rỉa các sợi vây dài của nó.</p>"
   },
   "quality": {
-    "score": 0.4,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.4
-    },
-    "reason": "score"
+      "glaser": 0.8
+    }
   }
 }

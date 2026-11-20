@@ -98,6 +98,34 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/flickr/3649554702.webp",
+      "thumb": "https://media.aquatome.com/flickr/3649554702-480.webp",
+      "width": 1024,
+      "height": 681,
+      "licence": "CC BY 2.0",
+      "author": "Just chaos",
+      "sourceUrl": "https://www.flickr.com/photos/7326810@N08/3649554702",
+      "caption": "Nhóm cá đuối Black Diamond đốm trắng trong bể nuôi",
+      "best": true,
+      "kind": "group",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/2113034876.webp",
+      "thumb": "https://media.aquatome.com/flickr/2113034876-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA 2.0",
+      "author": "Ryan Somma",
+      "sourceUrl": "https://www.flickr.com/photos/14405058@N08/2113034876",
+      "caption": "Cá đuối Black Diamond nằm trên nền sỏi trong bể kính",
+      "best": true,
+      "kind": "other",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/514023049.webp",
       "thumb": "https://media.aquatome.com/inaturalist/514023049-480.webp",
       "width": 1024,
@@ -266,7 +294,7 @@
       "kind": "other"
     }
   ],
-  "seen": 40,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 44,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

@@ -575,6 +575,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-BV0J8fUMceU#body": [
+    {
+      "at": "2026-11-20T02:06:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"Rêu hại (algae)\" -> \"Rêu hại\": the English gloss is dropped, which is minor.",
+        "\"là một phần của quá trình\" -> \"là chuyện bình thường của giai đoạn này\": this adds a mild \"normal\" judgement and shifts \"process\" to \"stage\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-BsRyej3Zte8#body": [
     {
       "at": "2026-11-17T18:19:31Z",

@@ -3,6 +3,12 @@
   "name": "Nakdong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T01:47:12.145Z",
+    "why": "Nakdong is a river (Sungai Nakdong) in South Korea, and a bare \"Nakdong\" for a region lacks the kind word and is ambiguous, though the spelling matches the Indonesian usage."
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

@@ -1,8 +1,13 @@
 {
   "slug": "kunene-river",
-  "name": "Kunene",
+  "name": "Sungai Kunene",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-20T01:49:51.826Z"
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

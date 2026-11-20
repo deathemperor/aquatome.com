@@ -1,11 +1,15 @@
 {
   "slug": "an-tap",
   "name": "Ăn tạp",
-  "altNames": [],
+  "altNames": [
+    "Cá ăn tạp",
+    "loài ăn tạp"
+  ],
   "sections": {},
-  "definition": "Loài ăn cả thức ăn động vật lẫn thực vật. Phần lớn cá cảnh là cá ăn tạp; khẩu phần đa dạng gồm thức ăn khô chất lượng, thức ăn sống hoặc đông lạnh và rau giúp chúng khỏe và lên màu đẹp.",
+  "body": "<h3>Trong bể của bạn</h3><p>Một nguồn người nuôi ghi:</p><ul><li>Cá betta, cá kiếm xanh và cá vàng cũng là cá ăn tạp.</li><li>Đúng ra thì hầu như mọi loài cá grazer đều là cá ăn tạp, và chúng ăn nhiều đạm động vật. Trong thú chơi cá cảnh không có loài nào thật sự chỉ ăn thực vật.</li><li>Tính theo trọng lượng khô, thức ăn nên có trên 30% đạm và dưới 50% chất bột đường. Thức ăn có ít nhất 40% đạm (càng tốt nếu trên 50%) và ít nhất 10% chất béo thì có lợi cho cá non.</li></ul><h3>Nên làm gì</h3><p>Cá ăn tạp có thể ăn rau củ luộc, như dưa leo. Với cá bảy màu, chia thức ăn trong ngày thành vài bữa nhỏ.</p><p>Cách chọn và bảo quản từng loại thức ăn: xem mục Thức ăn khô, Thức ăn đông lạnh và Thức ăn sống.</p><p>Một nguồn thú y ghi:</p><ul><li>Cho ăn nhiều loại, có cả thức ăn sống lẫn thức ăn bán sẵn, giúp cá đủ chất và không phải ăn mãi một thứ.</li><li>Cá tầng đáy nên được cho ăn thức ăn chìm nhanh, còn cá ăn trên mặt nước nên được cho ăn thức ăn nổi.</li><li>Trông chờ cá tầng đáy như loricariid và Corydoras sống nhờ thức ăn thừa của cá khác là không được. Phải có thức ăn dành riêng cho chúng.</li><li>Phần lớn cá cảnh nên được cho ăn ít nhất mỗi ngày một lần.</li><li>Lấy kiểu ăn của một loài áp cho loài giống nhưng không họ hàng là nguy hiểm.</li></ul><h3>Sai lầm hay gặp</h3><ul><li>Cho ăn dư. Thức ăn thừa nằm lại trong bể làm bẩn nước.</li></ul><p>Một tiệm ghi:</p><ul><li>Cá ăn tạp ăn gần như mọi thứ, kể cả cơm, nên người nuôi dễ cho ăn sai.</li><li>Cơm ít chất bổ và nhiều tinh bột mà cá khó tiêu. Cho ăn nhiều có thể làm cá rối loạn tiêu hóa, lâu dần làm chết cá.</li><li>Cơm chỉ nên dùng tạm. Với cá ăn tạp như cá bảy màu và cá molly, có thể cho ăn khoảng hai lần mỗi tuần.</li><li>Cá vàng không có dạ dày và càng dễ bị ảnh hưởng nếu ăn cơm thường xuyên.</li></ul>",
+  "definition": "Ăn tạp là kiểu ăn của những loài cá ăn cả thức ăn động vật lẫn thực vật. Phần lớn cá cảnh là cá ăn tạp, như cá bảy màu và cá molly.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }

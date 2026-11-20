@@ -5,7 +5,10 @@
   "family": "Cichlidae",
   "genus": "Apistogramma",
   "group": "cichlids",
-  "places": [],
+  "places": [
+    "south-america",
+    "peru"
+  ],
   "range": {
     "records": {
       "taxonKey": 2371235,
@@ -41,12 +44,100 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-atahualpa-2/",
-      "html": "<p>Before its scientific description this beautiful species of dwarf cichlid was known in the hobby as the \"Sunset-Apistogramma\". The body coloration of a female during brood care is reminiscent of a sunset. The scientific name, atahualpa, refers to the last great ruler of the Inka empire, Atahualpa. He was captured by the Spaniard Pizarro in 1532 and executed in 1533; this was the sunset of the Inka empire.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-atahualpa-4/",
+      "html": "<p>Before its scientific description this beautiful species of dwarf cichlid from Peru was known in the hobby as the \"Sunset-Apistogramma\". The body coloration of a female during brood care reminds one of a sunset.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-atahualpa-4/",
+      "html": "<p>Currently beautiful wild-collected specimens of A. atahualpa are being obtained.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-atahualpa-4/",
+      "html": "<p>The scientific name, atahualpa, refers to the last great ruler of the Inka empire, Atahualpa. He was captured by the Spaniard Pizarro in 1532 and executed in 1533; this was the sunset of the Inka empire.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/e95ccae22a816318.webp",
+      "thumb": "https://media.aquatome.com/glaser/e95ccae22a816318-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-atahualpa-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e2c8100ea0a30866.webp",
+      "thumb": "https://media.aquatome.com/glaser/e2c8100ea0a30866-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-atahualpa-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/77d6cf90f02bc23e.webp",
+      "thumb": "https://media.aquatome.com/glaser/77d6cf90f02bc23e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-atahualpa-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/17916a7b791b7563.webp",
+      "thumb": "https://media.aquatome.com/glaser/17916a7b791b7563-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-atahualpa-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c1903a9a4c3a2169.webp",
+      "thumb": "https://media.aquatome.com/glaser/c1903a9a4c3a2169-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-atahualpa-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "4ZSXAaow7Z4",
+      "title": "Apisto of The Week: Apistogramma Atahualpa!",
+      "durationSec": 624,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9Kh7gKjAjw0",
+      "title": "Apistogramma Atahualpa",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "T0Ys0sSf5QM",
+      "title": "Apistogramma Atahualpa Fry in Community Tank",
+      "durationSec": 135,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bnTVwMMmeNA",
+      "title": "Apistogramma Atahualpa",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -70,5 +161,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-20"
 }

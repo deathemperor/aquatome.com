@@ -1,0 +1,61 @@
+{
+  "id": "pseudobunocephalus-timbira",
+  "native": {
+    "input": "2cb1acfa086c9d91",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Lower Tocantins and the Mearim river drainages, in North and Northeast of Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tocantins",
+        "source": "scotcat",
+        "quote": "South America: Lower Tocantins and the Mearim river drainages, in North and Northeast of Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Mearim",
+        "source": "scotcat",
+        "quote": "South America: Lower Tocantins and the Mearim river drainages, in North and Northeast of Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobunocephalus timbira",
+    "status": "ACCEPTED",
+    "taxonKey": 10396980,
+    "datasets": [
+      [
+        "c8335540-0201-4710-ae6f-99e20d7f3592",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

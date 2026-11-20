@@ -413,6 +413,18 @@ The layers above still check the result.
   - **The style rewrite takes the pages out of search for their score first** (`rewriteExisting`, `vi-backfill.ts`),
     then the rest in its kinds' order: a kept rewrite is what brings such a page back, and in folder order the last of
     them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
+    - **`--phrases` takes a page up once for each listed word it has**, as the list matches it (`phraseRun`,
+      `phrases.ts`; the words are kept in its line of `engine-state/vi-rewrite.json`).
+      - A word the rewrite leaves, in a part the reviewer failed or a fixed part, doesn't bring the page back at the next
+        run.
+      - A word new to the list, as a new row or added to a row's pattern, does. A row's label changed alone doesn't.
+      - Each word a row matches is its own mark, case aside: a rewrite that swaps one of a row's words for another of the
+        same row ("bạn nên" for "bạn cần") brings the page back once, for the new word.
+      - A page whose rewrite failed isn't marked, so it comes back. A page the gate holds back gets its old line back, with
+        its old marks, so it comes back too.
+      - A marked word in text written later, such as a new source's section, doesn't bring the page back.
+      - Found 2026-11-16: 544 of the 758 pages it had rewritten still had a listed phrase, and every run took them all up
+        again, each part a write and a review.
   - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
     (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,
     2026-11-16). A kept rewrite is no longer the only way back. The steady Sonnet read of the page's text as it is, then,
@@ -736,7 +748,13 @@ The layers above still check the result.
     and, for a breed, what sets it apart. Verdicts: shows it (in the wild too, where it is clearly seen), something else
     (it says what), not a photo of it (a map, chart, hands, a tank, a packshot, a landscape or stream where it can't be
     picked out), or can't tell. "Something else" and "not a photo of it" leave the page; a photo no page keeps joins
-    `_photo-rejected.json`. When the check answers "something else" for an album photo, the same run judges that album's
+    `_photo-rejected.json`. From 20 Nov, a photo listed there as "something else" whose answer named one other species
+    or plant we have a page for keeps that page's id in `engine-state/_photo-other-kinds.json` (`namedKind`): the id
+    only, never the answer's words, and the photo stays listed everywhere (the chief of staff, 20 Nov). Only an answer
+    naming one other kind, with no word of denial or doubt, gets an id; the judged page's own kind (a breed's species
+    included) may be named only to deny it, right before its name ("X, not Y" denies Y). An answer in doubt gets none,
+    since the id is for an offer that judges the photo again as that fish. Only a photo this run puts on the list gets one, and the record is written whole before
+    the verdicts. When the check answers "something else" for an album photo, the same run judges that album's
     other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
     and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
     stops at the check's daily line. Only the run's own first answers start it: not a file name's verdict, a guide's, a
@@ -881,8 +899,23 @@ The layers above still check the result.
     those pictures rests on the photographer being named). Each sweep mends a photo credited to its publisher alone
     from the page's stored copy, by the line that follows its caption there (`publisher-credits.ts`, Seriously Fish's
     pages; `publisher-credits.test.ts`). A photo whose line can't be told for certain keeps the publisher alone, and
-    `pnpm engine credits` lists it by file and address, with why. Found on 17 Nov 2026: 1,654 Seriously Fish photo
-    places credited the site alone a week after the ruling.
+    `pnpm engine credits` lists it by file and address, with why, and counts each publisher's photos with their line
+    and with its name alone. Found on 17 Nov 2026: 1,654 Seriously Fish photo places credited the site alone a week
+    after the ruling. Since 20 Nov 2026:
+    - A new photo is stored with the line its page prints with it (`source-photos.ts`). A stored one is named only by the
+      sweep or the line-read list below, which read every copy of the photo first.
+    - Aquarium Glaser prints one line for every picture on a page ("Text & photos: <name>"): each sweep names its photos
+      by it. A page whose lines name different people, a line naming more than one person or going on past the name, and
+      a photo whose own caption prints another credit keep "Aquarium Glaser" alone, listed with why (the chief of staff's
+      guard of 17 Nov). One photo is one picture: a copy the guard holds, or one whose line shows another credit, keeps
+      every copy of that photo with the publisher alone, wherever it is.
+    - The pages whose pictures' lines the stored copy keeps without their place (The Spruce Pets, Aquarium Breeder,
+      ScotCat, Loaches Online) are on `engine-state/_credit-lines.json`: the cycle reads each once, the ones its own turn
+      reaches within two weeks on that turn and the rest the next time it reads their source, and each read names our
+      photos from its pictures' lines, but never a photo one of whose copies another line names already. A page read
+      early is read early once: if its request or the read of its lines fails, it waits for its own turn, and a failed
+      request leaves its state as it was, so no retry brings it back sooner. Each of ScotCat's picture pages is asked once
+      a read; if one fails or answers with an error, the page stays on the list for its own turn.
   - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws

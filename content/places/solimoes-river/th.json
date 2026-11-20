@@ -3,6 +3,12 @@
   "name": "โซลีมอยส์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T01:51:32.767Z",
+    "why": "\"โซลีมอยส์\" is a Thai transcription lacking the Thai kind word \"แม่น้ำ\" for a river, and the Portuguese Solimões is better rendered \"โซลิเมอิส\" or \"โซลีเมิส\"."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

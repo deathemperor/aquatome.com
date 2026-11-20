@@ -1,8 +1,8 @@
 {
   "id": "brevibora-dorsiocellata",
   "native": {
-    "input": "c742d6185ca52684",
-    "at": "2026-11-18T00:54:56.623Z",
+    "input": "a5a002c17e532875",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "TH",
@@ -17,6 +17,22 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Native to southern Thailand, Peninsular Malaysia and the Greater Sunda islands of Borneo and Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "It occurs in southern Thailand, Peninsular Malaysia and Sumatra.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "It occurs in southern Thailand, Peninsular Malaysia and Sumatra.",
         "words": "Malaysia",
         "ok": true
       }
@@ -35,16 +51,17 @@
         "ok": true
       },
       {
-        "name": "Muar River",
+        "name": "Muar",
         "source": "seriouslyfish",
         "quote": "In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.",
         "country": "MY",
         "ok": true
       },
       {
-        "name": "Kapuas",
+        "name": "Tasek Bera",
         "source": "seriouslyfish",
-        "quote": "Records from Borneo are confusing. It was once thought restricted to southern (Indonesian) parts of the island and has been recorded from various rivers and streams within the lower Kapuas River basin and the Ketungau river in West Kalimantan (Kalimantan Barat) province as well as tributaries of the Sebangau and lower Mentaya rivers in Central Kalimantan (Kalimantan Tengah).",
+        "quote": "In Peninsular Malaysia localities include the Selai and Muar rivers in Johor state and the blackwater swamp lake of Tasek Bera in Pahang state while in Sumatra the only report we've been able to find seems to refer to the Lalah River, Riau province in the east of the island.",
+        "country": "MY",
         "ok": true
       }
     ],

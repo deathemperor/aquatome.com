@@ -253,6 +253,7 @@
     "length": {"words": 515, "why": "Steps: hatching (salt, eggs per litre, air, 27–30 °C and pH, 18–48 hours, gathering by light, a fine sieve, rinsing). The chief of staff's rule, 15 Nov 2026: 500 for a term whose facts carry steps a keeper follows or a set of forms, about 400 for any other. Mon 16 Nov: 515, so the second-stage sentence, written back, fits without the writer cutting another (its two rewrites each cut one to stay at 500)."}
   },
   "nen-be": {
+    "linkNames": ["lớp nền", "vật liệu nền"],
     "also": ["what cốt nền (the base layer laid under aqua soil, as shops in Vietnam sell it) looks like: grain size, colour and form", "what coal slag (xỉ than) sold as an aquarium substrate looks like: grain size and colour", "what akadama looks like: grain size, shape and colour", "what peat moss for aquariums looks like as sold (fibres, granules or pellets) and its colour"],
     "asked": [
       "nền",
@@ -577,6 +578,7 @@
     "length": { "words": 500, "why": "Steps a keeper follows: first foods, how often to feed, keeping the water clean, keeping fry apart from adults. The chief of staff's rule, 15 Nov 2026: 500 for a term whose facts carry steps a keeper follows or a set of forms, about 400 for any other." }
   },
   "trung-huyet": {
+    "notNames": ["giun đỏ"],
     "write": [
       "What it is, as the facts name it; never described as a worm, though a name with \"trùn\" or \"giun\" stays where a page uses it. It is told apart from trùn chỉ (Trùng chỉ's entry, linked) only as a fact tells them apart (the Writing Lead, through the chief of staff, Thu 19 Nov 2026).",
       "Each form (frozen, freeze-dried, live) is said with its own facts. Thawing and rinsing are not repeated from Thức ăn đông lạnh's entry, which is linked (the Glossary lead's line; the Writing Lead's yes, through the chief of staff, Thu 19 Nov 2026).",
@@ -668,6 +670,8 @@
     }
   },
   "nen-cat": {
+    "notNames": ["lớp nền", "vật liệu nền"],
+    "linkNames": ["lớp nền cát"],
     "write": [
       "Nền bể's entry (written in full, nine kinds) is linked for beds in general. Nền cát says only what is sand's own and repeats none of Nền bể's lines (the Glossary lead's line; the Writing Lead's yes, through the chief of staff, Thu 19 Nov 2026).",
       "Sands are named as Vietnamese shops or the site write them. Whether a sand raises pH or hardness is said only as a fact gives it (the Writing Lead, through the chief of staff, Thu 19 Nov 2026).",
@@ -756,5 +760,9 @@
       "words": 500,
       "why": "Choosing and adding fish are steps a keeper follows. The chief of staff's rule, 15 Nov 2026: 500 for a term whose facts carry steps a keeper follows or a set of forms, about 400 for any other."
     }
+  },
+  "tinh-lanh-tho": {
+    "notNames": ["lãnh thổ"],
+    "linkNames": ["tranh giành lãnh thổ", "bảo vệ lãnh thổ"]
   }
 }

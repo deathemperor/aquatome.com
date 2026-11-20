@@ -12,8 +12,7 @@
       "caption": "Thảm Rau đắng nam xanh tươi mọc dưới nước",
       "best": true,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/651983047.webp",
@@ -26,8 +25,7 @@
       "caption": "Rau đắng nam có hoa trắng mọc ở bãi ẩm",
       "best": true,
       "kind": "flower",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/704119754.webp",
@@ -40,8 +38,7 @@
       "caption": "Cụm lá Rau đắng nam xanh sáng trong bể",
       "best": true,
       "kind": "submersed",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/tropica/39206706e0d64a71.webp",
@@ -61,6 +58,28 @@
       "kind": "submersed"
     },
     {
+      "url": "https://media.aquatome.com/tropica/b2bada510d15e356.webp",
+      "thumb": "https://media.aquatome.com/tropica/b2bada510d15e356-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopaaustralis(043A)/4466",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/e2ceb90d002052c7.webp",
+      "thumb": "https://media.aquatome.com/tropica/e2ceb90d002052c7-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopaaustralis(043A)/4466",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/651983013.webp",
       "thumb": "https://media.aquatome.com/inaturalist/651983013-480.webp",
       "width": 1024,
@@ -71,19 +90,7 @@
       "caption": "Rau đắng nam ra hoa trắng ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/tropica/b2bada510d15e356.webp",
-      "thumb": "https://media.aquatome.com/tropica/b2bada510d15e356-480.webp",
-      "width": 1000,
-      "height": 1000,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopaaustralis(043A)/4466",
-      "source": "tropica",
-      "kind": "other"
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/704119753.webp",
@@ -96,19 +103,7 @@
       "caption": "Rau đắng nam mọc thành mảng trên mặt nước suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/tropica/e2ceb90d002052c7.webp",
-      "thumb": "https://media.aquatome.com/tropica/e2ceb90d002052c7-480.webp",
-      "width": 1000,
-      "height": 1000,
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Bacopaaustralis(043A)/4466",
-      "source": "tropica",
-      "kind": "other"
+      "setup": false
     }
   ],
   "seen": 6,

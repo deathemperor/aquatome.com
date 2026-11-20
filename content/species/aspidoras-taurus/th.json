@@ -19,11 +19,11 @@
     "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Lima, F. C. T. and M. R. Britto (2001). New catfish of the genus Aspidoras (Siluriformes: Callichthyidae) from the upper Rio Paraguai system in Brazil. Copeia 2001(4), 1010-1016</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.88,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7,
-      "glaser": 0.7
+      "seriouslyfish": 0.88,
+      "glaser": 0.88
     }
   }
 }

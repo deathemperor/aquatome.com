@@ -3,6 +3,12 @@
   "name": "กอง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T11:52:27.746Z",
+    "why": "กอง is a literal reading of the Latin spelling \"Kong\", but the Lao place is Khong (Champasak) or Sekong, which Thai writes โขง or เซกอง, and plain กอง means \"pile\" or \"unit\" in Thai."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

@@ -1,14 +1,14 @@
 {
   "id": "sphaerichthys-osphromenoides",
   "native": {
-    "input": "06f810b620227e46",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "b487ac94a9c8fa08",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "MY",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+        "quote": "Native to Peninsular Malaysia, Sumatra and Borneo.",
         "words": "Malaysia",
         "ok": true
       },
@@ -16,16 +16,8 @@
         "code": "MY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The chocolate gourami, Sphaerichthys osphromenoides, is a small gourami from Peninsular Malaysia, Sumatra and Borneo.",
+        "quote": "Type locality is given simply as 'Indies' by Canestrini but this is by far the most widely distributed species in the genus, being native to much of Peninsular Malaysia, Sumatra, and Borneo.",
         "words": "Malaysia",
-        "ok": true
-      },
-      {
-        "code": "MY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "In the latter, records exist from throughout the Malaysian state of Sarawak and Indonesian province of West Kalimantan (Kalimantan Barat).",
-        "words": "Malaysian",
         "ok": true
       },
       {
@@ -57,26 +49,31 @@
       {
         "name": "Sumatra",
         "source": "bwaquatics",
-        "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+        "quote": "Native to Peninsular Malaysia, Sumatra and Borneo.",
         "ok": true
       },
       {
         "name": "Borneo",
         "source": "bwaquatics",
-        "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+        "quote": "Native to Peninsular Malaysia, Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Indies' by Canestrini but this is by far the most widely distributed species in the genus, being native to much of Peninsular Malaysia, Sumatra, and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given simply as 'Indies' by Canestrini but this is by far the most widely distributed species in the genus, being native to much of Peninsular Malaysia, Sumatra, and Borneo.",
         "ok": true
       },
       {
         "name": "Malay Peninsula",
         "source": "glaser",
         "quote": "The species is found on the Malay Peninsula.",
-        "ok": true
-      },
-      {
-        "name": "Kalimantan",
-        "source": "seriouslyfish",
-        "quote": "In the latter, records exist from throughout the Malaysian state of Sarawak and Indonesian province of West Kalimantan (Kalimantan Barat).",
-        "country": "ID",
         "ok": true
       }
     ],

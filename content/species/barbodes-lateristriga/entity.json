@@ -23,8 +23,8 @@
         "ID"
       ],
       "regions": [
-        "Java",
         "Sumatra",
+        "Java",
         "Tioman",
         "Anambas archipelago"
       ],
@@ -268,6 +268,13 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -292,6 +299,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 16
       }
     ],
     "tankCm": [
@@ -315,10 +326,22 @@
       "html": "<p>The spanner barb or 'T-barb', Striuntius lateristriga, is a cyprinid from peninsular Thailand, Peninsular Malaysia, Singapore, Sumatra and Java. Its colour pattern varies with locality, and the form most commonly seen in the trade corresponds most closely to fish from Johor. The species may prove to be a complex of closely-related taxa. Quite boisterous, it can intimidate more timid species with its size and activity, especially at feeding times. It is still often sold as Puntius lateristriga.</p><p>Max size: 150 mm SL (6 in). Aquarium size: 150 × 45 cm (60 × 18 in). Temperature: 20–28°C. pH: 6.0–8.0. Hardness: 1–10 dGH.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "html": "<p>The black banded barb or spanner barb is an old friend in the aquarium, although it is somewhat out of fashion. In former times it was called Barbus or Puntius lateristriga, at present it is assigned to the genus Barbodes.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lateristriga",
       "html": "<p>Type locality is 'Java, Indonesia', but this species is currently considered to be distributed throughout southern (peninsular) Thailand, Peninsular Malaysia, Sumatra, and Java, plus some smaller islands in the South China Sea such as Tioman and the Anambas archipelago.</p><p>The fish vary in appearance somewhat depending on locality with a number of variants recognised (see 'Notes').</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "html": "<p>The pretty, peaceful animals are widespread in Southeast Asia, where they mainly inhabit clear waters, such as shallow sections of lakes and ponds or small rivers. Here, they roam in loose troops of usually 5-10 animals.</p>"
     },
     {
       "key": "habitat",
@@ -345,16 +368,34 @@
       "html": "<p>Temperature: 20–28°C (68–82°F). pH: 6.0–8.0. Hardness: 1–10 dGH.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "html": "<p>They have no special demands on the water composition, however, the middle body spot can shine in soft, acid water instead of white splendidly yolk yellow. The water temperature should be in the range of 22-28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lateristriga",
       "html": "<p>Wild fish are probably foragers feeding on diatoms, algae, organic detritus, small insects, worms, crustaceans, and other zooplankton.</p><p>In the aquarium it's easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "html": "<p>These barbs are usually 6-8 cm long in nature, but can easily double that size in an aquarium. When feeding them, make sure that they also get plant food components, otherwise the aquatic plants are in danger. Tender plant species should generally not be used in aquariums with larger barb species.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lateristriga",
       "html": "<p>This species is quite boisterous and can easily intimidate less robust species with its size and activity, especially at feeding times.</p><p>In a spacious aquarium it can be combined with other robust fishes such as larger Danio, Devario, Barilius, Garra, and certain loaches.</p><p>As always proper research is essential in order to avoid problems.</p><p>In nature juveniles form large aggregations but as they mature males in particular tend to become more solitary, and adults can be belligerent if space is limited.</p><p>In theory the most aggression should be contained if a group of 6 or more specimens is purchased as the fish concentrate on maintaining their hierarchical position within the group, but mixed reports exist and it may be that behaviour varies depending on population.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "html": "<p>They roam in loose troops of usually 5-10 animals. Peaceful.</p>"
     },
     {
       "key": "dimorphism",
@@ -369,10 +410,22 @@
       "html": "<p>Like most small cyprinids 'Puntius' spp. are egg-scattering free spawners exhibiting no parental care.</p><p>When in good condition they will spawn often and in a mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water.</p><p>This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles.</p><p>Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above, and an air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adults are well-conditioned and the females appear gravid one or two pairs should then be introduced, and spawning should take place the following morning.</p><p>An alternative is to spawn the fish in a group with half a dozen specimens of each sex being a good number, although a larger aquarium may be necessary.</p><p>In either situation the adults will probably eat the eggs given the chance and should be removed as soon as any are noticed.</p><p>These should hatch in 24 - 36 hours with the fry free swimming after 3-4 days.</p><p>They should be fed on an infusoria-grade food for the first few days until large enough to accept microworm, Artemia nauplii, or suchlike.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "html": "<p>Barbodes lateristriga is a productive free spawner. There are numerous variants of the species, some of which can be assumed to be separated one day as independent species. Therefore, it is important to breed only with animals of one locality in order to avoid unintentional hybrids.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/striuntius-lateristriga",
       "html": "<p>This species is also commonly-referred to as 'T-barb'.</p><p>It's closely-affiliated with and sometimes traded as Barbodes kuchingensis but that species can be told apart by colour pattern comprising a prominent row of dark spots along the lateral line, plus a short, horizontally-orientated streak extending from the upper part of the operculum. In S. lateristriga the lateral markings usually form a solid stripe and there is no streak extending from the operculum.</p><p>S. lateristriga exhibits a relatively variable colour pattern depending on locality and Tweedei (1961) recognised 6 regional forms from Peninsular Malaysia alone, with those from the northern states of Kedah and Perlis possessing a significant reduction in the degree of dark patterning, for example.</p><p>The form most commonly seen in the aquarium trade corresponds most closely to that from Johor, and the DNA of fish from northern Peninsular Malaysia (Kedah and Perlis states) has been found to be distinctly different (R. Collins, pers. comm.), but it remains to be seen if the species as currently recognised represents a complex of closely-related taxa or not.</p><p>This species was formerly included in the genus Puntius which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which this species was among a number of former Puntius transferred into the genus Barbodes. Members are told apart from related genera by the following aspects of ontogeny and colour pattern: small juveniles have 3-5 dots along the midlateral scale row, including one at middle of caudal-fin base, and an additional one at dorsal-fin origin; with increasing size, the spots on midlateral row may become more numerous and may fuse to form a stripe or broad band, and the spot at dorsal-fin origin may become a large blotch or a broad bar.</p><p>In addition, the following characters are useful in identification of Barbodes spp.: last simple dorsal-fin ray serrated posteriorly; rostral barbels present (except in B. aurotaeniatus); maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete or not, with 22–32 scales on lateral line row on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 12–15 gill rakers on first gill arch. Ren et al. (2020) later moved this species to Striuntius with S. lineatus, and the Catalog of Fishes and FishBase now place it there.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "html": "<p>The animals offered at the moment are wild catches from Thailand.</p>"
     },
     {
       "key": "references",
@@ -384,16 +437,71 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/b794c9dfbeeb197e.webp",
+      "thumb": "https://media.aquatome.com/commons/b794c9dfbeeb197e-480.webp",
       "width": 800,
       "height": 533,
       "licence": "CC BY-SA 3.0",
       "author": "opencage",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_lateristriga.jpg",
-      "caption": "Spanner Barb Puntius lateristriga (Valenciennes, 1842)",
-      "thumb": "https://media.aquatome.com/commons/b794c9dfbeeb197e-480.webp"
+      "caption": "Spanner Barb Puntius lateristriga (Valenciennes, 1842)"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6a88f87525297ea3.webp",
+      "thumb": "https://media.aquatome.com/glaser/6a88f87525297ea3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0d45d9585de7fec1.webp",
+      "thumb": "https://media.aquatome.com/glaser/0d45d9585de7fec1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6d388c25e4f54f42.webp",
+      "thumb": "https://media.aquatome.com/glaser/6d388c25e4f54f42-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-lateristriga-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "plC3sM6fA-4",
+      "title": "Spanner barb / T-barb (Barbodes lateristriga) habitat at Emerald pool (Sa Morakot) in Krabi,Thailand",
+      "durationSec": 35,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WCVcS3T7JrY",
+      "title": "Barbodes lateristriga\nat wild...Tioman Island",
+      "durationSec": 42,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5HTfIIEgS10",
+      "title": "Kreutzbandbarbe, Striuntius lateristriga",
+      "durationSec": 119,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5y-kD20PIho",
+      "title": "spanner barb/T-barb jumbo jumbo||Barbodes lateristriga",
+      "durationSec": 504,
+      "lang": "id"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -423,5 +531,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

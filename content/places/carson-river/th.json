@@ -1,8 +1,13 @@
 {
   "slug": "carson-river",
-  "name": "คาร์สัน",
+  "name": "แม่น้ำคาร์สัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-20T07:10:06.130Z"
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

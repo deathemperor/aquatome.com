@@ -12,151 +12,6 @@
     "peru",
     "madre-de-dios"
   ],
-  "dataCard": {
-    "tempC": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 23,
-          "max": 27
-        }
-      }
-    ],
-    "ph": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 6.5,
-          "max": 7.4
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "seriouslyfish",
-        "value": {
-          "min": 0,
-          "max": 15
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 11
-      }
-    ],
-    "tankCm": [
-      {
-        "source": "seriouslyfish",
-        "value": 90
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "seriouslyfish",
-        "value": 4
-      }
-    ]
-  },
-  "sections": [
-    {
-      "key": "quickFacts",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>The Bolivia cichlid, Cichlasoma boliviense, is a cichlid from the Rio Mamoré, Rio Guaporé and Madre de Dios drainages of Bolivia and Peru. It lives in shallow pools and along slow-moving shorelines and grows to around 11 cm. Not commonly seen in the hobby, it is less aggressive than many Central American cichlids but suits only a community of medium to large fish, and it rearranges the decor to suit itself.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>Known from the Rio Mamoré, Rio Guaporé and Madre de Dios drainages in both Bolivia and Peru.</p>"
-    },
-    {
-      "key": "habitat",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>Shallow pools and slow-moving shorelines.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>A tank of 90 cm x 37.5 cm x 30 cm (100 litres) for a pair.</p>"
-    },
-    {
-      "key": "maintenance",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>Not critical. They will re-arrange the tank decor to suit themselves, so plants are likely to be uprooted. They will appreciate rocky hiding places. Water flow should not be too powerful.</p>"
-    },
-    {
-      "key": "waterConditions",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<ul><li>Temperature: 23–27 °C</li><li>pH: 6.5–7.4</li><li>Hardness: up to 15 dGH</li></ul>"
-    },
-    {
-      "key": "diet",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>Not a fussy eater. Cichlid pellets as a staple diet, with meaty foods like prawn and mussel as treats.</p>"
-    },
-    {
-      "key": "behaviour",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>Whilst not as aggressive as some of their Central American cousins, this species is only suitable for a community of medium to large fish, such as other cichlids, robust characins and catfish. There is no guarantee of success in trying this approach however, the more fish in the tank, the more the aggression is likely to be dispersed. Ensure sufficient decor is provided to allow all the fish to claim a territory. Can also be kept as a species-only tank with a bonded pair.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>The male is the larger fish, is more colourful and has extended dorsal and anal fins.</p>"
-    },
-    {
-      "key": "reproduction",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>Few details of breeding in the hobby are available, but it is likely to be similar to other Cichlasoma species and their relatives.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "seriouslyfish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
-      "html": "<p>Sometimes referred to (incorrectly) as Cichlasoma boliviensis, the Bolivia cichlid is not commonly seen in the hobby. A good candidate for a community of medium-sized cichlids, assuming aggression problems can be overcome.</p>"
-    }
-  ],
-  "photos": [],
-  "videos": [],
-  "productSlots": [
-    {
-      "category": "be-ca",
-      "keywords": [
-        "bể cá 90cm"
-      ]
-    },
-    {
-      "category": "loc",
-      "keywords": [
-        "lọc thùng bể 100 lít",
-        "máy lọc cho cá cichlid"
-      ]
-    },
-    {
-      "category": "suoi",
-      "keywords": [
-        "sưởi bể cá 100W"
-      ]
-    },
-    {
-      "category": "thuc-an",
-      "keywords": [
-        "thức ăn viên cho cichlid"
-      ]
-    }
-  ],
-  "updatedAt": "2026-11-06",
   "range": {
     "native": {
       "countries": [
@@ -352,5 +207,239 @@
         ]
       ]
     }
-  }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 14
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>The Bolivia cichlid, Cichlasoma boliviense, is a cichlid from the Rio Mamoré, Rio Guaporé and Madre de Dios drainages of Bolivia and Peru. It lives in shallow pools and along slow-moving shorelines and grows to around 11 cm. Not commonly seen in the hobby, it is less aggressive than many Central American cichlids but suits only a community of medium to large fish, and it rearranges the decor to suit itself.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "html": "<p>Cichlasoma boliviense grows to about 14 cm in length, but is already capable of breeding when half grown. The species is temperature tolerant (20–28°C) and can be kept in any water that is suitable for drinking.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "html": "<p>In the past, the genus Cichlasoma included practically all the larger Central and South American cichlids, more than 200 species; currently there are only 16 species in the genus, all were cultivated and valued in the early days of aquarium science as Aequidens portalegrense. It is rarely possible to distinguish the 16 scientifically described Cichlasoma species with certainty, as they form numerous colour and local variants. If the original location is unknown, one can only roughly indicate to which species the animals are closest.</p><p>The Cichlasoma offered here as offspring from a German breeder were discovered by him in a pet shop; these animals were probably already bred. They are obviously the closest to the species Cichlasoma boliviense.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>Known from the Rio Mamoré, Rio Guaporé and Madre de Dios drainages in both Bolivia and Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>Shallow pools and slow-moving shorelines.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>A tank of 90 cm x 37.5 cm x 30 cm (100 litres) for a pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>Not critical. They will re-arrange the tank decor to suit themselves, so plants are likely to be uprooted. They will appreciate rocky hiding places. Water flow should not be too powerful.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<ul><li>Temperature: 23–27 °C</li><li>pH: 6.5–7.4</li><li>Hardness: up to 15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>Not a fussy eater. Cichlid pellets as a staple diet, with meaty foods like prawn and mussel as treats.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>Whilst not as aggressive as some of their Central American cousins, this species is only suitable for a community of medium to large fish, such as other cichlids, robust characins and catfish. There is no guarantee of success in trying this approach however, the more fish in the tank, the more the aggression is likely to be dispersed. Ensure sufficient decor is provided to allow all the fish to claim a territory. Can also be kept as a species-only tank with a bonded pair.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "html": "<p>All Cichlasoma species in the narrower sense are comparatively tolerable, calm cichlids; the larger the aquarium, the less important are occasional digging and the very rare tantrums.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>The male is the larger fish, is more colourful and has extended dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>Few details of breeding in the hobby are available, but it is likely to be similar to other Cichlasoma species and their relatives.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "html": "<p>The animals are open spawners and form a parent family. If a pair leads their offspring, there should be plenty of hiding places available for possible tankmates, because C. boliviense are very good parents who do not allow other fish to eat their young.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/cichlasoma-boliviense",
+      "html": "<p>Sometimes referred to (incorrectly) as Cichlasoma boliviensis, the Bolivia cichlid is not commonly seen in the hobby. A good candidate for a community of medium-sized cichlids, assuming aggression problems can be overcome.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/9bbbbfa3337bc433.webp",
+      "thumb": "https://media.aquatome.com/glaser/9bbbbfa3337bc433-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0b8a60456da4cc3f.webp",
+      "thumb": "https://media.aquatome.com/glaser/0b8a60456da4cc3f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/110780558b8848dd.webp",
+      "thumb": "https://media.aquatome.com/glaser/110780558b8848dd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c5e7810378d88a99.webp",
+      "thumb": "https://media.aquatome.com/glaser/c5e7810378d88a99-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/cichlasoma-boliviense-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ewMrb7JOSKE",
+      "title": "Cichlasoma Boliviense breeding",
+      "durationSec": 83,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "m3Op1o-B3aI",
+      "title": "Cichlasoma boliviense",
+      "durationSec": 115,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 100 lít",
+        "máy lọc cho cá cichlid"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
 }

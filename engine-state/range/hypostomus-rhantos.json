@@ -1,0 +1,90 @@
+{
+  "id": "hypostomus-rhantos",
+  "native": {
+    "input": "53f72e62762dd7ec",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Hypostomus rhantos comes from the upper Orinoco in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Hypostomus rhantos comes from the upper Orinoco in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "Currently known from the Río Ventuari, a tributary of the upper Río Orinoco, and the mainstem upper Orinoco above Puerto Ayacucho to the Río Casiquiare in Amazonas.",
+        "ok": true
+      },
+      {
+        "name": "Río Casiquiare",
+        "source": "scotcat",
+        "quote": "Currently known from the Río Ventuari, a tributary of the upper Río Orinoco, and the mainstem upper Orinoco above Puerto Ayacucho to the Río Casiquiare in Amazonas.",
+        "ok": true
+      },
+      {
+        "name": "Río Ventuari",
+        "source": "scotcat",
+        "quote": "Currently known from the Río Ventuari, a tributary of the upper Río Orinoco, and the mainstem upper Orinoco above Puerto Ayacucho to the Río Casiquiare in Amazonas.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus rhantos",
+    "status": "ACCEPTED",
+    "taxonKey": 5202199,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        22
+      ],
+      [
+        "91ec5658-a609-42ff-a8fe-5ccbf5080bb8",
+        19
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

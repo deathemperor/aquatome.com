@@ -31,7 +31,11 @@
   "inat:584733452",
   "inat:608194226",
   "inat:659582620",
-  "inat:659582645"
+  "inat:659582645",
+  "gbif:4501064332:00d5fbfb61041ee6",
+  "gbif:4501064332:59ed09f7563b32b9",
+  "gbif:4501064332:dab0ba33127c96c0",
+  "gbif:4501064332:2a963d6be07ddd87"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/63c467b00d126cd2.webp": "3f0eb1f87070385b",
@@ -39,7 +43,10 @@
   "https://media.aquatome.com/inaturalist/498071309.webp": "ec69251333f1d686",
   "https://media.aquatome.com/inaturalist/71833856.webp": "c10d316373e1364b",
   "https://media.aquatome.com/inaturalist/155593926.webp": "cdfe788c68f8eecc",
-  "https://media.aquatome.com/inaturalist/71833851.webp": "272104916343d3b8"
+  "https://media.aquatome.com/inaturalist/71833851.webp": "272104916343d3b8",
+  "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/4501064332/media/12ac2182ed133e1f00d5fbfb61041ee6": "079998f0c0e0c1c3",
+  "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/4501064332/media/7e7e515c9469324059ed09f7563b32b9": "3371e094dcc0e50f",
+  "https://api.gbif.org/v1/image/cache/fit-in/1200x/occurrence/4501064332/media/feb2208c13a60f402a963d6be07ddd87": "07f1f0d4e0e0a183"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -49,5 +56,9 @@
    "research": 382907055,
    "agree": 393281821
   }
+ },
+ "gbif": {
+  "key": 9842003,
+  "next": null
  }
 }

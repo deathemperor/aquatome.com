@@ -13,8 +13,7 @@
       "sourceCaption": "Seriatopora hystrix, commonly known as thin birds nest coral.",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/20954393.webp",
@@ -27,22 +26,7 @@
       "caption": "Tập đoàn san hô tổ chim màu kem hình cầu trên rạn",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/243477545.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/243477545-480.webp",
-      "width": 814,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/243477545",
-      "caption": "Cành san hô tổ chim màu hồng cam trên rạn",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/243478398.webp",
@@ -55,36 +39,7 @@
       "caption": "Tập đoàn san hô tổ chim hồng nhạt hình cầu",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/244490976.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/244490976-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Jean-Paul Boerekamps",
-      "sourceUrl": "https://www.inaturalist.org/photos/244490976",
-      "caption": "San hô tổ chim vàng xanh cành mảnh nhiều nhánh",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/248045573.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/248045573-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Debra Baker",
-      "sourceUrl": "https://www.inaturalist.org/photos/248045573",
-      "caption": "Tập đoàn san hô tổ chim màu cam vàng trên rạn",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/723337285.webp",
@@ -97,8 +52,7 @@
       "caption": "Tập đoàn san hô tổ chim màu kem trên rạn tối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/55933788e74b3c9f.webp",
@@ -112,8 +66,7 @@
       "sourceCaption": "Timur II, Bunaken Island, Sulawesi, INDONESIA",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/234dff36b34361de.webp",
@@ -127,37 +80,7 @@
       "sourceCaption": "Coral (Seriatopora hystrix), Ras Muhammad National Park, Egypt",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/2fa8bac953b1c951.webp",
-      "thumb": "https://media.aquatome.com/commons/2fa8bac953b1c951-480.webp",
-      "width": 1200,
-      "height": 1121,
-      "licence": "CC BY-SA 4.0",
-      "author": "Josuevg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seriatopora_hystrix,_acuario.jpg",
-      "caption": "San hô tổ chim màu hồng cam trong bể nuôi",
-      "sourceCaption": "Seriatopora hystrix en acuario de arrecife",
-      "best": false,
-      "kind": "form",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/20954408.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/20954408-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Ewout Knoester",
-      "sourceUrl": "https://www.inaturalist.org/photos/20954408",
-      "caption": "Cận cảnh cành san hô tổ chim màu kem nhọn đầu",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/233291821.webp",
@@ -170,8 +93,7 @@
       "caption": "San hô tổ chim màu hồng tím nhạt trên rạn",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/244208162.webp",
@@ -301,6 +223,72 @@
       "kind": "habitat",
       "setup": false,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/243477545.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/243477545-480.webp",
+      "width": 814,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/243477545",
+      "caption": "Cành san hô tổ chim màu hồng cam trên rạn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/248045573.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/248045573-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Debra Baker",
+      "sourceUrl": "https://www.inaturalist.org/photos/248045573",
+      "caption": "Tập đoàn san hô tổ chim màu cam vàng trên rạn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/20954408.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/20954408-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Ewout Knoester",
+      "sourceUrl": "https://www.inaturalist.org/photos/20954408",
+      "caption": "Cận cảnh cành san hô tổ chim màu kem nhọn đầu",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/244490976.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/244490976-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Jean-Paul Boerekamps",
+      "sourceUrl": "https://www.inaturalist.org/photos/244490976",
+      "caption": "San hô tổ chim vàng xanh cành mảnh nhiều nhánh",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/2fa8bac953b1c951.webp",
+      "thumb": "https://media.aquatome.com/commons/2fa8bac953b1c951-480.webp",
+      "width": 1200,
+      "height": 1121,
+      "licence": "CC BY-SA 4.0",
+      "author": "Josuevg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seriatopora_hystrix,_acuario.jpg",
+      "caption": "San hô tổ chim màu hồng cam trong bể nuôi",
+      "sourceCaption": "Seriatopora hystrix en acuario de arrecife",
+      "best": false,
+      "kind": "form",
+      "setup": false
     }
   ],
   "seen": 55,

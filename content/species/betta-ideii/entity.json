@@ -17,7 +17,8 @@
       ],
       "regions": [
         "Borneo",
-        "Pulau Laut"
+        "Pulau Laut",
+        "Laut Island"
       ],
       "sources": [
         "bwaquatics",
@@ -25,20 +26,22 @@
       ],
       "quotes": [
         {
-          "source": "bwaquatics",
-          "quote": "Wild-caught Betta ideii from Indonesia, from the Betta unimaculata complex.",
+          "source": "seriouslyfish",
+          "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
           "countries": [
             "ID"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
-          "countries": [],
           "regions": [
             "Borneo",
             "Pulau Laut"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Known only from South Kalimantan and Laut Island, Borneo.",
+          "countries": [],
+          "regions": [
+            "Laut Island"
           ]
         }
       ]
@@ -66,43 +69,43 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 26
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 22,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 5.5,
           "max": 7.5
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": 11
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 11
       }
     ],
@@ -133,7 +136,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
-      "html": "<ul><li>Wild-caught Betta ideii from Indonesia, from the Betta unimaculata complex.</li><li>Mouthbrooder.</li><li>Maximum size: 10–11 cm (4–4.5 inches).</li><li>Temperature: 22–28 °C (72–82 °F).</li><li>pH: 5.0–7.0.</li><li>TDS: about 60–100.</li><li>IUCN Red List: not listed.</li></ul>"
+      "html": "<p>From the Betta unimaculata complex. IUCN Red List: Data Deficient (not enough information to assess its risk). Wild-caught fish are offered from Meratus, South Kalimantan.</p><p>Betta ideii was described in 2006. Before it was named it was traded as Betta sp. \"Laut\". It is closely related to Betta patoti and the two can be hard to tell apart. In ideii the iridescence is more spread out and the scaling looks more numerous, and males show an orange patch in front of the eye running into the upper lip, plus a white vertical patch on the lower lip.</p>"
     },
     {
       "key": "quickFacts",
@@ -148,16 +151,34 @@
       "html": "<p>Appears to be restricted to southern parts of the Indonesian province of Kalimantan Selatan (South Kalimantan), Borneo and Pulau Laut (Laut Island). The latter is a small (about 97 km long by 32 km wide) island separated from Borneo by a narrow strip of water known as the Laut Strait.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Known only from South Kalimantan and Laut Island, Borneo.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-ideii",
       "html": "<p>The official description mentions that the fish were collected from coastal basins draining into the Laut Strait but more specific details are unavailable at present.</p><p>Presumably it inhabits similar kinds of environment to other species in the B. unimaculata group, i.e., forested streams containing relatively clear, flowing water.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Presumed to be clear, flowing forest streams like other unimaculata-complex species; no water measurements have been published.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-ideii",
       "html": "<p>An aquarium with base measurements of 90 × 30 cm (36 × 12 in) or equivalent is sufficient for a single pair, with something larger required for a group. Volume is about 81 litres.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Recommended 1 pair per 10 gallons (40 litres), or 20 gallons (80 litres) for breeding. Give a pair plenty of caves and cover to break line of sight.</p>"
     },
     {
       "key": "maintenance",
@@ -169,7 +190,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
-      "html": "<p>TDS about 60–100; pH 5.0–7.0; temperature 22–28 °C (72–82 °F). Cooler temperatures are preferred, but higher temperatures induce coloration and breeding behaviour.</p>"
+      "html": "<p>TDS: 60 to 100. pH: 5.0 to 7.0. Temperature: 22 to 28°C (they prefer cooler water, but warmer water brings out colour and breeding behaviour).</p>"
     },
     {
       "key": "waterConditions",
@@ -181,7 +202,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
-      "html": "<p>Carnivorous. Fed on live, frozen and dried foods, such as blackworms, frozen bloodworms and pellets.</p>"
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -193,7 +214,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
-      "html": "<p>Like many species in this complex, which includes the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank, as they can eat anything that fits in their large mouth.</p>"
+      "html": "<p>Aggressive. Best kept in a species-only tank, since they will eat any fish that fits in their mouth.</p>"
     },
     {
       "key": "behaviour",
@@ -208,10 +229,16 @@
       "html": "<p>Males grow larger, are more colourful, possess a broader head shape, and develop more extended fins than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
+      "html": "<p>Males have longer fins than females. Males show an orange patch in front of the eye and a white patch on the lower lip. Females are duller.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
-      "html": "<p>Mouthbrooder.</p>"
+      "html": "<p>Paternal mouthbrooder. The female collects the eggs during spawning and passes them to the male, who holds them in his mouth for about 13 to 18 days. Soft, acidic water helps trigger spawning. Keep the tank quiet and leave a holding male alone, since a disturbed male may swallow or spit out the brood. He releases fully formed fry that can eat baby brine shrimp right away.</p>"
     },
     {
       "key": "reproduction",
@@ -223,7 +250,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish",
-      "html": "<p>Betta ideii is a mouthbrooding betta in the Unimaculata complex. It is closely related to Betta patoti and the two can be difficult to tell apart. Males have unique iridescence and scaling throughout their bodies, including the typical blue coloration on the cheeks and lower jaw. In B. ideii, this iridescence is much more widespread and the scaling appears to be more numerous. B. ideii also has an orange patch in front of the eye running continuous with the upper lip, as well as a white vertical patch that is noticeable on the lower lip.</p>"
+      "html": "<p>Physical characteristics: body long and slender with a large, blunt head; long anal fin and rounded to pointed caudal fin. Iridescent scaling across the whole body, more widespread than in Betta patoti, including blue scales on the cheeks and lower jaw. Dark brown body with blue iridescence.</p><p>Health: fish in this complex are reported to be very prone to ich and velvet during the first few weeks after import, so watch new arrivals closely.</p>"
     },
     {
       "key": "notes",
@@ -251,7 +278,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "SxfuJXbq7Zw",
+      "title": "Betta ideii! Ikan Cupang Liar Endemik Kalimantan yang Punya Corak Unik 🐟#IkanCupangLiar #IkanHias",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "M-28lKWnfj0",
+      "title": "Betta ideii",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aL3C-UVlqfo",
+      "title": "wild betta ideii",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "V5v6f0wGBvI",
+      "title": "Wild Betta Ideii Meratus",
+      "durationSec": 20,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -279,5 +331,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

@@ -1,8 +1,8 @@
 {
   "id": "acrochordonichthys-rugosus",
   "native": {
-    "input": "ed7b841b2f63987f",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "6ccc7d0d7ebd1e09",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "ID",
@@ -13,19 +13,19 @@
         "ok": true
       },
       {
-        "code": "MY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The Asian banjo catfish, Acrochordonichthys rugosus, is an akysid catfish from Java, Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
-        "words": "Malaysia",
-        "ok": true
-      },
-      {
         "code": "TH",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "The Asian banjo catfish, Acrochordonichthys rugosus, is an akysid catfish from Java, Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
         "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Asian banjo catfish, Acrochordonichthys rugosus, is an akysid catfish from Java, Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
+        "words": "Malaysia",
         "ok": true
       },
       {
@@ -46,12 +46,6 @@
       }
     ],
     "regions": [
-      {
-        "name": "Solo",
-        "source": "seriouslyfish",
-        "quote": "Type locality is the city of Surakarta in central Java, Indonesia, but as currently accepted this species is widely-distributed having been recorded from the Solo, Ciliwung and Citarum River drainages in Java, the Barito, Kapuas, Mahakam and Rajang River drainages in Kalimantan province, Indonesian Borneo, the Musi and Tulangbawan River drainages in Sumatra and the Bernam, Terengganu, Mae Nam Sungai Kolok, and Pattani River drainages in Peninsular Malaysia and southern Thailand.",
-        "ok": true
-      },
       {
         "name": "Java",
         "source": "seriouslyfish",
@@ -77,11 +71,16 @@
         "ok": true
       },
       {
-        "name": "Malay Peninsula",
-        "source": "scotcat",
-        "quote": "This species is widely distributed across Java, Borneo, Peninsular Malaysia, southern Thailand, and Sumatra.",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the city of Surakarta in central Java, Indonesia, but as currently accepted this species is widely-distributed having been recorded from the Solo, Ciliwung and Citarum River drainages in Java, the Barito, Kapuas, Mahakam and Rajang River drainages in Kalimantan province, Indonesian Borneo, the Musi and Tulangbawan River drainages in Sumatra and the Bernam, Terengganu, Mae Nam Sungai Kolok, and Pattani River drainages in Peninsular Malaysia and southern Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Solo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the city of Surakarta in central Java, Indonesia, but as currently accepted this species is widely-distributed having been recorded from the Solo, Ciliwung and Citarum River drainages in Java, the Barito, Kapuas, Mahakam and Rajang River drainages in Kalimantan province, Indonesian Borneo, the Musi and Tulangbawan River drainages in Sumatra and the Bernam, Terengganu, Mae Nam Sungai Kolok, and Pattani River drainages in Peninsular Malaysia and southern Thailand.",
+        "ok": true
       }
     ],
     "disputed": [],

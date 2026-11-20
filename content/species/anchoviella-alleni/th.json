@@ -1,0 +1,19 @@
+{
+  "slug": "anchoviella-alleni",
+  "name": "ปลาแอนโชวี่น้ำจืด",
+  "altNames": [
+    "Freshwater Anchovy",
+    "Amazon Freshwater Anchovy"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Anchoviella alleni เป็นปลาในวงศ์ปลากะตัก (Engraulididae) เพียงไม่กี่ชนิดที่อาศัยอยู่ในน้ำจืดเท่านั้น ปลาชนิดนี้โตได้ยาวสุดประมาณ 10 ซม.</p>",
+    "dimorphism:glaser": "<p>ตัวที่คาดว่าเป็นตัวผู้มีลำตัวเพรียวกว่า ตัวใหญ่กว่าเล็กน้อย และกระเพาะลมมีรูปร่างต่างออกไปเมื่อเทียบกับตัวที่คาดว่าเป็นตัวเมีย</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  }
+}

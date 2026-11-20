@@ -1,14 +1,17 @@
 {
   "slug": "thay-nuoc",
   "name": "Thay nước",
-  "altNames": [],
+  "altNames": [
+    "water change"
+  ],
   "sections": {},
   "linkNames": [
     "thay nước định kỳ"
   ],
-  "definition": "Việc hút bỏ một phần nước bể và thay bằng nước sạch đã khử clo, cùng nhiệt độ và thông số tương tự. Thay 20–30% mỗi tuần giúp giảm nitrat và chất thải hòa tan; với cá nhạy cảm, nên thay ít nhưng đều thay vì thay nhiều một lần.",
+  "body": "<h3>Nước dùng để thay</h3>\n<p>Nước máy thường có clo hoặc cloramin, đều độc với cá.</p>\n<p>Một tạp chí cá cảnh ghi:</p>\n<ul>\n<li>Vi khuẩn nitrat hóa dùng hết cacbonat và bicacbonat, chất đệm giữ pH. Mỗi lần thay nước, nước máy châm vào sẽ bù lại phần này.</li>\n<li>Nước cất và nước RO không có cacbonat hay bicacbonat, nên không bù được độ kiềm. Tạp chí này không khuyên người mới dùng chúng cho bể nước ngọt.</li>\n<li>Nếu nước máy ít độ kiềm thì có thể thêm san hô vụn hoặc cát aragonite.</li>\n</ul>\n<h3>Nên làm gì</h3>\n<p>Ba nguồn ghi ba mức thay khác nhau:</p>\n<ul>\n<li>Tạp chí này: muốn giữ chất dinh dưỡng và độ kiềm trong tầm kiểm soát thì lúc đầu thay ít nhất 20% nước, mỗi tháng một lần.</li>\n<li>Một tiệm ở Việt Nam: mỗi lần thay khoảng 20–30%, giữ lại ít nhất 70% nước cũ.</li>\n<li>Một tiệm khác ở Việt Nam, cho bể thủy sinh: mỗi lần thay 30–50%, không bao giờ thay quá 50% một lần.</li>\n</ul>\n<p>Tiệm thứ nhất cũng ghi các bước như sau:</p>\n<ol>\n<li>Tắt máy bơm, máy sưởi và đèn.</li>\n<li>Cạo tảo trên kính, tráng sơ những món trang trí bị bẩn.</li>\n<li>Hút chất bẩn dưới nền, làm xong khu này mới sang khu khác. Giữ cá tránh xa đầu hút. Không rút cạn bể, cũng không để vật liệu lọc vi sinh đã chạy lâu bị khô.</li>\n<li>Giũ bông lọc trong nước cũ của bể để vi khuẩn có lợi còn sống.</li>\n<li>Châm nước mới từ từ, không dội thẳng vào cá, và chỉnh dần nhiệt độ nước mới cho bằng nhiệt độ bể. Nhiệt độ bể không nên đổi quá 0,5 °C mỗi giờ.</li>\n</ol>\n<p>Tiệm thứ hai cũng ghi:</p>\n<ul>\n<li>Đo amoniac, nitrit và nitrat sau khi châm nước.</li>\n<li>Cần dùng nước máy ngay thì có thể trung hòa clo bằng natri thiosunfat (\"Thiosunfat\").</li>\n<li>Không rửa vật đựng nước mới bằng xà phòng, vì cặn xà phòng hại cá.</li>\n<li>Nước mưa chỉ dùng sau 3–4 trận mưa đầu mùa, vì mấy trận đầu thường bẩn.</li>\n<li>Mở vòi cho nước chảy chừng 5 phút rồi mới hứng, và trữ nước ở chỗ mát, thoáng.</li>\n</ul>\n<h3>Sai lầm hay gặp</h3>\n<p>Tạp chí này cảnh báo về hội chứng bể cũ (old tank syndrome):</p>\n<ul>\n<li>Khi độ kiềm cạn dần thì pH tụt, và amoniac chuyển sang dạng amoni, ít độc hơn.</li>\n<li>Lúc thay nước, pH lên lại và amoni trở về thành amoniac độc.</li>\n<li>Cá có thể chết không lâu sau lần thay đó.</li>\n</ul>\n<p>Tiệm thứ nhất ghi rằng thay 100% nước sẽ làm mất vi khuẩn có lợi đã ổn định trong bể và làm cá sốc, có thể khiến cá lờ đờ, thậm chí chết hàng loạt.</p>\n<p>Tiệm thứ hai cũng ghi:</p>\n<ul>\n<li>Thay nước quá thường xuyên làm xáo trộn vi khuẩn trong lọc, và nhiệt độ cùng pH đổi nhanh.</li>\n<li>Dấu hiệu cá căng thẳng sau khi chuyển bể hay thay nước gồm đổi màu, ít hoạt động, bỏ ăn và đỏ mắt.</li>\n</ul>",
+  "definition": "Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới vào; nước máy thì phải khử clo trước.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }

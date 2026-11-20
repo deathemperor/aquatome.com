@@ -1,0 +1,28 @@
+{
+  "slug": "devario-blood-tail",
+  "name": "Devario Blood Tail",
+  "altNames": [
+    "Blood Tail Devario",
+    "Danio Blood Tail",
+    "Danio annandalei",
+    "Annandale's Devario"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Devario annandalei bisa mencapai panjang sekitar 10 cm. Ikan ini hidup bergerombol, dan sirip ekornya punya kulit merah yang mencolok di antara jari-jari siripnya. Dari situlah asal nama dagangnya, \"blood tail\" (ekor darah).</p>",
+    "distribution:glaser": "<p>Devario annandalei berasal dari Burma (Myanmar) dan dari wilayah subtropis.</p>",
+    "maintenance:glaser": "<p>Soal perawatan dan pemijahan, pada dasarnya tidak ada perbedaan dengan Devario malabaricus yang sudah sangat dikenal. Satu-satunya pengecualian ada pada suhu air. Karena D. annandalei berasal dari wilayah subtropis, sebaiknya ikan ini sesekali dipelihara di air yang sedikit lebih sejuk (sesuai suhu ruangan).</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-20"
+  }
+}

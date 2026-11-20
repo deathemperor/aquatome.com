@@ -10,6 +10,107 @@
     "brazil",
     "parana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraná",
+        "Rio Piracicaba"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Paraná River basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Paraná"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Rio Piracicaba, junto ao Salto; ao 20 klm abaixo (ilha das Flechas) [São Paulo, Brazil].",
+          "countries": [],
+          "regions": [
+            "Rio Piracicaba"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340626,
+      "total": 18,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -53.4375,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          -46.40625,
+          -19.6875,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,7 @@ import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
+import { houseForm, openDiseaseGuides } from './glossary-dose'
 import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, siteOf, type TopicFacts, viFacts } from './topics'
@@ -53,9 +54,15 @@ type Asks = {
   /**
    * Other names the entry no longer lists, as the saved entry writes them: other names are otherwise only added, so a
    * wrong one stayed (the chief of staff, 16 Nov 2026: "dGH" under GH is its unit; "thức ăn viên" under dry food names
-   * one form, pellets).
+   * one form, pellets). A link phrase they name goes too: "lớp nền" and "vật liệu nền" name any bed, not sand (the chief
+   * of staff, 20 Nov 2026, of Nền cát).
    */
   notNames?: string[]
+  /**
+   * Link phrases the term carries, besides those it has: a page that writes one links the term (the chief of staff, 20 Nov
+   * 2026: "lớp nền" and "vật liệu nền" are Nền bể's, the whole bed's).
+   */
+  linkNames?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -362,6 +369,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)
+  // The house form for a medicine's dose is the site's own sentence, not the facts' claim: the fact check passes it whole.
+  const guides = await openDiseaseGuides(root)
+  const pass = (text: string) => houseForm(text, guides)
   const terms = others.map(x => `${x.id}: ${x.name}: ${x.definition}`).join('\n')
   const kinds = [
     asks.local?.length ? `--- LOẠI BÁN Ở VIỆT NAM ---\n${asks.local.join('\n')}` : '',
@@ -396,7 +406,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const check = async (e: Entry): Promise<Checked> => {
     const long = size(e)
     if (long.stop) return { score: 0, notes: long.notes, broken: long.notes.length, stops: 1, unread: true }
-    const [f, r] = await Promise.all([checkSentences(d.llm, forCheck, e), rules(e)])
+    const [f, r] = await Promise.all([checkSentences(d.llm, forCheck, e, pass), rules(e)])
     const unborne = f.stops.map(stopNote)
     return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose, stopped: f.stops }
   }
@@ -434,7 +444,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const heldTo = async (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => {
     const lost = dropsFrom(base, e, freed)
     if (o.revise || !lost.length) return lost
-    savedStops ??= (await checkSentences(d.llm, forCheck, base)).stops
+    savedStops ??= (await checkSentences(d.llm, forCheck, base, pass)).stops
     return dropsFrom(base, e, [...freed, ...savedStops])
   }
   if (o.accept) {
@@ -483,7 +493,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       // Its rewordings may not take the entry past its length, or make one already past it longer (the chief of staff, 15 Nov
       // 2026: Artemia's took 455 words to 480, past its stop): an entry with no note on its length keeps none, or is no longer.
       const before = words(w.body), fits = (e: Entry) => words(e.body) <= before || !size(e).notes.some(n => n.startsWith('The entry is'))
-      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forCheck, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)], fits })
+      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forCheck, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)], fits, pass })
       w = m.entry
       review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes]
       review.stops = stopping(review) + m.stops.length
@@ -518,10 +528,14 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // other name kept before it ("Oxy hoà tan" beside "Oxy hòa tan"), stays a link phrase: a page that writes it so still links
   // the term and counts toward it (Codex, 19 Nov 2026). A link phrase in the other placing turns only a name the writer adds
   // into one, never a saved other name: that phrase may be a saved name's own other placing, kept by an earlier save. A name
-  // its notes take off isn't added back, in either placing, as an other name or a link phrase.
+  // its notes take off isn't added back, in either placing, as an other name or a link phrase, and a saved link phrase they
+  // take off goes. A link phrase the notes give is added once.
   const off = new Set((asks.notNames ?? []).map(toneKey))
-  const otherKeys = new Set([toneKey(vi.name)]), linked = new Set((vi.linkNames ?? []).map(toneKey))
-  const literal = new Set([vi.name, ...(vi.linkNames ?? [])].map(n => n.toLowerCase()))
+  const stays = (vi.linkNames ?? []).filter(n => !off.has(toneKey(n)))
+  const given: string[] = []
+  for (const n of asks.linkNames ?? []) if (!off.has(toneKey(n)) && ![...stays, ...given].some(x => toneKey(x) === toneKey(n))) given.push(n)
+  const otherKeys = new Set([toneKey(vi.name)]), linked = new Set([...stays, ...given].map(toneKey))
+  const literal = new Set([vi.name, ...stays, ...given].map(n => n.toLowerCase()))
   const altNames: string[] = [], variants: string[] = []
   offered.forEach((n, i) => {
     if (!n || off.has(toneKey(n))) return
@@ -536,8 +550,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // live. So the mark goes with the save and doesn't outlive the cut. Not with an accepted draft: it is saved as it was
   // kept, perhaps written while the writer still saw a refused site's facts, and nothing has read it against them since.
   const { bodyFixed: _cut, ...unmarked } = vi
+  const links = [...stays, ...given, ...variants]
   const t = TranslationSchema.parse(metricPage({
-    ...(o.accept ? vi : unmarked), altNames, ...(variants.length ? { linkNames: [...(vi.linkNames ?? []), ...variants] } : {}), definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
+    ...(o.accept ? vi : unmarked), altNames, ...(links.length || vi.linkNames ? { linkNames: links } : {}), definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
   // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,

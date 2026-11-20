@@ -624,6 +624,45 @@
       "kept": false
     }
   ],
+  "vi/products/oase-biomaster-250": [
+    {
+      "at": "2026-11-20T01:47:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.8,
+      "notes": [
+        "\"nên thùng chính lâu bẩn và lâu mới phải mở\" is fine, but \"Eheim ... bền và êm\" drops the facts' \"reliable and quiet\" nuance. This one is supported.",
+        "\"Shop ở Việt Nam ghi cỡ bể cho từng bản\" and \"shop ghi bể dưới 800 lít, dù tên máy là 850\" go further than the facts. They add a commentary that the facts don't state, though the 800 L figure is supported.",
+        "\"Máy này không có ngăn lọc thô và không có nút mồi\" is supported. \"dùng cho bể cỡ tương tự mà rẻ hơn nhiều\" is also supported.",
+        "\"Oase FiltoSmart 300 ... gọn hơn\" is supported. The page leaves out that the listing was out of stock. That is an omission, not an invention.",
+        "\"Bản Thermo 250 ... chỉ gắn thêm sưởi bên trong\" is fine. The page leaves out the 150 W heater detail.",
+        "\"Bản của nhà phân phối ở Việt Nam chạy điện 230 V / 50 Hz\" is supported.",
+        "\"nghe nói sau khi bị phàn nàn ... Oase đã sửa đầu bơm\" is hedged as in the facts (\"reportedly\"). The heading \"Đầu bơm đời mới\" is a mild extrapolation.",
+        "\"con số ghi trên hộp\" (the figure printed on the box) is not in the facts. The facts only say \"weaker than the rating\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T01:47:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.85,
+      "notes": [
+        "\"có van khóa ở khớp nối, nên thùng chính lâu bẩn và vệ sinh ít đổ nước\" – mostly supported, but linking the valves to the main canister staying clean longer is a slight blend of two separate facts.",
+        "\"Eheim Classic 350 (2215): lọc thùng đơn giản, bền và êm\" – the facts say \"reliable and quiet\"; \"bền\" is roughly equivalent, so this is fine.",
+        "\"Oase FiltoSmart 300: ... rẻ hơn và gọn hơn\" – the facts say cheaper and compact, so this is supported.",
+        "\"Oase BioMaster Thermo 350: ... lưu lượng cao hơn\" – supported only loosely, since the facts give flow for the 350 but not for the Thermo 350.",
+        "\"Bản đang bán hiện nay mang tên BioMaster² (250)\" – supported.",
+        "\"BioMaster 250: shop ghi dành cho bể dưới 250 lít\" – supported.",
+        "\"Bản của nhà phân phối ở Việt Nam chạy điện 230 V / 50 Hz\" – supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/oase-biomaster-600-thermo": [
     {
       "at": "2026-11-18T19:46:50Z",
@@ -770,6 +809,45 @@
         "\"Nếu bể của bạn cần nước mềm, pH thấp cho cây hay cá thì nó không lo được phần đó\" and \"Ai trồng cây khó... nên cân nhắc loại khác\": a recommendation that goes beyond the facts, though it is loosely supported by the Amazonia comparison.",
         "\"Nên xem bảng giá trước khi chốt\": refers to a price table that does not exist, since no prices are given. \"Nhét phân cạnh gốc cây\" is an embellishment of root tabs.",
         "\"nên cứ rửa kỹ cho yên tâm\" and \"nên dành nhiều thời gian rửa hơn\": advice not in the facts, and mild."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/tropica-aquarium-soil": [
+    {
+      "at": "2026-11-20T10:45:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.7,
+      "notes": [
+        "\"Bao 9 L: loại hạt thường, cỡ bao các shop hay bán\" – the facts don't say it is the size most shops sell.",
+        "\"khả năng giữ pH ngắn hơn\" (intro) – the comparison only gives 12–18 months for this soil, and 18–24 for ADA. It doesn't say the soil holds pH for a shorter time than ADA in those words. This is a mild inference.",
+        "\"Có thể đổ dốc dần về phía sau\" – the facts only say you can slope the soil. They don't say which direction.",
+        "\"vì Dennerle nhả ít amoniac hơn lúc đầu\" – the facts give this as a Dennerle trait. They don't say it is the comparison's stated reason for the shrimp advice, so this is a mild inference.",
+        "\"Nếu bể nuôi tép Caridina hoặc không chịu được amoniac thì cũng bài đó khuyên chọn Dennerle\" – this is supported. \"Hàng chiết lẻ\" omits the 120,000₫ price, which is not an error.",
+        "\"nền nuôi cây suốt hai năm mà không phải nhét thêm phân\" – the facts say \"without root tabs\". This is roughly equivalent and acceptable.",
+        "\"Nuôi tép có hợp không? Các shop có bán nó cho bể tép\" – this is supported."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:45:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"Bao đã mở thì buộc kín miệng lại\" - the facts say reseal, which is close, but \"buộc\" (tie) is a small embellishment.",
+        "\"Nền dùng được bao lâu? ... Một người chơi kể nền nuôi cây được hai năm\" - the facts only say it fed plants for two years without root tabs. The page presents this as a lifespan of the soil, which turns the fact around.",
+        "\"Hàng chiết lẻ: ... hỏi lại shop xem được bao nhiêu lít\" - this is an invented recommendation. It is mild and not in the facts.",
+        "\"Trồng cây tiền cảnh nhỏ và cây trải thảm trên loại này dễ hơn\" (Powder bullet) - supported by the alternatives entry, but the Powder is described as finer grain \"dành cho cây tiền cảnh\", and the page repeats the claim.",
+        "\"Một shop khác thì khuyên thay 2–3 lần một tuần sau khi set bể\" and \"mỗi tuần hai lần\" - the facts say twice a week for 4 weeks. The page is consistent with this.",
+        "\"các loại trộn sẵn trong nước\" - the facts say \"local mixes\". This is a loose paraphrase.",
+        "\"nghe nói giữ pH lâu hơn so với số tiền bỏ ra\" - supported. The page omits that the facts say Dennerle is \"good for shrimp tanks\", but this is not an error.",
+        "The intro says it is a complete nutrient substrate and \"hợp với bể Hà Lan\". It states the comparison's claim accurately, but it never notes the shop claim that the soil lowers pH, so it ignores that spec. This is a minor omission and not an error."
       ],
       "attempt": "first",
       "kept": true

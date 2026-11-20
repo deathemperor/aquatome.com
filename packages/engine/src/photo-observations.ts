@@ -72,11 +72,12 @@ export function compactVerdict<T extends Record<string,any>>(v:T):T & {note:stri
   const note=photoReason(v),old=typeof v.note==='string'?v.note:''
   return {...out,note,noteHash:old===note&&digest(v.noteHash)?v.noteHash:observationHash(old),hints:photoHints(v)} as T & {note:string;noteHash:string;hints:PhotoHints}
 }
-const REASONS=['watermark','people','dead','logo','face','faces','subject','too poor to show','unwell','rejected'] as const
+// `waiting`: a photo off at its first verdict of dead or a person, waiting for its second look (last-photo.ts).
+const REASONS=['watermark','people','dead','logo','face','faces','subject','too poor to show','unwell','rejected','waiting'] as const
 /** Keep the watermark: prefix exactly: it is part of the permitted-own-logo exception. */
 export function compactRejection(s:string):string {
   if(!s)return s
-  if(/^(?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected): withheld \[sha256:[a-f0-9]{64}\]$/.test(s))return s
+  if(/^(?:watermark|people|dead|logo|face|faces|subject|too poor to show|unwell|rejected|waiting): withheld \[sha256:[a-f0-9]{64}\]$/.test(s))return s
   const category=REASONS.find(k=>s.startsWith(k+':'))??'rejected'
   return `${category}: withheld [sha256:${observationHash(s)}]`
 }
