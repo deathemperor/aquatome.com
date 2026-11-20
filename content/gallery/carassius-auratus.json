@@ -136,18 +136,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/232769761.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/232769761-480.webp",
-      "width": 1024,
-      "height": 667,
-      "licence": "CC0",
-      "author": "John Cull",
-      "sourceUrl": "https://www.inaturalist.org/photos/232769761",
-      "caption": "Cá vàng màu nhạt bơi giữa đám cỏ nước",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/295500884.webp",
       "thumb": "https://media.aquatome.com/inaturalist/295500884-480.webp",
       "width": 768,
@@ -222,6 +210,18 @@
       "author": "Jeff Clark",
       "sourceUrl": "https://www.inaturalist.org/photos/165664632",
       "caption": "Cá vàng màu cam bơi trong nước ao đục",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/232769761.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/232769761-480.webp",
+      "width": 1024,
+      "height": 667,
+      "licence": "CC0",
+      "author": "John Cull",
+      "sourceUrl": "https://www.inaturalist.org/photos/232769761",
+      "caption": "Cá vàng màu nhạt bơi giữa đám cỏ nước",
       "best": false,
       "kind": "habitat"
     },
