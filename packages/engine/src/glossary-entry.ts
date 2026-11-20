@@ -10,7 +10,7 @@ import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { houseForm, openDiseaseGuides } from './glossary-dose'
+import { guideNotes, houseForm, openDiseaseGuides } from './glossary-dose'
 import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, siteOf, type TopicFacts, viFacts } from './topics'
@@ -90,6 +90,9 @@ const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fis
 10. A comparison the FACTS don't make ("it lowers pH more than other woods").
 11. "Rêu" (moss) is used for algae, which is "tảo", as the TERMS have it.
 12. A line under THIS TERM is not followed.
+13. An amount is given for a medicine: a dose, a part or a multiple of one ("nửa liều", "gấp đôi"), or how long a course lasts. A medicine is a drug or a treatment for a disease or a pest: an antibiotic, a parasite treatment, aquarium salt used as a treatment, an algaecide. A fertiliser, a water conditioner (thiosulfate) and the water values a keeper aims for (nitrate, phosphate, pH, a water change's share) are not. Note the amount wherever it stands. Don't note a sentence for where it sends the reader (a guide under OPEN GUIDES, or the label): those are checked apart. Don't note an entry for lacking a dose line.
+14. Under a heading, the first sentence that goes back to a source already named calls it "… này" ("tiệm này", "hội này") while two sources of its kind are named before it: it should say which one ("Tiệm thứ nhất", "Tiệm thứ hai").
+15. A section holds what its heading doesn't say: under "Trong bể của bạn", anything but what the thing does in the tank, its numbers and its signs there; under "Nên làm gì", anything but what the reader does; or mistakes stand under "Sai lầm hay gặp" where no fact calls them common. It should be headed by what it holds, in two to five words, or "Sai lầm cần tránh".
 Start each note with the number of the rule it breaks, as "Rule 4: …" or "Rules 4 and 12: …". Reply {"notes": [...]}, empty if the entry keeps every rule.`
 const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes: { type: 'array', items: { type: 'string' } } } }
 
@@ -107,9 +110,11 @@ export type Draft = { score: number; broken: number; notes: string[]; entry: Ent
  * What each house rule's break does (the chief of staff, 14 Nov 2026: "which notes stop a save (facts, names,
  * contradictions) and which are advice (repetition, order, a length within about 15 percent)"). A stop keeps the entry
  * from the reader until a rewrite clears it; advice goes to the rewrite and never stops a save. Chemicals, terms used
- * against their definitions, brands, safety, comparisons the facts don't make and "rêu" for algae stop, as facts do.
+ * against their definitions, brands, safety, comparisons the facts don't make and "rêu" for algae stop, as facts do. So
+ * does an amount for a medicine (the chief of staff, 20 Nov 2026); a credit after a heading that doesn't say which source,
+ * and a heading that doesn't say what its section holds, are advice.
  */
-export const RULE_SIDE: Record<number, 'stop' | 'advice'> = { 1: 'stop', 2: 'stop', 3: 'stop', 4: 'advice', 5: 'stop', 6: 'stop', 7: 'advice', 8: 'stop', 9: 'stop', 10: 'stop', 11: 'stop', 12: 'advice' }
+export const RULE_SIDE: Record<number, 'stop' | 'advice'> = { 1: 'stop', 2: 'stop', 3: 'stop', 4: 'advice', 5: 'stop', 6: 'stop', 7: 'advice', 8: 'stop', 9: 'stop', 10: 'stop', 11: 'stop', 12: 'advice', 13: 'stop', 14: 'advice', 15: 'advice' }
 /** A rules note stops a save when a rule it names stops, or when it names none. */
 export const stops = (note: string) => { const r = ruleNumbers(note); return !r.length || r.some(x => RULE_SIDE[x] !== 'advice') }
 
@@ -388,15 +393,16 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // for word (the chief of staff, 14 Nov 2026: Lũa's three whole rewrites each brought fresh notes and didn't converge).
   const write = (notes?: string[], before?: Entry) => d.llm<Entry>({
     system: 'You write Vietnamese aquarium glossary entries from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: ENTRY_SCHEMA,
-    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác. Quá dài thì bỏ hoặc rút gọn câu, không viết lại câu khác. Chỉ thêm câu khi ghi chú nói thiếu, và chỉ viết điều dữ kiện có. Các ghi chú:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
+    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác. Quá dài thì bỏ hoặc rút gọn câu, không viết lại câu khác. Chỉ thêm câu khi ghi chú nói thiếu, và chỉ viết điều dữ kiện có. Các ghi chú:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- BÀI CHỮA BỆNH ĐANG MỞ (tên bài) ---\n${guides.map(g => g.title).join('\n') || '(không có bài nào)'}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
   })
   const rules = async (e: Entry) => {
     const k = kindNames(e, taxa)
     const notes = (await d.llm<{ notes?: string[] }>({
       system: 'You check a Vietnamese glossary entry against house rules. Reply only with JSON.', model: 'opus', schema: RULES_SCHEMA,
-      prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- KIND WORDS ---\n${k.fit.map(x => x.name).join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
+      prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- OPEN GUIDES ---\n${guides.map(g => g.title).join('\n') || '(none)'}\n\n--- KIND WORDS ---\n${k.fit.map(x => x.name).join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
     })).notes ?? []
-    return judgeKindNames(notes, k, ruleNumbers)
+    // Rule 13's pointers are checked in code: a sentence that sends the reader to a guide is the house form by an open one.
+    return [...judgeKindNames(notes, k, ruleNumbers), ...guideNotes(e, guides)]
   }
   // The length is counted before any paid read (the chief of staff, 15 Nov 2026: dry food and Artemia each paid about $3 of
   // reads to stop on a word count). An entry past its stop can't be saved, so it isn't read: its length notes go back to the

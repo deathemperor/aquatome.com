@@ -426,6 +426,11 @@ test('a draft that stops is rewritten from itself, twice if need be; advice alon
   expect(writes[0]).toContain('write "rễ cây ngập mặn", never "đước"')
   expect(rules[0]).toContain('--- THIS TERM ---\nBoiling, said once')
   expect(rules[0]).toContain('12. A line under THIS TERM is not followed.')
+  // The headings rule (the Writing Lead, with the chief of staff's yes, 20 Nov 2026): the set headings hold only what they
+  // say, any other section is headed by what it holds, and mistakes are "common" only where a fact says so. Advice only.
+  expect(writes[0]).toContain('nếu không thì dưới "Sai lầm cần tránh"')
+  expect(writes[0]).toContain('Phần nào chứa điều khác thì đặt tiêu đề theo đúng điều nó chứa')
+  expect(rules[0]).toContain('15. A section holds what its heading doesn\'t say')
   // A disagreement is said once, with what to do only where the facts say it: the say-once rule asked chu trình nitơ and pH
   // for advice their facts don't give, and the writer wrote it (14 Nov 2026).
   expect(rules[0]).toContain('with what the keeper can do about it only where the FACTS say what to do; where they don\'t, it is said once and left')
@@ -465,7 +470,8 @@ test('one table says which notes stop a save and which are advice; a kept draft 
   expect(ruleNumbers('Rules 4 and 12: x')).toEqual([4, 12])
   expect(ruleNumbers('Rule 7: x')).toEqual([7])
   expect(ruleNumbers('Mopani "hợp Betta"')).toEqual([])
-  expect(Object.entries(RULE_SIDE).filter(([, v]) => v === 'advice').map(([k]) => Number(k))).toEqual([4, 7, 12])
+  expect(Object.entries(RULE_SIDE).filter(([, v]) => v === 'advice').map(([k]) => Number(k))).toEqual([4, 7, 12, 14, 15])
+  expect(RULE_SIDE[13]).toBe('stop')
   expect(['Rule 4: x', 'Rules 7 and 12: x', 'Rule 12: x'].map(stops)).toEqual([false, false, false])
   expect(['Rule 1: x', 'Rules 4 and 6: x', 'Rule 11: x', 'An unnumbered note'].map(stops)).toEqual([true, true, true, true])
   expect(refusals(sixth)).toEqual([])
@@ -1165,4 +1171,36 @@ test('the step\'s fact check passes the house form for a medicine\'s dose unread
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
   expect(vi.body).toContain(label)
   expect(vi.body).toContain(guide)
+})
+
+// The chief of staff, 20 Nov 2026: the dose rule stops a save, for an amount given for a medicine or a pointer to "the
+// treatment guide" or to any guide that isn't open; the writer has the open guides' titles, and no address (an entry's
+// links are stripped, so an address could only be printed). A guide held while still marked for search isn't open (its
+// page answers 404).
+test('the writer and the rules read the open disease guides, and an entry that points to a held one is not saved', async () => {
+  const root = await site()
+  const guide = async (id: string, vi: object) => {
+    await mkdir(join(root, 'content/guides', id), { recursive: true })
+    await writeFile(join(root, 'content/guides', id, 'entity.json'), JSON.stringify({ id, kind: 'disease' }))
+    await writeFile(join(root, 'content/guides', id, 'vi.json'), JSON.stringify(vi))
+  }
+  await guide('fin-rot', { slug: 'ca-bi-thoi-vay-thoi-duoi', name: 'Cá bị thối vây, thối đuôi: dấu hiệu', quality: { score: 0.9, indexable: true } })
+  await guide('white-spot', { slug: 'ca-bi-dom-trang', name: 'Cá bị đốm trắng: dấu hiệu', quality: { score: 0.8, indexable: true }, held: { checks: ['dose-caution'], at: '2026-11-20' } })
+  const toHeld = 'Cách chữa đốm trắng: xem bài Cá bị đốm trắng.'
+  const writes: string[] = [], rules: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) { rules.push(prompt); return { notes: [] } as never }
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return { ...written, body: `<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p><p>${toHeld}</p>` } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(writes[0]).toContain('--- BÀI CHỮA BỆNH ĐANG MỞ (tên bài) ---\nCá bị thối vây, thối đuôi\n')
+  expect(writes[0]).not.toContain('/vi/huong-dan/')
+  expect(writes[0]).not.toContain('Cá bị đốm trắng')
+  expect(rules[0]).toContain('--- OPEN GUIDES ---\nCá bị thối vây, thối đuôi\n')
+  expect(r).toMatchObject({ id: 'lua', skipped: expect.stringMatching(/^stopped by \d+ note/) })
+  expect((r as { notes: string[] }).notes.some(n => n.startsWith('Rule 13: ') && n.includes(toHeld))).toBe(true)
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
+  expect(vi.body ?? '').not.toContain(toHeld)
 })

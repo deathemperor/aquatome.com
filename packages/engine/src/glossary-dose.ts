@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { sentences } from './glossary-facts'
 
 /**
  * The house form for a medicine's dose (the Writing Lead, with the chief of staff's yes, 20 Nov 2026): a medicine named in
@@ -18,7 +19,8 @@ export type DiseaseGuide = { title: string; address: string }
  * held (`held`, which the site leaves out: its address answers 404). The chief of staff, 20 Nov 2026: the guide form only
  * while that guide is open; five disease guides on main that day were held while still marked for search, among them the
  * white-spot guide. Its title as entries write it is its name before ": " ("Cá bị thối vây, thối đuôi"), the whole name
- * where it has none.
+ * where it has none. A title two open guides share is left out, both of them: a pointer by it can't say which guide, nor
+ * can the link the site makes from it (the chief of staff, 20 Nov 2026: two guides on main were both "Nước bể cá bị đục").
  */
 export async function openDiseaseGuides(root: string): Promise<DiseaseGuide[]> {
   const base = join(root, 'content', 'guides')
@@ -31,10 +33,10 @@ export async function openDiseaseGuides(root: string): Promise<DiseaseGuide[]> {
     if (!v?.name || !v.slug || v.quality?.indexable !== true || v.held) continue
     out.push({ title: v.name.split(': ')[0]!.trim(), address: `/vi/huong-dan/${v.slug}/` })
   }
-  return out
+  return out.filter(g => out.filter(h => h.title === g.title).length === 1)
 }
 
-const LABEL = 'Liều và cách dùng: theo nhãn thuốc.'
+export const LABEL = 'Liều và cách dùng: theo nhãn thuốc.'
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /**
@@ -51,4 +53,15 @@ export function houseForm(text: string, guides: DiseaseGuide[]): boolean {
   const pointer = /^Cách chữa (.+?): xem bài (.+)\.$/u.exec(text)
   if (!pointer || !titles.has(pointer[2]!)) return false
   return new RegExp(`(?<![\\p{L}\\p{N}])${escape(pointer[1]!.trim())}(?![\\p{L}\\p{N}])`, 'iu').test(pointer[2]!)
+}
+
+/**
+ * Rule 13's code half (the chief of staff, 20 Nov 2026: the dose rule stops a save for a pointer to "the treatment guide" or
+ * to any guide that isn't open). Every sentence that sends the reader to a guide ("xem bài", or "bài hướng dẫn chữa bệnh",
+ * the old prompt's pointer) is the house form by an open guide, or it is a note, which stops the save as Rule 13's.
+ */
+export function guideNotes(e: { definition: string; body: string }, guides: DiseaseGuide[]): string[] {
+  return sentences(e)
+    .filter(s => /xem bài|bài hướng dẫn chữa bệnh/iu.test(s.text) && !houseForm(s.text, guides))
+    .map(s => `Rule 13: "${s.text}" points to a guide that isn't an open disease guide, or isn't in the house form: write "Liều và cách dùng: xem bài <a title under OPEN GUIDES>." or "Cách chữa <the disease>: xem bài <that title>.", or, where no open guide fits, "${LABEL}"`)
 }
