@@ -29,7 +29,10 @@
 // prints "hold <file>" for each file to take from <main>, "keep <file>" for each whose record is main's and text isn't,
 // held here, "text <file>" for each of those the merge holds already, and "harm <file>" for each kept held for another
 // language's harm. HEAD is the merge, and <run> the run's commit before the pull. Any git read or file it can't parse
-// fails it, with nothing written: its caller then publishes nothing (cycle-checks.sh main_holds).
+// fails it, with nothing written: its caller then publishes nothing (cycle-checks.sh main_holds). Without <run>, as a
+// cycle that started on the older script calls it, it writes nothing and answers as that script did ("text <file>").
+// A page kept held for harm holds its every language, as gate.ts does: each the run's hold, or harm, and no language of it
+// takes main's release here (a reader of #1703).
 import { execFileSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'
 
@@ -51,17 +54,17 @@ const text = page => {
 }
 
 const [base, main, run] = process.argv.slice(2)
-if (!base || !main || !run) {
-  console.error('usage: node scripts/main-holds.mjs <base> <main> <run>')
+if (!base || !main) {
+  console.error('usage: node scripts/main-holds.mjs <base> <main> [<run>]')
   process.exit(2)
 }
 const changed = git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n').filter(f => FILE.test(f))
-// The page's other language files held for harm, in the merge.
-const harmBeside = f => {
+// The page's other language files in the merge.
+const beside = f => {
   const [, kind, id, lang] = FILE.exec(f)
   return git('ls-tree', '--name-only', 'HEAD', `content/${kind}/${id}/`)
     .split('\n')
-    .filter(s => FILE.test(s) && FILE.exec(s)[3] !== lang && at('HEAD', s)?.held?.checks?.includes('harm'))
+    .filter(s => FILE.test(s) && FILE.exec(s)[3] !== lang)
 }
 if (changed.length) {
   const out = []
@@ -78,9 +81,20 @@ if (changed.length) {
     const theirs = at(main, f)
     if (!ours || !theirs || same(ours, theirs)) continue
     if (same(text(ours), text(theirs))) out.push([ours.held && !theirs.held ? 'release' : 'hold', f])
-    else if (ours.held) out.push(['text', f])
+    else if (ours.held || !run) out.push(['text', f])
     else keeps.push([f, { ...ours, held: at(run, f)?.held ?? { checks: [], at: day } }])
   }
+  const kept = new Map(keeps)
+  for (const [f, page] of keeps) {
+    if (!page.held.checks.includes('harm')) continue
+    for (const s of beside(f)) {
+      if (kept.has(s) || out.some(([, o]) => o === s)) continue
+      const p = at('HEAD', s)
+      if (p && !p.held) kept.set(s, { ...p, held: at(run, s)?.held ?? { checks: ['harm'], at: day } })
+    }
+  }
+  // Held for harm as this ends: the merge's hold, or the one written here.
+  const harmBeside = f => beside(f).filter(s => (kept.get(s) ?? at('HEAD', s))?.held?.checks?.includes('harm'))
   // A release waits while a language beside it stays held for harm: one not let out here too, until none is left.
   const releases = new Set(out.filter(([what]) => what === 'release').map(([, f]) => f))
   for (let again = true; again; ) {
@@ -88,7 +102,7 @@ if (changed.length) {
     for (const f of releases) if (harmBeside(f).some(s => !releases.has(s))) again = releases.delete(f)
   }
   // Written once every read has passed, as gate.ts writes a hold.
-  for (const [f, page] of keeps) writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
+  for (const [f, page] of kept) writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
   for (const [what, f] of out) console.log(`${what === 'release' ? (releases.has(f) ? 'hold' : 'harm') : what} ${f}`)
-  for (const [f] of keeps) console.log(`keep ${f}`)
+  for (const f of kept.keys()) console.log(`keep ${f}`)
 }

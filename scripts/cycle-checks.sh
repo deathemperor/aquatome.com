@@ -235,9 +235,9 @@ keep_unpublished() {
   # Its callers go on to say they aren't publishing, under set -e.
   return 0
 }
-# HEAD on branch $1, and in the cloud on GitHub's branch of that name.
+# HEAD, or commit $2, on branch $1, and in the cloud on GitHub's branch of that name.
 keep_branch() {
-  git branch -q -f "$1" HEAD || return 1
+  git branch -q -f "$1" "${2:-HEAD}" || return 1
   engine_cloud || return 0
   net git push -q origin "refs/heads/$1:refs/heads/$1" || { log "$1 couldn't be pushed to GitHub: this run's work is lost with the runner"; return 1; }
 }
@@ -582,9 +582,9 @@ ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$
 # counted in the log (main-holds.mjs; the chief of staff, 20 Nov). Each in a commit of its own.
 # `main_holds <this run's HEAD before the pull> [<main>, @{u}]` is 1 when it committed holds, a tree no check has seen, so
 # the caller checks again, as a clash does. It's 2 when the holds couldn't be compared, or their commit failed: the pull is
-# undone, back to the run's own commit, and the caller publishes nothing. Until 20 Nov a failed comparison published the
-# merge as it was, and the work kept now is compared on its next try from the main this run started on, not from one
-# whose reads it would no longer see.
+# undone, back to the run's own commit, and the caller publishes nothing and keeps that commit by name, so whether or not
+# the undoing worked (a lock left in the index), the work kept is compared on its next try from the main this run started
+# on, not from one whose reads it would no longer see. Until 20 Nov a failed comparison published the merge as it was.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
   local up=${2:-} base out holds texts harms keeps
@@ -615,7 +615,7 @@ main_holds() {
 # main_holds' failure: said, and the pull undone, back to the run's commit $1.
 uncompared() {
   log "main's holds: $2, so this run's work isn't published: the pull is undone"
-  git reset -q --hard "$1"
+  git reset -q --hard "$1" 2>/dev/null || log "the pull couldn't be undone: this run's commit is $1"
 }
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
@@ -861,13 +861,14 @@ swept_clean() {
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
 # on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
 # publishes it first, after its own tests (publish_kept). Until then it stayed in the clone, whose next run starts from
-# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [<why>]`: why it
-# wasn't pushed, by default the three lost tries; a comparison of main's holds that failed (main_holds) keeps it the same way.
+# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [<why> [<commit>]]`:
+# why it wasn't pushed, by default the three lost tries; a comparison of main's holds that failed (main_holds) keeps the
+# run's own commit before its pull, named, whatever HEAD is then.
 keep_lost_push() {
   engine_clone || engine_cloud || return 0
   local branch why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
   if git show-ref -q --verify "refs/heads/$branch"; then log "$why, and $branch is already there: this run's work isn't kept"; return 1; fi
-  keep_branch "$branch" && log "$why: this run's work is kept on $branch for the next run"
+  keep_branch "$branch" "${3:-HEAD}" && log "$why: this run's work is kept on $branch for the next run"
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
@@ -883,10 +884,11 @@ replan_merged() {
 # A clean pull here brings main's holds as push() does (main_holds): a species or plant page merges by field and never
 # clashes, so a release on main before this pull would otherwise stay under the run's hold, and push(), whose base is then
 # this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
+# False when main's holds couldn't be compared: the caller keeps the run's commit it started from and publishes nothing.
+# Going on, a pull it failed to undo would leave push() nothing to compare (a reader of #1703).
 catch_up() {
   local run; run=$(git rev-parse HEAD)
-  # A comparison that failed undid the pull (main_holds): push() pulls and compares again, as after a clash here.
-  if net git pull -q --rebase; then main_holds "$run" || [ $? = 1 ] || log "checking as it started, push() compares main's holds again"; return 0; fi
+  if net git pull -q --rebase; then main_holds "$run" || [ $? = 1 ] || return 1; return 0; fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }

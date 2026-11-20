@@ -21,8 +21,9 @@ type Side = { held?: Held; body?: string; fit?: { at: string; hash: string; chec
 const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
 
 // lostPush: the run's first push loses, as main gets this side meanwhile. uncompared: the comparison of holds fails, as a
-// git read or a file it can't parse would make it.
-function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; uncompared?: boolean } = {}) {
+// git read or a file it can't parse would make it; 'locked', and it leaves a lock in the index, so the pull can't be
+// undone. oldCaller: a cycle that started on the older script calls main-holds.mjs as that script did, with two arguments.
+function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Side }, o: { mainOther?: boolean; kept?: boolean; catchUp?: boolean; lostPush?: Side; uncompared?: boolean | 'locked'; oldCaller?: boolean } = {}) {
   const { dir: pageDir, key } = KINDS[kind]
   const file = `${pageDir}/vi.json`
   const dir = mkdtempSync(join(tmpdir(), 'aq-push-hold-'))
@@ -60,7 +61,8 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     PART=photos
     log() { echo "LOG $*"; }
     source "${join(ROOT, 'scripts/cycle-checks.sh')}"
-    ${o.uncompared ? `mkdir -p ../broken && echo 'process.exit(1)' > ../broken/main-holds.mjs && CYCLE_DIR="$PWD/../broken"` : ''}
+    ${o.uncompared ? `mkdir -p ../broken && echo '${o.uncompared === 'locked' ? 'import { writeFileSync } from "node:fs"; writeFileSync(".git/index.lock", ""); ' : ''}process.exit(1)' > ../broken/main-holds.mjs && CYCLE_DIR="$PWD/../broken"` : ''}
+    ${o.oldCaller ? `main_holds() { local base; base=$(git merge-base "$1" '@{u}'); node "$CYCLE_DIR/main-holds.mjs" "$base" "$(git rev-parse '@{u}')"; echo "NODE $?"; return 0; }` : ''}
     net() {
       ${o.lostPush ? `if [ "$1 $2" = "git push" ] && [ ! -e ../lost ]; then touch ../lost; (cd ../other && ${both(o.lostPush)} && git commit -qm 'content: main again, meanwhile' && git push -q origin main); fi` : ':'}
       "$@"
@@ -74,6 +76,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     sleep() { :; }
     ended_row() { :; }
     ${pushFn}
+    echo "RUN $(git rev-parse HEAD)"
     ${o.kept ? 'git branch kept/photos/20261116T000000 && push_kept kept/photos/20261116T000000' : o.catchUp ? 'catch_up' : 'push'}
     echo "CODE $?"
     echo "WHY $KEPT_WHY"
@@ -255,7 +258,7 @@ test("a push whose holds can't be compared isn't published, and keeps the run's 
   }, { uncompared: true })
   expect(r.out).toContain('CODE 1')
   expect(r.out).toMatch(/LOG main's holds: the pages main read during this run couldn't be compared/)
-  expect(r.out).toContain("LOST photos main's holds couldn't be compared")
+  expect(r.out).toContain(`LOST photos main's holds couldn't be compared ${/^RUN (\w+)$/m.exec(r.out)![1]}`)
   expect(r.log).toEqual(['COMMIT content: this run', 'COMMIT main as the run started'])
   expect(r.pushed.held).toBeUndefined()
   expect(r.pushedRecord.hash).toBe('e025')
@@ -274,17 +277,63 @@ test("kept work whose holds can't be compared stays kept, on its own commit", ()
   expect(r.pushed.body).toBe('<p>Cá con quen người.</p>')
 })
 
-// The pull ahead of the run's checks: undone, so push() compares from the main the run started on, as it does after a
-// clash there.
-test("the pull ahead of the checks is undone when its holds can't be compared", () => {
+// The pull ahead of the run's checks: undone, and the run stops there, its commit kept (engine-cycle.sh). Going on, a pull
+// it failed to undo would leave push() nothing to compare (a reader of #1703).
+test("the pull ahead of the checks is undone when its holds can't be compared, and the run stops", () => {
   const r = push('species', {
     base: { held: hold('source'), fit: { at: '2026-11-14', hash: 'old', checks: ['source'] } },
     main: { fit: clean },
     run: { body: '<p>Một văn bản mới.</p>', held: hold('source'), fit: { at: '2026-11-15', hash: 'n3w', checks: ['source'] } },
   }, { catchUp: true, uncompared: true })
-  expect(r.out).toContain('CODE 0')
+  expect(r.out).toContain('CODE 1')
   expect(r.log).toEqual(['COMMIT content: this run', 'COMMIT main as the run started'])
   expect(r.page.held).toEqual(hold('source'))
+  expect(readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8')).toMatch(/\nran=\$\(git rev-parse HEAD\)\ncatch_up \|\| \{ keep_lost_push "\$PART" "[^"\n]+" "\$ran"; exit 1; \}\nsweep_merged\n/)
+})
+
+// A reader of #1703: a lock left in the index, and the pull can't be undone. The work kept is the run's own commit, by
+// name, not HEAD, and nothing is published.
+test("a push whose holds can't be compared, and whose pull can't be undone, keeps the run's own commit by name", () => {
+  const r = push('species', {
+    base: { held: hold('source'), fit: { at: '2026-11-14', hash: 'old', checks: ['source'] } },
+    main: { fit: clean },
+    run: { body: '<p>Một văn bản mới.</p>', held: hold('source'), fit: { at: '2026-11-15', hash: 'n3w', checks: ['source'] } },
+  }, { uncompared: 'locked' })
+  const run = /^RUN (\w+)$/m.exec(r.out)![1]
+  expect(r.out).toContain('CODE 1')
+  expect(r.out).toContain(`LOG the pull couldn't be undone: this run's commit is ${run}`)
+  expect(r.out).toContain(`LOST photos main's holds couldn't be compared ${run}`)
+  expect(r.pushed.held).toBeUndefined()
+  expect(r.pushedRecord.hash).toBe('e025')
+})
+
+// A reader of #1703: harm in one language holds the page's every language (gate.ts). The run's new Vietnamese text held for
+// harm, and the Thai held beside it; main read both old texts and let them out. The Vietnamese gets the run's hold back
+// (its text isn't main's), and the Thai, the merge's open copy of main's, may not go out beside it.
+test("a page kept held for harm in one language stays held in each", () => {
+  const harmRead = { at: '2026-11-14', hash: 'old', checks: ['harm'] }
+  const r = push('species', {
+    base: { held: hold('harm'), fit: harmRead, th: { held: hold('harm'), fit: harmRead } },
+    main: { fit: clean, th: { fit: clean } },
+    run: { body: '<p>Một văn bản mới.</p>', held: hold('harm'), fit: { at: '2026-11-15', hash: 'n3w', checks: ['harm'] }, th: { held: hold('harm'), fit: harmRead } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held).toEqual(hold('harm'))
+  expect(r.pushedTh().held).toEqual(hold('harm'))
+})
+
+// A reader of #1703: a cycle running while this lands sourced the older script, then pulls the new main-holds.mjs and calls
+// it with two arguments. It answers as the older one did, and writes nothing.
+test("main-holds.mjs answers a caller of the older script as it did", () => {
+  const r = push('species', {
+    base: { held: hold('source'), fit: { at: '2026-11-14', hash: 'old', checks: ['source'] } },
+    main: { fit: clean },
+    run: { body: '<p>Một văn bản mới.</p>', held: hold('source'), fit: { at: '2026-11-15', hash: 'n3w', checks: ['source'] } },
+  }, { oldCaller: true })
+  expect(r.out).toContain('NODE 0')
+  expect(r.out).toContain('text content/species/ca-x/vi.json')
+  expect(r.out).not.toContain('keep ')
+  expect(r.page.held).toBeUndefined()
 })
 
 test("every push that compares main's holds stops on a comparison that failed", () => {

@@ -12,10 +12,10 @@ const script = (name: string) => readFileSync(join(ROOT, 'scripts', name), 'utf8
 // The sf and pages runs of 2026-11-07: main's new card figures met their summaries at the merge, past the cycle's only sweep.
 test('a cycle sweeps again after each merge with main, before the tests', () => {
   const cycle = script('engine-cycle.sh')
-  expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
+  expect(cycle).toMatch(/\ncatch_up \|\| \{ keep_lost_push [^\n]*; exit 1; \}\nsweep_merged\nif ! verify_cycle/)
   // catch_up's clean pull brings main's holds first (main_holds), as push() does, before that sweep and those checks.
-  // A comparison of holds that failed undoes that pull (main_holds), and push() compares again.
-  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| log "[^"\n]*"; return 0; fi/)
+  // A comparison of holds that failed undoes that pull (main_holds), and the run keeps its commit and stops.
+  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| return 1; return 0; fi/)
   expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push "\$PART" [^\n]*; return 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push videos [^\n]*; exit 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
   expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push video-recheck [^\n]*; exit 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
