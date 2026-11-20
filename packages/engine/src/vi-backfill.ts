@@ -13,9 +13,9 @@ import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
 export const REWRITE_KINDS = ['guides', 'species', 'plants', 'glossary'] as const
 type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
-type Job = { id: string; kind: Kind; slug: string; groups: Group[]; /** Out of search for its score: a kept rewrite can bring it back. A thin page stays out whatever its words. */ low: boolean; /** The listed phrases its Vietnamese has, when the run is for the list. */ found: string[] }
+type Job = { id: string; kind: Kind; slug: string; groups: Group[]; /** Out of search for its score: a kept rewrite can bring it back. A thin page stays out whatever its words. */ low: boolean; /** The listed words its Vietnamese has, when the run is for the list. */ found: string[] }
 type Vi = { sections?: Record<string, string>; body?: string; bodyFixed?: boolean; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
-export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number; /** The listed phrases the page was taken up for (`--phrases`): it isn't taken up for them again. */ phrases?: string[] }>
+export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number; /** The listed words the page was taken up for (`--phrases`): it isn't taken up for them again. */ phrases?: string[] }>
 /** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
 export const REWRITE_V = 2
 
@@ -72,15 +72,15 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp,
  * reviewer passes it: against the English (≥ threshold, or better than before), or, with no English, as keeping the
  * old Vietnamese's meaning (≥ threshold). Names, slugs and data never change. Stops on a model failure (usage limit).
  */
-export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** The listed phrases a text has (`--phrases`, with `match` the list's): a page is taken up only for a phrase it wasn't taken up for before. */ listed?: (text: string) => string[]; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean; /** Pages ("species/<id>") that go first, in this order, when due. */ first?: readonly string[] }) {
+export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** The listed words a text has (`--phrases`, phrases.ts phraseRun, with `match` the list's): a page is taken up only for a word it wasn't taken up for before. */ listed?: (text: string) => string[]; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean; /** Pages ("species/<id>") that go first, in this order, when due. */ first?: readonly string[] }) {
   const root = dirname(contentRoot)
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
   const due = (s: RewriteState[string] | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
   // `match` re-edits the pages that contain it (after a style rule changes), whether or not they were rewritten before.
-  // For the list (`listed`), once per phrase: a rewrite that leaves a phrase (a part the reviewer failed, a fixed part)
-  // doesn't bring the page back at every run, and a phrase added to the list does.
+  // For the list (`listed`), once per listed word: a rewrite that leaves one (a part the reviewer failed, a fixed part)
+  // doesn't bring the page back at every run, and a word added to the list does.
   const fresh = (j: Job) => j.found.some(p => !state[j.id]?.phrases?.includes(p))
   // The mark outlives every later pass, the queue's too. A page is marked only once its rewrite went through, kept or
   // not: a failure leaves it as it was, so it is taken up again.
