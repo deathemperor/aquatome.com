@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { toneKey } from '@aq/schema'
 import type { Llm } from '../src/claude'
-import { LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, RULE_SIDE, ruleNumbers, sfGlossaryUrl, stops, type Draft } from '../src/glossary-entry'
+import { LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, RULE_SIDE, ruleNumbers, sfGlossaryUrl, siteNotes, stops, type Draft } from '../src/glossary-entry'
 import { logReviews } from '../src/review-log'
 import type { TopicFacts } from '../src/topics'
 
@@ -1107,9 +1107,10 @@ test('a term\'s link phrases are kept and never become its other names; a writer
 })
 
 // The chief of staff, 19 Nov 2026: two pages of one site are one source, and a claim only one site gives is that site's and
-// is credited. The fact check counts a claim's sites, so it reads each source's site and each fact's other sources; the
-// writer's facts stay as they were.
-test('the fact check reads each source\'s site and each fact\'s other sources ("also"); the writer reads neither', async () => {
+// is credited. The fact check counts a claim's sites, so it reads each source's site and each fact's other sources. The
+// writer reads each source's site too since 20 Nov 2026 (the chief of staff: "One site is one source" can't be kept without
+// it), and still not the other sources.
+test('the fact check reads each source\'s site and each fact\'s other sources ("also"); the writer reads the sites only', async () => {
   const root = await site()
   const withAlso: TopicFacts = { ...facts, facts: facts.facts.map((f, i) => (i === 0 ? { ...f, also: [1, 0] } : f)) }
   const prompts: string[] = []
@@ -1121,7 +1122,7 @@ test('the fact check reads each source\'s site and each fact\'s other sources ("
   expect(check).toContain('{"source":1,"kind":"keeper","site":"example.org"}')
   // Its own source never counts again as another.
   expect(check).toContain('"source":0,"also":[1]}')
-  expect(writer).not.toContain('"site"')
+  expect(writer).toContain('"site":"ufl.edu"')
   expect(writer).not.toContain('"also"')
 })
 
@@ -1176,6 +1177,56 @@ test('the step\'s fact check passes a pointer to another term of the site\'s unr
   expect(read.some(p => p.includes(pointer))).toBe(false)
   expect(read.some(p => p.includes(claim))).toBe(true)
   expect(read.some(p => p.includes(plain))).toBe(true)
+})
+
+// The chief of staff, 20 Nov 2026: "One site is one source" (the Writing Lead's standing line) can't be kept by a writer
+// that sees pages only. The writer, and the rules read, are given each source's site, as the fact check is.
+test('the writer and the rules read are given each source\'s site, and two pages of one site have the same', async () => {
+  const root = await site()
+  const two = { ...facts, facts: [...facts.facts, { section: 'steps', fact: 'Boil small pieces to sink them sooner', source: 3 }], sources: [...facts.sources, { url: 'https://www.example.org/boil', title: 'Boiling driftwood', kind: 'keeper' }] } as TopicFacts
+  const writes: string[] = [], rules: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) { rules.push(prompt); return { notes: [] } as never }
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return written as never
+  }
+  await makeGlossaryEntry(root, { research: async () => two as never, llm }, 'lua', { kind: 'aquascaping' })
+  const given = (prompt: string, after: string) => (JSON.parse(prompt.split(after)[1]!.split('\n\n---')[0]!) as { sources: { site: string }[] }).sources.map(x => x.site)
+  expect(given(writes[0]!, '--- DỮ KIỆN ---\n')).toEqual(['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
+  expect(given(rules[0]!, '--- FACTS ---\n')).toEqual(['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
+})
+
+// The writer change's reader, 21 Nov 2026: the writer sees each source's site now, and nothing after it caught one named
+// in the entry. A sentence that writes a site it was given stops, and the note goes back to the writer.
+test('an entry that names a source by its site stops, with a note back to the writer', async () => {
+  const root = await site()
+  const named = 'Theo www.seriouslyfish.com, nên ngâm lũa mới 1–2 tuần.'
+  const writes: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return { ...written, body: `<h3>Nên làm gì</h3><p>${named}</p>` } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  const note = `"${named}" names a source by its site (seriouslyfish.com): call it by what it is (a shop, a journal, a keeper's page), as the sources' kinds give it, never by its site.`
+  expect(r).toMatchObject({ id: 'lua', skipped: expect.stringMatching(/^stopped by/) })
+  expect((r as { notes: string[] }).notes).toContain(note)
+  expect(writes.slice(1).some(w => w.includes(note))).toBe(true)
+})
+
+test('the site check finds a site the writer was given, alone or in an address, and nothing else', () => {
+  const at = (body: string) => siteNotes({ definition: '', body }, ['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
+  expect(at('<p>Đại học ufl.edu ghi rằng lũa nhả tanin.</p>')).toHaveLength(1)
+  expect(at('<p>Xem https://www.example.org/boil để biết thêm.</p>')[0]).toContain('(example.org)')
+  expect(at('<p>Theo SeriouslyFish.com, lũa chìm.</p>')).toHaveLength(1)
+  expect(at('<p>Một trường đại học ghi rằng lũa nhả tanin. Một tiệm ghi rằng lũa chìm sau vài ngày.</p>')).toEqual([])
+  expect(at('<p>Theo myexample.org, lũa chìm.</p><p>Theo example.organic, lũa chìm.</p>')).toEqual([])
+  expect(at('<h3>Theo ufl.edu</h3><ul><li>Lũa chìm.</li></ul>')).toHaveLength(1)
+  expect(siteNotes({ definition: 'Lũa, theo example.org, là gỗ.', body: '' }, ['example.org'])).toHaveLength(1)
+  // A source on a bare address gives a "site" of digits (siteOf), which no sentence names.
+  expect(siteNotes({ definition: '', body: '<p>Tăng 2.3 lần mỗi tuần.</p>' }, ['2.3'])).toEqual([])
 })
 
 // The chief of staff, 20 Nov 2026: Tảo's label line, the house form for a medicine's dose, was stopped by the fact check in

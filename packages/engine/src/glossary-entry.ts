@@ -11,7 +11,7 @@ import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
 import { guideNotes, houseForm, openDiseaseGuides, pointerForm } from './glossary-dose'
-import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
+import { checkSentences, droppedInRewrite, rewordLoose, sentences, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
 import { FACTS_SCHEMA, researchPrompt, siteOf, type TopicFacts, viFacts } from './topics'
 import { withoutRefused } from './refused-sources'
@@ -257,6 +257,21 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
 }
 
 /**
+ * The writer is given each source's site (the chief of staff, 20 Nov 2026), and the prompt says never to name a source by
+ * it. A sentence that writes one of those sites anyway stops the save with a note back to the writer, as a rule's note
+ * does (the writer change's reader, 21 Nov 2026: nothing after the writer caught "Theo seriouslyfish.com, …"). It finds
+ * the site as the writer was given it, alone or in a longer address; a site's name written as words ("Seriously Fish")
+ * is the rules read's, as before.
+ */
+export function siteNotes(e: { definition: string; body: string }, sites: string[]): string[] {
+  const all = [...new Set(sites)].filter(x => /\p{L}/u.test(x)) // a source on a bare address ("10.1.2.3") has no site to name
+  return sentences(e).flatMap(s => {
+    const named = all.filter(x => new RegExp(`(?<![\\p{L}\\p{N}-])${x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}-])`, 'iu').test(s.text))
+    return named.length ? [`"${s.text}" names a source by its site (${named.join(', ')}): call it by what it is (a shop, a journal, a keeper's page), as the sources' kinds give it, never by its site.`] : []
+  })
+}
+
+/**
  * A glossary term's fuller Vietnamese entry, written by AquaTome from web research as its own guides are (topics.ts): the
  * research's cited facts (kept in engine-state/glossary/<id>.json, reused with `reuse`), an entry written from them only
  * (meaning, other names, what it means in a tank and what to do, related terms), checked against them and the house rules,
@@ -370,7 +385,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     const t = await read<Translation>(join(dir, x, 'vi.json')).catch(() => null)
     if (t) others.push({ id: x, name: t.name, altNames: t.altNames, linkNames: t.linkNames ?? [], definition: t.definition ?? '' })
   }
-  const forWriter = { term: vi.name, english: entity.en, sources, facts }
+  // Each source with its site, so the writer can keep the Writing Lead's standing line, "One site is one source, however
+  // many of its pages the facts come from" (the chief of staff, 20 Nov 2026: it can't, seeing pages only).
+  const forWriter = { term: vi.name, english: entity.en, sources: sources.map(x => ({ ...x, site: siteOf(refs[x.source]!.url) })), facts }
   const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)
@@ -404,7 +421,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- OPEN GUIDES ---\n${guides.map(g => g.title).join('\n') || '(none)'}\n\n--- KIND WORDS ---\n${k.fit.map(x => x.name).join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
     })).notes ?? []
     // Rule 13's pointers are checked in code: a sentence that sends the reader to a guide is the house form by an open one.
-    return [...judgeKindNames(notes, k, ruleNumbers), ...guideNotes(e, guides)]
+    return [...judgeKindNames(notes, k, ruleNumbers), ...guideNotes(e, guides), ...siteNotes(e, forWriter.sources.map(x => x.site))]
   }
   // The length is counted before any paid read (the chief of staff, 15 Nov 2026: dry food and Artemia each paid about $3 of
   // reads to stop on a word count). An entry past its stop can't be saved, so it isn't read: its length notes go back to the
