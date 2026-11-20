@@ -1141,3 +1141,28 @@ test('a sentence one read stops and two of its three re-reads stop keeps the ent
   expect(r).toMatchObject({ id: 'lua', skipped: 'stopped by 1 note' })
   expect((r as { notes: string[] }).notes[0]).toBe(`"${bad}": the facts don't carry it (uncredited, supported, supported, uncredited, uncredited, supported): one site / one site, plain`)
 })
+
+// The chief of staff, 20 Nov 2026: Tảo's label line, the house form for a medicine's dose, was stopped by the fact check in
+// 3 reads of 3, as no fact says "follow the label". The step's checks pass the form whole, and the guide form by an open
+// guide's title (glossary-dose.ts).
+test('the step\'s fact check passes the house form for a medicine\'s dose unread: the label form, and the guide form by an open guide', async () => {
+  const root = await site()
+  await mkdir(join(root, 'content/guides/fin-rot'), { recursive: true })
+  await writeFile(join(root, 'content/guides/fin-rot/entity.json'), JSON.stringify({ id: 'fin-rot', kind: 'disease' }))
+  await writeFile(join(root, 'content/guides/fin-rot/vi.json'), JSON.stringify({ slug: 'ca-bi-thoi-vay-thoi-duoi', name: 'Cá bị thối vây, thối đuôi: dấu hiệu', quality: { score: 0.9, indexable: true } }))
+  const label = 'Liều và cách dùng: theo nhãn thuốc.', guide = 'Liều và cách dùng: xem bài Cá bị thối vây, thối đuôi.'
+  const body = `<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần. ${label}</p><p>Thêm muối. ${guide}</p>`
+  const read: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) { read.push(prompt); return verdicts(prompt, t => (t.startsWith('Liều') ? 'unsupported: not in the facts' : undefined)) as never }
+    return { ...written, body } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(r).toMatchObject({ id: 'lua', score: 1 })
+  expect(read.length).toBeGreaterThan(0)
+  expect(read.some(p => p.includes(label) || p.includes(guide))).toBe(false)
+  const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
+  expect(vi.body).toContain(label)
+  expect(vi.body).toContain(guide)
+})

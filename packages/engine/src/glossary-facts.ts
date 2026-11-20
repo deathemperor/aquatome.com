@@ -157,9 +157,10 @@ const flagged = (s: Sentence, rs: (Read | null)[]): Flagged => ({ ...s, verdicts
  * that stop it stop it too: a lone stop is settled, not outvoted, whatever the other two said ("not a claim" among them).
  * A sentence two reads call loose is advice (`loose`), never a stop. "Not a claim" takes a sentence out of the score only.
  * A sentence fewer than two reads give a verdict stops, unjudged: what the check didn't read, it can't clear.
+ * `pass`: a sentence of the site's own house form, which carries no claim from the facts (glossary-dose.ts), isn't read.
  */
-export async function checkSentences(llm: Llm, facts: object, e: { definition: string; body: string }): Promise<FactCheck> {
-  const list = sentences(e)
+export async function checkSentences(llm: Llm, facts: object, e: { definition: string; body: string }, pass: (text: string) => boolean = () => false): Promise<FactCheck> {
+  const list = sentences(e).filter(s => !pass(s.text))
   if (!list.length) return { score: 1, claims: 0, stops: [], loose: [] }
   const reads = await readAll(llm, facts, numbered(list), list.length)
   const stops: Flagged[] = []
@@ -320,7 +321,7 @@ const quotes = (note: string) => {
  * once in the entry, and its new wording only when that wording stood nowhere before and the entry then reads as it did
  * but for that one sentence, which stands once: the final read's verdict on it is its own, and going back finds it.
  */
-export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], keep: { rules?: (e: E) => Promise<string[]>; names?: string[]; fits?: (e: E) => boolean } = {}): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
+export async function rewordLoose<E extends { definition: string; body: string }>(llm: Llm, model: string, facts: object, e: E, loose: Flagged[], keep: { rules?: (e: E) => Promise<string[]>; names?: string[]; fits?: (e: E) => boolean; pass?: (text: string) => boolean } = {}): Promise<{ entry: E; log: string[]; stops: Flagged[]; score?: number }> {
   const log: string[] = []
   const texts = sentences(e).map(s => s.text)
   // The definition's first sentence says what the thing is, and no later read catches a change to it (the chief of staff,
@@ -358,7 +359,7 @@ export async function rewordLoose<E extends { definition: string; body: string }
   for (const x of now) if (!first.done.includes(x)) log.push(`Loose, not reworded: "${x.s.text}"`)
   const changed = first.done
   if (!changed.length) return { entry: e, log, stops: [] }
-  const final = await checkSentences(llm, facts, first.entry)
+  const final = await checkSentences(llm, facts, first.entry, keep.pass)
   const verdictsOf = (text: string) => [...final.stops, ...final.loose].find(f => f.text === text)?.verdicts.join(', ') ?? 'supported'
   const stopped = (x: Rewording) => final.stops.some(f => f.text === x.to)
   const unstopped = place(changed.filter(x => !stopped(x)))
