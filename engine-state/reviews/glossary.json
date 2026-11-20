@@ -2018,5 +2018,97 @@
       "kept": false,
       "draft": "5d71cd965fc8069b424180fc5012c2fe0e1a43d1f8e89a7cb1dfedef7be60f0e"
     }
+  ],
+  "vi/glossary/duong-ben": [
+    {
+      "at": "2026-11-20T08:52:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:52:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nên làm gì\" the advice \"Nên làm gì\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:52:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Đường bên là cơ quan cảm giác của cá, thường chạy dọc hai bên thân.\" drops fact 2's \"one of\". The term's line asks for \"Đường bên là một trong các cơ quan cảm giác của cá, thường chạy dọc hai bên thân.\"",
+        "Rules 5 and 12: altNames is empty. \"Lateral line\" is the term's English name and the term's line says it stays as an other name.",
+        "Rule 12: \"Chúng nằm trên mặt da và trong những ống chứa nhớt chạy dọc hai bên thân.\" should be written word for word as \"Chúng nằm trên bề mặt cơ thể và trong những ống chứa chất nhầy chạy dọc hai bên thân.\"",
+        "Rule 12: \"Sóng dội lại từ thành bể có thể làm cá khó chịu, vì đường bên của chúng rất nhạy.\" should be written word for word as \"Sóng dội lại từ thành bể có thể làm cá căng thẳng, vì đường bên của chúng rất nhạy.\"",
+        "Rule 12: \"Có thể đặt lũa và cây trong bể để phá những luồng nước dội lại này.\" should be written word for word as \"Có thể thêm những vật như khúc gỗ và cây để phá những luồng nước dội lại từ thành bể.\" Fact 12 says \"structures such as logs\", which is not driftwood (lũa).",
+        "Rule 12: \"Bệnh thủng đầu (hole-in-the-head, HLLE) thường bắt đầu bằng những lỗ, hố hay vết tổn thương nhỏ trên đầu và dọc đường bên.\" should be written word for word as \"Lỗ, hố hay vết tổn thương nhỏ trên đầu hoặc dọc đường bên là dấu hiệu cần để ý. Bệnh thủng đầu (hole-in-the-head, HLLE) thường bắt đầu như vậy.\"",
+        "Rule 12: \"Căng thẳng có trong các nguyên nhân mà các tiệm kể.\" should be \"Căng thẳng nằm trong các nguyên nhân được kể.\" (plain, with no page named).",
+        "Rules 4 and 12: \"Giữ nước sạch và cho ăn đa dạng, đủ vitamin và khoáng, không cho một món ngày nào cũng như ngày nào.\" is to be cut. It joins one site's parts to two sites' parts in one plain sentence, and the shop's prevention item says the varied diet again.",
+        "Rule 12: \"Bỏ than hoạt tính ra khỏi lọc.\" is to be cut. It is written as plain fact without fact 37's \"while treating\" or fact 25's \"closed marine systems\".",
+        "Rule 12: \"Nếu cá có dấu hiệu bệnh thì các nguồn nêu cách chữa bằng thuốc có metronidazole.\" is to be cut. The disease is only a sign to watch: no medicine and no treatment. Once the three items under \"Nên làm gì\" are cut, that heading has nothing under it."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:20:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, reworded and still loose: \"Những lỗ, hố hay vết loét nhỏ, thường mọc trên đầu rồi lan dọc đường bên, là dấu hiệu cần theo dõi vì có thể là bệnh thủng đầu (hole-in-the-head, HLLE).\" → \"Bệnh thủng đầu (hole-in-the-head, HLLE) thường bắt đầu bằng những lỗ, hố hay vết tổn thương nhỏ trên đầu và dọc đường bên.\" (loose, loose, loose)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Giữ nước sạch và cho ăn đa dạng, đủ vitamin và khoáng, không cho một món ngày nào cũng như ngày nào.\" (not \"Một tiệm ghi: cho cá ăn đa dạng, giàu vitamin và khoáng.\": Rule 12: \"Bỏ than hoạt tính ra khỏi lọc.\" is written as plain fact. Only one shop (the Vietnamese discus shop) gives it broadly. Aquarium C…",
+        "Rule 4: The tapping warning appears twice. The plain sentence \"Gõ vào kính có thể làm cá hoảng.\" is followed straight away by the keeper's item \"Rung động này có thể đủ mạnh để làm cá hoảng, kể cả khi gõ ở tận phía bên kia bể.\" It should appear only once, in one place.",
+        "Rule 12: The line for this term allows a disease along the lateral line only as a sign to watch, never as a diagnosis. \"Nếu cá có dấu hiệu bệnh thì các nguồn nêu cách chữa bằng thuốc có metronidazole\" goes from spotting signs straight to treating the disease. The same applies to the shop's \"Nên cách ly cá bệnh để chữa\".",
+        "Rule 12: The fact's words are changed. The fact says to remove aggressive tankmates, but \"Hãy bớt cá dữ trong bể\" says only to reduce them. This narrows the fact's step."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:20:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Gõ kính gửi rung động qua nước, và rung động này đủ mạnh kể cả khi gõ ở tận phía bên kia bể.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can be' hedge and what it is strong enough for / drops 'can' hedge and 'to panic fish'; stated as always strong enough / drops 'can' hedge; vibrations 'can be' strong enough to panic fish",
+        "Rule 12: \"Người nuôi cũng hay gặp chữ này trong tên bệnh HLLE.\" No fact says keepers often come across the word. The facts only give the name Head and lateral line erosion (HLLE). The definition should say what the term is only as the facts give it.",
+        "Rule 12: \"Một bài báo nói thêm:\" names the news report again as if it were a new article. It was already credited in the definition (\"Một bài báo nói nó gồm tế bào…\") and is still the last report named, so it should be \"Bài báo này nói thêm:\".",
+        "Rule 12: \"Khi xem cá bệnh, đường bên là chỗ nên để ý.\" This is plain advice that no fact gives, and no source supports it.",
+        "Rule 12: \"rung động này đủ mạnh kể cả khi gõ ở tận phía bên kia bể\" drops the fact's hedge. The fact says the vibrations \"can be strong enough\" to panic fish. It also leaves out what they are strong enough to do."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:20:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.81,
+      "notes": [
+        "\"Để lâu không chữa, các vết này có thể to và sâu thêm.\": the facts don't carry it (uncredited, uncredited, uncredited): untreated lesions growing only from seriouslyfish, no credit / untreated lesions growing only from seriouslyfish / Untreated lesions growing comes only from seriouslyfish, stated without credit",
+        "\"Nguyên nhân bệnh chưa được xác nhận.\": the facts don't carry it (uncredited, uncredited, uncredited): cause unconfirmed only from seriouslyfish / Only seriouslyfish says the cause is unconfirmed",
+        "\"Nước bẩn và thức ăn thiếu chất làm bệnh nặng thêm, và căng thẳng cũng có trong các nguyên nhân mà các tiệm kể.\": the facts don't carry it (uncredited, uncredited, uncredited): poor water/nutrition worsening only seriouslyfish; others list as causes / poor water/nutrition worsening only from seriouslyfish / 'Makes it worse' comes only from seriouslyfish and is not credited",
+        "\"Không dùng riêng nước RO hay nước cất mà phải pha với nước máy.\": the facts don't carry it (unsupported, unsupported, unsupported): drops mineral-product alternative; makes tap-water mixing mandatory / drops mineral-product alternative; 'must' mix with tap water / Leaves out the other choice of adding a mineral product; says mixing with tap water is required",
+        "\"Gõ vào kính gửi rung động qua nước và có thể làm cá hoảng.\": the facts don't carry it (supported, uncredited, supported, uncredited, uncredited, uncredited): vibrations through water only from fishtanksetups, uncredited sentence / Vibration-through-water claim only from fishtanksetups.com; credit comes after, not covering this sentence. / Only fishtanksetups.com says tapping sends vibrations thr…",
+        "Rule 12: \"gồm tế bào và dây thần kinh trong da\" in \"Đường bên là cơ quan cảm giác gồm tế bào và dây thần kinh trong da, thường chạy dọc hai bên thân cá.\": only the news article (source 0) says the lateral line is made of cells and nerves in the skin. That one-site part is joined to the two-site definition in one plain sentence. It should be its own sentence under the article's credit.",
+        "Rule 4: \"Nhờ đường bên, cá cảm nhận được rung động trong nước.\" repeats the definition's \"Cá dùng nó để cảm nhận rung động trong nước.\" The fact should be said once.",
+        "Rule 12: \"Nguyên nhân bệnh chưa được xác nhận.\": only one site (the reference, source 1) says the cause of HLLE is not confirmed, but the sentence stands as plain fact with no credit.",
+        "Rule 12: \"Liều và cách dùng: xem bài hướng dẫn chữa bệnh.\": a pointer must take the form \"<what>: xem mục <entry>.\" and name an entry the site has. \"bài hướng dẫn chữa bệnh\" is not \"xem mục\" and is not an entry in TERMS.",
+        "Rule 4: \"Ở cá đĩa, bệnh thường bắt đầu bằng lỗ nhỏ trên đầu và đường bên\" repeats the sign already given in \"Những lỗ, hố hay vết loét nhỏ, thường mọc trên đầu rồi lan dọc đường bên\". The sign should be said once."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
