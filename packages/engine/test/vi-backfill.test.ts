@@ -246,8 +246,10 @@ test('--phrases takes a page up once for each listed phrase: not again for one i
   expect(ids(await run())).toEqual(['guides/g'])
   expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>Theo tác giả, cá ăn được.</p>')
   expect(ids(await run())).toEqual([])
-  // The queue's own pass keeps the mark.
-  await run({})
+  // The queue's own pass keeps the mark: a newer rewrite version makes the page due again.
+  await put(root, 'state.json', { 'guides/g': { ...(await read(root, 'state.json'))['guides/g'], v: 1 } })
+  expect(ids(await run({}))).toContain('guides/g')
+  expect((await read(root, 'state.json'))['guides/g'].phrases).toEqual(['tác giả'])
   expect(ids(await run())).toEqual([])
   // A phrase added to the list, and on the page: taken up again, once.
   await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, dù vậy cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
