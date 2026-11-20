@@ -870,7 +870,9 @@ if (cmd === 'photo-privacy') {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
     mend: gateMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: heldMendsOf(),
   })
-  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state, held))
+  // The texts the run ends with: a page put back has its committed text again, not the one gate() read and returns.
+  const final = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(final, state, held))
   await writeFitSummary(ROOT, pages, state, { held })
   for (const a of ['hold', 'release', 'revert', 'mended', 'refused', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)

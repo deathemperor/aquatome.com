@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
-import { LANGS, type Lang } from '@aq/schema'
+import { LANGS, retiredTo, type Lang } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import { LlmError, type Llm } from './claude'
 import { mentions, PRODUCTS } from './market'
@@ -843,10 +843,11 @@ const doseLine = (g: DoseGroup) => {
 /**
  * Pages on the site, of a language, whose text no saved read is of: put out by a push or a hand change with no read. The
  * gate reads a page only when its cycle changed it, so these wait for nothing; this is the count to watch until a push
- * can't publish one (the chief of staff, 20 Nov 2026). `held`: the held language files, by file (gate.ts).
+ * can't publish one (the chief of staff, 20 Nov 2026). `held`: the held language files, by file (gate.ts). A retired guide
+is no page (@aq/schema retired.ts; the site leaves it out), so it isn't counted.
  */
 export const openUnread = (pages: Page[], state: FitState, held: ReadonlyMap<string, unknown>, lang: Lang) =>
-  pages.filter(p => p.lang === lang && !held.has(`content/${p.kind}/${p.id}/${p.lang}.json`) && state[fitKey(p)]?.hash !== fitText(p).hash).length
+  pages.filter(p => p.lang === lang && !held.has(`content/${p.kind}/${p.id}/${p.lang}.json`) && !(p.kind === 'guides' && retiredTo(p.id)) && state[fitKey(p)]?.hash !== fitText(p).hash).length
 
 /** docs/review/fit.md: the counts by language and check. Never a list of pages: nobody can read them all. */
 export function fitReport(pages: Page[], state: FitState, held?: ReadonlyMap<string, unknown>): string {

@@ -2,6 +2,8 @@ import { expect, test } from 'vitest'
 import { CHECKLIST, dealerNotice, dealerShelf, doseGroups, fitCounts, fitDue, fitFindings, fitKey, fitOrder, fitPrompt, fitReport, fitRules, fitText, hasDose, keepCautions, keepDoses, keepFit, openUnread, productOf, readFit, runFit, SHELF_WHY, type FitCheck, type FitDose } from '../src/fit'
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
+import { retiredTo } from '@aq/schema'
+import { readFileSync } from 'node:fs'
 import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -313,6 +315,23 @@ test('the report counts the open pages whose text no read is of, and leaves the 
   expect(openUnread([read, changed, none, held], state, holds, 'vi')).toBe(2)
   expect(fitReport([read, changed, none, held], state, holds)).toContain('| Vietnamese | 4 | 1 | 2 |')
   expect(openUnread([read, changed, none, held], state, new Map(), 'vi')).toBe(3)
+})
+
+// A reader of #1731: a retired guide is no page (the site leaves it out, its addresses forwarding), so it isn't counted.
+test('a retired guide is not among the open pages no read covers', () => {
+  const gone = page('<p>Đã nghỉ.</p>', { id: 'aquariumcoop-blogs-aquarium-aquarium-shopping-list' })
+  expect(retiredTo(gone.id)).toBe('guides')
+  expect(openUnread([gone], {}, new Map(), 'vi')).toBe(0)
+  expect(openUnread([page('<p>Đã nghỉ.</p>', { id: 'still-here' })], {}, new Map(), 'vi')).toBe(1)
+})
+
+// A reader of #1731: gate() returns the pages it read, a put-back one with the text it threw out, so the gate's report
+// counts the texts on disk after it.
+test("the gate's report counts the texts the run ends with, not the ones it put back", () => {
+  const cli = readFileSync(new URL('../src/cli.ts', import.meta.url), 'utf8')
+  const gateCmd = cli.slice(cli.indexOf("cmd === 'gate'"), cli.indexOf("cmd === 'curate'"))
+  expect(gateCmd).toContain("const final = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))")
+  expect(gateCmd).toContain('fitReport(final, state, held)')
 })
 
 test('the counts: pages with a finding by check, and in all with words apart', () => {
