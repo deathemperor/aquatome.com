@@ -73,7 +73,8 @@ const MAX_LLM_FAILURES = 3
  * Pages in a row that failed on the network or that the source refused for now (HTTP 408, 429, a 5xx: state.ts
  * errorKind 'transient'): the source stops for the rest of the run, so the pages after them keep their attempts. Each
  * failed one used an attempt and goes first in the source's next run, but one that has used all MAX_ATTEMPTS waits until
- * its source changes it (state.ts needsFetch). There is no rest past the run: the next run asks again.
+ * its source changes it (state.ts needsFetch). A page read early for its credit lines alone counts toward the three but
+ * keeps its state: it uses no attempt and keeps its own turn. There is no rest past the run: the next run asks again.
  */
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
