@@ -14,9 +14,11 @@ import { join } from 'node:path'
 export type DiseaseGuide = { title: string; address: string }
 
 /**
- * The open disease guides: a guide of kind disease whose page search engines may index (`quality.indexable`). A held guide
- * is not one (the chief of staff, 20 Nov 2026: the guide form only while that guide is open). Its title as entries write it
- * is its name before ": " ("Cá bị thối vây, thối đuôi"), the whole name where it has none.
+ * The open disease guides: a guide of kind disease whose page search engines may index (`quality.indexable`) and that isn't
+ * held (`held`, which the site leaves out: its address answers 404). The chief of staff, 20 Nov 2026: the guide form only
+ * while that guide is open; five disease guides on main that day were held while still marked for search, among them the
+ * white-spot guide. Its title as entries write it is its name before ": " ("Cá bị thối vây, thối đuôi"), the whole name
+ * where it has none.
  */
 export async function openDiseaseGuides(root: string): Promise<DiseaseGuide[]> {
   const base = join(root, 'content', 'guides')
@@ -25,8 +27,8 @@ export async function openDiseaseGuides(root: string): Promise<DiseaseGuide[]> {
   for (const x of (await readdir(base).catch(() => [] as string[])).sort()) {
     const e = await json(join(base, x, 'entity.json')) as { kind?: string } | null
     if (e?.kind !== 'disease') continue
-    const v = await json(join(base, x, 'vi.json')) as { name?: string; slug?: string; quality?: { indexable?: boolean } } | null
-    if (!v?.name || !v.slug || v.quality?.indexable !== true) continue
+    const v = await json(join(base, x, 'vi.json')) as { name?: string; slug?: string; quality?: { indexable?: boolean }; held?: unknown } | null
+    if (!v?.name || !v.slug || v.quality?.indexable !== true || v.held) continue
     out.push({ title: v.name.split(': ')[0]!.trim(), address: `/vi/huong-dan/${v.slug}/` })
   }
   return out
