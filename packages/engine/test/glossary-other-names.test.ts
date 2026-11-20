@@ -1,6 +1,8 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { toneKey } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { givenAsName } from '../src/glossary-other-names'
 
@@ -71,6 +73,32 @@ const both = (dir: string) => terms(dir).flatMap(id => readdirSync(join(dir, id)
   return (t.altNames ?? []).filter(n => links.has(n.toLowerCase())).map(n => `${id}/${f}: ${n}`)
 }))
 
+/**
+ * A phrase two terms hold, as a name, an other name or a link phrase, in either tone placing (toneKey), in one language:
+ * a page that writes it links one of them, and a keeper can't tell which was meant.
+ */
+const shared = (dir: string) => {
+  const ids = terms(dir)
+  const langs = [...new Set(ids.flatMap(id => readdirSync(join(dir, id)).filter(f => f !== 'entity.json' && f.endsWith('.json'))))]
+  return langs.flatMap(f => {
+    const owners = new Map<string, Set<string>>()
+    for (const id of ids) {
+      if (!existsSync(join(dir, id, f))) continue
+      const t = json(join(dir, id, f)) as { name?: string; altNames?: string[]; linkNames?: string[] }
+      for (const n of [t.name, ...(t.altNames ?? []), ...(t.linkNames ?? [])].map(n => n?.trim()).filter(Boolean) as string[]) {
+        const k = toneKey(n)
+        owners.set(k, (owners.get(k) ?? new Set()).add(id))
+      }
+    }
+    return [...owners].filter(([, s]) => s.size > 1).map(([k, s]) => `${f}: "${k}" on ${[...s].join(', ')}`)
+  })
+}
+/** A link phrase a term keeps that its own notes take off (`notNames`), in either tone placing. */
+const linkedOff = (dir: string, asks: Record<string, { notNames?: string[] }>) => terms(dir).flatMap(id => {
+  const off = new Set((asks[id]?.notNames ?? []).map(toneKey))
+  return ((json(join(dir, id, 'vi.json')) as { linkNames?: string[] }).linkNames ?? []).filter(n => off.has(toneKey(n))).map(n => `${id}: ${n}`)
+})
+
 test('a fact gives a phrase as a name only when it says it names the thing and quotes the phrase whole', () => {
   expect(givenAsName('Dorsal fin', ['English name for the term: "Dorsal Fin" (heading: "Dorsal Fin (Vây lưng) – “Bánh lái” phía trên").'])).toBe(true)
   expect(givenAsName('Biofilm', ['A Vietnamese shop article names the term "Màng sinh học (Biofilm)".'])).toBe(true)
@@ -100,4 +128,28 @@ test('every term\'s other names, on main and in the fixture, are names: kept by 
 test('no term holds a phrase both as an other name and as a link phrase, in any language', () => {
   expect(both(join(ROOT, 'content/glossary'))).toEqual([])
   expect(both(join(ROOT, 'apps/site/test/fixture-content/glossary'))).toEqual([])
+})
+
+// The chief of staff, 19 Nov 2026: a check that removes nothing, so the day a notes line takes off a name a term still
+// keeps as a link phrase, or a new term's name meets an old one, the build says so.
+test('no phrase belongs to two terms, in either tone placing, in any language; no term links from a name its notes take off', () => {
+  expect(shared(join(ROOT, 'content/glossary'))).toEqual([])
+  expect(shared(join(ROOT, 'apps/site/test/fixture-content/glossary'))).toEqual([])
+  expect(linkedOff(join(ROOT, 'content/glossary'), json(join(ROOT, 'packages/engine/src/glossary-asks.json')))).toEqual([])
+})
+
+test('the names check names a phrase two terms hold, in either tone placing, and a link phrase the notes take off', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'aq-names-'))
+  const put = (id: string, f: string, t: object) => { mkdirSync(join(dir, id), { recursive: true }); writeFileSync(join(dir, id, f), JSON.stringify(t)) }
+  put('oxy-hoa-tan', 'vi.json', { name: 'Oxy hòa tan', altNames: [], linkNames: ['Oxy hoà tan'] })
+  put('ph', 'vi.json', { name: 'pH', altNames: ['độ pH'], linkNames: [] })
+  put('ph', 'id.json', { name: 'pH', altNames: [], linkNames: [] })
+  put('kh', 'vi.json', { name: 'KH', altNames: ['Độ pH'], linkNames: [] })
+  put('kh', 'id.json', { name: 'KH', altNames: ['ph'], linkNames: [] })
+  put('thuy-sinh', 'vi.json', { name: 'Bể thủy sinh', altNames: [], linkNames: [] })
+  put('cay-thuy-sinh', 'vi.json', { name: 'Cây thủy sinh', altNames: [], linkNames: ['bể thuỷ sinh'] })
+  expect(shared(dir)).toEqual(['vi.json: "bể thuỷ sinh" on cay-thuy-sinh, thuy-sinh', 'vi.json: "độ ph" on kh, ph', 'id.json: "ph" on kh, ph'])
+  expect(linkedOff(dir, { 'oxy-hoa-tan': { notNames: ['OXY HÒA TAN'] } })).toEqual(['oxy-hoa-tan: Oxy hoà tan'])
+  expect(linkedOff(dir, { 'oxy-hoa-tan': { notNames: ['oxy'] } })).toEqual([])
+  rmSync(dir, { recursive: true })
 })
