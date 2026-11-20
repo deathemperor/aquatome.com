@@ -2515,5 +2515,81 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/thuc-an-song": [
+    {
+      "at": "2026-11-20T11:03:13Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T11:03:13Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The mosquito-larvae item is still in the shop's list: \"Muốn có lăng quăng thì đặt một xô 19 lít nước đã khử clo cho muỗi đẻ, rồi vớt bằng vợt mịn mỗi ngày. Không vớt hằng ngày thì lăng quăng sẽ thành muỗi.\" THIS TERM says to cut both sentences and not to write \"lăng quăng\" anywhere in the entry. Setting out standing water for mosquitoes to breed is not advice for Vietnam.",
+        "Rule 12: The first item under \"Sai lầm hay gặp\" should be fact 10's sentence that live food not washed well can carry parasites. It is missing. It should be written as one credited sentence (\"Một … ghi rằng …\") that names source 9 by its kind. It must not be written as plain fact or said of one food alone. Right now the section opens with \"Cho ăn mãi một loại thức ăn thì cá có thể thiếu chất.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T11:00:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.94,
+      "notes": [
+        "\"Thức ăn sống không rửa kỹ có thể mang ký sinh trùng.\": the facts don't carry it (uncredited, uncredited, uncredited): parasite claim only from hanoizoo.com, not credited / parasite claim only from hanoizoo.com, no credit / only hanoizoo.com says unwashed live food carries parasites; stated as plain fact",
+        "Rule 12: \"Thức ăn sống không rửa kỹ có thể mang ký sinh trùng.\" stands as plain fact without a credit, but only one site says live food carries parasites (source 9: fact 10, and fact 23 for trùn chỉ). Fact 31 (bo bo) says bacteria and fact 24 (Tubifex) says diseases, not parasites, so neither is a second site for this claim. The line under THIS TERM says it is plain only if two sites carry it, so…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T11:00:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The mosquito-larvae item is still in the shop's list: \"Muốn có lăng quăng thì đặt một xô 19 lít nước đã khử clo cho muỗi đẻ, rồi vớt bằng vợt mịn mỗi ngày. Không vớt hằng ngày thì lăng quăng sẽ thành muỗi.\" THIS TERM cuts both sentences and says \"lăng quăng\" must not appear in this entry at all. Setting out standing water for mosquitoes to breed is not advice for Vietnam, where the healt…",
+        "Rule 12: The first item under \"Sai lầm hay gặp\" is missing. THIS TERM puts fact 10's sentence back there in its own plain words: live food that is not washed well can carry parasites. It stands plain, because facts 31 and 24 (bo bo and Tubifex) give some of the cases it covers, and it must never be said of one food alone. The list now opens with \"Cho ăn mãi một loại thức ăn thì cá có thể thiếu ch…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:16:49Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:16:49Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 12 and 3: the definition \"Thức ăn sống là mồi còn sống cho cá ăn, như ấu trùng artemia, bo bo hay trùng chỉ. Mồi cựa quậy làm cá chịu ăn và cho cá vận động cả thân lẫn đầu óc. Đây cũng là cách nhanh để vỗ cá trước khi cho đẻ.\" must be replaced word for word with \"Thức ăn sống là thức ăn còn sống, còn cử động, nên làm cá muốn ăn. Nó còn kích thích cá cả về thể chất lẫn tinh thần, và là cách …",
+        "Rule 12: the heading \"Trong bể của bạn\" must go. Its two pointers (\"Thức ăn đông lạnh: xem mục Thức ăn đông lạnh.\" and \"Thức ăn khô: xem mục Thức ăn khô.\") belong with the other four (\"Artemia: xem mục Artemia.\", \"Bo bo: xem mục Bo bo.\", \"Trùng chỉ: xem mục Trùng chỉ.\", \"Trùng cỏ: xem mục Trùng cỏ.\"), each as it is, under one heading \"Xem thêm\" at the end of the entry. The four are now under \"Các…",
+        "Rules 12 and 4: the Tubifex block must be cut: its opening \"Một tài liệu tham khảo ghi về giun Tubifex:\" and all three items (\"Giun rất béo và thiếu một số axit amin thiết yếu...\", \"Giun vớt từ cống, từ nguồn nước ngoài trời hay từ trại nuôi có thể mang nhiều bệnh...\", \"Giữ giun dưới vòi nước chảy mạnh...\"). Tubifex is Trùng chỉ's Latin name, so it is said once in a line and linked (\"Trùng chỉ: x…",
+        "Rule 12: \"Cá mồi mua ở tiệm dễ đem bệnh vào bể hơn, mà người nuôi thường không cách ly chúng.\" must read \"Cá mồi mua ở tiệm dễ đem bệnh vào bể hơn, mà phần lớn người nuôi không cách ly chúng.\" (fact 11 says \"most keepers\").",
+        "Rule 12: \"Cá vàng bán làm cá mồi chứa nhiều thiaminase.\" must read \"Cá vàng và cá minnow bán làm cá mồi chứa nhiều thiaminase.\" Fact 12 names both goldfish and minnows, never goldfish alone.",
+        "Rule 12: \"Nhiều người ép đẻ coi đây là cách tốt nhất để vỗ Corydoras.\" must read \"Nhiều người nhân giống cá coi blackworm là cách tốt nhất để vỗ Corydoras.\"",
+        "Rule 12: \"Cách giữ là để trong hộp nông, ngập nước lạnh đã khử clo không quá 1,3 cm, rồi cất tủ lạnh.\" puts the 1,3 cm on the water, but fact 54 gives it as the container's depth. It must read \"Cách giữ là để trong hộp nông, sâu không quá 1,3 cm, ngập nước lạnh đã khử clo, rồi cất tủ lạnh.\"",
+        "Rule 12: \"Không vớt hằng ngày thì lăng quăng sẽ nở thành muỗi.\" must read \"Không vớt hằng ngày thì lăng quăng sẽ thành muỗi.\"",
+        "Rules 12 and 10: \"Vinegar eel, micro worm, grindal worm và white worm đều tự nuôi ở nhà được.\" must be cut. No fact says any of them is raised at home, and none gives the culture for grindal or white worms. The substrate sentence after it stays.",
+        "Rule 12: \"Cho ăn mãi một loại thức ăn thì cá dễ thiếu chất.\" must read \"Cho ăn mãi một loại thức ăn thì cá có thể thiếu chất.\" (fact 5 says \"can\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
   ]
 }
