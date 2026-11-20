@@ -1848,5 +1848,88 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/tao": [
+    {
+      "at": "2026-11-20T09:07:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:07:29Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nó mọc khi sắt trên 0,15 ppm. Có thể gỡ tảo ra.\" (Rêu tóc) has not been replaced with the required wording: \"Sắt trên 0,15 ppm là một nguyên nhân làm nó mọc. Gỡ bỏ các sợi tảo.\" As written, the iron level reads as the only cause.",
+        "Rule 12: \"Tiệm này cũng ghi: ở bể mới thì chờ 4–6 tuần cho nó tự ổn, hoặc chà đi. Hội này cũng ghi: Otocinclus ăn tảo nâu.\" (Tảo nâu) has not been replaced with the required item. \"Otocinclus ăn tảo nâu.\" should be a plain sentence placed before the shop's claim, and the \"Hội này cũng ghi:\" credit should go.",
+        "Rule 12: \"Dư sắt làm nó mọc.\" (Rêu chùm đen) should read \"Dư sắt là một nguyên nhân làm nó mọc.\" This is the only sentence in that item that changes.",
+        "Rule 12: \"Hội này khuyên châm phosphate lên 0,5–2,0 ppm.\" (Rêu đốm xanh) should read \"Châm phosphate lên 0,5–2,0 ppm.\" with no credit.",
+        "Rule 12: \"Hội này ghi: dùng nửa liều cũng diệt được.\" (Rêu nhớt xanh) gives a part of a dose for a medicine named in the entry (erythromycin), which the rules don't allow. It should be replaced with \"Liều và cách dùng: theo nhãn thuốc.\"",
+        "Rule 12: \"Tiệm này cũng xếp mấy việc sau vào sai lầm hay gặp: dùng oxy già quá tay, bật đèn suốt ngày đêm, cho ăn quá nhiều và thay 100% nước.\" should open with \"Tiệm thứ hai cũng xếp…\". Two shops are named on the page, so under a new heading the shop has to be named again as the second one, not called \"Tiệm này\".",
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:26:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Liều và cách dùng: theo nhãn thuốc.\": the facts don't carry it (unsupported, unsupported, unsupported): facts give specific doses (packet per 10 gal, half dosage), not 'follow label' / 'follow the label' advice not in facts; sources give specific doses (packet/10 gal, half dosage) / follow-label advice not in facts; sources give specific doses",
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:26:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Tiệm này cũng xếp mấy việc sau vào sai lầm hay gặp: dùng oxy già quá tay, bật đèn suốt ngày đêm, cho ăn quá nhiều và thay 100% nước.\" is still in the entry. The evening batch replaces it word for word with \"Tiệm thứ hai cũng xếp mấy việc sau vào sai lầm hay gặp: dùng oxy già quá tay, bật đèn suốt ngày đêm, cho ăn quá nhiều và thay 100% nước.\" Two shops are named by this point, so \"Tiệm …",
+        "Rule 12: \"Kháng sinh erythromycin cũng diệt được nó. Hội này ghi: dùng nửa liều cũng diệt được.\" gives a part of a dose (\"nửa liều\") for a medicine named in the entry, which the line on medicines doesn't allow. It must be replaced word for word with \"Kháng sinh erythromycin cũng diệt được nó. Liều và cách dùng: theo nhãn thuốc.\"",
+        "Rule 12: The Tảo nâu item still reads \"... Tiệm này cũng ghi: ở bể mới thì chờ 4–6 tuần cho nó tự ổn, hoặc chà đi. Hội này cũng ghi: Otocinclus ăn tảo nâu.\" It must be replaced word for word with \"Tảo nâu (diatom): lớp nâu nhớt bám lỏng trên kính, đá và lũa. Silicat và phosphate cao nuôi nó. Otocinclus ăn tảo nâu. Tiệm này cũng ghi: ở bể mới thì chờ 4–6 tuần cho nó tự ổn, hoặc chà đi.\"",
+        "Rule 12: The Rêu đốm xanh item still reads \"Hội này khuyên châm phosphate lên 0,5–2,0 ppm.\" It must be replaced word for word with \"Châm phosphate lên 0,5–2,0 ppm.\"",
+        "Rule 12: The Rêu tóc item still reads \"Nó mọc khi sắt trên 0,15 ppm. Có thể gỡ tảo ra.\" This presents iron as the only cause. It must be replaced word for word with \"Sắt trên 0,15 ppm là một nguyên nhân làm nó mọc. Gỡ bỏ các sợi tảo.\"",
+        "Rule 12: The Rêu chùm đen item ends \"Dư sắt làm nó mọc.\" This presents iron as the only cause, when the facts give it as one of several. It must be replaced word for word with \"Dư sắt là một nguyên nhân làm nó mọc.\"",
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T04:44:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 504 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T04:44:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: Rêu nước xanh's item ends \"Số ngày tắt đèn thì mỗi nguồn ghi một khác: 5 ngày, 5–7 ngày, hoặc ít nhất một tuần.\" The line must be word for word \"Số ngày tắt đèn thì các nguồn ghi khác nhau: 5 ngày, 5–7 ngày, hoặc ít nhất một tuần.\" \"mỗi nguồn ghi một khác\" is the wording that was ruled out, because two pages give the same five days.",
+        "Rule 12: Rêu tóc's item still says \"Có thể gỡ bằng tay và bớt châm sắt.\" It must be written word for word as \"Có thể gỡ tảo ra.\" Only one site gives removing it by hand, and the sites give less iron in different ways. Neither part can take a credit, since neither page is one the entry names.",
+        "The entry is 508 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
   ]
 }
