@@ -1163,3 +1163,25 @@ test('a guide held for the video\'s own dose goes to its editor while the read f
   expect(none).toEqual([])
   expect((await readJson(again, GUIDE)).held).toEqual({ checks: ['dose', 'shop'], at: '2026-11-09' })
 })
+
+// The chief of staff, 20 Nov 2026: the guard on a body a person fixed (bodyFixed) stops the writers and the menders, never
+// the gate. A guarded guide is read like any other: held, it stays held while its read finds a fault; live, harm found on
+// it holds it.
+test('a body a person fixed is read and held like any other: the guard stops only the writers and menders', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.bodyFixed = true; t.held = { checks: ['shop'], at: '2026-11-08' } })
+  commit(root, 'held, fixed by hand')
+  await edit(root, GUIDE, t => { t.body = '<p>Lọc mua ở Petco là được.</p>' })
+  const calls: string[] = []
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).held.checks).toEqual(['shop'])
+
+  const live = await repo()
+  await edit(live, GUIDE, t => { t.bodyFixed = true })
+  commit(live, 'fixed by hand')
+  const page = await guidePage(live)
+  await saveState(live, { [fitKey(page)]: { at: '2026-11-09', hash: fitText(page).hash, model: 'opus', checklist: 3, findings: [{ check: 'harm', part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } })
+  await gate(live, { llm: reader(), now })
+  expect((await readJson(live, GUIDE)).held).toEqual({ checks: ['harm'], at: '2026-11-09' })
+})
