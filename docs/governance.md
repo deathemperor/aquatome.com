@@ -876,7 +876,8 @@ The layers above still check the result.
     - The pages whose pictures' lines the stored copy keeps without their place (The Spruce Pets, Aquarium Breeder,
       ScotCat, Loaches Online) are on `engine-state/_credit-lines.json`: the cycle reads each once, the ones its own turn
       reaches within two weeks on that turn and the rest the next time it reads their source, and each read names our
-      photos from its pictures' lines.
+      photos from its pictures' lines. A page read early is read early once: if its request or the read of its lines
+      fails, it waits for its own turn.
   - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws

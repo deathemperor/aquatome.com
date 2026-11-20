@@ -287,6 +287,13 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     if (url in reads) { delete reads[url]; await writeLineReads(root, reads) }
     delete lineWaiting[url]
   }
+  // A page the list reads early is read early once: marked before its request, it then waits for its own turn whatever
+  // the read meets (a failed request, a failed read of its lines), so a page that keeps failing isn't asked every cycle.
+  const lineTurn = async (url: string) => {
+    const reads = await readLineReads(root)
+    if (url in reads) await writeLineReads(root, { ...reads, [url]: { ...reads[url]!, turn: true } })
+    lineWaiting[url] = { ...lineWaiting[url]!, turn: true }
+  }
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
   const gbifNamesFile = join(root, 'engine-state/_gbif-names.json')
@@ -534,6 +541,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const save = async (next: UrlState) => { state[url] = next; await saveState(root, id, state) }
       counts.fetched++
       try {
+        if (url in lineWaiting && !lineWaiting[url]!.turn) await lineTurn(url)
         const r = await get(url)
         networkFailures = 0
         const o = htmlToOutline(r.html, src.contentSelector)

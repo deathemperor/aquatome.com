@@ -386,6 +386,23 @@ test('a page the list leaves to its own turn is not read early', async () => {
   expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8')))).toEqual([url])
 })
 
+test('a page the list reads early is read early once: after a failed request or a failed read of its lines, it waits for its own turn', async () => {
+  const lines = (root: string) => readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8').then(JSON.parse)
+  for (const fail of ['request', 'lines'] as const) {
+    const root = await fresh()
+    await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+    const url = `${SF}paracheirodon-axelrodi`
+    await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff' } }))
+    const failing = deps(root, { urls: ['paracheirodon-axelrodi'] })
+    if (fail === 'request') failing.d.fetcher.get = async () => { throw new Error('HTTP 404') }
+    else failing.d.media.urlFor = () => { throw new Error('no media address') }
+    expect((await runEngine(failing.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(1)
+    expect((await lines(root))[url]).toMatchObject({ turn: true })
+    expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+    expect(Object.keys(await lines(root))).toEqual([url])
+  }
+})
+
 test("a credit read that fails is ours, not the page's: the page keeps its read and its turn, and its credits wait for the next one", async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
