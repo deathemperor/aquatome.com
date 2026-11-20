@@ -3,6 +3,12 @@
   "name": "ซีวา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-20T11:57:53.765Z",
+    "why": "Siwa Oasis is written in Thai as \"ซิวา\" (Royal Institute style transcribing the Egyptian name), and \"ซีวา\" uses the wrong vowel length and also lacks the kind word \"โอเอซิส\" or \"วาห์\"."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

@@ -11,10 +11,33 @@
     "rio-capiru"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Capiru"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Metynnis fasciatus was described on the basis of a young fish from Brazil (Rio Capiru).",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Capiru"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2353430,
       "total": 16,
-      "fetched": "2026-11-10",
+      "fetched": "2026-11-20",
       "countries": [
         [
           "BR",
@@ -25,31 +48,37 @@
         [
           -59.0625,
           -2.8125,
+          1,
           1
         ],
         [
           -54.84375,
           -2.8125,
+          1,
           1
         ],
         [
           -52.03125,
           -12.65625,
+          5,
           5
         ],
         [
           -50.625,
           -14.0625,
+          3,
           3
         ],
         [
           -49.21875,
           -5.625,
+          4,
           4
         ],
         [
           -47.8125,
           -8.4375,
+          2,
           2
         ]
       ]
@@ -95,7 +124,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
       "source": "glaser"
     },
@@ -105,7 +134,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
       "source": "glaser"
     },
@@ -115,7 +144,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
       "source": "glaser"
     },
@@ -125,7 +154,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
       "source": "glaser"
     },
@@ -135,7 +164,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
       "source": "glaser"
     },
@@ -145,7 +174,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
       "source": "glaser"
     },
@@ -155,7 +184,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
       "source": "glaser"
     }

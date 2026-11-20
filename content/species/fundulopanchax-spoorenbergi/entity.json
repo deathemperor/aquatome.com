@@ -10,6 +10,36 @@
     "nigeria",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species occurs from Nigeria to Cameroon.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348447,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -51,7 +81,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-spoorenbergi-2/",
       "source": "glaser"
     },
@@ -61,7 +91,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-spoorenbergi-2/",
       "source": "glaser"
     },
@@ -71,7 +101,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-spoorenbergi-2/",
       "source": "glaser"
     },
@@ -81,7 +111,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/fundulopanchax-spoorenbergi-2/",
       "source": "glaser"
     }

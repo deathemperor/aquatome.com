@@ -3,6 +3,12 @@
   "name": "คาบสมุทรบอลข่าน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:09:53.546Z",
+    "why": "The region is written บอลข่าน in Thai, and คาบสมุทร (\"peninsula\") is a kind word Thai atlases do commonly add (คาบสมุทรบอลข่าน), but here the source's \"the Balkans\" is a broader region and the place is listed as a region, so the added peninsula word is a mild mismatch."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

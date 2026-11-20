@@ -17,7 +17,8 @@
       ],
       "regions": [
         "Borneo",
-        "Pulau Laut"
+        "Pulau Laut",
+        "Laut Island"
       ],
       "sources": [
         "bwaquatics",
@@ -25,20 +26,22 @@
       ],
       "quotes": [
         {
-          "source": "bwaquatics",
-          "quote": "Wild-caught Betta ideii from Indonesia, from the Betta unimaculata complex.",
+          "source": "seriouslyfish",
+          "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
           "countries": [
             "ID"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Betta ideii is a large paternal mouthbrooding labyrinth fish from southern South Kalimantan and Pulau Laut, Indonesian Borneo.",
-          "countries": [],
           "regions": [
             "Borneo",
             "Pulau Laut"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Known only from South Kalimantan and Laut Island, Borneo.",
+          "countries": [],
+          "regions": [
+            "Laut Island"
           ]
         }
       ]

@@ -12,22 +12,7 @@
       "caption": "Cá betta falx đực vây đuôi viền xanh trong bể nền đá",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/600349957.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/600349957-480.webp",
-      "width": 1024,
-      "height": 667,
-      "licence": "CC BY-NC",
-      "author": "Rafael Abizar",
-      "sourceUrl": "https://www.inaturalist.org/photos/600349957",
-      "caption": "Cá betta falx cái có sọc chấm trong bể nền sỏi",
-      "best": true,
-      "kind": "female",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/600349845.webp",
@@ -40,8 +25,7 @@
       "caption": "Cận cảnh cá betta falx đực vây viền xanh lam trong bể",
       "best": true,
       "kind": "male",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/265217798.webp",
@@ -54,8 +38,7 @@
       "caption": "Cá betta falx trong hộp nhựa trong để chụp ảnh",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/614184584.webp",
@@ -68,8 +51,20 @@
       "caption": "Cá betta falx trong hộp chụp ảnh bên cạnh thước đo",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/600349957.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/600349957-480.webp",
+      "width": 1024,
+      "height": 667,
+      "licence": "CC BY-NC",
+      "author": "Rafael Abizar",
+      "sourceUrl": "https://www.inaturalist.org/photos/600349957",
+      "caption": "Cá betta falx cái có sọc chấm trong bể nền sỏi",
+      "best": true,
+      "kind": "female",
+      "setup": false
     }
   ],
   "seen": 23,

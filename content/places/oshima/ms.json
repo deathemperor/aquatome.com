@@ -3,6 +3,12 @@
   "name": "Oshima",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:07:35.316Z",
+    "why": "Oshima is a Japanese place name that Malay atlases would write as \"Oshima\", but for a region (Oshima Subprefecture in Hokkaido, or Izu Ōshima) a kind word such as \"Wilayah\" or \"Pulau\" would normally be expected, and the bare name is ambiguous."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

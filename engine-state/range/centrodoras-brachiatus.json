@@ -1,0 +1,61 @@
+{
+  "id": "centrodoras-brachiatus",
+  "native": {
+    "input": "457f5811e512f8b2",
+    "at": "2026-11-20T12:03:34.993Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE",
+        "BR",
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Centrodoras brachiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344076,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        22
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        12
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T12:03:34.993Z"
+  }
+}

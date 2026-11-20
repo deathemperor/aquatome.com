@@ -1,10 +1,27 @@
 {
   "id": "metynnis-fasciatus",
   "native": {
-    "input": "4e8131a63d9d35a9",
-    "at": "2026-11-10T12:58:20.267Z",
-    "claims": [],
-    "regions": [],
+    "input": "bdedb039b697690e",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Metynnis fasciatus was described on the basis of a young fish from Brazil (Rio Capiru).",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Capiru",
+        "source": "glaser",
+        "quote": "Metynnis fasciatus was described on the basis of a young fish from Brazil (Rio Capiru).",
+        "country": "BR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -42,8 +59,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-10T12:58:20.267Z"
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T07:13:45.828Z"
   }
 }

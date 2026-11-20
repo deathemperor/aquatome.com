@@ -1,8 +1,8 @@
 {
   "id": "barbodes-lateristriga",
   "native": {
-    "input": "2e0ecf9a77658e7a",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "1872a1abf4c8d4df",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "TH",
@@ -35,20 +35,36 @@
         "quote": "Type locality is 'Java, Indonesia', but this species is currently considered to be distributed throughout southern (peninsular) Thailand, Peninsular Malaysia, Sumatra, and Java, plus some smaller islands in the South China Sea such as Tioman and the Anambas archipelago.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', but this species is currently considered to be distributed throughout southern (peninsular) Thailand, Peninsular Malaysia, Sumatra, and Java, plus some smaller islands in the South China Sea such as Tioman and the Anambas archipelago.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Java, Indonesia', but this species is currently considered to be distributed throughout southern (peninsular) Thailand, Peninsular Malaysia, Sumatra, and Java, plus some smaller islands in the South China Sea such as Tioman and the Anambas archipelago.",
+        "words": "Malaysia",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "The spanner barb or 'T-barb', Striuntius lateristriga, is a cyprinid from peninsular Thailand, Peninsular Malaysia, Singapore, Sumatra and Java.",
+        "ok": true
+      },
       {
         "name": "Java",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Java, Indonesia', but this species is currently considered to be distributed throughout southern (peninsular) Thailand, Peninsular Malaysia, Sumatra, and Java, plus some smaller islands in the South China Sea such as Tioman and the Anambas archipelago.",
         "country": "ID",
-        "ok": true
-      },
-      {
-        "name": "Sumatra",
-        "source": "seriouslyfish",
-        "quote": "The spanner barb or 'T-barb', Striuntius lateristriga, is a cyprinid from peninsular Thailand, Peninsular Malaysia, Singapore, Sumatra and Java.",
         "ok": true
       },
       {

@@ -14,38 +14,14 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/56578924.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/56578924-480.webp",
-      "width": 1024,
-      "height": 768,
+      "url": "https://media.aquatome.com/inaturalist/56578915.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/56578915-480.webp",
+      "width": 768,
+      "height": 1024,
       "licence": "CC0",
       "author": "葉子",
-      "sourceUrl": "https://www.inaturalist.org/photos/56578924",
-      "caption": "Cận cảnh cụm hoa tím của Pogostemon stellatus",
-      "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/643747272.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/643747272-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Thomas Mesaglio",
-      "sourceUrl": "https://www.inaturalist.org/photos/643747272",
-      "caption": "Cụm hoa Pogostemon stellatus nở tím rõ nét",
-      "best": true,
-      "kind": "flower"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/15132100.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/15132100-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "coenobita",
-      "sourceUrl": "https://www.inaturalist.org/photos/15132100",
-      "caption": "Cây Pogostemon stellatus mọc ngoài tự nhiên với bông hoa",
+      "sourceUrl": "https://www.inaturalist.org/photos/56578915",
+      "caption": "Pogostemon stellatus mọc ven mặt nước ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
     },
@@ -58,8 +34,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/tropica/5a5f165c8eb03d85.webp",
@@ -75,8 +50,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
       "source": "tropica",
-      "kind": "submersed",
-      "unchecked": true
+      "kind": "submersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/56578941.webp",
@@ -91,14 +65,14 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/56578915.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/56578915-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "葉子",
-      "sourceUrl": "https://www.inaturalist.org/photos/56578915",
-      "caption": "Pogostemon stellatus mọc ven mặt nước ngoài tự nhiên",
+      "url": "https://media.aquatome.com/inaturalist/643746991.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/643746991-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Thomas Mesaglio",
+      "sourceUrl": "https://www.inaturalist.org/photos/643746991",
+      "caption": "Bụi Pogostemon stellatus ra hoa bên mép nước",
       "best": false,
       "kind": "habitat"
     },
@@ -111,20 +85,7 @@
       "author": "Tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
       "source": "tropica",
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/643746991.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/643746991-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Thomas Mesaglio",
-      "sourceUrl": "https://www.inaturalist.org/photos/643746991",
-      "caption": "Bụi Pogostemon stellatus ra hoa bên mép nước",
-      "best": false,
-      "kind": "habitat"
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/643747209.webp",
@@ -149,6 +110,30 @@
       "caption": "Đám Pogostemon stellatus mọc dày ven nước",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/56578924.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/56578924-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "葉子",
+      "sourceUrl": "https://www.inaturalist.org/photos/56578924",
+      "caption": "Cận cảnh cụm hoa tím của Pogostemon stellatus",
+      "best": true,
+      "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/643747272.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/643747272-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Thomas Mesaglio",
+      "sourceUrl": "https://www.inaturalist.org/photos/643747272",
+      "caption": "Cụm hoa Pogostemon stellatus nở tím rõ nét",
+      "best": true,
+      "kind": "flower"
     },
     {
       "url": "https://media.aquatome.com/commons/69b90479574f6db2.webp",

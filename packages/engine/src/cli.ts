@@ -29,7 +29,7 @@ import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
-import { gate, heldMendsOf, writeFitSummary } from './gate'
+import { gate, gateFitReport, heldMendsOf, heldNow, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite, foreignProduct } from './fit-rewrite'
 import { unitsMend } from './units-mend'
@@ -39,7 +39,7 @@ import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardPhotos, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
 import { readSecondLook } from './last-photo'
-import { phraseMatch } from './phrases'
+import { phraseRun } from './phrases'
 import { readerReport, readPages } from './reader'
 import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
@@ -74,7 +74,7 @@ import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } fro
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { tidyCredits } from './wiki-author'
-import { namePublisherCredits } from './publisher-credits'
+import { creditCounts, namePublisherCredits } from './publisher-credits'
 import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
@@ -337,6 +337,8 @@ if (cmd === 'photo-privacy') {
   console.log(`publisher credits: ${Object.entries(named.named).map(([s, n]) => `${s} ${n}`).join(', ') || 'none'} named in ${named.files} files; ${named.untied.length} keep the publisher alone`)
   // Each by its file and address, with why: no name.
   for (const u of named.untied) console.log(`publisher credit not told: ${u.file} ${u.url} (${u.why})`)
+  // Each publisher's photos with their line and with its name alone, places counted (the chief of staff, 17 Nov 2026).
+  for (const [s, c] of Object.entries(await creditCounts(ROOT))) console.log(`publisher credits, ${s}: ${c.named} with a line, ${c.alone} the publisher alone`)
 } else if (cmd === 'lifespans') {
   // Lifespans the sources already state as a labelled line ("Life expectancy: 4 years"), put on the data card for each
   // source that gives one; new reads give theirs through the process prompt.
@@ -365,6 +367,7 @@ if (cmd === 'photo-privacy') {
   }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT)
   console.log(`faces: ${r.checked} checked, ${r.removed.length} removed, ${r.held.length} held for a second look (a page's last photo), ${r.failed.length} failed`)
   for (const x of r.held) console.log(`held for a second look: ${x}`)
+  for (const x of r.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const f of r.failed) console.log(`failed: ${f}`)
 } else if (cmd === 'calibrate-marks') {
@@ -422,6 +425,7 @@ if (cmd === 'photo-privacy') {
     for (const x of r.retried) console.log(`model failed, tried again: ${x}`)
     for (const x of r.aside) console.log(`sheet set aside, first next run: ${x}`)
     for (const x of r.heads.held) console.log(`held: ${x}`)
+    for (const x of r.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
     for (const x of r.heads.emptied) console.log(`head removed: ${x}`)
     for (const x of r.heads.moved) console.log(`head moved: ${x}`)
     for (const x of r.picked) console.log(`picked head: ${x}`)
@@ -443,6 +447,7 @@ if (cmd === 'photo-privacy') {
   console.log(`dead-screen: ${r.sheets} sheets, ${r.judged} judged, ${r.dead.length} dead, ${r.held.length} held for a second look (a page's last photo), ${r.left} left for later, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.dead) console.log(`dead: ${x}`)
   for (const x of r.held) console.log(`held for a second look: ${x}`)
+  for (const x of r.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'guide-photos') {
   // No people or logos in guides' and equipment guides' photos and video guides' stills (guide-photos.ts): --limit model
@@ -602,7 +607,7 @@ if (cmd === 'photo-privacy') {
   const get = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.text() }
   const bytes = async (u: string, referer: string) => { const res = await fetch(u, { headers: { 'user-agent': UA, referer } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const r = await tropicaPhotos(ROOT, { get, bytes, media: media(), sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, values.limit ? { limit: Number(values.limit) } : {})
-  console.log(`tropica-photos: ${r.added.length} pages added to, ${r.skipped.length} skipped, ${r.failed.length} failed\n${[...r.added, ...r.skipped, ...r.failed].join('\n')}`)
+  console.log('off' in r ? `tropica-photos: ${r.off}` : `tropica-photos: ${r.added.length} pages added to, ${r.skipped.length} skipped, ${r.failed.length} failed\n${[...r.added, ...r.skipped, ...r.failed].join('\n')}`)
 } else if (cmd === 'own-photos') {
   // Photos people gave the owner for the site, from a JSON list [{ file, page: "plants/<id>", crop? }]: pnpm engine own-photos <list.json>
   const list = positionals[1]
@@ -656,7 +661,10 @@ if (cmd === 'photo-privacy') {
   if (r.albums.length) console.log(`sweep: ${r.albums.length} albums with a new lead photo (gallery.ts orderAlbums)`)
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
-  for (const x of [...r.secondLook.map(x => `held for a second look: ${x}`), ...r.agreed.map(x => `second look agreed, now never-again: ${x}`)]) console.log(x)
+  for (const x of [...r.secondLook.map(x => `held for a second look: ${x}`), ...r.agreed.map(x => `second look agreed, now never-again: ${x}`), ...r.unlisted.map(x => `second look cleared one off at its first verdict, off the never-again list: ${x}`), ...r.waitingBack.map(x => `second look marked it off at its first verdict, its never-again entry written back: ${x}`)]) console.log(x)
+  // Where the two lists still disagree, the photo stays off, and a person sets the record right (last-photo.ts mendWaiting).
+  if (r.waitingOdd.length) console.log(`sweep: ${r.waitingOdd.length} photos off at their first verdict where the second look and the never-again list disagree: each kept off. Set each one's record right by hand.`)
+  for (const x of r.waitingOdd) console.log(`second look and never-again list disagree: ${x}`)
   if (r.held.length) console.log(`sweep: ${r.held.length} photos would leave every page for good, more than a run may with nobody looking: none taken off. Look at them, then run: pnpm engine sweep --titles 0 --photo-cap ${r.held.length}`)
   for (const x of [...r.held.map(x => `photo held: ${x}`), ...r.unwell.map(x => `photo of an unwell fish kept: ${x}`), ...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.again.map(x => `never-again off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.schools.map(x => `school size: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`), ...r.unplaced.map(x => `photo under no heading: ${x}`), ...r.folds.map(x => `page folded: ${x}`), ...r.albums.map(x => `album lead: ${x}`), ...r.albumKeptOut.map(x => `album kept-mark photo past its cap, left out: ${x}`), ...r.ownKeptOut.map(x => `page's own kept-mark photo past its cap, left out: ${x}`)]) console.log(x)
   // A publisher's photos credited to it alone get the photographer its page prints under them (publisher-credits.ts).
@@ -746,7 +754,7 @@ if (cmd === 'photo-privacy') {
     state = out.state
   }
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
-  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state))
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state, await heldNow(ROOT, all)))
   await writeFitSummary(ROOT, all, state)
   console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
@@ -868,7 +876,7 @@ if (cmd === 'photo-privacy') {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
     mend: gateMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: heldMendsOf(),
   })
-  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
+  await writeFile(join(ROOT, 'docs/review/fit.md'), await gateFitReport(ROOT, state, held))
   await writeFitSummary(ROOT, pages, state, { held })
   for (const a of ['hold', 'release', 'revert', 'mended', 'refused', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
@@ -1268,11 +1276,11 @@ if (cmd === 'photo-privacy') {
   // Existing Vietnamese rewritten in the site's style, pages out of search for their score first, then worst-read kinds
   // first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
-  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
+  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts), once for each listed word] [--dry-run: list the pages and parts, no model call]
   //   [--first species/<id>,…: these first, in this order, when due]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
-  const match = values.phrases ? phraseMatch('vi') : values.match ? new RegExp(values.match, 'i') : undefined
-  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'], ...(values.first ? { first: values.first.split(',') } : {}) })
+  const pages = values.phrases ? phraseRun('vi') : values.match ? { match: new RegExp(values.match, 'i') } : {}
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...pages, dry: values['dry-run'], ...(values.first ? { first: values.first.split(',') } : {}) })
   if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
   else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.done) console.log(`${values['dry-run'] ? 'would rewrite' : 'rewritten'}: ${x}`)
@@ -1433,11 +1441,11 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'plant-synonyms') {
   // Each plant's other scientific names (old genus, GBIF's, a hobby name), which the site links, checks and searches as its own.
   const r = await addPlantSynonyms(ROOT, http)
-  console.log(`plant-synonyms: ${r.changed.length} pages${r.failed.length ? `, GBIF failed on ${r.failed.length} (tried again next run)` : ''}\n${r.changed.join('\n')}`)
+  console.log(`plant-synonyms: ${r.off ?? `${r.changed.length} pages${r.failed.length ? `, GBIF failed on ${r.failed.length} (tried again next run)` : ''}`}\n${r.changed.join('\n')}`)
 } else if (cmd === 'fish-synonyms') {
   // Each fish's older scientific names from GBIF, kept so each is asked once (fish-synonyms.ts). pnpm engine fish-synonyms [--limit 300]
   const r = await fetchFishSynonyms(ROOT, http, { limit: values.limit ? Number(values.limit) : 300 })
-  console.log(`fish-synonyms: ${r.asked} fish asked, ${r.left} left, GBIF failed on ${r.failed.length} (asked again next run); ${(await fishOlderNames(ROOT)).size} fish with older names${r.failed.length ? `\n${r.failed.slice(0, 10).join('\n')}` : ''}`)
+  console.log(`fish-synonyms: ${'off' in r ? r.off : `${r.asked} fish asked, ${r.left} left, GBIF failed on ${r.failed.length} (asked again next run)`}; ${(await fishOlderNames(ROOT)).size} fish with older names${r.failed.length ? `\n${r.failed.slice(0, 10).join('\n')}` : ''}`)
 } else if (cmd === 'shop-list') {
   // What fish (or plant) shops in the language's country sell, from their own lists (web research, never marketplaces):
   // pnpm engine shop-list --lang vi|id|th|ms [--kind plants] [--seed file.json (an array of trade names from one shop's list)]

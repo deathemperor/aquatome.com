@@ -39,25 +39,18 @@
             "TH",
             "SG"
           ],
-          "regions": []
-        },
-        {
-          "source": "bwaquatics",
-          "quote": "Malaysia, Indonesia (Sumatra) and south-east Thailand.",
-          "countries": [
-            "ID"
-          ],
           "regions": [
-            "Sumatra"
+            "Sumatra",
+            "Bintan"
           ]
         },
         {
           "source": "seriouslyfish",
           "quote": "Described from Bandar Maharani, now more often referred to as Muar, district in Johor state, southern Peninsular Malaysia and distributed throughout the country with range extending into southern (peninsular) Thailand, eastern Sumatra, Singapore and the island of Bintan in Riau Islands province, Indonesia.",
-          "countries": [],
-          "regions": [
-            "Bintan"
-          ]
+          "countries": [
+            "ID"
+          ],
+          "regions": []
         }
       ]
     },

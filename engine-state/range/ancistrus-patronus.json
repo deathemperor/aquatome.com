@@ -1,0 +1,41 @@
+{
+  "id": "ancistrus-patronus",
+  "native": {
+    "input": "96abfbd158c880c7",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus patronus",
+    "status": "ACCEPTED",
+    "taxonKey": 10202289,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

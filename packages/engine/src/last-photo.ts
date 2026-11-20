@@ -20,9 +20,21 @@ import { writePhotoState } from './photo-state'
  *
  * A photo we hold no permission for isn't held: the credit rule (sweep.ts `refusedByCredit`) and the never-again list
  * written by hand take it off at once.
+ *
+ * What the hold protects is a photo that PASSED the check before (the chief of staff, 20 Nov 2026, amending the rule of
+ * 14 Nov): judged again, it is held as above, and so is a photo under any other verdict. A photo's first verdict of dead
+ * or a person (the check's, the dead-fish screen's, the face screen's), on a photo that never passed, isn't held, whether
+ * a step added it this run or a pages run put it up hours before: it comes off every page, even a page's last photo, and
+ * waits for its look marked on both lists. Its record here has `off: true`; the never-again list, which every step that
+ * adds photos skips, has it as `waiting: withheld [<the record's hash>]` (`waitingEntry`), so nothing counts it refused.
+ * - "agree": its never-again entry takes the verdict's own reason, and the record leaves.
+ * - "clear": its never-again entry goes (the sweep), so a step can bring it back, and no verdict takes it off again.
+ * Where the two disagree, the record is the truth and the safe side is off the page (the chief of staff, 20 Nov 2026):
+ * the sweep writes a marked record's missing waiting entry back, and a waiting entry with no record stays in force and
+ * is reported (`mendWaiting`). No disagreement loosens the list for any other kind.
  */
 export type Look = { said: 'agree' | 'clear'; by: string; on: string }
-export type SecondLook = { why: string; step: string; pages: string[]; at: string; look?: Look }
+export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look }
 export type SecondLooks = Record<string, SecondLook>
 export const SECOND_LOOK_FILE = '_photo-second-look.json'
 
@@ -52,6 +64,8 @@ export function looks(sl: SecondLooks) {
     agreed: (url: string) => has(sl, url) && lookOf(sl[url])?.said === 'agree',
     /** Held with no answer yet: it stays on every page. */
     waiting: (url: string) => has(sl, url) && !lookOf(sl[url]),
+    /** Off its pages at its first verdict, and on the never-again list as waiting, until its look (above). */
+    off: (url: string) => has(sl, url) && sl[url]!.off === true && !lookOf(sl[url]),
     /** Neither waiting nor cleared: a step's verdict may act on it. */
     open: (url: string) => !has(sl, url) || lookOf(sl[url])?.said === 'agree',
   }
@@ -94,17 +108,37 @@ export function lastPhotos(pages: PageShows[], off: (url: string, ref: string) =
 
 const today = () => new Date().toISOString().slice(0, 10)
 
+/** A verdict of the photo check that passed: "yes", with no person in the photo. */
+const passes = (v: unknown) => object(v) && v.ok === 'yes' && v.person !== true
+/** The photos that passed the photo check before: any page's verdict for it, or the first check's, a pass (above). */
+export function passedBefore(subjects: Record<string, unknown>, legacy: Record<string, unknown> = {}): Set<string> {
+  const out = new Set<string>()
+  for (const [u, by] of Object.entries(subjects)) if (object(by) && Object.values(by).some(passes)) out.add(u)
+  for (const [u, v] of Object.entries(legacy)) if (passes(v)) out.add(u)
+  return out
+}
+/** The same, from the check's verdict files as they are now: a step's start. */
+export async function readPassedBefore(root: string): Promise<Set<string>> {
+  const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
+  return passedBefore(await read('_photo-subjects.json'), await read('_photo-check.json'))
+}
+/** The verdicts a photo that never passed doesn't wait on a page under (above). */
+export const FIRST_OFF = /^(?:dead|people): /
+/** The never-again entry of a photo off at its first verdict: `waiting:` and its record's hash (above). */
+export const waitingEntry = (why: string) => compactRejection(why).replace(/^[^:]+:/, 'waiting:')
+
 /**
  * Puts each photo a step holds on the second look, once. An entry already there, with its look, is kept as it is; the
  * record is read again first, so what another step wrote meanwhile stays. Returns the photos newly put there.
  */
-export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[] }>, step: string, at = today()): Promise<string[]> {
+export async function holdForSecondLook(root: string, held: Map<string, { why: string; pages: string[]; off?: true }>, step: string, at = today()): Promise<string[]> {
   if (!held.size) return []
   const sl = await readSecondLook(root)
   const added: string[] = []
   for (const [url, h] of held) {
-    if (has(sl, url)) continue
-    sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at }
+    // A first verdict's mark takes the place of a hold on another reason that has no answer yet (photo-check.ts spared).
+    if (has(sl, url) && !(h.off && !sl[url]!.off && !lookOf(sl[url]))) continue
+    sl[url] = { why: compactRejection(h.why), step, pages: [...new Set(h.pages)].sort(), at, ...(h.off ? { off: true as const } : {}) }
     added.push(url)
   }
   if (added.length) await writeSecondLook(root, sl)
@@ -128,10 +162,56 @@ export async function listAgreed(root: string): Promise<string[]> {
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   for (const url of agreed) {
-    rejected[url] ??= sl[url]!.why
+    // One off at its first verdict: its waiting entry, for this reason or another, takes the verdict's own reason, and so
+    // does a mark's entry, which a shop's own kept mark could otherwise lift (the independent reader, 20 Nov).
+    if (sl[url]!.off && (rejected[url]?.startsWith('waiting:') || rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
+    else rejected[url] ??= sl[url]!.why
     delete sl[url]
   }
   await writePhotoState(rejectedFile, rejected)
   await writeSecondLook(root, sl)
   return agreed
+}
+
+/**
+ * The sweep's part for a photo off at its first verdict that the look cleared: its waiting entry leaves the never-again
+ * list, so the step that found it can bring it back. Returns them.
+ */
+export async function unlistCleared(root: string): Promise<string[]> {
+  const sl = await readSecondLook(root)
+  const l = looks(sl)
+  const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
+  const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const out = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && rejected[u] === waitingEntry(sl[u]!.why))
+  if (!out.length) return []
+  for (const u of out) delete rejected[u]
+  await writePhotoState(rejectedFile, rejected)
+  return out
+}
+
+/**
+ * The sweep's part where the two lists disagree on a photo off at its first verdict (the chief of staff, 20 Nov 2026: the
+ * record is the truth, and the safe side is off the page). Runs after `listAgreed` and `unlistCleared`.
+ * - A record marked `off` with no answer and no never-again entry: its waiting entry is written back (`back`). One whose
+ *   entry is a waiting entry for another reason takes the record's. One whose entry is another kind's keeps that entry,
+ *   which keeps the photo off as well, and is reported (`other`): a waiting entry in its place would let a "clear" lift it.
+ * - A waiting entry with no record marked for it stays in force, so the photo stays off, and is reported (`alone`).
+ * Nothing leaves the never-again list here.
+ */
+export async function mendWaiting(root: string): Promise<{ back: string[]; other: string[]; alone: string[] }> {
+  const sl = await readSecondLook(root)
+  const l = looks(sl)
+  const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
+  const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const out = { back: [] as string[], other: [] as string[], alone: [] as string[] }
+  for (const u of Object.keys(sl)) {
+    if (!l.off(u)) continue
+    const want = waitingEntry(sl[u]!.why), have = rejected[u]
+    if (have === want) continue
+    if (have === undefined || have.startsWith('waiting:')) { rejected[u] = want; out.back.push(u) }
+    else out.other.push(`${u}: its never-again entry is another kind's, left in force`)
+  }
+  for (const [u, why] of Object.entries(rejected)) if (why.startsWith('waiting:') && !(l.off(u) && why === waitingEntry(sl[u]!.why))) out.alone.push(`${u}: no second-look record marked for it, kept off`)
+  if (out.back.length) await writePhotoState(rejectedFile, rejected)
+  return out
 }

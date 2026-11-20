@@ -10,7 +10,7 @@ import { FISH_NAMES, oldNames, SWAPPED, type FishName, type SwappedName } from '
  * - the writers' prompts (VI_STYLE for Vietnamese);
  * - the `phrasing` content rule, which lists them (never a held count: a model can still write one, and only a model can
  *   mend it);
- * - the style rewrite, `rewrite-vi --match`, through phraseMatch.
+ * - the style rewrite, `rewrite-vi --phrases`, through phraseRun: each page once for each listed word it has.
  * A swap that is right in every sentence goes in sanitize.ts WORDING instead, which the sweep makes on every page.
  */
 export type Phrase = {
@@ -164,6 +164,19 @@ export function ticSlips(text: string, lang: WrittenLang): string[] {
 /** How many tics a text has: each kind's uses at TIC_AT or more, and each stacked "nên". */
 export const ticCount = (text: string, lang: WrittenLang) =>
   (TICS[lang] ?? []).reduce((n, p) => { const k = occurrences(text, p, lang); return n + (k >= TIC_AT ? k : 0) }, 0) + (STACKED[lang] ? [...text.matchAll(STACKED[lang]!)].length : 0)
+
+/** Each listed word a text has, as the list matches it, lower-cased, once: what the style rewrite marks a page for. */
+export const phraseWords = (text: string, lang: WrittenLang, list?: Phrase[]) =>
+  [...new Set(listOf(lang, list).flatMap(p => [...text.matchAll(new RegExp(pattern(p, lang), 'giu'))].map(m => m[0].toLowerCase().replace(/\s+/g, ' '))))]
+
+/**
+ * The style rewrite's run for the list (`rewrite-vi --phrases`): the pages it takes up, and the words each has, which it
+ * takes the page up for once (vi-backfill.ts). Empty for an empty list.
+ */
+export const phraseRun = (lang: WrittenLang, list?: Phrase[]) => {
+  const match = phraseMatch(lang, list)
+  return match ? { match, listed: (text: string) => phraseWords(text, lang, list) } : {}
+}
 
 /** Any listed phrase: the pages the style rewrite takes up (`pnpm engine rewrite-vi --match`). Undefined for an empty list. */
 export const phraseMatch = (lang: WrittenLang, list?: Phrase[]) => {

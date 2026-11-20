@@ -111,6 +111,10 @@
       {
         "source": "seriouslyfish",
         "value": 25
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -134,10 +138,22 @@
       "html": "<p>Nimbochromis livingstonii is a predatory cichlid endemic to Lake Malawi, where it is fairly widespread. An ambush predator, it lies motionless on the substrate and its mottled pattern makes it appear dead to the smaller fish that come to investigate. This 'playing dead' behaviour gave it the local name 'Kaligono', loosely 'sleeper'. It is not a fish for the general Malawi cichlid community.</p><ul><li>Max size: 250 mm SL (10 in)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "html": "<p>The genus Nimbochromis is probably best known to aquarists through the “sleeper”, N. livingstonii. All Nimbochromis species have a camouflage pattern of irregular brown spots. N. livingstonii uses this to imitate a decaying fish, because fish carrion look very similarly spotted. So the sleeper lies on his side on the ground and plays dead fish. Unsuspecting young fish that want to eat from the carrion are thus attracted and land in the stomach of the sleeper.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-livingstonii",
       "html": "<p>Endemic to Lake Malawi. It is fairly widespread throughout the lake.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "html": "<p>The animal received the name “sleeper” from the fishermen of Lake Malawi, who were able to observe the unusual lying around of the perch, which grows to over 20 cm in length, through the often crystal clear water of the lake. The sleeper is found seawide, local forms are not known in the hobby.</p>"
     },
     {
       "key": "habitat",
@@ -176,6 +192,12 @@
       "html": "<p>Predatory but is generally peaceful with species too big to be considered food (it will eat smaller mbuna and young fish). Suitable tankmates include Frontosa, Dimidiochromis compressiceps, larger mbuna and other large Rift Lake species. It is a loner in nature and therefore should be kept as a solitary specimen in the aquarium or if breeding is to be attempted, as a harem with several females and a single male.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "html": "<p>Among each other the animals are quite aggressive, therefore they should be kept in as large groups as possible and with (robust and sufficiently large!) accompanying fish, but not with other Nimbochromis species, as the animals can hybridize.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-livingstonii",
@@ -192,10 +214,82 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-livingstonii",
       "html": "<p>Not a fish for the general Malawi cichlid community, N. livingstonii is an ambush predator in nature, often being seen hanging motionless around rocky structures, in Vallisneria thickets or on the floor of the lake. It is a sedentary species and does not move around a lot. This is a behavioural adaptation known as thanatosis, or 'playing dead'. This strategy is usually used for defensive means in other animals but in N. livingstonii is adapted for offensive means. The fish has a mottled colour pattern and this, combined with the aforementioned ability to lie motionless on the substrate, makes the fish appear dead to unsuspecting prey. When a smaller fish attempts to investigate the 'corpse' it receives a nasty surprise! Native people have named this fish \"Kaligono\", which loosely translates as \"sleeper\" in tribute to this behaviour. N. livingstonii is the only member of the genus to be found in both shallow and deeper water.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "html": "<p>Very interesting is that each sleeper has an individual spot pattern, possibly this prevents the prey fish from adapting to a certain enemy image, which would reduce the hunting success. In other Lake Malawi cichlids the body pattern is usually so constant that it can be used as a species characteristic.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/4263f2840db6fee2.webp",
+      "thumb": "https://media.aquatome.com/glaser/4263f2840db6fee2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ab1d046f7dbb4933.webp",
+      "thumb": "https://media.aquatome.com/glaser/ab1d046f7dbb4933-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b1dcb1e129a27fe8.webp",
+      "thumb": "https://media.aquatome.com/glaser/b1dcb1e129a27fe8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/afe77f0823775728.webp",
+      "thumb": "https://media.aquatome.com/glaser/afe77f0823775728-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-livingstonii-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "VgstBMUa180",
+      "title": "Nimbochromis livingstonii: BIG and BEAUTIFUL",
+      "durationSec": 522,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FN2egxSLqys",
+      "title": "LIVINGSTONII: Fish Profile",
+      "durationSec": 302,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ndT_a1I9unQ",
+      "title": "Nimbochromis livingstonii : A Color Changer Cichlid",
+      "durationSec": 289,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "-XyVW3HXu7Q",
+      "title": "Nimbochromis Livingstonii Hunting Behaviour at Lions Cove - Rare Footage - Lake Malawi Cichlids",
+      "durationSec": 214,
+      "lang": "en-GB"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -224,5 +318,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

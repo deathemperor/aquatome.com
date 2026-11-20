@@ -435,17 +435,29 @@
     ]
   },
   "bucephalandra": {
-    "at": "2026-11-07",
-    "from": "2026-11-04",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "Bucephalandra",
     "confidence": "high",
-    "score": 0.85,
-    "notes": [
-      "\"Melting\" heading left in English while the text gives \"cair (melting)\"; use \"Daun Mereput/Cair (melting)\" for consistency.",
-      "\"emersed\"/\"submersed\" are left as English in running text; use \"emers\"/\"tenggelam\" or put the English in brackets after the Malay term.",
-      "\"all-in-one\", \"root tab\" and \"moss\" are left in English; consider \"baja cecair serba guna\", \"tab akar\" and \"lumut\", with the English in brackets.",
-      "\"pokok kedua\" is fine, but \"Tumbesarannya sangat perlahan\" is repeated across the sections; consider \"pertumbuhan\" for variety. This is a minor point."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumcoop": "d81e85552c76",
+      "quickFacts:aquariumbreeder": "0cca1832cc9b",
+      "beforeYouBuy:aquariumcoop": "a34b7793c0f9",
+      "distribution:aquariumcoop": "e0186ea4e791",
+      "distribution:aquariumbreeder": "9aa3ba9346ff",
+      "habitat:aquariumcoop": "7cbfe5e4979d",
+      "habitat:aquariumbreeder": "833a28d7b05d",
+      "aquariumSize:aquariumcoop": "a3baeaf52246",
+      "maintenance:aquariumcoop": "37d503dd6910",
+      "maintenance:aquariumbreeder": "836bcfa44b71",
+      "waterConditions:aquariumcoop": "64cabfe51254",
+      "waterConditions:aquariumbreeder": "8b2596cfaf8a",
+      "reproduction:aquariumcoop": "f6f50b2bf10c",
+      "notes:aquariumcoop": "363198704527",
+      "notes:aquariumbreeder": "1006582effd5"
+    }
   },
   "bucephalandra-diabolica": {
     "at": "2026-11-07",
@@ -671,12 +683,15 @@
     }
   },
   "ceratophyllum-demersum": {
-    "at": "2026-11-12",
-    "from": "2026-11-09",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "Hornwort",
     "confidence": "high",
-    "score": 0.95,
-    "notes": [],
+    "score": 0.92,
+    "notes": [
+      "Item 4: 'musim luruh' / 'musim bunga' / 'musim panas' are temperate seasons that Malaysian readers rarely use; consider adding a short gloss, e.g. 'musim luruh (autumn)'.",
+      "Item 3: 'order Ceratophyllales' leaves 'order' in English; use 'order' in Malay form, e.g. 'tertib Ceratophyllales' (minor)."
+    ],
     "parts": {
       "quickFacts:tropica": "a48f285c68d0",
       "quickFacts:aquariumcoop": "80122459c043",
@@ -689,7 +704,18 @@
       "behaviour:aquariumcoop": "c9efacc463c7",
       "reproduction:aquariumcoop": "2b84acb04f4d",
       "notes:tropica": "d1be9a60d3a2",
-      "notes:aquariumcoop": "d3f61e600264"
+      "notes:aquariumcoop": "d3f61e600264",
+      "quickFacts:aquariumbreeder": "bb957d48ea3f",
+      "beforeYouBuy:aquariumbreeder": "e7f6a5505266",
+      "distribution:aquariumbreeder": "3b77050c300e",
+      "habitat:aquariumbreeder": "ca267868c198",
+      "aquariumSize:aquariumbreeder": "3b2dde22aa2a",
+      "maintenance:aquariumbreeder": "1e78ff1a909d",
+      "waterConditions:aquariumbreeder": "957362b9affa",
+      "equipment:aquariumbreeder": "48e70bb7657c",
+      "behaviour:aquariumbreeder": "2046eabbd733",
+      "reproduction:aquariumbreeder": "67e85131840f",
+      "notes:aquariumbreeder": "343c3dff4596"
     }
   },
   "ceratopteris-thalictroides": {
@@ -1594,21 +1620,18 @@
     }
   },
   "hygrophila-difformis": {
-    "at": "2026-11-16",
-    "from": "2026-11-02",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "Water Wisteria",
     "confidence": "high",
     "score": 0.6,
     "notes": [
-      "Item 4: 'pemberat' (weight) for 'anchor' is a mistranslation. Use 'pengikat/klip logam' or similar.",
-      "Item 4: 'tapak semaian pengeluar itu sendiri' drops the name Tropica. Naming the source is not required, but 'tangki yang ditukar air' and 'ikan lain yang sensitif' are fine. Keep the meaning of 'pesticides' consistent. The sentence 'Tumbuhan ini dijual sebagai' is added text.",
-      "Item 4: the '2\"' conversion is correctly dropped, but 'sebaik sahaja baru dibeli' in item 2 is redundant. Use 'sebaik sahaja dibeli'.",
-      "Item 5: 'Jika ikan suka menggali' is slightly off. Use 'Jika ikan menggali substrat'.",
-      "Item 5: 'jarang' in 'terlalu panjang dan jarang' for 'leggy' is awkward. Use 'terlalu panjang dan kurus (leggy)'.",
-      "Item 5: 'mengatasi tumbuhan lain' for 'outcompete' is weak. Use 'mengalahkan tumbuhan lain dalam persaingan'.",
-      "Item 7: the heading 'Water wisteria vs. water sprite' is left in English. Translate it, e.g. 'Water wisteria berbanding water sprite'.",
-      "Item 7: 'berbentuk seperti bulu pelepah' for 'feathery fronds' is unnatural. Use 'berbentuk seperti bulu pelepah' only if clear. Otherwise use 'daun halus seperti bulu'.",
-      "Item 3: 'India hingga Thailand' loses 'ranging between' only slightly, which is acceptable. Item 1: 'tangki' is fine, but 'akuarium' is used elsewhere. Keep the term consistent."
+      "Item 4: \"telah lama ditanam ... sejak tahun 1970-an\" is redundant and adds \"lama\" (long); use \"Ia telah biasa ditanam ... sejak tahun 1970-an\".",
+      "Item 1/2/6: \"submersed\" and \"immersed\" and \"emersed\" are left in English; add Malay terms such as \"tenggelam sepenuhnya\" and \"separa tenggelam/di atas air\". Also, \"emersed\" in item 2 is not the same as \"immersed\".",
+      "Item 8: \"soil paling baik\" leaves \"soil\" in English; use \"tanah\" (or \"tanah akuarium\").",
+      "Item 9: \"udang kara\" is lobster, not crayfish; use \"udang karang air tawar\" or \"kerang/crayfish\"; \"Malaysian trumpet\" snail is better given as \"siput trumpet Malaysia (Melanoides tuberculata)\" with local name \"siput memutar/siput trompet\".",
+      "Item 10: \"Water sprite vs water wisteria:\" heading is left untranslated; use \"Water sprite berbanding water wisteria\".",
+      "Item 7: \"Air lembut hingga sederhana keras diperlukan\" and \"KH\" without dKH are a bit awkward, but acceptable; \"pembajaan\" could be \"pembajaan/pembajaan baja\"."
     ],
     "parts": {
       "quickFacts:tropica": "97a5af628acf",
@@ -1617,7 +1640,17 @@
       "maintenance:tropica": "85e7d850830d",
       "maintenance:aquariumcoop": "3c46ee06425c",
       "notes:tropica": "e1d0b346673e",
-      "notes:aquariumcoop": "599bbf2b4a8b"
+      "notes:aquariumcoop": "599bbf2b4a8b",
+      "quickFacts:aquariumbreeder": "d60281aa2681",
+      "beforeYouBuy:aquariumbreeder": "912300957c8e",
+      "distribution:aquariumbreeder": "e976a206d1bd",
+      "habitat:aquariumbreeder": "4a5e2e3e0e8b",
+      "aquariumSize:aquariumbreeder": "4e3475eb2949",
+      "maintenance:aquariumbreeder": "9cb99312e504",
+      "waterConditions:aquariumbreeder": "520a23347b37",
+      "equipment:aquariumbreeder": "b6e2236c5197",
+      "behaviour:aquariumbreeder": "991e170ac858",
+      "notes:aquariumbreeder": "64fbbb56ed00"
     }
   },
   "hygrophila-lancea-araguaia": {
@@ -2247,6 +2280,25 @@
     "parts": {
       "quickFacts:tropica": "dbab1a5592f2",
       "notes:tropica": "d1c2e3d71c76"
+    }
+  },
+  "micranthemum-tweedei": {
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "Micranthemum tweedei",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "e6f95c1a65ec",
+      "beforeYouBuy:aquariumbreeder": "18c971e9799a",
+      "distribution:aquariumbreeder": "3a5ca014682b",
+      "habitat:aquariumbreeder": "bf24ee5d67cb",
+      "aquariumSize:aquariumbreeder": "aebe9a0032de",
+      "maintenance:aquariumbreeder": "549129c73240",
+      "waterConditions:aquariumbreeder": "42d6fcbabed9",
+      "equipment:aquariumbreeder": "a66bf507c123",
+      "behaviour:aquariumbreeder": "09f05f862d95"
     }
   },
   "micranthemum-tweediei": {

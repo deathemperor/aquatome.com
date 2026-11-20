@@ -621,6 +621,46 @@
       "kept": false
     }
   ],
+  "vi/species/betta-smaragdina#O0DF-fc3NbM": [
+    {
+      "at": "2026-11-20T02:43:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.6,
+      "notes": [
+        "beforeYouBuy: \"cá bán ra thường đã lẫn máu loài khác\" repeats the PAGE's notes, which already say the fish are crossed with B. mahachaiensis and B. splendens.",
+        "beforeYouBuy: \"ngoài tiệm cá\" is not in the video; the speaker only says true strains are rare in the aquarium trade.",
+        "behaviour: \"nuôi một nhóm cá cái smaragdina chung với nhau thì ổn\" repeats the PAGE, which already says females can be kept in groups.",
+        "behaviour: \"Một người nuôi loài này lâu năm\" invents a long-time keeper; the video doesn't say how long he has kept them.",
+        "dimorphism: \"vây ngắn hơn cá đực\" is already on the PAGE, which says male fins lengthen with maturity.",
+        "dimorphism: the contrast \"chứ không nhạt màu hay ngả nâu\" is stated plainly, but the video only says \"solid kind of red\" and never mentions the PAGE's pale or brownish description.",
+        "reproduction: \"nên để cặp cá sống chung với nhau một thời gian trước\" overlaps the PAGE's \"Không cần tách riêng cặp cá trước khi đẻ\"; it adds little and doesn't say it differs from the PAGE.",
+        "reproduction: the pectoral-fin claim (\"vây ngực\", not \"vây bụng\") does differ from the PAGE, but the NEW text doesn't say it contradicts the PAGE, and it is framed as one person's observation although the video states it as general fact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T02:43:05Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.4,
+      "notes": [
+        "[beforeYouBuy] 'đã bị lai nhiều với B. mahachaiensis, B. splendens' repeats the PAGE notes, which already say the species was crossed with these two.",
+        "[beforeYouBuy] 'khoảng 15–20 đô la' goes beyond the video's garbled price ('14 probably 145 to $20 but under $20'). It states a precise range the video doesn't clearly give.",
+        "[reproduction] The egg-catching sequence (female catches eggs, male fertilizes, she passes them to him) is already on the PAGE, so it is redundant.",
+        "[reproduction] The video says eggs are caught between the 'pectoral fins' and the body. The PAGE says 'vây bụng'. NEW writes 'vây ngực' but doesn't say it differs from the page.",
+        "[reproduction] 'cặp smaragdina cần sống chung… rồi mới đẻ' mostly duplicates the PAGE line 'Không cần tách riêng cặp cá trước khi đẻ'. The only new part is the time living together.",
+        "[dimorphism] The video describes females as 'solid red' ('ngả đỏ'), but the PAGE says females are pale, brownish ('nhạt màu, ngả nâu'). NEW doesn't flag this conflict. The 'vây dài hơn' for males is already on the PAGE.",
+        "[behaviour] 'kubotai' is a guess at the video's 'kubai'. The idea of keeping small cyprinids and female groups is already on the PAGE, and the video's contrast with splendens harems is not framed as a difference from the page.",
+        "[waterConditions] 'trông rất hợp mắt' is an aesthetic remark. The blackwater preference is thin as water-condition content, with no parameters."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/caridina-babaulti": [
     {
       "at": "2026-11-17T23:53:05Z",
@@ -976,6 +1016,44 @@
         "diet: \"Giun grindal, Artemia mới nở và bo bo đều có thể tự gây nuôi\" – the video says only that many live foods can be cultured, not that these three can, so this goes beyond it.",
         "diet: \"loài săn mồi tí hon\" and the preference for live food repeat what the page already says about Dario being small predators that eat live foods.",
         "diet: \"chắc phải mất thời gian, và có lẽ để cá được săn mồi thì tốt cho nó hơn\" – this is the keeper's hedged opinion but is written as general advice."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/dawkinsia-filamentosa#O1DLCzJYHhI": [
+    {
+      "at": "2026-11-20T02:44:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.74,
+      "notes": [
+        "[maintenance] The video plainly contradicts the page, which says Microsorum, Bolbitis and Anubias can be grown. NEW never says it differs from the page. It only hints at this with \"kể cả loại khỏe\", where it should say so openly.",
+        "[maintenance] \"khuyên dứt khoát là không nuôi loài này chung với cây thật\" is written near enough as a rule. The advice comes from one keeper's tank, so it needs clearer framing as that keeper's own experience.",
+        "[notes] \"khoảng 9–10 cm\" is the writer's conversion of the video's \"3.5–4 inches\". It is roughly right, but the video itself gives \"between three and four inches\" and is not exact.",
+        "[notes] \"còn khá xa cỡ tối đa của loài\" is slightly off. The video compares the fish with a reported 4.5–5 inch average, not with a maximum size. The page already gives 12 cm.",
+        "[behaviour] \"bể 450 lít, dài khoảng 1,8 m\" is converted from \"six foot, 125 gallon\". The litre figure is approximate, since 125 US gallons is about 473 L.",
+        "[behaviour] The sentence only says the keeper liked the pairing. It leaves out the video's point that the two species are found together in the wild, so it adds little beyond the page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T02:44:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.5,
+      "notes": [
+        "[notes] \"dài khoảng 9–10 cm\": the video says 3.5–4 inches (about 9–10 cm), so the figure is correct. But the page already gives 12 cm max, and the video's difference from it (smaller at a year) is not stated as a contrast.",
+        "[maintenance] \"cây có khỏe đến đâu cũng không giữ được\": the video says this as a firm rule (\"do not keep plants\"), and the NEW text mostly attributes it to one keeper. The page says hardy plants like Microsorum, Bolbitis and Anubias can be grown on rock or wood. NEW does not point out that the video contradicts this.",
+        "[maintenance] \"dương xỉ Java buộc trên lũa\": the video only says the roots of the java fern were left attached to the driftwood. It does not say the fern was tied on. \"chỉ còn trơ lại rễ\" is a reasonable reading.",
+        "[maintenance] \"bể chỉ còn cách bày cây nhựa\": the video says the keeper has plastic plants in this tank. It does not say plastic is the only option, so this overstates.",
+        "[diet] \"Chúng ăn rất nhiều.\": the video says \"these fish eat a lot\" in the context of eating plants. It is thin and ambiguous as a diet statement, and it sits oddly alongside the page's omnivore and feeding text.",
+        "[behaviour] \"Có thể nuôi chung với cá Denison... vì ngoài tự nhiên hai loài này sống cùng nhau\": the page's habitat section already lists Puntius denisonii as occurring in the same area. The claim is partly redundant. The video's own reasoning is only that they are found together in the wild.",
+        "[behaviour] \"bể 450 lít dài khoảng 1,8 m\": the video gives 125 gallons (about 470 L) and 6 feet (about 1.8 m). 450 L is a slightly off conversion.",
+        "[notes] Putting the grow-out observation under [notes] is an odd heading choice. The slow growth and missing adult colour and filaments are one keeper's single-tank experience. They are worded as one keeper's, so this is acceptable."
       ],
       "attempt": "first",
       "kept": false

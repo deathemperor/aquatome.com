@@ -1,0 +1,44 @@
+{
+  "id": "fundulopanchax-spoorenbergi",
+  "native": {
+    "input": "1e4d73e94205b51d",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species occurs from Nigeria to Cameroon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species occurs from Nigeria to Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Fundulopanchax spoorenbergi",
+    "status": "ACCEPTED",
+    "taxonKey": 2348447,
+    "datasets": [],
+    "native": [
+      "NG",
+      "CM"
+    ],
+    "requests": 2,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

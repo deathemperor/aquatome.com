@@ -31,7 +31,11 @@
   "inat:584733452",
   "inat:608194226",
   "inat:659582620",
-  "inat:659582645"
+  "inat:659582645",
+  "gbif:4501064332:00d5fbfb61041ee6",
+  "gbif:4501064332:59ed09f7563b32b9",
+  "gbif:4501064332:dab0ba33127c96c0",
+  "gbif:4501064332:2a963d6be07ddd87"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/63c467b00d126cd2.webp": "3f0eb1f87070385b",
@@ -39,7 +43,10 @@
   "https://media.aquatome.com/inaturalist/498071309.webp": "ec69251333f1d686",
   "https://media.aquatome.com/inaturalist/71833856.webp": "c10d316373e1364b",
   "https://media.aquatome.com/inaturalist/155593926.webp": "cdfe788c68f8eecc",
-  "https://media.aquatome.com/inaturalist/71833851.webp": "272104916343d3b8"
+  "https://media.aquatome.com/inaturalist/71833851.webp": "272104916343d3b8",
+  "https://media.aquatome.com/gbif/4501064332-12ac2182ed133e1f.webp": "0798b8f8e0e0e141",
+  "https://media.aquatome.com/gbif/4501064332-7e7e515c94693240.webp": "2371c094fcc8651f",
+  "https://media.aquatome.com/gbif/4501064332-feb2208c13a60f40.webp": "67f0f0d0c0e08187"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -49,5 +56,9 @@
    "research": 382907055,
    "agree": 393281821
   }
+ },
+ "gbif": {
+  "key": 9842003,
+  "next": null
  }
 }

@@ -3,6 +3,12 @@
   "name": "Longjin",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:08:41.754Z",
+    "why": "\"Longjin\" is a Pinyin romanization that is acceptable for a Chinese place, but it's unclear what the region is, and with no kind word (e.g., \"Distrik Longjin\") or source it can't be confirmed as an atlas-style Indonesian name."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

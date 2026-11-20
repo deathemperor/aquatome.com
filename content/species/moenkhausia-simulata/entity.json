@@ -9,14 +9,71 @@
     "south-america",
     "peru"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2352560,
+      "total": 14,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "PE",
+          12
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -11.25,
+          1
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          3
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          1
+        ],
+        [
+          -75.9375,
+          -2.8125,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1
+        ],
+        [
+          -56.25,
+          1.40625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
-    {
-      "key": "maintenance",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-simulata-2/",
-      "html": "<p>Otherwise, the care requirements of the fish do not differ from those of other species that have been kept in aquariums for a long time, e.g. the Buenos Aires tetra (Hyphessobrycon anisitsi).</p>"
-    },
     {
       "key": "behaviour",
       "source": "glaser",
@@ -43,7 +100,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-simulata-2/",
       "source": "glaser"
     },
@@ -53,7 +110,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-simulata-2/",
       "source": "glaser"
     },
@@ -63,7 +120,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-simulata-2/",
       "source": "glaser"
     },
@@ -73,7 +130,7 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/moenkhausia-simulata-2/",
       "source": "glaser"
     }

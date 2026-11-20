@@ -3,6 +3,12 @@
   "name": "กุมารธารา-เนตราวดี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:52:35.825Z",
+    "why": "The name is a correct Thai transliteration of the two river names, but it lacks the kind word \"แม่น้ำ\" that Thai atlases would use for a river system, and the usual Thai form is \"กุมารธารา\" and \"เนตราวดี\" as separate rivers."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

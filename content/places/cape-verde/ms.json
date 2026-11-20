@@ -1,0 +1,16 @@
+{
+  "slug": "cape-verde",
+  "name": "Tanjung Verde",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-20T07:03:35.163Z",
+    "why": "Malaysian usage (DBP) for the country is \"Cape Verde\" (also \"Tanjung Verde\" is a literal translation seen occasionally), but atlases keep the proper name \"Cape Verde\"/\"Cabo Verde\", so translating \"Cape\" as \"Tanjung\" is a word-by-word translation."
+  },
+  "quality": {
+    "score": 0.2,
+    "indexable": false
+  }
+}

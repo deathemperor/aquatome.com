@@ -1,0 +1,67 @@
+{
+  "id": "ageneiosus-lineatus",
+  "native": {
+    "input": "6ed8d38a3ff76559",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ageneiosus lineatus",
+    "status": "ACCEPTED",
+    "taxonKey": 9237337,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        34
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        31
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        13
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

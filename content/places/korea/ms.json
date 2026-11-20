@@ -3,6 +3,12 @@
   "name": "Korea",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-20T12:00:09.157Z",
+    "why": "The country \"Korea\" is not specific: Malay atlases write \"Korea Selatan\" or \"Korea Utara\" for the two countries, so the bare \"Korea\" is ambiguous, though it is the right spelling for the region as a whole."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

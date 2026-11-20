@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "riau",
-    "kapuas"
+    "kapuas",
+    "jambi"
   ],
   "range": {
     "native": {
@@ -90,6 +91,13 @@
           "min": 25,
           "max": 30
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -115,6 +123,10 @@
       },
       {
         "source": "seriouslyfish",
+        "value": 9
+      },
+      {
+        "source": "glaser",
         "value": 9
       }
     ],
@@ -152,10 +164,22 @@
       "html": "<ul><li>Wild-caught, from Riau, Indonesia</li><li>Part of the Betta bellica complex</li><li>IUCN Red List: Least Concern</li><li>Maximum size: about 10 cm (4 inches)</li><li>TDS: 60–100</li><li>pH: 5.0–6.5</li><li>Temperature: 24–28°C (75–82°F)</li><li>Breeding: bubble nest builder</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "html": "<p>Betta simorum is the largest of the bubblenest-building fighting fish. It reaches a standard length (without caudal fin) of over 7 cm with a very slender body, i.e. almost 9 cm with caudal fin.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-simorum",
       "html": "<p>This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.</p><p>The type specimens were collected from 'Swamp in Rantau Panjang, Jambi Province, Sumatra, Indonesia', not to be confused with the town of the same name on the Thai-Malay border, whilst in Riau the species appears restricted to the Indragiri river basin.</p><p>Populations from different localities are often labelled as such by collectors and enthusiasts in order to maintain accuracy and preserve pure bloodlines, e.g., Rantau Panjang, Pematang Lumut (both in Jambi), Sungai Bengkwan (Riau), etc.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "html": "<p>Betta simorum occurs in the black water swamps of Jambi province on Sumatra, in Riau province, and in West Kalimantan (Borneo) near Pontiak. The species is very closely related to Betta bellica, which also occurs on Sumatra (although in the Medan area), but whose main distribution area is in Malaysia. Both species can hardly be kept apart optically.</p>"
     },
     {
       "key": "habitat",
@@ -182,6 +206,12 @@
       "html": "<ul><li>Temperature: 25–30°C</li><li>pH: 3.0–6.0</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "html": "<p>Betta simorum needs soft and acidic, ideally slightly brownish water and temperatures of 26-28°C in order to develop optimally and show beautiful colours.</p>"
+    },
+    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-simorum-wild-betta-fish",
@@ -204,6 +234,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-simorum",
       "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its care requirements and disposition mean it is best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate it.</p><p>Some small cyprinids are suitable and it could even be maintained alongside other anabantoids given sufficient space.</p><p>Mixed reports exist as to whether it can be maintained in multiple pairs or harem-type groups comprising a single male alongside several females.</p><p>Some report that although some chasing and squabbling over territory occurs actual physical damage is rare, while others recommend keeping it in single pairs having observed sustained aggression towards conspecifics from the dominant individuals in a group.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "html": "<p>Among each other these fighting fish, like most wild forms, are relatively peaceful.</p>"
     },
     {
       "key": "dimorphism",
@@ -242,6 +278,12 @@
       "html": "<p>This species is included in the B. bellica group of closely-related species within the genus, an assemblage of which members share the following set of characters: long and slender body with dorsal and ventral margins almost parallel; body depth 23-28 % SL; 30-33 anal-fin rays; 11-13 dorsal-fin rays; 32-34 total vertebrae; body dark brown in colour with iridescent green markings on each individual scale.</p><p>It can be distinguished from B. bellica, currently the only other member of the group, by the following characters: head slanted; dorsal surface of head noticeably concave behind eye; pelvic-fin tip extending to 14th anal-fin rays; pelvic-fin length 31.3-48.3 % SL; 33.5-35 lateral scales (mode 34); adpressed pelvic-fin reaching beyond anal-fin origin; distance between pelvic and anal-fin origins 8.5-13.1 % SL, mean 9.9.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters.</p><p>Molecular phylogenetic work may therefore prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth.</p><p>So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface.</p><p>Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "html": "<p>In a well-structured aquarium with a lot of dead wood, dead leaves on the bottom and rich vegetation the fish are a show. The rasboras living in such biotopes, like the harlequin rasbora (Trigonostigma heteromorpha), Rasbora kalochroma etc., are particularly suitable for community tanks with B. simorum. Pearl gourami (Trichogaster leerii) are also very suitable.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-simorum",
@@ -270,9 +312,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-simorum",
       "caption": "...and another.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/77a70df5285de02a.webp",
+      "thumb": "https://media.aquatome.com/glaser/77a70df5285de02a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b54610a26902f715.webp",
+      "thumb": "https://media.aquatome.com/glaser/b54610a26902f715-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1738b732e1875c61.webp",
+      "thumb": "https://media.aquatome.com/glaser/1738b732e1875c61-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-simorum-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "RzmA80pDcW0",
+      "title": "Betta Simorum..Mating Ritual..!!",
+      "durationSec": 62,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "LqyhmCT8THA",
+      "title": "Release of male Betta Simorum in Palludarium..!!",
+      "durationSec": 96,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "zOvfDuuKcmE",
+      "title": "Betta Simorum..Hunting Worm..!!",
+      "durationSec": 69,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "nFBj8v5-WzA",
+      "title": "Betta simorum spawning behavior - Wild Bettas are the betta Bettas!",
+      "durationSec": 27,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -300,5 +397,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

@@ -1,8 +1,13 @@
 {
   "slug": "rio-amapari",
-  "name": "Amapari",
+  "name": "Sungai Amapari",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-20T07:09:08.445Z"
+  },
   "quality": {
     "score": 0.9,
     "indexable": true
