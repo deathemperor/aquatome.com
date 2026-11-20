@@ -15,10 +15,11 @@ Viết:
 
 Quy tắc:
 - Chỉ dùng dữ kiện trong bảng. Không thêm con số, tên thuốc, liều, loài hay lời khuyên nào bảng không có. Giữ đúng mức chắc chắn của dữ kiện.
-- Bệnh và thuốc: không ghi liều nào. Nêu hoạt chất hay cách chữa có trong dữ kiện nếu cần, rồi viết "liều và cách dùng: xem bài hướng dẫn chữa bệnh", không tự đặt liều.
+- Bệnh và thuốc: không ghi liều nào, kể cả nửa liều, gấp đôi hay một đợt thuốc kéo dài bao lâu. Nêu hoạt chất hay cách chữa có trong dữ kiện nếu cần, rồi ngay sau tên thuốc viết đúng một câu, nguyên văn: "Liều và cách dùng: xem bài <tên bài>.", với <tên bài> là một tên trong "BÀI CHỮA BỆNH ĐANG MỞ" hợp với bệnh đó; không bài nào hợp thì "Liều và cách dùng: theo nhãn thuốc.". Câu chỉ người đọc tới cách chữa mà không nêu thuốc thì viết "Cách chữa <tên bệnh>: xem bài <tên bài>.", với <tên bệnh> viết đúng như trong tên bài đó. Chỉ trỏ tới bài có trong "BÀI CHỮA BỆNH ĐANG MỞ"; không bài nào hợp thì không viết câu trỏ.
 - Đơn vị: hệ mét (°C, cm, lít); {{TANKS_VI}}.
 - Mỗi điều nói một lần, ở một chỗ: một bước (như luộc), một lời cảnh báo (như gỗ mục), một con số. Không bao giờ để hai câu trái nhau trong bài, kể cả ở hai mục khác nhau.
 - Khi các nguồn ghi khác nhau: nếu một nguồn đáng tin hơn hẳn (đại học, bác sĩ thú y, tài liệu tham khảo, người nuôi viết kỹ hơn một tiệm bán hàng), viết theo nguồn đó; nếu không, một đoạn nói là các nguồn khác nhau và nêu cả hai, và không câu nào khác trong bài nghiêng về một bên. Gọi nguồn theo loại của nó (`sources`), không nêu tên trang. Nếu nhiều loại cùng có chuyện các tiệm ghi khác nhau (màu nước, chìm hay nổi…), nói một lần cho cả các loại đó, kèm việc người đọc làm được nếu dữ kiện có (dữ kiện không nói nên làm gì thì nêu một lần rồi thôi, không tự thêm lời khuyên); không lặp "tiệm này ghi…, tiệm khác ghi…" ở từng loại. Chỉ một loại thì nói ngắn trong li của loại đó.
+- Sau một tiêu đề, câu đầu tiên nhắc lại một nguồn đã nêu không gọi nó là "tiệm này" hay "hội này" khi trước đó đã nêu hai nguồn cùng loại: viết rõ nguồn nào ("Tiệm thứ nhất", "Tiệm thứ hai").
 - Không so sánh điều mà dữ kiện không so sánh (ví dụ "hạ pH mạnh hơn các loại khác").
 - "Rêu" chỉ là rêu (moss). Tảo (algae) là "tảo", như thuật ngữ của trang.
 - Hóa chất dùng cho lũa, đá hay đồ trang trí (oxy già, cồn, thuốc tẩy, axit…): không khuyên dùng chỉ vì một tiệm ghi. Chỉ nêu khi có thêm một nguồn không phải tiệm, hoặc kèm đúng lời cảnh báo của nguồn và bước tráng thật kỹ. Không bao giờ khuyên dùng cồn công nghiệp.

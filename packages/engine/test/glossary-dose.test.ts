@@ -1,9 +1,10 @@
+import { readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { houseForm, openDiseaseGuides } from '../src/glossary-dose'
+import { guideNotes, houseForm, LABEL, openDiseaseGuides } from '../src/glossary-dose'
 import { checkSentences } from '../src/glossary-facts'
 
 // The house form for a medicine's dose (the Writing Lead, with the chief of staff's yes, 20 Nov 2026). Tảo's label line
@@ -92,4 +93,34 @@ test('the fact check passes the house form unread, and reads a sentence that onl
   // Without the pass, the reads stop the form too, as they stopped Tảo's.
   const without = await checkSentences(stopAll().llm, facts, e)
   expect(without.stops.map(s => s.text)).toContain('Liều và cách dùng: theo nhãn thuốc.')
+})
+
+// The dose rule's code half (the chief of staff, 20 Nov 2026: Rule 13 stops a save for a pointer to "the treatment guide" or
+// to any guide that isn't open). Every sentence that points to a guide is the house form by an open guide, or it is noted.
+test('a sentence that points to a guide is the house form by an open guide, or a Rule 13 note', () => {
+  const body = [
+    '<p>Kháng sinh X diệt được nó. Liều và cách dùng: xem bài hướng dẫn chữa bệnh.</p>',
+    '<p>Cách chữa đốm trắng: xem bài Cá bị đốm trắng, bị nấm.</p>',
+    '<p>Đọc bài hướng dẫn chữa bệnh để biết thêm.</p>',
+    '<p>Cách chữa thối vây: xem bài Cá bị thối vây, thối đuôi. Liều và cách dùng: theo nhãn thuốc.</p>',
+    '<p>Liều và cách dùng: xem bài Cá bị thối vây, thối đuôi.</p>',
+    '<p>Cách rã đông: xem mục Thức ăn đông lạnh.</p>',
+  ].join('')
+  const notes = guideNotes({ definition: '', body }, guides)
+  expect(notes.map(n => /^Rule 13: "(.*?)" /.exec(n)?.[1])).toEqual([
+    'Liều và cách dùng: xem bài hướng dẫn chữa bệnh.',
+    'Cách chữa đốm trắng: xem bài Cá bị đốm trắng, bị nấm.',
+    'Đọc bài hướng dẫn chữa bệnh để biết thêm.',
+  ])
+  expect(guideNotes({ definition: 'Liều và cách dùng: xem bài Cá bị nấm.', body: '' }, guides)).toHaveLength(1)
+  expect(guideNotes({ definition: '', body: '<p>Cách chữa thối vây: xem bài Cá bị thối vây, thối đuôi.</p>' }, [])).toHaveLength(1)
+})
+
+// The writer's prompt writes the forms the check passes, so the two can't drift apart.
+test('the forms the writer is given are the forms the check passes', () => {
+  const md = readFileSync(new URL('../src/prompts/glossary-entry.md', import.meta.url), 'utf8')
+  const forms = [...md.matchAll(/"((?:Liều và cách dùng|Cách chữa)[^"]*)"/gu)].map(m => m[1]!)
+  expect(forms).toContain(LABEL)
+  expect(forms).toHaveLength(3)
+  for (const f of forms) expect(houseForm(f.replace('<tên bài>', guides[0]!.title).replace('<tên bệnh>', 'thối vây'), guides)).toBe(true)
 })
