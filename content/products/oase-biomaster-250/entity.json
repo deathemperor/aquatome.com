@@ -1,0 +1,274 @@
+{
+  "id": "oase-biomaster-250",
+  "brand": "Oase",
+  "model": "Biomaster 250",
+  "category": "loc",
+  "type": "thung",
+  "specs": [
+    {
+      "key": "Max flow rate",
+      "value": "900 L/h (250 GPH)",
+      "source": 0
+    },
+    {
+      "key": "Power consumption",
+      "value": "15 W",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "1.7 m (5.6 ft) per Oase; a Vietnamese shop lists 1.3 m",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "up to 250 L (about 70 US gal)",
+      "source": 0
+    },
+    {
+      "key": "Filter media volume",
+      "value": "4.4 L",
+      "source": 1
+    },
+    {
+      "key": "Pre-filter volume",
+      "value": "0.4 L",
+      "source": 1
+    },
+    {
+      "key": "Hose size",
+      "value": "16/22 mm",
+      "source": 1
+    },
+    {
+      "key": "Dimensions",
+      "value": "24 × 24 × 37 cm",
+      "source": 3
+    },
+    {
+      "key": "Power supply",
+      "value": "230 V / 50 Hz (VN distributor version)",
+      "source": 3
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 2
+    },
+    {
+      "key": "Warranty (manufacturer)",
+      "value": "3 years, plus 1 extra year if registered online (Oase US)",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Vietnam shop)",
+      "value": "3 years official from date of receipt, not covering removable parts (Thủy Sinh Bích Phương)",
+      "source": 3
+    },
+    {
+      "key": "Filtration",
+      "value": "4 filter stages, plus a removable EasyClean pre-filter; Hel-X bio media and foams included",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster 250",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "900 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×37 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 250 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 350",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "1,100 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×43 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 350 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 600",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "1,250 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×48 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 600 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 850",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "1,550 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×54 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "8 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 800 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster Thermo 250 (BioMaster² Thermo 250)",
+      "specs": [
+        {
+          "key": "Heater",
+          "value": "Built-in heater, 150 W, adjustable roughly 66–90 °F",
+          "source": 2
+        },
+        {
+          "key": "Base filter",
+          "value": "Same filter as the 250 with an integrated heater",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://us.oase.com/products/oase-biomaster-250",
+      "title": "OASE BioMaster 250 – Oase US store",
+      "kind": "manufacturer",
+      "at": "2026-11-20"
+    },
+    {
+      "url": "https://oase.com/en/products-a-z/family/product/p/54717-biomaster-250-au.html",
+      "title": "BioMaster 250 [AU] Technical Data – OASE",
+      "kind": "manufacturer",
+      "at": "2026-11-20"
+    },
+    {
+      "url": "https://www.oase.com/en-US/aquarium/biomaster-2-250",
+      "title": "BioMaster² 250 – OASE US",
+      "kind": "manufacturer",
+      "at": "2026-11-20"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "title": "OASE BIOMASTER FILTER – Lọc thùng cao cấp – Thủy Sinh Bích Phương",
+      "kind": "shop",
+      "at": "2026-11-20"
+    },
+    {
+      "url": "https://mdaqua.com.vn/danh-muc-san-pham/thiet-bi-phu-kien/he-thong-loc/loc-thung/",
+      "title": "Lọc thùng – Mỹ Đình Aquarium",
+      "kind": "shop",
+      "at": "2026-11-20"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/how-noisy-should-a-biomaster-thermo-250-be.67290",
+      "title": "How noisy should a BioMaster Thermo 250 be – UKAPS forum (and related BioMaster threads)",
+      "kind": "forum",
+      "at": "2026-11-20"
+    },
+    {
+      "url": "https://natureaquariums.com/blogs/tank-talk-by-nature-aquariums/oase-biomaster-canister-filter-full-setup-unboxing-maintenance-guide",
+      "title": "Oase BioMaster canister filter full setup, unboxing & maintenance guide – Nature Aquariums",
+      "kind": "review",
+      "at": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=KLwRtj2Jhyg",
+      "title": "The ALGAE-FREE Blueprint: Oase BioMaster 250 & Dark Start Setup",
+      "kind": "video",
+      "at": "2026-11-20"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-20",
+    "videos": [
+      {
+        "youtubeId": "KLwRtj2Jhyg",
+        "title": "The ALGAE-FREE Blueprint: Oase BioMaster 250 & Dark Start Setup",
+        "durationSec": 793,
+        "lang": "en",
+        "channel": "Two Shores Aquascaping"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-20"
+}

@@ -160,44 +160,37 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 20,
           "max": 28
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 4,
-          "max": 6.5
+          "min": 22,
+          "max": 26
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 4,
           "max": 6.5
         }
-      }
-    ],
-    "gh": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 0,
-          "max": 5
+          "min": 4.5,
+          "max": 6.5
         }
-      },
+      }
+    ],
+    "gh": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -208,21 +201,21 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": 2.5
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 2.5
       }
     ],
     "difficulty": [
       {
-        "source": "bwaquatics",
-        "value": 5
+        "source": "seriouslyfish",
+        "value": 4
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": 4
       }
     ],
@@ -238,7 +231,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<ul><li>Family: Cyprinidae; one of the smallest fish in the aquarium trade.</li><li>Size: about 1.5–2 cm in total length; up to 2.5 cm according to another description.</li><li>Temperature: 22–28 °C; optimal range 25–26 °C for long-term health and breeding.</li><li>pH 4.0–6.5, GH ≤ 5 °d, KH ≤ 2 °d, TDS &lt; 100 ppm.</li><li>Difficulty: intermediate.</li></ul>"
+      "html": "<ul><li>Genus: Boraras (dwarf rasboras)</li><li>IUCN Red List: Least Concern</li><li>TDS: 0 to 60 ppm (under 100)</li><li>Temperament: exceptionally peaceful</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -250,7 +243,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>Malaysia, Indonesia (Sumatra) and south-east Thailand. The Sumatran form is found in southern and eastern Sumatra, Indonesia.</p>"
+      "html": "<p>Boraras maculatus lives in blackwater peat swamp forests of Peninsular Malaysia, southern Thailand, Singapore and eastern Sumatra; the type locality is Muar, Johor.</p>"
     },
     {
       "key": "distribution",
@@ -262,19 +255,13 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>A tiny, vividly coloured blackwater species found in peat-swamp forests and forest-edge streams. These habitats are shaded by dense forest canopy, with dark, tannin-rich water, minimal current, and heavy accumulations of decaying leaves and branches. In this environment B. maculatus displays intense copper-orange to red hues and a distinct dark lateral spot, creating beautiful contrast against the blackwater background.</p>"
+      "html": "<p>Shaded peat swamp streams and pools with little current. In the Sumatran population, the water is extremely soft and acidic under dense forest canopy with heavy leaf litter.</p>"
     },
     {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-maculatus",
       "html": "<p>Inhabits black water streams and rivers associated with ancient forest peat swamps. The water is stained brown due to the release of tannins and other chemicals released by decomposing organic matter and the substrate scattered with fallen leaves, twigs and branches.</p><p>Such environments characteristically contain very soft (negligible hardness), acidic (pH as low as 4.0) water and are often dimly-lit due to the forest canopy above.</p><p>Across much of Southeast Asia these biotopes are under serious threat from rubber/palm oil plantations, building developments and other human activities.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>Prefer a densely planted aquarium with plenty of hiding places, such as rocks and driftwood. Keep in groups of at least 10–12 individuals.</p>"
     },
     {
       "key": "aquariumSize",
@@ -289,10 +276,16 @@
       "html": "<p>Best kept in a densely-planted aquarium and is an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and roots or branches to diffuse the light entering also seems to be appreciated and adds a more natural feel.</p><p>Filtration does not need to be particularly strong as it mostly hails from sluggish waters and may struggle if there is a fast current.</p><p>To see it at its best a biotope-style set-up can also make an interesting project. A soft, sandy substrate is probably the best choice to which can be added a few roots and branches, placed in such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter further emphasises the natural feel and encourage growth of microbe colonies as decomposition occurs. These tiny creatures can provide a valuable secondary food source for fry whilst the tannins and other chemicals released by the decaying leaves are thought to be beneficial for blackwater fish species. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>Fairly dim lighting should be used to simulate the conditions the fish would encounter in nature. You could add aquatic plants that can survive under such conditions such as Microsorum pteropus, Taxiphyllum barbieri or Cryptocoryne spp.</p><p>Do not introduce any Boraras sp. to a biologically-immature aquarium as they can be susceptible to swings in water chemistry.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
+      "html": "<p>Slow or still water, leaf litter, driftwood, fine plants, dim light and a dark substrate. Best coloration comes in a dimly lit, tannin-stained tank. Easy once the aquarium is stable, but not recommended for beginners because they need soft water to thrive.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>Soft, highly acidic blackwater is essential to replicate its native peat-swamp habitat.</p><ul><li>pH 4.0–6.5 (another description: 4.5–6.5; prefers pH as low as 4.5)</li><li>GH ≤ 5 °d</li><li>KH ≤ 2 °d</li><li>TDS &lt; 100 ppm (another description: 0–60)</li><li>Temperature: 22–28 °C (72–82 °F); optimal range 25–26 °C for long-term health and breeding</li></ul><p>Provide slow or still water with leaf litter, driftwood, and fine plants. Subdued lighting and a dark substrate will deepen body coloration and reduce stress.</p>"
+      "html": "<ul><li>TDS: 0 to 60 ppm (under 100)</li><li>pH: 4.5 to 6.5</li><li>Temperature: 22–26°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -304,7 +297,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>Micropredator: in the wild it feeds on small aquatic crustaceans, insect larvae, zooplankton, small invertebrates and insects. In captivity, offer finely crushed flakes, high-quality micro-pellets, and live or frozen foods such as baby brine shrimp, cyclops, microworms and daphnia. Multiple small feedings per day are ideal.</p>"
+      "html": "<p>Micro-predator. Finely crushed flakes, micro pellets and live or frozen baby brine shrimp, cyclops and microworms. Several small feedings a day are ideal.</p>"
     },
     {
       "key": "diet",
@@ -316,19 +309,13 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>Exceptionally peaceful; best kept in a species-only or nano community setting with other tiny, gentle fish. Excellent companions include Boraras brigittae, Sundadanio axelrodi, Pseudomugil luminatus, or small Caridina shrimp, as well as other blackwater fish such as licorice gouramis (Parosphromenus) or small mouthbrooding bettas like Betta channoides and Betta albimarginata. Avoid large or active species that may outcompete them for food.</p><p>Schooling behaviour enhances both colour and confidence; keep in groups of at least 10–12 (another description: 6–8). They thrive in low light, with blackwater conditions and botanical cover. Though small, they are energetic swimmers that display best in open midwater space surrounded by dense vegetation, spending most of their time in the middle and upper levels.</p>"
+      "html": "<p>Exceptionally peaceful. Keep in groups of at least 10 to 12 in a species-only or nano community tank with Boraras brigittae, Sundadanio axelrodi, Pseudomugil luminatus or small Caridina shrimp. Avoid large or active fish. They make great tankmates for other blackwater fish such as licorice gouramis or small mouthbrooding bettas like Betta channoides and Betta albimarginata.</p>"
     },
     {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-maculatus",
       "html": "<p>This species is very peaceful but does not make an ideal community fish due to its small size and rather timid nature. It will do best when maintained alone or with other diminutive species such as Microdevario, Sundadanio, Danionella, Eirmotus, Trigonostigma, pygmy Corydoras and small Loricariid catfishes such as Otocinclus.</p><p>It also makes an ideal companion for shy labyrinth fishes (anabantoids) such as Sphaerichthys, Parosphromenus or the more diminutive Betta species, and in a planted set-up can be housed alongside freshwater shrimp of the genera Caridina and Neocaridina.</p><p>It's a schooling species by nature and really should be kept in a group of at least 8-10 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display their best colours and some interesting behaviour as they compete with one other for female attention.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>The body is elongated with a golden or yellow colour. A distinctive pattern of dark spots along the sides and a red or orange stripe on the fins.</p>"
     },
     {
       "key": "dimorphism",
@@ -340,7 +327,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "html": "<p>An open-water egg scatterer; breeding can be difficult in captivity. Spawning occurs among fine plants, moss (such as Java moss), or leaf litter. Use very soft, acidic water and subdued light. Adults may eat eggs; remove the eggs after spawning. Eggs hatch within 36–48 hours, and fry become free-swimming after 3–4 days. Feed infusoria (động vật nguyên sinh) or liquid fry food at first, then transition to baby brine shrimp as they grow.</p>"
+      "html": "<p>Egg scatterer that spawns among fine plants, moss or leaf litter in very soft, acidic water and dim light. Remove adults after spawning. Eggs hatch in 36 to 48 hours and fry swim after 3 to 4 days; feed infusoria first, then baby brine shrimp.</p>"
     },
     {
       "key": "reproduction",
@@ -363,16 +350,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/34c8854d928bd864-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
-      "source": "bwaquatics"
-    },
-    {
       "url": "https://media.aquatome.com/seriouslyfish/0bedabe8ec77860f.webp",
       "thumb": "https://media.aquatome.com/seriouslyfish/0bedabe8ec77860f-480.webp",
       "width": 900,
@@ -393,6 +370,16 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/boraras-maculatus",
       "caption": "Adult pair, male at top.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/34c8854d928bd864-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/boraras-maculatus",
+      "source": "bwaquatics"
     }
   ],
   "videos": [
@@ -450,5 +437,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-19"
 }

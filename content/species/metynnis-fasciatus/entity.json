@@ -5,7 +5,11 @@
   "family": "Serrasalmidae",
   "genus": "Metynnis",
   "group": "tetras",
-  "places": [],
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-capiru"
+  ],
   "range": {
     "records": {
       "taxonKey": 2353430,
@@ -56,20 +60,32 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
-      "html": "<p>Metynnis fasciatus is a very rarely offered silver dollar which has a characteristic zebra pattern.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "html": "<p>Most Metynnis species become around 15 cm long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "html": "<p>Metynnis fasciatus was described on the basis of a young fish from Brazil (Rio Capiru). The type specimen is regarded as lost.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "html": "<p>All Metynnis feed on plant material.</p>"
     },
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
-      "html": "<p>Males and females can be easily distinguished in all Metynnis by the shape of the anal fin, which is straight bordered in females and has a lappet-like extension in males.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "html": "<p>Males and females can be told apart by the shape of the anal fin.</p>"
     },
     {
-      "key": "reproduction",
+      "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
-      "html": "<p>The breeding coloration of the males was observed for the first time ever in one of the tanks. The males look fantastic with their pitch-black face mask.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "html": "<p>This beautiful fish, a serrasalmid and thus a relative of piranhas and pacus, is still enigmatic for scientists. The species is identical with M. hypsauchen in all respects except the coloration in young specimens. In M. fasciatus a pattern of regular and bold stripes exists which is usually lacking in M. hypsauchen. Until now no adult specimens with a regular stripe pattern were known to scientists, and it was thought that M. fasciatus represents only a rare juvenile phase of M. hypsauchen.</p><p>However, comparatively large (8-10 cm) specimens of this extraordinary silver dollar from Brazil have been imported again. Each specimen shows an individual pattern, but all were already sexually differentiated and thus definitely no longer juveniles.</p><p><strong>Lexicon:</strong> Metynnis: ancient Greek, means “in between the share” (the share being the ploughshare, the cutting blade of a plough); this refers to the spine before the dorsal fin. fasciatus: means “striped”.</p><p><strong>Common name:</strong> Striped silver dollar</p>"
     }
   ],
   "photos": [
@@ -112,9 +128,64 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis_fasciatus_breeding_coloration_en/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0bee130809fd0aaa.webp",
+      "thumb": "https://media.aquatome.com/glaser/0bee130809fd0aaa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4d52f79d7581c876.webp",
+      "thumb": "https://media.aquatome.com/glaser/4d52f79d7581c876-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b87ba76eb0183d49.webp",
+      "thumb": "https://media.aquatome.com/glaser/b87ba76eb0183d49-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/metynnis-fasciatus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "n2l9g-Pcu8U",
+      "title": "Metynnis fasciatus",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "hQRCVF6ZX8c",
+      "title": "Semaprochilodus taeniurus & metynnis fasciatus 25/05/2018",
+      "durationSec": 119,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MtZAbPYtilk",
+      "title": "Methynnis Fasciatus, Scheibensalmler",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "uBaSZ74scto",
+      "title": "Metynnis fasciatus.  Striped silver dollars from Washington aquatics",
+      "durationSec": 37,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -137,5 +208,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-20"
 }

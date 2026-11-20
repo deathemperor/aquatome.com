@@ -1,0 +1,136 @@
+{
+  "id": "pseudobunocephalus-iheringii",
+  "scientificName": "Pseudobunocephalus iheringii",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Pseudobunocephalus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-grande-do-sul",
+    "argentina",
+    "parana",
+    "uruguay",
+    "uruguay-river",
+    "paraguay",
+    "paraguay-river"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>South America: Atlantic, Paraguay and Uruguay River basins. Reported from the upper Paraná and its tributaries in Argentina. Type locality: Rio Grande do Sul, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Very small species that can probably be kept as per other members of this family, in a quiet tank with sand and plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Tablet foods and small live foods.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Pseudobunocephalus is distinguished from all other aspredinid genera by several unique anatomical features, including mandibular teeth restricted to a patch near the symphysis of the lower jaw and the absence of gill rakers on all branchial arches. The genus name combines the Greek pseudes, meaning false or deceptive, with the aspredinid genus Bunocephalus, alluding to the fact that its members were previously mistaken for juveniles of various Bunocephalus species. The specific name iheringii honours the German-Brazilian zoologist Hermann von Ihering (1850–1930), who helped collect the type. A new species, Pseudobunocephalus timbira Leão, Carvalho, Reis &amp; Wosiacki, 2019, has been described from streams of the lower Tocantins and Mearim river drainages in northern and northeastern Brazil. IUCN Red List: Least Concern, due to its wide range, despite limited information.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Frederico, R.G. 2021. Pseudobunocephalus iheringii. The IUCN Red List of Threatened Species 2021. Froese, R. and D. Pauly. Editors. 2020. FishBase. World Wide Web electronic publication. www.fishbase.org, (12/2020). Loureiro M, González-Bergonzoni I, Teixeira de Mello F. 2023. Freshwater Fishes of Uruguay. Second edition. Vertebrate Zoology Laboratory, Faculty of Sciences, University of the Republic. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/880a762656b156f2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/880a762656b156f2-480.webp",
+      "width": 500,
+      "height": 187,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Petersen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "caption": "Pseudobunocephalus iheringii: Artigas Department-Northern Uruguay",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/de5a2c784476c66f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/de5a2c784476c66f-480.webp",
+      "width": 500,
+      "height": 281,
+      "licence": "dùng với sự cho phép",
+      "author": "Demian Lescano / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "caption": "Pseudobunocephalus iheringii: Entre Ríos, Argentina",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5065eac57dc0a388.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5065eac57dc0a388-480.webp",
+      "width": 500,
+      "height": 202,
+      "licence": "dùng với sự cho phép",
+      "author": "Freshwater Fish from Uruguay 2nd. edition / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm",
+      "caption": "Pseudobunocephalus iheringii",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền mịn cho cá chuột",
+        "cát thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá đáy",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

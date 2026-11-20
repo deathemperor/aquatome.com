@@ -1707,6 +1707,64 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm": {
+    "entityIds": [
+      "species/platystacus-cotylephorus"
+    ],
+    "updatedAt": "2026-11-19T23:44:56.073Z",
+    "hash": "5e86e920d7443fd4ec01b81401cb29443dd4a938919fd95bddcf9b4f1107b4db",
+    "processedHash": "5e86e920d7443fd4ec01b81401cb29443dd4a938919fd95bddcf9b4f1107b4db",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_bifidus.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-bifidus"
+    ],
+    "updatedAt": "2026-11-19T23:46:23.728Z",
+    "hash": "9d9492ff80de34b264b20c136aac1589ee9717cbd33c3792912701a77f4d4af7",
+    "processedHash": "9d9492ff80de34b264b20c136aac1589ee9717cbd33c3792912701a77f4d4af7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-iheringii"
+    ],
+    "updatedAt": "2026-11-19T23:48:22.135Z",
+    "hash": "f20c2e6c99fadca49cf682d840426fbfb23f09d47a9debc6beaedb18efb9c61e",
+    "processedHash": "f20c2e6c99fadca49cf682d840426fbfb23f09d47a9debc6beaedb18efb9c61e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_quadriradiatus.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-quadriradiatus"
+    ],
+    "updatedAt": "2026-11-19T23:50:16.526Z",
+    "hash": "691a76b6f0170eda54b9e60eee44b9cf283d25ba87db0b08e4019641e31591b1",
+    "processedHash": "691a76b6f0170eda54b9e60eee44b9cf283d25ba87db0b08e4019641e31591b1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-timbira"
+    ],
+    "updatedAt": "2026-11-19T23:52:16.309Z",
+    "hash": "f0728efbf0936f3f5142eabd0e90c68acf006c0db65bb0804e0a169877c90afe",
+    "processedHash": "f0728efbf0936f3f5142eabd0e90c68acf006c0db65bb0804e0a169877c90afe",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pterobunocephalus_carvalhoi.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-19T23:54:44.666Z",
+    "hash": "9fa748bed162b9bee02065084ad29891b3cab6628bb38afda604b8436e5f5935",
+    "processedHash": "9fa748bed162b9bee02065084ad29891b3cab6628bb38afda604b8436e5f5935",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm": {
     "entityIds": [
       "species/pterobunocephalus-depressus"
@@ -1717,6 +1775,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/pterobunocephalus_dolichurus.htm": {
+    "entityIds": [
+      "species/pterobunocephalus-dolichurus"
+    ],
+    "updatedAt": "2026-11-19T23:56:17.879Z",
+    "hash": "0b60b3aea97c0472b6c8b77e2f1b08fdaeca87f1cb08f300f97a2527f8cba1b2",
+    "processedHash": "0b60b3aea97c0472b6c8b77e2f1b08fdaeca87f1cb08f300f97a2527f8cba1b2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm": {
+    "entityIds": [
+      "species/xyliphius-barbatus"
+    ],
+    "updatedAt": "2026-11-19T23:59:44.392Z",
+    "hash": "1736ce9e37b7ac05cd7f465664079400dae7b6b4fcbfd3474c6a87438f6edc22",
+    "processedHash": "1736ce9e37b7ac05cd7f465664079400dae7b6b4fcbfd3474c6a87438f6edc22",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm": {
     "entityIds": [
       "species/xyliphius-lepturus"
@@ -1724,6 +1802,16 @@
     "updatedAt": "2026-11-11T02:48:32.119Z",
     "hash": "f9dd4916c7d617e9f799cc49f1e10e9390a640ebedf085cfdddec4b9cbe6fc98",
     "processedHash": "f9dd4916c7d617e9f799cc49f1e10e9390a640ebedf085cfdddec4b9cbe6fc98",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/xyliphius_melanopterus.htm": {
+    "entityIds": [
+      "species/xyliphius-melanopterus"
+    ],
+    "updatedAt": "2026-11-20T00:03:23.518Z",
+    "hash": "caee81c30d752c2ae79eb565fb4610e08ec8eea43a28614e837c35f1d076b0b4",
+    "processedHash": "caee81c30d752c2ae79eb565fb4610e08ec8eea43a28614e837c35f1d076b0b4",
     "status": "processed",
     "attempts": 0
   },
@@ -2734,6 +2822,16 @@
     "updatedAt": "2026-11-13T21:14:24.992Z",
     "hash": "807d4d76541995488cb42d328e5f8df1f6fe417bbe7ecc53b2f8c098e287a301",
     "processedHash": "807d4d76541995488cb42d328e5f8df1f6fe417bbe7ecc53b2f8c098e287a301",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_rhantos.htm": {
+    "entityIds": [
+      "species/hypostomus-rhantos"
+    ],
+    "updatedAt": "2026-11-19T23:43:03.631Z",
+    "hash": "f7eb362c561901d06cdced4dac0096dec2b85cc7e878feb2a6b516e5bbfb6b16",
+    "processedHash": "f7eb362c561901d06cdced4dac0096dec2b85cc7e878feb2a6b516e5bbfb6b16",
     "status": "processed",
     "attempts": 0
   },

@@ -16,6 +16,28 @@
       {
         "source": "glaser",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 19.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -27,19 +49,54 @@
       "html": "<p>With almost 150 accepted species, the genus Hypostomus (in the broadest sense) is the most species-rich group of loricariid catfish. Unfortunately, there is no current revision of all species and so the determination of Hypostomus is usually a laborious affair, in the end often only a questionable result.</p><p>Hypostomus rhantos is pleasingly easy to recognize. The L-number 242 was applied on it before its scientific description. The fine dot pattern and the orange tending coloration make the species almost unmistakable; only Hypostomus micromaculatus from Surinam has similarly small dots.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_rhantos.htm",
+      "html": "<ul><li>L-number: L242</li><li>IUCN Red List: Least Concern</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-rhantos-l242-2/",
       "html": "<p>Hypostomus rhantos comes from the upper Orinoco in Venezuela.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_rhantos.htm",
+      "html": "<p>South America: Venezuela. Currently known from the Río Ventuari, a tributary of the upper Río Orinoco, and the mainstem upper Orinoco above Puerto Ayacucho to the Río Casiquiare in Amazonas.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_rhantos.htm",
+      "html": "<p>Described as a uniquely pigmented species of loricariid catfish from the upper Río Orinoco of Amazonas, Venezuela. It occurs across a wide range in sparsely populated regions and prefers large streams.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-rhantos-l242-2/",
       "html": "<p>Hypostomus rhantos is quite attractive in color and certainly one of the most beautiful Hypostomus species. It reaches about 20 cm in length and is a typical Aufwuchs eater. As by-catch some Hypostomus sp. L192 and a Hypostomus species from the Cochliodon group were received, which is almost identical in color to L192, but has a completely different dentition; it is probably Hypostomus (Cochliodon) sculpodon or an undescribed species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_rhantos.htm",
+      "html": "<p>Colouration: Light grey to tan when alive, becoming tan when preserved. Body densely covered with tiny spots, head spots even smaller than body spots. Spots present on all fins, generally larger than spots on body, evenly distributed on rays, spines, and membranes. Caudal fin membranes light and spotted anteriorly, fading to dark wash posteriorly. Abdomen lighter than sides, with tiny spots. Occasionally with four dorsal saddles, first below anterior dorsal-fin rays, second below and slightly behind posterior dorsal-fin rays, third below and slightly anterior to adipose-fin spine, and fourth at base of caudal peduncle; all saddles angled anteriorly, saddles one and two combine and continue to base of pelvic fin, third and fourth terminating at middle of midventral plate row. Fin spines usually lighter than rest of body. Spots relatively larger in juveniles. Juveniles with fewer spots distally on all fins, lower half of caudal fin much darker.</p><p>Description: Head and nape forming arch from tip of snout to origin of dorsal fin. Body depth decreasing from origin of dorsal fin to dorsal procurrent caudal spines then increasing to caudal fin. A rounded ridge present from anterodorsal corner of orbit, running ventral to nares, and ending slightly anteroventral of anterior nare. Longitudinal ridge of raised bone and slightly larger odontodes present on pterotic-supracleithrum beginning at posterodorsal corner of orbit and contiguous with supraorbital ridge. Space between orbits concave such that supraorbital ridge higher than medial surface of head. Supraoccipital convex medially with slight crest.</p><p>Etymology: The specific name rhantos: rhantós, sprinkled, speckled or spotted, referring to the tiny, randomly placed spots on body and head.</p><p>IUCN: unlikely to be negatively affected by ongoing changes in the environment due to mining, and considered Least Concern (IUCN 2023).</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/05319ec8f1ea1a07.webp",
+      "thumb": "https://media.aquatome.com/scotcat/05319ec8f1ea1a07-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_rhantos.htm",
+      "caption": "Hypostomus rhantos",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/f6b195fff514938f.webp",
       "thumb": "https://media.aquatome.com/glaser/f6b195fff514938f-480.webp",
@@ -63,16 +120,6 @@
     {
       "url": "https://media.aquatome.com/glaser/3171408da742b59f.webp",
       "thumb": "https://media.aquatome.com/glaser/3171408da742b59f-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-rhantos-l242-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/59be910ffa585d9e.webp",
-      "thumb": "https://media.aquatome.com/glaser/59be910ffa585d9e-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

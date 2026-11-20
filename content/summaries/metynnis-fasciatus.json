@@ -1,9 +1,12 @@
 {
   "id": "metynnis-fasciatus",
-  "summary": "Hồ sơ cá hồng phát vằn (Metynnis fasciatus) không ghi thông số bể hay nước, nên chưa đủ cơ sở để nói bể cỡ nào hay nước ra sao là hợp. Loài này hiếm khi có hàng, nhận ra qua bộ sọc vằn như ngựa vằn. Điểm khó nhất là kiếm được cá, vì thông tin nuôi chi tiết trong hồ sơ còn thiếu.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-10T23:00:15.455Z",
-  "review": "approved",
-  "writtenFrom": "6bbf4caa6067dbca"
+  "summary": "Cá hồng phát vằn (Metynnis fasciatus) thuộc họ Serrasalmidae, họ hàng với cá piranha và cá pacu, và ăn thực vật. Hợp với người thích cá lạ và chấp nhận loài này còn nhiều điều chưa rõ. Hồ sơ không nêu thông số bể hay nước, nên cần tìm thêm trước khi chuẩn bị bể. Điểm khó nhất là nhận diện. Loài này rất giống M. hypsauchen, và giới khoa học chưa thống nhất nó có phải một loài riêng hay không.",
+  "mistakes": [
+    "Cho ăn toàn đồ thịt. Loài Metynnis ăn thực vật, nên khẩu phần phải có thức ăn thực vật.",
+    "Đoán đực cái theo sọc hoặc màu. Hãy nhìn hình dạng vây hậu môn."
+  ],
+  "speciesUpdatedAt": "2026-11-20",
+  "writtenFrom": "82443291d138d957",
+  "generatedAt": "2026-11-20T01:56:54.148Z",
+  "review": "approved"
 }

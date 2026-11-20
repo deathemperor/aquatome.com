@@ -1,7 +1,7 @@
 ---
 url: https://bwaquatics.com/products/betta-ideii-meratus-wild-betta-fish
 title: Betta Ideii - Meratus | Wild Betta Fish – BWAquatics
-fetchedAt: 2026-11-19T08:23:37.648Z
+fetchedAt: 2026-11-19T23:27:16.104Z
 hash: 237e8d047fb2311c032ae479082c32676506111348311c0b2ab7e3be2292d9df
 ---
 

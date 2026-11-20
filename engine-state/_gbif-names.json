@@ -24513,6 +24513,14 @@
     "genus": "Phyllanthus",
     "matchType": "FUZZY"
   },
+  "Phyllonemus typus": {
+    "canonicalName": "Phyllonemus typus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Claroteidae",
+    "genus": "Phyllonemus",
+    "matchType": "EXACT"
+  },
   "Physa acuta": {
     "canonicalName": "Physella acuta",
     "family": "Physidae",
@@ -32244,6 +32252,7 @@
   },
   "Which aquatic": null,
   "Wild heckel": null,
+  "Wild type": null,
   "Wolasi ricefish": null,
   "Xanh methylen": null,
   "Xanh pha": null,

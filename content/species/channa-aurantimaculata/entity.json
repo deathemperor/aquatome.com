@@ -96,7 +96,7 @@
       },
       {
         "source": "glaser",
-        "value": 40
+        "value": 50
       }
     ],
     "tankCm": [
@@ -122,8 +122,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_aurantimaculata_en/",
-      "html": "<p>One of the most beautiful of all snakehead species. Size up to 40 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-aurantimaculata-german-bred/",
+      "html": "<p>Channa aurantimaculata is one of the most beautiful Channa species. It can reach up to 50 cm in length, although in nature it normally only reaches 20-25 cm. The young animals are 5-7 cm long and not yet quite as spectacularly coloured as the adults, but also very pretty.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -140,8 +140,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/channa_aurantimaculata_en/",
-      "html": "<p>Origin: India.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-aurantimaculata-german-bred/",
+      "html": "<p>The species originates from the north of India, where it can sometimes get quite cool.</p>"
     },
     {
       "key": "habitat",
@@ -160,6 +160,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-aurantimaculata",
       "html": "<p>Prefers a dimly-lit aquarium with a layer of surface vegetation such as Ceratopteris spp. plus some submerged cover.</p><p>It's essential to use a tightly-fitting hood since Channa spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p><p>More importantly still C. aurantimaculata must not be maintained at a constant temperature but provided with natural seasonal variation in the form of defined winter and summer periods. During the colder period the fish do not require much food and the water level can be allowed to fall without additional top-ups.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-aurantimaculata-german-bred/",
+      "html": "<p>Summer care in a garden pond especially prepared for it, above all escape-safe, is recommended. Please keep in mind that these animals in nature also migrate over land when it rains. They do the same in captivity if they are allowed to, so watch out!</p>"
     },
     {
       "key": "waterConditions",
@@ -215,6 +221,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/channa-aurantimaculata",
       "caption": "Female individual.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f7cdb738e66625dc.webp",
+      "thumb": "https://media.aquatome.com/glaser/f7cdb738e66625dc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-aurantimaculata-german-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7f5d2d2df9c232d5.webp",
+      "thumb": "https://media.aquatome.com/glaser/7f5d2d2df9c232d5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-aurantimaculata-german-bred/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3878f4da113deed5.webp",
+      "thumb": "https://media.aquatome.com/glaser/3878f4da113deed5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-aurantimaculata-german-bred/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -265,5 +301,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-14"
+  "updatedAt": "2026-11-20"
 }

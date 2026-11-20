@@ -886,6 +886,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/cyprinodon-variegatus-2/",
+      "html": "<p>The pupfish of the genus Cyprinodon live, so to speak, in the limbo for fish. Once the area, which today represents the desert regions of the western USA and northern Mexico, was a huge lake plate, the fish there lived in paradise. But the lakes gradually dried up over the millennia. Today, some species of pupfish can only be found in a single small water hole in the desert, such as the Devils Hole Pupfish (Cyprinodon diabolis). Some of the 49 currently recognized Cyprinodon species are therefore acutely threatened with extinction, some are even extinct, because if the groundwater sinks or the pond is polluted, it was.</p><p>But some species, such as Cyprinodon variegatus, are widespread and in no way threatened. All these survival artists can endure one thing: strong temperature fluctuations (up to 20°C in the day-night-change) and rapid changes in the salt content. C. variegatus also occurs in hypersaline waters (where the salt content is higher than in the sea), on the other hand there are also pure freshwater populations.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
@@ -908,6 +914,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
       "html": "<p>Need not be too complicated so long as there are plenty of broken lines-of-sight.</p><p>Provide plenty of cover in the form of aquatic plants, wool mops, etc., and if using filtration air-powered, sponge-type units are best as these will not harm eggs or fry.</p><p>Lighting is unimportant but can be used if you wish, and growth of filamentous algae should be encouraged if possible.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/cyprinodon-variegatus-2/",
+      "html": "<p>The Cyprinodon variegatus offered by the source come from a garage roof in southern Germany. They have been living there for many years now and reproduce happily. It doesn't matter to them whether the sun is burning or the rain is crackling, they do everything. They are only not allowed to freeze, not even pupfish can stand that.</p>"
     },
     {
       "key": "references",
@@ -938,9 +950,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/cyprinodon-variegatus",
       "caption": "In its natural habitat, Crescent Pond, The Bahamas; female above, nuptial male below.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/54eed83ffbb4aa17.webp",
+      "thumb": "https://media.aquatome.com/glaser/54eed83ffbb4aa17-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/cyprinodon-variegatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1599e60f0dfae33c.webp",
+      "thumb": "https://media.aquatome.com/glaser/1599e60f0dfae33c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/cyprinodon-variegatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d070f0a3e225cfe8.webp",
+      "thumb": "https://media.aquatome.com/glaser/d070f0a3e225cfe8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/cyprinodon-variegatus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "QVR-L0YIDUo",
+      "title": "Cyprinodontidae variegatus - sheepshead minnow - spawning -  east Coast US and Gulf.",
+      "durationSec": 117,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "DSVUobfss30",
+      "title": "Cyprinodon variegatus",
+      "durationSec": 53,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8-sH-h0xp8k",
+      "title": "cyprinodon - Pupfish - Sheepshead Minnow",
+      "durationSec": 117,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aAnKAtGI2Xc",
+      "title": "Cyprinodon variegatus variegatus \"Key Largo\" FLMF 13-1",
+      "durationSec": 43,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -963,5 +1030,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-20"
 }

@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "sumatra"
+    "sumatra",
+    "kampar"
   ],
   "range": {
     "native": {
@@ -67,12 +68,6 @@
         "value": 4
       }
     ],
-    "tankCm": [
-      {
-        "source": "bwaquatics",
-        "value": 30
-      }
-    ],
     "difficulty": [
       {
         "source": "bwaquatics",
@@ -85,95 +80,120 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<ul><li>Family: Osphronemidae</li><li>Temperament: peaceful, but males can be territorial</li><li>Size: males up to 4 cm, females slightly smaller</li><li>TDS: 0-60</li><li>Temperature: 23-28 °C (74-82 °F)</li><li>pH: 4-6 (low pH water is recommended)</li><li>Difficulty: expert</li></ul>"
+      "html": "<ul><li>Genus Parosphromenus (licorice gouramis).</li><li>IUCN Red List: Critically Endangered (extremely high risk of extinction in the wild).</li><li>Origin: wild caught.</li><li>Described in 2012.</li></ul>"
     },
     {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>Found only in the blackwater swamps near Kota Kerincikiri, on the Indonesian island of Sumatra.</p>"
+      "html": "<p>Parosphromenus phoenicurus, the red-finned licorice gourami, was described in 2012. It is known only from a single blackwater swamp near Langgam, in the Sungai Kampar drainage about 40 km southeast of Pekanbaru, Riau, Sumatra. Horst Linke found it in 2008, and it was traded as \"sp. Langgam\" until it was named. The name means \"crimson tail\".</p>"
     },
     {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>In the wild, it is found in slow-moving and shaded water bodies with a pH between 4.0 and 6.0 and a temperature range of 22 to 28 °C (71.6 to 82.4 °F).</p>"
+      "html": "<p>Blackwater swamp measured at 27°C, pH 5.25 and only 7 µS/cm conductivity.</p>"
     },
     {
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>They are small fish, so it is recommended to keep them in groups of 5 in a 5 gallon (about 19 litre) tank or larger unless breeding. In that case, they are best kept in pairs.</p>"
+      "html": "<p>Keep a group of 5 in 20 litres or larger, or a pair for breeding.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>TDS 0-60; temperature 23-28 °C (74-82 °F); pH 4-6 (water with low pH is recommended).</p>"
+      "html": "<ul><li>Temperature: 23–28°C</li><li>pH: 4.0–6.0</li><li>TDS: 0 to 50</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>They feed on small aquatic invertebrates such as insect larvae and crustaceans. In the aquarium: blackworms, brine shrimp and daphnia (they only eat live food).</p>"
+      "html": "<p>Micropredator. It only eats live food. Suitable foods include live baby brine shrimp, daphnia and blackworms.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>Peaceful, but males can be territorial.</p>"
+      "html": "<p>Peaceful, but males can be territorial. It can share a tank with tiny, calm blackwater fish such as Boraras. Never mix different Parosphromenus species, since they can hybridize.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>Males have much more colourful and elongated fins. Adult males reach about 4 cm, while females are slightly smaller.</p>"
+      "html": "<p>Body elongated and slightly compressed. Diamond-shaped caudal fin with an almost triangular black patch; turquoise pelvic fins with black filaments. Males have much more colourful and longer fins than females. In males, the dorsal and anal fins run from a black base through a bright crimson band, a narrow iridescent blue band and a black band to a light blue edge. Aquarium-bred males show more red than wild fish. It is told apart from the similar bintan and harveyi types by the bold black and red bands on its unpaired fins. Parosphromenus tweediei is its closest relative but has a rounded tail. Maximum size is 2.9 cm for wild fish; aquarium-bred fish reach 4 cm.</p>"
     },
     {
-      "key": "notes",
+      "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-phoenicurus",
-      "html": "<p>Compared to other Licorice Gouramis, it can be told apart from the similar-looking Bintan or Harveyi type by the substantial black and red parallel bands on the unpaired fins. The body is elongated and laterally compressed, dark brown to blackish on the back and lighter brown on the sides. The most striking feature is the bright red fins, including the dorsal, anal and caudal fins.</p>"
+      "html": "<p>Cave spawner with a head-down courtship, like its relatives. Match the very low conductivity of its home water. Breeding has become harder since the first captive successes, and only a few small breeding stocks exist.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/f5d52a229f802c63.webp",
+      "thumb": "https://media.aquatome.com/commons/f5d52a229f802c63-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Martin Fischer Parostoteles",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_spec_Langgam1.jpg",
-      "caption": "Male Parosphromenus spec. „Langgam“ in typical courtship display",
-      "thumb": "https://media.aquatome.com/commons/f5d52a229f802c63-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/f5d52a229f802c63-large.webp",
         "width": 1601,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Martin Fischer Parostoteles",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_spec_Langgam1.jpg",
+      "caption": "Male Parosphromenus spec. „Langgam“ in typical courtship display"
     },
     {
       "url": "https://media.aquatome.com/commons/7bb466d1a4e1ca9e.webp",
+      "thumb": "https://media.aquatome.com/commons/7bb466d1a4e1ca9e-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 3.0",
       "author": "Martin Fischer Parostoteles",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_spec_Langgam_2.jpg",
-      "caption": "Parosphromenus spec. Langgam males in aggressive display",
-      "thumb": "https://media.aquatome.com/commons/7bb466d1a4e1ca9e-480.webp"
+      "caption": "Parosphromenus spec. Langgam males in aggressive display"
     },
     {
       "url": "https://media.aquatome.com/commons/d2e5830b535a2ee9.webp",
+      "thumb": "https://media.aquatome.com/commons/d2e5830b535a2ee9-480.webp",
       "width": 960,
       "height": 721,
       "licence": "CC BY-SA 3.0",
       "author": "Martin Fischer Parostoteles",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parosphromenus_spec_Langgam_3.jpg",
-      "caption": "balzendes Prachtguramipaar",
-      "thumb": "https://media.aquatome.com/commons/d2e5830b535a2ee9-480.webp"
+      "caption": "balzendes Prachtguramipaar"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "k8gIqKSQYpE",
+      "title": "Parosphromenus cf. phoenicurus",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JOmozQxhjaw",
+      "title": "P. phoenicurus \"Rengat\"",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Y4QI351Yhso",
+      "title": "P. phoenicurus \"Rengat\", male",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ATOPZl0P28A",
+      "title": "sunset and time lapse - feeding parosphromenus phoenicurus",
+      "durationSec": 44,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -204,5 +224,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-19"
 }

@@ -1,0 +1,121 @@
+{
+  "id": "xyliphius-barbatus",
+  "scientificName": "Xyliphius barbatus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Xyliphius",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "parana",
+    "paraguay"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm",
+      "html": "<ul><li>Common name: Little guitar</li><li>Synonym: Xyliphius lombarderoi</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm",
+      "html": "<p>South America: Paraguay-Paraná River basin. Endemic in Argentina. Type locality: Río Paraná en Rosario, provincia de Santa Fe, Argentina.</p><p>This species has been confirmed to occur in the Paraguay-Paraná River basin in Argentina and Paraguay. Records from Uruguay require confirmation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm",
+      "html": "<p>Xyliphius live buried in the sand and perhaps gravel of swift flowing streams.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm",
+      "html": "<p>The banjo catfish genus Xyliphius was established by Eigenmann (1912) to include a single species, X. magdalenae Eigenmann, from Río Magdalena basin, Girardot, Colombia. That description was based on a single specimen, 32.0 mm SL. Later, four species were described in a short time frame: X. lepturus and X. melanopterus from western headwaters of Río Bobonaza, upper Amazon basin (Orcés, 1962), X. barbatus (Alonso de Arámburu &amp; Arámburu, 1962), and X. lombarderoi (now a synonym of X. barbatus), (Risso &amp; Risso, 1964), from Río Paraná, in Argentina. A sixth species, X. kryptos, was described by Taphorn &amp; Lilyestrom (1983), from Río Aricuaisá, lago de Maracaibo basin, Venezuela. Further collections, though small, expanded the distribution of species of Xyliphius beyond their type localities (Cala, 1977). Currently, the six nominal species of Xyliphius are known from northern South America in the Río Magdalena system (X. magdalenae), lago de Maracaibo (X. kryptos), and western headwaters of the Amazonas basin and Río Orinoco (X. lepturus and X. melanopterus), and from southern South America in the Río de La Plata system (X. barbatus). Another new species, Xyliphius anachoretes (Figueiredo &amp; Britto, 2010), is from the Tocantins-Araguaia River system. In 2017 another species, Xyliphius sofiae, was described from the vicinity of Iquitos, Maynas, Loreto, Peru, bringing the total to 7.</p><p>Etymology: The genus name Xyliphius is derived from the Greek word xylephion = a little piece of wood (referring to the woodlike appearance of the type species of the genus). The specific name barbatus means bearded, referring to the 30 dendritic papillae on the lower lip.</p><p>IUCN Red List: The best estimate of the area of occupancy (AOO) is between 48 km2 and 1,999 km2. Canalization of rivers for commercial boat passing (hydrovia Paraguay-Paraná) is the most serious plausible threat. There are two locations (in the IUCN sense) based on this threat. At present, it is unknown whether this is causing continuing declines. Therefore, this species is assessed as Near Threatened (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Figueiredo Carlos A, Britto Marcelo R. A new species of Xyliphius, a rarely sampled banjo catfish (Siluriformes: Aspredinidae) from the rio Tocantins-Araguaia system. Neotrop. ichthyol. 2010 Mar [cited 2011 Feb 10]. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Vera-Alcaraz, H.S. 2023. Xyliphius barbatus. The IUCN Red List of Threatened Species 2023.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4b6082716dee02d7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4b6082716dee02d7-480.webp",
+      "width": 500,
+      "height": 184,
+      "licence": "dùng với sự cho phép",
+      "author": "Julio Endler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm",
+      "caption": "Xyliphius barbatus: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b5ea7ab361fe4949.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b5ea7ab361fe4949-480.webp",
+      "width": 500,
+      "height": 453,
+      "licence": "dùng với sự cho phép",
+      "author": "Julio Endler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm",
+      "caption": "Xyliphius barbatus: ventral view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "nền cát cho cá nheo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát bể cá",
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

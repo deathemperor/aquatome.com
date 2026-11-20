@@ -112,6 +112,10 @@
       {
         "source": "seriouslyfish",
         "value": 25
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -133,6 +137,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
       "html": "<p>The venustus, Nimbochromis venustus, is a predatory cichlid endemic to Lake Malawi, where it is fairly widespread. Also sold as 'giraffe hap' or 'giraffe cichlid' after its pattern of irregular dark markings, it is an ambush predator that lies motionless on the substrate to take smaller fish. It is not a fish for the general Malawi cichlid community.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-venustus-2/",
+      "html": "<p>With almost 25 cm of final length, the giraffe cichlid belongs to the bigger cichlids from Lake Malawi and is one of the most aggressive. Like almost all cichlids from Lake Malawi, Nimbochromis venustus is a mouthbrooder in the female sex.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-venustus-2/",
+      "html": "<p>It can therefore be recommended only for really big aquariums, where these characteristics do not weigh so heavily.</p>"
     },
     {
       "key": "distribution",
@@ -177,6 +193,12 @@
       "html": "<p>Predatory but is generally peaceful with species too big to be considered food (it will eat smaller mbuna and young fish). Suitable tankmates include Frontosa, Dimidiochromis compressiceps, larger mbuna and other large Rift Lake species. It is a loner in nature and males can be quite aggressive towards one another. It should therefore be kept as a solitary specimen in the aquarium or, if breeding is to be attempted, as a harem with several females and a single male.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-venustus-2/",
+      "html": "<p>The genus Nimbochromis is probably best known to aquarists through the \"sleeper\", N. livingstonii. All species of Nimbochromis have a camouflage pattern of irregular, brown spots. N. livingstonii uses this to mimic a decomposing fish, because fish carrion looks similarly patchy. The sleeper lies on its side on the ground and plays dead. Unsuspecting young fish that want to eat from the carrion are attracted and end up in the stomach of the sleeper.</p><p>The giraffe cichlid (N. venustus) is also a predator and lurks for prey in a very similar way, but it does not lie on its side; it only sinks to the ground and remains motionless. It attacks only if prey comes into its immediate proximity.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
@@ -189,6 +211,12 @@
       "html": "<p>Not easy. Polygamous maternal mouthbrooder. The breeding aquarium should be at least 120 cm in length and furnished as suggested above, with the addition of some large, flat rocks to provide potential spawning sites. A pH of 8.0-8.5 and a temperature between 25–27 °C are ideal. A breeding group of one male and 3-6 females is recommended and these should be kept alone and conditioned on a high quality, meat-based diet. Adult fish can be hard to find so you may have to start with a group of 6-8 juvenile fish and grow them on.</p><p>When ready to spawn, the male takes on intense colouration and will choose a spawning site, either on a flat rock surface or by digging a depression in the substrate. Spawning occurs in a similar fashion to many other cichlids, with the female laying a line of eggs before moving away, allowing the male to take her place and fertilise them. She then returns to the site, picking up the fertilised eggs in her mouth before laying another batch.</p><p>She will carry the brood of up to 120 eggs for around 3 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth and brooding colouration of dark patterning. Female venustus are notorious for spitting out the brood early when stressed, so extreme care must be taken if you decide to move the fish. It is also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group. It is recommended to wait as long as possible before moving a female unless she is being harassed.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them from that point as this usually results in a larger number of fry. The fry are large enough to accept brine shrimp nauplii from the day they are released. Brood care by the female continues for another 10 days or so, with the fry seeking refuge in the mother's mouth if they are disturbed.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-venustus-2/",
+      "html": "<p>Like almost all cichlids from Lake Malawi, Nimbochromis venustus is a mouthbrooder in the female sex.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/nimbochromis-venustus",
@@ -198,51 +226,106 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/1d4033304f370e3a.webp",
+      "thumb": "https://media.aquatome.com/commons/1d4033304f370e3a-480.webp",
       "width": 960,
       "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Photograph by Mike Peel (www.mikepeel.net).",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Giraffenmaulbruter_2.jpg",
-      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo.",
-      "thumb": "https://media.aquatome.com/commons/1d4033304f370e3a-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/1d4033304f370e3a-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Photograph by Mike Peel (www.mikepeel.net).",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Giraffenmaulbruter_2.jpg",
+      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo."
     },
     {
       "url": "https://media.aquatome.com/commons/3be49518e9b3eeb5.webp",
+      "thumb": "https://media.aquatome.com/commons/3be49518e9b3eeb5-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Photograph by Mike Peel (www.mikepeel.net).",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Giraffenmaulbruter_3.jpg",
-      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo.",
-      "thumb": "https://media.aquatome.com/commons/3be49518e9b3eeb5-480.webp"
+      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo."
     },
     {
       "url": "https://media.aquatome.com/commons/942172a58a61d5bd.webp",
+      "thumb": "https://media.aquatome.com/commons/942172a58a61d5bd-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 4.0",
       "author": "Photograph by Mike Peel (www.mikepeel.net).",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frankfurt_Zoo_-_Giraffenmaulbruter_1.jpg",
-      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo.",
-      "thumb": "https://media.aquatome.com/commons/942172a58a61d5bd-480.webp"
+      "caption": "Giraffenmaulbruter. Haplochromis venustus. At Frankfurt Zoo."
     },
     {
       "url": "https://media.aquatome.com/commons/b10f0fd458c378ef.webp",
+      "thumb": "https://media.aquatome.com/commons/b10f0fd458c378ef-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY-SA 3.0",
       "author": "Jutta234",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_venustus_-_Zoo_Frankfurt_2.jpg",
-      "caption": "Pfauenmaulbrüter im Zoo Frankfurt",
-      "thumb": "https://media.aquatome.com/commons/b10f0fd458c378ef-480.webp"
+      "caption": "Pfauenmaulbrüter im Zoo Frankfurt"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/449687e08e137d6f.webp",
+      "thumb": "https://media.aquatome.com/glaser/449687e08e137d6f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-venustus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e73436c245259625.webp",
+      "thumb": "https://media.aquatome.com/glaser/e73436c245259625-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-venustus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/944abe37c9e2ddfb.webp",
+      "thumb": "https://media.aquatome.com/glaser/944abe37c9e2ddfb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/nimbochromis-venustus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "bM5hET-nEQA",
+      "title": "Nimbochromis VENUSTUS | African Cichlid Profile",
+      "durationSec": 602,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "RFB47L291aw",
+      "title": "Nimbochromis Venustus Transformation",
+      "durationSec": 355,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6hnA3Lu7v4k",
+      "title": "NIMBOCHROMIS VENUSTUS - VAMOS FALAR DE ESPÉCIES? #004",
+      "durationSec": 812,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GRPX7RwSETU",
+      "title": "BIG and BOLD: The Nimbochromis venustas (aka Giraffe Hap)",
+      "durationSec": 345,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -271,5 +354,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-20"
 }

@@ -624,6 +624,45 @@
       "kept": false
     }
   ],
+  "vi/products/oase-biomaster-250": [
+    {
+      "at": "2026-11-20T01:47:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.8,
+      "notes": [
+        "\"nên thùng chính lâu bẩn và lâu mới phải mở\" is fine, but \"Eheim ... bền và êm\" drops the facts' \"reliable and quiet\" nuance. This one is supported.",
+        "\"Shop ở Việt Nam ghi cỡ bể cho từng bản\" and \"shop ghi bể dưới 800 lít, dù tên máy là 850\" go further than the facts. They add a commentary that the facts don't state, though the 800 L figure is supported.",
+        "\"Máy này không có ngăn lọc thô và không có nút mồi\" is supported. \"dùng cho bể cỡ tương tự mà rẻ hơn nhiều\" is also supported.",
+        "\"Oase FiltoSmart 300 ... gọn hơn\" is supported. The page leaves out that the listing was out of stock. That is an omission, not an invention.",
+        "\"Bản Thermo 250 ... chỉ gắn thêm sưởi bên trong\" is fine. The page leaves out the 150 W heater detail.",
+        "\"Bản của nhà phân phối ở Việt Nam chạy điện 230 V / 50 Hz\" is supported.",
+        "\"nghe nói sau khi bị phàn nàn ... Oase đã sửa đầu bơm\" is hedged as in the facts (\"reportedly\"). The heading \"Đầu bơm đời mới\" is a mild extrapolation.",
+        "\"con số ghi trên hộp\" (the figure printed on the box) is not in the facts. The facts only say \"weaker than the rating\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T01:47:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.328",
+      "score": 0.85,
+      "notes": [
+        "\"có van khóa ở khớp nối, nên thùng chính lâu bẩn và vệ sinh ít đổ nước\" – mostly supported, but linking the valves to the main canister staying clean longer is a slight blend of two separate facts.",
+        "\"Eheim Classic 350 (2215): lọc thùng đơn giản, bền và êm\" – the facts say \"reliable and quiet\"; \"bền\" is roughly equivalent, so this is fine.",
+        "\"Oase FiltoSmart 300: ... rẻ hơn và gọn hơn\" – the facts say cheaper and compact, so this is supported.",
+        "\"Oase BioMaster Thermo 350: ... lưu lượng cao hơn\" – supported only loosely, since the facts give flow for the 350 but not for the Thermo 350.",
+        "\"Bản đang bán hiện nay mang tên BioMaster² (250)\" – supported.",
+        "\"BioMaster 250: shop ghi dành cho bể dưới 250 lít\" – supported.",
+        "\"Bản của nhà phân phối ở Việt Nam chạy điện 230 V / 50 Hz\" – supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/oase-biomaster-600-thermo": [
     {
       "at": "2026-11-18T19:46:50Z",
