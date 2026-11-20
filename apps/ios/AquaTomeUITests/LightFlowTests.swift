@@ -1105,8 +1105,6 @@ final class LightFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "lamp-sent").label, "green@100", "red counted as sent")
   }
 
-  /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes.
-  /// Read from the phone's one broadcaster, on Đèn whoever is signed in: the card may be built anew after a sign-out.
   /// A start Bluetooth had and cut before it answered (the stand-in waits 3 s for Bluetooth, then cuts it as it begins) may
   /// have gone out: what waits after it still waits the light's gap (a minute here), as after any broadcast. Without it,
   /// green went as soon as Bluetooth was back (Codex, 20 Nov).
@@ -1118,9 +1116,13 @@ final class LightFlowTests: XCTestCase {
     // Red is cut 3 s in; green would go at once without the gap.
     _ = XCTWaiter.wait(for: [XCTestExpectation(description: "past red's cut")], timeout: 8)
     XCTAssertEqual(element(app, "lamp-starts").label, "1", "green went without the gap after red's cut")
+    // Red was cut, not aired: one aired for its 3 s would have been stopped at its end, and green waited after that.
+    XCTAssertEqual(element(app, "lamp-stops").label, "0", "red wasn't cut: the flow proves nothing")
     expect(app, "lamp-status", contains: "Đang gửi “Xanh lá”")
   }
 
+  /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes.
+  /// Read from the phone's one broadcaster, on Đèn whoever is signed in: the card may be built anew after a sign-out.
   func testSigningOutDropsWhatWaits() {
     let app = signedIn("-lamp-gap", "60")
     tap(app, "lamp-red")

@@ -78,7 +78,7 @@ func theButtonsCommandsGoAsRecorded() throws {
   }
 }
 
-@MainActor @Test("The card's trials go to Bluetooth as built, and its trial green as the recorded green")
+@MainActor @Test("The card's trials go to Bluetooth as built, and a recorded green as recorded")
 func theTrialsGoAsBuilt() throws {
   // Built, not recorded: compared with their own bytes.
   for c in FishLamp.trials {
