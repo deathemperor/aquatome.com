@@ -19,15 +19,16 @@
         "LK"
       ],
       "regions": [
-        "Tapti River"
+        "Tapti"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The green chromide, Etroplus suratensis, is a euryhaline cichlid from peninsular India and Sri Lanka, growing to 350 mm SL.",
+          "quote": "Generally considered native to peninsular India and Sri Lanka although some sources state that it is only native to Sri Lanka and was introduced to India for aquaculture purposes in 1950.",
           "countries": [
             "IN",
             "LK"
@@ -39,7 +40,7 @@
           "quote": "Type locality is 'Suratte, India, 21°12'N, 72°55'E', referring to modern-day Surat which lies on the lower Tapti River in Gujarat state, western India.",
           "countries": [],
           "regions": [
-            "Tapti River"
+            "Tapti"
           ]
         }
       ]
@@ -329,6 +330,11 @@
         ]
       ]
     }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "It is often found in pure fresh water, but likes to live in a brackish environment and also tolerates pure sea water."
   },
   "dataCard": {
     "tempC": [

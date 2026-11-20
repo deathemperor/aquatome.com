@@ -17,10 +17,12 @@
         "MM"
       ],
       "regions": [
-        "Rakhine Yoma"
+        "Rakhine Yoma",
+        "Thandwe river"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -31,6 +33,14 @@
           ],
           "regions": [
             "Rakhine Yoma"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Danio feegradei was first described by the Indian ichthyologist S. L. Hora in 1937 from a single specimen originating from the Thandwe river in Myanmar (former Burma).",
+          "countries": [],
+          "regions": [
+            "Thandwe river"
           ]
         }
       ]

@@ -1,6 +1,13 @@
 {
   "id": "etroplus-suratensis",
-  "input": "026b5f30bfb83e29",
-  "at": "2026-11-07T13:33:43.862Z",
-  "claims": []
+  "input": "1de9c22651f968d0",
+  "at": "2026-11-20T07:21:40.436Z",
+  "claims": [
+    {
+      "kind": "brackish",
+      "source": "glaser",
+      "quote": "It is often found in pure fresh water, but likes to live in a brackish environment and also tolerates pure sea water.",
+      "ok": true
+    }
+  ]
 }

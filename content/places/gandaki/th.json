@@ -3,6 +3,12 @@
   "name": "กัณฑกี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T07:10:34.943Z",
+    "why": "Thai atlases write Gandaki Province as \"แคว้นคันดากี\" or \"ฆัณฑกี\"-style forms, usually \"คันดากี\", and \"กัณฑกี\" is a Sanskritized spelling that doesn't match the usual Thai rendering and lacks a kind word like จังหวัด/แคว้น."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

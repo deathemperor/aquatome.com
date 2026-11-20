@@ -11,6 +11,79 @@
     "parana",
     "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR",
+        "PY"
+      ],
+      "regions": [
+        "Paraguay-Paraná",
+        "Río Paraná"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "This species has been confirmed to occur in the Paraguay-Paraná River basin in Argentina and Paraguay.",
+          "countries": [
+            "AR",
+            "PY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Paraguay-Paraná River basin.",
+          "countries": [],
+          "regions": [
+            "Paraguay-Paraná"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Río Paraná en Rosario, provincia de Santa Fe, Argentina.",
+          "countries": [],
+          "regions": [
+            "Río Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340567,
+      "total": 4,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "AR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -32.34375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -13,10 +13,9 @@
   ],
   "range": {
     "native": {
-      "countries": [
-        "ID"
-      ],
+      "countries": [],
       "regions": [
+        "Sungai Kampar",
         "Sumatra"
       ],
       "sources": [
@@ -25,11 +24,10 @@
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Found only in the blackwater swamps near Kota Kerincikiri, on the Indonesian island of Sumatra.",
-          "countries": [
-            "ID"
-          ],
+          "quote": "It is known only from a single blackwater swamp near Langgam, in the Sungai Kampar drainage about 40 km southeast of Pekanbaru, Riau, Sumatra.",
+          "countries": [],
           "regions": [
+            "Sungai Kampar",
             "Sumatra"
           ]
         }
@@ -38,7 +36,7 @@
     "records": {
       "taxonKey": 8243786,
       "total": 0,
-      "fetched": "2026-11-12",
+      "fetched": "2026-11-20",
       "countries": [],
       "cells": []
     }

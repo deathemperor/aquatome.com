@@ -1,0 +1,56 @@
+{
+  "id": "pseudobunocephalus-quadriradiatus",
+  "native": {
+    "input": "e47eb561c2649673",
+    "at": "2026-11-20T07:13:45.828Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon River basin of Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon River basin of Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pseudobunocephalus quadriradiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340590,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T07:13:45.828Z"
+  }
+}

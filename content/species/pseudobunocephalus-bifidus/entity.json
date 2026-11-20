@@ -14,6 +14,173 @@
     "peru",
     "huallaga-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO",
+        "BR",
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Amazon",
+        "Huallaga River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin of Bolivia, Brazil, Ecuador, and Peru.",
+          "countries": [
+            "BO",
+            "BR",
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: creek, Yurimaguas [Huallaga River, Peru].",
+          "countries": [],
+          "regions": [
+            "Huallaga River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340576,
+      "total": 26,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "PE",
+          10
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "BO",
+          6
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

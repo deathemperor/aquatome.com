@@ -1,0 +1,16 @@
+{
+  "slug": "rio-juma",
+  "name": "ชูมา",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:04:48.974Z",
+    "why": "\"ชูมา\" is Thai script and a plausible transliteration of Juma (Portuguese J = /ʒ/ ≈ ช or ฌ), but it omits the kind word \"แม่น้ำ\" that a Thai atlas puts before a river name."
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false
+  }
+}

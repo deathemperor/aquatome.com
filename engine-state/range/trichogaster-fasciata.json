@@ -1,8 +1,8 @@
 {
   "id": "trichogaster-fasciata",
   "native": {
-    "input": "c7187ad5d25b84c7",
-    "at": "2026-11-17T00:14:47.070Z",
+    "input": "35fca81a9c0bbc5f",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "PK",
@@ -46,18 +46,22 @@
       },
       {
         "code": "IN",
-        "status": "native",
+        "status": "doubtful",
         "source": "glaser",
-        "quote": "The northern states of India are hardly researched in respect of their fishes.",
+        "quote": "Nobody knows exactly what Colisa fasciata is: the specimen on which the first description is based was lost in the turmoil of the French Revolution, and where it is supposed to come from (Tranquebar in the south of India) there are no gourami at all.",
         "words": "India",
         "ok": true
       }
     ],
     "regions": [],
-    "disputed": [],
+    "disputed": [
+      "IN"
+    ],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "IN"
+      ],
       "sourcesOnly": []
     }
   },

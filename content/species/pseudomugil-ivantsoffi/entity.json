@@ -10,6 +10,38 @@
     "indonesia",
     "papua"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "New Guinea"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This blue-eye originates from the surroundings of the town Timika in the Indonesian province Papua on New Guinea.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411750,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

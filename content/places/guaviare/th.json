@@ -3,6 +3,12 @@
   "name": "กวาเวียเร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:10:57.895Z",
+    "why": "กวาเวียเร is a Thai transliteration of Guaviare, but it leaves out the kind word (จังหวัด/แผนก) and the v is written ว where Thai spelling of Spanish usually uses บ (กวาบิอาเร/กัวบิอาเร)."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

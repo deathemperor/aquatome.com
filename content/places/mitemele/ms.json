@@ -3,6 +3,12 @@
   "name": "Mitemele",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:05:50.354Z",
+    "why": "Mitemele is a river in Equatorial Guinea, so the bare name leaves out the kind word \"Sungai\" that Malay atlases would use, though the spelling is kept."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

@@ -16,10 +16,15 @@
     "native": {
       "countries": [
         "MM",
-        "ID"
+        "NP"
       ],
-      "regions": [],
+      "regions": [
+        "Irrawaddy",
+        "Sittang",
+        "Salween"
+      ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -27,17 +32,34 @@
           "source": "seriouslyfish",
           "quote": "Myanmar, Indonesia.",
           "countries": [
-            "MM",
-            "ID"
+            "MM"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "In addition, the species is also found in Nepal and allegedly also in Indonesia, but is imported from Burma or as bred ones.",
+          "countries": [
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "It inhabits the basins of big rivers Irrawaddy, Sittang and Salween.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Sittang",
+            "Salween"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 5204054,
       "total": 45,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-20",
       "countries": [
         [
           "MM",

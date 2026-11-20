@@ -3,6 +3,12 @@
   "name": "Wilayah Milne Bay",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.35,
+    "at": "2026-11-20T07:05:44.720Z",
+    "why": "Papua New Guinea's provinces are called \"Wilayah\" rarely in Malay; Malaysian atlases use \"Provinsi\"/\"Wilayah\" inconsistently, but for PNG the standard Malay kind word is \"Wilayah\" only for Indonesian-style usage, whereas \"Wilayah Milne Bay\" risks confusion and \"Daerah/Provinsi Milne Bay\" is more apt"
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

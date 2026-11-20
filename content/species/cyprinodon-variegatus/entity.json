@@ -23,7 +23,8 @@
         "VE"
       ],
       "regions": [
-        "San Salvador Island"
+        "San Salvador Island",
+        "Antilles"
       ],
       "sources": [
         "seriouslyfish"
@@ -38,7 +39,9 @@
             "BS",
             "VE"
           ],
-          "regions": []
+          "regions": [
+            "Antilles"
+          ]
         },
         {
           "source": "seriouslyfish",

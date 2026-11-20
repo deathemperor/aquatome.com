@@ -2073,6 +2073,12 @@
     ],
     "ruled": "9e8cf3d0c4a2bf2e"
   },
+  "vi/guides/aquariumbreeder-difference-between-aquarium-terrarium-riparium-and-paludarium": {
+    "at": "2026-11-20",
+    "hash": "0f643a78146d4d8e",
+    "findings": [],
+    "ruled": "0f643a78146d4d8e"
+  },
   "vi/guides/aquariumbreeder-diy-root-tabs-pros-and-cons": {
     "at": "2026-11-08",
     "hash": "138fe45c4ebaa5ee",
@@ -5240,6 +5246,32 @@
       }
     ],
     "ruled": "c56861bc6c5c8de7"
+  },
+  "vi/guides/aquariumbreeder-top-7-floating-plants-for-beginners": {
+    "at": "2026-11-20",
+    "hash": "ac901ec3035af647",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Thủy cúc (Hygrophila difformis)\n- Dương xỉ nước (Ceratopteris thalictroides)",
+        "problem": "The overview list puts Thủy cúc 6th and Dương xỉ nước 7th, but the numbered headings put Dương xỉ nước at 6 and Thủy cúc at 7.",
+        "fix": "- Dương xỉ nước (Ceratopteris thalictroides)\n- Thủy cúc (Hygrophila difformis)",
+        "rule": "The order of names in a list of species differs from the order of the numbered headings that follow it.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bèo tấm sinh sản hữu tính bằng cách mọc ra chuỗi thân mới từ các chồi sinh dưỡng",
+        "problem": "The sentence calls budding from vegetative buds sexual reproduction. It is asexual, so the sentence contradicts itself.",
+        "fix": "bèo tấm sinh sản vô tính bằng cách mọc ra chuỗi thân mới từ các chồi sinh dưỡng",
+        "field": "body"
+      }
+    ],
+    "ruled": "ac901ec3035af647"
   },
   "vi/guides/aquariumbreeder-top-8-carpeting-plants-for-planted-tanks": {
     "at": "2026-11-17",
@@ -11236,6 +11268,22 @@
     ],
     "ruled": "68a0622768320100"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-a-new-little-tetra-from-peru": {
+    "at": "2026-11-20",
+    "hash": "294fccf5d42b03d1",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mấy con cá lùn mới về này",
+        "problem": "'Cá lùn' is a word-for-word rendering of 'dwarfs' and reads oddly in Vietnamese for tiny fish.",
+        "fix": "mấy con cá tí hon mới về này",
+        "field": "body"
+      }
+    ],
+    "ruled": "294fccf5d42b03d1"
+  },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-a-new-species-of-crenuchus-en": {
     "at": "2026-11-14",
     "hash": "32b82d87c5101044",
@@ -11732,6 +11780,31 @@
     ],
     "ruled": "b7d52932040179a1"
   },
+  "vi/guides/glaser-en-10-catfishes-corydoras-venezuelanus-orange-and-c-sp-venezuela-black": {
+    "at": "2026-11-20",
+    "hash": "6719ee064669c771",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Có một cái tên đúng khoa học thì tốt, nhất là khi chưa có tên nào đúng",
+        "problem": "The source says that knowing what you are ordering matters more than a correct scientific name, especially when none exists. The page's version reverses this into an illogical claim.",
+        "fix": "Quan trọng hơn một cái tên đúng khoa học, nhất là khi chưa có tên nào đúng, là người mua biết mình đang đặt con gì.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rắc rối lớn nhất là khi đặt hàng xong lại nhận về loài \"sai\".",
+        "problem": "The source says only 'great trouble', not the biggest trouble. The superlative is added.",
+        "fix": "Rắc rối nhiều khi đặt hàng xong lại nhận về loài \"sai\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "6719ee064669c771"
+  },
   "vi/guides/glaser-en-10-catfishes-hey-hey-hey-hey-little-pirate": {
     "at": "2026-11-20",
     "hash": "8452282e32cd2cf9",
@@ -12177,6 +12250,12 @@
     "findings": [],
     "ruled": "343b27a4129473d3"
   },
+  "vi/guides/glaser-en-25-perchlike-fishes-new-bettas-1-spade-tail": {
+    "at": "2026-11-20",
+    "hash": "0532937ad00f061c",
+    "findings": [],
+    "ruled": "0532937ad00f061c"
+  },
   "vi/guides/glaser-en-25-perchlike-fishes-new-bettas-2-alien-blue-alien-steel-blue-and-alien-green": {
     "at": "2026-11-20",
     "hash": "d4df3b858b63d366",
@@ -12212,6 +12291,22 @@
     "hash": "6c74aab39adf4c82",
     "findings": [],
     "ruled": "6c74aab39adf4c82"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-colombia-a-journey-to-the-habitats-of-our-fishes": {
+    "at": "2026-11-20",
+    "hash": "feacedf4ddd7e7af",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có lúc cả bầy Myleus cf. torquatus (Kner, 1858) bị một trái bắp dụ tới.",
+        "problem": "The source only says Myleus cf. torquatus was attracted by a corn cob; it never mentions a whole school ('cả bầy').",
+        "fix": "Có lúc một trái bắp dụ được cả Myleus cf. torquatus (Kner, 1858) tới.",
+        "field": "body"
+      }
+    ],
+    "ruled": "feacedf4ddd7e7af"
   },
   "vi/guides/glaser-en-32-all-the-rest-congo-importation-arrived-en": {
     "at": "2026-11-10",
@@ -15689,6 +15784,22 @@
     "findings": [],
     "ruled": "524a2c5b77b55f7a"
   },
+  "vi/guides/youtube-_7R9wbaPu3A": {
+    "at": "2026-11-20",
+    "hash": "3db87db145b2ada3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có thể làm bể ikebana gọn gàng hơn kiểu bố cục tự nhiên để bát cây và tép nổi bật.",
+        "problem": "This sentence about the overall layout style sits under the heading about scattering sand around the bowl, where it doesn't belong and reads as a stray line.",
+        "fix": "Chuyển câu này lên đoạn mở đầu hoặc phần chuẩn bị bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3db87db145b2ada3"
+  },
   "vi/guides/youtube-_AfM2Mwdig4": {
     "at": "2026-11-01",
     "hash": "937191a8213874d2",
@@ -15928,6 +16039,31 @@
       }
     ],
     "ruled": "78ead2cd23b6c5af"
+  },
+  "vi/guides/youtube-_XgI31yjUi4": {
+    "at": "2026-11-20",
+    "hash": "e76ca8cee89a6853",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổ nước vào rồi xả ra, nước sẽ đục và bẩn.",
+        "problem": "Coming right after 'no need to wash the sand', the instruction to fill and drain is unclear: readers can't tell whether to rinse the sand or simply fill the tank.",
+        "fix": "Đổ nước vào thì nước sẽ đục và bẩn lúc đầu.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chất thải của axolotl và cá sẽ thành thức ăn cho cây",
+        "problem": "The page mentions fish waste, but the setup describes only a single axolotl and never says fish live in the tank.",
+        "fix": "chất thải của axolotl sẽ thành thức ăn cho cây",
+        "field": "body"
+      }
+    ],
+    "ruled": "e76ca8cee89a6853"
   },
   "vi/guides/youtube-_ZxeBxNRdPU": {
     "at": "2026-11-01",
@@ -17236,6 +17372,12 @@
     "findings": [],
     "ruled": "b84d8c547d18a297"
   },
+  "vi/guides/youtube-3yhE0AuuWsM": {
+    "at": "2026-11-20",
+    "hash": "9be8551f6ad1fa18",
+    "findings": [],
+    "ruled": "9be8551f6ad1fa18"
+  },
   "vi/guides/youtube-43bSNzlX9Fo": {
     "at": "2026-11-05",
     "hash": "54ad3f4a3b4d0964",
@@ -17405,6 +17547,12 @@
       }
     ],
     "ruled": "769e5615886e405f"
+  },
+  "vi/guides/youtube-4vXSRdoeZAA": {
+    "at": "2026-11-20",
+    "hash": "f976b249240d6cc3",
+    "findings": [],
+    "ruled": "f976b249240d6cc3"
   },
   "vi/guides/youtube-4WD_WU536g8": {
     "at": "2026-11-17",
@@ -19760,6 +19908,49 @@
     ],
     "ruled": "e39f0222b70a4a7f"
   },
+  "vi/guides/youtube-c_ZRJG6WbLE": {
+    "at": "2026-11-20",
+    "hash": "75056c6062ac800d",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "một bể 150 lít nuôi riêng khoảng 50–70 con tứ vân",
+        "problem": "Putting 50–70 tiger barbs in 150 litres goes against the page's own advice that 80 litres is too small for a group of 10–12 and a 120 cm tank is better. The figure is probably 150 gallons (about 570 litres) misread as litres.",
+        "fix": "Ví dụ, một bể khoảng 570 lít (150 gallon) nuôi riêng khoảng 50–70 con tứ vân.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "Có ý kiến cho rằng bể 80 lít còn nhỏ",
+        "problem": "The body says one view treats 80 litres as the minimum and another prefers a much bigger tank. The summary turns this into a single view that 80 litres is too small.",
+        "fix": "Có ý kiến cho rằng 80 lít là mức tối thiểu, nhưng cho chúng bể lớn hơn hẳn thì tốt hơn, chẳng hạn bể dài 120 cm.",
+        "field": "summary.3"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bể 80 lít chỉ làm vấn đề nặng thêm",
+        "problem": "The 80-litre tank appears here before it has been mentioned, so a reader doesn't know why this size is singled out. The sentence reads like a translation.",
+        "fix": "Do phải nuôi đàn đông, lại hay thả thêm cá khác, bể nhỏ cỡ 80 lít càng dễ sinh chuyện.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tứ vân thường có lẽ nổi màu hơn cả",
+        "problem": "Putting \"thường\" (the regular variety) right next to the hedge \"có lẽ\" makes the sentence read like a double hedge, and readers will stumble over it.",
+        "fix": "Trong bể thủy sinh, dòng tứ vân thường (cam đen) có lẽ nổi màu nhất.",
+        "field": "body"
+      }
+    ],
+    "ruled": "75056c6062ac800d"
+  },
   "vi/guides/youtube-C-PWOYSvjlc": {
     "at": "2026-11-11",
     "hash": "83592b0a50a6b5f5",
@@ -20820,6 +21011,32 @@
       }
     ],
     "ruled": "d830d72f63a85458"
+  },
+  "vi/guides/youtube-e5tjn3Tm2fQ": {
+    "at": "2026-11-20",
+    "hash": "eda15b7f37a6f911",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây cắt cắm dễ tính thì có loại lúc nào cũng xanh, không cần nhiều đèn, cắt ngọn cắm lại thoải mái.",
+        "problem": "The sentence is awkward and reads like a translation. The next sentence piles three ideas together around 'dù cây nào có CO2 cũng lên tốt hơn'.",
+        "fix": "Có những loại cây cắt cắm dễ tính, lúc nào cũng xanh, không cần đèn mạnh và cắt ngọn cắm lại thoải mái. Chúng không cần CO2, dù có CO2 thì cây nào cũng lên tốt hơn. Trồng loại này thì bể nào cũng trông tươi, rậm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách trộn nền như vậy có thể góp phần giúp cây trong bể lên tốt.",
+        "problem": "'Có thể góp phần giúp' is a calque of English sentence structure that the house style bans.",
+        "fix": "Trộn nền như vậy thì cây trong bể lên tốt hơn.",
+        "rule": "Flag the phrase 'có thể góp phần giúp' or 'có thể giúp' anywhere in the body text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "eda15b7f37a6f911"
   },
   "vi/guides/youtube-e7czDMttN4Q": {
     "at": "2026-11-10",
@@ -22818,6 +23035,49 @@
     ],
     "ruled": "1a7b58abe8c5399e"
   },
+  "vi/guides/youtube-Hup_8APVIhs": {
+    "at": "2026-11-20",
+    "hash": "2c57192927c0cd51",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Một số loài có thể rỉa cá con. Ví dụ, nuôi chung với cá tetra Moto Grosso mà bể vẫn còn cá con.",
+        "problem": "The example says fry survived alongside Moto Grosso tetras, so it doesn't back up the sentence before it about fish eating fry. The sentence is also broken: it has no main clause.",
+        "fix": "Một số loài có thể rỉa cá con, nhưng không phải loài nào cũng vậy. Chẳng hạn, nuôi chung với cá tetra Moto Grosso mà bể vẫn còn cá con.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "GH khoảng 10 đã là nước rất cứng",
+        "problem": "GH 10 is moderately hard water, not very hard. Calling it very hard also clashes with recommending 8–12 as the normal range.",
+        "fix": "GH khoảng 10 đã là nước khá cứng",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhiều loài cá trong nghề, như cá Nam Mỹ",
+        "problem": "'Trong nghề' reads as a literal translation of 'in the hobby'. Hobbyists don't talk about fishkeeping as a trade.",
+        "fix": "Nhiều loài cá cảnh, như cá Nam Mỹ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thức ăn dạng mảnh cho cá nuôi chung",
+        "problem": "This translates 'community flakes' literally. It reads as if the flakes are meant for the tank mates rather than being an ordinary flake food.",
+        "fix": "thức ăn dạng mảnh thông thường",
+        "field": "body"
+      }
+    ],
+    "ruled": "2c57192927c0cd51"
+  },
   "vi/guides/youtube-HuWHarbSQUk": {
     "at": "2026-11-05",
     "hash": "7f72237640161b62",
@@ -22930,6 +23190,22 @@
       }
     ],
     "ruled": "8c0d36e1be4667dc"
+  },
+  "vi/guides/youtube-HyMh5Yav5Ko": {
+    "at": "2026-11-20",
+    "hash": "b85b49193428c98a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có khúc lũa juniper trông hơi mảnh và lơ thơ.",
+        "problem": "This sentence points to one particular piece of driftwood from the original, so a reader can't tell which piece is meant or why it matters.",
+        "fix": "Lũa juniper thường mảnh và lơ thơ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b85b49193428c98a"
   },
   "vi/guides/youtube-i_juW-Tmwcs": {
     "at": "2026-11-09",
@@ -23614,6 +23890,30 @@
       }
     ],
     "ruled": "5387aed51233afa4"
+  },
+  "vi/guides/youtube-j6bhgN_CQSc": {
+    "at": "2026-11-20",
+    "hash": "711f6c9b46fc8ead",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "Vài ngày sau khi set, thay nhiều nước để vớt cặn từ nền nổi lên",
+        "problem": "The summary says to do the big water change a few days after setup, but the body says it can be done on the second day.",
+        "fix": "Ngày thứ hai sau khi set, thay nhiều nước để vớt cặn từ nền nổi lên",
+        "field": "summary.4"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể bát có hiệu ứng phóng to hình ảnh. Với cá nhỏ, như loại thả vào bể bát này",
+        "problem": "The paragraph about the bowl magnifying small fish sits under the heading about filling the bowl before planting stem plants. It doesn't belong to that step, and the page never says which fish to keep.",
+        "field": "body"
+      }
+    ],
+    "ruled": "711f6c9b46fc8ead"
   },
   "vi/guides/youtube-j794dsqnNJI": {
     "at": "2026-11-08",
@@ -25043,6 +25343,22 @@
     ],
     "ruled": "bd6dfa5e3e8a55d7"
   },
+  "vi/guides/youtube-lduFPe31xYk": {
+    "at": "2026-11-20",
+    "hash": "9b73547b5c65c9c6",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L5",
+        "quote": "rồi thêm cành nhỏ và buộc rêu, ráy, Bucephalandra để che vết keo",
+        "problem": "The summary says Bucephalandra is tied on to hide glue marks, but the body says only moss or Anubias covers glue marks and Bucephalandra is tied to the front patches.",
+        "fix": "rồi thêm cành nhỏ, buộc rêu, ráy, Bucephalandra lên đá và lũa, chỗ nào lộ vết keo thì phủ rêu hoặc ráy lên để che.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "9b73547b5c65c9c6"
+  },
   "vi/guides/youtube-LdxHhMZxX_w": {
     "at": "2026-11-11",
     "hash": "ca4228dbecdb6722",
@@ -25650,6 +25966,21 @@
       }
     ],
     "ruled": "1041f0afad999dfe"
+  },
+  "vi/guides/youtube-M3-MiQ22hY4": {
+    "at": "2026-11-20",
+    "hash": "2dc15fdb7d307a53",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đèn của bể mà khá mạnh so với lượng cây thì rêu hại có thể mọc.",
+        "problem": "This paragraph is about light strength, planting density and algae, but it sits under the floating-plants heading, which it does not answer.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2dc15fdb7d307a53"
   },
   "vi/guides/youtube-M3sSLf31zso": {
     "at": "2026-11-06",
@@ -26812,6 +27143,22 @@
     "hash": "b1f25d6b555d1a45",
     "findings": [],
     "ruled": "b1f25d6b555d1a45"
+  },
+  "vi/guides/youtube-O73wd99qDKI": {
+    "at": "2026-11-20",
+    "hash": "3bf77971d12f3301",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tiền mua ba lần ốc có khi đã đủ dựng một bể nhỏ như vậy",
+        "problem": "The page uses 'dựng' for setting up a tank, but the site's word list says hobbyists say 'set bể'.",
+        "fix": "Tiền mua ba lần ốc có khi đã đủ set một bể nhỏ như vậy",
+        "field": "body"
+      }
+    ],
+    "ruled": "3bf77971d12f3301"
   },
   "vi/guides/youtube-o8olS_u-y3o": {
     "at": "2026-11-06",
@@ -28119,6 +28466,22 @@
     "hash": "8433fa00be20faa0",
     "findings": [],
     "ruled": "8433fa00be20faa0"
+  },
+  "vi/guides/youtube-R4CcI2Uemnk": {
+    "at": "2026-11-20",
+    "hash": "9f78007c4360b4e8",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L6",
+        "quote": "Bể mới chưa có vi sinh nên châm men vi sinh trước khi thả cá. Ngày hôm sau nước hơi đục.",
+        "problem": "The order makes it sound like dosing bacteria causes cloudy water the next day, and it says flatly that the water turns cloudy when the body text only says it may.",
+        "fix": "Ngày hôm sau nước có thể hơi đục. Bể mới chưa có vi sinh nên châm men vi sinh trước khi thả cá.",
+        "field": "summary.5"
+      }
+    ],
+    "ruled": "9f78007c4360b4e8"
   },
   "vi/guides/youtube-R9PxopftjaY": {
     "at": "2026-11-19",
@@ -31371,6 +31734,12 @@
       }
     ],
     "ruled": "17d95194b5fb84d3"
+  },
+  "vi/guides/youtube-Y-TABrnd8aw": {
+    "at": "2026-11-20",
+    "hash": "7ffa964458cd9535",
+    "findings": [],
+    "ruled": "7ffa964458cd9535"
   },
   "vi/guides/youtube-Y2HmhlumTYU": {
     "at": "2026-11-10",

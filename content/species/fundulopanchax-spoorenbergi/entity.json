@@ -10,6 +10,36 @@
     "nigeria",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species occurs from Nigeria to Cameroon.",
+          "countries": [
+            "NG",
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348447,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
