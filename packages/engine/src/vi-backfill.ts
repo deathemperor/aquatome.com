@@ -13,9 +13,9 @@ import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
 export const REWRITE_KINDS = ['guides', 'species', 'plants', 'glossary'] as const
 type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
-type Job = { id: string; kind: Kind; slug: string; groups: Group[]; /** Out of search for its score: a kept rewrite can bring it back. A thin page stays out whatever its words. */ low: boolean }
+type Job = { id: string; kind: Kind; slug: string; groups: Group[]; /** Out of search for its score: a kept rewrite can bring it back. A thin page stays out whatever its words. */ low: boolean; /** The listed phrases its Vietnamese has, when the run is for the list. */ found: string[] }
 type Vi = { sections?: Record<string, string>; body?: string; bodyFixed?: boolean; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
-export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number }>
+export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number; /** The listed phrases the page was taken up for (`--phrases`): it isn't taken up for them again. */ phrases?: string[] }>
 /** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
 export const REWRITE_V = 2
 
@@ -26,13 +26,14 @@ const json = async <T>(f: string): Promise<T> => JSON.parse(await readFile(f, 'u
  * Each page's text in groups that are reviewed together: one source's sections (chunked), or one Vietnamese-only field.
  * `match`: only pages whose Vietnamese matches, video guides included, and for guides also the summary and FAQ lines that match.
  */
-async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp): Promise<Job[]> {
+async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp, listed?: (text: string) => string[]): Promise<Job[]> {
   const out: Job[] = []
   for (const kind of kinds) {
     for (const slug of (await readdir(join(contentRoot, kind)).catch(() => [] as string[])).sort()) {
       const dir = join(contentRoot, kind, slug)
       const vi = await json<Vi>(join(dir, 'vi.json')).catch(() => null)
-      if (!vi || (match && !match.test(JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq])))) continue
+      const text = vi ? JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq]) : ''
+      if (!vi || (match && !match.test(text))) continue
       const e = await json<{ source?: string; sections?: { key: string; source: string; html: string; fixed?: boolean }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
       if (kind === 'guides') {
@@ -60,7 +61,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
           if (g.parts.length) groups.push(g)
         }
       }
-      if (groups.length) out.push({ id: `${kind}/${slug}`, kind, slug, groups, low: vi.quality?.indexable === false && vi.quality.reason !== 'thin' })
+      if (groups.length) out.push({ id: `${kind}/${slug}`, kind, slug, groups, low: vi.quality?.indexable === false && vi.quality.reason !== 'thin', found: listed?.(text) ?? [] })
     }
   }
   return out
@@ -71,19 +72,24 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
  * reviewer passes it: against the English (≥ threshold, or better than before), or, with no English, as keeping the
  * old Vietnamese's meaning (≥ threshold). Names, slugs and data never change. Stops on a model failure (usage limit).
  */
-export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean; /** Pages ("species/<id>") that go first, in this order, when due. */ first?: readonly string[] }) {
+export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** The listed phrases a text has (`--phrases`, with `match` the list's): a page is taken up only for a phrase it wasn't taken up for before. */ listed?: (text: string) => string[]; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean; /** Pages ("species/<id>") that go first, in this order, when due. */ first?: readonly string[] }) {
   const root = dirname(contentRoot)
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
   const due = (s: RewriteState[string] | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
   // `match` re-edits the pages that contain it (after a style rule changes), whether or not they were rewritten before.
+  // For the list (`listed`), once per phrase: a rewrite that leaves a phrase (a part the reviewer failed, a fixed part)
+  // doesn't bring the page back at every run, and a phrase added to the list does.
+  const fresh = (j: Job) => j.found.some(p => !state[j.id]?.phrases?.includes(p))
+  // The mark outlives every later pass, the queue's too.
+  const marked = (j: Job) => { const p = [...new Set([...(state[j.id]?.phrases ?? []), ...(o.listed ? j.found : [])])]; return p.length ? { phrases: p } : {} }
   // Pages named first go first, then pages out of search for their score, each group in the kinds' and folders' order
   // (the sort is stable).
   const rank = (j: Job) => { const i = o.first?.indexOf(j.id) ?? -1; return i >= 0 ? i - o.first!.length - 1 : -Number(j.low) }
   // A guide off the site for good (@aq/schema retired.ts) is never rewritten: no reader sees it.
   const off = (j: Job) => j.kind === 'guides' && !!retiredTo(j.slug)
-  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => !off(j) && (o.match || due(state[j.id]))).sort((a, b) => rank(a) - rank(b))) {
+  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match, o.listed)).filter(j => !off(j) && (o.listed ? fresh(j) : o.match || due(state[j.id]))).sort((a, b) => rank(a) - rank(b))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
     if (o.dry) { report.done.push(`${job.id} (${job.groups.length} part${job.groups.length > 1 ? 's' : ''})`); continue }
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')
@@ -154,13 +160,13 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
       // A usage limit, or the step's ceiling (ceiling.ts), stops a page part way: nothing written, so no review logged.
       if (!(e instanceof LlmError && errorKind(e.message) === 'usage')) await log(false)
       if (e instanceof LlmError) { report.stopped = `${job.id}: ${e.message}`; break }
-      state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V }
+      state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V, ...marked(job) }
       report.failed.push(`${job.id}: ${(e as Error).message}`)
       continue
     }
     if (rewritten) await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(job.kind) ? metricPage(vi, 'vi') : vi, null, 2)}\n`)
     await log(true)
-    state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V }
+    state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V, ...marked(job) }
     ;(rewritten ? report.done : report.kept).push(`${job.id} (${rewritten}/${job.groups.length}, ${scores.map(s => s.toFixed(2)).join(' ')})`)
     await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   }

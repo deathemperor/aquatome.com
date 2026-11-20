@@ -39,7 +39,7 @@ import fitFront from './fit-front.json'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardPhotos, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
 import { readSecondLook } from './last-photo'
-import { phraseMatch } from './phrases'
+import { phraseMatch, phraseQuotes } from './phrases'
 import { readerReport, readPages } from './reader'
 import { checkContent } from './content-check'
 import { updatePageDates } from './page-dates'
@@ -1268,11 +1268,12 @@ if (cmd === 'photo-privacy') {
   // Existing Vietnamese rewritten in the site's style, pages out of search for their score first, then worst-read kinds
   // first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
-  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
+  //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts), once for each phrase] [--dry-run: list the pages and parts, no model call]
   //   [--first species/<id>,…: these first, in this order, when due]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
   const match = values.phrases ? phraseMatch('vi') : values.match ? new RegExp(values.match, 'i') : undefined
-  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'], ...(values.first ? { first: values.first.split(',') } : {}) })
+  const listed = values.phrases ? (t: string) => phraseQuotes(t, 'vi').map(q => q.say) : undefined
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), ...(listed ? { listed } : {}), dry: values['dry-run'], ...(values.first ? { first: values.first.split(',') } : {}) })
   if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
   else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.done) console.log(`${values['dry-run'] ? 'would rewrite' : 'rewritten'}: ${x}`)

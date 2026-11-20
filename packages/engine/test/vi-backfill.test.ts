@@ -231,6 +231,32 @@ test('--match re-edits only the pages containing it, video guides and their summ
   expect(vi.quality).toMatchObject({ bySource: { youtube: 0.6 }, chat: false })
 })
 
+// 16 Nov 2026: of 758 pages the style rewrite had done, 544 still carried a listed phrase, and --phrases took them all
+// up again at every run, each a write and a review. A page is taken up once for each listed phrase it has.
+test('--phrases takes a page up once for each listed phrase: not again for one it was taken up for, again for a new one', async () => {
+  const root = await setup()
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
+  const state = join(root, 'state.json')
+  const list = ['tác giả']
+  const listed = (t: string) => list.filter(p => t.includes(p))
+  const match = () => new RegExp(list.join('|'), 'i')
+  const ids = (r: { done: string[]; kept: string[] }) => [...r.done, ...r.kept].map(x => x.split(' ')[0])
+  // The reviewer fails the rewrite, so the page keeps its phrase.
+  const run = (o: { listed?: (t: string) => string[] } = { listed }) => rewriteExisting(root, state, { llm: fake({ en: 0.6, vi: 0.6 }), opts: { mode: 'fix' }, now }, { limit: 10, ...(o.listed ? { match: match(), ...o } : {}) })
+  expect(ids(await run())).toEqual(['guides/g'])
+  expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>Theo tác giả, cá ăn được.</p>')
+  expect(ids(await run())).toEqual([])
+  // The queue's own pass keeps the mark.
+  await run({})
+  expect(ids(await run())).toEqual([])
+  // A phrase added to the list, and on the page: taken up again, once.
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, dù vậy cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
+  list.push('dù vậy')
+  expect(ids(await run())).toEqual(['guides/g'])
+  expect(ids(await run())).toEqual([])
+  expect((await read(root, 'state.json'))['guides/g'].phrases).toEqual(['tác giả', 'dù vậy'])
+})
+
 test("a translated guide's rewrite is checked against its kept English article, and scores as a translation", async () => {
   const root = await setup()
   await mkdir(join(root, '../sources/aquariumcoop'), { recursive: true })
