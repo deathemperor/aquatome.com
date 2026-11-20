@@ -13279,6 +13279,24 @@
       "kept": true
     }
   ],
+  "vi/species/astyanax-jordani#seriouslyfish": [
+    {
+      "at": "2026-11-20T15:12:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "#2: \"phân bố rộng hơn nhiều\" adds a comparison (\"much wider\") the English does not state; use \"phân bố từ Texas... tới Guatemala\".",
+        "#8: \"hầu hết cá hiền\" narrows \"most community aquaria\"; \"hầu hết bể cộng đồng\" is closer.",
+        "#10: \"trùng cỏ\" for Infusoria is acceptable, but \"infusoria\" or \"vi sinh vật/trùng cỏ (infusoria)\" would be clearer.",
+        "#5: \"set bể\" / \"set\" is jargon; \"bố trí bể\" reads more naturally in an encyclopedia.",
+        "#1: \"characid\" is left untranslated; consider \"cá họ Characidae (cá tetra)\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/astyanax-leopoldi#glaser": [
     {
       "at": "2026-11-13T22:47:47Z",

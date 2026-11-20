@@ -8,7 +8,8 @@
   "places": [
     "north-america",
     "mexico",
-    "san-luis-potosi"
+    "san-luis-potosi",
+    "tamaulipas"
   ],
   "range": {
     "native": {
@@ -68,13 +69,101 @@
       ]
     }
   },
-  "dataCard": {},
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>The blind cave tetra, Astyanax jordani, is an eyeless characid found only in underground caves in San Luis Potosí and Tamaulipas, Mexico. It is produced in huge numbers on Far Eastern farms, while its surface-dwelling relatives are rarely seen in the hobby. Cave and surface fish may have diverged within the last 10,000 years, and the blind fish finds its way with its lateral line.</p>"
+    },
     {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/blind_cave_tetras_en/",
       "html": "<p>The blind cave tetra was discovered by the ornamental fish collector C. Basil Jordan in a cave in the state of San Luis Potosí in Mexico. Jordan collected 100 specimens and brought them to the USA without losing a single one. It was the first cave species of the tetra family ever found.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>This eyeless, troglomorphic species is found only in caves in San Luis Potosí and Tamaulipas, Mexico. Its surface-dwelling relatives range from Texas and New Mexico in the southern United States, through Mexico and into Guatemala.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>Its surface-dwelling relatives are generalists and can be found in all kinds of habitat from flowing streams and rivers to ponds and lakes. This species occurs only in underground caves and caverns.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>A tank with base dimensions measuring 80 × 30 cm or similar should prove sufficient (about 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>Being blind, the fish does not require any specific decor or form of cover, and can be kept in most types of set-up. Plants are not harmed, as obviously they don't feature in its natural waters. Alternatively, you could choose to organise a cave-style tank for it, with tall rocks or slate pieces placed along the back and sides of the tank, smaller rocks in the centre and a dark substrate. Lit with a dim, perhaps red or blue light tube this kind of set-up can look very effective.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.5–8.0</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>Its captive diet should comprise quality dried products alongside plenty of small live and frozen foods.</p>"
     },
     {
       "key": "behaviour",
@@ -83,10 +172,34 @@
       "html": "<p>Blind cave tetras can be kept with any type of peaceful fish. Their blindness is no handicap at all.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>Hardy and peaceful, it's actually an excellent choice for the beginner and suitable for most community aquaria, though very shy or sluggish tankmates are best avoided. It sometimes nips at tankmates when feeding, but this is more attributable to its searching technique than aggression. Although it can't be described as gregarious it doesn't seem to fare better when maintained in a group and we suggest the purchase of at least four individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>Females tend to be larger and fuller-bodied than males, especially when full of eggs. The anal fin of the male has a slightly curved edge, while that of the female is straight.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>Quite easily bred provided a few simple requirements are met. A layer of mesh or similar should be suspended around 1 cm above the tank base in order to prevent predation of the eggs by the adults, and a simple air-powered sponge filter can also be installed. It's best to condition the sexes in separate tanks so as to avoid any unwanted spawning events. The best-conditioned male and female can then be removed and placed in the spawning tank in the evening. They should have spawned by the following morning. If eggs are visible, remove the adults immediately. If you still can't see any eggs after 24 hours or so, remove them and try a different pair.</p><p>This is a prolific species and up to 1000 eggs may be laid per female. These are white and initially may appear infertile but hatch quickly, in around 24 hours, with the fry requiring a further 5–7 days to absorb the yolk sac and become free swimming. Infusoria or other microscopic food should then be offered for the first week or so, after which Artemia nauplii or suitably sized dried products can be introduced to the diet. Some predation may occur within the brood, but with the amount of fry produced this should not present a problem.</p><p>Interestingly, the fry appear to have normal eyes in the early stages of life but these never develop fully and eventually recede completely, becoming covered with flesh.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/blind_cave_tetras_en/",
       "html": "<p>The species was described in a new genus under the name Anoptichthys jordani, which translates as \"Jordan's eyeless fish\". It proved to be very hardy and easy to breed.</p><p>The blind cave tetra can be crossed over generations with the normal-looking tetra Astyanax fasciatus mexicanus, which lives in surface waters all over Mexico. For this reason many scientists argued that the blind cave tetra is not a species of its own. Most recent scientists accept species concepts based more on evolutionary aspects, and so the blind cave tetra is now most often named Astyanax jordani.</p><p>The species has never died out in aquaria since the first importation in 1936, and the ancestors of all specimens kept today are descended from the 100 originally wild-collected fish. Fish currently available were bred in Singapore, but they also belong to the aquarium population established in 1936.</p><p>Most probably this is why aquarists keep breeding them: most fish enthusiasts want to study the unique adaptation of the blind cave tetra once in their lifetime.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/astyanax-jordani",
+      "html": "<p>While its surface-dwelling relatives are fairly unremarkable and rarely seen in the hobby, the blind cave tetra is very popular indeed. The two may have diverged as recently as within the last 10,000 years, with the cave fish losing its eyes and much of its pigment. This probably happened because the fish needed better development in other sensory areas. Losing unnecessary and energy-consuming aspects of its physiology allowed it to devote more energy to developments such as increased numbers of taste receptors on the head.</p><p>It uses its lateral line to detect small changes in the water pressure around it, allowing it to navigate and find food. Interestingly, if it is placed in a new environment containing objects it does not recognise, it will increase its swimming speed. This is thought to increase stimulation of the lateral line, allowing it to absorb information more quickly. It is now known that the fish actually produces a detailed spatial map of its surroundings which it memorises quite quickly.</p><p>More recently, tests have been conducted regarding the impact of eye lens transplants from surface fish to blind fish. Although the fish did not regain sight, they did grow eyes complete with pupil, cornea and iris. These studies may prove important in the future as we seek to discover the secret of successful eye transplants in humans.</p><p>It is produced in huge numbers on Far Eastern fish farms for the trade. What is interesting about this is that these fish are now starting to develop a silvery sheen on their flanks in what may represent the beginning of an artificially induced adaptation to being bred outside of a subterranean environment.</p><p>It was long treated as the same species as its surface relatives, under the name Astyanax mexicanus. That name now belongs to a different fish from the Balsas basin on Mexico's Pacific slope. The blind cave tetra is also sometimes referred to as A. fasciatus mexicanus, from when A. mexicanus was treated as a subspecies of A. fasciatus.</p>"
     }
   ],
   "photos": [
@@ -101,13 +214,37 @@
       "caption": "Cá tetra mù hang động màu cam bơi trong bể"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ZY-tejEoa-k",
+      "title": "Blinder Höhlensalmler, Astyanax jordani",
+      "durationSec": 118,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "FetlrJTq8es",
+      "title": "Haltungsbedingungen & Infos zu Blinder Höhlensalmler - Astyanax ( Anoptichthys ) jordani | #Aquarium",
+      "durationSec": 969,
+      "lang": "de"
+    },
+    {
+      "youtubeId": "xQyjYl8wICA",
+      "title": "Astyanax jordani",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "zlq-My_A56w",
+      "title": "Astyanax Jordani",
+      "durationSec": 106,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá cộng đồng 60cm",
-        "bể cá thủy sinh nhỏ"
+        "bể cá 80cm"
       ]
     },
     {
@@ -118,5 +255,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }

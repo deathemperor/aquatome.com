@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-11-20",
+    "kind": "species",
+    "id": "astyanax-jordani",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-20",
     "kind": "guide",
     "id": "glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-paedocypris-the-smallest-fish-in-the-world",
     "source": "glaser",
@@ -3489,13 +3496,6 @@
     "date": "2026-11-17",
     "kind": "guide",
     "id": "aquariumbreeder-top-5-exotic-and-hardy-aquarium-shrimp",
-    "source": "aquariumbreeder",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-17",
-    "kind": "guide",
-    "id": "aquariumbreeder-fish-causing-problems-in-planted-tanks",
     "source": "aquariumbreeder",
     "action": "new"
   }
