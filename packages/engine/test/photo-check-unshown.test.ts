@@ -112,6 +112,20 @@ test('a first verdict on a page that keeps other photos goes as before: off, on 
   expect(await json(r, 'engine-state/_photo-second-look.json')).toEqual({})
 })
 
+test('one photo on two pages, the only photo on one and one of several on the other: it comes off both, as one waiting record, not a refusal on one page and a wait on the other', async () => {
+  const r = await store({ jjj: ['j-dead'], kkk: ['j-dead', 'k-fish'] })
+  const out = await checkPagePhotos(r, model({ 'j-dead': dead }), { limit: 10 })
+  expect(await photosOf(r, 'jjj')).toEqual([])
+  expect(await photosOf(r, 'kkk')).toEqual(['k-fish'])
+  expect(out.firstOff).toEqual([`species/jjj: ${url('j-dead')}`])
+  expect(out.rejected).toBe(0)
+  // One record, naming the page it would have emptied, and its waiting entry: nothing refuses it outright.
+  const sl = await json(r, 'engine-state/_photo-second-look.json')
+  expect(Object.keys(sl)).toEqual([url('j-dead')])
+  expect(sl[url('j-dead')]).toMatchObject({ step: 'the photo check', pages: ['species/jjj'], off: true })
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('j-dead')]: waitingEntry(sl[url('j-dead')].why) })
+})
+
 test('a dead verdict given before the rule, on a page\'s only photo, is held as before: the rule acts on new verdicts only', async () => {
   // A verdict the check kept from an earlier run (it asked about people, so it isn't asked again).
   const r = await store({ rrr: ['r-dead'] }, { 'r-dead': { rrr: { ok: 'dead', typical: false, person: false, logo: false, note: 'on ice' } } })
