@@ -1449,6 +1449,38 @@
   ],
   "vi/glossary/vay-duoi": [
     {
+      "at": "2026-11-20T08:16:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Mép đuôi rách nham nhở, ửng đỏ, viền trắng đục hoặc xám là dấu hiệu cần để ý.\" (not \"Một hội nuôi cá ghi: mép vây sờn rách và vây đuôi ửng đỏ, rồi đầu vây ngả xám là những dấu hiệu cần để ý.\": Rule 12: Under the heading \"Mép đuôi rách, nham nhở: dấu hiệu cần để ý\", the sentence the line requires word for …",
+        "The entry is 446 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:16:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: the definition \"Vây đuôi là vây ở cuối thân cá, gắn với cuống đuôi.\" should be the required wording: \"Vây đuôi là vây ở cuối cuống đuôi.\"",
+        "Rule 12: the opening paragraph \"Lời tả các dáng đuôi dưới đây lấy từ một nguồn người nuôi và một tiệm; mỗi dòng ghi rõ câu nào của bên nào:\" is missing the required \", trừ chỗ hai bên cùng ghi\". It should end \"mỗi dòng ghi rõ câu nào của bên nào, trừ chỗ hai bên cùng ghi:\".",
+        "Rule 12: the Halfmoon item \"tiệm ghi đuôi to, xòe khoảng 180 độ.\" should read \"Halfmoon: đuôi xòe khoảng 180 độ. Tiệm ghi đuôi to.\" The 180-degree spread stands without a credit because two sites give it, and only \"đuôi to\" is the shop's.",
+        "Rule 12: the Đuôi hoa item still says \"vây, đuôi quá to nên cá hay bơi khó\". It should say \"vây, đuôi rất to\" in place of \"quá to\".",
+        "Rule 12: \"Cá dễ bị thối vây hơn khi nước kém hoặc bị cá khác cắn rỉa.\" should be the required wording: \"Cá dễ bị thối vây hơn khi nước kém hoặc bị cá khác bắt nạt, cắn vây.\"",
+        "Rule 12: the second keeper's line says \"nặng dần qua nhiều tuần\". It should say \"tiến triển qua nhiều tuần\".",
+        "Rule 12: \"Nếu cần dùng thuốc, liều và cách dùng: xem bài hướng dẫn chữa bệnh.\" points to \"bài hướng dẫn chữa bệnh\", which is not a page. It should be replaced with \"Cách chữa thối vây: xem bài Cá bị thối vây, thối đuôi.\"",
+        "Rule 12: \"Nguồn người nuôi viết về Betta tự cắn đuôi cũng ghi cách chăm trong lúc đuôi lành:\" should read \"cũng ghi cách chăm cho đuôi bị cắn lành lại:\".",
+        "Rule 12: \"Nguồn người nuôi này cũng ghi cách phòng:\" should read \"Nguồn người nuôi này cũng ghi cách phòng Betta cắn đuôi:\".",
+        "The entry is 434 words: hold it to about 400, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-20T05:02:08Z",
       "model": "sonnet",
       "cli": "2.1.329",
