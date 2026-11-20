@@ -1,16 +1,16 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { toneKey } from '@aq/schema'
+import { linkTerms, toneKey } from '@aq/schema'
 import { expect, test } from 'vitest'
 
 // A term's saved link phrases agree with its notes: none its notes take off, and each its notes give is on it and on no
 // other term (the chief of staff, 20 Nov 2026: "lớp nền" linked fish pages to Nền cát; it and "vật liệu nền" name any bed,
-// so they are Nền bể's). A read of the names that put one back fails here.
+// so they are Nền bể's; "lớp nền cát" is sand's). A read of the names that put one back fails here.
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const DIR = join(ROOT, 'content/glossary')
 const ASKS = JSON.parse(readFileSync(join(ROOT, 'packages/engine/src/glossary-asks.json'), 'utf8')) as Record<string, { notNames?: string[]; linkNames?: string[] }>
-type Names = { name: string; altNames: string[]; linkNames?: string[] }
+type Names = { slug: string; name: string; altNames: string[]; linkNames?: string[] }
 const terms = readdirSync(DIR).filter(id => existsSync(join(DIR, id, 'vi.json')))
 const vi = (id: string) => JSON.parse(readFileSync(join(DIR, id, 'vi.json'), 'utf8')) as Names
 const holds = (t: Names, n: string) => [t.name, ...t.altNames, ...(t.linkNames ?? [])].some(x => toneKey(x) === toneKey(n))
@@ -26,4 +26,13 @@ test('no term keeps a link phrase its notes take off, and each link phrase its n
     }
   }
   expect(wrong).toEqual([])
+})
+
+// The site links each page's text by every term's names and link phrases, the longest first (mentions.ts, link-terms.ts).
+test('a page links "lớp nền cát" to Nền cát and a bare "lớp nền" or "vật liệu nền" to Nền bể', () => {
+  const targets = terms.map(id => { const t = vi(id); return { key: id, href: `/vi/thuat-ngu/${t.slug}/`, names: [t.name, ...t.altNames, ...(t.linkNames ?? [])] } })
+  const to = (html: string) => linkTerms(html, targets, 'gl').keys
+  expect(to('<p>lớp nền cát</p>')).toEqual(['nen-cat'])
+  expect(to('<p>lớp nền</p>')).toEqual(['nen-be'])
+  expect(to('<p>vật liệu nền</p>')).toEqual(['nen-be'])
 })
