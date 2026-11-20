@@ -55,9 +55,9 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 10), "not ready again")
   }
 
-  /// The card's send cut short by the button's lamp step isn't shown as gone: the line says again what it said before (a
-  /// white kept from yesterday), and nothing more is broadcast. The card's send is held on air two minutes here, so
-  /// the step surely comes during it.
+  /// The card's send cut short by the button's lamp step isn't shown as gone, nor as not sent: it may have reached the
+  /// light, so the line says that isn't known (since Fri 20, with main's Bluetooth core), never yesterday's white again,
+  /// and nothing more is broadcast. The card's send is held on air two minutes here, so the step surely comes during it.
   func testACardSendTheButtonsLampStepCutsIsNotShownAsSent() {
     let at = Date().addingTimeInterval(-86_400).timeIntervalSinceReferenceDate
     let kept = #"{"last":{"send":{"choice":{"swatch":{"_0":"white"}},"level":100},"at":\#(at)},"colour":{"swatch":{"_0":"white"}},"level":100}"#
