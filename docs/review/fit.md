@@ -6,12 +6,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 4914 | 4202 | 693 | 1597 | 36 | 42 | 197 | 43 | 1135 | 345 | 2662 | 460 | 9 | 11 | 0 | 3 | 5 | 4 | 0 |
+| Vietnamese | 4942 | 4231 | 692 | 1610 | 37 | 44 | 197 | 44 | 1144 | 346 | 2666 | 461 | 9 | 12 | 0 | 3 | 5 | 4 | 0 |
 | Indonesian | 1668 | 1514 | 154 | 426 | 25 | 11 | 4 | 5 | 208 | 38 | 70 | 193 | 0 | 2 | 0 | 2 | 2 | 0 | 0 |
 | Thai | 1661 | 1493 | 168 | 397 | 21 | 3 | 5 | 3 | 193 | 42 | 97 | 182 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 533 | 491 | 42 | 138 | 13 | 3 | 0 | 2 | 72 | 17 | 28 | 52 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 154, Indonesian 2 of 61, Thai 2 of 55, Malay 1 of 29.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 155, Indonesian 2 of 61, Thai 2 of 55, Malay 1 of 29.
 
 ## Doses on more than one page
 
@@ -46,13 +46,14 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - levamisole: parasites, wholeTank: 0.026 packet/l (1 pages); parasites, bath: 50 mg/l (2 pages)
 - potassium alum: parasites, dip: 15 ml/l (1 pages); snails, bath: 3.947 ml/l (1 pages); disinfecting, dip: 15 ml/l (1 pages)
 - seachem excel: algae, wholeTank: 0.125 ml/l (1 pages); algae, other: 1 cap/l (1 pages); algae, spot: 0.025 cap/l (1 pages)
+- seachem flourish: plants, wholeTank: 0.02 ml/l, 0.022 ml/l, 0.017 ml/l (2 pages)
 - water clarifier: water, wholeTank: 0.063 ml/l, 0.005 cap/l (3 pages)
+- api leaf zone: plants, wholeTank: 0.125 ml/l, 0.132 ml/l (2 pages)
 - bionoc 2: ich, wholeTank: 0.1 drop/l, 0.05 drop/l (1 pages)
 - bleach: disinfecting, dip: 47.368 ml/l, 0.125 litre/l (2 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - metronidazole and praziquantel: quarantine, wholeTank: 0.027 packet/l (1 pages); parasites, wholeTank: 0.03 packet/l (1 pages)
-- seachem flourish: plants, wholeTank: 0.022 ml/l, 0.017 ml/l (1 pages)
 - seachem prime: water, other: 0.026 ml/l (1 pages); water, unsaid: 0.025 ml/l (1 pages)
 
 ## What each check is
@@ -80,13 +81,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - panacur: 34
 - ada: 26
 - tropica: 24
+- ada amazonia aqua soil: 22
 - ada amazonia: 21
-- ada amazonia aqua soil: 21
 - fluval stratum: 19
 - dennerle: 16
 - seachem fluorite: 16
+- hikari shrimp cuisine: 15
 - hikari first bites: 14
-- hikari shrimp cuisine: 14
 - fluval fx6: 13
 - carib sea eco-complete: 12
 - caribsea eco-complete: 12
@@ -99,15 +100,15 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - tropica aquarium soil: 11
 - twinstar: 11
 - ge silicone 1: 10
+- jbl: 10
 - aquaclear: 9
-- jbl: 9
 - reef roids: 9
 - repashy soilent green: 9
 - tetramin: 9
 - weld-on 4: 9
+- api leaf zone: 8
 - fluval: 8
 - tropica specialised nutrition: 8
-- api leaf zone: 7
 - easy shrimp and snail shells: 7
 - fluval plant and shrimp stratum: 7
 - hikari: 7
