@@ -69,7 +69,11 @@ export const MAX_PHOTOS = 8
 const rank = (p: Photo) => (p.source && !SOURCES.find(s => s.id === p.source)?.photoStep ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
-/** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
+/**
+ * Pages in a row that failed on the network or that the source refused for now (HTTP 408, 429, a 5xx: state.ts
+ * errorKind 'transient'): the source stops for the rest of the run, so the pages after them keep their attempts; the
+ * failed ones go first in its next run. There is no rest past the run: the next run asks again.
+ */
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
 /** A source that meets a browser check on this many runs within the window reads the Internet Archive's copies from then on (the owner, 2026-11-10: a person can't always pass one). */
@@ -553,7 +557,6 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       try {
         if (url in lineWaiting && !lineWaiting[url]!.turn) await lineTurn(url)
         const r = await get(url)
-        networkFailures = 0
         const o = htmlToOutline(r.html, src.contentSelector)
         if (isChallenge(o.title, o.outline)) {
           await block()
@@ -561,6 +564,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
           break // never retry around a challenge; the owner clears it in the engine's Chrome profile
         }
         if (r.status >= 400) throw new Error(`HTTP ${r.status}`)
+        // Only a page that came back well ends a run of failures: a source answering 429 (or 408, or a 5xx) page after
+        // page stops after MAX_NETWORK_FAILURES of them, as with the network gone (the chief of staff, 20 Nov).
+        networkFailures = 0
         const hash = snapshotHash(o)
         if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).

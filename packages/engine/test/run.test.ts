@@ -568,6 +568,19 @@ test('the network gone: the source stops after 3 pages in a row, so the rest kee
   expect(r.errors.at(-1)).toMatch(/seriouslyfish: stopping: 3 pages in a row failed on the network/)
 })
 
+test("a source answering 429 page after page: it stops after 3 in a row, as with the network gone, and the pages after them keep their attempts (the chief of staff, 20 Nov)", async () => {
+  const root = await fresh()
+  const { d } = deps(root, { urls: ['f1', 'f2', 'f3', 'f4', 'f5'] })
+  const asked: string[] = []
+  d.fetcher.get = async (u: string) => { asked.push(u); return { status: 429, html: '<html><head><title>Slow down</title></head><body><p>Please wait.</p></body></html>', finalUrl: u } }
+  const r = await runEngine(d, { sources: ['seriouslyfish'] })
+  expect(asked).toHaveLength(3)
+  expect(r.perSource.seriouslyfish).toMatchObject({ fetched: 3, errors: 3 })
+  expect(r.errors.at(-1)).toMatch(/seriouslyfish: stopping: 3 pages in a row failed on the network \(HTTP 429\)/)
+  const state = JSON.parse(await readFile(join(root, 'engine-state', 'seriouslyfish.json'), 'utf8'))
+  expect(Object.keys(state).map(u => u.slice(SF.length))).toEqual(['f1', 'f2', 'f3'])
+})
+
 test('a usage limit uses none of the page\'s attempts', async () => {
   const root = await fresh()
   await runEngine(deps(root, { urls: ['f1'], llmFails: true }).d, { sources: ['seriouslyfish'] })
