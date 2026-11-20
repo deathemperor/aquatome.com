@@ -118,6 +118,17 @@ test('a rewrite keeps the photos put on the term', async () => {
   expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).photos).toEqual([photo])
 })
 
+// 20 Nov 2026: a run wrote back the entity as the schema parsed it, so Lũa's and Nền cát's Unsplash photos lost their
+// download address (`report`) on every run.
+test('a rewrite keeps an Unsplash photo\'s download address', async () => {
+  const root = await site()
+  const photo = { url: 'https://media.aquatome.com/x/b.webp', width: 1200, height: 800, licence: 'Unsplash', author: 'A photographer', sourceUrl: 'https://unsplash.com/photos/x', report: 'https://api.unsplash.com/photos/x/download?ixid=y' }
+  await writeFile(join(root, 'content/glossary/lua/entity.json'), JSON.stringify({ id: 'lua', en: 'Driftwood', photos: [photo] }))
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('GLOSSARY RULES') ? { notes: [] } : isCheck(prompt) ? verdicts(prompt) : written) as never
+  await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  expect(JSON.parse(await readFile(join(root, 'content/glossary/lua/entity.json'), 'utf8')).photos).toEqual([photo])
+})
+
 // The owner, 15 Nov 2026: "what does each look like?". Each kind's photo is Curation's: a rewrite keeps every one, and one
 // whose kind the new text no longer lists is named in the run's result, not dropped.
 test('a rewrite keeps each kind\'s photo, and names one whose kind the new text no longer lists', async () => {
