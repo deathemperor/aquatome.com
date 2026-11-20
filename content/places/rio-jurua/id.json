@@ -1,8 +1,13 @@
 {
   "slug": "rio-jurua",
-  "name": "Juruá",
+  "name": "Sungai Juruá",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T05:13:44.734Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

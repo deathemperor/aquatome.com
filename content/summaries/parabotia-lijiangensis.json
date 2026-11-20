@@ -1,13 +1,17 @@
 {
   "id": "parabotia-lijiangensis",
-  "summary": "Hợp với người có bể dài ít nhất 120 cm và chịu set kiểu suối chảy: đáy ít nhất 120 × 30 cm (khoảng 108 lít), nước mát 20–24 °C, pH 6–7,5, độ cứng 5–20 dGH, độ khó 4/8. Cá trưởng thành 8,3 cm, nên nuôi đàn ít nhất 3–4 con. Khó nhất là giữ nước thật sạch, nhiều oxy, dòng chảy khá mạnh, vì cá không chịu được chất thải hữu cơ tích lại.",
+  "summary": "Hợp với người có bể dài từ 120 cm và muốn nuôi đàn cá chạch ưa nước chảy, trong, nhiều oxy. Nước cần 20–24 °C, pH 6–7,5, độ cứng 5–20 dGH, nền đá sỏi và dòng chảy khá mạnh; cá trưởng thành 8,3 cm, độ khó 4/8. Khó nhất là giữ nước luôn thật sạch, vì cá không chịu được chất thải hữu cơ tích lại.",
   "mistakes": [
-    "Thả cá vào bể chưa chạy vi sinh xong: chờ bể ổn định hẳn rồi hãy thả, vì cá cần nước ổn định mới khỏe.",
-    "Để nước tù, ít dòng chảy và chất thải tích lại: dùng lọc thùng hoặc thiết bị thổi luồng để tạo dòng mạnh, giữ nước luôn sạch.",
-    "Nuôi chung với cá bơi chậm, vây dài như betta kiểng, cá bảy màu: chọn cá họ chép hiền bơi ở khoảng nước trống, hoặc các botiid khác."
+    "Thả cá vào bể chưa chạy vi sinh xong; nên đợi bể ổn định hẳn rồi mới thả, vì cá cần nước ổn định mới khỏe.",
+    "Nuôi một hai con lẻ; nên mua ít nhất 3–4 con vì cá thích sống theo đàn.",
+    "Nuôi chung với cá bơi chậm, vây dài như betta kiểng, cá bảy màu hay cichlid; nên chọn cá họ chép hiền bơi ở khoảng nước trống, vì vây dài dễ bị rỉa."
   ],
   "speciesUpdatedAt": "2026-11-09",
-  "generatedAt": "2026-11-09T16:59:08.941Z",
-  "review": "approved",
-  "writtenFrom": "4fbf092d54be8115"
+  "writtenFrom": "c0bc4d5549b76e73",
+  "generatedAt": "2026-11-19T19:58:36.155Z",
+  "review": "pending",
+  "problems": [
+    "\"vì cá thích sống theo đàn\": the page hedges this as \"chúng có vẻ thích sống theo đàn\" (they seem to prefer living in groups). The summary states it as certain.",
+    "\"cá bảy màu hay cichlid\": the page says \"nhiều loài cichlid\" (many cichlid species), not all cichlids. The summary generalises it to every cichlid."
+  ]
 }

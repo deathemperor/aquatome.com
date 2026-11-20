@@ -3,6 +3,12 @@
   "name": "เซซาร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:47:34.776Z",
+    "why": "เซซาร์ is a correct Thai transliteration of Cesar, but the source sentence refers to the Cesar River basin, so the bare name leaves out the kind word แม่น้ำ."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

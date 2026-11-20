@@ -14,18 +14,6 @@
       "kind": "juvenile"
     },
     {
-      "url": "https://media.aquatome.com/commons/e598635329cb1d2b.webp",
-      "thumb": "https://media.aquatome.com/commons/e598635329cb1d2b-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC0",
-      "author": "Diego Carús",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoplerythrinus_unitaeniatus_31697809.jpg",
-      "caption": "Cá sói vàng bơi gần mặt nước giữa lá thực vật nổi",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/97717536.webp",
       "thumb": "https://media.aquatome.com/inaturalist/97717536-480.webp",
       "width": 1024,
@@ -50,18 +38,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/147077538.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/147077538-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "João D'Andretta",
-      "sourceUrl": "https://www.inaturalist.org/photos/147077538",
-      "caption": "Cá sói vàng nhìn trực diện giữa bụi cây dưới nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/431334921.webp",
       "thumb": "https://media.aquatome.com/inaturalist/431334921-480.webp",
       "width": 1024,
@@ -82,6 +58,44 @@
       "author": "Vincent A. Vos",
       "sourceUrl": "https://www.inaturalist.org/photos/706974564",
       "caption": "Cá sói vàng bơi ở vùng nước nông trong tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/28293439846.webp",
+      "thumb": "https://media.aquatome.com/flickr/28293439846-480.webp",
+      "width": 1024,
+      "height": 592,
+      "licence": "CC BY-SA 2.0",
+      "author": "berniedup",
+      "sourceUrl": "https://www.flickr.com/photos/65695019@N07/28293439846",
+      "caption": "Hai con cá sói vàng bơi trong nước đục ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e598635329cb1d2b.webp",
+      "thumb": "https://media.aquatome.com/commons/e598635329cb1d2b-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC0",
+      "author": "Diego Carús",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoplerythrinus_unitaeniatus_31697809.jpg",
+      "caption": "Cá sói vàng bơi gần mặt nước giữa lá thực vật nổi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/147077538.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/147077538-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "João D'Andretta",
+      "sourceUrl": "https://www.inaturalist.org/photos/147077538",
+      "caption": "Cá sói vàng nhìn trực diện giữa bụi cây dưới nước",
       "best": true,
       "kind": "habitat"
     },
@@ -146,7 +160,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 41,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 43,
+  "updatedAt": "2026-11-19",
+  "builtAt": "2026-11-19"
 }

@@ -1,8 +1,8 @@
 {
   "id": "sphaerichthys-vaillanti",
   "native": {
-    "input": "8c9b8cba3aa363d3",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "f2520b4c7d40e61c",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [
       {
         "code": "ID",
@@ -15,8 +15,16 @@
       {
         "code": "ID",
         "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the village of Nangah Sebroeang which lies south of the Danau Sentarum National Park within the upper Kapuas river basin, West Kalimantan (Kalimantan Barat) province in the Indonesian part of Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
         "source": "glaser",
-        "quote": "Their origin is Kalimantan, the Indonesian part of Borneo.",
+        "quote": "The species originates from the Kapuas basin in the Indonesian part of the island of Borneo.",
         "words": "Indonesian",
         "ok": true
       }
@@ -43,16 +51,16 @@
         "ok": true
       },
       {
-        "name": "Borneo",
+        "name": "Kapuas",
         "source": "glaser",
-        "quote": "Their origin is Kalimantan, the Indonesian part of Borneo.",
+        "quote": "The species originates from the Kapuas basin in the Indonesian part of the island of Borneo.",
         "country": "ID",
         "ok": true
       },
       {
-        "name": "Kalimantan",
+        "name": "Borneo",
         "source": "glaser",
-        "quote": "Their origin is Kalimantan, the Indonesian part of Borneo.",
+        "quote": "The species originates from the Kapuas basin in the Indonesian part of the island of Borneo.",
         "country": "ID",
         "ok": true
       }

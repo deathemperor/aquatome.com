@@ -1,8 +1,8 @@
 {
   "id": "akysis-portellus",
   "native": {
-    "input": "3679daf7ab5825dc",
-    "at": "2026-11-06T01:44:56.709Z",
+    "input": "128042c18045298a",
+    "at": "2026-11-18T12:30:34.128Z",
     "claims": [
       {
         "code": "MM",
@@ -16,8 +16,16 @@
         "code": "MM",
         "status": "native",
         "source": "scotcat",
-        "quote": "Asia: Myanmar.",
+        "quote": "Known from the type locality in the Sittang River drainage, southern Myanmar.",
         "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from the Sittang river basin in Burma.",
+        "words": "Burma",
         "ok": true
       }
     ],
@@ -33,6 +41,13 @@
         "name": "Sittang River",
         "source": "scotcat",
         "quote": "Known from the type locality in the Sittang River drainage, southern Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittang",
+        "source": "glaser",
+        "quote": "It originates from the Sittang river basin in Burma.",
         "country": "MM",
         "ok": true
       }

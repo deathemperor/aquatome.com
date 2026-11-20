@@ -1,9 +1,17 @@
 {
   "id": "pseudosphromenus-dayi",
   "native": {
-    "input": "263ff6e382ab9e01",
-    "at": "2026-11-13T11:20:11.221Z",
+    "input": "aa68fda87c977acd",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The brown spike-tailed paradise fish, Pseudosphromenus dayi, is a small labyrinth fish from coastal drainages of the Western Ghats in Kerala, India.",
+        "words": "India",
+        "ok": true
+      },
       {
         "code": "IN",
         "status": "native",
@@ -15,28 +23,25 @@
     ],
     "regions": [
       {
-        "name": "Western Ghats",
-        "source": "seriouslyfish",
-        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
-        "country": "IN",
-        "ok": true
-      },
-      {
         "name": "Chalakkudy",
         "source": "seriouslyfish",
-        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
-        "country": "IN",
+        "quote": "It is known only from the Chalakkudy, Muvattupuzha and Periyar rivers, though it may be more widely distributed.",
         "ok": true
       },
       {
         "name": "Muvattupuzha",
         "source": "seriouslyfish",
-        "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
-        "country": "IN",
+        "quote": "It is known only from the Chalakkudy, Muvattupuzha and Periyar rivers, though it may be more widely distributed.",
         "ok": true
       },
       {
         "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "It is known only from the Chalakkudy, Muvattupuzha and Periyar rivers, though it may be more widely distributed.",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
         "source": "seriouslyfish",
         "quote": "Known only from coastal drainages of the Western Ghats mountains in southern Kerala state, India, specifically the Chalakkudy, Muvattupuzha, and Periyar rivers, although it may be more widely distributed.",
         "country": "IN",

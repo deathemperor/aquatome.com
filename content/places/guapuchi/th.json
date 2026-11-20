@@ -3,6 +3,12 @@
   "name": "กวาปูชี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:54:23.279Z",
+    "why": "The Thai is a plausible transliteration of \"Guapuchi\", but it names the region as a bare name; the place (a río Guapuchi area) and record lists country CO wrongly, so it's uncertain, and Thai atlases would likely write \"แม่น้ำกวาปูชี\" for the river."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

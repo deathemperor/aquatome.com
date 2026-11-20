@@ -1,14 +1,20 @@
 {
   "id": "maylandia-greshakei",
   "native": {
-    "input": "fc2fc63cd2741190",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "e8133b15d47c7d56",
+    "at": "2026-11-18T06:03:35.101Z",
     "claims": [],
     "regions": [
       {
         "name": "Lake Malawi",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "The fish is endemic to Lake Malawi.",
         "ok": true
       }
     ],

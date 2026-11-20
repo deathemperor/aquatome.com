@@ -3,6 +3,12 @@
   "name": "ท้ายเงวียน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T07:48:52.339Z",
+    "why": "The name is Thai script and refers to the right place, but it spells \"Thái\" as ท้าย (the word for \"end/rear\"), where an atlas writes ไทยเงวียน, and it omits the kind word จังหวัด."
+  },
   "quality": {
     "score": 0.62,
     "indexable": false

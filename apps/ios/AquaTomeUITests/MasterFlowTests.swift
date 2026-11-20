@@ -1,9 +1,8 @@
 import XCTest
 
 /// The master button on Đèn (Design Lead's master/spec.md): made in its sheet (CO2 off only, no heater), pressed, ended
-/// by a tap or by the clock, and what it changed put back by the phone; the owner's test of a plug's countdown, both ways;
-/// on the stand-in Tuya cloud's strips (the light's outlet has a countdown) and the simulator's stand-in lamp, as the
-/// owner's account. And its states for the Design Lead's parity check, kept with the run (`shot-master-…`): none yet, the
+/// by a tap or by the clock, and what it changed put back by the phone; on the stand-in Tuya cloud's strips and the
+/// simulator's stand-in lamp, as the owner's account. No plug countdown, from anywhere in the app (the chief, 17 Nov). And its states for the Design Lead's parity check, kept with the run (`shot-master-…`): none yet, the
 /// sheet, CO2's screen, ready, running, running until Kết thúc, light and dark, at the default and the largest text.
 final class MasterFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -71,9 +70,11 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-start")
     expect(app, "master-log", contains: "lamp on+white", timeout: 40)
     XCTAssertLessThan(Date().timeIntervalSince(red), 110, "the step came after red's time on air: the check proves nothing")
-    // Red's time on air ends with the broadcaster taken from it.
-    expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”", timeout: 130)
+    // Red's time on air ends with the broadcaster taken from it: it may have reached the light, so the card says that isn't
+    // known, never sent, nor yesterday's white said again as the last this phone sent.
+    expect(app, "lamp-status", contains: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", timeout: 130)
     expect(app, "lamp-lines", lacks: "Đã gửi “Đỏ”")
+    expect(app, "lamp-lines", lacks: "Lần cuối máy này gửi")
     XCTAssertEqual(element(app, "lamp-sent").label, "red@100", "the card sent more")
     // Started three times: red, then the step's on and white.
     XCTAssertEqual(element(app, "lamp-starts").label, "3", "the lamp was sent more")
@@ -151,21 +152,6 @@ final class MasterFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "master-start").waitForExistence(timeout: 40), "not ready again")
   }
 
-  func testTheOwnersCountdownTrialTriesBothWaysAndLeavesTheOutletOn() {
-    let app = launch(["-countdown-trial-seconds", "3"])
-    // The stand-in strip's light outlet is on and has a countdown; CO2 is never offered.
-    tap(app, "trial-pick")
-    XCTAssertFalse(app.buttons["CO2"].exists, "CO2 offered for the trial")
-    let light = app.buttons["Đèn"].firstMatch
-    XCTAssertTrue(light.waitForExistence(timeout: 5), "the light's outlet not offered")
-    light.tap()
-    tap(app, "trial-run")
-    XCTAssertTrue(element(app, "trial-running").waitForExistence(timeout: 10), "not counting down")
-    expect(app, "trial-result", contains: "Tắt rồi đếm ngược: bật lại khi về 0.", timeout: 60)
-    expect(app, "trial-result", contains: "Bật rồi đếm ngược: tắt khi về 0.")
-    expect(app, "trial-result", contains: "Điện thoại đã bật lại như lúc đầu.")
-  }
-
   func testWithBluetoothOffTheLampSaysSoAndThePlugsStillGo() {
     let app = launch(["-fake-lamp-off", "-dark"])
     make(app, end: "120")
@@ -173,6 +159,23 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-problems", contains: "Bật Bluetooth để gửi lệnh tới đèn.", timeout: 40)
     shoot("failed-dark")
     expect(app, "master-log", contains: "switch_3 off")
+  }
+
+  func testALampBroadcastCutAsItBeganIsNeverSaidNotSentAndGoesBackAtTheEnd() {
+    // The lamp's "on", then its colour, handed to Bluetooth and cut before Bluetooth says it started (a debug launch
+    // argument: the nth broadcast): it may have gone out, so the card says it isn't known, never that it wasn't sent,
+    // and the end puts the lamp back (Codex and Fable, 18 Nov).
+    for (cut, line) in [("1", "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn."),
+                        ("2", "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn.")] {
+      let app = launch(["-fake-lamp-cuts", cut])
+      make(app, end: "60")
+      tap(app, "master-start")
+      expect(app, "master-problems", contains: line, timeout: 40)
+      expect(app, "master-problems", lacks: "Chưa gửi")
+      expect(app, "master-problems", lacks: "Không gửi được lệnh tới đèn")
+      tap(app, "master-end")
+      expect(app, "master-log", contains: "lamp back off", timeout: 40)
+    }
   }
 
   func testWithThePlugsUnreachedNothingGoesAndItSaysWhy() {
@@ -183,9 +186,10 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-problems", contains: "Không tới được ổ CO2: kiểm tra mạng rồi thử lại", timeout: 40)
     expect(app, "master-problems", contains: "Không tới được ổ Quạt: kiểm tra mạng rồi thử lại")
     shoot("unreached")
-    // Nothing went, the lamp included, and it isn't running.
+    // Nothing went, the lamp included, and it isn't running (the log's "account" notes are the sign-in, not commands).
     let log = element(app, "master-log")
-    XCTAssertFalse(log.exists && !log.label.isEmpty, log.exists ? log.label : "")
+    let sent = log.exists ? log.label.components(separatedBy: " | ").filter { !$0.isEmpty && $0 != "account" } : []
+    XCTAssertTrue(sent.isEmpty, "\(sent)")
     XCTAssertFalse(element(app, "master-end").exists, "running though nothing went")
     XCTAssertTrue(element(app, "master-start").exists, "not ready")
   }
@@ -208,8 +212,8 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testAnEndWhileTheAppWasClosedPutsThePlugsBackAndTheLampWaitsForTraLai() {
-    // Ends 15 s after the press; noticed more than 5 s late counts as the app away at the end (two minutes in the app).
-    let args = ["-master-ends-in", "15", "-master-late-after", "5"]
+    // Ends 15 s after the press; the app closed then, so away at the end.
+    let args = ["-master-ends-in", "15"]
     let app = launch(args)
     make(app, end: "60", light: true)
     tap(app, "master-start")
@@ -268,6 +272,187 @@ final class MasterFlowTests: XCTestCase {
     shoot("delete-ask")
     delete.tap()
     XCTAssertTrue(element(app, "master-create").waitForExistence(timeout: 10), "not deleted")
+  }
+
+  // MARK: Codex's read of the master button (17 Nov): each fails without its fix
+
+  func testEachStepIsCheckedAgainstItsOutletsRoleAsItGoesSoCO2NeverGoesOn() {
+    // The light's outlet made CO2 (as another phone's sync might) once the press has read the plugs: its "on" step was
+    // allowed at the press, and isn't sent. The fan's step still goes.
+    let app = launch(["-master-role-mid-press", "switch_1=co2"])
+    tap(app, "master-create")
+    add(app, "master-add-Quạt")
+    add(app, "master-add-Đèn")
+    tap(app, "master-step-Đèn")
+    tap(app, "master-choice-Bật")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tap(app, "master-end-60")
+    tap(app, "master-done")
+    tap(app, "master-start")
+    expect(app, "master-problems", contains: "Nút không bật tắt ổ Đèn được trong bản này.", timeout: 40)
+    expect(app, "master-log", contains: "switch_3 off")
+    expect(app, "master-log", lacks: "switch_1")
+  }
+
+  func testSigningOutMidPressSendsNoMoreSteps() {
+    // The fan's step waits 30 s before it goes (a debug launch argument): the owner signs out meanwhile.
+    let app = launch(["-master-steps-wait", "30"])
+    tap(app, "master-create")
+    add(app, "master-add-Quạt")
+    expect(app, "master-step-Quạt", contains: "Ổ cắm · Tắt")
+    tap(app, "master-end-60")
+    tap(app, "master-done")
+    tap(app, "master-start")
+    app.openAccount()
+    app.scrollToAndTap("sign-out")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    // Past the step's turn, signed out; then the owner again, to read the card.
+    RunLoop.current.run(until: Date().addingTimeInterval(35))
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
+    let log = element(app, "master-log")
+    XCTAssertFalse(log.exists && log.label.contains("switch_3"), log.exists ? log.label : "")
+  }
+
+  func testAnEndWhileTheAppWasInTheBackgroundLeavesTheLampForTraLaiHoweverSoonItIsBack() {
+    // Ends 45 s after the press. In the background before the end and back within a minute of it: the end came while
+    // the app was away (iOS broadcasts nothing then, and the phone may not be near the lamp), so the lamp waits for
+    // Trả lại. It used to count as away only when back more than two minutes after the end.
+    let app = launch(["-master-ends-in", "45"])
+    make(app, end: "60", light: true)
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "lamp on+white", timeout: 40)
+    XCTAssertTrue(element(app, "master-end").waitForExistence(timeout: 10), "not running")
+    XCUIDevice.shared.press(.home)
+    RunLoop.current.run(until: Date().addingTimeInterval(45))
+    app.activate()
+    expect(app, "master-problems", contains: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.", timeout: 40)
+    let log = element(app, "master-log")
+    XCTAssertFalse(log.exists && log.label.contains("lamp back"), log.label)
+  }
+
+  // MARK: Codex's second read (17 Nov): each fails without its fix
+
+  func testSigningOutBetweenTheLampsOnAndItsColourSendsNoColour() {
+    // The lamp's colour waits 30 s after its "on" (a debug launch argument): the owner signs out once "on" has gone. It
+    // used to be checked once, before the lamp's first recording.
+    let app = launch(["-lamp-colour-wait", "30"])
+    make(app, end: "60")
+    tap(app, "master-start")
+    expect(app, "master-lamp-sent", contains: "on", timeout: 20)
+    // The plugs' steps (CO2, then the fan) gone too, so the sign-out stops only the colour (Codex, 17 Nov: a fan step
+    // not sent yet said "Chưa gửi" rightly).
+    expect(app, "master-log", contains: "switch_3 off", timeout: 20)
+    app.openAccount()
+    app.scrollToAndTap("sign-out")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    RunLoop.current.run(until: Date().addingTimeInterval(35))
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    // Its "on" went, so the card says the lamp is on and its colour didn't follow, never that nothing was sent (the
+    // Writing Lead, 17 Nov).
+    expect(app, "master-problems", contains: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.", timeout: 40)
+    expect(app, "master-problems", lacks: "Chưa gửi vì bạn đã đăng xuất.")
+    expect(app, "master-lamp-sent", lacks: "white")
+  }
+
+  func testSigningOutWhileBluetoothIsntReadySendsNothingToTheLamp() {
+    // Bluetooth isn't ready until 40 s after the first broadcast is asked for (a debug launch argument, as at the first
+    // send after a launch): the lamp's "on" waits there, and the owner signs out meanwhile. It's asked again as the
+    // broadcast begins, so nothing goes (Codex, 17 Nov: the check ran before the wait).
+    let app = launch(["-fake-lamp-waits", "40"])
+    make(app, end: "60")
+    tap(app, "master-start")
+    // Its "on" asked of the air, which waits for Bluetooth: then the sign-out.
+    expect(app, "master-lamp-asked", contains: "on", timeout: 15)
+    app.openAccount()
+    app.scrollToAndTap("sign-out")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    // Past the wait, so the answer comes while signed out (Fable, 17 Nov: 20 s was tight for a busy runner).
+    RunLoop.current.run(until: Date().addingTimeInterval(45))
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
+    let sent = element(app, "master-lamp-sent")
+    XCTAssertFalse(sent.exists && sent.label.contains("on"), sent.exists ? sent.label : "")
+  }
+
+  func testSigningOutAndInAgainMidPressDoesntLetItGoOn() {
+    // The fan's step waits until the owner has signed out and in again, and is known as the owner (a debug launch
+    // argument): signed in again is a new session, and the press that began in the old one sends nothing more.
+    let app = launch(["-master-steps-wait-account", "2"])
+    tap(app, "master-create")
+    add(app, "master-add-Quạt")
+    tap(app, "master-end-60")
+    tap(app, "master-done")
+    tap(app, "master-start")
+    app.openAccount()
+    app.scrollToAndTap("sign-out")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 60)
+    let log = element(app, "master-log")
+    XCTAssertFalse(log.exists && log.label.contains("switch_3"), log.exists ? log.label : "")
+  }
+
+  func testAnEndDueWhileSignedOutWaitsForTheOwner() {
+    // Ends 25 s after the press; the owner signs out before then. Nothing goes back while signed out: the light's outlet
+    // goes back once they're signed in again (the master log notes each account change, "account").
+    let app = launch(["-master-ends-in", "25"])
+    tap(app, "master-create")
+    add(app, "master-add-Đèn")
+    tap(app, "master-step-Đèn")
+    tap(app, "master-choice-Tắt")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tap(app, "master-end-60")
+    tap(app, "master-done")
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "switch_1 off", timeout: 40)
+    app.openAccount()
+    app.scrollToAndTap("sign-out")
+    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    RunLoop.current.run(until: Date().addingTimeInterval(30))
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    expect(app, "master-log", contains: "switch_1 back on", timeout: 40)
+    let log = element(app, "master-log").label
+    let signedIn = log.range(of: "account", options: .backwards), back = log.range(of: "switch_1 back on")
+    XCTAssertTrue(signedIn != nil && back != nil && signedIn!.lowerBound < back!.lowerBound, "put back before the owner was signed in again: \(log)")
+  }
+
+  func testAnOutletSwitchedByHandAfterTwoPressesIsLeftWhateverTheFirstOwes() {
+    // The first press switches the light's outlet off, and Kết thúc finds the stand-in cloud unreached (no network to it):
+    // the outlet back on stays owed.
+    let app = launch()
+    tap(app, "master-create")
+    add(app, "master-add-Đèn")
+    tap(app, "master-step-Đèn")
+    tap(app, "master-choice-Tắt")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    tap(app, "master-end-60")
+    tap(app, "master-done")
+    tap(app, "master-start")
+    expect(app, "master-log", contains: "switch_1 off", timeout: 40)
+    let away = launch(["-stand-in-offline"], signIn: false, reset: false)
+    tap(away, "master-end")
+    expect(away, "master-problems", contains: "Không tới được ổ Đèn", timeout: 40)
+    // The second, the cloud reached again (afresh at a launch: the outlet on), sets the outlet on this time; then a hand
+    // switches it off (the stand-in cloud, 10 s after it is told to switch it on). Kết thúc leaves it off, as the hand left it: the
+    // first press's "back on" isn't sent against the hand (Codex, 17 Nov: the end compared with what was owed).
+    let again = launch(["-stand-in-hand", "switch_1=off,10"], signIn: false, reset: false)
+    tap(again, "master-edit")
+    tap(again, "master-step-Đèn")
+    tap(again, "master-choice-Bật")
+    again.navigationBars.buttons.element(boundBy: 0).tap()
+    tap(again, "master-done")
+    tap(again, "master-start")
+    expect(again, "master-log", contains: "switch_1 on", timeout: 40)
+    RunLoop.current.run(until: Date().addingTimeInterval(15))
+    tap(again, "master-end")
+    expect(again, "master-notes", contains: "Ổ Đèn đã đổi trong lúc chạy nên AquaTome để nguyên.", timeout: 40)
+    expect(again, "master-log", lacks: "switch_1 back")
   }
 
   // MARK: Parity shots for the Design Lead
@@ -385,14 +570,17 @@ final class MasterFlowTests: XCTestCase {
   private func reveal(_ app: XCUIApplication, _ id: String, file: StaticString = #filePath, line: UInt = #line) -> XCUIElement {
     let e = element(app, id)
     let window = app.windows.firstMatch.frame
+    // A look first, and a wait only when it isn't there yet: a wait looks after about a second even when the element is
+    // already there, and each reveal waited twice. On main's run on 789ca5218, 371 of these 402 waits found it at once,
+    // in 1.6 s each against 0.5 s for a look: about eight of this class's 53 minutes.
     // A list builds its rows only near the screen: at the largest text the sheet's Kết thúc rows are made when scrolled to.
-    if !e.waitForExistence(timeout: 5) {
+    if !e.exists && !e.waitForExistence(timeout: 5) {
       repeatUntil(e.exists, times: 10) {
         let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: 0.65))
         from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -window.height / 3)), withVelocity: .default, thenHoldForDuration: 0.2)
       }
+      XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing", file: file, line: line)
     }
-    XCTAssertTrue(e.waitForExistence(timeout: 5), "\(id) missing", file: file, line: line)
     let pinned = ["notice", "write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
     let bar = app.navigationBars.firstMatch
     let top = bar.exists ? bar.frame.maxY + 8 : window.minY

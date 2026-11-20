@@ -1,8 +1,8 @@
 {
   "id": "neohomaloptera-johorensis",
   "native": {
-    "input": "c0c3b6c766d5d663",
-    "at": "2026-11-10T15:58:17.469Z",
+    "input": "2dfc3f562812a6b4",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "MY",
@@ -49,6 +49,14 @@
         "quote": "Specimens collected from the Kapuas River basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo have also been identified as N. johorensis although a similar-looking fish from the Batang Hari drainage, Jambi province, Sumatra was diagnosed as having different body colour and a longer nasal barbel by Tan and Kottelat (2009).",
         "country": "ID",
         "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "bwaquatics",
+        "quote": "Native to Peninsular Malaysia, particularly in Johor.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
       }
     ],
     "disputed": [],

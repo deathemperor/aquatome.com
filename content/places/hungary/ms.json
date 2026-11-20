@@ -3,6 +3,12 @@
   "name": "Hungary",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.1,
+    "at": "2026-11-17T00:02:25.054Z",
+    "why": "The Malay name for the country is \"Hungari\" (DBP spelling), so \"Hungary\" keeps the English spelling instead of the Malay form."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

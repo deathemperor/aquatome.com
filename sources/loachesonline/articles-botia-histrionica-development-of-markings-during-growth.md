@@ -2,13 +2,13 @@
 url: https://www.loaches.com/articles/botia-histrionica-development-of-markings-during-growth
 title: Botia histrionica - Development of Markings During Growth — Loaches Online
 fetchedAt: 2026-10-29T08:12:28.272Z
-hash: 2ff09070c0820fa234e321a728733084668f294e0c0bc9a9271a91bc94acfbc8
+hash: 737ba5954b8fe9f41509076f81fa8187546b2309fd359a4ec23465d6816dd003
 ---
 
 # Botia histrionica - Development of Markings During Growth
 by Martin Thoene — last modified Aug 25, 2007 12:04 PM
 Article reproduced as written by Bogdan Janiczak, with nomenclature changes made by Martin Thoene.
-From: Bogdan Janiczak (boj@eti.pg.gda.pl) Date: May 17th, 2002
+From: Bogdan Janiczak Date: May 17th, 2002
 Below please find a set of photos dedicated to the Botia histrionica species. All portrayed fish come from my own collection. I do hope that this material will provide better insight into both fish specifics and diversity within the species. I also believe that some of the observation may be useful for other hobbyists as a guide to fish identification, especially, in their early stage of life.
 Botia histrionica (Blyth 1860), sold in the hobby under the trade name of "Golden (Gold) Zebra Loach" and collected in the Salween Basin of India, China and Myanmar (Burma) is also sometimes referred to as the Burmese Loach. In my personal opinion it is one of the most fearless and active Botia species met in the hobby. Not only are these fish active during the daytime but also can be quite frequently found swimming freely in central area of the tank competing, to some extent, with such a relentless swimmers like various species of Barbs. The maximum size of Botia histrionica may be anticipated slightly above 10cm. The general visual impression is mostly influenced by short nose, convex shape head and 5 wide (sometimes irregular and with tendency to split with age) black bands that disappear with time at the bottom part of the body. The bands extend into the caudal fin as distinctive vertical stripes (2 or 3) on both lobes. A very characteristic, thinner black line extends through the eye of the fish and a smaller line runs from the eye to the mouth. The latter features may be useful to distinguish this species in its juvenile stage of life from very similarly looking offspring of Botia rostrata and Botia almorhae species.
 The photos below present three different juvenile specimens of Botia histrionica: note characteristic markings made by single black blotches on the tips of dorsal and pectoral fins, subtle black dots at the base of pelvic and anal fins, as well as single triangular markers on caudal fin lobes. Already at this stage of life the difference in bands shape on fish body is clearly visible.

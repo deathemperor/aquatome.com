@@ -3,6 +3,12 @@
   "name": "Xe Bang Hieng",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.68,
+    "at": "2026-11-18T05:57:42.080Z",
+    "why": "\"Xe Bang Hieng\" is the usual spelling of the Lao river name, but it leaves out the Indonesian kind word \"Sungai\", and the place is a river drainage."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

@@ -16,11 +16,13 @@
         "MM"
       ],
       "regions": [
-        "Rakhine Yoma"
+        "Rakhine Yoma",
+        "Arakan"
       ],
       "sources": [
         "glaser",
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -36,7 +38,8 @@
           "quote": "Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.",
           "countries": [],
           "regions": [
-            "Rakhine Yoma"
+            "Rakhine Yoma",
+            "Arakan"
           ]
         }
       ]
@@ -92,6 +95,13 @@
           "min": 22,
           "max": 27
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 21,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
@@ -102,6 +112,10 @@
       {
         "source": "seriouslyfish",
         "value": 9
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 8
       }
     ],
     "difficulty": [
@@ -112,11 +126,22 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": 3
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "aquariumbreeder",
         "value": {
           "min": 6.5,
           "max": 7.5
@@ -130,12 +155,28 @@
           "min": 2,
           "max": 12
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
       }
     ],
     "tankCm": [
       {
         "source": "seriouslyfish",
         "value": 90
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 6
+        }
       }
     ]
   },
@@ -153,10 +194,22 @@
       "html": "<ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: Panda nibblefish, Striped garra, Rainbow garra</li><li>Minimum tank: 20 gallons (~80 litres)</li><li>Breeding: Hard</li><li>KH: 2–8</li><li>Dwellers: mid and bottom</li><li>Nitrate: less than 20</li><li>Diet: Omnivore</li><li>Temperament: Peaceful</li><li>Colour: dark with yellow spots</li></ul><p>Panda Garra were first collected in 1998 by Dr. Sven Kullander and Dr. Ralf Brits, but were brought into the aquarium hobby only in 2005. They have become a good alternative to some of the more common biofilm and algae eaters.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-flavatra",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump. Since it needs stable water conditions and grazes biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass.</p><p>The panda garra (Garra flavatra) is a stream-dwelling cyprinid endemic to the Rakhine Yoma, or Arakan, mountain range in western Myanmar. It reached the hobby in 2005 and is traded as the 'panda', 'clown', 'banded butterfly' or 'rainbow' garra, sometimes incorrectly as a loach. Colour pattern varies considerably between individuals. It has been bred commercially in Myanmar since 2008.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Panda Garra are harder to find in person, and many tropical fish stores do not stock them. They can be bought online, and many sellers have a live delivery guarantee.</p><p>The species suits intermediate aquarists. Some research is needed to make sure all components of the tank are compatible; for example, some plants may not survive fast-flowing water. Temperature compatibility may also be an issue.</p>"
     },
     {
       "key": "distribution",
@@ -165,16 +218,34 @@
       "html": "<p>Endemic to the Rakhine Yoma/Arakan mountain range in Rakhine state, western Myanmar, which forms a natural barrier cutting off the state from the remainder of the country.</p><p>It was originally collected from a handful of streams and rivers of the western, interior, slopes, but Dr. Sven Kullander told SF that it was abundant where encountered and almost certainly has a wider distribution; his team had only four days in which to complete their fieldwork which proved insufficient to explore the region fully. Subsequent commercial collections may therefore have occured at localities additional to those given in the description paper.</p><p>Type locality is 'Thandwe, Kananmae Chaung, near Leldee village, by foot 45 min from Gwechaung village at kilometer 18 on road Thandwe-Taunggok, 8°35'39\"N, 94°22'45\"E, Rakhine State, Myanmar'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Panda Garra is native to the Rakhine mountain range in Western Myanmar. It has been found in rivers and streams on the western slopes.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-flavatra",
       "html": "<p>The type locality is a shallow (~30 cm deep) section of the stream running close to the village of Leldee through what is described as 'low forest'. At time of collection it was around 3 metres wide and the substrate composed of a mixture of gravel, pebbles and rocks over which flowed clear, transparent water. This was moving quite slowly resulting in the formation of a number of small pools within which the fish were found.</p><p>Sympatric species included Rasbora daniconius, R. rasbora, Aplocheilus panchax, Lepidocephalichthys berdmorei, Batasio elongatus, Olyra burmanica, Pterocryptis cf. berdmorei and Sicyopterus fasciatus along with unspecified members of Danio, Devario, Rasbora, Pangio, Channa, Mastacembelus and Anguilla. Garra vittatula, described in the same paper, was also found here although only two specimens were collected compared with 29 of G. flavatra.</p><p>In the Kamyit Chaung river it was collected alongside Opsarius barna, Rasbora daniconius, R. rasbora, Aplocheilus panchax, Lepidocephalichthys berdmorei, Batasio elongatus, Awaous personatus, Sicyopterus punctatus plus unidentified Danio, Eleotris, Redigobius, Mastacembelus and Microphis species as well as G. propulvinus, another previously unknown congener.</p><p>The river is described as 'moderately large' and was again very shallow, the fishes being restricted to a series of shallow pools containing clear, slow-moving to stagnant water. The substrate was again a mixture of gravel, pebbles and rocks and no aquatic plants were observed.</p><p>The Baw Di Chaung is the third locality covered in the paper. It flows between forested hills and again the water level was very low, forming a series of riffles and pools with a maximum depth of around 1.5m. The water was totally clear and in some sections flowed with moderate current, in others very slowly. Substrate was predominantly rocks and stones interspersed with open patches of sand.</p><p>G. flavatra was apparently found in considerable numbers here but the structure of the substrate made collection difficult and only five specimens were recovered. Other fish recorded were Batasio elongatus, Awaous personatus, Sicyopterus punctatus and Xenentodon cancila along with unidentified Parambassis, Hara, Schistura, Pangio, Channa and Mastacembelus spp. G. propulvinus was again present.</p><p>While it may be surprising to learn that this species was not found in oxygenated running water, it is important to note that the streams it inhabits are seasonal in nature; Rakhine is located within a tropical monsoon region and has a pronounced rainy season between May and October, while at other times it can be quite dry. The streams thus swell in depth by a metre or more and flow much more rapidly during the wet season.</p><p>Collection of fishes for both scientific and commercial purposes is normally conducted during the dryer months in monsoon-affected areas due to difficulties encountered during times of high water levels and/or poor weather. Despite such annual habitat variations this should still be considered a current-loving fish.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The species normally prefers highly oxygenated, fast-flowing water, where it holds itself against swift currents by clinging to the substrate, mainly with its suctorial disc but also with its horizontally placed paired fins.</p><p>However, Panda Garra have also been found alive in slow-moving waters with low oxygen. They seem very adaptable.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-flavatra",
       "html": "<p>Standard length: 9 cm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres. An aquarium with base measurements of 90 × 30 cm should be the smallest considered.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>10 gallons (~40 litres) is the absolute minimum for a single Panda Garra, and only with a suitably sized pump to move the water. Anything smaller causes food problems and discomfort.</p><p>For a group of at least 4, keep them in at least a 20-gallon (80 litres) tank. The residents will compete for resources, so do not overstock. A rule of thumb is 1 Panda Garra per 5 gallons of water, so a 20-gallon tank is acceptable for four.</p><p>Panda Garra can jump and even climb the aquarium walls with their mouths, so a cover is better.</p>"
     },
     {
       "key": "maintenance",
@@ -201,10 +272,28 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul><p>Temperature: Normally said to prefer cooler conditions but temperatures in its native streams have been recorded between 22–27°C during warmer months of the year. Presumably during the wet months of the monsoon these values are lesser.</p><p>pH: The pH in its natural waters has been measured at 6.9–7.1 with a range of 6.5–7.5 recommended in aquaria.</p><p>Hardness: 2–12 dGH</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p><strong>Temperature:</strong> 21–25 °C. Panda Garra do not like very warm water, so keep it at the lower end of the range. If your home stays in this range, no heater is needed; if it gets colder, a heater may be required.</p><p><strong>Hardness:</strong> preferably medium, but anything from 2–12 dGH is fine.</p><p><strong>pH:</strong> 6.5–7.5.</p><p>Ammonia and nitrite should be as close to 0 ppm as possible. Nitrate should be kept near 0, though it is fine if it is not exactly 0 ppm. Algae is near impossible to grow when there is no nitrate in the tank.</p><p><strong>Water changes:</strong> weekly. Added water should at least be dechlorinated. Start with a 20–25% water change and adjust as needed depending on the filter and other factors. If you keep dwarf shrimp with them, remember that shrimp do not like big water changes, which can cause moulting problems.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The tank must be cycled and fully established before the fish are introduced.</p><p><strong>Substrate:</strong> sand or pebbles, or a mixture of the two. The bottom can also be left bare, but you may miss some of the species' normal behaviour.</p><p><strong>Flow:</strong> the species can survive in slow water but prefers fast flow. Its lower lip is shaped to help it hold position in fast water, which is useful at feeding time.</p><p><strong>Filtration and air stones:</strong> a powerful external canister filter, or filters that create at least a strong flow, is recommended. Panda Garra prefer highly oxygenated water, so air stones can be added if oxygen seems insufficient.</p><p><strong>Plants:</strong> not all plants thrive in fast flow (for example duckweed, guppy grass). Plants with plenty of surface for biofilm are a good choice: Anubias, Amazon Swords, Vallisneria, Java fern, Java moss, etc. Plant growth competes with algae, and since Panda Garra graze on algae, algae should exist in the tank, so expose it to plenty of light.</p><p>Panda Garra are completely plant safe: they will not eat, uproot or damage plants. Mosses benefit them, as they trap floating particles and create a natural feeding ground. Large-leaved plants in the lower half of the tank make a good hammock for resting.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-flavatra",
       "html": "<p>Although it will graze algae if available this species is not an exclusive herbivore. Offer meaty foods such as live or frozen chironomid larvae (bloodworm), Tubifex, Artemia, chopped prawn, etc., along with good quality, sinking dried products, at least some of which should contain a significant proportion of vegetable matter such as Spirulina or similar.</p><p>Fresh fruit and vegetables such as cucumber, melon, blanched spinach or courgette can be offered occasionally and home-made, gelatine-bound recipes containing a mixture of dried fish food, puréed shellfish, fresh fruit and vegetables, for example, are also proven to work well.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Panda Garra mostly enjoy eating algae and biofilm, and there are reports that they even eat black beard algae. The species is omnivorous and will also eat foods containing protein, such as bloodworms, grindal worms, brine shrimp, daphnia and black worms.</p><p>They are great cleaners, grazing on micro-organisms in biofilm and algae, so make sure there is adequate algae and biofilm growth in the tank. If you do not want to grow algae, you can give algae wafers instead.</p><p>They will take any food small enough to fit in the mouth; if it is too big, they push it until it breaks. Supplemental foods include blanched zucchini, spinach, peas and cucumber, all verified pesticide-free.</p><p>Their mouth is not designed for catching floating food from the water column. They prefer food that lands on the substrate, so food on the bottom is best. Feed daily.</p>"
     },
     {
       "key": "behaviour",
@@ -219,10 +308,22 @@
       "html": "<p>Relatively peaceful and makes a good subject for the well-chosen, larger community of stream-dwelling Indochinese species.</p><p>It isn't particularly tolerant of conspecifics but normally exists in loose aggregations in the wild. If kept singly it tends to behave more aggressively with similarly-shaped fishes so keeping 3-4 or more is recommended should space permit. Such a group will develop a noticeable pecking order between themselves but tankmates are more likely to be left alone. What appear to be hierarchical disputes will sometimes occur and involve charging, flaring of fins and an overall paling of the body colouration.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Panda Garra are not shy. They are very active and spend most of their time in the open looking for food. They become very tame, quickly associate you with food, and will eat out of your hand.</p><p>They do not mind the company of their own kind, but are not considered schooling fish and can be kept alone. Together they love to chase each other playfully, though sometimes they show aggression. If they start losing black colouration and become more yellowish, they are irritated and ready to fight. The fight is more of a scuffle as they push each other from a territory. Once the opponent is gone, they do not chase or harass the loser, and colours return to normal almost instantly.</p><p>It is not recommended to buy a small group: in small numbers they are more aggressive to each other. Keep either one or at least 4–6.</p><p>They have no issues with other fish species and are a good choice for a community tank of non-aggressive, small fish. They are very active and constantly explore and scavenge at all levels of the tank.</p><p>They have a strong sucker and can climb tank walls while feeding, so a cover is advisable. They can also squeeze into extremely small spaces. They are considered semi-aggressive towards their own kind and can take part in occasional territorial disputes; adding more plants, such as Anubias, gives them somewhere to hide.</p><p><strong>Tankmates:</strong> Panda Garra are not normally aggressive with other species. Cherry barbs, Endlers, Southern platyfish, tetras, Royal Farlowella, albino bristlenose plecos, pygmy cories, Otocinclus, harlequin rasboras, zebra danios, medaka ricefish and Yunnanilus cruciatus generally make good tankmates, as do hillstream loaches, red-tailed rasboras and White Clouds. There are some reports that Panda Garra eat the slime coat of slow-moving fish (for example angelfish), but this has not been confirmed by other keepers.</p><p><strong>Shrimp:</strong> keeping them with dwarf shrimp is possible but may be stressful for the shrimp, as the fish are very active and inquisitive. As omnivores, they may also try to snack on baby shrimp small enough to fit in the mouth. Bamboo shrimp and vampire shrimp, which need strong flow, are filter-feeders and big enough to ignore Panda Garra.</p><p><strong>Snails:</strong> compatible with any freshwater snail.</p><p><strong>Crayfish and crabs:</strong> absolutely not. Keep them away from all crayfish and most freshwater crabs, which will try to catch Panda Garra.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-flavatra",
       "html": "<p>Sexually mature males develop a series of noticeable tubercules on the head, along the lateral line and around the caudal peduncle, and tend to be slimmer in the body than females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexing can be difficult; you have to wait until they mature, as until then they look extremely similar.</p><ul><li>Mature females tend to be plump compared to males.</li><li>Males tend to be slimmer and develop tubercles on the head.</li><li>The male's tail colour usually changes during the breeding season from bronze to reddish.</li></ul><p>If you can sex your Panda Garra, they are in breeding condition.</p>"
     },
     {
       "key": "reproduction",
@@ -231,16 +332,22 @@
       "html": "<p>Has been successfully and repeatedly bred at Hein Aquarium, an ornamental fish export firm based in Yangon, Myanmar. The company have been producing the species on a commercial basis since 2008 in order to avert potential exploitation of wild stocks, and because the fish are time-consuming to collect.</p><p>The Managing Director, Tin Win, reports that it's a seasonal animal which spawns during the months of May to July, and that he collects his brood stock of wild adult fishes during those months. They're conditioned with algae-enriched dried foods, live Tubifex worms and the occasional chopped earthworm and water flow is maintained at a high rate.</p><p>When the fish come into spawning condition individual pairs are selected and moved to smaller, 80 litre, tanks also containing running water which is extracted directly from source via a tube well and has a conductivity of 80 µS, pH close to neutral. It enters the spawning chambers through a spraybar suspended above the surface and exits through a tube fitted into the base which appears to be covered with a gauze-like material to prevent eggs and fry being sucked out.</p><p>Eggs are deposited early in the morning and if fertile appear totally transparent with a diameter of ~1.5–1.8 mm. They hatch in 24-30 hours and the fry derive nourishment from their yolk sacs for another 72 hours or so after which they are fed an egg yolk suspension. In around a week they are large enough to accept Artemia nauplii and once they reach a size of 15 mm or so, the same diet as the adults. Tin Win believes that highly-oxygenated, flowing water stimulates both feeding and growth in the young fish.</p>"
     },
     {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
-      "html": "<p>Lexicon: Garra: an indigenous name for those fishes in Bengal. flavatra: Latin, means “yellow-black”, referring to the coloration.</p><p>Text &amp; photos: Frank Schäfer</p>"
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Panda Garra are easy to keep but very hard to breed. They are seasonal breeders and need special conditions. In nature they breed from May to July (rainy season), so the water should be highly oxygenated with neutral pH, and low TDS (40–60) or conductivity of 80 µS.</p><p>After sexing, choose a male and a female and prepare a tank for them during breeding. Feeding the pair protein-rich foods can help.</p><p>If successful, the pair completes the mating ritual. The female normally lays eggs in the morning, and eggs hatch within 24–36 hours.</p><p>Panda Garra have no parental instinct and should be removed immediately after the eggs are laid, otherwise they can eat all of them.</p><p>The rearing tank should follow the usual conditions for the species. A sponge filter is a good idea to prevent fry being sucked into the filter.</p><p>Fry do not need feeding initially; they live off their egg sacs for the first 3 days. They are then fed yolk particles and move on to artemia within a week.</p>"
     },
     {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/garra-flavatra",
       "html": "<p>G. flavatra first became available to the aquarium hobby in 2005 and became popular almost immediately. It's traded under various names including 'panda', 'clown', 'banded butterfly' or 'rainbow' garra, and is sometimes referred to incorrectly as a loach.</p><p>Colour pattern varies considerably between individuals, with some exhibiting particularly intense yellow and red pigmentation, but it's unclear whether such differences represent natural variation within or between populations.</p><p>In addition to this unique colour pattern, it can be further distinguished from congeners by the following combination of characters: rostral furrow shallow and anterior margin of snout elevated in adults; rostral lobe present; proboscis absent; conical tubercles on rostral lobe and along anterior margin of snout; scaled predorsal region, chest and abdomen; two pairs of barbels; lateral line scales 27-29 (usually 28); circumpeduncular scale rows 16.</p><p>The genus Garra is a particularly enigmatic grouping with new taxa described on a regular basis, while many of the existing ones may represent cases of misidentification or synonyms of other species. Some of the revisions have also been called into question, which has added further confusion. A full generic review would be ideal but is unlikely to materialise given the extensive distribution of its members which range from southern China across much of southeast Asia, India and the Middle East as far as north/central Africa.</p><p>Instead a number of less-extensive works published in recent years have resulted in a gradual, but continuing, improvement in knowledge, and it remains possible that the genus will be broken up into smaller taxa since the current assemblage is almost certainly polyphyletic.</p><p>Garra species are usually included in the subfamily Labeoninae/Cyprininae or tribe Labeonini (name varies with author) which by recent thinking is further divided into four subtribes; Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012). The putatively monophyletic Garraina comprises a number of genetic lineages including Garra sensu stricto (which also includes Horalabiosa, Phreatichthys and possibly other genera), a small clade comprising Garra cambodgiensis and G. fascicauda (thus rendering Garra polyphyletic), Paracrossocheilus, and Gonorhynchus (which includes Akrokolioplax).</p><p>Two species, G. micropulvinus and Ageneiogarra imberba, are placed in the Semilabeoina assemblage. The generic name Ageneiogarra Garman, 1912 was suggested for both, and the Catalog of Fishes and FishBase now use it for A. imberba. In addition, some genera which were previously considered to be close relatives of Garra species such as Discogobio, Discocheilus and Placocheilus, are now also placed in this subtribe.</p><p>All genera currently included in Garraina possess a lower lip modified to form a mental adhesive disc, allowing the fish to cling to surfaces in turbulent conditions. In most species the upper lip is almost entirely reduced and both the upper and lower jaw margins are keratinised, i.e., horny, and used to scrape food items from the substrate.</p><p>Garra species are distinguished from other Garraina members by the first two pectoral-fin rays usually being thickened, fleshy and unbranched, possession of 10-11 dorsal-fin rays, and a combination of internal characters. Some species have evolved particular environmental specialisms such as highly reduced eyes in hypogean forms or the ability to survive in thermal springs.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Despite their appearance, Panda Garra are not loaches or catfish. Garra flavatra is a cyprinid (minnow or carp family).</p><p>The species is relatively small and normally grows to a maximum of 6–7 cm, although there are reports of some reaching 10 cm.</p><p>Most Garra species are nearly uniformly brownish to blackish, with sparse, insignificant markings. Garra flavatra is unique in the genus with a contrasting pattern of dark brown vertical bars with yellowish interspaces. The fish are normally lighter coloured with darker blotches.</p><p>This species has a modified adhesive lower lip shaped like a disc. In nature, this allows it to hold position in fast-flowing water while still feeding on algae and biofilm.</p><p>Once a proper aquarium is set up and optimum conditions are met, Panda Garra can live 5–6 years or slightly more.</p>"
     },
     {
       "key": "references",
@@ -255,15 +362,25 @@
       "thumb": "https://media.aquatome.com/commons/f7d6f6f7cda1c408-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "Xoxpebblesxox",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panda_Garra.jpg",
-      "caption": "Panda Garra",
       "large": {
         "url": "https://media.aquatome.com/commons/f7d6f6f7cda1c408-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Xoxpebblesxox",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panda_Garra.jpg",
+      "caption": "Panda Garra"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/b38c2439f275d416.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/b38c2439f275d416-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     },
     {
       "url": "https://media.aquatome.com/commons/3be87b1008e9fa09.webp",
@@ -344,5 +461,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-17"
 }

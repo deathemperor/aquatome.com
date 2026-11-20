@@ -1,0 +1,167 @@
+{
+  "id": "genidens-genidens",
+  "native": {
+    "input": "dd2f1eb8be1d5f5c",
+    "at": "2026-11-18T12:30:34.128Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Guyana south to La Plata River estuary (Argentina).",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Guyana south to La Plata River estuary (Argentina).",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The Guri Sea Catfish (Genidens genidens) can be found off the coast of southern Bahia, Brazil, and Uruguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The Guri Sea Catfish (Genidens genidens) can be found off the coast of southern Bahia, Brazil, and Uruguay.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "La Plata River",
+        "source": "scotcat",
+        "quote": "Western Atlantic: Guyana south to La Plata River estuary (Argentina).",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Genidens genidens",
+    "status": "ACCEPTED",
+    "taxonKey": 2345053,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        288
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        60
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        35
+      ],
+      [
+        "bba95e72-e2df-420e-8de3-b7ca814037ae",
+        24
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        22
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        19
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "2a76ea98-411c-4c17-ad1e-9dfe3595ca8d",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "09965ac2-e85e-478e-b282-373b232d61c9",
+        1
+      ],
+      [
+        "360d2362-4ab5-4440-986d-7e6676db6c75",
+        1
+      ],
+      [
+        "55164b42-8df2-4302-9823-153d51bb5b0e",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a22ace4f-cc03-4cd3-8c0c-c37f8ee73fda",
+        1
+      ],
+      [
+        "afee1e5d-14d3-4328-8a27-69fe9848155e",
+        1
+      ],
+      [
+        "b568b6c4-0761-41f2-86da-167b49ad29d1",
+        1
+      ],
+      [
+        "c2ac9106-aab2-4250-830d-206ffca096fe",
+        1
+      ],
+      [
+        "dde1f060-95f2-40af-84a7-91b5b74e4fdc",
+        1
+      ],
+      [
+        "e8dd97e5-0bd4-4da8-8f88-3ab91325a12c",
+        1
+      ]
+    ],
+    "native": [
+      "AR",
+      "GY",
+      "BR",
+      "UY"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T12:30:34.128Z"
+  }
+}

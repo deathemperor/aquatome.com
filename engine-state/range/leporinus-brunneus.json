@@ -1,8 +1,8 @@
 {
   "id": "leporinus-brunneus",
   "native": {
-    "input": "2b155956ffafaa88",
-    "at": "2026-11-14T17:19:02.525Z",
+    "input": "48c542e1db273492",
+    "at": "2026-11-17T05:18:20.405Z",
     "claims": [
       {
         "code": "BR",
@@ -27,21 +27,14 @@
         "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
         "words": "Colombia",
         "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Found in the basins of the Orinoco river and the rio Negro. Origin: Venezuela.",
-        "words": "Venezuela",
-        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Orinoco",
+        "name": "Madeira",
         "source": "seriouslyfish",
         "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "country": "BR",
         "ok": true
       },
       {
@@ -53,12 +46,10 @@
         "why": "its name is not in the quote"
       },
       {
-        "name": "Rio Madeira",
+        "name": "Orinoco",
         "source": "seriouslyfish",
         "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
-        "country": "BR",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "ok": true
       },
       {
         "name": "Casiquiare",
@@ -69,13 +60,13 @@
       {
         "name": "Orinoco",
         "source": "glaser",
-        "quote": "Found in the basins of the Orinoco river and the rio Negro. Origin: Venezuela.",
+        "quote": "It can be found in the basins of the Orinoco river and the Rio Negro.",
         "ok": true
       },
       {
         "name": "Rio Negro",
         "source": "glaser",
-        "quote": "Found in the basins of the Orinoco river and the rio Negro. Origin: Venezuela.",
+        "quote": "It can be found in the basins of the Orinoco river and the Rio Negro.",
         "ok": true
       }
     ],

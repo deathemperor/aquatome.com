@@ -26,11 +26,12 @@ struct TodayView: View {
     NavigationStack(path: $path) {
       ScrollView {
         VStack(alignment: .leading, spacing: 28) {
-          Text(verbatim: date)
-            // Plain, not a second line of capitals over the first card's own.
-            .font(.subheadline).foregroundStyle(.v2Faint)
-            .padding(.horizontal, 20)
-            .padding(.bottom, -16)
+          TabHeader(title: "Hôm nay") {
+            Text(verbatim: date)
+              // Plain, not a second line of capitals over the first card's own.
+              .font(.subheadline).foregroundStyle(.v2Faint)
+          }
+          .padding(.bottom, -16)
           // The kept copy in use, or none at all, as v1's Tìm says.
           if handbook.status == .offline || handbook.status == .failed {
             StatusText().font(.footnote).padding(.horizontal, 20)
@@ -52,12 +53,13 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .v2ClearOfTheFade()
-      .modifier(ClearUnderLargeTitle())
+      .modifier(ClearUnderClock())
+      // Its name for what's pushed from it; no bar of its own: its header scrolls away with the page (`TabHeader`).
       .navigationTitle("Hôm nay")
+      .toolbar(.hidden, for: .navigationBar)
       // Its own, not one iOS picks from what passes under the bar: a dark card there turned the bar's words and the clock
       // white on the white band. As a fish's page pins its own.
       .toolbarColorScheme(scheme, for: .navigationBar)
-      .profileButton()
       .onAppear { if heldBeginner == nil { heldBeginner = beginner } }
       .v2ClearsFootGoingBack(path.count)
       .v2Destinations(zoom: zoom)

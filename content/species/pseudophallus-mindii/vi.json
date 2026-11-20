@@ -1,0 +1,22 @@
+{
+  "slug": "ca-chia-voi-nuoc-ngot-pseudophallus-mindii",
+  "name": "Cá chìa vôi nước ngọt Pseudophallus mindii",
+  "altNames": [
+    "Short snouted pipefish"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài này phân bố ở Trung Mỹ và vùng nhiệt đới Nam Mỹ, chủ yếu sống ở nước ngọt.</p><p>Nguồn gốc: Trung và Nam Mỹ.</p>",
+    "habitat:glaser": "<p>Người ta cũng từng bắt được cá lớn ở cửa sông và rừng ngập mặn. Còn cá con, lúc còn trôi nổi theo dòng như sinh vật phù du, thì từng được vớt ngoài biển, khá xa bờ.</p>",
+    "diet:glaser": "<p>Nuôi cá chìa vôi thì thức ăn là chuyện đặc biệt quan trọng. Phải thả chúng sống ngay giữa nguồn mồi, tốt nhất là đồ tươi sống như bo bo, cyclops, lăng quăng nhỏ và artemia.</p>",
+    "equipment:glaser": "<p>Nên pha thêm muối vào nước. Bể cần bày nhiều cây lá mảnh và vài mẩu lũa nhỏ để cá sống đúng tập tính tự nhiên của nó.</p>",
+    "behaviour:glaser": "<p>Tốt nhất chỉ nuôi chung với cá thật hiền, loại không giành ăn với chúng. Cá chìa vôi hoàn toàn không biết tranh giành. Một số con như tép cũng nuôi chung được.</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.6
+    },
+    "reason": "thin"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "tom-palaemon-concinnus",
+  "name": "Tôm Palaemon concinnus",
+  "altNames": [
+    "Tôm ngón trắng",
+    "White Fingers"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Palaemon concinnus sống trên một vùng rất rộng, gần như khắp Ấn Độ Dương – Thái Bình Dương. Nguồn gốc: vùng ven biển Ấn Độ Dương – Thái Bình Dương. Lúc đầu loài này mang tên Macrobrachium \"White Fingers\".</p>",
+    "quickFacts:glaser": "<p>Đầu càng trắng sáng của loài này rất nổi bật. Nhờ nó mà loài nhập từ Sri Lanka này có nét hút mắt riêng.</p>",
+    "notes:glaser": "<p>Với người mê giáp xác, đây là dịp để tự tìm hiểu một loài còn mới. Chắc chắn sẽ có những phát hiện thú vị.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

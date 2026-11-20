@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "congo-river"
+    "congo-river",
+    "congo"
   ],
   "range": {
     "native": {
@@ -240,10 +241,22 @@
       "html": "<p><strong>Scientific name:</strong> Malapterurus microstoma Poll &amp; Gosse, 1969</p><p><strong>Common names:</strong> Dwarf Electric Catfish, Zitterwels (Germany)</p><p><strong>Size:</strong> 555 mm (21.9\") SL</p><p><strong>Identification:</strong> Easily distinguished by its narrow snout and tooth patches, and horizontally based pectoral fins placed low on the body.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/malapterurus-microstoma-50-cm-2/",
+      "html": "<p>A specimen raised in a 2,500 litre tank reached over 50 cm in length. The long snout and the narrow gap of the mouth identify it as <em>M. microstoma</em>.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
       "html": "<p>Africa: restricted to the Congo River system; absent from the lowland, central portion of the basin. Type locality: Yangambi, Congo River, Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/malapterurus-microstoma-50-cm-2/",
+      "html": "<p>Four electric catfish species are registered from the Congo: <em>Malapterurus monsembeensis</em> (syn. <em>M. gossei</em>), <em>M. melanochir</em>, <em>M. microstoma</em> and <em>M. oguensis</em>. Electric catfish from Nigeria are usually the species <em>Malapterurus beninensis</em>, a medium-sized species that grows to 20-30 cm.</p>"
     },
     {
       "key": "waterConditions",
@@ -282,6 +295,12 @@
       "html": "<p>IUCN Red List category: Least Concern (last assessed 2009).</p><p>Etymology: Malapterurus: from the Greek malakos, meaning soft, pteron, meaning fin and oura, meaning tail; presumably in reference to the adipose fin, which appears all the more prominent in the absence of the rayed dorsal fin. Microstoma: from the Greek mikros, meaning small and stoma, meaning mouth (or opening); in reference to the small mouth of this species.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/malapterurus-microstoma-50-cm-2/",
+      "html": "<p>Until a major revision in 2000 and 2002 it was believed that there were only 2-3 species of electric catfish; at present there are 18. The shape of the head and the pattern allow the range of species in question to be narrowed down.</p><p>Electric catfish must be handled very carefully because of the electric shocks such an animal can give out. <em>M. microstoma</em> probably grows to more than 80 cm, because specimens of 50-60 cm that were examined were not yet sexually mature.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=101",
@@ -313,16 +332,71 @@
     },
     {
       "url": "https://media.aquatome.com/commons/cbcbaa345847310e.webp",
+      "thumb": "https://media.aquatome.com/commons/cbcbaa345847310e-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "ゆうき315",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Malapterurus_microstoma.JPG",
-      "caption": "Smallmouth electric catfish (Malapterurus microstoma) in Hakone-en Aquarium, Japan.",
-      "thumb": "https://media.aquatome.com/commons/cbcbaa345847310e-480.webp"
+      "caption": "Smallmouth electric catfish (Malapterurus microstoma) in Hakone-en Aquarium, Japan."
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/623287c58aa3c7fa.webp",
+      "thumb": "https://media.aquatome.com/glaser/623287c58aa3c7fa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/malapterurus-microstoma-50-cm-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4624f6a56fc0f96f.webp",
+      "thumb": "https://media.aquatome.com/glaser/4624f6a56fc0f96f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/malapterurus-microstoma-50-cm-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2d55c2add5f825b4.webp",
+      "thumb": "https://media.aquatome.com/glaser/2d55c2add5f825b4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/malapterurus-microstoma-50-cm-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "wrTtbhHtHHE",
+      "title": "Electric Cafish  And Sharp Mouth Electric Catfish",
+      "durationSec": 91,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wDATplifg0k",
+      "title": "ロングノーズデンキナマズ　Smallmouth electric catfish　Malapterurus microstoma",
+      "durationSec": 40,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UmT7sGrsFe4",
+      "title": "Malapterurus/Paradoxoglanis",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "u3lPCU1sbkc",
+      "title": "Aquarium Movies  (Japan)   http://sasuaqu.blogspot.jp/",
+      "durationSec": 43,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -344,5 +418,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-19"
 }

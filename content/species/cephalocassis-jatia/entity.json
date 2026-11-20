@@ -1,0 +1,189 @@
+{
+  "id": "cephalocassis-jatia",
+  "scientificName": "Cephalocassis jatia",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Cephalocassis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "bengal",
+    "sri-lanka",
+    "bangladesh"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "LK",
+        "BD"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Ganges-Brahmaputra"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South and southeast Asia: India, Sri Lanka and Bangladesh.",
+          "countries": [
+            "IN",
+            "LK",
+            "BD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Although this species is known to be common for part of its range (Irrawaddy River drainage), uncertainties regarding the taxonomic status of the Ganges-Brahmaputra and Irrawaddy populations and the lack of population information in the Ganges-Brahmaputra system make it impossible to accurately assess this species.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Ganges-Brahmaputra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344794,
+      "total": 5,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "MM",
+          3
+        ],
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          95.625,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          95.625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          97.03125,
+          16.875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 12,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "html": "<ul><li>Common name: River catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "html": "<p>South and southeast Asia: India, Sri Lanka and Bangladesh. Type locality: Estuaries of Bengal.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "html": "<p>It is found in the rivers and estuaries of South Asia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "html": "<p>Marceniuk et al (2007) placed this species in the genus Arius due to the moderate size of its adipose fin and the lateral line bifurcated at the caudal region, although it did not have the accessory tooth plates which places it in this genus.</p><p>Description: Three pairs of barbels, the maxillary barbels shorter than head. No teeth on plate. Strong dorsal spine, as long as head without snout. Pectoral spines as long as the dorsal spine.</p><p>Colouration: Body bluish dark superiorly and lighter below with yellowish fins. Lower caudal lobe tinted gray with a dark spot on adipose fin.</p><p>Etymology: The specific name jatius is a latinisation of Jat from Jat gagora, the local Bengali name for this catfish in India (a noun in apposition, often incorrectly spelled jatia).</p><p>Remarks: Some online searches still have this species listed as Cephalocassis jatia.</p><p>IUCN Red List: There is insufficient information on the distribution, population (and its trends), and biology of Cephalocassis jatia (Arius jatius). Although this species is known to be common for part of its range (Irrawaddy River drainage), uncertainties regarding the taxonomic status of the Ganges-Brahmaputra and Irrawaddy populations and the lack of population information in the Ganges-Brahmaputra system make it impossible to accurately assess this species. It is considered Data Deficient, but needs updating (IUCN 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "html": "<ul><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Marceniuk, Alexandre P.; Menezes, Naércio A. (2007). \"Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera\" Zootaxa 1416: 1–126.</li><li>Misra, K.S.; An aid to the Identification of the Common Commercial Fishes of India and Pakistan. 2003, Narendra Publishing House, Delhi, (India).</li><li>Ng, H. 2010. Cephalocassis jatia (Arius jatius). The IUCN Red List of Threatened Species 2010.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/9aed8f0498869ecc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9aed8f0498869ecc-480.webp",
+      "width": 500,
+      "height": 214,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "caption": "Arius jatius",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/681d29e4562d386f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/681d29e4562d386f-480.webp",
+      "width": 500,
+      "height": 277,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "caption": "Arius jatius",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f5ded132f6673920.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f5ded132f6673920-480.webp",
+      "width": 500,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/arius_jatius.htm",
+      "caption": "Arius jatius",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-17"
+}

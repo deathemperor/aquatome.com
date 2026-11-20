@@ -1,0 +1,39 @@
+{
+  "id": "krobia-xinguensis",
+  "native": {
+    "input": "682deaf9dc39acf4",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Krobia xinguensis",
+    "status": "ACCEPTED",
+    "taxonKey": 7193200,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

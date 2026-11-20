@@ -45,6 +45,22 @@ extension TankStore {
     liveDevices.first { $0.kind == "plug" && $0.brand == brand && $0.remoteId == remoteId }
   }
 
+  /// The role the master button goes by for one outlet of a plug. A strip saved twice (two phones each adding it, or a
+  /// copy a sync brought back) has two records, each with its own roles, and a record may list a code twice: any entry
+  /// with the code on any live record of the same strip (maker, maker's id) that marks the outlet a heater makes it one,
+  /// else any that marks it CO2; otherwise the record's own role, its first entry's (the chief, 18 Nov). Nil for a
+  /// device that isn't live.
+  public func strictestRole(device id: String, outlet code: String) -> String? {
+    guard let d = device(id) else { return nil }
+    let own = d.outlets.first { $0.code == code }?.role
+    let copies = d.kind == "plug" && d.brand != nil && d.remoteId != nil
+      ? liveDevices.filter { $0.kind == "plug" && $0.brand == d.brand && $0.remoteId == d.remoteId } : [d]
+    let roles = copies.flatMap { $0.outlets.filter { $0.code == code }.compactMap(\.role) }
+    if roles.contains("heater") { return "heater" }
+    if roles.contains("co2") { return "co2" }
+    return own
+  }
+
   /// Puts one of the account's plugs on a tank: named as in the maker's app, with its outlets by code, each labelled
   /// with the maker's name for it when it has one. Names are trimmed and cut to the record's lengths; a blank one is
   /// left out.

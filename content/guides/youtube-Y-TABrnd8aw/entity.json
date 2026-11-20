@@ -1,0 +1,64 @@
+{
+  "id": "youtube-Y-TABrnd8aw",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Y-TABrnd8aw",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "eleocharis-parvula",
+    "utricularia-graminifolia",
+    "limnophila-sessiliflora"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "Y-TABrnd8aw",
+    "title": "HOW TO: NO FILTER BOWL AQUARIUM SETUP || MD FISH TANKS",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1277,
+    "publishedAt": "2020-03-26",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 82
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Y-TABrnd8aw/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Eleocharis parvula",
+      "Hemianthus callitrichoides",
+      "Utricularia graminifolia",
+      "Rotala sp.",
+      "Limnophila sessiliflora",
+      "Oryzias sp.",
+      "Caridina cantonensis",
+      "Symphysodon sp."
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "diu",
+        "t": 64
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 275
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 150
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 0
+      }
+    ]
+  }
+}

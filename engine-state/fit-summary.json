@@ -1,5 +1,5 @@
 {
- "day": "2026-11-17",
+ "day": "2026-11-20",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4390,
-   "read": 3685,
-   "wrong": 1495,
-   "pct": 41,
-   "held": 491
+   "pages": 4849,
+   "read": 4160,
+   "wrong": 1595,
+   "pct": 38,
+   "held": 556
   },
   "id": {
-   "pages": 1486,
-   "read": 1310,
-   "wrong": 371,
+   "pages": 1649,
+   "read": 1491,
+   "wrong": 421,
    "pct": 28,
-   "held": 121
+   "held": 166
   },
   "th": {
-   "pages": 1475,
-   "read": 1279,
-   "wrong": 342,
+   "pages": 1642,
+   "read": 1465,
+   "wrong": 389,
    "pct": 27,
-   "held": 107
+   "held": 147
   },
   "ms": {
-   "pages": 364,
-   "read": 321,
-   "wrong": 90,
-   "pct": 28,
-   "held": 50
+   "pages": 511,
+   "read": 468,
+   "wrong": 133,
+   "pct": 29,
+   "held": 90
   }
  },
  "labels": {
@@ -59,24 +59,37 @@
  "sample": [
   {
    "lang": "th",
-   "path": "/th/fish/esomus-metallicus/",
-   "url": "https://aquatome.com/th/fish/esomus-metallicus/",
-   "title": "ปลาซิวหนวดยาว",
+   "path": "/th/fish/charax-stenopterus/",
+   "url": "https://aquatome.com/th/fish/charax-stenopterus/",
+   "title": "เรนโบว์ร็อบเบอร์เตตร้า",
    "wrong": []
   },
   {
-   "lang": "id",
-   "path": "/id/ikan/bulldog-pleco/",
-   "url": "https://aquatome.com/id/ikan/bulldog-pleco/",
-   "title": "Bulldog Pleco",
+   "lang": "vi",
+   "path": "/vi/ca/ca-da-tron-ong-nghe-khong-lo/",
+   "url": "https://aquatome.com/ca/ca-da-tron-ong-nghe-khong-lo/",
+   "title": "Cá da trơn ong nghệ khổng lồ",
    "wrong": []
   },
   {
-   "lang": "id",
-   "path": "/id/ikan/nemacheilus-saravacensis/",
-   "url": "https://aquatome.com/id/ikan/nemacheilus-saravacensis/",
-   "title": "Nemacheilus saravacensis",
-   "wrong": []
+   "lang": "vi",
+   "path": "/vi/huong-dan/tu-lam-ho-mini-trong-nha-tu-chau-nhua-co-thac-nuoc-va-cay/",
+   "url": "https://aquatome.com/huong-dan/tu-lam-ho-mini-trong-nha-tu-chau-nhua-co-thac-nuoc-va-cay/",
+   "title": "Tự làm hồ mini trong nhà từ chậu nhựa, có thác nước và cây",
+   "wrong": [
+    {
+     "check": "price",
+     "quote": "10 USD"
+    },
+    {
+     "check": "price",
+     "quote": "mua hàng xả kho khoảng 10 USD"
+    },
+    {
+     "check": "units",
+     "quote": "Dùng ống PVC cỡ khoảng 1,3 cm và các cút góc ba ngả"
+    }
+   ]
   }
  ]
 }

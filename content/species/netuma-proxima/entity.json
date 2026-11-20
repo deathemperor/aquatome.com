@@ -1,0 +1,301 @@
+{
+  "id": "netuma-proxima",
+  "scientificName": "Netuma proxima",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Netuma",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "papua-new-guinea",
+    "australia",
+    "port-darwin",
+    "asia",
+    "indonesia",
+    "aru-islands"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU"
+      ],
+      "regions": [
+        "New Guinea",
+        "Aru Islands"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Western Pacific: Southern New Guinea, northern Australia and Aru Islands; in nearshore coastal waters and estuaries.",
+          "countries": [
+            "AU"
+          ],
+          "regions": [
+            "New Guinea",
+            "Aru Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345418,
+      "total": 92,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "AU",
+          88
+        ],
+        [
+          "ID",
+          3
+        ],
+        [
+          "PG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          115.3125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          -18.28125,
+          3,
+          3
+        ],
+        [
+          126.5625,
+          -15.46875,
+          4,
+          4
+        ],
+        [
+          129.375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          129.375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          129.375,
+          -12.65625,
+          13,
+          13
+        ],
+        [
+          130.78125,
+          -12.65625,
+          14,
+          14
+        ],
+        [
+          132.1875,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          132.1875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          133.59375,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          135,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          135,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          -5.625,
+          3,
+          0
+        ],
+        [
+          139.21875,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          140.625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          146.25,
+          -19.6875,
+          9,
+          9
+        ],
+        [
+          147.65625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          151.875,
+          -33.75,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          151.875,
+          -28.125,
+          7,
+          7
+        ],
+        [
+          153.28125,
+          -29.53125,
+          1,
+          1
+        ],
+        [
+          153.28125,
+          -28.125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 46
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>The Arafura catfish, also known as the Arafura sea catfish, is a species of catfish in the family Ariidae. It was described by James Douglas Ogilby in 1898, originally under the genus Arius.</p><ul><li>Synonyms: Arius proximus, Arius arafurensis, Netuma proxima</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Western Pacific: Southern New Guinea, northern Australia and Aru Islands; in nearshore coastal waters and estuaries. Type Locality: Port Darwin, Northern Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>It inhabits marine, brackish and freshwaters in the western Pacific.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Worms, finfish, crustaceans such as crabs and amphipods, mollusks, echinoderms, algae and insects.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Etymology: The genus name Pararius: Para-, near, presumably referring to resemblance of P. proximus to Arius australis (=Neoarius graeffei). The specific name proximus: near, referring to its \"outward resemblance\" to Arius australis (=Neoarius graeffei).</p><p>Remarks: Still found on some online searches as Netuma proxima.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Netuma proxima in Fishes of Australia. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/a06c2a73c40d7b66.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a06c2a73c40d7b66-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Australian National Fish Collection / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/pararius_proximus.htm",
+      "caption": "Pararius proximus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

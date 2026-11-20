@@ -512,12 +512,14 @@ final class LightFlowTests: XCTestCase {
   }
 
   func testTheDayPreviewPlaysOnTheLightThenTheScheduleRunsAgain() {
-    // Forty seconds (the site's ten, slowed): the light holds full for about twelve, longer than a slow runner's look.
-    let app = launch("-preview-seconds", "40")
+    // Ninety seconds (the site's ten, slowed): the light holds full for about 26 of them (from 47 s to 73 s), and the
+    // frames read keep only the last twelve, which the evening's dimming then replaces. At forty seconds it held full
+    // for twelve, and a look on GitHub's Mac took longer: twice (16 and 17 Nov) the first try read only the dimming.
+    let app = launch("-preview-seconds", "90")
     connect(app)
     // The whole day: the light follows it to full (70%) at noon, off at 20:00, then its own schedule.
     tap(app, "play")
-    expectFrames(app, ".* 07 02 46 .*", timeout: 30)
+    expectFrames(app, ".* 07 02 46 .*", timeout: 80)
     expect(app, "play", contains: "Xem thử cả ngày trên đèn", timeout: 60)
     expectFrames(app, ".* 07 02 00 .. \\| 5a 01 08 .. .. 05 12 ff ff ..")
   }
@@ -1090,6 +1092,19 @@ final class LightFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "lamp-sent").label, "green@100")
   }
 
+  /// A start Bluetooth had that never answers (`-fake-lamp-silent 1`): given up after five seconds, it may have gone out,
+  /// so the card says that isn't known, never "Không gửi được" (the phone's broadcaster tells a stopped start it had
+  /// `.cut`, Codex 18 Nov). It isn't counted as sent, and the next send goes as ever.
+  func testAStartBluetoothHadThatNeverAnswersIsNotSaidNotSent() {
+    let app = signedIn("-fake-lamp-silent", "1")
+    tap(app, "lamp-red")
+    expect(app, "lamp-status", contains: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", timeout: 10)
+    expect(app, "lamp-lines", lacks: "Không gửi được lệnh tới đèn")
+    tap(app, "lamp-green")
+    expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, 100% lúc", timeout: 15)
+    XCTAssertEqual(element(app, "lamp-sent").label, "green@100", "red counted as sent")
+  }
+
   /// Signing out while a colour waits its turn (the light's gap made a minute, `-lamp-gap`): the one waiting never goes.
   /// Read from the phone's one broadcaster, on Đèn whoever is signed in: the card may be built anew after a sign-out.
   func testSigningOutDropsWhatWaits() {
@@ -1412,7 +1427,8 @@ final class LightFlowTests: XCTestCase {
     XCUIDevice.shared.press(.home)
     let states = [XCUIApplication.State.runningBackground, .runningBackgroundSuspended].map { NSNumber(value: $0.rawValue) }
     let gone = expectation(for: NSPredicate(format: "state IN %@", states), evaluatedWith: app)
-    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 5), .completed, "the app didn't go to the background", file: file, line: line)
+    // Up to 30 s, not 5: on GitHub's Mac the Home press twice (16 and 17 Nov) took longer than 5 s to send the app away.
+    XCTAssertEqual(XCTWaiter.wait(for: [gone], timeout: 30), .completed, "the app didn't go to the background", file: file, line: line)
     app.activate()
   }
 

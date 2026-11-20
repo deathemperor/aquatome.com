@@ -3,6 +3,12 @@
   "name": "Kali Hoa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T07:49:43.689Z",
+    "why": "Hoa Creek is a Vietnamese stream (suối Hoa), and Indonesian atlases would use \"Sungai Hoa\" or \"Suci Hoa\" rather than \"Kali\", which is a Javanese-origin term used for Indonesian rivers, so the kind word is unnatural here."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

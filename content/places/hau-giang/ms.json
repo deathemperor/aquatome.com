@@ -3,6 +3,12 @@
   "name": "Hau Giang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-17T00:01:56.945Z",
+    "why": "\"Hau Giang\" drops the diacritics and omits the Malay kind word \"Wilayah\"/\"Provinsi\" that an atlas in Malaysia would use (e.g. \"Wilayah Hau Giang\"), although the proper name's spelling can stay as in Vietnamese."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

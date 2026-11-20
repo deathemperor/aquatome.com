@@ -40,30 +40,30 @@
       "thumb": "https://media.aquatome.com/commons/9326243fab83e7df-480.webp",
       "width": 1200,
       "height": 717,
-      "licence": "CC BY 2.0",
-      "author": "Brian Gratwicke",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_barb,_Puntius_titteya.jpg",
-      "caption": "Cá anh đào đực màu đỏ rực bơi giữa cây thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/commons/9326243fab83e7df-large.webp",
         "width": 2007,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_barb,_Puntius_titteya.jpg",
+      "caption": "Cá anh đào đực màu đỏ rực bơi giữa cây thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/fc3b8a54726247e0.webp",
       "thumb": "https://media.aquatome.com/commons/fc3b8a54726247e0-480.webp",
       "width": 1200,
       "height": 713,
-      "licence": "CC BY-SA 4.0",
-      "author": "Uditha Thejan",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_titteya-cherry_barb.jpg",
-      "caption": "Cá anh đào màu đỏ hồng với sọc đen dọc thân trong bể",
       "large": {
         "url": "https://media.aquatome.com/commons/fc3b8a54726247e0-large.webp",
         "width": 2022,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Uditha Thejan",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puntius_titteya-cherry_barb.jpg",
+      "caption": "Cá anh đào màu đỏ hồng với sọc đen dọc thân trong bể"
     },
     {
       "url": "https://images.unsplash.com/photo-1706479980895-9674f2be25ad?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MXx8Q2hlcnJ5JTIwYmFyYnxlbnwxfHx8fDE3OTMzNzk5MjV8MA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max",
@@ -110,9 +110,75 @@
       "caption": "Cá anh đào bơi trên lá khô ở suối tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/437594584.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/437594584-480.webp",
+      "width": 1024,
+      "height": 899,
+      "licence": "CC BY-NC",
+      "author": "Dulana Dulanjana",
+      "sourceUrl": "https://www.inaturalist.org/photos/437594584",
+      "caption": "Cặp cá anh đào bơi trong bể kính",
+      "best": true,
+      "kind": "pair",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/253724015.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/253724015-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Kaushalya Suwandahennadi",
+      "sourceUrl": "https://www.inaturalist.org/photos/253724015",
+      "caption": "Cá anh đào trưởng thành bơi giữa đá trong bể",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/669081426.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/669081426-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "王弘德",
+      "sourceUrl": "https://www.inaturalist.org/photos/669081426",
+      "caption": "Cá anh đào bơi trong môi trường nước tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/352560167.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/352560167-480.webp",
+      "width": 1024,
+      "height": 707,
+      "licence": "CC BY-NC",
+      "author": "Shaveen Madushka",
+      "sourceUrl": "https://www.inaturalist.org/photos/352560167",
+      "caption": "Cá anh đào có sọc dọc thân trong bể ảnh nhỏ",
+      "best": false,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/729506149.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/729506149-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "昆虫学liuye",
+      "sourceUrl": "https://www.inaturalist.org/photos/729506149",
+      "caption": "Cá anh đào nhìn nghiêng trên nền trắng",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 35,
+  "updatedAt": "2026-11-18",
+  "builtAt": "2026-11-18"
 }

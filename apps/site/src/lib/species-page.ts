@@ -1,9 +1,9 @@
 import type { Content, Localized, SectionKey, SpeciesEntity } from '@aq/schema'
 import { breedsOf } from './breeds'
-import { companionsOf } from './companions'
+import { companionsOf, matePhoto } from './companions'
 import { GALLERY_COLUMN, GALLERY_STRIP } from './gallery'
-import { albumOf, hasPhotoPage } from './photo-page'
-import { served, translator, type Lang } from './i18n'
+import { albumOf, hasAlbum } from './photo-page'
+import { translator, type Lang } from './i18n'
 import { guideImages, guidesMentioning } from './mentions'
 import { morePhotos, pagePictures, takeEach } from './pictures'
 import { foldNearEmpty } from './sections'
@@ -49,12 +49,14 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   // A page AquaTome wrote itself from research (no licensed source has the species): the pages it researched, not a source it translated.
   const researched = s.refs?.length && s.sections.every(x => x.source === 'aquatome') ? s.refs.length : 0
   const summary = await approvedSummary(s.id)
-  // The gallery as its page has it (each picture once), so a thumb opens its own photo there.
+  // The album (each picture once), so a thumb opens its own photo in the viewer over the page.
   const pics = pagePictures(c)
   pics.add(s.photos[0]?.url)
   const gallery = albumOf(c, 'species', s)
+  // The app's gallery still links the album's old address (app-page.ts galleryBlock), which forwards to this page; the app
+  // doesn't open it, and protocols/page-vectors.json holds it until the protocols next change.
   const galleryPath = `/vi/ca/${s.t.slug}/anh/`
-  const grid = hasPhotoPage(gallery) && served(lang, galleryPath)
+  const grid = hasAlbum(gallery)
   const strip = grid ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
   const figures = s.photos.slice(1).filter(p => pics.take([p]))
   // Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.
@@ -67,16 +69,19 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const more = strip.some(Boolean) ? morePhotos(pics, gallery, strip, GALLERY_COLUMN) : []
   const mates = await companionsOf(lang, c, s.id)
   const showMates = !!(mates.self.temperament || mates.self.schoolMin || mates.good.length || mates.avoid.length)
+  // A tank mate's picture is one the page shows (Companions.astro), so a video card doesn't take it again: the Sterba's
+  // corydoras page showed the angelfish's under "Tránh" and on an angelfish guide's card (the live checks, 19 Nov 2026).
+  if (showMates) for (const m of [...mates.good, ...mates.avoid]) pics.add(matePhoto(m.s)?.url)
   const tool = `/vi/cong-cu/nuoi-chung/?ca=${s.t.slug}${mates.self.schoolMin ? `:${mates.self.schoolMin}` : ''}`
   // A heading over a few words ("Mouthbrooder.") is shown as a quick fact instead (lib/sections.ts).
   const text = foldNearEmpty(s.sections, s.t, t)
-  // The jump row: the care questions, the shop, then the gallery page at its end, with how many it has. A fish with no
-  // grid has no chip for its photos: the photo is right above the row.
+  // The jump row: the care questions, the shop, then the album at its end, with how many it has, which its chip opens
+  // over the page (#a1, scripts/album.ts). A fish with no album has no chip for its photos: the photo is right above the row.
   const written = (key: SectionKey) => text.sections.some(x => x.key === key && text.t.sections[`${key}:${x.source}`])
   const jumps = jumpRow<JumpChip>([
     ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
     ...(kit ? [{ href: '#mua-do', label: t('Mua đồ') }] : []),
-    ...(grid ? [{ href: galleryPath, label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
+    ...(grid ? [{ href: '#a1', label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
   ])
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   // The video guides' cards last, as on the page: two of one channel can carry the same photo.

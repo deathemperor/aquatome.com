@@ -1,0 +1,151 @@
+{
+  "id": "xiphophorus-andersi",
+  "scientificName": "Xiphophorus andersi",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Xiphophorus",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico",
+    "rio-atoyac"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Rio Atoyak"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Xiphophorus andersi comes from the Rio Atoyak in the state of Veracruz, Mexico, which is one of the Atlantic processes of the Central American country.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Rio Atoyak"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350153,
+      "total": 2,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "MX",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -97.03125,
+          18.28125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "html": "<p>Xiphophorus andersi comes from the Rio Atoyak in the state of Veracruz, Mexico, which is one of the Atlantic processes of the Central American country. The species was only scientifically described in 1980 and seems to occur only very locally.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "html": "<p>The fish are demanding to look after. It is important to pay attention to the best water quality; generous, regular partial water changes are absolutely obligatory, so that these rare animals thrive well in the long run.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "html": "<p>In this species there are small early males and large late males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "html": "<p>In practical breeding it has been shown that it is better to leave both forms in the breeding line (many breeders tend to exclude the early males from breeding), because otherwise there is the danger that the offspring consists only of animals of one sex (one cannot predict whether male or female).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/5b426d105d0f6b05.webp",
+      "thumb": "https://media.aquatome.com/glaser/5b426d105d0f6b05-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ed45a3ccfef61401.webp",
+      "thumb": "https://media.aquatome.com/glaser/ed45a3ccfef61401-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9a3ccafa7b9effe4.webp",
+      "thumb": "https://media.aquatome.com/glaser/9a3ccafa7b9effe4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7f022b90f20a576a.webp",
+      "thumb": "https://media.aquatome.com/glaser/7f022b90f20a576a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-andersi-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước bể cá",
+        "test pH nước"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá đẻ con",
+        "thức ăn cá kiếm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

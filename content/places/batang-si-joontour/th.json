@@ -3,6 +3,12 @@
   "name": "บาตังซีโจนตูร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T12:53:09.145Z",
+    "why": "The Thai is a plausible phonetic rendering of \"Batang Si Joontour\" written in Thai script, but the place can't be identified (Batang means \"river\" in Indonesian, and the Joontour spelling looks unusual), so it's unclear whether a kind word like แม่น้ำ is missing."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

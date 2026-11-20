@@ -147,6 +147,37 @@ test('a text worse for a sentence the mender may fix is mended and read again, n
   expect(existsSync(join(root, PUT_BACK))).toBe(false)
 })
 
+// What a mend leaves for after the gate keeps its text (a guide's other languages let back into the chat) is done only
+// then: a mended text the gate puts back leaves nothing behind (Astra's read of #1690).
+test('a mend\'s after-step runs only when the gate keeps the mended text', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p><p>Thay nước mỗi tuần.</p>` })
+  const kept: string[] = []
+  const r = await gate(root, { llm: reader(), now, mend: Object.assign(cutter(root, []), { kept: async (p: { id: string }) => { kept.push(p.id) } }) })
+  expect(r.report.mended).toHaveLength(1)
+  expect(kept).toEqual(['youtube-r53ZQW0m8VM'])
+  const again = await repo()
+  await edit(again, GUIDE, t => { t.body = `${t.body as string}<p>Mua lọc ở Petco.</p>` })
+  const worse = async () => { await edit(again, GUIDE, t => { t.body = `${t.body as string}<p>Hoặc Petco gần nhà.</p>` }); return true }
+  const none: string[] = []
+  const back = await gate(again, { llm: reader(), now, mend: Object.assign(worse, { kept: async (p: { id: string }) => { none.push(p.id) } }) })
+  expect(back.report.revert).toHaveLength(1)
+  expect(none).toEqual([])
+})
+
+// The mend converts no units (video-mend.ts, 19 Nov 2026): a live page's new text worse for units beside a shop would be
+// as worse once mended, so it goes back with no editor paid for.
+test('a live text worse for units beside a sentence the mender may fix goes back, with no mend', async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p><p>Bể 10 gallon là đủ.</p>` })
+  const sent: FitFinding[][] = []
+  const r = await gate(root, { llm: reader(), now, mend: cutter(root, sent) })
+  expect(sent).toEqual([])
+  expect(r.report.mended).toEqual([])
+  expect(r.report.revert).toHaveLength(1)
+  expect((await readJson(root, GUIDE)).body).not.toContain('Petco')
+})
+
 test('a text put back is kept, with its checks and their quotes: the text before a mend that failed, not the mend', async () => {
   const root = await repo()
   const before = await readFile(join(root, GUIDE), 'utf8')

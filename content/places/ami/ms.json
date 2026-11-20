@@ -3,6 +3,12 @@
   "name": "Ami",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.15,
+    "at": "2026-11-18T00:43:45.788Z",
+    "why": "\"Ami\" is only a species epithet or the Ami River in the source's type-locality sentence, not a region name, so it doesn't fit a range covering Pakistan, India, Nepal and Bangladesh."
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Po He",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T17:59:35.067Z",
+    "why": "The source calls it the Po-He, a river (headwaters of a tributary), so a Malay atlas would write \"Sungai Po-He\"; \"Po He\" omits the kind word \"Sungai\" and drops the hyphen."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

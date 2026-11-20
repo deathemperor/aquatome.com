@@ -1,0 +1,30 @@
+{
+  "slug": "amazon-frogbit",
+  "name": "Amazon Frogbit",
+  "altNames": [
+    "Frogbit",
+    "South American Frogbit",
+    "Limnobium",
+    "Amazon Frogbit tisu kultur"
+  ],
+  "sections": {
+    "quickFacts:tropica": "<ul><li>Asal: Amerika Selatan</li><li>Kadar pertumbuhan: sederhana</li><li>Ketinggian: 3–5+ cm (purata selepas dua bulan dalam tangki)</li><li>Keperluan cahaya: rendah</li><li>Keperluan CO2: rendah</li></ul>",
+    "maintenance:aquatome": "<p>Amazon frogbit ialah tumbuhan terapung. Ia cuma perlu diletakkan di permukaan air, bukan ditanam dalam substrat. Spesies ini paling sesuai untuk akuarium terbuka, tetapi dalam tangki biasa pun ia boleh tumbuh cantik. Akarnya yang panjang dan halus berjuntai di dalam air dan menjadi tempat berlindung untuk ikan gurami serta ikan lapisan permukaan lain yang suka akar tumbuhan terapung. Apabila nutrien dalam air mencukupi dan cahaya cukup kuat, daun baharu akan naik di atas permukaan air. Ketika itu mungkin perlu dibuang sebahagiannya supaya tumbuhan di bawah masih mendapat sedikit cahaya. Jika frogbit tiba-tiba tumbuh jauh lebih perlahan, itu tanda nutrien dalam air sudah habis.</p>",
+    "maintenance:tropica": "<p>Jika nutrien dalam air mencukupi dan keamatan cahaya baik, daun baharu akan muncul di atas permukaan air. Mungkin perlu dibuang sebahagiannya supaya tumbuhan di bawah masih mendapat sedikit cahaya. Apabila paras nutrien dalam air menurun, ia akan tumbuh jauh lebih perlahan. Ini menjadikannya penunjuk yang sangat baik bagi nutrien yang ada dalam air.</p>",
+    "notes:tropica": "<p>Tumbuhan akuarium hasil kultur tisu dalam cawan tertutup. Limnobium laevigatum dari Amerika Selatan ialah tumbuhan terapung hiasan yang sangat sesuai untuk akuarium terbuka. Ketinggiannya 1–5 cm dan lebar daunnya 5–15 cm. Ia juga sesuai untuk akuarium biasa kerana akarnya yang halus, panjang dan cantik menjadi tempat berlindung untuk ikan gurami serta ikan permukaan lain yang suka akar tumbuhan terapung.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": true,
+    "bySource": {
+      "tropica": 0.95,
+      "aquatome": 0.95
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-17"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "moenkhausia-heikoi",
+  "native": {
+    "input": "a96ff88e159be226",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "A tetra from the Rio Xingu, described only in 2004.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moenkhausia heikoi",
+    "status": "ACCEPTED",
+    "taxonKey": 2352621,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "youtube-R4CcI2Uemnk",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=R4CcI2Uemnk",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "betta-splendens",
+    "eleocharis-parvula",
+    "glossostigma-elatinoides",
+    "anubias-barteri"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "R4CcI2Uemnk",
+    "title": "*Betta Fish* Aqua Terrarium Build - 60cm Aquarium / Paludarium Aquascape",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1020,
+    "publishedAt": "2019-10-15",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 65
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/R4CcI2Uemnk/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Betta splendens",
+      "Eleocharis parvula",
+      "Glossostigma elatinoides",
+      "Anubias barteri",
+      "Hydrocotyle sp."
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 33
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Tropica Substrate",
+        "t": 96
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 96
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Oase",
+        "model": "BioMaster 250",
+        "t": 554
+      },
+      {
+        "category": "co2",
+        "type": "binh",
+        "brand": "Tropica",
+        "model": "Plant Growth System Nano",
+        "t": 381
+      },
+      {
+        "category": "khac",
+        "brand": "Tetra",
+        "model": "SafeStart",
+        "t": 805
+      }
+    ]
+  }
+}

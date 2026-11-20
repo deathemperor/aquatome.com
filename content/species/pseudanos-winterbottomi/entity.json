@@ -7,7 +7,10 @@
   "group": "tetras",
   "places": [
     "south-america",
-    "venezuela"
+    "venezuela",
+    "orinoco",
+    "brazil",
+    "tapajos"
   ],
   "range": {
     "records": {
@@ -112,56 +115,56 @@
         "source": "glaser",
         "value": 15
       }
-    ],
-    "difficulty": [
-      {
-        "source": "glaser",
-        "value": 3
-      }
     ]
   },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>Pseudanos winterbottomi reaches a length of about 15 cm, so it belongs to the group of medium-sized headstanders. Suggested common name: Striped Bambi Headstander.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>Pseudanos winterbottomi becomes about 15 cm long, so it belongs to the medium-sized headstanders. It should be kept at 26-28°C.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>This rare headstander was scientifically described only in 2005. It is only very occasionally imported as a by-catch from Venezuela. Mostly the animals were found among Anostomus ternetzi or Pseudanos trimaculatus.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>The species was imported from Venezuela. Pseudanos winterbottomi and Anostomus ternetzi obviously live together in their natural habitat.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>Known from the Orinoco in Venezuela and the Tapajós in Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>Like all other headstanders, it should be kept in large aquariums rich in cover and planted as well as possible.</p>"
     },
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>The chemical composition of the water is of no importance. Keep these fish at temperatures between 26 and 28°C.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>Like all other headstanders, they do well in large, well-planted aquariums with many hiding places.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>The chemical composition of the water is insignificant; the animals should be cared for at 26-28°C.</p>"
     },
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>The species readily accepts any usual food for ornamental fish. Headstanders need some vegetable matter in their food, otherwise they will destroy aquatic plants.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>When feeding, pay attention to the need for vegetable food, otherwise aquarium plants will be eaten. P. winterbottomi eats all common ornamental fish food.</p>"
     },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>Young specimens (4-6 cm) kept together in a group were quite peaceful towards each other, and no fin damage occurred. However, at least 10 specimens must be kept together, otherwise they start fighting immediately. Large specimens were kept singly. The youngsters also like to swim in mixed schools with Anostomus ternetzi.</p><p>The best company are other headstanders, such as Anostomus ternetzi, but P. winterbottomi can also be kept with other peaceful tetras, cichlids and catfish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>For headstander conditions, the species should be classified as peaceful. Both conspecifics and other fish are usually left alone. The best company are other headstanders, e.g. the species mentioned above, but also other peaceful tetras, cichlids and catfish.</p>"
     },
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
-      "html": "<p>Anostomus ternetzi (golden striped headstander) is widely distributed in South America, recorded from Brazil, French Guyana, Guyana, Suriname and Venezuela. It is among the most peaceful headstanders and stays smaller than Anostomus anostomus, which can exceed 16 cm, while A. ternetzi reaches only about 12 cm. In very young A. ternetzi the broad body band has wavy edges, which later become straight in many specimens; possibly this is a secondary sexual character.</p><p>Lexicon: Pseudanos means \"false Anostomus\". winterbottomi honours Richard Winterbottom, curator emeritus for ichthyology at the Royal Ontario Museum, Canada.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "html": "<p>Young animals are brightly ochre colored with a dark vertical stripe, which remains lifelong but is not clearly recognizable in all mood colorings. A golden shine becomes visible with frontlight. With age the fish become darker overall, the caudal fin turns deep orange, and the golden shine is present above all on the back scales. The colour change ability is amazing. The colour scheme is reminiscent of delicacies and fruit offered at Christmas, hence the proposed common name \"Chocolate Headstander\".</p><p>Pseudanos means \"false Anostomus\". winterbottomi is a dedication name for Richard Winterbottom, curator emeritus for ichthyology at the Royal Ontario Museum, Canada.</p>"
     }
   ],
   "photos": [
@@ -194,9 +197,52 @@
       "author": "Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-and-anostomus-ternetzi/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/42da098a637d813b.webp",
+      "thumb": "https://media.aquatome.com/glaser/42da098a637d813b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/cd87e17b0dd96cc9.webp",
+      "thumb": "https://media.aquatome.com/glaser/cd87e17b0dd96cc9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/464bdd409aaa8e95.webp",
+      "thumb": "https://media.aquatome.com/glaser/464bdd409aaa8e95-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pseudanos-winterbottomi-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "2XrdS_fZf2Q",
+      "title": "Pseudanos winterbottomi (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 45,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jIwtBaoJcUM",
+      "title": "Adding P.  winterbottomi and 3 spot Headstander-July 2022 Aquarium Update",
+      "durationSec": 687,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -219,5 +265,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-19"
 }

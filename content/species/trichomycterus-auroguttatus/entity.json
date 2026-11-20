@@ -10,6 +10,76 @@
     "brazil",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Preto River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Marimbondo, tributary of Rio Preto, Rio Paraiba basin, 1 kilometer west of Visconde de Mauá, Rio de Janeiro, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul",
+            "Preto River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2343203,
+      "total": 30,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          30
+        ]
+      ],
+      "cells": [
+        [
+          -45,
+          -23.90625,
+          12,
+          12
+        ],
+        [
+          -45,
+          -22.5,
+          15,
+          15
+        ],
+        [
+          -45,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -19.6875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

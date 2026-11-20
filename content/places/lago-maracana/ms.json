@@ -3,6 +3,12 @@
   "name": "Tasik Maracanã",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T00:06:11.271Z",
+    "why": "\"Tasik\" is the correct Malay kind word, but \"Maracanã\" keeps the Portuguese tilde, whereas a Malaysian atlas would likely write \"Tasik Maracana\" (matching the Vietnamese form)."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

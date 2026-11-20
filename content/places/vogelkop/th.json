@@ -1,8 +1,13 @@
 {
   "slug": "vogelkop",
-  "name": "โฟเกิลค็อป",
+  "name": "คาบสมุทรโฟเกลคอป",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-19T00:43:37.437Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

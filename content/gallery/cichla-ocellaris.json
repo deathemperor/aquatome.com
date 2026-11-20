@@ -2,16 +2,18 @@
   "id": "cichla-ocellaris",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/65592566.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65592566-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/341991208.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/341991208-480.webp",
       "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ben Machado",
-      "sourceUrl": "https://www.inaturalist.org/photos/65592566",
-      "caption": "Cá vược công với sọc ngang rõ, bơi gần mặt nước ngoài tự nhiên",
+      "height": 513,
+      "licence": "CC0",
+      "author": "Whaldener Endo",
+      "sourceUrl": "https://www.inaturalist.org/photos/341991208",
+      "caption": "Cá vược công con có sọc đen trong khay chụp ảnh",
       "best": true,
-      "kind": "habitat"
+      "kind": "juvenile",
+      "setup": true,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/109877666.webp",
@@ -22,30 +24,6 @@
       "author": "Zygy",
       "sourceUrl": "https://www.inaturalist.org/photos/109877666",
       "caption": "Cá vược công trưởng thành bơi trong nước suối trong, sọc đứng rõ",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/116456091.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/116456091-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Mike Tilley",
-      "sourceUrl": "https://www.inaturalist.org/photos/116456091",
-      "caption": "Cá vược công có đốm mắt ở đuôi, bơi gần thực vật thủy sinh",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/177205590.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/177205590-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "sudomir",
-      "sourceUrl": "https://www.inaturalist.org/photos/177205590",
-      "caption": "Cá vược công có đốm đuôi bơi giữa cỏ nước",
       "best": true,
       "kind": "habitat"
     },
@@ -216,18 +194,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/ffca8aa1b90741ac.webp",
-      "thumb": "https://media.aquatome.com/commons/ffca8aa1b90741ac-480.webp",
-      "width": 1200,
-      "height": 799,
-      "licence": "CC BY-SA 4.0",
-      "author": "MOs810",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Gdynia_(okon_pawi).jpg",
-      "caption": "Cá vược công lớn bơi trong bể chung với cá khác",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/130807505.webp",
       "thumb": "https://media.aquatome.com/inaturalist/130807505-480.webp",
       "width": 1024,
@@ -326,20 +292,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/341991208.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/341991208-480.webp",
-      "width": 1024,
-      "height": 513,
-      "licence": "CC0",
-      "author": "Whaldener Endo",
-      "sourceUrl": "https://www.inaturalist.org/photos/341991208",
-      "caption": "Cá vược công con có sọc đen trong khay chụp ảnh",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/c1fbc82879ee5da0.webp",
       "thumb": "https://media.aquatome.com/commons/c1fbc82879ee5da0-480.webp",
       "width": 1200,
@@ -350,6 +302,18 @@
       "caption": "Hai cá vược công bơi cùng nhau trong bể",
       "best": true,
       "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65592566.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65592566-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ben Machado",
+      "sourceUrl": "https://www.inaturalist.org/photos/65592566",
+      "caption": "Cá vược công với sọc ngang rõ, bơi gần mặt nước ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/dadaaba7b495aacb.webp",
@@ -364,6 +328,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/116456091.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/116456091-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Mike Tilley",
+      "sourceUrl": "https://www.inaturalist.org/photos/116456091",
+      "caption": "Cá vược công có đốm mắt ở đuôi, bơi gần thực vật thủy sinh",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d17bbeeb1764c15d.webp",
       "thumb": "https://media.aquatome.com/commons/d17bbeeb1764c15d-480.webp",
       "width": 1200,
@@ -373,6 +349,30 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Dvur_zoo_1_(cropped).jpg",
       "caption": "Cận cảnh cá vược công màu vàng cam với vằn đen",
       "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/177205590.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/177205590-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "sudomir",
+      "sourceUrl": "https://www.inaturalist.org/photos/177205590",
+      "caption": "Cá vược công có đốm đuôi bơi giữa cỏ nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ffca8aa1b90741ac.webp",
+      "thumb": "https://media.aquatome.com/commons/ffca8aa1b90741ac-480.webp",
+      "width": 1200,
+      "height": 799,
+      "licence": "CC BY-SA 4.0",
+      "author": "MOs810",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichla_ocellaris_Gdynia_(okon_pawi).jpg",
+      "caption": "Cá vược công lớn bơi trong bể chung với cá khác",
+      "best": false,
       "kind": "other"
     }
   ],

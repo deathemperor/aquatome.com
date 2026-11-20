@@ -13,6 +13,193 @@
     "sarawak",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "SG",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sumatra",
+        "Kapuas River",
+        "Batang Hari",
+        "Natuna Besar"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Sungei Pinyuh, 8 kilometers southeast of Anjungan on road to Pontianak, 0°20'N, 109°08'E, Kalimantan Barat, Borneo', but this species is widely distributed in Peninsular Malaysia, Singapore, and the Greater Sunda Islands of Borneo and Sumatra.",
+          "countries": [
+            "MY",
+            "SG"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Sumatra it has been recorded in the Batang Hari river system and on Natuna Besar, also known as Bunguran Island, one of the most northerly islands in Indonesia and part of the Riau Islands province.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Batang Hari",
+            "Natuna Besar"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Borneo the majority of collections have occurred in the Kapuas River basin in the Indonesian provinces of West Kalimantan (Kalimantan Barat) and Central Kalimantan (Kalimantan Tengah).",
+          "countries": [],
+          "regions": [
+            "Kapuas River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962670,
+      "total": 118,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "ID",
+          65
+        ],
+        [
+          "MY",
+          52
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          4.21875,
+          5,
+          5
+        ],
+        [
+          101.25,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          -4.21875,
+          8,
+          8
+        ],
+        [
+          102.65625,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          102.65625,
+          1.40625,
+          17,
+          17
+        ],
+        [
+          102.65625,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          102.65625,
+          4.21875,
+          13,
+          13
+        ],
+        [
+          105.46875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          -2.8125,
+          22,
+          22
+        ],
+        [
+          106.875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          10,
+          10
+        ],
+        [
+          112.5,
+          0,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -175,7 +362,7 @@
       "width": 640,
       "height": 458,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Ola Åhlander / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trigonopoma-gracile",
       "caption": "Adult female specimen.",
       "source": "seriouslyfish"

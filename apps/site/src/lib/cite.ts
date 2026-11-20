@@ -1,6 +1,6 @@
 import type { Photo } from '@aq/schema'
 import { alterationNotice } from './gallery'
-import { licenceLabel, translator, type Lang } from './i18n'
+import { isVietnameseTitle, licenceLabel, translator, type Lang } from './i18n'
 import { isUnsplash, unsplashParts, type CreditPart } from './unsplash'
 
 // Sources as small marks instead of a credit line under every block or photo: a numbered mark for a text source (its
@@ -18,7 +18,9 @@ export function citeMark(lang: Lang, n: number, name: string, url: string, card?
   const t = translator(lang)
   const tip = card?.tip ?? `${host(url)} · ${t('dịch từ nguồn')}`
   const more = card?.more ?? t('Mở bài gốc ↗')
-  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(name)}" data-tip="${esc(tip)}" data-more="${esc(more)}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name }))}">${n}</a>`
+  // A source named in Vietnamese says so on a page in another language, as the source list beside it does.
+  const named = lang !== 'vi' && isVietnameseTitle(name) ? `${name} (${t('tiếng Việt')})` : name
+  return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(named)}" data-tip="${esc(tip)}" data-more="${esc(more)}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name: named }))}">${n}</a>`
 }
 
 type Credited = Pick<Photo, 'author' | 'authorUrl' | 'licence' | 'sourceUrl' | 'generated' | 'altered'>

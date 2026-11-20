@@ -1,0 +1,68 @@
+{
+  "id": "zaireichthys-camerunensis",
+  "native": {
+    "input": "fb62a54416b1de36",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Bénoué basin at Lakdo, Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: only in the Niger basin, including the Upper Niger and the Bénoué (Upper Bénoué), in Nigeria and Cameroon.",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: only in the Niger basin, including the Upper Niger and the Bénoué (Upper Bénoué), in Nigeria and Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "planetcatfish",
+        "quote": "Africa: only in the Niger basin, including the Upper Niger and the Bénoué (Upper Bénoué), in Nigeria and Cameroon.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Bénoué",
+        "source": "planetcatfish",
+        "quote": "Africa: only in the Niger basin, including the Upper Niger and the Bénoué (Upper Bénoué), in Nigeria and Cameroon.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Zaireichthys camerunensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340783,
+    "datasets": [],
+    "native": [
+      "CM",
+      "NG"
+    ],
+    "requests": 2,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

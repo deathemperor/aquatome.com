@@ -1,0 +1,310 @@
+{
+  "id": "filopaludina-martensi",
+  "scientificName": "Filopaludina martensi",
+  "order": "Architaenioglossa",
+  "family": "Viviparidae",
+  "genus": "Filopaludina",
+  "group": "snails",
+  "places": [
+    "asia",
+    "indonesia",
+    "thailand",
+    "malaysia",
+    "vietnam",
+    "cambodia",
+    "laos"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "TH",
+        "MY",
+        "VN",
+        "KH",
+        "LA"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).",
+          "countries": [
+            "ID",
+            "TH",
+            "MY",
+            "VN",
+            "KH",
+            "LA"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7711008,
+      "total": 17,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TH",
+          15
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          16.875,
+          5,
+          5
+        ],
+        [
+          101.25,
+          16.875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 2,
+          "max": 4
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Other names: White Ghost Wizard Snail, Ghost Wizard Snail, White Mage Snail, Ghost Piano River Snail, White Trapdoor Snail</li><li>Optimal tank size: 40 litres</li><li>Breeding: easy (slow)</li><li>Optimal KH: 4–12</li><li>Nitrate: less than 40 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li><li>Colour: white with a dark tip</li></ul><p>White Wizard Snail is a relatively new species of freshwater snail in the aquarium hobby. It grows large, prefers warm water and can use its gills to filter feed. It is viviparous, giving birth to live young that develop inside the mother's body. The ecology of this species is poorly researched.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Filopaludina martensi is mainly distributed in Southeast Asia (Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos).</p><p>The species was described by Eduard von Martens in 1860, but until recent years it was almost completely forgotten.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These snails prefer fresh still waters (canals, swamps, ponds, rice fields, ditches, etc.), but can also be found in waters with slow currents (streams and rivers). In the wild they live attached to rocks as well as on sandy bottoms, and mostly feed on detritus.</p><p>Description: the shell is white to off-white with light brown marks, creamy and smooth, often turning a little darker towards the tip. It is thick and broadly conical with 6–7 whorls, the last one swollen, with fine lines on the shell. The snail has an operculum (trap-door) that it uses to close the shell completely when disturbed or threatened. The \"face\" and tentacles are blue, while the body is yellow with brownish spots. The cephalic tentacles are moderately long.</p><p>White Wizard snails can grow up to 5 cm. They can live 3–5 years (according to shell analyses), but in captivity their lifespan barely reaches 2–4 years at most, owing to a lack of care knowledge.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>White Wizard snails are relatively big snails. About 20 litres per adult snail is recommended. It is possible to keep 2–3 snails in a 40-litre tank. Anything smaller will cause problems.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>White Wizard snails are fairly easy to care for and considered low maintenance, as they are very adaptable and do well in a range of water conditions. As with any fish, shrimp or snail tank, make sure the tank is set up correctly and the water is properly cycled. They need careful acclimation, like all invertebrates.</p><p>Substrate: provide a sandy or fine-grained substrate, which serves as a resting and sifting ground where they search for food particles. Ideally it should be deep enough for them to burrow and disappear. Hard substrate (large rocks, gravel) prevents burrowing and can stress them a lot.</p><p>Decorations: decoration, driftwood and plants provide more surface for algae and biofilm growth. Biofilm is one of their favourite foods.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>White Wizard snails are not fussy about water parameters. According to some studies, they are more resistant to heavy metals.</p><ul><li>pH and hardness: aim for pH 7.0–8.0 and a hardness (GH) of 5–20. They can tolerate pH 6.5 and lower, but should not be left in acidic water for a long time (weeks), as acidic water slowly dissolves the shell (usually as tiny holes).</li><li>Temperature: they thrive at 23–26 °C, but will be fine in the range of 20–28 °C.</li><li>Nitrate: less than 40 ppm.</li></ul><p>Like other invertebrates, they are sensitive to copper and copper compounds, so make sure aquarium fertilisers do not contain copper-based chemicals.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Filtration: there are no special requirements. Any filter that suits the size of the tank is fine. There is no need to worry that the flow is too weak for filter feeding, and no secondary pump is needed: apart from rivers, they are mostly found in canals, marshes, swamps and ponds.</p><p>Lighting: White Wizard snails are nocturnal and do not really need light. They do better in a dark or very low-light tank. Lighting should be adapted to the needs of the plants and fish in the tank.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>White Wizard snails are omnivorous and great scavengers. They eat algae, but not very effectively, so choose another species if you want algae control. In nature they mostly feed on detritus (decomposing plant and animal matter).</p><p>They also use their gills to filter feed, trapping small (micro) organisms in the water column, which makes the tank cleaner. This is not their primary way of feeding; it is just an interesting bonus.</p><p>In the aquarium they eat the same food as fish and shrimp (shrimp pellets, shrimp granules, fish flakes, algae wafers, etc.) and may pick up crumbs and leftovers. As this is a pretty big snail, their diet may need supplementing: algae wafers, tablets, pellets or flakes are good options as they sink to the bottom and stay there until the snails find them. Blanched vegetables (carrot, sprouts, spinach, cucumber, zucchini) are also welcome.</p><p>Provide a calcium supplement to keep the shell healthy; calcium prevents shell deterioration.</p><p>Plant safety: they are plant safe unless starving and unable to find any other food. This is avoided by feeding them regularly and giving fresh vegetables.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>White Wizard snails are non-aggressive, solitary and very shy by nature. They prefer a calm environment and peaceful tank mates. They have no means of attacking other inhabitants, only the operculum and shell for protection.</p><p>They are more active at night and often rest during the day, though once settled in the tank they also come out in the daytime to forage. They are easily scared, which can affect their behaviour: they can be active for some time and then suddenly slow down and barely move for days. Do not panic if they spend a lot of time inside the shell. They are burrowers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>White Wizard snails are gonochoristic: both a female and a male must be present to reproduce. Unlike many other snails, the sexes can be told apart by external features. In males one of the antennae is modified in shape and thicker than the other, while in females both antennae are equal in length and size.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>According to observations, the male approaches the female, crawls over her shell and, at the last whorl, searches for the genital aperture, grasping with his penial sheath and inserting it. Copulation can last a few hours.</p><p>White Wizard snails have a very low reproduction rate, so even large groups are unlikely to overpopulate the aquarium.</p><p>They are viviparous (give birth to live young). The embryos develop in capsules kept in the mother's brood chamber, enveloped by the egg capsule, which breaks before birth. Females give birth mainly at night. The number of babies per female usually varies between 5 and 15, depending on the female's size.</p><p>The young are born with fully developed shells, as fully formed miniatures of the adults. The only difference is that their colour is darker with a yellowish tint; the shell becomes whiter with age. The young should be fed finely powdered food at least once a day to increase their survival rate.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Tank mates: White Wizard snails are very peaceful and suit any community tank.</p><ul><li>Fish: should not be kept with Botia lohacata, cichlids, loaches and goldfish. Some fish do not eat the snails but nip the exposed eyestalks or long tentacles. Suitable tank mates are calm, peaceful community fish (for example Panda Garra, pygmy corydoras and Otocinclus).</li><li>Dwarf shrimp: shrimp that prefer slightly alkaline water are the best choice, for example vampire shrimp, bamboo shrimp, Amano shrimp, ghost shrimp, cherry shrimp, blue tiger shrimp, snowball shrimp, Caridina cf. babaulti, blue velvet shrimp and Malawa shrimp.</li><li>Snails: Black Devil snails, Brotia pagodula, chopstick snails, rabbit snails, nerite snails, mystery snails, ramshorn snails, Malaysian trumpet snails, freshwater clams and others of their kind. Do not keep them with assassin snails, which can eat them.</li><li>Crayfish and crabs: keep them away from all crayfish (even dwarf Mexican crayfish), most freshwater crabs and predatory shrimp such as Macrobrachium, all of which can be very aggressive towards the snails.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/3d83e50c371e510f.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/3d83e50c371e510f-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/white-wizard-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "EgOzSJdgKP4",
+      "title": "Species Profile: White (Ghost) Wizard Snails",
+      "durationSec": 372,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "3avVkqBx0jY",
+      "title": "White Wizard Snail (Filopaludina martensi): Peaceful Freshwater Snail Species Profile Introduction",
+      "durationSec": 205,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Mq84TpBknjk",
+      "title": "What Is This Snail Doing? 🐌",
+      "durationSec": 9,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QZiB7Vez7Pk",
+      "title": "Filopaludina martensi",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh 40 lít",
+        "bể cá mini 40cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền thủy sinh",
+        "cát mịn cho ốc"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "viên tảo cho ốc",
+        "canxi cho ốc tép"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng mini cho bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

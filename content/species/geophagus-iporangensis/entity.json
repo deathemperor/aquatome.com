@@ -266,7 +266,8 @@
       },
       {
         "source": "glaser",
-        "value": 25
+        "value": 25,
+        "overruled": "Glaser's 'about 25 cm'; Seriously Fish gives 90 to 100 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       }
     ],
     "tankCm": [
@@ -287,7 +288,8 @@
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_iporangensis_en/",
-      "html": "<p>Geophagus iporangensis reaches about 25 cm in length and is not shy at all. It is an openbrooding cichlid with biparental brood care. The group (the Geophagus brasiliensis complex) is only poorly understood scientifically.</p>"
+      "html": "<p>Geophagus iporangensis is not shy at all. It is an openbrooding cichlid with biparental brood care. The group (the Geophagus brasiliensis complex) is only poorly understood scientifically.</p>",
+      "fixed": true
     },
     {
       "key": "beforeYouBuy",
@@ -393,7 +395,7 @@
       "width": 677,
       "height": 679,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Hayath / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-iporangensis",
       "caption": "Adult pair from the aquarium trade, male upper.",
       "source": "seriouslyfish"

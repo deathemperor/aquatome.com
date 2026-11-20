@@ -1,8 +1,13 @@
 {
   "slug": "ataran-river",
-  "name": "อัตตะรัน",
+  "name": "แม่น้ำอัตตะรัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.8,
+    "at": "2026-11-18T05:59:40.196Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

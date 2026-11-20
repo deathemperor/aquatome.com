@@ -1,0 +1,113 @@
+{
+  "id": "sciades-couma",
+  "native": {
+    "input": "df9d5d31f8dde210",
+    "at": "2026-11-19T12:55:32.239Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Surinam, probably neighbourhood of Paramaribo.",
+        "words": "Surinam",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The range extends from Venezuela to northern Brazil, restricted to turbid waters in estuaries and the lower reaches of rivers.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The range extends from Venezuela to northern Brazil, restricted to turbid waters in estuaries and the lower reaches of rivers.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Atlantic draining rivers of South America, from the Gulf of Paria to the mouth of the Amazon.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "SR",
+        "VE",
+        "BR"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Sciades couma",
+    "status": "ACCEPTED",
+    "taxonKey": 5202961,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        133
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        128
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        21
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        16
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T12:55:32.239Z"
+  }
+}

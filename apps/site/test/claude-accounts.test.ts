@@ -40,6 +40,7 @@ const ask = () => claude<{ findings: string[] }>(['-p'], dir, 'the prompt')
 let logs: string[] = []
 
 const savedFirst = process.env.CLAUDE_FIRST_ACCOUNT
+const savedGitHub = process.env.GITHUB_ACTIONS
 beforeEach(() => {
   dir = mkdtempSync(join(tmpdir(), 'aq-claude-'))
   writeFileSync(join(dir, 'claude'), STUB)
@@ -52,6 +53,8 @@ beforeEach(() => {
   for (const k of COST) delete process.env[k]
   // A starting position set in the shell that runs the tests would move every default-order case: none but a test's own.
   delete process.env.CLAUDE_FIRST_ACCOUNT
+  // The tests run on GitHub too, where an account is named by its number alone: each test says where it runs.
+  delete process.env.GITHUB_ACTIONS
   resetAccounts()
   logs = []
   vi.spyOn(console, 'log').mockImplementation((...a: unknown[]) => { logs.push(a.join(' ')) })
@@ -61,6 +64,7 @@ afterEach(() => {
   tokens(saved.list, saved.one)
   COST.forEach((k, i) => restore(k, savedCost[i]))
   restore('CLAUDE_FIRST_ACCOUNT', savedFirst)
+  restore('GITHUB_ACTIONS', savedGitHub)
   vi.restoreAllMocks()
 })
 
@@ -79,6 +83,29 @@ test('token 1 out of its weekly limit: the same review runs on token 2, and late
   expect(calls()).toEqual(['tok-weekly', 'tok-ok', 'tok-ok']) // and no call saw the list
   expect(logs).toHaveLength(1)
   expect(logs[0]).toMatch(/^claude: token 1 \([0-9a-f]{8}\) set aside: usage limit$/)
+})
+
+test('on GitHub, where the log is public, an account set aside is named by its number alone', async () => {
+  tokens('tok-weekly\ntok-bad\ntok-ok')
+  process.env.GITHUB_ACTIONS = 'true'
+  expect(await ask()).toEqual({ findings: ['ok'] })
+  expect(logs.filter(l => l.startsWith('claude: token'))).toEqual(['claude: token 1 set aside: usage limit', 'claude: token 2 set aside: credential rejected'])
+  // Beside each failed try, a line of ours: the kind, the model, the step, the try and the exit code (claude-limit.ts).
+  expect(logs.filter(l => l.startsWith('claude: a call failed'))).toEqual(['claude: a call failed: usage limit; model default; step none; try 1; exit 1', 'claude: a call failed: credential rejected; model default; step none; try 2; exit 1'])
+})
+
+test("on GitHub a review's failed call says its kind in our words, none of the CLI's, and a limit is still a skip (the chief of staff, 19 Nov)", async () => {
+  process.env.GITHUB_ACTIONS = 'true'
+  tokens('tok-broke')
+  const e: Error = await ask().catch(e => e)
+  expect(e.message).toBe('claude failed (1): other')
+  tokens('tok-weekly')
+  resetAccounts()
+  const limit: Error = await ask().catch(e => e)
+  expect(usageLimit(limit.message)).toBe('Claude usage limit')
+  expect(logs.filter(l => l.startsWith('claude: token'))).toEqual(['claude: token 1 set aside: usage limit'])
+  // "other": the hash of the tool's sentence, so the same unknown error is seen to repeat; none of its words.
+  expect(logs[0]).toMatch(/^claude: a call failed: other; model default; step none; try 1; exit 1; sentence [0-9a-f]{8}$/)
 })
 
 // The cloud's list begins with the Mac's two sign-ins; the chief of staff (2026-11-12): the cloud starts on its third.
@@ -106,7 +133,9 @@ test('CLAUDE_FIRST_ACCOUNT: a review starts at that position and goes round to t
 test('every token out of its limit: skipped as the usage limit, and later reviews fail without calling', async () => {
   tokens('tok-weekly\ntok-session')
   const e: Error = await ask().catch(e => e)
-  expect(usageLimit(e.message)).toBe('Claude usage limit: Claude AI usage limit reached|1762300800')
+  // In our own words: none of the CLI's reach the reason, which the PR comment shows.
+  expect(e.message).toBe('claude failed (accounts): every account out of its usage limit')
+  expect(usageLimit(e.message)).toBe('Claude usage limit')
   await expect(ask()).rejects.toThrow(e.message)
   expect(calls()).toEqual(['tok-weekly', 'tok-session'])
 })
@@ -118,7 +147,7 @@ test('a rejected token is skipped; every token rejected fails the review (not a 
   resetAccounts()
   tokens(undefined, 'tok-bad')
   const e: Error = await ask().catch(e => e)
-  expect(e.message).toMatch(/^claude failed \(1\): Failed to authenticate/)
+  expect(e.message).toBe('claude failed (accounts): every account with its credential rejected')
   expect(usageLimit(e.message)).toBeUndefined()
   expect(logs.join('\n')).not.toMatch(/tok-/)
 })

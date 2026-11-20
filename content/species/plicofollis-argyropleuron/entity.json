@@ -1,0 +1,338 @@
+{
+  "id": "plicofollis-argyropleuron",
+  "scientificName": "Plicofollis argyropleuron",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Plicofollis",
+  "group": "catfish",
+  "places": [
+    "oceania",
+    "australia",
+    "papua-new-guinea",
+    "new-guinea",
+    "asia",
+    "china",
+    "india",
+    "indonesia",
+    "java",
+    "malaysia",
+    "philippines",
+    "thailand"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU",
+        "CN",
+        "IN",
+        "ID",
+        "MY",
+        "PG",
+        "PH",
+        "TH"
+      ],
+      "regions": [
+        "Java"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Indo-West Pacific/South and southeast Asia: Southern New Guinea and northern Australia, Australia, China, India, Indonesia, Malaysia, Papua New Guinea, Philippines, Thailand.",
+          "countries": [
+            "AU",
+            "CN",
+            "IN",
+            "ID",
+            "MY",
+            "PG",
+            "PH",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Java.",
+          "countries": [],
+          "regions": [
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2345096,
+      "total": 70,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "AU",
+          37
+        ],
+        [
+          "ID",
+          13
+        ],
+        [
+          "MY",
+          12
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "BD",
+          1
+        ],
+        [
+          "PG",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          71.71875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          77.34375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          21.09375,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          106.875,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          129.375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          129.375,
+          -12.65625,
+          6,
+          6
+        ],
+        [
+          130.78125,
+          -12.65625,
+          7,
+          7
+        ],
+        [
+          132.1875,
+          -12.65625,
+          8,
+          8
+        ],
+        [
+          133.59375,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          136.40625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          139.21875,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          139.21875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -18.28125,
+          5,
+          5
+        ],
+        [
+          140.625,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          144.84375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          144.84375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          150.46875,
+          -23.90625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 50
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p><strong>Family:</strong> Ariidae</p><p><strong>Common name:</strong> Longsnouted catfish</p><p><strong>Size:</strong> 50 cm TL</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Indo-West Pacific/South and southeast Asia: Southern New Guinea and northern Australia, Australia, China, India, Indonesia, Malaysia, Papua New Guinea, Philippines, Thailand. Type locality: Java.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Occurs in inshore waters over soft bottoms.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Feeds on detritus, prawns, soft-bodied organisms, and mud.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p><strong>Description:</strong> Dorsal spines (total): 1; anal spines: 0; anal soft rays: 14–21. Head depressed and elongate, 27–36% (mean 32%) of SL; exposed shield very striate or sharply granular. Narrow supraoccipital process, always keeled. Low set eyes. Small mouth, width 24–40% (mean 31%) of HL. Gill rakers absent on hind aspect of first 2 gill arches. Posterior epithelial ridges of palate run transversely. Caudal peduncle depth 1.3–2.1 in its length.</p><p><strong>Etymology:</strong> The genus name Plicofollis: plico, fold; follis, bellows or windbag, referring to the creased or scalloped swim bladder characteristic of the genus. The specific name argyropleuron: arguros, silver; pleuron, side, referring to the silver belly and sides.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org. Marceniuk, A.P. and N.A. Menezes, 2007. Systematics of the family Ariidae (Ostariophysi, Siluriformes), with a redefinition of the genera. Zootaxa 1416:1-126. Fishes of Australia. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e2cbcf021d362ff3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e2cbcf021d362ff3-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Australian National Fish Collection / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm",
+      "caption": "Plicofollis argyropleuron",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

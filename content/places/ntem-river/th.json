@@ -1,8 +1,13 @@
 {
   "slug": "ntem-river",
-  "name": "เอ็นเตม",
+  "name": "แม่น้ำเอ็นเตม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.82,
+    "at": "2026-11-18T18:23:40.341Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

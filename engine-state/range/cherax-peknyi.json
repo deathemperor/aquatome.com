@@ -1,0 +1,33 @@
+{
+  "id": "cherax-peknyi",
+  "native": {
+    "input": "3b503341db7a096d",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "Cherax peknyi Lukhaup & Herbert, 2008, the zebra lobster, is a colourful freshwater crayfish from New Guinea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax peknyi",
+    "status": "ACCEPTED",
+    "taxonKey": 5789930,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

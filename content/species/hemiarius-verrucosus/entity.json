@@ -1,0 +1,151 @@
+{
+  "id": "hemiarius-verrucosus",
+  "scientificName": "Hemiarius verrucosus",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Hemiarius",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "laos",
+    "mekong"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Laos, Champasak, Mekong River at Ban Hang Khone, just downstream from Khone Falls.",
+          "countries": [
+            "LA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: middle and lower Mekong River basin.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344904,
+      "total": 3,
+      "fetched": "2026-11-18",
+      "countries": [
+        [
+          "KH",
+          1
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          2,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 12,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 80
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_verrucosus.htm",
+      "html": "<ul><li>Synonym: Arius verrucosus</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_verrucosus.htm",
+      "html": "<p>Asia: middle and lower Mekong River basin. Type locality: Laos, Champasak, Mekong River at Ban Hang Khone, just downstream from Khone Falls.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_verrucosus.htm",
+      "html": "<p>Inhabits lower reaches of rivers and estuaries and feeds on fishes and shellfishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_verrucosus.htm",
+      "html": "<p>In most, if not all species, the male carries the relatively large eggs in its mouth until hatching.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_verrucosus.htm",
+      "html": "<p>Etymology: The specific name verrucosus means warty, referring to numerous small bumps on the pectoral spines and dorsal surface of the neurocranium.</p><p>Described by Ng, 2003.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/9476fd9905d2d9c2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9476fd9905d2d9c2-480.webp",
+      "width": 500,
+      "height": 172,
+      "licence": "dùng với sự cho phép",
+      "author": "Phanara Thach / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/ariidae/hemiarius_verrucosus.htm",
+      "caption": "Hemiarius verrucosus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-18"
+}

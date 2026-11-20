@@ -34,6 +34,25 @@ test('a retired guide forwards from each address it had, in each language, to it
   })
 })
 
+// The chief of staff, 17 Nov 2026: the iron fertiliser kit, a foreign seller's products throughout, goes off for good to the
+// guide on choosing a fertiliser, where that guide is a page in the language, and to the guides list where it isn't.
+test('a retired guide that names a guide forwards to it in each language that has it, else to the guides list', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'retired-'))
+  const put = async (lang: string, t: object) => {
+    await mkdir(join(root, 'guides', 'aquariumcoop-blogs-aquarium-iron-fertilizer'), { recursive: true })
+    await writeFile(join(root, 'guides', 'aquariumcoop-blogs-aquarium-iron-fertilizer', `${lang}.json`), JSON.stringify(t))
+  }
+  await put('vi', { slug: 'khi-nao-nen-bon-phan-sat-cho-be-thuy-sinh' })
+  await put('id', { slug: 'pupuk-zat-besi' })
+  const none = { species: [], breeds: [], plants: [], guides: [] }
+  const vi = { ...none, guides: [{ id: 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you', t: { slug: 'nen-chon-loai-phan-nuoc-nao' } }] }
+  const out = await retiredForwards(root, async (lang: Lang) => (lang === 'vi' ? vi : none) as never)
+  expect(out).toEqual({
+    [localizePath('vi', '/vi/huong-dan/khi-nao-nen-bon-phan-sat-cho-be-thuy-sinh/')]: localizePath('vi', '/vi/huong-dan/nen-chon-loai-phan-nuoc-nao/'),
+    [localizePath('id', '/vi/huong-dan/pupuk-zat-besi/')]: localizePath('id', '/vi/huong-dan/'),
+  })
+})
+
 // A stand-in read, 15 Nov 2026: with the guides off, the Vietnamese guides list had 15 numbered pages where it had 17, and
 // /huong-dan/trang/16/ and /17/ answered 404. A list's numbered page the build didn't make goes to its list, in every
 // language, and the Worker is asked for it wherever a list can shrink by guides taken off (the Vietnamese ones only).

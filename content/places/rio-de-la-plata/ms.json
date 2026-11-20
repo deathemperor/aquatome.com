@@ -3,6 +3,12 @@
   "name": "Río de la Plata",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-17T11:36:12.894Z",
+    "why": "The name keeps the Spanish kind word \"Río\" (river) instead of using Malay \"Sungai\", so it reads as an unadapted Spanish name rather than the form a Malaysian atlas would write."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

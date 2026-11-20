@@ -1,0 +1,277 @@
+{
+  "id": "aspredinichthys-tibicen",
+  "scientificName": "Aspredinichthys tibicen",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Aspredinichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "brazil",
+    "trinidad-and-tobago",
+    "suriname"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR",
+        "SR",
+        "TT"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Central and South America: lower portions of rivers and in coastal waters of northern South America from Venezuela to northern Brazil.",
+          "countries": [
+            "VE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Surinam.",
+          "countries": [
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Found in coastal brackish (mangroves) waters and coastal rivers in South America from Venezuela to Brazil including the island nation of Trinidad and Tobago.",
+          "countries": [
+            "TT"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340552,
+      "total": 86,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "GF",
+          63
+        ],
+        [
+          "BR",
+          12
+        ],
+        [
+          "GY",
+          8
+        ],
+        [
+          "SR",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          5.625,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          7.03125,
+          4,
+          0
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          5.625,
+          16,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          42,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -45,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -45,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "scotcat",
+    "quote": "Not seen very often in the hobby, but the requirements for keeping this species would need to include some addition of salt in the water."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm",
+      "html": "<p>Central and South America: lower portions of rivers and in coastal waters of northern South America from Venezuela to northern Brazil. Type locality: Surinam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm",
+      "html": "<p>Found in coastal brackish (mangroves) waters and coastal rivers in South America from Venezuela to Brazil including the island nation of Trinidad and Tobago. Lives in brackish water on river estuaries, mainly in shallow water on muddy bottom substrates.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm",
+      "html": "<p>Not seen very often in the hobby, but the requirements for keeping this species would need to include some addition of salt in the water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm",
+      "html": "<p>This species practices an unusual method of incubation of the eggs, attaching them to the underside of the female who then carries them around. The female develops spongy tentacles on her belly during the breeding season and incubates her eggs by carrying them about attached to these tentacles.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm",
+      "html": "<p>Etymology: The genus name Aspredinichthys: Aspredo, referring to previous placement of A. tibicen in that genus; ichthys, fish. The specific name tibicen: latinisation of trompetter, or trompetfisi (trumpeter), Dutch-Surinamese local name for this and other aspredinid catfishes, alluding to the sound they make when taken out of the water.</p><p>It gets its common name of Tenbarbled Banjo due to the 9–10 pairs of mental and postmental barbels.</p><p>IUCN Red List: despite the limited information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2021).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/04fe2ee550ec56dd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/04fe2ee550ec56dd-480.webp",
+      "width": 500,
+      "height": 242,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Ram / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm",
+      "caption": "Aspredinichthys tibicen",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/107471e8fc77a0ad.webp",
+      "thumb": "https://media.aquatome.com/scotcat/107471e8fc77a0ad-480.webp",
+      "width": 500,
+      "height": 278,
+      "licence": "dùng với sự cho phép",
+      "author": "Erling Holm / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm",
+      "caption": "Aspredinichthys tibicen",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá nước lợ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể nước lợ",
+        "cát mịn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

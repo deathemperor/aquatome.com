@@ -1,0 +1,16 @@
+{
+  "slug": "formosa",
+  "name": "Formosa",
+  "altNames": [],
+  "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:17:34.822Z",
+    "why": "The place is Formosa, a province or city in Argentina, and Malay atlases would normally write it as \"Wilayah Formosa\" or \"Formosa\" for the city, so a bare \"Formosa\" is an acceptable proper name but omits the Malay kind word for a region."
+  },
+  "quality": {
+    "score": 0.3,
+    "indexable": false
+  }
+}

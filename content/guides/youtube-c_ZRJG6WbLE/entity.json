@@ -1,0 +1,104 @@
+{
+  "id": "youtube-c_ZRJG6WbLE",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=c_ZRJG6WbLE",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "puntigrus-tetrazona",
+    "pethia-conchonius",
+    "betta-splendens",
+    "poecilia-reticulata",
+    "pterophyllum-scalare",
+    "astronotus-ocellatus"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "c_ZRJG6WbLE",
+    "title": "Are Tiger Barbs As BAD As They Say?",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 974,
+    "publishedAt": "2026-06-21",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D22HpYCoYOd-7fWROlvG9hV",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/c_ZRJG6WbLE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Puntigrus tetrazona",
+      "Pethia conchonius",
+      "Barbonymus schwanenfeldii",
+      "Betta splendens",
+      "Poecilia reticulata",
+      "Pterophyllum scalare",
+      "Astronotus ocellatus"
+    ],
+    "gear": [
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Xtreme",
+        "model": "Community Flake",
+        "t": 560
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Northfin",
+        "model": "Krill Pellets",
+        "t": 570
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Northfin",
+        "model": "Community Pellets",
+        "t": 580
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "brand": "Xtreme",
+        "model": "Peewee Cichlid/Community Pellets",
+        "t": 590
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "FX6",
+        "t": 740
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "FX4",
+        "t": 800
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "AquaClear",
+        "t": 810
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 690
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 2
+      }
+    ]
+  }
+}

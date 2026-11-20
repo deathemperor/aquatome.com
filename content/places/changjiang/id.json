@@ -1,8 +1,13 @@
 {
   "slug": "changjiang",
-  "name": "Yangtze",
+  "name": "Sungai Yangtze",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T00:47:10.903Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

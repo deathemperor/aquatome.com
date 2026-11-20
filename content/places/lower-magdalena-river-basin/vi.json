@@ -1,6 +1,6 @@
 {
   "slug": "lower-magdalena-river-basin",
-  "name": "lưu vực sông Lower Magdalena",
+  "name": "lưu vực hạ lưu sông Magdalena",
   "altNames": [
     "Lower Magdalena River basin"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

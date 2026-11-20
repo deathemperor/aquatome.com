@@ -3,6 +3,12 @@
   "name": "ลุ่มน้ำลาปลาตา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T12:27:01.766Z",
+    "why": "Thai atlases write the river as \"ริโอเดลาปลาตา\" or \"ลาปลาตา\" (แม่น้ำลาปลาตา), and \"ลุ่มน้ำลาปลาตา\" uses the right kind word and a reasonable spelling, but the standard Thai spelling is \"ลาปลาตา\" and the basin form is fine, so it is mostly correct with minor spelling uncertainty."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

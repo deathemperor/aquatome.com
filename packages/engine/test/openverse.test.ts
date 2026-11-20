@@ -17,7 +17,7 @@ test('a page: Flickr only, by the exact name, open licences, ≥ 800 px, not mat
   const urls: string[] = []
   const api = async (u: string) => {
     urls.push(u)
-    return { json: { page_count: 3, results: [hit('a'), hit('bb', { license: 'by-nc' }), hit('ccc', { width: 500, height: 333 }), hit('dddd', { mature: true }), hit('eeeee', { url: 'https://example.org/x.jpg' }), hit('ffffff', { source: 'wikimedia' })] }, remaining: 150 }
+    return { json: { page_count: 3, results: [hit('a', { title: ' A sample fish in a planted tank ' }), hit('bb', { license: 'by-nc' }), hit('ccc', { width: 500, height: 333 }), hit('dddd', { mature: true }), hit('eeeee', { url: 'https://example.org/x.jpg' }), hit('ffffff', { source: 'wikimedia' })] }, remaining: 150 }
   }
   const p = await openversePage('Paracheirodon innesi', 1, api)
   const q = new URL(urls[0]!).searchParams
@@ -26,6 +26,9 @@ test('a page: Flickr only, by the exact name, open licences, ≥ 800 px, not mat
     key: 'flickr:860070941', url: 'https://live.staticflickr.com/8518/860070941_7a79b898cf_b.jpg', thumb: 'https://live.staticflickr.com/8518/860070941_7a79b898cf_z.jpg',
     width: 1024, height: 683, licence: 'CC BY 2.0', author: 'hydril', sourceUrl: 'https://www.flickr.com/photos/27126711@N00/860070941', openverse: 'a',
   }])
+  // The title comes beside the candidates, for a person choosing by it (the glossary search), and never on a candidate,
+  // which the album step keeps as it is.
+  expect(p.titles).toEqual({ 'flickr:860070941': 'A sample fish in a planted tank' })
   expect(p).toMatchObject({ next: 2, remaining: 150 })
   expect((await openversePage('x', 3, api)).next).toBeNull()
 })

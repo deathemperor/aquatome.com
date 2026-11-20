@@ -4,11 +4,12 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { LlmError } from '../src/claude'
 import { SpeciesSchema } from '@aq/schema'
 import { rankGallery } from '../src/gallery'
-import { cantTellOn, captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { ASIDE_FILE, cantTellOn, captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { modelFailureKind, photoModelStop } from '../src/photo-observations'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -257,6 +258,103 @@ test("a lead nothing has looked at is judged first, Flickr's and Commons' before
     ['b1', 'b2'], // then the turns as before: Commons' photos readers see, the sheet filled from the page's later turn
     ['a1'],
   ])
+})
+
+test("non-commercial album photos that wait are judged last: after every other photo that waits, a page with none too, more-read page or not (the chief of staff, 2026-11-17)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  // In page order: a page with a photo of its own and a non-commercial photo waiting, a page with none of its own whose
+  // album has one of each waiting, and a page with a photo of its own and an open photo waiting.
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] },
+    { id: 'bbb-fish', sci: 'Bbb fish' },
+    { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] },
+  ])
+  const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), `${JSON.stringify({ id, photos, seen: 0, updatedAt: '' }, null, 2)}\n`)
+  await gallery('aaa-fish', [nc('a-nc')])
+  await gallery('bbb-fish', [nc('b-nc'), waits('b-open')])
+  await gallery('ccc-fish', [waits('c-wait')])
+  const seen = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': seen }, [url('c-own')]: { 'ccc-fish': seen } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([
+    ['b-open', 'b-nc'], // the open photo that gives a page with none its first one; its sheet filled from the page's later turns
+    ['c-wait'], // every other photo that waits
+    ['a-nc'], // then the non-commercial one, though its page is read more
+  ])
+  // With room for one sheet, it goes to the open photo that waits, and the non-commercial one waits for a later run.
+  const d2 = model({})
+  const r2 = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] }])
+  await writeFile(join(r2, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [nc('a-nc')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r2, 'content/gallery/ccc-fish.json'), JSON.stringify({ id: 'ccc-fish', photos: [waits('c-wait')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r2, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': seen }, [url('c-own')]: { 'ccc-fish': seen } }))
+  await checkPagePhotos(r2, d2, { limit: 1 })
+  expect(d2.seen.map(s => s.photos)).toEqual([['c-wait']])
+})
+
+test("the photos that wait on a page that shows no strip go before the turns, the open ones first, then the non-commercial ones; a page with a strip, or a breed's, waits its turn (the chief of staff, 2026-11-19)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const shows = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}` })
+  const commons = (n: string) => ({ ...photo(n), sourceUrl: `https://commons.wikimedia.org/wiki/File:${n}.jpg` })
+  // In page order: a breed whose row shows one album photo, with an open photo waiting; a page whose album shows six,
+  // with one of each waiting; a page with a Commons photo readers see that nothing has judged; a page whose album shows
+  // five, with a non-commercial photo waiting; and one whose album shows one, with an open photo waiting.
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] },
+    { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b-own'] },
+    { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] },
+    { id: 'ddd-fish', sci: 'Ddd fish', photos: ['d-own'] },
+    { kind: 'breeds', id: 'aaa-line', vi: { name: 'Aaa line' }, photos: ['e-own'], extra: { kind: 'variety', basedOn: 'aaa-fish', parents: [] } },
+  ])
+  const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), `${JSON.stringify({ id, photos, seen: 0, updatedAt: '' }, null, 2)}\n`)
+  const six = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6'], five = ['c1', 'c2', 'c3', 'c4', 'c5']
+  await gallery('aaa-fish', [...six.map(shows), waits('a-wait'), nc('a-nc')])
+  await gallery('bbb-fish', [commons('b1')])
+  await gallery('ccc-fish', [...five.map(shows), nc('c-nc')])
+  await gallery('ddd-fish', [shows('d1'), waits('d-wait')])
+  await gallery('aaa-line', [shows('e1'), waits('e-wait')])
+  const seen = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  const judged: [string, string][] = [['a-own', 'aaa-fish'], ...six.map(n => [n, 'aaa-fish'] as [string, string]), ['b-own', 'bbb-fish'], ['c-own', 'ccc-fish'], ...five.map(n => [n, 'ccc-fish'] as [string, string]), ['d-own', 'ddd-fish'], ['d1', 'ddd-fish'], ['e-own', 'aaa-line'], ['e1', 'aaa-line']]
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(Object.fromEntries(judged.map(([n, id]) => [url(n), { [id]: seen }]))))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([
+    ['d-wait'], // the open photo that waits on a page with no strip
+    ['c-nc'], // then the non-commercial one on a page with no strip, though its page is read more
+    ['b1'], // then the turns as before: a Commons photo readers see
+    ['e-wait'], // a breed's row shows at any length: its photo waits its turn, first as the breed is read most
+    ['a-wait', 'a-nc'], // the page with a strip, its sheet filled from its non-commercial photo
+  ])
+})
+
+test("an album's AI picture and a page's own photo that can't lead it, which the build moves to the album, count towards its strip: a non-commercial photo on a page they bring to six waits for last", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const shows = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}` })
+  const five = (p: string) => [1, 2, 3, 4, 5].map(i => `${p}${i}`)
+  // In page order: five album photos and an AI picture; five album photos and, of its own, one cropped too tight to
+  // lead (load.ts moves it to the album); a Commons photo readers see that nothing has judged.
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] },
+    { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b-own'] },
+    { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c-own'] },
+  ])
+  const entity = join(r, 'content/species/bbb-fish/entity.json')
+  const b = await json(r, 'content/species/bbb-fish/entity.json')
+  await writeFile(entity, JSON.stringify({ ...b, photos: [...b.photos, { ...photo('b-tight'), altered: [{ method: 'mark-crop', date: '2026-11-01', originalHash: 'x' }] }] }))
+  const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), JSON.stringify({ id, photos, seen: 0, updatedAt: '' }))
+  await gallery('aaa-fish', [...five('a').map(shows), { ...photo('a-ai'), generated: { model: 'sample' } }, nc('a-nc')])
+  await gallery('bbb-fish', [...five('b').map(shows), nc('b-nc')])
+  await gallery('ccc-fish', [{ ...photo('c1'), sourceUrl: 'https://commons.wikimedia.org/wiki/File:c1.jpg' }])
+  const seen = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  const judged: [string, string][] = [['a-own', 'aaa-fish'], ...five('a').map(n => [n, 'aaa-fish'] as [string, string]), ['b-own', 'bbb-fish'], ['b-tight', 'bbb-fish'], ...five('b').map(n => [n, 'bbb-fish'] as [string, string]), ['c-own', 'ccc-fish']]
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify(Object.fromEntries(judged.map(([n, id]) => [url(n), { [id]: seen }]))))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  // Both pages show a strip: the Commons photo first, then the non-commercial ones in their last turn.
+  expect(d.seen.map(s => s.photos)[0]).toEqual(['c1'])
+  expect(d.seen.flatMap(s => s.photos).sort()).toEqual(['a-nc', 'b-nc', 'c1'])
 })
 
 test("the lead a page shows stays where the check passes it as typical, and gives way to a typical photo where it passes as less, can't be told, is taken off, or has not been judged", async () => {
@@ -797,10 +895,130 @@ test('--only takes several pages, comma-separated, and judges those alone', asyn
 
 test.each(['usage limit', 'invalid model answer'])('a species-check failure retains only the controlled stop kind: %s',async kind=>{
  const r=await root([{id:'danio-rerio',sci:'Danio rerio',photos:['a','b']}]),trip=['TEST','ONLY','FAILED','MODEL','WORDS'].join('_')
- const report=await checkPagePhotos(r,{get:async()=>new Uint8Array(await jpeg),look:async()=>{throw new LlmError(kind+' '+trip)}},{limit:10})
- expect(report.stopped).toBe('danio-rerio: '+(kind==='usage limit'?'usage limit':'photo model unavailable'))
+ const report=await checkPagePhotos(r,{get:async()=>new Uint8Array(await jpeg),look:async()=>{throw new LlmError(kind+' '+trip)}},{limit:10,retryAfterMs:0})
+ // A limit stops the run; any other failure is tried again, then the sheet is set aside, its kind in a word of ours.
+ expect(report.stopped).toBe(kind==='usage limit'?'danio-rerio: usage limit':'')
+ expect(report.aside).toEqual(kind==='usage limit'?[]:['danio-rerio: other'])
  expect(JSON.stringify(report)).not.toContain(trip)
+ expect(await readFile(join(r,'engine-state',ASIDE_FILE),'utf8').catch(()=>'')).not.toContain(trip)
  expect(await urls(r,'content/species/danio-rerio/entity.json')).toEqual(['a','b'])
+})
+
+test("a model failure that isn't a limit: the sheet again after a minute on the same account, then once on the next, each try's kind kept in a word of ours, never the tool's text (the chief of staff, 19 Nov)", async () => {
+  const trip = ['TEST', 'ONLY', 'MODEL', 'WORDS'].join('_')
+  const flaky = (fails: string[], next?: string | null) => {
+    const base = model({})
+    let tries = 0, asked = 0
+    const d: PhotoCheckDeps = {
+      get: base.get,
+      look: async (sheet, prompt) => { if (tries < fails.length) throw new LlmError(fails[tries++]!); tries++; return base.look(sheet, prompt) },
+      ...(next !== undefined ? { lookNext: async (sheet: string, prompt: string) => { asked++; if (next) throw new LlmError(next); return base.look(sheet, prompt) } } : {}),
+    }
+    return { d, tries: () => tries, asked: () => asked }
+  }
+  const page = () => root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a', 'b'] }])
+  // Once overloaded, then answered: a minute's wait, by default, on the same account.
+  const real = globalThis.setTimeout, waits: number[] = []
+  const spy = vi.spyOn(globalThis, 'setTimeout').mockImplementation(((fn: (...a: unknown[]) => void, ms?: number, ...rest: unknown[]) => {
+    if (ms === 60_000) { waits.push(ms); fn(); return 0 }
+    return real(fn, ms, ...rest)
+  }) as typeof setTimeout)
+  const one = flaky(['API Error: 529 {"type":"error","error":{"type":"overloaded_error","message":"' + trip + '"}}'], null)
+  let a: Awaited<ReturnType<typeof checkPagePhotos>>
+  try { a = await checkPagePhotos(await page(), one.d, { limit: 10 }) } finally { spy.mockRestore() }
+  expect(waits).toEqual([60_000])
+  expect([a.retried, a.judged, a.aside, a.stopped, one.asked()]).toEqual([['danio-rerio: overloaded; answered a minute later'], 2, [], '', 0])
+  // Twice a server error: the next account, once, answers.
+  const two = flaky(['API Error: 500 {"type":"error","error":{"type":"api_error","message":"' + trip + '"}}', 'API Error: 500 ' + trip])
+  const b = await checkPagePhotos(await page(), { ...two.d, lookNext: async (sheet, prompt) => model({}).look(sheet, prompt) }, { limit: 10, retryAfterMs: 0 })
+  expect(b.retried).toEqual(['danio-rerio: server error (500), then server error (500) a minute later; the next account answered'])
+  // Nothing answers: set aside, with the last kind, each photo first in the next run; none of the tool's words kept.
+  const r = await page()
+  const three = flaky(['claude timed out after 600 s', 'claude failed (null): ' + trip], 'API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"' + trip + '"}}')
+  const c = await checkPagePhotos(r, three.d, { limit: 10, retryAfterMs: 0, today: '2026-11-19' })
+  expect([three.tries(), three.asked()]).toEqual([2, 1])
+  expect(c.retried).toEqual(['danio-rerio: timed out, then other (killed) a minute later, then other (400 invalid_request_error) on the next account; nothing answered'])
+  expect([c.aside, c.stopped, c.judged]).toEqual([['danio-rerio: other (400 invalid_request_error)'], '', 0])
+  const aside = await json(r, `engine-state/${ASIDE_FILE}`)
+  expect(Object.keys(aside)).toEqual([`danio-rerio ${url('a')}`, `danio-rerio ${url('b')}`])
+  expect(aside[`danio-rerio ${url('a')}`]).toEqual({ kind: 'other (400 invalid_request_error)', at: '2026-11-19' })
+  expect(JSON.stringify([c, aside])).not.toContain(trip)
+})
+
+test('a second sheet set aside stops the run; a sheet set aside goes first in the next run, and leaves the list once judged or gone from its page', async () => {
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b1'] }, { id: 'ccc-fish', sci: 'Ccc fish', photos: ['c1'] }])
+  let looks = 0
+  const failing: PhotoCheckDeps = { get: async () => new Uint8Array(await jpeg), look: async () => { looks++; throw new LlmError('API Error: 500') } }
+  const x = await checkPagePhotos(r, failing, { limit: 10, retryAfterMs: 0 })
+  expect(x.aside).toHaveLength(2)
+  expect(x.stopped).toMatch(/: two sheets set aside, the last server error \(500\)$/)
+  expect(looks).toBe(4)
+  // The next run: with room for one sheet, it goes to a photo set aside, whatever its page's turn.
+  const aside = await json(r, `engine-state/${ASIDE_FILE}`)
+  const [first] = Object.keys(aside).sort().reverse()
+  await writeFile(join(r, `engine-state/${ASIDE_FILE}`), JSON.stringify({ [first!]: aside[first!], [`ccc-fish ${url('gone')}`]: { kind: 'other', at: '2026-11-19' } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([[name(first!.split(' ')[1]!)]])
+  // Judged, it leaves the list; one its page no longer shows leaves too.
+  expect(await json(r, `engine-state/${ASIDE_FILE}`)).toEqual({})
+})
+
+test("a sheet waiting to try again makes no call once another sheet stops the run, and its wait ends there; a limit on a later try keeps the tries before it", async () => {
+  // Two sheets side by side: the other's model fails once and it waits its minute; then this one's is out of its limit.
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a1'] }, { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b1'] }])
+  let calls = 0, failedOnce = () => {}
+  const waiting = new Promise<void>(done => (failedOnce = done))
+  const d: PhotoCheckDeps = {
+    get: async () => new Uint8Array(await jpeg),
+    look: async (_sheet, prompt) => {
+      if (prompt.includes('Aaa fish')) {
+        await waiting
+        await new Promise(done => setTimeout(done, 50))
+        throw new LlmError('claude failed (1): usage limit reached')
+      }
+      calls++
+      failedOnce()
+      throw new LlmError('claude failed (1): API Error: 500')
+    },
+    lookNext: async () => { calls++; throw new LlmError('claude failed (1): API Error: 500') },
+  }
+  const t0 = Date.now()
+  const x = await checkPagePhotos(r, d, { limit: 10, parallel: 2, retryAfterMs: 15_000 })
+  expect(Date.now() - t0).toBeLessThan(5_000)
+  expect(x.stopped).toBe('aaa-fish: usage limit')
+  expect(calls).toBe(1)
+  expect(x.retried).toEqual(['bbb-fish: server error (500); the run stopped before its next try'])
+  expect(x.aside).toEqual([])
+  // One failure, then the limit on the try a minute later: both are kept.
+  const r2 = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a'] }])
+  let n = 0
+  const y = await checkPagePhotos(r2, { get: async () => new Uint8Array(await jpeg), look: async () => { throw new LlmError(n++ ? 'claude failed (1): usage limit reached' : 'claude failed (1): API Error: 529') } }, { limit: 10, retryAfterMs: 0 })
+  expect([y.stopped, y.retried]).toEqual(['danio-rerio: usage limit', ['danio-rerio: overloaded; then a limit stopped the run']])
+  // A failure of another sort on a later try isn't called a limit.
+  let m = 0
+  const z = await checkPagePhotos(await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a'] }]), { get: async () => new Uint8Array(await jpeg), look: async () => { if (m++) throw new TypeError('x'); throw new LlmError('claude failed (1): API Error: 529') } }, { limit: 10, retryAfterMs: 0 })
+  expect([z.stopped, z.retried]).toEqual(['', ['danio-rerio: overloaded; then the sheet failed']])
+}, 30_000)
+
+test("a model failure's kind is a word of ours, with a status number and an error's class name where the tool gave them, never its text", () => {
+  const words = 'TEST_ONLY_WORDS'
+  // Timed out only when the engine's own timer stopped the call (claude.ts); a process stopped otherwise is killed.
+  expect(modelFailureKind(new Error('claude timed out after 600 s'))).toBe('timed out')
+  expect(modelFailureKind(new Error(`claude failed (null): ${words}`))).toBe('other (killed)')
+  expect(modelFailureKind(new Error(`claude returned non-JSON (null): ${words}`))).toBe('other (killed)')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 529 {"type":"error","error":{"type":"overloaded_error","message":"${words}"}}`))).toBe('overloaded')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 500 {"type":"error","error":{"type":"api_error","message":"${words}"}}`))).toBe('server error (500)')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 400 {"type":"error","error":{"type":"invalid_request_error","message":"${words}"}}`))).toBe('other (400 invalid_request_error)')
+  expect(modelFailureKind(new Error('spawn claude ENOENT'))).toBe('other (ENOENT)')
+  expect(modelFailureKind(new Error('fetch failed: ECONNRESET'))).toBe('network (ECONNRESET)') // the code too: errorKind reads it (call-failure.ts)
+  expect(modelFailureKind(new Error(`claude failed (1): ${words}`))).toBe('other')
+  // A name is kept only from the error's own type field, and only one the API has: never a word from the text.
+  expect(modelFailureKind(new Error(`claude failed (1): the sampletown_words_error came up`))).toBe('other')
+  expect(modelFailureKind(new Error(`claude failed (1): API Error: 418 {"type":"error","error":{"type":"sampletown_words_error"}}`))).toBe('other (418)')
+  // The other photo steps' stop (guide photos, the dead-fish screen, the watermark screen, video stills) says it too.
+  expect(photoModelStop(new LlmError(`claude failed (1): API Error: 529 ${words}`))).toBe('photo model unavailable: overloaded')
+  expect(photoModelStop(new LlmError(`claude failed (1): usage limit reached ${words}`))).toBe('usage limit')
 })
 
 test("a head a person picked stays first though the check can't tell it and passed another photo, so the steps before the sweep see the head a person chose", async () => {

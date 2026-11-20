@@ -3,6 +3,12 @@
   "name": "บราซซาวีล",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:18:46.981Z",
+    "why": "The standard Thai spelling is บราซซาวิล (ending ิล), and the given บราซซาวีล is a close but non-standard variant, and as a region it would also normally carry a kind word like แขวง or เขต."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

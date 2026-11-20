@@ -4,16 +4,22 @@
   "altNames": [
     "Cá tetra thủy tinh",
     "Cá tetra pha lê",
-    "Crystal glass tetra"
+    "Crystal glass tetra",
+    "Cá tetra trong suốt",
+    "Mountain crystal tetra"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Cá tetra thủy tinh pha lê (crystal glass tetra) là loài rất hiếm, và giờ lại có một đợt nhập về. Loài cá xinh xắn này chỉ dài tối đa khoảng 4 cm. Tính nó rất hiền.</p>"
+    "quickFacts:glaser": "<p>Cá tetra pha lê núi dài khoảng 4 cm. Dễ nhận ra loài này nhất là nhờ bóng bơi. Bóng bơi của nó chia làm hai, nối với nhau ở phía trên, thành hình giống chữ \"Pi\" của tiếng Hy Lạp cổ. Tên loài cũng từ đó mà ra.</p>",
+    "distribution:glaser": "<p>Loài này được mô tả lần đầu từ mẫu cá ở Bolivia. Còn lô cá nhập về thì có nguồn gốc từ Peru.</p>",
+    "diet:glaser": "<p>Thức ăn cá cảnh thông thường nào chúng cũng ăn ngay.</p>",
+    "behaviour:glaser": "<p>Cá tetra pha lê núi rất hiền, có lẽ hơi nhát. Lúc nào cũng nên nuôi chúng theo đàn. Thân cá hầu như không có màu, vậy mà (hoặc có lẽ chính vì thế) chúng vẫn rất hút mắt. Loài này thả chung với cá hiền được, không có vấn đề gì, và cũng không phá cây thủy sinh.</p>",
+    "notes:glaser": "<p>Cá thân trong suốt có ở nhiều họ cá khác nhau. Người chơi quen nhất với cá sơn thủy tinh (Parambassis và vài chi khác) và cá trèn thủy tinh (Kryptopterus). Thỉnh thoảng cũng có người nuôi cá bống thủy tinh (Gobiopterus) và cá danio pha lê (Danionella). Mấy loài này đều đến từ Nam Á và Đông Nam Á. Cá tetra pha lê núi thì khác, nó đến từ Nam Mỹ và mới xuất hiện trong giới nuôi cá cảnh.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.85,
     "indexable": false,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.85
     },
     "reason": "thin"
   }

@@ -1,0 +1,370 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Model",
+      "value": "Chihiros B45 (B Series)",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank length",
+      "value": "45–65 cm",
+      "source": 0
+    },
+    {
+      "key": "Power",
+      "value": "28.9 W",
+      "source": 0
+    },
+    {
+      "key": "LEDs",
+      "value": "36 white + 9 RGB 3-in-1",
+      "source": 0
+    },
+    {
+      "key": "Luminous flux",
+      "value": "1747 lm",
+      "source": 1
+    },
+    {
+      "key": "Dimensions",
+      "value": "426 × 56 × 12 mm",
+      "source": 1
+    },
+    {
+      "key": "Water protection",
+      "value": "IP43 (splash-proof)",
+      "source": 1
+    },
+    {
+      "key": "LED lifespan",
+      "value": "50,000 hours",
+      "source": 1
+    },
+    {
+      "key": "Housing material",
+      "value": "Aluminium with passive cooling",
+      "source": 1
+    },
+    {
+      "key": "Control",
+      "value": "Bluetooth, My Chihiros app (dimming, sunrise/sunset, timer); RGB colour cannot be adjusted",
+      "source": 0
+    },
+    {
+      "key": "Mounting",
+      "value": "Extendable legs that rest on the tank rim",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Vietnam)",
+      "value": "6 months via the local distributor; the power adapter is not covered",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "B20",
+      "specs": [
+        {
+          "key": "Tank",
+          "value": "20–30 cm",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "12.7 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "24 white + 6 RGB",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "B30",
+      "specs": [
+        {
+          "key": "Tank",
+          "value": "30–50 cm",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "20.9 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "24 white + 6 RGB",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "B45",
+      "specs": [
+        {
+          "key": "Tank",
+          "value": "45–65 cm",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "28.9 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "36 white + 9 RGB",
+          "source": 0
+        },
+        {
+          "key": "Luminous flux",
+          "value": "1747 lm",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "B60",
+      "specs": [
+        {
+          "key": "Tank",
+          "value": "60–80 cm",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "37.1 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "48 white + 12 RGB",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "B80",
+      "specs": [
+        {
+          "key": "Tank",
+          "value": "80–100 cm",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "41.3 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "60 white + 15 RGB",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "B90",
+      "specs": [
+        {
+          "key": "Tank",
+          "value": "90–110 cm",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "46.8 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "72 white + 18 RGB",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "B120",
+      "specs": [
+        {
+          "key": "Tank",
+          "value": "120–140 cm",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "51.3 W",
+          "source": 0
+        },
+        {
+          "key": "LEDs",
+          "value": "84 white + 21 RGB",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-ban-b-series-rgb-3in1-dieu-chinh-qua-app",
+      "variant": "B45",
+      "vnd": 720000,
+      "source": 0
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-ban-b-series-rgb-3in1-dieu-chinh-qua-app",
+      "variant": "B30",
+      "vnd": 620000,
+      "source": 0
+    },
+    {
+      "shop": "Bách Khoa Aqua",
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-ban-b-series-rgb-3in1-dieu-chinh-qua-app",
+      "variant": "B60",
+      "vnd": 820000,
+      "source": 0
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-thuy-sinh-chihiros-b-series",
+      "variant": "B45 (page marked out of stock)",
+      "vnd": 723818,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 4U",
+      "url": "https://thuysinh4u.com/den-thuy-sinh-chihiros-b-series",
+      "variant": "B60 (page marked out of stock)",
+      "vnd": 869295,
+      "source": 2
+    }
+  ],
+  "fits": [
+    {
+      "fact": "The B45 is sized for tanks about 45–65 cm long.",
+      "source": 0
+    },
+    {
+      "fact": "For 60 cm tanks that are 40 cm or deeper, a retailer suggests adding optional mirror strips to boost output.",
+      "source": 1
+    },
+    {
+      "fact": "Vietnamese shops sell the B Series as a budget line and an upgrade on the older Chihiros A series. The RGB LEDs are said to bring out plant and fish colours.",
+      "source": 2
+    },
+    {
+      "fact": "Comparison reviews describe the B Series as a low-to-moderate output light. It suits low-demand planted tanks, while dense high-light setups are better served by a WRGB II.",
+      "source": 5
+    }
+  ],
+  "usage": [
+    {
+      "fact": "To install, fit the legs to both ends, rest the light on the tank rim and adjust the legs to hold it. No drilling is needed.",
+      "source": 2
+    },
+    {
+      "fact": "After installing, download the My Chihiros app and pair with the light over Bluetooth.",
+      "source": 2
+    },
+    {
+      "fact": "The app sets brightness, sunrise and sunset ramps and the photoperiod timer, but it does not change the RGB colour mix.",
+      "source": 0
+    },
+    {
+      "fact": "Some versions are dimmed through the separate Commander 1 Bluetooth module, which the app pairs with.",
+      "source": 4
+    }
+  ],
+  "issues": [
+    {
+      "fact": "A B30 owner on the Chihiros forum (Oct 2025) reported a loud high-pitched whine from the Commander 1 dimmer at any brightness between 0% and 100%. The same owner said an interrupted firmware update left another Commander 1 apparently unusable.",
+      "source": 3
+    },
+    {
+      "fact": "Versions differ. Some markets sell a non-Bluetooth B45 that needs a separately bought Commander 1 or manual dimmer for dimming, and other retailers bundle the light with Commander 1.",
+      "source": 4
+    },
+    {
+      "fact": "Sources disagree slightly on the recommended tank range: one lists 45–65 cm, another 45–60 cm, and one Vietnamese shop gives a 27 W, 45–60 cm figure.",
+      "source": 1
+    },
+    {
+      "fact": "Reviews list the absence of RGB colour tuning and the limited output for high-light plants as weaknesses.",
+      "source": 5
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Chihiros",
+      "model": "A II 451 (45 cm)",
+      "why": "White-only Bluetooth light (about 21 W, ~1957 lm) for planted 45 cm tanks. It's a simple step sideways if RGB isn't needed.",
+      "source": 6
+    },
+    {
+      "brand": "Chihiros",
+      "model": "WRGB II 45",
+      "why": "Much stronger, fully tunable RGB. It suits dense, high-light planted tanks with CO2, but costs considerably more.",
+      "source": 7
+    },
+    {
+      "brand": "Week Aqua",
+      "model": "M450D Pro",
+      "why": "Rival RGB+UV app-controlled light (28 W, 1680 lm) for 45–60 cm tanks with similar positioning.",
+      "source": 8
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/den-led-chihiros-ban-b-series-rgb-3in1-dieu-chinh-qua-app",
+      "title": "Đèn Led Chihiros bản B-Series RGB 3in1 điều chỉnh qua app – Bách Khoa Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://onlineaquariumspullen.nl/en/chihiros-b-series-45-65cm.html",
+      "title": "Chihiros B-series 45-65cm – Online Aquariumspullen",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/den-thuy-sinh-chihiros-b-series",
+      "title": "Đèn thủy sinh Chihiros B Series – Thủy Sinh 4U",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/awful-noise.7394/",
+      "title": "Awful noise – Chihiros forum",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.natureaquariums.com.au/products/chihiros-b-series-b45",
+      "title": "Chihiros B Series B45 - Non-Bluetooth 29w – Nature Aquariums",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/?p=30994",
+      "title": "Best LED Lights for Planted Tanks: Chihiros, Twinstar and ONF Compared",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.onlineaquariumspullen.nl/en/chihiros-a2-led-45cm.html",
+      "title": "Chihiros A2 LED 45cm – Online Aquariumspullen",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquasabi.com/Chihiros-LED-System-Series-WRGB-II",
+      "title": "Chihiros LED System Series WRGB II – Aquasabi",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aquazones.in/week-aqua-m450d-pro-led/",
+      "title": "WEEK AQUA M450D Pro LED – Aquazones",
+      "kind": "shop"
+    }
+  ]
+}

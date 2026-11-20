@@ -1,0 +1,41 @@
+{
+ "at": "2026-11-17T02:28:53Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Con cá trong ảnh có màu hơi khác so với mô tả gốc.",
+   "why": "It refers to a photo from the source site, and the page has no picture."
+  }
+ ],
+ "text": {
+  "slug": "ca-otocinclus-lampiella-gibbosa",
+  "name": "Cá otocinclus Lampiella gibbosa",
+  "altNames": [
+   "Bumblebee Dwarf Pleco"
+  ],
+  "sections": {
+   "notes:glaser": "<p>Loài cá da trơn nhỏ xinh này được Miranda Ribeiro mô tả từ năm 1908 với tên Otocinclus gibbosus. Nhưng phải đến khi một nhóm người chơi cá có làm nghiên cứu (H.-G. Evers, M. Lacerda và M. Beyer) bắt được cá sống, người ta mới thấy nó khác hẳn mọi loài giống Otocinclus khác. Màu sắc mỗi con một kiểu. Có con mang màu cam đen khá đẹp, có con lại ngả xám, còn đa số thì hơi vàng.</p>",
+   "distribution:glaser": "<p>Loài này sống ở sông Rio Betari, thuộc bang Sao Paulo của Brazil. Cùng vùng này còn có vài loài khá quen như Scleromystax barbatus (tên cũ là Corydoras barbatus) hay Parotocinclus paulinus.</p>",
+   "waterConditions:glaser": "<p>Lampiella cũng như mọi loài cá từ vùng này, phải nuôi trong nước khá mát (16–22 °C).</p>",
+   "diet:glaser": "<p>Thức ăn chính của chúng là lớp rêu và vi sinh bám trên đá, lũa (aufwuchs). Artemia mới nở thì chúng cũng ăn ngay.</p>",
+   "quickFacts:glaser": "<p>Kích thước tối đa: 5 cm. Xuất xứ: Brazil.</p>",
+   "quickFacts:scotcat": "<ul><li>Tên thường gọi: Bumblebee Dwarf Pleco</li><li>Tên đồng nghĩa: Otocinclus gibbosus</li></ul>",
+   "distribution:scotcat": "<p>Nam Mỹ: Brazil, lưu vực sông Ribeira de Iguape. Nơi thu mẫu chuẩn: Rio Bethary.</p>",
+   "maintenance:scotcat": "<p>Ngoài tự nhiên, loài này sống ở những đoạn suối chảy xiết và bám trên các hòn đá tròn. Vì vậy, bể nuôi phải giàu oxy mới đủ cho nó. Nên giữ nước mát, vì nhiệt độ cao có thể làm cá chết.</p>",
+   "diet:scotcat": "<p>Chưa có thông tin về thức ăn của loài này.</p>",
+   "notes:scotcat": "<p>Con cá trong ảnh có màu hơi khác so với mô tả gốc. Nó có thể chỉ là một biến thể của L. gibbosa, hoặc là một loài mới trong cùng giống.</p><p>Nguồn gốc tên: tên loài gibbosa trong tiếng Latin nghĩa là «gù lưng», do phần gáy của cá nhô cao lên.</p><p>Danh sách đỏ IUCN: Lampiella gibbosa là loài đặc hữu của Brazil, sống ở lưu vực sông Ribeira do Iguape. Vùng phân bố của nó ước tính khoảng 3.450 km². Ở những nơi có loài này, cá có nhiều, và chúng gắn với vùng nước có chất lượng tốt. Cá bị bắt để bán làm cá cảnh, nhưng chưa ước tính được việc này ảnh hưởng đến loài tới mức nào. Một phần vùng phân bố nằm ngoài các khu bảo tồn, nơi môi trường sống dễ bị hoạt động của con người làm suy thoái. Quần thể không bị chia cắt nghiêm trọng và không áp dụng được khái niệm địa điểm, nên loài được xếp hạng Sắp bị đe dọa (NT), sát mức Nguy cấp (EN) theo tiêu chí B1b(iii). Để bảo tồn loài này, IUCN đưa ra hai khuyến cáo chính: bảo vệ hệ sinh thái nước, và đánh giá xem cá bị bắt để bán nhiều đến đâu (IUCN 2021).</p>",
+   "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2021. Lampiella gibbosa. The IUCN Red List of Threatened Species 2021.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>The ETYFish Project Fish Name Etymology Database.</p>"
+  },
+  "quality": {
+   "score": 0.85,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.85,
+    "scotcat": 0.85
+   }
+  }
+ }
+}

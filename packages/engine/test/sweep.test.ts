@@ -6,6 +6,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
+import { mirrorPlan } from '../src/mirror-photos'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
 import { dropEmailsEverywhere, kindPassages, nameFish, sweep, sweepTranslation } from '../src/sweep'
@@ -438,6 +439,19 @@ test('a rejected video leaves every species page it is on, and stays off', async
   expect(r.videos).toEqual(['species/corydoras-adolfoi: deadfish000 (dead: a fish on a tape measure)', 'species/corydoras-sterbai: deadfish000 (dead: a fish on a tape measure)'])
   for (const id of ['corydoras-adolfoi', 'corydoras-sterbai']) expect((await json(root, `content/species/${id}/entity.json`)).videos.map((v: { youtubeId: string }) => v.youtubeId)).toEqual(['alive000000'])
   expect((await sweep(root)).videos).toEqual([])
+})
+
+// The chief of staff, 17 Nov: the African fern was renamed "Dương xỉ châu Phi" on 16 Nov, and its buy link still searched
+// the shops for the old, translated "dương xỉ nước châu Phi".
+test('a renamed plant\'s shop search takes its new name', async () => {
+  const root = await store()
+  const at = join(root, 'content/plants/bolbitis-heudelotii')
+  await mkdir(at, { recursive: true })
+  await writeFile(join(at, 'entity.json'), JSON.stringify({ id: 'bolbitis-heudelotii', scientificName: 'Bolbitis heudelotii', difficulty: 2, light: 'low', co2: 'optional', growth: 'slow', placement: ['epiphyte'], sections: [{ key: 'notes', source: 'tropica', sourceUrl: 'https://tropica.com/bolbitis', html: '<p>Slow.</p>' }], photos: [], productSlots: [{ category: 'cay', keywords: ['dương xỉ nước châu Phi', 'lũa gắn cây'] }], updatedAt: '2026-10-01' }, null, 1))
+  await writeFile(join(at, 'vi.json'), JSON.stringify(vi('Dương xỉ nước châu Phi', { 'notes:tropica': '<p>Dương xỉ nước châu Phi mọc chậm.</p>' }), null, 1))
+  await sweep(root)
+  expect((await json(root, 'content/plants/bolbitis-heudelotii/entity.json')).productSlots).toEqual([{ category: 'cay', keywords: ['dương xỉ châu Phi', 'lũa gắn cây'] }])
+  expect((await sweep(root)).files).toEqual([])
 })
 
 test('a species\' tank search is the card\'s minimum tank as shops sell it, never a smaller or mini tank', async () => {
@@ -1158,6 +1172,51 @@ test('a name that is another animal\'s leaves the page, its other names, its for
   expect((await sweep(root)).files).toEqual([])
 })
 
+// The dwarf gourami takes keepers' "Cá sặc gấm" (18 Nov), and its old "cá sặc lùn" was the pygmy gourami's English name
+// translated on that fish's own page, photos and two guides: those say the pygmy gourami's own name first, so the rename
+// can't give it the dwarf gourami's.
+test('the dwarf gourami becomes "Cá sặc gấm", bare and whole, and the pygmy gourami\'s own "cá sặc lùn", bare or whole, becomes its own name first', async () => {
+  const root = await store()
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await put('species/trichogaster-lalius/entity.json', species('trichogaster-lalius', 'Trichogaster lalius'))
+  await put('species/trichogaster-lalius/vi.json', { ...vi('Cá sặc lùn', { 'quickFacts:seriouslyfish': '<p>Cá sặc lùn (Trichogaster lalius) sống ở Ấn Độ. Sặc lùn đực rất sặc sỡ, như cá sặc lùn xanh.</p>' }), slug: 'ca-sac-lun', altNames: ['Dwarf gourami', 'Cá sặc gấm'] })
+  await put('gallery/trichogaster-lalius.json', { id: 'trichogaster-lalius', photos: [photo('https://media.aquatome.com/inat/l.webp', 'Cá sặc lùn đực bên đám cây')], seen: 1, updatedAt: '2026-10-01' })
+  await put('species/trichopsis-pumila/entity.json', species('trichopsis-pumila', 'Trichopsis pumila'))
+  await put('species/trichopsis-pumila/vi.json', { ...vi('Cá thanh ngọc lùn', {
+    'quickFacts:seriouslyfish': '<p>Cá sặc lùn (sparkling gourami, Trichopsis pumila) là một loài cá mê cung nhỏ.</p>',
+    'notes:seriouslyfish': '<p>Loài này còn có tên tiếng Anh là \'pygmy gourami\' (cá sặc lùn). So với các loài cùng chi, cá sặc lùn nhỏ hơn. Sặc lùn trong bể cần nhiều cây.</p>',
+  }), slug: 'ca-sac-lun-trichopsis', nameFixed: true, altNames: ['Sparkling gourami', 'Cá sặc kêu lùn'] })
+  await put('gallery/trichopsis-pumila.json', { id: 'trichopsis-pumila', photos: [photo('https://media.aquatome.com/commons/p.webp', 'Cá sặc lùn trong bể thủy sinh có nhiều cây'), photo('https://media.aquatome.com/commons/q.webp', 'Sặc lùn đực bên lá cây')], seen: 1, updatedAt: '2026-10-01' })
+  await put('captions/id.json', { 'Cá sặc lùn trong bể thủy sinh có nhiều cây': 'Gurami kerdil di akuarium', 'Cá sặc lùn đực bên đám cây': 'Gurami kerdil jantan' })
+  const guide = await json(root, 'content/guides/g/vi.json')
+  await put('guides/g/vi.json', { ...guide, body: `<p>Một đàn sặc lùn đúng là có thể sống ổn. Nên chọn cá sặc lùn cái.</p><p>Trichopsis pumila (cá sặc lùn) thì nhỏ hơn.</p><p>Trichopsis pumila (cá <strong>sặc lùn</strong>) cũng vậy. Trichopsis pumila — sặc lùn kêu được.</p>${guide.body}` })
+  await put('guides/youtube--YXB8au4nnU/entity.json', await json(root, 'content/guides/g/entity.json'))
+  await put('guides/youtube--YXB8au4nnU/vi.json', { ...guide, slug: 'be-bat', body: '<p>Sau đó thả bốn con cá sặc lùn (sparkling gourami).</p>', faq: [{ q: 'Thả cá gì trước?', a: 'Thả tép trước, sau đó mới thả cá nhỏ như cá sặc lùn.' }] })
+  await sweep(root)
+
+  const dwarf = await json(root, 'content/species/trichogaster-lalius/vi.json')
+  expect([dwarf.name, dwarf.slug, dwarf.nameFixed, dwarf.altNames, dwarf.redirectFrom]).toEqual(['Cá sặc gấm', 'ca-sac-gam', true, ['Dwarf gourami', 'Cá sặc lùn'], [{ slug: 'ca-sac-lun', name: 'Cá sặc lùn' }]])
+  expect(dwarf.sections['quickFacts:seriouslyfish']).toBe('<p>Cá sặc gấm (Trichogaster lalius) sống ở Ấn Độ. Sặc gấm đực rất sặc sỡ, như cá sặc gấm xanh.</p>')
+  expect((await json(root, 'content/gallery/trichogaster-lalius.json')).photos[0].caption).toBe('Cá sặc gấm đực bên đám cây')
+  expect((await json(root, 'content/guides/g/vi.json')).body).toContain('<p>Một đàn sặc gấm đúng là có thể sống ổn. Nên chọn cá sặc gấm cái.</p>')
+  // Another fish's scientific name beside it, "cá" and all, a tag inside or a dash between: neither the whole name nor
+  // the bare one is this fish's.
+  expect((await json(root, 'content/guides/g/vi.json')).body).toContain('<p>Trichopsis pumila (cá sặc lùn) thì nhỏ hơn.</p><p>Trichopsis pumila (cá <strong>sặc lùn</strong>) cũng vậy. Trichopsis pumila — sặc lùn kêu được.</p>')
+
+  const pygmy = await json(root, 'content/species/trichopsis-pumila/vi.json')
+  expect([pygmy.name, pygmy.slug, pygmy.altNames]).toEqual(['Cá thanh ngọc lùn', 'ca-sac-lun-trichopsis', ['Sparkling gourami', 'Cá sặc kêu lùn']])
+  expect(pygmy.sections).toEqual({
+    'quickFacts:seriouslyfish': '<p>Cá thanh ngọc lùn (sparkling gourami, Trichopsis pumila) là một loài cá mê cung nhỏ.</p>',
+    'notes:seriouslyfish': '<p>Loài này còn có tên tiếng Anh là \'pygmy gourami\' (cá thanh ngọc lùn). So với các loài cùng chi, cá thanh ngọc lùn nhỏ hơn. Thanh ngọc lùn trong bể cần nhiều cây.</p>',
+  })
+  expect((await json(root, 'content/gallery/trichopsis-pumila.json')).photos.map((p: { caption: string }) => p.caption)).toEqual(['Cá thanh ngọc lùn trong bể thủy sinh có nhiều cây', 'Thanh ngọc lùn đực bên lá cây'])
+  expect(await json(root, 'content/captions/id.json')).toEqual({ 'Cá thanh ngọc lùn trong bể thủy sinh có nhiều cây': 'Gurami kerdil di akuarium', 'Cá sặc gấm đực bên đám cây': 'Gurami kerdil jantan' })
+  const video = await json(root, 'content/guides/youtube--YXB8au4nnU/vi.json')
+  expect([video.body, video.faq[0].a]).toEqual(['<p>Sau đó thả bốn con cá thanh ngọc lùn (sparkling gourami).</p>', 'Thả tép trước, sau đó mới thả cá nhỏ như cá thanh ngọc lùn.'])
+  expect((await sweep(root)).files).toEqual([])
+})
+
 // Astra, 2026-11-13: the school size was read before the fold, so the skunk cory's came only on a second run.
 test('a page folded into its fish\'s gives that fish its school size in the same run', async () => {
   const root = await store()
@@ -1206,6 +1265,65 @@ test("a photo credited to someone its source's permission refuses leaves every p
 
 // Photo Sourcing, 14 Nov: the aquatic-plants equipment page still showed an Aquarium Co-op photo on the never-again list,
 // in all four languages. The never-again pass walked fish, plant, breed, guide and album files only.
+test('a photo the never-again list names by another address of the same photo leaves its page and album too: our copy of a Commons file listed by its thumbnail address, and a Flickr photo listed at another size (19 Nov)', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  // A Commons file listed by the address it was found at, before it moved to our store, and a Flickr photo listed at its
+  // original size; both shown at another address of the same photo. One more, never listed, stays.
+  const thumb = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example_fish.jpg/960px-Example_fish.jpg'
+  const ours = photo(`https://media.aquatome.com/${mirrorPlan(thumb)!.key}`, 'Danio erythromicron')
+  const flickr = photo('https://live.staticflickr.com/65535/5550001_0123abcd45_b.jpg', 'Danio erythromicron')
+  const kept = photo('https://media.aquatome.com/inat/kept.webp', 'Danio erythromicron')
+  await put('species/danio-erythromicron/entity.json', species('danio-erythromicron', 'Danio erythromicron', { photos: [ours, kept] }))
+  await put('species/danio-erythromicron/vi.json', vi('Cá sóc đầu lửa', { 'distribution:seriouslyfish': '<p>Myanmar.</p>' }))
+  await put('gallery/danio-erythromicron.json', { id: 'danio-erythromicron', photos: [ours, flickr, kept], seen: 2, updatedAt: '2026-10-01' })
+  // The calendar names a day's picture by our copy's large size: it goes, and the app shows the page's own.
+  await put('curation.json', { version: 1, days: [{ date: '2026-11-19', ref: 'species/danio-erythromicron', img: ours.url.replace(/\.webp$/, '-large.webp') }] })
+  const list = { [thumb.replace('/960px-', '/1280px-')]: 'rejected: another fish', 'https://live.staticflickr.com/65535/5550001_0123abcd45_o.jpg': 'people: a hand' }
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify(list, null, 2)}\n`)
+  const r = await sweep(root)
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos).toEqual([kept])
+  expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos).toEqual([kept])
+  // Each line names the photo as shown and the reason it is listed under, in the list's withheld form.
+  expect((await json(root, 'content/curation.json')).days).toEqual([{ date: '2026-11-19', ref: 'species/danio-erythromicron' }])
+  expect(r.again.map(x => x.slice(0, x.indexOf(' ('))).sort()).toEqual([
+    `curation.json 2026-11-19 img: ${ours.url.replace(/\.webp$/, '-large.webp')}`,
+    `gallery/danio-erythromicron.json: ${flickr.url}`,
+    `gallery/danio-erythromicron.json: ${ours.url}`,
+    `species/danio-erythromicron/entity.json: ${ours.url}`,
+  ])
+  for (const line of r.again) expect(line).toMatch(/\((?:people|rejected): withheld \[sha256:[a-f0-9]{64}\]\)$/)
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual(list)
+  expect((await sweep(root)).again).toEqual([])
+})
+
+test("a page whose only photo the never-again list names by another address opens on the album photo a person picked: first on its page, the listed one gone (the chief of staff, 19 Nov)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const thumb = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Example_fish.jpg/960px-Example_fish.jpg'
+  const listed = photo(`https://media.aquatome.com/${mirrorPlan(thumb)!.key}`, 'Danio erythromicron')
+  const other = photo('https://media.aquatome.com/commons/0123456789abcdef.webp', 'Danio erythromicron')
+  await put('species/danio-erythromicron/entity.json', species('danio-erythromicron', 'Danio erythromicron', { photos: [listed] }))
+  await put('species/danio-erythromicron/vi.json', vi('Cá sóc đầu lửa', { 'distribution:seriouslyfish': '<p>Myanmar.</p>' }))
+  await put('gallery/danio-erythromicron.json', { id: 'danio-erythromicron', photos: [listed, other], seen: 2, updatedAt: '2026-10-01' })
+  await writeFile(join(root, 'engine-state/_photo-rejected.json'), `${JSON.stringify({ [thumb]: 'rejected: another fish' }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), `${JSON.stringify({ 'species/danio-erythromicron': other.url }, null, 2)}\n`)
+  await sweep(root)
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([other.url])
+  expect((await json(root, 'content/gallery/danio-erythromicron.json')).photos.map((p: { url: string }) => p.url)).toEqual([other.url])
+  // The next sweep leaves it so.
+  await sweep(root)
+  expect((await json(root, 'content/species/danio-erythromicron/entity.json')).photos.map((p: { url: string }) => p.url)).toEqual([other.url])
+})
+
 test("a photo on the never-again list leaves every equipment page and each language's copy: a type's photo goes, a listed hero gives way to a type's", async () => {
   const root = await mkdtemp(join(tmpdir(), 'sweep-'))
   const c = join(root, 'content')

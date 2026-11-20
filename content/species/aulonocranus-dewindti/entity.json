@@ -1,0 +1,240 @@
+{
+  "id": "aulonocranus-dewindti",
+  "scientificName": "Aulonocranus dewindti",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Aulonocranus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "lake-tanganyika"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373098,
+      "total": 200,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "CD",
+          62
+        ],
+        [
+          "ZM",
+          61
+        ],
+        [
+          "TZ",
+          54
+        ],
+        [
+          "BI",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          29
+        ],
+        [
+          28.125,
+          -5.625,
+          3
+        ],
+        [
+          28.125,
+          -4.21875,
+          35
+        ],
+        [
+          29.53125,
+          -9.84375,
+          25
+        ],
+        [
+          29.53125,
+          -8.4375,
+          39
+        ],
+        [
+          29.53125,
+          -7.03125,
+          14
+        ],
+        [
+          29.53125,
+          -5.625,
+          12
+        ],
+        [
+          30.9375,
+          -9.84375,
+          37
+        ],
+        [
+          30.9375,
+          -8.4375,
+          6
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 14
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "html": "<p>The genus is monotypic: Aulonocranus dewindti is currently the only species assigned to it. It grows up to 14 cm long and the female is a mouth-brooder.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "html": "<p>Lake Tanganyika. It lives in the lake over sandy areas.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "html": "<p>A somewhat shy open-water fish, but it also likes to look for food on the ground, pecking into the sand in an almost vertical posture. It is best kept in a group; in the wild it swims in schools of sometimes several hundred specimens.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "html": "<p>The sexes are easy to distinguish in sexually mature animals (from approx. 6-8 cm length): females have rounded fins, males pointed fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "html": "<p>The female is a mouth-brooder. In the wild the males dig pits in the sand that serve as breeding sites.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "html": "<p>Not much has been written about this beautiful fish, presumably because in neutral coloration it looks somewhat inconspicuously silvery and therefore seems unattractive.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/2afc594e371f7cd3.webp",
+      "thumb": "https://media.aquatome.com/glaser/2afc594e371f7cd3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/da3b4c79929c9b91.webp",
+      "thumb": "https://media.aquatome.com/glaser/da3b4c79929c9b91-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3ee2733b22267707.webp",
+      "thumb": "https://media.aquatome.com/glaser/3ee2733b22267707-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d752175f21b40b3a.webp",
+      "thumb": "https://media.aquatome.com/glaser/d752175f21b40b3a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/aulonocranus-dewindti-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "W8mW-j3_9cQ",
+      "title": "Bilinge Bay, Aulonocranus dewindti,  Mahale NP headquaters  Lake Tanganyika",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "S7QDchmBZPw",
+      "title": "Aulonocranus dewindti",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WPCUplI7qMs",
+      "title": "Aulonocranus dewindti",
+      "durationSec": 223,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SApU77U-U98",
+      "title": "Aulonocranus dewindti Ndole - pojedynek",
+      "durationSec": 63,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá tanganyika"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ tanganyika",
+        "cát mịn bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 120cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

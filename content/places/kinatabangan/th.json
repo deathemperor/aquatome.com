@@ -3,6 +3,12 @@
   "name": "กินาตาบางัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T12:26:20.658Z",
+    "why": "The Thai transliteration is phonetically fine, but the place is a region around a river (Kinabatangan, usually spelled กินาบาตังกัน in Thai) and the name lacks a kind word such as แม่น้ำ, and the spelling \"Kinatabangan\" mismatches the standard \"Kinabatangan\"."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

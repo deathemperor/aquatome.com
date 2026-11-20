@@ -1,0 +1,27 @@
+{
+  "slug": "ca-lau-kieng-hypostomus-rhantos",
+  "name": "Cá lau kiếng Hypostomus rhantos L242",
+  "altNames": [
+    "Cá lau kiếng L242",
+    "L242"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Chi Hypostomus (hiểu theo nghĩa rộng nhất) có gần 150 loài được công nhận, đông loài nhất trong các nhóm cá lau kiếng. Tiếc là hiện chưa có bản rà soát mới cho toàn bộ các loài. Vì thế, định danh một con Hypostomus thường tốn rất nhiều công, mà đến cuối nhiều khi kết quả vẫn còn đáng ngờ.</p><p>May là Hypostomus rhantos lại dễ nhận. Trước khi được mô tả khoa học, loài này đã mang mã L242. Với lớp đốm nhỏ li ti và màu ngả cam, nó hầu như không thể nhầm với loài khác. Chỉ có Hypostomus micromaculatus ở Suriname là có đốm nhỏ tương tự.</p>",
+    "distribution:glaser": "<p>Hypostomus rhantos sống ở thượng nguồn sông Orinoco, Venezuela.</p>",
+    "notes:glaser": "<p>Hypostomus rhantos có màu khá đẹp, chắc chắn là một trong những loài Hypostomus đẹp nhất. Cá lớn khoảng 20 cm. Đây là loài ăn Aufwuchs điển hình, tức lớp rêu, tảo và sinh vật nhỏ bám trên bề mặt đá, lũa. Trong lô cá về có lẫn vài con Hypostomus sp. L192 và một loài Hypostomus thuộc nhóm Cochliodon. Con này có màu gần giống hệt L192 nhưng bộ răng thì khác hẳn. Có lẽ nó là Hypostomus (Cochliodon) sculpodon, hoặc một loài chưa được mô tả.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-20"
+  }
+}

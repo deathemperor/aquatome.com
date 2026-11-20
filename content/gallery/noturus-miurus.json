@@ -2,30 +2,6 @@
   "id": "noturus-miurus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/738537623.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/738537623-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "CC BY",
-      "author": "Seth",
-      "sourceUrl": "https://www.inaturalist.org/photos/738537623",
-      "caption": "Cá nheo madtom vằn sống trong hộp chụp ảnh có thước đo",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/738538418.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/738538418-480.webp",
-      "width": 1200,
-      "height": 1200,
-      "licence": "CC BY",
-      "author": "Seth",
-      "sourceUrl": "https://www.inaturalist.org/photos/738538418",
-      "caption": "Cá nheo madtom vằn nhìn nghiêng trong hộp chụp ảnh, ngoài tự nhiên",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/288078957.webp",
       "thumb": "https://media.aquatome.com/inaturalist/288078957-480.webp",
       "width": 1024,
@@ -35,8 +11,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/288078957",
       "caption": "Cá nheo madtom vằn sống trong bể kính nhỏ chụp ngoài tự nhiên",
       "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/288078932.webp",
@@ -48,21 +23,7 @@
       "sourceUrl": "https://www.inaturalist.org/photos/288078932",
       "caption": "Cá nheo madtom vằn nhìn nghiêng trong bể kính, màu vàng nâu",
       "best": true,
-      "kind": "other",
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/424862228.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/424862228-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Nick Tobler (Cowturtle)",
-      "sourceUrl": "https://www.inaturalist.org/photos/424862228",
-      "caption": "Cá nheo madtom vằn trong bể kính nhỏ ngoài tự nhiên",
-      "best": true,
-      "kind": "other",
-      "unchecked": true
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/625910995.webp",
@@ -141,6 +102,42 @@
       "best": false,
       "kind": "other",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/738537623.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/738537623-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "Seth",
+      "sourceUrl": "https://www.inaturalist.org/photos/738537623",
+      "caption": "Cá nheo madtom vằn sống trong hộp chụp ảnh có thước đo",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/738538418.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/738538418-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "CC BY",
+      "author": "Seth",
+      "sourceUrl": "https://www.inaturalist.org/photos/738538418",
+      "caption": "Cá nheo madtom vằn nhìn nghiêng trong hộp chụp ảnh, ngoài tự nhiên",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/424862228.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/424862228-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/424862228",
+      "caption": "Cá nheo madtom vằn trong bể kính nhỏ ngoài tự nhiên",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 66,

@@ -1,0 +1,38 @@
+{
+  "id": "hyphessobrycon-piranga",
+  "native": {
+    "input": "ca8e2d46c0f27c69",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Tapajós",
+        "source": "glaser",
+        "quote": "The species occurs in rivers in the upper rio Tapajós catchment.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon piranga",
+    "status": "ACCEPTED",
+    "taxonKey": 10706406,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

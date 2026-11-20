@@ -3,6 +3,12 @@
   "name": "Aek Sibundung",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T17:55:49.924Z",
+    "why": "In Malay, an atlas would write the river with the kind word \"Sungai\" (\"Sungai Aek Sibundung\"), so the bare \"Aek Sibundung\" leaves it out, though \"Aek\" is the local word for river and the spelling is kept."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

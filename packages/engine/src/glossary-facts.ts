@@ -10,12 +10,14 @@ import { unescapePlain } from './sanitize'
  * sentence to a stop.
  */
 
-export type Verdict = 'supported' | 'loose' | 'unsupported' | 'contradicts' | 'not a claim'
+export type Verdict = 'supported' | 'loose' | 'unsupported' | 'uncredited' | 'contradicts' | 'not a claim'
 /**
  * One sentence of an entry, the definition or paragraph or list item it stands in, the heading it stands under, and the
- * kind its block is about (the bold name it opens with, "Lũa đỗ quyên"), as plain text.
+ * kind its block is about (the bold name it opens with, "Lũa đỗ quyên"), as plain text. `opening`: for a list item, the
+ * line the list follows when that line ends with a colon ("Một tiệm ghi:"), the credit every item under it carries.
+ * `meaning`: a sentence of the definition, the term's meaning, which can't open with a credit.
  */
-export type Sentence = { text: string; block: string; heading?: string; item?: string }
+export type Sentence = { text: string; block: string; heading?: string; item?: string; opening?: string; meaning?: true }
 type Read = { verdict: Verdict; why?: string }
 /**
  * A sentence the reads call loose, unsupported or contradicted, with what they said. `unjudged`: how many reads it had, when
@@ -50,13 +52,18 @@ const TOKENS = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>|<\/?(?:p|ul|ol|li|table|thead
  * item that opens with a name of its own stands under both.
  */
 export function sentences(e: { definition: string; body: string }): Sentence[] {
-  const blocks: { block: string; heading?: string; item?: string }[] = [{ block: plain(e.definition) }]
+  const blocks: { block: string; heading?: string; item?: string; opening?: string; meaning?: true }[] = [{ block: plain(e.definition), meaning: true }]
   let heading: string | undefined
+  // Each open list's opening: the line it follows, when that line ends with a colon. An item stands under the nearest one
+  // (the chief of staff, 19 Nov 2026: a list under an opening counts as credited, each item included; a full stop ends a
+  // credit, so a paragraph after the list stands under none).
+  const openings: (string | undefined)[] = []
+  const opening = () => openings.findLast(Boolean)
   // The open lists and list items, each item with the name it opens with, if any; a new item closes an unclosed one. One
   // pass over the whole body, so a heading inside a kind's item doesn't drop its name (Codex, 14 Nov 2026).
   const open: ('list' | { name?: string; seen: boolean })[] = []
   const names = () => open.flatMap(x => (x !== 'list' && x.name ? [x.name] : []))
-  const push = (block: string, item: string) => blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}) })
+  const push = (block: string, item: string) => { const o = opening(); blocks.push({ block, ...(heading ? { heading } : {}), ...(item ? { item } : {}), ...(o ? { opening: o } : {}) }) }
   const text = (b: string) => {
     const block = plain(b)
     if (!block) return
@@ -74,8 +81,8 @@ export function sentences(e: { definition: string; body: string }): Sentence[] {
     const tag = /^<(\/?)([a-z]+)/i.exec(m[0])!
     const [close, name] = [tag[1] === '/', tag[2]!.toLowerCase()]
     if (name === 'ul' || name === 'ol') {
-      if (!close) open.push('list')
-      else while (open.length && open.pop() !== 'list');
+      if (!close) { const last = blocks.length > 1 ? blocks.at(-1)!.block : ''; openings.push(/:\s*$/.test(last) ? last : undefined); open.push('list') }
+      else { openings.pop(); while (open.length && open.pop() !== 'list'); }
     } else if (name === 'li') {
       if (open.length && open.at(-1) !== 'list') open.pop()
       if (!close) open.push({ seen: false })
@@ -86,20 +93,26 @@ export function sentences(e: { definition: string; body: string }): Sentence[] {
 }
 /** Where a sentence stands: its heading, and the kind its item is about. */
 const under = (s: Sentence) => [s.heading, s.item].filter(Boolean).join(' › ')
-/** Numbered sentences for a read, each section's under its heading, each kind's under its name too. */
+/** Where a sentence stands for a read: the definition, or its heading and kind and the opening its list follows, if any. */
+const where = (s: Sentence) => (s.meaning ? 'the definition' : [under(s), s.opening ? `under the opening "${s.opening}"` : ''].filter(Boolean).join(' › '))
+/** Numbered sentences for a read, each section's under its heading, each kind's under its name too, each list's under its opening. */
+// A sentence that stands under nothing after one that stood under an opening says so, or it would read as still under it.
 const numbered = (list: Sentence[], show: (s: Sentence) => string = s => s.text) =>
-  list.map((s, i) => `${under(s) && under(s) !== (list[i - 1] ? under(list[i - 1]!) : '') ? `[${under(s)}]\n` : ''}${i + 1}. ${show(s)}`).join('\n')
+  list.map((s, i) => { const before = list[i - 1] ? where(list[i - 1]!) : ''; return `${where(s) !== before && (where(s) || before) ? `[${where(s) || 'no heading, under no opening'}]\n` : ''}${i + 1}. ${show(s)}` }).join('\n')
 
+// What carries a claim on two sites, a plain translation as a thing's name, and the meaning, which can't open with a credit:
+// the chief of staff, 19 Nov 2026, after the check run again on the six live entries stopped six sentences their readers passed.
 const VERDICTS = `- supported: every claim in it is in the facts (a figure converted to metric, sensibly rounded, is the same figure);
-- loose: supported, but generalised, or put a little more or less strongly than the facts, or joining what several sources say about the same thing, in a way a keeper would not act on differently;
-- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another, or drops a qualifier that limits a claim to some kinds, forms or cases (wild fish only, small pieces only), or joins what sources say about different things into one claim;
+- loose: supported, but worded a little more generally, or joining what several sources say about the same thing, in a way a keeper would not act on differently. Never loose, but unsupported: a hedge or an amount changed, a claim said more strongly or of more than its fact ("rất dễ" where the fact says "often", "nhiều tài liệu" where one page says it), or a step, a test or advice the facts don't give as one;
+- unsupported: it has a claim, number, cause, name or advice the facts don't give, or gives one kind's, form's or case's trait to another, or drops a qualifier that limits a claim to some kinds, forms or cases (wild fish only, small pieces only), or joins what sources say about different things into one claim, or drops or adds a hedge its fact has or lacks ("can", "may", "some", "often", "usually", "about", "up to": "sẽ" for "can" is unsupported), or rounds, widens or narrows an amount, a time or a count ("vài tuần" for "a couple of weeks"), or says a claim more strongly or of more than its fact, or gives as a step, a test or advice what the facts don't give as one;
+- uncredited: the facts carry it, but every fact that carries it comes from one site (count each fact's source and its "also" by their "site": two pages of one site are one), and the sentence states it as plain fact: neither the sentence itself nor the opening its list is under credits a page ("Một tiệm ghi:", "Một bài khác ghi:", "Một nguồn người nuôi ghi:", "Một bài tạp chí ghi:", "Theo một tài liệu tham khảo, …"). A full stop ends a credit: a sentence after the one that credits a page, or a paragraph after a credited list, stands under none. A claim two sites give needs no credit. Two sites carry a claim when one gives it as broadly as the sentence does and another gives the same thing in other words, or for some of the cases it covers. If a fact limits the claim, the entry carries that limit beside it (in the sentence, or the one just before or after); if it doesn't, the claim takes its site's credit. A Vietnamese word that plainly translates what another site's word says ("điểm chết" for "dead spot") is the thing's name and needs no credit. A word that is not a plain translation, or a trade name only one shop uses, as for a wood, stays that shop's word. The term's meaning, the sentences under [the definition], can't open with a credit: it rests on two sites where two define it, and where only one does, it says only what that fact gives and stands without a credit, so a sentence of it is never uncredited: judge what it says;
 - contradicts: the facts say otherwise;
 - not a claim: a picture, a transition or a heading, with nothing in it to check ("it gives the tank the look of a stream"). An item under a heading of steps, mistakes or warnings is a claim: judge the advice or warning it gives.
 For every verdict but supported, say why in a few English words.`
-const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind) and the numbered SENTENCES of a Vietnamese glossary entry written from them, each section's under its [heading], and each kind's under [heading › its name]: a sentence there is about that kind. Give every sentence one verdict against the FACTS:
+const ALL = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site) and the numbered SENTENCES of a Vietnamese glossary entry written from them, the term's meaning under [the definition], each section's under its [heading], each kind's under [heading › its name]: a sentence there is about that kind, and each list's items under the opening the list follows, which credits every item. Give every sentence one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdicts": [{"n": 1, "verdict": "supported"}, {"n": 2, "verdict": "loose", "why": "..."}]}, one for every sentence, in order.`
-const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number; the sources list gives each number's kind), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING. Give the SENTENCE one verdict against the FACTS:
+const ONE = `Below are FACTS gathered about a fishkeeping term (each with a source number, and in "also" the other sources that give the same; the sources list gives each number's kind and site), and one SENTENCE of a Vietnamese glossary entry written from them, in its PARAGRAPH, under its HEADING ("(the definition)" for the term's meaning), and under the OPENING its list follows, if any, which credits it, with the sentences just BEFORE and AFTER it. Give the SENTENCE one verdict against the FACTS:
 ${VERDICTS}
 Reply {"verdict": "...", "why": "..."}.`
 const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply only with JSON.'
@@ -110,11 +123,16 @@ const SYSTEM = 'You check a guide against its facts, sentence by sentence. Reply
  * carried from one kind to another (the discus and vân thép lines): the read-back carries those.
  */
 const READ_MODEL = 'opus'
-const VERDICT = { type: 'string', enum: ['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'] }
+const VERDICT = { type: 'string', enum: ['supported', 'loose', 'unsupported', 'uncredited', 'contradicts', 'not a claim'] }
 const MANY = { type: 'object', required: ['verdicts'], properties: { verdicts: { type: 'array', items: { type: 'object', required: ['n', 'verdict'], properties: { n: { type: 'number' }, verdict: VERDICT, why: { type: 'string' } } } } } }
 const SINGLE = { type: 'object', required: ['verdict'], properties: { verdict: VERDICT, why: { type: 'string' } } }
-const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'contradicts', 'not a claim'])
-const STOP = new Set<Verdict>(['unsupported', 'contradicts'])
+const KNOWN = new Set<string>(['supported', 'loose', 'unsupported', 'uncredited', 'contradicts', 'not a claim'])
+/**
+ * What stops a save. A one-site claim written plain and a hedge or amount changed stop too (the chief of staff, 19 Nov
+ * 2026): five of the first six first writes failed their first reader on the one, three on the other, and the check only
+ * noted them, so a reader was spent on what the check could have stopped.
+ */
+const STOP = new Set<Verdict>(['unsupported', 'uncredited', 'contradicts'])
 const LOOSE = new Set<Verdict>(['loose'])
 const NOT_A_CLAIM = new Set<Verdict>(['not a claim'])
 /** A verdict a read left out, or one not on the list, counts as no verdict: it can't stop a sentence or clear one. A sentence fewer than two reads judge isn't cleared: it stops, unjudged (Codex, 14 Nov 2026: three empty replies scored an entry 1). */
@@ -155,7 +173,7 @@ export async function checkSentences(llm: Llm, facts: object, e: { definition: s
     let all = count(rs, STOP) >= 2 ? rs : null
     if (!all && count(rs, STOP) === 1) {
       const again: (Read | null)[] = []
-      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, model: READ_MODEL, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${under(s) || '(the definition)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}` })))
+      for (let k = 0; k < 3; k++) again.push(asRead(await llm<{ verdict?: string; why?: string }>({ system: SYSTEM, model: READ_MODEL, schema: SINGLE, prompt: `${ONE}\n\nFACTS:\n${JSON.stringify(facts)}\n\nHEADING:\n${s.meaning ? '(the definition)' : under(s) || '(none)'}\n\nOPENING:\n${s.opening ?? '(none)'}\n\nPARAGRAPH:\n${s.block}\n\nSENTENCE:\n${s.text}\n\nBEFORE:\n${list[i - 1]?.text ?? '(none)'}\n\nAFTER:\n${list[i + 1]?.text ?? '(none)'}` })))
       // Re-reads too few of which give a verdict don't settle it: it stops, unjudged (Codex, 14 Nov 2026).
       if (again.filter(Boolean).length < 2) { stops.push({ ...flagged(s, [...rs, ...again]), unjudged: 6, ...(claim ? {} : { unscored: true as const }) }); if (claim) stopped++; continue }
       if (count(again, STOP) >= 2) all = [...rs, ...again]
@@ -172,7 +190,7 @@ export const stopNote = (s: Flagged) => s.unjudged
   ? `"${s.text}": the reads left it unjudged (${s.verdicts.length} of ${s.unjudged} gave a verdict)`
   : `"${s.text}": the facts don't carry it (${s.verdicts.join(', ')}): ${[...new Set(s.why)].join(' / ') || 'no reason given'}`
 
-const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn", "có tiệm ghi"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
+const REWORD = `Dưới đây là DỮ KIỆN (JSON) đã thu thập về một thuật ngữ cá cảnh, và vài CÂU trong mục thuật ngữ tiếng Việt viết từ đó, mỗi câu trong đoạn của nó, kèm lý do người kiểm tra cho là câu ấy nói rộng hơn, mạnh hơn hoặc gộp hơn dữ kiện. Viết lại từng câu cho đúng điều dữ kiện ghi: giữ ý và giọng văn, vừa với đoạn, chỉ nói điều dữ kiện chịu được. Không thêm ý mới. Không thêm câu hay vế nói các nguồn khác nhau, và không rào đón ("có nguồn cho rằng", "nhiều nguồn"): nói thẳng điều dữ kiện chịu được, hẹp lại nếu cần. Nếu điều còn lại chỉ một site ghi (đếm theo "site" của nguồn: hai trang của một site là một), câu mở bằng lời ghi nguồn của trang ấy như mục vẫn viết ("Một tiệm ghi: …", "Một bài tạp chí ghi: …"). Câu đã đứng dưới LỜI MỞ của chính trang ấy thì không thêm gì; lời mở của trang ấy đứng ngay cạnh câu (CÂU TRƯỚC, CÂU SAU) thì nối theo nó ("Tiệm ấy cũng ghi: …"), không mở lời mới. Câu thuộc NGHĨA của thuật ngữ (PHẦN) không mở bằng lời ghi nguồn. Trả lời {"sentences": [{"n": 1, "text": "..."}]}, mỗi câu một mục, theo thứ tự.`
 const REWORD_SCHEMA = { type: 'object', required: ['sentences'], properties: { sentences: { type: 'array', items: { type: 'object', required: ['n', 'text'], properties: { n: { type: 'number' }, text: { type: 'string' } } } } } }
 const escapeText = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
@@ -312,7 +330,12 @@ export async function rewordLoose<E extends { definition: string; body: string }
   const here = loose.filter(s => (s.text === lead && s.block === plain(e.definition) ? (log.push(`Loose, left as written (the definition's first sentence): "${s.text}"`), false) : true)
     && ((occurrences(e, s.text) === 1 && texts.filter(t => t === s.text).length === 1 && placed(e, s.text)) || (log.push(`Loose, left as written (not placeable): "${s.text}"`), false)))
   if (!here.length) return { entry: e, log, stops: [] }
-  const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}`).join('\n')
+  // Each sentence with its list's opening and the sentences beside it, so a one-site rewording joins its page's credit
+  // where it stands, even in the paragraph before (Codex, 19 Nov 2026), and the meaning marked, which opens with none (the
+  // chief of staff, 19 Nov 2026).
+  const all = sentences(e)
+  const beside = (s: Flagged) => { const i = all.findIndex(x => x.text === s.text); return `\n   CÂU TRƯỚC: ${all[i - 1]?.text ?? '(không có)'}\n   CÂU SAU: ${all[i + 1]?.text ?? '(không có)'}` }
+  const listed = here.map((s, i) => `${i + 1}. CÂU: ${s.text}\n   ĐOẠN: ${s.block}${s.meaning ? '\n   PHẦN: NGHĨA của thuật ngữ' : ''}${s.opening ? `\n   LỜI MỞ: ${s.opening}` : ''}\n   LÝ DO: ${[...new Set(s.why)].join(' / ')}${beside(s)}`).join('\n')
   const r = await llm<{ sentences?: { n: number; text: string }[] }>({ system: 'You reword sentences of a Vietnamese aquarium glossary entry to what its facts carry. Reply only with JSON.', model, schema: REWORD_SCHEMA, prompt: `${REWORD}\n\n--- CÂU ---\n${listed}\n\n--- DỮ KIỆN ---\n${JSON.stringify(facts)}` })
   const now = here.map((s, i) => ({ s, to: (r.sentences ?? []).find(x => x.n === i + 1)?.text.replace(/\s+/g, ' ').trim() ?? '' }))
   // Puts rewordings into the entry as written, in order, each where its sentence stands: the same sentences in the same
@@ -398,13 +421,14 @@ const DROP = 'The rewrite dropped from "'
  * definition). A kind's sentence keeps its advice in its kind's item, while that item stands. One note for each such
  * sentence, naming what it lost, for the writer to write it as it was.
  */
-export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item'>[], names: string[] = [], free: string[] = []): string[] {
+export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item' | 'meaning'>[], names: string[] = [], free: string[] = []): string[] {
   const placed = (e: { definition: string; body: string }) => [
     ...sentences({ definition: e.definition, body: '' }).map(s => ({ ...s, key: `d ${s.text}` })),
     ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.heading ?? ''}\n${s.item ?? ''}\n${s.text}` })),
   ]
   const was = placed(before), is = placed(after)
-  const stopped = (s: Sentence) => stops.some(x => x.text === s.text && (x.heading ?? '') === (s.heading ?? '') && (x.item ?? '') === (s.item ?? ''))
+  // A stop on a body sentence never frees the meaning's copy of it, nor the other way (Codex, 19 Nov 2026).
+  const stopped = (s: Sentence) => stops.some(x => x.text === s.text && (x.heading ?? '') === (s.heading ?? '') && (x.item ?? '') === (s.item ?? '') && !x.meaning === !s.meaning)
   // A listed passage frees each of its own sentences, never one that is only words inside another sentence (Grok's third
   // read: a shop's sentence quoting the step "Ngâm 2 tuần." freed the step).
   const whole = (s: Sentence) => stopped(s) || free.some(q => q === s.text || (q.includes(s.text) && sentences({ definition: q, body: '' }).some(x => x.text === s.text)))

@@ -1,0 +1,51 @@
+{
+  "id": "sternarchogiton-preto",
+  "native": {
+    "input": "f3771e30887d8e9a",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sternarchogiton preto",
+    "status": "ACCEPTED",
+    "taxonKey": 2401832,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        43
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        21
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        19
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        17
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

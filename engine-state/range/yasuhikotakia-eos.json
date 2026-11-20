@@ -1,0 +1,108 @@
+{
+  "id": "yasuhikotakia-eos",
+  "native": {
+    "input": "6f729bd23aa89f20",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Ngum river basin in Vientiane province, Laos, one of the major tributaries of the Mekong River.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Ngum river basin in Vientiane province, Laos, one of the major tributaries of the Mekong River.",
+        "ok": true
+      },
+      {
+        "name": "Nam Ngum",
+        "source": "seriouslyfish",
+        "quote": "Described from the Nam Ngum river basin in Vientiane province, Laos, one of the major tributaries of the Mekong River.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Yasuhikotakia eos",
+    "status": "ACCEPTED",
+    "taxonKey": 2367773,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "84f3b06c-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "KH",
+      "TH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

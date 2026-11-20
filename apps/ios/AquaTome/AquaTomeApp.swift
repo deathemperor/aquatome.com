@@ -77,7 +77,10 @@ struct AquaTomeApp: App {
     tanks.hasPage = { handbook.page(for: $0) != nil }
     let plugs = AquaTomeApp.plugs()
     _plugs = State(initialValue: plugs)
-    _master = State(initialValue: MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs)))
+    let master = MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs))
+    // The master button is the owner's: a press stops sending once the owner signs out (MasterCard shows it to them alone).
+    master.owner = { account.user == nil ? false : account.owner.isOwner }
+    _master = State(initialValue: master)
     // Each records where it knows how an action went.
     let telemetry = TelemetryModel(lang: handbook.lang)
     _telemetry = State(initialValue: telemetry)
@@ -151,6 +154,10 @@ struct AquaTomeApp: App {
       .onChange(of: handbook.status) { if handbook.status != .loading { openLink() } }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
+      // Signed out or in: what the master button was still to send doesn't go (MasterModel.accountChanged).
+      .onChange(of: account.user?.id) { master.accountChanged() }
+      // The owner known (at each launch, once the account answers): an end due goes then.
+      .onChange(of: account.owner.isOwner) { master.tick() }
       .onChange(of: phase, initial: true) {
         // The latest chat's answer stops in the background, and is asked for again on return (ChatStore).
         if phase == .background { chat.inFront(false) }
@@ -184,7 +191,7 @@ struct AquaTomeApp: App {
       }
       // Whatever tab is showing: a light left on a test colour goes back to its schedule (LightsModel.leave).
       .onChange(of: phase) {
-        if phase == .background { lights.leave(); telemetry.leave() } else if phase == .active { lights.returned(); master.tick() }
+        if phase == .background { lights.leave(); telemetry.leave(); master.wentAway() } else if phase == .active { lights.returned(); master.cameBack() }
         // At launch the window may come after the first apply below.
         if phase == .active { Appearance.apply(Self.testScheme ?? appearance.scheme) }
       }

@@ -1,8 +1,13 @@
 {
   "slug": "tshuapa-river",
-  "name": "ชัวปา",
+  "name": "แม่น้ำชัวปา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.85,
+    "at": "2026-11-19T00:42:32.133Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

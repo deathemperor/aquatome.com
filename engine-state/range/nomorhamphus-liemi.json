@@ -1,0 +1,38 @@
+{
+  "id": "nomorhamphus-liemi",
+  "native": {
+    "input": "420a6c51644050df",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "glaser",
+        "quote": "This wonderfully coloured halfbeak originates from the island of Sulawesi (= Celebes) where it occurs in the southern half; it is endemic in the Maros highlands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nomorhamphus liemi",
+    "status": "ACCEPTED",
+    "taxonKey": 2369019,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

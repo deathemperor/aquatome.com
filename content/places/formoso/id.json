@@ -3,6 +3,12 @@
   "name": "Formoso",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:50:19.944Z",
+    "why": "The place is the Formoso River drainage basin (Rio Formoso) in Brazil, and Indonesian atlases would write \"Sungai Formoso\" or \"Daerah Aliran Sungai Formoso\"; bare \"Formoso\" omits the river kind word, though the spelling is kept."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

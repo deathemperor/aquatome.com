@@ -1,0 +1,36 @@
+{
+  "id": "cherax-lorentzi",
+  "native": {
+    "input": "95dff49356ae086a",
+    "at": "2026-11-17T05:18:20.405Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "Origin: New Guinea.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cherax lorentzi",
+    "status": "ACCEPTED",
+    "taxonKey": 5789934,
+    "datasets": [
+      [
+        "9668b676-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-17T05:18:20.405Z"
+  }
+}

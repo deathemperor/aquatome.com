@@ -71,8 +71,9 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   never `/tmp` or `/private/tmp`: a restart empties those, and the one on 2026-11-08 took a lead's whole working folder and
   another's eval caches. A worktree goes in `~/.infinitus/worktrees/aquatome.com/`. The sweep leaves `~/.cache/aquatome`
   alone, but for its archive's copies past 30 days.
-- `scripts/machine-sweep.mjs` runs hourly and catches what's left: a session idle for 3 h, test copies with no run, and
-  nightly the worktrees whose work is merged. One with changes, or left a week with no live thread, is saved first in
+- `scripts/machine-sweep.mjs` runs hourly and catches what's left: a session idle for 3 h, test copies with no run, a
+  helper's own checkout an hour after its thread ends (saved first if it holds work no remote has), and nightly the
+  worktrees whose work is merged. One with changes, or left a week with no live thread, is saved first in
   `~/.cache/aquatome/worktree-archive/` (30 days, never pushed).
 - How the Mac is doing is `~/.cache/aquatome/machine-metrics.jsonl`: a small job's time, the jobs waiting and how long,
   and heat. Load is background only: one booted simulator reads about 65, and past about 1,000 the counter wraps.

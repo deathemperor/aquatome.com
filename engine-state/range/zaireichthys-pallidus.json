@@ -1,0 +1,68 @@
+{
+  "id": "zaireichthys-pallidus",
+  "native": {
+    "input": "0a8909f4c2ec3c43",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Known only from the Upper Zambezi up to and including the Barotse Floodplain in Zambia (Tweddle et al., 2004), and the Chobe and Kwando rivers, in the area of the Eastern Caprivi, Namibia.",
+        "words": "Zambia",
+        "ok": true
+      },
+      {
+        "code": "NA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Known only from the Upper Zambezi up to and including the Barotse Floodplain in Zambia (Tweddle et al., 2004), and the Chobe and Kwando rivers, in the area of the Eastern Caprivi, Namibia.",
+        "words": "Namibia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Upper Zambezi",
+        "source": "scotcat",
+        "quote": "Africa: Known only from the Upper Zambezi up to and including the Barotse Floodplain in Zambia (Tweddle et al., 2004), and the Chobe and Kwando rivers, in the area of the Eastern Caprivi, Namibia.",
+        "ok": true
+      },
+      {
+        "name": "Chobe",
+        "source": "scotcat",
+        "quote": "Africa: Known only from the Upper Zambezi up to and including the Barotse Floodplain in Zambia (Tweddle et al., 2004), and the Chobe and Kwando rivers, in the area of the Eastern Caprivi, Namibia.",
+        "ok": true
+      },
+      {
+        "name": "Kwando",
+        "source": "scotcat",
+        "quote": "Africa: Known only from the Upper Zambezi up to and including the Barotse Floodplain in Zambia (Tweddle et al., 2004), and the Chobe and Kwando rivers, in the area of the Eastern Caprivi, Namibia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Zaireichthys pallidus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961346,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        20
+      ]
+    ],
+    "native": [
+      "ZM",
+      "NA"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

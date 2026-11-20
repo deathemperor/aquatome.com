@@ -149,7 +149,12 @@ final class ProfilePictureFlowTests: XCTestCase {
   private func redOnButton(_ app: XCUIApplication) -> Bool {
     let button = app.buttons.matching(identifier: "profile").firstMatch
     XCTAssertTrue(button.waitForExistence(timeout: 5), "no profile button")
-    guard let image = button.screenshot().image.cgImage else { return false }
+    guard let whole = button.screenshot().image.cgImage else { return false }
+    // The picture alone, centred in the button: in a tab's header the button is a 44-point tap round a 36-point picture
+    // (ProfileButton, `inPage`), so its red is counted against the picture, as it was when the two were one size.
+    let f = button.frame, scale = CGFloat(whole.width) / f.width, side = min(f.width, f.height, 36) * scale
+    let square = CGRect(x: (CGFloat(whole.width) - side) / 2, y: (CGFloat(whole.height) - side) / 2, width: side, height: side)
+    guard let image = whole.cropping(to: square.integral) else { return false }
     let w = 24, h = 24
     var px = [UInt8](repeating: 0, count: w * h * 4)
     guard let c = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),

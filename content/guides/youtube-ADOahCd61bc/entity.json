@@ -46,30 +46,6 @@
             "height": 90,
             "caption": "Bể có đá nhiều hốc khe và đàn cá nhỏ bơi phía trên."
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/ADOahCd61bc/p0-dmVzdGl0dXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/ADOahCd61bc/p0-dmVzdGl0dXMuanBn-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fremen",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
-          "caption": "Cá otto nhìn nghiêng, thấy rõ sọc đen dọc thân, bụng trắng và thân lốm đốm xám."
-        }
-      },
-      {
-        "heading": "Vì sao phải dùng bể đã ổn định",
-        "moments": [
-          {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/ADOahCd61bc/at20-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cá đã chạy ổn định với đá và cá bơi bên trong.",
-            "sharpness": 799.3,
-            "person": false
-          }
         ]
       },
       {
@@ -99,6 +75,34 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macrotocinclus_affinis_resting.jpg",
           "caption": "Cá otto khỏe mạnh bơi trong bể thủy sinh sạch, nhiều cây và lũa."
         }
+      },
+      {
+        "heading": "Otto là cá gì",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/ADOahCd61bc/p0-dmVzdGl0dXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/ADOahCd61bc/p0-dmVzdGl0dXMuanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Fremen",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Otocinclus_vestitus.jpg",
+          "caption": "Cá otto nhìn nghiêng, thấy rõ sọc đen dọc thân, bụng trắng và thân lốm đốm xám."
+        }
+      },
+      {
+        "heading": "Vì sao otto được xếp vào loại cá trung cấp",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/ADOahCd61bc/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá đã chạy ổn định với đá và cá bơi bên trong.",
+            "sharpness": 799.3,
+            "person": false
+          }
+        ]
       }
     ]
   }

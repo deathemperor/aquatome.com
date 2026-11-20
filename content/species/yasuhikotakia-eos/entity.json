@@ -14,6 +14,140 @@
     "vietnam",
     "dong-nai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "KH",
+        "TH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Nam Ngum",
+        "Dong Nai"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Nam Ngum river basin in Vientiane province, Laos, one of the major tributaries of the Mekong River.",
+          "countries": [
+            "LA"
+          ],
+          "regions": [
+            "Mekong",
+            "Nam Ngum"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
+          "countries": [
+            "KH",
+            "TH",
+            "VN"
+          ],
+          "regions": [
+            "Dong Nai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367773,
+      "total": 23,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "TH",
+          9
+        ],
+        [
+          "KH",
+          8
+        ],
+        [
+          "LA",
+          4
+        ],
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          12.65625,
+          4,
+          4
+        ],
+        [
+          105.46875,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          106.875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -148,7 +282,7 @@
       "width": 700,
       "height": 351,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Graeme Robson / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/yasuhikotakia-eos",
       "caption": "Adult specimen.",
       "source": "seriouslyfish"

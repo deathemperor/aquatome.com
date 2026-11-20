@@ -3,6 +3,12 @@
   "name": "Sistem Sungai Congo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T00:46:16.653Z",
+    "why": "Malay atlases in Malaysia write the river as \"Sungai Congo\" (or \"Sungai Kongo\"), and \"Sistem Sungai Congo\" is a descriptive, non-standard rendering of the Congo river system rather than an established atlas name."
+  },
   "quality": {
     "score": 0.55,
     "indexable": false

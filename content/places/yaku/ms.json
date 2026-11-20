@@ -3,6 +3,12 @@
   "name": "Yaku",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T05:12:11.295Z",
+    "why": "The source sentence refers to Yaku as the island Yakushima, so Malay atlases would write \"Pulau Yakushima\" (or \"Pulau Yaku\"), and bare \"Yaku\" omits the kind word \"Pulau\"; the record also wrongly labels it a region."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

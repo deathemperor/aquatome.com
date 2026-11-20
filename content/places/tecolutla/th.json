@@ -3,6 +3,12 @@
   "name": "เตโกลุตลา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:53:57.334Z",
+    "why": "Tecolutla is a Veracruz municipality, and Thai atlases would likely render Spanish \"co\" as \"โก\" but the \"te\" as \"เต\" is fine; the issue is that the name lacks a region-kind word like \"เทศบาล\" and the standard Thai transliteration is uncertain, so \"เตโกลุตลา\" is plausible but unverified."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

@@ -1,0 +1,83 @@
+{
+  "id": "youtube--Vah5qCPGqo",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=-Vah5qCPGqo",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "ambystoma-mexicanum",
+    "tanichthys-albonubes",
+    "danio-rerio",
+    "melanotaenia-boesemani"
+  ],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "-Vah5qCPGqo",
+    "title": "FEEDING *LIVE* FOOD to EXOTIC ANIMALS & FISH | MD FISH TANKS",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 1165,
+    "publishedAt": "2020-03-10",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 80
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/-Vah5qCPGqo/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Ambystoma mexicanum",
+      "Tanichthys albonubes",
+      "Danio rerio",
+      "Melanotaenia boesemani"
+    ],
+    "gear": [
+      {
+        "category": "thuc-an",
+        "type": "song",
+        "t": 30
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 4
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Aquasoil"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Substrate Powder"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Ferts Premium"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Ferts Specialised"
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Nutrition Capsules"
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "brand": "Opti White",
+        "model": "Nano Tank & Light"
+      }
+    ]
+  }
+}

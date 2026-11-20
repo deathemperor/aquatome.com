@@ -1,0 +1,105 @@
+{
+  "id": "trichomycterus-alternatus",
+  "native": {
+    "input": "bd1fe40ed2a8a36f",
+    "at": "2026-11-17T00:14:47.070Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Trichomycterus alternatus comes from Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Doce, near the village Rio Doce, Minas Gerais, Brazil [20°14'41\"S, 42°53'45\"W].",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraíba do Sul",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Least Concern (LC). Trichomycterus alternatus is widely distributed, frequent and abundant in the Paraíba do Sul River basin and coastal rivers from the states of Rio de Janeiro to Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Jequitinhonha",
+        "source": "scotcat",
+        "quote": "South America: Atlantic coastal river basins, Rio de Janeiro and Espírito Santo States, Jequitinhonha River basin, Minas Gerais, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Doce",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Doce, near the village Rio Doce, Minas Gerais, Brazil [20°14'41\"S, 42°53'45\"W].",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Trichomycterus alternatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2343016,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        136
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        76
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        57
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-17T00:14:47.070Z"
+  }
+}

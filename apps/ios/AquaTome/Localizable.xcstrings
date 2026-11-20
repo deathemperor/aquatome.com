@@ -1387,6 +1387,28 @@
         }
       }
     },
+    "AquaTome sẽ xem lại câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome akan meninjau jawaban ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome akan menyemak jawapan ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome จะตรวจสอบคำตอบนี้อีกครั้ง"
+          }
+        }
+      }
+    },
     "AquaTome đã hết lượt hỏi Claude hôm nay": {
       "localizations": {
         "id": {
@@ -1537,6 +1559,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "รายงานรูปนี้ไหม?"
+          }
+        }
+      }
+    },
+    "Báo câu trả lời sai": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan jawaban yang salah"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan jawapan yang salah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งคำตอบที่ผิด"
+          }
+        }
+      }
+    },
+    "Báo sai": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan kesalahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan kesilapan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งว่าผิด"
           }
         }
       }
@@ -3367,6 +3433,28 @@
         }
       }
     },
+    "Chưa gửi vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dikirim karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihantar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่ได้ส่ง เพราะคุณออกจากระบบแล้ว"
+          }
+        }
+      }
+    },
     "Chưa gửi được email: thử lại sau.": {
       "localizations": {
         "id": {
@@ -3385,6 +3473,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งอีเมลไม่สำเร็จ โปรดลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Chưa gửi được. Bấm Gửi lần nữa.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum terkirim. Ketuk Kirim sekali lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihantar. Ketik Hantar sekali lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังส่งไม่ได้ กด “ส่ง” อีกครั้ง"
           }
         }
       }
@@ -8691,6 +8801,50 @@
         }
       }
     },
+    "Không báo được câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawaban ini tidak bisa dilaporkan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawapan ini tidak dapat dilaporkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งคำตอบนี้ไม่ได้"
+          }
+        }
+      }
+    },
+    "Không bắt buộc. AquaTome sẽ xem lại câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak wajib diisi. AquaTome akan meninjau jawaban ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak wajib. AquaTome akan menyemak jawapan ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่บังคับ AquaTome จะตรวจสอบคำตอบนี้อีกครั้ง"
+          }
+        }
+      }
+    },
     "Không nhận được câu trả lời": {
       "localizations": {
         "id": {
@@ -12339,6 +12493,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความกว้างด้านที่ 2"
+          }
+        }
+      }
+    },
+    "Sai ở đâu?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salahnya di mana?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa yang salah?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ผิดตรงไหน"
+          }
+        }
+      }
+    },
+    "Sai ở đâu? (không bắt buộc)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salahnya di mana? (tidak wajib)"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa yang salah? (tidak wajib)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ผิดตรงไหน (ไม่บังคับ)"
           }
         }
       }
@@ -18283,6 +18481,50 @@
         }
       }
     },
+    "Đã báo": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah dilaporkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telah dilaporkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งแล้ว"
+          }
+        }
+      }
+    },
+    "Đã báo. Cảm ơn bạn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah dilaporkan. Terima kasih."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telah dilaporkan. Terima kasih."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งแล้ว ขอบคุณ"
+          }
+        }
+      }
+    },
     "Đã chỉnh giờ đèn: %@.": {
       "localizations": {
         "id": {
@@ -21275,6 +21517,28 @@
         }
       }
     },
+    "Ảnh đại diện nhóm: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto utama kelompok: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foto utama kumpulan: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพประจำกลุ่ม: %@"
+          }
+        }
+      }
+    },
     "Ấm, dịu mắt": {
       "localizations": {
         "id": {
@@ -21737,6 +22001,94 @@
         }
       }
     },
+    "%@, nhóm cá": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, kelompok ikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, kumpulan ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, กลุ่มปลา"
+          }
+        }
+      }
+    },
+    "Nhóm cá, %lld mục": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kelompok ikan, %lld item"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kumpulan ikan, %lld item"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กลุ่มปลา, %lld รายการ"
+          }
+        }
+      }
+    },
+    "%lld trang · %lld bài viết": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld halaman · %2$lld artikel"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld halaman · %2$lld artikel"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld หน้า · %2$lld บทความ"
+          }
+        }
+      }
+    },
+    "Bài viết": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artikel"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Artikel"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "บทความ"
+          }
+        }
+      }
+    },
     "%@ bật": {
       "localizations": {
         "id": {
@@ -21843,6 +22195,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "AquaTome ไม่เปิด CO2 กลับเอง หากต้องการ ให้เปิดปลั๊ก CO2 ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "AquaTome đã trả ổ %@ về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome sudah mengembalikan stopkontak %@ seperti semula: saat tombol ditekan, stopkontak belum melaporkan perubahan. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome telah mengembalikan soket %@ seperti asal: semasa butang ditekan, soket belum melaporkan perubahan. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome คืนค่าปลั๊ก %@ ให้เหมือนเดิมแล้ว: ตอนกดปุ่ม ปลั๊กยังไม่รายงานว่าเปลี่ยนแล้ว ตรวจดูปลั๊กนี้"
+          }
+        }
+      }
+    },
+    "Ổ %@ đã về như cũ, có thể do lệnh trả lại của AquaTome. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sudah kembali seperti semula, mungkin karena perintah pengembalian dari AquaTome. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ sudah kembali seperti asal, mungkin kerana arahan pengembalian daripada AquaTome. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ กลับเป็นเหมือนเดิมแล้ว อาจเป็นเพราะคำสั่งคืนค่าของ AquaTome ตรวจดูปลั๊กนี้"
           }
         }
       }
@@ -21997,6 +22393,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ไม่แน่ใจว่าปลั๊ก %@ เปลี่ยนแล้วหรือยัง: ดูได้ใน ตู้ของฉัน"
+          }
+        }
+      }
+    },
+    "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah lampu Love Ecology sudah menerima perintah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada lampu Love Ecology sudah menerima arahan. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าไฟ Love Ecology ได้รับคำสั่งแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Không rõ lệnh đã tới ổ %@ chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum jelas apakah perintah sudah sampai ke stopkontak %@, jadi AquaTome membiarkannya: periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak pasti sama ada arahan sudah sampai ke soket %@, jadi AquaTome membiarkannya: semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่แน่ใจว่าคำสั่งไปถึงปลั๊ก %@ หรือยัง AquaTome จึงปล่อยไว้ตามเดิม: ตรวจดูปลั๊กนี้"
           }
         }
       }
@@ -22683,6 +23123,94 @@
         }
       }
     },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah karena Anda sudah keluar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar kerana anda telah log keluar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี เพราะคุณออกจากระบบแล้ว"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah. Coba lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar. Cuba lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี ลองอีกครั้ง"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật nhưng chưa đổi màu: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi warnanya belum diubah: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi warnanya belum ditukar: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ยังไม่ได้เปลี่ยนสี: %@"
+          }
+        }
+      }
+    },
+    "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tapi belum jelas apakah warnanya sudah berubah. Periksa lampunya."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lampu Love Ecology sudah menyala, tetapi tidak pasti sama ada warnanya sudah bertukar. Semak lampu."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไฟ Love Ecology เปิดแล้ว แต่ไม่แน่ใจว่าเปลี่ยนสีแล้วหรือยัง ตรวจดูไฟอีกครั้ง"
+          }
+        }
+      }
+    },
     "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.": {
       "localizations": {
         "id": {
@@ -22855,6 +23383,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ปลั๊ก %@ ถูกเปลี่ยนระหว่างที่ปุ่มทำงาน AquaTome จึงปล่อยไว้ตามนั้น"
+          }
+        }
+      }
+    },
+    "Ổ %@ giờ được ghi là cắm sưởi nên AquaTome để nguyên. Bạn xem lại ổ này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopkontak %@ sekarang dicatat untuk pemanas, jadi AquaTome membiarkannya. Periksa stopkontak ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soket %@ kini direkodkan untuk pemanas, jadi AquaTome membiarkannya. Semak soket ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ปลั๊ก %@ ถูกระบุว่าใช้กับฮีตเตอร์แล้ว AquaTome จึงปล่อยไว้ตามเดิม ตรวจดูปลั๊กนี้"
           }
         }
       }

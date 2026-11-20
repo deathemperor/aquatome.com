@@ -1,0 +1,84 @@
+{
+  "id": "thaiphusa-sirikit",
+  "scientificName": "Thaiphusa sirikit",
+  "order": "Decapoda",
+  "family": "Potamidae",
+  "genus": "Thaiphusa",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 5790527,
+      "total": 0,
+      "fetched": "2026-11-17",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/demanietta-sirikit/",
+      "html": "<p>Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/demanietta-sirikit/",
+      "html": "<p>This crab lives in tunnels 50–100 cm long near the riverside. It digs its home so deep that it reaches the level of the groundwater.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/demanietta-sirikit/",
+      "html": "<p>Kept in a terrarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/demanietta-sirikit/",
+      "html": "<p>Fruit.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/demanietta-sirikit/",
+      "html": "<p>In the mating season the crabs look for a partner. This happens during the rainy season, when many fruits ripen. The young grow under the pleon of the female, and when they are fully developed they leave their mother and start their own lives.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/e43b4deb473b0dcd.webp",
+      "thumb": "https://media.aquatome.com/glaser/e43b4deb473b0dcd-480.webp",
+      "width": 792,
+      "height": 500,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/demanietta-sirikit/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "RHcKsvECCaQ",
+      "title": "ข่าวดี! ค้นพบปูน้ำจืดพันธุ์ใหม่ สายพันธุ์ 'Thaiphusa' ในสวนยาง จ.กาญจนบุรี",
+      "durationSec": 70,
+      "lang": "th"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể terrarium cho cua",
+        "bể cạn bán thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-17"
+}

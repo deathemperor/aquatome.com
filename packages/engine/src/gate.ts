@@ -49,8 +49,8 @@ export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
 export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewhere', 'product']
 /**
  * Whether a page's checks are the video editor's to fix (the chief of staff, 14 Nov 2026): each one it mends, units beside
- * one of them (never alone, which is units-mend's), and a dose, which video-mend.ts takes only when it is the source's own
- * tank's and leaves a person otherwise. The editor writes, keeps or converts no figure: video-mend.ts holds them.
+ * one of them (whose sentence the mend leaves for units-mend.ts), and a dose, which video-mend.ts takes only when it is the
+ * source's own tank's and leaves a person otherwise. The editor writes or changes no amount (amount.ts, 19 Nov 2026).
  */
 export const editorMay = (checks: readonly FitCheck[]) =>
   checks.some(c => c !== 'units') && checks.every(c => MENDABLE.includes(c) || c === 'units' || c === 'dose')
@@ -70,7 +70,10 @@ export const heldMendsOf = (env: NodeJS.ProcessEnv = process.env) => Number(env.
  * for a page it sends to no editor (not one it mends, no transcript): the file as it was. A run's `mends` count the pages
  * an editor was called for, so not the last.
  */
-export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean | undefined | { refused: string }>
+export type Mend = ((p: Page, findings: FitFinding[]) => Promise<boolean | undefined | { refused: string }>) & {
+  /** What a mend leaves for once the gate keeps its text, and never when the text goes back (video-mend.ts: a guide's other languages let into the chat). */
+  kept?: (p: Page) => Promise<void>
+}
 /**
  * A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote.
  * `unread`: the page was not read (the accounts out), so there are no checks.
@@ -295,6 +298,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     // A page held already takes one of the run's `heldMends`; a new one, or a live one going back, one of its `mends`.
     const fromHeld = o.wasHeld && !o.isNew
     if (!d.mend || (fromHeld ? heldMends : mends) <= 0 || !editorMay(worse)) return undefined
+    // A live page's new text worse for units: the mend converts none (video-mend.ts), so the text would still be worse
+    // once mended, and goes back now, with no editor paid for. A new or held page is held for them, for units-mend.ts.
+    if (!o.isNew && !o.wasHeld && worse.includes('units')) return undefined
     // Held for what waits for a person: never to the editor. A dose is the editor's when it is the source's own tank's
     // (video-mend.ts decides), so only while the read still finds it, to be sent.
     if (o.wasHeld && waitsFor(f).some(c => c !== 'dose' || !worse.includes('dose'))) return undefined
@@ -327,6 +333,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     if (!next || !read2) return await undo()
     const call = gateCall(gateChecks(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, ...(old ? { before: new Set([...o.oldChecks, ...carried(next, read2, old)]) } : {}) })
     if (call.action === 'revert') return await tried()
+    await d.mend.kept?.(p)
     // The mended text is the page's from here on: its read, and what the steps below and the report count.
     state[fitKey(p)] = fromHeld && call.action === 'hold' ? { ...read2, mendTried: day } : read2
     byFile.set(f, next)

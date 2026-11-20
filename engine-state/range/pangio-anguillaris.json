@@ -1,8 +1,8 @@
 {
   "id": "pangio-anguillaris",
   "native": {
-    "input": "a1fd3e297d605ccd",
-    "at": "2026-11-11T02:57:45.598Z",
+    "input": "7b26109974986227",
+    "at": "2026-11-18T12:30:34.128Z",
     "claims": [
       {
         "code": "ID",
@@ -43,6 +43,14 @@
         "quote": "Described from the Kapuas river basin, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) and since recorded from the Batang Hari river system, Sumatra, Peninsular Malaysia, the Chao Phraya river in Thailand and Mekong in Thailand, Laos, Cambodia and Vietnam.",
         "words": "Vietnam",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from Indonesia.",
+        "words": "Indonesia",
+        "ok": true
       }
     ],
     "regions": [
@@ -54,7 +62,7 @@
         "ok": true
       },
       {
-        "name": "Mekong",
+        "name": "Batang Hari",
         "source": "seriouslyfish",
         "quote": "Described from the Kapuas river basin, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) and since recorded from the Batang Hari river system, Sumatra, Peninsular Malaysia, the Chao Phraya river in Thailand and Mekong in Thailand, Laos, Cambodia and Vietnam.",
         "ok": true
@@ -67,7 +75,7 @@
         "ok": true
       },
       {
-        "name": "Batang Hari",
+        "name": "Mekong",
         "source": "seriouslyfish",
         "quote": "Described from the Kapuas river basin, West Kalimantan (Kalimantan Barat) province, Indonesia (Borneo) and since recorded from the Batang Hari river system, Sumatra, Peninsular Malaysia, the Chao Phraya river in Thailand and Mekong in Thailand, Laos, Cambodia and Vietnam.",
         "ok": true

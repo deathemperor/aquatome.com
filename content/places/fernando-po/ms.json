@@ -3,6 +3,12 @@
   "name": "Fernando Po",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:55:00.358Z",
+    "why": "The island is now called Bioko, and Malay atlases write \"Pulau Bioko\" (Fernando Po being the old colonial name), so the bare \"Fernando Po\" lacks the \"Pulau\" kind word and is dated, though the source itself uses \"Island of Fernando Po\"."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

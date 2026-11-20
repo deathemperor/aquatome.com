@@ -3,6 +3,12 @@
   "name": "Pang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-17T00:07:47.886Z",
+    "why": "\"Pang\" drops the kind word, since the place is the Nam Pang river, which Malay would write as \"Sungai Nam Pang\" (or \"Sungai Pang\")."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

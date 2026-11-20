@@ -4,7 +4,11 @@
   "inat:253222221",
   "inat:253222224"
  ],
- "hashes": {},
+ "hashes": {
+  "https://media.aquatome.com/glaser/3e214e3264894e18.webp": "492d079e23535391",
+  "https://media.aquatome.com/glaser/0a942a24a3a13fbd.webp": "58614eba2c1c53d9",
+  "https://media.aquatome.com/glaser/0aaade25f3d39b7e.webp": "604c0f6d6d712797"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 620767,
@@ -13,5 +17,9 @@
    "research": 147186592,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2354134,
+  "next": null
  }
 }

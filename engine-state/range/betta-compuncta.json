@@ -1,10 +1,17 @@
 {
   "id": "betta-compuncta",
   "native": {
-    "input": "02cfa4f3c0c8125b",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "856b681935e1efec",
+    "at": "2026-11-19T12:55:32.239Z",
     "claims": [],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Mahakam",
+        "source": "bwaquatics",
+        "quote": "Betta compuncta was described in 2006 from a stream in the Mahakam basin near Long Iram, East Kalimantan, not far upriver from Melak.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

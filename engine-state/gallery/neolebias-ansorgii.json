@@ -1,7 +1,34 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:11293344",
+  "inat:187217310",
+  "inat:210375638",
+  "inat:214008937",
+  "inat:357597670",
+  "inat:360021114",
+  "inat:407710156",
+  "inat:407710816",
+  "inat:407710830",
+  "inat:407710849",
+  "inat:407715821",
+  "inat:407715806",
+  "inat:407715817",
+  "inat:407717158",
+  "inat:475787727"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/11293344/large.jpg": "42420e9f1f1dc0e0",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/357597670/large.jpg": "a40565c35b6634b8",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407710816/large.jpg": "8bc9cd9d9c9a8b4f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407710830/large.jpg": "8e9b9b9b9e727c6c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407710849/large.jpg": "b83c1e1c60450c38",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407715821/large.jpg": "1d141d3858919364",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407715806/large.jpg": "0141c78ca9d38cad",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407715817/large.jpg": "8942b29a8b9c1c3d",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/407717158/large.jpg": "91b6b4129c81d151",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/475787727/large.jpeg": "ee90f00e0ca08400"
+ },
  "commons": "2026-11-03",
  "inat": {
   "taxon": 106789,
@@ -14,5 +41,13 @@
  "gbif": {
   "key": 2355753,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 264931775,
+  "done": true
+ },
+ "exhausted": "2026-11-19"
 }

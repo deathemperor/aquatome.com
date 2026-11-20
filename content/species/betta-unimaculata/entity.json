@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "mahakam",
-    "tarakan"
+    "tarakan",
+    "kalimantan"
   ],
   "range": {
     "native": {
@@ -19,11 +20,9 @@
       "regions": [
         "Kayan",
         "Mahakam",
-        "Borneo",
-        "Tarakan"
+        "Borneo"
       ],
       "sources": [
-        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -37,14 +36,6 @@
             "Kayan",
             "Mahakam",
             "Borneo"
-          ]
-        },
-        {
-          "source": "bwaquatics",
-          "quote": "Wild-caught Betta unimaculata from the island of Tarakan.",
-          "countries": [],
-          "regions": [
-            "Tarakan"
           ]
         }
       ]
@@ -82,41 +73,37 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 21,
           "max": 26
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 5,
-          "max": 7
+          "min": 22,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
           "min": 5,
           "max": 7.5
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
-      {
-        "source": "bwaquatics",
-        "value": 9
-      },
       {
         "source": "seriouslyfish",
         "value": 11.5
@@ -124,13 +111,13 @@
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "bwaquatics",
+        "value": 10
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 5
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -156,8 +143,8 @@
     {
       "key": "quickFacts",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<ul><li>From the Betta unimaculata complex.</li><li>IUCN Red List: Data Deficient.</li><li>Maximum size: 3.5 inches (about 9 cm).</li><li>Breeding: mouthbrooder.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<ul><li>Belongs to the Betta unimaculata complex.</li><li>IUCN Red List: Data Deficient.</li><li>Origin: wild caught (Wahau, East Kalimantan).</li><li>Betta unimaculata is the largest betta species and the namesake of the unimaculata complex.</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -174,8 +161,8 @@
     {
       "key": "distribution",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<p>Wild-caught Betta unimaculata from the island of Tarakan.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Betta unimaculata is a mouthbrooder from eastern Borneo, and many East Kalimantan localities are sold as unimaculata or unimaculata types. This form comes from Wahau, East Kalimantan.</p>"
     },
     {
       "key": "distribution",
@@ -190,10 +177,22 @@
       "html": "<p>Has been collected from numerous habitat-types including clear, flowing streams and isolated, elevated pools around headwaters as well as more turbid forested streams.</p><p>In flowing headwaters and streams the fish tend to lurk in slow-moving or stagnant pools whereas in the forest streams they're found among marginal vegetation, leaf litter and submerged tree roots.</p><p>One population inhabits the top of a rainforest waterfall (in a place named Bahulak that could not be located on a map) with substrate composed of exposed sandstone.</p>"
     },
     {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Wild Betta unimaculata live in clear forest streams with flowing water; FishBase records pH 6.5 to 7.5 and 21 to 25°C.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-unimaculata",
       "html": "<p>An aquarium with base measurements of 80 × 30 cm (31 × 12 in) or equivalent, about 72 litres, is sufficient for a pair.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Recommended 1 pair per 40 litres, or 80 litres for breeding.</p>"
     },
     {
       "key": "maintenance",
@@ -210,8 +209,8 @@
     {
       "key": "waterConditions",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<ul><li>TDS: about 60–100</li><li>pH: 5.0–7.0</li><li>Temperature: 72–82°F (22–28°C). They prefer cooler temperatures, but higher temperatures induce coloration and breeding behaviour.</li></ul>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<ul><li>Temperature: 22 to 28°C (they prefer cooler water, but warmer water brings out colour and breeding behaviour)</li><li>pH: 6.5 to 7.5</li><li>TDS: 60 to 100</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -222,8 +221,8 @@
     {
       "key": "diet",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<p>Carnivorous. Currently fed live, frozen and dried foods: blackworms, frozen bloodworms and pellets.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Carnivorous. Fed on live blackworms, frozen bloodworms and pellets.</p>"
     },
     {
       "key": "diet",
@@ -234,8 +233,8 @@
     {
       "key": "behaviour",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<p>Like many of the species in this complex, with the largest bettas, they can be aggressive. It is recommended to keep them in a species-only tank as they can eat anything that fits in their big mouth.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Temperament: aggressive. Best kept in a species-only tank, since they will eat any fish that fits in their mouth. Give a pair plenty of caves and cover to break line of sight.</p>"
     },
     {
       "key": "behaviour",
@@ -246,8 +245,8 @@
     {
       "key": "dimorphism",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<p>Fully grown adult males have longer ventral fins, a larger body and iridescent plating on the cheeks. Females can sometimes have iridescence on the cheeks.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Body long and slender with a large, blunt head. Adult males grow larger than females, normally reaching over 9 cm in the Wahau form, and fully grown males have longer pelvic fins. The caudal fin is rounded. The body is light brown to tan, with light blue iridescent scales on the cheeks and lower jaw and scattered iridescent scales along the body and fins. Females have less iridescence.</p>"
     },
     {
       "key": "dimorphism",
@@ -258,8 +257,8 @@
     {
       "key": "reproduction",
       "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<p>Mouthbrooder.</p>"
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Paternal mouthbrooder. The female collects the eggs during spawning and passes them to the male, who holds them in his mouth for about 2 to 3 weeks. Keep the tank quiet and leave a holding male alone, since a disturbed male may swallow or spit out the brood. He releases fully formed fry that can eat baby brine shrimp right away.</p>"
     },
     {
       "key": "reproduction",
@@ -275,15 +274,15 @@
     },
     {
       "key": "notes",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-tarakan-yellow",
-      "html": "<p>A large unimaculata-type betta found on the island of Tarakan, known for full-colour iridescent cheeks. Also known as Betta ocellata; it is unknown whether they are the same or different species.</p>"
-    },
-    {
-      "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-unimaculata",
       "html": "<p>This species is included in the Betta unimaculata complex of closely-related species within the genus, of which members share the following set of characters: body long and slender with depth at dorsal fin origin 18-25 % SL; head large and blunt with width 19-24 % SL; long maxilla and lower lip with distance from tip of lower jaw to posterior end of maxilla 27-54 % HL; caudal-fin rounded in shape, occasionally with elongated median rays; pelvic-fin short and filamentous; dorsal and anal fins relatively pointed.</p><p>The unique combination of characters distinguishing it from others in the group is as follows: male with yellowish to brown body; presence of iridescent scales on opercle; dorsal-fin ocellus absent; no dark vertical bars on body; transverse bars present in dorsal, anal, and caudal fins; head blunt, slightly truncate in shape; 27-30 anal-fin rays (mode 28-29); 31-33 lateral scales (mode 32); length of anal-fin base 45.9-53.7 % SL; length of dorsal-fin base 7.9-10.4 % SL; head width 19.6-21.8 % SL.</p><p>The genus Betta is the most speciose within the family Osphronemidae with almost 70 recognised members and looks set to grow further with new ones continuing to be described on a regular basis since the turn of the century.</p><p>Member species have successfully adapted to inhabit a variety of ecological niches from stagnant ditches to flowing hill streams including some extreme environments such as highly acidic peat swamp forests.</p><p>The referral of members to a number of groups containing closely-related species is now generally accepted but largely based on morphological/behavioural characters. Molecular phylogenetic work is thus required and would undoubtedly prove useful in more precisely determining relationships between these fishes.</p><p>Like others in the suborder Anabantoidei this species possesses an accessory breathing organ known as the labyrinth. So-called due to its maze-like structure this organ allows the fish to breathe atmospheric air to a certain extent.</p><p>Comprising paired suprabranchial organs formed via expansion of the epibranchial (upper) section of the first gill arch and housed in a chamber above the gills, it contains many highly-vascularised, folded flaps of skin which function as a large respiratory surface. Its structure varies in complexity between species, tending to be better-developed in those inhabiting harsher environments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/betta-unimaculata-wahau-wild-type-bettas",
+      "html": "<p>Max size: over 10 cm. Fish in this complex are very prone to ich and velvet during the first few weeks after import, so new arrivals should be watched closely.</p>"
     },
     {
       "key": "references",
@@ -414,5 +413,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19"
 }

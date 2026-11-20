@@ -1,9 +1,18 @@
 {
  "queue": [],
  "judged": [
-  "File:FMIB 52363 Hemiodontichthys acipenserinus (KJner).jpeg"
+  "File:FMIB 52363 Hemiodontichthys acipenserinus (KJner).jpeg",
+  "inat:107112537",
+  "inat:107112552",
+  "inat:107112568",
+  "inat:256415852",
+  "inat:564803301"
  ],
- "hashes": {},
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/107112552/large.jpeg": "000006018edc6422",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/107112568/large.jpeg": "0307193c06070303",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/564803301/large.jpg": "6f9799fccc9fbeee"
+ },
  "commons": "2026-11-02",
  "inat": {
   "taxon": 616358,
@@ -16,5 +25,13 @@
  "gbif": {
   "key": 2339022,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 312812817,
+  "done": true
+ },
+ "exhausted": "2026-11-17"
 }

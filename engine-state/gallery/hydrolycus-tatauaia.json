@@ -3,7 +3,8 @@
  "judged": [
   "File:Hydrolycus tatauaia.jpg",
   "File:Orange Tail Payara.jpg",
-  "File:Orange Tail Aripuanã.jpg"
+  "File:Orange Tail Aripuanã.jpg",
+  "flickr:5806480429"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/2be5902a76142f4a.webp": "627007121b51b9c0",
@@ -18,5 +19,13 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 2352288,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-17"
 }

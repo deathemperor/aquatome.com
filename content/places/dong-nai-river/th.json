@@ -3,6 +3,12 @@
   "name": "ดงนาย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T07:53:32.929Z",
+    "why": "ดงนาย lacks the kind word แม่น้ำ and is a loose transliteration; Thai atlases write แม่น้ำดองนาย (or ด่งนาย), so this form is cut short and the spelling is off."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

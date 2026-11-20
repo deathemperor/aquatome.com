@@ -87,9 +87,13 @@ async function withdrawGenerated(root: string, page: Pick<ImagePage, 'kind' | 'i
   }
 }
 
-/** All general switches OFF leaves only the individually approved, model-free crop publisher. */
+/**
+ * All general switches OFF leaves only the individually approved, model-free crop publisher. The non-commercial switch
+ * (inatNonCommercial) is no image step's: it admits iNaturalist's album photos as they are, so it never wakes these steps.
+ */
 export async function imageSteps(root: string, makeDeps: () => Promise<ImageStepDeps>, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES, limit = 1, budgetMs = 12 * 60_000, cancellation?: AbortSignal) {
-  const report = { generated: 0, repaired: 0, upscaled: 0, published: 0, waiting: [] as string[], failed: [] as string[], off: !Object.values(switches).some(Boolean) }
+  const { inatNonCommercial: _, ...steps } = switches
+  const report = { generated: 0, repaired: 0, upscaled: 0, published: 0, waiting: [] as string[], failed: [] as string[], off: !Object.values(steps).some(Boolean) }
   cancellation?.throwIfAborted()
   const ownerPending=await pendingOwnerCrops(root)
   if (report.off && !ownerPending.length) return report
@@ -189,7 +193,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       if (!result) {
         if (c.photo.source === 'glaser' && marks.every(m=>m.owner === 'source')) {
           const file = join(root, 'engine-state/_photo-watermarks.json'), cache = await json<Record<string, object>>(file, {})
-          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source' } }; await writePhotoState(file, cache)
+          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source', by: 'image' } }; await writePhotoState(file, cache)
         }
         await save(workFile, { key, status: 'refused', reason: 'no-trace check' }); finishRealCandidate(name,pageKey)
         report.waiting.push(`${pageKey}: no clean removal; original retained`); continue

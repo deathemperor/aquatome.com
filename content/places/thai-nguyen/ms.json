@@ -3,6 +3,12 @@
   "name": "Thai Nguyen",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:55:43.296Z",
+    "why": "Thai Nguyen is the Vietnamese name without diacritics, and for a province an atlas in Malaysia would add the kind word \"Wilayah\" or \"Provinsi\" (e.g. \"Wilayah Thai Nguyen\"), so the bare name leaves out the kind word."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

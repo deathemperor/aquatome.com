@@ -1,0 +1,81 @@
+{
+  "found": false,
+  "specs": [],
+  "variants": [],
+  "prices": [],
+  "fits": [
+    {
+      "fact": "Hobbyists have used small tanks sold as 'Opti-White Nano' for planted nano setups. One example was a TGM Optiwhite Nano of about 35 x 22.7 x 25 cm, run with CO2.",
+      "source": 1
+    },
+    {
+      "fact": "Small tanks of this kind have also been used for cherry/sakura shrimp breeding colonies and for 15-litre moss tanks, according to forum posts.",
+      "source": 2
+    }
+  ],
+  "usage": [],
+  "issues": [
+    {
+      "fact": "'Opti-White' describes a low-iron, extra-clear glass, not a specific model. In forums the name covers several makers' tanks and custom builds, most of them from years ago, so no single product can be pinned down.",
+      "source": 1
+    },
+    {
+      "fact": "Some UK hobbyists had opti-white nano tanks custom-built or bought the glass to assemble themselves instead of buying a ready-made kit.",
+      "source": 3
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Dennerle",
+      "model": "Nano Cube Complete (20/30/60 L)",
+      "why": "A current complete nano set that includes substrate, lighting and a filter. It comes in several sizes under 40 L, which suits beginners."
+    },
+    {
+      "brand": "Aquael",
+      "model": "Smart Shrimp Set Day & Night",
+      "why": "A ready-made nano kit for plants, shrimp and small fish. Its LED has two daylight levels and a blue night mode."
+    },
+    {
+      "brand": "Generic (Bách Khoa Aqua)",
+      "model": "Bể đúc kính siêu trong 30–50 cm",
+      "why": "A cheaper local route: buy a low-iron (siêu trong) tank made in Vietnam and add a separate nano LED. This gives the same clear-glass look."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://plantedtank.net/forums/12-tank-journals/106056-steves-optiwhite-nano-ikita-kaseki.html",
+      "title": "Steve's Optiwhite Nano - \"Ikita Kaseki\"",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.fishforums.net/threads/15-liter-opti-white-nano.322513/",
+      "title": "15 Liter Opti-White Nano",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.pinterest.com/pin/785948572458909497/",
+      "title": "Double Opti White Nano - Cherry/Sakura Breeding Colony",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/opti-white-custom-nano.26297/",
+      "title": "Opti-white custom nano (UKAPS)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://dennerle.com/en/products/nano-cube-complete",
+      "title": "Dennerle Nano Cube Complete",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.warehouse-aquatics.co.uk/aquael-smart-shrimp-set-nano-aquarium-day-night-white.html",
+      "title": "AquaEl Smart Shrimp Set Nano Aquarium Day & Night White",
+      "kind": "shop"
+    },
+    {
+      "url": "https://bachkhoaaqua.com/san-pham/be-duc-kinh-sieu-trong-50-45-40-35-30cm",
+      "title": "Bể đúc kính siêu trong 50-45-40-35-30cm – Bách Khoa Aqua",
+      "kind": "shop"
+    }
+  ]
+}

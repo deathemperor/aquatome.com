@@ -24,6 +24,13 @@ export const FIELD_TIPS: Record<DataCardField, string> = {
   tankCm: 'Chiều dài bể ngắn nhất cho cá trưởng thành. Đây là chiều dài, không phải thể tích.',
   difficulty: 'Thang từ 1 đến 8. Từ 1 đến 3 là dễ, 4 và 5 là vừa, 6 đến 8 là khó.',
 }
+/** The tips that say "cá", as a crab's, a shrimp's or a snail's card says them (Codex's read of 17 Nov; the owner's report of 15 Nov). */
+export const FIELD_TIPS_NOT_FISH: Partial<Record<DataCardField, string>> = {
+  tempC: 'Khoảng nhiệt độ nước mà loài này sống khỏe, tính bằng °C.',
+  sizeCm: 'Chiều dài khi trưởng thành.',
+  lifeYears: 'Số năm loài này sống trong bể, đúng như nguồn ghi.',
+  tankCm: 'Chiều dài bể ngắn nhất cho con trưởng thành. Đây là chiều dài, không phải thể tích.',
+}
 
 /** The needs of "Vì sao độ khó này" (careNeeds in @aq/schema), their levels, and the words for why one isn't easy. */
 export const NEED_LABELS: Record<NeedKey, string> = { space: 'Không gian', water: 'Nước', temperature: 'Nhiệt độ', temperament: 'Tính cách', social: 'Bầy đàn' }

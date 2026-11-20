@@ -5,6 +5,7 @@ import { figureHtml } from '../src/lib/figures'
 import { htmlBlocks } from '../src/lib/page-blocks'
 import { page } from './dist'
 import { OTHER_LANGS } from '@aq/schema/langs'
+import type { AlbumPhoto } from '../src/lib/album'
 
 // Unsplash's API guidelines: wherever an Unsplash photo shows, "Photo by <name> on Unsplash", the name linking the
 // photographer's Unsplash page and "Unsplash" its home, both with our UTM. The fixture has one as the Pigeon Blood
@@ -72,31 +73,25 @@ test('a breed\'s Unsplash photo: its line under it, both links with the UTM, no 
 test('the credits list: an Unsplash row is its line, each photo\'s own page a number; a CC row as before', () => {
   // The fish list, whose script adds rows later (data-author…): the breed card's photo.
   const rows = page('/ca/').dom.querySelectorAll('#photo-credits li').map(li => noCid(li.outerHTML))
-  expect(rows).toContain(`<li data-author="Mai Lin" data-licence="Unsplash License" data-author-url="${amp(MAI.authorUrl)}">Ảnh: <a class="author" href="${amp(MAI.authorUrl)}" rel="noopener">Mai Lin</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a><span class="lic"> · Unsplash License · 1 ảnh</span><span class="nums"><a href="${amp(MAI.sourceUrl)}" rel="noopener" aria-label="Mai Lin, ảnh 1">1</a></span></li>`)
-  // The flowerhorn's gallery: one photographer's page known, one not yet (the name links the photo); a CC photo's row.
-  const g = page('/ca/ca-la-han/anh/').dom
+  expect(rows).toContain(`<li data-author="Mai Lin" data-licence="Unsplash License" data-author-url="${amp(MAI.authorUrl)}">Ảnh: <a class="author" href="${amp(MAI.authorUrl)}" rel="noopener">Mai Lin</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a><span class="lic"> · <a class="licence" href="https://unsplash.com/license?${amp(UTM)}" rel="noopener">Unsplash License</a> · 1 ảnh</span><span class="nums"><a href="${amp(MAI.sourceUrl)}" rel="noopener" aria-label="Mai Lin, ảnh 1">1</a></span></li>`)
+  // The flowerhorn's page, whose album holds them: one photographer's page known, one not yet (the name links the photo);
+  // a CC photo's row.
+  const g = page('/ca/ca-la-han/').dom
   const gallery = g.querySelectorAll('#photo-credits li').map(li => noCid(li.outerHTML))
-  expect(gallery).toContain(`<li>Ảnh: <a class="author" href="https://unsplash.com/@jopark?${amp(UTM)}" rel="noopener">Jo Park</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a><span class="lic"> · Unsplash License · 1 ảnh</span><span class="nums"><a href="https://unsplash.com/photos/a-flowerhorn-in-a-tank-Fh7Fixture-?${amp(UTM)}" rel="noopener" aria-label="Jo Park, ảnh 1">1</a></span></li>`)
-  expect(gallery).toContain(`<li>Ảnh: <a href="https://unsplash.com/photos/flowerhorn-cichlid-close-up-Fh8Fixture_?${amp(UTM)}" rel="noopener">Sam Reyes</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a><span class="lic"> · Unsplash License</span></li>`)
-  expect(gallery).toContain('<li><a href="https://commons.wikimedia.org/wiki/File:Breed2.jpg" rel="noopener">Người chụp 2</a><span class="lic"> · CC BY 2.0</span></li>')
-  // The button counts photos, not the photographers' and Unsplash's links.
+  expect(gallery).toContain(`<li>Ảnh: <a class="author" href="https://unsplash.com/@jopark?${amp(UTM)}" rel="noopener">Jo Park</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a><span class="lic"> · <a class="licence" href="https://unsplash.com/license?${amp(UTM)}" rel="noopener">Unsplash License</a> · 1 ảnh</span><span class="nums"><a href="https://unsplash.com/photos/a-flowerhorn-in-a-tank-Fh7Fixture-?${amp(UTM)}" rel="noopener" aria-label="Jo Park, ảnh 1">1</a></span></li>`)
+  expect(gallery).toContain(`<li>Ảnh: <a href="https://unsplash.com/photos/flowerhorn-cichlid-close-up-Fh8Fixture_?${amp(UTM)}" rel="noopener">Sam Reyes</a> trên <a class="site" href="${amp(HOME)}" rel="noopener">Unsplash</a><span class="lic"> · <a class="licence" href="https://unsplash.com/license?${amp(UTM)}" rel="noopener">Unsplash License</a></span></li>`)
+  expect(gallery).toContain('<li><a href="https://commons.wikimedia.org/wiki/File:Breed2.jpg" rel="noopener">Người chụp 2</a><span class="lic"> · <a class="licence" href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a></span></li>')
+  // The button counts photos, not the photographers', Unsplash's or the licences' links.
   expect(g.querySelector('footer button[popovertarget="photo-credits"]')!.textContent).toBe('Nguồn ảnh (7)')
-  expect(g.querySelectorAll('#photo-credits li a:not(.author):not(.site)').length).toBe(7)
+  expect(g.querySelectorAll('#photo-credits li a:not(.author):not(.site):not(.licence)').length).toBe(7)
 })
 
-test('the gallery page: each Unsplash photo carries its photographer\'s page for the viewer, and its structured data names it', () => {
-  const { dom } = page('/ca/ca-la-han/anh/')
-  const tiles = dom.querySelectorAll('[data-gallery] a[data-i]')
-  expect(tiles.map(a => [a.getAttribute('data-unsplash'), a.getAttribute('data-by')])).toEqual([
+test('a page\'s album: each Unsplash photo carries its photographer\'s page for the viewer, when known', () => {
+  const { dom } = page('/ca/ca-la-han/')
+  const photos = JSON.parse(dom.querySelector('[data-album] script[type="application/json"]')!.textContent).photos as AlbumPhoto[]
+  expect(photos.map(p => [p.un, p.b])).toEqual([
     ...Array.from({ length: 5 }, () => [undefined, undefined]),
-    ['', `https://unsplash.com/@jopark?${UTM}`],
-    ['', undefined],
-  ])
-  const ld = dom.querySelectorAll('script[type="application/ld+json"]').map(s => JSON.parse(s.textContent)).flat().find((x: { '@type': string }) => x['@type'] === 'ImageGallery')
-  expect(ld.image.map((i: { creator: unknown }) => i.creator)).toEqual([
-    ...[2, 3, 4, 5].map(n => ({ '@type': 'Person', name: `Người chụp ${n}` })),
-    { '@type': 'Person', name: 'vnreddevil / Diễn Đàn Cá Cảnh' },
-    { '@type': 'Person', name: 'Jo Park', url: `https://unsplash.com/@jopark?${UTM}` },
-    { '@type': 'Person', name: 'Sam Reyes' },
+    [1, `https://unsplash.com/@jopark?${UTM}`],
+    [1, undefined],
   ])
 })

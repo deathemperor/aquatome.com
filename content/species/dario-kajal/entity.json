@@ -23,7 +23,8 @@
         "Myntdu River"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -109,6 +110,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ],
     "tankCm": [
@@ -132,10 +137,22 @@
       "html": "<p>Dario kajal is a tiny badid from the Meghna drainage, described from the Jaintia Hills of Meghalaya, India, and also found in Bangladesh. It was referred to as Dario sp. 'Jaintia Hills' or D. sp. 'Bangladesh' before its description, and its name alludes to its prominent orbital stripes. Males have bars arranged in pairs on the upper half of the body, and given its rarity it is best kept alone with the emphasis on captive reproduction.</p><ul><li>Max size: 20 mm SL (0.8 in)</li><li>Aquarium size: 45 × 30 cm (18 × 12 in)</li><li>Temperature: 16–24°C (61–75°F)</li><li>pH: 6.5–7.5</li><li>Hardness: 5–10 dGH</li></ul>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>In Thailand, the fish, which only reach a total length of about two centimetres, were offered in a pet shop as Dario sp. “Bangladesh”. In the German literature the new Dario was first introduced by Alexander Dorn (2006), who suggested the German common name “Kirschfleck-Dario” (Cherryspot-Dario). In 2009 Indian exporters started to offer the species regularly as Dario sp. “Jaintia Hills”. Further, hardly common trade names are Dario “Kishore Ganj” and Dario “Black Fin”. Only a few hundred specimens per year were available in Europe.</p><p>Meghalaya fish need to be kept a little cooler from time to time during the year. Some imports caused real problems until exporters said they were collected at only 14°C.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-kajal",
       "html": "<p>Type locality is 'India, Meghalaya, Jaintia Hills, Seinphoh stream at Umolong, 7 km from Jowai town, 25°31’36’’N 92°08’27’’E, 1320 m asl', and in India it has not been found elsewhere to date.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>The first reports of a new dwarf badis appeared in June 2004. Nonn Panitvong, an enthusiastic Thai aquarist, had found the animals in Bangladesh. He did not announce a more precise location, but said he caught the animals in a pond near a rice field, together with Danio rerio, Oryzias sp., Channa sp., Colisa chuna and others.</p><p>From 2009 it became known that these animals are found in the Indian state of Meghalaya, at quite high altitude. A large part of Meghalaya is formed by two mountain ranges, the Khasi and Jaintia Mountains. Meghalaya borders Bangladesh to the north. The description was based on animals all collected in the small river Seinphoh near Umolong (Meghalaya, Jaintia Hills).</p>"
     },
     {
       "key": "habitat",
@@ -150,6 +167,12 @@
       "html": "<p>A pair or small group with a male and several females can be housed in an aquarium with a base measuring 45 × 30 cm (18 × 12 in) or more (about 41 litres).</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>The weakly competitive fish are best kept in species aquariums, which can be small, because the males hardly defend a territory.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-kajal",
@@ -162,10 +185,22 @@
       "html": "<ul><li>Temperature: 16–24°C (61–75°F). At higher temperatures the fish apparently lose colour and become susceptible to illness.</li><li>pH: Prefers neutral conditions with a value around 6.5–7.5.</li><li>Hardness: Unconfirmed but between 5–10 dGH should be ok.</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>Dario are undemanding concerning water values. All water that is suitable as drinking water is also suitable for keeping the dwarf badis.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-kajal",
       "html": "<p>Dario species are micropredators feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>In captivity they should be offered small live or frozen fare such as Artemia nauplii, Daphnia, grindal, micro-, and banana worm.</p><p>They're noted as somewhat shy, deliberate feeders (see 'Behaviour and Compatibility') and it's also important to note that all badids develop issues with obesity and become more susceptible to disease when fed chironomid larvae (bloodworm) and/or Tubifex so these should be omitted from the diet.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>Dario cannot apparently be fed in the long term on Artemia nauplii alone or as main food, as is possible with licorice gouramis (Parosphromenus), so a live food source is needed. Dario do eat frozen food, but in small species aquariums it is hardly possible to dose it correctly and it is very polluting for the water.</p>"
     },
     {
       "key": "behaviour",
@@ -186,16 +221,34 @@
       "html": "<p>Likely comparable to other members of the genus which are substrate-spawners forming temporary pair bonds.</p><p>Other fishes are best omitted if you want to raise good numbers of fry, although in a mature, well-furnished community a few may survive to adulthood.</p><p>Either a single pair or a group of adults can be used but if using multiple males be sure to provide each with space to form a territory with around 30 cm² per individual adequate.</p><p>One male will usually become dominant meaning the others will not be involved in breeding.</p><p>Water parameters should be within the values suggested above and the fish conditioned with plenty of live and frozen foods.</p><p>As they come into breeding condition males will begin to form territories and display courtship behaviour alongside an intensified colour pattern.</p><p>This can be prolonged for several days with the female often being chased away then courted again minutes later.</p><p>The male will make a non-aggressive approach towards the female and appear to 'invite' her into the centre of his territory, and if ready to spawn she will follow.</p><p>The act itself is over in just a few seconds with eggs being scattered in a random fashion on the underside of a solid surface such as a plant leaf.</p><p>Post-spawning the female is ejected and the male takes sole responsibility for the territory.</p><p>If you want to maximise the numbers of fry raised now is the time to either remove the medium to a container containing water from the spawning tank or the adults as the fry will be preyed upon once hatched.</p><p>The incubation period should be 2-3 days after which the fry may need up to a week to fully absorb the yolk sac.</p><p>They are very small indeed and will require an infusoria-type diet until large enough to accept microworm, Artemia nauplii, and suchlike.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>Usually Dario are seasonal permanent spawners, i.e. they spawn almost daily when water temperature and food supply match. Only in winter is reproductive behaviour stopped, as all species except D. urops come from subtropical climates where it can get very cold. Dario sometimes eat an egg or young fish, but do not pursue them purposefully, so with suitably fine food a few young also appear in a regular tank.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-kajal",
       "html": "<p>This species was referred to as Dario sp. ‘Jaintia Hills’ or D. sp. ‘Bangladesh’ prior to its description.</p><p>It can be told apart from its congeners D. dario, D. dayingensis, D. hysginon, and D. urops, as follows: possession of a dark postorbital stripe that continues behind the eye in line with the preorbital stripe, versus postorbital stripe forming an oblique angle with the preorbital stripe (D. dario and D. urops) or postorbital stripe absent (D. hysginon and D. dayingensis); males with a series of bars arranged in pairs in the upper half of the body, versus bars extending across the entire body (D. dario), bars complete but restricted to the posterior portion of the body (D. urops) or bars absent (D. hysginon and D. dayingensis).</p><p>In addition it differs from D. urops by not possessing, versus possessing, either a blotch on the caudal peduncle or a horizontal suborbital stripe, by males possessing dorsal-fin lappets which extend beyond the tip of the spine, versus not extending beyond the tip of the spine, and having only 24–26, vs. 28–29, vertebrae.</p><p>It can be distinguished further from D. urops and D. dayingensis in possessing 8, versus 9-10, transverse scales and absence, versus presence, of palatine teeth, from D. dario by possessing, versus lacking, a black anterior spot in the dorsal fin and modally 7, versus 6, anal-fin rays, and from D. hysginon by the absence, versus presence, of an anguloarticular lateral line canal.</p><p>The colour pattern in live males is also unique, consisting of cherry red flanks with a greenish sheen extending dorso-laterally.</p><p>Dario currently contains five species, of which four are considered miniature species since they do not exceed 26 mm (1.0 in) in standard length (SL).</p><p>The fifth, D. urops, not only grows larger, to at least 28 mm (1.1 in) SL, but occurs in southwestern India whereas the others are native to the Brahmaputra, Meghna, and Ayeyarwaddy river systems in northern India, Myanmar, and southwestern China, and this raises interesting questions regarding their biogeography.</p><p>In addition, D. urops lacks some diagnostic characters of Dario and thus may represent the sister group to other members of the genus, though this hypothesis remains to be tested.</p><p>Prior to 2002 the family Badidae included just five species but an extensive revision paper published that year contained descriptions of ten new species along with the genus Dario of which the former Badis dario was designated type species.</p><p>Dario is most easily distinguished from Badis by the small adult size of member species, predominantly red colouration, more extended first few dorsal rays and pectoral fins in males, straight-edged (vs. rounded) caudal-fin, lack of visible lateral line and less-involved parental behaviour.</p><p>Badids have historically been considered members of the families Nandidae or Pristolepididae and it was not until 1968 that Barlow proposed a separate grouping for them.</p><p>They share some characteristics with anabantoids, nandids and channids, perhaps most notably the typical spawning embrace in which the male wraps his body around that of the female.</p><p>More recent studies have concluded that this procedure is an ancient trait inherited from a common ancestor to all these families.</p><p>All Badis, Dario and Nandus species were found to share a uniquely bifurcated (split) hemal spine on the penultimate vertebra and this may provide evidence that the group is monophyletic (Kullander and Britz, 2002).</p><p>The family Nandidae is currently restricted to include only Nandus species and it's separated from Badidae by differences in morphology and egg structure with their phylogenetic relationships yet to be studied in detail.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>The species was scientifically described by Ralf Britz and Sven O. Kullander (2013). They chose the name Dario kajal because a really good recognition feature is the black eye stripes, which do not appear in this form in any other described Dario species.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-kajal",
       "html": "<ul><li>Kullander, S. O. and R. Britz (2002). Revision of the family Badidae (Teleostei: Perciformes), with description of a new genus and ten new species. Ichthyological Exploration of Freshwaters 13(4), 295-372</li><li>Rüber, L., R. Britz, S. O. Kullander and R. Zardoya (2004). Evolutionary and biogeographic patterns of the Badidae (Teleostei: Perciformes) inferred from mitochondrial and nuclear DNA sequence data. Molecular Phylogenetics and Evolution 32(3), 1010-1022</li><li>Britz, R. and S. O. Kullander (2013). Dario kajal, a new species of badid fish from Meghalaya, India (Teleostei: Badidae). Zootaxa 3731(3), 331-337</li><li>Britz, R., A. Ali and S. Philip (2012). Dario urops, a new species of badid fish from the Western Ghats, southern India (Teleostei: Percomorpha: Badidae). Zootaxa 3348, 63-68</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "html": "<p>Britz, R. &amp; S. O. Kullander (2013): Dario kajal, a new species of badid fish from Meghalaya, India (Teleostei: Badidae). Zootaxa 3731 (3): 331-337</p><p>Dorn, A. (2006): Eine vierte Dario-Art. Datz 59 (9): 21</p><p>Werth, A. (2009): Importnachrichten. Dario sp. “Jaintia Hills”. Datz 62 (6): Aquarien-Praxis: 14</p>"
     }
   ],
   "photos": [
@@ -205,10 +258,30 @@
       "width": 713,
       "height": 500,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Nikhil Sood / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dario-kajal",
       "caption": "Young female.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3edf04e675edb4da.webp",
+      "thumb": "https://media.aquatome.com/glaser/3edf04e675edb4da-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a85dd65138de2440.webp",
+      "thumb": "https://media.aquatome.com/glaser/a85dd65138de2440-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/dario-kajal-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -268,5 +341,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

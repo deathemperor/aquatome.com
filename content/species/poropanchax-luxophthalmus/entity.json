@@ -1,0 +1,226 @@
+{
+  "id": "poropanchax-luxophthalmus",
+  "scientificName": "Poropanchax luxophthalmus",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Poropanchax",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "nigeria"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 5788278,
+      "total": 31,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BJ",
+          21
+        ],
+        [
+          "NG",
+          7
+        ],
+        [
+          "CM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          0,
+          9.84375,
+          2
+        ],
+        [
+          1.40625,
+          5.625,
+          13
+        ],
+        [
+          1.40625,
+          7.03125,
+          2
+        ],
+        [
+          2.8125,
+          5.625,
+          2
+        ],
+        [
+          2.8125,
+          11.25,
+          4
+        ],
+        [
+          5.625,
+          4.21875,
+          4
+        ],
+        [
+          7.03125,
+          4.21875,
+          1
+        ],
+        [
+          8.4375,
+          2.8125,
+          1
+        ],
+        [
+          8.4375,
+          5.625,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "html": "<p>One of the most beautiful lampeyes, recently imported from Nigeria. Those who follow the splitting of the genus Aplocheilichthys place this fish, which grows to a maximum of 3 cm, in the genus Poropanchax.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "html": "<p>Experienced aquarists prefer to keep this species in medium hard to hard water, as the fish are much hardier under these conditions. A slight addition of salt is often recommended (a teaspoon of salt per 10 litres of water). This is not necessary, but it has the advantage that artemia nauplii, which form an important part of the diet of these tiny fish in the aquarium, stay alive longer.</p><p>The brilliant colours of the fish are best shown in dark aquaria. Alder cones make the water brown (like dark tea) and also have a nice side effect, as they strengthen the fish's immune system. The water temperature should lie between 22 and 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "html": "<p>Artemia nauplii form an important part of the diet of these tiny fish in the aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "html": "<p>A. luxophthalmus is a schooling fish that should never be kept in groups of fewer than ten specimens. They are absolutely peaceful towards all other fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "html": "<p>Males and females can be easily told apart by the shape of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "html": "<p>They spawn in fine plants; the eggs need 10–14 days to hatch.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/56477afe60138419.webp",
+      "thumb": "https://media.aquatome.com/glaser/56477afe60138419-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/eeac0408e0ce4a7e.webp",
+      "thumb": "https://media.aquatome.com/glaser/eeac0408e0ce4a7e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3913861c8c0507b2.webp",
+      "thumb": "https://media.aquatome.com/glaser/3913861c8c0507b2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/73b400dd87e6d34c.webp",
+      "thumb": "https://media.aquatome.com/glaser/73b400dd87e6d34c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilichthys-luxophthalmus-poropanchax-luxophthalmus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "WuEvoingmuQ",
+      "title": "Neon Green Lampeye Killifish - Poropanchax luxophthalmus \"Ibafo\"",
+      "durationSec": 481,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "LpiKsf38Ri4",
+      "title": "七彩藍眼燈魚(Poropanchax luxophthalmus)",
+      "durationSec": 31,
+      "lang": "zh-Hant"
+    },
+    {
+      "youtubeId": "kY7JvbXX-mg",
+      "title": "Emerald Green Lampeye, Poropanchax luxophthalmus",
+      "durationSec": 130,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jR22riySbpk",
+      "title": "#36.アプロケイリクティス・マクロフタルマス メダカ・ランプアイの仲間 Poropanchax luxophthalmus",
+      "durationSec": 705,
+      "lang": "ja"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia mới nở",
+        "trứng artemia"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40 lít"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rêu java",
+        "cây thủy sinh lá mịn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "corydoras-urucu",
+  "name": "Corydoras urucu",
+  "altNames": [
+    "Cory urucu",
+    "Coryd urucu"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Ikan-ikan ini dikoleksi di sekitar Labrina di Rio Mucuim, di bagian tengah Rio Purus. Menurut para eksportir, ikan yang sangat mirip juga ditemukan di Rio Urucu dan Rio Jutai, keduanya anak sungai Solimões, tetapi letaknya sangat jauh dari Rio Mucuim.</p>",
+    "notes:glaser": "<p>Lele kecil ini diimpor dengan nama Corydoras evelynae, spesies yang dideskripsikan hanya dari satu spesimen dengan lokasi yang sangat tidak akurat (\"Solimões hulu\", wilayah yang lebih luas daripada Jerman). Selain dari lokasi penemuannya, ikan ini sangat mirip dengan Corydoras urucu, yang dideskripsikan pada tahun 2009 dari sungai dengan nama yang sama. Namun, C. urucu disebut-sebut sebagai spesies kerdil yang seharusnya tidak tumbuh lebih dari 2–3 cm, sedangkan individu terbesar dari ikan-ikan ini ukurannya jelas dua kali lipatnya. Jelas bahwa ini adalah kompleks spesies yang perlu diteliti lebih mendalam.</p><p>Pola tubuh ikan ini sangat bervariasi. Sebagian individu warnanya mirip C. evelynae dan memiliki pita punggung yang terpecah menjadi bintik-bintik, sedangkan sebagian besar lainnya warnanya menyerupai Corydoras arcuatus. Namun, bentuk tubuhnya cukup berbeda dari C. arcuatus dan lebih mengingatkan pada kerabat-kerabat C. loretoensis.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "elsewhere",
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "id": "gymnotus-chaviro",
+  "native": {
+    "input": "991e3cef485e9c23",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Gymnotus chaviro originates from Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Jurua",
+        "source": "glaser",
+        "quote": "Here it inhabits the basin of the upper Rio Jurua.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gymnotus chaviro",
+    "status": "ACCEPTED",
+    "taxonKey": 5961148,
+    "datasets": [
+      [
+        "05d8180d-db62-432e-b21e-bd45dd3dc4aa",
+        8
+      ],
+      [
+        "4d54c85b-7149-43ec-9c1d-8dfb1a575b4a",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

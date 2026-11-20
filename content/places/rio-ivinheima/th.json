@@ -3,6 +3,12 @@
   "name": "อีวีนเยมา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T12:47:54.512Z",
+    "why": "The name is Thai script and transliterates Ivinheima reasonably, but it omits the Thai kind word \"แม่น้ำ\" for a river, and the Portuguese \"nh\" is better rendered as \"ญ/นย\" with the usual \"อีวีนเฮมา\" style."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

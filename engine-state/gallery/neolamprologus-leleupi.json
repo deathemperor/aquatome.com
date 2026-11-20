@@ -12,7 +12,6 @@
  "hashes": {
   "https://media.aquatome.com/commons/71df1df983dfa352.webp": "466ca68e9e6d25f3",
   "https://media.aquatome.com/commons/7f41d8a12ccdde23.webp": "193a32d08e79711b",
-  "https://media.aquatome.com/commons/45c7dba9d6349dc2.webp": "f765ec8f871675fd",
   "https://media.aquatome.com/commons/219ca6511cddef74.webp": "0008101f61607333",
   "https://media.aquatome.com/commons/a7265914c241702b.webp": "477ab47e38994ec1",
   "https://media.aquatome.com/commons/c8ae56cb9d3a6855.webp": "3e9eed696d633329"
@@ -25,5 +24,9 @@
    "research": 0,
    "agree": 337963179
   }
+ },
+ "gbif": {
+  "key": 2371746,
+  "next": null
  }
 }

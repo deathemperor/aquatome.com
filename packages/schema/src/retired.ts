@@ -2,9 +2,10 @@
  * Guides taken off the site for good, each address forwarding (the chief of staff, 14 Nov 2026): the gallery posts of
  * other people's tanks, whose photos we can't show, and the seller-site notices the 13 Nov sheet found nothing lasting in.
  * Their files stay, held by hand in every language (the engine's gate), so nothing writes them back; each language's
- * address forwards to its fish's page in that language, or to the guides list where there is none, or it's held there.
+ * address forwards to its fish's page (or the guide it names) in that language, or to the guides list where there is none,
+ * or it's held there.
  */
-export type RetiredTo = { kind: 'species' | 'breeds' | 'plants'; id: string } | 'guides'
+export type RetiredTo = { kind: 'species' | 'breeds' | 'plants' | 'guides'; id: string } | 'guides'
 
 const fish = (id: string): RetiredTo => ({ kind: 'species', id })
 
@@ -57,6 +58,12 @@ export const RETIRED_GUIDES: Readonly<Record<string, RetiredTo>> = {
   'glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-huge-acanthicus-adonis-arrived-en': fish('acanthicus-adonis'),
   'glaser-en-29-lungfishes-lungfishes-from-the-congo': fish('protopterus-dolloi'),
   'glaser-en-10-catfishes-10a-catfishes-corydoras-co-show-corydoras-arrived-en': fish('corydoras-narcissus'),
+  // Three pages a foreign seller's products or medicines make up, which no cut leaves a page of (the chief of staff, 17 Nov
+  // 2026): the shopping list to the guides list, the iron fertiliser to the guide on choosing a fertiliser, and the
+  // quarantine video built on three medicines sold abroad, with their doses, to our general quarantine guide.
+  'aquariumcoop-blogs-aquarium-aquarium-shopping-list': 'guides',
+  'aquariumcoop-blogs-aquarium-iron-fertilizer': { kind: 'guides', id: 'aquariumcoop-blogs-aquarium-which-aquatic-fertilizer-is-right-for-you' },
+  'youtube-LrRhfOYfXns': { kind: 'guides', id: 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh' },
 }
 
 /** 2hraquarist's gallery posts of other people's tanks: every one, those written later too, off to the guides list. */

@@ -1,0 +1,86 @@
+{
+  "id": "cochlefelis-burmanicus",
+  "native": {
+    "input": "b2789b536053310f",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Myanmar; reported from Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Myanmar; reported from Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The species also occurs in India and Bangladesh.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The species also occurs in India and Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "scotcat",
+        "quote": "It is known from the lower reaches and estuaries of the Irrawaddy and Salween drainages eastwards to the western part of the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "scotcat",
+        "quote": "It is known from the lower reaches and estuaries of the Irrawaddy and Salween drainages eastwards to the western part of the Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "scotcat",
+        "quote": "It is known from the lower reaches and estuaries of the Irrawaddy and Salween drainages eastwards to the western part of the Malay Peninsula.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Cochlefelis burmanicus",
+    "status": "ACCEPTED",
+    "taxonKey": 4286772,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MM",
+      "TH",
+      "IN",
+      "BD"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

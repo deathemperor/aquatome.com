@@ -1,0 +1,19 @@
+{
+  "id": "sciades-couma",
+  "input": "acf5d0496e5c273a",
+  "at": "2026-11-19T12:58:06.004Z",
+  "claims": [
+    {
+      "kind": "brackish",
+      "source": "scotcat",
+      "quote": "Brackish, marine.",
+      "ok": true
+    },
+    {
+      "kind": "marine",
+      "source": "scotcat",
+      "quote": "Brackish, marine.",
+      "ok": true
+    }
+  ]
+}

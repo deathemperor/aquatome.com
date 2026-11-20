@@ -3,6 +3,12 @@
   "name": "อีโม",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:54:49.804Z",
+    "why": "อีโม is a correct transliteration of Imo, but it leaves out the kind word that Thai atlases add, either รัฐ for the state or แม่น้ำ for the river."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

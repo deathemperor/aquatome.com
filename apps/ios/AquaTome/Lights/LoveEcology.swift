@@ -14,123 +14,140 @@ import UIKit
 @MainActor
 protocol LampAir: AnyObject {
   /// Broadcasts the 16-bit service UUIDs (4 hex digits each), in order, until `stop`. `done` says whether it started.
-  func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void)
+  /// `allowed` is asked right before the broadcast begins, after any wait for Bluetooth: no, and it doesn't (`.failed`).
+  /// One handed to Bluetooth and then cut before Bluetooth said it had started (`.cut`) may have gone out.
+  func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void)
   func stop()
 }
 
-enum LampAirError: Error { case off, refused, unsupported, failed }
-
-/// The phone's Bluetooth, broadcasting as Fish lamp does. Its manager is made at the first tap, not when the screen opens.
+/// The phone's Bluetooth, broadcasting as Fish lamp does: FishLamp's LampAirCore over CoreBluetooth (what goes when, and
+/// what each broadcast is told, are the kit's, checked there). Its manager is made at the first tap, not when the screen
+/// opens, and again after one is let go with a start unanswered.
 @MainActor
-final class BluetoothLampAir: NSObject, LampAir {
-  private var manager: CBPeripheralManager?
-  /// A broadcast asked for before Bluetooth said it was on.
-  private var waiting: (uuids: [CBUUID], done: @MainActor (LampAirError?) -> Void)?
-  private var starting: (@MainActor (LampAirError?) -> Void)?
+final class BluetoothLampAir: LampAir {
+  private var core: LampAirCore!
 
-  func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void) {
-    let ids = uuids.map { CBUUID(string: $0) }
-    // One broadcast at a time: one still starting, or waiting for Bluetooth, is replaced, and told it didn't go (the
-    // master button awaits its answer).
-    if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; retire(); s(.failed) }
-    guard let manager else {
-      waiting = (ids, done)
-      manager = CBPeripheralManager(delegate: self, queue: nil)
-      return
-    }
-    advertise(ids, on: manager, done: done)
+  init() {
+    core = LampAirCore(make: { [unowned self] in BluetoothPeripheral(core: self.core) })
   }
 
-  /// Ends the broadcast; one still starting, or waiting for Bluetooth, is told it didn't go.
-  func stop() {
-    if let w = waiting { waiting = nil; w.done(.failed) }
-    if let s = starting { starting = nil; retire(); s(.failed) } else { manager?.stopAdvertising() }
+  func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void) {
+    core.start(uuids, allowed: allowed, done: done)
   }
 
-  /// A start whose answer hasn't come, stopped or replaced: its manager is stopped and let go, so that answer, should it
-  /// still come, reaches nothing. A manager's delegate hears every start's answer with nothing to say which: kept, a late
-  /// one would answer the next start, and an error would end that start's watch while its broadcast went on, with no end
-  /// after three seconds (Codex, 17 Nov). The next start makes a new manager, which answers once Bluetooth reports on.
-  private func retire() {
-    manager?.stopAdvertising()
-    manager?.delegate = nil
-    manager = nil
-  }
-
-  private func advertise(_ ids: [CBUUID], on manager: CBPeripheralManager, done: @escaping @MainActor (LampAirError?) -> Void) {
-    if let e = Self.error(manager.state) { return done(e) }
-    // Unknown or resetting: wait for the state.
-    guard manager.state == .poweredOn else { waiting = (ids, done); return }
-    manager.stopAdvertising()
-    starting = done
-    manager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: ids])
-  }
-
-  private static func error(_ state: CBManagerState) -> LampAirError? {
-    switch state {
-    case .poweredOff: .off
-    case .unauthorized: .refused
-    case .unsupported: .unsupported
-    default: nil
-    }
-  }
+  func stop() { core.stop() }
 }
 
-extension BluetoothLampAir: @preconcurrency CBPeripheralManagerDelegate {
-  func peripheralManagerDidUpdateState(_ manager: CBPeripheralManager) {
-    // A manager let go (retire): nothing it says is about the start now.
-    guard manager === self.manager else { return }
-    // Bluetooth went off or reset while a broadcast was starting: say so, rather than leave the card sending. Its answer
-    // may still come: the manager goes with it.
-    if manager.state != .poweredOn, let done = starting {
-      starting = nil
-      retire()
-      done(Self.error(manager.state) ?? .failed)
-      return
-    }
-    guard let w = waiting else { return }
-    if let e = Self.error(manager.state) {
-      waiting = nil
-      w.done(e)
-    } else if manager.state == .poweredOn {
-      waiting = nil
-      advertise(w.uuids, on: manager, done: w.done)
+/// One CBPeripheralManager, as LampAirCore uses it: its state and its answers go to the core, from this one.
+@MainActor
+final class BluetoothPeripheral: NSObject, LampPeripheral {
+  private weak var core: LampAirCore?
+  private var manager: CBPeripheralManager?
+
+  init(core: LampAirCore) {
+    self.core = core
+    super.init()
+    manager = CBPeripheralManager(delegate: self, queue: nil)
+  }
+
+  var bluetooth: LampBluetooth {
+    switch manager?.state {
+    case .poweredOn?: .on
+    case .poweredOff?: .off
+    case .unauthorized?: .refused
+    case .unsupported?: .unsupported
+    default: .notYet
     }
   }
 
+  func startAdvertising(_ uuids: [String]) {
+    manager?.startAdvertising([CBAdvertisementDataServiceUUIDsKey: uuids.map { CBUUID(string: $0) }])
+  }
+
+  func stopAdvertising() { manager?.stopAdvertising() }
+}
+
+extension BluetoothPeripheral: @preconcurrency CBPeripheralManagerDelegate {
+  func peripheralManagerDidUpdateState(_ manager: CBPeripheralManager) { core?.stateChanged(self) }
+
   func peripheralManagerDidStartAdvertising(_ manager: CBPeripheralManager, error: Error?) {
-    // The answer of a start whose manager was let go (retire): it answers nothing now.
-    guard manager === self.manager else { return }
-    let done = starting
-    starting = nil
-    done?(error == nil ? nil : .failed)
+    core?.answered(self, started: error == nil)
   }
 }
 
 // Debug builds only: the UI tests' stand-in, kept out of the App Store build.
 #if DEBUG
-/// The simulator has no Bluetooth to broadcast with. `-fake-lamp-off`: Bluetooth is off. `-fake-lamp-late-first
-/// <seconds>`: the first start answers that late, as one waiting on Bluetooth might.
+/// The simulator has no Bluetooth to broadcast with. As LampAirCore does, each start is told once (started, why not, or
+/// cut), and a stop or a newer start tells one not answered yet: `.failed` if it was still waiting for Bluetooth, `.cut`
+/// if Bluetooth had it. `-fake-lamp-off`: Bluetooth is off. `-fake-lamp-refused`: AquaTome isn't allowed Bluetooth.
+/// `-fake-lamp-waits <seconds>`: Bluetooth isn't ready until that long after the first broadcast is asked for (as at the
+/// first send after a launch). `-fake-lamp-late-first <seconds>`: the first start answers that late, as one waiting on
+/// Bluetooth might. `-fake-lamp-cuts <n>`: the nth broadcast begun is cut before it says it started (Bluetooth reset as
+/// it began). `-fake-lamp-silent <n>`: the nth broadcast begun is handed to Bluetooth and never answered, until it is
+/// stopped or replaced (then cut: it may have gone).
 @MainActor
 @Observable
 final class FakeLampAir: LampAir {
   /// The broadcasts started, the card's and the master button's, for the UI tests: kept by the phone's one broadcaster,
   /// whatever becomes of the card.
   private(set) var starts = 0
-
-  func start(_ uuids: [String], done: @escaping @MainActor (LampAirError?) -> Void) {
-    let args = ProcessInfo.processInfo.arguments
-    starts += 1
-    if starts == 1, let i = args.firstIndex(of: "-fake-lamp-late-first"), i + 1 < args.count, let late = Double(args[i + 1]) {
-      Task { try? await Task.sleep(for: .seconds(late)); done(nil) }
-      return
-    }
-    done(args.contains("-fake-lamp-off") ? .off : nil)
-  }
   /// The broadcasts stopped by their holder, the same way.
   private(set) var stops = 0
-  func stop() { stops += 1 }
+  private var ready = !ProcessInfo.processInfo.arguments.contains("-fake-lamp-waits")
+  private var begun = 0
+  /// The start not answered yet, by its number: `handed` once Bluetooth has it.
+  private var pending: (n: Int, handed: Bool, done: @MainActor (LampAirError?) -> Void)?
+
+  private static func number(_ flag: String) -> Double? {
+    let args = ProcessInfo.processInfo.arguments
+    return args.firstIndex(of: flag).flatMap { i in args.dropFirst(i + 1).first.flatMap(Double.init) }
+  }
+
+  func start(_ uuids: [String], allowed: @escaping @MainActor () -> Bool, done: @escaping @MainActor (LampAirError?) -> Void) {
+    tellPending()
+    starts += 1
+    let n = starts
+    pending = (n, false, done)
+    let late = n == 1 ? Self.number("-fake-lamp-late-first") : nil
+    let wait: Double = ready ? (late ?? 0) : max(Self.number("-fake-lamp-waits") ?? 0, late ?? 0)
+    guard wait > 0 else { return begin(n, allowed) }
+    Task { @MainActor [weak self] in
+      try? await Task.sleep(for: .seconds(wait))
+      self?.ready = true
+      self?.begin(n, allowed)
+    }
+  }
+
+  func stop() {
+    stops += 1
+    tellPending()
+  }
+
+  /// Bluetooth ready for start `n`, if it still waits: refused, not allowed, started, cut, or handed and silent.
+  private func begin(_ n: Int, _ allowed: @MainActor () -> Bool) {
+    guard let p = pending, p.n == n, !p.handed else { return }
+    let args = ProcessInfo.processInfo.arguments
+    let refusal: LampAirError? = args.contains("-fake-lamp-off") ? .off : args.contains("-fake-lamp-refused") ? .refused
+      : allowed() ? nil : .failed
+    if let refusal {
+      pending = nil
+      return p.done(refusal)
+    }
+    begun += 1
+    if Self.number("-fake-lamp-silent").map(Int.init) == begun {
+      pending = (n, true, p.done)
+      return
+    }
+    pending = nil
+    p.done(Self.number("-fake-lamp-cuts").map(Int.init) == begun ? .cut : nil)
+  }
+
+  /// A start not answered yet, stopped or replaced: told now, once.
+  private func tellPending() {
+    guard let p = pending else { return }
+    pending = nil
+    p.done(p.handed ? .cut : .failed)
+  }
 }
 #endif
 
@@ -300,6 +317,8 @@ final class LoveEcologyModel {
   @ObservationIgnored private var settled: Line
   /// The master button's steps are going out: nothing of the card's starts meanwhile.
   @ObservationIgnored private var held = false
+  /// Inside `stopOnAir`'s stop: a start's answer told then doesn't send what waits.
+  @ObservationIgnored private var stopping = false
   @ObservationIgnored private var listening: (any NSObjectProtocol)?
   @ObservationIgnored private var account: AccountModel?
   /// The account was the owner's when last heard.
@@ -424,15 +443,20 @@ final class LoveEcologyModel {
   }
 
   /// Ends the card's own broadcast, on air or still starting; the broadcaster ignores it once the master button holds it.
-  /// The start's answer, if it hasn't come, is ignored: the phone's broadcaster answers a stopped start at once.
+  /// A start not answered yet is told by the phone's broadcaster at once, through its own answer (`broadcast`): `.failed`
+  /// if Bluetooth never had it, `.cut` if it had. One on air, or one not answered even then, may have gone out (`unknown`).
   private func stopOnAir() {
-    guard onAir != nil else { return }
+    guard let q = onAir else { return }
     ending?.cancel()
     watchdog?.cancel()
     watchdog = nil
-    latest += 1
-    onAir = nil
+    stopping = true
     LampRadio.stop(by: self)
+    stopping = false
+    latest += 1
+    guard onAir?.n == q.n else { return }
+    onAir = nil
+    unknown(q)
   }
 
   /// The background is heard from the first choice on: a card that has sent nothing has nothing to stop.
@@ -497,13 +521,12 @@ final class LoveEcologyModel {
     onAir = q
     latest += 1
     let mine = latest
-    // Armed first: the simulator's stand-in answers within `start`.
+    // Armed first: the simulator's stand-in answers within `start`. Given up, the start is stopped, and the broadcaster's
+    // answer to the stop is its line (`stopOnAir`): never "not sent" for one Bluetooth had (Codex, 18 Nov: `.cut`).
     watchdog = Task { [weak self] in
       try? await Task.sleep(for: Self.answer)
       guard !Task.isCancelled, let self, self.latest == mine else { return }
-      let named = self.named == q.n
       self.stopOnAir()
-      if named { self.line = .problem(.failed) }
       self.next()
     }
     // The phone's one broadcaster, shared with the master button.
@@ -513,8 +536,10 @@ final class LoveEcologyModel {
       self.watchdog = nil
       if let e {
         self.onAir = nil
-        if self.named == q.n { self.line = .problem(e) }
-        self.next()
+        // Cut (replaced, stopped, taken by the master button's step, or Bluetooth reset after it had it): it may have gone.
+        if e == .cut { self.unknown(q) } else if self.named == q.n { self.line = .problem(e) }
+        // Told inside a stop (`stopOnAir`): its caller says what goes next.
+        if !self.stopping { self.next() }
         return
       }
       self.sent.append(Self.entry(q.send, command))
@@ -523,11 +548,12 @@ final class LoveEcologyModel {
       self.ending = Task {
         try? await Task.sleep(for: Self.airTime)
         guard !Task.isCancelled else { return }
-        // Gone only if the card held the broadcaster to the end: the master button's lamp step takes it, then waits the gap.
+        // Gone whole only if the card held the broadcaster to the end: the master button's lamp step takes it, then waits
+        // the gap. Cut short, it may have reached the light.
         let whole = LampRadio.holds(self)
         LampRadio.stop(by: self)
         self.onAir = nil
-        if whole { self.ended(q) } else { self.cutShort(q) }
+        if whole { self.ended(q) } else { self.unknown(q) }
         self.next()
       }
     }
@@ -545,12 +571,18 @@ final class LoveEcologyModel {
     if named == q.n { line = .sent(done) } else { settled = .sent(done) }
   }
 
-  /// Its broadcast taken by the master button before its end: never shown as gone. The line, if it names it, says again
-  /// what it said before, and what's kept stays as it was.
-  private func cutShort(_ q: Queued) {
-    guard named == q.n else { return }
+  /// One of the card's own that may have gone out and didn't end whole: on air and cut short (the master button's lamp
+  /// step taking the broadcaster, a sign-out, the master button's press), or handed to Bluetooth and cut. Never said not
+  /// sent, nor shown as gone ("Đã gửi"), nor the line before it said again ("Chưa gửi lệnh nào", "Lần cuối máy này gửi"
+  /// another): it isn't known whether the light took it. A line naming a newer send, or a drag, keeps it, and goes back to
+  /// this one if that is dropped. What's kept stays as it was (the last sent whole).
+  private func unknown(_ q: Queued) {
+    guard named == q.n || (named == nil && dragging == nil) else {
+      settled = .problem(.cut)
+      return
+    }
     named = nil
-    line = settled
+    line = .problem(.cut)
   }
 
   /// A recording as it is, or a colour built with the next byte 0.
@@ -618,6 +650,7 @@ extension LoveEcologyModel {
     case .problem(.refused): return String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
     case .problem(.unsupported): return String(localized: "Máy này không có Bluetooth.")
     case .problem(.failed): return String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
+    case .problem(.cut): return String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
     }
   }
 

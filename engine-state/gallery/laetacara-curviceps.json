@@ -6,7 +6,11 @@
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/4e3933b295e7a296.webp": "073fb9f3e6fecf7b",
-  "https://media.aquatome.com/commons/2d574b8d0f98d4f6.webp": "02001d0c3c2e91e0"
+  "https://media.aquatome.com/commons/2d574b8d0f98d4f6.webp": "02001d0c3c2e91e0",
+  "https://media.aquatome.com/glaser/bd15b7a2af6c79e9.webp": "c7470f17b3b78c81",
+  "https://media.aquatome.com/glaser/c1126468955b5b5f.webp": "69581c3f1e1e3c09",
+  "https://media.aquatome.com/glaser/1ab4ac8aa27361a2.webp": "c9c181811b66c3b3",
+  "https://media.aquatome.com/glaser/255c2882cc0de8fc.webp": "56ac3a1f1f1f3626"
  },
  "commons": "2026-11-08",
  "inat": {
@@ -16,5 +20,13 @@
    "research": 0,
    "agree": 0
   }
- }
+ },
+ "gbif": {
+  "key": 2370406,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-17"
 }

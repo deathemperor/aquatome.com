@@ -137,13 +137,6 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 24,
-          "max": 28
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 24,
@@ -156,16 +149,16 @@
           "min": 23,
           "max": 28
         }
-      }
-    ],
-    "ph": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 4.5,
-          "max": 6.5
+          "min": 24,
+          "max": 28
         }
-      },
+      }
+    ],
+    "ph": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -179,16 +172,16 @@
           "min": 3,
           "max": 6.5
         }
-      }
-    ],
-    "gh": [
+      },
       {
         "source": "bwaquatics",
         "value": {
-          "min": 0,
-          "max": 4
+          "min": 4.5,
+          "max": 6.5
         }
-      },
+      }
+    ],
+    "gh": [
       {
         "source": "seriouslyfish",
         "value": {
@@ -199,10 +192,6 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 3.5
-      },
-      {
         "source": "seriouslyfish",
         "value": 2.5
       },
@@ -212,6 +201,10 @@
       },
       {
         "source": "aquariumcoop",
+        "value": 2.5
+      },
+      {
+        "source": "bwaquatics",
         "value": 2.5
       }
     ],
@@ -225,6 +218,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "bwaquatics",
+        "value": 4
       }
     ]
   },
@@ -233,7 +230,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>Paracheirodon simulans is a brilliant, small schooling tetra. Closely related to the more common Paracheirodon innesi and P. axelrodi, it is distinguished by its intense turquoise-green iridescent stripe and smaller size. Peaceful, active and highly social, it makes an exceptional choice for blackwater and planted aquariums.</p><p>Adults reach approximately 2.5–3.5 cm (≈ 1.0–1.4″) in length.</p>"
+      "html": "<ul><li>Genus: Paracheirodon (neon tetras)</li><li>IUCN Red List: Least Concern</li><li>Origin: tank raised</li><li>Max size: about 2 cm standard length (about 2.5 cm total length)</li><li>Temperament: extremely peaceful</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -258,7 +255,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>Native to the upper Rio Negro and Orinoco River basins in South America.</p>"
+      "html": "<p>Paracheirodon simulans lives in the upper Rio Negro and Orinoco basins in Brazil, Colombia and Venezuela.</p>"
     },
     {
       "key": "distribution",
@@ -282,7 +279,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>It inhabits slow-moving, shaded blackwater tributaries rich in tannins and leaf litter.</p>"
+      "html": "<p>It lives in shaded, slow blackwater tributaries, full of tannins and leaf litter. Habitat: shaded blackwater streams and flooded forest.</p>"
     },
     {
       "key": "habitat",
@@ -315,6 +312,12 @@
       "html": "<p>A small school fits in a planted nano aquarium, or a large swarm can fill a bigger tank. Keep at least 10 green neons in an aquarium of 40 litres or larger.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
+      "html": "<p>Tank: mature, planted tank with minimal current, subdued light, driftwood, botanicals and leaf litter.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
@@ -324,7 +327,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>Very soft, acidic blackwater is ideal.</p><ul><li>pH 4.5 – 6.5</li><li>GH ≤ 4 °d</li><li>KH ≤ 2 °d</li><li>TDS &lt; 100 ppm</li><li>Temperature: 24 – 28 °C (75 – 82 °F); stable warmth enhances coloration and vitality.</li></ul><p>Provide stable, clean water with minimal current, subdued lighting, and natural décor such as driftwood, botanicals, and leaf litter to replicate their forest-stream habitat.</p>"
+      "html": "<ul><li>TDS: under 100 ppm</li><li>pH: 4.5 to 6.5</li><li>Temperature: 24 to 28°C</li></ul><p>Sensitive to sudden changes in pH or hardness. Only add to a mature, stable aquarium.</p>"
     },
     {
       "key": "waterConditions",
@@ -348,7 +351,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>Omnivorous micro-predator. Offer high-quality micro-pellets, crushed flakes, and small live or frozen foods such as daphnia, baby brine shrimp, and cyclops. A varied diet helps maintain their brilliant green-blue sheen.</p>"
+      "html": "<p>Micro-predator. Micro pellets, crushed flakes and small live or frozen daphnia, baby brine shrimp and cyclops.</p>"
     },
     {
       "key": "diet",
@@ -366,7 +369,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>Extremely peaceful and best kept in schools of at least 8–10 individuals. Suitable companions include other small, gentle blackwater species such as Hyphessobrycon amapaensis, Boraras, Corydoras pygmaeus, or dwarf apistogrammas. Avoid large or aggressive fish that may intimidate or outcompete them.</p>"
+      "html": "<p>Extremely peaceful. Keep in schools of at least 8 to 10. Good with Boraras, pygmy corydoras, dwarf apistogrammas and other small blackwater species. Avoid large or aggressive fish. Peaceful, active and highly social, it is an excellent choice for blackwater and planted aquariums.</p>"
     },
     {
       "key": "behaviour",
@@ -387,10 +390,16 @@
       "html": "<p>Sexually mature females are normally noticeably rounder-bodied and a little larger than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
+      "html": "<p>It is the smallest of the three neon tetras, alongside the Neon (P. innesi) and Cardinal (P. axelrodi). Its turquoise-green stripe runs the full length of the body, and the red on the lower body is limited to the rear half.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>A challenging species to breed. Requires very soft, acidic water and dim conditions. Use a separate breeding tank with fine-leaved plants or spawning mops. Eggs are scattered among plants; remove adults afterward to prevent predation. Eggs hatch in 24–36 hours; fry are delicate and should be fed infusoria or green water until large enough for baby brine shrimp.</p>"
+      "html": "<p>Challenging. Use a separate tank with very soft, acidic water, dim light and fine-leaved plants or mops. Remove adults after spawning. Eggs hatch in 24 to 36 hours; fry need infusoria or green water before baby brine shrimp.</p>"
     },
     {
       "key": "reproduction",
@@ -402,7 +411,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "html": "<p>Paracheirodon simulans originates from highly specialized, tannin-rich blackwater environments. They are sensitive to sudden changes in pH or hardness and should only be introduced to a mature, stable aquarium. They thrive in calm, low-light conditions with soft water and do best in well-established, planted systems.</p>"
+      "html": "<p>Body shape: tiny, slender tetra with clear fins. Coloration: intense turquoise to green iridescent stripe from eye to tail, with red on the lower rear of the body.</p>"
     },
     {
       "key": "notes",
@@ -424,7 +433,7 @@
       "width": 793,
       "height": 595,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
       "caption": "Adult female individual.",
       "source": "seriouslyfish"
@@ -435,7 +444,7 @@
       "width": 794,
       "height": 596,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
       "caption": "Adult male.",
       "source": "seriouslyfish"
@@ -479,7 +488,7 @@
       "width": 794,
       "height": 596,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
       "caption": "Head detail.",
       "source": "seriouslyfish"
@@ -562,5 +571,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-19"
 }

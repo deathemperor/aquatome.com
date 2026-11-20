@@ -1,6 +1,8 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "gbif:1563327683:575fc7b96035a8d6"
+ ],
  "hashes": {
   "https://media.aquatome.com/scotcat/b7c49f115aadc64e.webp": "0000901f23650000"
  },
@@ -12,5 +14,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2341023,
+  "next": null
  }
 }

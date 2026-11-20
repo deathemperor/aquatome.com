@@ -1,11 +1,30 @@
-import { test as base, expect, type Locator, type Page } from '@playwright/test'
+import { test as base, expect, type Locator, type Page, type Request } from '@playwright/test'
+import { loadLine, pathOf, waitingLines } from './edge'
 
 /**
  * Every check runs offline from third parties (ads, analytics, video, photo hosts): only the site itself loads, so a
  * slow outside server can't fail a check. `errors` holds the page's uncaught exceptions and console errors (failed
- * loads of the blocked requests aside); a test can assert it is empty.
+ * loads of the blocked requests aside); a test can assert it is empty. On a live run, each page the check opens prints
+ * the edge that served it, the cache's answer and the time to its first byte (edge.ts); a local run prints nothing.
  */
-export const test = base.extend<{ errors: string[] }>({
+export const test = base.extend<{ errors: string[]; liveLoads: void }>({
+  liveLoads: [async ({ page, context, baseURL }, use, testInfo) => {
+    if (!process.env.E2E_BASE_URL) return use()
+    const own = new URL(baseURL!).origin
+    // The page's own documents: a navigation of its main frame to the site, not a frame's or a script's request.
+    const ours = (r: Request) => { try { return r.isNavigationRequest() && r.frame() === page.mainFrame() && new URL(r.url()).origin === own } catch { return false } }
+    page.on('response', res => { if (ours(res.request())) console.log(loadLine({ path: pathOf(res.url()), status: res.status(), headers: res.headers(), firstByte: res.request().timing().responseStart })) })
+    page.on('requestfailed', req => { if (ours(req)) console.log(loadLine({ path: pathOf(req.url()), failure: req.failure()?.errorText ?? '' })) })
+    // The requests still open, for a check that runs out of time: what its pages were waiting on (edge.ts waitingLines).
+    // Every page of the check's own browser context; a check that opens a context of its own isn't seen.
+    const open = new Map<Request, number>()
+    context.on('request', req => open.set(req, Date.now()))
+    context.on('requestfinished', req => open.delete(req))
+    context.on('requestfailed', req => open.delete(req))
+    await use()
+    if (testInfo.status === 'timedOut' || testInfo.errors.some(e => /Timeout \d+ms exceeded|timeout of \d+ms exceeded/i.test(e.message ?? '')))
+      for (const line of waitingLines([...open].map(([req, at]) => ({ url: req.url(), type: req.resourceType(), ms: Date.now() - at })), own)) console.log(line)
+  }, { auto: true }],
   errors: [async ({ page, baseURL }, use) => {
     const own = new URL(baseURL!).origin
     // The site's own visit beacon too: a check is not a reader.

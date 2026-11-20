@@ -1,0 +1,56 @@
+{
+  "id": "corydoras-urucu",
+  "native": {
+    "input": "04ba0f564881a9b9",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Purus",
+        "source": "glaser",
+        "quote": "The fish were collected in the surroundings of Labrina in the Rio Mucuim, in the central part of the Rio Purus.",
+        "ok": true
+      },
+      {
+        "name": "Rio Urucu",
+        "source": "glaser",
+        "quote": "According to the exporters, very similar fish also occur in the Rio Urucu and Rio Jutai, both tributaries of the Solimões, but very far away from the Rio Mucuim.",
+        "ok": true
+      },
+      {
+        "name": "Rio Jutai",
+        "source": "glaser",
+        "quote": "According to the exporters, very similar fish also occur in the Rio Urucu and Rio Jutai, both tributaries of the Solimões, but very far away from the Rio Mucuim.",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "glaser",
+        "quote": "According to the exporters, very similar fish also occur in the Rio Urucu and Rio Jutai, both tributaries of the Solimões, but very far away from the Rio Mucuim.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras urucu",
+    "status": "ACCEPTED",
+    "taxonKey": 5961331,
+    "datasets": [
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

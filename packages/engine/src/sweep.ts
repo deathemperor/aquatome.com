@@ -3,7 +3,7 @@ import { writePhotoState } from './photo-state'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 import { parse } from 'node-html-parser'
-import { IMAGE_SWITCHES, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
+import { IMAGE_SWITCHES, isNonCommercial, loadAll, mayPublish, vnDate, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang, type ImageSwitches } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -19,6 +19,7 @@ import { foldPages } from './page-folds'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
 import { retitleGuide, sourceTitle, titleClashes, titleKey } from './guide-titles'
+import { refusedSweep } from './refused-sources'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
 import { viSearchWords, viWording } from './sanitize'
@@ -36,8 +37,9 @@ import { pageGroup } from './gbif'
 import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
+import { rejectedEntry } from './photos'
 import { holdForSecondLook, listAgreed, looks, readSecondLook } from './last-photo'
-import { keptLast } from './own-mark'
+import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
 
@@ -154,10 +156,16 @@ export type SweepReport = {
   noAnimal: string[]
   /** Photos the photo check refused, kept off a page or an album it is back on (photo-check.ts refusedOn), `file: url (why)`. */
   refused: string[]
+  /** A refused site's facts taken out of the research kept, and its pages out of a page's reference list (refused-sources.ts), `file: what left`. */
+  refusedSources: string[]
   /** Pages that rule leaves as they are: held by the check's last run, or more than EMPTY_CAP of them it would leave with no photo, `kind/id (why)`. */
   refusedHeld: string[]
   /** Albums put in the album order (gallery.ts orderAlbums) whose lead photo changed, `id: old -> new`. */
   albums: string[]
+  /** Aquarium Glaser kept-mark photos past what an album shows, left out of its file (own-mark.ts keptCap), `id: url`. */
+  albumKeptOut: string[]
+  /** Aquarium Glaser kept-mark photos past what a page shows, left out of the page's own photos (own-mark.ts keptCapOwn), `kind/id: url`. */
+  ownKeptOut: string[]
   /**
    * Non-commercial photos taken off an album or a page (gallery.ts dropNonCommercial), `file: url`: every one with
    * IMAGE_SWITCHES.inatNonCommercial off, all but iNaturalist's album photos with it on.
@@ -333,7 +341,8 @@ export async function nameFish(content: string, rows: readonly FishName[] = FISH
  * A renamed fish's old name (names.ts FISH_NAMES) in the photos' captions, written as its name, and each caption's
  * translations kept under its new words (content/captions/<lang>.json is keyed by the Vietnamese). The photos are the
  * galleries' and the pages' (CAPTIONED, as captions.ts reads them). A row's own photos, in its gallery and on its page, say
- * what its own page calls it (names.ts ownWords). The files changed.
+ * what its own page calls it (names.ts ownWords), before another's old name in them is renamed: the pygmy gourami's "cá
+ * sặc lùn" is its own, not the dwarf gourami's. The files changed.
  */
 export async function renameCaptions(content: string, rows: readonly FishName[] = FISH_NAMES): Promise<string[]> {
   const changed: string[] = []
@@ -349,7 +358,7 @@ export async function renameCaptions(content: string, rows: readonly FishName[] 
     const r = own.find(([o]) => o === f)?.[1]
     let any = false
     const photos = (g.photos ?? []).map(p => {
-      const to = p.caption && (r ? ownWords(r, renameFishNames(p.caption)) : renameFishNames(p.caption))
+      const to = p.caption && renameFishNames(r ? ownWords(r, p.caption) : p.caption)
       if (!p.caption || to === p.caption) return p
       any = true
       rekey.set(p.caption, to!)
@@ -463,11 +472,20 @@ export async function ownPages(content: string, rows: readonly FishName[] = FISH
  * letters and digits. Where one caption sits under several figures, the first decides, as the picker keeps the first
  * figure of a caption. A photo with no caption, and one the saved copy doesn't show, can't be told and stay.
  */
-/** The never-again list as the sweep strips it: a listed photo leaves every page, but one a shop's own mark keeps (watermarks.ts keptOwnMark). */
+/**
+ * The never-again list as the sweep strips it: a listed photo leaves every page, by any of its addresses (photos.ts
+ * rejectedEntry), but one a shop's own mark keeps (watermarks.ts keptOwnMark) where it is listed for that mark.
+ * `why`: the reason it is listed under, for the report.
+ */
 async function neverAgain(root: string) {
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
-  return { rejected, listed: (url: string) => url in rejected && !kept(url) }
+  const entry = rejectedEntry(rejected)
+  const listed = (url: string) => {
+    const e = entry(url)
+    return !!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))
+  }
+  return { rejected, listed, why: (url: string) => entry(url)?.[1] ?? '' }
 }
 
 async function refusedByCredit(root: string, content: string): Promise<Map<string, string>> {
@@ -531,13 +549,18 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedHeld: [], refusedPicked: [], albums: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
   // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
   // school size and the text read the page as it is now (Astra, 2026-11-13).
   for (const f of report.folds = await foldPages(root)) changed(`species/${f.split(' → ')[1]}`)
+  // A refused site's facts out of the research kept, and its pages out of every page's reference list (refused-sources.ts):
+  // on the merge at a cycle's push too, so a run on older code that wrote them again doesn't bring them back (the chief of
+  // staff, 17 Nov 2026). Before the pages are read, so they're read as they are now.
+  const cleaned = await refusedSweep(root)
+  report.refusedSources = [...cleaned.facts.map(f => `${f.file}: ${f.dropped} out`), ...cleaned.refs.map(f => `${f.file}: refs lose ${f.urls.length}`), ...cleaned.failed.map(f => `${f} (not cleaned)`)]
   // A group its order doesn't allow, before anything reads the group.
   for (const id of report.regrouped = await regroupPages(content)) changed(`species/${id}/entity.json`)
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
@@ -618,7 +641,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
   }
 
-  // A page's shop searches, in the words its text uses. Fish and plants are the pages with them.
+  // A page's shop searches, in the words its text uses, a renamed fish's or plant's old name (names.ts FISH_NAMES) as its
+  // name: the shops write the name keepers use (the African fern's "dương xỉ nước châu Phi", 17 Nov). Fish and plants are
+  // the pages with them.
   for (const kind of ['species', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
@@ -626,7 +651,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       if (!raw) continue
       const e = JSON.parse(raw) as { productSlots?: { keywords: string[] }[] }
       const before = JSON.stringify(e.productSlots ?? [])
-      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(viSearchWords)
+      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(k => viSearchWords(renameFishNames(k)))
       if (JSON.stringify(e.productSlots ?? []) === before) continue
       await write(file, raw, e)
       changed(`${kind}/${id}/entity.json`)
@@ -820,12 +845,22 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         now = grownFirst(now, x => ageOf(subjects[x.url]?.[p.id]) === true, x => grown(x, p.id) && !!lead && cls(x) <= cls(lead))
       }
       if (at >= 0) now.splice(at, 0, photos[at]!)
-      if (now.every((x, i) => x.url === photos[i]!.url)) continue
+      // No more of a screened shop's kept-mark photos than the page shows, its album read for a clean photo (own-mark.ts
+      // keptCapOwn; the chief of staff, 19 Nov). The album step leaves its own past what is left (gallery.ts orderAlbums).
+      if (now.some(x => kept(x.url))) {
+        const album = (JSON.parse(await readFile(join(content, 'gallery', `${p.id}.json`), 'utf8').catch(() => '{}')) as { photos?: Photo[] }).photos ?? []
+        // A standing pick stays wherever it sits: the cap counts it first, as the pick loop below puts it first.
+        const capped = keptCapOwn(at >= 0 ? [photos[at]!, ...now.filter(x => x !== photos[at])] : now, album, kept)
+        now = now.filter(x => !capped.out.includes(x))
+        report.ownKeptOut.push(...capped.out.map(x => `${ref}: ${x.url}`))
+      }
+      if (now.length === photos.length && now.every((x, i) => x.url === photos[i]!.url)) continue
       if (now[0]!.url !== photos[0]!.url) report.named.push(`${ref}: ${photos[0]!.url} -> ${now[0]!.url}`)
       await write(p.file, p.raw, { ...p.e, photos: now })
       changed(`${ref}/entity.json`)
     }
   }
+  const keptNow = await keptMarks(root)
   for (const [ref, url] of Object.entries(headPicks)) {
     if (!pickStands(ref, url, subjects, yes)) { report.heads.push(`${ref}: pick lapsed with its person's yes`); continue }
     const file = join(content, ref, 'entity.json')
@@ -838,6 +873,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const id = ref.split('/')[1]!
       const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
       const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
+      // A non-commercial album photo stays in its album, a person's pick or not (albums only: the rule this step was built with, 16 Nov).
+      if (found && isNonCommercial(found.licence)) { report.heads.push(`${ref}: picked photo is non-commercial, album only`); continue }
       if (found) {
         const { best: _b, kind: _k, unchecked: _u, ...photo } = found
         picked = photo
@@ -846,7 +883,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
     if (own[0]?.url === url) continue
     report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
-    await write(file, raw, { ...e, photos: [picked, ...own.filter(p => p.url !== url)] })
+    let next = [picked, ...own.filter(p => p.url !== url)]
+    // A pick from the album may be a kept-mark photo: the page's cap holds with it too, the pick first (keptCapOwn).
+    if (next.some(x => keptNow(x.url))) {
+      const album = (JSON.parse(await readFile(join(content, 'gallery', `${ref.split('/')[1]}.json`), 'utf8').catch(() => '{}')) as { photos?: Photo[] }).photos ?? []
+      const capped = keptCapOwn(next, album.filter(x => x.url !== url), keptNow)
+      next = capped.own
+      report.ownKeptOut.push(...capped.out.map(x => `${ref}: ${x.url}`))
+    }
+    await write(file, raw, { ...e, photos: next })
     changed(`${ref}/entity.json`)
   }
   // Photos: what the caption rule finds on a published page (Vietnamese: the photos are the same in every language).
@@ -1025,7 +1070,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // person took off while a run was under way came back in its album (three on 2026-11-11). The cycle sweeps after it
   // catches up with main, after a clash at its push and after a clean pull there that brought main's commits in
   // (cycle-checks.sh swept_pull). What a second look agreed on joined the list above.
-  const { rejected, listed } = await neverAgain(root)
+  const { rejected, listed, why: listedWhy } = await neverAgain(root)
   const shownIn = async (kind: string) => (await readdir(join(content, kind)).catch(() => [] as string[])).sort().map(id => join(content, kind, id, 'entity.json'))
   const galleryFiles = (await readdir(join(content, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json')).sort().map(f => join(content, 'gallery', f))
   // Equipment pages too (a category's hero and its types' photos, each language's copy): the photo check strips every
@@ -1039,7 +1084,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const removed: string[] = []
     stripPhotos(data, listed, removed, [])
     if (!removed.length) continue
-    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(rejected[url]!)})`)
+    for (const url of removed) report.again.push(`${file.slice(content.length + 1)}: ${url} (${compactRejection(listedWhy(url))})`)
     await write(file, raw, data)
     changed(file.slice(content.length + 1))
   }
@@ -1105,8 +1150,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // next plans. A loop whose poster is listed goes whole: the poster is required, and the footage shows what it shows.
   const unsplash = (url: string) => (url.startsWith('https://images.unsplash.com/') ? url.split('?')[0]! : url)
   const listedBase = new Map(Object.keys(rejected).filter(listed).map(u => [unsplash(u), u]))
-  // The address itself first: a large copy can be listed by its own address too.
-  const listedImg = (url: string) => listedBase.get(unsplash(url)) ?? listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp')))
+  // The address itself first: a large copy can be listed by its own address too. Then by another address of the same
+  // photo (listed): our copy whose source the list names, or the other way round.
+  const listedImg = (url: string) => listedBase.get(unsplash(url)) ?? listedBase.get(unsplash(url.replace(/-large\.webp$/, '.webp'))) ?? [url, url.replace(/-large\.webp$/, '.webp')].find(listed)
   const calFile = join(content, 'curation.json')
   const calRaw = await readFile(calFile, 'utf8').catch(() => null)
   if (calRaw) {
@@ -1119,7 +1165,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         if (!page) continue
         delete o![k]
         off++
-        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${compactRejection(rejected[page]!)})`)
+        report.again.push(`curation.json ${date}${where} ${k}: ${url} (${compactRejection(rejected[page] ?? listedWhy(page))})`)
       }
     }
     for (const d of cal.days ?? []) {
@@ -1340,6 +1386,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const albums = await orderAlbums(root, subjects)
   albums.files.forEach(changed)
   report.albums = albums.leads
+  report.albumKeptOut = albums.keptOut
   report.noAnimal = await noAnimalHeads(root, o.today ?? vnDate(new Date()))
   // Last, after every step that writes a file: an email address left in any of them.
   const emails = await dropEmailsEverywhere(content)

@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "amazon"
+    "amazon",
+    "tefe"
   ],
   "range": {
     "native": {
@@ -17,15 +18,17 @@
       ],
       "regions": [
         "Amazon",
-        "Madeira"
+        "Madeira",
+        "Solimões"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "planetcatfish",
-          "quote": "Type locality: Amazon River near Teffé, Brazil.",
+          "quote": "Rineloricaria teffeana (Steindachner, 1879). Type locality: Amazon River near Teffé, Brazil. Etymology: Greek, rhinos = nose + Latin, lorica, loricare = cuirass of corslet of leather. Named after Tefé, its type locality. Size: 14 cm SL.",
           "countries": [
             "BR"
           ],
@@ -37,7 +40,8 @@
           "countries": [],
           "regions": [
             "Amazon",
-            "Madeira"
+            "Madeira",
+            "Solimões"
           ]
         }
       ]
@@ -160,6 +164,12 @@
       "html": "<p>South America: Amazon River basin (Tefé, Middle Amazon (Solimões), Madeira). IUCN Red List category: Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiloricaria-teffeana-2/",
+      "html": "<p>The vicinity of Tefé (written Teffe in elder publications) in Brazil is a place of wonders in aquarists' eyes. When the name Tefé is spoken everybody is reminded of beautiful Green Discus and gorgeous Apistogramma agassizii from that region. But there also lives a very attractive whiptail catfish: Hemiloricaria teffeana. However, the species has a wider distribution, like (on a species level) Green Discus and Apistogramma agassizii also have.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1294",
@@ -226,17 +236,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/scotcat/7a9afdbc339c2cbd.webp",
-      "thumb": "https://media.aquatome.com/scotcat/7a9afdbc339c2cbd-480.webp",
-      "width": 500,
-      "height": 329,
-      "licence": "dùng với sự cho phép",
-      "author": "Hans-Georg Evers / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_teffeana.htm",
-      "caption": "Rineloricaria teffeana",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/1d2acd9fd550d029.webp",
       "thumb": "https://media.aquatome.com/scotcat/1d2acd9fd550d029-480.webp",
       "width": 500,
@@ -279,5 +278,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-17"
 }

@@ -1,0 +1,1949 @@
+{
+  "id": "trachelyopterus-galeatus",
+  "scientificName": "Trachelyopterus galeatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Trachelyopterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "brazil",
+    "french-guiana",
+    "peru",
+    "suriname",
+    "trinidad-and-tobago"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GF",
+        "PE",
+        "SR",
+        "TT"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Brazil, French Guiana, Peru, Surinam, Trinidad & Tobago.",
+          "countries": [
+            "BR",
+            "GF",
+            "PE",
+            "SR",
+            "TT"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344685,
+      "total": 1550,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "BR",
+          773
+        ],
+        [
+          "VE",
+          248
+        ],
+        [
+          "GF",
+          242
+        ],
+        [
+          "PY",
+          87
+        ],
+        [
+          "GY",
+          57
+        ],
+        [
+          "PE",
+          36
+        ],
+        [
+          "BO",
+          30
+        ],
+        [
+          "CO",
+          28
+        ],
+        [
+          "AR",
+          24
+        ],
+        [
+          "SR",
+          23
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "UY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          0,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          5.625,
+          5,
+          0
+        ],
+        [
+          -71.71875,
+          7.03125,
+          6,
+          0
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          -70.3125,
+          0,
+          3,
+          0
+        ],
+        [
+          -70.3125,
+          5.625,
+          5,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          94,
+          0
+        ],
+        [
+          -70.3125,
+          8.4375,
+          47,
+          0
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          3,
+          1
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          23,
+          0
+        ],
+        [
+          -68.90625,
+          8.4375,
+          10,
+          0
+        ],
+        [
+          -67.5,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          29,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -16.875,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -15.46875,
+          5,
+          0
+        ],
+        [
+          -66.09375,
+          -14.0625,
+          4,
+          0
+        ],
+        [
+          -66.09375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          6,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          5,
+          5
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -64.6875,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -23.90625,
+          2,
+          0
+        ],
+        [
+          -63.28125,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -63.28125,
+          5.625,
+          4,
+          0
+        ],
+        [
+          -63.28125,
+          7.03125,
+          5,
+          0
+        ],
+        [
+          -63.28125,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          -33.75,
+          13,
+          0
+        ],
+        [
+          -61.875,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          5.625,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -60.46875,
+          -33.75,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -23.90625,
+          8,
+          0
+        ],
+        [
+          -60.46875,
+          -21.09375,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          22,
+          22
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          23,
+          1
+        ],
+        [
+          -60.46875,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -60.46875,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          7.03125,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          -35.15625,
+          5,
+          0
+        ],
+        [
+          -59.0625,
+          -28.125,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -26.71875,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          7,
+          0
+        ],
+        [
+          -59.0625,
+          -23.90625,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          8,
+          1
+        ],
+        [
+          -59.0625,
+          -19.6875,
+          2,
+          1
+        ],
+        [
+          -59.0625,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          5,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          11,
+          0
+        ],
+        [
+          -59.0625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          -36.5625,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -30.9375,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -29.53125,
+          7,
+          7
+        ],
+        [
+          -57.65625,
+          -28.125,
+          6,
+          0
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          17,
+          0
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          17,
+          0
+        ],
+        [
+          -57.65625,
+          -23.90625,
+          7,
+          0
+        ],
+        [
+          -57.65625,
+          -22.5,
+          1,
+          0
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -11.25,
+          27,
+          27
+        ],
+        [
+          -57.65625,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          4.21875,
+          5,
+          4
+        ],
+        [
+          -57.65625,
+          5.625,
+          3,
+          1
+        ],
+        [
+          -56.25,
+          -30.9375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -29.53125,
+          12,
+          12
+        ],
+        [
+          -56.25,
+          -28.125,
+          11,
+          11
+        ],
+        [
+          -56.25,
+          -25.3125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -16.875,
+          10,
+          10
+        ],
+        [
+          -56.25,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -11.25,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -2.8125,
+          8,
+          8
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -26.71875,
+          11,
+          9
+        ],
+        [
+          -54.84375,
+          -25.3125,
+          35,
+          33
+        ],
+        [
+          -54.84375,
+          -23.90625,
+          11,
+          11
+        ],
+        [
+          -54.84375,
+          -22.5,
+          12,
+          12
+        ],
+        [
+          -54.84375,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          2.8125,
+          9,
+          9
+        ],
+        [
+          -54.84375,
+          4.21875,
+          24,
+          24
+        ],
+        [
+          -54.84375,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -25.3125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -23.90625,
+          40,
+          40
+        ],
+        [
+          -53.4375,
+          -22.5,
+          6,
+          6
+        ],
+        [
+          -53.4375,
+          -21.09375,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          2.8125,
+          51,
+          51
+        ],
+        [
+          -53.4375,
+          4.21875,
+          157,
+          157
+        ],
+        [
+          -52.03125,
+          -30.9375,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -28.125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -52.03125,
+          -21.09375,
+          15,
+          15
+        ],
+        [
+          -52.03125,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          8,
+          8
+        ],
+        [
+          -52.03125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -14.0625,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          -7.03125,
+          9,
+          9
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -22.5,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          11,
+          11
+        ],
+        [
+          -47.8125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -19.6875,
+          11,
+          11
+        ],
+        [
+          -47.8125,
+          -18.28125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -21.09375,
+          5,
+          5
+        ],
+        [
+          -46.40625,
+          -19.6875,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -18.28125,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -16.875,
+          4,
+          4
+        ],
+        [
+          -46.40625,
+          -15.46875,
+          9,
+          9
+        ],
+        [
+          -46.40625,
+          -12.65625,
+          5,
+          5
+        ],
+        [
+          -46.40625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -46.40625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -46.40625,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -46.40625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -45,
+          -19.6875,
+          8,
+          8
+        ],
+        [
+          -45,
+          -18.28125,
+          10,
+          10
+        ],
+        [
+          -45,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -45,
+          -15.46875,
+          44,
+          44
+        ],
+        [
+          -45,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -7.03125,
+          10,
+          10
+        ],
+        [
+          -45,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -45,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -18.28125,
+          9,
+          9
+        ],
+        [
+          -43.59375,
+          -16.875,
+          14,
+          14
+        ],
+        [
+          -43.59375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -42.1875,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -12.65625,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -40.78125,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          -40.78125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -40.78125,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -40.78125,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -40.78125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -39.375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -14.0625,
+          3,
+          3
+        ],
+        [
+          -39.375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -39.375,
+          -7.03125,
+          6,
+          6
+        ],
+        [
+          -39.375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -37.96875,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -37.96875,
+          -11.25,
+          5,
+          5
+        ],
+        [
+          -37.96875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -37.96875,
+          -7.03125,
+          68,
+          68
+        ],
+        [
+          -37.96875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -36.5625,
+          -5.625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 22
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>Already in 1766 this species was described under the name Silurus galeatus by the founder of the zoological nomenclature, Carl von Linné. Today this fish is classified in the family Auchenipteridae, and within this family in the subfamily Auchenipterinae. The species in Auchenipterinae share a very special feature: the males have the first rays of the anal fin modified as a sexual organ.</p><p>A common name for Trachelyopterus galeatus is \"Driftwood Catfish\".</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>It is extremely widespread in South America. The specimens currently offered come from Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>South America: Brazil, French Guiana, Peru, Surinam, Trinidad &amp; Tobago.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Occurs in swamps. Well-adapted to hypoxic environments, being able to survive for hours, emerged.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>The fish should be kept in large tanks with lots of hiding places.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>As with most species in this family they need hiding places such as pipes/caves where they will reside most of the day.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>The water parameters are negligible in this species. Temperature should be between 22°C and 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>They can be fed with any usual fish food, but it is necessary to feed them in the afternoon.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>In its natural habitat the adults feed on small fishes, arthropods, worms and sometimes on fruits. In the aquaria most prepared foods such as tablet and pellet and frozen foods such as bloodworm are taken. If the aquarium is dimly lit you can see it coming out to feed.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>It is a nocturnal species. Tankmates should not be too small (minimum half the length of the catfish), otherwise they could be mistaken for food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Will come out at night to prowl so smaller fishes will be looked upon as prey, although this is not one of the most aggressive members of this family.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>The sexual differences can easily be spotted: males have the first rays of the anal fin modified as a sexual organ.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "html": "<p>Details of the breeding behaviour are still unknown. It is believed that they have internal fertilization. The only thing known for sure is that they spawn exclusively at night.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>The spiny structure of the pectoral fins enables the male to hold the females during mating (internal fertilisation). Sperm can be kept in the female's genital tract for several months, owing to a gelatinous emission from the seminal vesicle of the male. At maturity, the size of the adhesive eggs (20% of the female's weight) is 3 mm. Nine days after hatching, alevin size is 1.5 cm and they feed on microscopic worms or small insects. At around 11 days, their negative phototropism pushes them to hide themselves under branches or rocks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 5–6; anal spines: 0; anal soft rays: 20–25. The body is stocky, the head a little depressed, the inferior jaw a little prognathous, the cephalic helmet covered with finely pigmented skin in adults, with a fontanelle shorter than the orbital diameter.</p><p>Etymology: The genus name Trachelyopterus means trachelos, neck; pterus, fin, presumably referring to the elevated nape of T. coriaceus, which gives the appearance that the dorsal fin originates at the neck region. The specific name galeatus means helmeted, presumably referring to the skin-covered cephalic shield.</p><p>Remarks: Depending on what river system they are imported from they can be variable in colouration, from light to dark. The last thumbnail specimen from Colombia shows this trait and it may turn out to be T. galeatus or an undescribed species. This genus is in need of revision in the future.</p><p>IUCN Red List: The species is widely distributed and faces no major threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "html": "<p>Boujard, T., M. Pascal, F.J. Meunier and P.-Y. Le Bail 1997 Poissons de Guyane. Guide écologique de l'Approuague et de la réserve des Nouragues. Institut National de la Recherche Agronomique, Paris, 219 p. Frederico, R.G. 2023. Trachelyopterus galeatus. The IUCN Red List of Threatened Species 2023. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (01/2011). Grant, Steven. pers comm. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/58d56b1dffcc4c02.webp",
+      "thumb": "https://media.aquatome.com/glaser/58d56b1dffcc4c02-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d802505c366ed1a9.webp",
+      "thumb": "https://media.aquatome.com/glaser/d802505c366ed1a9-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/329edd7c5b079d04.webp",
+      "thumb": "https://media.aquatome.com/glaser/329edd7c5b079d04-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/_en-17/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f42c060dde2505aa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f42c060dde2505aa-480.webp",
+      "width": 500,
+      "height": 212,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a8a75c9d785c91c8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a8a75c9d785c91c8-480.webp",
+      "width": 500,
+      "height": 234,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/353fd1afac3e5ed8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/353fd1afac3e5ed8-480.webp",
+      "width": 500,
+      "height": 318,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus: close up of head",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9c830d2b1377c731.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9c830d2b1377c731-480.webp",
+      "width": 500,
+      "height": 231,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm",
+      "caption": "Trachelyopterus galeatus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ZjlHYdmbxV4",
+      "title": "Trachelyopterus galeatus (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 20,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Nss3mo3IKHI",
+      "title": "Torito 4K (Trachelyopterus galeatus) Bagre, Novia cunchi, Zamora cunchi",
+      "durationSec": 65,
+      "lang": "es-419"
+    },
+    {
+      "youtubeId": "gW9P-8BeTD8",
+      "title": "Bagre Sapo/Driftwood Catfish (Trachelyopterus Galeatus)  Bacia Rio São Francisco/Velhas",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "egEWwT-vpPM",
+      "title": "#中型鯰魚#Trachelyopterus_galeatus #枯木魔鯨#悠遊魚坊yoyofishroom",
+      "durationSec": 33,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá da trơn",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-16"
+}

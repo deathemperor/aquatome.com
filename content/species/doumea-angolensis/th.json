@@ -1,0 +1,22 @@
+{
+  "slug": "doumea-angolensis",
+  "name": "Doumea angolensis",
+  "altNames": [
+    "Loach catfish",
+    "ปลาแคทฟิชโลช"
+  ],
+  "sections": {
+    "quickFacts:scotcat": "<p>วงศ์: Amphiliidae ขนาด: ความยาวรวม 7 ซม. ที่มาของชื่อ: ชื่อชนิด angolensis หมายถึง มาจากประเทศแองโกลา</p>",
+    "distribution:scotcat": "<p>แอฟริกา: ระบบแม่น้ำ Quanza และพื้นที่ตอนในของ Benguella ประเทศแองโกลา แหล่งที่พบตัวอย่างต้นแบบ (type locality): พื้นที่ตอนในของ Benguella ที่ระดับความสูง 1200–1500 เมตร ประเทศแองโกลา</p><p>บัญชีแดงของ IUCN: เป็นที่รู้จักเฉพาะจากบริเวณ Benguella (แหล่งที่พบตัวอย่างต้นแบบ) และบริเวณต้นน้ำของแม่น้ำ Lucala (ระบบแม่น้ำ Kwanza ตอนล่าง) ยังไม่พบภัยคุกคามที่ชัดเจน ข้อมูลมีน้อย จัดอยู่ในสถานะกังวลน้อยที่สุด (Least Concern) แต่ต้องมีการปรับปรุงข้อมูล (IUCN 2007)</p>",
+    "habitat:scotcat": "<p>ยังไม่ทราบถิ่นอาศัยที่ปลาชนิดนี้ชอบ แต่พบได้ในแม่น้ำสายเล็กที่มีน้ำไหล ยังไม่ทราบรายละเอียดทางชีววิทยา แต่ปลาในสกุลนี้มีการปรับตัวให้อาศัยอยู่ในบริเวณแก่งน้ำเชี่ยว</p>",
+    "notes:scotcat": "<p>ลักษณะ: คอดหางยาวและเรียวมาก ครีบไขมันเริ่มต้นเหนือกึ่งกลางของครีบก้น ครีบหางเว้าเป็นรูปเคียวปานกลาง แฉกบนและแฉกล่างมีขนาดใกล้เคียงกัน</p><p>สีสัน: ลำตัวสีออกเหลือง ส่วนหลังมีโทนสีเทา มีจุดสีเข้มกว่าที่ไม่ชัดเจนจำนวนหนึ่งกระจายอยู่บนพื้นสีลำตัว ครีบมีแถบขวางที่ชัดเจนมากน้อยแตกต่างกันไป</p>",
+    "references:scotcat": "<p>Da Costa, L. 2007. Doumea angolensis. The IUCN Red List of Threatened Species 2007.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. www.fishbase.org.</p><p>Poll, M., 1967. Contribution à la faune ichthyologique de l'Angola. Diamang Publ. Cult., nr. 75:381 p.</p><p>Seegers, L., 2008. The catfishes of Africa: A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p><p>Skelton, P.H. and G.G. Teugels, 1986. Amphiliidae. p. 54-65. In J. Daget, J.-P. Gosse and D.F.E. Thys van den Audenaerde (eds.) Check-list of the freshwater fishes of Africa (CLOFFA). ISNB, Brussels; MRAC, Tervuren; and ORSTOM, Paris. Vol. 2.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "scotcat": 0.9
+    }
+  }
+}

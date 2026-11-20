@@ -14,7 +14,7 @@ import { sweep } from '../src/sweep'
 
 /**
  * iNaturalist album photos under CC BY-NC or CC BY-NC-SA (the owner's yes, 10 Nov), behind IMAGE_SWITCHES.inatNonCommercial,
- * which ships off. Fixtures only: no request leaves the test.
+ * on from 18 Nov. Fixtures only: no request leaves the test.
  */
 const ON = { ...IMAGE_SWITCHES, inatNonCommercial: true }
 const OFF = { ...IMAGE_SWITCHES, inatNonCommercial: false }
@@ -136,6 +136,88 @@ test('switch off: no non-commercial photo is asked for or taken; on: iNaturalist
   expect(['by-nc', 'by-nc-sa', 'by-nd', 'by-nc-nd'].map(l => openverseLicence(l, '4.0'))).toEqual(Array(4).fill(undefined))
 })
 
+test('the non-commercial pass waits for every open source read to its end: with Openverse out of requests this run, none is asked for', async () => {
+  const r = await root()
+  const calls: string[] = []
+  await galleries(r, deps(calls), { sheets: 5, switches: ON, budget: { openverse: 0 } })
+  expect(calls.some(u => u.includes('cc-by-nc'))).toBe(false)
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(st.inatNc).toBeUndefined()
+  expect(st.exhausted).toBeUndefined()
+  // Openverse read the next run: the pass follows, in the same run.
+  calls.length = 0
+  await galleries(r, deps(calls), { sheets: 5, switches: ON })
+  expect(calls.filter(u => u.includes('cc-by-nc'))).toHaveLength(1)
+  expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
+})
+
+test("open photos on every page before any page's non-commercial pass: a dry page first in the plan doesn't take the run's sheets from a page below it", async () => {
+  const r = await root()
+  // The first page in the plan's order is dry from a run with the switch off; its non-commercial pass is unread.
+  await galleries(r, deps([]), { sheets: 5, switches: OFF })
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).exhausted).toBe('2026-11-16')
+  const LATER = 'testus-zeta'
+  await mkdir(join(r, `content/species/${LATER}`), { recursive: true })
+  await writeFile(join(r, `content/species/${LATER}/entity.json`), JSON.stringify({ scientificName: 'Testus zeta', photos: [] }))
+  await writeFile(join(r, `content/species/${LATER}/vi.json`), JSON.stringify({ name: 'Cá zeta' }))
+  // One sheet: the page below, with open photos to screen, takes it.
+  const calls: string[] = []
+  const report = await galleries(r, deps(calls, '2026-11-17T00:00:00Z'), { sheets: 1, switches: ON })
+  expect(report.sheets).toBe(1)
+  expect(calls.some(u => u.includes('cc-by-nc'))).toBe(false)
+  expect((await read(r, `content/gallery/${LATER}.json`)).photos.length).toBeGreaterThan(0)
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).inatNc).toBeUndefined()
+  // With sheets to spare, the dry page's pass is read after.
+  const more = await galleries(r, deps([], '2026-11-17T00:00:00Z'), { sheets: 5, switches: ON })
+  expect(more.done.some(x => x.startsWith(`${ID} (non-commercial): `))).toBe(true)
+  expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
+})
+
+test('the non-commercial pass reads no more while its limit of photos waits for the photo check; its open round screens none left queued, and its own round screens them once there is room', async () => {
+  const r = await root()
+  await mkdir(join(r, 'content/gallery'), { recursive: true })
+  const waits = { url: 'https://media.example.org/inaturalist/9.webp', width: 1024, height: 768, licence: 'CC BY-NC', author: 'sampletown', sourceUrl: INAT(9), caption: 'cá', unchecked: true }
+  await writeFile(join(r, 'content/gallery/other-fish.json'), JSON.stringify({ id: 'other-fish', photos: [waits], seen: 1, updatedAt: '2026-11-16' }))
+  const calls: string[] = []
+  const report = await galleries(r, deps(calls), { sheets: 5, switches: ON, ncWaiting: 1 })
+  expect(report.ncWaiting).toBe(1)
+  expect(calls.some(u => u.includes('cc-by-nc'))).toBe(false)
+  expect((await album(r)).every(p => !p.licence.includes('NC'))).toBe(true)
+  // Room for more: the pass reads, and what it keeps counts.
+  const more = await galleries(r, deps([]), { sheets: 5, switches: ON, ncWaiting: 10 })
+  expect(more.ncWaiting).toBe(3)
+  // A non-commercial candidate left queued is screened only in its own round, never in the open one.
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  const queued = { key: 'inat:4', url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/4/large.jpg', thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/4/medium.jpg', width: 1024, height: 768, licence: 'CC BY-NC', author: 'sampletown', sourceUrl: INAT(4) }
+  await writeFile(join(r, `engine-state/gallery/${ID}.json`), JSON.stringify({ ...st, queue: [queued], exhausted: undefined }))
+  await galleries(r, deps([]), { sheets: 5, switches: ON, ncWaiting: 3 })
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).queue.map((c: { key: string }) => c.key)).toEqual(['inat:4'])
+  // Room again: its own round screens it, though the pass was read to its end, and the page then runs dry.
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).inatNc).toMatchObject({ done: true })
+  await galleries(r, deps([]), { sheets: 5, switches: ON, ncWaiting: 10 })
+  const after = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(after.queue).toEqual([])
+  expect(after.judged).toContain('inat:4')
+  expect(after.exhausted).toBeTruthy()
+})
+
+test("the non-commercial pass takes the pages with no photo of their own first, though a page with one comes before them in the plan", async () => {
+  const r = await root()
+  // First in the plan's order: a page with a photo of its own; after it, the test's page, with none.
+  const FIRST = 'testus-aaa'
+  await mkdir(join(r, `content/species/${FIRST}`), { recursive: true })
+  await writeFile(join(r, `content/species/${FIRST}/entity.json`), JSON.stringify({ scientificName: 'Testus aaa', photos: [{ url: 'https://media.example.org/x/1.webp', width: 1024, height: 768, licence: 'CC BY', author: 'sampletown', sourceUrl: 'https://example.org/1' }] }))
+  await writeFile(join(r, `content/species/${FIRST}/vi.json`), JSON.stringify({ name: 'Cá aaa' }))
+  // Both dry from a run with the switch off; their non-commercial pass unread.
+  await galleries(r, deps([]), { sheets: 10, switches: OFF })
+  for (const id of [FIRST, ID]) expect((await read(r, `engine-state/gallery/${id}.json`)).exhausted).toBe('2026-11-16')
+  // One sheet: the page with no photo of its own takes it.
+  await galleries(r, deps([], '2026-11-17T00:00:00Z'), { sheets: 1, switches: ON })
+  expect((await read(r, `engine-state/gallery/${ID}.json`)).inatNc).toMatchObject({ done: true })
+  expect((await read(r, `engine-state/gallery/${FIRST}.json`)).inatNc).toBeUndefined()
+  expect((await album(r)).map(p => p.sourceUrl).slice(-2)).toEqual([INAT(2), INAT(3)])
+})
+
 test('switch off after on: a non-commercial candidate still queued is never screened or added', async () => {
   const r = await root()
   await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
@@ -148,13 +230,55 @@ test('switch off after on: a non-commercial candidate still queued is never scre
   expect(st.queue.map((c: { key: string }) => c.key)).not.toContain('inat:2')
 })
 
-test('album order: non-commercial photos after every open one, AI pictures last; a second pass changes nothing', () => {
+test("the album step's iNaturalist photo bytes: counted, and past the run's cap it stops, its candidates still queued and unjudged", async () => {
+  const r = await root()
+  const d = deps([])
+  const sizes: number[] = []
+  const counting: GalleryDeps = { ...d, get: async u => { const b = await d.get(u); if (u.includes('inaturalist')) sizes.push(b.byteLength); return b } }
+  const spent = await galleries(r, counting, { sheets: 5, switches: ON, inatBytes: 0 })
+  expect(spent.stopped).toMatch(/iNaturalist's photo bytes for this run spent/)
+  expect(spent.sheets).toBe(0)
+  expect(sizes).toEqual([])
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  expect(st.queue.map((c: { key: string }) => c.key)).toContain('inat:1')
+  expect(st.judged).toEqual([])
+  // The next run, under the cap: screened and added, and every iNaturalist byte it downloaded counted.
+  const next = await galleries(r, counting, { sheets: 5, switches: ON })
+  expect(next.stopped).toBe('')
+  expect(next.added).toMatchObject({ iNaturalist: 3 })
+  expect(next.inatBytes).toBeGreaterThan(0)
+  expect(next.inatBytes).toBe(sizes.reduce((a, b) => a + b, 0))
+})
+
+test("the album step's iNaturalist byte cap, crossed: the batch under way finishes, and no download starts after it", async () => {
+  const r = await root()
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  const cand = (n: number) => ({ key: `inat:${100 + n}`, url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${100 + n}/large.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${100 + n}/medium.jpg`, width: 1024, height: 768, licence: 'CC BY', author: 'sampletown', sourceUrl: INAT(100 + n) })
+  await writeFile(join(r, `engine-state/gallery/${ID}.json`), JSON.stringify({ queue: Array.from({ length: 8 }, (_, i) => cand(i + 1)), judged: [], hashes: {} }))
+  const d = deps([])
+  const got: string[] = []
+  const counting: GalleryDeps = { ...d, get: async u => { if (u.includes('inaturalist')) got.push(u); return d.get(u) } }
+  // A cap of one byte: the first batch of six starts under it, so all six finish; the seventh never starts.
+  const run = await galleries(r, counting, { sheets: 5, switches: ON, inatBytes: 1 })
+  expect(run.stopped).toMatch(/iNaturalist's photo bytes for this run spent/)
+  expect(got).toHaveLength(6)
+  expect(run.inatBytes).toBeGreaterThan(1)
+  const st = await read(r, `engine-state/gallery/${ID}.json`)
+  // None judged: the eight stay queued for the next run (beside what the run's own search queued).
+  expect(st.judged).toEqual([])
+  expect(st.queue.map((c: { key: string }) => c.key)).toEqual(expect.arrayContaining(Array.from({ length: 8 }, (_, i) => `inat:${101 + i}`)))
+})
+
+test('album order: non-commercial photos after every open one with no mark, the kept-mark (banner) photos after them, AI pictures last; a second pass changes nothing (the chief of staff, 19 Nov)', () => {
+  // Until 19 Nov the banner photos came before the non-commercial ones. The owner was told a banner photo sits below the
+  // clean ones, and a non-commercial photo is a clean one.
   const p = (n: string, licence: string, extra: Partial<GalleryPhoto> = {}): GalleryPhoto => ({ url: `https://media.aquatome.com/g/${n}.webp`, width: 1024, height: 768, licence, author: 'Sampletown', sourceUrl: `https://example.org/${n}`, kind: 'male', ...extra })
   const ai = p('ai', 'AI-generated', { generated: { model: 'm', driverModel: 'd', date: '2026-11-16', prompt: 'fish', referenceHash: 'a'.repeat(64) } })
-  const photos = [p('nc1', 'CC BY-NC', { best: true }), p('open1', 'CC BY'), ai, p('nc2', 'CC BY-NC-SA'), p('open2', 'CC0', { best: true })]
-  const once = rankGallery(photos)
-  expect(once.map(x => x.url.split('/').pop())).toEqual(['open2.webp', 'open1.webp', 'nc1.webp', 'nc2.webp', 'ai.webp'])
-  expect(rankGallery(once)).toEqual(once)
+  const photos = [p('banner', 'used with permission', { best: true }), p('nc1', 'CC BY-NC', { best: true }), p('open1', 'CC BY'), ai, p('nc2', 'CC BY-NC-SA'), p('open2', 'CC0', { best: true })]
+  const banner = (u: string) => u.endsWith('/banner.webp')
+  const once = rankGallery(photos, undefined, undefined, undefined, undefined, banner)
+  expect(once.map(x => x.url.split('/').pop())).toEqual(['open2.webp', 'open1.webp', 'nc1.webp', 'nc2.webp', 'banner.webp', 'ai.webp'])
+  expect(rankGallery(once, undefined, undefined, undefined, undefined, banner)).toEqual(once)
 })
 
 test('a non-commercial album photo never leads a page', () => {
@@ -186,12 +310,21 @@ test('switch off after on: the sweep takes every non-commercial photo off every 
   expect(kept.nonCommercial.sort()).toEqual([`gallery/${ID}.json: ${photo(9, '').url}`, `species/${ID}/entity.json: ${photo(11, '').url}`].sort())
 
   const r = await swept()
-  const report = await sweep(r)
+  const report = await sweep(r, { switches: OFF })
   expect((await read(r, `content/gallery/${ID}.json`)).photos.map((p: Photo) => p.sourceUrl)).toEqual([INAT(1)])
   expect((await read(r, `content/species/${ID}/entity.json`)).photos.map((p: Photo) => p.sourceUrl)).toEqual([INAT(10)])
   expect(report.nonCommercial).toHaveLength(4)
   expect(report.files).toEqual(expect.arrayContaining([`gallery/${ID}.json`, `species/${ID}/entity.json`]))
-  expect((await sweep(r)).nonCommercial).toEqual([])
+  expect((await sweep(r, { switches: OFF })).nonCommercial).toEqual([])
+})
+
+test("a person's head pick never makes a non-commercial album photo a page's head, the switch on", async () => {
+  const r = await swept()
+  await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
+  const report = await sweep(r, { switches: ON })
+  expect(report.heads).toContain(`species/${ID}: picked photo is non-commercial, album only`)
+  expect((await read(r, `content/species/${ID}/entity.json`)).photos.map((p: Photo) => p.sourceUrl)).toEqual([INAT(10)])
+  expect((await read(r, `content/gallery/${ID}.json`)).photos.map((p: Photo) => p.sourceUrl)).toContain(INAT(2))
 })
 
 test('the mirror copies a non-commercial photo only where the site shows it: an iNaturalist album photo, the switch on', async () => {

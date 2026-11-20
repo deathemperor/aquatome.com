@@ -3,6 +3,12 @@
   "name": "กาซิกิอาเร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-18T12:19:41.421Z",
+    "why": "The Thai transliteration \"กาซิกิอาเร\" is plausible for Casiquiare, but it omits the kind word \"ช่อง/คลอง\" (channel) that Thai atlases usually include, so it is incomplete for a channel."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

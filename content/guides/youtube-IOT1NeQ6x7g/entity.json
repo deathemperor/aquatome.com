@@ -1,0 +1,67 @@
+{
+  "id": "youtube-IOT1NeQ6x7g",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=IOT1NeQ6x7g",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-19",
+  "video": {
+    "youtubeId": "IOT1NeQ6x7g",
+    "title": "Mini Aqua Terrarium With Flowing Waterfall (How To: NO FILTER NO FERTS NO CO2 NO HEATER)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 735,
+    "publishedAt": "2019-09-30",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvxx3DVGV2VuIVIc1O3HLgJ",
+      "position": 59
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/IOT1NeQ6x7g/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 60
+      },
+      {
+        "category": "den",
+        "t": 106
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 40
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 160
+      },
+      {
+        "category": "khac",
+        "brand": "Miracle-Gro",
+        "model": "All-Purpose Plant Food",
+        "t": 454
+      },
+      {
+        "category": "khac",
+        "brand": "Tropical",
+        "model": "Back with soil",
+        "t": 454
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 40
+      }
+    ]
+  }
+}

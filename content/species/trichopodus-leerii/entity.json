@@ -13,12 +13,12 @@
     "sumatra",
     "singapore",
     "south-america",
-    "colombia"
+    "colombia",
+    "narathiwat"
   ],
   "range": {
     "native": {
       "countries": [
-        "TH",
         "MY"
       ],
       "regions": [
@@ -31,17 +31,10 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The pearl gourami, Trichopodus leerii, is a labyrinth fish from Thailand, Malaysia, Borneo and Sumatra, where it inhabits lowland swamps.",
+          "quote": "Found in Thailand, Malaysia and the islands of Borneo and Sumatra.",
           "countries": [
-            "TH",
             "MY"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Found in Thailand, Malaysia and the islands of Borneo and Sumatra.",
-          "countries": [],
           "regions": [
             "Borneo",
             "Sumatra"
@@ -52,7 +45,7 @@
     "records": {
       "taxonKey": 7623402,
       "total": 30,
-      "fetched": "2026-11-05",
+      "fetched": "2026-11-18",
       "countries": [
         [
           "ID",
@@ -82,7 +75,7 @@
           98.4375,
           14.0625,
           1,
-          1
+          0
         ],
         [
           99.84375,
@@ -258,6 +251,12 @@
       "html": "<p>This species originates in Thailand, Malaysia, and the Indonesian islands of Sumatra and Borneo. Some pearl gouramis have been introduced to Singapore and Colombia. It's rare to find wild pearl gouramis for sale as aquarium fish as they are readily bred in captivity.</p><p>The International Union for Conservation of Nature (IUCN) Red List categorizes the pearl gourami as Near Threatened. This status is due to river damming, water management practices, ecosystem alterations from logging, and direct harvesting of wild specimens.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichogaster-leerii-wild-2/",
+      "html": "<p>Wild-collected pearl gourami from Thailand were obtained for the first time. Whether the species occurs in Thailand at all is discussed very ambiguously in the scientific literature. These fish originate from Narathiwat province, near the city of Su-ngai Kolok, where the glass catfish (Kryptopterus vitreolus) is usually collected too.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
@@ -268,6 +267,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
       "html": "<p>They prefer acidic water found in lowland swamps near the sea. In their natural habitat filled with vegetation, pearl gouramis flourish with similar conditions in the aquarium.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichogaster-leerii-wild-2/",
+      "html": "<p>The species is strictly adapted to blackwater. Wild populations of the pearl gourami are declining extremely fast; collecting the fish for the trade is said to have no impact on natural populations.</p>"
     },
     {
       "key": "aquariumSize",
@@ -342,6 +347,12 @@
       "html": "<p>Male pearl gouramis are distinguished by thinner, more angular bodies, with slightly longer fins and a noticeable red breast, exhibiting richer colors than females. Males have a distinct deep red-orange on their throat and breast, and their dorsal fin is longer and more pointed. Females display a plumper body when ready to spawn.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichogaster-leerii-wild-2/",
+      "html": "<p>At first the new arrivals looked very similar to their bred cousins. A closer look showed an interesting difference: in wild females the back has almost no pearl spots.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
@@ -364,6 +375,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/pearl-gourami-1381025",
       "html": "<p>The pearl gourami features an elongated, laterally compressed body. Its ventral (pelvic) fins resemble long feelers, as reflected in the genus name Trichopodus (\"hair-feet\"). The small, upturned mouth signifies a surface-feeding habit. White pearly spots on its brown body create a mother-of-pearl effect, from which the fish derives its name. A black line extends horizontally from mouth to tail, ending with a spot. The ventral head shows an orange hue, intensifying during breeding to attract mates.</p><p>Pearl gouramis are relatively large, reaching 10 to 12 cm as adults. With proper care, including ample space and a balanced diet, they attain their full size within one to two years.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/trichogaster-leerii-wild-2/",
+      "html": "<p>The wild fish are currently a little larger than half-grown (6–8 cm).</p>"
     }
   ],
   "photos": [
@@ -373,7 +390,7 @@
       "width": 716,
       "height": 480,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Rich Kuehn / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/trichopodus-leerii",
       "caption": "Adult female of Trichogaster leerii.",
       "source": "seriouslyfish"
@@ -444,5 +461,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-17"
 }

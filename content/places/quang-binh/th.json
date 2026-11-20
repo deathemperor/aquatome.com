@@ -3,6 +3,12 @@
   "name": "กว๋างบิ่ญ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T18:51:54.952Z",
+    "why": "Thai atlases usually write Quảng Bình as กว๋างบิ่nh-style forms like \"กวางบิญ\" or \"กว๋างบิ่ญ\"? The given form with tone marks is a close transliteration but lacks the kind word \"จังหวัด\" that Thai uses for Vietnamese provinces, and it is not the common atlas spelling."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

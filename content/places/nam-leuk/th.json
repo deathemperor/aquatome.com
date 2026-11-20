@@ -3,6 +3,12 @@
   "name": "น้ำลึก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:48:27.597Z",
+    "why": "น้ำลึก is the Thai-cognate spelling of Lao \"Nam Leuk\" (deep water), but it omits the river word แม่น้ำ and reads like a word-for-word translation rather than a transliterated proper name."
+  },
   "quality": {
     "score": 0.62,
     "indexable": false

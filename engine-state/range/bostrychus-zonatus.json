@@ -1,0 +1,65 @@
+{
+  "id": "bostrychus-zonatus",
+  "native": {
+    "input": "868afdfb3b93cd86",
+    "at": "2026-11-19T00:50:56.943Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The beautiful animal is widespread in fresh and brackish water in New Guinea and northern Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "The beautiful animal is widespread in fresh and brackish water in New Guinea and northern Australia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Bostrychus zonatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5209936,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        31
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        8
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T00:50:56.943Z"
+  }
+}

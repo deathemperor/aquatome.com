@@ -1,0 +1,306 @@
+{
+  "id": "pseudomystus-funebris",
+  "scientificName": "Pseudomystus funebris",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Pseudomystus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "indonesia",
+    "borneo",
+    "kahayan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Rungan River",
+        "Kahayan River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Pseudomystus funebris is a blackwater dwarf catfish from Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: known currently only from the Rungan River in Southern Borneo, Indonesia.",
+          "countries": [],
+          "regions": [
+            "Rungan River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The Rungan River is part of the Kahayan River drainage.",
+          "countries": [],
+          "regions": [
+            "Kahayan River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961259,
+      "total": 5,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          -2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      },
+      {
+        "source": "scotcat",
+        "value": 5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.5,
+          "max": 6.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "html": "<p>Pseudomystus funebris is a blackwater dwarf catfish from Borneo, Indonesia. It was only scientifically described in 2010 and is extremely similar to P. heokhuii, which occurs on Sumatra. Like the latter, it reaches a total length of about 6 cm.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "html": "<ul><li>Described by Ng, 2010</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "html": "<p>Asia: known currently only from the Rungan River in Southern Borneo, Indonesia. The Rungan River is part of the Kahayan River drainage.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "html": "<p>The habitat of this species (blackwater peat swamp and heath forests) has undergone large scale destruction and degradation due to logging, plantation agriculture (primarily oil palm plantation), and channelisation. It is assessed as Vulnerable on the IUCN Red List (2020).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "html": "<p>Keep these animals in community tanks with peaceful other fish, with subdued light, many dead leaves on the ground and a planting of Cryptocoryne, which also thrive in twilight.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "html": "<p>Although soft and acid water is not an absolute necessity, the care of these animals and plants in such water is particularly problem-free.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "html": "<p>The species is very peaceful and constantly on the move during the day. The company of other species seems to be very important to the animals.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "html": "<p>Differs from P. heokhuii in having a shorter adipose-fin base, a more slender caudal peduncle, a wider head and a larger eye, and a slightly convex predorsal profile. Colouration: distinguished from congeners except Pseudomystus heokkuii (from Sumatra) by a pale midlateral stripe and two pale oblique bands on the sides of the body. Dorsal spines: 1; dorsal soft rays: 7.</p><p>Etymology: the genus name Pseudomystus comes from Greek pseudes = false + mystax = whiskered. The specific name funebris means 'somewhat greater', referring to the relatively larger adipose-fin base and pectoral and dorsal fins compared to its closest congener.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2011. FishBase. www.fishbase.org</li><li>Ng, H.H., 2010. Pseudomystus funebris, a new species of catfish from Borneo (Teleostei: Bagridae). The Raffles Bulletin of Zoology 58(1): 87-91.</li><li>Ng, H.H. 2020. Pseudomystus funebris. The IUCN Red List of Threatened Species 2020.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/254dbeca36b2099a.webp",
+      "thumb": "https://media.aquatome.com/glaser/254dbeca36b2099a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/05ce2440e38887cf.webp",
+      "thumb": "https://media.aquatome.com/glaser/05ce2440e38887cf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/9a52e587cf084462.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9a52e587cf084462-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "caption": "Pseudomystus funebris",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f86f27b909e75e45.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f86f27b909e75e45-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "caption": "Pseudomystus funebris",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f94afd55eb4c1c38.webp",
+      "thumb": "https://media.aquatome.com/glaser/f94afd55eb4c1c38-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/451b64d3bdf6804f.webp",
+      "thumb": "https://media.aquatome.com/glaser/451b64d3bdf6804f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudomystus-funebris-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/bb484ba848498521.webp",
+      "thumb": "https://media.aquatome.com/scotcat/bb484ba848498521-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Duffill / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "caption": "Pseudomystus funebris",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c5493789c6d8ab44.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c5493789c6d8ab44-480.webp",
+      "width": 500,
+      "height": 276,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank M. Greco / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm",
+      "caption": "Pseudomystus funebris",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "sk6sHR2DUuo",
+      "title": "Ankunft der pseudomystus funebris",
+      "durationSec": 18,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "VxQlBLPmOOE",
+      "title": "Trigonostigma heteromorpha und Pseudomystus funebris",
+      "durationSec": 60,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "e0beGsvtcGE",
+      "title": "06.01.2020 Pseudomystus funebris",
+      "durationSec": 44,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "axBRDXMJ5Yg",
+      "title": "meine beiden Pseudomystus funebris zeigen sich auch mal wieder",
+      "durationSec": 42,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cộng đồng 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây cryptocoryne",
+        "cây thủy sinh ưa bóng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "lá bàng khô",
+        "lá khô bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 60cm",
+        "máy lọc bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

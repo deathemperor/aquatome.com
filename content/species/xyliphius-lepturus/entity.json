@@ -13,6 +13,115 @@
     "ecuador",
     "bobonaza"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Orinoco",
+        "Río Bobonaza"
+      ],
+      "sources": [
+        "planetcatfish",
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Desembocadura del rio Pucayacu en el Bobonaza, Río Magdalena system, Amazon system, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The specimens were obtained from Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Amazon and Orinoco River basins of Colombia, Ecuador and Venezuela.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: upper Amazon and Orinoco River basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "X. lepturus and X. melanopterus were described from the western headwaters of the Río Bobonaza, upper Amazon basin (Orcés, 1962).",
+          "countries": [],
+          "regions": [
+            "Río Bobonaza"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340564,
+      "total": 10,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "EC",
+          7
+        ],
+        [
+          "PE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          2,
+          0
+        ],
+        [
+          -78.75,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -81,27 +81,8 @@
             "caption": "Chai hạt lọc có bơm nhỏ bên dưới, cá cảnh bơi gần đó.",
             "sharpness": 595.6,
             "person": false
-          },
-          {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai lọc đầy hạt gắn bơm, đặt trong bể để chỉnh dòng chảy.",
-            "sharpness": 267.1,
-            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/2cJXsJUdOfk/p3-dCVDMyVCNnIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/2cJXsJUdOfk/p3-dCVDMyVCNnIuanBn-480.webp",
-          "width": 843,
-          "height": 1024,
-          "licence": "CC0",
-          "author": "Hughesy127",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ak%C4%B1%C5%9Fkan_Yatakl%C4%B1_Reakt%C3%B6r.jpg",
-          "caption": "Sơ đồ lớp hạt lơ lửng và đảo đều trong bình khi có dòng chảy qua."
-        }
+        ]
       },
       {
         "heading": "Đặt bình ở đâu trong sump",
@@ -124,17 +105,7 @@
             "sharpness": 51.8,
             "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/2cJXsJUdOfk/p4-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/2cJXsJUdOfk/p4-TmV3X1N1bXAuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "Public domain",
-          "author": "Gtstricky",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Sump acrylic nhiều ngăn với bình lọc dạng trụ đặt trong ngăn sump."
-        }
+        ]
       },
       {
         "heading": "Bao lâu thì nitrate giảm",
@@ -172,6 +143,44 @@
             "person": false
           }
         ]
+      },
+      {
+        "heading": "Chỉnh lưu lượng bơm cho đúng",
+        "moments": [
+          {
+            "t": 190,
+            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai lọc đầy hạt gắn bơm, đặt trong bể để chỉnh dòng chảy.",
+            "sharpness": 267.1,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/2cJXsJUdOfk/p3-dCVDMyVCNnIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/2cJXsJUdOfk/p3-dCVDMyVCNnIuanBn-480.webp",
+          "width": 843,
+          "height": 1024,
+          "licence": "CC0",
+          "author": "Hughesy127",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ak%C4%B1%C5%9Fkan_Yatakl%C4%B1_Reakt%C3%B6r.jpg",
+          "caption": "Sơ đồ lớp hạt lơ lửng và đảo đều trong bình khi có dòng chảy qua."
+        }
+      },
+      {
+        "heading": "Đặt bình ở đâu trong hệ thống",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/2cJXsJUdOfk/p4-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/2cJXsJUdOfk/p4-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Sump acrylic nhiều ngăn với bình lọc dạng trụ đặt trong ngăn sump."
+        }
       }
     ]
   }

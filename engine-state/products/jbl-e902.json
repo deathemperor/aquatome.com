@@ -1,0 +1,343 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Type",
+      "value": "External canister filter with built-in quick-start priming device",
+      "source": 0
+    },
+    {
+      "key": "Item number",
+      "value": "6028200",
+      "source": 0
+    },
+    {
+      "key": "Flow rate",
+      "value": "900 l/h",
+      "source": 0
+    },
+    {
+      "key": "Power",
+      "value": "11 W",
+      "source": 1
+    },
+    {
+      "key": "Suitable aquarium size",
+      "value": "90–300 l (80–120 cm)",
+      "source": 0
+    },
+    {
+      "key": "Filter (canister) volume",
+      "value": "7.6 l",
+      "source": 0
+    },
+    {
+      "key": "Filter media volume",
+      "value": "3.5 l (Greendeal); 4.7 l (Tạp hóa thủy sinh) – shops disagree",
+      "source": 2
+    },
+    {
+      "key": "Dimensions (L x W x H)",
+      "value": "18 x 20 x 40 cm",
+      "source": 0
+    },
+    {
+      "key": "Hose size",
+      "value": "12/16 mm, hoses and pipes included",
+      "source": 0
+    },
+    {
+      "key": "Max. height difference",
+      "value": "No more than 180 cm from the water surface to the bottom of the filter",
+      "source": 0
+    },
+    {
+      "key": "Min. clearance beside tank",
+      "value": "Water surface must be at least 20 cm above the top of the filter",
+      "source": 0
+    },
+    {
+      "key": "Clips material",
+      "value": "Locking clips made of glass-fibre-reinforced plastic",
+      "source": 0
+    },
+    {
+      "key": "Included items",
+      "value": "Filter, 12/16 hoses and pipes, intake basket, angle piece, suction holders, biofilter balls and biofilter foam",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "2 years, plus 2 more years when the product is registered; does not cover wear parts such as the impeller and shaft",
+      "source": 0
+    },
+    {
+      "key": "Energy saving",
+      "value": "Shops say it uses up to 27% less power than comparable filters",
+      "source": 2
+    },
+    {
+      "key": "Certification",
+      "value": "TÜV-certified for safety and energy saving (per the shop listing)",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "JBL CristalProfi e402 greenline",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "450 l/h",
+          "source": 4
+        },
+        {
+          "key": "Power",
+          "value": "4 W",
+          "source": 4
+        },
+        {
+          "key": "Aquarium size",
+          "value": "40–120 l",
+          "source": 4
+        }
+      ]
+    },
+    {
+      "name": "JBL CristalProfi e702 greenline",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "700 l/h",
+          "source": 5
+        },
+        {
+          "key": "Power",
+          "value": "9 W",
+          "source": 5
+        },
+        {
+          "key": "Aquarium size",
+          "value": "60–200 l (60–100 cm)",
+          "source": 5
+        },
+        {
+          "key": "Canister volume",
+          "value": "6.1 l",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "JBL CristalProfi e902 greenline",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "900 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "11 W",
+          "source": 1
+        },
+        {
+          "key": "Aquarium size",
+          "value": "90–300 l (80–120 cm)",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "JBL CristalProfi e1502 greenline",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "1400 l/h",
+          "source": 6
+        },
+        {
+          "key": "Power",
+          "value": "20 W",
+          "source": 6
+        },
+        {
+          "key": "Aquarium size",
+          "value": "160–600 l (100–150 cm)",
+          "source": 6
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Sinh Cảnh Việt",
+      "url": "https://sinhcanhviet.com.vn/jbl-cristalprofi-e902",
+      "variant": "e902 (in stock)",
+      "vnd": 3895000,
+      "source": 1
+    },
+    {
+      "shop": "Greendeal",
+      "url": "https://greendeal.vn/jbl-cristalprofi-e902-greenline",
+      "variant": "e902 greenline (out of stock)",
+      "vnd": 4200000,
+      "source": 2
+    },
+    {
+      "shop": "Tạp hóa thủy sinh",
+      "url": "http://taphoathuysinh.com/loc-thung-cao-cap-sieu-tiet-kiem-jbl-cristalprofi-e902-greenline-id171.html",
+      "variant": "e902 greenline (reference price; order by phone or in store)",
+      "vnd": 4500000,
+      "source": 3
+    },
+    {
+      "shop": "Sinh Cảnh Việt",
+      "url": "https://sinhcanhviet.com.vn/jbl-cristalprofi-e702",
+      "variant": "e702 (in stock)",
+      "vnd": 3275000,
+      "source": 5
+    }
+  ],
+  "fits": [
+    {
+      "fact": "JBL rates it for tanks of about 90–300 l, or 80–120 cm long.",
+      "source": 0
+    },
+    {
+      "fact": "Greendeal recommends it for tanks up to 300 l or 90–120 cm long.",
+      "source": 2
+    },
+    {
+      "fact": "For tanks under 90 l the e402 or e702 is the better match; for 160–600 l tanks JBL makes the e1502.",
+      "source": 6
+    },
+    {
+      "fact": "It must sit no more than 180 cm below the water surface. If placed beside the tank, the water surface must be at least 20 cm above the top of the filter.",
+      "source": 0
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Stand the filter on its four rubber feet so only the feet touch the cabinet, and keep the hoses from touching the cabinet to avoid transmitting vibration.",
+      "source": 0
+    },
+    {
+      "fact": "Before first use, press the start button firmly until it clicks once to activate it.",
+      "source": 0
+    },
+    {
+      "fact": "To prime, hold the outlet pipe above the water and press START until water runs into the IN hose. Let the filter fill completely, then plug it in.",
+      "source": 0
+    },
+    {
+      "fact": "A new filter may gurgle for 5–7 days while trapped air escapes.",
+      "source": 0
+    },
+    {
+      "fact": "Clean the hoses regularly with a hose brush, because warm-water rinsing does not remove biofilm.",
+      "source": 0
+    },
+    {
+      "fact": "Clean the impeller housing, impeller and shaft with a suitable brush during maintenance.",
+      "source": 0
+    },
+    {
+      "fact": "Hose connections rotate 360° and there is a water-stop valve, so the filter can be disconnected for cleaning.",
+      "source": 0
+    }
+  ],
+  "issues": [
+    {
+      "fact": "JBL says loud running usually comes from a worn or dirt-clogged impeller, a throttled flow, or too little height difference between the water and the filter head. Resonance can carry through the lid, cabinet or hoses, and a soft mat underneath helps.",
+      "source": 7
+    },
+    {
+      "fact": "The impeller is a wear part that the warranty does not cover. When it wears out, replace the impeller, shaft and both rubber bearings together. A bearing often sticks in the housing, and JBL sells a pulling tool to remove it.",
+      "source": 0
+    },
+    {
+      "fact": "Gurgling from trapped air during the first week is normal.",
+      "source": 0
+    },
+    {
+      "fact": "Compared with the older e901, the e902 has a patented pre-filter with twice the surface area.",
+      "source": 0
+    },
+    {
+      "fact": "Vietnamese shops list different media volumes (3.5 l vs 4.7 l) and slightly different dimensions, so check the figures before buying.",
+      "source": 3
+    },
+    {
+      "fact": "I found no independent forum reports of leaks or durability problems with the e902.",
+      "source": 7
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "JBL",
+      "model": "CristalProfi e702 greenline",
+      "why": "Cheaper option for tanks of 60–200 l: 700 l/h at 9 W, about 3.275.000₫ at Sinh Cảnh Việt.",
+      "source": 5
+    },
+    {
+      "brand": "JBL",
+      "model": "CristalProfi e1502 greenline",
+      "why": "Bigger option for 160–600 l tanks: 1400 l/h at 20 W.",
+      "source": 6
+    },
+    {
+      "brand": "EHEIM",
+      "model": "Classic 350 (2215)",
+      "why": "Well-known, simple filter for tanks of about 120–350 l: roughly 620 l/h at 15 W. It has less flow than the e902 but is very reliable. I couldn't find a Vietnamese shop price.",
+      "source": 8
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.jbl.de/en-tw/productsv2/detail/25193429",
+      "title": "JBL CRISTALPROFI e902 greenline – JBL product page",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/jbl-cristalprofi-e902",
+      "title": "Lọc thùng - JBL CristalProfi e902 – Sinh Cảnh Việt",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/jbl-cristalprofi-e902-greenline",
+      "title": "JBL CristalProfi - e902 Greenline – Greendeal",
+      "kind": "shop"
+    },
+    {
+      "url": "http://taphoathuysinh.com/loc-thung-cao-cap-sieu-tiet-kiem-jbl-cristalprofi-e902-greenline-id171.html",
+      "title": "Lọc thùng cao cấp siêu tiết kiệm JBL CristalProfi e902 Greenline – Tạp hóa thủy sinh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://manualslib.mx/manual/390288/Jbl-Cristal-Profi-E402-Greenline.html?page=25",
+      "title": "JBL CristalProfi e402 greenline manual – technical data",
+      "kind": "other"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/jbl-cristalprofi-e702",
+      "title": "Lọc thùng - JBL CristalProfi e702 – Sinh Cảnh Việt",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.jbl.de/en-hu/productsv2/detail/25177910",
+      "title": "JBL CRISTALPROFI e1502 greenline – JBL product page",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://jbl.de/en/products/detail/8026/jbl-cristalprofi-e902-greenline?country=ge",
+      "title": "JBL CRISTALPROFI e902 greenline – JBL FAQ (noise)",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://finestaquatics.co.uk/products/eheim-classic-350-external-filter-2215",
+      "title": "Eheim Classic 350 External Filter 2215 – Finest Aquatics",
+      "kind": "shop"
+    }
+  ]
+}

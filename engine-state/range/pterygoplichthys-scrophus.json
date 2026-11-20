@@ -1,0 +1,79 @@
+{
+  "id": "pterygoplichthys-scrophus",
+  "native": {
+    "input": "ba291bf43d9062ae",
+    "at": "2026-11-18T06:03:35.101Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The rhino sailfin pleco, G. scrophus, from Peru, is a rarity in the hobby.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Peru: Marañón and Ucayali River basins.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Marañón",
+        "source": "scotcat",
+        "quote": "Peru: Marañón and Ucayali River basins.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "scotcat",
+        "quote": "Peru: Marañón and Ucayali River basins.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pterygoplichthys scrophus",
+    "status": "ACCEPTED",
+    "taxonKey": 2339990,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T06:03:35.101Z"
+  }
+}

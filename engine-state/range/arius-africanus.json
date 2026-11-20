@@ -1,0 +1,69 @@
+{
+  "id": "arius-africanus",
+  "native": {
+    "input": "decd53ae03d06882",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Pangani River, Tanzania and estuaries of Madagascar.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: Pangani River, Tanzania and estuaries of Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pangani River",
+        "source": "scotcat",
+        "quote": "Africa: Pangani River, Tanzania and estuaries of Madagascar.",
+        "country": "TZ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Arius africanus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345275,
+    "datasets": [
+      [
+        "514ccc41-0fd0-4a49-86b1-ae1c739eb5d0",
+        4
+      ],
+      [
+        "69e81d22-3207-4663-9a7d-418919d7d779",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "TZ",
+      "MG"
+    ],
+    "requests": 11,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

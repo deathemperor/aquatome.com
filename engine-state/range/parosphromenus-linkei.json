@@ -1,8 +1,8 @@
 {
   "id": "parosphromenus-linkei",
   "native": {
-    "input": "fa0c20e9f5369b83",
-    "at": "2026-11-12T13:29:05.219Z",
+    "input": "b29d76e6494512d5",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "ID",
@@ -19,21 +19,33 @@
         "quote": "Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara.",
         "words": "Indonesian",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Parosphromenus linkei comes from the Indonesian part of Borneo, from the province of Kalimantan Tengah.",
+        "words": "Indonesian",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara.",
-        "country": "ID",
+        "source": "bwaquatics",
+        "quote": "Parosphromenus linkei (“Linke’s Licorice Gourami” / “Moonspot Licorice Gourami”) is a distinctive blackwater labyrinth fish native to Central Kalimantan, Indonesian Borneo.",
         "ok": true
       },
       {
-        "name": "Kalimantan",
-        "source": "bwaquatics",
-        "quote": "Parosphromenus linkei (“Linke’s Licorice Gourami” / “Moonspot Licorice Gourami”) is a distinctive blackwater labyrinth fish native to Central Kalimantan, Indonesian Borneo.",
-        "country": "ID",
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Parosphromenus linkei is a liquorice gourami from Central Kalimantan province in Indonesian Borneo, described from creeks near Sukamara.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Parosphromenus linkei comes from the Indonesian part of Borneo, from the province of Kalimantan Tengah.",
         "ok": true
       }
     ],

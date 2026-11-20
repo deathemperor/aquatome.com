@@ -37,9 +37,17 @@ const pattern = async () => {
 
 describe('all seven review switches are independently off', () => {
   it('does not construct dependencies or read quota when off', async () => {
-    expect(Object.values(IMAGE_SWITCHES).every(v => v === false)).toBe(true)
+    const { inatNonCommercial: _, ...steps } = IMAGE_SWITCHES
+    expect(Object.values(steps).every(v => v === false)).toBe(true)
     const deps = vi.fn()
     expect((await imageSteps('/nonexistent', deps)).off).toBe(true)
+    expect(deps).not.toHaveBeenCalled()
+  })
+  it('the non-commercial switch, on or off, wakes no image step', async () => {
+    const deps = vi.fn()
+    for (const inatNonCommercial of [true, false]) {
+      expect((await imageSteps('/nonexistent', deps, { ...IMAGE_SWITCHES, inatNonCommercial })).off).toBe(true)
+    }
     expect(deps).not.toHaveBeenCalled()
   })
   it('rejects an invalid or unbounded cycle limit before any dependency is constructed', async () => {

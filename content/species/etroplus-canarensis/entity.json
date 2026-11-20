@@ -16,9 +16,9 @@
         "IN"
       ],
       "regions": [
-        "Kumaradhara-Netravati river system",
-        "Kumaradhara",
-        "Netravati"
+        "Kumaradhara-Netravati",
+        "Netravati",
+        "Kumaradhara"
       ],
       "sources": [
         "seriouslyfish"
@@ -37,7 +37,7 @@
           "quote": "Appears locally endemic to southern Karnataka state, southwestern India where it's known only from the Kumaradhara-Netravati river system.",
           "countries": [],
           "regions": [
-            "Kumaradhara-Netravati river system"
+            "Kumaradhara-Netravati"
           ]
         },
         {
@@ -45,8 +45,8 @@
           "quote": "It can be found in both the Kumaradhara and Netravati although it was thought to be restricted to the former for a number of years.",
           "countries": [],
           "regions": [
-            "Kumaradhara",
-            "Netravati"
+            "Netravati",
+            "Kumaradhara"
           ]
         }
       ]
@@ -103,6 +103,10 @@
       {
         "source": "seriouslyfish",
         "value": 11
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -128,14 +132,14 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en/",
-      "html": "<p>The Indian Wasp Cichlid (Etroplus canarensis) is extremely rare and extraordinarily beautiful. In contrast to its relatives, this species is an inhabitant of pure freshwater only and never enters brackish water zones.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-canarensis-2/",
+      "html": "<p>Only three species of cichlid are found in Asia, all of them belong to the genus Etroplus. But many scientists believe that Etroplus are closer to damsels than to cichlids. Anyway, all three species are marvelous aquarium fish. Two of them, E. maculatus and E. suratensis are wide spread.</p><p>There was no trace of E. canarensis for over 100 years on the other hand and some people already assumed, it may be extinct. This beautifully coloured perch gets approx. up to 10cm long. It is a pure freshwater inhabitant.</p>"
     },
     {
       "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/etroplus_canarensis_en/",
-      "html": "<p>Available in limited numbers only.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-canarensis-2/",
+      "html": "<p>The fish are available only once per year and in limited numbers.</p>"
     },
     {
       "key": "distribution",
@@ -180,6 +184,12 @@
       "html": "<p>Unless breeding this species is relatively peaceful and will not predate on any but the smallest fishes.</p><p>Pelagic cyprinids which occur alongside it in the wild such as Dawkinsia spp., Devario malabaricus or Rasbora daniconius are particularly suitable tankmates although if geography isn't an issue it should also do well alongside many tetras, for example.</p><p>Best avoided are territorial or otherwise aggressive species and those that require harder water, while other cichlids should also be omitted.</p><p>Etroplus species are loosely gregarious and tends to form groups unless spawning with juveniles in particular displaying a strong social response when threatened.</p><p>A group of 8+ individuals should therefore be the minimum purchase and these will form a noticeable dominance hierarchy once sexual maturity is reached.</p><p>When maintained in smaller numbers weaker specimens can become the target of excessive abuse by dominant individuals or the group may fail to settle and behave nervously.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/etroplus-canarensis-2/",
+      "html": "<p>The peaceful animals should not be kept in company of fast eating kinds to avoid that they get too less food when being fed. Apart from fights for the hierarchy after being put inside, E. canarensis get along together well.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-canarensis",
@@ -211,7 +221,7 @@
       "width": 600,
       "height": 450,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Gareth Bull / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-canarensis",
       "caption": "Subadult.",
       "source": "seriouslyfish"
@@ -222,7 +232,7 @@
       "width": 800,
       "height": 533,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Beta Mahatvaraj / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-canarensis",
       "caption": "Captive-bred free-swimming fry.",
       "source": "seriouslyfish"
@@ -233,7 +243,7 @@
       "width": 720,
       "height": 405,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Shankar Balasubramanian / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/etroplus-canarensis",
       "caption": "School of juveniles in the wild.",
       "source": "seriouslyfish"
@@ -295,5 +305,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-10"
+  "updatedAt": "2026-11-17"
 }

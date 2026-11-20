@@ -3,6 +3,12 @@
   "name": "Bori Pat",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T11:38:46.826Z",
+    "why": "\"Bori Pat\" is a Vietnamese-style rendering of Thai Buri Rat/Borirat-like name; Indonesian atlases would write the Thai place by its romanization (e.g., Buri Ram-type), and \"Bori Pat\" is not a recognized Indonesian form, so it is uncertain."
+  },
   "quality": {
     "score": 0.5,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "Hoa Creek",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-17T00:02:04.489Z",
+    "why": "\"Hoa Creek\" keeps the English kind word \"Creek\" instead of using Malay \"Sungai\" or \"Anak Sungai\", so it isn't written in Malay."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

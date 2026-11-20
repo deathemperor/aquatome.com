@@ -310,18 +310,33 @@
     ]
   },
   "bacopa-caroliniana": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-17",
+    "from": "2026-11-17",
     "name": "Bacopa caroliniana",
     "confidence": "high",
     "score": 0.8,
     "notes": [
-      "\"tanaman air akuarium\" is slightly redundant; use \"tanaman akuarium\" or \"tanaman air\".",
-      "\"tidak banyak tuntutan\" is awkward; use \"tidak menuntut banyak\" or \"perawatannya mudah\".",
-      "\"termasuk sedikit tanaman batang yang tidak perlu banyak perhatian\" is clumsy; use \"termasuk salah satu dari sedikit tanaman batang yang tidak memerlukan banyak perhatian\".",
-      "\"3–4 cm wide\" is translated as \"lebar 3–4 cm\", which is fine. However, \"Batangnya ... lebar\" is ambiguous, because stems don't have width. The source is likely about leaves, but keep as is or use \"daunnya\" only if clear.",
-      "\"tanam di substrat\" for \"plant it in the bottom\" is acceptable. \"dasar akuarium\" would be more literal."
-    ]
+      "\"Melting (daun meluruh)\": mixes a term in English with a gloss; fine, but \"akibat ... tanaman yang dibudidayakan di luar air (emersed) belum beradaptasi\" is slightly awkward; rephrase as \"tanaman emers yang belum beradaptasi\".",
+      "\"Pupuk tablet akar (root tab)\": the more natural term is \"pupuk akar/tablet pupuk akar\".",
+      "\"Bentuk di bawah air (submersed)\" and \"tanaman batang menahun (perennial)\": the bracketed English is fine, but the sentence \"Pertumbuhannya yang lambat ... tidak memerlukan banyak perhatian\" repeats the same wording, which reads as slightly stiff.",
+      "\"Dispose of cuttings ... stems can also be dipped in bleach solution\": \"larutan pemutih\" is correct, but add a safety remark; the translation is faithful.",
+      "\"Sebagian aquarist\": use \"sebagian aquascaper/penghobi akuarium\" for the more common Indonesian hobby term.",
+      "\"lobster air tawar\" for crayfish is fine, but \"siput terompet Malaysia\" should be \"siput MTS (Malaysian trumpet snail)\" as hobbyists write it.",
+      "\"udang ghost\", \"udang vampir\": the usual hobby name is \"udang hantu (ghost shrimp)\"; add the local name."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3cc7c3149b72",
+      "quickFacts:aquariumbreeder": "84310afbe3ec",
+      "distribution:aquariumbreeder": "0069199a0303",
+      "habitat:aquariumbreeder": "d9967dad3aff",
+      "aquariumSize:aquariumbreeder": "6e1e757490a0",
+      "maintenance:tropica": "ba9a6dc2507d",
+      "maintenance:aquariumbreeder": "6a7e6dca1a61",
+      "waterConditions:aquariumbreeder": "aa3977bf097e",
+      "equipment:aquariumbreeder": "fdca4076e868",
+      "notes:tropica": "1ad8d7aa6a02",
+      "notes:aquariumbreeder": "2aa9acefa0e1"
+    }
   },
   "bacopa-monnieri": {
     "at": "2026-10-30",
@@ -576,6 +591,34 @@
       "Item 2: \"Tanaman ini dijual sebagai\" adds a sales context that the English doesn't state. Use a neutral phrasing such as \"Seikat batang atau tanaman muda yang diikat dengan pemberat\".",
       "Item 3: \"Di daerah asalnya\" narrows \"locally\" a little. \"Secara lokal\" or \"Di beberapa daerah\" would be closer."
     ]
+  },
+  "cabomba-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Cabomba",
+    "confidence": "high",
+    "score": 0.72,
+    "notes": [
+      "Item 5: \"sekitar 40 liter\" is correct per the table, no issue; skip.",
+      "Item 6: \"Fragile: the needles break off easily\" was rendered \"daun jarumnya\" - fine; but \"Leaves falling off\" -> \"Daun rontok\" OK.",
+      "Item 8: \"Tanaman ini menyerap nutrisi dari kolom air, bukan dari akar\" - the English says it is mainly a water-column feeder 'rather than a root feeder'; \"bukan dari akar\" is too absolute, use \"lebih banyak dari kolom air daripada dari akar\".",
+      "Item 10: \"tahan cahaya redup/tempat teduh\" - 'tolerates shade'; 'tempat teduh' is redundant/awkward, use \"toleran terhadap cahaya redup\".",
+      "Item 2: \"cup tertutup\" leaves English 'cup' untranslated; use \"wadah/pot tertutup\".",
+      "Item 9: \"Lobster air tawar\" for crayfish is acceptable, but \"damai\" list leaves 'Oscar' etc. fine; 'teman setangki' is non-standard, prefer \"tank mate\"/\"penghuni akuarium lain\".",
+      "Item 7: \"lunak hingga agak sadah\" ok; \"melting (meleleh)\" repeated twice, awkward."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b6596fed4391",
+      "beforeYouBuy:aquariumbreeder": "a7d12095e0d0",
+      "distribution:aquariumbreeder": "81691d764304",
+      "habitat:aquariumbreeder": "f5383c2b13c5",
+      "aquariumSize:aquariumbreeder": "19064e4ecbff",
+      "maintenance:aquariumbreeder": "cf4b11baf1d5",
+      "waterConditions:aquariumbreeder": "c5c9b46b9071",
+      "equipment:aquariumbreeder": "b1728eb17de4",
+      "behaviour:aquariumbreeder": "3fa1eb8c4f53",
+      "notes:aquariumbreeder": "59c2dc837df1"
+    }
   },
   "caloglossa-beccarii": {
     "at": "2026-10-30",
@@ -834,12 +877,29 @@
     "notes": []
   },
   "echinodorus-grisebachii": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Amazon Sword",
-    "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Echinodorus Bleherae",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "#8 'Tumbuh terlalu besar': 'akan mengalahkan hampir semua tanaman lain' is slightly loose. Prefer 'akan tumbuh melebihi/mengungguli hampir semua tanaman lain'.",
+      "#5 'tangkai yang ramping' for 'shrill scapes' is a loose rendering and could be clearer."
+    ],
+    "parts": {
+      "quickFacts:tropica": "6c8e0b12bda0",
+      "quickFacts:aquariumbreeder": "22bab368dc11",
+      "beforeYouBuy:aquariumbreeder": "79a719a3a09d",
+      "distribution:aquariumbreeder": "787191d2966d",
+      "habitat:aquariumbreeder": "cda66e0a2b36",
+      "aquariumSize:aquariumbreeder": "e7c981e56e83",
+      "maintenance:tropica": "ec4dc3a619c4",
+      "maintenance:aquariumbreeder": "369b57292340",
+      "waterConditions:aquariumbreeder": "c9a418c68709",
+      "equipment:aquariumbreeder": "5d15ecd43570",
+      "notes:tropica": "db7ac997a8e6",
+      "notes:aquariumbreeder": "358191748451"
+    }
   },
   "echinodorus-grisebachii-tropica": {
     "at": "2026-10-31",
@@ -943,28 +1003,63 @@
     ]
   },
   "egeria-densa": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Elodea densa",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
+    "name": "Egeria densa",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.6,
     "notes": [
-      "\"warnanya jadi pucat dan sulur-sulurnya tumbuh kurus\": the source says the plant \"turns light in colour\" (lighter/paler), so \"pucat\" is acceptable. But \"tendrils grow thin\" is rendered with \"kurus\", which is unnatural for plant shoots. Use \"menipis\" or \"tumbuh kecil/tipis\". Also \"jadi\" is informal; use \"menjadi\".",
-      "\"Remove the leaves from the lowest 5 cm (2\\\")\": the translation says \"Buang daun pada 5 cm bagian bawah batang\", which is fine. However \"Plant the individual plants ... into the bottom substrate\" became \"Tanam setiap batang\"; it should be \"setiap tanaman\" to match the source (individual plants, not stems).",
-      "\"anchor\" is rendered as \"pemberat (anchor)\". The source's anchor is a lead/metal strip that binds the stems, so \"pemberat\" is okay, but \"disatukan dengan pemberat\" reads slightly odd; \"diikat dengan pemberat (timah)\" would be more natural.",
-      "\"Egeria densa yang tersebar di seluruh dunia ini\": \"cosmopolitan\" means widely distributed, so the meaning is fine. The phrase is a bit long. \"Egeria densa yang kosmopolit\" or \"tersebar luas\" would be tighter."
-    ]
+      "Item 3: \"banyak negara bagian\" for \"many states\" is fine, but \"Pastikan ... tidak dilarang\" is OK; no issue. The real problem is item 10: \"Idealnya lampu dinyalakan minimal 8 jam sehari\" is fine, but item 13 says \"mulai dengan fotoperiode 10 jam\" — consistent, no change needed.",
+      "Item 7: \"the tendrils grow thin\" -> \"sulurnya tumbuh kurus\" is okay, but \"turns light in colour\" -> \"pucat\" is fine; no change.",
+      "Item 11: \"unless the plant is left floating, it is a no go\" -> \"kombinasi ini tidak bisa\" is unclear; use \"sebaiknya jangan dipelihara bersama\".",
+      "Item 11: \"koi, goldfish\" -> \"ikan mas koki\" is wrong. Goldfish is \"ikan mas\" or \"ikan koki\"; \"mas koki\" is not standard.",
+      "Item 11: \"Most crayfish\" -> \"lobster air tawar\" is acceptable, but \"doyan memakan\" is colloquial.",
+      "Item 13: \"Foraging place: ... buffet of biofilm\" -> \"sumber biofilm yang melimpah\" loses the buffet idea, which is minor.",
+      "Item 13: \"Egeria densa has heavy metal absorption properties\" -> \"mampu menyerap logam berat\" is fine, but \"Tempat bersembunyi ... peneduh\" is okay.",
+      "Item 5: \"duduk (tanpa tangkai)\" for sessile is awkward. Use \"tidak bertangkai (sesil)\".",
+      "Item 8: \"Gently remove the band\" -> \"karet/pengikat\" and \"gunting/pisau lengkung\" add an option (scissors) that the English does not have. The English says only \"curved blade\"; use \"gunting berujung lengkung\" or \"pisau lengkung\".",
+      "Item 2: \"Minimum tank size: 10 gallons (40 litres)\" -> \"40 liter\" is correct per the table; no change."
+    ],
+    "parts": {
+      "quickFacts:tropica": "e3d355c3ab2c",
+      "quickFacts:aquariumbreeder": "757eafbccbaf",
+      "beforeYouBuy:aquariumbreeder": "39e278d95f3f",
+      "distribution:aquariumbreeder": "406b4d173c33",
+      "habitat:aquariumbreeder": "acab4b21fef3",
+      "aquariumSize:aquariumbreeder": "53db7c4dd85b",
+      "maintenance:tropica": "c35c7022e1a1",
+      "maintenance:aquariumbreeder": "eec8f3aa71ee",
+      "waterConditions:aquariumbreeder": "858a5fe96ee8",
+      "equipment:aquariumbreeder": "1aeacb6e6d0c",
+      "behaviour:aquariumbreeder": "3498f59a3460",
+      "notes:tropica": "6a1436394a76",
+      "notes:aquariumbreeder": "2d052eb80ad4"
+    }
   },
   "eleocharis-acicularis": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
+    "at": "2026-11-16",
+    "from": "2026-11-16",
     "name": "Hairgrass",
     "confidence": "high",
     "score": 0.9,
-    "notes": [
-      "\"(tersebar di seluruh dunia)\" is an added gloss not in the source; harmless but could be removed.",
-      "\"tanaman air lain\" is fine, but \"Kalau\" is colloquial for a handbook; consider \"Jika\"."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "3f889c91d3f8",
+      "maintenance:tropica": "9ed1d23bc27f"
+    },
+    "failed": {
+      "at": "2026-11-16T23:19:19.885Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "b03582bd1273",
+        "distribution:aquariumbreeder": "0c90484f53fe",
+        "habitat:aquariumbreeder": "8f4ad1f0faa7",
+        "aquariumSize:aquariumbreeder": "f6595ba7c978",
+        "maintenance:aquariumbreeder": "2cd1203e1b62",
+        "waterConditions:aquariumbreeder": "82407b12779f",
+        "equipment:aquariumbreeder": "521d2e293a02",
+        "notes:aquariumbreeder": "772e5ec6a93c"
+      }
+    }
   },
   "eleocharis-montevidensis": {
     "at": "2026-10-31",
@@ -1086,6 +1181,34 @@
       "Item 2: \"tidak banyak tuntutan\" is slightly stiff; more natural: \"tidak rewel\" or \"tidak menuntut\".",
       "Item 2: \"lapisan substratnya kaya nutrisi\" is acceptable, but \"bottom layer\" could be \"dasar akuarium yang kaya nutrisi\"."
     ]
+  },
+  "hemianthus-callitriodes": {
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Hemianthus callitriodes",
+    "confidence": "high",
+    "score": 0.7,
+    "notes": [
+      "Section 8: \"platy pedang (swordtail)\" is wrong: swordtail is \"swordtail\"/\"ikan pedang\", and a platy is a different fish. Use \"swordtail\" or \"ikan pedang\".",
+      "Section 8: \"angelfish (manfish)\" adds an unsupported name; use \"angelfish\" or \"manfish\" alone, not as a gloss.",
+      "Section 8: \"dwarf gourami, rainbow\" is an unnatural rendering of rainbowfish; use \"ikan pelangi (rainbowfish)\".",
+      "Section 5: \"Berikan suplemen zat besi\" for \"Dose iron\" is fine, but \"Masukkan udang atau ikan pemakan alga\" adds \"udang atau ikan\" not in the source (\"algae-eating species\"). Use \"spesies pemakan alga\".",
+      "Section 5: \"Perbanyakan\" in the plug step: \"rumpun-rumpun kecil\" is fine, but \"jika tidak tanaman akan melting\" leaves \"melting\" without explanation at first use. Add \"(luruh/rontok)\".",
+      "Section 5: \"Cryptocoryne parva\" and \"Monte Carlo\" are fine, but \"Pangkas bagian atasnya hingga tersisa beberapa sentimeter di atas dasar\" leaves \"dasar\" vague. Use \"substrat\".",
+      "Section 7: \"Aqua Soil Powder ... soil kaya nutrisi\" is fine, but \"ukuran sebenarnya yang perlu diperhatikan\" is awkward. Rephrase as \"yang sebenarnya perlu dipertimbangkan\".",
+      "Section 3: the source says \"up to 3 cm\", while the care spec in section 1 says 3–5 cm. This is a source inconsistency; keep it, but \"Seluruh tanaman berwarna hijau cerah\" is fine.",
+      "Section 8: \"Spesies yang merusak\" for \"Hostile species\" is a loose rendering; use \"spesies agresif\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "4dc447679344",
+      "distribution:aquariumbreeder": "1677f0550b36",
+      "habitat:aquariumbreeder": "359d126badbd",
+      "aquariumSize:aquariumbreeder": "9db3b7d14d80",
+      "maintenance:aquariumbreeder": "71f31dea8fe7",
+      "waterConditions:aquariumbreeder": "866796c3ffe2",
+      "equipment:aquariumbreeder": "9423cea019a7",
+      "notes:aquariumbreeder": "8afff9e5548a"
+    }
   },
   "hemianthus-micranthemoides": {
     "at": "2026-11-11",
@@ -1326,6 +1449,30 @@
       "\"hijau kusam dengan ungu terang\": \"dusty green with bright violet\" is slightly unclear. Consider \"hijau kusam keunguan terang\" or \"hijau kusam dengan semburat ungu cerah\"."
     ]
   },
+  "lemnoideae": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Duckweed",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Water lentils atau Water lenses (lentil air)\": 'Bayroot' and the like are left as English; fine, but consider the local name 'kayu apu/mata lele' for duckweed (Lemna) as hobbyists use it.",
+      "\"Frond-frond\": awkward reduplication of an English loanword; use 'frond' alone or 'helaian daun/talus'.",
+      "\"hanya diam dan tidak tumbuh\": a bit informal for a handbook; use 'tidak tumbuh/pertumbuhan terhenti'.",
+      "\"duckweed tidak peduli soal kesadahan\": colloquial; use 'tidak terlalu terpengaruh oleh kesadahan'.",
+      "\"Ikan herbivora ... nila\": 'tilapia' is fine, but 'rosy barb, silver dollar' left in English is OK; 'burayak' for fry is rather formal—'anakan ikan' is more common among hobbyists."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "ceae2ffb2153",
+      "distribution:aquariumbreeder": "6892ea0846ac",
+      "habitat:aquariumbreeder": "d626bae01e84",
+      "maintenance:aquariumbreeder": "75e98f5217ea",
+      "waterConditions:aquariumbreeder": "f861adc0ae91",
+      "equipment:aquariumbreeder": "c08e820fd3f6",
+      "diet:aquariumbreeder": "9eb46a329abf",
+      "notes:aquariumbreeder": "ef6f15276eab"
+    }
+  },
   "leptodictyum-riparium": {
     "at": "2026-11-03",
     "from": "2026-10-30",
@@ -1462,6 +1609,30 @@
       "\"Teman satu akuarium\": \"tank mate\" is better rendered \"Ikan penghuni bersama\" or \"Kompatibilitas\". \"Membeli\" is also abrupt; use \"Tips membeli\"."
     ]
   },
+  "lomariopsis-sp": {
+    "at": "2026-11-18",
+    "from": "2026-11-17",
+    "name": "Subwassertang",
+    "confidence": "high",
+    "score": 0.8,
+    "notes": [
+      "\"Disinfeksi dengan rendaman pemutih atau garam\": mixed-in wording; better \"Desinfeksi\" (standard spelling), also in \"Disinfeksi:\" and \"disinfeksi atau karantina\".",
+      "\"menghasilkan panen lebih banyak\": \"yield\" rendered as \"panen\" is odd for an aquarium plant; use \"pertumbuhan lebih lebat\" or similar.",
+      "\"membusuk\" for \"smother\": meaning shifted slightly; \"smother\" means being smothered/overgrown, not rotting.",
+      "\"akuarium tanaman low-tech\" / \"high-tech\": fine, but \"lobster air tawar\" for crayfish is OK; \"burayak\" for fry is fine; \"Ikan damai ... Otocinclus\" omits \"catfish\" (minor).",
+      "\"hijaunya lebih gelap\" and \"terpangkas rata\" are slightly awkward; \"tidak pernah rata/terpotong di ujungnya\" reads more naturally.",
+      "\"akuarium\" for \"tank\" in \"Teman setangki\": inconsistent with \"akuarium\" elsewhere; use \"tankmate\" as \"penghuni sekumpulan\" or \"ikan teman satu akuarium\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "9af7634a7976",
+      "distribution:aquariumbreeder": "790415abadc4",
+      "habitat:aquariumbreeder": "1f710b8fea86",
+      "maintenance:aquariumbreeder": "1fb0a328b9b0",
+      "waterConditions:aquariumbreeder": "f3ebb0de339b",
+      "behaviour:aquariumbreeder": "ebb25b0ec16b",
+      "notes:aquariumbreeder": "793d62c0a975"
+    }
+  },
   "ludwigia-arcuata": {
     "at": "2026-11-04",
     "from": "2026-10-31",
@@ -1507,16 +1678,35 @@
     ]
   },
   "ludwigia-repens": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "Ludwigia repens 'Rubin'",
-    "confidence": "high",
-    "score": 0.85,
+    "at": "2026-11-18",
+    "from": "2026-11-18",
+    "name": "Ludwigia Repens Rubin",
+    "confidence": "medium",
+    "score": 0.8,
     "notes": [
-      "\"Tanaman ini tidak banyak tuntutan\" is a bit stiff; more natural: \"Tanaman ini tidak rewel / mudah dirawat\".",
-      "\"Panjang batang 20–50 cm dengan lebar 4–6 cm\": fine in meaning, but \"lebar\" most likely refers to leaf/stem spread; consider \"lebar rumpun\" for clarity if the source means that.",
-      "\"Asal\" for Origin is okay but \"Asal daerah\" or \"Asal usul\" is more natural in a handbook."
-    ]
+      "Item 8: \"tanaman ini hanya tumbuh makin tinggi dan kurus\" is fine, but \"daunnya sedikit sekali merahnya\" is awkward; use \"daunnya hampir tidak kemerahan\".",
+      "Item 10: \"Awalnya tanaman ini digambarkan sebagai tanaman yang selalu hijau\" - use \"tanaman hijau abadi (evergreen)\" for a more natural hobby term.",
+      "Item 10: \"substrat yang kaya pupuk dan nutrisi yang mendukung perakaran sehat\" is ambiguous; rephrase as \"substrat kaya nutrisi dan pupuk yang mendukung perakaran sehat\".",
+      "Item 11: \"burayak\" is fine, but \"anakan udang\" for shrimplets and \"rainbow\" for rainbowfish are loose; use \"ikan pelangi (rainbowfish)\".",
+      "Item 11: \"lobster air tawar\" for crayfish is acceptable, but \"udang karang\" is the more common term in Indonesia.",
+      "Item 5: \"daun kelopak\" for sepals should be \"sepal\" or \"daun kelopak (sepal)\"; \"herba menahun\" is acceptable.",
+      "Item 3: \"karantina dan disinfeksi dulu\" is clumsy; use \"karantina dan desinfeksi tanaman terlebih dahulu\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "2f0d921c7fee",
+      "quickFacts:aquariumbreeder": "c5cc3d5028a4",
+      "beforeYouBuy:aquariumbreeder": "1f9b44553f08",
+      "distribution:aquariumbreeder": "07870da610a8",
+      "habitat:aquariumbreeder": "328aad0c98ea",
+      "aquariumSize:aquariumbreeder": "bf7ccf0ee602",
+      "maintenance:tropica": "d3f6b0856aed",
+      "maintenance:aquariumbreeder": "a48d00c392ad",
+      "waterConditions:aquariumbreeder": "520530be4309",
+      "equipment:aquariumbreeder": "7c57596bb85b",
+      "behaviour:aquariumbreeder": "4a75b70e5d28",
+      "notes:tropica": "2225783b31ce",
+      "notes:aquariumbreeder": "ab1fb2ac2692"
+    }
   },
   "lysimachia-nummularia": {
     "at": "2026-10-30",
@@ -1764,13 +1954,15 @@
     ]
   },
   "najas-guadalupensis": {
-    "at": "2026-11-16",
-    "from": "2026-11-15",
+    "at": "2026-11-18",
+    "from": "2026-11-18",
     "name": "Najas",
     "confidence": "medium",
-    "score": 0.93,
+    "score": 0.9,
     "notes": [
-      "Item 1: \"aquarist\" is left in English; \"penghobi akuarium\" is more natural."
+      "#2: \"disemprot pestisida\" narrows \"treated with pesticides\"; use \"diberi perlakuan pestisida\" or \"terpapar pestisida\".",
+      "#6: \"beberapa potong\" for \"many pieces\"; \"banyak potongan\" is closer.",
+      "#6/#10: \"rontok/luruh (melt)\" gives two alternatives with a slash; pick one term, e.g. \"melt (rontok)\"."
     ],
     "parts": {
       "quickFacts:tropica": "ea6a4bf24a9c",
@@ -1782,7 +1974,17 @@
       "behaviour:aquatome": "d3493d587794",
       "reproduction:aquatome": "7349d148cef3",
       "notes:tropica": "f0ff05bf2bca",
-      "notes:aquatome": "08c126e45cf4"
+      "notes:aquatome": "08c126e45cf4",
+      "quickFacts:aquariumbreeder": "6667947c8d26",
+      "beforeYouBuy:aquariumbreeder": "b2dcac465e87",
+      "distribution:aquariumbreeder": "3ff9ffafefde",
+      "habitat:aquariumbreeder": "d68b47cd5a81",
+      "aquariumSize:aquariumbreeder": "1d28b56f08ad",
+      "maintenance:aquariumbreeder": "65268e65dfc2",
+      "waterConditions:aquariumbreeder": "df5e262e1b3f",
+      "equipment:aquariumbreeder": "3ef81522915d",
+      "behaviour:aquariumbreeder": "d6d4e5a14274",
+      "notes:aquariumbreeder": "dbd0c1a251ce"
     }
   },
   "nymphaea-lotus": {
@@ -1811,12 +2013,26 @@
     ]
   },
   "nymphaea-zenkeri": {
-    "at": "2026-11-10",
-    "from": "2026-11-10",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Tiger Lotus",
     "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "score": 0.8,
+    "notes": [
+      "Item 9, Problems: \"karena tanaman ini kalah-bersaingkan dan bisa mencekik\" is a non-existent word and reads as 'loses in competition', the opposite of 'outcompetes'. Use \"karena tanaman ini mengalahkan tanaman lain dalam persaingan dan bisa mencekik tanaman berakar lainnya\".",
+      "Item 9, Benefits: \"Tempat mencari makan\" for 'Foraging place' is a little stiff. \"Tempat mencari pakan\" or \"Sumber pakan\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "17cd6f6bf4eb",
+      "quickFacts:aquariumbreeder": "59666ae52df8",
+      "distribution:aquariumbreeder": "51c1c9240de6",
+      "habitat:aquariumbreeder": "04ff6b2c7fc6",
+      "maintenance:aquatome": "b3a4b18a9054",
+      "maintenance:aquariumcoop": "d6525a05acb9",
+      "reproduction:aquariumcoop": "4cd409ecc872",
+      "notes:aquariumcoop": "91813775cdd3",
+      "notes:aquariumbreeder": "d175ae3deb85"
+    }
   },
   "nymphoides-aquatica": {
     "at": "2026-10-30",
@@ -1899,15 +2115,7 @@
     "name": "Red Root Floater",
     "confidence": "high",
     "score": 0.8,
-    "notes": [
-      "Tank size: the table gives 5 gallons as 20 litres. That is fine, so no change is needed there.",
-      "Item 9: the English leaves Vietnamese names \"bèo ếch\", \"bèo cái lùn\" and \"bèo tấm\" in the source. The translation drops them, which is fine, but check that \"kayu apu kerdil (Dwarf Water Lettuce)\" is a sensible local name. \"Kiambang\" or \"apu-apu kerdil\" is more standard for Pistia. \"Kayu apu\" is the usual name.",
-      "Item 9: \"Frogbit\" is left untranslated. Add a local gloss, for example \"Frogbit (Limnobium)\".",
-      "Item 9: \"lemna (duckweed)\" is used for Duckweed. Hobbyists also say \"mata lele\" or \"kiambang kecil\". Consider using \"mata lele (duckweed)\".",
-      "Item 9: \"menolak air (anti air)\" for \"water-repellent\" is awkward. Use \"menolak air (hidrofobik)\" or \"tidak basah oleh air\".",
-      "Item 9: \"egg scatterers\" is rendered as \"ikan penyebar telur\". That is acceptable. \"Burayak\" for fry is fine.",
-      "Item 9: \"corydoras pygmy\" should be \"corydoras pygmy (Corydoras pygmaeus)\". Word order is more natural as \"corydoras kerdil\". Likewise \"ikan mas koki\" is redundant. Use \"ikan mas\" or \"koki\"."
-    ],
+    "notes": [],
     "parts": {
       "quickFacts:aquariumbreeder": "84386acfb575",
       "distribution:aquariumbreeder": "10f61d50071c",
@@ -1917,7 +2125,8 @@
       "waterConditions:aquariumbreeder": "9b4355068917",
       "equipment:aquariumbreeder": "17266401026a",
       "reproduction:aquariumbreeder": "298da21280b6",
-      "notes:aquariumbreeder": "7d46c69258b3"
+      "notes:aquariumbreeder": "7d46c69258b3",
+      "maintenance:aquatome": "93eaabd38bf6"
     }
   },
   "plagiomnium-sp-thyme-moss": {
@@ -2136,16 +2345,29 @@
     ]
   },
   "sagittaria-subulata": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-18",
+    "from": "2026-11-17",
     "name": "Sagittaria subulata",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "\"Runner (geragih)\" in item 2 but plain \"runner\" in item 3: keep the term consistent. \"stolon\" is a common alternative.",
-      "\"tidak rewel\" is slightly colloquial. \"mudah dirawat\" would be more standard in a handbook.",
-      "\"cup tertutup\" leaves \"cup\" in English. \"wadah/cup tertutup\" or \"kemasan cup tertutup\" would read more naturally."
-    ]
+      "\"masuk dalam ke substrat\" is awkward; use \"masuk dalam ke substrat\" -> \"menembus dalam ke substrat\".",
+      "\"tanaman berbentuk pertumbuhan lain\" is clumsy; use \"tanaman dengan pola pertumbuhan berbeda\".",
+      "\"Teman satu akuarium\" could be the more common \"penghuni lain/tank mate\"; minor."
+    ],
+    "parts": {
+      "quickFacts:tropica": "b7ff0e78c32e",
+      "quickFacts:aquariumbreeder": "50663f3a5885",
+      "distribution:aquariumbreeder": "af4306880e06",
+      "habitat:aquariumbreeder": "0cd1b2290f12",
+      "aquariumSize:aquariumbreeder": "53bf592ab515",
+      "maintenance:tropica": "4a34a8e17375",
+      "maintenance:aquariumbreeder": "9ddf010f53d6",
+      "waterConditions:aquariumbreeder": "f7280caad253",
+      "equipment:aquariumbreeder": "9e4ec1d09717",
+      "notes:tropica": "eba23cfbb4a0",
+      "notes:aquariumbreeder": "189b70237667"
+    }
   },
   "salvinia-auriculata": {
     "at": "2026-11-08",
@@ -2339,6 +2561,31 @@
       "\"disatukan dengan pemberat\": \"anchor\" here is the lead/rubber plant weight; \"pemberat\" is OK but consider \"pemberat timah\" for clarity.",
       "\"tanaman air yang tangguh\": \"hardy\" is more naturally \"tahan banting/mudah dirawat\"."
     ]
+  },
+  "vallisneria-sp": {
+    "at": "2026-11-17",
+    "from": "2026-11-17",
+    "name": "Vallisneria sp.",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "#10: \"tanaman tahunan (perennial)\" is ambiguous, since \"tahunan\" can read as annual. Use \"tanaman menahun (perennial)\".",
+      "#10: \"frogbit Eropa\" drops \"common\" from \"common or European frogbit\". Add \"frogbit biasa atau frogbit Eropa\".",
+      "#5: \"(Sagittaria subulata, dwarf sagittaria)\" adds a Latin name that is not in the source. Remove it or keep only the common name.",
+      "#7: \"kurang tahan terhadap dosis CO2 cair\" softens \"does not tolerate\". Use \"tidak tahan\" or \"tidak toleran\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "f83b66d47850",
+      "beforeYouBuy:aquariumbreeder": "6b962f713ae9",
+      "distribution:aquariumbreeder": "e28847f58473",
+      "habitat:aquariumbreeder": "73465e5df4a3",
+      "aquariumSize:aquariumbreeder": "9c22ab5ac404",
+      "maintenance:aquariumbreeder": "e1ec8256de2b",
+      "waterConditions:aquariumbreeder": "b0f808342fc3",
+      "behaviour:aquariumbreeder": "8e7963d981bf",
+      "reproduction:aquariumbreeder": "1699b8821f0f",
+      "notes:aquariumbreeder": "a7df36e20927"
+    }
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-07",

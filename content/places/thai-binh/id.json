@@ -1,8 +1,13 @@
 {
   "slug": "thai-binh",
-  "name": "Thai Binh",
+  "name": "Sungai Thai Binh",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-17T05:14:39.531Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

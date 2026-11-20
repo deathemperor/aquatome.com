@@ -24,7 +24,8 @@
       ],
       "sources": [
         "seriouslyfish",
-        "aquariumcoop"
+        "aquariumcoop",
+        "glaser"
       ],
       "quotes": [
         {
@@ -136,6 +137,10 @@
       {
         "source": "aquariumcoop",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -169,6 +174,12 @@
       "html": "<ul><li>Temperament: peaceful, active during the day</li><li>Keep in a group of at least 7–10</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>The Dwarf Loach, formerly known as Botia sidthimunki, is a rather small (6 cm) and very peaceful species, an ideal member of an Asian community tank.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
@@ -181,6 +192,12 @@
       "html": "<p>This species is fairly pricey, so a big group is a significant purchase. Because it is endangered in the wild, the fish sold in stores are all commercially bred. They have small spines underneath their eyes, so be careful when handling or netting them.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>Since they belong to the protected species in their homeland, the Dwarf Loaches traded nowadays are pond bred and originate from Thailand or Malaysia.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
@@ -191,6 +208,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
       "html": "<p>Ambastaia sidthimunki comes from rivers and floodplain forests in Thailand.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>It originates from northern Thailand.</p>"
     },
     {
       "key": "habitat",
@@ -244,10 +267,22 @@
       ]
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>For their well-being the water should not be too hard.</p>"
+    },
+    {
       "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
       "html": "<p>Provide lots of aquarium plants, little caves and other hiding spots for them to dart into when startled. Use a tight-fitting lid, as they love exploring their surroundings, including outside the aquarium.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>There should be some retreat areas (bogwood, coconut bowls, bamboo canes etc.) in the aquarium. Cryptocoryne, Java fern and other Asian plants can be used for a fitting style. Echinodorus species and Neon Tetras are also possible, as it is probably all the same to the Dwarf Loaches.</p>"
     },
     {
       "key": "diet",
@@ -271,6 +306,12 @@
       ]
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>They are unproblematic in feeding.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
@@ -292,6 +333,12 @@
       ]
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>It can be kept together with, e.g., small representatives of the genera Danio, Rasbora and Microrasbora. One should always keep them in small groups of at least 5 animals, since they value contact with conspecifics. There is always movement in the group, and such an aquarium never gets boring.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
@@ -308,6 +355,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
       "html": "<p>There are very few accounts of hobbyists breeding Ambastaia sidthimunki, because wild fish migrate upstream to lay eggs and fish farms use hormone treatments to induce spawning. Mark Duffill, president of the International Loach Association, has written online articles about his method: feeding many kinds of foods, lowering the pH from 7.6 to 6.8 using catappa leaves, and adding rock piles to protect the eggs and shelter the fry.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/yasuhikotakia_sidthimunki_en/",
+      "html": "<p>Breeding in aquaria probably has not succeeded so far.</p>"
     },
     {
       "key": "notes",
@@ -344,7 +397,7 @@
       "width": 800,
       "height": 390,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "caption": "Well-marked adult female specimen.",
       "source": "seriouslyfish"
@@ -355,7 +408,7 @@
       "width": 800,
       "height": 483,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Mark Duffill / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "caption": "Adult male.",
       "source": "seriouslyfish"
@@ -366,9 +419,20 @@
       "width": 800,
       "height": 536,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Charles König / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
       "caption": "Body patterning can vary both between specimens and with age.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/7bfd7e5a3eace0ee.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7bfd7e5a3eace0ee-480.webp",
+      "width": 810,
+      "height": 596,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Macguire / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
+      "caption": "This species will consume small snails but should never be considered the solution to an infestation.",
       "source": "seriouslyfish"
     },
     {
@@ -403,17 +467,6 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-chain-loach",
       "caption": "Dwarf chain loach (Ambastaia sidthimunki)",
       "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/7bfd7e5a3eace0ee.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/7bfd7e5a3eace0ee-480.webp",
-      "width": 810,
-      "height": 596,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/ambastaia-sidthimunki",
-      "caption": "This species will consume small snails but should never be considered the solution to an infestation.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -454,7 +507,7 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-17",
   "refs": [
     {
       "url": "https://www.youtube.com/watch?v=axPlxg-ortg",

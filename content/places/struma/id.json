@@ -1,8 +1,13 @@
 {
   "slug": "struma",
-  "name": "Struma",
+  "name": "Sungai Struma",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-18T05:56:51.685Z"
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

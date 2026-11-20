@@ -3,6 +3,12 @@
   "name": "มาเลโบพูล",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-19T07:48:22.376Z",
+    "why": "\"มาเลโบพูล\" is a Thai-script transliteration that keeps \"Pool\" as a transliterated word, whereas Thai atlases would typically render this as \"สระมาเลโบ\" or \"แอ่งมาเลโบ\" using a Thai term for the feature type, so this is likely not the standard form."
+  },
   "quality": {
     "score": 0.62,
     "indexable": false

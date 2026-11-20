@@ -20,10 +20,10 @@
     "references:seriouslyfish": "<ul><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Neely, D. A., M. H. Sabaj Perez, and B. Mendsaikhan (2005). First Records of Rhinogobius lindbergi (Teleostei: Gobiidae) and Abbottina rivularis (Teleostei: Cyprinidae) in the Lake Buyr Drainage, Mongolia. ournal of Great Lakes Research 34(2), 334-341</li><li>Vidthayanon, C. and M. Kottelat (1995). First record of Abbottina rivularis (Cyprinidae: Gobioninae) from the Mekong basin. Japanese Journal of Ichthyology 41(4), 463-465</li><li>Basilewsky, S. (1855). Ichthyographia Chinae borealis. Nouveaux mémoires de la Société impériale des naturalistes de Moscou v. 10, 215-263</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Tang, K. L., M. K. Agnew, W-J. Chen, M. V. Hirt, M. E. Raley, T. Sado, L. M. Schneider, L. Yang, H. L. Bart, S. He, H. Liu, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood, and R. L. Mayden (2011). Phylogeny of the gudgeons (Teleostei: Cyprinidae: Gobioninae). Molecular Phylogenetics and Evolution 61(1), 103-124</li></ul>"
   },
   "quality": {
-    "score": 0.7,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.7
+      "seriouslyfish": 0.9
     }
   }
 }

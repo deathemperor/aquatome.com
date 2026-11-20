@@ -3,6 +3,12 @@
   "name": "จีดูเรียน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-18T12:21:15.451Z",
+    "why": "The Thai is a fair phonetic rendering of Cidurian, but the source names a river system and the name has no river word (แม่น้ำ), which an atlas in Thailand would normally add."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

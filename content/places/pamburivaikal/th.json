@@ -3,6 +3,12 @@
   "name": "ปัมบูรีไวกัล",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-18T18:24:30.327Z",
+    "why": "The Thai is a reasonable phonetic transliteration, but the place is a river system (Pamburivaikal, \"vaikal\" meaning channel/stream), and the name omits the Thai kind word for a river, such as \"แม่น้ำ\" or \"ลำน้ำ\", that an atlas would use."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

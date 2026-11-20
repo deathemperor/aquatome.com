@@ -1,8 +1,8 @@
 {
   "id": "betta-splendens",
   "native": {
-    "input": "2d97c22146681af1",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "be8e73ba08ed33e0",
+    "at": "2026-11-18T00:54:56.623Z",
     "claims": [
       {
         "code": "KH",
@@ -16,15 +16,7 @@
         "code": "TH",
         "status": "native",
         "source": "sprucepets",
-        "quote": "Origin: Cambodia, Thailand",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The Siamese fighting fish, Betta splendens, is a labyrinth fish from central Thailand, native to rice paddies, swamps, ditches and other still waters.",
+        "quote": "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China.",
         "words": "Thailand",
         "ok": true
       },
@@ -63,8 +55,8 @@
       {
         "code": "TH",
         "status": "native",
-        "source": "sprucepets",
-        "quote": "Bettas are native to Thailand (formerly Siam), Indonesia, Malaysia, Vietnam, and parts of China.",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally throughout central Thailand, from Chiang Rai province in the north to Surat Thani and Phang Nga provinces at the northern extremity of the Malay Peninsula, just below the Isthmus of Kra.",
         "words": "Thailand",
         "ok": true
       },

@@ -1,0 +1,222 @@
+{
+  "id": "xenentodon-cancila",
+  "native": {
+    "input": "63b7a03bc4883830",
+    "at": "2026-11-17T18:05:08.130Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently considered to have a huge natural distribution extending eastwards from Pakistan throughout much of India and into Bangladesh, Nepal, Sri Lanka, Myanmar and Thailand.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently considered to have a huge natural distribution extending eastwards from Pakistan throughout much of India and into Bangladesh, Nepal, Sri Lanka, Myanmar and Thailand.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently considered to have a huge natural distribution extending eastwards from Pakistan throughout much of India and into Bangladesh, Nepal, Sri Lanka, Myanmar and Thailand.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently considered to have a huge natural distribution extending eastwards from Pakistan throughout much of India and into Bangladesh, Nepal, Sri Lanka, Myanmar and Thailand.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently considered to have a huge natural distribution extending eastwards from Pakistan throughout much of India and into Bangladesh, Nepal, Sri Lanka, Myanmar and Thailand.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently considered to have a huge natural distribution extending eastwards from Pakistan throughout much of India and into Bangladesh, Nepal, Sri Lanka, Myanmar and Thailand.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is currently considered to have a huge natural distribution extending eastwards from Pakistan throughout much of India and into Bangladesh, Nepal, Sri Lanka, Myanmar and Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xenentodon cancila",
+    "status": "ACCEPTED",
+    "taxonKey": 2369064,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        85
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        55
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        45
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        40
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        30
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        20
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        15
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        13
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        12
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        7
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        5
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        5
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9613ee46-eb0d-49fe-9ea6-f23bb27adadd",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9f2af0c5-2ff7-42fe-aad6-c0b5af96535a",
+        1
+      ],
+      [
+        "a4202e55-050a-46a2-9c56-8b8507015ce7",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "IN",
+      "BD",
+      "NP",
+      "LK",
+      "MM",
+      "TH"
+    ],
+    "requests": 14,
+    "at": "2026-11-17T18:05:08.130Z"
+  }
+}

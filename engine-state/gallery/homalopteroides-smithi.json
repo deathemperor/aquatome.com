@@ -3,7 +3,8 @@
  "judged": [
   "inat:172961884",
   "inat:172961897",
-  "inat:172961916"
+  "inat:172961916",
+  "gbif:1320562913:57b5bfa396cafe42"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/60d70e9c79cb207c.webp": "59939187c646f3f1",
@@ -20,5 +21,9 @@
    "research": 103358856,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 9455883,
+  "next": null
  }
 }

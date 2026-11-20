@@ -1,8 +1,13 @@
 {
   "slug": "niger-river",
-  "name": "Niger",
+  "name": "Sungai Niger",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.97,
+    "at": "2026-11-17T00:08:31.272Z"
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

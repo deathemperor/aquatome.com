@@ -3,6 +3,12 @@
   "name": "Liong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-17T00:06:45.946Z",
+    "why": "The source describes the Liong river basin, so a Malay atlas would write \"Sungai Liong\" with the kind word \"Sungai\", and bare \"Liong\" omits it."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

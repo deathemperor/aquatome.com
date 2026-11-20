@@ -1,0 +1,23 @@
+{
+  "slug": "ca-chuot-urucu",
+  "name": "Cá chuột Urucu",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Lô cá này được bắt quanh Labrina, trên sông Rio Mucuim, ở khoảng giữa lưu vực Rio Purus. Theo các nhà xuất khẩu, ở Rio Urucu và Rio Jutai cũng có những con cá rất giống vậy. Hai sông này đều là phụ lưu của sông Solimões nhưng nằm rất xa Rio Mucuim.</p>",
+    "notes:glaser": "<p>Những con cá chuột này được nhập về dưới tên Corydoras evelynae. Loài đó chỉ được mô tả từ đúng một mẫu vật, với nơi thu mẫu ghi rất mơ hồ là \"thượng nguồn Solimões\", một vùng còn rộng hơn cả nước Đức. Nếu bỏ qua nơi bắt, chúng rất giống Corydoras urucu, loài được mô tả năm 2009 từ con sông cùng tên. Nhưng nghe nói C. urucu là loài lùn, không lớn quá 2–3 cm, trong khi những con lớn nhất trong lô này to hơn gấp đôi. Rõ ràng đây là một phức hợp loài, cần nghiên cứu kỹ hơn.</p><p>Hoa văn của chúng thay đổi rất nhiều. Một số con có màu giống C. evelynae, với dải sọc trên lưng vỡ ra thành chấm. Số đông còn lại có màu giống Corydoras arcuatus, nhưng dáng thân thì khác C. arcuatus khá nhiều và gần với các loài họ hàng của C. loretoensis hơn.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.92
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

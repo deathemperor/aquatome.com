@@ -12,6 +12,144 @@
     "guatemala",
     "usumacinta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX",
+        "GT"
+      ],
+      "regions": [
+        "Grijalva",
+        "Usumacinta"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red-spotted cichlid, Vieja bifasciata, is a large cichlid from the River Grijalva and Usumacinta basins of Mexico and Guatemala.",
+          "countries": [
+            "MX",
+            "GT"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the River Grijalva and Usumacinta basins in Mexico and Guatemala.",
+          "countries": [],
+          "regions": [
+            "Grijalva",
+            "Usumacinta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372074,
+      "total": 294,
+      "fetched": "2026-11-17",
+      "countries": [
+        [
+          "MX",
+          258
+        ],
+        [
+          "GT",
+          33
+        ],
+        [
+          "HK",
+          2
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          -95.625,
+          16.875,
+          4,
+          4
+        ],
+        [
+          -94.21875,
+          15.46875,
+          6,
+          6
+        ],
+        [
+          -94.21875,
+          16.875,
+          91,
+          91
+        ],
+        [
+          -92.8125,
+          16.875,
+          60,
+          60
+        ],
+        [
+          -92.8125,
+          18.28125,
+          7,
+          7
+        ],
+        [
+          -91.40625,
+          15.46875,
+          97,
+          97
+        ],
+        [
+          -91.40625,
+          16.875,
+          22,
+          22
+        ],
+        [
+          -91.40625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -91.40625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          113.90625,
+          21.09375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -657,7 +657,8 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 5
+        "value": 5,
+        "overruled": "Glaser's 'Available size: 4–5 cm' is the size sold, not the adult's, and the page says so; Seriously Fish gives 120 mm SL."
       },
       {
         "source": "seriouslyfish",
@@ -794,7 +795,7 @@
       "width": 798,
       "height": 506,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Enrico Richter / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hypseleotris-compressa",
       "caption": "Non-nuptial female.",
       "source": "seriouslyfish"

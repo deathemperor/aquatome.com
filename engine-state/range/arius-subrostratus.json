@@ -1,0 +1,69 @@
+{
+  "id": "arius-subrostratus",
+  "native": {
+    "input": "e7c958dbd4176d70",
+    "at": "2026-11-18T00:54:56.623Z",
+    "claims": [
+      {
+        "code": "PK",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: Pakistan east to the Philippines.",
+        "words": "Pakistan",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-West Pacific: Pakistan east to the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Arius subrostratus",
+    "status": "ACCEPTED",
+    "taxonKey": 2345248,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        27
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        18
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "PK",
+      "PH"
+    ],
+    "requests": 12,
+    "at": "2026-11-18T00:54:56.623Z"
+  }
+}

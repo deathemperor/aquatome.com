@@ -21,13 +21,14 @@
       ],
       "regions": [
         "Salween",
+        "Mae Khlong",
         "Ataran River",
-        "Suriya",
-        "Mae Khlong"
+        "Suriya"
       ],
       "sources": [
         "bwaquatics",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -115,6 +116,13 @@
           "min": 20,
           "max": 27
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
       }
     ],
     "ph": [
@@ -136,11 +144,16 @@
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 4
+        "value": 4,
+        "overruled": "BW Aquatics' 2.5 to 4 cm; Seriously Fish gives 20 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       },
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2.5
       }
     ],
     "difficulty": [
@@ -174,13 +187,20 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
-      "html": "<p>Microdevario kubotai, commonly known as Kubotai Rasbora or Microrasbora kubotai, is a small and colorful freshwater fish of the family Cyprinidae. It grows to a maximum size of around 2.5 to 4 cm (1 to 1.5 inches). Its small size makes it suitable for nano and small community aquariums.</p><p>Difficulty: intermediate. They are easy to keep once the aquarium is stable, but their small, delicate nature can make them difficult at times.</p><p>Appearance: the body is clear with a neon green glow that makes them stand out against the background.</p>"
+      "html": "<p>Microdevario kubotai, commonly known as Kubotai Rasbora or Microrasbora kubotai, is a small and colorful freshwater fish of the family Cyprinidae. Its small size makes it suitable for nano and small community aquariums.</p><p>Difficulty: intermediate. They are easy to keep once the aquarium is stable, but their small, delicate nature can make them difficult at times.</p><p>Appearance: the body is clear with a neon green glow that makes them stand out against the background.</p>",
+      "fixed": true
     },
     {
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
       "html": "<p>Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar. Relatively common in the ornamental trade, it is sold under names including 'green neon rasbora' and 'yellow neon rasbora'. It apparently inhabits calm to moderately-flowing, well-oxygenated headwaters and minor tributaries. In nature it typically occurs in groups of 20-50, and at least 8-10 are recommended.</p><p>Difficulty: moderate. Rated moderate because it needs a well-established tank and stable water.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microdevario-kubotai-2/",
+      "html": "<p>A real dwarf, with a maximum length of around 2.5 cm. A peaceful schooling fish, ideal for nano aquariums.</p>"
     },
     {
       "key": "distribution",
@@ -195,6 +215,12 @@
       "html": "<p>Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand. It is likely to occur in other localities in the area between, and in Kanchanaburi an introduced population exists in the Songgaria River, upper Khwae Noi watershed. It has also been recorded in the Suriya (known as Hanthayaw in Myanmar) River basin, a headwater tributary of the Salween which rises in Tak province, Thailand.</p><p>Type locality is 'Khlong Phrae Sai at Ban Kreo Noi, kilometer 8 on road branching east, 32 kilometers north of Ranong on road from Ranong to Kra Buri (10°09'51\"N, 98°41'11'E), Ranong Province, Thailand'.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microdevario-kubotai-2/",
+      "html": "<p>It originates from the southwestern province of Ranong in Thailand, which forms a border with Burma.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
@@ -205,6 +231,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
       "html": "<p>Apparently inhabits calm to moderately-flowing stretches of well-oxygenated headwaters and minor tributaries. Such habitats tend to comprise transparent water, substrates of sand, gravel, rocks, boulders, and patches of leaf litter, with submerged driftwood, roots of riparian vegetation, and aquatic vegetation in places.</p><p>In the Songgaria River the water is clear, substrate composed of fallen branches, leaf litter, gravel, rocks, and exposed bedrock forming submerged rocky outcrops around heavily-vegetated margins. Sympatric species include Batasio tigrinus, Badis khwae, Tetraodon leiurus, Rasbora, and Schistura species.</p><p>In the Suriya the water is well-oxygenated, slightly turbid and aquatic plants such as Cryptocoryne crispatula var. balansae and Pogostemon helferi grow in calmer zones. Other fishes include Chanda pulcinella, Botia kubotai, Acanthocobitis pictilis, Mustura maepaiensis, Homalopteroides modestus, Syncrossus berdmorei, Pangio fusca, Pethia stoliczkana, Crossocheilus burmanicus, Akysis vespa, Glyptothorax dorsalis, Amblyceps caecutiens, Batasio feruminatus, B. dayi, Caelatoglanis zonatus, Psilorhynchus robustus, and Tetraodon cutcutia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microdevario-kubotai-2/",
+      "html": "<p>In the wild, they inhabit brooks and so they need clear, clean and oxygen-rich water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -231,10 +263,22 @@
       "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microdevario-kubotai-2/",
+      "html": "<p>The temperature should be between 22°C and 26°C. Water chemistry is of no relevance as long as extremes are avoided.</p>"
+    },
+    {
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/microdevario-kubotai",
       "html": "<p>They prefer a densely planted aquarium with plenty of hiding places, such as rocks and driftwood, but can also do well in a hardscape aquarium.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microdevario-kubotai-2/",
+      "html": "<p>The brilliant green stripe can be seen only when the light comes from ahead, so the illumination of the tank should be arranged appropriately.</p>"
     },
     {
       "key": "diet",
@@ -285,6 +329,12 @@
       "html": "<p>M. kubotai is relatively common in the ornamental trade, and is sold under various names including 'green neon rasbora', 'yellow neon rasbora', 'Kubotai's microrasbora', and 'kubotai rasbora'.</p><p>It can be distinguished from its congeners by possession of hyaline dorsal and anal fins, 9-10 branched anal-fin rays, and 24-25 + 1 longitudinal scales.</p><p>The genus Microdevario was raised by Fang et al. (2009) after phylogenetic analyses revealed that some species formerly included in Microrasbora to be more closely allied with Devario and in need of reclassification. Microdevario is largely separated from Devario and other closely related genera such as Chela and Laubuca by virtue of internal characters but also the following: small adult size; anal and dorsal fins with concave-shaped distal margin; absence of barbels; absence of perforated scales; 9-10 branched anal-fin rays; 7 branched dorsal-fin rays; less abdominal than caudal vertebrae.</p><p>The evolutionary pathway leading to small adult size in Microdevario has been referred to as miniaturisation, characterised by sexually mature adults with a significantly reduced size of less than 20 mm SL. Among bony fishes cyprinids are one of the few groups in which this phenomenon occurs repeatedly across numerous genera. Most show a preference for still or slow-moving, often nutrient-poor, habitats such as forest peat swamps.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microdevario-kubotai-2/",
+      "html": "<p>Initially this fish was described in the genus Microrasbora, but it was transferred together with M. gatesi and M. nana to the new genus Microdevario in 2009.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
@@ -298,7 +348,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Choy Heng Wah / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
       "caption": "Adult specimen from the Singapore aquarium trade.",
       "source": "seriouslyfish"
@@ -329,7 +379,7 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Garrett Ng / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microdevario-kubotai",
       "caption": "At 3 weeks of age fry can be viewed without the aid of magnification.",
       "source": "seriouslyfish"
@@ -383,5 +433,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-18"
 }

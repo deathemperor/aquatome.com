@@ -1,7 +1,8 @@
 {
  "queue": [],
  "judged": [
-  "File:Astronotus ocellatus.jpg"
+  "File:Astronotus ocellatus.jpg",
+  "gbif:1322780255:168f97f380dd558f"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/83c3256cbcba1fdb.webp": "878b1d1b0d733071",
@@ -16,5 +17,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 5205231,
+  "next": null
  }
 }

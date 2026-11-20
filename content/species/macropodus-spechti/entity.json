@@ -121,7 +121,8 @@
     "tankCm": [
       {
         "source": "bwaquatics",
-        "value": 40
+        "value": 40,
+        "overruled": "BW Aquatics' pair in 10–20 US gallons; Seriously Fish gives an 80 × 30 cm base for a pair. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
       },
       {
         "source": "seriouslyfish",
@@ -225,7 +226,8 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/black-paradise-fish-macropodus-spechti",
-      "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space. A pair per 5 gallons (about 19 litres) of water is recommended.</p>"
+      "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space.</p>",
+      "fixed": true
     },
     {
       "key": "behaviour",
@@ -308,7 +310,7 @@
       "width": 762,
       "height": 526,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Dana / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
       "caption": "Adult male in courtship/territorial display.",
       "source": "seriouslyfish"
@@ -330,7 +332,7 @@
       "width": 800,
       "height": 492,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Dana / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
       "caption": "Aquarium-bred juvenile.",
       "source": "seriouslyfish"
@@ -341,7 +343,7 @@
       "width": 600,
       "height": 382,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Hayath / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-spechti",
       "caption": "Young male individual from the Indian aquarium trade.",
       "source": "seriouslyfish"

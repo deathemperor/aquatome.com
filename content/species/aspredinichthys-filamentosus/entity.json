@@ -1,0 +1,326 @@
+{
+  "id": "aspredinichthys-filamentosus",
+  "scientificName": "Aspredinichthys filamentosus",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Aspredinichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "brazil",
+    "french-guiana",
+    "guyana",
+    "suriname",
+    "trinidad-and-tobago"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "GF",
+        "GY",
+        "SR",
+        "TT",
+        "VE"
+      ],
+      "regions": [
+        "Amazon River",
+        "Trinidad"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+          "countries": [
+            "BR",
+            "GF",
+            "GY",
+            "SR",
+            "TT",
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "It occurs from the eastern coast of Venezuela and Trinidad, and from Guyana to the mouth of the Amazon River in Brazil and the north coast of Brazil up to Maranhão state.",
+          "countries": [],
+          "regions": [
+            "Amazon River",
+            "Trinidad"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340554,
+      "total": 54,
+      "fetched": "2026-11-19",
+      "countries": [
+        [
+          "BR",
+          33
+        ],
+        [
+          "GF",
+          19
+        ],
+        [
+          "SR",
+          1
+        ],
+        [
+          "TT",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -63.28125,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -52.03125,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -50.625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          0,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -50.625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          7,
+          7
+        ],
+        [
+          -46.40625,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -45,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -45,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -43.59375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "scotcat",
+    "quote": "Not seen very often in the hobby, but the requirements for keeping this species would need to include some addition of salt in the water."
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 22
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "html": "<p>South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela). Type locality: Cayenne, French Guiana.</p><p>It occurs from the eastern coast of Venezuela and Trinidad, and from Guyana to the mouth of the Amazon River in Brazil and the north coast of Brazil up to Maranhão state. It is found in estuaries and river mouths over mud bottoms, and is a numerically dominant species in the upper reaches of some estuaries.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "html": "<p>Benthic fish which lives on sandy-muddy littoral waters, estuaries and flooded zones of rivers. It is likely to be dependent on estuaries to complete its life cycle and is restricted to shallow coastal waters.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "html": "<p>Not seen very often in the hobby, but the requirements for keeping this species would need to include some addition of salt in the water.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "html": "<p>Reproduction takes place in April and June. The species has a peculiar mode of egg incubation: the female carries the eggs firmly attached to the underside of the body. This seems to be an adaptation to facilitate the oxygenation of the eggs in muddy environments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "html": "<p>Etymology: filamentosus is Latin for filamentous, referring to the elongate first ray of the dorsal fin.</p><p>IUCN: assessed as Least Concern (2021). It is probably a component of artisanal fisheries, though it does not appear to be valued, and is likely taken as by-catch in shrimp trawls. Habitat loss could be an additional threat. There are no species-specific conservation measures, but its distribution overlaps with protected areas.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/98e503ab81d979fd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/98e503ab81d979fd-480.webp",
+      "width": 500,
+      "height": 160,
+      "licence": "dùng với sự cho phép",
+      "author": "Kiruya Momochi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "caption": "Aspredinichthys filamentosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/df9c59dd4246381e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/df9c59dd4246381e-480.webp",
+      "width": 500,
+      "height": 200,
+      "licence": "dùng với sự cho phép",
+      "author": "Kiruya Momochi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "caption": "Aspredinichthys filamentosus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/83a8f561f3a253f2.webp",
+      "thumb": "https://media.aquatome.com/scotcat/83a8f561f3a253f2-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Kiruya Momochi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm",
+      "caption": "Aspredinichthys filamentosus: dorsal view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

@@ -2,6 +2,7 @@ import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFit
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
+import { photoCredit } from './cite'
 import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
 import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
@@ -14,6 +15,7 @@ import coversOff from './guide-covers-off.json' with { type: 'json' }
 import { toIndexItem } from './species-index'
 import { appRange, capitalized, countryNames, originPages, regionNames, type AppCountry, type AppRange } from './range'
 import { ORIGINS, PLACE_INTRO, PLACE_INTROS, PLACE_TITLES, RANKS, TAXON_INTRO } from './taxa-places'
+import { isUnsplash } from './unsplash'
 import { seriesGuides } from './video'
 
 /**
@@ -123,6 +125,14 @@ export type AppIndex = {
   countries?: Record<string, AppCountry>
   /** What's new for the app (lib/app-latest.ts), where this language's site has /vi/moi-cap-nhat/. */
   latest?: string
+  /**
+   * Every Unsplash photo the index shows, by each address it writes one at (an item's, a chip's, a day's, a week's):
+   * its credit, as a page's copy credits it (lib/cite.ts `photoCredit`: "Ảnh: <name> trên Unsplash", the name and the
+   * photographer's page). Unsplash asks for that line wherever its photo shows, in view, so a card or a row showing one
+   * draws it under the photo (docs/governance.md, Photos, Credits). Every other photo is credited on the page it opens.
+   * None when the index shows none.
+   */
+  credits?: Record<string, ReturnType<typeof photoCredit>>
 }
 /**
  * The guides the index lists in this language, and the app has pages of (lib/app-page.ts): every one the site lists (the
@@ -519,11 +529,50 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
-  return {
+  const index: AppIndex = {
     version: 1, lang, items, home, labels, places,
     ...(codes.length ? { countries: Object.fromEntries(codes.map(code => [code, nameOf(code)])) } : {}),
     ...(served(lang, '/vi/moi-cap-nhat/') ? { latest: `/app/latest/${lang}.json` } : {}),
   }
+  const credits = unsplashCredits(lang, index, c)
+  return Object.keys(credits).length ? { ...index, credits } : index
+}
+
+/**
+ * The credits of the Unsplash photos `index` shows (`AppIndex.credits`), by every address it writes one at: a photo's own,
+ * its small or card copy, its thumbnail, its large copy. Read from every string the index holds, so a new place that
+ * shows a photo is credited without a line here.
+ */
+export function unsplashCredits(lang: Lang, index: AppIndex, c: Content): NonNullable<AppIndex['credits']> {
+  const at = new Map<string, Photo>()
+  for (const p of contentPhotos(c)) {
+    if (!isUnsplash(p.licence)) continue
+    for (const u of [p.url, p.thumb, p.large?.url, smallSrc(p), cardSrc(p)]) if (u) at.set(u, p)
+  }
+  const out: NonNullable<AppIndex['credits']> = {}
+  if (!at.size) return out
+  const walk = (v: unknown): void => {
+    if (typeof v === 'string') { const p = at.get(v); if (p && !out[v]) out[v] = photoCredit(lang, p) }
+    else if (Array.isArray(v)) v.forEach(walk)
+    else if (v && typeof v === 'object') Object.values(v).forEach(walk)
+  }
+  walk({ ...index, credits: undefined })
+  return out
+}
+
+/** Every photo the content holds, wherever it sits (a page's, a gallery's, a guide's figure's, a material's). */
+function contentPhotos(c: Content): Photo[] {
+  const out: Photo[] = [], seen = new WeakSet<object>()
+  const walk = (v: unknown): void => {
+    if (!v || typeof v !== 'object' || seen.has(v)) return
+    seen.add(v)
+    if (Array.isArray(v)) { v.forEach(walk); return }
+    const o = v as Record<string, unknown>
+    if (typeof o.url === 'string' && typeof o.licence === 'string' && typeof o.author === 'string' && typeof o.sourceUrl === 'string') out.push(o as unknown as Photo)
+    Object.values(o).forEach(walk)
+  }
+  walk(c)
+  return out
 }
 
 /**

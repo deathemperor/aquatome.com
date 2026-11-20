@@ -7,10 +7,12 @@
   "difficulty": 1,
   "light": "low",
   "co2": "none",
-  "growth": "medium",
+  "growth": "slow",
   "placement": [
+    "foreground",
+    "midground",
     "epiphyte",
-    "foreground"
+    "floating"
   ],
   "sections": [
     {
@@ -26,6 +28,36 @@
       "html": "<ul><li><strong>Type:</strong> Moss</li><li><strong>Origin:</strong> Asia</li><li><strong>Growth rate:</strong> Medium</li><li><strong>Height:</strong> 3 - 10+ cm</li><li><strong>Light demand:</strong> Low</li><li><strong>CO2:</strong> Low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Common name: Java moss</li><li>Scientific name: Taxiphyllum barbieri</li><li>Minimum tank size: 20 litres</li><li>Difficulty: easy</li><li>Lighting: low to medium</li><li>Water hardness: very soft to very hard</li><li>Substrate: not needed</li><li>Growth rate: slow to moderate</li><li>Placement in tank: foreground / midground</li><li>Height: 5–10 cm</li><li>CO2: not needed to low</li><li>Propagation: splitting, cutting off daughter plants</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Scientific names given by aquarium stores are often wrong, and some mosses look very similar and can confuse even experienced aquarists. Similar species include:</p><ul><li><strong>Christmas moss (Vesicularia montagnei):</strong> the mature fronds hang down and overlap like the branches of a Christmas tree. It is semi-aquatic and grows on shaded, wet banks of streams and creeks in tropical Asia. Unlike Java moss, every branch has very small shoots growing parallel to the stem, and its leaves are rounded with a sharp ending.</li><li><strong>Singapore moss (Vesicularia dubayana):</strong> widespread in Singapore and parts of Malaysia, where it grows on wet soil in shaded places. It looks like Christmas moss but its fronds are shorter and less triangular, with a dull to dark green colour and flattened, irregular branches.</li><li><strong>Weeping moss (Vesicularia ferriei):</strong> native to China. Its fronds resemble the branches of a weeping willow. The leaf shape is similar to Christmas moss, but the leaves are almost two times smaller and do not taper so sharply. It looks especially good on all kinds of decorations and is a delicate, slow-growing plant that requires careful handling.</li><li><strong>Taiwan moss (Taxiphyllum alternans):</strong> an expensive moss, exported from Taiwan although its origin is not certain. Its shoots are triangular with rounded ends. In Taxiphyllum alternans only the upper part of the leaf is serrated, while in Taxiphyllum barbieri the leaf has small teeth along the entire edge.</li></ul><p>When buying Java moss, look for bright green leaves and stems with no decay or discolouration, and avoid damaged plants. It is very affordable and available at local aquarium stores. You do not need much, since it can be split into many pieces for planting.</p><p><strong>Quarantine.</strong> Before putting new plants in your tank, quarantine or sterilise them (bleach to get rid of parasites, alum to eliminate snails). They can carry parasites, pests such as snails, or even predators (dragonfly and damselfly nymphs, etc.). They may also have been treated with chemicals (pesticides) to remove parasites and snails, and these chemicals are extremely poisonous to fish, shrimp and other invertebrates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java moss is native to tropical regions of Southeast Asia, where it grows on rocks and tree trunks in rivers and streams. It can be found in Indonesia, Malaysia, the Philippines, Singapore and Vietnam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java moss grows in moist tropical regions of Southeast Asia. It can be found attached to rocks, gravel and tree trunks in tropical rainforests and brackish areas, and on the banks of freshwater streams and rivers.</p><p>In the wild, this species is often found growing together with Microsorum pteropus (Java fern).</p><p>Java moss is a delicate, bright green moss with small branched stems. It has two short costae and narrowly oblong leaf cells, and grows up to 5–10 cm tall. The branching is irregular and covered with rows of tiny overlapping oval leaves (2 mm long) on both sides of the stems. The leaves of submersed forms are much smaller than those grown on land. Java moss has no true roots: it absorbs nutrients through its leaves and stems. It can be grown free-floating, or it sends out rhizoids to attach itself to gravel, rocks, driftwood and other ornaments.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java moss is a great option for nano tanks. The recommended tank size is at least 20 litres, but you will need a larger tank if you plant a lot of it.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
@@ -38,10 +70,34 @@
       "html": "<p>Attach the plant with a piece of fishing line or cotton thread until it has gained a hold on the décor. If its growth becomes too luxuriant, it can be pruned with scissors.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Planting.</strong> Java moss is easy to plant and can take many forms:</p><ul><li><strong>Floating:</strong> divide the moss into many pieces and place them on the water surface. It grows normally and develops into a mature floating plant.</li><li><strong>Attached to rock and driftwood:</strong> tie the moss to a piece of driftwood or rock with dark thread or fishing line to hold it firmly in place. The thread can be removed after 3–4 weeks.</li><li><strong>Carpet:</strong> lay a piece of mesh and gently cover it with Java moss, dividing it into bits and arranging them so they sit flat. Once the moss has spread well, place a second piece of mesh on top and secure the two pieces together with thread or fishing line. The sandwiched moss can then be planted in the tank, and it slowly grows through the mesh to form a bed of moss covering the floor.</li><li><strong>Wall:</strong> you need a plastic mesh (7–10 mm, preferably black or another neutral colour) and suction cups to hold the moss against the tank walls. Fold the mesh in half, hold it with the suction cups and stuff moss inside each end. The moss grows through the mesh and soon covers all the gaps.</li><li><strong>Tree:</strong> use an upright piece of driftwood with a tree-like shape and a few branches extending outwards. Disinfect the moss to eliminate bacteria, parasites, pathogens and snails, then rinse thoroughly and dry it. Attach the moss to the branches with aquarium-safe glue, then gently trim extra parts to give a well-defined tree shape. For a weeping willow effect, let the moss grow a bit more until it hangs over the branches.</li><li><strong>Ball:</strong> take a round object such as a sphere-like stone or bio ball and tie thin layers of Java moss all around it with string or fine netting, trying not to overlap the individual pieces.</li><li><strong>Cave overhangs:</strong> attach a plastic screen to a cave with aquarium-safe super glue, then tie the Java moss to it with string. To get a hidden-cave look, let the front portion of the moss form an overhang and trim the back areas to blend with the structure.</li></ul><p><strong>Propagation.</strong> Java moss propagates by division: break off pieces from the bunch and attach them to surfaces or hardscape. Aquarists often propagate it by tying it to stainless steel mesh, and the plant covers the squares with time.</p><p><strong>Trimming.</strong> Trim a Java moss carpet or wall regularly to remove excess parts that overstuff the tank. Trimming helps it keep its shape and promotes healthy growth. Remove the trimmings from the tank and dispose of them properly to prevent decomposition and the water going bad.</p><p><strong>Vacuuming.</strong> This is important for maintaining the plant. It removes detritus, which consists of fish waste, tiny bits of detached plant matter, decayed leaves and uneaten food that end up at the bottom of the tank. If not removed, it breaks down into ammonia, which disrupts water quality and can harm the plants. Moss tends to collect detritus from fish waste and algae; brushing it at intervals helps, as does adding algae-eating shrimp to clean it up. Always check that they are not eating the moss.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java moss is a hardy and durable plant that can grow in any type of water, both freshwater and brackish. It does not require any special care, which makes it an excellent choice for beginners and advanced aquarists alike. It thrives in low light at tropical temperatures, where most aquarium plants would soon die, and also in cool water.</p><ul><li>Temperature: the suitable range is 21–24°C, but it can also survive 15–32°C.</li><li>Hardness: preferably 5 dGH and above, up to 20 dGH.</li><li>pH: it tolerates extreme values (5–9) but does best at 6–8. A pH test kit should be used periodically to check the acidity or alkalinity of the tank water.</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Lighting:</strong> this plant appreciates low to medium light. LED lights or fluorescent tubes can be used for at least 8 hours daily.</p><p><strong>Substrate:</strong> Java moss does not require any particular substrate. It can be attached to stones, rocks, gravel, driftwood, bogwood or any type of decoration, and it attaches and grows well on most surfaces.</p><p><strong>Supplements:</strong> Java moss can thrive without fertilizer and without external CO2 dosing. However, it appreciates a liquid fertilizer rich in nutrients such as potassium, phosphorus, nitrogen and iron. Additional CO2 of up to 15–30 ppm helps speed up its growth, although the effect is not very significant.</p><p>Note: excess fertilizer can harm the plant and cause algae growth, so it is a balancing act if you decide to use it.</p><p>Important: if you keep shrimp in the tank, a high CO2 level and copper (most fertilizers contain copper) are extremely dangerous to them. Use shrimp-safe plant fertilizers.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-moss",
       "html": "<p>Java Moss is good for breeders because it is extremely friendly to fry and shrimp. Small babies find safety and comfort in the soft moss, while shrimp appreciate having a place to nest. Shrimp can also delicately clean the moss, keeping it healthy.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java moss is compatible with many aquatic species. It can live with:</p><ul><li>Guppy (Poecilia reticulata)</li><li>Green swordtail (Xiphophorus hellerii)</li><li>Molly (Poecilia sphenops)</li><li>Platy (Xiphophorus maculatus)</li><li>Neon tetra (Paracheirodon innesi)</li><li>Angelfish (Pterophyllum scalare)</li><li>Corydoras catfish (Corydoras spp.)</li><li>Clown loach (Chromobotia macracanthus)</li></ul><p>These species can harm the plant:</p><ul><li>Oscar (Astronotus ocellatus)</li><li>Red devil (Amphilophus labiatus)</li><li>Siamese algae eater (Crossocheilus siamensis), which will devour the moss</li></ul><p>Java moss is also compatible with shrimp and most snails, for example ramshorn snails, nerite snails, Malaysian trumpet snails, Japanese trapdoor snails and mystery snails. It suits all varieties of Neocaridina (red cherry shrimp, blue velvet shrimp, snowball shrimp, black rose, orange sakura, green jade, Rili shrimp, etc.), Caridina species (for example crystal red shrimp, Caridina cf. babaulti, blue tiger shrimp, etc.), Amano shrimp, ghost shrimp, etc.</p><p>Note: some people say that Amano shrimp (Caridina multidentata) can eat moss if there is no other food available in the tank. This has not been observed here; people may confuse picking up algae with eating the plant itself.</p>"
     },
     {
       "key": "notes",
@@ -54,6 +110,12 @@
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumbarbieri'BogorMoss'(003POR)/4391",
       "html": "<p>Taxiphyllum barbieri 'Bogor Moss' from South-East Asia is a hardy plant which makes few demands on the water or light. The moss becomes 3-10 cm thick and grows willingly on any surface, so it is ideal for decorating stones and tree roots or concealing installations in the aquarium. In breeding aquariums Taxiphyllum barbieri is a wonderful hiding place for the young fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-moss-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java moss has many benefits for an aquarium:</p><ul><li>Oxygenation: through its life activities, it aerates the tank water.</li><li>It slows down the growth of algae. Java moss is a low-nutrient plant, so do not expect miracles.</li><li>It helps with biological and chemical filtration.</li><li>It beautifies the tank with its tiny lush green leaves and stems, and can take various artistic forms.</li><li>It acts as a spawning place for some egg-laying fish species.</li><li>It supports the growth of biofilm, an ideal first food for newly hatched fry and shrimplets.</li><li>It acts as a foraging place for invertebrates, tiny fry and juvenile fish.</li><li>It provides shelter and hiding spots for shy fish and shrimp.</li></ul><p>Java moss is reported to be one of the best plants for a shrimp tank, so it is worth considering as a first choice if you plan to keep and breed dwarf shrimp.</p><p><strong>Problems.</strong></p><ul><li><strong>Algae:</strong> caused by waste, ammonia, excess nutrients in the water and excessive lighting. Algae often grow on Java moss and other plants. Keep them under control by addressing these causes and adding algae-eating freshwater shrimp and snails (especially Amano shrimp and nerite snails). Algae also increase the survival rate of shrimplets.</li><li><strong>Browning:</strong> some parts of the moss may turn brown due to a lack of essential nutrients or insufficient light.</li></ul><p>Java moss is hardy and versatile and can thrive in a wide array of water and lighting conditions (even in dim or no lighting, although this is not advisable).</p>"
     }
   ],
   "photos": [
@@ -126,5 +188,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-19"
 }

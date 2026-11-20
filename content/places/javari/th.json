@@ -3,6 +3,12 @@
   "name": "ฆาวารี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-18T12:25:13.937Z",
+    "why": "ฆ would be read as a /kʰ/ sound, which doesn't fit Portuguese \"J\" (/ʒ/), so the transliteration is off; an atlas would write จาวารี or ชาวารี."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

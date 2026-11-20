@@ -7,6 +7,7 @@ import { isMarketplace } from './marketplaces'
 import { lastKept, logReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { VI_STYLE as STYLE } from './phrases'
+import { withoutRefused } from './refused-sources'
 
 const WRITE = readFileSync(new URL('./prompts/product.md', import.meta.url), 'utf8')
 
@@ -96,7 +97,8 @@ notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Em
 export async function makeProduct(contentRoot: string, d: { research: Llm; llm: Llm; get: (url: string) => Promise<string>; now: () => Date }, a: ProductAsk, o: { researchModel?: string; writeModel?: string; /** Research kept here (engine-state/products) so a page can be rewritten without searching again. */ factsDir?: string; reuse?: boolean; /** No page unless a Vietnamese shop's own page shows a price: it may not be sold here. */ requireShopPrice?: boolean } = {}) {
   const factsFile = o.factsDir && join(o.factsDir, `${slugify(`${a.brand} ${a.model}`)}.json`)
   const kept = o.reuse && factsFile ? JSON.parse(await readFile(factsFile, 'utf8').catch(() => 'null')) as Facts | null : null
-  const facts = kept ?? await researchProduct(d.research, a, o.researchModel)
+  // A refused site's facts leave before anything reads them or the file keeps them (refused-sources.ts).
+  const facts = withoutRefused(kept ?? await researchProduct(d.research, a, o.researchModel)).kept
   if (factsFile && !kept) { await mkdir(o.factsDir!, { recursive: true }); await writeFile(factsFile, `${JSON.stringify(facts, null, 2)}\n`) }
   if (!facts.found) return { id: '', skipped: `${a.brand} ${a.model}: not found or no longer sold` }
   const prices = await checkPrices(facts.prices, d.get)

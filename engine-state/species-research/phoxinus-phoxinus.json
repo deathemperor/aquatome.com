@@ -1,0 +1,277 @@
+{
+  "found": true,
+  "group": "other",
+  "enNames": [
+    {
+      "name": "European Minnow",
+      "source": 0
+    },
+    {
+      "name": "Eurasian minnow",
+      "source": 1
+    },
+    {
+      "name": "Eurasian Minnow",
+      "source": 2
+    },
+    {
+      "name": "common minnow",
+      "source": 3
+    },
+    {
+      "name": "Minnow",
+      "source": 3
+    }
+  ],
+  "viNames": [],
+  "facts": [
+    {
+      "section": "notes",
+      "fact": "The species was described by Linnaeus in 1758.",
+      "source": 1
+    },
+    {
+      "section": "notes",
+      "fact": "Phoxinus laevis is an older name for this species.",
+      "source": 3
+    },
+    {
+      "section": "notes",
+      "fact": "It is rated Least Concern on the IUCN Red List (assessed 12 January 2024).",
+      "source": 1
+    },
+    {
+      "section": "notes",
+      "fact": "It is described as arguably the UK's nicest native freshwater fish, particularly in breeding colours.",
+      "source": 0
+    },
+    {
+      "section": "distribution",
+      "fact": "It ranges across Eurasia from the Garonne in France east to the Anadyr and Amur drainages and Korea.",
+      "source": 1
+    },
+    {
+      "section": "distribution",
+      "fact": "It occurs in Atlantic, North Sea, Baltic, Arctic and northern Pacific basins, reaching 58°N in Great Britain.",
+      "source": 1
+    },
+    {
+      "section": "distribution",
+      "fact": "It may have been introduced to Ireland.",
+      "source": 1
+    },
+    {
+      "section": "distribution",
+      "fact": "It is native to the UK.",
+      "source": 0
+    },
+    {
+      "section": "habitat",
+      "fact": "It lives in cold, well-oxygenated water, from small fast streams to large lakes.",
+      "source": 1
+    },
+    {
+      "section": "habitat",
+      "fact": "It is usually found with salmonid fishes.",
+      "source": 1
+    },
+    {
+      "section": "habitat",
+      "fact": "It lives in fresh and brackish water near the bottom and migrates within rivers.",
+      "source": 1
+    },
+    {
+      "section": "beforeYouBuy",
+      "fact": "FishBase lists it as commercial in the aquarium trade. It is also a minor commercial fishery fish and is often used as bait.",
+      "source": 1
+    },
+    {
+      "section": "beforeYouBuy",
+      "fact": "It is a robust species but sensitive to warm water, so it must be kept cool.",
+      "source": 3
+    },
+    {
+      "section": "beforeYouBuy",
+      "fact": "The Rainbow minnow (Notropis chrosomus) and Gold minnow (Pimephales promelas 'Gold') are often sold under similar names. They are different species.",
+      "source": 3
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "It needs a tank of at least 200 litres, and larger is better.",
+      "source": 3
+    },
+    {
+      "section": "waterConditions",
+      "fact": "In an aquarium it needs strong current and high oxygen levels.",
+      "source": 3
+    },
+    {
+      "section": "diet",
+      "fact": "In the wild it eats algae, plant debris, molluscs, crustaceans and insects.",
+      "source": 1
+    },
+    {
+      "section": "diet",
+      "fact": "It is omnivorous and prefers animal food.",
+      "source": 3
+    },
+    {
+      "section": "diet",
+      "fact": "In aquaria it accepts flake food. Mosquito larvae, daphnia and artemia, fresh or frozen, are recommended.",
+      "source": 3
+    },
+    {
+      "section": "behaviour",
+      "fact": "It is gregarious.",
+      "source": 1
+    },
+    {
+      "section": "behaviour",
+      "fact": "It is a peaceful, lively schooling fish that forms close shoals and swims a lot.",
+      "source": 3
+    },
+    {
+      "section": "behaviour",
+      "fact": "It is compatible with gudgeons, bitterlings and whitefish.",
+      "source": 3
+    },
+    {
+      "section": "dimorphism",
+      "fact": "During spawning, males show stronger colours and develop white spawning tubercles on the head and gill covers.",
+      "source": 3
+    },
+    {
+      "section": "dimorphism",
+      "fact": "Females are fuller and larger than males.",
+      "source": 3
+    },
+    {
+      "section": "reproduction",
+      "fact": "In the wild it migrates upstream to spawn over clean gravel in flowing water or on wave-washed lake shores.",
+      "source": 1
+    },
+    {
+      "section": "reproduction",
+      "fact": "It spawns in spring, scattering eggs over gravel or aquatic plants.",
+      "source": 3
+    },
+    {
+      "section": "reproduction",
+      "fact": "Aquarium breeding is possible but demanding. The parents must be removed after spawning.",
+      "source": 3
+    }
+  ],
+  "care": [
+    {
+      "field": "sizeCm",
+      "min": 14,
+      "max": 14,
+      "source": 1,
+      "quote": "Max length : 14.0 cm TL male/unsexed"
+    },
+    {
+      "field": "sizeCm",
+      "min": 6,
+      "max": 12,
+      "source": 3,
+      "quote": "6–10 cm, rarely up to 12 cm"
+    },
+    {
+      "field": "tempC",
+      "min": 2,
+      "max": 20,
+      "source": 1,
+      "quote": "2°C - 20°C"
+    },
+    {
+      "field": "tempC",
+      "min": 8,
+      "max": 20,
+      "source": 3,
+      "quote": "8–20 °C (cool keeping necessary!)"
+    },
+    {
+      "field": "ph",
+      "min": 7,
+      "max": 7.5,
+      "source": 1,
+      "quote": "pH range: 7.0 - 7.5"
+    },
+    {
+      "field": "ph",
+      "min": 6.5,
+      "max": 8,
+      "source": 3,
+      "quote": "pH: 6.5–8.0"
+    },
+    {
+      "field": "gh",
+      "min": 10,
+      "max": 20,
+      "source": 1,
+      "quote": "dH range: 10 - 20"
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 15,
+      "source": 3,
+      "quote": "GH: 5–15 °dGH"
+    }
+  ],
+  "places": [
+    {
+      "continent": "Europe",
+      "country": "France",
+      "region": "Garonne",
+      "source": 1
+    },
+    {
+      "continent": "Europe",
+      "country": "United Kingdom",
+      "source": 0
+    },
+    {
+      "continent": "Europe",
+      "country": "Ireland",
+      "source": 1
+    },
+    {
+      "continent": "Asia",
+      "region": "Amur",
+      "source": 1
+    },
+    {
+      "continent": "Asia",
+      "region": "Anadyr",
+      "source": 1
+    },
+    {
+      "continent": "Asia",
+      "country": "Korea",
+      "source": 1
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.youtube.com/watch?v=I06OsUgQIiA",
+      "title": "Quick Dip into the European Minnow - Phoxinus phoxinus",
+      "kind": "video"
+    },
+    {
+      "url": "https://www.fishbase.se/summary/Phoxinus-phoxinus.html",
+      "title": "Phoxinus phoxinus, Eurasian minnow : fisheries, aquarium, bait",
+      "kind": "other"
+    },
+    {
+      "url": "https://aquadiction.world/species-spotlight/eurasian-minnow/",
+      "title": "Eurasian Minnow - Phoxinus phoxinus Fish Profile & Care Guide",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.zoo-roco.ch/en/index.php/detail/9786eb2732f64f9989e9a4e4632dba8a",
+      "title": "Minnow | Zoo Roco",
+      "kind": "shop"
+    }
+  ]
+}

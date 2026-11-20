@@ -3,6 +3,12 @@
   "name": "อัมบียากู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-19T12:52:43.601Z",
+    "why": "อัมบียากู is a reasonable Thai transliteration of the Quechua-style name Ambyiacu, written in Thai script, but it has no kind word such as แคว้น or เขต for a region and the spelling is not attested, so it is only moderately certain."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

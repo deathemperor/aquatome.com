@@ -3,6 +3,12 @@
   "name": "เคปเฟียร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:47:23.760Z",
+    "why": "เคปเฟียร์ is a Thai transliteration of Cape Fear but omits the kind word \"แม่น้ำ\" for the river, so it reads as a cape or place rather than the river."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

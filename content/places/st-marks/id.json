@@ -3,6 +3,12 @@
   "name": "St. Marks",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-17T05:14:17.894Z",
+    "why": "The place is the St. Marks River drainage in Florida, so a bare \"St. Marks\" drops the kind word \"Sungai\" that Indonesian atlases would use (Sungai St. Marks), and it could also be read as the town."
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

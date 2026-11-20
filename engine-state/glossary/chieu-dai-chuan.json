@@ -1,0 +1,228 @@
+{
+  "found": true,
+  "species": [
+    "Paracheirodon innesi",
+    "Carassius auratus",
+    "Poecilia reticulata",
+    "Glossogobius sparsipapillus",
+    "Paedocypris progenetica"
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Name for the term: \"chiều dài chuẩn (SL)\"",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"chiều dài tiêu chuẩn\"",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Standard Length\"",
+      "source": 7
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"standard length\"",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"SL\"",
+      "source": 0,
+      "also": [
+        2
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Standard length runs from the tip of the snout to the posterior edge of the hypural plate or of the last vertebra, so it leaves out the caudal (tail) fin.",
+      "source": 0,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "FishBase defines SL as running from the snout tip to the tip of the hypural bone or to the fleshy base of the caudal peduncle, so the caudal fin is excluded.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Standard length may also leave out the lower jaw when the jaw sticks out beyond the snout.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "SL is the standard scientific measurement for most fish species because the caudal fin is easily damaged in preserved specimens.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Researchers use standard length because the tips of the tail fin are often damaged or broken, which makes the measurement inaccurate.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Standard length and fork length are less affected by damaged tail fins than total length, which can be skewed if the tail is pinched or the caudal fin is damaged.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Standard length is used for Teleostei (most bony fish), while hagfish (Myxini), lampreys (Petromyzontiformes), and usually sharks and rays (Elasmobranchii) are measured by total length.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Total length (TL) runs from the snout tip to the tip of the longest caudal fin rays, excluding filaments, with the tail lobes lined up with the body axis. It is longer than SL because it includes the tail.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fork length (FL) runs from the snout tip to the tip of the shortest central rays of the caudal fin.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Fork length is used for fish where it is hard to tell where the vertebral column ends.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "FishBase marks a length as NG (\"not given\") when the source did not say which length type was measured.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Seriously Fish gives the maximum size of Paracheirodon innesi (neon tetra) as \"30mm SL\" (1.2in SL), meaning standard length.",
+      "source": 8
+    },
+    {
+      "section": "steps",
+      "fact": "To measure standard length, measure in a straight line from the tip of the snout to where the body ends at the base of the tail fin, leaving the tail fin out.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "In the guppy (Poecilia) judging standard on Guppy Nhật Minh, Standard Length is measured \"từ chóp miệng cho đến gốc đuôi\" (from the tip of the mouth to the base of the tail).",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "To convert between SL and TL for one species, use that species' entry in the FishBase length-length (L-L relationship) table. It gives a regression or a ratio, in cm.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "FishBase warns that ratio-type length conversions should be used with more caution, since they usually come from one or a few fish over a narrow size range.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "A goldfish (Carassius auratus) with 30 cm SL (12 inches) is about 15 inches total length, so an SL figure looks smaller than the fish's full length with its tail.",
+      "source": 9
+    },
+    {
+      "section": "mistakes",
+      "fact": "Some comet goldfish have about six inches of body plus a six-inch tail. They look about a foot long but weigh like a six-inch fish, and weight is what counts when sizing a tank.",
+      "source": 9
+    },
+    {
+      "section": "mistakes",
+      "fact": "Most fish sold in shops are babies, not adults, so their size in the shop does not show their adult size.",
+      "source": 10
+    },
+    {
+      "section": "myths",
+      "fact": "INJAF says tank size does not decide how large a species will grow, contrary to the belief that fish stay small in small tanks.",
+      "source": 10
+    },
+    {
+      "section": "mistakes",
+      "fact": "Tall or deep-bodied fish such as angelfish and some fancy goldfish can grow as tall as they are long, so length alone understates the tank they need.",
+      "source": 10
+    },
+    {
+      "section": "vietnam",
+      "fact": "Guppy Nhật Minh, a Vietnamese guppy (Poecilia) shop, scores Standard Length out of 8 points: over 26 mm (1\") scores 8, 22 mm (7/8\") scores 6, 18 mm (3/4\") scores 4, and under 14 mm scores 1.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese study of 355 Glossogobius sparsipapillus from the Hậu River (Cần Thơ to Sóc Trăng) measured total length, chiều dài chuẩn (SL), body height and head length. It found TL closely related to SL.",
+      "source": 5
+    },
+    {
+      "section": "vietnam",
+      "fact": "The same study found that the sex of Glossogobius sparsipapillus could be told from the TL-SL and TL-BH regressions.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Paedocypris progenetica, measured as standard length, reaches 7.9 mm and is named as the smallest vertebrate in a Vietnamese article.",
+      "source": 6
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://seriouslyfish.com/glossary/standard-length",
+      "title": "standard length",
+      "kind": "reference"
+    },
+    {
+      "url": "https://fishbio.com/finding-the-end-of-the-rainbow-all-the-ways-to-measure-fish/",
+      "title": "Finding the End of the Rainbow: All the Ways to Measure Fish",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.fishbase.se/manual/fishbaselist_of_symbols_and_abbreviation.htm",
+      "title": "List of Symbols and Abbreviations",
+      "kind": "reference"
+    },
+    {
+      "url": "https://www.fishbase.se/manual/fishbasethe_lengthlength_table.htm",
+      "title": "The LENGTH-LENGTH Table",
+      "kind": "reference"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Fish_measurement",
+      "title": "Fish measurement",
+      "kind": "reference"
+    },
+    {
+      "url": "https://jst.tnu.edu.vn/jst/article/view/3945",
+      "title": "BIẾN ĐỔI ĐẶC ĐIỂM HÌNH THÁI Ở LOÀI GLOSSOGOBIUS PARSIPAPILLUS PHÂN BỐ DỌC SÔNG HẬU, TỪ CẦN THƠ ĐẾN SÓC TRĂNG",
+      "kind": "paper"
+    },
+    {
+      "url": "https://bienvanguoi.wordpress.com/2012/09/19/dong-vat-co-xuong-song-nho-nhat-the-gioi-so-sanh-ca-va-ech/",
+      "title": "Động vật có xương sống nhỏ nhất thế giới – So sánh cá và ếch",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://guppynhatminh.com/tieu-chuan-danh-gia-ca-bay-mau/",
+      "title": "Tiêu Chuẩn Đánh Giá Cá Bảy Màu - Cá Bảy Màu - Guppy Nhật Minh",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/paracheirodon-innesi/",
+      "title": "Paracheirodon innesi (Neon Tetra) · Seriously Fish",
+      "kind": "reference"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/17-5-2-size-of-goldfish",
+      "title": "17.5.2. Size of Goldfish - Aquarium Science",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://injaf.org/the-think-tank/adult-sizes-of-popular-fish-species/",
+      "title": "Adult sizes of popular fish species - INJAF",
+      "kind": "other"
+    }
+  ]
+}

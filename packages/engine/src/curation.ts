@@ -217,6 +217,29 @@ export function headAvoid(pages: { id: string; photos: Photo[] }[], v: Verdicts,
   return out
 }
 
+/**
+ * For each page whose head is on the avoid list (the engine's or a person's), its first own photo that passes the card
+ * rule and that the list doesn't hold, by its own address, so the site takes the photo's large copy from its record.
+ * The site's faces for more than one fish fall back to it, not to a photo no check has judged (the site has no
+ * verdicts; the Site lead, 17 Nov). A page whose head passes, or isn't judged yet, has none. `avoid`: the list as this
+ * run writes it (withEngineAvoid), since a photo another page refuses is on it too, and a person may list either address.
+ */
+export function cardPhotos(pages: { id: string; photos: Photo[] }[], v: Verdicts, hand: Record<string, string>, held: (url: string) => boolean, avoid: Record<string, string>): Record<string, string> {
+  const out: Record<string, string> = {}
+  for (const page of pages) {
+    let headRefused: boolean | undefined
+    for (const p of page.photos) {
+      if (p.generated) continue
+      // On the list: refused here, or on the list by either address, for this page or another.
+      const listed = !!refusedWhy(p, page.id, v, hand, held) || [p.url, p.large?.url].some(u => !!u && u in avoid)
+      headRefused ??= listed
+      if (!headRefused) break
+      if (!listed && cardWorthy(p, page.id, v, hand)) { out[page.id] = p.url; break }
+    }
+  }
+  return out
+}
+
 /** The avoid list with the engine's entries rebuilt from `engine`: a person's entries first, as they were, then the engine's by address. */
 export function withEngineAvoid(avoid: Record<string, string>, engine: Record<string, string>): Record<string, string> {
   return { ...handAvoid(avoid), ...Object.fromEntries(Object.entries(engine).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))) }
@@ -338,7 +361,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   }
   const known = [...STAPLE_SPECIES, ...POPULAR.filter(id => !STAPLE_SPECIES.includes(id)), ...POPULAR_BREEDS]
   const out: Candidate[] = []
-  // A non-commercial album photo stays in its album: no card shows it (the owner's yes was for albums, 10 Nov).
+  // A non-commercial album photo stays in its album: no card shows it (albums only: the rule this step was built with, 16 Nov).
   const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? []).filter(p => !isNonCommercial(p.licence))]
   for (const s of c.species) {
     const ok = (p: Photo) => cardWorthy(p, s.id, v, avoid)

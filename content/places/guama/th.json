@@ -3,6 +3,12 @@
   "name": "กวามา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-19T07:54:15.260Z",
+    "why": "กวามา is a fair Thai transliteration of Guamá, but the source's Guamá is a river (rio Guamá) and the name has no kind word such as แม่น้ำ."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false
