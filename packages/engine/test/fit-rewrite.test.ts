@@ -616,6 +616,22 @@ test('a breed page\'s units are mended, in an FAQ answer too, after the part\'s 
   expect(prompts.filter(x => x.kind === 'review').map(x => x.prompt.includes('"132 lít" → "130 lít"') || x.prompt.includes('"110 lít" → "120 lít"'))).toEqual([false, true, true])
 })
 
+// The Writing Lead's sentences of 20 Nov 2026 on the self-balancing tank guide went into its FAQ by hand, marked faqFixed,
+// which the video writer, the units mender and the video mender respect. This rewrite read only bodyFixed and a fixed
+// section, so a finding on that answer would have rewritten it.
+test('an FAQ a person fixed is not rewritten, whatever the reading finds in it', async () => {
+  const { root, file, p, faq } = await breed()
+  const t = JSON.parse(await readFile(file, 'utf8'))
+  await writeFile(file, JSON.stringify({ ...t, faqFixed: true }, null, 2))
+  const before = await readFile(file, 'utf8')
+  const { llm, prompts } = notesLlm()
+  const r = await fitRewrite(root, [p], reading(p, [faq]), { llm, now: () => new Date('2026-11-20T09:00:00Z') }, { limit: 5 })
+  expect(r.rewritten).toEqual([])
+  expect(r.skipped).toEqual(['vi/breeds/pigeon-blood-discus faq.0.a: a person fixed its text'])
+  expect(prompts).toEqual([])
+  expect(await readFile(file, 'utf8')).toBe(before)
+})
+
 test('a breed page\'s units quote the other mend reworded is found again by its litres; a dose\'s water is left to a person', async () => {
   // The other finding quotes both sentences, so its mend (mend.ts: only the sentences a finding quotes) rewords the tank's.
   const both = 'Một người chơi ở Anh kể rằng cá cần nhiều chỗ. Một nguồn coi 132 lít là mức tối thiểu cho một con lớn.'

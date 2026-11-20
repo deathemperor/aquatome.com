@@ -254,7 +254,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         continue
       }
       const file = join(root, 'content', p.kind, p.id, 'vi.json')
-      const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean; faq?: { q: string; a: string }[] }
+      const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean; faqFixed?: boolean; faq?: { q: string; a: string }[] }
       const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
       // A breed page's facts give its sources' US figures (breed-units.ts).
       const facts = p.kind === 'breeds' ? await readFile(join(root, 'engine-state', 'breeds', `${p.id}.json`), 'utf8').catch(() => '') : ''
@@ -262,7 +262,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
         // An FAQ answer is plain text: rewritten as a paragraph of its own.
         const faq = FAQ_ANSWER.exec(field)
         const read = () => (faq ? t.faq?.[Number(faq[1])]?.a : partOf(t, field))
-        if (!read() || (field === 'body' && t.bodyFixed) || fixed.has(field)) { report.skipped.push(`${key} ${field}: ${read() ? 'a person fixed its text' : 'not in the file'}`); continue }
+        if (!read() || (field === 'body' && t.bodyFixed) || (faq && t.faqFixed) || fixed.has(field)) { report.skipped.push(`${key} ${field}: ${read() ? 'a person fixed its text' : 'not in the file'}`); continue }
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
         // A breed page's units after the part's other mend, in the same try: a rounding its reviewer fails can't lose it.
         const units = p.kind === 'breeds' ? fs.filter(f => f.check === 'units') : []
