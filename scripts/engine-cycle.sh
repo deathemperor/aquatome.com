@@ -41,14 +41,14 @@ push() {
       # follows the record that won (main_holds); then checked again (verify_cycle: the tests).
       if net git pull -q --rebase -X theirs; then
         replan_merged "$clash"
-        main_holds "$run" || true
+        main_holds "$run" || [ $? = 1 ] || { keep_lost_push "$PART" "main's holds couldn't be compared"; return 1; }
         sweep_merged
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
     else
-      main_holds "$run" || moved=1
+      main_holds "$run" || case $? in 1) moved=1 ;; *) keep_lost_push "$PART" "main's holds couldn't be compared"; return 1 ;; esac
       if ! swept_pull "$main" || [ -n "$moved" ]; then
         verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after the sweep on main's changes, not publishing"; return 1; }
       fi

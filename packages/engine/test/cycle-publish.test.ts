@@ -14,10 +14,11 @@ test('a cycle sweeps again after each merge with main, before the tests', () => 
   const cycle = script('engine-cycle.sh')
   expect(cycle).toMatch(/\ncatch_up\nsweep_merged\nif ! verify_cycle/)
   // catch_up's clean pull brings main's holds first (main_holds), as push() does, before that sweep and those checks.
-  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| true; return 0; fi/)
-  expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
-  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
-  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| true\n\s*sweep_merged\n\s*verify_cycle/)
+  // A comparison of holds that failed undoes that pull (main_holds), and push() compares again.
+  expect(script('cycle-checks.sh')).toMatch(/if net git pull -q --rebase; then main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| log "[^"\n]*"; return 0; fi/)
+  expect(cycle).toMatch(/rebase -X theirs; then\n\s*replan_merged "\$clash"\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push "\$PART" [^\n]*; return 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
+  expect(script('video-cycle.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push videos [^\n]*; exit 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
+  expect(script('video-recheck.sh')).toMatch(/rebase -X theirs; then\n\s*main_holds "\$run" \|\| \[ \$\? = 1 \] \|\| \{ keep_lost_push video-recheck [^\n]*; exit 1; \}\n\s*sweep_merged\n\s*verify_cycle/)
 })
 
 test('what the sweep changes after a merge is committed, and no change leaves no commit', () => {
@@ -42,7 +43,7 @@ test('what the sweep changes after a merge is committed, and no change leaves no
 test("a clean pull that brings main's commits in is swept before the push, and the tests run again only when the sweep changed something", () => {
   // Main's holds put back on a page main read meanwhile (main_holds, push-clash-hold.test.ts) are checked again too.
   for (const f of ['engine-cycle.sh', 'video-cycle.sh', 'video-recheck.sh']) {
-    expect(script(f)).toMatch(/main_holds "\$run" \|\| moved=1\n\s*if ! swept_pull "\$main" \|\| \[ -n "\$moved" \]; then\n\s*verify_cycle \|\|/)
+    expect(script(f)).toMatch(/main_holds "\$run" \|\| case \$\? in 1\) moved=1 ;; \*\) keep_lost_push [^\n]* ;; esac\n\s*if ! swept_pull "\$main" \|\| \[ -n "\$moved" \]; then\n\s*verify_cycle \|\|/)
   }
   // Kept work: after a pull that brought main's commits in, checked in full until it has passed; then swept, and checked
   // again only if the sweep changed more than the pages' dates or the migration failed, as a run's own push does, on that

@@ -577,28 +577,45 @@ added() { git diff --name-only --no-renames --diff-filter=A "$1" "$2" -- content
 ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$2" -- content | sed '/^$/d' | sort -u; }
 # After a pull that brought main's commits in, clean or not: a page's hold follows the record that won, so a release on
 # main during a run stands, and so does a hold (main-holds.mjs says which pages and why; Page Recovery and the chief of
-# staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's: one whose text isn't stays as merged,
-# and is counted in the log. In a commit of its own. `main_holds <this run's HEAD before the pull> [<main>, @{u}]` is false
-# when it put main's holds back, a tree no check has seen, so the caller checks again, as a clash does.
+# staff, 16 Nov 2026). Only the hold moves, and only on a page whose text is main's. One whose text isn't never goes out
+# open: it keeps the run's hold, or waits held for its next read, and one the merge holds already stays as merged and is
+# counted in the log (main-holds.mjs; the chief of staff, 20 Nov). Each in a commit of its own.
+# `main_holds <this run's HEAD before the pull> [<main>, @{u}]` is 1 when it committed holds, a tree no check has seen, so
+# the caller checks again, as a clash does. It's 2 when the holds couldn't be compared, or their commit failed: the pull is
+# undone, back to the run's own commit, and the caller publishes nothing. Until 20 Nov a failed comparison published the
+# merge as it was, and the work kept now is compared on its next try from the main this run started on, not from one
+# whose reads it would no longer see.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
-  local up=${2:-} base out holds texts harms
+  local up=${2:-} base out holds texts harms keeps
   [ -n "$up" ] || up='@{u}'
-  up=$(git rev-parse "$up") && base=$(git merge-base "$1" "$up") || return 0
-  [ "$base" != "$up" ] || return 0
-  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up"); then
-    log "main's holds: the pages main read during this run couldn't be compared, so their holds stay as merged"
-    return 0
+  if ! up=$(git rev-parse "$up") || ! base=$(git merge-base "$1" "$up"); then
+    uncompared "$1" "main, or where this run left it, couldn't be found"; return 2
   fi
-  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out") harms=$(sed -n 's/^harm //p' <<<"$out")
+  [ "$base" != "$up" ] || return 0
+  if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "$1"); then
+    uncompared "$1" "the pages main read during this run couldn't be compared"; return 2
+  fi
+  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out") harms=$(sed -n 's/^harm //p' <<<"$out") keeps=$(sed -n 's/^keep //p' <<<"$out")
   [ -z "$texts" ] || log "$(grep -c . <<<"$texts") pages main read during this run have main's record and this run's text, left as merged: $(head -5 <<<"$texts" | tr '\n' ' ')"
   [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
-  [ -n "$holds" ] || return 0
   # shellcheck disable=SC2086 # content paths have no spaces
-  git checkout "$up" -- $holds
-  git commit -q -m "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run"
-  log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
+  if [ -n "$keeps" ]; then
+    { git add -- $keeps && git commit -q -m "content: this run's holds on $(grep -c . <<<"$keeps") pages whose text main's record didn't read"; } || { uncompared "$1" "this run's holds couldn't be committed"; return 2; }
+    log "$(grep -c . <<<"$keeps") pages main read during this run have main's record and this run's text: held until their next read: $(head -5 <<<"$keeps" | tr '\n' ' ')"
+  fi
+  if [ -n "$holds" ]; then
+    # shellcheck disable=SC2086
+    { git checkout "$up" -- $holds && git commit -q -m "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run"; } || { uncompared "$1" "main's holds couldn't be committed"; return 2; }
+    log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
+  fi
+  [ -n "$holds$keeps" ] || return 0
   return 1
+}
+# main_holds' failure: said, and the pull undone, back to the run's commit $1.
+uncompared() {
+  log "main's holds: $2, so this run's work isn't published: the pull is undone"
+  git reset -q --hard "$1"
 }
 # The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
 # kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
@@ -623,7 +640,7 @@ push_kept() {
     # (main_holds), after it: a page it put back whole is main's already.
     head=$(git rev-parse HEAD)
     [ -z "$BRANCH" ] || main_pages "$BRANCH"
-    main_holds "$run" origin/main || true
+    main_holds "$run" origin/main || [ $? = 1 ] || { KEPT_WHY="its holds couldn't be compared with main's"; return 1; }
     [ "$(git rev-parse HEAD)" = "$head" ] || check=1
     # A clean pull that brought main's commits in is swept, as swept_pull says why. Before the work has passed on a newer
     # main, it's checked in full; once it has, its lost push goes again as a run's own push does (push(), swept_pull):
@@ -844,12 +861,13 @@ swept_clean() {
 # Work whose checks passed but whose push lost to main three times (each try pulled, swept and pushed while main moved
 # on: five merges in forty minutes on 14 Nov, when the sf run lost three) is kept as work out of time is, and the next run
 # publishes it first, after its own tests (publish_kept). Until then it stayed in the clone, whose next run starts from
-# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job>`.
+# main and drops it. A branch of that name already there is never written over. `keep_lost_push <job> [<why>]`: why it
+# wasn't pushed, by default the three lost tries; a comparison of main's holds that failed (main_holds) keeps it the same way.
 keep_lost_push() {
   engine_clone || engine_cloud || return 0
-  local branch; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
-  if git show-ref -q --verify "refs/heads/$branch"; then log "push failed three times, and $branch is already there: this run's work isn't kept"; return 1; fi
-  keep_branch "$branch" && log "push failed three times: this run's work is kept on $branch for the next run"
+  local branch why=${2:-push failed three times}; branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  if git show-ref -q --verify "refs/heads/$branch"; then log "$why, and $branch is already there: this run's work isn't kept"; return 1; fi
+  keep_branch "$branch" && log "$why: this run's work is kept on $branch for the next run"
 }
 # The calendar (content/curation.json) is one plan, not lines to blend. After a clash with a change on main, push()'s
 # line-by-line merge kept some of each plan's days, and named one guide on two days running (the photos part of
@@ -867,7 +885,8 @@ replan_merged() {
 # this main, wouldn't see it (a reader of #1505, 16 Nov 2026). The sweep and the checks come after it (engine-cycle.sh).
 catch_up() {
   local run; run=$(git rev-parse HEAD)
-  if net git pull -q --rebase; then main_holds "$run" || true; return 0; fi
+  # A comparison that failed undid the pull (main_holds): push() pulls and compares again, as after a clash here.
+  if net git pull -q --rebase; then main_holds "$run" || [ $? = 1 ] || log "checking as it started, push() compares main's holds again"; return 0; fi
   git rebase --abort 2>/dev/null || true
   log "main changed this cycle's files meanwhile: checking as it started, push() settles the clash"
 }

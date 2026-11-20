@@ -115,14 +115,14 @@ for _ in 1 2 3; do
     log "the GitHub engine changed the same files: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
-      main_holds "$run" || true
+      main_holds "$run" || [ $? = 1 ] || { keep_lost_push videos "main's holds couldn't be compared"; exit 1; }
       sweep_merged
       verify_cycle || { keep_unpublished videos; log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi
   else
-    main_holds "$run" || moved=1
+    main_holds "$run" || case $? in 1) moved=1 ;; *) keep_lost_push videos "main's holds couldn't be compared"; exit 1 ;; esac
     if ! swept_pull "$main" || [ -n "$moved" ]; then
       verify_cycle || { keep_unpublished videos; log "tests failed after the sweep on main's changes, not publishing"; exit 1; }
     fi
