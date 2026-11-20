@@ -59445,47 +59445,32 @@
   "products": []
  },
  "vi/guides/aquariumcoop-blogs-aquarium-how-to-breed-egg-scatterers": {
-  "at": "2026-11-19",
-  "hash": "f6e8ac8f61aec745",
+  "at": "2026-11-20",
+  "hash": "0056392270bc0ae1",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
+    "check": "units",
     "part": "P1",
-    "quote": "vải canvas móc (latch hook canvas) bán ở tiệm đồ thủ công",
-    "why": "Latch-hook canvas from a craft shop is a US craft-store material, not something keepers in Vietnam buy.",
+    "quote": "Lấy ống PVC đường kính 2,5–5 cm",
+    "why": "Pipe size converted from 1–2 inches; keepers in Vietnam buy pipe by millimetre size.",
     "by": "model"
    },
    {
-    "check": "words",
+    "check": "elsewhere",
     "part": "P1",
-    "quote": "Nếu tấm egg crate không khít vào thành bể",
-    "why": "English term left untranslated; local keepers have their own name for this plastic grid.",
-    "by": "model",
-    "fix": "vỉ lưới nhựa / tấm lưới lót đèn"
+    "quote": "tấm vỉ nhựa ô vuông dùng cho đèn trần, có bán ở tiệm vật liệu xây dựng",
+    "why": "An egg-crate ceiling-light diffuser from a hardware store is an American source of materials, not something keepers in Vietnam buy for this.",
+    "by": "model"
    },
    {
     "check": "words",
     "part": "P1",
     "quote": "giun đen (blackworm)",
-    "why": "Calque of 'blackworm'; keepers in Vietnam call this live food trùn chỉ.",
+    "why": "A calque of 'blackworm'; keepers in Vietnam call this live food trùn chỉ.",
     "by": "model",
     "fix": "trùn chỉ"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "Lấy ống PVC đường kính 2,5–5 cm",
-    "why": "Pipe size converted from 1–2 inch; keepers buy PVC by millimetre size.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Khay cá bột tự chế chứa cá mới nở, nhận nước thay liên tục từ một bể lớn hơn bên dưới.",
-    "why": "Caption describing the source's own pictured setup, which this page does not have.",
-    "by": "model"
    }
   ],
   "products": []
@@ -76431,19 +76416,11 @@
   ]
  },
  "vi/guides/youtube-6R-aFWdSN6Y": {
-  "at": "2026-11-19",
-  "hash": "654ee8ba3ab3bf60",
+  "at": "2026-11-20",
+  "hash": "7f181744a42448dc",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Chuyện bật đèn 12 tiếng từng bị chê là quá lâu, nhưng bể vẫn đẹp và rất ít rêu.",
-    "why": "The original creator's own story about their tanks being criticised, which the reader doesn't know.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "API Leaf Zone"
   ]
@@ -94625,8 +94602,8 @@
   ]
  },
  "vi/guides/youtube-ojUhcailsfc": {
-  "at": "2026-11-19",
-  "hash": "88e061ada73937b5",
+  "at": "2026-11-20",
+  "hash": "0bc57be7c43462d0",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -94634,15 +94611,31 @@
     "check": "source",
     "part": "P1",
     "quote": "Sau đó bể này còn bị một đợt rêu bùng.",
-    "why": "Bare 'bể này' refers to the source writer's own tank as if the reader knew it.",
+    "why": "Refers to the source's own tank as 'this tank' as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Trong bể suối kia, cây chỉ hơi đung đưa nên dòng chảy không quá mạnh.",
-    "why": "Points to the source's own stream tank that the reader has never seen.",
+    "why": "Points at the source's specific river tank the reader has not seen.",
     "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "L4",
+    "quote": "dưới 1 giọt mỗi giây",
+    "why": "CO2 rate is counted in bubbles, not drops; keepers say 'bọt/giây'.",
+    "by": "model",
+    "fix": "dưới 1 bọt mỗi giây"
+   },
+   {
+    "check": "words",
+    "part": "L7",
+    "quote": "Với mức dưới 1 giọt mỗi giây trong bể nhỏ",
+    "why": "CO2 rate is counted in bubbles, not drops; keepers say 'bọt/giây'.",
+    "by": "model",
+    "fix": "dưới 1 bọt mỗi giây"
    }
   ],
   "products": []
@@ -95853,11 +95846,19 @@
   "products": []
  },
  "vi/guides/youtube-Pn0-xaW8S3w": {
-  "at": "2026-11-19",
-  "hash": "f65375919337e841",
+  "at": "2026-11-20",
+  "hash": "19fcfad21d5410e6",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Đàn cá này được cho đẻ ở nước mát từ trước, và ít nhất một con cái đang mang bầu căng tròn.",
+    "why": "It tells the source video's own fish story as if the reader knew those fish.",
+    "by": "model"
+   }
+  ],
   "products": []
  },
  "vi/guides/youtube-PnLf3RxViMg": {
