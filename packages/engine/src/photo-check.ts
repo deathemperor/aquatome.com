@@ -248,18 +248,20 @@ function nameHits(c: string, index: Map<string, string>) {
   return hits.filter(h => !hits.some(o => o !== h && o.from <= h.from && o.to >= h.to && o.to - o.from > h.to - h.from))
 }
 
-/** Words that deny the name after them: "X, not Y", "isn't a Y", "neither Y nor Z" (norm drops the apostrophe). */
-const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|neither|nor|rather than|instead of|unlike)\s+(?:(?:an?|the)\s+)?$/
+/** Words that deny the page's own name right after them: "Bbb fish, not Aaa fish", "isn't a Y" (norm drops the apostrophe). */
+const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|rather than|instead of|unlike)\s+(?:(?:an?|the)\s+)?$/
+/** Words that put any name in doubt wherever they stand: a denial, a lookalike, a cross. */
+const DOUBT = /\b(?:not?|nor|neither|never|none|isnt|arent|wasnt|werent|doesnt|dont|didnt|cant|cannot|couldnt|ruled?|excluded?|dismiss\w*|unlikely|rather|instead|unlike|without|except|apart|besides|other than|differ\w*|distinct|doubt\w*|unsure|uncertain|confus\w*|mistak\w*|similar|resembl\w*|lookalike|relatives?|related|hybrids?|cross(?:es|ed)?)\b/
 
 /**
  * The page an "another fish" answer names: a name of exactly one other species or plant page, as `captionSubject` reads
- * a caption, and only where nothing else is named but the judged page's own kind, denied ("Bbb fish, not Aaa fish" on
- * Aaa's page). Any other answer names none: a second other kind, denied or not ("Bbb fish, not Ccc fish"), the other
- * kind denied ("not Aaa fish, nor Bbb fish"), or the page's own kind (a breed's species too) not denied ("Aaa fish or
- * Bbb fish", "halfmoon Betta splendens" on another betta breed's). The own kind stays in the reading, so a name inside
- * one of its names gives way ("neon tetra" in "green neon tetra"). Its genus names no other kind. Its id, never the
- * answer's words. The id is for an offer that judges the photo again as that fish on that page (the chief of staff,
- * 20 Nov), so an answer read wrongly costs one look, and one read in doubt gives none.
+ * a caption, in an answer with no doubt about it. The judged page's own kind (for a breed, its species too) may be named
+ * only to deny it, right before its name ("Bbb fish, not Aaa fish" on Aaa's page); that denial and that name leave the
+ * reading. Any other answer names none: two other kinds, a word of denial or doubt anywhere else ("Bbb fish is ruled
+ * out", "not Aaa fish, nor Bbb fish", "could be confused with Bbb fish"), or the page's own kind not denied ("Aaa fish
+ * or Bbb fish"). The own kind stays in the reading, so a name inside one of its names gives way ("neon tetra" in "green
+ * neon tetra"). Its genus names no other kind. Its id, never the answer's words. The id is for an offer that judges the
+ * photo again as that fish on that page (the chief of staff, 20 Nov), so an answer in doubt gives none.
  */
 export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index: { names: Map<string, string>; genera: Map<string, Set<string>> }): string | undefined {
   const parts = page.sci.split('×').map(p => norm(p).split(' ').slice(0, 2))
@@ -267,10 +269,15 @@ export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index
   const ownGenera = new Set(parts.map(p => p[0]))
   const c = norm(note)
   const hits = nameHits(c, index.names)
-  const denied = (h: { from: number }) => DENIED.test(c.slice(0, h.from))
+  let rest = c
+  for (const h of hits.filter(h => own.has(h.id))) {
+    const denial = DENIED.exec(c.slice(0, h.from))
+    if (!denial) return undefined
+    rest = rest.slice(0, denial.index) + ' '.repeat(h.to - denial.index) + rest.slice(h.to)
+  }
   const others = [...new Set(hits.filter(h => !own.has(h.id)).map(h => h.id))]
-  if (others.length !== 1 || hits.some(h => (own.has(h.id) ? !denied(h) : denied(h)))) return undefined
-  return c.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(others[0]!)) ? undefined : others[0]
+  if (others.length !== 1 || DOUBT.test(rest)) return undefined
+  return rest.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(others[0]!)) ? undefined : others[0]
 }
 
 function nameIndex(all: Subject[]) {

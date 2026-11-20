@@ -722,9 +722,9 @@ The layers above still check the result.
     `_photo-rejected.json`. From 20 Nov, a photo listed there as "something else" whose answer named one other species
     or plant we have a page for keeps that page's id in `engine-state/_photo-other-kinds.json` (`namedKind`): the id
     only, never the answer's words, and the photo stays listed everywhere (the chief of staff, 20 Nov). Only an answer
-    naming one other kind and not denying it gets an id, with the judged page's own kind (a breed's species included)
-    named only denied ("X, not Y" denies Y); an answer in doubt gets none, since the id is for an offer that judges the
-    photo again as that fish. Only a photo this run puts on the list gets one, and the record is written whole before
+    naming one other kind, with no word of denial or doubt, gets an id; the judged page's own kind (a breed's species
+    included) may be named only to deny it, right before its name ("X, not Y" denies Y). An answer in doubt gets none,
+    since the id is for an offer that judges the photo again as that fish. Only a photo this run puts on the list gets one, and the record is written whole before
     the verdicts. When the check answers "something else" for an album photo, the same run judges that album's
     other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
     and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
