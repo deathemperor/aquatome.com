@@ -1771,5 +1771,82 @@
       "attempt": "rewrite",
       "kept": true
     }
+  ],
+  "vi/glossary/co2": [
+    {
+      "at": "2026-11-20T08:59:17Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:59:17Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition still has \"Nước bể thường chỉ hòa được ít CO2, nên cây có thể cần châm thêm.\" The Glossary lead's line says to cut this sentence because fact 6 comes from the keeper alone.",
+        "Rule 12: The definition has \"Nhưng châm dư thì cá bơi lờ đờ và ngoi lên mặt nước để thở.\" It must read \"CO2 dư thì cá bơi lờ đờ và ngoi lên mặt nước để thở.\" The facts speak of too much CO2, not of adding too much.",
+        "Rule 12: \"Ánh sáng, phân và CO2 phải cân nhau.\" must be written word for word as \"Ánh sáng, phân và CO2 phải cân bằng với nhau.\"",
+        "Rule 12: \"Ban đêm cây hô hấp và nhả CO2 ra thay vì dùng nó.\" must read \"Ban đêm cây hô hấp và nhả CO2 ra.\" The words \"thay vì dùng nó\" come from the first shop alone.",
+        "Rule 12: The item \"Thiếu CO2 thì lá ngả vàng, cây chậm lớn, tảo hoặc vi khuẩn bùng lên.\" must read \"Dấu hiệu thiếu CO2 gồm lá ngả vàng, cây chậm lớn, tảo hoặc vi khuẩn bùng lên.\" This keeps fact 14's \"signs … include\".",
+        "Rule 12: \"Dung dịch CO2 lỏng không nên châm quá liều.\" must read \"Dung dịch CO2 lỏng không nên dùng quá liều.\" The word \"châm\" says the product adds CO2, and no fact says that.",
+        "Rule 12: \"Nên nhắm màu xanh lá đậm thay vì xanh ngả vàng.\" must read \"Nên nhắm màu xanh lá đậm hơn thay vì xanh ngả vàng.\" This keeps fact 45's \"darker green\".",
+        "Rule 12: \"Khi đó, thay nhiều nước đã khử clo, cùng nhiệt độ bể là cách nhanh và hiệu quả nhất, hơn cả sục khí.\" must be replaced, word for word, by \"Khi CO2 dư, cách nhanh và hiệu quả nhất là thay nhiều nước đã khử clo, cùng nhiệt độ bể. Sục khí hay khuấy mặt nước cũng giúp, nhưng kém hơn thay nước.\"",
+        "Rule 12: \"Một số bộ bơm quá nhiều khí khi bình sắp cạn.\" must read \"Một số bộ CO2 đẩy quá nhiều khí vào bể khi bình sắp cạn.\"",
+        "Rule 12: \"Thay bình trước khi khí xuống quá thấp.\" must read \"Thay bình trước khi khí xuống rất thấp.\" This keeps fact 44's \"very low\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"dây\" means two different things in the same list. In \"Đổ nước hoặc dầu khoáng vào bộ đếm giọt CO2, rồi nối dây vào nắp\" and \"Dẫn dây tới bộ khuếch tán\" it is the airline tubing. In \"Nối dây van điện từ vào adapter\" it is the solenoid's power cable. The cable needs its own plain word.",
+        "Rule 12: \"bình CO2\" is the site's word for the cylinder, but \"ghi cách lắp và chạy bình CO2\" uses it for the whole pressurized setup (regulator, bubble counter, tubing, diffuser, solenoid, timer). The setup needs a word of its own.",
+        "Rule 12: \"Van\" on its own stands for the regulator in \"Van cần bình chuẩn có ren CGA320\", and \"van điện từ\" is the solenoid in \"Nối dây van điện từ vào adapter\". Each needs a word the other doesn't share. For example, the regulator could keep its full name, \"van điều chỉnh\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"CO2 châm vào làm pH hạ xuống, và châm vừa phải thì pH xuống mức hơi chua.\": the facts don't carry it (uncredited, uncredited, uncredited): moderate dose to slightly acidic pH only from dennerle.com / slightly acidic range only from dennerle, no credit / moderate dose reaching slightly acidic pH is only from dennerle.com",
+        "Rule 12: \"và để lâu thì cá có thể chết\" in \"Nhưng châm dư thì cá bơi lờ đờ, ngoi lên mặt nước để thở, và để lâu thì cá có thể chết.\": only one shop (source 3) says fish can die. The sentence joins this to the part two sites give (sluggish swimming, rising to the surface to breathe) and states it as plain fact with no credit. It should go in its own sentence under that shop's credit, or be left ou…",
+        "Rule 12: \"và châm vừa phải thì pH xuống mức hơi chua\" in \"CO2 châm vào làm pH hạ xuống, và châm vừa phải thì pH xuống mức hơi chua.\": only the maker (source 4) says a moderate amount brings pH into the slightly acidic range. The sentence joins this to the two-site claim that CO2 lowers pH and states it as plain fact with no credit. It needs its own credited sentence. Because the entry already cre…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:38:11Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.89,
+      "notes": [
+        "\"CO2 hòa vào nước làm pH hạ xuống. pH tụt quá nhanh hoặc xuống quá thấp đều có hại cho cá.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge on harm to fish",
+        "\"Bình CO2: khí trong bình đi qua van điều chỉnh và bộ đếm giọt CO2 rồi mới vào bể.\": the facts don't carry it (uncredited, uncredited, uncredited): gas flow path only from Aquarium Co-Op steps / gas path through regulator and counter only from aquariumcoop",
+        "\"Dư CO2 còn làm cá bỏ ăn, thậm chí bất tỉnh.\": the facts don't carry it (unsupported, loose, unsupported): 'poor appetite' made into refusing food / 'bỏ ăn' slightly stronger than poor appetite / poor appetite stated as refusing food",
+        "\"Hai lỗi hay gặp là châm CO2 quá tay và để CO2 chạy suốt đêm.\": the facts don't carry it (uncredited, uncredited, uncredited): 'common mistakes' list only from aquazonefish.vn / 'common mistakes' list only from aquazonefish, stated as plain fact / 'common mistakes' only from aquazonefish",
+        "Rule 4: The definition and the body say the same things twice. \"Nước bể thường chỉ hòa được ít CO2, nên cây có thể cần châm thêm\" comes back as \"Nước bể thường chỉ hòa được ít khí này, nên cây có thể cần châm thêm\". \"cá bơi lờ đờ, ngoi lên mặt nước để thở và có thể chết\" comes back as \"cá bơi lờ đờ và ngoi lên mặt nước để thở. Để lâu thì cá có thể chết\". \"CO2 là khí cây thủy sinh dùng để lớn\" com…",
+        "Rule 12: In the definition, \"và có thể chết\" drops the fact's own condition (\"If this goes on, fish can die\"), so the hedge is lost.",
+        "Rule 11: \"rêu hại\" in \"nếu không rêu hại sẽ lan\" uses 'rêu' (moss) for algae. It should be \"tảo\".",
+        "Rule 11: \"rêu\" in \"rêu hoặc vi khuẩn bùng lên\" uses 'rêu' (moss) for algae. It should be \"tảo\".",
+        "Rule 12: \"CO2 hòa vào nước làm pH hạ xuống\" drops the fact's limits. The fact says some dissolved CO2 forms carbonic acid and a moderate addition lowers pH into the slightly acidic range.",
+        "Rule 12: \"pH tụt quá nhanh hoặc xuống quá thấp đều có hại cho cá\" is plain but joins two one-site claims. 'Too quickly' is only the first shop's claim, and 'too low' is only the Vietnamese shop's. Each part needs its own sentence with that site's credit. Also, \"đều có hại\" drops the facts' 'can' and turns the Vietnamese shop's 'stressed' into 'harm'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
