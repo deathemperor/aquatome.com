@@ -418,6 +418,8 @@ The layers above still check the result.
       - A word the rewrite leaves, in a part the reviewer failed or a fixed part, doesn't bring the page back at the next
         run.
       - A word new to the list, as a new row or added to a row's pattern, does. A row's label changed alone doesn't.
+      - Each word a row matches is its own mark, case aside: a rewrite that swaps one of a row's words for another of the
+        same row ("bạn nên" for "bạn cần") brings the page back once, for the new word.
       - A page whose rewrite failed isn't marked, so it comes back. A page the gate holds back gets its old line back, with
         its old marks, so it comes back too.
       - A marked word in text written later, such as a new source's section, doesn't bring the page back.

@@ -10,7 +10,7 @@ import { FISH_NAMES, oldNames, SWAPPED, type FishName, type SwappedName } from '
  * - the writers' prompts (VI_STYLE for Vietnamese);
  * - the `phrasing` content rule, which lists them (never a held count: a model can still write one, and only a model can
  *   mend it);
- * - the style rewrite, `rewrite-vi --match`, through phraseMatch.
+ * - the style rewrite, `rewrite-vi --phrases`, through phraseRun: each page once for each listed word it has.
  * A swap that is right in every sentence goes in sanitize.ts WORDING instead, which the sweep makes on every page.
  */
 export type Phrase = {

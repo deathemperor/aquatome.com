@@ -237,8 +237,8 @@ test('--match re-edits only the pages containing it, video guides and their summ
 // matches it (phrases.ts phraseRun, as `rewrite-vi --phrases` passes it).
 test('--phrases takes a page up once for each listed word: not again for one it was taken up for, again for a new one', async () => {
   const root = await setup()
-  // The page has three listed words from the start; the list has one of them.
-  const body = '<p>Theo tác giả, dù vậy cá ăn được, tuy nhiên ít.</p>'
+  // The page has three listed words from the start, one capitalised; the list has one of them.
+  const body = '<p>Theo tác giả, Dù vậy cá ăn được, tuy nhiên ít.</p>'
   await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body, quality: { score: 0.85, indexable: true } })
   const state = join(root, 'state.json')
   const list: Phrase[] = [{ say: 'tác giả', instead: 'người viết' }]
