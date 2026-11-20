@@ -1931,5 +1931,92 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/nen-cat": [
+    {
+      "at": "2026-11-20T09:15:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cát làm nền có nhiều loại, khác nhau về màu và cỡ hạt.\" (not \"Cát làm nền có nhiều loại: có loại trắng, có loại pha lẫn hạt màu, cỡ hạt từ mịn như bột đến hạt to.\": Rule 12: \"Cát làm nền có nhiều loại: có loại trắng, có loại pha lẫn hạt màu, cỡ hạt từ mịn như bột đến hạt to.\" is not the required sentence.…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:15:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Cát làm nền được bán thành nhiều loại, khác nhau về màu và cỡ hạt.\" must be replaced word for word with \"Cát làm nền có nhiều loại, khác nhau về màu và cỡ hạt.\" Only one shop (fact 20) says 'sold'.",
+        "Rule 12: \"Trên cát màu trắng, chất thải lộ rõ.\" must be replaced word for word with \"Trên cát màu trắng, chất thải lộ rõ nếu không hút nền thường xuyên.\" Fact 14's limit has to sit beside the claim.",
+        "Rule 12: \"Một tiệm ghi rằng Corydoras bới cát tìm mồi và nhờ đó giữ cát sạch hơn.\" and \"Tiệm này ghi rằng cát có thể bị yếm khí; nền yếm khí làm hại cây có rễ; …\" must become the one prescribed sentence under one opening: \"Một tiệm ghi rằng Corydoras bới cát tìm mồi và nhờ đó giúp giữ cát sạch; cát có thể bị yếm khí; nền yếm khí làm hại cây trồng dưler nền; dấu hiệu là những mảng sẫm màu dưới đá …",
+        "Rules 4 and 12: \"Các nguồn nói khác nhau về chuyện cát bị yếm khí.\" must go. The keeper's next sentence, with 'thì ghi rằng', already shows that the sources disagree.",
+        "Rule 12: \"Ngoài ra còn có tiệm bán cát nắng vàng.\" must be cut. It would be a fourth named page, it is one shop's claim, and a keeper can't act on it.",
+        "Rule 12: \"Hút nền đều để lấy xác hữu cơ ra.\" must be replaced word for word with \"Hút nền thường xuyên để lấy xác hữu cơ ra.\"",
+        "Rule 12: \"Tiệm này cũng ghi:\" is the first sentence under the heading 'Sai lầm hay gặp', and it comes back to a source after two shops have been named. It must name the source again as \"Tiệm thứ nhất cũng ghi:\". This list is from fact source 2, the first shop, so 'tiệm này' is not allowed here.",
+        "Rule 12: \"Cát xây dựng thường lẫn vôi, làm tăng pH và độ cứng, lại làm đục nước.\" must be replaced word for word with \"Cát xây dựng thường lẫn vôi. Vôi làm tăng pH và độ cứng, lại làm đục nước.\"",
+        "Rule 12: \"Cát bãi biển và cát trong hố chơi của trẻ con không dùng được, vì chúng chứa silicat làm tảo mọc.\" must be replaced word for word with \"Cát bãi biển và cát trong hố chơi của trẻ con không phù hợp làm nền, vì chúng chứa silicat làm tảo mọc.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:52:21Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, reworded and still loose: \"Tiệm cá bán nhiều loại cát, khác nhau về màu và cỡ hạt.\" → \"Cát làm nền được bán thành nhiều loại, khác nhau về màu và cỡ hạt.\" (loose, supported, loose)",
+        "Rule 12: \"Một tiệm ghi rằng Corydoras bới cát tìm mồi và nhờ đó giữ cát sạch hơn.\" and \"Tiệm này ghi rằng cát có thể bị yếm khí; nền yếm khí làm hại cây có rễ; dấu hiệu là những mảng sẫm màu…\" are claims from the same shop (Swell UK, source 2) that sit next to each other. Only the line \"Các nguồn nói khác nhau về chuyện cát bị yếm khí.\" comes between them. Each gets its own opening, but the stand…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T06:52:21Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.95,
+      "notes": [
+        "\"Dấu hiệu là những mảng sẫm màu dưới đá và đồ trang trí, khuấy lên thì bốc mùi trứng thối.\": the facts don't carry it (uncredited, uncredited, uncredited): only Swell UK gives anaerobic signs; credit ended in prior sentence / only swelluk.com gives the anaerobic signs; credit ended at the previous sentence / anaerobic signs only from swelluk.com; credit ended at previous sentence",
+        "Rules 4 and 12: \"Dấu hiệu là những mảng sẫm màu dưới đá và đồ trang trí, khuấy lên thì bốc mùi trứng thối.\" Only one shop gives this (source 2, Swell UK), but it stands as its own sentence with no credit, so it reads as plain fact. It should go under the same opening as \"Tiệm này ghi rằng cát có thể bị yếm khí…\", in one sentence with semicolons. Written plainly, it also sides with that shop on th…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:52:21Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 1 and 12: \"Cát trắng: cát biển, dễ ố bẩn nên phải vệ sinh bể thường hơn.\" This is the shop's \"Cát trắng\" item (fact 27, a sand from the sea), which the Glossary lead said to leave out. Next to \"Cát bãi biển và cát trong hố chơi của trẻ con không dùng được\", the entry reads as contradicting itself.",
+        "Rule 12: \"Trên cát trắng, chất thải lộ rõ.\" uses \"cát trắng\" for white sand in general, but the list later uses \"Cát trắng\" as the name of one kind of sand, the sea sand. One word is used for two different things.",
+        "Rule 12: \"Rửa kỹ mọi loại cát trước khi cho vào bể, khuấy đảo dưới nước máy đến khi nước trong.\" Only \"rửa kỹ cát trước khi cho vào bể\" may stand plain. Fact 35 says to stir under tap water until the water runs clear, but only for new inert substrates and only from one site. That part needs its own sentence, under that site's credit and limited to inert substrates. Here it is joined to the plain …",
+        "Rule 12: \"Tiệm thứ hai ghi rằng cát có thể bị yếm khí...\" The shop is named again right after \"Một tiệm khác ghi rằng Corydoras bới cát...\", so it is still the last shop named and should be \"tiệm này\", not \"Tiệm thứ hai\".",
+        "Rule 12: \"Một tiệm ghi rằng cát trơ được trải thẳng vào bể, dày khoảng 3–5 cm.\" This shop's claims are split up: the shop comes back later with \"Tiệm thứ nhất cũng ghi về các loại cát nó bán:\". The order allows keeping its claims together.",
+        "Rule 12: \"Tiệm thứ nhất cũng ghi về các loại cát nó bán:\" No fact says this shop sells these sands. Its facts only describe them, so \"nó bán\" adds something no fact gives."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T18:29:15Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Rule 1: \"Cát trắng: cát biển\" is listed as a sand sold for tanks, but later \"Cát bãi biển và cát trong hố chơi của trẻ con không dùng được\" says beach sand can't be used. The two lines contradict each other, and the second appears to take a side against the first.",
+        "Rule 12: \"Rửa kỹ mọi loại cát trước khi cho vào bể, khuấy đảo dưới nước máy đến khi nước trong\" joins two facts and widens one of them. The step of stirring under tap water until the water runs clear comes from one shop (Swell UK), and only for new inert substrates. Here it is applied to every sand and given as plain fact. Rinsing steps must be given only as the facts give them.",
+        "Rule 12: \"còn cá hay đào thì trộn lẫn hai lớp\" names a group of fish by a made-up phrase. With no page or scientific name for them, it must say \"một số loài cá hay đào\".",
+        "Rule 12: \"Loại này hợp với cá nước mềm như Corydoras\" names a group of fish (soft-water fish) without a page or scientific name. It should read \"một số loài cá nước mềm\", using the fact's own widest word."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "5d71cd965fc8069b424180fc5012c2fe0e1a43d1f8e89a7cb1dfedef7be60f0e"
+    }
   ]
 }
