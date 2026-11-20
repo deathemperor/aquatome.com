@@ -864,8 +864,23 @@ The layers above still check the result.
     those pictures rests on the photographer being named). Each sweep mends a photo credited to its publisher alone
     from the page's stored copy, by the line that follows its caption there (`publisher-credits.ts`, Seriously Fish's
     pages; `publisher-credits.test.ts`). A photo whose line can't be told for certain keeps the publisher alone, and
-    `pnpm engine credits` lists it by file and address, with why. Found on 17 Nov 2026: 1,654 Seriously Fish photo
-    places credited the site alone a week after the ruling.
+    `pnpm engine credits` lists it by file and address, with why, and counts each publisher's photos with their line
+    and with its name alone. Found on 17 Nov 2026: 1,654 Seriously Fish photo places credited the site alone a week
+    after the ruling. Since 20 Nov 2026:
+    - A new photo is stored with the line its page prints with it (`source-photos.ts`). A stored one is named only by the
+      sweep or the line-read list below, which read every copy of the photo first.
+    - Aquarium Glaser prints one line for every picture on a page ("Text & photos: <name>"): each sweep names its photos
+      by it. A page whose lines name different people, a line naming more than one person or going on past the name, and
+      a photo whose own caption prints another credit keep "Aquarium Glaser" alone, listed with why (the chief of staff's
+      guard of 17 Nov). One photo is one picture: a copy the guard holds, or one whose line shows another credit, keeps
+      every copy of that photo with the publisher alone, wherever it is.
+    - The pages whose pictures' lines the stored copy keeps without their place (The Spruce Pets, Aquarium Breeder,
+      ScotCat, Loaches Online) are on `engine-state/_credit-lines.json`: the cycle reads each once, the ones its own turn
+      reaches within two weeks on that turn and the rest the next time it reads their source, and each read names our
+      photos from its pictures' lines, but never a photo one of whose copies another line names already. A page read
+      early is read early once: if its request or the read of its lines fails, it waits for its own turn, and a failed
+      request leaves its state as it was, so no retry brings it back sooner. Each of ScotCat's picture pages is asked once
+      a read; if one fails or answers with an error, the page stays on the list for its own turn.
   - **Removal.** A reader or a photographer writes to the address on the contact page (`/lien-he/`, "Bản quyền và
     ghi nguồn" or "ảnh nhầm loài"). The owner adds the photo's address to `engine-state/_photo-rejected.json` with the
     reason: the next cycle drops it from every page and gallery, and it is never picked again. A source that withdraws

@@ -74,7 +74,7 @@ import { FB_FISH_SCHEMA, FB_SPECIES_SCHEMA, identifyPhotos, type FbVerdict } fro
 import { approveSummaries, draftSummaries, reviewDoc } from './summaries'
 import { backfillThumbs } from './thumbs'
 import { tidyCredits } from './wiki-author'
-import { namePublisherCredits } from './publisher-credits'
+import { creditCounts, namePublisherCredits } from './publisher-credits'
 import { fillLifespans } from './lifespans'
 import { hashPictures } from './picture-hashes'
 import { extractTraits } from './traits'
@@ -337,6 +337,8 @@ if (cmd === 'photo-privacy') {
   console.log(`publisher credits: ${Object.entries(named.named).map(([s, n]) => `${s} ${n}`).join(', ') || 'none'} named in ${named.files} files; ${named.untied.length} keep the publisher alone`)
   // Each by its file and address, with why: no name.
   for (const u of named.untied) console.log(`publisher credit not told: ${u.file} ${u.url} (${u.why})`)
+  // Each publisher's photos with their line and with its name alone, places counted (the chief of staff, 17 Nov 2026).
+  for (const [s, c] of Object.entries(await creditCounts(ROOT))) console.log(`publisher credits, ${s}: ${c.named} with a line, ${c.alone} the publisher alone`)
 } else if (cmd === 'lifespans') {
   // Lifespans the sources already state as a labelled line ("Life expectancy: 4 years"), put on the data card for each
   // source that gives one; new reads give theirs through the process prompt.
