@@ -297,10 +297,11 @@ REACH = {
 }
 
 
-def check(runs, left, reached):
+def check(runs, left, reached, ran):
     """What these lists decide for a few changes, from flows-to-run.py's test: `runs` gives the tests a pull request
     runs, in whichever job (a sorted list: how they're packed into jobs is flows-to-run.py's, and its own test checks
-    that), `left` the classes it leaves to main, `reached` what main runs after the merge (a set, or ALL)."""
+    that), `left` the classes it leaves to main, `reached` what main runs after the merge (a set, or ALL), `ran`
+    each test it runs, by test, once for each time it runs (a part's skips taken off)."""
     # The smoke set alone: what every screen sits in, the light's radio, the tanks, the catalog's two flows.
     smoke = runs(['apps/ios/AquaTome.xcodeproj/project.pbxproj'])
     for paths in ([APP + 'OwnCopy.swift'], ['apps/ios/Config/Base.xcconfig'], [KIT + 'Sources/ChihirosBLE/Bluetooth.swift'],
@@ -332,6 +333,9 @@ def check(runs, left, reached):
     for paths in ([APP + 'AquaTomeApp.swift'], [APP + 'FishID/FishIDView.swift'], [KIT + 'Sources/FishID/Model.swift'],
                   ['apps/ios/Gemfile'], [f'apps/ios/{UI}/PageShotsFlowTests.swift']):
         assert [t for t in runs(paths) if not t.startswith('PageShotsFlowTests/')] == sorted(smoke + ['PageShotsFlowTests']), paths
+        # Every shot once, wherever it runs: a shot a part both names and skips runs nowhere.
+        every = sorted({f'PageShotsFlowTests/{t}' for ts in SHOTS.values() for t in ts})
+        assert [t for t in ran(paths) if t.startswith('PageShotsFlowTests/')] == every, paths
     for paths in ([APP + 'AquaTomeApp.swift'], [APP + 'Telemetry.swift'], ['apps/ios/Gemfile']):
         assert left(paths) == 'every flow', paths
     # Nothing: the kit's tests, the vectors, the budgets, the catalog's Info.plist strings, the scripts `perf` runs, the
