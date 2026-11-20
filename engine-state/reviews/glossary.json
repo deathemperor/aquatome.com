@@ -2268,5 +2268,95 @@
       "attempt": "rewrite",
       "kept": true
     }
+  ],
+  "vi/glossary/trung-huyet": [
+    {
+      "at": "2026-11-20T09:35:24Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:35:24Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Trùng huyết là ấu trùng màu đỏ của muỗi lắc (họ Chironomidae), không phải giun.\" must be replaced word for word with \"Trùng huyết là ấu trùng của muỗi lắc (họ Chironomidae), không phải giun thật sự.\" The red colour belongs to fact 5, and fact 4 says \"true worms\".",
+        "Rule 12: \"Tiệm cá ở Việt Nam có bán trùng huyết đông lạnh làm thức ăn cho cá.\" adds to the definition, but the meaning must be fact 4 alone.",
+        "Rule 12: the heading \"Trong bể của bạn\" must become \"Đặc điểm và dinh dưỡng\".",
+        "Rule 12: the credit \"Một tài liệu của hội người nuôi cá ghi:\" adds \"người nuôi cá\", which no research gives. It should open with \"hội\" and nothing added.",
+        "Rule 12: \"Màu đỏ đến từ một sắc tố máu (erythrocruorin), giúp ấu trùng sống được trong nước thiếu oxy.\" should leave the society's list and stand as a plain sentence, because two sites give it (fact 5).",
+        "Rule 12: \"Đạm chiếm 47,7–62,5% trọng lượng khô, béo 4,9–28,6%, và đây là nguồn sắt tốt.\" must be replaced with \"Đạm chiếm 47,7–62,5% trọng lượng khô, béo 4,9–28,6%. Trùng huyết cũng là nguồn sắt tốt.\"",
+        "Rule 12: \"Trùng huyết đông lạnh có lượng đạm ngang trùng chỉ sống, nên dùng thay trùng chỉ được.\" must be replaced with \"Trùng huyết đông lạnh có lượng đạm ngang trùng chỉ sống, nên có thể dùng thay trùng chỉ sống.\"",
+        "Rule 12: the heading \"Nên làm gì\" over the allergy must become \"Dị ứng trùng huyết\".",
+        "Rule 12: \"Tài liệu của hội này ghi các triệu chứng dị ứng trùng huyết gặp ở người nuôi: viêm kết mạc, …\" drops fact 46's \"include\". It must read \"…gặp ở người nuôi gồm viêm kết mạc, viêm mũi có hoặc không kèm hen, và nổi mề đay.\"",
+        "Rule 12: the credit \"Một tạp chí cá cảnh ghi:\" adds \"cá cảnh\", which no research gives. It should be \"tạp chí\" with nothing added."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 6: \"muỗi lắc\" in \"Ấu trùng muỗi lắc còn có con màu trắng, xanh lá và vàng.\" (also in \"ăn ấu trùng muỗi lắc đã lớn và nhộng\"): this group has no line in PAGES, so it should be called by the scientific name the FACTS use (Chironomidae, or chironomid larvae). It should not get a Vietnamese common name.",
+        "Rules 4 and 12: The allergy is stated in two places. One is the society paragraph \"Tài liệu của hội này ghi các triệu chứng dị ứng trùng huyết gặp ở người nuôi: viêm kết mạc, viêm mũi có hoặc không kèm hen, và nổi mề đay.\" The other is the magazine's \"Huyết sắc tố của trùng huyết gây dị ứng ở một số người…\". THIS TERM says the allergy is said once, so it should be stated in one place, with the sy…",
+        "Rule 12: In \"Đã có ca cá bột cá trê đi bộ 4–5 ngày tuổi chết sau khi ăn ấu trùng muỗi lắc đã lớn và nhộng.\" the fact's hedge is dropped. The fact says these deaths \"were reported\" (\"có báo cáo\"), but \"Đã có ca … chết\" states them as plain fact.",
+        "Rule 12: In \"Tài liệu của hội này ghi các triệu chứng dị ứng…: viêm kết mạc, viêm mũi có hoặc không kèm hen, và nổi mề đay.\" the fact's hedges are dropped. The fact says these are \"reported\" allergies that \"include\" these symptoms, but the sentence presents the list as certain and complete."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"cá cầu vồng\" in \"Một bác sĩ thú y khuyên không cho cá discus, cá cầu vồng và một số loài cá tetra ăn trùng huyết cỡ lớn.\": rainbowfish is a group with no page, and the FACTS give no scientific name for it. The line on group names asks for the fact's own word, which here is \"rainbowfish\". The Glossary lead's line on fact 40 also names the group \"rainbowfish\". \"Cá cầu vồng\" is a Vi…",
+        "Rule 12: \"Tài liệu của hội này cũng cảnh báo về trùng huyết cỡ lớn:\" opens a list that ends with \"Cá bột mới nở chưa có men tiêu hóa được kitin. Đã có ca cá bột cá trê đi bộ 4–5 ngày tuổi chết sau khi ăn ấu trùng muỗi lắc đã lớn và nhộng.\" That fact is about late-stage larvae and pupae, not the larger bloodworms that fact 40 warns against. It is also a reported cause, not a warning. Putting it un…"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "6247fc7184bfc0874fdaa2cd80142d951f37f6d89cb73f990295f7e7d108c936"
+    },
+    {
+      "at": "2026-11-20T06:43:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 4: The claim that bloodworms are midge larvae and not worms appears twice. The definition says \"Trùng huyết là ấu trùng màu đỏ của muỗi lắc (họ Chironomidae), không phải giun\" with no credit. The society list says it again: \"Trùng huyết là ấu trùng của muỗi lắc (họ Chironomidae), không phải giun, vì nó có vỏ ngoài và chân nhỏ có móc\". It should be said once, in one place.",
+        "Rule 4: The point that Vietnamese shops sell frozen bloodworms appears twice: \"Tiệm cá ở Việt Nam có bán trùng huyết đông lạnh làm thức ăn cho cá\" in the definition, and \"có bán ở tiệm cá Việt Nam\" in the frozen item.",
+        "Rule 4: The live-bloodworm item gives the cleaning step twice, once as \"phải làm sạch\" and again as \"phải xả thật kỹ trước khi cho ăn để loại ký sinh trùng\".",
+        "Rules 7 and 12: The live item, \"Trùng huyết sống\", also carries facts about the frozen form: \"loại đông lạnh tiện hơn, để được lâu hơn, an toàn hơn, dễ chia phần hơn\". Each form must be said with its own facts, in its own item.",
+        "Rule 12: The freeze-dried item, \"Trùng huyết đông khô: cách cất và cho ăn xem mục thức ăn khô\", says more than the required pointer. It should read exactly \"Trùng huyết đông khô: xem mục Thức ăn khô.\"",
+        "Rule 12: \"Tài liệu của hội người nuôi cá nói ở trên ghi các triệu chứng dị ứng…\" uses \"nói ở trên\", which is not allowed. The society is the last society named, so it should be \"hội này\".",
+        "Rule 12: \"Tiệm ở Việt Nam nói ở trên cũng ghi rằng cá ăn quá nhiều trùng huyết có thể bị sình bụng\" uses \"nói ở trên\", which is not allowed. This shop is the last shop named, so it should be \"tiệm này\".",
+        "Rule 12: \"Tài liệu của hội người nuôi cá nói ở trên cũng cảnh báo về trùng huyết cỡ lớn\" uses \"nói ở trên\", which is not allowed. It should be \"hội này\".",
+        "Rule 12: \"Một bác sĩ thú y khuyên không cho cá đĩa ăn trùng huyết cỡ lớn\" drops two of fact 40's three groups. The warning must keep all three: discus, rainbowfish and \"một số loài cá tetra\".",
+        "Rule 6: \"cá đĩa\" in \"Một bác sĩ thú y khuyên không cho cá đĩa ăn trùng huyết cỡ lớn\": the fact means discus as a whole group. \"Cá đĩa\" is the name of one species page (Symphysodon aequifasciatus). The group should be named by the fact's own word, discus, not by a single species page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-19T17:15:12Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.96,
+      "notes": [
+        "\"Một bác sĩ thú y khuyên không cho cá đĩa Heckel, cá đĩa, một số loài cá cầu vồng và một số loài tetra ăn trùng huyết cỡ lớn.\": the facts don't carry it (unsupported, unsupported, unsupported): adds Heckel discus; narrows rainbowfish to 'some'",
+        "Rule 6: \"muỗi lắc\" in \"Ấu trùng muỗi lắc còn có con màu trắng, xanh lá và vàng.\" and in \"Đã có ca cá bột cá trê đi bộ 4–5 ngày tuổi chết sau khi ăn ấu trùng muỗi lắc đã lớn và nhộng.\": the midges have no line in PAGES, and the FACTS call them only Chironomidae / chironomid. These sentences use the Vietnamese name \"muỗi lắc\" alone, without the scientific name. They should say \"ấu trùng Chironomida…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
   ]
 }
