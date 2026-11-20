@@ -489,9 +489,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // and guides are Curation's lists in their order, each page only as this index lists it (one that stops passing reader
   // fit drops out), then the home's own ranking: a language with fewer of Curation's pages (most are Vietnamese) still
   // fills its shelf.
-  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
+  // No fish or plant led by a non-commercial photo: a shelf features them (the chief of staff's rule, 17 Nov).
+  const ncLed = (xs: { id: string; photos: Photo[] }[]) => new Set(xs.filter(x => x.photos.some(p => isNonCommercial(p.licence ?? ''))).map(x => x.id))
+  const fishNc = ncLed([...c.species, ...c.breeds]), plantNc = ncLed(c.plants)
+  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img && !fishNc.has(i.id ?? '')).map(i => [i.id, i.path]))
   const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
-  const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
+  const plantAt = new Map(items.filter(i => i.kind === 'plant' && !plantNc.has(i.id ?? '')).map(i => [i.id, i.path]))
   home.browse = {
     fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE.fish),
     plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, BROWSE.plants),

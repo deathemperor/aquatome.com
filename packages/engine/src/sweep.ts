@@ -875,11 +875,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
       const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
       // A person's pick follows the rule for a non-commercial photo (the chief of staff, 17 Nov): it leads only a page with
-      // no other photo the lead step would put first, and stays in its album otherwise (lead-photo.ts leadChoice).
+      // no other photo the lead step would put first, and stays in its album otherwise (lead-photo.ts leadChoice). Nor does
+      // it take a generated picture's place: a generated picture, then a Glaser photo with its mark, then a non-commercial
+      // one (the chief of staff, 20 Nov).
       if (found && isNonCommercial(found.licence)) {
         const leads = (openLead ??= await openLeads(root))
         const album = (gallery.photos ?? []).filter(p => !p.unchecked && !isNonCommercial(p.licence))
-        if (own.some(p => !p.generated && !isNonCommercial(p.licence)) || album.some(p => leads(p, id))) { report.heads.push(`${ref}: picked photo is non-commercial, and the page has another photo to lead`); continue }
+        if (own.some(p => p.generated || !isNonCommercial(p.licence)) || album.some(p => leads(p, id))) { report.heads.push(`${ref}: picked photo is non-commercial, and the page has another photo to lead`); continue }
       }
       if (found) {
         const { best: _b, kind: _k, unchecked: _u, ...photo } = found

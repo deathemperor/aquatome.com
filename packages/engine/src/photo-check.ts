@@ -583,7 +583,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => album(a) - album(b) || turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
       const todo = [...first, ...more]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
-      for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) { sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) }); if (now === 'bareNc') ncTaken++ }
+      // The share ends at its last sheet, a page's next sheets too.
+      for (let i = 0; i < todo.length && sheets.length < o.limit && !(now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE)); i += PER_SHEET) { sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) }); if (now === 'bareNc') ncTaken++ }
     }
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }

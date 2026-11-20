@@ -384,6 +384,13 @@ test("a person's head pick follows the rule: a non-commercial photo leads only a
   await writeFile(join(passing, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
   await sweep(passing, { switches: ON })
   expect(await own(passing)).toEqual([])
+  // A generated picture leads: the pick doesn't take its place (the chief of staff, 20 Nov; a reader's point).
+  const made = await bare(false)
+  const ai: Photo = { ...photo(20, 'CC0'), generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
+  await writeFile(join(made, `content/species/${ID}/entity.json`), JSON.stringify({ ...(await read(made, `content/species/${ID}/entity.json`)), photos: [ai] }, null, 2))
+  await writeFile(join(made, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
+  await sweep(made, { switches: ON })
+  expect(await own(made)).toEqual([INAT(20)])
   // None: the pick leads, and stays in its album too.
   const none = await bare(false)
   await writeFile(join(none, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))

@@ -672,7 +672,7 @@ The layers above still check the result.
     one the owner asked for, so it leads before a non-commercial one. The album follows looks: clean photos, then
     non-commercial, then banner photos. The page's own card shows it as it shows any head, so lists and search do; it is never the day's card, a
     featured card, a group tile, a Khám phá chip or the app's top cards (`curation.ts`: on the engine's avoid list, no
-    card photo), never on the home page's rows of native fish or easy plants or a guide's borrowed picture (the site checks
+    card photo), never on the home page's rows of native fish or easy plants, Khám phá's shelves or a guide's borrowed picture (the site checks
     the licence itself there, a plant's too: the engine's list holds fish and breeds only), never a fish-ID reference, and a page it leads offers the site's own picture to shares and search
     (`shareImage`). Its credit with the licence sits by it, as in the album. The site shows one on a page only as its one
     real photo (`load.ts`, `ncAlone`), and the content stats count a page's photos by the same rule. Their licence text is their mark

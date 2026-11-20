@@ -319,6 +319,15 @@ test("the non-commercial photos on pages with no photo of their own take at most
   const d = model({})
   await checkPagePhotos(r, d, { limit: 3, ncShare: 2 })
   expect(d.seen.map(s => s.photos)).toEqual([['b-nc'], ['c-nc'], ['a-wait']])
+  // A page with seven of them takes two sheets: with a share of one, it gets one this run, not both (a reader's point).
+  const r2 = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'bbb-fish', sci: 'Bbb fish' }])
+  await writeFile(join(r2, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [waits('a-wait')], seen: 0, updatedAt: '' }))
+  const seven = [1, 2, 3, 4, 5, 6, 7].map(i => `b-nc${i}`)
+  await writeFile(join(r2, 'content/gallery/bbb-fish.json'), JSON.stringify({ id: 'bbb-fish', photos: seven.map(nc), seen: 0, updatedAt: '' }))
+  await writeFile(join(r2, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': { ok: 'yes', typical: true, note: '', logo: false, person: false } } }))
+  const d2 = model({})
+  await checkPagePhotos(r2, d2, { limit: 3, ncShare: 1 })
+  expect(d2.seen.map(s => s.photos)).toEqual([seven.slice(0, 6), ['a-wait']])
 })
 
 test("the photos that wait on a page that shows no strip go before the turns, the open ones first, then the non-commercial ones; a page with a strip, or a breed's, waits its turn (the chief of staff, 2026-11-19)", async () => {

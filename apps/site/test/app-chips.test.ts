@@ -110,6 +110,18 @@ test("a chip's picture is never a non-commercial photo, though it leads its fish
   expect((await dia(shot('CC BY-NC 4.0'))).img).toBeUndefined()
 })
 
+test("Khám phá's shelves leave out a fish or plant led by a non-commercial photo: a shelf features them (the chief of staff's rule, 17 Nov; a reader's point)", async () => {
+  const vi = await getContent('vi')
+  const before = appIndex('vi', vi)
+  const idOf = (path: string) => before.items.find(i => i.path === path)!.id!
+  // A shelf fish that the featured row doesn't hold (so the avoid list isn't what takes it off), and a shelf plant.
+  const fish = idOf(before.home.browse!.fish.find(p => !before.home.fish.includes(p))!), plant = idOf(before.home.browse!.plants[0]!)
+  const led = <X extends { id: string; photos: Photo[] }>(x: X): X => ([fish, plant].includes(x.id) ? { ...x, photos: [{ ...x.photos[0]!, licence: 'CC BY-NC 4.0' }] } : x)
+  const after = appIndex('vi', { ...vi, species: vi.species.map(led), breeds: vi.breeds.map(led), plants: vi.plants.map(led) })
+  expect(after.home.browse!.fish).not.toContain(before.home.browse!.fish.find(p => !before.home.fish.includes(p)))
+  expect(after.home.browse!.plants).not.toContain(before.home.browse!.plants[0])
+})
+
 // The chips as the curation file holds them, in every language's index on the fixture: whole and consistent.
 test("every language's index carries the file's chips whole: its fish are its items, its count theirs, its order 1 to n", async () => {
   const file = CurationSchema.parse(JSON.parse(readFileSync(new URL('../../../content/curation.json', import.meta.url), 'utf8')))
