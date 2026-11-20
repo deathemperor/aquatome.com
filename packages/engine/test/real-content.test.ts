@@ -1083,6 +1083,12 @@ test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", ()
 // (test/fixtures/net-putbacks-1120.json, by each guide's whole id).
 test('the four things the night of 19 Nov took from guides are back', () => handFixesHold('net-putbacks-1120.json', ''))
 
+// The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
+// bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
+// the list of guides where a step the video took had become advice. Each guide is bodyFixed, and faqFixed where its FAQ
+// changed (test/fixtures/mend-fixes-1120-rest.json).
+test("the Writing Lead's lines of 20 Nov hold on eight more guides", () => handFixesHold('mend-fixes-1120-rest.json'))
+
 // The Writing Lead, 15 Nov 2026, on the rainbowfish guide's label ("Bể cầu vồng của …"): no video guide's label, the
 // words over its thumbnail, names the person in the video or the channel.
 test('no video guide\'s label names a person or the channel', () => {
