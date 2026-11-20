@@ -305,7 +305,7 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-start")
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     // Past the step's turn, signed out; then the owner again, to read the card.
     RunLoop.current.run(until: Date().addingTimeInterval(35))
     app.signInWithStandInApple()
@@ -346,7 +346,7 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-log", contains: "switch_3 off", timeout: 20)
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     RunLoop.current.run(until: Date().addingTimeInterval(35))
     app.signInWithStandInApple()
     app.openTab("Đèn")
@@ -368,7 +368,7 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-lamp-asked", contains: "on", timeout: 15)
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     // Past the wait, so the answer comes while signed out (Fable, 17 Nov: 20 s was tight for a busy runner).
     RunLoop.current.run(until: Date().addingTimeInterval(45))
     app.signInWithStandInApple()
@@ -418,7 +418,7 @@ final class MasterFlowTests: XCTestCase {
     let stepped = Date()
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     let out = Date().timeIntervalSince(tapped)
     XCTAssertLessThan(out, endsIn, "signed out \(Int(out)) s after the press, its end due at \(Int(endsIn)) s: the end came signed in, and this proves nothing")
     // Past the end, signed out.
