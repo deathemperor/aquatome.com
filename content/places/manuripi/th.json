@@ -3,6 +3,12 @@
   "name": "มานูรีปี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:53:34.892Z",
+    "why": "Manuripi is a Bolivian province/region (Pando), and the Thai transliteration มานูรีปี is phonetically fine but lacks a kind word such as จังหวัด, which an atlas would normally include."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

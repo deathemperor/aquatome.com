@@ -560,6 +560,20 @@
       "kept": true
     }
   ],
+  "id/places/antilles": [
+    {
+      "at": "2026-11-20T11:28:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "Antillen (Indonesian is Antilles / Kepulauan Antilles, not the Dutch form Antillen)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/antokan": [
     {
       "at": "2026-11-09T00:08:04Z",
@@ -8010,6 +8024,18 @@
       "at": "2026-11-09T22:55:04Z",
       "model": "sonnet",
       "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/laut-island": [
+    {
+      "at": "2026-11-20T11:28:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -17009,6 +17035,18 @@
       "kept": true
     }
   ],
+  "id/places/sungai-kampar": [
+    {
+      "at": "2026-11-20T11:28:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sungai-sabangau": [
     {
       "at": "2026-11-14T10:49:35Z",
@@ -17709,6 +17747,20 @@
       "cli": "2.1.322",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/thandwe-river": [
+    {
+      "at": "2026-11-20T11:28:44Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "Thandwe (river lacks the Indonesian generic term; should be Sungai Thandwe)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -19936,6 +19988,18 @@
       "score": 0.93,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/antilles": [
+    {
+      "at": "2026-11-20T11:40:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -28320,6 +28384,18 @@
       "at": "2026-11-10T10:07:22Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/laut-island": [
+    {
+      "at": "2026-11-20T11:40:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -37734,6 +37810,18 @@
       "kept": true
     }
   ],
+  "ms/places/sungai-kampar": [
+    {
+      "at": "2026-11-20T11:40:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/sungai-sabangau": [
     {
       "at": "2026-11-14T11:00:17Z",
@@ -38413,6 +38501,20 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/thandwe-river": [
+    {
+      "at": "2026-11-20T11:40:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Thandwe: river name lacks \"Sungai\"; should be \"Sungai Thandwe\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40837,6 +40939,25 @@
       "notes": [],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "th/places/antilles": [
+    {
+      "at": "2026-11-20T11:30:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "แอนทิลลีส: fine (Thai usually หมู่เกาะแอนทิลลีส, but acceptable)"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/antokan": [
@@ -48761,6 +48882,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/laut-island": [
+    {
+      "at": "2026-11-20T11:30:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "เลาต์: acceptable but lacks 'เกาะ' (island); Thai atlas would be เกาะเลาต์"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/lebo-river": [
@@ -58266,6 +58406,25 @@
       "kept": true
     }
   ],
+  "th/places/sungai-kampar": [
+    {
+      "at": "2026-11-20T11:30:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "กัมปาร์: lacks 'แม่น้ำ' (river); Thai atlas would be แม่น้ำกัมปาร์"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
   "th/places/sungai-sabangau": [
     {
       "at": "2026-11-14T10:50:58Z",
@@ -58988,6 +59147,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/thandwe-river": [
+    {
+      "at": "2026-11-20T11:30:46Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "ทันดเว: lacks 'แม่น้ำ'; Thai atlas would be แม่น้ำทันดเว (also commonly ตานดแว)"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
     }
   ],
   "th/places/thoungyin-river": [
@@ -61309,6 +61487,19 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/antilles": [
+    {
+      "at": "2026-11-20T11:28:34Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All four names refer to the right places. Each keeps the original proper name and puts its generic word into Vietnamese: 'quần đảo Antilles', 'đảo Laut', 'sông Kampar' (from Malay/Indonesian 'Sungai'), and 'sông Thandwe'."
       ],
       "attempt": "first",
       "kept": true
@@ -70614,6 +70805,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/laut-island": [
+    {
+      "at": "2026-11-20T11:28:34Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All four names refer to the right places. Each keeps the original proper name and puts its generic word into Vietnamese: 'quần đảo Antilles', 'đảo Laut', 'sông Kampar' (from Malay/Indonesian 'Sungai'), and 'sông Thandwe'."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -81528,6 +81732,19 @@
       "kept": true
     }
   ],
+  "vi/places/sungai-kampar": [
+    {
+      "at": "2026-11-20T11:28:34Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All four names refer to the right places. Each keeps the original proper name and puts its generic word into Vietnamese: 'quần đảo Antilles', 'đảo Laut', 'sông Kampar' (from Malay/Indonesian 'Sungai'), and 'sông Thandwe'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sungai-sabangau": [
     {
       "at": "2026-11-14T10:49:11Z",
@@ -82426,6 +82643,19 @@
       "cli": "2.1.322",
       "score": 0.92,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/thandwe-river": [
+    {
+      "at": "2026-11-20T11:28:34Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All four names refer to the right places. Each keeps the original proper name and puts its generic word into Vietnamese: 'quần đảo Antilles', 'đảo Laut', 'sông Kampar' (from Malay/Indonesian 'Sungai'), and 'sông Thandwe'."
+      ],
       "attempt": "first",
       "kept": true
     }

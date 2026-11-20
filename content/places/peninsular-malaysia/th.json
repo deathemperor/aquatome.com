@@ -3,6 +3,12 @@
   "name": "มาเลเซียตะวันตก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:55:53.937Z",
+    "why": "\"มาเลเซียตะวันตก\" (West Malaysia) is a real Thai term for Peninsular Malaysia, but Thai atlases more commonly write \"คาบสมุทรมาเลเซีย\" or \"มาเลเซียคาบสมุทร\", so it is less standard."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

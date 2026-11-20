@@ -13,24 +13,30 @@
   ],
   "range": {
     "native": {
-      "countries": [
-        "ID"
-      ],
+      "countries": [],
       "regions": [
-        "Borneo"
+        "Borneo",
+        "Kalimantan"
       ],
       "sources": [
-        "bwaquatics"
+        "bwaquatics",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Occurs in Kalimantan Tengah (Borneo, Indonesia) in jungle river systems near Banjarmasin.",
-          "countries": [
-            "ID"
-          ],
+          "quote": "Described in 1981 from southeastern Borneo, where it lives in jungle river systems near Banjarmasin.",
+          "countries": [],
           "regions": [
             "Borneo"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "This species originates from Borneo (southeast Kalimantan), where it can be found between Ampah and Muarateweh.",
+          "countries": [],
+          "regions": [
+            "Kalimantan"
           ]
         }
       ]
@@ -38,7 +44,7 @@
     "records": {
       "taxonKey": 2394184,
       "total": 1,
-      "fetched": "2026-11-12",
+      "fetched": "2026-11-20",
       "countries": [
         [
           "ID",
@@ -49,7 +55,6 @@
         [
           113.90625,
           -4.21875,
-          1,
           1
         ]
       ]

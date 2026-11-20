@@ -12,12 +12,10 @@
   ],
   "range": {
     "native": {
-      "countries": [
-        "ID"
-      ],
+      "countries": [],
       "regions": [
-        "Borneo",
-        "Kalimantan"
+        "Kapuas Lakes",
+        "Borneo"
       ],
       "sources": [
         "bwaquatics"
@@ -25,13 +23,11 @@
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.",
-          "countries": [
-            "ID"
-          ],
+          "quote": "It comes from the Sanggau and Kapuas Lakes areas of West Kalimantan, Borneo.",
+          "countries": [],
           "regions": [
-            "Borneo",
-            "Kalimantan"
+            "Kapuas Lakes",
+            "Borneo"
           ]
         }
       ]
@@ -39,7 +35,7 @@
     "records": {
       "taxonKey": 8026320,
       "total": 0,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-20",
       "countries": [],
       "cells": []
     }

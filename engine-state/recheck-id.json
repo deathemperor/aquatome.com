@@ -682,6 +682,101 @@
     "opus": 0.9,
     "back": true
   },
+  "betta-bellica": {
+    "hash": "efc248a0ab9d14f7f60c776d53df1df60b28641a2b04e251224ae36798c08df3",
+    "at": "2026-11-20T11:41:58.505Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
+  "betta-chloropharynx": {
+    "hash": "25537f2de5bc58eb5917cd2a78fb58cc7a5b7486427432b2a82db4a46a7ecf50",
+    "at": "2026-11-20T11:42:10.883Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-dimidiata": {
+    "hash": "a2279d9d1cd0a6f736cd4a2fbc1e5740427ce0975da18ca348077aa0f440a632",
+    "at": "2026-11-20T11:42:47.667Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-edithae": {
+    "hash": "03d631a00f7c1423e7df998e6fdf54d42703201371c121337e18b5ee29920a05",
+    "at": "2026-11-20T11:43:21.503Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-enisae": {
+    "hash": "2e22dbe8b45400983bb7f31936037874d3dc9fe33a62b54e74259efa0070f3b7",
+    "at": "2026-11-20T11:43:50.170Z",
+    "sonnet": 0.95,
+    "opus": 0.88,
+    "back": true
+  },
+  "betta-falx": {
+    "hash": "28627fba12bd6109b3e5547e24421cdde5cc1411d7080e3ce344ced90d18f455",
+    "at": "2026-11-20T11:44:21.659Z",
+    "sonnet": 0.95,
+    "opus": 0.8,
+    "back": true
+  },
+  "betta-krataios": {
+    "hash": "3c7ba5b180162431754d79f8dc73865a5ec0d2105a42df6d1f8713e1865a90c6",
+    "at": "2026-11-20T11:44:35.913Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "betta-mandor": {
+    "hash": "c8f0eb65852eeaa0bd776ca376f51ae4c3a9777063b0534ecca059cfa280b3a7",
+    "at": "2026-11-20T11:45:07.425Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": true
+  },
+  "betta-midas": {
+    "hash": "dce23f12f4009b764354680f1969088c45b0927ebf8ea65545b8bb55beafa147",
+    "at": "2026-11-20T11:45:26.651Z",
+    "sonnet": 0.95,
+    "opus": 0.5,
+    "back": false
+  },
+  "betta-pallida": {
+    "hash": "458c0a2580384554c2cbf39d43f86a2a17784acf398e78ae36ba63fe9fc4e6a9",
+    "at": "2026-11-20T11:45:40.960Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-pardalotos": {
+    "hash": "fb6ca591d1ebeb96b0a9e1068af23ee50bb1a3a1d868bfbfddce2df89d43eeb9",
+    "at": "2026-11-20T11:46:12.173Z",
+    "sonnet": 0.93,
+    "opus": 0.88,
+    "back": true
+  },
+  "betta-picta": {
+    "hash": "9a393b9a7a85c3262ef1a5c2daef5ad0fff7f5bcac419e67302c4cb9b05c88ac",
+    "at": "2026-11-20T11:46:24.590Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 10: 'burayak' is used for fry, but 'anakan Betta' is used later for 'young Betta'; harmonise."
+    ]
+  },
+  "betta-pinguis": {
+    "hash": "385054db08e0dd5414ac2dc9faadf11b4e908a7b0572e202543a69a183569ddd",
+    "at": "2026-11-20T11:46:37.548Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-pulchra": {
+    "hash": "b6090ebc40ca61189bfd20e42bb9452bf901f73746593aa8d38456dc6c6b0a0e",
+    "at": "2026-11-20T11:46:49.010Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "betta-simplex": {
     "hash": "e8e22287a63e2f2ea2cfe7d63a609b65381622ac926f419f01bb24c5d391cf51",
     "at": "2026-11-18T00:29:03.853Z",
@@ -1109,6 +1204,12 @@
     "hash": "591f04bb0c80c26cc263605f77dedee6aa70bcd3fb6e5afc70ed80f1877236a4",
     "at": "2026-11-18T05:43:25.259Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "parosphromenus-filamentosus": {
+    "hash": "f11d18df428974562f550db844f6328e640367f09ca7f455bf40059453939faa",
+    "at": "2026-11-20T11:41:18.521Z",
+    "sonnet": 0.7,
     "back": false
   },
   "parosphromenus-linkei": {

@@ -3,6 +3,12 @@
   "name": "มัวราเตเวะห์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T11:54:15.314Z",
+    "why": "Muara Teweh is a town in Central Kalimantan, and Thai would usually write it มูอารา เตเวห์ or มัวราเตเวห์, not with the \"ะห์\" ending, so this spelling is a loose transliteration and not the usual atlas form."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

@@ -1,10 +1,13 @@
 {
   "slug": "sungai-kampar",
-  "name": "Sungai Kampar",
-  "altNames": [],
+  "name": "sông Kampar",
+  "altNames": [
+    "Sungai Kampar"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

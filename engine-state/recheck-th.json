@@ -267,6 +267,15 @@
     "sonnet": 0.6,
     "back": false
   },
+  "ancylomenes-pedersoni": {
+    "hash": "e223e2de28f9395044e5409a4cc047a05316782e605e1fe35de967d723413cfb",
+    "at": "2026-11-20T11:47:09.032Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Section 6: 'รักษาแคลเซียมไว้ที่ 400–450' and 'ค่าอัลคาไลน์' lack units (mg/L) – source also lacks, but 'alkalinity' is usually 'ค่าความเป็นด่าง'."
+    ]
+  },
   "anostomus-ternetzi": {
     "hash": "98a75c0bd0648e33b3ba671e2a716df8ff1408a209d691cb82fb37e6e37275f4",
     "at": "2026-11-20T01:41:54.473Z",
@@ -422,6 +431,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "apteronotus-macrostomus": {
+    "hash": "cf0fcb53c0a241b380f903f84a8ef70d1cb7c75f077e4912d9f7e4cf70709c43",
+    "at": "2026-11-20T11:47:58.185Z",
+    "sonnet": 0.72,
+    "back": false
+  },
   "ariopsis-assimilis": {
     "hash": "9bb63a4457824db68968144ae61ef6c96cacc6c13a1f239e04a27547429e586b",
     "at": "2026-11-18T05:47:28.190Z",
@@ -433,6 +448,12 @@
     "hash": "2037f8165c2246b9271ac2fee9a0f92b4cd6ac8b0af29cb5b6c44fdb746a003a",
     "at": "2026-11-18T12:14:19.329Z",
     "sonnet": 0.7,
+    "back": false
+  },
+  "arnoldichthys-spilopterus": {
+    "hash": "2bfed10bfe6f040a65fadc221116ad45f7d875057a1999077fda903d70333b02",
+    "at": "2026-11-20T11:48:03.335Z",
+    "sonnet": 0.4,
     "back": false
   },
   "asellus-aquaticus": {
@@ -447,6 +468,13 @@
     "at": "2026-11-18T12:14:36.553Z",
     "sonnet": 0.55,
     "back": false
+  },
+  "aspidoras-taurus": {
+    "hash": "ae6caafee449a502dfd8e742e2289f05b55fe1bd6fec3f04af63c0a39b44665b",
+    "at": "2026-11-20T11:48:36.955Z",
+    "sonnet": 0.88,
+    "opus": 0.9,
+    "back": true
   },
   "aspistor-luniscutis": {
     "hash": "97aecad72a0a6537bf0bec25e330058b78654f71845664470eaa14f110e8b7ad",
@@ -468,6 +496,62 @@
     "at": "2026-11-17T11:29:29.617Z",
     "sonnet": 0.85,
     "opus": 0.95,
+    "back": true
+  },
+  "astyanax-bimaculatus": {
+    "hash": "de986c21f9411ac741fd8167d877be80e42cccabdb1232feb0aab9dc8b773f61",
+    "at": "2026-11-20T11:48:52.071Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "ataeniobius-toweri": {
+    "hash": "06c89c08269912cbb0881e0416ca65f8197830eb600cd12dcaf6646c896ba39a",
+    "at": "2026-11-20T11:49:06.249Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "atyoida-pilipes": {
+    "hash": "a279377bb4e1cd7dbb781fb094b4f606e6840fb5bfbb3a55744bed1cfcf5c8e0",
+    "at": "2026-11-20T11:49:33.569Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "Item 2: \"ไม่เป็นอันตรายต่อสัตว์อื่นเลย\" is an added claim. The source just says harmless; it is a slight over-specification."
+    ]
+  },
+  "auriglobus-modestus": {
+    "hash": "34ccbb4f902e3c661d151195de75cb3f270b58f41a19df36c27127a093c47dec",
+    "at": "2026-11-20T11:49:48.117Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "austrolebias-nigripinnis": {
+    "hash": "b1decbe7886802f960396cce60068c779d29cbfb4f277c74fc17a18de2311287",
+    "at": "2026-11-20T11:50:01.574Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "austruca-annulipes": {
+    "hash": "f32be944a5902793273b3224af55054d70142f8ec655be5bd2d995efbec78fb5",
+    "at": "2026-11-20T11:50:13.025Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "axelrodia-riesei": {
+    "hash": "1b6f8c42ef337a031a86d83cefff05370ac0df0e62dc46230cc6c10e1539af13",
+    "at": "2026-11-20T11:50:34.692Z",
+    "sonnet": 0.55,
+    "back": false,
+    "held": [
+      "Item 22: 'ไม่มีพิษภัย' for 'harmless' is fine, but 'ปลาคลาวน์คิลลี่' fine. 'Avoid crayfish' translated as 'กุ้งเครย์ฟิช' ok."
+    ]
+  },
+  "babylonia-spirata": {
+    "hash": "ef711fef2c80720a9b4f18f2d68957c706fa3a81809608ecb13d8e603bd514ce",
+    "at": "2026-11-20T11:51:20.240Z",
+    "sonnet": 0.9,
+    "opus": 0.88,
     "back": true
   },
   "badis-autumnum": {
@@ -524,6 +608,28 @@
     "at": "2026-11-20T01:41:10.770Z",
     "sonnet": 0.9,
     "opus": 0.7,
+    "back": false
+  },
+  "bunocephalus-amaurus": {
+    "hash": "4f6a9c9f0fdf59d8850d0bd056023014aaa35e3ce33112a761b74a6159f8884a",
+    "at": "2026-11-20T11:47:19.514Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 1: \"การทำท่าเหมือนตาย\" – the source says the appearance of death (looking dead), not an act of playing dead; use \"การดูเหมือนตาย\".",
+      "Item 1: 'การทำท่าเหมือนตาย' changes the meaning: the English says the appearance of death (looking dead), not playing dead as behaviour. Use 'การดูเหมือนตายนี้'."
+    ]
+  },
+  "bunocephalus-doriae": {
+    "hash": "d9e1fa8581582a828396aa55aa72278d16e4321908728caa341093cf3366f9cb",
+    "at": "2026-11-20T11:47:33.351Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "callochromis-pleurospilus": {
+    "hash": "b2a4ccb6c9a3f788f276390b53d97a91ea08c853aa75687980c2edde4c32b1c0",
+    "at": "2026-11-20T11:47:45.508Z",
+    "sonnet": 0.7,
     "back": false
   },
   "cambarellus-texanus": {
