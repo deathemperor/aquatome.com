@@ -7,7 +7,8 @@
   "group": "other",
   "places": [
     "asia",
-    "indonesia"
+    "indonesia",
+    "kapuas"
   ],
   "range": {
     "native": {
@@ -62,25 +63,10 @@
         }
       }
     ],
-    "gh": [
-      {
-        "source": "bwaquatics",
-        "value": {
-          "min": 0,
-          "max": 2
-        }
-      }
-    ],
     "sizeCm": [
       {
         "source": "bwaquatics",
-        "value": 3
-      }
-    ],
-    "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 8
+        "value": 2.8
       }
     ]
   },
@@ -89,59 +75,78 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Gymnochanda ploegi is a tiny, transparent glass-perch species described in 2014. Adults reach only about 2.5–3 cm SL, making it one of the smallest members of its genus.</p><ul><li>Size: up to 3 cm standard length (rarely 3.5 cm)</li><li>Temperature: 24–28 °C</li><li>pH 5.0–6.5</li></ul>"
+      "html": "<p>Gymnochanda ploegi is a tiny, scaleless glass perch. Maximum size is about 2.8 cm standard length. IUCN Red List: Data Deficient.</p>"
     },
     {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Peat-swamp and forest-stream systems of West Kalimantan (Borneo), Indonesia.</p>"
+      "html": "<p>It comes from the Sanggau and Kapuas Lakes areas of West Kalimantan, Borneo. It was described in 2014 by Tan and Lim and named for Alex Ploeg, Secretary General of Ornamental Fish International, who died on flight MH17 that year.</p>"
     },
     {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>It inhabits soft, acidic blackwater with low mineral content, dense vegetation, and subdued light — typical peat-forest habitat.</p>"
+      "html": "<p>It lives in still pools near swamp forest and river systems, in soft, acidic water with dense vegetation and low light. Habitat: still pools near peat swamp forest.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
+      "html": "<p>Gentle flow, soft light and floating plants for cover. Very delicate and intolerant of poor water quality or high mineral content.</p>"
     },
     {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Very soft, acidic water typical of peat or blackwater.</p><ul><li>pH 5.0–6.5</li><li>GH ≤ 2 dGH</li><li>KH ≤ 1 dKH</li><li>TDS 20–90 ppm</li><li>Temperature 24–28 °C; keep stable and well-oxygenated</li></ul><p>Clean, stable conditions are essential — absolutely no salt.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Provide gentle flow, soft lighting, and floating plants for cover.</p>"
+      "html": "<ul><li>TDS: 20 to 90 ppm</li><li>pH: 5.0 to 6.5. Absolutely no salt.</li><li>Temperature: 24 to 28°C; keep stable and well oxygenated</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Carnivorous micro-predator. Eats tiny live foods such as micro-worms, daphnia, newly hatched brine shrimp, and small insects. Once settled, may take finely chopped frozen foods or micro-granules.</p>"
+      "html": "<p>Micro-predator. Microworms, daphnia, newly hatched brine shrimp and small insects. Once settled, may take finely chopped frozen foods or micro granules.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Very delicate and intolerant of poor water quality or high mineral content. Keep in peaceful groups (6+ preferred) to reduce stress. Tankmates: only very small, peaceful soft-water species, e.g. Boraras rasboras, tiny tetras, Kuhli loaches, small shrimp, or other calm micro-fish from blackwater habitats. Avoid aggressive or fast fish and livebearers.</p>"
+      "html": "<p>Peaceful. Keep in groups of 6 or more. Only house with very small, peaceful soft-water species such as Boraras, tiny tetras, kuhli loaches and small shrimp. Avoid fast or aggressive fish and livebearers.</p>"
     },
     {
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Males have elongated dorsal and anal fin rays and often display subtle reddish or yellow hues, while females remain more transparent.</p>"
+      "html": "<p>Body: small, transparent, scaleless; the swim bladder and spine are visible. Mature males have expanded second dorsal and anal fins with elongated rays, are pinkish with red on the upper half, with maroon-red dorsal and anal fins edged in black and a red-tinted tail. Females have no fin extensions and are yellowish with reddish tints and mostly clear.</p>"
     },
     {
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/gymnochanda-ploegi-dwarf-glass-fish",
-      "html": "<p>Captive breeding is difficult due to small fry and specialized spawning behavior.</p>"
+      "html": "<p>Captive breeding is difficult due to the tiny fry and specialized spawning behavior.</p>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kZYQUbQ0ik0",
+      "title": "Gymnochanda ploegi (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 63,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "T-cfzab5vd4",
+      "title": "glass fish from west kalimantan(Gymnochanda ploegi) #aquarium #ikan #fish",
+      "durationSec": 56,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pCjH30fU9_Q",
+      "title": "Dwarf Glass Fish: Kalimantan's Hidden Beauty",
+      "durationSec": 32,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "thuc-an",
@@ -172,5 +177,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

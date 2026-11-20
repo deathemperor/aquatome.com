@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (157)
+# Tóm tắt chờ duyệt (158)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -1230,6 +1230,15 @@ Hợp với người đã có chút kinh nghiệm (độ khó 5/8) và thích se
 
 Kiểm tra:
 - "thức ăn khô chỉ nên là phần phụ": the page only says not to feed dry food alone ("không nên chỉ cho ăn mỗi loại này") and that fish accept it. It never says dry food should be only a minor part of the diet, so this advice is invented.
+
+## Cá heo zodiac (Nemacheilus triangularis)
+id: `nemacheilus-triangularis`
+
+Hợp với người đã có kinh nghiệm cơ bản, muốn nuôi một đàn cá chạch nhỏ (6 cm) trong bể kiểu suối chảy, độ khó 4/8. Cần bể tối thiểu 75 cm, nước 18–25,5 °C, pH 6–7,5, độ cứng 2–12 dGH, nhiều oxy, có dòng chảy và thật sạch. Khó nhất là tính nết thất thường: có người thấy cá hiền, có người thấy hay giành chỗ và dữ, nên chọn cá nuôi chung phải cẩn thận.
+
+- Nuôi lẻ vài con thì cá khó yên; nên mua từ bốn con trở lên để nuôi thành đàn.
+- Thả vào bể nuôi chung đã ổn định mà không tính trước; nên chọn loài khỏe, ưa nước chảy như cá họ Cyprinidae nhỏ bơi tầng nước mở, và tránh cá chuột Corydoras chậm chạp.
+- Để nước bẩn, ít oxy hoặc bỏ thay nước; nên thay 30–50% nước mỗi tuần và giữ dòng chảy bằng lọc, thổi luồng hoặc sủi khí.
 
 ## Cá chạch Schistura yingjiangensis (Nemacheilus yingjiangensis)
 id: `nemacheilus-yingjiangensis`

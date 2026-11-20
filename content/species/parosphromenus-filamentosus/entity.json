@@ -69,34 +69,19 @@
       {
         "source": "bwaquatics",
         "value": {
-          "min": 3,
-          "max": 6.5
-        }
-      }
-    ],
-    "gh": [
-      {
-        "source": "bwaquatics",
-        "value": {
-          "min": 1,
-          "max": 4
+          "min": 4,
+          "max": 6
         }
       }
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
+        "source": "glaser",
         "value": 3
       },
       {
-        "source": "glaser",
-        "value": 3
-      }
-    ],
-    "difficulty": [
-      {
         "source": "bwaquatics",
-        "value": 5
+        "value": 4.5
       }
     ]
   },
@@ -105,7 +90,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
-      "html": "<p>Parosphromenus filamentosus is one of the larger Parosphromenus species and is known for the filament-like extension of its tail. It is relatively hardy, but like all Parosphromenus it requires live food. Males reach up to 3 cm.</p><p>Bronze body tones with dark red banding on the unpaired fins, followed by black banding with a rim of bright white or blue iridescence.</p>"
+      "html": "<p>Parosphromenus filamentosus, the spiketail licorice gourami, belongs to the Parosphromenus genus (licorice gouramis). IUCN Red List: Endangered (very high risk of extinction in the wild). It is one of the larger licorice gouramis and is named for the filament on the male's tail. The Parosphromenus Project calls it one of the least specialized species in the genus and a good choice for less experienced keepers, though like all paros it needs live food.</p>"
     },
     {
       "key": "quickFacts",
@@ -117,7 +102,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
-      "html": "<p>Occurs in Kalimantan Tengah (Borneo, Indonesia) in jungle river systems near Banjarmasin.</p>"
+      "html": "<p>Described in 1981 from southeastern Borneo, where it lives in jungle river systems near Banjarmasin.</p>"
     },
     {
       "key": "distribution",
@@ -129,7 +114,13 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
-      "html": "<p>Primarily inhabits peat swamp forests and associated blackwater streams.</p>"
+      "html": "<p>Peat swamp forest and blackwater streams near Banjarmasin, an area where much of the forest has been cleared.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
+      "html": "<p>Keep a pair in 20 litres, or a group of 3 to 6 in 40 litres, with plenty of caves and leaf litter.</p>"
     },
     {
       "key": "maintenance",
@@ -141,19 +132,19 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
-      "html": "<ul><li>Temperature: 22–28 °C</li><li>pH: 3.0–6.5</li><li>Hardness: 18–72 ppm</li></ul>"
+      "html": "<ul><li>TDS: 0 to 50</li><li>pH: 4.0 to 6.0</li><li>Temperature: 22 to 28°C</li></ul>"
     },
     {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
-      "html": "<p>These fish are carnivorous and only consume live food.</p>"
+      "html": "<p>Micropredator. They only eat live food. Live baby brine shrimp, daphnia and blackworms are fed.</p>"
     },
     {
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
-      "html": "<p>These fish are generally peaceful and shy, preferring to hide among vegetation or other structures in their environment.</p>"
+      "html": "<p>Peaceful and shy. They can share a tank with tiny, calm blackwater fish such as Boraras. Never mix different Parosphromenus species.</p>"
     },
     {
       "key": "dimorphism",
@@ -162,10 +153,16 @@
       "html": "<p>Females can be recognized easily by the completely transparent caudal fin.</p>"
     },
     {
-      "key": "notes",
+      "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
-      "html": "<p>Conservation status: listed as Endangered by the IUCN due to habitat loss and degradation caused by deforestation, land use change and pollution.</p>"
+      "html": "<p>The male's pointed caudal fin ends in a filament and has a brown-red center, a broad black frame and a thin white to blue edge. The dorsal and anal fins repeat this pattern in brown-red or blue-green. Pelvic fins are green-blue with long filaments. The body is bronze, and courting males can turn very dark overall. Females are pale, with a pointed tail and only a faint filament.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-1",
+      "html": "<p>Cave spawner with a head-down courtship. The male builds probably the most distinct foam nest in the genus, carrying air down from the surface several times. Clutches are usually 50 to 70 eggs and can reach about 200. No special conditions are needed beyond standard licorice gourami care.</p>"
     }
   ],
   "photos": [
@@ -230,5 +227,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-20"
 }

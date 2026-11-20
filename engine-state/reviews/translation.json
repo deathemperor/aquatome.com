@@ -14609,6 +14609,21 @@
       "kept": true
     }
   ],
+  "vi/species/betta-macrostoma#bwaquatics": [
+    {
+      "at": "2026-11-20T05:27:50Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.95,
+      "notes": [
+        "Item 2: \"to con\" is colloquial; consider \"kích thước lớn\" for an encyclopedia register.",
+        "Item 9: \"Loài này dữ\" and \"đánh nhau rất ác\" are a bit colloquial; consider \"hung dữ\" and \"đánh nhau dữ dội\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/betta-mahachaiensis#bwaquatics": [
     {
       "at": "2026-11-18T17:15:27Z",
@@ -27068,6 +27083,28 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/gymnochanda-ploegi#bwaquatics": [
+    {
+      "at": "2026-11-20T05:31:06Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "Item 2: \"Bể phải set sẵn\" uses English slang \"set\"; use \"Chuẩn bị sẵn bể\" or \"Bể phải được thiết lập sẵn\".",
+        "Item 9: \"bong bóng\" for swim bladder is informal; use the standard term \"bóng bơi\".",
+        "Item 7: \"loài săn mồi cỡ nhỏ\" is slightly vague for \"Micro-predator\"; consider \"loài săn mồi siêu nhỏ\" or \"săn các con mồi rất nhỏ\".",
+        "Item 4: \"rừng ngập\" suggests mangrove or flooded forest; consider \"rừng đầm lầy\" for \"swamp forest\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.9
+      ]
     }
   ],
   "vi/species/gymnochanda-verae#seriouslyfish": [
@@ -44119,6 +44156,24 @@
       "kept": true
     }
   ],
+  "vi/species/parosphromenus-filamentosus#bwaquatics": [
+    {
+      "at": "2026-11-20T05:31:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "Item 6: \"trùn chỉ đen\" for blackworms – trùn chỉ usually means tubifex; use \"giun đen\" (blackworm, Lumbriculus) for accuracy.",
+        "Item 6: \"bo bo\" for daphnia – bo bo usually means Moina; \"rận nước (Daphnia)\" is more precise.",
+        "Item 8: \"Thân con đực màu đồng\" – the English says only \"The body is bronze\"; do not restrict it to males.",
+        "Item 9: \"vì nó lên mặt nước lấy không khí...\" adds a causal link the English does not state; use a neutral phrase such as \"nó mang không khí từ mặt nước xuống nhiều lần\".",
+        "Item 2: \"từ mẫu thu\" adds \"specimens collected\", which the English lacks; \"được mô tả năm 1981 từ đông nam Borneo\" is enough."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/parosphromenus-filamentosus#glaser": [
     {
       "at": "2026-11-09T10:25:36Z",
@@ -44283,6 +44338,24 @@
         "#10: \"Bể bày trí kỹ, nhiều chỗ ẩn\" adds \"nhiều chỗ ẩn\", which is not in the source (\"well-structured\"); remove it or use \"bày trí kỹ\" only.",
         "#1/#11: \"liquorice gourami\" is left in English; add a Vietnamese gloss such as \"cá sặc cam thảo\" at first mention if a common name exists.",
         "#9: \"Vào mùa đẻ\" for \"nuptial\" is slightly loose; \"khi sẵn sàng sinh sản\" or \"khi lên màu sinh sản\" is closer."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/parosphromenus-sumatranus#bwaquatics": [
+    {
+      "at": "2026-11-20T05:32:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "Item 2: \"Ngoài tiệm\" is not in the English; delete it or use \"vẫn hay bị bán dưới tên\" alone.",
+        "Item 2: \"Set bể cho xong\" is slang; for an encyclopedia use \"Chuẩn bị xong bể nuôi trước khi mua cá\".",
+        "Item 5: \"là đủ\" and \"thì cần\" add a claim of sufficiency or necessity; use neutral wording such as \"Nuôi một cặp trong bể 20 lít\".",
+        "Item 7: \"Đây là loài săn mồi nhỏ\" for \"Micropredator\" is vague; consider \"săn mồi cỡ nhỏ (săn các sinh vật rất nhỏ)\".",
+        "Item 7: \"trùn chỉ đen\" for blackworms could be confused with tubifex (\"trùn chỉ\"); consider \"giun đen (Lumbriculus)\" or add the Latin name."
       ],
       "attempt": "first",
       "kept": true

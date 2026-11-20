@@ -1,0 +1,284 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Filter type",
+      "value": "Internal (submersible) filter, not an external canister (lọc thùng)",
+      "source": 0
+    },
+    {
+      "key": "Max flow rate",
+      "value": "400 L/h",
+      "source": 0
+    },
+    {
+      "key": "Adjustable flow",
+      "value": "200–400 L/h",
+      "source": 1
+    },
+    {
+      "key": "Power",
+      "value": "6 W",
+      "source": 0
+    },
+    {
+      "key": "Dimensions (HxWxD)",
+      "value": "16.5 x 6 x 7 cm",
+      "source": 0
+    },
+    {
+      "key": "Tank size",
+      "value": "100–200 L, cold water or tropical",
+      "source": 0
+    },
+    {
+      "key": "Filtration",
+      "value": "Two-stage: foam cartridge plus a carbon/zeolite cartridge",
+      "source": 0
+    },
+    {
+      "key": "Accessories",
+      "value": "Flow regulator, optional spray bar, suction cups",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "2 years",
+      "source": 0
+    }
+  ],
+  "variants": [
+    {
+      "name": "Aqua-Flow 50",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "0–100 L/h",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "3 W",
+          "source": 1
+        },
+        {
+          "key": "Tank size",
+          "value": "0–50 L",
+          "source": 1
+        },
+        {
+          "key": "Adjustable flow",
+          "value": "No",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Aqua-Flow 100",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "50–200 L/h",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "3.5 W",
+          "source": 1
+        },
+        {
+          "key": "Tank size",
+          "value": "50–150 L",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Aqua-Flow 150",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "200 L/h",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "3.5 W",
+          "source": 1
+        },
+        {
+          "key": "Tank size",
+          "value": "50–150 L",
+          "source": 1
+        },
+        {
+          "key": "Extra",
+          "value": "CrystalMax bio media; no spray bar",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Aqua-Flow 200",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "200–400 L/h",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "6 W",
+          "source": 1
+        },
+        {
+          "key": "Tank size",
+          "value": "100–200 L",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Aqua-Flow 300",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "300–540 L/h",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "7 W",
+          "source": 1
+        },
+        {
+          "key": "Tank size",
+          "value": "150–300 L",
+          "source": 1
+        },
+        {
+          "key": "Extra",
+          "value": "CrystalMax bio media; no spray bar",
+          "source": 1
+        }
+      ]
+    },
+    {
+      "name": "Aqua-Flow 400",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "200–800 L/h",
+          "source": 1
+        },
+        {
+          "key": "Power",
+          "value": "17 W",
+          "source": 1
+        },
+        {
+          "key": "Tank size",
+          "value": "200–400 L",
+          "source": 1
+        }
+      ]
+    }
+  ],
+  "prices": [],
+  "fits": [
+    {
+      "fact": "Sized for cold-water or tropical freshwater tanks of about 100–200 L",
+      "source": 0
+    },
+    {
+      "fact": "The adjustable flow and optional spray bar help soften the current for gentler setups",
+      "source": 0
+    },
+    {
+      "fact": "It sits inside the tank on suction cups, so it takes up room in the display. It is not an external canister",
+      "source": 0
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Installs inside the tank with suction cups. Because it is fully submerged, no canister-style priming is needed",
+      "source": 0
+    },
+    {
+      "fact": "Cartridges click in and out to make swapping easy",
+      "source": 0
+    },
+    {
+      "fact": "The distributor advises replacing the filter cartridge monthly",
+      "source": 1
+    },
+    {
+      "fact": "On the 150 and 300 models, the CrystalMax bio media should be replaced once a year",
+      "source": 1
+    },
+    {
+      "fact": "A Superfish start-kit manual calls for weekly filter cleaning",
+      "source": 2
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Owner reviews disagree on noise: one says it runs quietly and gets quieter as biofilm coats the moving parts, while another found it very noisy and returned it",
+      "source": 3
+    },
+    {
+      "fact": "Replacing whole cartridges every month adds ongoing cost and throws away established bacteria. Spare cartridges must also match the exact model",
+      "source": 0
+    },
+    {
+      "fact": "Within the range, the 150 and 300 add CrystalMax bio media but have no spray bar, and the 50 has no flow adjustment",
+      "source": 1
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Sunsun",
+      "model": "HW-602B",
+      "why": "A true external canister listed by a Vietnamese shop, with the same 400 L/h and 6 W, and room for ceramic rings or bio-balls. It is rated only up to about 76 L",
+      "source": 4
+    },
+    {
+      "brand": "Sunsun",
+      "model": "HW-604B",
+      "why": "A canister for tanks of about 50–90 cm, with 800 L/h, 14 W and a shut-off valve for easier cleaning. It is sold in Vietnam and suits the 100–200 L tank range better",
+      "source": 5
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://pondkeeper.co.uk/superfish-aquaflow-200-filter-400lph",
+      "title": "SuperFish Aqua-Flow 200 Filter (400lph) – Pondkeeper",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquadistri.com/brands/superfish/aquarium/filters/aqua-flow-filters/",
+      "title": "SuperFish Aqua-Flow Filters – Aquadistri",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://manuals.plus/superfish/start-150-tropical-aquarium-kits-manual",
+      "title": "SuperFish Start 150 Tropical Aquarium Kits Instruction Manual",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.desertcart.com.ar/products/48125685",
+      "title": "Superfish Aqua Flow 200 Internal Filter – Desertcart (customer reviews)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaqua.com/san-pham/sunsun-hw-602b/",
+      "title": "Sunsun HW 602B – Thủy Sinh Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhaqua.com/san-pham/sunsun-hw-604b/",
+      "title": "Sunsun HW 604B – Thủy Sinh Aqua",
+      "kind": "shop"
+    }
+  ]
+}

@@ -2,6 +2,34 @@
   {
     "date": "2026-11-20",
     "kind": "species",
+    "id": "parosphromenus-sumatranus",
+    "source": "bwaquatics",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-20",
+    "kind": "species",
+    "id": "parosphromenus-filamentosus",
+    "source": "bwaquatics",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-20",
+    "kind": "species",
+    "id": "gymnochanda-ploegi",
+    "source": "bwaquatics",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-20",
+    "kind": "species",
+    "id": "betta-macrostoma",
+    "source": "bwaquatics",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-20",
+    "kind": "species",
     "id": "metynnis-fasciatus",
     "source": "glaser",
     "action": "updated"
@@ -3468,34 +3496,6 @@
     "date": "2026-11-17",
     "kind": "species",
     "id": "rhynchodoras-woodsi",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-17",
-    "kind": "species",
-    "id": "hyphessobrycon-herbertaxelrodi",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-17",
-    "kind": "species",
-    "id": "pelvicachromis-roloffi",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-17",
-    "kind": "guide",
-    "id": "glaser-en-09-characoids-tetra-relationship-two-new-tetras-from-the-rio-negro-region-hyphessobrycon-paepkei-and-h-cf-agulha",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-17",
-    "kind": "species",
-    "id": "luciosoma-setigerum",
     "source": "glaser",
     "action": "updated"
   }

@@ -114263,32 +114263,31 @@
   "products": []
  },
  "vi/species/betta-macrostoma": {
-  "at": "2026-11-08",
-  "hash": "02558f2038a4940a",
+  "at": "2026-11-20",
+  "hash": "8f3cd2dede989fe3",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P6",
+    "part": "P11",
     "quote": "bạn có thể dùng gỗ dẻ gai hoặc gỗ sồi thông thường",
-    "why": "Beech and oak wood are everyday materials in Europe, not in Vietnam.",
+    "why": "Beech and oak wood from European trees isn't something keepers in Vietnam buy or gather.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P11",
+    "quote": "Lá dẻ gai, lá sồi hay lá bàng (Ketapang) đều dùng được.",
+    "why": "Beech and oak leaves are European tank leaves that keepers in Vietnam don't use.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P15",
+    "part": "P21",
     "quote": "xem các ghi chú ở trên về chuyện cho cá Betta con ăn Artemia",
-    "why": "Points to notes in the original article that this page does not have.",
+    "why": "This refers to notes about feeding Artemia that aren't on this page.",
     "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P9",
-    "quote": "giun đen",
-    "why": "A literal translation of 'blackworms'. Keepers in Vietnam call this food trùn chỉ.",
-    "by": "model",
-    "fix": "trùn chỉ"
    }
   ],
   "products": []
@@ -124676,10 +124675,10 @@
   "products": []
  },
  "vi/species/gymnochanda-ploegi": {
-  "at": "2026-11-08",
-  "hash": "63057a3c56e9f5e7",
+  "at": "2026-11-20",
+  "hash": "8ac0ac3af446b7bf",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -134968,7 +134967,7 @@
   "products": []
  },
  "vi/species/parosphromenus-filamentosus": {
-  "at": "2026-11-09",
+  "at": "2026-11-20",
   "hash": "a30491c8d3cdd0c4",
   "model": "opus",
   "checklist": 3,
@@ -135126,11 +135125,20 @@
   "products": []
  },
  "vi/species/parosphromenus-sumatranus": {
-  "at": "2026-11-08",
-  "hash": "7ae6dc21da68f385",
+  "at": "2026-11-20",
+  "hash": "1d917865256b656c",
   "model": "opus",
-  "checklist": 2,
-  "findings": [],
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "là một trong những loài licorice gourami dễ kiếm hơn cả",
+    "why": "The English trade name is left untranslated; keepers in Vietnam call Parosphromenus cá chân kiếm.",
+    "by": "model",
+    "fix": "cá chân kiếm"
+   }
+  ],
   "products": []
  },
  "vi/species/parosphromenus-tweediei": {
