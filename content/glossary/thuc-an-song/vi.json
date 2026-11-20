@@ -1,11 +1,14 @@
 {
   "slug": "thuc-an-song",
   "name": "Thức ăn sống",
-  "altNames": [],
+  "altNames": [
+    "Live Foods"
+  ],
   "sections": {},
-  "definition": "Sinh vật nhỏ còn sống dùng làm thức ăn cho cá, như artemia, bo bo, trùng chỉ hay trùng huyết. Thức ăn sống kích thích bản năng săn mồi, giúp cá kén ăn chịu ăn và cá bố mẹ vào mùa sinh sản, nhưng cần nguồn sạch để tránh mang mầm bệnh vào bể.",
+  "body": "<h3>Các loại thức ăn sống</h3>\n<p>Một tiệm ghi:</p>\n<ul>\n<li>Cá mồi mua ở tiệm dễ đem bệnh vào bể hơn, mà phần lớn người nuôi không cách ly chúng.</li>\n<li>Cá vàng và cá minnow bán làm cá mồi chứa nhiều thiaminase. Chất này có thể chặn thiamin (vitamin B1) và gây hại cho sức khỏe.</li>\n<li>Blackworm chìm xuống đáy. Nhiều người nhân giống cá coi blackworm là cách tốt nhất để vỗ Corydoras.</li>\n<li>Blackworm không rửa mỗi ngày thì nhanh làm bẩn nước. Cách giữ là để trong hộp nông, sâu không quá 1,3 cm, ngập nước lạnh đã khử clo, rồi cất tủ lạnh.</li>\n<li>Với grindal worm và white worm, bỏ qua bước tiệt trùng giá thể ở 82–93 °C thì mạt và sâu hại sẽ vào.</li>\n</ul>\n<h3>Sai lầm hay gặp</h3>\n<ul>\n<li>Một nguồn ghi rằng thức ăn sống không rửa kỹ có thể mang ký sinh trùng.</li>\n<li>Cho ăn mãi một loại thức ăn thì cá có thể thiếu chất. Nên cho cá ăn xen kẽ nhiều loại thức ăn.</li>\n</ul>\n<p>Một bài báo ghi:</p>\n<ul>\n<li>Ương cá bột chỉ bằng thức ăn sống là sai. Về sau nên tập cho cá ăn thêm thức ăn khô để chúng quen ăn nhiều loại.</li>\n<li>Thức ăn sống thừa sẽ phân hủy, cần vớt ra và hút chất bẩn thường xuyên.</li>\n</ul>\n<h3>Xem thêm</h3>\n<ul>\n<li>Thức ăn đông lạnh: xem mục Thức ăn đông lạnh.</li>\n<li>Thức ăn khô: xem mục Thức ăn khô.</li>\n<li>Artemia: xem mục Artemia.</li>\n<li>Bo bo: xem mục Bo bo.</li>\n<li>Trùng chỉ: xem mục Trùng chỉ.</li>\n<li>Trùng cỏ: xem mục Trùng cỏ.</li>\n</ul>",
+  "definition": "Thức ăn sống là thức ăn còn sống, còn cử động, nên làm cá muốn ăn. Nó còn kích thích cá cả về thể chất lẫn tinh thần, và là cách nhanh để vỗ cá cho đẻ.",
   "quality": {
-    "score": 0.9,
+    "score": 1,
     "indexable": true
   }
 }
