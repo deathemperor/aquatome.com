@@ -389,7 +389,7 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-start")
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 60)
@@ -559,6 +559,19 @@ final class MasterFlowTests: XCTestCase {
   private func add(_ app: XCUIApplication, _ id: String) {
     tap(app, "master-add")
     tap(app, id)
+  }
+
+  /// Apple's button on the Tài khoản sheet, signed out. Signed out at the sheet's foot (`sign-out` scrolled to), its ways
+  /// to sign in are at its top, which a sheet this long no longer draws from there (as AccountFlowTests' `reached`).
+  private func signedOut(_ app: XCUIApplication) -> Bool {
+    let apple = element(app, "apple-sign-in")
+    if apple.waitForExistence(timeout: 5) { return true }
+    repeatUntil(apple.exists, times: 8) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.35)).press(
+        forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75)), withVelocity: .fast,
+        thenHoldForDuration: 0.2)
+    }
+    return apple.exists
   }
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
