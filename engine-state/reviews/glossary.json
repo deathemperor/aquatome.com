@@ -1221,6 +1221,33 @@
   ],
   "vi/glossary/ca-bot": [
     {
+      "at": "2026-11-19T18:46:30Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Cá bột là cá con vừa nở.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Miệng và dạ dày chúng rất nhỏ nên mỗi ngày chúng cần ăn nhiều bữa nhỏ.\": Rules 4 and 12: \"Miệng và dạ dày chúng rất nhỏ nên mỗi ngày chúng cần ăn nhiều bữa nhỏ.\" in the definition: THIS TERM sets the meaning word for word, and its third sentence is \"Chúng c…",
+        "Loose, reworded: \"Cám vảy nghiền bột tuy dễ kiếm nhưng không phải thức ăn tốt nhất cho cá bột.\" → \"Cám vảy nghiền bột tuy phổ biến nhưng không phải thức ăn tốt nhất cho cá bột.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T18:46:30Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.92,
+      "notes": [
+        "\"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn nhiều bữa thì nước xuống cấp rất nhanh.\": the facts don't carry it (unsupported, unsupported, unsupported): 'rất nhanh' stronger than 'quickly' / 'rất nhanh' is stronger than the source's 'quickly' / 'rất nhanh' (very quickly) is stronger than the source's 'quickly'",
+        "\"Cho ăn quá tay làm bẩn nước.\": the facts don't carry it (uncredited, uncredited, uncredited): only aquariumcoop says overfeeding fouls water; no credit / Only aquariumcoop says overfeeding fouls water; stated without credit / Only aquariumcoop.com says overfeeding fouls water; no credit in this section",
+        "Rule 12: The last item under \"Một bài khác ghi:\" reads \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn nhiều bữa thì nước xuống cấp rất nhanh.\" THIS TERM requires this wording exactly: \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn nhiều bữa thì nước xuống cấp nhanh.\" Fact 33 says \"quickly\", so \"rất\" must go.",
+        "Rule 12: Under \"Sai lầm hay gặp\", the entry has \"Cho ăn quá tay làm bẩn nước.\" with no source named. Only one page gives this (fact 33), and THIS TERM requires it word for word as \"Bài khác ấy cũng ghi: cho ăn quá tay làm bẩn nước.\" As it stands, a one-page claim reads as plain fact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-19T01:39:27Z",
       "model": "sonnet",
       "cli": "2.1.327",
@@ -1269,31 +1296,6 @@
       "notes": [
         "Rules 1 and 12: The definition is not the required wording. It reads \"Lúc đầu chúng sống nhờ túi noãn hoàng, hết noãn hoàng mới tìm mồi. Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" It should read \"Cá bột là cá con vừa nở. Lúc mới nở chúng còn mang túi noãn hoàng và chưa bơi đi tìm mồi được. Chúng cần thức ăn vừa miệng và nước sạch.\" The phrase \"hết noãn hoàng mới tìm mồi\" (they look for …",
         "Rules 4 and 12: The last item under \"Một bài khác ghi:\" says \"Cho ăn quá tay làm bẩn nước và có thể làm chết cá bột; ...\". The words \"làm bẩn nước\" (fouls the water) repeat the plain line under \"Sai lầm hay gặp\". The required wording is \"Cho ăn quá tay có thể làm chết cá bột; bể ương ít nước mà cho ăn dày thì nước xuống cấp rất nhanh.\""
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-18T18:35:51Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Từ lúc đó chúng cần thức ăn vừa miệng và nước sạch.\" (not \"Từ lúc đó, vì miệng và dạ dày còn rất nhỏ, chúng cần được cho ăn nhiều bữa nhỏ mỗi ngày.\": Rule 12: \"vì miệng và dạ dày còn rất nhỏ, chúng cần được cho ăn nhiều bữa nhỏ mỗi ngày\" in the definition gives the tiny mouths and stomachs as plain fact, …",
-        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Cá bột rất nhỏ của nhiều loài đẻ trứng lúc đầu chưa nuốt nổi artemia mới nở.\" (not \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ, chưa nuốt nổi artemia mới nở.\": Rule 6: \"cá killi\" in \"Cá bột của các loài đẻ trứng như cá killi, cá cầu vồng và cá tetra lúc đầu quá nhỏ,…"
-      ],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-18T18:35:51Z",
-      "model": "sonnet",
-      "cli": "2.1.327",
-      "score": 1,
-      "notes": [
-        "Rule 12: \"Ở loài không giữ con, tách cá bột khỏi cá trưởng thành hoặc vớt cá bố mẹ ra sau khi đẻ.\" applies the magazine's limit to species that don't guard their fry (fact 32) to the shop's advice and states it as plain fact. It also leaves out that brood-caring species can stay with their fry. THIS TERM requires two items here, word for word: \"Tách cá bột khỏi cá trưởng thành.\" and then \"Theo bà…",
-        "Rule 12: \"Dùng lọc nhẹ và giữ dòng chảy yếu.\" is in the plain list, but each half comes from only one page: gentle filtration from source 0 (fact 30) and low flow from the magazine (fact 31). A claim only one page makes has to say whose it is, so these belong under \"Một tiệm ghi:\" and \"Một bài tạp chí ghi:\" and not in the plain list.",
-        "Rule 12: \"Chia cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\" uses \"chia\", which the entry also uses for portioning food. THIS TERM requires \"Tách cá bột theo cỡ, vì con lớn nhanh có thể ăn con nhỏ hoặc giành hết mồi.\""
       ],
       "attempt": "rewrite",
       "kept": false
