@@ -163,7 +163,12 @@
       "author": "Steve Childs",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neopetrolisthes_maculatus.jpg",
       "caption": "Neopetrolisthes maculatus",
-      "thumb": "https://media.aquatome.com/commons/1b81b639cdaa45f9-480.webp"
+      "thumb": "https://media.aquatome.com/commons/1b81b639cdaa45f9-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/1b81b639cdaa45f9-large.webp",
+        "width": 1392,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/e782582a28f7bdf9.webp",

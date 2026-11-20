@@ -62,6 +62,20 @@
       "kind": "male"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/246172929.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246172929-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Alessandro Franchini",
+      "sourceUrl": "https://www.inaturalist.org/photos/246172929",
+      "caption": "Nhóm cá pupfish sheepshead sọc vằn trong hộp chụp ảnh",
+      "best": true,
+      "kind": "group",
+      "setup": true,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/8812753.webp",
       "thumb": "https://media.aquatome.com/inaturalist/8812753-480.webp",
       "width": 1024,
@@ -206,6 +220,76 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/230446236.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/230446236-480.webp",
+      "width": 461,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "BurntLeafyToast",
+      "sourceUrl": "https://www.inaturalist.org/photos/230446236",
+      "caption": "Đàn cá pupfish bơi trong vùng nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/230446257.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/230446257-480.webp",
+      "width": 461,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "BurntLeafyToast",
+      "sourceUrl": "https://www.inaturalist.org/photos/230446257",
+      "caption": "Cá pupfish sống trong vùng nước nông tự nhiên, thấy rõ thân vằn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287097196.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287097196-480.webp",
+      "width": 972,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Conway Hawn",
+      "sourceUrl": "https://www.inaturalist.org/photos/287097196",
+      "caption": "Cá pupfish đực xanh óng ánh giữa thảm tảo ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287097211.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287097211-480.webp",
+      "width": 1024,
+      "height": 1015,
+      "licence": "CC0",
+      "author": "Conway Hawn",
+      "sourceUrl": "https://www.inaturalist.org/photos/287097211",
+      "caption": "Cá pupfish đực màu xanh lấp lánh bơi trong môi trường hoang dã",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/287097242.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/287097242-480.webp",
+      "width": 1024,
+      "height": 947,
+      "licence": "CC0",
+      "author": "Conway Hawn",
+      "sourceUrl": "https://www.inaturalist.org/photos/287097242",
+      "caption": "Cá pupfish đực xanh bơi trên nền tảo xanh ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/155692608.webp",
       "thumb": "https://media.aquatome.com/inaturalist/155692608-480.webp",
       "width": 1024,
@@ -278,6 +362,20 @@
       "kind": "male"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/279492605.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/279492605-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Elizabeth Green",
+      "sourceUrl": "https://www.inaturalist.org/photos/279492605",
+      "caption": "Cá pupfish bơi trong nước đục ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/4662031.webp",
       "thumb": "https://media.aquatome.com/inaturalist/4662031-480.webp",
       "width": 768,
@@ -290,7 +388,7 @@
       "kind": "group"
     }
   ],
-  "seen": 155,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 215,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }
