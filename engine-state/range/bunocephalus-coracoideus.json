@@ -1,14 +1,14 @@
 {
   "id": "bunocephalus-coracoideus",
   "native": {
-    "input": "897892c1c1882f1f",
-    "at": "2026-11-20T01:55:49.831Z",
+    "input": "252d508ab94c5c0a",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "BO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The banjo catfish, Bunocephalus coracoideus, is an aspredinid catfish from Bolivia, Peru and Brazil.",
+        "quote": "Bolivia, Peru and Brazil.",
         "words": "Bolivia",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The banjo catfish, Bunocephalus coracoideus, is an aspredinid catfish from Bolivia, Peru and Brazil.",
+        "quote": "Bolivia, Peru and Brazil.",
         "words": "Peru",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The banjo catfish, Bunocephalus coracoideus, is an aspredinid catfish from Bolivia, Peru and Brazil.",
+        "quote": "Bolivia, Peru and Brazil.",
         "words": "Brazil",
         "ok": true
       },
@@ -64,7 +64,10 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "CO",
+        "VE"
+      ],
       "sourcesOnly": []
     }
   },

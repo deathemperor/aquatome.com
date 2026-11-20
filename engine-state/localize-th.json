@@ -4997,7 +4997,7 @@
     "from": "2026-10-31",
     "name": "ปลาบาดิส บลอซีรัส",
     "confidence": "low",
-    "score": 0.6,
+    "score": 0.78,
     "notes": [
       "Item 7: 'chironomid larvae (bloodworm)' rendered as 'หนอนแดง (ตัวอ่อนริ้นน้ำจืด)' and 'Tubifex' as 'ไส้เดือนน้ำ'. Thai hobbyists use 'หนอนแดง' for bloodworm and 'ไส้เดือนน้ำ' or 'หนอนแดง' for Tubifex, so the two terms are confusing. Use 'ลูกน้ำ/หนอนแดง (bloodworm)' and 'ไส้เดือนน้ำ (Tubifex)'.",
       "Item 7: 'Artemia' is rendered as 'ไรทะเล' and 'Daphnia' as 'ไรแดง'. Use 'อาร์ทีเมีย' and 'ไรน้ำ/ไรแดง'. Item 10 'Artemia nauplii' as 'ลูกไรทะเลแรกฟัก' should be 'ลูกอาร์ทีเมียแรกฟัก'.",
@@ -5092,7 +5092,7 @@
     "from": "2026-10-31",
     "name": "บาดิส ไพอีมา",
     "confidence": "low",
-    "score": 0.7,
+    "score": 0.75,
     "notes": [
       "Item 10: 'Other species are best omitted' became 'ไม่ควรมีปลาชนิดอื่นในตู้' (acceptable), but 'ลูกปลา...ไม่ยอมออกห่าง' fine. Real issue: 'the fry do not become free swimming until 6-8 days old' is OK, yet 'Post-spawning the female is ejected' translated 'ไล่ตัวเมียออกไป' OK.",
       "Item 11: 'Dario currently contains only three members ... less involved parental behaviour' rendered 'พฤติกรรมดูแลลูกน้อยกว่า' – fine; but 'B. dubruensis' vs 'B. dibruensis' inconsistent spelling carried from source; keep consistent.",

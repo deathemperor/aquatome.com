@@ -12,6 +12,37 @@
     "orinoco"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Río Orinoco",
+        "Río Casiquiare"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Present in the upper Río Orinoco from the Río Cinaruco upstream and in the Río Casiquiare.",
+          "countries": [],
+          "regions": [
+            "Río Orinoco",
+            "Río Casiquiare"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 10202289,
       "total": 21,
@@ -26,41 +57,49 @@
         [
           -68.90625,
           4.21875,
+          1,
           1
         ],
         [
           -68.90625,
           5.625,
+          2,
           2
         ],
         [
           -67.5,
           2.8125,
+          1,
           1
         ],
         [
           -67.5,
           4.21875,
+          8,
           8
         ],
         [
           -67.5,
           5.625,
+          1,
           1
         ],
         [
           -66.09375,
           1.40625,
+          2,
           2
         ],
         [
           -66.09375,
           2.8125,
+          1,
           1
         ],
         [
           -66.09375,
           4.21875,
+          5,
           5
         ]
       ]

@@ -1,0 +1,80 @@
+{
+  "id": "ancistrus-leucostictus",
+  "native": {
+    "input": "4446118159144e16",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Mazaruni River",
+        "source": "glaser",
+        "quote": "This is also true for Ancistrus leucostictus, which was brought back from a tributary of the Mazaruni River near its confluence with the Essequibo River by traveling aquarists in 2000.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo River",
+        "source": "glaser",
+        "quote": "This is also true for Ancistrus leucostictus, which was brought back from a tributary of the Mazaruni River near its confluence with the Essequibo River by traveling aquarists in 2000.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancistrus leucostictus",
+    "status": "ACCEPTED",
+    "taxonKey": 5961382,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        58
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        13
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        9
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "240e848b-47bc-40a3-a44c-6e745901d2d0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

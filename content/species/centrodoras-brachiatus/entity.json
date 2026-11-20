@@ -13,6 +13,25 @@
     "colombia"
   ],
   "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2344076,
       "total": 57,

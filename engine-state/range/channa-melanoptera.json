@@ -1,0 +1,44 @@
+{
+  "id": "channa-melanoptera",
+  "native": {
+    "input": "12280d8f4bd0c2ea",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Channa melanoptera from Indonesia belongs with a maximum length of 65 cm to the large Channa species from the species group around Channa marulius.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa melanoptera",
+    "status": "ACCEPTED",
+    "taxonKey": 2391536,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

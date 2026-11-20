@@ -17,10 +17,12 @@
       ],
       "regions": [
         "Amazon",
+        "Rio Negro",
         "Rio Tapajós"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -32,6 +34,14 @@
           "regions": [
             "Amazon",
             "Rio Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Urumari, Rio Negro drainage, Amazonas State, Brazil, 0°03'S, 63°30'W'.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
           ]
         }
       ]

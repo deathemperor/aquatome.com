@@ -19,30 +19,34 @@
         "PE"
       ],
       "regions": [
-        "Ucayali",
-        "Itayi",
-        "Pacaya"
+        "Rio Ucayali",
+        "Rio Itayi",
+        "Rio Pacaya",
+        "River Pacaya"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Sanchez's piranha, Serrasalmus sanchezi, is a small piranha endemic to Peru, collected from rivers including the Ucayali, Itayi and Pacaya.",
+          "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
           "countries": [
             "PE"
           ],
-          "regions": []
+          "regions": [
+            "Rio Ucayali",
+            "Rio Itayi",
+            "Rio Pacaya"
+          ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+          "source": "glaser",
+          "quote": "The type was found in Peru (\"Caño yarina\", on the bank of the River Pacaya, tributary of the Puinahua Canal, arm of the lower Rio Ucayali).",
           "countries": [],
           "regions": [
-            "Ucayali",
-            "Itayi",
-            "Pacaya"
+            "River Pacaya"
           ]
         }
       ]

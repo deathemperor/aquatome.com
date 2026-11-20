@@ -1,0 +1,51 @@
+{
+  "id": "moenkhausia-celibela",
+  "native": {
+    "input": "4332423ef6816d1c",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moenkhausia celibela",
+    "status": "ACCEPTED",
+    "taxonKey": 5962422,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        64
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        18
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        15
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        13
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

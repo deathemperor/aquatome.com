@@ -1,14 +1,14 @@
 {
   "id": "boraras-brigittae",
   "native": {
-    "input": "ab065dc2201fffb0",
-    "at": "2026-11-18T00:54:56.623Z",
+    "input": "85c60ad50432fd7c",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
         "source": "bwaquatics",
-        "quote": "Native to southwestern Borneo, Indonesia.",
+        "quote": "The Chili Rasbora is endemic to southern Borneo, Indonesia, with its type locality near Banjarmasin.",
         "words": "Indonesia",
         "ok": true
       },
@@ -33,7 +33,7 @@
       {
         "name": "Borneo",
         "source": "bwaquatics",
-        "quote": "Native to southwestern Borneo, Indonesia.",
+        "quote": "The Chili Rasbora is endemic to southern Borneo, Indonesia, with its type locality near Banjarmasin.",
         "country": "ID",
         "ok": true
       },
@@ -41,12 +41,7 @@
         "name": "Jelai Bila",
         "source": "seriouslyfish",
         "quote": "The type locality is 'Bandjarmasin', a port town in the Indonesian province of Kalimantan Selatan (South Kalimantan), and following Kottelat (1991) its range extends westwards as far as the Jelai Bila river basin, near the town of Sukamara, where it is said to occur sympatrically with the congener B. merah (but see 'Notes').",
-        "ok": true
-      },
-      {
-        "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Appears to be endemic to southwestern Borneo though occurrence records are scant.",
+        "country": "ID",
         "ok": true
       },
       {

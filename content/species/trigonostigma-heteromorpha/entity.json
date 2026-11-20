@@ -24,10 +24,10 @@
         "SG"
       ],
       "regions": [
-        "Sumatra",
-        "Borneo"
+        "Sumatra"
       ],
       "sources": [
+        "sprucepets",
         "seriouslyfish",
         "aquariumbreeder"
       ],
@@ -40,9 +40,14 @@
             "TH",
             "SG"
           ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "The harlequin rasbora is a native of Malaysia, Singapore, Sumatra, and southern Thailand.",
+          "countries": [],
           "regions": [
-            "Sumatra",
-            "Borneo"
+            "Sumatra"
           ]
         }
       ]

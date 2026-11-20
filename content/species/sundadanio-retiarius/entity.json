@@ -10,6 +10,36 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Borneo",
+        "Central Kalimantan"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Sundadanio retiarius comes from Borneo (Central Kalimantan).",
+          "countries": [],
+          "regions": [
+            "Borneo",
+            "Central Kalimantan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6166838,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -18,10 +18,10 @@
         "ID"
       ],
       "regions": [
-        "Kapuas",
-        "Indragiri",
         "Sumatra",
-        "Borneo"
+        "Kapuas",
+        "Borneo",
+        "Indragiri"
       ],
       "sources": [
         "bwaquatics",
@@ -41,8 +41,8 @@
           "quote": "This species has been collected from various localities in the province of Jambi, Sumatra, the adjacent province of Riau, and the Kapuas River system in Kalimantan Barat (West Kalimantan) province, Borneo.",
           "countries": [],
           "regions": [
-            "Kapuas",
             "Sumatra",
+            "Kapuas",
             "Borneo"
           ]
         },

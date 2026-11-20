@@ -1,10 +1,32 @@
 {
   "id": "ancistrus-patronus",
   "native": {
-    "input": "96abfbd158c880c7",
-    "at": "2026-11-20T07:13:45.828Z",
-    "claims": [],
-    "regions": [],
+    "input": "40117b9f83434ddd",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Orinoco",
+        "source": "scotcat",
+        "quote": "Present in the upper Río Orinoco from the Río Cinaruco upstream and in the Río Casiquiare.",
+        "ok": true
+      },
+      {
+        "name": "Río Casiquiare",
+        "source": "scotcat",
+        "quote": "Present in the upper Río Orinoco from the Río Cinaruco upstream and in the Río Casiquiare.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -34,8 +56,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-20T07:13:45.828Z"
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
   }
 }

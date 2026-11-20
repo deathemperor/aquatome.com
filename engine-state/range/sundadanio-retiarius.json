@@ -1,0 +1,39 @@
+{
+  "id": "sundadanio-retiarius",
+  "native": {
+    "input": "6afab7da50c183df",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Sundadanio retiarius comes from Borneo (Central Kalimantan).",
+        "ok": true
+      },
+      {
+        "name": "Central Kalimantan",
+        "source": "glaser",
+        "quote": "Sundadanio retiarius comes from Borneo (Central Kalimantan).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Sundadanio retiarius",
+    "status": "ACCEPTED",
+    "taxonKey": 6166838,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

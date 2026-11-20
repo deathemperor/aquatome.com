@@ -11,6 +11,178 @@
     "rio-negro",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "CO"
+      ],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Hemiodus thayeria comes from the border area of Brazil and Colombia at the Rio Negro.",
+          "countries": [
+            "BR",
+            "CO"
+          ],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354899,
+      "total": 60,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "VE",
+          28
+        ],
+        [
+          "BR",
+          19
+        ],
+        [
+          "CO",
+          9
+        ],
+        [
+          "GY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          0,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          0,
+          7,
+          7
+        ],
+        [
+          -68.90625,
+          1.40625,
+          4,
+          3
+        ],
+        [
+          -68.90625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          3,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          6,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -54.84375,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -20,12 +192,6 @@
     ]
   },
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hemiodus-thayeria-2/",
-      "html": "<p>The animals are currently between 5 and 8 cm long. According to literature the species becomes about 9 cm long without the caudal fin, which is a total length of about 11 cm.</p>"
-    },
     {
       "key": "distribution",
       "source": "glaser",

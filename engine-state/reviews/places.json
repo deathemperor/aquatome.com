@@ -3592,6 +3592,18 @@
       "kept": true
     }
   ],
+  "id/places/curacao": [
+    {
+      "at": "2026-11-20T16:57:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/curua-una": [
     {
       "at": "2026-11-10T01:37:16Z",
@@ -6415,6 +6427,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kapuas-lakes": [
+    {
+      "at": "2026-11-20T16:57:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [
+        "các hồ Kapuas (Vietnamese, not Indonesian; the Indonesian form is \"Danau-danau Kapuas\")"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -17083,6 +17109,18 @@
       "kept": true
     }
   ],
+  "id/places/surata": [
+    {
+      "at": "2026-11-20T16:57:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/suriname-river-basin": [
     {
       "at": "2026-11-18T05:23:25Z",
@@ -17253,6 +17291,18 @@
       "notes": [
         "sông Takutu (Vietnamese 'sông'; Indonesian would be Sungai Takutu)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tamaulipas": [
+    {
+      "at": "2026-11-20T16:57:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.4,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -23499,6 +23549,18 @@
       "kept": true
     }
   ],
+  "ms/places/curacao": [
+    {
+      "at": "2026-11-20T17:15:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/curua-una": [
     {
       "at": "2026-11-10T10:07:21Z",
@@ -26843,6 +26905,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "ms/places/kapuas-lakes": [
+    {
+      "at": "2026-11-20T17:15:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -37860,6 +37934,18 @@
       "kept": true
     }
   ],
+  "ms/places/surata": [
+    {
+      "at": "2026-11-20T17:15:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/suriname-river-basin": [
     {
       "at": "2026-11-18T05:42:16Z",
@@ -38033,6 +38119,18 @@
       "notes": [
         "sông Takutu (Vietnamese, not Malay; Malay would be Sungai Takutu)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/tamaulipas": [
+    {
+      "at": "2026-11-20T17:15:03Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -44190,6 +44288,20 @@
       "kept": true
     }
   ],
+  "th/places/curacao": [
+    {
+      "at": "2026-11-20T16:58:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [
+        "\"กือราเซา\" (Curaçao): the spelling is plausible, but กูราเซา is the more common form in Thai."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/curua-una": [
     {
       "at": "2026-11-10T01:42:04Z",
@@ -47161,6 +47273,18 @@
       "at": "2026-11-09T22:57:23Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kapuas-lakes": [
+    {
+      "at": "2026-11-20T16:58:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -58461,6 +58585,18 @@
       "kept": true
     }
   ],
+  "th/places/surata": [
+    {
+      "at": "2026-11-20T16:58:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/suriname-river-basin": [
     {
       "at": "2026-11-18T05:28:41Z",
@@ -58647,6 +58783,18 @@
       "notes": [
         "ตากูตู: Takutu river usually แม่น้ำตากูตู; name okay"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tamaulipas": [
+    {
+      "at": "2026-11-20T16:58:52Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.88,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -68601,6 +68749,19 @@
       "model": "sonnet",
       "score": 0.92,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kapuas-lakes": [
+    {
+      "at": "2026-11-20T16:57:27Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"các hồ Kapuas\": the generic word is translated into Vietnamese and the proper name is kept, which is fine"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -81789,6 +81950,19 @@
       "kept": true
     }
   ],
+  "vi/places/surata": [
+    {
+      "at": "2026-11-20T16:57:27Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"Suratá\" and \"Tamaulipas\": these keep the source spelling, which is fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/suriname-river": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -82012,6 +82186,19 @@
       "cli": "2.1.322",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tamaulipas": [
+    {
+      "at": "2026-11-20T16:57:28Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "\"Suratá\" and \"Tamaulipas\": these keep the source spelling, which is fine"
+      ],
       "attempt": "first",
       "kept": true
     }

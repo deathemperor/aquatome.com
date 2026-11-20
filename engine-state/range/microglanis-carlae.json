@@ -1,0 +1,56 @@
+{
+  "id": "microglanis-carlae",
+  "native": {
+    "input": "464cfc09ad90d2d0",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Paraguay, South America.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microglanis carlae",
+    "status": "ACCEPTED",
+    "taxonKey": 2344143,
+    "datasets": [
+      [
+        "0df3268d-08bd-4a5f-b5f3-95c3102e15fc",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        1
+      ]
+    ],
+    "native": [
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

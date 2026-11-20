@@ -9,6 +9,68 @@
     "north-america",
     "mexico"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Unfortunately, it belongs to the endangered fish species, because it only exists in a single area of less than 4 km2 in Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350565,
+      "total": 36,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "MX",
+          35
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -105.46875,
+          26.71875,
+          33,
+          33
+        ],
+        [
+          -104.0625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -101.25,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          25.3125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

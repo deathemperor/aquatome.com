@@ -13,6 +13,106 @@
     "thailand",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Mekong",
+        "Xe Bangfai",
+        "Nam Theun"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "P. falcifer occurs in the large southeast-asian streams Mekong, Xe Bangfai and Nam Theun.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Xe Bangfai",
+            "Nam Theun"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366495,
+      "total": 38,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "TH",
+          22
+        ],
+        [
+          "KH",
+          9
+        ],
+        [
+          "VN",
+          5
+        ],
+        [
+          "LA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          18.28125,
+          8
+        ],
+        [
+          99.84375,
+          12.65625,
+          6
+        ],
+        [
+          101.25,
+          18.28125,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          2
+        ],
+        [
+          104.0625,
+          16.875,
+          1
+        ],
+        [
+          105.46875,
+          9.84375,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          9
+        ],
+        [
+          105.46875,
+          14.0625,
+          5
+        ],
+        [
+          106.875,
+          11.25,
+          3
+        ],
+        [
+          106.875,
+          12.65625,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

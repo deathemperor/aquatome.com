@@ -777,6 +777,13 @@
     "sonnet": 0.7,
     "back": false
   },
+  "betta-renata": {
+    "hash": "ce87bfc884c752c29159da2082db41c52bc3c46992d4bcbe52757a56fe542ad6",
+    "at": "2026-11-20T17:22:56.910Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
   "betta-simplex": {
     "hash": "e8e22287a63e2f2ea2cfe7d63a609b65381622ac926f419f01bb24c5d391cf51",
     "at": "2026-11-18T00:29:03.853Z",
@@ -790,10 +797,109 @@
     "opus": 0.9,
     "back": true
   },
+  "bhavania-australis": {
+    "hash": "1b5ed8b80b34a8096e4df04c5042db91c1735771c55a8bf47559e755cd2df030",
+    "at": "2026-11-20T17:23:31.428Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "boraras-naevus": {
+    "hash": "a35406a85c5b0ba27f35ad89b99d3f2b16c37854eec726e478c0878dd7333578",
+    "at": "2026-11-20T17:23:44.932Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "botia-dario": {
+    "hash": "d128f96c57cad824971a305b3c2d5350db393c530f1e047ba2dd441ef229e1f4",
+    "at": "2026-11-20T17:23:50.779Z",
+    "sonnet": 0.5,
+    "back": false,
+    "held": [
+      "Item 12: \"Tarian ini bisa berlangsung\" – 'Tarian ini' is added wording but harmless; however the 'Botia appears to be the basal... lineage' paragraph drops \"rather then being grouped\" nuance okay. Main issue: \"Pertunjukan seperti ini\" for \"Such displays\" is awkward; use \"Perilaku menunjukkan diri seperti ini\"."
+    ]
+  },
+  "botia-histrionica": {
+    "hash": "b3b773f0672c28ac50d9c4a0fa88d8fcfb188efdc665af5e68e2e701e34b0cae",
+    "at": "2026-11-20T17:23:57.730Z",
+    "sonnet": 0.4,
+    "back": false
+  },
+  "botia-lohachata": {
+    "hash": "164f6f6684d93f015d8757b6d807fc45f5e9c32e24472bfa31fb946418608e8c",
+    "at": "2026-11-20T17:24:16.030Z",
+    "sonnet": 0.8,
+    "opus": 0.95,
+    "back": true
+  },
+  "botia-rostrata": {
+    "hash": "f71e0243c0d54de93bc3a33d0d4a23497d8ab0bbc98f478a1c645f0149072c1f",
+    "at": "2026-11-20T17:24:54.064Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "botia-striata": {
+    "hash": "84ab2eecc15424135e744766b0738f0ff401b7c3f792fb63c2af19bfdf4f2792",
+    "at": "2026-11-20T17:25:05.939Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 12: \"Levamisole yang tergolong antibiotik\" repeats the source's error, but Levamisole is an anthelmintic, not an antibiotic. Fenbendazole is also an anthelmintic. Fix the wording or add a neutral note. Check this against the source before finalising."
+    ]
+  },
+  "botia-udomritthiruji": {
+    "hash": "0bcb19e36a04a02646e958b692a42ec4f987f7dda046be6e86f00f1fa11c6b13",
+    "at": "2026-11-20T17:25:44.298Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": false,
+    "held": [
+      "Item 12: \"Hobbyists in the UK tend to use ... Levamisole\" – translation \"antibiotik Levamisole\" repeats source's error; fine. \"Obat\" fine."
+    ]
+  },
+  "boulengerella-lateristriga": {
+    "hash": "fa05a9cf63a4f12b155cd2dd1ef6ca81dcf372ff8f2f85fbe5274c8ef6e02487",
+    "at": "2026-11-20T17:25:56.641Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "boulengerella-lucius": {
+    "hash": "0cbd2f7c731a178318d6f12df35e61aab6506c4a2e52e16b1ad007402c44579a",
+    "at": "2026-11-20T17:26:25.528Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "boulengerella-maculata": {
+    "hash": "bd3d8c91fbf598da8444fe1caa194d696047b024a4e1e9640d1212875047b2a6",
+    "at": "2026-11-20T17:26:35.896Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "brachychalcinus-orbicularis": {
     "hash": "860a4365720de71049f69d9543ff4a50950fc0a28c6cc319b2cf5665526fe520",
     "at": "2026-11-17T11:23:39.463Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "brachygobius-doriae": {
+    "hash": "7ac54061ce84a9a00cef02e6bba3f3e4aec217466333a056d3d347e9ced14a5e",
+    "at": "2026-11-20T17:27:11.909Z",
+    "sonnet": 0.93,
+    "opus": 0.7,
+    "back": false
+  },
+  "brachygobius-kabiliensis": {
+    "hash": "144b724c85697083db47b02eff1b3f64f339c6b5ca12b650f14dbb8e3716803e",
+    "at": "2026-11-20T17:27:28.479Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brachygobius-mekongensis": {
+    "hash": "279b697fdea41b8a5b4c3b87a9e1e7c7d9e013bc9e2fe4087789ca0e215a470f",
+    "at": "2026-11-20T17:27:40.146Z",
+    "sonnet": 0.72,
     "back": false
   },
   "caquetaia-myersi": {

@@ -9,6 +9,68 @@
     "south-america",
     "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Paraguay, South America.",
+          "countries": [
+            "PY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344143,
+      "total": 14,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "PY",
+          12
+        ],
+        [
+          "AR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -33.75,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -32.34375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -25.3125,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

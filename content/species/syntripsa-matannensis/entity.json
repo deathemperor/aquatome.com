@@ -10,6 +10,50 @@
     "indonesia",
     "lake-matano"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Lake Matano"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The Matano crab is known from a number of localities around Lake Matano in South Sulawesi, Indonesia, where it appears to be evenly distributed throughout the lake and lives alongside other freshwater crabs such as the Panther crab (Parathelphusa pantherina).",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Lake Matano"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5791017,
+      "total": 2,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

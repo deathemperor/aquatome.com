@@ -1,8 +1,8 @@
 {
   "id": "corydoras-elegans",
   "native": {
-    "input": "14e57a69393bddc9",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "bfa834581aff074c",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "BR",
@@ -16,7 +16,7 @@
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil.",
+        "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil. Unlike most congeners it spends a fair amount of time away from the substrate, often forming groups in midwater.",
         "words": "Peru",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "EC",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil.",
+        "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil. Unlike most congeners it spends a fair amount of time away from the substrate, often forming groups in midwater.",
         "words": "Ecuador",
         "ok": true
       },
@@ -32,7 +32,7 @@
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil.",
+        "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil. Unlike most congeners it spends a fair amount of time away from the substrate, often forming groups in midwater.",
         "words": "Brazil",
         "ok": true
       }
@@ -42,6 +42,13 @@
         "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "This species is fairly widespread in the western Amazon basin and has been recorded in the Ríos Yavarí (Javary), Itaya, Nanay, Carahuayte, Tamaya, Ampiyacu, and Ucayali in Peru, the Ríos Aguarico and Napo in Ecuador, and the rio Solimões in Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Solimões",
+        "source": "seriouslyfish",
+        "quote": "This species is fairly widespread in the western Amazon basin and has been recorded in the Ríos Yavarí (Javary), Itaya, Nanay, Carahuayte, Tamaya, Ampiyacu, and Ucayali in Peru, the Ríos Aguarico and Napo in Ecuador, and the rio Solimões in Brazil.",
+        "country": "BR",
         "ok": true
       },
       {
@@ -56,13 +63,6 @@
         "source": "seriouslyfish",
         "quote": "This species is fairly widespread in the western Amazon basin and has been recorded in the Ríos Yavarí (Javary), Itaya, Nanay, Carahuayte, Tamaya, Ampiyacu, and Ucayali in Peru, the Ríos Aguarico and Napo in Ecuador, and the rio Solimões in Brazil.",
         "country": "EC",
-        "ok": true
-      },
-      {
-        "name": "Solimões",
-        "source": "seriouslyfish",
-        "quote": "This species is fairly widespread in the western Amazon basin and has been recorded in the Ríos Yavarí (Javary), Itaya, Nanay, Carahuayte, Tamaya, Ampiyacu, and Ucayali in Peru, the Ríos Aguarico and Napo in Ecuador, and the rio Solimões in Brazil.",
-        "country": "BR",
         "ok": true
       },
       {

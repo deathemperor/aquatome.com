@@ -9,6 +9,34 @@
     "asia",
     "sri-lanka"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Sri Lanka. In nature the species inhabits an area of only 4 km².",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8080041,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {},
   "sections": [
     {

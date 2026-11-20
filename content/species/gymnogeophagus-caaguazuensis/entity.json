@@ -9,6 +9,52 @@
     "south-america",
     "paraguay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PY"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Gymnogeophagus caaguazuensis is a larvophile maternal mouthbrooding cichlid from Paraguay.",
+          "countries": [
+            "PY"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371126,
+      "total": 34,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "PY",
+          34
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -26.71875,
+          33,
+          33
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

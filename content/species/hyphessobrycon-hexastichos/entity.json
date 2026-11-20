@@ -10,6 +10,50 @@
     "brazil",
     "rio-tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "H. hexastichos occurs exclusively in the upper catchment area of the Rio Tapajós in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354630,
+      "total": 13,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -14.0625,
+          13,
+          13
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -10,6 +10,94 @@
     "india",
     "khasi-hills"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Khasi Hills",
+        "Himalayas"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species comes from India, or more precisely from the Khasi Hills on the edge of the Himalayas in northeastern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Khasi Hills",
+            "Himalayas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366815,
+      "total": 31,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "IN",
+          31
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          28.125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          22.5,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          23.90625,
+          14,
+          14
+        ],
+        [
+          92.8125,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          92.8125,
+          28.125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

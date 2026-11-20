@@ -10,10 +10,29 @@
     "peru"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Before its scientific description this beautiful species of dwarf cichlid from Peru was known in the hobby as the \"Sunset-Apistogramma\".",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2371235,
       "total": 10,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-20",
       "countries": [
         [
           "PE",
@@ -24,16 +43,19 @@
         [
           -74.53125,
           -9.84375,
+          4,
           4
         ],
         [
           -74.53125,
           -4.21875,
+          4,
           4
         ],
         [
           -73.125,
           -4.21875,
+          2,
           2
         ]
       ]

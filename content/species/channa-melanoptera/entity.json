@@ -9,6 +9,56 @@
     "asia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Channa melanoptera from Indonesia belongs with a maximum length of 65 cm to the large Channa species from the species group around Channa marulius.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391536,
+      "total": 2,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "MY",
+          1
+        ],
+        [
+          "SG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

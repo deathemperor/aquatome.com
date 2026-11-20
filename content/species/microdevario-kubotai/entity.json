@@ -21,10 +21,10 @@
         "MM"
       ],
       "regions": [
+        "Ataran",
         "Salween",
-        "Mae Khlong",
-        "Ataran River",
-        "Suriya"
+        "Suriya",
+        "Thai-Malay peninsula"
       ],
       "sources": [
         "bwaquatics",
@@ -34,30 +34,20 @@
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Native to Thailand, found in the Mae Khlong and Mae Klong tributary basins.",
+          "quote": "Native to peninsular Thailand (Ranong and Phang Nga provinces) and the Ataran basin, Myanmar.",
           "countries": [
-            "TH"
-          ],
-          "regions": [
-            "Mae Khlong"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Microdevario kubotai is a miniature cyprinid from peninsular Thailand and the Salween drainage in southern Myanmar.",
-          "countries": [
+            "TH",
             "MM"
           ],
-          "regions": [
-            "Salween"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
           "quote": "Known from Ranong and Phang Nga provinces on the northwestern slope of peninsular Thailand and the Ataran River basin, a tributary within the Salween drainage in southern Myanmar which rises in Kanchanaburi province, western Thailand.",
           "countries": [],
           "regions": [
-            "Ataran River"
+            "Ataran",
+            "Salween"
           ]
         },
         {
@@ -66,6 +56,14 @@
           "countries": [],
           "regions": [
             "Suriya"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Clear forest streams of the Thai-Malay peninsula.",
+          "countries": [],
+          "regions": [
+            "Thai-Malay peninsula"
           ]
         }
       ]

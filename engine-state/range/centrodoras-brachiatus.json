@@ -1,10 +1,17 @@
 {
   "id": "centrodoras-brachiatus",
   "native": {
-    "input": "457f5811e512f8b2",
-    "at": "2026-11-20T12:03:34.993Z",
+    "input": "6f7eb3fb2c6ba588",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

@@ -10,6 +10,38 @@
     "colombia",
     "surata"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Suratá"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Department of Santander, Dirty Creek, a tributary of the River Suratá, Municipality of Suratá.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Suratá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9416656,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

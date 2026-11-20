@@ -554,16 +554,42 @@
     "opus": 0.88,
     "back": true
   },
+  "badis-assamensis": {
+    "hash": "57c39de236092c8f4ba72439fb27cb8ebcab2ea9c46ae517e6be6970588fd82c",
+    "at": "2026-11-20T17:28:02.465Z",
+    "sonnet": 0.5,
+    "back": false
+  },
   "badis-autumnum": {
     "hash": "35313d2b7f447c266fb62f63fac8720d17dc4b709e00fa68ba0827158696de75",
     "at": "2026-11-18T12:14:49.595Z",
     "sonnet": 0.6,
     "back": false
   },
+  "badis-blosyrus": {
+    "hash": "f2be9a8db7d91293264e4ffa5401c64a5729c1d9bf4d98a13ee27db15b03fa84",
+    "at": "2026-11-20T17:28:58.473Z",
+    "sonnet": 0.78,
+    "opus": 0.8,
+    "back": true
+  },
+  "badis-pyema": {
+    "hash": "e65bb2b56576aa13a9438c27f1f021028366adb6ad9e3001ba036aaca385975c",
+    "at": "2026-11-20T17:29:49.892Z",
+    "sonnet": 0.92,
+    "opus": 0.75,
+    "back": true
+  },
   "bagarius-suchus": {
     "hash": "2fb8e41ad8e1302a30b2aff6e0b68e209ef6a25a2a2f43b2f9aee5a2277e67cb",
     "at": "2026-11-18T12:14:57.445Z",
     "sonnet": 0.5,
+    "back": false
+  },
+  "bagarius-vegrandis": {
+    "hash": "28b8c9cc2990ec9c7eb005ea4ae2dd2e4296832ad1679820b6e82a36b6da65e9",
+    "at": "2026-11-20T17:30:03.505Z",
+    "sonnet": 0.7,
     "back": false
   },
   "bagre-marinus": {
@@ -575,9 +601,84 @@
       "Item 5: 'ปลาหนังน้ำเค็ม' is a non-standard gloss for 'Salt-water Catfish'; consider the established name 'ปลาสังกะวาดทะเล' or just keep the English name."
     ]
   },
+  "balitoropsis-zollingeri": {
+    "hash": "757330cf5b92fa82b6d5ead827d1dc7d8e45e3ce49e83535c73a619df3195da5",
+    "at": "2026-11-20T17:30:18.172Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 9: 'harmless squabbles may occur' is rendered 'กระทบกระทั่งกันเล็กน้อยที่ไม่เป็นอันตราย'. This is acceptable but wordy. 'ขี้อาย' for 'retiring' is fine.",
+      "Item 9: 'harmless squabbles' fine; 'ขี้อาย' for 'retiring' acceptable. 'gobies' rendered 'ปลาบู่' fine."
+    ]
+  },
+  "bangana-behri": {
+    "hash": "e3a172fa696ed6c1e792ec39ca86d92cb7d947a644d363b661d2b236ca2a05b6",
+    "at": "2026-11-20T17:30:33.431Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 12: \"ไม่ค่อยรอด\" (don't survive well) changes \"not do well\". Use \"อยู่ได้ไม่ดี/ไม่ค่อยเจริญเติบโตดี\" so it does not claim a death rate."
+    ]
+  },
+  "barbodes-aurotaeniatus": {
+    "hash": "4c8c1b37d5f4e06cf8f952d00cb8a23da8d21904a7f4061c66bd30ff077b86fe",
+    "at": "2026-11-20T17:30:55.821Z",
+    "sonnet": 0.72,
+    "back": false,
+    "held": [
+      "Item 8: 'ปลาหมูและปลาค้อหลายชนิดในวงศ์ Cobitidae, Nemacheilidae' is unclear. 'ปลาหมู' is Botiidae and Cobitidae is 'ปลาหมูอารีย์/ปลาไหลหิน' in the hobby. The sentence also treats Botiidae as 'ปลาหมู' and Cobitidae as 'ปลาหมูและปลาค้อ' without distinguishing them."
+    ]
+  },
+  "barilius-caudiocellatus": {
+    "hash": "7d77338d04114fb4532f3bde94f2cd167f77c6fcbe70ab36a540ff2a494e3a46",
+    "at": "2026-11-20T17:31:14.203Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "barilius-ornatus": {
+    "hash": "c876e1a3e3387fd5a9959ab405a4d36068bbdf595de16f785d310d99088c92cb",
+    "at": "2026-11-20T17:31:56.185Z",
+    "sonnet": 0.75,
+    "opus": 0.7,
+    "back": false
+  },
+  "barilius-shacra": {
+    "hash": "7d90ccefa084337fd85fad87f8753fc88a5d5e3c088178359bf9b93f7f2a65f7",
+    "at": "2026-11-20T17:32:26.942Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": false,
+    "held": [
+      "Item 4: \"alkalinity 17.1 mg/l, total hardness 28.5–34.2 mg/l\" — fine, but \"dissolved oxygen ... ppm\" kept; no issue. Real problem is elsewhere (see below)."
+    ]
+  },
+  "baryancistrus-demantoides": {
+    "hash": "939c4e4f8ddf44b6f3ef18d9e60ee6b5f5ade45fbcbc8226787a20ef025fcf6d",
+    "at": "2026-11-20T17:32:41.682Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "bathyclarias-nyasensis": {
+    "hash": "38d9eaa0c7415cee295ff8c953a39f18aff381f641f6098bff85eb20f13c0a66",
+    "at": "2026-11-20T17:32:52.611Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "batrachocephalus-mino": {
     "hash": "7cb4ef47ef40abdf9db69b7348f9d7f807b7a9ebaa5ef52955f611c0ebf9b16e",
     "at": "2026-11-19T00:30:00.072Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "batrochoglanis-villosus": {
+    "hash": "9765a3247b974719c62466d0d72065766fac87f8fa54a5149c823b8b298b70fb",
+    "at": "2026-11-20T17:33:03.963Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "beaufortia-leveretti": {
+    "hash": "c1810009562830a90eebf3edfe01521ceb87a68f69bb79ab00c04611dafc85c9",
+    "at": "2026-11-20T17:33:15.521Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -611,12 +712,12 @@
     "back": false
   },
   "bunocephalus-amaurus": {
-    "hash": "4f6a9c9f0fdf59d8850d0bd056023014aaa35e3ce33112a761b74a6159f8884a",
-    "at": "2026-11-20T11:47:19.514Z",
+    "hash": "0a3f755c712b99b7b488e44f7d746f2c9f66b744ac827052b3a9a6faa5e3675c",
+    "at": "2026-11-20T17:27:52.136Z",
     "sonnet": 0.6,
     "back": false,
     "held": [
-      "Item 1: \"การทำท่าเหมือนตาย\" – the source says the appearance of death (looking dead), not an act of playing dead; use \"การดูเหมือนตาย\".",
+      "Item 1: 'วงศ์ย่อย ... ซึ่งแยกจากกันได้จากครีบก้นที่ยาวกว่าและลำตัวที่ยาวกว่าของกลุ่มหลัง' is okay, but 'การทำท่าเหมือนตาย' changes the source: the English says the appearance of death is a natural defence, not that the fish act dead. Use 'การดูเหมือนตาย'.",
       "Item 1: 'การทำท่าเหมือนตาย' changes the meaning: the English says the appearance of death (looking dead), not playing dead as behaviour. Use 'การดูเหมือนตายนี้'."
     ]
   },

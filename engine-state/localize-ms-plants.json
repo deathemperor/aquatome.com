@@ -2353,20 +2353,15 @@
     }
   },
   "microsorum-pteropus": {
-    "at": "2026-11-19",
-    "from": "2026-10-31",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "Java Fern",
     "confidence": "high",
     "score": 0.6,
     "notes": [
-      "Item 3: \"ia boleh kalah teruk dengan alga\" / \"Jika alga menang\" is a literal rendering of \"fight badly with algae\" / \"algae wins\". Use e.g. \"ia sukar bersaing dengan alga\" / \"jika alga menguasai\".",
-      "Item 3: \"memulakan tangki dengannya secara sambil lewa\" reads oddly. \"Start a tank with it carelessly\" is better as \"menjadikannya tumbuhan permulaan tangki baharu secara sembarangan\".",
-      "Item 3: \"tangki tanpa substrat (bare bottom)\" is acceptable, but \"ditimbus\" and \"ditanam dalam batu kelikir\" are mixed up. Use \"ditanam dalam kerikil\" and \"ditimbus\" consistently.",
-      "Item 3: \"Satu kaedah yang digemari\" drops the sense of \"the author's favourite method\". This is acceptable as neutral wording, but \"setitik gam\" for \"a bead of glue\" understates the amount. Use \"setitik\" or \"sedikit\" consistently.",
-      "Item 5: \"reput (melt)\" for \"burn or melt\" is fine, but \"spektrum atau watt\" should be \"spektrum atau kuasa watt\". \"Cahaya rendah hingga sederhana tinggi\" is also ambiguous. Use \"cahaya rendah hingga sederhana-tinggi\".",
-      "Item 6: \"tercabut\" for \"drop off\" is acceptable, but \"anak pokok\" for \"plantlets\" is fine. No change needed here.",
-      "Item 8: \"pengasas syarikat yang menghasilkannya\" replaces \"Tropica's founder\" and drops the name Tropica. Restore \"pengasas Tropica\" (a trade name).",
-      "Item 4: \"ikan herbivor\" is fine. Item 1: \"tangki air payau pun boleh\" is colloquial. Use \"malah tangki air payau\"."
+      "Item 5, Planting: 'benang atau pita pelekat, gam gel (superglue) atau tali pancing' adds 'benang' (thread) and 'gam gel (superglue)' that are not in the source ('tape, adhesive or fishing line'). Use 'pita pelekat, pelekat/gam atau tali pancing'.",
+      "Item 8: 'tombak trisula' for trident is slightly awkward. 'trisula' alone is enough.",
+      "Item 3: 'merimbun hingga tajam' for 'bushy to spiky' is a little unnatural. 'berumpun hingga runcing' would read better."
     ],
     "parts": {
       "quickFacts:aquariumcoop": "6bcf2166a992",
@@ -2376,7 +2371,15 @@
       "equipment:aquariumcoop": "5d2099ea38b1",
       "reproduction:aquariumcoop": "2e1f91cf5aa3",
       "notes:aquariumcoop": "947a0d98f7a0",
-      "notes:tropica": "b734195ea119"
+      "notes:tropica": "b734195ea119",
+      "quickFacts:aquariumbreeder": "4b67a7e0bba1",
+      "distribution:aquariumbreeder": "35d0ed39deaa",
+      "habitat:aquariumbreeder": "2675f5165117",
+      "aquariumSize:aquariumbreeder": "1de66aed8c0e",
+      "maintenance:aquariumbreeder": "949d248a4a75",
+      "waterConditions:aquariumbreeder": "127cce48dcee",
+      "behaviour:aquariumbreeder": "2f25ad2a6255",
+      "notes:aquariumbreeder": "ce35473c445a"
     }
   },
   "microsorum-pteropus-narrow": {
@@ -2526,6 +2529,73 @@
       "quickFacts:tropica": "271e170a7ec0",
       "maintenance:tropica": "1cb6cf22b28d",
       "notes:tropica": "445e293387eb"
+    }
+  },
+  "najas-guadalupensis": {
+    "at": "2026-11-20",
+    "from": "2026-11-18",
+    "name": "Guppy Grass",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "#19: \"alga lebih sukar untuk meletus\" is awkward. Use \"alga lebih sukar berleluasa/tumbuh melampau\" (algae bloom).",
+      "#4: \"disembur racun perosak\" adds \"sprayed\". The source says only \"treated with pesticides\", so use \"dirawat dengan racun perosak\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "ea6a4bf24a9c",
+      "quickFacts:aquariumbreeder": "6667947c8d26",
+      "beforeYouBuy:aquatome": "13300c6fa350",
+      "beforeYouBuy:aquariumbreeder": "b2dcac465e87",
+      "distribution:aquariumbreeder": "3ff9ffafefde",
+      "habitat:aquariumbreeder": "d68b47cd5a81",
+      "aquariumSize:aquatome": "e7d9aa157043",
+      "aquariumSize:aquariumbreeder": "1d28b56f08ad",
+      "maintenance:aquatome": "84ddbac96eaa",
+      "maintenance:tropica": "ac9c6222a3ea",
+      "maintenance:aquariumbreeder": "65268e65dfc2",
+      "waterConditions:aquatome": "87cc142a1cd6",
+      "waterConditions:aquariumbreeder": "df5e262e1b3f",
+      "equipment:aquariumbreeder": "3ef81522915d",
+      "behaviour:aquatome": "d3493d587794",
+      "behaviour:aquariumbreeder": "d6d4e5a14274",
+      "reproduction:aquatome": "7349d148cef3",
+      "notes:tropica": "f0ff05bf2bca",
+      "notes:aquatome": "08c126e45cf4",
+      "notes:aquariumbreeder": "dbd0c1a251ce"
+    }
+  },
+  "nymphaea-lotus": {
+    "at": "2026-11-20",
+    "from": "2026-10-31",
+    "name": "Tiger Lotus",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 2: 'Substrat dasar' is slightly redundant; 'Substrat yang kaya nutrien' is enough.",
+      "Item 3: 'sangat pelbagai' is slightly awkward; 'sangat berbeza-beza' or 'amat pelbagai bentuk' may read more naturally."
+    ],
+    "parts": {
+      "quickFacts:tropica": "dbc8588965ee",
+      "maintenance:tropica": "5bd53938ed88",
+      "notes:tropica": "cc4d43e76f69"
+    }
+  },
+  "nymphaea-stellata": {
+    "at": "2026-11-20",
+    "from": "2026-10-31",
+    "name": "Dwarf Aquarium Lily",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"sekitar 10 cm panjang\" – source says leaves are 4-inch (about 10 cm); acceptable, but \"mata anak panah\" is fine. Minor: \"Dwarf aquarium lily\" left in English without a local name; consider adding a Malay descriptor such as \"teratai akuarium kerdil\".",
+      "Item 3: \"Tumbuhan ini mendapat makanan yang baik\" – \"feeding\" refers to nutrients; use \"mendapat nutrien yang mencukupi\" instead of \"makanan\".",
+      "Item 3: \"daun itu halus\" for \"delicate\" is ambiguous; use \"rapuh\" or \"mudah rosak\".",
+      "Item 3: \"dijual dalam pasu\" – source says a potted plant in a plastic basket with rock wool; \"pasu\" is slightly inaccurate, consider \"dalam bakul pasu\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "36ae9278875a",
+      "maintenance:aquariumcoop": "5ad73eefe4da",
+      "notes:aquariumcoop": "1670e0d44cda"
     }
   }
 }

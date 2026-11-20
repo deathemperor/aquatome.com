@@ -1,8 +1,13 @@
 {
   "slug": "congo-basin",
-  "name": "Lembah Kongo",
+  "name": "Cekungan Kongo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-20T17:37:12.217Z"
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

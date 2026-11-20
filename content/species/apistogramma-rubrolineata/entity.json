@@ -9,6 +9,40 @@
     "south-america",
     "bolivia"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2371244,
+      "total": 16,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BO",
+          13
+        ],
+        [
+          "PE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -12.65625,
+          3
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          10
+        ],
+        [
+          -68.90625,
+          -11.25,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -16,12 +50,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-rubrolineata-2/",
       "html": "<p>The Bolivian dwarf cichlid Apistogramma rubrolineata is one of the true rarities in the trade. The species was only discovered in 2001 and scientifically described in 2002.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-rubrolineata-2/",
-      "html": "<p>They are very pretty animals, which are currently available as German offspring in excellent quality.</p>"
     },
     {
       "key": "notes",

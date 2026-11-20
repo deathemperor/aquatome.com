@@ -1157,6 +1157,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-mdW19245Utg#body": [
+    {
+      "at": "2026-11-20T17:53:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "The opening condition \"Khi hai bể cùng cỡ, bể trên không lọt gọn dưới bể khác được\" is dropped. AFTER gives a different cause, \"Bể sâu hơn kệ\", so the same-size-tanks context is lost.",
+        "\"nhưng không bắt buộc\" became \"nhưng không làm cũng được\". This is a small nuance shift but acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-nXDe9QF-Gu8#body": [
     {
       "at": "2026-11-09T10:47:51Z",

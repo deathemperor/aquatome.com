@@ -16,10 +16,12 @@
         "ID"
       ],
       "regions": [
-        "Lake Matano"
+        "Lake Matano",
+        "Sulawesi"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -36,6 +38,14 @@
           "countries": [],
           "regions": [
             "Lake Matano"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "In the wild, the Panther Crab is found on the Indonesian island of Sulawesi.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
           ]
         }
       ]

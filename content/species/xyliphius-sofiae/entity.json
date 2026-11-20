@@ -10,6 +10,38 @@
     "peru",
     "amazon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Amazonas"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Río Amazonas, main channel in the vicinity of Iquitos, Maynas, Loreto, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Amazonas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9603551,
+      "total": 0,
+      "fetched": "2026-11-20",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

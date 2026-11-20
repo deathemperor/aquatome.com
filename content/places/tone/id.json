@@ -3,6 +3,12 @@
   "name": "Tone",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:39:55.430Z",
+    "why": "\"Tone\" is ambiguous: the place is a region in Japan, likely the Tone District or Tone River area, and Indonesian atlases would normally add a kind word such as \"Sungai Tone\" for the river, so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

@@ -5696,23 +5696,16 @@
   "products": []
  },
  "id/species/alestopetersius-leopoldianus": {
-  "at": "2026-11-08",
-  "hash": "ab13226959892578",
+  "at": "2026-11-20",
+  "hash": "b4e565d80c9c374b",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
     "quote": "Saat ini panjang ikannya 6–7 cm, dan diperkirakan tidak akan tumbuh lebih dari 9 cm.",
-    "why": "Describes the source's own specimens in stock as if the reader knew them.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P2",
-    "quote": "Foto yang diambil di bawah cahaya siang alami menampilkan warna ikan secara akurat",
-    "why": "Refers to the source writer's own photos, which the page does not have.",
+    "why": "Describes the source shop's own specimens in stock right now, which the reader has never seen.",
     "by": "model"
    }
   ],
@@ -5811,19 +5804,11 @@
   "products": []
  },
  "id/species/amaralia-hypsiura": {
-  "at": "2026-11-07",
-  "hash": "df4d2488d47cac04",
+  "at": "2026-11-20",
+  "hash": "7ff520fa7d3de876",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P4",
-    "quote": "Spesimen yang dibahas di sini berasal dari Venezuela.",
-    "why": "Refers to the source exporter's own specimens as if the reader knew them; the page shows no specimens.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "id/species/amatitlania-myrnae": {
@@ -5877,30 +5862,23 @@
   ]
  },
  "id/species/ambastaia-sidthimunki": {
-  "at": "2026-11-17",
-  "hash": "b562f9f2ba86149e",
+  "at": "2026-11-20",
+  "hash": "b3e709e3a5dd8ab9",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P32",
+    "part": "P31",
     "quote": "mereka dipelihara di akuarium 284 liter",
-    "why": "284 litres is a converted 75-gallon US tank size nobody in Indonesia would say.",
+    "why": "284 litres is a converted 75-gallon tank, a size nobody in Indonesia would name.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P32",
+    "part": "P31",
     "quote": "Laporan lengkap dari Mark yang mendokumentasikan keberhasilan ini tersedia.",
     "why": "Points to a report the page does not contain.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P28",
-    "quote": "sebaiknya dipelihara dalam kelompok sebesar mungkin (lihat di bawah)",
-    "why": "Points to a part of the original article that is not on this page.",
     "by": "model"
    }
   ],
@@ -6063,23 +6041,16 @@
   "products": []
  },
  "id/species/amia-calva": {
-  "at": "2026-11-07",
-  "hash": "b7e46ab6abe86133",
+  "at": "2026-11-20",
+  "hash": "461a253cc9738b13",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P1",
-    "quote": "Ikan yang ditawarkan berukuran 15–20 cm.",
-    "why": "Refers to the source shop's own stock on offer.",
-    "by": "model"
-   },
-   {
     "check": "elsewhere",
-    "part": "P10",
+    "part": "P9",
     "quote": "kemungkinan besar akuariumnya perlu dipasangi chiller saat musim panas",
-    "why": "Assumes a temperate climate with a summer season, which Indonesia does not have; there a chiller is needed all year.",
+    "why": "Assumes a temperate climate with a summer season; in Indonesia a 15–24 °C tank needs cooling all year round.",
     "by": "model"
    }
   ],
@@ -10831,8 +10802,8 @@
   "products": []
  },
  "id/species/botia-rostrata": {
-  "at": "2026-11-08",
-  "hash": "6fb3dbe94b11ba05",
+  "at": "2026-11-20",
+  "hash": "b08bbb787a043e9a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -10877,8 +10848,8 @@
   "products": []
  },
  "id/species/boulengerella-lucius": {
-  "at": "2026-11-08",
-  "hash": "4626ddeb566e767c",
+  "at": "2026-11-20",
+  "hash": "7daadb696f0d9f72",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -22400,33 +22371,26 @@
   "products": []
  },
  "ms/guides/aquatome-ca-betta-cach-nuoi-thuc-an-benh-va-nuoi-chung": {
-  "at": "2026-11-19",
-  "hash": "a26accbbaa11b6ef",
+  "at": "2026-11-20",
+  "hash": "f90c285384da1859",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "dose",
     "part": "P1",
-    "quote": "Proform C\n| 30 µL/L",
-    "why": "Dose per volume of a named commercial medicine.",
+    "quote": "Produk Proform C, 30 µL/L",
+    "why": "Gives a per-litre dose of a named commercial medicine from a foreign lab study.",
     "by": "model",
     "product": "Proform C"
    },
    {
     "check": "dose",
     "part": "P1",
-    "quote": "Furan 2 (nitrofurazone)\n| 46 mg/L",
-    "why": "Dose per volume of a named commercial medicine.",
+    "quote": "Produk Furan 2 (nitrofurazone), 46 mg/L",
+    "why": "Gives a per-litre dose of a named commercial medicine.",
     "by": "model",
     "product": "Furan 2"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Satu sumber menyatakan suhu bilik biasanya terlalu sejuk dan berubah-ubah.",
-    "why": "Room temperature being too cold reflects a cooler country, not Malaysia's climate.",
-    "by": "model"
    }
   ],
   "products": [
@@ -22443,8 +22407,8 @@
     "per": 0,
     "perUnit": "",
     "use": "quarantine",
-    "method": "",
-    "quote": "3 ppm"
+    "method": "wholeTank",
+    "quote": "Methylene blue, 3 ppm"
    }
   ],
   "sourceRead": true
@@ -22500,6 +22464,41 @@
     "use": "bacteria",
     "method": "wholeTank",
     "quote": "\"satu tablet bagi setiap 10 gelen\" (kira-kira 40 liter)"
+   }
+  ],
+  "sourceRead": true
+ },
+ "ms/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": {
+  "at": "2026-11-20",
+  "hash": "e084849fa99fff19",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "formalin",
+    "strength": "",
+    "amount": 25,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "ich",
+    "method": "wholeTank",
+    "quote": "25 mg/L (1 mL bagi setiap 38 liter)"
+   },
+   {
+    "treatment": "formalin",
+    "strength": "",
+    "amount": 12.5,
+    "amountMax": 0,
+    "unit": "mg",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "ich",
+    "method": "wholeTank",
+    "quote": "Spesies yang sensitif terhadap formalin: separuh, iaitu 12.5 mg/L"
    }
   ],
   "sourceRead": true
@@ -24448,8 +24447,8 @@
   "products": []
  },
  "ms/plants/microsorum-pteropus": {
-  "at": "2026-11-19",
-  "hash": "bf5baec05c8c5ff8",
+  "at": "2026-11-20",
+  "hash": "1accecc737af2601",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -24543,6 +24542,38 @@
     "why": "\"Tangki nano\" is a literal rendering of \"nano tank\"; Malaysian keepers say akuarium nano or tank nano.",
     "by": "model",
     "fix": "akuarium nano"
+   }
+  ],
+  "products": []
+ },
+ "ms/plants/najas-guadalupensis": {
+  "at": "2026-11-20",
+  "hash": "0f7070e0f9e9c3cb",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/nymphaea-lotus": {
+  "at": "2026-11-20",
+  "hash": "ff4cb876a05866e3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/nymphaea-stellata": {
+  "at": "2026-11-20",
+  "hash": "40917482a550feb5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Ia mungkin tiba dengan beberapa helai daun, tetapi daun itu halus dan sering rosak semasa penghantaran.",
+    "why": "Describes the source shop's own stock and how it ships, as if the reader were ordering from that shop.",
+    "by": "model"
    }
   ],
   "products": []
@@ -25242,23 +25273,16 @@
   "products": []
  },
  "ms/species/alestopetersius-leopoldianus": {
-  "at": "2026-11-14",
-  "hash": "f3eda0b85e3ce94c",
+  "at": "2026-11-20",
+  "hash": "fb3d8736e8699801",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Buat masa ini panjang ikan ini 6-7 cm. Ia dijangka tidak akan membesar lebih daripada 9 cm.",
-    "why": "Describes the source shop's own fish in stock right now, as if the reader knew them.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P2",
-    "quote": "Gambar yang diambil di bawah cahaya siang semula jadi menunjukkan warna ikan dengan tepat",
-    "why": "Refers to the source's own photos, which this page does not have.",
+    "quote": "Buat masa ini panjang ikan ini 6-7 cm.",
+    "why": "Describes the source supplier's current stock as if the reader knew those specimens.",
     "by": "model"
    }
   ],
@@ -25350,19 +25374,11 @@
   "products": []
  },
  "ms/species/amaralia-hypsiura": {
-  "at": "2026-11-15",
-  "hash": "331fcb72cfdd8407",
+  "at": "2026-11-20",
+  "hash": "98aea11baf57b807",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P4",
-    "quote": "Spesimen yang diterangkan di sini berasal dari Venezuela.",
-    "why": "Refers to the source writer's own specimen as if the reader knew it.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "ms/species/amatitlania-myrnae": {
@@ -25416,30 +25432,23 @@
   ]
  },
  "ms/species/ambastaia-sidthimunki": {
-  "at": "2026-11-17",
-  "hash": "17dfcc2e17569a26",
+  "at": "2026-11-20",
+  "hash": "b820fb7718771eab",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P32",
+    "part": "P31",
     "quote": "ikan ditempatkan dalam akuarium 284 liter",
-    "why": "284 litres is a converted 75-gallon tank, not a size anyone in Malaysia would give.",
+    "why": "284 litres is a converted 75-gallon tank size no Malaysian keeper would use.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P32",
+    "part": "P31",
     "quote": "Laporan penuh daripada Mark yang mendokumentasikan kejayaan ini boleh didapati di sini.",
-    "why": "Points to a link to the source's report that this page does not have.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P28",
-    "quote": "patut dipelihara dalam kumpulan sebesar yang mungkin (lihat di bawah)",
-    "why": "Points to a part of the source article that this page does not have.",
+    "why": "Points to a linked report the page does not contain.",
     "by": "model"
    }
   ],
@@ -25616,23 +25625,16 @@
   "products": []
  },
  "ms/species/amia-calva": {
-  "at": "2026-11-16",
-  "hash": "a3f8cb5144f4879d",
+  "at": "2026-11-20",
+  "hash": "999498411277b980",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P1",
-    "quote": "Ikan yang ditawarkan berukuran 15–20 cm.",
-    "why": "Refers to the source shop's own stock on offer.",
-    "by": "model"
-   },
-   {
     "check": "elsewhere",
-    "part": "P10",
+    "part": "P9",
     "quote": "anda mungkin perlu menggunakan chiller pada tangkinya semasa bulan-bulan musim panas",
-    "why": "Assumes a temperate climate with summer months; in Malaysia a coldwater fish needs cooling year-round.",
+    "why": "Assumes a country with summer months; in Malaysia's year-round heat a chiller is needed all year for 15–24 °C.",
     "by": "model"
    }
   ],
@@ -34732,30 +34734,16 @@
   "products": []
  },
  "th/species/alestopetersius-leopoldianus": {
-  "at": "2026-11-08",
-  "hash": "9e7398d38538f0bf",
+  "at": "2026-11-20",
+  "hash": "3efb196e32fdf3e1",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "ปลาชุดนี้น่าจะเป็นชนิด Alestopetersius leopoldianus มากที่สุด",
-    "why": "It talks about the source shop's own batch of imported fish as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "ขณะนี้ปลามีความยาว 6–7 ซม.",
-    "why": "It gives the size of the shop's current stock, not of the species in general.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P2",
-    "quote": "ภาพที่ถ่ายภายใต้แสงธรรมชาติตอนกลางวันจะแสดงสีของปลาได้ตรงกับความจริง",
-    "why": "It points to the source's photos, which this page does not have.",
+    "quote": "ขณะนี้ปลามีความยาว 6–7 ซม. และคาดว่าจะโตได้ไม่เกิน 9 ซม.",
+    "why": "Describes the source shop's current batch of fish in stock, which the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -34840,25 +34828,11 @@
   "products": []
  },
  "th/species/amaralia-hypsiura": {
-  "at": "2026-11-07",
-  "hash": "514991656afcdbef",
+  "at": "2026-11-20",
+  "hash": "50bda6f16ac7aade",
   "model": "opus",
-  "findings": [
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "แม้แต่ 2.5 ซม. ก็ไม่ว่าย",
-    "why": "2.5 cm is a conversion of the English idiom 'won't swim an inch', not a figure a Thai keeper would use.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P4",
-    "quote": "ตัวอย่างที่กล่าวถึงในที่นี้มาจากเวเนซุเอลา",
-    "why": "Refers to the source's own specimen as though the reader knew it; the page describes no specimen.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "th/species/amatitlania-myrnae": {
@@ -34902,30 +34876,16 @@
   ]
  },
  "th/species/ambastaia-sidthimunki": {
-  "at": "2026-11-17",
-  "hash": "6945bf9c1fe4aa15",
+  "at": "2026-11-20",
+  "hash": "268d277fe520d70f",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P32",
+    "part": "P31",
     "quote": "เลี้ยงในตู้ขนาด 284 ลิตร",
-    "why": "284 litres is a converted 75-gallon tank, a size nobody in Thailand would state.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P11",
-    "quote": "ภาพจากลุ่มน้ำอัตรันแสดงให้เห็นช่วงต้นน้ำในป่า",
-    "why": "Refers to a photo from the source that the page does not have.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P32",
-    "quote": "Mark ได้เขียนรายงานฉบับเต็มบันทึกความสำเร็จครั้งนี้ไว้",
-    "why": "Points the reader to an unnamed report the page does not contain.",
+    "why": "284 litres is a converted 75-gallon tank size nobody in Thailand would use.",
     "by": "model"
    }
   ],
@@ -35097,15 +35057,16 @@
   "products": []
  },
  "th/species/amia-calva": {
-  "at": "2026-11-07",
-  "hash": "ed712f2224980113",
+  "at": "2026-11-20",
+  "hash": "d207d4f702ce9f8f",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P10",
+    "part": "P9",
     "quote": "จึงอาจต้องใช้เครื่องทำความเย็น (ชิลเลอร์) กับตู้ในช่วงหน้าร้อน",
-    "why": "Needing a chiller only in summer assumes a temperate climate; in Thailand a 15–24 °C tank needs chilling all year.",
+    "why": "Assumes a temperate climate where only summer is too warm; in Thailand a 15–24 °C fish needs a chiller all year.",
     "by": "model"
    }
   ],
@@ -63664,6 +63625,14 @@
   ],
   "sourceRead": true
  },
+ "vi/guides/aquatome-ca-koi-thuc-an-cho-an-sinh-san-dieu-kien-nuoi": {
+  "at": "2026-11-20",
+  "hash": "4397fe0cb7678d02",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": {
   "at": "2026-11-08",
   "hash": "f37789fd00853e6a",
@@ -63828,6 +63797,89 @@
     "use": "disinfecting",
     "method": "dip",
     "quote": "nhúng cây vào dung dịch thuốc tẩy pha theo tỉ lệ 1 phần thuốc tẩy với 20 phần nước"
+   }
+  ],
+  "sourceRead": true
+ },
+ "vi/guides/aquatome-cach-tang-cuong-he-mien-dich-va-phong-benh-cho-ca-canh-vitamin-toi-muoi": {
+  "at": "2026-11-20",
+  "hash": "240c6c14f05d0f83",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "salt",
+    "strength": "3%",
+    "amount": 3,
+    "amountMax": 0,
+    "unit": "%",
+    "per": 0,
+    "perUnit": "",
+    "use": "parasites",
+    "method": "bath",
+    "quote": "tắm cá nước ngọt trong nước muối 3% sẽ làm sạch trùng đơn bào trên da, mang, vây"
+   },
+   {
+    "treatment": "salt",
+    "strength": "1%",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "%",
+    "per": 0,
+    "perUnit": "",
+    "use": "parasites",
+    "method": "bath",
+    "quote": "ngâm cá trong nước muối 1% (nước lợ) từ 30 phút đến vài giờ"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "tablespoon",
+    "per": 11,
+    "perUnit": "litre",
+    "use": "bacteria",
+    "method": "wholeTank",
+    "quote": "1 muỗng canh cho mỗi 11 lít"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "tablespoon",
+    "per": 8,
+    "perUnit": "litre",
+    "use": "ich",
+    "method": "wholeTank",
+    "quote": "1 muỗng canh cho mỗi 8 lít"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "tablespoon",
+    "per": 4,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "1 muỗng canh cho mỗi 4 lít"
+   },
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 2,
+    "unit": "ppt",
+    "per": 0,
+    "perUnit": "",
+    "use": "other",
+    "method": "",
+    "quote": "mức 1,0–2,0 ppt là mức chữa bệnh"
    }
   ],
   "sourceRead": true
@@ -108686,16 +108738,17 @@
  },
  "vi/species/acanthocobitis-botia": {
   "at": "2026-11-20",
-  "hash": "9e4e024f9c5db7a3",
+  "hash": "eaf1a10f6d3416bd",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P10",
-    "quote": "làm theo cách của ông nhưng với quy mô lớn hơn có lẽ là điểm khởi đầu tốt",
-    "why": "Points the reader to a hobbyist's breeding method that the page never describes.",
-    "by": "model"
+    "check": "words",
+    "part": "P1",
+    "quote": "Chạch khóa kéo (zipper loach)",
+    "why": "Literal calque of the English trade name; Vietnamese keepers use the English word.",
+    "by": "model",
+    "fix": "chạch zipper"
    }
   ],
   "products": []
@@ -109519,32 +109572,11 @@
   "products": []
  },
  "vi/species/alestopetersius-leopoldianus": {
-  "at": "2026-11-07",
-  "hash": "3af0ec77de534fc2",
+  "at": "2026-11-20",
+  "hash": "4cbdd850e6aa3c9e",
   "model": "opus",
-  "findings": [
-   {
-    "check": "source",
-    "part": "P2",
-    "quote": "Chụp con cá này bằng đèn flash mà lên đúng màu là chuyện cực kỳ khó.",
-    "why": "This is the source writer talking about photographing their own specimen, and the page has no photos.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P2",
-    "quote": "Ảnh chụp dưới ánh sáng ban ngày tự nhiên thì cho màu cá chính xác, dù hình hơi nhòe một chút.",
-    "why": "It points to a photo that is not on the page.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Hiện cá dài 6-7 cm. Chúng được dự đoán sẽ không lớn quá 9 cm.",
-    "why": "It describes the source's own specimens in stock as if the reader knew them.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/alestopetersius-nigropterus": {
@@ -109647,19 +109679,11 @@
   "products": []
  },
  "vi/species/amaralia-hypsiura": {
-  "at": "2026-11-08",
-  "hash": "ad1770e1f434b720",
+  "at": "2026-11-20",
+  "hash": "082bd635d493fc87",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P4",
-    "quote": "Những cá thể mô tả ở đây có nguồn gốc từ Venezuela.",
-    "why": "Refers to the source writer's own specimens as if the reader knew them.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/amatitlania-myrnae": {
@@ -109740,54 +109764,32 @@
   ]
  },
  "vi/species/ambastaia-sidthimunki": {
-  "at": "2026-11-17",
-  "hash": "7283f185e4267a5f",
+  "at": "2026-11-20",
+  "hash": "b62dfebf38393917",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P11",
-    "quote": "Các hình ảnh chúng tôi từng xem từ lưu vực Ataran",
-    "why": "The source site's own 'we' and the photos it saw, unknown to the reader.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P28",
-    "quote": "ít nhất chúng tôi cho rằng loài này không phù hợp với bể nhỏ",
-    "why": "The source writers' first-person voice.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P32",
+    "part": "P31",
     "quote": "Báo cáo đầy đủ của Mark ghi lại thành công này có tại đây.",
-    "why": "Points to a link the page does not have.",
+    "why": "Points at a linked report the page does not have.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P32",
-    "quote": "được nuôi trong bể 284 lít",
-    "why": "284 litres is a converted 75-gallon tank.",
+    "part": "P31",
+    "quote": "cá được nuôi trong bể 284 lít",
+    "why": "284 litres is a converted 75-gallon tank size nobody in Vietnam would use.",
     "by": "model"
    },
    {
     "check": "words",
-    "part": "P6",
-    "quote": "Cá chuột lùn sọc xích, Ambastaia sidthimunki",
-    "why": "In Vietnam 'cá chuột' means Corydoras; keepers call botiid loaches 'cá heo'.",
+    "part": "P13",
+    "quote": "tuyệt đối không nên thả chúng vào bể chưa trưởng thành về mặt sinh học",
+    "why": "Calque of 'biologically immature tank'; keepers speak of the tank's bacteria not being established.",
     "by": "model",
-    "fix": "cá heo lùn"
-   },
-   {
-    "check": "words",
-    "part": "P26",
-    "quote": "như một con cá heo hề cỡ lớn",
-    "why": "A literal translation of 'clown loach'; keepers say 'cá heo xanh'.",
-    "by": "model",
-    "fix": "cá heo xanh"
+    "fix": "bể chưa chạy vi sinh / chưa ổn định vi sinh"
    }
   ],
   "products": [
@@ -109819,19 +109821,11 @@
   "products": []
  },
  "vi/species/amblyceps-foratum": {
-  "at": "2026-11-08",
-  "hash": "3205682e6a59ce88",
+  "at": "2026-11-20",
+  "hash": "cbc94a5c1e255edc",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P5",
-    "quote": "cá thể trong ảnh thu nhỏ đầu tiên do Zhou Hang, người đóng góp ảnh, thu thập",
-    "why": "Refers to a thumbnail photo and a photo contributor from the source site; the page has no pictures.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/amblyceps-laticeps": {
@@ -109930,19 +109924,11 @@
   "products": []
  },
  "vi/species/ameiurus-brunneus": {
-  "at": "2026-11-08",
-  "hash": "ed46e00df176ca96",
+  "at": "2026-11-20",
+  "hash": "93c0a3cd16dbcfc5",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Cách phát âm: Ai MEE you russ - brew nay us",
-    "why": "An English-spelling pronunciation guide written for English-speaking readers, of no use to a Vietnamese reader.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/ameiurus-platycephalus": {
@@ -109962,16 +109948,16 @@
   "products": []
  },
  "vi/species/amia-calva": {
-  "at": "2026-11-08",
-  "hash": "6dd20eb148f2741e",
+  "at": "2026-11-20",
+  "hash": "1610dc5166b7e489",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P1",
-    "quote": "Những con cá đợt này dài 15–20 cm.",
-    "why": "Refers to the source shop's current batch of stock, which the reader has never seen.",
+    "check": "elsewhere",
+    "part": "P11",
+    "quote": "cá con loại whitebait, cá hồi trout",
+    "why": "Whitebait and trout are foods from British/Western shops, not what Vietnamese keepers buy to feed predators.",
     "by": "model"
    }
   ],
@@ -110090,16 +110076,16 @@
   "products": []
  },
  "vi/species/amphilophus-citrinellus": {
-  "at": "2026-11-08",
-  "hash": "8c49be1ec013cff8",
+  "at": "2026-11-20",
+  "hash": "c98d198a8591006c",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P10",
     "quote": "khi đạt kích thước khoảng 2-2,5\" (5-6 cm)",
-    "why": "Inches are given as the primary unit, carried over from the English source.",
+    "why": "Inch measurement carried over from the English source; keepers in Vietnam use centimetres only.",
     "by": "model"
    }
   ],
@@ -110194,32 +110180,33 @@
   "products": []
  },
  "vi/species/anatolichthys-anatoliae": {
-  "at": "2026-11-08",
-  "hash": "43c79a821688ece5",
+  "at": "2026-11-20",
+  "hash": "6225679ca876d255",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P6",
-    "quote": "Trừ những vùng khí hậu lạnh nhất, bạn không cần dùng sưởi.",
-    "why": "This assumes the reader lives in a temperate climate. In Vietnam the problem is keeping the water cool, not heating it.",
-    "by": "model"
-   },
    {
     "check": "source",
     "part": "P11",
     "quote": "Ở đây các dạng này được liệt kê riêng để khỏi phải dùng tên dưới loài.",
-    "why": "This refers to how the source database lists these forms as separate entries. This page has no such listing.",
+    "why": "Refers to the source site's own species listing, which this page does not have.",
     "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P8",
+    "quote": "Lời khuyên mạnh mẽ ở đây là nuôi riêng loài này.",
+    "why": "Calque of English 'strongly recommended'; not how a Vietnamese keeper writes.",
+    "by": "model",
+    "fix": "Rất nên nuôi riêng loài này"
    },
    {
     "check": "words",
     "part": "P7",
     "quote": "ấu trùng muỗi lắc (giun huyết)",
-    "why": "'Giun huyết' is a literal translation of 'bloodworm'. Keepers in Vietnam call this food 'trùn huyết'.",
+    "why": "'Giun huyết' is a literal translation of 'bloodworm'; keepers say trùn chỉ đỏ or bloodworm.",
     "by": "model",
-    "fix": "trùn huyết"
+    "fix": "trùn chỉ đỏ"
    }
   ],
   "products": []
@@ -110250,24 +110237,18 @@
   "products": []
  },
  "vi/species/anatolichthys-saldae": {
-  "at": "2026-11-08",
-  "hash": "814cf1d01d3139e3",
+  "at": "2026-11-20",
+  "hash": "9bb7484ce633a81d",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
-    "check": "elsewhere",
-    "part": "P6",
-    "quote": "Trừ ở những vùng khí hậu lạnh nhất, bể không cần sưởi.",
-    "why": "Assumes a temperate reader whose concern is heating; in Vietnam the problem is keeping the water below 22 °C.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P5",
-    "quote": "Ở nhiều nước, có thể nuôi cá ngoài trời quanh năm, và đây là cách nên làm.",
-    "why": "Recommends outdoor keeping all year, which suits a temperate country but not Vietnam's heat for a cold-water fish.",
-    "by": "model"
+    "check": "words",
+    "part": "P7",
+    "quote": "như Artemia, Daphnia hay trùn đỏ",
+    "why": "\"Trùn đỏ\" is a literal rendering of bloodworm; keepers in Vietnam call these trùn huyết.",
+    "by": "model",
+    "fix": "trùn huyết"
    }
   ],
   "products": []
@@ -110647,16 +110628,17 @@
  },
  "vi/species/andinoacara-rivulatus": {
   "at": "2026-11-20",
-  "hash": "5790d646df0f6923",
+  "hash": "30ae694e84cd4dba",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P3",
-    "quote": "(xem phần 'ghi chú')",
-    "why": "Points the reader to a notes section this page does not have.",
-    "by": "model"
+    "check": "words",
+    "part": "P11",
+    "quote": "Cá cichlid viền vàng đẻ trứng ở chỗ trống",
+    "why": "A word-for-word translation of the German name 'Goldsaumbuntbarsch', which no keeper in Vietnam uses for this fish.",
+    "by": "model",
+    "fix": "cá khủng bố xanh"
    }
   ],
   "products": []
@@ -111717,8 +111699,8 @@
   "products": []
  },
  "vi/species/apistogramma-gephyra": {
-  "at": "2026-11-09",
-  "hash": "6466c520cbb76cf0",
+  "at": "2026-11-20",
+  "hash": "b6099ae6fe8a56a4",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -111997,18 +111979,10 @@
  },
  "vi/species/apistogramma-rubrolineata": {
   "at": "2026-11-20",
-  "hash": "c56fd8b2db9e3838",
+  "hash": "61c084d18cfa743c",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P3",
-    "quote": "Bình thường, cá trông như trong ảnh.",
-    "why": "It refers to a photo from the original source, and this page has no pictures.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/apistogramma-rupununi": {
@@ -126688,22 +126662,15 @@
  },
  "vi/species/hemiodus-thayeria": {
   "at": "2026-11-20",
-  "hash": "f7936e4a518e730a",
+  "hash": "fe74f412775cf042",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P1",
-    "quote": "Những con đang nuôi hiện dài từ 5 đến 8 cm.",
-    "why": "Refers to the source writer's own fish as if the reader knew them.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P3",
-    "quote": "vì trong bể chụp ảnh, cả hai con đều rất chú ý tới hình của mình trong gương",
-    "why": "Refers to the source's own photo tank and its two fish as if the reader knew them.",
+    "part": "P2",
+    "quote": "trong bể chụp ảnh, cả hai con đều rất chú ý tới hình của mình trong gương",
+    "why": "Tells the source writer's own story about their photo tank and 'both fish' as if the reader knew them.",
     "by": "model"
    }
   ],
@@ -131647,25 +131614,10 @@
  },
  "vi/species/moenkhausia-celibela": {
   "at": "2026-11-20",
-  "hash": "359dca274fe05550",
+  "hash": "21ff31217fb3fa09",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Lô cá này nhập về từ Colombia.",
-    "why": "Refers to the source shop's own import batch as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P2",
-    "quote": "Nhìn ảnh chụp cá từ phía trước là thấy rõ chỗ này.",
-    "why": "Points to a photo that the page does not have.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/moenkhausia-ceros": {
@@ -136125,18 +136077,10 @@
  },
  "vi/species/pethia-bandula": {
   "at": "2026-11-20",
-  "hash": "dcf0e483f9f4b4ec",
+  "hash": "cbc3a9cbc882b4cb",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P2",
-    "quote": "Cá barb Bandula do các trại châu Âu cho đẻ nay đã có hàng trở lại",
-    "why": "This is the source shop's news about its stock, not something the reader can act on.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/species/pethia-canius": {
@@ -143715,8 +143659,8 @@
   "products": []
  },
  "vi/species/umbra-pygmaea": {
-  "at": "2026-11-16",
-  "hash": "dd832abbc4323a50",
+  "at": "2026-11-20",
+  "hash": "d3569b65b05b52a7",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -144162,24 +144106,17 @@
  },
  "vi/species/xiphophorus-variatus": {
   "at": "2026-11-20",
-  "hash": "ec747f4fca6f6b7a",
+  "hash": "779cf45f96985988",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
-    "part": "P2",
-    "quote": "Những con cá bố mẹ đầu tiên của dòng này được bắt năm 2002",
-    "why": "Refers to the source writer's own captive strain as if the reader knew it.",
-    "by": "model"
-   },
-   {
     "check": "words",
-    "part": "P1",
-    "quote": "cá nuôi công nghiệp ở Viễn Đông",
-    "why": "\"Far East\" is a Western calque; for a reader in Vietnam this region is home.",
+    "part": "P10",
+    "quote": "lên màu vàng như quả mộc qua",
+    "why": "A literal rendering of the German colour term 'quittengelb'; quince is not a familiar fruit to Vietnamese keepers.",
     "by": "model",
-    "fix": "châu Á"
+    "fix": "lên màu vàng chanh / vàng tươi"
    }
   ],
   "products": []

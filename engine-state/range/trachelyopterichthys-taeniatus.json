@@ -1,10 +1,33 @@
 {
   "id": "trachelyopterichthys-taeniatus",
   "native": {
-    "input": "235aef297d2116ec",
-    "at": "2026-11-20T07:13:45.828Z",
-    "claims": [],
-    "regions": [],
+    "input": "20880b95df83c3d7",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon River basin. Type locality: Rio Guaporé, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon River basin. Type locality: Rio Guaporé, Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Guaporé",
+        "source": "scotcat",
+        "quote": "South America: Upper Amazon River basin. Type locality: Rio Guaporé, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -68,8 +91,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-20T07:13:45.828Z"
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-20T17:43:20.430Z"
   }
 }
