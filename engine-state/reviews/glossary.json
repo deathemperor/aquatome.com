@@ -1514,5 +1514,84 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/bo-bo": [
+    {
+      "at": "2026-11-20T08:32:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 527 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:32:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Con trưởng thành dài 700–1.000 µm, con non dưới 400 µm.\" the figure 700, the figure 1.000, the figure 400, the advice \"Con trưởng thành dài 700–1.000 µm\", the advice \"con non dưới 400 µm\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The entry is 519 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:32:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition still has \"người nuôi có thể tự gây nuôi trong thùng, chậu ở nhà.\" It should read exactly \"Đây là mồi sống hợp với cá bột, và người nuôi có thể tự gây nuôi trong thùng, chậu.\" No fact says 'at home'.",
+        "Rule 12: The keeper's sentence still has \"cho cá betta (cá xiêm) bột ăn bo bo\". It should read exactly \"Một nguồn người nuôi ghi chỉ nên cho cá betta bột ăn bo bo khi chúng được ít nhất một tuần tuổi, lúc miệng đã đủ lớn.\" A name in brackets under a page's credit must be that page's own word, and fact 72 says only betta.",
+        "Rule 12: The list item \"Moina to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\" was not replaced. It should read exactly \"Moina quá to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\"",
+        "Rule 12: \"Một tiệm ghi rằng bo bo hợp với cá miệng nhỏ như Poecilia, Betta và Paracheirodon.\" was not replaced. It should read exactly \"Một tiệm ghi rằng bo bo hợp với cá cảnh miệng nhỏ như Poecilia, Betta và Paracheirodon.\"",
+        "Rule 12: \"Bo bo nhợt màu là dấu hiệu đang thiếu ăn.\" is written as plain fact. Only the keeper gives this (fact 26), so it needs the keeper's credit (for example \"Nguồn người nuôi này ghi …\") and should say only what fact 26 says. The university's sentence after it stays word for word.",
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:21:52Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Bo bo nhợt màu là dấu hiệu đang thiếu ăn.\": the facts don't carry it (uncredited, supported, supported, uncredited, supported, uncredited): only keeper blog says pale means underfed; university says poor conditions or underfed / Only the keeper blog (source 2) says outright that pale bo bo are underfed. The university page says pale Moina with empty guts mean poor conditions or too little food, …",
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:21:52Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition says \"người nuôi có thể tự gây nuôi trong thùng, chậu ở nhà.\" THIS TERM requires exactly \"Đây là mồi sống hợp với cá bột, và người nuôi có thể tự gây nuôi trong thùng, chậu.\" Cut \"ở nhà\": no fact says the culture is kept at home.",
+        "Rule 12: The entry has \"Một nguồn người nuôi ghi chỉ nên cho cá betta (cá xiêm) bột ăn bo bo khi chúng được ít nhất một tuần tuổi, lúc miệng đã đủ lớn.\" THIS TERM requires exactly \"… cho cá betta bột ăn bo bo …\". Fact 72 says only betta, and a bracket under a page's credit must be that page's own word.",
+        "Rule 12: The entry has \"Moina to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\" The evening batch requires exactly \"Moina quá to mà thả dày có thể làm phiền cá bột hoặc làm chúng bị thương, nên cần canh lượng cho ăn.\"",
+        "Rule 12: The entry has \"Một tiệm ghi rằng bo bo hợp với cá miệng nhỏ như Poecilia, Betta và Paracheirodon.\" The evening batch requires exactly \"Một tiệm ghi rằng bo bo hợp với cá cảnh miệng nhỏ như Poecilia, Betta và Paracheirodon.\"",
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T04:56:25Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The entry is 522 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    }
   ]
 }
