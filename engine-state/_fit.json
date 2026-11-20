@@ -101560,16 +101560,30 @@
   "products": []
  },
  "vi/guides/youtube-WVpke0jbuGM": {
-  "at": "2026-11-14",
-  "hash": "f2ac9ad017812ca3",
+  "at": "2026-11-20",
+  "hash": "8cfa477e91b33b8d",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "source",
+    "part": "P1",
+    "quote": "Bể mới có thể rộng gấp ba bể cũ về diện tích dùng được mà lượng nước chỉ nhiều hơn một ít.",
+    "why": "Refers to the source creator's own new and old tanks as if the reader knew them.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Nếu ít cây quá thì lấy hết cây từ bể cũ sang để bụi cây dày hơn.",
+    "why": "Points at the source creator's own old tank as if it were the reader's.",
+    "by": "model"
+   },
+   {
     "check": "elsewhere",
-    "part": "P5",
+    "part": "P1",
     "quote": "lớp trên có thể dùng cát play sand có hạt rất mịn",
-    "why": "Play sand is a US hardware-store sandbox product that keepers in Vietnam don't buy; they use fine washed sand.",
+    "why": "Play sand is a US hardware-store product that keepers in Vietnam don't buy; they use fine sand (cát mịn).",
     "by": "model"
    }
   ],
@@ -118801,8 +118815,8 @@
   "products": []
  },
  "vi/species/corydoras-geoffroy": {
-  "at": "2026-11-19",
-  "hash": "5a8a2a6506d0f565",
+  "at": "2026-11-20",
+  "hash": "d420cd57ffad8f7a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
