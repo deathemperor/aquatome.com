@@ -60,10 +60,13 @@ export function houseForm(text: string, guides: DiseaseGuide[]): boolean {
  * The pointer to the site's own entry (the Writing Lead, 20 Nov 2026, with the chief of staff's yes): a sentence that only
  * sends the reader to another of the site's terms is no claim and needs no outside source, "<what>: xem mục <entry>.", as
  * Cá bột's "Cách ấp artemia: xem mục Artemia." Each entry it names (one, or a list joined by ", " and " và ") is a term's
- * name as the site writes it, in either case or tone placing, and <what> is what the reader goes there for: words with
- * nothing in them that says what a thing is, does or belongs to ("là", "thuộc", "gây", "giúp", "chứa", "gồm", "có thể").
- * A sentence that says any of that is no pointer, and the fact check reads it as any other, even when it ends by linking
- * the site's page (the chief of staff, 20 Nov 2026).
+ * name as the site writes it, in either case or tone placing, and <what> is what the reader goes there for, in one of
+ * two shapes: the name of an entry it points to ("Artemia: xem mục Artemia."), or a topic, opened by "Cách", "Về" or
+ * "Mức", of at most ten words, with no number of its own (CO2's "2" is part of a name), no stop but commas, and none of
+ * the words that say what a thing is, does or belongs to ("là", "thuộc", "gây", "giúp", "chứa", "gồm", "có thể").
+ * Any other sentence is no pointer, and the fact check reads it as any other, even when it ends by linking the site's
+ * page (the chief of staff, 20 Nov 2026): a word list alone let "Cá chết vì thiếu oxy: xem mục Oxy hòa tan." through
+ * (the reader, 21 Nov 2026).
  */
 export function pointerForm(text: string, entries: string[]): boolean {
   const m = /^([^:]+?)\s*:\s*xem mục (.+)\.$/u.exec(text)
@@ -71,7 +74,10 @@ export function pointerForm(text: string, entries: string[]): boolean {
   const names = new Set(entries.map(toneKey))
   const named = m[2]!.split(/, | và /u).map(x => x.trim())
   if (!named.length || !named.every(x => names.has(toneKey(x)))) return false
-  return !/(?<![\p{L}\p{N}])(?:là|thuộc|gây|giúp|chứa|gồm|có thể)(?![\p{L}\p{N}])/iu.test(m[1]!)
+  const what = m[1]!.trim()
+  if (named.some(x => toneKey(x) === toneKey(what))) return true
+  return /^(?:cách|về|mức) /u.test(toneKey(what)) && what.split(/\s+/u).length <= 10 && /^[\p{L}\p{M}\p{N} ,]+$/u.test(what)
+    && !/(?<!\p{L})\p{N}/u.test(what) && !/(?<![\p{L}\p{N}])(?:là|thuộc|gây|giúp|chứa|gồm|có thể)(?![\p{L}\p{N}])/iu.test(what)
 }
 
 /**

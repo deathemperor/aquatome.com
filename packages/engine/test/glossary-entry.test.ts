@@ -1149,20 +1149,22 @@ test('a sentence one read stops and two of its three re-reads stop keeps the ent
 })
 
 // The Writing Lead's pointer to the site's own entry (20 Nov 2026, with the chief of staff's yes): the step's fact check
-// passes a pointer to another of the site's terms, by that term's name, and reads one that also makes a claim.
+// passes a pointer to another of the site's terms, by that term's name, and reads one that also makes a claim, with a
+// word that says what a thing is or without one (the reader, 21 Nov 2026).
 test('the step\'s fact check passes a pointer to another term of the site\'s unread, and reads one with a claim in it', async () => {
   const root = await site()
-  const pointer = 'Lũa nhả màu vào nước: xem mục Tanin.', claim = 'Tanin là chất làm pH xuống: xem mục Tanin.'
+  const pointer = 'Về màu nước: xem mục Tanin.', claim = 'Tanin là chất làm pH xuống: xem mục Tanin.', plain = 'Lũa nhả màu vào nước: xem mục Tanin.'
   const read: string[] = []
   const llm: Llm = async ({ prompt }) => {
     if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
     if (isCheck(prompt)) { read.push(prompt); return verdicts(prompt) as never }
-    return { ...written, body: `<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p><p>${pointer}</p><p>${claim}</p>` } as never
+    return { ...written, body: `<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p><p>${pointer}</p><p>${claim}</p><p>${plain}</p>` } as never
   }
   await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
   expect(read.length).toBeGreaterThan(0)
   expect(read.some(p => p.includes(pointer))).toBe(false)
   expect(read.some(p => p.includes(claim))).toBe(true)
+  expect(read.some(p => p.includes(plain))).toBe(true)
 })
 
 // The chief of staff, 20 Nov 2026: Tảo's label line, the house form for a medicine's dose, was stopped by the fact check in

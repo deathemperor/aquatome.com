@@ -132,13 +132,21 @@ test('the forms the writer is given are the forms the check passes', () => {
 // The Writing Lead's pointer to the site's own entry (20 Nov 2026, with the chief of staff's yes): no claim, so the fact
 // check passes it; a sentence that also says what a thing is, does or belongs to is no pointer, and is read.
 test('the pointer names only the site\'s own terms, as the site writes them, and says nothing more', () => {
-  const entries = ['Artemia', 'Thức ăn khô', 'Thức ăn đông lạnh', 'Thức ăn sống', 'Bể cộng đồng', 'Oxy hòa tan']
-  // As main's entries write them (Cá bột, Ăn tạp, Cá đàn, Trùng huyết).
+  const entries = ['Artemia', 'Thức ăn khô', 'Thức ăn đông lạnh', 'Thức ăn sống', 'Bể cộng đồng', 'Oxy hòa tan', 'CO2']
+  // As main's entries write them (Cá bột, Ăn tạp, Cá đàn, Trùng huyết, Thức ăn sống, Sục khí).
   expect(pointerForm('Cách ấp artemia: xem mục Artemia.', entries)).toBe(true)
   expect(pointerForm('Cách chọn và bảo quản từng loại thức ăn: xem mục Thức ăn khô, Thức ăn đông lạnh và Thức ăn sống.', entries)).toBe(true)
-  expect(pointerForm('Chọn cá nuôi chung: xem mục bể cộng đồng.', entries)).toBe(true)
-  expect(pointerForm('Trùng huyết đông khô : xem mục Thức ăn khô.', entries)).toBe(true)
   expect(pointerForm('Mức oxy cần giữ trong bể: xem mục Oxy hoà tan.', entries)).toBe(true)
+  expect(pointerForm('Về CO2 trong bể thủy sinh: xem mục CO2.', entries)).toBe(true)
+  expect(pointerForm('Thức ăn đông lạnh: xem mục Thức ăn đông lạnh.', entries)).toBe(true)
+  // Main's two others aren't either shape: read, as before.
+  expect(pointerForm('Chọn cá nuôi chung: xem mục bể cộng đồng.', entries)).toBe(false)
+  expect(pointerForm('Trùng huyết đông khô : xem mục Thức ăn khô.', entries)).toBe(false)
+  // A claim before the pointer, with or without a word that says what a thing is (the reader, 21 Nov 2026).
+  for (const what of ['Cá chết vì thiếu oxy', 'Artemia rất độc với cá', 'Thay 30% nước mỗi tuần', 'Ấp artemia 24 giờ ở 28 độ', 'Có lẽ artemia tốt hơn bo bo',
+    'Cách ấp artemia trong 24 giờ', 'Cách ấp artemia (trứng bóc vỏ)', 'Cách ấp artemia; trứng nở sau một ngày', 'Về artemia — thức ăn tốt nhất cho cá bột',
+    'Cách ấp artemia để cá bột lớn nhanh hơn mọi thức ăn khác trong bể', 'Artemia rất độc với cá: xem mục Artemia. Artemia'])
+    expect(pointerForm(`${what}: xem mục Artemia.`, entries), what).toBe(false)
   // A claim in it, a name that is no term of the site's, or anything after the entry.
   expect(pointerForm('Trùng huyết đông khô là thức ăn khô: xem mục Thức ăn khô.', entries)).toBe(false)
   expect(pointerForm('Bo bo giúp cá lên màu: xem mục Thức ăn sống.', entries)).toBe(false)
