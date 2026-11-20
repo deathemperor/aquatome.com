@@ -86,6 +86,24 @@ test('stores picked photos once, credited to the source', async () => {
   expect(uploads).toHaveLength(1)
 })
 
+test("a photo is stored with the line its page prints with it, and one stored before with the publisher alone takes it on the page's next read", async () => {
+  // The chief of staff, 10 and 17 Nov 2026: a publisher's photo names its photographer, the line as printed.
+  const deps = {
+    bytes: async () => jpeg(),
+    media: { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) },
+  }
+  const credited = [{ src: 'https://www.seriouslyfish.com/images/a.jpg', alt: 'Adult male.', width: 800, height: 600, credit: 'Ann Example' }]
+  const [stored] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [])
+  expect(stored!.author).toBe('Ann Example / Seriously Fish')
+  const [again] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [{ ...stored!, author: 'Seriously Fish' }])
+  expect(again!.author).toBe('Ann Example / Seriously Fish')
+  // A line that reads as a sentence, or none, keeps the publisher alone; a named photo keeps its name.
+  const [sentence] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, [{ ...credited[0]!, credit: 'these fish swim together.' }], deps, [])
+  expect(sentence!.author).toBe('Seriously Fish')
+  const [kept] = await storeSourcePhotos('seriouslyfish', 'Seriously Fish', SF, credited, deps, [{ ...stored!, author: 'Bo Sample / Seriously Fish' }])
+  expect(kept!.author).toBe('Bo Sample / Seriously Fish')
+})
+
 test('species/plant picks skip product packshots; duplicate captions collapse', () => {
   const imgs = [
     { src: '/shrimp.jpg', alt: 'Red Cherry Shrimp "Neocaridina davidi" - Breeding', width: 1000, height: 667 },

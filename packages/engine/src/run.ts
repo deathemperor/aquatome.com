@@ -18,6 +18,7 @@ import { recordKindFallback } from './kind-words'
 import { ensurePlaces, guideId, mergePlant, mergeSpecies, writeGuide } from './merge'
 import { METRIC_KINDS } from './metric'
 import { htmlToOutline, isChallenge, type PageImage } from './outline'
+import { namePictureLines, readLineReads, writeLineReads } from './publisher-credits'
 import { findPhotos } from './photos'
 import { withSections } from './guide-sections'
 import { processPage, type ProcessedPage } from './process'
@@ -277,6 +278,15 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const reads = await readCreditReads(root)
     if (url in reads) { delete reads[url]; await writeCreditReads(root, reads) }
   }
+  // Source pages whose pictures' lines a read still has to learn (publisher-credits.ts LINE_READS): each read once, then off.
+  const lineWaiting = await soft('line reads', () => readLineReads(root), {})
+  const lineRead = async (source: SourceId, url: string, images: PageImage[]) => {
+    const n = await namePictureLines(root, source, sourceNames[source]?.name ?? source, images, url, k => deps.media.urlFor(k), sourceNames[source]?.permission ?? {})
+    if (n) console.log(`line read: ${url}: ${n} photo places named from its pictures' lines`)
+    const reads = await readLineReads(root)
+    if (url in reads) { delete reads[url]; await writeLineReads(root, reads) }
+    delete lineWaiting[url]
+  }
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
   const gbifNamesFile = join(root, 'engine-state/_gbif-names.json')
@@ -513,7 +523,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (src.search) await soft('search cache', () => saveSearchCache(root, searchCache), undefined)
     }
     // A guide off the site for good (@aq/schema retired.ts) is never read again: no call is spent on a page that stays held.
-    const due = found.filter(f => !retiredTo(guideId(id, f.url)) && (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || needsFetch(state[f.url], f.lastmod, deps.now())))
+    const due = found.filter(f => !retiredTo(guideId(id, f.url)) && (!opts.only || opts.only.test(f.url)) && (!opts.cardFill || deeper.has(f.url)) && (forced(f.url) || (f.url in lineWaiting && !lineWaiting[f.url]!.turn) || needsFetch(state[f.url], f.lastmod, deps.now())))
     const todo = runOrder(due, state, deeper).slice(0, opts.limit ?? Infinity)
 
     let networkFailures = 0
@@ -538,6 +548,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
         // Its own try: a failure here is ours, not the page's, so the page keeps its read and its turn, and its credits wait for the next one.
         if (creditWaiting.has(url)) await creditRead(id, url, o.images).catch((e: unknown) => { report.errors.push(`${url}: credits not read, the page waits for its next turn: ${(e as Error).message.slice(0, 200)}`) })
+        // A page on the line-read list: its pictures' lines name our photos credited to the publisher alone (publisher-credits.ts).
+        // ScotCat prints its line on each picture's own page, read as the photo step reads it. Its own try, like the credits'.
+        if (url in lineWaiting) await (async () => lineRead(id, url, src.photoPages ? await linkedPhotos(r.html, url, src.photoPages, get) : o.images))().catch((e: unknown) => { report.errors.push(`${url}: lines not read, the page waits for its next read: ${(e as Error).message.slice(0, 200)}`) })
         if (prev?.processedHash === hash && !forced(url)) {
           counts.skipped++
           const { error: _stale, ...rest } = prev

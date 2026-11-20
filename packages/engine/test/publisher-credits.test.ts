@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { creditAfter, namePublisherCredits, tiedCredit } from '../src/publisher-credits'
+import { creditAfter, creditCounts, namePictureLines, namePublisherCredits, pageCredit, PAGE_CREDITS, pictureCredit, tiedCredit } from '../src/publisher-credits'
 import { snapshotName } from '../src/snapshot'
 import { SOURCE_PHOTO_LICENCE } from '../src/source-photos'
 
@@ -128,4 +128,81 @@ test('a copy already named counts among its picture\'s copies: one that ties to 
   expect(r.named).toEqual({ seriouslyfish: 1 })
   expect(r.untied).toEqual([{ file: join('content', 'gallery', 'a.json'), url: photo(1).url, why: 'two lines across its copies' }])
   expect(JSON.parse(await readFile(at('content', 'species', 'a', 'entity.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Cy Sample / Seriously Fish', 'Cy Sample / Seriously Fish'])
+})
+
+// Aquarium Glaser prints one line for every picture on a page ("Text & photos: <name>"): the chief of staff, 17 Nov 2026.
+const GLASER = PAGE_CREDITS.glaser!
+
+test("a page-wide line names every photo from its page, one person and nothing more; else the publisher alone, with why", () => {
+  expect(pageCredit('Male', lines('Examplia sampla is from Sampletown.', 'Text & photos: Ann Example'), GLASER)).toEqual({ name: 'Ann Example' })
+  expect(pageCredit(undefined, lines('For sale to the trade. Text & Photos: Ann van der Example.'), GLASER)).toEqual({ name: 'Ann van der Example' })
+  // The same line twice is one; two people's lines on one page, or one line naming two, are neither's.
+  expect(pageCredit('Male', lines('Text & photos: Ann Example', 'Text and photos: Ann Example'), GLASER)).toEqual({ name: 'Ann Example' })
+  expect(pageCredit('Male', lines('Text & photos: Ann Example', 'Text & photo: Bo Sample'), GLASER)).toEqual({ why: 'two lines for its page' })
+  expect(pageCredit('Male', lines('Text & photos: Ann Example & Bo Sample'), GLASER)).toEqual({ why: 'more than one person' })
+  expect(pageCredit('Male', lines('Text & photos: Ann Example and Bo Sample'), GLASER)).toEqual({ why: 'more than one person' })
+  // A line that goes on past the name is not a credit.
+  expect(pageCredit('Male', lines('Text & photos: Ann Example from Sample 7, updated 4/2009'), GLASER)).toEqual({ why: 'not a credit' })
+  expect(pageCredit('Male', lines('Text & photos: Ann Example …and please visit our homepage'), GLASER)).toEqual({ why: 'not a credit' })
+  // A photo whose own caption prints another credit keeps the publisher alone; its own credit that is the line's person doesn't.
+  expect(pageCredit('Male, photo: Bo Sample', lines('Text & photos: Ann Example'), GLASER)).toEqual({ why: 'its own line differs' })
+  expect(pageCredit('Male © Ann Example', lines('Text & photos: Ann Example'), GLASER)).toEqual({ name: 'Ann Example' })
+  expect(pageCredit('Male', lines('Examplia sampla is from Sampletown.'), GLASER)).toEqual({ why: 'no line for its page' })
+  expect(pageCredit('Male', undefined, GLASER)).toEqual({ why: 'no stored copy' })
+})
+
+test("the sweep names every photo from Aquarium Glaser's pages by the page's line, and lists the ones its guard keeps alone", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pc-'))
+  const at = (...p: string[]) => join(root, ...p)
+  const one = 'https://www.aquarium-glaser.example/en/fish/examplia-sampla/', two = 'https://www.aquarium-glaser.example/en/fish/examplia-duo/'
+  for (const d of [['content', 'species', 'a'], ['content', 'gallery'], ['sources', 'glaser']]) await mkdir(at(...d), { recursive: true })
+  await writeFile(at('content', 'sources.json'), JSON.stringify({ glaser: { name: 'Aquarium Glaser' } }))
+  await writeFile(at('sources', 'glaser', `${snapshotName(one)}.md`), ['---', `url: ${one}`, '---', 'Examplia sampla lives near Sampletown.', 'Text & photos: Ann Example'].join('\n'))
+  await writeFile(at('sources', 'glaser', `${snapshotName(two)}.md`), ['---', `url: ${two}`, '---', 'Text & photos: Ann Example & Bo Sample'].join('\n'))
+  const g = (n: number, sourceUrl: string, caption?: string) => ({ url: `https://media.aquatome.com/glaser/${n}.webp`, width: 800, height: 600, licence: SOURCE_PHOTO_LICENCE, author: 'Aquarium Glaser', source: 'glaser', sourceUrl, ...(caption ? { caption } : {}) })
+  await writeFile(at('content', 'species', 'a', 'entity.json'), `${JSON.stringify({ photos: [g(1, one, 'Male'), g(2, two, 'Pair')] }, null, 2)}\n`)
+  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [g(1, one), g(3, one, 'Female'), g(4, one, 'Juvenile, photo: Bo Sample')] }, null, 2)}\n`)
+  const r = await namePublisherCredits(root)
+  expect(r.named).toEqual({ glaser: 3 })
+  expect(JSON.parse(await readFile(at('content', 'species', 'a', 'entity.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Ann Example / Aquarium Glaser', 'Aquarium Glaser'])
+  expect(JSON.parse(await readFile(at('content', 'gallery', 'a.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Ann Example / Aquarium Glaser', 'Ann Example / Aquarium Glaser', 'Aquarium Glaser'])
+  expect(r.untied).toEqual([
+    { file: join('content', 'species', 'a', 'entity.json'), url: g(2, two).url, why: 'more than one person' },
+    { file: join('content', 'gallery', 'a.json'), url: g(4, one).url, why: 'its own line differs' },
+  ])
+  expect(await creditCounts(root)).toEqual({ glaser: { named: 3, alone: 2 } })
+})
+
+test("a picture's line, as its page prints it, names the photo: the publisher's own photographer by the name after the slash; none for an agency, the publisher alone or a sentence", () => {
+  const terms = { refusedCredits: ['Example Pictures'] }
+  expect(pictureCredit('Ann Example', 'Seriously Fish')).toBe('Ann Example')
+  expect(pictureCredit('Photo: Ann Example', 'Seriously Fish')).toBe('Ann Example')
+  expect(pictureCredit('The Example / Ann Example', 'The Example Pets')).toBe('Ann Example')
+  expect(pictureCredit('Ann Example/example.org', 'Seriously Fish')).toBe('Ann Example/example.org')
+  expect(pictureCredit('Credit: The Example Pets', 'The Example Pets')).toBeUndefined()
+  expect(pictureCredit('Example Pictures', 'The Example Pets', terms)).toBeUndefined()
+  expect(pictureCredit('these fish swim together.', 'Seriously Fish')).toBeUndefined()
+  expect(pictureCredit(undefined, 'Seriously Fish')).toBeUndefined()
+})
+
+test("a read page's pictures name our photos credited to its publisher alone, wherever they are; a picture whose copies print two lines names none", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'pc-'))
+  const at = (...p: string[]) => join(root, ...p)
+  for (const d of [['content', 'species', 'a'], ['content', 'gallery']]) await mkdir(at(...d), { recursive: true })
+  const read = 'https://www.example.org/fish/examplia-sampla/'
+  const urlFor = (k: string) => `https://media.aquatome.com/${k}`
+  const ours = (src: string, author = 'The Example Pets') => ({ url: urlFor(`sprucepets/${src}`), width: 800, height: 600, licence: SOURCE_PHOTO_LICENCE, author, source: 'sprucepets', sourceUrl: read })
+  const { photoKey } = await import('../src/source-photos')
+  const key = (src: string) => photoKey('sprucepets', `https://www.example.org/img/${src}`).replace('sprucepets/', '')
+  await writeFile(at('content', 'species', 'a', 'entity.json'), `${JSON.stringify({ photos: [ours(key('a.jpg')), ours(key('b.jpg')), ours(key('c.jpg'), 'Cy Sample / The Example Pets')] }, null, 2)}\n`)
+  await writeFile(at('content', 'gallery', 'a.json'), `${JSON.stringify({ photos: [ours(key('a.jpg'))] }, null, 2)}\n`)
+  const images = [
+    { src: '/img/a.jpg', alt: 'a', credit: 'The Example / Ann Example' },
+    { src: '/img/b.jpg', alt: 'b', credit: 'Bo Sample' },
+    { src: '/img/b-300x200.jpg', alt: 'b', credit: 'Di Sample' },
+    { src: '/img/c.jpg', alt: 'c', credit: 'Ann Example' },
+  ]
+  expect(await namePictureLines(root, 'sprucepets', 'The Example Pets', images, read, urlFor)).toBe(2)
+  expect(JSON.parse(await readFile(at('content', 'species', 'a', 'entity.json'), 'utf8')).photos.map((p: { author: string }) => p.author)).toEqual(['Ann Example / The Example Pets', 'The Example Pets', 'Cy Sample / The Example Pets'])
+  expect(JSON.parse(await readFile(at('content', 'gallery', 'a.json'), 'utf8')).photos[0].author).toBe('Ann Example / The Example Pets')
 })

@@ -6,6 +6,7 @@ import { ArchiveRefused } from './archive'
 import { dropEmails, type PageImage } from './outline'
 import { creditKind, type CreditKind } from './photo-credit'
 import { ARTWORK } from './photos'
+import { pictureCredit } from './publisher-credits'
 
 export type Media = { urlFor: (key: string) => string; put: (key: string, bytes: Uint8Array) => Promise<{ url: string; thumb?: string; width: number; height: number }> }
 /** Layout dimensions are never a file size. Filename alternatives wait for retrieval before collapsing. */
@@ -197,6 +198,9 @@ export async function storeSourcePhotos(
   const out: SourcePhoto[] = []
   let extra = 0
   const keyFor = (src: string) => photoKey(source, src)
+  // The name the page prints with a picture: its photographer (ScotCat's ©), or its figure's line as printed
+  // (publisher-credits.ts pictureCredit), so a photo is stored with it (the chief of staff, 10 and 17 Nov 2026).
+  const line = (img: Picked) => img.author ?? pictureCredit(img.credit, sourceName, deps)
   const take = mayTake(source, sourceName, deps, existing)
   const shows = (img: Picked) => existing.some(p => p.url === deps.media.urlFor(keyFor(img.src)))
   // A photo held back is known before any request: none is made for it, nor for a copy the page doesn't show of one it
@@ -215,7 +219,11 @@ export async function storeSourcePhotos(
       const key = keyFor(img.src)
       if (deps.blocked?.[deps.media.urlFor(key)]) { group.done = true; break }
       const known = existing.find(p => p.url === deps.media.urlFor(key))
-      if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); group.done = true; break }
+      if (known) {
+        // A photo stored before its page's line was read takes the line now (the chief of staff, 17 Nov 2026).
+        const named = known.author === sourceName && line(img) ? { ...known, author: `${line(img)} / ${sourceName}` } : known
+        out.push(img.heading ? { ...named, heading: img.heading } : named); group.done = true; break
+      }
       if (extraRequest) {
         if (extra >= EXTRA_DOWNLOADS) continue
         extra++
@@ -231,7 +239,7 @@ export async function storeSourcePhotos(
       const { width = 0, height = 0 } = await (deps.size ?? (b => sharp(b).metadata()))(bytes).catch(() => ({ width: 0, height: 0 }))
       if (width < (img.minWidth ?? MIN_WIDTH) || !okShape(width, height)) continue
       const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
-      out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: img.author ? `${img.author} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
+      out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: line(img) ? `${line(img)} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
       group.done = true
       break
     }

@@ -85,7 +85,9 @@ test('full run writes entity, translation, places, snapshot, state, changelog; b
   const entity = JSON.parse(t['/content/species/paracheirodon-axelrodi/entity.json']!)
   expect(entity).toMatchObject({ family: 'Characidae', places: ['south-america', 'brazil', 'rio-negro'] })
   expect(entity.photos).toHaveLength(4) // best source photos, copied once, credited to the source
-  expect(entity.photos[0]).toMatchObject({ source: 'seriouslyfish', author: 'Seriously Fish', sourceUrl: `${SF}paracheirodon-axelrodi`, caption: 'Adult male individual.' })
+  // Stored with the line its figure prints (the chief of staff, 10 and 17 Nov 2026), as "<line> / Seriously Fish"; the
+  // fixture's line is a real page's, so it isn't written here.
+  expect(entity.photos[0]).toMatchObject({ source: 'seriouslyfish', author: expect.stringMatching(/^\S.* \/ Seriously Fish$/), sourceUrl: `${SF}paracheirodon-axelrodi`, caption: 'Adult male individual.' })
   expect(calls).toMatchObject({ images: 4, commons: 0 })
   expect(JSON.parse(t['/content/species/paracheirodon-axelrodi/vi.json']!)).toMatchObject({ slug: 'ca-neon-vua', quality: { indexable: true } })
   expect(t['/content/places/rio-negro/entity.json']).toContain('"river"')
@@ -352,6 +354,36 @@ test("a page whose credits are still to learn is read only on its own turn: not 
   const photos = JSON.parse(await readFile(join(root, 'content/species/paracheirodon-axelrodi/entity.json'), 'utf8')).photos as { url: string }[]
   expect(photos.length).toBeGreaterThan(0)
   for (const p of photos) expect(credits[p.url]).toMatchObject({ page: url, at: '2026-10-28' })
+})
+
+test("a page on the line-read list is read once though it isn't due: our photos credited to its publisher alone take their pictures' lines, with no model call, and it leaves the list", async () => {
+  // The chief of staff, 17 Nov 2026: one read of each page whose pictures' lines the stored copy keeps without their place.
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`, file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')
+  // As a photo stored before its page's line was read: the publisher alone.
+  const stored = JSON.parse(await readFile(file, 'utf8'))
+  for (const p of stored.photos) p.author = 'Seriously Fish'
+  await writeFile(file, JSON.stringify(stored, null, 2))
+  await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff' } }))
+  const once = deps(root, { urls: ['paracheirodon-axelrodi'] })
+  expect((await runEngine(once.d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish).toMatchObject({ fetched: 1, processed: 0 })
+  expect(once.calls.llm).toBe(0)
+  const authors = (JSON.parse(await readFile(file, 'utf8')).photos as { author: string }[]).map(p => p.author)
+  expect(authors.length).toBeGreaterThan(0)
+  expect(authors.every(a => a.endsWith(' / Seriously Fish'))).toBe(true)
+  expect(JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8'))).toEqual({})
+  // Off the list, the page waits for its own turn again.
+  expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+})
+
+test('a page the list leaves to its own turn is not read early', async () => {
+  const root = await fresh()
+  await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })
+  const url = `${SF}paracheirodon-axelrodi`
+  await writeFile(join(root, 'engine-state/_credit-lines.json'), JSON.stringify({ [url]: { source: 'seriouslyfish', at: '2026-11-20', by: 'the chief of staff', turn: true } }))
+  expect((await runEngine(deps(root, { urls: ['paracheirodon-axelrodi'] }).d, { sources: ['seriouslyfish'] })).perSource.seriouslyfish?.fetched).toBe(0)
+  expect(Object.keys(JSON.parse(await readFile(join(root, 'engine-state/_credit-lines.json'), 'utf8')))).toEqual([url])
 })
 
 test("a credit read that fails is ours, not the page's: the page keeps its read and its turn, and its credits wait for the next one", async () => {
