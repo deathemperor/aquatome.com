@@ -300,7 +300,7 @@ test("a non-commercial album photo leads only a page with nothing else to lead, 
   // A shop's photo whose own mark lets it lead where nothing passes comes before it.
   expect(leadChoice([], [nc, shop], q => q !== shop, {}, q => q === shop)).toEqual({ lead: shop })
   // In a generated picture's place.
-  expect(leadChoice([{ ...p('made', 'CC0'), generated: true }], [nc], () => true, {})).toEqual({ lead: nc })
+  expect(leadChoice([{ ...p('made', 'CC0'), generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }], [nc], () => true, {})).toEqual({ lead: nc })
   // Leading, it gives way to an open photo that passes or a shop's own-marked one, with no pair to ask; else it stays.
   expect(leadChoice([nc], [open], () => true, {})).toEqual({ lead: open })
   expect(leadChoice([nc], [shop], q => q !== shop, {}, q => q === shop)).toEqual({ lead: shop })
