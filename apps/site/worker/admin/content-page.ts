@@ -17,7 +17,7 @@ const ENTITY: EntityKind[] = ['fish', 'plant', 'breed', 'guide', 'videoGuide', '
 export const MAIN: EntityKind[] = ['fish', 'plant', 'breed', 'guide', 'videoGuide']
 const OTHER: EntityKind[] = ['glossary', 'place', 'equipment', 'series', 'product']
 const GAP: Record<GapKey, string> = {
-  noPhoto: 'No photo', noViName: 'Vietnamese name is still the scientific one', noSummary: 'No quick summary', noKeyFacts: 'No temperature, pH or size',
+  noPhoto: 'Open to readers, no photo shown', noViName: 'Vietnamese name is still the scientific one', noSummary: 'No quick summary', noKeyFacts: 'No temperature, pH or size',
   thin: 'Thin, out of search', oldVi: 'Vietnamese not rewritten', noId: 'No Indonesian', noTh: 'No Thai',
 }
 const FACT: Record<string, string> = { tempC: 'temperature', ph: 'pH', sizeCm: 'size' }
@@ -255,7 +255,8 @@ function gapsParts(s: ContentStats) {
       summary: g!.top.length ? (g!.n > g!.top.length ? `The first ${fmt(g!.top.length)} pages` : 'See the pages') : '',
       top: g!.top,
     }))
-    return { kind: k, total, title: `${esc(KIND[k])} <span class="muted">· ${fmt(total)} items</span>`, gaps }
+    // Fish, shrimp and snails: "species pages", as the owner hears the no-photo count (the chief of staff, 14 Nov).
+    return { kind: k, total, title: `${esc(k === 'fish' ? 'Species pages' : KIND[k])} <span class="muted">· ${fmt(total)} items</span>`, gaps }
   }).filter(x => x.gaps.length)
 }
 

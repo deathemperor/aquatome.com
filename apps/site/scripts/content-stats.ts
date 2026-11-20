@@ -17,6 +17,8 @@ import type { ByLang, ContentStats, EngineStats, EntityKind, Gap, GapKey, Lang, 
 
 export const MAX_BYTES = 1_000_000
 const GAP_LIST = 50
+/** src/lib/gallery.ts GALLERY_MIN (plain node can't import the site's lib): an album shows on its page from this many photos. Kept in step by test/content-stats.test.ts. */
+export const GALLERY_MIN = 6
 /** Engine rules this mirrors, kept in step by test/content-stats.test.ts: a video's 3 tries (youtube.ts), a page's (state.ts), REWRITE_V (vi-backfill.ts). */
 export const MAX_ATTEMPTS = 3
 export const REWRITE_V = 2
@@ -216,10 +218,13 @@ export function computeContentStats(o: StatsInput): ContentStats {
     }
     photos.covered[kind] = { with: withPhoto, of: xs.length }
   }
+  // Each item's album: its gallery's photos as a page shows them, each picture once.
+  const album = new Map<string, number>()
   for (const f of files(join(root, 'gallery'))) {
     // A photo that waits for the photo check (`unchecked`) is on no page yet.
-    const n = shown(read(join(root, 'gallery', f))?.photos).filter(p => !p.unchecked).length
-    if (n) { photos.gallery.pages++; photos.gallery.photos += n }
+    const ps = shown(read(join(root, 'gallery', f))?.photos).filter(p => !p.unchecked)
+    if (ps.length) { photos.gallery.pages++; photos.gallery.photos += ps.length }
+    album.set(f.replace(/\.json$/, ''), new Set(ps.map(p => String(p.url))).size)
   }
 
   // ——— Gaps ———
@@ -242,7 +247,12 @@ export function computeContentStats(o: StatsInput): ContentStats {
     if (by) g.by = Object.fromEntries(Object.entries(by).map(([k, f]) => [k, hit.filter(f).length]))
     ;(gaps[kind] ??= {})[key] = g
   }
-  const noPhoto = (x: Item) => shown(x.e.photos).length === 0
+  /**
+   * A page a reader can open that shows no photo (the chief of staff's rule, 14 Nov 2026): not held back in Vietnamese by
+   * the source check (its vi.json `held`: the page isn't built), none of its own photos shown, and no album, which a page
+   * shows from GALLERY_MIN photos. The owner's hidden pages are left out by `gap`, as for every gap.
+   */
+  const noPhoto = (x: Item) => !x.t.vi?.held && shown(x.e.photos).length === 0 && (album.get(x.id) ?? 0) < GALLERY_MIN
   const latinName = (x: Item) => String(x.t.vi!.name).toLowerCase().includes(String(x.e.scientificName).toLowerCase())
   const summary = (x: Item) => read(join(root, 'summaries', `${x.id}.json`))?.review === 'approved'
   const KEY_FACTS = ['tempC', 'ph', 'sizeCm'] as const
