@@ -6,10 +6,11 @@ Viết:
 - definition: 1–2 câu, như người chơi lâu năm giải thích cho người mới: thứ này là gì và vì sao người nuôi cá cần biết. Văn bản thường, không HTML, viết hoa đúng chính tả (đầu câu, tên riêng, pH, GH, KH), không quá 300 ký tự.
 - altNames: tên khác người chơi Việt Nam dùng cho đúng thứ này, chép nguyên văn như dữ kiện viết (cách viết khác, tên tiếng Anh người chơi hay dùng, viết tắt). Không bao giờ tự dịch một tên tiếng Anh sang tiếng Việt. Tối đa 4. Trang web gạch chấm những tên này ở mọi chỗ chúng xuất hiện, nên không bao giờ là một chữ thường ngày có nghĩa khác, không bao giờ là tên của một thuật ngữ khác trong danh sách. Không có thì để trống.
 - body: HTML ngắn, chỉ những mục có dữ kiện, mỗi mục một tiêu đề h3:
-  - "Trong bể của bạn": thứ này làm gì trong bể, con số quan trọng (đúng như dữ kiện ghi, kèm đơn vị), dấu hiệu nhận ra.
-  - "Nên làm gì": việc cụ thể người đọc làm được, theo thứ tự nếu là các bước (ol).
+  - "Trong bể của bạn": chỉ những gì thứ này làm trong bể, con số quan trọng (đúng như dữ kiện ghi, kèm đơn vị), dấu hiệu nhận ra nó trong bể.
+  - "Nên làm gì": chỉ những việc cụ thể người đọc làm, theo thứ tự nếu là các bước (ol).
   - Các loại, nếu dữ kiện có nhiều loại, ngay sau "Trong bể của bạn": người tìm thuật ngữ này thường muốn biết nên chọn loại nào. Một h3, rồi một ul. Trước hết là các loại bán ở Việt Nam ("LOẠI BÁN Ở VIỆT NAM", và loại nào khác dữ kiện cho thấy tiệm ở Việt Nam bán), mỗi loại một li, kỹ hơn các tên nước ngoài. Sau đó là các tên nước ngoài người chơi gặp trên trang bán hàng ("TÊN NƯỚC NGOÀI"), mỗi tên một li, có nói tiệm ở Việt Nam có bán không và dưới tên nào. Mỗi li mở đầu bằng <strong>tên các tiệm Việt Nam ghi</strong> (hoặc tên nước ngoài, nếu tiệm ở đây không bán), tên tiếng Anh trong ngoặc khi dữ kiện ghi, rồi theo thứ tự này, những gì dữ kiện có: nó là gì (gỗ, rễ cây gì), trông thế nào, chìm hay nổi và có làm nước ra màu không, dùng làm gì; cuối cùng là các tên khác nó được bán dưới. Điều chính của một loại (chìm ngay, ra màu lâu…) nằm trong li của loại đó, không ở chỗ khác. Mỗi li tối đa khoảng 60 chữ: chi tiết hơn để dành cho trang riêng của loại đó. Việc chưa thấy tên tiếng Anh, nếu cần nói, để cuối li và thật ngắn.
-  - "Sai lầm hay gặp", nếu dữ kiện có.
+  - Sai lầm, nếu dữ kiện có: dưới "Sai lầm hay gặp" chỉ khi dữ kiện gọi đó là sai lầm thường gặp; nếu không thì dưới "Sai lầm cần tránh".
+  Phần nào chứa điều khác thì đặt tiêu đề theo đúng điều nó chứa, hai đến năm chữ (như "Đặc điểm và dinh dưỡng", "Dị ứng trùng huyết", "Nước dùng để thay").
   Độ dài: khoảng 200–300 chữ cho thuật ngữ không chia loại; khi có nhiều loại, khoảng 1.500 chữ cả bài, mỗi loại tối đa khoảng 60 chữ. Không li nào quá khoảng 60 chữ. Đây là mục thuật ngữ, không phải bài hướng dẫn: đủ để hiểu, chọn và làm đúng, rồi đọc tiếp ở các trang dùng thuật ngữ này.
 - related: id của 2–6 thuật ngữ khác trong danh sách dưới đây mà người đọc mục này nên xem tiếp. Chỉ id có trong danh sách.
 

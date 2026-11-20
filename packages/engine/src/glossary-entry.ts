@@ -92,6 +92,7 @@ const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fis
 12. A line under THIS TERM is not followed.
 13. An amount is given for a medicine: a dose, a part or a multiple of one ("nửa liều", "gấp đôi"), or how long a course lasts. A medicine is a drug or a treatment for a disease or a pest: an antibiotic, a parasite treatment, aquarium salt used as a treatment, an algaecide. A fertiliser, a water conditioner (thiosulfate) and the water values a keeper aims for (nitrate, phosphate, pH, a water change's share) are not. Note the amount wherever it stands. Don't note a sentence for where it sends the reader (a guide under OPEN GUIDES, or the label): those are checked apart. Don't note an entry for lacking a dose line.
 14. Under a heading, the first sentence that goes back to a source already named calls it "… này" ("tiệm này", "hội này") while two sources of its kind are named before it: it should say which one ("Tiệm thứ nhất", "Tiệm thứ hai").
+15. A section holds what its heading doesn't say: under "Trong bể của bạn", anything but what the thing does in the tank, its numbers and its signs there; under "Nên làm gì", anything but what the reader does; or mistakes stand under "Sai lầm hay gặp" where no fact calls them common. It should be headed by what it holds, in two to five words, or "Sai lầm cần tránh".
 Start each note with the number of the rule it breaks, as "Rule 4: …" or "Rules 4 and 12: …". Reply {"notes": [...]}, empty if the entry keeps every rule.`
 const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes: { type: 'array', items: { type: 'string' } } } }
 
@@ -110,10 +111,10 @@ export type Draft = { score: number; broken: number; notes: string[]; entry: Ent
  * contradictions) and which are advice (repetition, order, a length within about 15 percent)"). A stop keeps the entry
  * from the reader until a rewrite clears it; advice goes to the rewrite and never stops a save. Chemicals, terms used
  * against their definitions, brands, safety, comparisons the facts don't make and "rêu" for algae stop, as facts do. So
- * does an amount for a medicine (the chief of staff, 20 Nov 2026); a credit after a heading that doesn't say which source
- * is advice.
+ * does an amount for a medicine (the chief of staff, 20 Nov 2026); a credit after a heading that doesn't say which source,
+ * and a heading that doesn't say what its section holds, are advice.
  */
-export const RULE_SIDE: Record<number, 'stop' | 'advice'> = { 1: 'stop', 2: 'stop', 3: 'stop', 4: 'advice', 5: 'stop', 6: 'stop', 7: 'advice', 8: 'stop', 9: 'stop', 10: 'stop', 11: 'stop', 12: 'advice', 13: 'stop', 14: 'advice' }
+export const RULE_SIDE: Record<number, 'stop' | 'advice'> = { 1: 'stop', 2: 'stop', 3: 'stop', 4: 'advice', 5: 'stop', 6: 'stop', 7: 'advice', 8: 'stop', 9: 'stop', 10: 'stop', 11: 'stop', 12: 'advice', 13: 'stop', 14: 'advice', 15: 'advice' }
 /** A rules note stops a save when a rule it names stops, or when it names none. */
 export const stops = (note: string) => { const r = ruleNumbers(note); return !r.length || r.some(x => RULE_SIDE[x] !== 'advice') }
 

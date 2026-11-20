@@ -426,6 +426,11 @@ test('a draft that stops is rewritten from itself, twice if need be; advice alon
   expect(writes[0]).toContain('write "rễ cây ngập mặn", never "đước"')
   expect(rules[0]).toContain('--- THIS TERM ---\nBoiling, said once')
   expect(rules[0]).toContain('12. A line under THIS TERM is not followed.')
+  // The headings rule (the Writing Lead, with the chief of staff's yes, 20 Nov 2026): the set headings hold only what they
+  // say, any other section is headed by what it holds, and mistakes are "common" only where a fact says so. Advice only.
+  expect(writes[0]).toContain('nếu không thì dưới "Sai lầm cần tránh"')
+  expect(writes[0]).toContain('Phần nào chứa điều khác thì đặt tiêu đề theo đúng điều nó chứa')
+  expect(rules[0]).toContain('15. A section holds what its heading doesn\'t say')
   // A disagreement is said once, with what to do only where the facts say it: the say-once rule asked chu trình nitơ and pH
   // for advice their facts don't give, and the writer wrote it (14 Nov 2026).
   expect(rules[0]).toContain('with what the keeper can do about it only where the FACTS say what to do; where they don\'t, it is said once and left')
@@ -465,7 +470,7 @@ test('one table says which notes stop a save and which are advice; a kept draft 
   expect(ruleNumbers('Rules 4 and 12: x')).toEqual([4, 12])
   expect(ruleNumbers('Rule 7: x')).toEqual([7])
   expect(ruleNumbers('Mopani "hợp Betta"')).toEqual([])
-  expect(Object.entries(RULE_SIDE).filter(([, v]) => v === 'advice').map(([k]) => Number(k))).toEqual([4, 7, 12, 14])
+  expect(Object.entries(RULE_SIDE).filter(([, v]) => v === 'advice').map(([k]) => Number(k))).toEqual([4, 7, 12, 14, 15])
   expect(RULE_SIDE[13]).toBe('stop')
   expect(['Rule 4: x', 'Rules 7 and 12: x', 'Rule 12: x'].map(stops)).toEqual([false, false, false])
   expect(['Rule 1: x', 'Rules 4 and 6: x', 'Rule 11: x', 'An unnumbered note'].map(stops)).toEqual([true, true, true, true])
