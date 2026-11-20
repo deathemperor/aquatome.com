@@ -2431,5 +2431,89 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/la-kho": [
+    {
+      "at": "2026-11-20T09:57:05Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:57:05Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Một bài tạp chí kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" must be the exact wording given: \"Tạp chí này kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" The magazine is one site and has already been named, so it should not be brought in again a…",
+        "Rule 12: The plain step \"Lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" should not stand alone without a credit. It should be merged with the pH-monitoring step into one step, the last item of \"Nên làm gì\", credited to the magazine and written exactly as: \"Tạp chí này ghi: chặn cho lá nằm xuống đáy, và theo dõi pH cho tới khi pH ổn định.\" (fact 21 comes from the magazine alone).",
+        "Rule 12: \"Sau khi thả lá, theo dõi pH cho tới khi pH ổn định.\" is a step, but it sits in the magazine's list under the \"Sai lầm cần tránh\" heading, where a reader would take it for a mistake. Steps never go under the mistakes heading. It belongs in the merged final step of \"Nên làm gì\": \"Tạp chí này ghi: chặn cho lá nằm xuống đáy, và theo dõi pH cho tới khi pH ổn định.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:49:22Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Nếu nước ngả nâu rất đậm thì vớt lá ra và thay 10–15% nước.\": the facts don't carry it (uncredited, uncredited, uncredited): only aquasetup.com gives the 10–15% change; no credit / only aquasetup gives this; credit ended at previous sentence / only aquasetup.com gives it; the credit in sentence 15 ends at its full stop",
+        "Rule 12: \"Tạp chí này ghi: lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" and \"Tạp chí này ghi: theo dõi pH cho tới khi pH ổn định.\" are two of the magazine's claims in a row, and each has its own opening. Under the standing line, claims in a row from one source go under one opening, as a list or as one sentence with semicolons.",
+        "Rule 12: \"Tạp chí này ghi: lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" does not keep the magazine's fact as given. Fact 20 says to weigh the leaves down in the tank, or to soak them in RO water for a few days. The condition \"lá còn nổi\" is not in the magazine's fact, which puts the line under the magazine's credit when it is not the magazine's words, and \"có thể\" adds a hedge the fact does …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:49:22Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chỉ nhặt lá đã chết, rụng và khô.\" (not \"Chỉ nhặt lá đã chết, rụng vào mùa thu.\": it drops the advice \"khô\")",
+        "Rule 12: \"Một bài tạp chí kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" must be written word for word as \"Tạp chí này kể tên các cá cho bể lót lá khô, …\". The magazine is already named in the sentence before it, and its two pages count as one site, so it should not be brought in again as \"Một bài tạp chí\".",
+        "Rule 12: \"Nếu nước ngả nâu rất đậm thì tiệm khuyên vớt lá ra và thay 10–15% nước.\" adds \"tiệm khuyên\". The line asks for this sentence word for word with no word added: \"Nếu nước ngả nâu rất đậm thì vớt lá ra và thay 10–15% nước.\"",
+        "Rule 12: \"Sau khi thả lá, theo dõi pH cho tới khi pH ổn định.\" is a step to do, but it sits in the magazine's list under the heading \"Sai lầm cần tránh\". The line asks for it as the last step of \"Nên làm gì\", word for word: \"Tạp chí này ghi: theo dõi pH cho tới khi pH ổn định.\" That step is missing from \"Nên làm gì\".",
+        "Rule 12: \"Lá còn nổi thì có thể chặn cho lá nằm xuống đáy.\" is printed as plain fact. For leaf litter in general, only the magazine says to weigh the leaves down (fact 21). The other weigh-down facts are about Indian almond leaves (lá bàng) alone, and what one leaf does is never said of another. As a one-site claim, it needs the magazine's credit."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:42:48Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Nếu nước ngả nâu rất đậm thì tiệm khuyên vớt lá ra và thay 10–15% nước.\" This step was to be written word for word under the shop's credit as \"nếu nước ngả nâu rất đậm thì vớt lá ra và thay 10–15% nước\". The entry adds \"tiệm khuyên\".",
+        "Rule 12: \"Sau khi thả lá, theo dõi pH cho tới khi pH ổn định.\" This item was to go into the magazine's list word for word as \"theo dõi pH cho tới khi pH ổn định\". The entry adds \"Sau khi thả lá,\", which the line does not give."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:42:48Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Thả quá nhiều lá thì nước ngả nâu đậm.\": the facts don't carry it (uncredited, supported, uncredited): only seriouslyfish says too many leaves turn water brown; uncredited / only seriouslyfish links too many leaves to brown water",
+        "Rules 4 and 12: \"Khi mục, lá nhả tanin làm pH hạ, và lớp lá là chỗ cá bột kiếm ăn.\" in the definition must be cut. Only fact 3 defines leaf litter, and the body already says both of these things.",
+        "Rule 12: The magazine's limit from fact 8 is missing right after \"Khi mục dần, lá khô nhả tanin và pH trong bể hạ xuống.\" It must say, under the magazine's credit, that the pH effect is mild and gradual (\"nhẹ và từ từ\").",
+        "Rule 12: \"Một lớp lá khô dưới đáy làm nước ngả vàng nâu nhạt.\" must be cut. Only one site gives it, and the yellow tint belongs to lá bàng alone.",
+        "Rules 3 and 12: \"Vi khuẩn và nấm phân hủy lá, phủ lên lá một lớp màng sinh học nhầy, và cá bột gặm lớp màng này.\" must read \"Vi khuẩn và nấm phân hủy lá và tạo ra chất nhầy mà cá bột gặm.\" Fact 6 gives a slime, not a biofilm (màng sinh học).",
+        "Rules 10 and 12: \"Một bài tạp chí kể tên những cá hợp với bể lót lá khô: Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" must read \"Một bài tạp chí kể tên các cá cho bể lót lá khô, trong đó có Betta hoang dã, Apistogramma, Badis, cá đĩa và cá Uaru fernandezyepezi.\" Fact 39 says \"include\" and says nothing of fish that suit (\"hợp\") the tank.",
+        "Rule 12: \"Người nuôi còn dùng trái thông alder (Alnus glutinosa) để hạ pH.\" must be cut. \"trái thông alder\" is the shop's own word, and the pH use is the magazine's claim alone, here written as plain fact.",
+        "Rule 6: \"Betta\" in \"Lá chuối khô dùng được như lá bàng khô, cho bể tép hoặc bể Betta.\": the betta is not called by its page's name, \"Cá betta (cá xiêm)\" (in lower case here: \"cá betta (cá xiêm)\").",
+        "Rule 12: \"Lá ổi khô cứng hơn hầu hết các lá, tan chậm nên nhả tanin từ từ.\" must read, word for word, \"Lá ổi khô cứng hơn phần lớn các lá, tan chậm nên nhả tanin từ từ.\"",
+        "Rule 12: \"Lá cọ khô (lá dừa khô) là lá cứng, phân hủy trong nước chậm hơn đa số lá khác.\" must read \"Lá cọ khô (hay lá dừa khô) là lá cứng, phân hủy trong nước chậm hơn phần lớn lá khác.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
   ]
 }
