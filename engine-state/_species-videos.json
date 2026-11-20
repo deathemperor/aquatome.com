@@ -3774,16 +3774,26 @@
     "reason": "expedition"
   },
   "O0DF-fc3NbM": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Betta Smaragdina: Care, Habitat and Tips for Emerald Bettas",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Betta smaragdina",
+    "page": "species/betta-smaragdina",
+    "done": "low",
+    "score": 0.6,
+    "reason": "beforeYouBuy: \"cá bán ra thường đã lẫn máu loài khác\" repeats the PAGE's notes, which already say the fish are crossed with B. mahachaiensis and B. splendens.; beforeYouBuy: \"ngoài tiệm cá\" is not in the video; the speaker only says true strains are rare in the aquarium trade."
   },
   "O1DLCzJYHhI": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "1 year update of the Filament Barbs (Dawkinsia filamentosa )",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Dawkinsia filamentosa",
+    "page": "species/dawkinsia-filamentosa",
+    "done": "low",
+    "score": 0.74,
+    "reason": "[maintenance] The video plainly contradicts the page, which says Microsorum, Bolbitis and Anubias can be grown. NEW never says it differs from the page. It only hints at this with \"kể cả loại khỏe\", where it should say so openly.; [maintenance] \"khuyên dứt khoát là không nuôi loài này chung với cây thật\" is written near enough as a rule. The advice comes from one keeper's tank, so it needs clearer framing as that keeper's own experience."
   },
   "o25nEqBOeXc": {
     "at": "2026-11-07",
@@ -3794,10 +3804,12 @@
     "reason": "8 species"
   },
   "O335IQE-nwk": {
-    "at": "2026-11-07",
+    "at": "2026-11-20",
     "title": "Endler´s Livebearer (RED CHEST SADDLEBACK - Class K)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "o5eyhUQilgw": {
     "at": "2026-11-07",
@@ -4198,6 +4210,12 @@
     "kind": "other",
     "done": "skipped",
     "reason": "aquarium product review"
+  },
+  "QMk-WoaDmGQ": {
+    "at": "2026-11-20",
+    "title": "Same Species, Two Colors. Meet the Green Whiptail Catfish",
+    "channel": "Steenfott Aquatics",
+    "kind": "profile"
   },
   "qmToRXs_1NI": {
     "at": "2026-11-07",
