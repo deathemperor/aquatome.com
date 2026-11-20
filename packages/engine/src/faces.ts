@@ -75,10 +75,16 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
   const why = 'people: a face (face detection)'
   await holdForSecondLook(root, new Map([...last].map(([u, pages]) => [u, { why, pages }])), 'face detection')
   await holdForSecondLook(root, new Map([...firstOff].map(([u, pages]) => [u, { why, pages, off: true as const }])), 'face detection')
-  if (firstOff.size) {
+  // A face found now, on a photo that never passed, takes it off every page and album, as the check's verdict of a person
+  // does: off a page that keeps other photos, it goes on the never-again list as refused, so the sweep takes its album
+  // copies and no step brings it back (the independent reader, 20 Nov).
+  // Only where it is given the list to write, as the engine's own call always is.
+  const refusedNow = rejectedFile ? [...screened].filter(u => face(u) && !passed.has(u) && !firstOff.has(u) && !last.has(u)) : []
+  if (firstOff.size || refusedNow.length) {
     const file = rejectedFile ?? join(root, 'engine-state', '_photo-rejected.json')
     const now = JSON.parse(await readFile(file, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const u of firstOff.keys()) now[u] ??= waitingEntry(why)
+    for (const u of refusedNow) now[u] ??= why
     await writePhotoState(file, now)
   }
   const held = [...last].map(([u, ps]) => `${u}: ${ps.join(', ')}`)

@@ -114,3 +114,14 @@ test('a photo off at its first verdict, waiting for its second look, is not copi
   // The others still move.
   expect(put).toContain(mirrorPlan(C1280)!.key)
 })
+
+test("a second look's clear follows its photo to our bucket, so the verdict copied with it doesn't take it off there", async () => {
+  const r = await root()
+  const rec = { why: 'dead: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: ['species/astronotus-ocellatus'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [INAT]: rec }))
+  const { d, put } = deps()
+  await mirrorPhotos(r, d)
+  expect(put).toContain('inaturalist/617421644.webp')
+  const sl = JSON.parse(await readFile(join(r, 'engine-state/_photo-second-look.json'), 'utf8'))
+  expect(sl['https://media.aquatome.com/inaturalist/617421644.webp']).toEqual(rec)
+})

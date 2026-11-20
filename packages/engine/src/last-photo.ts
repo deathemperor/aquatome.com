@@ -162,8 +162,9 @@ export async function listAgreed(root: string): Promise<string[]> {
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   for (const url of agreed) {
-    // One off at its first verdict: its waiting entry takes the verdict's own reason.
-    if (sl[url]!.off && rejected[url] === waitingEntry(sl[url]!.why)) rejected[url] = sl[url]!.why
+    // One off at its first verdict: its waiting entry takes the verdict's own reason, and so does a mark's entry, which a
+    // shop's own kept mark could otherwise lift (the independent reader, 20 Nov).
+    if (sl[url]!.off && (rejected[url] === waitingEntry(sl[url]!.why) || rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
     else rejected[url] ??= sl[url]!.why
     delete sl[url]
   }

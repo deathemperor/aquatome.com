@@ -4,7 +4,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { IMAGE_SWITCHES, isInatNonCommercial, isNonCommercial, type ImageSwitches } from '@aq/schema'
 import type { Media } from './source-photos'
-import { looks, readSecondLook } from './last-photo'
+import { looks, readSecondLook, writeSecondLook } from './last-photo'
 
 type Photo = { url: string; thumb?: string; width: number; height: number; licence: string; author: string; sourceUrl: string }
 type Stored = Awaited<ReturnType<Media['put']>>
@@ -116,6 +116,14 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     let n = 0
     for (const [from, to] of moved) if (from in cache && !(to in cache)) { cache[to] = cache[from]; n++ }
     if (n) await writePhotoState(path, cache)
+  }
+  // A second look's "clear" follows its photo to our bucket, so the cleared verdict copied above doesn't take it off there.
+  if (moved.length) {
+    const sl = await readSecondLook(root)
+    const cleared = looks(sl).cleared
+    let n = 0
+    for (const [from, to] of moved) if (cleared(from) && !(to in sl)) { sl[to] = sl[from]!; n++ }
+    if (n) await writeSecondLook(root, sl)
   }
   report.mirrored = done.size
   return report

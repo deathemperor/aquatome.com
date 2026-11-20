@@ -487,9 +487,12 @@ async function neverAgain(root: string) {
   const rejected = JSON.parse(await readFile(join(root, 'engine-state', '_photo-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const kept = keptOwnMark(rejected, JSON.parse(await readFile(join(root, 'engine-state', '_photo-watermarks.json'), 'utf8').catch(() => '{}')) as Record<string, WatermarkEntry>)
   const entry = rejectedEntry(rejected)
+  // One marked off at its first verdict is off whatever its entry says: a mark the shop's own kept doesn't keep a dead
+  // fish on the page (last-photo.ts; the independent reader, 20 Nov).
+  const marked = looks(await readSecondLook(root)).off
   const listed = (url: string) => {
     const e = entry(url)
-    return !!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))
+    return (!!e && !kept(e[0]) && !(e[1].startsWith('watermark:') && kept(url))) || marked(url)
   }
   return { rejected, listed, why: (url: string) => entry(url)?.[1] ?? '' }
 }

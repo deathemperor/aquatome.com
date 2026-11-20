@@ -234,6 +234,49 @@ test("the face screen's first verdict on a page's only photo that never passed t
   expect(later.held).toContain(`${url('k-face')}: species/kkk`)
 })
 
+test("a face found now on a photo that never passed, on a page that keeps others, goes on the never-again list: the sweep takes its album copy, and after a reread a hold on another reason doesn't keep it", async () => {
+  const r = await store({ fff: ['f-face', 'f-fish'] })
+  // f-face is in fff's album too, and held for a mark with no answer.
+  await writeFile(join(r, 'content/gallery/fff.json'), `${JSON.stringify({ id: 'fff', photos: [photo('f-face')], seen: 1, updatedAt: '2026-11-20' }, null, 2)}\n`)
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('f-face')]: { why: compactRejection('watermark: a logo bottom left'), step: 'the watermark screen', pages: ['species/fff'], at: '2026-11-19' } }))
+  const rej = join(r, 'engine-state/_photo-rejected.json')
+  const deps = { get: async (u: string) => new TextEncoder().encode(u), detect: async (files: string[]) => Promise.all(files.map(async f => ((await readFile(f, 'utf8')).includes('f-face') ? 1 : 0))) }
+  const out = await dropFacePhotos(join(r, 'content'), join(r, 'engine-state/_photo-faces.json'), deps, rej, r)
+  expect(await photosOf(r, 'fff')).toEqual(['f-fish'])
+  expect(out.firstOff).toEqual([])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[url('f-face')]).toMatch(/^people: withheld \[sha256:[0-9a-f]{64}\]$/)
+  await sweep(r)
+  expect(((await json(r, 'content/gallery/fff.json')).photos as { url: string }[]).map(p => name(p.url))).toEqual([])
+  // A reread of its source puts it back on the page: it comes off again.
+  await page(r, 'fff', ['f-face', 'f-fish'])
+  await dropFacePhotos(join(r, 'content'), join(r, 'engine-state/_photo-faces.json'), deps, rej, r)
+  expect(await photosOf(r, 'fff')).toEqual(['f-fish'])
+})
+
+test("a photo marked off whose never-again entry is a mark the shop's own kept is off all the same; an agree makes the entry the verdict's own", async () => {
+  const r = await store({ ggg: ['g-fish'] })
+  const g = 'https://media.aquatome.com/glaser/g-dead.webp'
+  const file = join(r, 'content/species/ggg/entity.json')
+  const withG = async () => { const e = JSON.parse(await readFile(file, 'utf8')); e.photos.push({ ...photo('x'), url: g, source: 'glaser', author: 'Aquarium Glaser', sourceUrl: 'https://www.aquariumglaser.de/x' }); await writeFile(file, `${JSON.stringify(e, null, 2)}\n`) }
+  await withG()
+  await writeFile(join(r, 'engine-state/_photo-watermarks.json'), JSON.stringify({ [g]: { ocr: [], watermark: true, kind: 'logo', retainedOwnMark: { source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/x', owner: 'source' } } }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [g]: compactRejection('watermark: the shop logo') }))
+  const rec = { why: compactRejection('dead: a fish on a board'), step: 'the photo check', pages: ['species/ggg'], at: '2026-11-20', off: true }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [g]: rec }))
+  const out = await sweep(r)
+  const shownOn = async () => ((await json(r, 'content/species/ggg/entity.json')).photos as { url: string }[]).map(p => p.url)
+  expect(await shownOn()).toEqual([url('g-fish')])
+  expect(out.waitingOdd).toEqual([`${g}: its never-again entry is another kind's, left in force`])
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [g]: { ...rec, look: { said: 'agree', by: 'the chief of staff', on: '2026-11-20' } } }))
+  await sweep(r)
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[g]).toBe(rec.why)
+  expect(await json(r, 'engine-state/_photo-second-look.json')).toEqual({})
+  // Put back on the page, it comes off: a dead fish's entry, which no kept mark lifts.
+  await withG()
+  await sweep(r)
+  expect(await shownOn()).toEqual([url('g-fish')])
+})
+
 test("a clear takes the waiting entry off the never-again list, and where a step puts the photo back no verdict takes it off again; an agree gives the entry the verdict's own reason and the record leaves", async () => {
   const r = await store({ mmm: ['m-dead'], nnn: ['n-dead'] })
   await checkPagePhotos(r, model({ 'm-dead': dead, 'n-dead': dead }), { limit: 10 })
