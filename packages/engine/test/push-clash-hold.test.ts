@@ -1,10 +1,13 @@
 import { spawnSync } from 'node:child_process'
 import { mkdtempSync, readFileSync } from 'node:fs'
+import { cp, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
+import { fitKey, fitText } from '../src/fit'
 import { GATED_KINDS } from '../src/gate'
+import { loadCards, loadPages } from '../src/pages'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 
@@ -16,7 +19,7 @@ const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 // The rule: a page's hold follows the record that won, so a release on main during a run stands (Page Recovery's test,
 // widened to a hold on main, a clean pull, a species page and a text that isn't main's).
 type Held = { checks: string[]; at: string }
-type Side = { held?: Held; body?: string; fit?: { at: string; hash: string; checks: string[] }; th?: Side }
+type Side = { held?: Held; body?: string; sections?: Record<string, string>; extra?: Record<string, unknown>; fit?: { at: string; hash: string; checks: string[] }; th?: Side }
 
 const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
 
@@ -28,7 +31,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
   const file = `${pageDir}/vi.json`
   const dir = mkdtempSync(join(tmpdir(), 'aq-push-hold-'))
   const page = (s: Side) =>
-    `${JSON.stringify({ slug: 'ho-ca', name: 'Hồ cá', body: s.body ?? '<p>Cá con quen người.</p>', ...(s.held ? { held: s.held } : {}) }, null, 2)}\n`
+    `${JSON.stringify({ slug: 'ho-ca', name: 'Hồ cá', body: s.body ?? '<p>Cá con quen người.</p>', ...(s.sections ? { sections: s.sections } : {}), ...s.extra, ...(s.held ? { held: s.held } : {}) }, null, 2)}\n`
   const record = (f: NonNullable<Side['fit']>) =>
     ({ at: f.at, hash: f.hash, model: 'opus', checklist: 3, findings: f.checks.map(check => ({ check, part: 'P2', quote: 'Cá con quen người.', why: 'w', by: 'model' })), products: [] })
   // The page's Thai file and record, where a side has them.
@@ -229,7 +232,7 @@ test("a page whose text isn't main's keeps the run's own hold, though the merge 
   expect(r.pushed.body).toBe('<p>Một văn bản mới.</p>')
   expect(r.pushed.held).toEqual(hold('source'))
   expect(r.out).toContain("LOG 1 pages main read during this run have main's record and this run's text: held until their next read")
-  expect(r.out).toContain("COMMIT content: this run's holds on 1 pages whose text main's record didn't read")
+  expect(r.out).toContain("COMMIT content: this run's holds on 1 pages whose text no record read")
   // a tree no check has seen
   expect(r.out).toContain('VERIFY')
 })
@@ -322,6 +325,59 @@ test("a page kept held for harm in one language stays held in each", () => {
   expect(r.pushedTh().held).toEqual(hold('harm'))
 })
 
+// A reader of #1703: the merge keeps the Vietnamese held for harm on a text main's record didn't read (left as merged), and
+// the Thai, which the run didn't change, took main's release with the line merge. Harm holds every language: the Thai stays
+// held too, with the run's hold.
+test("a language main let out stays held beside one the merge keeps held for harm", () => {
+  const harmRead = { at: '2026-11-14', hash: 'old', checks: ['harm'] }
+  const r = push('guides', {
+    base: { held: hold('elsewhere'), fit: { at: '2026-11-14', hash: 'old', checks: ['elsewhere'] }, th: { held: hold('harm'), fit: harmRead } },
+    main: { fit: clean, th: { fit: clean } },
+    run: { body: '<p>Một văn bản mới.</p>', held: hold('harm'), fit: { at: '2026-11-15', hash: 'n3w', checks: ['harm'] }, th: { held: hold('harm'), fit: harmRead } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held).toEqual(hold('harm'))
+  expect(r.pushedTh().held).toEqual(hold('harm'))
+})
+
+// A reader of #1703: main fixed one section of an open species page by hand, with no read; the run rewrote another, and its
+// own read passed it. The entity driver keeps both edits, and the record that stands is the run's, of its own text: nobody
+// read the page as it would go out. It waits held for its next read, with the gate's mark for a page not yet read.
+const SECTIONS = { 'care:sf': '<p>Nuôi dễ.</p>', 'diet:sf': '<p>Ăn tạp.</p>' }
+test("a page whose merged text is neither side's waits held for its next read", () => {
+  const r = push('species', {
+    base: { sections: SECTIONS, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    main: { sections: { ...SECTIONS, 'diet:sf': '<p>Ăn tạp, thích trùn chỉ.</p>' }, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    run: { sections: { ...SECTIONS, 'care:sf': '<p>Nuôi rất dễ.</p>' }, fit: { at: '2026-11-15', hash: 'run', checks: [] } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.sections).toEqual({ 'care:sf': '<p>Nuôi rất dễ.</p>', 'diet:sf': '<p>Ăn tạp, thích trùn chỉ.</p>' })
+  expect(r.pushedRecord.hash).toBe('run')
+  expect(r.pushed.held.checks).toEqual([])
+  expect(r.out).toContain('LOG 1 pages both sides changed, whose text together no record read: held until their next read')
+  expect(r.out).toContain("COMMIT content: this run's holds on 1 pages whose text no record read")
+})
+
+// The chief of staff's ruling of 20 Nov stands: a text that is one side's goes out as merged. Main's hand fix alone, and the
+// run's change to a field its read doesn't cover, leave the page open; so does a field outside the read on main's side.
+test("a page whose read text is one side's stays open, whatever else both sides changed", () => {
+  const handFix = push('species', {
+    base: { sections: SECTIONS, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    main: { sections: { ...SECTIONS, 'diet:sf': '<p>Ăn tạp, thích trùn chỉ.</p>' }, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    run: { sections: SECTIONS, extra: { altNames: ['Cá x'] }, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+  })
+  expect(handFix.pushed.sections['diet:sf']).toBe('<p>Ăn tạp, thích trùn chỉ.</p>')
+  expect(handFix.pushed.held).toBeUndefined()
+  const outside = push('species', {
+    base: { sections: SECTIONS, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    main: { sections: SECTIONS, extra: { altNames: ['Cá x'] }, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    run: { sections: { ...SECTIONS, 'care:sf': '<p>Nuôi rất dễ.</p>' }, fit: { at: '2026-11-15', hash: 'run', checks: [] } },
+  })
+  expect(outside.pushed.altNames).toEqual(['Cá x'])
+  expect(outside.pushed.held).toBeUndefined()
+  expect(outside.out).not.toContain('no record read')
+})
+
 // A reader of #1703: a cycle running while this lands sourced the older script, then pulls the new main-holds.mjs and calls
 // it with two arguments. It answers as the older one did, and writes nothing.
 test("main-holds.mjs answers a caller of the older script as it did", () => {
@@ -377,4 +433,76 @@ test("main-holds.mjs reads the gate's kinds", () => {
   const src = readFileSync(join(ROOT, 'scripts/main-holds.mjs'), 'utf8')
   const kinds = JSON.parse(src.match(/^const GATED_KINDS = (\[.*\])$/m)![1]!.replace(/'/g, '"'))
   expect(kinds).toEqual([...GATED_KINDS])
+})
+
+// main-holds.mjs takes a text as read when the fields the gate's read covers are the same (READ, and the sections but the
+// sources' references). Each field of a guide, a fish page and a breed, as the content has them, changed in turn: fitText's
+// hash moves for those fields, and for no other.
+test("main-holds.mjs's read fields are the ones the gate's read covers", async () => {
+  const src = readFileSync(join(ROOT, 'scripts/main-holds.mjs'), 'utf8')
+  const READ = JSON.parse(src.match(/^const READ = (\[.*\])$/m)![1]!.replace(/'/g, '"')) as string[]
+  const SECTIONED = JSON.parse(src.match(/^const SECTIONED = (\[.*\])$/m)![1]!.replace(/'/g, '"')) as string[]
+  const root = mkdtempSync(join(tmpdir(), 'aq-read-fields-'))
+  await cp(join(ROOT, 'apps/site/test/fixture-content'), join(root, 'content'), { recursive: true })
+  // The fixture's fish sources aren't shown on a public build: here they are, so a section is on the page.
+  const sourcesFile = join(root, 'content/sources.json')
+  const sources = JSON.parse(await readFile(sourcesFile, 'utf8')) as Record<string, { publish: boolean; permission?: object }>
+  for (const s of Object.values(sources)) Object.assign(s, { publish: true, permission: { date: '2026-11-08', file: 'test', scope: ['text'] } })
+  await writeFile(sourcesFile, JSON.stringify(sources))
+  // The other fields a language file has on main, as main has them.
+  const more = {
+    cover: 'Bể có nắp kiểu cũ vẫn đẹp', chapters: ['Bể xấu cần làm lại'], refs: [{ url: 'https://example.org/a.pdf', title: 'Bảng an toàn' }],
+    localNote: { html: '<p>Ghi chú cho bạn đọc ở Việt Nam.</p>', refs: [{ url: 'https://example.org/b', title: 'Nguồn' }] }, redirectFrom: [{ slug: 'cu', name: 'Tên cũ' }],
+    bodyFixed: true, faqFixed: true, nameFixed: true, held: { checks: ['source'], at: '2026-11-15' },
+    // No guide has sections on main; the field is there, and the gate doesn't read it.
+    sections: { 'habitat:aquatome': '<p>Sống ở suối.</p>' },
+  }
+  // A card, which the fixture hasn't.
+  await mkdir(join(root, 'content/cards/the-x'), { recursive: true })
+  await writeFile(join(root, 'content/cards/the-x/entity.json'), JSON.stringify({
+    id: 'the-x', type: 'event', about: [], sources: [{ url: 'https://example.org/e', title: 'Hội chợ', publisher: 'Báo', date: '2026', accessed: '2026-11-15' }],
+    show: { from: '2026-12-02', until: '2026-12-20' }, event: { start: '2026-12-18', end: '2026-12-20', place: 'Kuala Lumpur', country: 'MY', organiser: 'Hội' }, rotate: 7, updatedAt: '2026-11-15',
+  }))
+  await writeFile(join(root, 'content/cards/the-x/vi.json'), JSON.stringify({ eyebrow: 'Mới', title: 'Cá mới', body: '<p>Cá mới về.</p>' }))
+  const files = { guides: 'aquatome-phan-loai-ca-dia', species: 'paracheirodon-innesi', breeds: 'flowerhorn-cichlid', cards: 'the-x' }
+  // Words inside the HTML's first element, where a reader reads them.
+  const bump = (v: unknown): unknown => {
+    if (typeof v === 'string') return v.includes('</') ? v.replace('</', ' x</') : `${v} x`
+    if (typeof v === 'number') return v + 1
+    if (typeof v === 'boolean') return !v
+    if (Array.isArray(v)) return v.length ? [bump(v[0]), ...v.slice(1)] : ['x']
+    if (v && typeof v === 'object') { const [k, x] = Object.entries(v)[0]!; return { ...v, [k]: bump(x) } }
+    return 'x'
+  }
+  const tried: string[] = []
+  for (const [kind, id] of Object.entries(files)) {
+    const file = join(root, 'content', kind, id, 'vi.json')
+    const page = { ...JSON.parse(await readFile(file, 'utf8')), ...(kind === 'guides' ? more : kind === 'cards' ? {} : { nameFixed: true, held: more.held, ...(kind === 'breeds' ? { sections: more.sections } : {}) }) }
+    // An empty list has no item to change: a question and a summary line, where the page has the fields.
+    for (const [k, v] of [['faq', [{ q: 'Cá này ăn gì?', a: 'Ăn tạp.' }]], ['summary', ['Cá dễ nuôi.']]] as const) if (Array.isArray(page[k]) && !page[k].length) page[k] = v
+    const hash = async (t: Record<string, unknown>) => {
+      await writeFile(file, JSON.stringify(t))
+      const p = (kind === 'cards' ? await loadCards(join(root, 'content'), ['vi']) : await loadPages(join(root, 'content'), ['vi'])).find(x => x.kind === kind && x.id === id)
+      return p && fitText(p).hash
+    }
+    const before = await hash(page)
+    expect(before, `${kind} loads`).toBeTruthy()
+    const changes: [string, Record<string, unknown>, boolean][] = []
+    for (const [k, v] of Object.entries(page)) {
+      if (k === 'sections') for (const sec of Object.keys(v as object)) changes.push([`sections.${sec}`, { ...page, sections: { ...(v as object), [sec]: bump((v as Record<string, unknown>)[sec]) } }, SECTIONED.includes(kind) && !sec.startsWith('references')])
+      else changes.push([k, { ...page, [k]: bump(v) }, READ.includes(k)])
+    }
+    for (const [what, t, read] of changes) {
+      const after = await hash(t).catch(() => undefined)
+      if (!after) continue // a value the content won't take
+      tried.push(`${kind} ${what}`)
+      expect(after !== before, `${kind} ${what}: ${read ? 'read' : 'not read'}`).toBe(read)
+    }
+    await writeFile(file, JSON.stringify(page))
+  }
+  for (const k of ['name', 'body', 'summary', 'faq', 'localNote']) expect(tried, k).toContain(`guides ${k}`)
+  for (const k of ['eyebrow', 'title', 'body']) expect(tried, k).toContain(`cards ${k}`)
+  expect(tried.some(t => /^species sections\.(?!references)/.test(t))).toBe(true)
+  expect(tried.some(t => /^species sections\.references/.test(t))).toBe(true)
+  for (const k of ['guides', 'breeds']) expect(tried.some(t => t.startsWith(`${k} sections.`)), k).toBe(true)
 })
