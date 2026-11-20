@@ -15,7 +15,7 @@ import { figureHtml } from './figures'
 import { cardRows } from './card-rows'
 import { nameAndSci, sciBeside } from './sci'
 import { FIELD_LABELS, fmt, GUIDE_KIND_LABELS } from './format'
-import { galleryNote } from './gallery'
+import { APP_GALLERY_MIN, galleryNote } from './gallery'
 import { glossaryParts, USED_IN_SHOWN } from './glossary-page'
 import { guideParts } from './guide-page'
 import { cleanPhoto } from './home'
@@ -135,6 +135,8 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
  */
 function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>, name: string, gallery: Photo[], strip: (Photo | null)[], viPath: string | undefined): Block[] {
   const t = translator(lang)
+  // The app's album keeps its six (APP_GALLERY_MIN), though the site's strip shows a shorter one.
+  if (gallery.length < APP_GALLERY_MIN) return []
   // The installed app's full album grid does not draw credit labels. Keep AI pictures out until it does.
   gallery = gallery.filter(p => !p.generated)
   strip = strip.map(p => p?.generated ? null : p)

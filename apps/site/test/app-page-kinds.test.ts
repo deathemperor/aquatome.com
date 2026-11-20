@@ -9,6 +9,7 @@ import { photoCredit } from '../src/lib/cite'
 import { getContent } from '../src/lib/content'
 import { smallSrc } from '../src/lib/img'
 import { speciesParts } from '../src/lib/species-page'
+import { APP_GALLERY_MIN } from '../src/lib/gallery'
 import { appPath, LANGS, licenceLabel, translator } from '../src/lib/i18n'
 import { appHref, appPage, DIST } from './dist'
 import type { AlbumPhoto } from '../src/lib/album'
@@ -20,6 +21,11 @@ const clean = (s: string) => s.replace(/\s+/g, ' ').trim()
 const text = (c: Inline[] = []) => c.map(r => (typeof r === 'string' ? r : r.text)).join('')
 const all = <T extends Block['t']>(d: PageDoc, t: T) => d.blocks.filter((b): b is B<T> => b.t === t)
 const one = <T extends Block['t']>(d: PageDoc, t: T) => all(d, t)[0]
+/** The photos the page's album holds, as its viewer has them (GalleryStrip.astro). */
+const albumCount = (dom: HTMLElement) => {
+  const data = dom.querySelector('[data-album] script[type="application/json"]')
+  return data ? (JSON.parse(data.textContent) as { photos: unknown[] }).photos.length : 0
+}
 const txt = (el: HTMLElement | null | undefined) => clean(el?.textContent ?? '')
 /** The keys the page's readers' sections (comments, readers' photos) read theirs by. */
 const talk = (dom: HTMLElement) => ({
@@ -138,7 +144,7 @@ function wild(d: PageDoc, dom: HTMLElement): boolean {
 function gallery(d: PageDoc, dom: HTMLElement) {
   const g = one(d, 'gallery')
   const strip = dom.querySelectorAll('.strip li:not(.more) img')
-  expect(!!g, d.path).toBe(strip.length > 0)
+  expect(!!g, d.path).toBe(strip.length > 0 && albumCount(dom) >= APP_GALLERY_MIN)
   if (!g) return
   expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
   expect(g.strip.map(i => g.photos[i]!.thumb ?? g.photos[i]!.src), d.path).toEqual(strip.map(i => i.getAttribute('src')))
@@ -269,7 +275,7 @@ test('each breed\'s copy reads as its built page: header, parents, card sources,
       // The gallery's strip and the photos it opens in the viewer.
       const g = one(d, 'gallery')
       const strip = dom.querySelectorAll('.strip li:not(.more) img')
-      expect(!!g, d.path).toBe(strip.length > 0)
+      expect(!!g, d.path).toBe(strip.length > 0 && albumCount(dom) >= APP_GALLERY_MIN)
       if (g?.href) gallery(d, dom)
       else if (g) {
         expect(g.title, d.path).toBe(txt(dom.querySelector('#gal-h')))
@@ -369,6 +375,21 @@ test('each fish\'s and plant\'s text converts with nothing the app would have to
     expect(sectionBlocks('vi', c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range } }).unknown, s.id).toEqual([])
   }
   for (const x of appPlants('vi', c)) expect(sectionBlocks('vi', c, { sections: x.sections, t: x.t, figures: x.photos.slice(1).map(photo => ({ photo })) }).unknown, x.id).toEqual([])
+})
+
+// Design, 20 Nov 2026: the site's strip shows an album from one photo past the lead; the app keeps its six.
+test("the app's page shows no album under six photos, though the site's page shows its strip", async () => {
+  const c = await getContent('vi')
+  const s = c.species.find(x => x.id === 'paracheirodon-innesi')!
+  const site = await speciesParts('vi', c, s)
+  expect(site.gallery.length).toBeGreaterThan(0)
+  expect(site.gallery.length).toBeLessThan(APP_GALLERY_MIN)
+  expect(site.strip.some(Boolean)).toBe(true)
+  expect(one(await fishDoc('vi', c, s, listedPaths('vi', c)), 'gallery')).toBeUndefined()
+  // At six, the app shows it, as before.
+  const big = c.species.find(x => x.id === 'paracheirodon-axelrodi')!
+  expect((await speciesParts('vi', c, big)).gallery.length).toBeGreaterThanOrEqual(APP_GALLERY_MIN)
+  expect(one(await fishDoc('vi', c, big, listedPaths('vi', c)), 'gallery')).toBeDefined()
 })
 
 test('a fish\'s copy: its blocks in page order, every one credited and sourced', async () => {

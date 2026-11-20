@@ -44,6 +44,11 @@ export function alterationNotice(p: Pick<Photo, 'licence' | 'altered'>): 'Ảnh 
 }
 /** One distinct album photo can open the viewer over its page. */
 export const GALLERY_MIN = 1
+/**
+ * The app's album shows from six photos, as before 20 Nov 2026: the site's strip went to one, and the app keeps its six
+ * (Design, 20 Nov 2026).
+ */
+export const APP_GALLERY_MIN = 6
 /** Photos shown in the strip on the species page. */
 export const GALLERY_STRIP = 8
 /** Thumbnails at most in a fish page's photo column on a tall computer screen: the strip's, then the gallery's next ones. */
