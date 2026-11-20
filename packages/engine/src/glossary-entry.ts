@@ -370,7 +370,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     const t = await read<Translation>(join(dir, x, 'vi.json')).catch(() => null)
     if (t) others.push({ id: x, name: t.name, altNames: t.altNames, linkNames: t.linkNames ?? [], definition: t.definition ?? '' })
   }
-  const forWriter = { term: vi.name, english: entity.en, sources, facts }
+  // Each source with its site, so the writer can keep the Writing Lead's standing line, "One site is one source, however
+  // many of its pages the facts come from" (the chief of staff, 20 Nov 2026: it can't, seeing pages only).
+  const forWriter = { term: vi.name, english: entity.en, sources: sources.map(x => ({ ...x, site: siteOf(refs[x.source]!.url) })), facts }
   const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)

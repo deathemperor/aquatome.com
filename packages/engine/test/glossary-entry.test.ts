@@ -1107,9 +1107,10 @@ test('a term\'s link phrases are kept and never become its other names; a writer
 })
 
 // The chief of staff, 19 Nov 2026: two pages of one site are one source, and a claim only one site gives is that site's and
-// is credited. The fact check counts a claim's sites, so it reads each source's site and each fact's other sources; the
-// writer's facts stay as they were.
-test('the fact check reads each source\'s site and each fact\'s other sources ("also"); the writer reads neither', async () => {
+// is credited. The fact check counts a claim's sites, so it reads each source's site and each fact's other sources. The
+// writer reads each source's site too since 20 Nov 2026 (the chief of staff: "One site is one source" can't be kept without
+// it), and still not the other sources.
+test('the fact check reads each source\'s site and each fact\'s other sources ("also"); the writer reads the sites only', async () => {
   const root = await site()
   const withAlso: TopicFacts = { ...facts, facts: facts.facts.map((f, i) => (i === 0 ? { ...f, also: [1, 0] } : f)) }
   const prompts: string[] = []
@@ -1121,7 +1122,7 @@ test('the fact check reads each source\'s site and each fact\'s other sources ("
   expect(check).toContain('{"source":1,"kind":"keeper","site":"example.org"}')
   // Its own source never counts again as another.
   expect(check).toContain('"source":0,"also":[1]}')
-  expect(writer).not.toContain('"site"')
+  expect(writer).toContain('"site":"ufl.edu"')
   expect(writer).not.toContain('"also"')
 })
 
@@ -1176,6 +1177,24 @@ test('the step\'s fact check passes a pointer to another term of the site\'s unr
   expect(read.some(p => p.includes(pointer))).toBe(false)
   expect(read.some(p => p.includes(claim))).toBe(true)
   expect(read.some(p => p.includes(plain))).toBe(true)
+})
+
+// The chief of staff, 20 Nov 2026: "One site is one source" (the Writing Lead's standing line) can't be kept by a writer
+// that sees pages only. The writer, and the rules read, are given each source's site, as the fact check is.
+test('the writer and the rules read are given each source\'s site, and two pages of one site have the same', async () => {
+  const root = await site()
+  const two = { ...facts, facts: [...facts.facts, { section: 'steps', fact: 'Boil small pieces to sink them sooner', source: 3 }], sources: [...facts.sources, { url: 'https://www.example.org/boil', title: 'Boiling driftwood', kind: 'keeper' }] } as TopicFacts
+  const writes: string[] = [], rules: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) { rules.push(prompt); return { notes: [] } as never }
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return written as never
+  }
+  await makeGlossaryEntry(root, { research: async () => two as never, llm }, 'lua', { kind: 'aquascaping' })
+  const given = (prompt: string, after: string) => (JSON.parse(prompt.split(after)[1]!.split('\n\n---')[0]!) as { sources: { site: string }[] }).sources.map(x => x.site)
+  expect(given(writes[0]!, '--- DỮ KIỆN ---\n')).toEqual(['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
+  expect(given(rules[0]!, '--- FACTS ---\n')).toEqual(['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
 })
 
 // The chief of staff, 20 Nov 2026: Tảo's label line, the house form for a medicine's dose, was stopped by the fact check in
