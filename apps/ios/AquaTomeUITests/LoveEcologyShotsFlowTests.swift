@@ -256,8 +256,9 @@ final class LoveEcologyShotsFlowTests: XCTestCase {
     place(app, "lamp-on", at: 0.2)
     let window = app.windows.firstMatch.frame
     let swatches = ["white", "red", "orange", "yellow", "green", "cyan", "blue", "magenta", "other"]
-      .map { element(app, "lamp-" + $0) }.filter(\.exists)
-    guard let top = swatches.map(\.frame.minY).min() else { return XCTFail("no colours") }
+      .map { element(app, "lamp-" + $0) }.filter { $0.exists }
+    // Closures, not key paths: XCUIElement's properties are the main actor's, and Xcode 26.6 refuses a key path to them.
+    guard let top = swatches.map({ $0.frame.minY }).min() else { return XCTFail("no colours") }
     let row = swatches.filter { abs($0.frame.minY - top) < 4 }.count
     XCTAssertLessThan(row, 4, "at the largest text \(row) colours a row, as many as from XL")
     for s in swatches {
