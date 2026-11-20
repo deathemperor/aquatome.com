@@ -190,7 +190,7 @@ export const HELD_BY_HAND = 'engine-state/held-by-hand.json'
 export type HandHold = { checks: string[]; why: string; at: string }
 
 /** Every held page in the working tree, by its language file. */
-async function heldNow(root: string, pages: Page[]): Promise<Map<string, Held>> {
+export async function heldNow(root: string, pages: Page[]): Promise<Map<string, Held>> {
   const out = new Map<string, Held>()
   for (const p of pages) if ((GATED_KINDS as readonly string[]).includes(p.kind)) { const h = await heldOf(join(root, fileOf(p))); if (h) out.set(fileOf(p), h) }
   return out

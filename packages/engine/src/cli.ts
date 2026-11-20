@@ -29,7 +29,7 @@ import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
-import { gate, heldMendsOf, writeFitSummary } from './gate'
+import { gate, heldMendsOf, heldNow, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite, foreignProduct } from './fit-rewrite'
 import { unitsMend } from './units-mend'
@@ -748,7 +748,7 @@ if (cmd === 'photo-privacy') {
     state = out.state
   }
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
-  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state))
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state, await heldNow(ROOT, all)))
   await writeFitSummary(ROOT, all, state)
   console.log(`fit: ${r.read} pages read, ${r.left} due, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.failed) console.log(`failed: ${x}`)
@@ -870,7 +870,7 @@ if (cmd === 'photo-privacy') {
     llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 150),
     mend: gateMend(ROOT, { llm: claudeCli, yt: youtube(), write: { style: true, model: process.env.VIDEO_MODEL ?? 'opus' } }), mends: Number(values.mends ?? process.env.GATE_MENDS ?? 20), heldMends: heldMendsOf(),
   })
-  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state))
+  await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(pages, state, held))
   await writeFitSummary(ROOT, pages, state, { held })
   for (const a of ['hold', 'release', 'revert', 'mended', 'refused', 'unread'] as const) for (const x of r[a]) console.log(`  ${a}: ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
