@@ -25,16 +25,22 @@
 // (gate.ts): it stays as merged, and the next gate decides it ("harm <file>"). A language main lets out here too doesn't
 // stay held: when the run held every language for one's harm and main let them all out, they all go (a reader of #1505).
 //
+// A page both sides changed, whose merged text neither side's record read, waits held for its next read too ("unread
+// <file>"). Where main's record read the merged text and only fields its read doesn't cover differ (a cover this run set),
+// main's hold, or its release, is written onto the merge's file, so those fields stay ("own <file>"). Text here is what
+// the gate reads of a file (`read`), and a test holds `read` to fitText (a reader of #1703).
+// A page held for harm in one language as the push ends is held in every language, as gate.ts does ("beside <file>": the
+// run's hold with harm, or harm), whichever language main held, let out or this run added (a reader of #1703).
+//
 //   node scripts/main-holds.mjs <base> <main> <run>
-// prints "hold <file>" for each file to take from <main>, "keep <file>" for each whose record is main's and text isn't,
-// held here, "unread <file>" for each whose text is neither side's, held here, "text <file>" for each of those the merge holds already, and "harm <file>" for each kept held for another
-// language's harm. HEAD is the merge, and <run> the run's commit before the pull. Any git read or file it can't parse
-// fails it, with nothing written: its caller then publishes nothing (cycle-checks.sh main_holds). Without <run>, as a
-// cycle that started on the older script calls it, it writes nothing and answers as that script did ("text <file>").
-// A page kept held for harm holds its every language, as gate.ts does: each the run's hold, or harm, and no language of it
-// takes main's release here (a reader of #1703).
+// prints "hold <file>" for each file to take from <main> whole, "text <file>" for each the merge holds already on a text
+// main's record didn't read, "harm <file>" for each release that waits on another language's harm, and, each written here,
+// "keep", "unread", "own" and "beside". HEAD is the merge, and <run> the run's commit before the pull. Any git read or file
+// it can't parse fails it, with nothing written: its caller then publishes nothing (cycle-checks.sh main_holds). Without
+// <run>, as a cycle that started on the older script calls it, it writes nothing and answers as that script did.
 import { execFileSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'
+import { pathToFileURL } from 'node:url'
 
 const FIT = 'engine-state/_fit.json'
 // The gate's kinds (packages/engine/src/gate.ts GATED_KINDS; a test holds them to it) and its language files.
@@ -56,40 +62,45 @@ const at = (rev, file) => (git('ls-tree', '--name-only', rev, '--', file).trim()
 // Key order aside: the entity driver can write a page's fields in another order than the side it took them from.
 const canon = v =>
   Array.isArray(v) ? v.map(canon) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v).sort().map(k => [k, canon(v[k])])) : v
-const same = (a, b) => JSON.stringify(canon(a)) === JSON.stringify(canon(b))
+export const same = (a, b) => JSON.stringify(canon(a)) === JSON.stringify(canon(b))
 const text = page => {
   const { held: _held, ...rest } = page
   return rest
 }
-// What of a language file the gate's read covers (packages/engine/src/fit.ts fitText: the title, the parts, the summary
-// and the questions, a guide's note for its readers first in its text; a card's eyebrow, title and body), and the kinds
-// whose sections are among its parts, the sources' references aside. A test holds both to fitText: a file whose other
-// fields alone differ, a guide's cover set on one side, was read as it is.
+// What of a language file the gate's read covers (packages/engine/src/fit.ts fitText): the title, the parts, the summary
+// and the questions, a guide's note for its readers (its words, put first in its text; not its sources), a card's eyebrow,
+// title and body, and the sections of the kinds whose sections are parts, the sources' references aside. A file whose
+// other fields alone differ, a guide's cover set on one side, was read as it is. HTML is compared as written: a page whose
+// markup alone changed waits for a read, where a renderer of our own could call two texts the same that the gate's
+// reads apart (a reader of #1703). A test holds `read` to fitText.
 const READ = ['name', 'title', 'eyebrow', 'body', 'definition', 'summary', 'faq', 'localNote']
 const SECTIONED = ['species', 'plants']
-const read = (page, kind) => ({
-  ...Object.fromEntries(READ.map(k => [k, page[k]])),
-  ...(SECTIONED.includes(kind) ? { sections: Object.fromEntries(Object.entries(page.sections ?? {}).filter(([k]) => !k.startsWith('references'))) } : {}),
+export const read = (page, kind) => ({
+  ...Object.fromEntries(READ.map(k => [k, k === 'localNote' ? page.localNote?.html : page[k]])),
+  ...(SECTIONED.includes(kind)
+    ? { sections: Object.fromEntries(Object.entries(page.sections ?? {}).filter(([k]) => !k.startsWith('references'))) }
+    : {}),
 })
+const withHeld = (page, held) => {
+  const { held: _held, ...rest } = page
+  return held ? { ...rest, held } : rest
+}
+// A hold with harm among its checks, as gate.ts writes one for another language's harm.
+const withHarm = held => (held ? { ...held, checks: [...new Set([...held.checks, 'harm'])].sort() } : undefined)
 
-const [base, main, run] = process.argv.slice(2)
-if (!base || !main) {
-  console.error('usage: node scripts/main-holds.mjs <base> <main> [<run>]')
-  process.exit(2)
-}
-const changed = git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n').filter(f => FILE.test(f))
-// The page's other language files in the merge.
-const beside = f => {
-  const [, kind, id, lang] = FILE.exec(f)
-  return git('ls-tree', '--name-only', 'HEAD', `content/${kind}/${id}/`)
-    .split('\n')
-    .filter(s => FILE.test(s) && FILE.exec(s)[3] !== lang)
-}
-if (changed.length) {
+function main() {
+  const [base, main, run] = process.argv.slice(2)
+  if (!base || !main) {
+    console.error('usage: node scripts/main-holds.mjs <base> <main> [<run>]')
+    process.exit(2)
+  }
+  const changed = git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n').filter(f => FILE.test(f))
+  if (!changed.length) return
   const out = []
-  const keeps = []
-  // Of keeps, those whose text is both sides' together.
-  const unread = new Set()
+  // Files written here: file → [what, page].
+  const written = new Map()
+  // Releases still to decide on another language's harm: file → the page to write, or undefined to take main's whole.
+  const releases = new Map()
   // The gate's day (ceiling.ts vnDay).
   const day = new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10)
   const fit = { base: at(base, FIT) ?? {}, main: at(main, FIT) ?? {}, head: at('HEAD', FIT) ?? {} }
@@ -108,47 +119,64 @@ if (changed.length) {
       // side's stays as merged: a hand fix main made alone, the sweep's words (the chief of staff, 20 Nov).
       if (!both.has(f)) continue
       const [ours, theirs, mine] = [at('HEAD', f), at(main, f), at(run, f)]
-      if (ours && theirs && mine && !ours.held && !same(read(ours, kind), read(theirs, kind)) && !same(read(ours, kind), read(mine, kind))) {
-        keeps.push([f, { ...ours, held: mine.held ?? { checks: [], at: day } }])
-        unread.add(f)
-      }
+      if (ours && theirs && mine && !ours.held && !same(read(ours, kind), read(theirs, kind)) && !same(read(ours, kind), read(mine, kind)))
+        written.set(f, ['unread', withHeld(ours, mine.held ?? { checks: [], at: day })])
       continue
     }
     const ours = at('HEAD', f)
     const theirs = at(main, f)
     if (!ours || !theirs || same(ours, theirs)) continue
-    if (same(text(ours), text(theirs))) out.push([ours.held && !theirs.held ? 'release' : 'hold', f])
-    else if (ours.held || !run) out.push(['text', f])
-    else keeps.push([f, { ...ours, held: at(run, f)?.held ?? { checks: [], at: day } }])
+    if (same(text(ours), text(theirs))) {
+      if (ours.held && !theirs.held) releases.set(f, undefined)
+      else out.push(['hold', f])
+    } else if (run && same(read(ours, kind), read(theirs, kind))) {
+      // Main's record read this very text: its hold, or its release, onto the merge's file.
+      if (ours.held && !theirs.held) releases.set(f, withHeld(ours, undefined))
+      else if (!same(ours.held, theirs.held)) written.set(f, ['own', withHeld(ours, theirs.held)])
+    } else if (ours.held || !run) out.push(['text', f])
+    else written.set(f, ['keep', withHeld(ours, at(run, f)?.held ?? { checks: [], at: day })])
   }
-  const kept = new Map(keeps)
   const taken = new Set(out.filter(([what]) => what === 'hold').map(([, f]) => f))
-  const releases = new Set(out.filter(([what]) => what === 'release').map(([, f]) => f))
-  // A file's hold as this ends, a release aside (decided below): the one written here, main's taken, or the merge's.
-  const heldAtEnd = f => (kept.has(f) ? kept.get(f) : at(taken.has(f) ? main : 'HEAD', f))?.held
-  // Harm in one language holds the page's every language, as gate.ts does. Of each page this compares, a language left
-  // open beside one held for harm as this ends takes the run's hold, or harm: a hold kept here, main's, or the merge's on a
-  // text main's record didn't read, whose other language took main's release untouched by the run (a reader of #1703).
-  // A release isn't one: main's record read its text and let it out, and the loop below decides it.
-  const inChanged = new Set(changed)
-  const harmed = grep('-l', '-F', '"harm"', 'HEAD', '--', 'content').split('\n').map(l => l.replace(/^HEAD:/, '')).filter(f => inChanged.has(f))
-  for (const f of new Set([...out.map(([, f]) => f), ...kept.keys(), ...harmed])) {
-    if (releases.has(f) || !heldAtEnd(f)?.checks?.includes('harm')) continue
-    for (const s of beside(f)) {
-      if (kept.has(s) || releases.has(s) || heldAtEnd(s)) continue
-      const p = at('HEAD', s)
-      if (p) kept.set(s, { ...p, held: at(run, s)?.held ?? { checks: ['harm'], at: day } })
+  // A file's hold as this ends, a release aside (decided below): written here, main's taken whole, or the merge's.
+  const heldAtEnd = f => (written.has(f) ? written.get(f)[1] : at(taken.has(f) ? main : 'HEAD', f))?.held
+  const harmAtEnd = f => !releases.has(f) && !!heldAtEnd(f)?.checks?.includes('harm')
+  const files = dir => git('ls-tree', '--name-only', 'HEAD', `${dir}/`).split('\n').filter(s => FILE.test(s))
+  const dirOf = f => f.replace(/\/[a-z]{2}\.json$/, '')
+  // Harm in one language holds the page's every language, as gate.ts does. Of each page this compares, every language
+  // file is looked at as the push ends, one the same as main's too: a hold for harm written here, main's taken, or the
+  // merge's (main's, where the file is main's). A language left open beside it takes the run's hold with harm, or harm
+  // (a reader of #1703). A release waits below. The older caller writes nothing, and gets the older answer.
+  if (run) {
+    const dirs = [...new Set(changed.map(dirOf))]
+    const candidates = new Set([...written.keys(), ...taken].map(dirOf))
+    for (let i = 0; i < dirs.length; i += 400)
+      for (const l of grep('-l', '-F', '"harm"', 'HEAD', '--', ...dirs.slice(i, i + 400).map(d => `${d}/`)).split('\n'))
+        if (l) candidates.add(dirOf(l.replace(/^HEAD:/, '')))
+    for (const dir of candidates) {
+      const langs = files(dir)
+      if (!langs.some(harmAtEnd)) continue
+      for (const s of langs) {
+        if (releases.has(s) || heldAtEnd(s)) continue
+        written.set(s, ['beside', withHeld(at('HEAD', s), withHarm(at(run, s)?.held) ?? { checks: ['harm'], at: day })])
+      }
     }
   }
-  // Held for harm as this ends.
-  const harmBeside = f => beside(f).filter(s => heldAtEnd(s)?.checks?.includes('harm'))
   // A release waits while a language beside it stays held for harm: one not let out here too, until none is left.
+  const harmBeside = f => files(dirOf(f)).filter(s => s !== f && !!heldAtEnd(s)?.checks?.includes('harm'))
+  const free = new Set(releases.keys())
   for (let again = true; again; ) {
     again = false
-    for (const f of releases) if (harmBeside(f).some(s => !releases.has(s))) again = releases.delete(f)
+    for (const f of free) if (harmBeside(f).some(s => !free.has(s))) again = free.delete(f)
+  }
+  for (const [f, page] of releases) {
+    if (!free.has(f)) out.push(['harm', f])
+    else if (page) written.set(f, ['own', page])
+    else out.push(['hold', f])
   }
   // Written once every read has passed, as gate.ts writes a hold.
-  for (const [f, page] of kept) writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
-  for (const [what, f] of out) console.log(`${what === 'release' ? (releases.has(f) ? 'hold' : 'harm') : what} ${f}`)
-  for (const f of kept.keys()) console.log(`${unread.has(f) ? 'unread' : 'keep'} ${f}`)
+  for (const [f, [, page]] of written) writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
+  for (const [what, f] of out) console.log(`${what} ${f}`)
+  for (const [f, [what]] of written) console.log(`${what} ${f}`)
 }
+
+if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) main()

@@ -587,7 +587,7 @@ ever_added() { git log --format= --name-only --no-renames --diff-filter=A "$1..$
 # on, not from one whose reads it would no longer see. Until 20 Nov a failed comparison published the merge as it was.
 CYCLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 main_holds() {
-  local up=${2:-} base out holds texts harms keeps unreads n
+  local up=${2:-} base out holds texts harms keeps unreads owns besides written
   [ -n "$up" ] || up='@{u}'
   if ! up=$(git rev-parse "$up") || ! base=$(git merge-base "$1" "$up"); then
     uncompared "$1" "main, or where this run left it, couldn't be found"; return 2
@@ -596,23 +596,28 @@ main_holds() {
   if ! out=$(node "$CYCLE_DIR/main-holds.mjs" "$base" "$up" "$1"); then
     uncompared "$1" "the pages main read during this run couldn't be compared"; return 2
   fi
-  holds=$(sed -n 's/^hold //p' <<<"$out") texts=$(sed -n 's/^text //p' <<<"$out") harms=$(sed -n 's/^harm //p' <<<"$out") keeps=$(sed -n 's/^keep //p' <<<"$out") unreads=$(sed -n 's/^unread //p' <<<"$out")
+  # What main-holds.mjs said, each kind of line apart; a list that can't be read publishes nothing.
+  holds=$(sed -n 's/^hold //p' <<<"$out") && texts=$(sed -n 's/^text //p' <<<"$out") &&
+    harms=$(sed -n 's/^harm //p' <<<"$out") && keeps=$(sed -n 's/^keep //p' <<<"$out") &&
+    unreads=$(sed -n 's/^unread //p' <<<"$out") && owns=$(sed -n 's/^own //p' <<<"$out") &&
+    besides=$(sed -n 's/^beside //p' <<<"$out") && written=$(sed -n -E 's/^(keep|unread|own|beside) //p' <<<"$out") ||
+    { uncompared "$1" "the pages main read during this run couldn't be listed"; return 2; }
   [ -z "$texts" ] || log "$(grep -c . <<<"$texts") pages main read during this run have main's record and this run's text, left as merged: $(head -5 <<<"$texts" | tr '\n' ' ')"
   [ -z "$harms" ] || log "$(grep -c . <<<"$harms") pages main read during this run stay held: another of their languages is held for harm: $(head -5 <<<"$harms" | tr '\n' ' ')"
-  # shellcheck disable=SC2086 # content paths have no spaces
-  if [ -n "$keeps$unreads" ]; then
-    n=$(printf '%s\n%s\n' "$keeps" "$unreads" | grep -c .)
-    # shellcheck disable=SC2086
-    { git add -- $keeps $unreads && git commit -q -m "content: this run's holds on $n pages whose text no record read"; } || { uncompared "$1" "this run's holds couldn't be committed"; return 2; }
+  if [ -n "$written" ]; then
+    # shellcheck disable=SC2086 # content paths have no spaces
+    { git add -- $written && git commit -q -m "content: holds on $(grep -c . <<<"$written") pages as this run's push ends"; } || { uncompared "$1" "this run's holds couldn't be committed"; return 2; }
     [ -z "$keeps" ] || log "$(grep -c . <<<"$keeps") pages main read during this run have main's record and this run's text: held until their next read: $(head -5 <<<"$keeps" | tr '\n' ' ')"
     [ -z "$unreads" ] || log "$(grep -c . <<<"$unreads") pages both sides changed, whose text together no record read: held until their next read: $(head -5 <<<"$unreads" | tr '\n' ' ')"
+    [ -z "$owns" ] || log "$(grep -c . <<<"$owns") pages main read during this run take main's hold on this run's file, as its record read their text: $(head -5 <<<"$owns" | tr '\n' ' ')"
+    [ -z "$besides" ] || log "$(grep -c . <<<"$besides") pages held beside another of their languages held for harm: $(head -5 <<<"$besides" | tr '\n' ' ')"
   fi
   if [ -n "$holds" ]; then
     # shellcheck disable=SC2086
     { git checkout "$up" -- $holds && git commit -q -m "content: main's holds on $(grep -c . <<<"$holds") pages main read during this run"; } || { uncompared "$1" "main's holds couldn't be committed"; return 2; }
     log "$(grep -c . <<<"$holds") pages main read during this run take main's hold, as its record has it: $(head -5 <<<"$holds" | tr '\n' ' ')"
   fi
-  [ -n "$holds$keeps$unreads" ] || return 0
+  [ -n "$holds$written" ] || return 0
   return 1
 }
 # main_holds' failure: said, and the pull undone, back to the run's commit $1.
