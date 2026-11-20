@@ -6,7 +6,8 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSy
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { speciesDepth } from '@aq/schema/depth'
-import { isAllowedLicence } from '@aq/schema/licence'
+import { isAllowedLicence, isInatNonCommercial } from '@aq/schema/licence'
+import { IMAGE_SWITCHES } from '@aq/schema/image-policy'
 import { POPULAR, STAPLE_SPECIES } from '@aq/schema/staples'
 import { setsCookies } from '@aq/schema/thumb'
 import { LANG, LANGS, OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
@@ -143,7 +144,9 @@ export function computeContentStats(o: StatsInput): ContentStats {
   const sourcesInfo = read(join(root, 'sources.json')) ?? {}
   const textOk = (s: string) => !o.publicBuild || sourcesInfo[s]?.publish === true
   const photoOk = (s: string) => !o.publicBuild || sourcesInfo[s]?.publish === true || sourcesInfo[s]?.publish === 'photos'
-  const licenceOk = (p: Json) => (p.source ? photoOk(p.source) : isAllowedLicence(String(p.licence ?? '')))
+  // iNaturalist's non-commercial photos, the switch on: in albums, and as a page's head where it's the page's one real
+  // photo (load.ts), so a page it leads has a photo.
+  const licenceOk = (p: Json) => (p.source ? photoOk(p.source) : isAllowedLicence(String(p.licence ?? '')) || (IMAGE_SWITCHES.inatNonCommercial && isInatNonCommercial({ licence: String(p.licence ?? ''), sourceUrl: String(p.sourceUrl ?? ''), source: p.source })))
   const cookie = (url: string) => { try { return setsCookies(url) } catch { return false } }
   /** Photos as the build shows them (@aq/schema load.ts cleanPhotos). */
   const shown = (ps: Json[] = []) => ps.filter(p => licenceOk(p) && !(o.publicBuild && cookie(p.url)))

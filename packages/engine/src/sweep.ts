@@ -29,7 +29,7 @@ import { SOURCES } from './sources'
 import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
-import { readAvoid, readVerdicts } from './curation'
+import { ownMarkOnly, readAvoid, readVerdicts } from './curation'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
 import { schoolFromSeriouslyFish } from './traits'
@@ -861,6 +861,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     }
   }
   const keptNow = await keptMarks(root)
+  let openLead: ((p: Photo, page: string) => boolean) | undefined
   for (const [ref, url] of Object.entries(headPicks)) {
     if (!pickStands(ref, url, subjects, yes)) { report.heads.push(`${ref}: pick lapsed with its person's yes`); continue }
     const file = join(content, ref, 'entity.json')
@@ -873,8 +874,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const id = ref.split('/')[1]!
       const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
       const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
-      // A non-commercial album photo stays in its album, a person's pick or not (albums only: the rule this step was built with, 16 Nov).
-      if (found && isNonCommercial(found.licence)) { report.heads.push(`${ref}: picked photo is non-commercial, album only`); continue }
+      // A person's pick follows the rule for a non-commercial photo (the chief of staff, 17 Nov): it leads only a page with
+      // no other photo the lead step would put first, and stays in its album otherwise (lead-photo.ts leadChoice).
+      if (found && isNonCommercial(found.licence)) {
+        const leads = (openLead ??= await openLeads(root))
+        const album = (gallery.photos ?? []).filter(p => !p.unchecked && !isNonCommercial(p.licence))
+        if (own.some(p => !p.generated && !isNonCommercial(p.licence)) || album.some(p => leads(p, id))) { report.heads.push(`${ref}: picked photo is non-commercial, and the page has another photo to lead`); continue }
+      }
       if (found) {
         const { best: _b, kind: _k, unchecked: _u, ...photo } = found
         picked = photo
@@ -1428,4 +1434,13 @@ export async function noAnimalHeads(root: string, today: string): Promise<string
   const out = `${JSON.stringify(now, null, 2)}\n`
   if (out !== (await readFile(join(root, NO_ANIMAL_FILE), 'utf8').catch(() => (Object.keys(now).length ? '' : out)))) await writeFile(join(root, NO_ANIMAL_FILE), out)
   return Object.entries(now).map(([ref, x]) => `${ref}: ${x.url} (since ${x.since})`)
+}
+
+/**
+ * Whether an open album photo would lead a page in a non-commercial photo's place: it passes as the head, or it has a
+ * shop's own mark the lead step lets lead where nothing passes (lead-photo.ts leadChoice).
+ */
+async function openLeads(root: string): Promise<(p: Photo, page: string) => boolean> {
+  const v = await readVerdicts(root), avoid = await readAvoid(root), head = passesHead(v, avoid)
+  return (p, page) => head(p, page) || ownMarkOnly(p, page, v, avoid)
 }

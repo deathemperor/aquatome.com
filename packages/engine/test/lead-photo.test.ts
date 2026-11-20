@@ -272,6 +272,18 @@ test("a photo on the calendar's avoid list doesn't lead; --calendar touches only
   expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
 })
 
+test("a page led by a non-commercial photo is reached by --calendar like a page with none: an open album photo that passes takes its place with no model call, and it goes back to its album alone (the chief of staff's rule, 17 Nov)", async () => {
+  const nc = { ...photo('n-nc'), licence: 'CC BY-NC 4.0' }
+  const root = await store({ nnn: { photos: [nc], gallery: [nc, photo('n-open', 500, 375)] }, none: { photos: [], gallery: [nc] } })
+  const { d, seen } = model(yes)
+  const r = await screenLeads(root, d, { limit: 5, calendar: true })
+  expect(seen).toEqual([])
+  expect((await entity(root, 'nnn')).photos.map(p => name(p.url))).toEqual(['n-open'])
+  // With nothing else, it leads.
+  expect((await entity(root, 'none')).photos.map(p => name(p.url))).toEqual(['n-nc'])
+  expect(r.gained).toEqual([`species/none: none -> ${url('n-nc')}`])
+})
+
 test("the step reads the calendar's hold for the head: a held head that fills the card gives way to a smaller photo that passes, with no model call (Rineloricaria castroi, 16 Nov)", async () => {
   const root = await store({ r: { photos: [big('r-held'), photo('r-other', 500, 375)] } })
   const cal = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8'))

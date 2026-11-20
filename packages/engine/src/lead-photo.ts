@@ -64,15 +64,22 @@ export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640,
  * `held`: a photo the calendar keeps off cards (content/curation.json `avoid`, a shop's lettered photo among them).
  */
 export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false, named: (p: Photo) => number = () => 0, kept: (p: Photo) => boolean = () => false, age: (p: Photo) => boolean | undefined = () => undefined, held: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
-  // A non-commercial album photo stays in its album: it never leads a page (albums only: the rule this step was built with, 16 Nov).
-  own=own.filter(photoFitsHead);gallery=gallery.filter(p=>photoFitsHead(p)&&!isNonCommercial(p.licence))
+  // A non-commercial album photo leads a page only where it's the one way to show that fish: no own photo, and no album
+  // photo that passes or that a shop's own mark leaves to lead. Any of those takes its place at the next run, with no
+  // model call (the chief of staff's rule, 17 Nov).
+  const open = (p: Photo) => !isNonCommercial(p.licence)
+  const byBest = (a: GalleryPhoto, b: GalleryPhoto) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square')
+  own=own.filter(photoFitsHead)
+  const nc = gallery.filter(p => photoFitsHead(p) && !p.generated && !open(p)).sort(byBest)
+  gallery=gallery.filter(p=>photoFitsHead(p)&&open(p))
   // A photo its source names only with "cf.", to its genus or as another fish (`named`, photo-named.ts) doesn't lead while
   // one it names better passes: the lowest class that passes is the bar (the chief of staff, 2026-11-14).
-  const bar = Math.min(...[...own, ...gallery].filter(p => !p.generated && passes(p)).map(named))
+  const bar = Math.min(...[...own, ...gallery].filter(p => !p.generated && open(p) && passes(p)).map(named))
   const down = (p: Photo) => named(p) > bar
   // A passing real photograph takes the lead back even when the generated head already fills the card.
+  const last = () => nc.find(p => passes(p) && !down(p))
   if (own[0]?.generated) {
-    const real = [...own, ...gallery].find(p => !p.generated && passes(p) && !down(p))
+    const real = [...own, ...gallery].find(p => !p.generated && passes(p) && !down(p)) ?? last()
     if (real) return { lead: real }
     return undefined
   }
@@ -80,8 +87,9 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   gallery = gallery.filter(p => !p.generated)
   const head = own[0]
   // Best first, then the largest.
-  const pool = [...new Map([...own.slice(1), ...[...gallery].sort((a, b) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square'))].map(p => [p.url, p])).values()]
-  if (!head) { const lead = pool.find(p => passes(p) && !down(p)) ?? pool.find(marked); return lead ? { lead } : undefined }
+  const pool = [...new Map([...own.slice(1).filter(open), ...[...gallery].sort(byBest)].map(p => [p.url, p])).values()]
+  if (!head) { const lead = pool.find(p => passes(p) && !down(p)) ?? pool.find(marked) ?? last(); return lead ? { lead } : undefined }
+  if (!open(head)) { const lead = pool.find(p => passes(p) && !down(p)) ?? pool.find(marked); return lead ? { lead } : undefined }
   // A photo with its source's mark leads only where nothing else passes, and one its source names worse than the bar
   // gives way to the first that passes at the bar. So does one with a shop's own mark, kept (`kept`, own-mark.ts), and one
   // kept off cards (`held`): a fish's own thumbnail is its head, so a held head stays only while nothing else passes (the
@@ -131,7 +139,8 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
       const path = join(content, kind, id, 'entity.json')
       const raw = await readFile(path, 'utf8').catch(() => null)
       if (!raw) continue
-      const empty = !(JSON.parse(raw) as Entity).photos?.length
+      // A page led by a non-commercial photo counts as empty: an open photo takes its place with no model call.
+      const empty = !(JSON.parse(raw) as Entity).photos?.some(p => !isNonCommercial(p.licence))
       // A plant is only ever given a first photo; the side-by-side and the crop's question are about fish. An empty page
       // needs no model call, so --calendar fills them too.
       if (kind === 'plants' && !empty) continue
@@ -211,7 +220,8 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     const own = f.entity.photos ?? []
     const { best: _b, kind: _k, ...photo } = c.lead as GalleryPhoto
     const had = own.find(p => p.url === photo.url)
-    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url)]
+    // A non-commercial head that gives way goes back to its album alone (gallery.ts dropNonCommercial).
+    const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url && !isNonCommercial(p.licence))]
     ;(own.length ? report.changed : report.gained).push(`${f.ref}: ${own[0]?.url ?? 'none'} -> ${photo.url}`)
     await writeFile(f.path, `${JSON.stringify({ ...f.entity, photos }, null, f.raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
   }

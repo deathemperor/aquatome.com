@@ -206,6 +206,21 @@ test('a gallery photo that waits for the photo check is on no page, so the count
   } finally { rmSync(root, { recursive: true, force: true }) }
 })
 
+test("iNaturalist's non-commercial photos count as the build shows them: in an album, and as the head that gives a page its photo (the chief of staff's rule, 17 Nov)", () => {
+  const root = mkdtempSync(join(tmpdir(), 'aq-stats-'))
+  try {
+    for (const d of ['gallery', 'species/testus-a', 'species/testus-b']) mkdirSync(join(root, d), { recursive: true })
+    const p = (n: string, licence: string, sourceUrl = `https://www.inaturalist.org/photos/${n}`) => ({ url: `https://media.example/${n}.webp`, width: 1200, height: 800, licence, author: 'a', sourceUrl })
+    writeFileSync(join(root, 'gallery/testus-a.json'), JSON.stringify({ id: 'testus-a', photos: [p('1', 'CC BY-NC 4.0'), p('2', 'CC BY-NC-ND 4.0')] }))
+    writeFileSync(join(root, 'species/testus-a/entity.json'), JSON.stringify({ id: 'testus-a', scientificName: 'Testus a', photos: [p('3', 'CC BY-NC')], sections: [{ key: 'notes', source: 'seriouslyfish', html: '<p>Rivers.</p>' }] }))
+    writeFileSync(join(root, 'species/testus-b/entity.json'), JSON.stringify({ id: 'testus-b', scientificName: 'Testus b', photos: [p('4', 'CC BY-NC', 'https://www.flickr.com/photos/sampletown/4')], sections: [{ key: 'notes', source: 'seriouslyfish', html: '<p>Rivers.</p>' }] }))
+    for (const id of ['testus-a', 'testus-b']) writeFileSync(join(root, `species/${id}/vi.json`), JSON.stringify({ slug: id, name: id, sections: {} }))
+    const s = computeContentStats({ contentRoot: root, publicBuild: false, now: NOW })
+    expect(s.photos.gallery).toEqual({ pages: 1, photos: 1 })
+    expect(s.gaps.fish?.noPhoto?.top.map(([, name]) => name)).toEqual(['testus-b'])
+  } finally { rmSync(root, { recursive: true, force: true }) }
+})
+
 test('sources and photos: what each source gives the pages, and where photos come from', () => {
   expect(stats.sources.seriouslyfish).toEqual({ name: 'Seriously Fish', fish: 7, plant: 0, guide: 0 })
   expect(stats.sources.youtube).toEqual({ name: 'YouTube', fish: 0, plant: 0, guide: 2 })

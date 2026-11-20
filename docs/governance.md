@@ -657,11 +657,21 @@ The layers above still check the result.
     and affiliate links. One exception sits behind a switch (`IMAGE_SWITCHES.inatNonCommercial`,
     `packages/schema/src/image-policy.ts`), on from 18 Nov, on the chief of staff's yes of 17 Nov (the owner's yes, 10 Nov): iNaturalist's
     research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
-    are the album step's last source, read once every open one has run dry and after every page's open sources in a run, pages with no photo of their own first,
-    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo but on a page whose album shows fewer than six, so no strip (counted from the files as the build fills the album, never too few), where they come right after the open photos that wait on such pages; as for every photo, a page's sheet with room left is filled from that page's later photos, a non-commercial one among them (`photo-check.ts`, the chief of staff, 19 Nov); they rank
-    last among the photos with no mark and before the Glaser banner photos (the chief of staff, 19 Nov: the owner was told the banner photos sit below the clean ones, and a non-commercial photo is a clean one), pass every screen and the photo check like any album photo, and their credit names the licence. They stay in albums: no page's
-    head, shared card, person's pick or fish-ID reference takes one. Their licence text is their mark (`isNonCommercial`, `licence.ts`), so with
-    the switch off the site shows none and the sweep takes every one off every album and page (`dropNonCommercial`).
+    are the album step's last source, read after every page's open sources in a run, pages with no photo of their own first: on such a page right after iNaturalist's open passes, on any other once every open one has run dry,
+    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo but on a page with no photo of its own, in the first-photo turn after that page's open ones, and on a page whose album shows fewer than six, so no strip (counted from the files as the build fills the album, never too few), where they come right after the open photos that wait on such pages; as for every photo, a page's sheet with room left is filled from that page's later photos, a non-commercial one among them (`photo-check.ts`, the chief of staff, 19 Nov); they rank
+    last among the photos with no mark and before the Glaser banner photos (the chief of staff, 19 Nov: the owner was told the banner photos sit below the clean ones, and a non-commercial photo is a clean one), pass every screen and the photo check like any album photo, and their credit names the licence. The chief of staff's
+    rule of 17 Nov: a non-commercial photo shows only where it's the one way to show that fish, on its own page and its
+    own card. Wherever the site picks a fish to stand for many, or to feature, it picks one with an open photo. So one
+    leads a page only where the page has no photo of its own, no album photo that passes as its head and none a shop's
+    own mark lets lead (`lead-photo.ts`), and an open one that passes, or such a shop's photo, takes its place at the next
+    run with no model call, after which it is in its album alone; a person's pick of one follows the same rule (the
+    sweep). The page's own card shows it as it shows any head, so lists and search do; it is never the day's card, a
+    featured card, a group tile, a Khám phá chip or the app's top cards (`curation.ts`: on the engine's avoid list, no
+    card photo), never a fish-ID reference, and a page it leads offers the site's own picture to shares and search
+    (`shareImage`). Its credit with the licence sits by it, as in the album. The site shows one on a page only as its one
+    real photo (`load.ts`), and the content stats count such a page as having a photo. Their licence text is their mark
+    (`isNonCommercial`, `licence.ts`), so with the switch off the site shows none and the sweep takes every one off every
+    album and page, heads too (`dropNonCommercial`).
     Commons, GBIF, Openverse, hand seeds and the mirror keep refusing NC whatever the switch says (the mirror copies an
     iNaturalist album one only while it's on). Photos a source gave permission for (`content/sources.json`) and Unsplash photos join through
     their own steps. Each source is read at the pace it asks for (iNaturalist about one request a second; Openverse 200

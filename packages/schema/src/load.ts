@@ -272,7 +272,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
    */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = '', album = false): P[] => realPhotosFirst(xs.flatMap(p => {
+  const cleanPhotos = <P extends Photo>(xs: P[], page = '', scientificName = '', album = false, head = false): P[] => realPhotosFirst(xs.flatMap(p => {
     if (isOwnerCrop(p)) {
       const valid=ownerCropApproved(p,page,scientificName,createHash('sha256').update(ownerCropCanonical(p,page,scientificName)).digest('hex'))
       const veto=p.source && sources[p.source]?.permission?.markRemoval?.allowed===false
@@ -306,8 +306,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
         }
       }
     }
-    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence) || (album && images.inatNonCommercial && isInatNonCommercial(p))
+    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence) || ((album || head) && images.inatNonCommercial && isInatNonCommercial(p))
   }).map(p => caption(boxed(p))))
+  // A fish's page shows a non-commercial photo (iNaturalist's, the switch on) only as its head with no other real photo,
+  // where it's the one way to show that fish (the chief of staff's rule, 17 Nov; the engine's lead-photo.ts puts it there).
+  const ncAlone = <P extends Photo>(xs: P[]): P[] => xs.filter((p, i) => !isNonCommercial(p.licence) || (i === 0 && xs.every((x, j) => j === 0 || x.generated)))
+  const pagePhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => ncAlone(cleanPhotos(xs, page, scientificName, false, true))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
 
@@ -358,10 +362,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const generatedPages = new Set<string>()
   const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
   const species = allSpecies.filter(s => !(leaveOutHeld && s.t.held)).map(rememberGenerated)
-    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos, `species/${s.id}`, s.scientificName), videos: forPage(s.videos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
+    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: pagePhotos(s.photos, `species/${s.id}`, s.scientificName), videos: forPage(s.videos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
-    .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
+    .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: pagePhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
   const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
     .filter(g => allowed(g.source))
@@ -403,12 +407,13 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Breeds share the species' address space: a clash would silently drop one page, so it stops the build.
   // A care figure the engine hid (out of bounds, a tank too short for the fish: `hidden`) stays off the page.
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
-  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
+  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: pagePhotos(b.photos) }))
   // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
   // Preserve explicitly fitted heads; add a fitted fallback only after ordinary publication admission.
   const fitsHead = (p: Photo) => p.headFit === 'contain' || photoFitsHead(p)
   for (const page of [...species, ...plants, ...breeds]) if (page.photos.some(p=>p.headFit==='contain'||!photoFitsHead(p)) || page.photos[0]?.generated || (!page.photos.length && (generatedPages.has(page.id) || (galleries[page.id]??[]).some(p=>!p.generated&&photoFitsWholeHead(p))))) {
-    // A non-commercial album photo stays in its album: it never leads a page (albums only: the rule this step was built with, 16 Nov).
+    // A non-commercial album photo isn't put first here: the engine's lead step does that, only where it's the one way to
+    // show that fish (lead-photo.ts), and one that leads gives way to any open photo here (ncAlone).
     const all=realPhotosFirst([...new Map([...page.photos,...(galleries[page.id]??[]).filter(p=>!isNonCommercial(p.licence))].map(p=>[p.url,p])).values()])
     const albumOnly=page.photos.filter(p=>!fitsHead(p))
     if(albumOnly.length)galleries[page.id]=realPhotosFirst([...new Map([...(galleries[page.id]??[]),...albumOnly].map(p=>[p.url,p])).values()])
@@ -418,6 +423,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
     else if(whole)page.photos=[{...whole,headFit:'contain'}]
     else if(all.some(p=>!p.generated))page.photos=page.photos.filter(p=>!p.generated)
+    page.photos=ncAlone(page.photos)
   }
   // A fish's or breed's photo with no box, and a plant's taller than it is wide, framed by its whole area (`wholeBoxes`):
   // no frame cuts a fish whose place in the photo isn't known, or a plant's height. A square or wide plant photo fills.

@@ -136,14 +136,22 @@ test('switch off: no non-commercial photo is asked for or taken; on: iNaturalist
   expect(['by-nc', 'by-nc-sa', 'by-nd', 'by-nc-nd'].map(l => openverseLicence(l, '4.0'))).toEqual(Array(4).fill(undefined))
 })
 
-test('the non-commercial pass waits for every open source read to its end: with Openverse out of requests this run, none is asked for', async () => {
+test("the non-commercial pass, on a page with a photo of its own, waits for every open source read to its end: with Openverse out of requests this run, none is asked for; on a page with none, it follows iNaturalist's open passes (the chief of staff's rule, 17 Nov)", async () => {
   const r = await root()
+  // The test's page given a photo of its own.
+  await writeFile(join(r, `content/species/${ID}/entity.json`), JSON.stringify({ scientificName: SCI, photos: [{ url: 'https://media.example.org/x/1.webp', width: 1024, height: 768, licence: 'CC BY', author: 'sampletown', sourceUrl: 'https://example.org/1' }] }))
   const calls: string[] = []
   await galleries(r, deps(calls), { sheets: 5, switches: ON, budget: { openverse: 0 } })
   expect(calls.some(u => u.includes('cc-by-nc'))).toBe(false)
   const st = await read(r, `engine-state/gallery/${ID}.json`)
   expect(st.inatNc).toBeUndefined()
   expect(st.exhausted).toBeUndefined()
+  // With none of its own, Openverse out of requests doesn't hold the pass back.
+  const bare = await root()
+  const bareCalls: string[] = []
+  await galleries(bare, deps(bareCalls), { sheets: 5, switches: ON, budget: { openverse: 0 } })
+  expect(bareCalls.filter(u => u.includes('cc-by-nc'))).toHaveLength(1)
+  expect((await read(bare, `engine-state/gallery/${ID}.json`)).inatNc).toMatchObject({ done: true })
   // Openverse read the next run: the pass follows, in the same run.
   calls.length = 0
   await galleries(r, deps(calls), { sheets: 5, switches: ON })
@@ -281,10 +289,23 @@ test('album order: non-commercial photos after every open one with no mark, the 
   expect(rankGallery(once, undefined, undefined, undefined, undefined, banner)).toEqual(once)
 })
 
-test('a non-commercial album photo never leads a page', () => {
+test("a non-commercial album photo leads only a page with nothing else to lead, and gives way to an open one with no model call (the chief of staff's rule, 17 Nov)", () => {
   const p = (n: string, licence: string, width = 1600): Photo => ({ url: `https://media.aquatome.com/g/${n}.webp`, width, height: 1400, licence, author: 'Sampletown', sourceUrl: INAT(1) })
-  expect(leadChoice([], [p('nc', 'CC BY-NC'), p('open', 'CC BY', 900)], () => true, {})).toEqual({ lead: p('open', 'CC BY', 900) })
-  expect(leadChoice([], [p('nc', 'CC BY-NC')], () => true, {})).toBeUndefined()
+  const nc = p('nc', 'CC BY-NC'), open = p('open', 'CC BY', 900), shop = p('shop', 'Used with permission')
+  // An open photo that passes leads, small or not.
+  expect(leadChoice([], [nc, open], () => true, {})).toEqual({ lead: open })
+  // Nothing else: it leads, if it passes.
+  expect(leadChoice([], [nc], () => true, {})).toEqual({ lead: nc })
+  expect(leadChoice([], [nc], () => false, {})).toBeUndefined()
+  // A shop's photo whose own mark lets it lead where nothing passes comes before it.
+  expect(leadChoice([], [nc, shop], q => q !== shop, {}, q => q === shop)).toEqual({ lead: shop })
+  // In a generated picture's place.
+  expect(leadChoice([{ ...p('made', 'CC0'), generated: true }], [nc], () => true, {})).toEqual({ lead: nc })
+  // Leading, it gives way to an open photo that passes or a shop's own-marked one, with no pair to ask; else it stays.
+  expect(leadChoice([nc], [open], () => true, {})).toEqual({ lead: open })
+  expect(leadChoice([nc], [shop], q => q !== shop, {}, q => q === shop)).toEqual({ lead: shop })
+  expect(leadChoice([nc], [open], q => q !== open, {})).toBeUndefined()
+  expect(leadChoice([nc], [p('nc2', 'CC BY-NC-SA')], () => true, {})).toBeUndefined()
 })
 
 const photo = (id: number, licence: string, o: Partial<Photo> = {}): Photo => ({ url: `https://media.aquatome.com/inaturalist/${id}.webp`, width: 1024, height: 768, licence, author: 'Sampletown', sourceUrl: INAT(id), caption: SCI, ...o })
@@ -318,16 +339,54 @@ test('switch off after on: the sweep takes every non-commercial photo off every 
   expect((await sweep(r, { switches: OFF })).nonCommercial).toEqual([])
 })
 
-test("a person's head pick never makes a non-commercial album photo a page's head, the switch on", async () => {
+/** The swept page with no photo of its own: its album's open photo 1 passes as a head or has no verdict. */
+async function bare(passes: boolean) {
+  const r = await swept()
+  const file = join(r, `content/species/${ID}/entity.json`)
+  await writeFile(file, JSON.stringify({ ...(await read(r, `content/species/${ID}/entity.json`)), photos: [] }, null, 2))
+  if (passes) await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [photo(1, '').url]: { [ID]: { ok: 'yes', typical: true, person: false, logo: false, note: 'the fish' } } }))
+  return r
+}
+const own = async (r: string) => (await read(r, `content/species/${ID}/entity.json`)).photos.map((p: Photo) => p.sourceUrl)
+
+test("a person's head pick follows the rule: a non-commercial photo leads only a page with no other photo to lead, the switch on", async () => {
   const r = await swept()
   await writeFile(join(r, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
   const report = await sweep(r, { switches: ON })
-  expect(report.heads).toContain(`species/${ID}: picked photo is non-commercial, album only`)
-  expect((await read(r, `content/species/${ID}/entity.json`)).photos.map((p: Photo) => p.sourceUrl)).toEqual([INAT(10)])
+  expect(report.heads).toContain(`species/${ID}: picked photo is non-commercial, and the page has another photo to lead`)
+  expect(await own(r)).toEqual([INAT(10)])
   expect((await read(r, `content/gallery/${ID}.json`)).photos.map((p: Photo) => p.sourceUrl)).toContain(INAT(2))
+  // An album photo that passes as the head is another photo to lead.
+  const passing = await bare(true)
+  await writeFile(join(passing, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
+  await sweep(passing, { switches: ON })
+  expect(await own(passing)).toEqual([])
+  // None: the pick leads, and stays in its album too.
+  const none = await bare(false)
+  await writeFile(join(none, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
+  await sweep(none, { switches: ON })
+  expect(await own(none)).toEqual([INAT(2)])
+  expect((await read(none, `content/gallery/${ID}.json`)).photos.map((p: Photo) => p.sourceUrl)).toContain(INAT(2))
 })
 
-test('the mirror copies a non-commercial photo only where the site shows it: an iNaturalist album photo, the switch on', async () => {
+test('a page led by a non-commercial photo keeps it as its only real photo; behind an open one it goes back to its album; the switch off takes heads too', async () => {
+  const r = await bare(false)
+  await writeFile(join(r, `content/species/${ID}/entity.json`), JSON.stringify({ ...(await read(r, `content/species/${ID}/entity.json`)), photos: [photo(2, 'CC BY-NC')] }, null, 2))
+  expect((await sweep(r, { switches: ON })).nonCommercial).not.toContain(`species/${ID}/entity.json: ${photo(2, '').url}`)
+  expect(await own(r)).toEqual([INAT(2)])
+  // An open photo put first (lead-photo.ts): the non-commercial one leaves the page, and stays in the album.
+  await writeFile(join(r, `content/species/${ID}/entity.json`), JSON.stringify({ ...(await read(r, `content/species/${ID}/entity.json`)), photos: [photo(1, 'CC BY'), photo(2, 'CC BY-NC')] }, null, 2))
+  await sweep(r, { switches: ON })
+  expect(await own(r)).toEqual([INAT(1)])
+  expect((await read(r, `content/gallery/${ID}.json`)).photos.map((p: Photo) => p.sourceUrl)).toContain(INAT(2))
+  // Switch off: the head goes too.
+  const off = await bare(false)
+  await writeFile(join(off, `content/species/${ID}/entity.json`), JSON.stringify({ ...(await read(off, `content/species/${ID}/entity.json`)), photos: [photo(2, 'CC BY-NC')] }, null, 2))
+  expect((await sweep(off, { switches: OFF })).nonCommercial).toContain(`species/${ID}/entity.json: ${photo(2, '').url}`)
+  expect(await own(off)).toEqual([])
+})
+
+test("the mirror copies a non-commercial photo only where the site shows it: iNaturalist's, in an album or as a page's head, the switch on", async () => {
   const hot = (id: number) => `https://inaturalist-open-data.s3.amazonaws.com/photos/${id}/large.jpg`
   const make = async () => {
     const r = await mkdtemp(join(tmpdir(), 'aq-nc-mirror-'))
@@ -348,7 +407,7 @@ test('the mirror copies a non-commercial photo only where the site shows it: an 
   expect(off).toEqual(['inaturalist/1.webp'])
   const on: string[] = [], r = await make()
   await mirrorPhotos(r, deps(on), { switches: ON })
-  expect(on.sort()).toEqual(['inaturalist/1.webp', 'inaturalist/2.webp'])
+  expect(on.sort()).toEqual(['inaturalist/1.webp', 'inaturalist/11.webp', 'inaturalist/2.webp'])
   const g = (await read(r, `content/gallery/${ID}.json`)).photos as Photo[]
   expect(g[1]).toMatchObject({ url: 'https://media.aquatome.com/inaturalist/2.webp', licence: 'CC BY-NC', sourceUrl: INAT(2) })
   expect(g[2]!.url).toBe(hot(9))

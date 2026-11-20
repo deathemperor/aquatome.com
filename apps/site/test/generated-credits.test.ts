@@ -1,7 +1,7 @@
 import { expect, onTestFinished, test } from 'vitest'
 import { LANGS, type Photo } from '@aq/schema'
 import { photoCredit, photoMark } from '../src/lib/cite'
-import { galleryNote, licenceUrl } from '../src/lib/gallery'
+import { galleryNote, licenceUrl, shareImage } from '../src/lib/gallery'
 import { translator } from '../src/lib/i18n'
 const real: Photo = { url: 'https://media.aquatome.com/real.webp', width: 800, height: 600, author: 'Source', licence: 'CC BY-SA 4.0', sourceUrl: 'https://commons.wikimedia.org/example' }
 const ai = { ...real, author: 'AI', licence: 'AI-generated', generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
@@ -116,6 +116,14 @@ test("a non-commercial photo's licence links its own deed in the album's credit,
   expect(licenceUrl('CC BY-NC-ND 4.0')).toBe('https://creativecommons.org/licenses/by-nc-nd/4.0/')
   expect(licenceUrl('CC BY 4.0')).toBe('https://creativecommons.org/licenses/by/4.0/')
   expect(licenceUrl('CC BY-SA 3.0')).toBe('https://creativecommons.org/licenses/by-sa/3.0/')
+})
+
+test("a fish page led by a non-commercial photo: its credit carries the licence by the photo, and shares and search get the site's own picture (the chief of staff's rule, 17 Nov)", () => {
+  const nc: Photo = { ...real, licence: 'CC BY-NC 4.0', sourceUrl: 'https://www.inaturalist.org/photos/2' }
+  expect(photoMark('vi', nc)).toContain('data-tip="CC BY-NC 4.0"')
+  expect(shareImage([nc])).toBeUndefined()
+  expect(shareImage([real, nc])).toBe(real.url)
+  expect(shareImage([])).toBeUndefined()
 })
 
 test('an album with a non-commercial photo is not called open-licence; one without still is', () => {

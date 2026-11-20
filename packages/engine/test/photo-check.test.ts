@@ -260,7 +260,7 @@ test("a lead nothing has looked at is judged first, Flickr's and Commons' before
   ])
 })
 
-test("non-commercial album photos that wait are judged last: after every other photo that waits, a page with none too, more-read page or not (the chief of staff, 2026-11-17)", async () => {
+test("non-commercial album photos that wait are judged last: after every other photo that waits, more-read page or not, but on a page with no photo of its own (the chief of staff, 2026-11-17)", async () => {
   const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
   const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
   // In page order: a page with a photo of its own and a non-commercial photo waiting, a page with none of its own whose
@@ -291,6 +291,20 @@ test("non-commercial album photos that wait are judged last: after every other p
   await writeFile(join(r2, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': seen }, [url('c-own')]: { 'ccc-fish': seen } }))
   await checkPagePhotos(r2, d2, { limit: 1 })
   expect(d2.seen.map(s => s.photos)).toEqual([['c-wait']])
+})
+
+test("a page with no photo of its own has its non-commercial photo judged in the first-photo turn, after its open ones and before the photos that wait on a page with no strip (the chief of staff's rule, 17 Nov)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  // In page order: a page with a photo of its own and an open photo waiting (no strip), then a page with none of its own
+  // whose album has only a non-commercial photo waiting.
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'bbb-fish', sci: 'Bbb fish' }])
+  await writeFile(join(r, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [waits('a-wait')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r, 'content/gallery/bbb-fish.json'), JSON.stringify({ id: 'bbb-fish', photos: [nc('b-nc')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': { ok: 'yes', typical: true, note: '', logo: false, person: false } } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([['b-nc']])
 })
 
 test("the photos that wait on a page that shows no strip go before the turns, the open ones first, then the non-commercial ones; a page with a strip, or a breed's, waits its turn (the chief of staff, 2026-11-19)", async () => {
