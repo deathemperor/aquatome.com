@@ -9,7 +9,7 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1067 | 763 (vi 763) | 763 |
-| translation | 2202 | 323 (vi 323) | 323 |
+| translation | 2203 | 323 (vi 323) | 323 |
 | vi-rewrite | 409 | 38 (vi 38) | 38 |
 | reader-rewrite | 46 | 0 | 0 |
 | title | 25 | 0 | 0 |
@@ -126,7 +126,7 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-323 of 2202 pages under the bar.
+323 of 2203 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |

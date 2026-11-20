@@ -2,6 +2,20 @@
   "id": "rasbora-borapetensis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/flickr/6301455428.webp",
+      "thumb": "https://media.aquatome.com/flickr/6301455428-480.webp",
+      "width": 1024,
+      "height": 609,
+      "licence": "CC BY 2.0",
+      "author": "ibsut",
+      "sourceUrl": "https://www.flickr.com/photos/22616984@N07/6301455428",
+      "caption": "Cá rasbora đuôi đỏ bơi trên nền đá cát trong tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/68d67dbc5cb77f1d.webp",
       "thumb": "https://media.aquatome.com/commons/68d67dbc5cb77f1d-480.webp",
       "width": 1050,
@@ -26,7 +40,7 @@
       "kind": "other"
     }
   ],
-  "seen": 17,
-  "updatedAt": "2026-11-14",
-  "builtAt": "2026-11-14"
+  "seen": 18,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }
