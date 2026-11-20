@@ -255,17 +255,22 @@ const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|rather than|instead of|unlike)\
  * The page an "another fish" answer names: a name of exactly one other species or plant page, as `captionSubject` reads
  * a caption. The judged page's own kind (the page, and a breed's species) stays in the reading, so a name inside one of
  * its names gives way ("neon tetra" in "green neon tetra"); named and not denied, it is a second kind, and there is no
- * id ("Aaa fish or Bbb fish" on Aaa's page, "halfmoon Betta splendens" on another betta breed's). Its genus names no
- * other kind. Its id, never the answer's words.
+ * id ("Aaa fish or Bbb fish" on Aaa's page, "halfmoon Betta splendens" on another betta breed's). A denied name names
+ * nothing, the page's own or another ("not Bbb fish either"). Its genus names no other kind. Its id, never the answer's
+ * words.
  */
 export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index: { names: Map<string, string>; genera: Map<string, Set<string>> }): string | undefined {
   const parts = page.sci.split('×').map(p => norm(p).split(' ').slice(0, 2))
   const own = new Set([page.id, ...parts.map(p => index.names.get(p.join(' '))).filter((x): x is string => !!x)])
   const ownGenera = new Set(parts.map(p => p[0]))
   const c = norm(note)
-  const ids = [...new Set(nameHits(c, index.names).filter(h => !own.has(h.id) || !DENIED.test(c.slice(0, h.from))).map(h => h.id))]
+  const hits = nameHits(c, index.names)
+  const denied = hits.filter(h => DENIED.test(c.slice(0, h.from)))
+  const ids = [...new Set(hits.filter(h => !denied.includes(h)).map(h => h.id))]
   if (ids.length !== 1 || own.has(ids[0]!)) return undefined
-  return c.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
+  // A denied name's genus names no other kind: "Bbb fish, not Ccc fish" names Bbb.
+  const rest = denied.reduce((s, h) => s.slice(0, h.from) + ' '.repeat(h.to - h.from) + s.slice(h.to), c)
+  return rest.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
 }
 
 function nameIndex(all: Subject[]) {
@@ -887,18 +892,22 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
 
   // 3. Verdicts, the blocklist (re-read, so entries another step added meanwhile stay) and the review file.
-  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
-  const listed = Object.keys(added).filter(u => !(u in now))
-  for (const u of listed) { now[u] = added[u]!; report.rejected++ }
   // A photo this run lists as another fish, whose answer named a kind we have a page for, keeps that page's id beside
   // the list, the id only, never the answer's words (the chief of staff, 20 Nov). Added to, never rewritten. Written
   // before the verdicts: once a verdict is kept, no later run asks again, and the answer's words are gone.
   const kinds = (await readJson<Record<string, string>>(kindsFile)) ?? {}
-  const kinded = listed.filter(u => added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
+  const writeKinds = () => writeImageCache(kindsFile, `${JSON.stringify(Object.fromEntries(Object.entries(kinds).sort()), null, 2)}\n`)
+  const listedBefore = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const kinded = Object.keys(added).filter(u => !(u in listedBefore) && added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
   for (const u of kinded) kinds[u] = namedKinds.get(u)!
-  if (kinded.length) await writeImageCache(kindsFile, `${JSON.stringify(Object.fromEntries(Object.entries(kinds).sort()), null, 2)}\n`)
+  if (kinded.length) await writeKinds()
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
+  const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  for (const [u, why] of Object.entries(added)) if (!(u in now)) { now[u] = why; report.rejected++ }
   await writePhotoState(rejectedFile, now)
+  // One another step listed meanwhile keeps that step's reason, and no id from this run.
+  const taken = kinded.filter(u => now[u] !== added[u])
+  if (taken.length) { for (const u of taken) delete kinds[u]; await writeKinds() }
   // This run's hold alone, once its pages, verdicts and never-again list are written (above).
   await writeHeld(heldNow)
   const left = new Map<string, number>()

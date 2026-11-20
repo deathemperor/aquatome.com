@@ -723,7 +723,8 @@ The layers above still check the result.
     or plant we have a page for keeps that page's id in `engine-state/_photo-other-kinds.json` (`namedKind`): the id
     only, never the answer's words, and the photo stays listed everywhere (the chief of staff, 20 Nov). An answer that
     also names the judged page's own kind (a breed's species included) without denying it ("X, not Y" denies Y) names
-    none. Only a photo this run puts on the list gets one, and the record is written before the verdicts. When the check answers "something else" for an album photo, the same run judges that album's
+    none, and a name the answer denies names nothing. Only a photo this run puts on the list gets one, and the record
+    is written whole before the verdicts. When the check answers "something else" for an album photo, the same run judges that album's
     other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
     and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
     stops at the check's daily line. Only the run's own first answers start it: not a file name's verdict, a guide's, a

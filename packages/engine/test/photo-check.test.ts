@@ -1,6 +1,6 @@
 import { denied } from './piece-admission'
 import { expectControlledRejections } from './photo-privacy-assertions'
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -10,6 +10,13 @@ import { SpeciesSchema } from '@aq/schema'
 import { rankGallery } from '../src/gallery'
 import { ASIDE_FILE, cantTellOn, captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { modelFailureKind, photoModelStop } from '../src/photo-observations'
+
+// What another step does, or a failure, while the photo check writes its verdicts (unset: nothing).
+const atVerdicts = vi.hoisted(() => ({ hook: undefined as undefined | (() => Promise<void>) }))
+vi.mock('../src/photo-state', async importOriginal => {
+  const real = await importOriginal<typeof import('../src/photo-state')>()
+  return { ...real, writePhotoState: async (file: string, ...rest: [unknown, (number | string)?]) => { if (file.endsWith('_photo-subjects.json')) await atVerdicts.hook?.(); return real.writePhotoState(file, ...rest) } }
+})
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -102,7 +109,7 @@ test("a photo listed as another fish keeps the id of the kind its answer named, 
 
 test("an answer naming the judged page's own kind and not denying it names a second kind, so no id: a name inside one of the page's own gives way, and a breed's species is its own", async () => {
   const r = await root([
-    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt'] },
+    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt', 'neither', 'not-ccc'] },
     { id: 'bbb-fish', sci: 'Bbb fish', vi: { name: 'Cá bbb', altNames: ['Sample tetra'] } },
     { id: 'ccc-fish', sci: 'Ccc fish' },
     { kind: 'breeds', id: 'aaa-line', vi: { name: 'Aaa line' }, photos: ['line-1', 'line-own', 'line-other'], extra: { kind: 'variety', basedOn: 'aaa-fish', parents: [] } },
@@ -114,6 +121,9 @@ test("an answer naming the judged page's own kind and not denying it names a sec
     or: { ok: 'other', note: 'Aaa fish or Bbb fish, hard to say' },
     denied: { ok: 'other', note: 'a Ccc fish, not a green sample tetra' },
     isnt: { ok: 'other', note: "Bbb fish; it isn't Aaa fish" },
+    // A name the answer denies names nothing, nor does its genus.
+    neither: { ok: 'other', note: 'not Aaa fish, not Bbb fish either; an unidentified cichlid' },
+    'not-ccc': { ok: 'other', note: 'Bbb fish, not Ccc fish' },
     'line-1': { typical: true },
     // Another line of the breed's own species.
     'line-own': { ok: 'other', note: 'another line of Aaa fish' },
@@ -121,27 +131,45 @@ test("an answer naming the judged page's own kind and not denying it names a sec
   })
   await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })
   const listed = await json(r, 'engine-state/_photo-rejected.json')
-  for (const n of ['green', 'or', 'denied', 'isnt', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
-  expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('denied')]: 'species/ccc-fish', [url('isnt')]: 'species/bbb-fish', [url('line-other')]: 'species/bbb-fish' })
+  for (const n of ['green', 'or', 'denied', 'isnt', 'neither', 'not-ccc', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
+  expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('denied')]: 'species/ccc-fish', [url('isnt')]: 'species/bbb-fish', [url('not-ccc')]: 'species/bbb-fish', [url('line-other')]: 'species/bbb-fish' })
 })
 
-test('the kind record names only a photo this run put on the list, keeps what it held, and is written before the verdicts, which end the answer', async () => {
-  const r = await root([
-    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-1', 'raced', 'named'] },
-    { id: 'bbb-fish', sci: 'Bbb fish' },
-  ])
-  await writeFile(join(r, 'engine-state/_photo-other-kinds.json'), JSON.stringify({ [url('earlier')]: 'species/ccc-fish' }))
-  const d = model({ 'a-1': { typical: true }, raced: { ok: 'other', note: 'Bbb fish' }, named: { ok: 'other', note: 'Bbb fish' } })
+test('the kind record names only a photo this run put on the list, keeps what it held, is written whole before the verdicts, which end the answer, and the list keeps what another step added meanwhile', async () => {
+  const pages = [{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-1', 'raced', 'named', 'late'] }, { id: 'bbb-fish', sci: 'Bbb fish' }]
+  const answers = { 'a-1': { typical: true }, raced: { ok: 'other' as const, note: 'Bbb fish' }, named: { ok: 'other' as const, note: 'Bbb fish' }, late: { ok: 'other' as const, note: 'Bbb fish' } }
+  const r = await root(pages)
+  const kindsFile = join(r, 'engine-state/_photo-other-kinds.json'), listFile = join(r, 'engine-state/_photo-rejected.json')
+  await writeFile(kindsFile, JSON.stringify({ [url('earlier')]: 'species/ccc-fish' }))
+  const before = (await stat(kindsFile)).ino
+  const d = model(answers)
   const look = d.look
-  // Another step lists one of them for a person while the sheet is out.
+  // Another step lists one for a person while the sheet is out, and, while the verdicts are written, another for a
+  // person and a photo of another page for its mark.
   d.look = async (...a: Parameters<typeof look>) => {
-    await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('raced')]: 'people: a person in it' }))
+    await writeFile(listFile, JSON.stringify({ [url('raced')]: 'people: a person in it' }))
     return look(...a)
   }
-  // The verdicts can't be written: a folder stands where their file goes.
-  await mkdir(join(r, 'engine-state/_photo-subjects.json'))
-  await expect(checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })).rejects.toThrow()
+  atVerdicts.hook = async () => writeFile(listFile, JSON.stringify({ ...(await json(r, 'engine-state/_photo-rejected.json')), [url('late')]: 'people: a person in it', [url('elsewhere')]: 'watermark: a logo' }))
+  try { await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' }) } finally { atVerdicts.hook = undefined }
+  const listed = await json(r, 'engine-state/_photo-rejected.json')
+  for (const n of ['raced', 'late']) expect(listed[url(n)]).toMatch(/^people:/)
+  expect(listed[url('elsewhere')]).toMatch(/^watermark:/)
   expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('earlier')]: 'species/ccc-fish', [url('named')]: 'species/bbb-fish' })
+  // Written whole into place, never over the file it replaces.
+  expect((await stat(kindsFile)).ino).not.toBe(before)
+
+  // The verdicts can't be written: the ids are kept all the same, but none for the photo another step listed.
+  const r2 = await root(pages)
+  const d2 = model(answers)
+  const look2 = d2.look
+  d2.look = async (...a: Parameters<typeof look2>) => {
+    await writeFile(join(r2, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('raced')]: 'people: a person in it' }))
+    return look2(...a)
+  }
+  atVerdicts.hook = async () => { throw new Error('the disk is full') }
+  try { await expect(checkPagePhotos(r2, d2, { limit: 10, today: '2026-11-20' })).rejects.toThrow('the disk is full') } finally { atVerdicts.hook = undefined }
+  expect(await json(r2, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('named')]: 'species/bbb-fish', [url('late')]: 'species/bbb-fish' })
 })
 
 test('a re-run costs nothing: every verdict is cached per photo and page', async () => {
