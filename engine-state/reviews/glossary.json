@@ -1376,6 +1376,28 @@
   ],
   "vi/glossary/vay-hau-mon": [
     {
+      "at": "2026-11-20T08:12:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:12:40Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Ở cá đẻ con, cá đực có vây hậu môn hình que, dùng để thụ tinh trong bụng cá cái.\" is the old sentence. The Fri 20 Nov evening batch replaces it word for word with \"Ở cá đẻ con, cá đực có vây hậu môn hình que, dùng để thụ tinh trong cơ thể cá cái.\"",
+        "Rule 12: \"Có thể thêm muối hồ cá để sát khuẩn nhẹ trong lúc vây lành (liều và cách dùng: xem bài hướng dẫn chữa bệnh).\" is the old wording. It points to \"bài hướng dẫn chữa bệnh\", which is not a page, and the medicine line forbids that. The evening batch replaces it word for word with \"Có thể thêm muối hồ cá để sát khuẩn nhẹ trong lúc vây đang lành lại. Liều và cách dùng: xem bài Cá bị thối vây, …",
+        "Rule 12: \"Để phòng vây bị rách: bỏ đồ trang trí sắc, bọc đầu hút lọc, tách riêng hoặc bỏ bớt cá dữ.\" is the old wording. The evening batch replaces it word for word with \"Để phòng vây bị rách: bỏ đồ trang trí sắc, bọc đầu hút lọc, tách riêng hoặc đưa cá hung hăng ra khỏi bể.\" The next sentence, \"Một bể bệnh riêng cũng có thể giúp ích.\", stays as it is."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-20T04:40:14Z",
       "model": "sonnet",
       "cli": "2.1.329",
@@ -1422,26 +1444,6 @@
         "Rule 4: \"Ở cá bảy màu, vây hậu môn của cá đực biến thành gonopodium, còn cá cái giữ vây hậu môn bình thường\" says the same thing in the definition and again as the first paragraph of the body. It should be said once, in one place."
       ],
       "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-19T18:06:06Z",
-      "model": "sonnet",
-      "cli": "2.1.328",
-      "score": 0.75,
-      "notes": [
-        "\"Vây hậu môn là vây đơn nằm ở mặt dưới thân cá.\": the facts don't carry it (uncredited, uncredited, uncredited): median fin on underside only from sicb.org, no credit / median underside fin only from sicb.org / Only sicb.org gives the fin's position; no credit outside the definition",
-        "\"Cá cái vẫn giữ vây hậu môn bình thường, xòe ra.\": the facts don't carry it (supported, uncredited, uncredited): fan-shaped female fin only from gensou.sg; other site says triangular / Fan shape is only on gensou.sg; hanoizoo says triangular",
-        "\"Ở cá bảy màu, vây hậu môn của cá đực biến thành gonopodium hình ống, còn cá cái có vây hậu môn bình thường.\": the facts don't carry it (supported, supported, uncredited, uncredited, uncredited, supported): Tube shape is only on hanoizoo.com; no credit / Only hanoizoo.com calls the guppy gonopodium a tube; gensou.sg says \"rod-shaped\", which isn't the same thing. The sentence states it as plain fa…",
-        "\"Tìm nguyên nhân.\": the facts don't carry it (loose, unsupported, unsupported): generic step framing the listed causes / 'find the cause' step not given in facts / Facts don't give 'find the cause' as a step",
-        "\"Đồ trang trí cạnh sắc như một số cây nhựa hay đá nhám cũng móc rách vây.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge / Drops the 'can' hedge",
-        "\"Nước bẩn thì vi khuẩn dễ nhiễm vào chỗ vây rách, và vây rách tưa chuyển thành thối vây.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge; stated as certain / 'can let' made stronger: 'dễ' and definite turning into fin rot / 'dễ' overstates it and the 'can' hedge is dropped",
-        "Rule 12: \"Vây hậu môn là vây đơn nằm ở mặt dưới thân cá\" is written as plain fact. Only one paper (source 1) says the anal fin is a median fin on the underside, so the sentence needs to say whose claim it is.",
-        "Rule 12: \"vây này của cá đực dần biến thành gonopodium khi cá lớn đủ để đẻ\" (said of Poeciliidae as a whole) is written as plain fact. Only one paper (source 0) says this, so it needs a credit.",
-        "Rule 12: \"Gonopodium có hình que và cá đực dùng nó để thụ tinh trong bụng cá cái. Cá cái vẫn giữ vây hậu môn bình thường, xòe ra.\" and the definition's \"gonopodium hình que\" give one shop's claims (source 2) as plain fact. They should sit under that shop's single \"Một tiệm ghi:\" opening, which the entry already uses later.",
-        "Rule 12: \"Ở cá bảy màu, vây hậu môn của cá đực biến thành gonopodium hình ống, còn cá cái có vây hậu môn bình thường\" is uncredited. The tube shape comes from one page only (source 4). Crediting it would also make it at least a fourth page, and the entry already names three (\"Một tiệm ghi\", \"Một tài liệu tham khảo ghi\", \"Một nguồn ghi\"). It is a description a keeper can't act on, so it should be …"
-      ],
-      "attempt": "first",
       "kept": false
     }
   ],
