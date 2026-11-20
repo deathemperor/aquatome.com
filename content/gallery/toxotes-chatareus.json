@@ -134,20 +134,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/89557825.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/89557825-480.webp",
-      "width": 800,
-      "height": 533,
-      "licence": "CC BY",
-      "author": "dhfischer",
-      "sourceUrl": "https://www.inaturalist.org/photos/89557825",
-      "caption": "Cá bắn nước vảy to trên nền cát cam",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/89685016.webp",
       "thumb": "https://media.aquatome.com/inaturalist/89685016-480.webp",
       "width": 800,
@@ -218,20 +204,6 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/200429219.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/200429219-480.webp",
-      "width": 1024,
-      "height": 709,
-      "licence": "CC BY",
-      "author": "Rod Lowther",
-      "sourceUrl": "https://www.inaturalist.org/photos/200429219",
-      "caption": "Cá bắn nước vảy to ánh hồng bơi trong nước xám",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/158140723.webp",
       "thumb": "https://media.aquatome.com/inaturalist/158140723-480.webp",
       "width": 1024,
@@ -270,19 +242,6 @@
       "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/14583372.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/14583372-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "coenobita",
-      "sourceUrl": "https://www.inaturalist.org/photos/14583372",
-      "caption": "Cá bắn nước vảy to bơi gần mặt nước có lá",
-      "best": false,
-      "kind": "habitat",
-      "setup": false
-    },
-    {
       "url": "https://media.aquatome.com/commons/38863309d607cd10.webp",
       "thumb": "https://media.aquatome.com/commons/38863309d607cd10-480.webp",
       "width": 1000,
@@ -305,6 +264,47 @@
       "caption": "Cá bắn nước vảy to với các đốm đen lớn trên thân trong bể",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/14583372.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/14583372-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "coenobita",
+      "sourceUrl": "https://www.inaturalist.org/photos/14583372",
+      "caption": "Cá bắn nước vảy to bơi gần mặt nước có lá",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/89557825.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89557825-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "CC BY",
+      "author": "dhfischer",
+      "sourceUrl": "https://www.inaturalist.org/photos/89557825",
+      "caption": "Cá bắn nước vảy to trên nền cát cam",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/200429219.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/200429219-480.webp",
+      "width": 1024,
+      "height": 709,
+      "licence": "CC BY",
+      "author": "Rod Lowther",
+      "sourceUrl": "https://www.inaturalist.org/photos/200429219",
+      "caption": "Cá bắn nước vảy to ánh hồng bơi trong nước xám",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/14213696.webp",

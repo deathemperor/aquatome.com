@@ -10,7 +10,7 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 1067 | 763 (vi 763) | 763 |
 | translation | 2165 | 318 (vi 318) | 318 |
-| vi-rewrite | 403 | 37 (vi 37) | 37 |
+| vi-rewrite | 409 | 38 (vi 38) | 38 |
 | reader-rewrite | 46 | 0 | 0 |
 | title | 25 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
@@ -18,9 +18,9 @@ under `<lang>/<path>`.
 | product | 26 | 1 (vi 1) | 1 |
 | product-reviews | 20 | 0 | 0 |
 | summary | 2612 | 144 (vi 144) | 144 |
-| localize | 2758 | 892 (id 385, ms 70, th 437) | 892 |
-| glossary | 21 | 0 | 0 |
-| places | 7422 | 4505 (id 1541, ms 1537, th 1328, vi 99) | 1329 |
+| localize | 2789 | 878 (id 382, ms 67, th 429) | 878 |
+| glossary | 27 | 0 | 0 |
+| places | 7476 | 4547 (id 1555, ms 1551, th 1342, vi 99) | 1347 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 22 | 0 | 0 |
@@ -222,14 +222,14 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-37 of 403 pages under the bar.
+38 of 409 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 35 | 95 |
-| Says what the source doesn't (invented, added) | 30 | 70 |
-| Wording: unnatural, literal, stiff or chatty | 30 | 56 |
-| Meaning changed or wrong | 22 | 38 |
+| Other | 36 | 98 |
+| Says what the source doesn't (invented, added) | 31 | 71 |
+| Wording: unnatural, literal, stiff or chatty | 31 | 59 |
+| Meaning changed or wrong | 23 | 39 |
 | Hobby terms and names | 22 | 31 |
 | A number, unit, dose or price | 15 | 17 |
 | Leaves out what the source says | 13 | 20 |
@@ -482,21 +482,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-892 of 2758 pages under the bar.
+878 of 2789 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 812 | 2242 |
-| Wording: unnatural, literal, stiff or chatty | 740 | 1511 |
-| Says what the source doesn't (invented, added) | 513 | 727 |
-| A number, unit, dose or price | 481 | 609 |
-| Meaning changed or wrong | 479 | 726 |
-| Hobby terms and names | 449 | 587 |
-| Text left in another language | 306 | 390 |
-| Leaves out what the source says | 248 | 289 |
-| Repeats itself (intro, summary, steps and FAQ) | 237 | 262 |
-| States as certain what the source hedges, or what garbled captions only hint at | 194 | 218 |
-| Copied from the transcript or source | 20 | 20 |
+| Other | 798 | 2188 |
+| Wording: unnatural, literal, stiff or chatty | 729 | 1488 |
+| Says what the source doesn't (invented, added) | 501 | 711 |
+| A number, unit, dose or price | 477 | 607 |
+| Meaning changed or wrong | 469 | 712 |
+| Hobby terms and names | 433 | 570 |
+| Text left in another language | 303 | 386 |
+| Leaves out what the source says | 244 | 287 |
+| Repeats itself (intro, summary, steps and FAQ) | 230 | 255 |
+| States as certain what the source hedges, or what garbled captions only hint at | 191 | 215 |
+| Copied from the transcript or source | 21 | 21 |
 | Off the title's topic | 2 | 2 |
 
 ### Other
@@ -551,13 +551,13 @@ under `<lang>/<path>`.
 
 - Item 1/2/6: 'paku pakis' is redundant; use 'paku-pakis' or 'paku pakis' consistently; 'musim bunga' and 'musim sejuk' are non-Malaysian-context but acceptable. — ms/plants/azolla, 0.30
 - Item 5: 'ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์' is redundant; the repetition is faithful but could be merged into one sentence. — th/species/clarias-insolitus, 0.30
-- Item 16: 'วัสดุธรรมชาติ (ใบไม้แห้ง ผลไม้แห้ง...)' repeats 'ใบไม้แห้ง' right after 'ใบไม้แห้ง' in the list. Use 'ใบไม้ร่วง' and 'botanicals' as the hobby term. — th/species/sphaerichthys-osphromenoides, 0.30
+- #1: 'เกือบทุกชนิดโตเกิน 20 ซม.' — English says 'most species', so use 'ส่วนใหญ่' instead of 'เกือบทุกชนิด' (overstates). The sentence 'ส่วนใหญ่มักโตได้ค่อนข้างใหญ่' then repeats it. — th/species/metynnis-lippincottianus, 0.40
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - Item 18: the sentence 'ซึ่งปลาที่นำเข้าในอดีตเคยถูกจัดไว้เพียง 3 ชนิด ที่ต้องระบุชนิดใหม่' is garbled. The English says 33 species, which were assigned to 3 species in earlier imports, must now be redetermined. Restructure it. — th/species/gastromyzon-punctulatus, 0.40
-- #1: 'เกือบทุกชนิดโตเกิน 20 ซม.' — English says 'most species', so use 'ส่วนใหญ่' instead of 'เกือบทุกชนิด' (overstates). The sentence 'ส่วนใหญ่มักโตได้ค่อนข้างใหญ่' then repeats it. — th/species/metynnis-lippincottianus, 0.40
 - Item 11: "pangkal depan sirip punggung" for "dorsal-fin origin" is acceptable, but "pita tegak" for "bar" is unclear; use "pita vertikal". — id/species/barbodes-kuchingensis, 0.45
+- Item 20: 'one or two pairs should then be introduced' became 'satu atau dua pasang dimasukkan', which loses the advisory tone; use 'sebaiknya dimasukkan'. In 'spawning should take place the following morning', 'biasanya' is an added hedge;… — id/species/pethia-conchonius, 0.45
 
 ### Copied from the transcript or source
 
@@ -572,16 +572,16 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 21 pages under the bar.
+0 of 27 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4505 of 7422 pages under the bar.
+4547 of 7476 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1193 | 1286 |
-| Meaning changed or wrong | 71 | 71 |
+| Other | 1210 | 1304 |
+| Meaning changed or wrong | 72 | 72 |
 | Leaves out what the source says | 62 | 62 |
 | Wording: unnatural, literal, stiff or chatty | 26 | 26 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
