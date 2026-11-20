@@ -251,7 +251,7 @@ function nameHits(c: string, index: Map<string, string>) {
 /** Words that deny the page's own name right after them: "Bbb fish, not Aaa fish", "isn't a Y" (norm drops the apostrophe). */
 const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|rather than|instead of|unlike)\s+(?:(?:an?|the)\s+)?$/
 /** Words that put any name in doubt wherever they stand: a denial, a lookalike, a cross. */
-const DOUBT = /\b(?:not?|nor|neither|never|none|isnt|arent|wasnt|werent|doesnt|dont|didnt|cant|cannot|couldnt|ruled?|excluded?|dismiss\w*|unlikely|rather|instead|unlike|without|except|apart|besides|other than|differ\w*|distinct|doubt\w*|unsure|uncertain|confus\w*|mistak\w*|similar|resembl\w*|lookalike|relatives?|related|hybrids?|cross(?:es|ed)?)\b/
+const DOUBT = /\b(?:not?|nor|neither|never|none|isnt|arent|wasnt|werent|doesnt|dont|didnt|cant|cannot|couldnt|excluded?|dismiss\w*|unlikely|rather|instead|unlike|without|except|apart|besides|other than|differ\w*|distinct|doubt\w*|unsure|uncertain|confus\w*|mistak\w*|similar|resembl\w*|lookalike|relatives?|related|hybrids?|cross(?:es|ed)?|out|nope|wrong|incorrect|false|kind of|sort of|-like)\b/
 
 /**
  * The page an "another fish" answer names: a name of exactly one other species or plant page, as `captionSubject` reads
