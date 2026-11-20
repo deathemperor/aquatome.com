@@ -100,6 +100,50 @@ test("a photo listed as another fish keeps the id of the kind its answer named, 
   expect(kinds).not.toMatch(/tetra|looks/i)
 })
 
+test("an answer naming the judged page's own kind and not denying it names a second kind, so no id: a name inside one of the page's own gives way, and a breed's species is its own", async () => {
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt'] },
+    { id: 'bbb-fish', sci: 'Bbb fish', vi: { name: 'Cá bbb', altNames: ['Sample tetra'] } },
+    { id: 'ccc-fish', sci: 'Ccc fish' },
+    { kind: 'breeds', id: 'aaa-line', vi: { name: 'Aaa line' }, photos: ['line-1', 'line-own', 'line-other'], extra: { kind: 'variety', basedOn: 'aaa-fish', parents: [] } },
+  ])
+  const d = model({
+    'a-1': { typical: true },
+    // The page's own name, with another page's inside it.
+    green: { ok: 'other', note: 'a Green sample tetra, I think' },
+    or: { ok: 'other', note: 'Aaa fish or Bbb fish, hard to say' },
+    denied: { ok: 'other', note: 'a Ccc fish, not a green sample tetra' },
+    isnt: { ok: 'other', note: "Bbb fish; it isn't Aaa fish" },
+    'line-1': { typical: true },
+    // Another line of the breed's own species.
+    'line-own': { ok: 'other', note: 'another line of Aaa fish' },
+    'line-other': { ok: 'other', note: 'Bbb fish, not Aaa fish' },
+  })
+  await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })
+  const listed = await json(r, 'engine-state/_photo-rejected.json')
+  for (const n of ['green', 'or', 'denied', 'isnt', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
+  expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('denied')]: 'species/ccc-fish', [url('isnt')]: 'species/bbb-fish', [url('line-other')]: 'species/bbb-fish' })
+})
+
+test('the kind record names only a photo this run put on the list, keeps what it held, and is written before the verdicts, which end the answer', async () => {
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-1', 'raced', 'named'] },
+    { id: 'bbb-fish', sci: 'Bbb fish' },
+  ])
+  await writeFile(join(r, 'engine-state/_photo-other-kinds.json'), JSON.stringify({ [url('earlier')]: 'species/ccc-fish' }))
+  const d = model({ 'a-1': { typical: true }, raced: { ok: 'other', note: 'Bbb fish' }, named: { ok: 'other', note: 'Bbb fish' } })
+  const look = d.look
+  // Another step lists one of them for a person while the sheet is out.
+  d.look = async (...a: Parameters<typeof look>) => {
+    await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('raced')]: 'people: a person in it' }))
+    return look(...a)
+  }
+  // The verdicts can't be written: a folder stands where their file goes.
+  await mkdir(join(r, 'engine-state/_photo-subjects.json'))
+  await expect(checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })).rejects.toThrow()
+  expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('earlier')]: 'species/ccc-fish', [url('named')]: 'species/bbb-fish' })
+})
+
 test('a re-run costs nothing: every verdict is cached per photo and page', async () => {
   const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a', 'b'], gallery: ['c', 'd', 'e', 'f', 'g', 'h', 'i'] }])
   const first = model({})
