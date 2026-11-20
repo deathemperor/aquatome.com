@@ -71,8 +71,9 @@ const rank = (p: Photo) => (p.source && !SOURCES.find(s => s.id === p.source)?.p
 const MAX_LLM_FAILURES = 3
 /**
  * Pages in a row that failed on the network or that the source refused for now (HTTP 408, 429, a 5xx: state.ts
- * errorKind 'transient'): the source stops for the rest of the run, so the pages after them keep their attempts; the
- * failed ones go first in its next run. There is no rest past the run: the next run asks again.
+ * errorKind 'transient'): the source stops for the rest of the run, so the pages after them keep their attempts. Each
+ * failed one used an attempt and goes first in the source's next run, but one that has used all MAX_ATTEMPTS waits until
+ * its source changes it (state.ts needsFetch). There is no rest past the run: the next run asks again.
  */
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
@@ -557,6 +558,9 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       try {
         if (url in lineWaiting && !lineWaiting[url]!.turn) await lineTurn(url)
         const r = await get(url)
+        // A page that came back ends a run of network failures, but not one the source refused for now (408, 429, a 5xx):
+        // a source answering 429 page after page stops too (the chief of staff, 20 Nov).
+        if (errorKind(`HTTP ${r.status}`) !== 'transient') networkFailures = 0
         const o = htmlToOutline(r.html, src.contentSelector)
         if (isChallenge(o.title, o.outline)) {
           await block()
@@ -564,9 +568,6 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
           break // never retry around a challenge; the owner clears it in the engine's Chrome profile
         }
         if (r.status >= 400) throw new Error(`HTTP ${r.status}`)
-        // Only a page that came back well ends a run of failures: a source answering 429 (or 408, or a 5xx) page after
-        // page stops after MAX_NETWORK_FAILURES of them, as with the network gone (the chief of staff, 20 Nov).
-        networkFailures = 0
         const hash = snapshotHash(o)
         if (hash !== prev?.hash || r.capturedAt) await writeSnapshot(root, id, url, o, deps.now(), r.capturedAt)
         // A page whose credits are still to learn, read now on its own turn: what this read shows decides (credit-reads.ts).
