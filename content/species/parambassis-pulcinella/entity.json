@@ -7,7 +7,8 @@
   "group": "other",
   "places": [
     "asia",
-    "myanmar"
+    "myanmar",
+    "thailand"
   ],
   "range": {
     "native": {
@@ -81,6 +82,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -104,10 +109,22 @@
       "html": "<p>The humphead perchlet, Chanda pulcinella, is a freshwater ambassid endemic to Myanmar, where it inhabits large, fast-flowing, clear streams. Described in 2003, it takes its name from the scaleless hump on its head, formed from an extension of the spine and apparently smaller in females. Artificially dyed specimens have reached the market and should be avoided, since the process is cruel and usually shortens the fish's life considerably.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>Parambassis pulcinella is a most peculiar species of glass perch. The maximum size reported so far is about 10 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
       "html": "<p>Endemic to Myanmar.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>This freshwater fish originates from clear streams in the border region between Thailand and Burma.</p>"
     },
     {
       "key": "habitat",
@@ -128,6 +145,12 @@
       "html": "<p>Decor is not critical. Plants, rocks, driftwood etc. can all be used to your own taste. This is a freshwater species and does not require the addition of salt to its tank.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>A strong current is considered very beneficial for the well-being of the animals.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
@@ -140,10 +163,22 @@
       "html": "<p>It will accept dried pellets or flakes, but these should be supplemented with regular feedings of live and frozen foods such as bloodworm and brine shrimp.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>Like all glass perches, this species needs live and frozen food as food, dry food is usually refused.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
       "html": "<p>A peaceful species but it might intimidate small fish with its active nature and adult size. Good tankmates include rainbowfish, barbs and loaches. It can be maintained in groups although they may occasionally squabble amongst themselves. This will rarely involve anything more than a bit of chasing, however.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>Against conspecifics the species is rather peaceful. They tend to tease each other sometimes over a short period, but this is harmless. It is best to keep this fish in groups of 8-10 specimens.</p>"
     },
     {
       "key": "dimorphism",
@@ -152,33 +187,81 @@
       "html": "<p>Apparently the hump is smaller in females than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>The males have a larger hump than the females.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
       "html": "<p>Has not yet been achieved in aquaria.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>The hump may have something to do with the sexual life of the animals. However, nothing about the sexual life of Parambassis pulcinella is known yet.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/chanda-pulcinella",
       "html": "<p>A new species that was only described to science in 2003, little is known about the natural behaviour of C. pulcinella. It has started to be imported quite regularly over the last couple of years, although it is still quite expensive. Unfortunately this species has suffered the same fate as some of its close relatives, and artificially dyed specimens have been making their way onto the market. These should be avoided at all costs, as the processes involved are cruel and unnecessary, and usually shorten the life of the fish considerably. The characteristic hump on the head of the fish is formed from an extension of the spine, and is scaleless.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "html": "<p>Nobody knows what the odd hump is good for.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/1c88215ddd4f69cf.webp",
+      "thumb": "https://media.aquatome.com/commons/1c88215ddd4f69cf-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 3.0",
-      "author": "Puchatech K.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parambassis_pulcinella_(01).jpg",
-      "caption": "Parambassis pulcinella",
-      "thumb": "https://media.aquatome.com/commons/1c88215ddd4f69cf-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/1c88215ddd4f69cf-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Puchatech K.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Parambassis_pulcinella_(01).jpg",
+      "caption": "Parambassis pulcinella"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/de9652c70b892f51.webp",
+      "thumb": "https://media.aquatome.com/glaser/de9652c70b892f51-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b5331c4c939e23fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/b5331c4c939e23fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b1425e61574d8fa6.webp",
+      "thumb": "https://media.aquatome.com/glaser/b1425e61574d8fa6-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/parambassis-pulcinella-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -237,5 +320,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-20"
 }

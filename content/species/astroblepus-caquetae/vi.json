@@ -1,0 +1,23 @@
+{
+  "slug": "ca-da-tron-leo-orteguasa",
+  "name": "Cá da trơn leo Orteguasa",
+  "altNames": [
+    "Orteguasa Climbing Catfish"
+  ],
+  "sections": {
+    "distribution:scotcat": "<p>Nam Mỹ: thượng nguồn lưu vực sông Amazon, ở Colombia và Ecuador. Nơi lấy mẫu chuẩn: Florencia, Río Ortueguasa, Colombia.</p>",
+    "habitat:scotcat": "<p>Cá họ Astroblepidae sống ở các con suối nước ngọt vùng Andes nhiệt đới, từ Panama xuống Bolivia, ở độ cao khoảng 60 đến 4.100 m so với mực nước biển. Chúng có ở cả hai phía: các hệ thống sông đổ về sườn Thái Bình Dương ở phía tây và sườn Amazon ở phía đông, thuộc Nam Mỹ và Trung Mỹ.</p>",
+    "maintenance:scotcat": "<p>Họ cá da trơn này không dễ nuôi. Muốn nuôi thì cần bể lớn, có đá và một ít cây hợp với chúng. Nước phải chảy mạnh, và cần cấp thêm oxy bằng cách dẫn dây oxy vào luồng nước ra của đầu bơm (powerhead). Xếp đá trong bể sao cho có một khu nước chảy chậm hơn.</p>",
+    "diet:scotcat": "<p>Thức ăn chính có lẽ là tép và các con mồi nhỏ khác, ấu trùng côn trùng, spirulina dạng viên hoặc dạng sệt, thức ăn làm từ tảo và trùng huyết sống. Có thể cho ăn thử thêm ấu trùng muỗi trong (glassworm) và giun đen (blackworm). Có điều hai món này thường không nằm lại dưới nền, trừ khi dòng nước cuốn chúng xuống đó.</p>",
+    "notes:scotcat": "<p>Họ Astroblepidae có họ hàng gần với cá lau kiếng (họ Loricariidae). Có một giống là Lithogenes Eigenman, 1909 dường như nằm lưng chừng giữa hai họ này. Nó có hình dáng của cá Astroblepidae, nhưng trên thân lại có một số tấm giáp, cùng vài đặc điểm hình thái khác gần với Loricariidae hơn. Hiện nay Lithogenes đang được xếp vào họ Loricariidae.</p><p>Nguồn gốc tên: tên loài caquetae nghĩa là \"của Caquetá\", tỉnh ở Colombia có nơi lấy mẫu chuẩn (Río Orteguasa).</p><p>Danh lục Đỏ IUCN: Loài này mới chỉ được biết đến ở nơi lấy mẫu chuẩn, chưa có thông tin gì về vùng phân bố và quần thể. Loài được xếp hạng Thiếu dữ liệu (Data Deficient), nhưng xếp hạng này cần được cập nhật (IUCN 2016).</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ).</p><p>Mojica, J., Jimenez-Segura, L. &amp; Alonso, J. C. 2016. Astroblepus caquetae. The IUCN Red List of Threatened Species 2016.</p><p>Ochoa LE, Melo BF, García-Melo JE, Maldonado-Ocampo JA, Souza CS, Albornoz-Garzón JG, Conde-Saldaña CC, Villa-Navarro F, Ortega-Lara A, Oliveira C. Species delimitation reveals an underestimated diversity of Andean catfishes of the family Astroblepidae (Teleostei: Siluriformes). Neotrop Ichthyol. 2020; 18(4).</p>"
+  },
+  "quality": {
+    "score": 0.6,
+    "indexable": false,
+    "bySource": {
+      "scotcat": 0.6
+    },
+    "reason": "score"
+  }
+}

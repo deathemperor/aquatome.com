@@ -15,7 +15,10 @@
     "narathiwat",
     "brunei",
     "belait",
-    "singapore"
+    "singapore",
+    "malay-peninsula",
+    "sumatra",
+    "borneo"
   ],
   "range": {
     "native": {
@@ -228,6 +231,13 @@
           "min": 22,
           "max": 25
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -252,6 +262,10 @@
       {
         "source": "seriouslyfish",
         "value": 13
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -275,6 +289,12 @@
       "html": "<ul><li>Max size: 130 mm SL (5 in)</li><li>Aquarium size: 120 × 45 cm</li><li>Temperature: 22–25°C</li><li>Hardness: 1–12 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "html": "<p>One of the unfortunately very rare black water rasboras on offer. Grows to over 10 cm in length.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-cephalotaenia",
@@ -285,6 +305,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-cephalotaenia",
       "html": "<p>It was previously thought restricted to Peninsular Malaysia and the Greater Sunda Islands of Borneo and Sumatra but in 2006 was also collected from a tributary of the Kolok River in Narathiwat Province, southern Thailand. Unfortunately it is now considered extirpated from the island of Singapore where it was once native. Much older records from China are almost certainly a result of misidentification.</p><p>It has been recorded from various parts of Peninsular Malaysia including peat swamps in northern Selangor state, streams just outside Kuantan city in Pahang state and various localities in Johor state; on Sumatra (Indonesia) collections have occured at Taloek in Riau province, the Moesi River close to the city of Palembang in South Sumatra province and Bangka Island just off the southeastern coast; in Malaysian Borneo there exist numerous occurences from Sarawak state most notably from the Baram River; in Brunei Darussalam it can be found inhabiting tributaries of the Belait and Ingei Rivers, Belait District; in Kalimantan (the Indonesian part of the island) localities in the province of Central Kalimantan (Kalimatan Tengah) include the blackwater Sabangau River close to the city of Palangkaraya, a tidal tributary of the Mentaya River and the Ramban River near Sampit; it has also been recorded from a few locations within Western Kalimatan (Kalimantan Barat) province but its range appears not to extend into the far north and east of the island.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "html": "<p>Rasbora cephalotaenia is quite widespread on the Malay Peninsula to southern Thailand and on the large Sunda Islands (Borneo, Sumatra). Presumably it is also found on smaller islands of the Sunda archipelago in suitable habitats. However, as peat swamps are drained all over South East Asia and used for oil palm plantations, this species is also endangered by environmental destruction.</p>"
     },
     {
       "key": "habitat",
@@ -311,16 +337,34 @@
       "html": "<ul><li>Temperature: 22–25°C</li><li>pH: Surprisingly adaptable given its natural habitat and is happy within the range 5.0–7.5.</li><li>Hardness: 1–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "html": "<p>As far as water composition is concerned, Rasbora cephalotaenia are undemanding, at least as long as one does not want to breed. In the dark black water (practically no hardness, pH between 4 and 5), the colour marks are needed to identify conspecifics because of the poor underwater visibility. They shine considerably more intensely in soft water tinted brownish by peat, dead leaves and alder cones.</p><p>The water temperature should be between 24 and 28°C, for breeding 2-3°C higher.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-cephalotaenia",
       "html": "<p>Probably feeds mostly on invertebrates both aquatic and terrestrial in nature as with similar members of the genus. In the aquarium it's easily-fed but for it to develop its best colours and condition offer regular meals of live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes and granules.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "html": "<p>They eat all usual fish food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-cephalotaenia",
       "html": "<p>This species makes an ideal addition to a peaceful community of Southeast Asian/Indian species such as other similarly-sized Rasbora, Puntius, botiid loaches and gouramis of the genus Trichogaster. In a biotope set-up you could try it alongside other Malaysian/Bornean blackwater species. There are many suitable choices but some of the more commonly exported examples include Striuntius lineatus, Puntius pentazona, Trigonopoma gracile, T. pauciperforatum, Rasbora caudimaculata and Pangio (kuhli) loaches.</p><p>It is a gregarious species by nature and really should be kept in a group of at least six to get the best out of it in the aquarium. The fish show better colours in the presence of conspecifics, are less nervous and the display on the whole is far more natural-looking.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "html": "<p>Rasbora cephalotaenia is ideal for community aquariums, e.g. with harlequin barbs, labyrinths or catfish, given they are also blackwater inhabitants. The peaceful animals like to swim in a swarm with their conspecifics.</p>"
     },
     {
       "key": "dimorphism",
@@ -333,6 +377,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-cephalotaenia",
       "html": "<p>It is not known whether it has been bred in the hobby although it should certainly be possible. Like most cyprinids this species is an egg-scattering spawner that exhibits no parental care. When the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without human intervention. However if you want to increase the yield of fry a slightly more controlled approach is required, by upscaling an approach that has proven successful for smaller members of the genus.</p><p>The adult group can still be conditioned together but one or more long, shallow containers, say 90 × 30 × 30 cm (85 litres), should also be set up and half-filled with water. These should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works very well for other species. The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An internal power filter can be added initially and this should be positioned so that the flow is directed down the full length of the tank.</p><p>When the adult fish are well-conditioned and the females appear full of eggs one or two pairs should then be introduced to each container. Spawning can be initiated by adding small amounts of cool water every few hours in such a way that the tank is gradually topped up and feeding small amounts of live and frozen foods. Several spawning events will probably occur before a female is spent of eggs. The adults will likely eat any eggs they find and are best removed after a couple of days at which point the power filter should be switched for a mature sponge-type unit in order to avoid fry being sucked into the mechanism.</p><p>Incubation in Rasbora eggs is temperature-dependant to an extent but usually takes between 18 and 48 hours with the young free-swimming 24 to 48 hours later. Initial food should be Paramecium or similar introducing Artemia nauplii and/or microworm once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "html": "<p>They are free spawners without brood care. For breeding, the temperature should be 2-3°C higher.</p>"
     },
     {
       "key": "notes",
@@ -358,9 +408,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/rasbora-cephalotaenia",
       "caption": "Well-conditioned adult of R. cephalotaenia.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/414f7a205b38ed11.webp",
+      "thumb": "https://media.aquatome.com/glaser/414f7a205b38ed11-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2eb95fe03adbb208.webp",
+      "thumb": "https://media.aquatome.com/glaser/2eb95fe03adbb208-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/af3024b399ee38ad.webp",
+      "thumb": "https://media.aquatome.com/glaser/af3024b399ee38ad-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/rasbora-cephalotaenia/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "YKXbB8Clpiw",
+      "title": "ปลาซิวชมพู Rasbora cephalotaenia ปลาสามประเทศยังไงอ่ะ",
+      "durationSec": 1162,
+      "lang": "th"
+    },
+    {
+      "youtubeId": "y2viY3raxIM",
+      "title": "Rasbora cephalotaenia (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "BQTKMld9jN8",
+      "title": "rasbora cephalotaenia",
+      "durationSec": 31,
+      "lang": "th"
+    },
+    {
+      "youtubeId": "dmKTrkmNsWQ",
+      "title": "ซื้อปลาใหม่มาลงตู้ ปลาที่คนไม่ค่อยรู้จัก Rasbora cephalotaenia",
+      "durationSec": 749,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -389,5 +494,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

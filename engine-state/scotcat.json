@@ -1835,6 +1835,66 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm": {
+    "entityIds": [
+      "species/astroblepus-bellezaensis"
+    ],
+    "updatedAt": "2026-11-20T17:56:00.294Z",
+    "hash": "22112385cd77fa3b10c46e4ee7e17134d588115cef8c05d6759cb88210385ac5",
+    "processedHash": "22112385cd77fa3b10c46e4ee7e17134d588115cef8c05d6759cb88210385ac5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_cacharas.htm": {
+    "entityIds": [
+      "species/astroblepus-cacharas"
+    ],
+    "updatedAt": "2026-11-20T17:58:42.698Z",
+    "hash": "d2511c6fd5f42711a35beb1ea9536d4b8904feb6d6a3dbfbaac57effd39b5049",
+    "processedHash": "d2511c6fd5f42711a35beb1ea9536d4b8904feb6d6a3dbfbaac57effd39b5049",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_caquetae.htm": {
+    "entityIds": [
+      "species/astroblepus-caquetae"
+    ],
+    "updatedAt": "2026-11-20T18:01:27.359Z",
+    "hash": "84f0a6baae663b185deec4539c5bd55b5cff56c6008b1221c4e648fe236efaf4",
+    "processedHash": "84f0a6baae663b185deec4539c5bd55b5cff56c6008b1221c4e648fe236efaf4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_curitiensis.htm": {
+    "entityIds": [
+      "species/astroblepus-curitiensis"
+    ],
+    "updatedAt": "2026-11-20T18:03:42.032Z",
+    "hash": "b0d41d205b114345cc13d92c6262d3fd61b9d3efe7896d0d784a58ac207d0909",
+    "processedHash": "b0d41d205b114345cc13d92c6262d3fd61b9d3efe7896d0d784a58ac207d0909",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_cyclopus.htm": {
+    "entityIds": [
+      "species/astroblepus-cyclopus"
+    ],
+    "updatedAt": "2026-11-20T18:05:54.121Z",
+    "hash": "b567f5a8def7b577c356ea579ef01cd1e16138443f8a272e4ae01224940bda5d",
+    "processedHash": "b567f5a8def7b577c356ea579ef01cd1e16138443f8a272e4ae01224940bda5d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_eigenmanni.htm": {
+    "entityIds": [
+      "species/astroblepus-eigenmanni"
+    ],
+    "updatedAt": "2026-11-20T18:09:22.914Z",
+    "hash": "a809b16e9b106c381b5122422d927f417ce990120079683c33b02d6b32ae5800",
+    "processedHash": "a809b16e9b106c381b5122422d927f417ce990120079683c33b02d6b32ae5800",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm": {
     "entityIds": [
       "species/ageneiosus-lineatus"
@@ -2562,6 +2622,16 @@
     "updatedAt": "2026-11-08T18:07:16.138Z",
     "hash": "f600a9ddbd36a0a3cd420404ecd3bed300dc0453cb4142bd4b10d0b86b8dbbe4",
     "processedHash": "f600a9ddbd36a0a3cd420404ecd3bed300dc0453cb4142bd4b10d0b86b8dbbe4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm": {
+    "entityIds": [
+      "species/ancistrus-leucostictus"
+    ],
+    "updatedAt": "2026-11-20T17:51:41.835Z",
+    "hash": "24da9b1170452f1bdc288fdce6313075f7598523e35ad96388c176470dfcdbd6",
+    "processedHash": "24da9b1170452f1bdc288fdce6313075f7598523e35ad96388c176470dfcdbd6",
     "status": "processed",
     "attempts": 0
   },
@@ -3590,6 +3660,16 @@
     "updatedAt": "2026-11-02T12:19:34.312Z",
     "hash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
     "processedHash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pseudopimelodidae/microglanis_carlae.htm": {
+    "entityIds": [
+      "species/microglanis-carlae"
+    ],
+    "updatedAt": "2026-11-20T17:53:40.394Z",
+    "hash": "06842d3733a7caf6fbb0beddd03e3690d603bc29f2ffb7148c3f8012f3f9d336",
+    "processedHash": "06842d3733a7caf6fbb0beddd03e3690d603bc29f2ffb7148c3f8012f3f9d336",
     "status": "processed",
     "attempts": 0
   },

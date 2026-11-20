@@ -1,0 +1,29 @@
+{
+  "slug": "ca-rudd",
+  "name": "Cá rudd",
+  "altNames": [
+    "Cá vây đỏ châu Âu"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá rudd là một trong những loài cá trắng bản địa phổ biến nhất, và cũng thuộc hàng đẹp nhất. Thân cá màu bạc, thường ánh vàng đồng, còn vây thường đỏ son. Cá càng già thì màu vây càng đậm. Cá bán ra là cá trại, dành cho bể cá và hồ ngoài vườn. Dù thế nào cũng không được thả chúng ra tự nhiên.</p><p>Cá rudd thường dài 15-20 cm, con lớn nhất khoảng 50 cm.</p>",
+    "diet:glaser": "<p>Trong các loài cá bản địa, cá rudd ăn rau nhiều nhất. Vì thế nó là loài cá bản địa duy nhất thả vào hồ ngoài vườn để kìm bớt rêu sợi và bèo tấm. Nhưng đừng trông chờ nó làm nên chuyện thần kỳ.</p><p>Nuôi trong bể thì cho ăn cám mảnh gốc thực vật làm thức ăn chính, thêm đồ đông lạnh và đồ tươi sống các loại.</p>",
+    "waterConditions:glaser": "<p>Loài này chịu nhiệt khá tốt. Nước lên tới 26°C cá vẫn không sao, nên rất hợp nuôi trong bể. Bể không cần sưởi. Giữa mùa hè nhiệt kế có vượt 20°C cũng không cần lo, dù với một số loài cá nước lạnh thì mức này đã bắt đầu nguy hiểm.</p>",
+    "behaviour:glaser": "<p>Cá rudd sống theo đàn và rất hiền.</p>",
+    "dimorphism:glaser": "<p>Nhìn bên ngoài thì hầu như không phân biệt được đực cái. Con đực nhỏ và mảnh hơn con cái cùng tuổi.</p>",
+    "reproduction:glaser": "<p>Cá rudd đẻ trứng, và chúng rải trứng vào đám cây lá mảnh xẻ lông chim. Cá bố mẹ không chăm trứng hay chăm con.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-21"
+  }
+}

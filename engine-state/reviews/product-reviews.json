@@ -280,5 +280,27 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/products/twinstar-30b": [
+    {
+      "at": "2026-11-20T19:47:23Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T19:47:23Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 0,
+      "notes": [
+        "\"Một bài review xếp đèn này vào loại công suất thấp đến trung bình. Dùng sáu, bảy tháng thì thảm Monte CARLON và cây đỏ vẫn lên tốt, còn loại trải thảm khó như HC Cuba thì sẽ không lên.\" names Monte, HC, Cuba: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

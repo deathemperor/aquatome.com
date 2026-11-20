@@ -1,0 +1,196 @@
+{
+  "id": "physella-acuta",
+  "scientificName": "Physella acuta",
+  "order": "",
+  "family": "Physidae",
+  "genus": "Physella",
+  "group": "snails",
+  "places": [
+    "north-america",
+    "africa",
+    "south-africa",
+    "europe",
+    "france",
+    "garonne"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 15,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 0,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 1.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 1
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1,
+          "max": 1
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li><strong>Name:</strong> Bladder snail</li><li><strong>Common names:</strong> European Physa, Pest snail, Acute Pond Snail, Tadpole snail, Sewage snail, Pouch snail</li><li><strong>Scientific name:</strong> Physa acuta (formerly Physella heterostropha, Physa integra and Physa natricina)</li><li><strong>Minimum tank size:</strong> does not matter</li><li><strong>Breeding:</strong> very easy</li><li><strong>Optimal KH:</strong> 0 – 25</li><li><strong>TDS (optimal):</strong> 50 – 500</li><li><strong>Nitrate:</strong> less than 100 ppm</li><li><strong>Diet:</strong> omnivore / algae eater</li><li><strong>Temperament:</strong> peaceful</li><li><strong>Colour:</strong> yellow-brownish with spots</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bladder snails (Physa acuta) are arguably the most well-known example of invasive freshwater snails. The aquarium trade, and the increasing popularity of ornamental animals and plants, is the main reason for the spread of this species in the hobby.</p><p>Bladder snails are hermaphrodites, prolific breeders and can survive in polluted waters. They are extremely adaptable to a wide range of environments, including extreme temperatures and salinity. However, they are also very good at keeping aquariums clean.</p><p>There are many debates about these snails in the aquarium hobby. Some people hate them and try to get rid of them. Others find them beneficial and do not mind having them in their tanks, or breed them as food for pufferfish, predatory snails, crabs or crayfish.</p><p>The most common way of getting Bladder snails (or any other snails) is from plants. They are \"professional\" hitchhikers. Therefore, to avoid unwelcome visitors in home aquariums, everything that goes into the tank (plants, leaves, driftwood, stones, decorations, etc.) should be quarantined.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The invasive snail Physa acuta has spread through the continents of Asia, Africa, Australia, Europe, and South and North America. Basically, Bladder snails occur on all continents except Antarctica.</p><p>This species was first described in 1805 by Draparnaud from the River Garonne near Bordeaux (France). This led to early speculation of a European origin for the species. It is now established that North America is the native range of the species.</p><p>On a worldwide scale, the ease with which Bladder snails can spread is a real concern, even for governments. For example, Physa acuta is currently the second most widespread alien invader freshwater snail in South Africa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bladder snails dwell in ponds, streams, rivers, lakes, rice fields, irrigation canals, ditches and municipal drains. Their natural densities may therefore show huge spatial and temporal variation.</p><p>In the wild, they survive in industrially polluted waters. Bladder snails have been found in sewers, hence one of their common names, \"Sewage snail\".</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Minimum tank size does not matter for Bladder snails; they can live and thrive anywhere.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bladder snails are probably among the most resistant creatures in the aquatic hobby. They are very robust and undemanding in terms of water hardness, temperature and pH.</p><p>They can thrive and reproduce in a range of 15 – 30°C.</p><p>One of the problems with them is that they might eventually clog a filter intake or other parts of the filter. If there are lots of snails, check it from time to time.</p><p>In some cases, aquarists use them to cycle their tanks.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>According to a study, they can also tolerate raised salinity, with conductivity of 500–1000 µS/cm. Moreover, Bladder snails displayed maximum growth and reproduction in intermediate salinity treatments rather than in low salinity treatments.</p><p>Calcium is probably the most important thing for a snail. Like all snails, Bladder snails rely on calcium for shell growth. They are highly dependent on calcium availability for survival, showing reduced growth rate, survival and reproductive output in low-calcium environments. Eggshells, cuttlefish bones, etc. can be added to supply calcium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bladder snails are omnivorous. They eat algae, diatoms, dead and decaying organic matter (meat, insects, vegetables or plants), leftover fish or shrimp food (pellets, flakes, algae wafers, etc.), debris and waste.</p><p>They are ultimate cleaners for fish or shrimp aquariums, feeding continually. They are so good at it that any overfeeding will trigger a snail infestation. They are like an indicator of the food balance in the tank.</p><p>Bladder snails are plant safe. They will not touch any healthy plant in the tank and simply do not eat healthy, living plant material. People sometimes confuse grazing on a plant with eating it. Even if they are seen eating a \"healthy\" plant, it means the plant is dying, although it has not shown yet. They trim and eliminate any dead or decaying vegetation, leaving the plants looking as if they had been attended by a gardener.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Unlike many land and freshwater snails, which can retreat into their shell and close it with a lid (operculum), Bladder snails do not have one. Instead, to avoid being snatched by predators, they can flick their shells quite rapidly back and forth.</p><p>This species can also swim upside-down at the water's surface to breathe air. In case of danger, the snail can expel the air from its respiratory system and quickly submerge to the bottom.</p><p>Bladder snails do not dig but can crawl through the water at an amazing speed.</p><p>Bladder snails are excellent food for Assassin snails, crayfish, loaches, pufferfish, Oscars, etc. There are some reports that Asolene spixi snails can also feed on Bladder snails if very hungry.</p><p>Bladder snails are absolutely harmless creatures and safe with plants.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bladder snails are simultaneous hermaphrodites, with both male and female reproductive organs. Sexes cannot be told apart.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Bladder snails are simultaneously hermaphroditic freshwater snails with a sperm storage organ. They have both male and female reproductive organs and can reproduce both through internal self-fertilization and through cross-fertilization (mating).</p><p>Although they have two ways of reproducing, the main one is still mating. A snail approaches and climbs onto the shell of an intended female, crawling to the \"female\" gonophore. Copulation may last up to 30 minutes.</p><p>Bladder snails reach female maturity between 28 and 42 days (at 20 – 22°C), after passing a short male stage. At reproductive maturity, the snails average 6 mm in shell length.</p><p>According to recent studies, they do not have a consistently preferred gender role. Gender preference may even change within an individual during a mating session.</p><p>They lay transparent eggs within capsules. Each egg capsule contains 10 – 40 eggs and hatchability remains between 70 and 90%. Juveniles (about 1 mm long) hatch 6 – 7 days after egg-laying. Depending on temperature, incubation periods can range from 4 – 15 days.</p><p><strong>How temperature affects breeding</strong></p><ul><li><strong>15°C (lowest tested):</strong> sexual maturity after 34 days; mean shell height 6.1 mm; egg production continued for 54 weeks; net reproductive rate 115.6 eggs per snail per week; life span 403 days with an overall growth rate of 0.2 mm/week.</li><li><strong>25°C:</strong> sexual maturity after 20 days; mean shell height 5.1 mm; egg production lasted only 15 weeks; net reproductive rate remained high at 104.1 eggs per snail per week; life span 193 days with an increased overall growth rate of 0.4 mm/week.</li><li><strong>28°C (highest tested):</strong> sexual maturity accelerated to 18 days; mean shell height 4.7 mm; egg production was much lower than at 15 or 25°C and lasted only 9 weeks; net reproductive rate 24.6 eggs per snail per week; snails survived 87 days with an overall growth rate of 0.5 mm/week.</li><li>Egg capsules contained 20 – 45 eggs; incubation periods 5 – 7 days.</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The acute Bladder snail is a small air-breathing (pulmonate) snail. The largest size is 15 mm in length and 7 mm in width, but in general they barely reach 1 cm.</p><p>The shells are left-handed (spirally coiled anticlockwise, which is quite rare in snails) and egg-shaped with a pointed tip. The number of whorls ranges from 4 to 5. They have a long, widely open aperture. Externally, shells look thin and horn-like, with some transparency. The colour may vary from light horny yellowish to brown. They do not have an operculum (trapdoor).</p><p>Bladder snails have a pair of fine, threadlike sensory tentacles with eyes at their base, which are clear black spots. The mantle is colourful with yellow-orange spots. The body is grey and covered in fleck spots on the upper mantle under the shell.</p><p>Life span ranges from 3 – 12 months and depends greatly on environmental temperature.</p><p>Although they are sensitive to copper exposure, Bladder snails' oxygen transport is not done by haemoglobin, as in humans, but by a similar copper-containing protein (haemocyanin). That is why, at oxygen saturation, their blood turns from colourless to pale blue.</p><p><strong>Difference between Bladder snail and Pond snail</strong></p><p>Aquarists often confuse Bladder snails (Physella acuta) with Pond snails (Lymnaea stagnalis) and use the names as synonyms for pest snails in tanks, which creates confusion.</p><table><tr><th></th><th>Pond snails</th><th>Bladder snails</th></tr><tr><th>Size</th><td>2.5 – 7 cm</td><td>Up to ~1.5 cm</td></tr><tr><th>Shell form</th><td>Shells spiral to the right</td><td>Shells spiral to the left</td></tr><tr><th>Shell colour</th><td>Brown variations</td><td>Pale in colour with markings (spots)</td></tr><tr><th>Tentacles</th><td>Thick and triangular</td><td>Thin and short</td></tr><tr><th>Plant safe</th><td>No</td><td>Yes</td></tr><tr><th>Reproduction</th><td>Prolific egg layers</td><td>Extremely prolific, \"born pregnant\"</td></tr></table><p>Bladder snails have invaded practically all freshwater aquariums in the world. They can survive harsh conditions and overpopulate a tank in a short time, starting with a few and turning into hundreds very fast. The species is characterised by its ability to produce surplus eggs and a comparatively short generation time. They eat algae and keep the tank clean, so they are not all bad; just do not overfeed.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/51a8a4746367d7d9.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/51a8a4746367d7d9-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/bladder-snail-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "cZksBlYoL1Q",
+      "title": "Bladder Snail: Care Guide and Tips 🐌🌿 (Physa acuta)",
+      "durationSec": 144,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_o2NE5cHy_c",
+      "title": "My Bladder Snails Are OUT OF CONTROL! 🐌😳",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Y2zWduhj7YY",
+      "title": "Bladder Snail Ninja mode  macro shots #aquarium #fishkeepinghobby #homeaquarium #foryou",
+      "durationSec": 10,
+      "lang": "ar"
+    },
+    {
+      "youtubeId": "88cnxk-V7tw",
+      "title": "Bladder Snails 🐌 🐌| Tadpole Snail 🐚🐚| Physella acuta |",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "canxi cho tép và ốc",
+        "vỏ mực cho ốc"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cách ly cây thủy sinh",
+        "bể nuôi ốc"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

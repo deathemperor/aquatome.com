@@ -292,6 +292,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -316,6 +323,10 @@
       {
         "source": "seriouslyfish",
         "value": 100
+      },
+      {
+        "source": "glaser",
+        "value": 75
       }
     ],
     "tankCm": [
@@ -339,10 +350,22 @@
       "html": "<p>The slobbering catfish, Brachyplatystoma platynema, is a large migratory pimelodid catfish from the Amazon and Orinoco basins. The name refers to its relatively thick barbels, which give the impression that the fish is drooling. It travels considerable distances along deeper, flowing channels, and sexually mature adults have been observed in the upper rio Madeira basin, some 3000 km from the estuary. It grows to 1000 mm SL.</p><ul><li>Max size: 1000 mm SL (39 in)</li><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-platynemum-2/",
+      "html": "<p>Brachyplatystoma platynemum used to be placed in a separate genus, Goslinia, which is now a synonym for Brachyplatystoma. B. platynemum is distributed throughout the Amazon and Orinoco region and grows to about 1 m long in the Amazon, while the largest known B. platynemum from the Orinoco even measured 117 cm. As it is a popular food fish, one is well informed about average sizes. Males usually grow to about 65 cm and females to about 75 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-platynema",
       "html": "<p>Type locality is 'Pará, Brazil' but this species is widely-distributed throughout much of the Amazon and Orinoco basins, including many tributary drainages.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-platynemum-2/",
+      "html": "<p>B. platynemum is distributed throughout the Amazon and Orinoco region.</p>"
     },
     {
       "key": "habitat",
@@ -369,6 +392,12 @@
       "html": "<ul><li>Temperature: 22–28°C (72–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: 1–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-platynemum-2/",
+      "html": "<p>As a white water inhabitant B. platynemum does not make any noteworthy demands on the water composition, any common tap water is well suited for maintenance. The water temperature should be in the range of 24 to 28°C, but occasionally the fish tolerate higher or lower temperatures well.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-platynema",
@@ -379,6 +408,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-platynema",
       "html": "<p>Only keep with species large enough to avoid predation.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-platynemum-2/",
+      "html": "<p>The special feature of this predatory catfish are the flattened barbels (platys = broad, nema = thread), which the fish always orientate perpendicular to the water current. They are lurking hunters, which usually rest on the large pelvic fins and hunt for prey fish of suitable size with their head pointing upwards and against the current. Like most predatory catfish, they are largely indifferent to each other and are also peaceful towards other fish that are not suitable as food.</p>"
     },
     {
       "key": "dimorphism",
@@ -408,28 +443,83 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/4a7bb36d3a99a333.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4a7bb36d3a99a333-480.webp",
       "width": 800,
       "height": 540,
       "licence": "dùng với sự cho phép",
       "author": "Enrico Richter / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-platynema",
       "caption": "Juvenile...",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/4a7bb36d3a99a333-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/7c0b4cc2ae9ab67c.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7c0b4cc2ae9ab67c-480.webp",
       "width": 800,
       "height": 538,
       "licence": "dùng với sự cho phép",
       "author": "Enrico Richter / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachyplatystoma-platynema",
       "caption": "...and another.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/7c0b4cc2ae9ab67c-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2ac61b3ab62010a0.webp",
+      "thumb": "https://media.aquatome.com/glaser/2ac61b3ab62010a0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-platynemum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7eb53de35f91b3aa.webp",
+      "thumb": "https://media.aquatome.com/glaser/7eb53de35f91b3aa-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-platynemum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b439bf204eb6cf7d.webp",
+      "thumb": "https://media.aquatome.com/glaser/b439bf204eb6cf7d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/brachyplatystoma-platynemum-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "0pJZcDYhNOw",
+      "title": "Brachyplatystoma platynemum - Slobbering catfish",
+      "durationSec": 34,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NSPyuxikyng",
+      "title": "Brachyplatystoma platynemum",
+      "durationSec": 34,
+      "lang": "zxx"
+    },
+    {
+      "youtubeId": "nSyEqSL111E",
+      "title": "ゴスリニア　　Slobbering catfish, Goslinia　Brachyplatystoma platynemum",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4Ik1hVzpyw4",
+      "title": "Rare Slobbering catfish - Brachyplatystoma platynemum",
+      "durationSec": 80,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "loc",
@@ -458,5 +548,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-20"
 }

@@ -12956,6 +12956,14 @@
     "matchType": "EXACT"
   },
   "Ginga rubra": null,
+  "Giradinus falcatus": {
+    "canonicalName": "Girardinus falcatus",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Girardinus",
+    "matchType": "FUZZY"
+  },
   "Girardinus falcatus": {
     "canonicalName": "Girardinus falcatus",
     "phylum": "Chordata",
@@ -32248,6 +32256,14 @@
   },
   "Tympanopleura atronasus": {
     "canonicalName": "Tympanopleura atronasus",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Tympanopleura",
+    "matchType": "EXACT"
+  },
+  "Tympanopleura cryptica": {
+    "canonicalName": "Tympanopleura cryptica",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Auchenipteridae",
     "genus": "Tympanopleura",

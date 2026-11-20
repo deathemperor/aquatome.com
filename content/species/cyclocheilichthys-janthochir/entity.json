@@ -9,7 +9,8 @@
     "asia",
     "indonesia",
     "kalimantan",
-    "kapuas"
+    "kapuas",
+    "borneo"
   ],
   "range": {
     "native": {
@@ -82,11 +83,11 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 20
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 20
       }
     ],
@@ -96,6 +97,13 @@
         "value": {
           "min": 22,
           "max": 27
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
         }
       }
     ],
@@ -134,8 +142,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
-      "html": "<p>Cyclocheilichthys janthochir belongs to the barb family. Species of several barb genera with a similar body shape are commonly called \"shark\" in the hobby. In the fishhouse it got the nickname \"top-model-barb\", because it is very pretty but looks very skinny. It is neither fastidious regarding food, nor uptight in any other way.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "html": "<p>Cyclocheilichthys janthochir belongs to the barb family, but species of several barb genera with a similar body shape are commonly called \"shark\" in the hobby. In the fishhouse of the source it got the nickname \"top-model barb\", because it is very pretty but also looks a bit skinny. It is neither fastidious regarding food, nor uptight in any other way. The maximum size reported is around 20 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -146,7 +154,7 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
       "html": "<p>The species originates from the island of Borneo.</p>"
     },
     {
@@ -158,7 +166,7 @@
     {
       "key": "habitat",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
       "html": "<p>It occurs in typical black water.</p>"
     },
     {
@@ -186,16 +194,28 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "html": "<p>The care temperature should be 24-28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
       "html": "<p>According to stomach analyses of wild specimens it feeds mainly on invertebrates both aquatic and terrestrial, particularly insects.</p><p>In the aquarium it's easily-fed but for it to develop its best colours and condition offer regular meals of live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes and granules. Hobbyists who have kept the species found that larger specimens particularly relish chopped prawn/shrimp.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "html": "<p>Any common fish food is accepted by these peaceful animals without any problems.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
-      "html": "<p>Cyclocheilichthys janthochir is a schooling fish and certainly an enrichment for any large community tank.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "html": "<p>Cyclocheilichthys janthochir is a schooling fish and an enrichment for any large community tank. The animals are peaceful. Delicate plants are in danger of being eaten.</p>"
     },
     {
       "key": "behaviour",
@@ -210,16 +230,16 @@
       "html": "<p>Sexually mature females are likely to be thicker-bodied and perhaps a little less colourful than males.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "html": "<p>Each centimetre the fish grow they become more beautiful, as the fins become more and more red.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/cyclocheilichthys-janthochir",
       "html": "<p>Not thought to have been bred in aquaria to date.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
-      "html": "<p>The maximum size reported is around 20 cm. The specimens at the fishhouse are currently 5-7 cm long. With each centimetre the fish grow they become more beautiful, as the fins become more and more red.</p>"
     },
     {
       "key": "notes",
@@ -230,14 +250,54 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/glaser/c48207c30bf4cf4a.webp",
+      "thumb": "https://media.aquatome.com/glaser/c48207c30bf4cf4a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4f4d8ddc0c611f5a.webp",
+      "thumb": "https://media.aquatome.com/glaser/4f4d8ddc0c611f5a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c679ae40e9b810cd.webp",
+      "thumb": "https://media.aquatome.com/glaser/c679ae40e9b810cd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ca9cce70da391a88.webp",
+      "thumb": "https://media.aquatome.com/glaser/ca9cce70da391a88-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys-janthochir-2/",
+      "source": "glaser"
+    },
+    {
       "url": "https://media.aquatome.com/glaser/2354bf3d6be6d8fa.webp",
+      "thumb": "https://media.aquatome.com/glaser/2354bf3d6be6d8fa-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/cyclocheilichthys_janthochir_en/",
-      "source": "glaser",
-      "thumb": "https://media.aquatome.com/glaser/2354bf3d6be6d8fa-480.webp"
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -288,5 +348,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-20"
 }

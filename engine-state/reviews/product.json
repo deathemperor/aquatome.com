@@ -953,5 +953,44 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/products/twinstar-30b": [
+    {
+      "at": "2026-11-20T19:45:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "\"Dòng B làm cho cây cần sáng thấp đến trung bình\" is fine, but the opening presents it as the 30B's own design; this is acceptable.",
+        "\"Điểm trừ người chơi có nhắc là dimmer không có màn hình\": the facts say the forum user found the dimmer simple to use and only noted that it has no display. Calling it a \"downside\" slightly distorts that.",
+        "\"Đây là lựa chọn thay cho B Line mà shop Việt hay bán\": the facts say it is a common local alternative, not that shops often sell it. This is a minor paraphrase drift.",
+        "\"Chỉnh chân đỡ của đèn cho vừa bề rộng bể rồi gác lên thành kính\": the facts say the legs or supports are adjustable, but they don't give this as a step-by-step install order. This is a minor generalisation.",
+        "\"nên sáng hơn và chỉnh được nhiều hơn, nhưng giá ở Việt Nam cao hơn\": the facts support this. The page leaves out the price figure, which is fine.",
+        "\"Ai muốn chỉnh kỹ hơn qua điện thoại thì có bộ điều khiển Bluetooth LightControl Standard bán riêng\": this is supported, but the facts don't say the controller works with every version."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T19:45:28Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"Hãng nói bản làm lại năm 2025 sáng hơn, phổ cân hơn\" - the facts say the redesign is \"said to be\" better with no named source. Attributing it to the maker (Hãng) is unsupported.",
+        "\"Bể có viền hoặc kính dày hơn mức đó thì không hợp kiểu gác này\" - the facts only say the light is designed for rimless tanks under 10 mm. They don't say framed or thicker-glass tanks are unsuitable.",
+        "\"Bể to hơn tầm 30B thì xem sang các cỡ lớn hơn trong cùng dòng\" - this recommendation is not in the facts.",
+        "\"Gặp số lạ thì đối chiếu với thông số của hãng\" - this advice is not in the facts, and no manufacturer spec source is given.",
+        "\"Đối chiếu công suất là dễ nhất\" - using wattage as the easiest way to tell versions apart is not in the facts. The facts only list 9 W vs 11 W, and the 9 W figure is for the earlier B Line 30B, not necessarily II.",
+        "\"bản cũ không có chế độ tối dần\" - the forum user said the older unit had no sunset function. The page ties this to the dimmer and generalises it.",
+        "\"Người chơi trong nước hay dùng dòng này thay cho dòng B\" - the facts say only that it is a common local alternative sold by shops, not that players use it.",
+        "\"bản B II thì phải cắm qua ổ hẹn giờ\" and \"Bản B II không tự hẹn giờ được\" - the facts say the B II light has no timer of its own. The 30B II dimmer is not stated to lack a timer, and the page conflates B II with 30B II.",
+        "\"Dòng B làm cho cây cần sáng thấp đến trung bình\" and \"bucep\" in the FAQ list of plants - bucep comes from the shop's recommendation, not the B-line source. The FAQ merges the two."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

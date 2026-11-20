@@ -926,6 +926,16 @@
     "attempts": 3,
     "error": "no archived copy (HTTP 404)"
   },
+  "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-cabomba-furcata": {
+    "entityIds": [
+      "plants/cabomba-furcata"
+    ],
+    "updatedAt": "2026-11-20T17:14:06.888Z",
+    "hash": "4a39a0ee7bd7479ae6e9f7043b00876f69b7fc2e19340fe3553d3edcb247a70a",
+    "processedHash": "4a39a0ee7bd7479ae6e9f7043b00876f69b7fc2e19340fe3553d3edcb247a70a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
     "entityIds": [
       "plants/limnophila-aromatica"

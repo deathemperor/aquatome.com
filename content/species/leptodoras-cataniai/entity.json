@@ -10,7 +10,9 @@
     "brazil",
     "rio-negro",
     "venezuela",
-    "casiquiare"
+    "casiquiare",
+    "peru",
+    "rio-nanay"
   ],
   "range": {
     "native": {
@@ -200,6 +202,10 @@
       {
         "source": "scotcat",
         "value": 17.5
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tempC": [
@@ -208,6 +214,13 @@
         "value": {
           "min": 22,
           "max": 26
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 24
         }
       }
     ],
@@ -229,6 +242,18 @@
       "html": "<p><strong>Scientific name:</strong> Leptodoras cataniai Sabaj Pérez, 2005</p><p><strong>Common name:</strong> Slank Musemalle (Denmark)</p><p><strong>Etymology:</strong> Leptodoras: from the Greek leptos, meaning slender, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the shape. Named in honor of David Catania, for his dedicated service to the ichthyological community since 1985 as Collection Manager of Fishes, California Academy of Sciences.</p><p><strong>Size:</strong> 194 mm (7.6 in) SL.</p><p><strong>IUCN Red List category:</strong> Least Concern. Last assessed 2020.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "html": "<p>The species probably reaches a length of about 20 cm, but the current imports are only about 7 cm long.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "html": "<p>Imports of the unusual and stress-prone Leptodoras species are received only very rarely. These thorny catfish are extraordinarily elongated and apparently live in flowing waters, while many other thorny catfish (such as Platydoras and Agamyxis, which are common in the hobby) are more at home in dead wood or leaves in shore areas.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1015",
@@ -241,16 +266,46 @@
       "html": "<p>South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela. Type locality: Venezuela, Amazonas, río Casiquiare from mouth of río Pamoni to 4 km below mouth, west of Pamoni (2º48'N, 65º57'W).</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "html": "<p>Leptodoras cf. cataniai originates from the Rio Nanay in Peru. Except for the area of origin, the appearance fits very well to L. cataniai, which was described from the Rio Casiquiare, the connecting river of Orinoco and Rio Negro.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/doradidae/leptodoras_cataniai.htm",
       "html": "<p>Provide a sandy substrate as it likes to dig looking for morsels.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "html": "<p>The water temperature should be around 24°C. The chemical composition of the water is not important, but extreme values should be avoided.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "html": "<p>A large aquarium with sandy bottom, little decoration and good filtration and current is recommended.</p>"
+    },
+    {
       "key": "diet",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/doradidae/leptodoras_cataniai.htm",
       "html": "<p>Tablet, pellet foods and also frozen foods such as bloodworm.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "html": "<p>Any usual fish food of suitable size is eaten.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "html": "<p>The peaceful and sociable animals are a bit nervous and should therefore be kept in the company of some Corydoras or Brochis, whose calmness is transferred to the Leptodoras and takes away their shyness.</p>"
     },
     {
       "key": "reproduction",
@@ -342,6 +397,36 @@
         "height": 362,
         "thumb": "https://media.aquatome.com/scotcat/7cdd8aff099d2e90-480.webp"
       }
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/611be0dc30761813.webp",
+      "thumb": "https://media.aquatome.com/glaser/611be0dc30761813-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/12b8f4f500ca40fb.webp",
+      "thumb": "https://media.aquatome.com/glaser/12b8f4f500ca40fb-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ada048cb1cb9c5af.webp",
+      "thumb": "https://media.aquatome.com/glaser/ada048cb1cb9c5af-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/leptodoras-cf-cataniai-rio-nanay-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -393,5 +478,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }
