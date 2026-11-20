@@ -572,6 +572,45 @@ test('a rewrite\'s drop check: a copy moved out while another stays, a list item
     .toEqual([frame(mistake, 'Sai lầm hay gặp', 'Nên làm gì')])
 })
 
+// The outside reader's second read (Codex, 20 Nov 2026), on the fixes: a stop on one copy, a copy one placement shares, a
+// fault named in a how-to heading, a prohibition by "chớ", a list item beside a heading that reads the same, and a caution
+// heading written with its accents apart.
+test('a rewrite\'s drop check: a copy let go isn\'t counted, nor does a shared placement hide one moved; "lỗi" alone and a how-to heading are no frame, "chớ" is; an item isn\'t its heading; cautions read composed', () => {
+  const said = { facts: [{ fact: 'Change part of the water' }] }
+  const drop = (before: string, after: string, stops: { text: string; heading?: string; item?: string }[] = []) => droppedInRewrite({ definition: 'Một câu.', body: before }, { definition: 'Một câu.', body: after }, said, stops, [], [])
+  const note = (t: string, lost: string) => `The rewrite dropped from "${t}" ${lost}, and nothing lets that sentence go: write it as it was, word for word.`
+  const frame = (t: string, word: string, from: string, to: string) => note(t, `the frame "${word}" of "${from}", now under "${to}"`)
+  const mistake = 'Thay hết nước một lần.'
+  const kind = (name: string, body: string) => `<li><strong>${name}</strong>${body}</li>`
+  // A stop on the empty tank's copy lets it move to a do-this heading; the stocked tank's copy, its heading renamed to
+  // another mistakes heading, is no copy moved out.
+  const both = `<ul>${kind('Bể đang nuôi cá', `<h3>Sai lầm hay gặp</h3><p>${mistake}</p>`)}${kind('Bể trống', `<h3>Sai lầm hay gặp</h3><p>${mistake}</p>`)}</ul>`
+  const after = `<ul>${kind('Bể đang nuôi cá', `<h3>Các sai lầm hay gặp</h3><p>${mistake}</p>`)}${kind('Bể trống', `<h3>Sai lầm hay gặp</h3><p>Bật máy sưởi khi chưa có nước.</p><h3>Nên làm gì</h3><p>${mistake}</p>`)}</ul>`
+  expect(drop(both, after, [{ text: mistake, heading: 'Sai lầm hay gặp', item: 'Bể trống' }])).toEqual([])
+  // Without the stop, the empty tank's copy is refused.
+  expect(drop(both, after)).toEqual([frame(mistake, 'sai lầm', 'Sai lầm hay gặp', 'Nên làm gì')])
+  // One of two copies under one heading moved to a do-this heading, the other staying where both stood.
+  expect(drop(`<h3>Sai lầm hay gặp</h3><p>${mistake}</p><p>${mistake}</p><h3>Nên làm gì</h3><p>Đo nhiệt độ nước.</p>`, `<h3>Sai lầm hay gặp</h3><p>${mistake}</p><h3>Nên làm gì</h3><p>Đo nhiệt độ nước.</p><p>${mistake}</p>`))
+    .toEqual([frame(mistake, 'sai lầm', 'Sai lầm hay gặp', 'Nên làm gì')])
+  // A heading that names the fault it says how to fix is no frame: renamed it saves, and a mistake moved under it is refused.
+  const fix = '<p>Tắt máy lọc trước khi tháo cánh quạt.</p>'
+  expect(drop(`<h3>Cách xử lý lỗi bộ lọc</h3>${fix}`, `<h3>Xử lý sự cố bộ lọc</h3>${fix}`)).toEqual([])
+  const wrong = 'Tháo cánh quạt khi máy lọc còn chạy.'
+  expect(drop(`<h3>Sai lầm hay gặp</h3><p>Đổ quá nhiều thức ăn.</p><p>${wrong}</p><h3>Cách xử lý lỗi bộ lọc</h3>${fix}`, `<h3>Sai lầm hay gặp</h3><p>Đổ quá nhiều thức ăn.</p><h3>Cách xử lý lỗi bộ lọc</h3>${fix}<p>${wrong}</p>`))
+    .toEqual([frame(wrong, 'sai lầm', 'Sai lầm hay gặp', 'Cách xử lý lỗi bộ lọc')])
+  expect(drop(`<h3>Những lỗi hay gặp</h3><p>${mistake}</p>`, `<h3>Sai lầm cần tránh</h3><p>${mistake}</p>`)).toEqual([])
+  // "Chớ" is a prohibition.
+  expect(drop(`<h3>Chớ làm những việc sau</h3><p>Đổ quá nhiều thức ăn.</p><p>${mistake}</p><h3>Nên làm gì</h3>`, `<h3>Chớ làm những việc sau</h3><p>Đổ quá nhiều thức ăn.</p><h3>Nên làm gì</h3><p>${mistake}</p>`))
+    .toEqual([frame(mistake, 'chớ', 'Chớ làm những việc sau', 'Nên làm gì')])
+  // A list item that reads the same as its heading, cut while the heading stays, loses its advice.
+  expect(drop('<h3>Thay nước đều</h3><ul><li>Thay nước đều</li><li>Giảm giờ đèn.</li></ul>', '<h3>Thay nước đều</h3><ul><li>Giảm giờ đèn.</li></ul>'))
+    .toEqual([note('Thay nước đều', 'the advice "Thay nước đều"')])
+  // A caution heading written with its accents apart keeps its caution word.
+  const apart = 'Lưu ý'.normalize('NFD')
+  expect(apart).not.toBe('Lưu ý')
+  expect(drop(`<h3>${apart}</h3><p>Giảm giờ đèn.</p>`, '<h3>Các bước</h3><p>Giảm giờ đèn.</p>')).toEqual([note(apart, 'the caution "lưu ý"')])
+})
+
 test('a reworded sentence in the body is written back escaped, and one still loose stays, logged; a rewording of two sentences isn\'t placed', async () => {
   const e = { definition: 'Một câu.', body: '<p>Đá &amp; san hô làm pH lên.</p>' }
   const loose = [{ text: 'Đá & san hô làm pH lên.', block: 'Đá & san hô làm pH lên.', verdicts: ['loose' as const, 'loose' as const], why: ['x'] }]

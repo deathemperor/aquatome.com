@@ -248,10 +248,10 @@ const namesIn = (text: string, names: string[], facts = '') => [
 /** The words of a caution in Vietnamese: a warning, a must, a never; read on a text without the phrases where they mean something else. */
 const CAUTIONS = ['không được', 'không nên', 'đừng', 'chớ', 'tránh', 'phải', 'cẩn thận', 'lưu ý', 'coi chừng', 'cảnh báo', 'nguy hiểm', 'độc', 'hại', 'chết']
 const NOT_CAUTIONS = /(?<![\p{L}\p{N}])(?:không phải|độc đáo|độc lập|độc quyền|độc nhất|độc giả|đơn độc|bên phải|tay phải|phía phải|phải không|có phải|phải chăng|lẽ phải|phải trái)(?![\p{L}\p{N}])/giu
-const cautionsIn = (text: string) => { const t = text.replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
+const cautionsIn = (text: string) => { const t = text.normalize('NFC').replace(NOT_CAUTIONS, ' '); return CAUTIONS.filter(w => has(t, w)) }
 /** Each caution word as often as the text says it. */
 const cautionWords = (text: string) => {
-  const t = text.replace(NOT_CAUTIONS, ' ')
+  const t = text.normalize('NFC').replace(NOT_CAUTIONS, ' ')
   return CAUTIONS.flatMap(w => Array.from({ length: (t.match(new RegExp(`(?<![\\p{L}\\p{N}])${w}(?![\\p{L}\\p{N}])`, 'giu')) ?? []).length }, () => w))
 }
 /** What `before` has that `after` hasn't, each matched once. */
@@ -411,10 +411,12 @@ const DROP = 'The rewrite dropped from "'
  * heading that only asks for attention ("lưu ý", "để ý", "cẩn thận") is none, nor is "tránh" alone, which a how-to-avoid
  * heading ("Cách tránh …") writes too: only its to-be-avoided forms are. Nor "không được" alone, which says a thing isn't
  * so as often as that it mustn't be done ("Làm gì khi cá không được khỏe?", Codex, 20 Nov 2026): "không được làm" is.
+ * Nor "lỗi" alone, which also names the fault a section says how to fix ("Cách xử lý lỗi bộ lọc", Codex's second read):
+ * "lỗi hay gặp" and "lỗi thường gặp" are.
  * Read with its accents composed, so a heading written with them apart is the same heading. Main's are "Sai lầm hay gặp"
  * and "Sai lầm cần tránh".
  */
-const FRAMES = ['sai lầm', 'lỗi', 'cần tránh', 'nên tránh', 'phải tránh', 'không nên', 'không được làm', 'đừng', 'nguy hiểm', 'cảnh báo']
+const FRAMES = ['sai lầm', 'lỗi hay gặp', 'lỗi thường gặp', 'cần tránh', 'nên tránh', 'phải tránh', 'không nên', 'không được làm', 'đừng', 'chớ', 'nguy hiểm', 'cảnh báo']
 const framesIn = (heading?: string) => (heading ? FRAMES.filter(w => has(heading.normalize('NFC'), w)) : [])
 /** A sentence by its words alone: what "kept word for word" compares, so a full stop made "!" is the same sentence. */
 const bare = (t: string) => t.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim()
@@ -446,14 +448,17 @@ const AVOID = /(?<![\p{L}\p{N}])tránh(?![\p{L}\p{N}])/giu
  * are, and a heading is a frame or not by the whole of it, not by the piece the splitter cut. And the frame holds: a
  * sentence kept word for word that stood under a heading of things not to do or of dangers (FRAMES) and now stands under
  * none, its heading renamed or the sentence moved, is refused, since it would read as the opposite. Its copies are
- * counted over the entry: fewer of them under such a heading and more under none is a copy moved out, whichever copy
- * stayed (Codex, 20 Nov 2026: a mistake written for two kinds, one moved to "Nên làm gì", passed while the other stood).
- * A stop on it, or the free list, lets it go: that is how a sentence moves out on purpose.
+ * counted, kind by kind, under such headings, and over the entry under none: fewer in a kind under such a heading and
+ * more under none is a copy moved out, whichever copy stayed (Codex, 20 Nov 2026: a mistake written for two kinds, one
+ * moved to "Nên làm gì", passed while the other stood; and one of two copies under one heading, which a placement shares,
+ * moved unseen). A stop on it, or the free list, lets it go: that is how a sentence moves out on purpose, and a copy let go
+ * isn't counted where it stood (Codex's second read: a stop on one kind's copy refused the other's renamed heading).
  */
 export function droppedInRewrite(before: { definition: string; body: string }, after: { definition: string; body: string }, facts: object, stops: Pick<Sentence, 'text' | 'heading' | 'item' | 'meaning'>[], names: string[] = [], free: string[] = []): string[] {
   const placed = (e: { definition: string; body: string }) => [
     ...sentences({ definition: e.definition, body: '' }).map(s => ({ ...s, key: `d ${s.text}` })),
-    ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.heading ?? ''}\n${s.item ?? ''}\n${s.text}` })),
+    // A heading isn't the list item that reads the same under it (Codex's second read: the item cut, the heading kept).
+    ...sentences({ definition: '', body: e.body }).map(s => ({ ...s, key: `b ${s.head ? '# ' : ''}${s.heading ?? ''}\n${s.item ?? ''}\n${s.text}` })),
   ]
   const was = placed(before), is = placed(after)
   // A stop on a body sentence never frees the meaning's copy of it, nor the other way (Codex, 19 Nov 2026).
@@ -466,16 +471,23 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   // A sentence as its cautions are counted: a heading that is no frame loses its "tránh", after the free list has had it.
   const warning = (s: Pick<Sentence, 'head' | 'heading'>, t: string) => (s.head && !framesIn(s.heading).length ? t.replace(AVOID, ' ') : t)
   const gone = was.filter(s => !now.has(s.key) && !whole(s)).map(s => ({ ...s, u: unfreed(s.text) }))
-  if (!gone.length) return []
-  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
   const kept = was.filter(s => !whole(s))
+  // The frame, kind by kind: a sentence's words under a heading of things not to do, fewer there and more under none.
+  const framed = (x: Sentence) => !x.head && framesIn(x.heading).length > 0
+  const inKind = (list: Sentence[], item: string, w: string) => list.filter(x => framed(x) && (x.item ?? '') === item && bare(x.text) === w).length
+  const outside = (list: Sentence[], w: string) => list.filter(x => !x.head && !framed(x) && bare(x.text) === w)
+  const flipped = new Map<string, Sentence>()
+  for (const x of kept.filter(framed)) {
+    const w = bare(x.text), g = `${x.item ?? ''}\n${w}`
+    if (!flipped.has(g) && inKind(is, x.item ?? '', w) < inKind(kept, x.item ?? '', w) && outside(is, w).length > outside(was, w).length) flipped.set(g, x)
+  }
+  if (!gone.length && !flipped.size) return []
+  const said = factText(facts), carried = new Set(figures(said).flatMap(f => f.reads))
   const rest = kept.map(s => unfreed(s.text)).join(' ')
   const all = is.map(s => s.text).join(' ')
   const figs = lessOf(figures(rest, true), figures(all, true)).filter(f => f.reads.some(r => carried.has(r)))
   const named = less(namesIn(rest, names, said), namesIn(all, names, said))
   const warned = less(cautionWords(kept.map(s => warning(s, unfreed(s.text))).join(' ')), cautionWords(is.map(s => warning(s, s.text)).join(' ')))
-  // A sentence's copies, by its words, under a heading of things not to do and under none.
-  const copies = (list: Sentence[], w: string, framed: boolean) => list.filter(x => !x.head && bare(x.text) === w && !!framesIn(x.heading).length === framed)
   // Where a gone sentence's advice must stand anew: its kind's item, if the rewrite kept that item; else the whole entry.
   const items = new Set(is.flatMap(s => (s.item ? [s.item] : [])))
   const within = (item?: string) => is.filter(s => !item || !items.has(item) || s.item === item)
@@ -483,17 +495,16 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
   // it (Grok: "pH 4,0" cut, with "4 tuần" still standing, left a 4 no sentence wrote as "4" to take it).
   const take = <T>(pool: T[], has: (x: T) => boolean) => { const mine = pool.filter(has); pool.splice(0, pool.length, ...pool.filter(x => !mine.includes(x))); return mine }
   const note = (t: string, lost: string[]) => `${DROP}${t}" ${[...new Set(lost)].join(', ')}, and nothing lets that sentence go: write it as it was, word for word.`
-  return gone.flatMap(({ text: t, u, item, ...s }) => {
+  const frameOf = (x: Pick<Sentence, 'text' | 'heading'>) => `the frame "${framesIn(x.heading).join('", "')}" of "${x.heading}", now under ${[...new Set(outside(is, bare(x.text)).map(y => (y.heading ? `"${y.heading}"` : y.meaning ? 'the definition' : 'no heading')))].join(', ')}`
+  const told = new Set<string>()
+  const notes = gone.flatMap(({ text: t, u, item, ...s }) => {
     const own = figures(u, true), as = (f: Figure) => own.find(g => g.reads.some(r => f.reads.includes(r)))
     // Each piece stands in one new or moved sentence, not in their words pooled (the eighth read's Sonnet reviewer: "Cá cần
     // nước sạch." cut read as kept, its words scattered through a longer sentence added beside it).
     const fresh = within(item).filter(s => !then.has(s.key)).map(s => s.text)
-    // Kept word for word, a copy out from under every heading of things not to do.
-    const w = bare(t)
-    const out = framesIn(s.heading).length && !s.head && copies(is, w, true).length < copies(was, w, true).length && copies(is, w, false).length > copies(was, w, false).length
-    const frame = out
-      ? [`the frame "${framesIn(s.heading).join('", "')}" of "${s.heading}", now under ${[...new Set(copies(is, w, false).map(x => (x.heading ? `"${x.heading}"` : x.meaning ? 'the definition' : 'no heading')))].join(', ')}`]
-      : []
+    // Kept word for word, a copy out from under every heading of things not to do: said in this sentence's note.
+    const g = `${item ?? ''}\n${bare(t)}`
+    const frame = flipped.has(g) && !s.head && framesIn(s.heading).length && !told.has(g) ? (told.add(g), [frameOf({ text: t, heading: s.heading })]) : []
     const lost = [
       ...take(figs, f => !!as(f)).map(f => `the figure ${as(f)!.text}`),
       ...take(named, n => namesIn(u, names, said).includes(n)).map(n => `the name ${n}`),
@@ -503,4 +514,6 @@ export function droppedInRewrite(before: { definition: string; body: string }, a
     ]
     return lost.length ? [note(t, lost)] : []
   })
+  // A copy moved out whose own placement stayed (one of two under one heading), in a note of its own.
+  return [...notes, ...[...flipped].filter(([g]) => !told.has(g)).map(([, x]) => note(x.text, [frameOf(x)]))]
 }
