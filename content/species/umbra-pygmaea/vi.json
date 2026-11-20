@@ -23,5 +23,11 @@
       "glaser": 0.7
     },
     "reason": "score"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-20"
   }
 }
