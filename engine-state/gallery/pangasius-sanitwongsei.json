@@ -30,7 +30,10 @@
   "inat:251151839",
   "inat:319833961",
   "inat:346195024",
-  "inat:486530763"
+  "inat:486530763",
+  "gbif:1320097691:213ac84a98dc38c5",
+  "gbif:1320097691:ec34326e790bdec3",
+  "gbif:1320097691:c8ff4c3f523217c7"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/2f3928ee192c232e.webp": "060a9af2eeccdf15",
@@ -58,5 +61,9 @@
    "research": 110379578,
    "agree": 270547253
   }
+ },
+ "gbif": {
+  "key": 5202478,
+  "next": null
  }
 }

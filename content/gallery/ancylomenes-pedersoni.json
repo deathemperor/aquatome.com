@@ -182,9 +182,65 @@
       "best": false,
       "kind": "habitat",
       "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/216050587.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/216050587-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Robin White",
+      "sourceUrl": "https://www.inaturalist.org/photos/216050587",
+      "caption": "Tôm Pederson trên hải quỳ trong rạn san hô",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/238589239.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/238589239-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY",
+      "author": "Robin White",
+      "sourceUrl": "https://www.inaturalist.org/photos/238589239",
+      "caption": "Tôm Pederson thân trong suốt đốm xanh tím trên đá rạn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/241999503.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/241999503-480.webp",
+      "width": 1024,
+      "height": 578,
+      "licence": "CC BY",
+      "author": "Robin White",
+      "sourceUrl": "https://www.inaturalist.org/photos/241999503",
+      "caption": "Tôm Pederson nằm trong xúc tu hải quỳ",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/216050610.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/216050610-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Robin White",
+      "sourceUrl": "https://www.inaturalist.org/photos/216050610",
+      "caption": "Tôm Pederson với râu dài giữa xúc tu hải quỳ",
+      "best": false,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     }
   ],
-  "seen": 60,
-  "updatedAt": "2026-11-19",
-  "builtAt": "2026-11-19"
+  "seen": 80,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

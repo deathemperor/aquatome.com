@@ -206,18 +206,6 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/52636864.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/52636864-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ryan Watson",
-      "sourceUrl": "https://www.inaturalist.org/photos/52636864",
-      "caption": "Cành Rong đuôi chồn Najas màu nâu đỏ trong nước",
-      "best": false,
-      "kind": "detail"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/156443595.webp",
       "thumb": "https://media.aquatome.com/inaturalist/156443595-480.webp",
       "width": 1024,
@@ -252,18 +240,6 @@
       "caption": "Thảm Rong đuôi chồn Najas mọc dày dưới nước",
       "best": false,
       "kind": "submersed"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/52636883.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/52636883-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ryan Watson",
-      "sourceUrl": "https://www.inaturalist.org/photos/52636883",
-      "caption": "Cành Najas với lá hẹp mọc đối, chụp cận cảnh",
-      "best": false,
-      "kind": "detail"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/300101253.webp",
@@ -302,18 +278,6 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/52636873.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/52636873-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Ryan Watson",
-      "sourceUrl": "https://www.inaturalist.org/photos/52636873",
-      "caption": "Thân và đốt lá Najas chụp cận cảnh",
-      "best": false,
-      "kind": "detail"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/376687271.webp",
       "thumb": "https://media.aquatome.com/inaturalist/376687271-480.webp",
       "width": 768,
@@ -336,18 +300,6 @@
       "source": "tropica",
       "kind": "other",
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/236240692.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/236240692-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Timothy McNitt",
-      "sourceUrl": "https://www.inaturalist.org/photos/236240692",
-      "caption": "Các nhánh Rong đuôi chồn Najas xanh tươi trên nền trắng",
-      "best": false,
-      "kind": "detail"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/483233959.webp",
@@ -396,6 +348,54 @@
       "caption": "Rong đuôi chồn Najas mọc chìm trong nước trong suốt",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/52636864.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/52636864-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ryan Watson",
+      "sourceUrl": "https://www.inaturalist.org/photos/52636864",
+      "caption": "Cành Rong đuôi chồn Najas màu nâu đỏ trong nước",
+      "best": false,
+      "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/52636883.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/52636883-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ryan Watson",
+      "sourceUrl": "https://www.inaturalist.org/photos/52636883",
+      "caption": "Cành Najas với lá hẹp mọc đối, chụp cận cảnh",
+      "best": false,
+      "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/52636873.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/52636873-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Ryan Watson",
+      "sourceUrl": "https://www.inaturalist.org/photos/52636873",
+      "caption": "Thân và đốt lá Najas chụp cận cảnh",
+      "best": false,
+      "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/236240692.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/236240692-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Timothy McNitt",
+      "sourceUrl": "https://www.inaturalist.org/photos/236240692",
+      "caption": "Các nhánh Rong đuôi chồn Najas xanh tươi trên nền trắng",
+      "best": false,
+      "kind": "detail"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/299097769.webp",

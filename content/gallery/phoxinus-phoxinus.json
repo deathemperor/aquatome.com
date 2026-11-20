@@ -12,50 +12,7 @@
       "caption": "Đàn cá Phoxinus phoxinus bơi trên đáy sông cát",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/4523797.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/4523797-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Julien Renoult",
-      "sourceUrl": "https://www.inaturalist.org/photos/4523797",
-      "caption": "Cá Phoxinus phoxinus bơi trên nền đá dưới nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/146545490.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/146545490-480.webp",
-      "width": 1024,
-      "height": 425,
-      "licence": "CC BY-SA",
-      "author": "G P Croucher",
-      "sourceUrl": "https://www.inaturalist.org/photos/146545490",
-      "caption": "Cá Phoxinus phoxinus bơi trong nước, thân có sọc vàng",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/321589933.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/321589933-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Ash David",
-      "sourceUrl": "https://www.inaturalist.org/photos/321589933",
-      "caption": "Nhóm cá Phoxinus phoxinus trong hộp nhựa chụp ảnh",
-      "best": true,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/8569661.webp",
@@ -68,22 +25,20 @@
       "caption": "Cá Phoxinus phoxinus có sọc sẫm giữa đá rêu dưới suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/153521014.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/153521014-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/146545490.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/146545490-480.webp",
       "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Olly Morgan",
-      "sourceUrl": "https://www.inaturalist.org/photos/153521014",
-      "caption": "Cá Phoxinus phoxinus trong khay trắng cạnh thước đo",
+      "height": 425,
+      "licence": "CC BY-SA",
+      "author": "G P Croucher",
+      "sourceUrl": "https://www.inaturalist.org/photos/146545490",
+      "caption": "Cá Phoxinus phoxinus bơi trong nước, thân có sọc vàng",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/154598806.webp",
@@ -322,6 +277,32 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/321589933.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/321589933-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Ash David",
+      "sourceUrl": "https://www.inaturalist.org/photos/321589933",
+      "caption": "Nhóm cá Phoxinus phoxinus trong hộp nhựa chụp ảnh",
+      "best": true,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/4523797.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/4523797-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/4523797",
+      "caption": "Cá Phoxinus phoxinus bơi trên nền đá dưới nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 100,
