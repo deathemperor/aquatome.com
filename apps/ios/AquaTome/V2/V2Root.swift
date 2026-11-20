@@ -190,6 +190,9 @@ private struct ClearOfTheFade: ViewModifier {
 /// - XXL to AX2, iOS's hard edge: the soft one's blur doesn't grow with the text, and body lines read below the bar;
 /// - AX3 and up, a fade above the bar, as tall as a line of the text: below the hard one's hairline letters that size
 ///   could still be made out.
+/// On iOS 26 the fade at every size (Design, 20 Nov): 26's soft edge leaves the strip below the floating bar sharp, where a
+/// fish page's photo credit read (26.5), and its hard edge paints an opaque band across a coloured page's foot. The page
+/// doesn't run under the bar there, and a tap under it opens nothing, as at AX3.
 /// On 27.2 iOS draws no edge under a tab bar of its own accord: each is asked for. A tab's own, not each page's: it holds
 /// for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
@@ -205,9 +208,11 @@ private struct ClearUnderTabBar: ViewModifier {
   /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
   @State private var bar: CGFloat = 0
   @Environment(\.dynamicTypeSize) private var size
+  /// iOS 27's soft edge blurs the strip below the floating bar too; 26's doesn't.
+  private var softHolds: Bool { if #available(iOS 27, *) { true } else { false } }
 
   func body(content: Content) -> some View {
-    if #available(iOS 26, *), size >= .accessibility3 {
+    if #available(iOS 26, *), size >= .accessibility3 || !softHolds {
       content
         .environment(\.v2FootGround, $footGround)
         .background {

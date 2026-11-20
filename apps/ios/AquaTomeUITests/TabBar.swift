@@ -1,5 +1,9 @@
 import XCTest
 
+/// iOS 27's soft edge blurs the strip below the floating bar; on 26 the app fades the page out above the bar at every size
+/// instead (Design, 20 Nov), as on 27 from AX3.
+let softEdgeHolds: Bool = { if #available(iOS 27, *) { true } else { false } }()
+
 extension XCUIApplication {
   /// A tab by its name; the Tài khoản sheet closed first.
   func openTab(_ name: String, file: StaticString = #filePath, line: UInt = #line) {

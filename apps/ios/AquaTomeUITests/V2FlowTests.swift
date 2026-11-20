@@ -829,7 +829,8 @@ final class V2FlowTests: XCTestCase {
 
   /// The tab bar as the App Store's for every reader, not the owner alone (the owner, 14 Nov: "make it default"): Hôm
   /// nay's cards run on under the bar, so what's under it and around it moves as the page scrolls, where the fade left
-  /// one still ground; and the bar's own tap is still the bar's.
+  /// one still ground; and the bar's own tap is still the bar's. Not on iOS 26, where the page fades out above the bar
+  /// (Design, 20 Nov): there nothing of it is under the glass.
   func testThePageShowsUnderTheTabBarForEveryReader() {
     // Hôm nay, the app's first screen: its cards are filled with strong colours, photo or none, from the top to under
     // the bar on every phone. Khám phá's rows are white and its cards pale, which change the bar's place little under any
@@ -866,7 +867,12 @@ final class V2FlowTests: XCTestCase {
       activity.add(a)
     }
     XCTAssertGreaterThan(passing, 0.1, "too little of the page passed at the bar's height to read the bar by: \(passing) above it")
-    XCTAssertGreaterThan(under, 0.01, "nothing of the page under the tab bar: \(under) of the bar's place moved, \(passing) above it")
+    if softEdgeHolds {
+      XCTAssertGreaterThan(under, 0.01, "nothing of the page under the tab bar: \(under) of the bar's place moved, \(passing) above it")
+    } else {
+      // iOS 26: the page fades out above the bar, and nothing of it is under the glass.
+      XCTAssertLessThan(under, 0.01, "the page shows under the tab bar on iOS 26: \(under) of the bar's place moved, \(passing) above it")
+    }
     app.tabBars.buttons["Khám phá"].tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "the bar's tap didn't open Khám phá")
   }
@@ -1652,10 +1658,11 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThanOrEqual(last.frame.maxY, bar - 30, "the page ends in the fade")
   }
 
-  /// What's faded out under the bar can't be tapped: at the sizes that take the fade (AX3 and up, Design's ladder, 15 Nov),
-  /// a tap under it, with a card behind, opens nothing. At the other sizes the page under the glass is seen, and live.
+  /// What's faded out under the bar can't be tapped: at the sizes that take the fade (AX3 and up, Design's ladder, 15 Nov;
+  /// every size on iOS 26, 20 Nov), a tap under it, with a card behind, opens nothing. At the other sizes the page under
+  /// the glass is seen, and live. On 26 at L, where the tap opened the card behind until the fade.
   func testATapUnderTheTabBarOpensNothing() {
-    let app = launch("-v2", "YES", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXL")
+    let app = launch("-v2", "YES", "-UIPreferredContentSizeCategoryName", softEdgeHolds ? "UICTContentSizeCategoryAccessibilityXL" : "UICTContentSizeCategoryL")
     app.launchForFlow()
     let tab = app.tabBars.buttons["Hôm nay"]
     XCTAssertTrue(tab.waitForExistence(timeout: 10), "no Hôm nay")
