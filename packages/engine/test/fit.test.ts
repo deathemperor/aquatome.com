@@ -3,7 +3,6 @@ import { CHECKLIST, dealerNotice, dealerShelf, doseGroups, fitCounts, fitDue, fi
 import { LlmError, type Llm } from '../src/claude'
 import type { Page } from '../src/pages'
 import { retiredTo } from '@aq/schema'
-import { readFileSync } from 'node:fs'
 import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -323,15 +322,6 @@ test('a retired guide is not among the open pages no read covers', () => {
   expect(retiredTo(gone.id)).toBe('guides')
   expect(openUnread([gone], {}, new Map(), 'vi')).toBe(0)
   expect(openUnread([page('<p>Đã nghỉ.</p>', { id: 'still-here' })], {}, new Map(), 'vi')).toBe(1)
-})
-
-// A reader of #1731: gate() returns the pages it read, a put-back one with the text it threw out, so the gate's report
-// counts the texts on disk after it.
-test("the gate's report counts the texts the run ends with, not the ones it put back", () => {
-  const cli = readFileSync(new URL('../src/cli.ts', import.meta.url), 'utf8')
-  const gateCmd = cli.slice(cli.indexOf("cmd === 'gate'"), cli.indexOf("cmd === 'curate'"))
-  expect(gateCmd).toContain("const final = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))")
-  expect(gateCmd).toContain('fitReport(final, state, held)')
 })
 
 test('the counts: pages with a finding by check, and in all with words apart', () => {

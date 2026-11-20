@@ -5,8 +5,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
-import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, heldMendsOf, MEND_AGAIN_DAYS, putBackFile, wrongChecks } from '../src/gate'
+import { fitKey, fitReport, fitText, type FitFinding, type FitState } from '../src/fit'
+import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, gateFitReport, HELD_BY_HAND, heldMendsOf, MEND_AGAIN_DAYS, putBackFile, wrongChecks } from '../src/gate'
 import { localizeSpecies, partHash } from '../src/localize'
 import { loadPages, type Page } from '../src/pages'
 import { plantsWithoutPlanting } from '../src/planting'
@@ -60,6 +60,22 @@ test('what the gate does with a page, from its checks now and before', () => {
   expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s('harm') })).toEqual({ action: 'hold', checks: ['harm'] })
   expect(gateCall(s('harm'), { isNew: false, wasHeld: false, before: s() })).toEqual({ action: 'revert', checks: ['harm'] })
   expect(gateCall(s('harm', 'kit'), { isNew: false, wasHeld: false, before: s('kit') })).toEqual({ action: 'revert', checks: ['harm'] })
+})
+
+// A reader of #1731: gate() returns the pages it read, so its report counted a text put back on the one it threw out. On the
+// pages as the run ends with them, the guide put back has a read of its own text: read, and not open without one.
+test("the gate's report counts a text put back by the read it ends with", async () => {
+  const root = await repo()
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  const r = await gate(root, { llm: reader(), now })
+  expect(r.report.revert).toHaveLength(1)
+  // [Pages, Read, Open, no read of its text] in the Vietnamese row.
+  const row = (md: string) => md.split('\n').find(l => l.startsWith('| Vietnamese |'))!.split('|').slice(2, 5).map(c => Number(c.trim()))
+  const [pages, read, open] = row(await gateFitReport(root, r.state, r.held))
+  const [, readThrown, openThrown] = row(fitReport(r.pages, r.state, r.held))
+  expect(pages).toBeGreaterThan(1)
+  expect(read).toBe(readThrown! + 1)
+  expect(open).toBe(openThrown! - 1)
 })
 
 test('a new page that fails is held, and one that passes goes out', async () => {

@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { LANGS, RETIRED_HOLD, retiredTo, type Lang } from '@aq/schema'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
-import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
+import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, fitReport, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
 import { PRODUCTS } from './market'
 import { loadCards, loadPages, pageUrl, type Page } from './pages'
 import { norm } from './reader'
@@ -476,6 +476,14 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   }
   await writeFile(statePath, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
   return { report, state, pages, held }
+}
+
+/**
+ * docs/review/fit.md after a gate, on the pages as the run ends with them: gate() returns the pages it read, and a text it
+ * put back is the committed one again, which has its own read (a reader of #1731).
+ */
+export async function gateFitReport(root: string, state: FitState, held: ReadonlyMap<string, unknown>): Promise<string> {
+  return fitReport((await loadPages(join(root, 'content'))).filter(p => FIT_KINDS.includes(p.kind)), state, held)
 }
 
 /**
