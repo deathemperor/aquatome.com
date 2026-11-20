@@ -2201,5 +2201,72 @@
       "kept": false,
       "draft": "3bcdb3866ef0140cc699e7de6d2518065d0b9470d0688bb90f0f545d204345ec"
     }
+  ],
+  "vi/glossary/tinh-lanh-tho": [
+    {
+      "at": "2026-11-20T10:55:04Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:55:04Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"cá tứ vân\" in \"Tiệm này cũng ghi: bày lại bể khi thả cá mới để cá mới không phải bắt đầu mà chưa có lãnh thổ; cá tứ vân là cá đàn không giữ lãnh thổ, và nuôi từ 6 con trở lên thì chúng ít có khả năng rỉa vây cá khác hơn.\": fact 32 says only \"tiger barbs\". Three species pages carry that name, and no fact says which one is meant. THIS TERM asks for this sentence word for word with …",
+        "Rule 12: \"Tiệm này ghi rằng cứ vớt cá ra rồi thả vào nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\" is the saved sentence that THIS TERM says to replace word for word with \"Tiệm này ghi rằng cứ vớt cá ra nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\". Fact 40 says netting fish apart, repeatedly, and not that they are put back, so \"rồi thả vào\" must be cut."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:52:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Cá bị thương nặng thì chuyển sang bể cách ly, chẳng hạn bể trơn 19 hoặc 38 lít, có nắp và lọc mút.\" the advice \"38 lít\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:52:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Cá bị thương nặng thì chuyển sang bể cách ly, chẳng hạn bể trơn 19 hoặc 38 lít, có nắp và lọc mút.\" the advice \"38 lít\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T10:52:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"cá tứ vân là cá đàn không giữ lãnh thổ\" in \"Tiệm này cũng ghi: bày lại bể khi thả cá mới để cá mới không phải bắt đầu mà chưa có lãnh thổ; cá tứ vân là cá đàn không giữ lãnh thổ, và nuôi từ 6 con trở lên thì chúng ít có khả năng rỉa vây cá khác hơn.\": THIS TERM gives a word-for-word replacement for this sentence that uses \"cá tiger barb\". Fact 32 only says \"tiger barbs\", and three speci…",
+        "Rule 12: \"Tiệm này ghi rằng cứ vớt cá ra rồi thả vào nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\": THIS TERM cuts \"rồi thả vào\" and gives the sentence word for word as \"Tiệm này ghi rằng cứ vớt cá ra nhiều lần thì ít khi giải quyết được chuyện đánh nhau lâu dài.\" Fact 40 says the fish are netted apart again and again, not that they are put back.",
+        "Rule 12: \"bể trơn 19 hoặc 38 lít\" in \"Cá bị thương nặng thì chuyển sang bể cách ly, chẳng hạn bể trơn 19 hoặc 38 lít, có nắp và lọc mút.\": fact 23 gives \"5- or 10-gallon\". Every number has to keep the unit its fact gives, and an amount is never rounded. Changing to litres swaps the unit and rounds the figures (18.9 and 37.85 litres)."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T10:12:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    }
   ]
 }
