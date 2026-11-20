@@ -21,7 +21,7 @@ const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 // The rule: a page's hold follows the record that won, so a release on main during a run stands (Page Recovery's test,
 // widened to a hold on main, a clean pull, a species page and a text that isn't main's).
 type Held = { checks: string[]; at: string }
-type Side = { held?: Held; body?: string; sections?: Record<string, string>; extra?: Record<string, unknown>; fit?: { at: string; hash: string; checks: string[] }; th?: Side }
+type Side = { held?: Held; body?: string; sections?: Record<string, string>; extra?: Record<string, unknown>; fit?: { at: string; hash: string; checks: string[] }; th?: Side; /** Other files as written, after the page's. */ files?: Record<string, string> }
 
 const KINDS = { guides: { dir: 'content/guides/youtube-x', key: 'vi/guides/youtube-x' }, species: { dir: 'content/species/ca-x', key: 'vi/species/ca-x' } }
 
@@ -42,7 +42,7 @@ function push(kind: keyof typeof KINDS, sides: { base: Side; main: Side; run: Si
     `${JSON.stringify({ ...(s.fit ? { [key]: record(s.fit) } : {}), ...(s.th?.fit ? { [thKey]: record(s.th.fit) } : {}) }, null, 2)}\n`
   const write = (files: Record<string, string>) =>
     Object.entries(files).map(([f, t]) => `mkdir -p "$(dirname ${f})" && printf '%s' '${t.replace(/'/g, `'\\''`)}' > ${f} && git add ${f}`).join(' && ')
-  const both = (s: Side) => write({ [file]: page(s), ...(s.th ? { [thFile]: page(s.th) } : {}), 'engine-state/_fit.json': fit(s) })
+  const both = (s: Side) => write({ [file]: page(s), ...(s.th ? { [thFile]: page(s.th) } : {}), 'engine-state/_fit.json': fit(s), ...s.files })
   const pushFn = readFileSync(join(ROOT, 'scripts/engine-cycle.sh'), 'utf8').match(/^push\(\) \{[\s\S]*?^\}$/m)![0]
   const script = `
     set -e
@@ -424,6 +424,82 @@ test("a page whose read text is one side's stays open, whatever else both sides 
   expect(outside.out).not.toContain('no record read')
 })
 
+// The third reads of #1703 (Codex, gpt-6.2-sol and gpt-6.2-astra, on 5898a90997).
+// Which of a species' parts show turns on content/one-voice.json too. Main turned the diet part on; the run rewrote it while
+// it was off, and its read didn't see it. The page goes out with a part nobody read: it waits held for its next read.
+test("a part main turned on that the run rewrote while it was off waits held for its next read", () => {
+  const off = { 'content/one-voice.json': '{"ca-x":{"diet":false}}\n' }
+  const r = push('species', {
+    base: { sections: SECTIONS, files: off, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    main: { sections: SECTIONS, files: { 'content/one-voice.json': '{}\n' }, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    run: { sections: { ...SECTIONS, 'diet:sf': '<p>Ăn tạp, nhiều loại.</p>' }, files: off, fit: { at: '2026-11-15', hash: 'run', checks: [] } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.sections['diet:sf']).toBe('<p>Ăn tạp, nhiều loại.</p>')
+  expect(r.pushed.held.checks).toEqual([])
+  expect(r.out).toContain('no record read')
+})
+
+// A record main took out is no read: the run's hold on the same text stays.
+test("a page whose record main took out keeps the run's hold: a deleted record read nothing", () => {
+  const r = push('species', {
+    base: { fit: clean },
+    main: {},
+    run: { held: hold('source'), fit: { at: '2026-11-15', hash: 'e025', checks: ['source'] } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held).toEqual(hold('source'))
+})
+
+// Main read the old words again and wrote a source hold; the run rewrote them and its read found harm. The words going out
+// are the run's, so its harm stays with main's source hold.
+test("a harm the run found on the words going out stays, though the merge took main's hold", () => {
+  const r = push('species', {
+    base: { sections: SECTIONS, held: hold('harm'), fit: { at: '2026-11-14', hash: 'old', checks: ['harm'] } },
+    main: { sections: SECTIONS, held: hold('source'), fit: { at: '2026-11-15', hash: 'old', checks: ['source'] } },
+    run: { sections: { ...SECTIONS, 'care:sf': '<p>Nuôi rất dễ.</p>' }, held: hold('harm'), fit: { at: '2026-11-15', hash: 'run', checks: ['harm'] } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.sections['care:sf']).toBe('<p>Nuôi rất dễ.</p>')
+  expect(r.pushed.held.checks).toContain('harm')
+})
+
+// No questions and an empty list of them read the same, as the gate reads them.
+test("a page whose only difference from the run's read text is an empty list of questions stays open", () => {
+  const r = push('species', {
+    base: { sections: SECTIONS, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    main: { sections: SECTIONS, extra: { faq: [] }, fit: { at: '2026-11-14', hash: 'old', checks: [] } },
+    run: { sections: { ...SECTIONS, 'care:sf': '<p>Nuôi rất dễ.</p>' }, fit: { at: '2026-11-15', hash: 'run', checks: [] } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushed.held).toBeUndefined()
+  expect(r.out).not.toContain('no record read')
+})
+
+// A language file written as null isn't a page that isn't there: the comparison fails, and nothing is published.
+test("a language file that isn't a page fails the comparison, and the push isn't published", () => {
+  const r = push('guides', {
+    base: { fit: clean, th: { held: hold('source'), fit: { at: '2026-11-14', hash: 'old', checks: ['source'] } } },
+    main: { fit: clean, th: { fit: clean } },
+    run: { fit: clean, files: { 'content/guides/youtube-x/th.json': 'null\n' } },
+  })
+  expect(r.out).toContain('CODE 1')
+  expect(r.out).toMatch(/LOG main's holds: the pages main read during this run couldn't be compared/)
+})
+
+// Harm is read from each file's hold, not searched for as a word: a hold written with an escape still holds a translation
+// the run added beside it.
+test("a translation the run added is held beside a hold for harm however its file spells it", () => {
+  const harmVi = '{\n  "slug": "ho-ca",\n  "name": "Hồ cá",\n  "body": "<p>Cá con quen người.</p>",\n  "held": { "checks": ["h\\u0061rm"], "at": "2026-11-15" }\n}\n'
+  const r = push('guides', {
+    base: { fit: clean },
+    main: { files: { 'content/guides/youtube-x/vi.json': harmVi }, fit: heldFor('harm') },
+    run: { fit: clean, th: { fit: clean } },
+  })
+  expect(r.out).toContain('CODE 0')
+  expect(r.pushedTh().held.checks).toEqual(['harm'])
+})
+
 // A reader of #1703: a cycle running while this lands sourced the older script, then pulls the new main-holds.mjs and calls
 // it with two arguments. It answers as the older one did, and writes nothing.
 test("main-holds.mjs answers a caller of the older script as it did", () => {
@@ -447,6 +523,17 @@ test("main-holds.mjs answers a caller of the older script as it did", () => {
   expect(harm.out).toContain('NODE 0')
   expect(harm.out).toContain('text content/guides/youtube-x/vi.json')
   expect(harm.out).not.toMatch(/^(keep|unread|own|beside) /m)
+  // The third read of sol: its releases are decided on the merge's holds, as the older script's were. Main held the page
+  // for harm and let the Thai out; the merge kept a source hold on both. The older script took the Thai's release.
+  const later = { at: '2026-11-16', checks: ['source'] }
+  const arbiter = push('guides', {
+    base: { held: hold('source'), fit: { at: '2026-11-14', hash: 'old', checks: ['source'] }, th: { held: hold('source'), fit: { at: '2026-11-14', hash: 'old', checks: ['source'] } } },
+    main: { held: hold('harm'), fit: { at: '2026-11-15', hash: 'old', checks: ['harm'] }, th: { fit: clean } },
+    run: { held: later, fit: { at: '2026-11-14', hash: 'old', checks: ['source'] }, th: { held: later, fit: { at: '2026-11-14', hash: 'old', checks: ['source'] } } },
+  }, { oldCaller: true })
+  expect(arbiter.out).toContain('NODE 0')
+  expect(arbiter.out).toContain('hold content/guides/youtube-x/th.json')
+  expect(arbiter.out).not.toContain('harm content/guides/youtube-x/th.json')
 })
 
 test("every push that compares main's holds stops on a comparison that failed", () => {

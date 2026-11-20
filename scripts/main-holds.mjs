@@ -48,17 +48,37 @@ const GATED_KINDS = ['guides', 'species', 'plants', 'breeds', 'cards']
 const FILE = new RegExp(`^content/(${GATED_KINDS.join('|')})/([^/]+)/([a-z]{2})\\.json$`)
 
 const git = (...args) => execFileSync('git', args, { encoding: 'utf8', maxBuffer: 1 << 30 })
-// git grep answers 1 when nothing matches; anything else that fails throws.
-const grep = (...args) => {
-  try {
-    return git('grep', ...args)
-  } catch (e) {
-    if (e.status === 1 && !e.stderr) return ''
-    throw e
-  }
+// A file that isn't at <rev> is undefined; anything else that fails throws, a bad revision, a file that doesn't parse, or
+// one that parses to anything but an object (a page or record written as `null` would read as a page that isn't there:
+// a reader of #1703). Each file is read once per revision.
+const object = (v, what) => {
+  if (!v || typeof v !== 'object' || Array.isArray(v)) throw new Error(`main-holds: ${what} isn't a JSON object`)
+  return v
 }
-// A file that isn't at <rev> is undefined; anything else that fails throws, a bad revision or a file that doesn't parse.
-const at = (rev, file) => (git('ls-tree', '--name-only', rev, '--', file).trim() ? JSON.parse(git('show', `${rev}:${file}`)) : undefined)
+const seen = new Map()
+const at = (rev, file) => {
+  const k = `${rev}:${file}`
+  if (!seen.has(k)) seen.set(k, git('ls-tree', '--name-only', rev, '--', file).trim() ? object(JSON.parse(git('show', k)), k) : undefined)
+  return seen.get(k)
+}
+// Many files at once, for the harm look-up over every language of the pages compared: one `git cat-file --batch`.
+const atAll = (rev, files) => {
+  const want = files.filter(f => !seen.has(`${rev}:${f}`))
+  if (want.length) {
+    const out = execFileSync('git', ['cat-file', '--batch'], { input: want.map(f => `${rev}:${f}\n`).join(''), maxBuffer: 1 << 30 })
+    let i = 0
+    for (const f of want) {
+      const nl = out.indexOf(10, i)
+      const head = out.subarray(i, nl).toString('utf8')
+      if (/ missing$/.test(head)) { seen.set(`${rev}:${f}`, undefined); i = nl + 1; continue }
+      const size = Number(head.split(' ')[2])
+      if (!Number.isInteger(size)) throw new Error(`main-holds: git cat-file answered "${head}"`)
+      seen.set(`${rev}:${f}`, object(JSON.parse(out.subarray(nl + 1, nl + 1 + size).toString('utf8')), `${rev}:${f}`))
+      i = nl + 1 + size + 1
+    }
+  }
+  return files.map(f => seen.get(`${rev}:${f}`))
+}
 // Key order aside: the entity driver can write a page's fields in another order than the side it took them from.
 const canon = v =>
   Array.isArray(v) ? v.map(canon) : v && typeof v === 'object' ? Object.fromEntries(Object.keys(v).sort().map(k => [k, canon(v[k])])) : v
@@ -73,13 +93,19 @@ const text = page => {
 // other fields alone differ, a guide's cover set on one side, was read as it is. HTML is compared as written: a page whose
 // markup alone changed waits for a read, where a renderer of our own could call two texts the same that the gate's
 // reads apart (a reader of #1703). A test holds `read` to fitText.
+// A summary or questions absent read as none, as fitText reads them (a reader of #1703). Of a species or a plant, which of
+// its parts show also turns on its record's sources (entity.json) and, for a species, content/one-voice.json (schema
+// load.ts oneVoice): `selection`, read at the same revision as the page, so a part one side turned on or off counts as
+// a change to the text (a reader of #1703).
 const READ = ['name', 'title', 'eyebrow', 'body', 'definition', 'summary', 'faq', 'localNote']
+const LISTS = ['summary', 'faq']
 const SECTIONED = ['species', 'plants']
-export const read = (page, kind) => ({
-  ...Object.fromEntries(READ.map(k => [k, k === 'localNote' ? page.localNote?.html : page[k]])),
+export const read = (page, kind, selection) => ({
+  ...Object.fromEntries(READ.map(k => [k, k === 'localNote' ? page.localNote?.html : LISTS.includes(k) ? (page[k] ?? []) : page[k]])),
   ...(SECTIONED.includes(kind)
     ? { sections: Object.fromEntries(Object.entries(page.sections ?? {}).filter(([k]) => !k.startsWith('references'))) }
     : {}),
+  ...(selection ? { selection } : {}),
 })
 const withHeld = (page, held) => {
   const { held: _held, ...rest } = page
@@ -94,7 +120,30 @@ function main() {
     console.error('usage: node scripts/main-holds.mjs <base> <main> [<run>]')
     process.exit(2)
   }
-  const changed = git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n').filter(f => FILE.test(f))
+  const dirOf = f => f.replace(/\/[a-z]{2}\.json$/, '')
+  const files = (dir, rev = 'HEAD') => git('ls-tree', '--name-only', rev, `${dir}/`).split('\n').filter(s => FILE.test(s))
+  // Which parts of a species or a plant show at <rev> (read's `selection`): its record's sources and its line in
+  // one-voice.json. The pages whose selection differs between two revisions: their language files count as changed.
+  const ONE_VOICE = 'content/one-voice.json'
+  const selection = (rev, f) => {
+    const [, kind, id] = FILE.exec(f)
+    if (!SECTIONED.includes(kind)) return undefined
+    const sources = (at(rev, `${dirOf(f)}/entity.json`)?.sections ?? []).map(x => `${x.key}:${x.source}`).sort()
+    return { sources, voice: kind === 'species' ? ((at(rev, ONE_VOICE) ?? {})[id] ?? null) : null }
+  }
+  const readAt = (rev, f, page) => read(page, FILE.exec(f)[1], selection(rev, f))
+  const selectionChanged = (a, b) => {
+    const dirs = new Set()
+    const [va, vb] = [at(a, ONE_VOICE) ?? {}, at(b, ONE_VOICE) ?? {}]
+    for (const id of new Set([...Object.keys(va), ...Object.keys(vb)])) if (!same(va[id], vb[id])) dirs.add(`content/species/${id}`)
+    for (const e of git('diff', '--name-only', '--no-renames', a, b, '--', 'content').split('\n')) {
+      const m = /^(content\/(?:species|plants)\/[^/]+)\/entity\.json$/.exec(e)
+      if (m && !same(selection(a, `${m[1]}/vi.json`), selection(b, `${m[1]}/vi.json`))) dirs.add(m[1])
+    }
+    return dirs
+  }
+  const withSelection = (list, a, b, rev) => [...new Set([...list.filter(f => FILE.test(f)), ...[...selectionChanged(a, b)].flatMap(d => files(d, rev))])]
+  const changed = withSelection(git('diff', '--name-only', '--no-renames', main, 'HEAD', '--', 'content').split('\n'), main, 'HEAD', 'HEAD')
   if (!changed.length) return
   const out = []
   // Files written here: file → [what, page].
@@ -104,58 +153,71 @@ function main() {
   // The gate's day (ceiling.ts vnDay).
   const day = new Date(Date.now() + 7 * 3600_000).toISOString().slice(0, 10)
   const fit = { base: at(base, FIT) ?? {}, main: at(main, FIT) ?? {}, head: at('HEAD', FIT) ?? {} }
-  // The files both main and this run changed since <base>: the only ones whose merge can be a text neither side has.
-  const since = rev => git('diff', '--name-only', '--no-renames', base, rev, '--', 'content').split('\n')
+  // The files both main and this run changed since <base>, a part turned on or off among them: the only ones whose merge
+  // can be a text neither side has.
+  const since = rev => withSelection(git('diff', '--name-only', '--no-renames', base, rev, '--', 'content').split('\n'), base, rev, rev)
   const mainChanged = new Set(since(main))
   const both = new Set(run ? since(run).filter(f => mainChanged.has(f)) : [])
   for (const f of changed) {
     const [, kind, id, lang] = FILE.exec(f)
     const key = `${lang}/${kind}/${id}`
-    // Main read it during the run, and its read is the one that stands.
-    if (same(fit.base[key], fit.main[key]) || !same(fit.head[key], fit.main[key])) {
+    // Main read it during the run, and its read is the one that stands. A record main took out is no read (a reader of
+    // #1703): the page goes the way of one main didn't read.
+    const mainRead = fit.main[key] !== undefined && !same(fit.base[key], fit.main[key]) && same(fit.head[key], fit.main[key])
+    if (!mainRead) {
       // Or nobody read it: both sides changed the page, and the merge's text is neither's (main's hand fix to one section,
       // this run's rewrite of another), while the record that stands read one side's. It waits held for its next read, as
       // the gate holds a page it couldn't read: the run's hold, or the gate's mark (a reader of #1703). A text that is one
       // side's stays as merged: a hand fix main made alone, the sweep's words (the chief of staff, 20 Nov).
       if (!both.has(f)) continue
       const [ours, theirs, mine] = [at('HEAD', f), at(main, f), at(run, f)]
-      if (ours && theirs && mine && !ours.held && !same(read(ours, kind), read(theirs, kind)) && !same(read(ours, kind), read(mine, kind)))
+      if (ours && theirs && mine && !ours.held && !same(readAt('HEAD', f, ours), readAt(main, f, theirs)) && !same(readAt('HEAD', f, ours), readAt(run, f, mine)))
         written.set(f, ['unread', withHeld(ours, mine.held ?? { checks: [], at: day })])
       continue
     }
     const ours = at('HEAD', f)
     const theirs = at(main, f)
-    if (!ours || !theirs || same(ours, theirs)) continue
-    if (same(text(ours), text(theirs))) {
+    if (!ours || !theirs) continue
+    const shown = same(selection('HEAD', f), selection(main, f))
+    if (same(ours, theirs) && shown) continue
+    if (same(text(ours), text(theirs)) && shown) {
       if (ours.held && !theirs.held) releases.set(f, undefined)
       else out.push(['hold', f])
-    } else if (run && same(read(ours, kind), read(theirs, kind))) {
+    } else if (run && same(readAt('HEAD', f, ours), readAt(main, f, theirs))) {
       // Main's record read this very text: its hold, or its release, onto the merge's file.
       if (ours.held && !theirs.held) releases.set(f, withHeld(ours, undefined))
       else if (!same(ours.held, theirs.held)) written.set(f, ['own', withHeld(ours, theirs.held)])
-    } else if (ours.held || !run) out.push(['text', f])
-    else written.set(f, ['keep', withHeld(ours, at(run, f)?.held ?? { checks: [], at: day })])
+    } else if (!run) out.push(['text', f])
+    else {
+      const mine = at(run, f)
+      if (ours.held) {
+        // Where the text going out is the run's, what the run's read found on it stays, though the merge took another
+        // hold: a harm the run found isn't lost to a source hold main wrote on the old text (a reader of #1703).
+        const found = mine?.held && same(readAt('HEAD', f, ours), readAt(run, f, mine)) ? mine.held.checks.filter(c => !ours.held.checks.includes(c)) : []
+        if (found.length) written.set(f, ['keep', withHeld(ours, { ...ours.held, checks: [...ours.held.checks, ...found].sort() })])
+        else out.push(['text', f])
+      } else written.set(f, ['keep', withHeld(ours, mine?.held ?? { checks: [], at: day })])
+    }
   }
   const taken = new Set(out.filter(([what]) => what === 'hold').map(([, f]) => f))
-  // A file's hold as this ends, a release aside (decided below): written here, main's taken whole, or the merge's.
-  const heldAtEnd = f => (written.has(f) ? written.get(f)[1] : at(taken.has(f) ? main : 'HEAD', f))?.held
+  // A file's hold as this ends, a release aside (decided below): written here, main's taken whole, or the merge's. The
+  // older caller decides releases on the merge's holds, as the older script did (a reader of #1703).
+  const heldAtEnd = f => (!run ? at('HEAD', f) : written.has(f) ? written.get(f)[1] : at(taken.has(f) ? main : 'HEAD', f))?.held
   const harmAtEnd = f => !releases.has(f) && !!heldAtEnd(f)?.checks?.includes('harm')
-  const files = dir => git('ls-tree', '--name-only', 'HEAD', `${dir}/`).split('\n').filter(s => FILE.test(s))
-  const dirOf = f => f.replace(/\/[a-z]{2}\.json$/, '')
   // Harm in one language holds the page's every language, as gate.ts does. Of each page this compares, every language
   // file is looked at as the push ends, one the same as main's too: a hold for harm written here, main's taken, or the
-  // merge's (main's, where the file is main's). A language left open beside it takes the run's hold with harm, or harm
-  // (a reader of #1703). A release waits below. The older caller writes nothing, and gets the older answer.
+  // merge's (main's, where the file is main's). Each is parsed, not searched for the word (a reader of #1703). A language
+  // left open beside it takes the run's hold with harm, or harm. A release waits below. The older caller writes nothing,
+  // and gets the older answer.
   if (run) {
     const dirs = [...new Set(changed.map(dirOf))]
-    const candidates = new Set([...written.keys(), ...taken].map(dirOf))
-    for (let i = 0; i < dirs.length; i += 400)
-      for (const l of grep('-l', '-F', '"harm"', 'HEAD', '--', ...dirs.slice(i, i + 400).map(d => `${d}/`)).split('\n'))
-        if (l) candidates.add(dirOf(l.replace(/^HEAD:/, '')))
-    for (const dir of candidates) {
-      const langs = files(dir)
-      if (!langs.some(harmAtEnd)) continue
-      for (const s of langs) {
+    const langs = new Map(dirs.map(d => [d, files(d)]))
+    const all = [...langs.values()].flat()
+    atAll('HEAD', all)
+    atAll(main, all.filter(f => taken.has(f)))
+    for (const [dir, ls] of langs) {
+      if (!ls.some(harmAtEnd)) continue
+      for (const s of ls) {
         if (releases.has(s) || heldAtEnd(s)) continue
         written.set(s, ['beside', withHeld(at('HEAD', s), withHarm(at(run, s)?.held) ?? { checks: ['harm'], at: day })])
       }
@@ -173,10 +235,10 @@ function main() {
     else if (page) written.set(f, ['own', page])
     else out.push(['hold', f])
   }
-  // Written once every read has passed, as gate.ts writes a hold.
-  for (const [f, [, page]] of written) writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
+  // Written once every read has passed, as gate.ts writes a hold. The older caller writes nothing.
+  if (run) for (const [f, [, page]] of written) writeFileSync(f, `${JSON.stringify(page, null, 2)}\n`)
   for (const [what, f] of out) console.log(`${what} ${f}`)
-  for (const [f, [what]] of written) console.log(`${what} ${f}`)
+  if (run) for (const [f, [what]] of written) console.log(`${what} ${f}`)
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) main()
