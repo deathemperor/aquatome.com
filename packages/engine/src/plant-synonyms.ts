@@ -72,10 +72,19 @@ async function gbifNames(root: string, http: Http, names: string[]) {
 }
 
 /**
+ * Off until its fix (the chief of staff, 20 Nov: the fish step's two faults are this one's too, a refusal from GBIF
+ * doesn't stop its requests and the names file is written in place, and readers see these names on plant pages): no
+ * request to GBIF and no file written, from a cycle or by hand. The names already on plant pages stay as they are.
+ */
+export const PLANT_SYNONYMS_OFF: string | undefined = 'off until its fix (the chief of staff, 20 Nov)'
+
+/**
  * Every plant page's `synonyms` brought up to date (plantSynonyms), written only where they change, in the file's own
  * indentation. A plant whose GBIF lookup failed keeps what it has until the next run.
  */
-export async function addPlantSynonyms(root: string, http: Http): Promise<{ changed: string[]; failed: string[] }> {
+export async function addPlantSynonyms(root: string, http: Http, o: { off?: string | false } = {}): Promise<{ changed: string[]; failed: string[]; off?: string }> {
+  const off = o.off ?? PLANT_SYNONYMS_OFF
+  if (off) return { changed: [], failed: [], off }
   const readJson = async <T>(path: string) => JSON.parse(await readFile(path, 'utf8').catch(() => 'null')) as T | null
   const dir = join(root, 'content/plants')
   const plants: (Plant & { raw: string; entity: Record<string, unknown> & { synonyms?: string[] } })[] = []
