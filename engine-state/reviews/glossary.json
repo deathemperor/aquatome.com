@@ -2358,5 +2358,78 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/be-cong-dong": [
+    {
+      "at": "2026-11-20T09:54:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Chạy bể có bật lọc cho xong chu trình nitơ rồi mới thả cá.\" (not \"Chạy bể trước rồi mới thả cá.\": Rule 12: \"Chạy bể trước rồi mới thả cá.\" does not follow the line under THIS TERM, which sets the cycling step word for word as \"Chạy bể có bật lọc cho xong chu trình nitơ rồi mới thả cá.\" The entry uses its …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:54:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: Under \"Nên làm gì\", the quarantine and acclimation steps are still two separate items: \"Tạp chí cá cảnh này ghi: cách ly cá mới trong bể riêng trước khi thả vào bể đã nuôi sẵn.\" and \"Cho cá mới quen dần với nhiệt độ và nước bể.\" THIS TERM says they must be one step, written word for word as \"Tạp chí cá cảnh này ghi: cách ly cá mới trong bể riêng trước khi thả vào bể đã nuôi sẵn, rồi cho …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:38:53Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:38:53Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The magazine's quarantine step \"Cách ly cá mới trong bể riêng trước khi thả vào bể đã nuôi sẵn.\" is still in the list under \"Tạp chí cá cảnh này ghi:\" in \"Sai lầm hay gặp\", where a reader takes it as a mistake. The line under THIS TERM says it should leave that list and become its own step in \"Nên làm gì\", right before \"Cho cá mới quen dần với nhiệt độ và nước bể.\", word for word: \"Tạp c…"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:31:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:31:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Hay gặp trong bể chung có Corydoras, cá neon xanh, cá ember tetra, cá mún, cá bảy màu, cá molly, cá tam giác và cá anh đào.\" uses \"bể chung\", but the term must be named \"bể cộng đồng\". Replace the sentence word for word with \"Các loài được xem là hợp bể cộng đồng gồm Corydoras, cá neon xanh, cá ember tetra, cá mún, cá bảy màu, cá molly, cá tam giác và cá anh đào.\"",
+        "Rules 4 and 12: \"Về số cá một bể chứa được, các nguồn không thống nhất.\" must be cut. No fact says the sources disagree.",
+        "Rule 12: \"Một nguồn thú y đưa quy tắc ước chừng khoảng 2,5 cm cá trưởng thành cho mỗi 3,8 lít nước, và lấy ví dụ bể 38 lít nuôi được hai đàn, mỗi đàn 5 con cá dưới 2,5 cm.\" must be replaced word for word with \"Một nguồn thú y đưa quy tắc chung “1 inch cá trưởng thành cho mỗi gallon nước” (khoảng 2,5 cm cho mỗi 3,8 lít); ví dụ bể 38 lít chứa hai đàn, mỗi đàn 5 con cá dưới 2,5 cm.\"",
+        "Rule 12: \"nhu cầu sống đàn\" in \"Một bài viết bác quy tắc \"1 cm cá cho 1 lít\" và tính số cá theo cỡ cá lúc lớn, nhu cầu sống đàn, …\" must read \"nhu cầu sống theo đàn\", as the line gives it.",
+        "Rules 3 and 12: \"Nguồn thú y khuyên đợt đầu chọn loài khỏe và không giành chỗ, rồi chia cá theo tầng mặt, tầng giữa và tầng đáy cho cân.\" says \"không giành chỗ\" for non-territorial, which goes against the term Tính lãnh thổ. It also joins fact 20's tiers, which two sites give, to the vet's claim. Replace it with \"Nguồn thú y này khuyên bắt đầu bằng loài khỏe, không có tính lãnh thổ, vài tuần sau …",
+        "Rule 12: \"Cho bể chạy lọc qua chu trình nitơ rồi mới thả cá.\" must be replaced with \"Chạy bể có bật lọc cho xong chu trình nitơ rồi mới thả cá.\"",
+        "Rules 12 and 4: \"Nguồn thú y ghi chạy 1–2 tuần, đo nước mỗi ngày, và bỏ bước này thì có nguy cơ gặp hội chứng bể mới.\" puts a claim two sites give (fact 38) under the vet's credit. It must become \"Nguồn thú y này ghi chạy 1–2 tuần, đo nước mỗi ngày.\" plus the plain sentence \"Bỏ qua bước chạy bể này có nguy cơ gặp hội chứng bể mới.\"",
+        "Rule 12: \"Bài viết ghi khoảng 2–6 tuần, dùng vi sinh mồi hoặc một chút thức ăn làm nguồn amoniac.\" must read \"Bài viết này ghi khoảng 2–6 tuần, dùng vi sinh mồi hoặc một chút thức ăn làm nguồn amoniac.\"",
+        "Rules 4 and 12: \"Thả cá từng đợt, mỗi đợt cách nhau vài tuần.\" is a plain step, but only the article gives it (fact 15). The article's list also repeats the staging in \"Thả cá đáy và cá đàn trước, cá betta (cá xiêm) sau cùng.\" Both must be replaced by one item in the article's list: \"Thả cá từng đợt cách nhau vài tuần: cá đáy và cá đàn trước, cá betta sau cùng.\"",
+        "Rules 3 and 12: \"Với cá betta (cá xiêm), nên chọn con mái hoặc dòng plakat, vì con trống hay giành chỗ là mối lo chính.\" has two problems. \"(cá xiêm)\" is not the article's word. \"hay giành chỗ\" stands for \"territorial\" against the term Tính lãnh thổ. It must read \"Với cá betta, nên chọn con mái hoặc dòng plakat, vì con trống có tính lãnh thổ là mối lo chính.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
   ]
 }
