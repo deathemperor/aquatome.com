@@ -140,16 +140,19 @@ test('no phrase belongs to two terms, in either tone placing, in any language; n
 
 test('the names check names a phrase two terms hold, in either tone placing, and a link phrase the notes take off', () => {
   const dir = mkdtempSync(join(tmpdir(), 'aq-names-'))
-  const put = (id: string, f: string, t: object) => { mkdirSync(join(dir, id), { recursive: true }); writeFileSync(join(dir, id, f), JSON.stringify(t)) }
-  put('oxy-hoa-tan', 'vi.json', { name: 'Oxy hòa tan', altNames: [], linkNames: ['Oxy hoà tan'] })
-  put('ph', 'vi.json', { name: 'pH', altNames: ['độ pH'], linkNames: [] })
-  put('ph', 'id.json', { name: 'pH', altNames: [], linkNames: [] })
-  put('kh', 'vi.json', { name: 'KH', altNames: ['Độ pH'], linkNames: [] })
-  put('kh', 'id.json', { name: 'KH', altNames: ['ph'], linkNames: [] })
-  put('thuy-sinh', 'vi.json', { name: 'Bể thủy sinh', altNames: [], linkNames: [] })
-  put('cay-thuy-sinh', 'vi.json', { name: 'Cây thủy sinh', altNames: [], linkNames: ['bể thuỷ sinh'] })
-  expect(shared(dir)).toEqual(['vi.json: "bể thuỷ sinh" on cay-thuy-sinh, thuy-sinh', 'vi.json: "độ ph" on kh, ph', 'id.json: "ph" on kh, ph'])
-  expect(linkedOff(dir, { 'oxy-hoa-tan': { notNames: ['OXY HÒA TAN'] } })).toEqual(['oxy-hoa-tan: Oxy hoà tan'])
-  expect(linkedOff(dir, { 'oxy-hoa-tan': { notNames: ['oxy'] } })).toEqual([])
-  rmSync(dir, { recursive: true })
+  try {
+    const put = (id: string, f: string, t: object) => { mkdirSync(join(dir, id), { recursive: true }); writeFileSync(join(dir, id, f), JSON.stringify(t)) }
+    put('oxy-hoa-tan', 'vi.json', { name: 'Oxy hòa tan', altNames: [], linkNames: ['Oxy hoà tan'] })
+    put('ph', 'vi.json', { name: 'pH', altNames: ['độ pH'], linkNames: [] })
+    put('ph', 'id.json', { name: 'pH', altNames: [], linkNames: [] })
+    put('kh', 'vi.json', { name: 'KH', altNames: ['Độ pH'], linkNames: [] })
+    put('kh', 'id.json', { name: 'KH', altNames: ['ph'], linkNames: [] })
+    put('thuy-sinh', 'vi.json', { name: 'Bể thủy sinh', altNames: [], linkNames: [] })
+    put('cay-thuy-sinh', 'vi.json', { name: 'Cây thủy sinh', altNames: [], linkNames: ['bể thuỷ sinh'] })
+    expect(shared(dir)).toEqual(['vi.json: "bể thuỷ sinh" on cay-thuy-sinh, thuy-sinh', 'vi.json: "độ ph" on kh, ph', 'id.json: "ph" on kh, ph'])
+    expect(linkedOff(dir, { 'oxy-hoa-tan': { notNames: ['OXY HÒA TAN'] } })).toEqual(['oxy-hoa-tan: Oxy hoà tan'])
+    expect(linkedOff(dir, { 'oxy-hoa-tan': { notNames: ['oxy'] } })).toEqual([])
+  } finally {
+    rmSync(dir, { recursive: true, force: true })
+  }
 })
