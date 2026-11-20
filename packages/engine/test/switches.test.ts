@@ -42,6 +42,15 @@ test('an exported empty switch is read as unset, and a limit too large to hold i
   expect(() => topicCheckLimit({ TOPIC_CHECK_LIMIT: '40' }, '9007199254740993')).toThrow(/whole number/)
 })
 
+// #1698's second reader: the cycle passes the variable as the flag (`--kind "${FIT_REWRITE_KINDS:-…}"`), so a variable
+// exported as a space reaches the command as a blank flag, which is no flag: not no kinds at all, nor a refused limit.
+test('a blank flag is read as no flag', () => {
+  expect(fitRewriteKinds({ FIT_REWRITE_KINDS: ' ' }, ' ')).toEqual(['species', 'plants', 'breeds'])
+  expect(fitRewriteKinds({}, '')).toEqual(['species', 'plants', 'breeds'])
+  expect(topicCheckLimit({ TOPIC_CHECK_LIMIT: ' ' }, ' ')).toBe(0)
+  expect(topicCheckLimit({ TOPIC_CHECK_LIMIT: '40' }, ' ')).toBe(40)
+})
+
 // The commands themselves use the switches: the engine's command line reads the owner's files when it starts and writes
 // the repository's own state, so a test can't run it; this pins each branch to its switch instead, as photo-privacy's does.
 test('video-cut, topic-check and fit-rewrite each take their switch before they do anything', () => {

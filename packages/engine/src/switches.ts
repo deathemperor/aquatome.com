@@ -4,7 +4,10 @@
  * The command holds each switch, not only the cycle script, so a step run by hand is off by default as well.
  */
 type Env = Record<string, string | undefined>
-/** A variable exported empty counts as unset, as the cycle script's `${X:-default}` reads it. */
+/**
+ * A variable exported empty counts as unset, as the cycle script's `${X:-default}` reads it; so does a flag the script
+ * passed blank (`--kind "${X:-…}"` with X a space).
+ */
 const given = (v: string | undefined) => (v === undefined || v.trim() === '' ? undefined : v)
 
 /** The cutter runs only with VIDEO_CUT=on. */
@@ -21,13 +24,14 @@ export function topicCheckLimit(env: Env, flag?: string): number {
     return n
   }
   const allowed = whole(given(env.TOPIC_CHECK_LIMIT) ?? '0', 'TOPIC_CHECK_LIMIT')
-  return flag === undefined ? allowed : Math.min(allowed, whole(flag, '--limit'))
+  const asked = given(flag)
+  return asked === undefined ? allowed : Math.min(allowed, whole(asked, '--limit'))
 }
 
 /** The kinds the rewrite may take: FIT_REWRITE_KINDS (fish, plants and breeds when unset or empty), narrowed by `--kind`. */
 export const FIT_REWRITE_DEFAULT = ['species', 'plants', 'breeds'] as const
 export function fitRewriteKinds(env: Env, flag?: string): string[] {
   const allowed = (given(env.FIT_REWRITE_KINDS) ?? FIT_REWRITE_DEFAULT.join(',')).split(',').map(s => s.trim()).filter(Boolean)
-  const asked = flag?.split(',').map(s => s.trim()).filter(Boolean)
+  const asked = given(flag)?.split(',').map(s => s.trim()).filter(Boolean)
   return asked ? allowed.filter(k => asked.includes(k)) : allowed
 }

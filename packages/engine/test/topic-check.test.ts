@@ -88,7 +88,8 @@ test("a guide in a language the site doesn't serve yet is read too, under its ow
   expect(r.checked).toEqual(['lighting:ms'])
 })
 
-// The cycle runs it with a limit of 0 until Monday's change (engine-cycle.sh): no guide read, no call, nothing written.
+// The cycle runs it with a limit of 0 until Monday's change (engine-cycle.sh): no guide read, no call, no guide changed
+// (its own state file is still written).
 test('a limit of 0 reads no guide', async () => {
   const root = await site({ 'youtube-light': guide })
   let calls = 0
