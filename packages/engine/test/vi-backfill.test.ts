@@ -235,7 +235,8 @@ test('--match re-edits only the pages containing it, video guides and their summ
 // up again at every run, each a write and a review. A page is taken up once for each listed phrase it has.
 test('--phrases takes a page up once for each listed phrase: not again for one it was taken up for, again for a new one', async () => {
   const root = await setup()
-  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
+  // The page has two phrases from the start; the list has one of them.
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, dù vậy cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
   const state = join(root, 'state.json')
   const list = ['tác giả']
   const listed = (t: string) => list.filter(p => t.includes(p))
@@ -244,19 +245,34 @@ test('--phrases takes a page up once for each listed phrase: not again for one i
   // The reviewer fails the rewrite, so the page keeps its phrase.
   const run = (o: { listed?: (t: string) => string[] } = { listed }) => rewriteExisting(root, state, { llm: fake({ en: 0.6, vi: 0.6 }), opts: { mode: 'fix' }, now }, { limit: 10, ...(o.listed ? { match: match(), ...o } : {}) })
   expect(ids(await run())).toEqual(['guides/g'])
-  expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>Theo tác giả, cá ăn được.</p>')
+  expect((await read(root, 'guides/g/vi.json')).body).toBe('<p>Theo tác giả, dù vậy cá ăn được.</p>')
   expect(ids(await run())).toEqual([])
   // The queue's own pass keeps the mark: a newer rewrite version makes the page due again.
   await put(root, 'state.json', { 'guides/g': { ...(await read(root, 'state.json'))['guides/g'], v: 1 } })
   expect(ids(await run({}))).toContain('guides/g')
   expect((await read(root, 'state.json'))['guides/g'].phrases).toEqual(['tác giả'])
   expect(ids(await run())).toEqual([])
-  // A phrase added to the list, and on the page: taken up again, once.
-  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, dù vậy cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
+  // A phrase the page already had, added to the list, the page unchanged: taken up again, once.
   list.push('dù vậy')
   expect(ids(await run())).toEqual(['guides/g'])
   expect(ids(await run())).toEqual([])
   expect((await read(root, 'state.json'))['guides/g'].phrases).toEqual(['tác giả', 'dù vậy'])
+})
+
+// Codex's read of the change, 20 Nov 2026: a page whose rewrite failed wasn't done, and must not lose its phrase.
+test('--phrases: a page whose rewrite failed is taken up again at the next run', async () => {
+  const root = await setup()
+  await put(root, 'guides/g/vi.json', { slug: 'g', name: 'G', body: '<p>Theo tác giả, cá ăn được.</p>', quality: { score: 0.85, indexable: true } })
+  const state = join(root, 'state.json')
+  const o = { limit: 10, match: /tác giả/i, listed: (t: string) => (t.includes('tác giả') ? ['tác giả'] : []) }
+  // The writer leaves the part out: the page fails, nothing written.
+  const broken: Llm = async <T,>() => ({ parts: [] }) as T
+  const failed = await rewriteExisting(root, state, { llm: broken, opts: { mode: 'fix' }, now }, o)
+  expect(failed.failed.map(x => x.split(':')[0])).toEqual(['guides/g'])
+  expect((await read(root, 'state.json'))['guides/g'].phrases).toBeUndefined()
+  const next = await rewriteExisting(root, state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, o)
+  expect(next.done.map(x => x.split(' ')[0])).toEqual(['guides/g'])
+  expect((await read(root, 'state.json'))['guides/g'].phrases).toEqual(['tác giả'])
 })
 
 test("a translated guide's rewrite is checked against its kept English article, and scores as a translation", async () => {

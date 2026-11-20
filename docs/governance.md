@@ -415,7 +415,8 @@ The layers above still check the result.
     them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
     - **`--phrases` takes a page up once for each listed phrase it has** (the phrases are kept in its line of
       `engine-state/vi-rewrite.json`): a phrase the rewrite leaves, in a part the reviewer failed or a fixed part, doesn't
-      bring the page back at the next run, and a phrase added to the list does. Found 2026-11-16: 544 of the 758 pages it
+      bring the page back at the next run, and a phrase added to the list does. A page whose rewrite failed isn't marked,
+      so it comes back. Found 2026-11-16: 544 of the 758 pages it
       had rewritten still had a listed phrase, and every run took them all up again, each part a write and a review.
   - **An Indonesian or Thai fish page out of search for its score comes back on two fresh reads on two models**
     (`pnpm engine recheck`, `localize-recheck.ts`, in the rewrite part after the other translations; the chief of staff,

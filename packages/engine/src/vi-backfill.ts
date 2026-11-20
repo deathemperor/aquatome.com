@@ -82,8 +82,9 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
   // For the list (`listed`), once per phrase: a rewrite that leaves a phrase (a part the reviewer failed, a fixed part)
   // doesn't bring the page back at every run, and a phrase added to the list does.
   const fresh = (j: Job) => j.found.some(p => !state[j.id]?.phrases?.includes(p))
-  // The mark outlives every later pass, the queue's too.
-  const marked = (j: Job) => { const p = [...new Set([...(state[j.id]?.phrases ?? []), ...(o.listed ? j.found : [])])]; return p.length ? { phrases: p } : {} }
+  // The mark outlives every later pass, the queue's too. A page is marked only once its rewrite went through, kept or
+  // not: a failure leaves it as it was, so it is taken up again.
+  const marked = (j: Job, through: boolean) => { const p = [...new Set([...(state[j.id]?.phrases ?? []), ...(through && o.listed ? j.found : [])])]; return p.length ? { phrases: p } : {} }
   // Pages named first go first, then pages out of search for their score, each group in the kinds' and folders' order
   // (the sort is stable).
   const rank = (j: Job) => { const i = o.first?.indexOf(j.id) ?? -1; return i >= 0 ? i - o.first!.length - 1 : -Number(j.low) }
@@ -160,13 +161,13 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
       // A usage limit, or the step's ceiling (ceiling.ts), stops a page part way: nothing written, so no review logged.
       if (!(e instanceof LlmError && errorKind(e.message) === 'usage')) await log(false)
       if (e instanceof LlmError) { report.stopped = `${job.id}: ${e.message}`; break }
-      state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V, ...marked(job) }
+      state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten: 0, of: job.groups.length, scores, error: (e as Error).message.slice(0, 200), v: REWRITE_V, ...marked(job, false) }
       report.failed.push(`${job.id}: ${(e as Error).message}`)
       continue
     }
     if (rewritten) await writeFile(file, `${JSON.stringify(METRIC_KINDS.includes(job.kind) ? metricPage(vi, 'vi') : vi, null, 2)}\n`)
     await log(true)
-    state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V, ...marked(job) }
+    state[job.id] = { at: d.now().toISOString().slice(0, 10), rewritten, of: job.groups.length, scores, v: REWRITE_V, ...marked(job, true) }
     ;(rewritten ? report.done : report.kept).push(`${job.id} (${rewritten}/${job.groups.length}, ${scores.map(s => s.toFixed(2)).join(' ')})`)
     await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
   }
