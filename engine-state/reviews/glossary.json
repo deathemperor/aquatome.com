@@ -2110,5 +2110,96 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/thay-nuoc": [
+    {
+      "at": "2026-11-20T09:28:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới vào; nước máy thì phải khử clo trước.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước máy thường có clo hoặc cloramin, đều độc với cá.\" (not \"Một cẩm nang thú y ghi: nước máy thành phố có clo hoặc cloramin, đều độc với cá.\": Rule 12: \"Một cẩm nang thú y ghi: nước máy thành phố có clo hoặc cloramin, đều độc với cá.\" breaks the tap-water line. It must read word for word \"Nước máy thường…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Châm nước mới từ từ, không dội thẳng vào cá, và chỉnh dần nhiệt độ nước mới cho bằng nhiệt độ bể.\" (not \"Châm nước mới từ từ, không dội thẳng vào cá, và chỉnh nhiệt độ cho khớp dần dần.\": Rule 12: In the first shop's step 5, \"Châm nước mới từ từ, không dội thẳng vào cá, và chỉnh nhiệt độ cho khớp dần dần.…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:28:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Tiệm này còn ghi rằng muốn bỏ clo mà không dùng chất xử lý nước thì sục khí mạnh 1–2 giờ, hoặc để nước ngoài nắng 24 giờ.\" is still in the entry. THIS TERM says to cut this sentence and put nothing in its place, because the shops' times are several times apart and standing water does not remove chloramine. It also uses \"Tiệm này\" after two shops have been named.",
+        "The entry is 526 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T09:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới vào; nước máy thì phải khử clo trước.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước máy thường có clo hoặc cloramin, đều độc với cá.\" (not \"Một cẩm nang thú y ghi: nước máy có clo hoặc cloramin, đều độc với cá.\": Rule 12: \"Một cẩm nang thú y ghi: nước máy có clo hoặc cloramin, đều độc với cá.\" doesn't follow the tap-water line. That line asks for this exact sentence, plain and witho…",
+        "The entry is 526 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T09:04:16Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.97,
+      "notes": [
+        "\"Nước máy có clo, độc với cá.\": the facts don't carry it (unsupported, loose, loose, unsupported, unsupported, unsupported): Drops 'usually' and 'chlorine or chloramine' hedges / merges 'usually chlorine' and 'chlorine or chloramine' from two sites / Joins two sources; drops 'usually' and chloramine / Drops the hedge: the shop says tap water \"usually\" has chlorine, and Merck says \"chlorine or chl…",
+        "Rule 12: The definition \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới đã khử clo vào.\" was not replaced. It should read word for word: \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới vào; nước máy thì phải khử clo trước.\"",
+        "Rule 12: The heading \"Trong bể của bạn\" should be \"Nước dùng để thay\".",
+        "Rule 12: \"Nước máy có clo, độc với cá.\" should be \"Nước máy thường có clo hoặc cloramin, đều độc với cá.\" It drops fact 43's \"thường\" and fact 28's \"hoặc cloramin\".",
+        "Rule 12: \"Sục khí cũng khử được clo.\" should be removed. In its place, the first Vietnamese shop's own claims should carry fact 36 in its words: \"muốn bỏ clo mà không dùng chất xử lý nước thì sục khí mạnh 1–2 giờ, hoặc để nước ngoài nắng 24 giờ\". That claim is missing.",
+        "Rule 12: \"Vi khuẩn nitrat hóa dùng dần cacbonat và bicacbonat, tức phần KH giữ pH ổn định.\" should be \"Vi khuẩn nitrat hóa dùng hết cacbonat và bicacbonat, chất đệm giữ pH.\" No fact links this to KH, and fact 7 says \"use up\".",
+        "Rules 3 and 12: \"không bù được KH\" uses KH where the magazine's fact says alkalinity. It should say \"độ kiềm\".",
+        "Rules 3 and 12: \"Nếu nước máy ít KH thì có thể thêm san hô vụn hoặc cát aragonite.\" uses KH for alkalinity. It should say \"độ kiềm\".",
+        "Rules 3 and 12: \"Khi KH cạn dần thì pH tụt\" uses KH for alkalinity. It should say \"độ kiềm\".",
+        "Rule 12: \"Mỗi nguồn ghi một mức thay khác nhau:\" should be \"Ba nguồn ghi ba mức thay khác nhau:\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T06:46:25Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Thay nước là hút bớt một phần nước cũ trong bể cùng chất bẩn dưới nền, rồi châm nước mới đã khử clo vào.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Nước máy có clo, độc với cá.\" (not \"Một cẩm nang thú y ghi: nước máy có clo hoặc cloramin, cả hai đều độc với cá.\": Rule 12: The entry credits four pages: \"Một cẩm nang thú y\" (source 1), \"Một tạp chí cá cảnh\" (source 3), \"Một tiệm ở Việt Nam\" (source 4) and \"Một tiệm khác ở Việt Nam\" (source 5). The limi…",
+        "Rule 12: \"Nước máy có clo, độc với cá.\" is the plain \"Nước máy có clo\" that the Glossary lead's line forbids. It drops the hedge \"thường\" from fact 43 (a Vietnamese shop), which says tap water usually contains chlorine. It also drops \"clo hoặc cloramin\" from fact 28.",
+        "Rule 12: \"Sục khí cũng khử được clo.\" comes straight after a sentence that names chlorine only and never mentions chloramine. It reads as if aerating were enough to treat tap water. The line says no sentence may read that way for chloramine, because aging doesn't remove it (fact 27). The \"cũng\" (also) has nothing before it to refer to: no way of removing chlorine was given earlier.",
+        "Rule 12: \"Tạp chí trên: muốn giữ chất dinh dưỡng và KH trong tầm…\" and \"Tạp chí trên cảnh báo về hội chứng bể cũ\" refer back with \"trên\" (above). Words of the \"ở trên\" kind are not used. While it is still the last magazine named, the source should be \"tạp chí này\".",
+        "Rule 12: \"Tiệm thứ nhất ghi các bước như sau:\", \"Tiệm thứ nhất ghi rằng thay 100% nước…\" and \"Tiệm thứ hai ghi:\" bring a shop back after another shop was named. The required form is \"Tiệm thứ nhất / Tiệm thứ hai cũng ghi:\".",
+        "Rule 4: Adding new water slowly is said twice: \"Châm nước mới từ từ, không dội thẳng vào cá\" (step 5 of the first shop) and \"Châm nước mới nhẹ tay để không khuấy nền\" (the second shop). It should be said once, in one place.",
+        "Rule 12: \"Cá căng thẳng sau khi chuyển bể hay thay nước có thể có các dấu hiệu như đổi màu, ít bơi, bỏ ăn, đỏ mắt.\" adds a hedge (\"có thể\") that the fact doesn't give. The fact says the signs of stress include these, and a fact's hedges are never added."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-19T17:47:08Z",
+      "model": "sonnet",
+      "cli": "2.1.328",
+      "score": 0.97,
+      "notes": [
+        "\"Nước máy có clo, độc với cá.\": the facts don't carry it (loose, loose, unsupported, unsupported, unsupported, loose): Sources say tap water usually has chlorine, or has chlorine or chloramine / Leaves out chloramine and one source's 'usually' / Drops 'usually' and 'or chloramine' / Drops the hedge: one source says tap water \"usually\" has chlorine, the other says chlorine \"or\" chloramine; the sen…",
+        "Rule 12: \"Nước máy có clo, độc với cá.\" drops the facts' hedges. One page says tap water \"usually\" contains chlorine, and the other says \"chlorine or chloramine\". Written this way, it states plainly that all tap water has chlorine and leaves out chloramine. The next line, \"Sục khí cũng khử được clo.\", then reads as if aerating were enough, though one fact says aging the water does not remove chlo…"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "3bcdb3866ef0140cc699e7de6d2518065d0b9470d0688bb90f0f545d204345ec"
+    }
   ]
 }
