@@ -5,7 +5,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { screenDead, type DeadScreenDeps } from '../src/dead-screen'
 import { dropFacePhotos } from '../src/faces'
-import { listAgreed, listsDisagree, unlistCleared, waitingEntry } from '../src/last-photo'
+import { listAgreed, unlistCleared, waitingEntry } from '../src/last-photo'
 import { compactRejection } from '../src/photo-observations'
 import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 import { sweep } from '../src/sweep'
@@ -185,22 +185,45 @@ test("a clear takes the waiting entry off the never-again list and the photo can
   expect(await photosOf(r, 'mmm')).toEqual(['m-dead'])
 })
 
-test("while the second look and the never-again list disagree on a marked photo, the sweep takes nothing off on the list's word", async () => {
-  const r = await store({ ooo: ['o-listed', 'o-fish'], ppp: ['p-dead'] })
-  const rec = { why: compactRejection('dead: a fish on a board'), step: 'the photo check', pages: ['species/ppp'], at: '2026-11-20', off: true }
-  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('p-dead')]: rec }))
-  // The marked photo's waiting entry is missing: the lists disagree.
-  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('o-listed')]: compactRejection('dead: on ice') }))
-  expect(listsDisagree(await json(r, 'engine-state/_photo-second-look.json'), await json(r, 'engine-state/_photo-rejected.json'))).toEqual([`${url('p-dead')}: marked on the second look, not waiting on the never-again list`])
-  const first = await sweep(r)
-  expect(first.disagree).toHaveLength(1)
-  expect(await photosOf(r, 'ooo')).toEqual(['o-listed', 'o-fish'])
-  // A waiting entry with no record disagrees too.
-  expect(listsDisagree({}, { [url('q')]: waitingEntry(rec.why) })).toEqual([`${url('q')}: waiting on the never-again list, not marked on the second look`])
-  // Once they agree, the list's photos come off.
-  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('o-listed')]: compactRejection('dead: on ice'), [url('p-dead')]: waitingEntry(rec.why) }))
-  const second = await sweep(r)
-  expect(second.disagree).toEqual([])
+test("a photo marked off at its first verdict with no waiting entry: the sweep writes the entry back and takes the photo off again; one listed for another kind keeps that kind", async () => {
+  const r = await store({ ooo: ['o-listed', 'o-fish'], ppp: ['p-dead', 'p-fish'], sss: ['s-dead', 's-fish'], www: ['w-mark', 'w-fish'] })
+  const rec = (why: string, id: string) => ({ why: compactRejection(why), step: 'the photo check', pages: [`species/${id}`], at: '2026-11-20', off: true })
+  const p = rec('dead: a fish on a board', 'ppp'), q = rec('people: a hand', 'sss'), w = rec('dead: on a tray', 'www')
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('p-dead')]: p, [url('s-dead')]: q, [url('w-mark')]: w }))
+  // p-dead's entry is missing, so a step put it back on its page; s-dead's waits for another reason; w-mark is listed for a mark.
+  const mark = compactRejection('watermark: a logo bottom left')
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('o-listed')]: compactRejection('dead: on ice'), [url('s-dead')]: waitingEntry('people: another reason'), [url('w-mark')]: mark }))
+  const out = await sweep(r)
+  expect(out.waitingBack.sort()).toEqual([url('p-dead'), url('s-dead')])
+  const listed = await json(r, 'engine-state/_photo-rejected.json')
+  expect(listed[url('p-dead')]).toBe(waitingEntry(p.why))
+  expect(listed[url('s-dead')]).toBe(waitingEntry(q.why))
+  expect(listed[url('w-mark')]).toBe(mark)
+  expect(out.waitingOdd).toEqual([`${url('w-mark')}: its never-again entry is another kind's, left in force`])
+  // Every listed photo comes off: the mismatch loosened nothing.
+  expect(await photosOf(r, 'ppp')).toEqual(['p-fish'])
+  expect(await photosOf(r, 'sss')).toEqual(['s-fish'])
+  expect(await photosOf(r, 'www')).toEqual(['w-fish'])
   expect(await photosOf(r, 'ooo')).toEqual(['o-fish'])
-  expect(await photosOf(r, 'ppp')).toEqual([])
+  // The record still waits for its look, and the next pass finds the two agree.
+  expect(Object.keys(await json(r, 'engine-state/_photo-second-look.json')).sort()).toEqual([url('p-dead'), url('s-dead'), url('w-mark')])
+  expect((await sweep(r)).waitingBack).toEqual([])
+})
+
+test("a waiting entry with no second-look record stays in force: its photo comes off and stays off, and the sweep says so", async () => {
+  const r = await store({ qqq: ['q-wait', 'q-fish'], ooo: ['o-listed', 'o-fish'] })
+  const waiting = waitingEntry(compactRejection('dead: a fish on a board'))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('q-wait')]: waiting, [url('o-listed')]: compactRejection('dead: on ice') }))
+  const out = await sweep(r)
+  expect(out.waitingOdd).toEqual([`${url('q-wait')}: no second-look record marked for it, kept off`])
+  expect(out.waitingBack).toEqual([])
+  expect(await photosOf(r, 'qqq')).toEqual(['q-fish'])
+  expect(await photosOf(r, 'ooo')).toEqual(['o-fish'])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[url('q-wait')]).toBe(waiting)
+  // A record whose answer is "clear" doesn't lift an entry that isn't its own waiting entry.
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('q-wait')]: { why: compactRejection('dead: something else'), step: 'the photo check', pages: ['species/qqq'], at: '2026-11-20', off: true, look: { said: 'clear', by: 'the chief of staff', on: '2026-11-20' } } }))
+  const again = await sweep(r)
+  expect(again.unlisted).toEqual([])
+  expect((await json(r, 'engine-state/_photo-rejected.json'))[url('q-wait')]).toBe(waiting)
+  expect(again.waitingOdd).toEqual([`${url('q-wait')}: no second-look record marked for it, kept off`])
 })

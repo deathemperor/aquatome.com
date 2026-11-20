@@ -29,7 +29,9 @@ import { writePhotoState } from './photo-state'
  * adds photos skips, has it as `waiting: withheld [<the record's hash>]` (`waitingEntry`), so nothing counts it refused.
  * - "agree": its never-again entry takes the verdict's own reason, and the record leaves.
  * - "clear": its never-again entry goes (the sweep), so a step can bring it back, and no verdict takes it off again.
- * The sweep takes nothing off on the never-again list's word while the two lists disagree on one (`listsDisagree`).
+ * Where the two disagree, the record is the truth and the safe side is off the page (the chief of staff, 20 Nov 2026):
+ * the sweep writes a marked record's missing waiting entry back, and a waiting entry with no record stays in force and
+ * is reported (`mendWaiting`). No disagreement loosens the list for any other kind.
  */
 export type Look = { said: 'agree' | 'clear'; by: string; on: string }
 export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look }
@@ -186,14 +188,28 @@ export async function unlistCleared(root: string): Promise<string[]> {
 }
 
 /**
- * Where the two lists disagree on a photo off at its first verdict, `url: why`: a record marked `off` with no answer whose
- * never-again entry isn't its waiting entry, or a waiting entry with no such record. The sweep then takes nothing off on
- * the never-again list's word.
+ * The sweep's part where the two lists disagree on a photo off at its first verdict (the chief of staff, 20 Nov 2026: the
+ * record is the truth, and the safe side is off the page). Runs after `listAgreed` and `unlistCleared`.
+ * - A record marked `off` with no answer and no never-again entry: its waiting entry is written back (`back`). One whose
+ *   entry is a waiting entry for another reason takes the record's. One whose entry is another kind's keeps that entry,
+ *   which keeps the photo off as well, and is reported (`other`): a waiting entry in its place would let a "clear" lift it.
+ * - A waiting entry with no record marked for it stays in force, so the photo stays off, and is reported (`alone`).
+ * Nothing leaves the never-again list here.
  */
-export function listsDisagree(sl: SecondLooks, rejected: Record<string, string>): string[] {
+export async function mendWaiting(root: string): Promise<{ back: string[]; other: string[]; alone: string[] }> {
+  const sl = await readSecondLook(root)
   const l = looks(sl)
-  const out: string[] = []
-  for (const u of Object.keys(sl)) if (l.off(u) && rejected[u] !== waitingEntry(sl[u]!.why)) out.push(`${u}: marked on the second look, not waiting on the never-again list`)
-  for (const [u, why] of Object.entries(rejected)) if (why.startsWith('waiting:') && !(l.off(u) && why === waitingEntry(sl[u]!.why))) out.push(`${u}: waiting on the never-again list, not marked on the second look`)
+  const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
+  const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const out = { back: [] as string[], other: [] as string[], alone: [] as string[] }
+  for (const u of Object.keys(sl)) {
+    if (!l.off(u)) continue
+    const want = waitingEntry(sl[u]!.why), have = rejected[u]
+    if (have === want) continue
+    if (have === undefined || have.startsWith('waiting:')) { rejected[u] = want; out.back.push(u) }
+    else out.other.push(`${u}: its never-again entry is another kind's, left in force`)
+  }
+  for (const [u, why] of Object.entries(rejected)) if (why.startsWith('waiting:') && !(l.off(u) && why === waitingEntry(sl[u]!.why))) out.alone.push(`${u}: no second-look record marked for it, kept off`)
+  if (out.back.length) await writePhotoState(rejectedFile, rejected)
   return out
 }
