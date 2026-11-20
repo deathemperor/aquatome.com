@@ -397,6 +397,12 @@ test("a person's head pick follows the rule: a non-commercial photo leads only a
   const unpicked = await made()
   await sweep(unpicked, { switches: ON })
   expect(await own(unpicked)).toEqual([INAT(20)])
+  // A pick among the page's own photos too: it leads, and the sweep says so (a reader's point; the chief of staff's ruling).
+  const ownPick = await made()
+  await writeFile(join(ownPick, `content/species/${ID}/entity.json`), JSON.stringify({ ...(await read(ownPick, `content/species/${ID}/entity.json`)), photos: [ai, photo(11, 'CC BY-NC')] }, null, 2))
+  await writeFile(join(ownPick, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(11, '').url }))
+  expect((await sweep(ownPick, { switches: ON })).pickOverOrder).toEqual([`species/${ID}: ${photo(11, '').url}`])
+  expect(await own(ownPick)).toEqual([INAT(11), INAT(20)])
   // None: the pick leads, and stays in its album too.
   const none = await bare(false)
   await writeFile(join(none, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))

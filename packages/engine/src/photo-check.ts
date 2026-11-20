@@ -557,7 +557,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       : now === 'first' ? !!x.sourced
       : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
       : now === 'bare' || now === 'bareNc' ? !!x.bare && !!x.nc === (now === 'bareNc')
-      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc')
+      // A non-commercial photo on a page with no photo of its own is judged in its share (`bareNc`) or in the last turn,
+      // never here, past its share (a reader's point, 20 Nov).
+      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc') && !(x.nc && x.bare)
       : turn(x) === now
     // A sheet set aside last run goes first (the chief of staff, 19 Nov); then a head with no animal in it, before the
     // rest: a page whose head is a river should not wait (the chief of staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
