@@ -103,6 +103,13 @@ test("a chip's picture is a member's head where one qualifies, wider first, else
   expect([dia!.imgOf, tien!.imgOf, am!.imgOf]).toEqual(['symphysodon-aequifasciatus', 'pterophyllum-scalare', 'apistogramma-cacatuoides'])
 })
 
+test("a chip's picture is never a non-commercial photo, though it leads its fish's page (the chief of staff's rule, 17 Nov: a chip stands for many fish)", async () => {
+  const shot = (licence: string) => photo('discus', 960, 640, { licence, sourceUrl: 'https://www.inaturalist.org/photos/1', subject: { x0: 300, y0: 200, x1: 660, y1: 440 } })
+  const dia = async (head: Photo) => (await row('vi', [{ id: 'dia', names: { vi: 'Dĩa' }, match: { genus: ['Symphysodon'] } }], c => ({ ...c, species: c.species.map(s => ({ ...s, photos: s.id === 'symphysodon-aequifasciatus' ? [head] : [] })), breeds: c.breeds.map(b => ({ ...b, photos: [] })) })))[0]!
+  expect((await dia(shot('CC BY 4.0'))).img).toBe(cardSrc(shot('CC BY 4.0')))
+  expect((await dia(shot('CC BY-NC 4.0'))).img).toBeUndefined()
+})
+
 // The chips as the curation file holds them, in every language's index on the fixture: whole and consistent.
 test("every language's index carries the file's chips whole: its fish are its items, its count theirs, its order 1 to n", async () => {
   const file = CurationSchema.parse(JSON.parse(readFileSync(new URL('../../../content/curation.json', import.meta.url), 'utf8')))

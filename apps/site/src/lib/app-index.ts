@@ -1,4 +1,4 @@
-import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
+import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, isNonCommercial, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -349,7 +349,8 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
     const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
     // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
     // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
-    const fits = (p: Photo) => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
+    // No non-commercial photo: a chip stands for many fish (the chief of staff's rule, 17 Nov).
+    const fits = (p: Photo) => !p.generated && unmarked(p) && !isNonCommercial(p.licence ?? '') && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
     // Whose each photo is, the first member to show it: a head, or a photo from a member's page text (Cá chuột's).
     const owner = new Map<Photo, string>()
     const own = (p: Photo, id: string) => { if (!owner.has(p)) owner.set(p, id); return p }

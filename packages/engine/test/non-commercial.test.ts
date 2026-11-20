@@ -319,6 +319,11 @@ test("a page holding both a Glaser photo kept with its mark and a non-commercial
   expect(leadChoice([], [nc, glaser], passes, {}, marked)).toEqual({ lead: glaser })
   // Led by the non-commercial photo, the page gives it up for the Glaser one, with no model call.
   expect(leadChoice([nc], [glaser], passes, {}, marked)).toEqual({ lead: glaser })
+  // Behind a generated picture the non-commercial one doesn't take its place while the Glaser photo is there; the
+  // generated picture stays, as it does beside a Glaser photo alone (a reader's point, 20 Nov).
+  const made: Photo = { url: 'https://media.aquatome.com/g/made.webp', width: 1600, height: 1200, licence: 'CC0', author: 'Sample Shooter', sourceUrl: 'https://example.org/made', generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
+  expect(leadChoice([made], [nc, glaser], passes, {}, marked)).toBeUndefined()
+  expect(leadChoice([made], [nc], passes, {}, marked)).toEqual({ lead: nc })
   // The album: the non-commercial photo before the banner photo.
   expect(rankGallery([glaser, nc], undefined, undefined, undefined, undefined, u => u === glaser.url).map(x => x.url)).toEqual([nc.url, glaser.url])
 })

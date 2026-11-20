@@ -663,16 +663,18 @@ The layers above still check the result.
     rule of 17 Nov: a non-commercial photo shows only where it's the one way to show that fish, on its own page and its
     own card. Wherever the site picks a fish to stand for many, or to feature, it picks one with an open photo. So one
     leads a page only where the page has no photo of its own, no album photo that passes as its head and none a shop's
-    own mark lets lead (`lead-photo.ts`), and an open one that passes, or such a shop's photo, takes its place at the next
+    own mark lets lead (`lead-photo.ts`; in a generated picture's place too, but not beside such a shop's photo, where the
+    picture stays), and an open one that passes, or such a shop's photo, takes its place at the next
     run with no model call, after which it is in its album alone; a person's pick of one follows the same rule (the
     sweep). Head and album differ on purpose (the chief of staff, 20 Nov). The head follows the line of 17 Nov: a
     non-commercial photo shows only where it is the one way to show that fish, and a Glaser photo with its mark is a way,
     one the owner asked for, so it leads before a non-commercial one. The album follows looks: clean photos, then
     non-commercial, then banner photos. The page's own card shows it as it shows any head, so lists and search do; it is never the day's card, a
     featured card, a group tile, a Khám phá chip or the app's top cards (`curation.ts`: on the engine's avoid list, no
-    card photo), never a fish-ID reference, and a page it leads offers the site's own picture to shares and search
+    card photo), never on the home page's rows of native fish or easy plants or a guide's borrowed picture (the site checks
+    the licence itself there, a plant's too: the engine's list holds fish and breeds only), never a fish-ID reference, and a page it leads offers the site's own picture to shares and search
     (`shareImage`). Its credit with the licence sits by it, as in the album. The site shows one on a page only as its one
-    real photo (`load.ts`), and the content stats count such a page as having a photo. Their licence text is their mark
+    real photo (`load.ts`, `ncAlone`), and the content stats count a page's photos by the same rule. Their licence text is their mark
     (`isNonCommercial`, `licence.ts`), so with the switch off the site shows none and the sweep takes every one off every
     album and page, heads too (`dropNonCommercial`).
     Commons, GBIF, Openverse, hand seeds and the mirror keep refusing NC whatever the switch says (the mirror copies an

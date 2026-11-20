@@ -11,7 +11,7 @@ import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MAR
 import { HAND_BOXES } from './hand-boxes'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
-import { isAllowedLicence, isInatNonCommercial, isNonCommercial } from './licence'
+import { isAllowedLicence, isInatNonCommercial, isNonCommercial, ncAlone } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
 import { pageFish, videosForPage, videosOnTwoFish } from './videos'
 import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, VideoTitlesOnSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MATERIAL_SECTION_ORDER, MaterialSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
@@ -310,7 +310,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   }).map(p => caption(boxed(p))))
   // A fish's page shows a non-commercial photo (iNaturalist's, the switch on) only as its head with no other real photo,
   // where it's the one way to show that fish (the chief of staff's rule, 17 Nov; the engine's lead-photo.ts puts it there).
-  const ncAlone = <P extends Photo>(xs: P[]): P[] => xs.filter((p, i) => !isNonCommercial(p.licence) || (i === 0 && xs.every((x, j) => j === 0 || x.generated)))
   const pagePhotos = <P extends Photo>(xs: P[], page = '', scientificName = ''): P[] => ncAlone(cleanPhotos(xs, page, scientificName, false, true))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))

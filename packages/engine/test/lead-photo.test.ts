@@ -274,11 +274,15 @@ test("a photo on the calendar's avoid list doesn't lead; --calendar touches only
 
 test("a page led by a non-commercial photo is reached by --calendar like a page with none: an open album photo that passes takes its place with no model call, and it goes back to its album alone (the chief of staff's rule, 17 Nov)", async () => {
   const nc = { ...photo('n-nc'), licence: 'CC BY-NC 4.0' }
-  const root = await store({ nnn: { photos: [nc], gallery: [nc, photo('n-open', 500, 375)] }, none: { photos: [], gallery: [nc] } })
+  // A generated picture kept behind it doesn't make the page count as having a photo (a reader's point, 20 Nov).
+  const made: Photo = { ...photo('g-made'), generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
+  const nc2 = { ...photo('g-nc'), licence: 'CC BY-NC 4.0' }
+  const root = await store({ nnn: { photos: [nc], gallery: [nc, photo('n-open', 500, 375)] }, none: { photos: [], gallery: [nc] }, gen: { photos: [nc2, made], gallery: [nc2, photo('g-open', 500, 375)] } })
   const { d, seen } = model(yes)
   const r = await screenLeads(root, d, { limit: 5, calendar: true })
   expect(seen).toEqual([])
   expect((await entity(root, 'nnn')).photos.map(p => name(p.url))).toEqual(['n-open'])
+  expect((await entity(root, 'gen')).photos.map(p => name(p.url))).toEqual(['g-open', 'g-made'])
   // With nothing else, it leads.
   expect((await entity(root, 'none')).photos.map(p => name(p.url))).toEqual(['n-nc'])
   expect(r.gained).toEqual([`species/none: none -> ${url('n-nc')}`])

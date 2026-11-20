@@ -1,4 +1,4 @@
-import { cleanPhoto, fitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { cleanPhoto, fitsCard, isNonCommercial, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { GROUP_LABELS } from './format'
 import { mentionIndex } from './mentions'
 import { LANG, type Lang } from './i18n'
@@ -86,8 +86,9 @@ export function nativeSpecies(lang: Lang, c: Content) {
  */
 export function nativeCards(lang: Lang, c: Content, featured: Localized<SpeciesEntity>[], n = 4) {
   const { species, local } = nativeSpecies(lang, c)
-  // A fish whose photos are all strips would show as a headless slice of body: it waits for a photo.
-  const left = species.filter(s => !featured.includes(s) && !s.water && s.photos.some(fitsCard))
+  // A fish whose photos are all strips would show as a headless slice of body: it waits for a photo. One led by a
+  // non-commercial photo waits for an open one: the row features fish (the chief of staff's rule, 17 Nov).
+  const left = species.filter(s => !featured.includes(s) && !s.water && s.photos.some(fitsCard) && !s.photos.some(p => isNonCommercial(p.licence ?? '')))
   return [...completeFirst(left.filter(local)), ...completeFirst(left.filter(s => !local(s)))].slice(0, n)
 }
 
@@ -119,9 +120,10 @@ export function groupTiles(lang: Lang, c: Content, pics?: PictureSet, avoid: Off
     .map(({ photos, ...g }) => ({ ...g, photo: pics ? pics.take(photos) : photos[0] }))
 }
 
-/** Plants that need neither strong light nor CO2, easiest first. */
+/** Plants that need neither strong light nor CO2, easiest first. None led by a non-commercial photo: the row features
+ * plants (the chief of staff's rule, 17 Nov). */
 export function easyPlants(c: Content, n = 4): Localized<PlantEntity>[] {
-  const easy = c.plants.filter(p => p.photos.length && p.light !== 'high' && p.co2 !== 'required')
+  const easy = c.plants.filter(p => p.photos.length && !p.photos.some(x => isNonCommercial(x.licence ?? '')) && p.light !== 'high' && p.co2 !== 'required')
   const staples = PLANT_STAPLES.flatMap(id => easy.filter(p => p.id === id))
   const rest = easy.filter(p => !staples.includes(p)).sort((a, b) => a.difficulty - b.difficulty || b.photos.length - a.photos.length || b.sections.length - a.sections.length)
   return [...staples, ...rest].slice(0, n)

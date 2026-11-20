@@ -6,8 +6,8 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSy
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { speciesDepth } from '@aq/schema/depth'
-import { isAllowedLicence, isInatNonCommercial } from '@aq/schema/licence'
-import { IMAGE_SWITCHES } from '@aq/schema/image-policy'
+import { isAllowedLicence, isInatNonCommercial, ncAlone } from '@aq/schema/licence'
+import { IMAGE_SWITCHES, realPhotosFirst } from '@aq/schema/image-policy'
 import { POPULAR, STAPLE_SPECIES } from '@aq/schema/staples'
 import { setsCookies } from '@aq/schema/thumb'
 import { LANG, LANGS, OTHER_LANGS, type OtherLang } from '@aq/schema/langs'
@@ -150,6 +150,8 @@ export function computeContentStats(o: StatsInput): ContentStats {
   const cookie = (url: string) => { try { return setsCookies(url) } catch { return false } }
   /** Photos as the build shows them (@aq/schema load.ts cleanPhotos). */
   const shown = (ps: Json[] = []) => ps.filter(p => licenceOk(p) && !(o.publicBuild && cookie(p.url)))
+  /** A page's own photos as the build shows them: real ones first, a non-commercial one only as the head with no other real photo (load.ts). */
+  const onPage = (ps: Json[] = []) => ncAlone(realPhotosFirst(shown(ps)) as (Json & { licence?: string })[])
   const sectionsOf = (e: Json) => ((e.sections ?? []) as Json[]).filter(s => textOk(s.source))
 
   const species = items(root, 'species')
@@ -208,7 +210,7 @@ export function computeContentStats(o: StatsInput): ContentStats {
   for (const [kind, xs] of [['fish', fishPages], ['plant', plantPages], ['breed', breeds]] as const) {
     let withPhoto = 0
     for (const x of xs) {
-      const ps = shown(x.e.photos)
+      const ps = onPage(x.e.photos)
       if (ps.length) withPhoto++
       photos.pages += ps.length
       for (const p of ps) {

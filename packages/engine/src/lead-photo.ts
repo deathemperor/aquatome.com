@@ -82,7 +82,9 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   // A passing real photograph takes the lead back even when the generated head already fills the card.
   const last = () => nc.find(p => passes(p) && !down(p))
   if (own[0]?.generated) {
-    const real = [...own, ...gallery].find(p => !p.generated && passes(p) && !down(p)) ?? last()
+    // Nor does a non-commercial one take a generated head's place beside a photo with its source's mark (a Glaser photo):
+    // that one is a way to show the fish, so the non-commercial one isn't the one way.
+    const real = [...own, ...gallery].find(p => !p.generated && passes(p) && !down(p)) ?? ([...own, ...gallery].some(p => !p.generated && marked(p)) ? undefined : last())
     if (real) return { lead: real }
     return undefined
   }
@@ -142,8 +144,10 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
       const path = join(content, kind, id, 'entity.json')
       const raw = await readFile(path, 'utf8').catch(() => null)
       if (!raw) continue
-      // A page led by a non-commercial photo counts as empty: an open photo takes its place with no model call.
-      const empty = !(JSON.parse(raw) as Entity).photos?.some(p => !isNonCommercial(p.licence))
+      // A page led by a non-commercial photo counts as empty, a generated picture kept behind it too: an open photo takes
+      // its place with no model call. One led by a generated picture alone isn't, as before.
+      const photos = (JSON.parse(raw) as Entity).photos ?? []
+      const empty = !photos.length || (photos.some(p => isNonCommercial(p.licence)) && photos.every(p => p.generated || isNonCommercial(p.licence)))
       // A plant is only ever given a first photo; the side-by-side and the crop's question are about fish. An empty page
       // needs no model call, so --calendar fills them too.
       if (kind === 'plants' && !empty) continue
