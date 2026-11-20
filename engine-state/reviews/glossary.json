@@ -1686,5 +1686,90 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/ca-dan": [
+    {
+      "at": "2026-11-20T08:47:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T08:47:42Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition still reads \"Cá đàn là những loài cá sống thành nhóm. Nuôi quá ít con thì cá căng thẳng, nhát và nhạt màu.\" The required wording is \"Cá đàn là cá tụ lại với nhau thành nhóm. Nuôi ít con thì cá căng thẳng, nhát và nhạt màu.\"",
+        "Rule 12: The heading \"Trong bể của bạn\" was not changed. It must be \"Tụ nhóm và bơi đồng loạt\".",
+        "Rule 12: \"Một đàn cá tụ lại khá lỏng.\" must be replaced word for word with \"Cá tụ lại thành nhóm lỏng.\"",
+        "Rule 12: \"... school là lúc cả nhóm bơi đồng loạt, cùng tốc độ, cùng hướng và cùng lúc.\" must be replaced with \"... school là lúc cả nhóm bơi đồng loạt, cùng tốc độ và cùng hướng.\" This drops \"và cùng lúc\".",
+        "Rule 12: \"Vài loài cá đàn quen thuộc: cá neon xanh, cá mũi đỏ, cá tam giác, cá trâm và cá tứ vân.\" must be replaced with \"Vài loài cá đàn: cá neon xanh, cá mũi đỏ và cá tam giác.\"",
+        "Rule 12: \"Cá neon xanh và cá kim tơ nuôi nhóm lớn thì ít lao vụt và ít đánh nhau hơn.\" must end \"ít lao vụt và ít hung hăng hơn.\"",
+        "Rule 12: The list item \"cần nuôi ít nhất 5–6 con, nuôi 8–15 con thì cả nhóm bơi đồng loạt rõ nhất\" must be \"cần nuôi ít nhất 5–6 con; nuôi 8–15 con là lý tưởng để cả nhóm bơi đồng loạt rõ ràng\".",
+        "Rule 12: The list item \"cá đàn nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể dài 90 cm đến 1,5 m\" must be \"cá đàn cỡ nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể 90 cm đến 1,5 m\".",
+        "Rule 12: The list item \"bể quá nhỏ hoặc thả quá dày thì cá không còn chỗ bơi đồng loạt\" must end \"chỗ bơi cùng nhau\".",
+        "Rule 12: The list item \"thả chung với cá lớn hoặc cá dữ thì cá đàn bị rượt đuổi và thôi bơi đồng loạt\" must say \"cá hung hăng\" in place of \"cá dữ\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:44:55Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Trong bể của bạn\" the advice \"Trong bể của bạn\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:44:55Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Trong bể của bạn\" the advice \"Trong bể của bạn\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T08:44:55Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The heading \"Trong bể của bạn\" was not changed. THIS TERM says it becomes \"Tụ nhóm và bơi đồng loạt\".",
+        "Rule 12: The definition still reads \"Cá đàn là những loài cá sống thành nhóm. Nuôi quá ít con thì cá căng thẳng, nhát và nhạt màu.\" It should be replaced word for word with \"Cá đàn là cá tụ lại với nhau thành nhóm. Nuôi ít con thì cá căng thẳng, nhát và nhạt màu.\"",
+        "Rule 12: \"Một đàn cá tụ lại khá lỏng.\" was not replaced. It should read \"Cá tụ lại thành nhóm lỏng.\"",
+        "Rule 12: \"school là lúc cả nhóm bơi đồng loạt, cùng tốc độ, cùng hướng và cùng lúc\" was not replaced. It should read \"…cùng tốc độ và cùng hướng.\" as THIS TERM gives it.",
+        "Rule 12: \"Vài loài cá đàn quen thuộc: cá neon xanh, cá mũi đỏ, cá tam giác, cá trâm và cá tứ vân.\" was not replaced. It should read \"Vài loài cá đàn: cá neon xanh, cá mũi đỏ và cá tam giác.\"",
+        "Rule 12: \"Cá neon xanh và cá kim tơ nuôi nhóm lớn thì ít lao vụt và ít đánh nhau hơn.\" was not replaced. It should end \"ít hung hăng hơn.\"",
+        "Rule 12: The list item \"cần nuôi ít nhất 5–6 con, nuôi 8–15 con thì cả nhóm bơi đồng loạt rõ nhất\" was not replaced. It should read \"cần nuôi ít nhất 5–6 con; nuôi 8–15 con là lý tưởng để cả nhóm bơi đồng loạt rõ ràng\".",
+        "Rule 12: The list item \"cá đàn nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể dài 90 cm đến 1,5 m\" was not replaced. It should read \"cá đàn cỡ nhỏ cần bể dài khoảng 40–60 cm, cá đàn cỡ lớn cần bể 90 cm đến 1,5 m\".",
+        "Rule 12: The list item \"bể quá nhỏ hoặc thả quá dày thì cá không còn chỗ bơi đồng loạt\" was not replaced. It should end \"chỗ bơi cùng nhau\".",
+        "Rule 12: The list item \"thả chung với cá lớn hoặc cá dữ thì cá đàn bị rượt đuổi và thôi bơi đồng loạt\" was not replaced. It should say \"cá hung hăng\" instead of \"cá dữ\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T05:28:39Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"còn school là lúc cả nhóm bơi đồng loạt, cùng tốc độ, cùng hướng và cùng lúc\": Two sites say a school swims at the same speed and in the same direction, so that part can stand plain. Only the maker's page (source 0) adds \"at the same time\". \"cùng lúc\" is a one-site part joined into the plain sentence. It should go in its own sentence under that site's credit, or be left out.",
+        "Rule 12: \"bể quá nhỏ hoặc thả quá dày thì cá không còn chỗ bơi đồng loạt\": The entry uses \"bơi đồng loạt\" for schooling (same speed, direction and time). Here the shop's fact only says there is no room for the fish to \"swim as a group\". One word now stands for two different things. This line needs a plain word of its own, such as \"bơi thành nhóm\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    }
   ]
 }
