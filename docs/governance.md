@@ -665,7 +665,8 @@ The layers above still check the result.
     leads a page only where the page has no photo of its own, no album photo that passes as its head and none a shop's
     own mark lets lead (`lead-photo.ts`), never in a generated picture's place (where no open photo passes, the head's
     order is a generated picture, then a Glaser photo with its mark, then a non-commercial one: the chief of staff, 20
-    Nov), and an open one that passes, or such a shop's photo, takes its place at the next
+    Nov; the order binds what a step chooses by itself, never a person's standing pick, which leads over a generated
+    picture too, the sweep logging that the order wouldn't have made it), and an open one that passes, or such a shop's photo, takes its place at the next
     run with no model call, after which it is in its album alone; a person's pick of one follows the same rule (the
     sweep). Head and album differ on purpose (the chief of staff, 20 Nov). The head follows the line of 17 Nov: a
     non-commercial photo shows only where it is the one way to show that fish, and a Glaser photo with its mark is a way,

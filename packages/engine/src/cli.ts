@@ -652,6 +652,7 @@ if (cmd === 'photo-privacy') {
   if (r.noAnimal.length) console.log(`sweep: ${r.noAnimal.length} heads with no animal in them and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json)`)
   for (const x of r.noAnimal) console.log(`no animal: ${x}`)
   for (const x of r.named) console.log(`head behind one named to the species: ${x}`)
+  for (const x of r.pickOverOrder) console.log(`head a person picked over a generated picture, which no step would choose: ${x}`)
   for (const x of [...r.dealer.map(x => `dealer notice off: ${x}`), ...r.dealerOnly.map(x => `dealer notice, its heading's only text (for the chief of staff): ${x}`)]) console.log(x)
   if (r.albums.length) console.log(`sweep: ${r.albums.length} albums with a new lead photo (gallery.ts orderAlbums)`)
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)

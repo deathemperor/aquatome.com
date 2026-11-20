@@ -173,6 +173,8 @@ export type SweepReport = {
   nonCommercial: string[]
   /** Heads a person picked that a page's check calls "none": out of the rule, listed each cycle, `kind/id: url`. */
   refusedPicked: string[]
+  /** A person's pick of a non-commercial head put in a generated picture's place, which the head's order leaves to a person, `kind/id: url`. */
+  pickOverOrder: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
   videos: string[]
   card: string[]
@@ -549,7 +551,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], pickOverOrder: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -875,13 +877,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
       const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
       const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
       // A person's pick follows the rule for a non-commercial photo (the chief of staff, 17 Nov): it leads only a page with
-      // no other photo the lead step would put first, and stays in its album otherwise (lead-photo.ts leadChoice). Nor does
-      // it take a generated picture's place: a generated picture, then a Glaser photo with its mark, then a non-commercial
-      // one (the chief of staff, 20 Nov).
+      // no other photo the lead step would put first, and stays in its album otherwise (lead-photo.ts leadChoice).
       if (found && isNonCommercial(found.licence)) {
         const leads = (openLead ??= await openLeads(root))
         const album = (gallery.photos ?? []).filter(p => !p.unchecked && !isNonCommercial(p.licence))
-        if (own.some(p => p.generated || !isNonCommercial(p.licence)) || album.some(p => leads(p, id))) { report.heads.push(`${ref}: picked photo is non-commercial, and the page has another photo to lead`); continue }
+        if (own.some(p => !p.generated && !isNonCommercial(p.licence)) || album.some(p => leads(p, id))) { report.heads.push(`${ref}: picked photo is non-commercial, and the page has another photo to lead`); continue }
       }
       if (found) {
         const { best: _b, kind: _k, unchecked: _u, ...photo } = found
@@ -891,6 +891,10 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
     if (own[0]?.url === url) continue
     report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
+    // The head's order (a generated picture, then a Glaser photo with its mark, then a non-commercial one) binds what a
+    // step chooses, not a person's pick: a person's record stays theirs, so the pick leads, and the sweep says the order
+    // wouldn't have made it (the chief of staff, 20 Nov).
+    if (isNonCommercial(picked.licence) && own.some(p => p.generated)) report.pickOverOrder.push(`${ref}: ${url}`)
     let next = [picked, ...own.filter(p => p.url !== url)]
     // A pick from the album may be a kept-mark photo: the page's cap holds with it too, the pick first (keptCapOwn).
     if (next.some(x => keptNow(x.url))) {

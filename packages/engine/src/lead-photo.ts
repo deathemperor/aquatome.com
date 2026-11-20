@@ -71,7 +71,8 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   // leads before a non-commercial one; the album follows looks: clean photos, then non-commercial, then banner photos
   // (gallery.ts rankGallery). Where no open photo passes, the head's order is: a generated picture, then a Glaser photo
   // with its mark, then a non-commercial one, so a non-commercial photo never takes a generated picture's place (the
-  // chief of staff, 20 Nov; whether any real photo leads over a generated picture goes to the owner).
+  // chief of staff, 20 Nov; whether any real photo leads over a generated picture goes to the owner). The order binds what
+  // a step chooses, not a person's pick (sweep.ts).
   const open = (p: Photo) => !isNonCommercial(p.licence)
   const byBest = (a: GalleryPhoto, b: GalleryPhoto) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square')
   own=own.filter(photoFitsHead)

@@ -384,13 +384,19 @@ test("a person's head pick follows the rule: a non-commercial photo leads only a
   await writeFile(join(passing, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
   await sweep(passing, { switches: ON })
   expect(await own(passing)).toEqual([])
-  // A generated picture leads: the pick doesn't take its place (the chief of staff, 20 Nov; a reader's point).
-  const made = await bare(false)
+  // A generated picture leads: the head's order binds what a step chooses, not a person's pick, so the pick leads over it
+  // and the sweep says the order wouldn't have made it; with no pick, the generated picture stays (the chief of staff, 20 Nov).
   const ai: Photo = { ...photo(20, 'CC0'), generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
-  await writeFile(join(made, `content/species/${ID}/entity.json`), JSON.stringify({ ...(await read(made, `content/species/${ID}/entity.json`)), photos: [ai] }, null, 2))
-  await writeFile(join(made, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
-  await sweep(made, { switches: ON })
-  expect(await own(made)).toEqual([INAT(20)])
+  const made = async () => { const m = await bare(false); await writeFile(join(m, `content/species/${ID}/entity.json`), JSON.stringify({ ...(await read(m, `content/species/${ID}/entity.json`)), photos: [ai] }, null, 2)); return m }
+  const picked = await made()
+  await writeFile(join(picked, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
+  const said = await sweep(picked, { switches: ON })
+  expect(await own(picked)).toEqual([INAT(2), INAT(20)])
+  expect(said.pickOverOrder).toEqual([`species/${ID}: ${photo(2, '').url}`])
+  expect((await sweep(picked, { switches: ON })).pickOverOrder).toEqual([])
+  const unpicked = await made()
+  await sweep(unpicked, { switches: ON })
+  expect(await own(unpicked)).toEqual([INAT(20)])
   // None: the pick leads, and stays in its album too.
   const none = await bare(false)
   await writeFile(join(none, 'engine-state/_photo-head-picks.json'), JSON.stringify({ [`species/${ID}`]: photo(2, '').url }))
