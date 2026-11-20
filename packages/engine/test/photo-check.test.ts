@@ -107,11 +107,12 @@ test("a photo listed as another fish keeps the id of the kind its answer named, 
   expect(kinds).not.toMatch(/tetra|looks/i)
 })
 
-test("an answer naming the judged page's own kind and not denying it names a second kind, so no id: a name inside one of the page's own gives way, and a breed's species is its own", async () => {
+test("an id only for an answer naming one other kind and not denying it, the judged page's own kind named only denied: a name inside one of the page's own gives way, and a breed's species is its own", async () => {
   const r = await root([
-    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'not-ccc'] },
+    { id: 'aaa-fish', sci: 'Aaa fish', vi: { name: 'Cá aaa', altNames: ['Green sample tetra'] }, photos: ['a-1', 'green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'neither-one', 'not-ccc', 'possible', 'same-genus'] },
     { id: 'bbb-fish', sci: 'Bbb fish', vi: { name: 'Cá bbb', altNames: ['Sample tetra'] } },
     { id: 'ccc-fish', sci: 'Ccc fish' },
+    { id: 'bbb-other', sci: 'Bbb other' },
     { kind: 'breeds', id: 'aaa-line', vi: { name: 'Aaa line' }, photos: ['line-1', 'line-own', 'line-other'], extra: { kind: 'variety', basedOn: 'aaa-fish', parents: [] } },
   ])
   const d = model({
@@ -121,11 +122,14 @@ test("an answer naming the judged page's own kind and not denying it names a sec
     or: { ok: 'other', note: 'Aaa fish or Bbb fish, hard to say' },
     denied: { ok: 'other', note: 'a Ccc fish, not a green sample tetra' },
     isnt: { ok: 'other', note: "Bbb fish; it isn't Aaa fish" },
-    // A name the answer denies names nothing, nor does its genus.
+    // Another kind denied, or two other kinds, denied or not: none.
     neither: { ok: 'other', note: 'not Aaa fish, not Bbb fish either; an unidentified cichlid' },
     nor: { ok: 'other', note: 'not Aaa fish, nor Bbb fish; an unidentified cichlid' },
     'neither-nor': { ok: 'other', note: 'neither Bbb fish nor Ccc fish, some cichlid' },
+    'neither-one': { ok: 'other', note: 'neither a Bbb fish nor anything I know' },
     'not-ccc': { ok: 'other', note: 'Bbb fish, not Ccc fish' },
+    possible: { ok: 'other', note: 'Bbb fish is possible; neither Aaa fish nor Ccc fish can be ruled out' },
+    'same-genus': { ok: 'other', note: 'Bbb fish or Bbb other, hard to say' },
     'line-1': { typical: true },
     // Another line of the breed's own species.
     'line-own': { ok: 'other', note: 'another line of Aaa fish' },
@@ -133,8 +137,8 @@ test("an answer naming the judged page's own kind and not denying it names a sec
   })
   await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })
   const listed = await json(r, 'engine-state/_photo-rejected.json')
-  for (const n of ['green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'not-ccc', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
-  expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('denied')]: 'species/ccc-fish', [url('isnt')]: 'species/bbb-fish', [url('not-ccc')]: 'species/bbb-fish', [url('line-other')]: 'species/bbb-fish' })
+  for (const n of ['green', 'or', 'denied', 'isnt', 'neither', 'nor', 'neither-nor', 'neither-one', 'not-ccc', 'possible', 'same-genus', 'line-own', 'line-other']) expect(url(n) in listed).toBe(true)
+  expect(await json(r, 'engine-state/_photo-other-kinds.json')).toEqual({ [url('denied')]: 'species/ccc-fish', [url('isnt')]: 'species/bbb-fish', [url('line-other')]: 'species/bbb-fish' })
 })
 
 test('the kind record names only a photo this run put on the list, keeps what it held, is written whole before the verdicts, which end the answer, and the list keeps what another step added meanwhile', async () => {

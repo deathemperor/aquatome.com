@@ -253,11 +253,13 @@ const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|neither|nor|rather than|instead
 
 /**
  * The page an "another fish" answer names: a name of exactly one other species or plant page, as `captionSubject` reads
- * a caption. The judged page's own kind (the page, and a breed's species) stays in the reading, so a name inside one of
- * its names gives way ("neon tetra" in "green neon tetra"); named and not denied, it is a second kind, and there is no
- * id ("Aaa fish or Bbb fish" on Aaa's page, "halfmoon Betta splendens" on another betta breed's). A denied name names
- * nothing, the page's own or another ("not Bbb fish either"). Its genus names no other kind. Its id, never the answer's
- * words.
+ * a caption, and only where nothing else is named but the judged page's own kind, denied ("Bbb fish, not Aaa fish" on
+ * Aaa's page). Any other answer names none: a second other kind, denied or not ("Bbb fish, not Ccc fish"), the other
+ * kind denied ("not Aaa fish, nor Bbb fish"), or the page's own kind (a breed's species too) not denied ("Aaa fish or
+ * Bbb fish", "halfmoon Betta splendens" on another betta breed's). The own kind stays in the reading, so a name inside
+ * one of its names gives way ("neon tetra" in "green neon tetra"). Its genus names no other kind. Its id, never the
+ * answer's words. The id is for an offer that judges the photo again as that fish on that page (the chief of staff,
+ * 20 Nov), so an answer read wrongly costs one look, and one read in doubt gives none.
  */
 export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index: { names: Map<string, string>; genera: Map<string, Set<string>> }): string | undefined {
   const parts = page.sci.split('×').map(p => norm(p).split(' ').slice(0, 2))
@@ -265,12 +267,10 @@ export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index
   const ownGenera = new Set(parts.map(p => p[0]))
   const c = norm(note)
   const hits = nameHits(c, index.names)
-  const denied = hits.filter(h => DENIED.test(c.slice(0, h.from)))
-  const ids = [...new Set(hits.filter(h => !denied.includes(h)).map(h => h.id))]
-  if (ids.length !== 1 || own.has(ids[0]!)) return undefined
-  // A denied name's genus names no other kind: "Bbb fish, not Ccc fish" names Bbb.
-  const rest = denied.reduce((s, h) => s.slice(0, h.from) + ' '.repeat(h.to - h.from) + s.slice(h.to), c)
-  return rest.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
+  const denied = (h: { from: number }) => DENIED.test(c.slice(0, h.from))
+  const others = [...new Set(hits.filter(h => !own.has(h.id)).map(h => h.id))]
+  if (others.length !== 1 || hits.some(h => (own.has(h.id) ? !denied(h) : denied(h)))) return undefined
+  return c.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(others[0]!)) ? undefined : others[0]
 }
 
 function nameIndex(all: Subject[]) {
