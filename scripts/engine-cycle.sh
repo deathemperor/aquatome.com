@@ -367,8 +367,11 @@ if part rewrite; then
   # again as they are, nothing rewritten: REVIEW_BACKFILL_LIMIT model calls a kind (video guides: video-cycle.sh).
   # rewrite-vi starts a page from its last review's notes: those written here, it reads at the next cycle.
   pnpm engine review-backfill --kind translation,localize,places --limit "${REVIEW_BACKFILL_LIMIT:-10}" || log "review-backfill: failed"
-  # Guides keep to their title's subject: off-topic sections dropped (the copies follow at the next cycle).
-  pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-40}" || log "topic-check: failed"
+  # Guides keep to their title's subject: off-topic sections dropped (the copies follow at the next cycle). None a run
+  # until Monday's change to how a guide is mended (the chief of staff, 20 Nov 2026): on 19 Nov it dropped the rummynose
+  # guide's warning on what a pale red nose says of the water, from a live page. TOPIC_CHECK_LIMIT=40 puts it back, on the
+  # chief of staff's word.
+  pnpm engine topic-check --limit "${TOPIC_CHECK_LIMIT:-0}" || log "topic-check: failed"
   # A reader's eye: the model reads READER_LIMIT pages as a reader would (not read yet first, then changed ones), against
   # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
   # docs/review/reader.md.
@@ -423,8 +426,15 @@ pnpm engine sweep || log "sweep: failed"
 # person waits on (harm, a kit, a dose), stays as it is (the chief of staff, 15 Nov 2026; video-cut.ts). The gate reads
 # each next. Before the units mend, which then takes a guide held for units alone, and in the Mac's photos part alone, as
 # the units mend is.
+# Off until Monday's change to how a guide is mended (the chief of staff, 20 Nov 2026): its cuts of 15-18 Nov took a
+# condition from the Endlers guide and the maker's own hedge from another, on live pages. VIDEO_CUT=on puts it back, on the
+# chief of staff's word.
 if part photos; then
-  pnpm engine video-cut || log "video-cut: failed"
+  if [ "${VIDEO_CUT:-off}" = on ]; then
+    pnpm engine video-cut || log "video-cut: failed"
+  else
+    log "video-cut: off until the chief of staff puts it back (VIDEO_CUT=on)"
+  fi
 fi
 # A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
 # names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
