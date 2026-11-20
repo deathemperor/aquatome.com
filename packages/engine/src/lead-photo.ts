@@ -69,7 +69,9 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   // model call (the chief of staff's rule, 17 Nov). Head and album differ on purpose (the chief of staff, 20 Nov): the
   // head follows that line, and a Glaser photo with its mark is a way to show the fish, one the owner asked for, so it
   // leads before a non-commercial one; the album follows looks: clean photos, then non-commercial, then banner photos
-  // (gallery.ts rankGallery).
+  // (gallery.ts rankGallery). Where no open photo passes, the head's order is: a generated picture, then a Glaser photo
+  // with its mark, then a non-commercial one, so a non-commercial photo never takes a generated picture's place (the
+  // chief of staff, 20 Nov; whether any real photo leads over a generated picture goes to the owner).
   const open = (p: Photo) => !isNonCommercial(p.licence)
   const byBest = (a: GalleryPhoto, b: GalleryPhoto) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square')
   own=own.filter(photoFitsHead)
@@ -79,12 +81,10 @@ export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Ph
   // one it names better passes: the lowest class that passes is the bar (the chief of staff, 2026-11-14).
   const bar = Math.min(...[...own, ...gallery].filter(p => !p.generated && open(p) && passes(p)).map(named))
   const down = (p: Photo) => named(p) > bar
-  // A passing real photograph takes the lead back even when the generated head already fills the card.
   const last = () => nc.find(p => passes(p) && !down(p))
+  // A passing real photograph takes the lead back even when the generated head already fills the card.
   if (own[0]?.generated) {
-    // Nor does a non-commercial one take a generated head's place beside a photo with its source's mark (a Glaser photo):
-    // that one is a way to show the fish, so the non-commercial one isn't the one way.
-    const real = [...own, ...gallery].find(p => !p.generated && passes(p) && !down(p)) ?? ([...own, ...gallery].some(p => !p.generated && marked(p)) ? undefined : last())
+    const real = [...own, ...gallery].find(p => !p.generated && open(p) && passes(p) && !down(p))
     if (real) return { lead: real }
     return undefined
   }

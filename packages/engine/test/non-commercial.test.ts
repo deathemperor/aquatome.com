@@ -299,8 +299,12 @@ test("a non-commercial album photo leads only a page with nothing else to lead, 
   expect(leadChoice([], [nc], () => false, {})).toBeUndefined()
   // A shop's photo whose own mark lets it lead where nothing passes comes before it.
   expect(leadChoice([], [nc, shop], q => q !== shop, {}, q => q === shop)).toEqual({ lead: shop })
-  // In a generated picture's place.
-  expect(leadChoice([{ ...p('made', 'CC0'), generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }], [nc], () => true, {})).toEqual({ lead: nc })
+  // Never in a generated picture's place: where no open photo passes, a generated picture, then a Glaser photo with its
+  // mark, then a non-commercial one (the chief of staff, 20 Nov). An open one that passes still takes it.
+  const made: Photo = { ...p('made', 'CC0'), generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
+  expect(leadChoice([made], [nc], () => true, {})).toBeUndefined()
+  expect(leadChoice([made, nc], [], () => true, {})).toBeUndefined()
+  expect(leadChoice([made], [nc, open], () => true, {})).toEqual({ lead: open })
   // Leading, it gives way to an open photo that passes or a shop's own-marked one, with no pair to ask; else it stays.
   expect(leadChoice([nc], [open], () => true, {})).toEqual({ lead: open })
   expect(leadChoice([nc], [shop], q => q !== shop, {}, q => q === shop)).toEqual({ lead: shop })
@@ -319,11 +323,10 @@ test("a page holding both a Glaser photo kept with its mark and a non-commercial
   expect(leadChoice([], [nc, glaser], passes, {}, marked)).toEqual({ lead: glaser })
   // Led by the non-commercial photo, the page gives it up for the Glaser one, with no model call.
   expect(leadChoice([nc], [glaser], passes, {}, marked)).toEqual({ lead: glaser })
-  // Behind a generated picture the non-commercial one doesn't take its place while the Glaser photo is there; the
-  // generated picture stays, as it does beside a Glaser photo alone (a reader's point, 20 Nov).
+  // Behind a generated picture, neither takes its place: the order is a generated picture, then the Glaser photo, then
+  // the non-commercial one (the chief of staff, 20 Nov, ending a circle a reader found).
   const made: Photo = { url: 'https://media.aquatome.com/g/made.webp', width: 1600, height: 1200, licence: 'CC0', author: 'Sample Shooter', sourceUrl: 'https://example.org/made', generated: { model: 'gpt-image-2', driverModel: 'gpt-5.6-sol', date: '2026-11-10', prompt: 'fish', referenceHash: 'a'.repeat(64) } }
   expect(leadChoice([made], [nc, glaser], passes, {}, marked)).toBeUndefined()
-  expect(leadChoice([made], [nc], passes, {}, marked)).toEqual({ lead: nc })
   // The album: the non-commercial photo before the banner photo.
   expect(rankGallery([glaser, nc], undefined, undefined, undefined, undefined, u => u === glaser.url).map(x => x.url)).toEqual([nc.url, glaser.url])
 })

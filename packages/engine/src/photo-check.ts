@@ -401,11 +401,20 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 
  * out part empty.
  * `limit`: model calls this run, but for an uploader's album photos (above); stops on a model failure (usage limit, the
  * step's daily line), and the rest wait. `fill`: how many of them go
- * first to a source's photos that fill a page with none (`turn`).
+ * first to a source's photos that fill a page with none (`turn`). `ncShare`: at most this many of a run's sheets go to
+ * the non-commercial photos on pages with no photo of their own (`bareNc`, BARE_NC_SHARE).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
+/**
+ * A run's share for the non-commercial photos that wait on pages with no photo of their own (`bareNc`), built like the
+ * first-photo share: the rest of the run goes on to the strip pages and the turns. Each such page takes a sheet of its
+ * own, and the album step tops them up every cycle, so with no share they could take every sheet left, run after run
+ * (a reader's point; the chief of staff, 20 Nov).
+ */
+export const BARE_NC_SHARE = 20
+
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; ncShare?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
@@ -534,6 +543,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
   const onPage = new Map<string, Shown[]>()
   for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
+  // Sheets this run has given the non-commercial photos on pages with no photo of their own, across both queues.
+  let ncTaken = 0
   const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
     // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
@@ -553,7 +564,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     let firstAt = from
     for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'bareNc', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
-      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill)) break
+      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill) || (now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE))) break
       if (only && !only.has(s.id)) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
@@ -572,7 +583,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => album(a) - album(b) || turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
       const todo = [...first, ...more]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
-      for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
+      for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) { sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) }); if (now === 'bareNc') ncTaken++ }
     }
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }

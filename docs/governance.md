@@ -658,13 +658,14 @@ The layers above still check the result.
     `packages/schema/src/image-policy.ts`), on from 18 Nov, on the chief of staff's yes of 17 Nov (the owner's yes, 10 Nov): iNaturalist's
     research-grade CC BY-NC and CC BY-NC-SA photos, any version, never ND, all rights reserved or none. With it on they
     are the album step's last source, read after every page's open sources in a run, pages with no photo of their own first: on such a page right after iNaturalist's open passes, on any other once every open one has run dry,
-    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo but on a page with no photo of its own, in the first-photo turn after that page's open ones, and on a page whose album shows fewer than six, so no strip (counted from the files as the build fills the album, never too few), where they come right after the open photos that wait on such pages; as for every photo, a page's sheet with room left is filled from that page's later photos, a non-commercial one among them (`photo-check.ts`, the chief of staff, 19 Nov); they rank
+    and only while fewer than 200 of them wait for the photo check, which judges them after every other photo but on a page with no photo of its own, in the first-photo turn after that page's open ones, at most 20 sheets a run (`BARE_NC_SHARE`, the chief of staff, 20 Nov), and on a page whose album shows fewer than six, so no strip (counted from the files as the build fills the album, never too few), where they come right after the open photos that wait on such pages; as for every photo, a page's sheet with room left is filled from that page's later photos, a non-commercial one among them (`photo-check.ts`, the chief of staff, 19 Nov); they rank
     last among the photos with no mark and before the Glaser banner photos (the chief of staff, 19 Nov: the owner was told the banner photos sit below the clean ones, and a non-commercial photo is a clean one), pass every screen and the photo check like any album photo, and their credit names the licence. The chief of staff's
     rule of 17 Nov: a non-commercial photo shows only where it's the one way to show that fish, on its own page and its
     own card. Wherever the site picks a fish to stand for many, or to feature, it picks one with an open photo. So one
     leads a page only where the page has no photo of its own, no album photo that passes as its head and none a shop's
-    own mark lets lead (`lead-photo.ts`; in a generated picture's place too, but not beside such a shop's photo, where the
-    picture stays), and an open one that passes, or such a shop's photo, takes its place at the next
+    own mark lets lead (`lead-photo.ts`), never in a generated picture's place (where no open photo passes, the head's
+    order is a generated picture, then a Glaser photo with its mark, then a non-commercial one: the chief of staff, 20
+    Nov), and an open one that passes, or such a shop's photo, takes its place at the next
     run with no model call, after which it is in its album alone; a person's pick of one follows the same rule (the
     sweep). Head and album differ on purpose (the chief of staff, 20 Nov). The head follows the line of 17 Nov: a
     non-commercial photo shows only where it is the one way to show that fish, and a Glaser photo with its mark is a way,

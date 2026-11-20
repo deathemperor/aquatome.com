@@ -307,6 +307,20 @@ test("a page with no photo of its own has its non-commercial photo judged in the
   expect(d.seen.map(s => s.photos)).toEqual([['b-nc']])
 })
 
+test("the non-commercial photos on pages with no photo of their own take at most their share of a run's sheets; the rest go on to the strip pages (a reader's point, the chief of staff, 20 Nov)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  // A page with a photo of its own and an open photo waiting (no strip), then three pages with none of their own, each
+  // with one non-commercial photo waiting: a sheet each.
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'bbb-fish', sci: 'Bbb fish' }, { id: 'ccc-fish', sci: 'Ccc fish' }, { id: 'ddd-fish', sci: 'Ddd fish' }])
+  await writeFile(join(r, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [waits('a-wait')], seen: 0, updatedAt: '' }))
+  for (const x of ['b', 'c', 'd']) await writeFile(join(r, `content/gallery/${x.repeat(3)}-fish.json`), JSON.stringify({ id: `${x.repeat(3)}-fish`, photos: [nc(`${x}-nc`)], seen: 0, updatedAt: '' }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': { ok: 'yes', typical: true, note: '', logo: false, person: false } } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 3, ncShare: 2 })
+  expect(d.seen.map(s => s.photos)).toEqual([['b-nc'], ['c-nc'], ['a-wait']])
+})
+
 test("the photos that wait on a page that shows no strip go before the turns, the open ones first, then the non-commercial ones; a page with a strip, or a breed's, waits its turn (the chief of staff, 2026-11-19)", async () => {
   const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
   const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
