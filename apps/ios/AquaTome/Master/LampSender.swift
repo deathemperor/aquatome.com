@@ -39,11 +39,13 @@ enum LampRadio {
   /// Whether `who` still broadcasts: false once another took the broadcaster, or after a stop.
   static func holds(_ who: AnyObject) -> Bool { holder == ObjectIdentifier(who) }
 
+  /// The end is marked before the broadcast stops: the stop answers a start not yet answered at once, and the card's
+  /// answer may ask for its next send there, which must wait the gap after this one (Fable, 20 Nov).
   static func stop(by who: AnyObject) {
     guard holds(who) else { return }
     holder = nil
-    air.stop()
     lastEnded = .now
+    air.stop()
   }
 
   /// The broadcaster for `who` (the button's lamp step): another's broadcast still going (the card's three seconds) ends
@@ -51,8 +53,8 @@ enum LampRadio {
   static func take(by who: AnyObject) {
     guard let h = holder, h != ObjectIdentifier(who) else { return }
     holder = nil
-    air.stop()
     lastEnded = .now
+    air.stop()
   }
 
   /// Returns once the gap after the last broadcast has passed (at once if it has).
