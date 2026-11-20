@@ -228,6 +228,13 @@ const norm = (s: string) => s.normalize('NFC').toLowerCase().replace(/['‘’"]
  */
 export function captionSubject(caption: string, index: Map<string, string>, genera = new Map<string, Set<string>>()): string | undefined {
   const c = norm(caption)
+  const ids = [...new Set(nameHits(c, index).map(h => h.id))]
+  if (ids.length !== 1) return undefined
+  return c.split(/[^\p{L}]+/u).some(w => genera.get(w) && !genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
+}
+
+/** Where each name of `index` stands in `c` (normalised), plural or not, a name inside a longer one giving way. */
+function nameHits(c: string, index: Map<string, string>) {
   const hits: { id: string; from: number; to: number }[] = []
   for (const [name, id] of index) {
     let i = c.indexOf(name)
@@ -238,10 +245,39 @@ export function captionSubject(caption: string, index: Map<string, string>, gene
       i = c.indexOf(name, i + 1)
     }
   }
-  const kept = hits.filter(h => !hits.some(o => o !== h && o.from <= h.from && o.to >= h.to && o.to - o.from > h.to - h.from))
-  const ids = [...new Set(kept.map(h => h.id))]
-  if (ids.length !== 1) return undefined
-  return c.split(/[^\p{L}]+/u).some(w => genera.get(w) && !genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
+  return hits.filter(h => !hits.some(o => o !== h && o.from <= h.from && o.to >= h.to && o.to - o.from > h.to - h.from))
+}
+
+/** Words that deny the page's own name right after them: "Bbb fish, not Aaa fish", "isn't a Y" (norm drops the apostrophe). */
+const DENIED = /\b(?:not|isnt|arent|wasnt|doesnt|rather than|instead of|unlike)\s+(?:(?:an?|the)\s+)?$/
+/** Words that put any name in doubt wherever they stand: a denial, a lookalike, a cross. */
+const DOUBT = /\b(?:not?|nor|neither|never|none|isnt|arent|wasnt|werent|doesnt|dont|didnt|cant|cannot|couldnt|excluded?|dismiss\w*|unlikely|rather|instead|unlike|without|except|apart|besides|other than|differ\w*|distinct|doubt\w*|unsure|uncertain|confus\w*|mistak\w*|similar|resembl\w*|look-?alikes?|relatives?|related|hybrids?|cross(?:es|ed)?|out|nope|wrong|incorrect|false|kind of|sort of|-a?like)\b/
+
+/**
+ * The page an "another fish" answer names: a name of exactly one other species or plant page, as `captionSubject` reads
+ * a caption, in an answer with no doubt about it. The judged page's own kind (for a breed, its species too) may be named
+ * only to deny it, right before its name ("Bbb fish, not Aaa fish" on Aaa's page); that denial and that name leave the
+ * reading. Any other answer names none: two other kinds, a word of denial or doubt anywhere else ("Bbb fish is ruled
+ * out", "not Aaa fish, nor Bbb fish", "could be confused with Bbb fish"), or the page's own kind not denied ("Aaa fish
+ * or Bbb fish"). The own kind stays in the reading, so a name inside one of its names gives way ("neon tetra" in "green
+ * neon tetra"). Its genus names no other kind. Its id, never the answer's words. The id is for an offer that judges the
+ * photo again as that fish on that page (the chief of staff, 20 Nov), so an answer in doubt gives none.
+ */
+export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index: { names: Map<string, string>; genera: Map<string, Set<string>> }): string | undefined {
+  const parts = page.sci.split('×').map(p => norm(p).split(' ').slice(0, 2))
+  const own = new Set([page.id, ...parts.map(p => index.names.get(p.join(' '))).filter((x): x is string => !!x)])
+  const ownGenera = new Set(parts.map(p => p[0]))
+  const c = norm(note)
+  const hits = nameHits(c, index.names)
+  let rest = c
+  for (const h of hits.filter(h => own.has(h.id))) {
+    const denial = DENIED.exec(c.slice(0, h.from))
+    if (!denial) return undefined
+    rest = rest.slice(0, denial.index) + ' '.repeat(h.to - denial.index) + rest.slice(h.to)
+  }
+  const others = [...new Set(hits.filter(h => !own.has(h.id)).map(h => h.id))]
+  if (others.length !== 1 || DOUBT.test(rest)) return undefined
+  return rest.split(/[^\p{L}]+/u).some(w => !ownGenera.has(w) && index.genera.get(w) && !index.genera.get(w)!.has(others[0]!)) ? undefined : others[0]
 }
 
 function nameIndex(all: Subject[]) {
@@ -407,6 +443,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
+  const kindsFile = join(root, 'engine-state/_photo-other-kinds.json')
   const rawCache = (await readJson<Record<string, Record<string, PhotoVerdict>>>(cacheFile)) ?? {}
   const cache = Object.fromEntries(Object.entries(rawCache).map(([u,by])=>[u,Object.fromEntries(Object.entries(by).map(([id,v])=>[id,compactVerdict(v)]))]))
   const rawLegacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
@@ -585,6 +622,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   })
   const logos = new Set<string>() // photos this run found a logo on
   const others = new Set<string>() // `page\nurl` the model answered "another fish" for, this run, on the page itself
+  const namedKinds = new Map<string, string>() // url → the page ("species/<id>") such an answer named, this run (namedKind)
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
   const judge = (batch: { s: Subject; urls: string[]; i: number | string }[]) =>
     pool(batch, o.parallel ?? 1, async ({ s, urls, i }) => {
@@ -648,7 +686,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
         cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(p.ok === 'yes' && !captions[p.n - 1] ? { young: !!p.young } : {}), ...(captions[p.n - 1] ? { guide: true } : {}) }) }
         if (p.logo) logos.add(x.url)
-        if (p.ok === 'other' && !captions[p.n - 1]) others.add(`${s.id}\n${x.url}`)
+        if (p.ok === 'other' && !captions[p.n - 1]) {
+          others.add(`${s.id}\n${x.url}`)
+          const kind = namedKind(String(p.note ?? ''), s, index)
+          if (kind && !namedKinds.has(x.url)) namedKinds.set(x.url, `${byId.get(kind)!.kind}/${kind}`)
+        }
         judgedNow.add(`${s.id} ${x.url}`)
         report.judged++
       }
@@ -857,10 +899,22 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   }
 
   // 3. Verdicts, the blocklist (re-read, so entries another step added meanwhile stay) and the review file.
+  // A photo this run lists as another fish, whose answer named a kind we have a page for, keeps that page's id beside
+  // the list, the id only, never the answer's words (the chief of staff, 20 Nov). Added to, never rewritten. Written
+  // before the verdicts: once a verdict is kept, no later run asks again, and the answer's words are gone.
+  const kinds = (await readJson<Record<string, string>>(kindsFile)) ?? {}
+  const writeKinds = () => writeImageCache(kindsFile, `${JSON.stringify(Object.fromEntries(Object.entries(kinds).sort()), null, 2)}\n`)
+  const listedBefore = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
+  const kinded = Object.keys(added).filter(u => !(u in listedBefore) && added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
+  for (const u of kinded) kinds[u] = namedKinds.get(u)!
+  if (kinded.length) await writeKinds()
   await writePhotoState(cacheFile, Object.fromEntries(Object.entries(cache).sort()))
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { now[u] = why; report.rejected++ }
   await writePhotoState(rejectedFile, now)
+  // One another step listed meanwhile keeps that step's reason, and no id from this run.
+  const taken = kinded.filter(u => now[u] !== added[u])
+  if (taken.length) { for (const u of taken) delete kinds[u]; await writeKinds() }
   // This run's hold alone, once its pages, verdicts and never-again list are written (above).
   await writeHeld(heldNow)
   const left = new Map<string, number>()
