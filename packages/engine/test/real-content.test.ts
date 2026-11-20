@@ -1095,8 +1095,13 @@ test("the Writing Lead's lines of 20 Nov hold on eight more guides", () => handF
 // breeding (test/fixtures/held-dropped-1120.json). Each Vietnamese body guarded; the light guide's FAQ too.
 test("the Writing Lead's answers on two guides of ours and two video guides hold", () => {
   handFixesHold('held-dropped-1120.json', '')
-  const light = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-FqNP9rxudYs/vi.json', import.meta.url)), 'utf8')) as { faq: { q: string }[] }
+  const light = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-FqNP9rxudYs/vi.json', import.meta.url)), 'utf8')) as { faq: { q: string; a: string }[] }
+  const fixture = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-dropped-1120.json', import.meta.url)), 'utf8')) as Record<string, { in: string; now?: string }[]>
+  const answer = fixture['youtube-FqNP9rxudYs'].find(e => e.in === 'faq')?.now
+  // The question and its answer, as one pair, second in the FAQ: the helper reads all answers together.
   expect(light.faq[1]?.q).toBe('Bể mới trồng cây để đèn sáng cả đêm có hại không?')
+  expect(answer).toBeTruthy()
+  expect(light.faq[1]?.a).toContain(answer)
 })
 
 // The Writing Lead, 15 Nov 2026, on the rainbowfish guide's label ("Bể cầu vồng của …"): no video guide's label, the
