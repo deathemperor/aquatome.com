@@ -584,9 +584,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const album = (x: Shown) => Number(!lead || !x.file.endsWith('entity.json'))
       const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => album(a) - album(b) || turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
       const todo = [...first, ...more]
-      for (const u of todo) queued.add(`${s.id}\n${u}`)
-      // The share ends at its last sheet, a page's next sheets too.
-      for (let i = 0; i < todo.length && sheets.length < o.limit && !(now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE)); i += PER_SHEET) { sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) }); if (now === 'bareNc') ncTaken++ }
+      // The share ends at its last sheet, a page's next sheets too. A photo is taken for this run only with its sheet, so
+      // one a share leaves out still comes in its later turn (a reader's point, 20 Nov).
+      for (let i = 0; i < todo.length && sheets.length < o.limit && !(now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE)); i += PER_SHEET) {
+        const urls = todo.slice(i, i + PER_SHEET)
+        for (const u of urls) queued.add(`${s.id}\n${u}`)
+        sheets.push({ s, urls })
+        if (now === 'bareNc') ncTaken++
+      }
     }
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }
