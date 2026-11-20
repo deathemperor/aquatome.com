@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-20), most-read pages first. Rules: docs/governance.md, "Photos".
-15448 verdicts. Shows it: 9588; its habitat (asked again): 3; something else: 491; not a photo of it: 336; dead or as food: 616; a person in it: 202; a logo on it: 198; can't tell: 2709.
+15533 verdicts. Shows it: 9661; its habitat (asked again): 3; something else: 491; not a photo of it: 336; dead or as food: 617; a person in it: 203; a logo on it: 199; can't tell: 2715.
 
 ## Left with no photo (81)
 
@@ -87,7 +87,7 @@ Written by `pnpm engine check-photos` (2026-11-20), most-read pages first. Rules
 - species/xenotilapia-sima
 - species/xiurenbagrus-gigas
 
-## Can't tell: still shown (2709)
+## Can't tell: still shown (2715)
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -2600,6 +2600,7 @@ Written by `pnpm engine check-photos` (2026-11-20), most-read pages first. Rules
 | species/serpenticobitis-zonata | [photo](https://media.aquatome.com/seriouslyfish/a29b0cff47986d5b.webp) | subject unsure |
 | species/serrasalmus-eigenmanni | [photo](https://media.aquatome.com/glaser/935991d1e233650c.webp) | subject unsure; logo |
 | species/serrasalmus-maculatus | [photo](https://media.aquatome.com/inaturalist/160520395.webp) | subject unsure |
+| species/serrasalmus-maculatus | [photo](https://media.aquatome.com/inaturalist/332944646.webp) | subject unsure |
 | species/serrasalmus-maculatus | [photo](https://media.aquatome.com/inaturalist/59924296.webp) | subject unsure |
 | species/serrasalmus-marginatus | [photo](https://media.aquatome.com/inaturalist/467466174.webp) | subject unsure; logo |
 | species/serrasalmus-sanchezi | [photo](https://media.aquatome.com/commons/9318756cebde7e6a.webp) | subject unsure |
@@ -2652,11 +2653,16 @@ Written by `pnpm engine check-photos` (2026-11-20), most-read pages first. Rules
 | species/synodontis-batensoda | [photo](https://media.aquatome.com/commons/e0fed339f9d7f2d0.webp) | subject unsure |
 | species/synodontis-batensoda | [photo](https://media.aquatome.com/inaturalist/455693155.webp) | subject unsure |
 | species/synodontis-nigriventris | [photo](https://media.aquatome.com/commons/ac7c8d574c2d8ad5.webp) | subject unsure |
+| species/tachysurus-fulvidraco | [photo](https://media.aquatome.com/inaturalist/674326818.webp) | subject unsure |
 | species/teleocichla-proselytus | [photo](https://media.aquatome.com/glaser/bb432829dffe2b2b.webp) | subject unsure; logo |
 | species/thaiphusa-sirikit | [photo](https://media.aquatome.com/glaser/e43b4deb473b0dcd.webp) | subject unsure; logo |
 | species/tinca-tinca | [photo](https://media.aquatome.com/commons/b7a4f28906b8c63f.webp) | subject unsure |
 | species/tinca-tinca | [photo](https://media.aquatome.com/commons/f8b161587656e45a.webp) | subject unsure |
+| species/tor-putitora | [photo](https://media.aquatome.com/commons/6a030b434c890b0c.webp) | subject unsure |
+| species/tor-putitora | [photo](https://media.aquatome.com/inaturalist/619150957.webp) | subject unsure |
+| species/toxotes-blythii | [photo](https://media.aquatome.com/commons/77ee0bedb93f16c8.webp) | subject unsure |
 | species/toxotes-blythii | [photo](https://media.aquatome.com/glaser/c298cef3ea4cd852.webp) | subject unsure; logo |
+| species/toxotes-chatareus | [photo](https://media.aquatome.com/inaturalist/14213696.webp) | subject unsure |
 | species/toxotes-chatareus | [photo](https://media.aquatome.com/panitvong/inat-617945071.webp) | subject unsure |
 | species/toxotes-chatareus | [photo](https://media.aquatome.com/panitvong/inat-707069213.webp) | subject unsure |
 | species/trachydoras-steindachneri | [photo](https://media.aquatome.com/scotcat/e4533468d36a4562.webp) | subject unsure; person |
@@ -2801,9 +2807,9 @@ Written by `pnpm engine check-photos` (2026-11-20), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | subject unsure |
 | species/crenicichla-marmorata | [photo](https://media.aquatome.com/commons/e8cb82a86126e499.webp) | subject unsure |
 
-## Removed (1810)
+## Removed (1813)
 
-"Something else" records a different subject; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
+"Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
 | Page | Photo | Recorded outcome |
 | --- | --- | --- |
@@ -4509,6 +4515,7 @@ Written by `pnpm engine check-photos` (2026-11-20), most-read pages first. Rules
 | species/serrasalmus-marginatus | [photo](https://media.aquatome.com/commons/4d955e8476e9aaea.webp) | subject dead |
 | species/serrasalmus-sanchezi | [photo](https://media.aquatome.com/commons/0346d40a89c8aa80.webp) | subject dead; person |
 | species/serrasalmus-sanchezi | [photo](https://media.aquatome.com/commons/99a3eb0c4c07980d.webp) | subject unsure; person |
+| species/serrasalmus-sanchezi | [photo](https://media.aquatome.com/inaturalist/620220707.webp) | subject dead |
 | species/serrasalmus-serrulatus | [photo](https://media.aquatome.com/commons/c42412ff8259e24e.webp) | subject none |
 | species/sicyopus-zosterophorus | [photo](https://media.aquatome.com/seriouslyfish/351fb090f3b4b4c3.webp) | subject unsure; logo |
 | species/sicyopus-zosterophorus | [photo](https://media.aquatome.com/seriouslyfish/783144932dff22df.webp) | subject unsure; logo |
@@ -4544,9 +4551,11 @@ Written by `pnpm engine check-photos` (2026-11-20), most-read pages first. Rules
 | species/tetragonopterus-argenteus | [photo](https://media.aquatome.com/commons/9c3d22af4d9d62d9.webp) | subject dead; person |
 | species/tetragonopterus-argenteus | [photo](https://media.aquatome.com/commons/b1e3210d61def48e.webp) | subject dead |
 | species/tetragonopterus-argenteus | [photo](https://media.aquatome.com/commons/e260daa76ab1e179.webp) | subject dead; person |
+| species/tetragonopterus-argenteus | [photo](https://media.aquatome.com/inaturalist/624808120.webp) | subject yes; person |
 | species/tetragonopterus-argenteus | [photo](https://media.aquatome.com/inaturalist/9246597.webp) | subject dead |
 | species/tetragonopterus-argenteus | [photo](https://media.aquatome.com/inaturalist/9246600.webp) | subject dead |
 | species/thayeria-ifati | [photo](https://media.aquatome.com/commons/015f996d8393188a.webp) | subject dead |
+| species/thor-amboinensis | [photo](https://media.aquatome.com/inaturalist/395348889.webp) | subject yes; logo |
 | species/tinca-tinca | [photo](https://media.aquatome.com/commons/04744fab0c981d6d.webp) | subject dead |
 | species/tinca-tinca | [photo](https://media.aquatome.com/commons/8cc743270a1fc093.webp) | subject dead |
 | species/toxotes-chatareus | [photo](https://media.aquatome.com/panitvong/inat-233051271.webp) | subject none |
