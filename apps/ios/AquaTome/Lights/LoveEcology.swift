@@ -268,6 +268,11 @@ final class LoveEcologyModel {
   }
   /// How long a start's answer may take: Bluetooth says within a moment whether a broadcast started, or never.
   static let answer: Duration = .seconds(5)
+  #if DEBUG
+  /// `-lamp-drag-holds` in a debug build: a drag's pause and lift send nothing, so its words ("Ngừng kéo để gửi…") stay
+  /// for the Design Lead's screenshot of a drag (a test's finger lifts before it can take one).
+  private static let dragHolds = ProcessInfo.processInfo.arguments.contains("-lamp-drag-holds")
+  #endif
   private static let key = "loveEcology.sent"
 
   private(set) var line: Line {
@@ -357,6 +362,9 @@ final class LoveEcologyModel {
 
   /// The finger lifted from the slider or the wheel: what it moved to goes now, if the pause hasn't sent it already.
   func lift() {
+    #if DEBUG
+    if Self.dragHolds { return }
+    #endif
     guard let s = dragging else { return }
     stopDragging()
     queue(s, tap: false)
@@ -476,6 +484,9 @@ final class LoveEcologyModel {
     named = nil
     line = .moving(s)
     pause?.cancel()
+    #if DEBUG
+    if Self.dragHolds { return }
+    #endif
     pause = Task { [weak self] in
       try? await Task.sleep(for: Self.pacer.pause)
       guard !Task.isCancelled else { return }

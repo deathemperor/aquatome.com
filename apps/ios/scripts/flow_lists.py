@@ -31,7 +31,9 @@ TEST_SECONDS = {'AccountFlowTests': 63, 'AppIconFlowTests': 30, 'AppLinkFlowTest
                 'PostEdgeSwipeFlowTests': 208, 'ProfilePictureFlowTests': 49, 'ReaderPostFlowTests': 68,
                 'ReadingFlowTests': 43, 'ScrollEndFlowTests': 24, 'TankCheckFlowTests': 20, 'TankLifeFlowTests': 40,
                 'TankMatesFlowTests': 50, 'TankVolumeFlowTests': 54, 'TanksFlowTests': 30, 'TelemetryFlowTests': 38,
-                'V2FlowTests': 38, 'ViAtRootFlowTests': 25, 'VideoFlowTests': 35, 'WholePhotoFlowTests': 20}
+                'V2FlowTests': 38, 'ViAtRootFlowTests': 25, 'VideoFlowTests': 35, 'WholePhotoFlowTests': 20,
+                # Skipped on GitHub's Macs: the Design Lead's shots of the Love Ecology card, taken on the night Mac.
+                'LoveEcologyShotsFlowTests': 1}
 FLOW_SECONDS = 45
 
 # What a path can reach. The longest prefix that matches a path decides: a list of flows (a class, or one of its
