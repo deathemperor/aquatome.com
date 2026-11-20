@@ -979,10 +979,12 @@ test('a name the term\'s notes take off leaves its other names, saved or newly w
 })
 
 // The chief of staff, 20 Nov 2026: "lớp nền" linked three fish pages to the sand entry. It and "vật liệu nền" name any bed,
-// so they are Nền bể's link phrases: Nền cát's notes take them off and Nền bể's give them, and a save keeps it so.
+// so they are Nền bể's link phrases: Nền cát's notes take them off and Nền bể's give them, and a save keeps it so. "lớp nền
+// cát" is sand's own, given by Nền cát's notes (the chief of staff, same day: 28 pages write it).
 test('a link phrase the term\'s notes take off goes on the save, and one its notes give is added once', async () => {
   const asks = JSON.parse(await readFile(new URL('../src/glossary-asks.json', import.meta.url), 'utf8')) as Record<string, { notNames?: string[]; linkNames?: string[] }>
   expect(asks['nen-cat']!.notNames).toEqual(['lớp nền', 'vật liệu nền'])
+  expect(asks['nen-cat']!.linkNames).toEqual(['lớp nền cát'])
   expect(asks['nen-be']!.linkNames).toEqual(['lớp nền', 'vật liệu nền'])
   const root = await site()
   const put = async (id: string, en: string, vi: object) => {
@@ -991,16 +993,18 @@ test('a link phrase the term\'s notes take off goes on the save, and one its not
     await writeFile(join(root, `content/glossary/${id}/vi.json`), JSON.stringify({ sections: {}, quality: { score: 0.9, indexable: true }, ...vi }))
   }
   await put('nen-cat', 'Sand substrate', { slug: 'nen-cat', name: 'Nền cát', altNames: [], linkNames: ['cát mịn', 'Lớp nền', 'vật liệu nền'], definition: 'Lớp cát dưới đáy bể.' })
-  await put('nen-be', 'Substrate', { slug: 'nen-be', name: 'Nền bể', altNames: [], linkNames: ['nền thủy sinh', 'lớp nền'], definition: 'Lớp vật liệu dưới đáy bể.' })
+  // A saved other name the notes give as a link phrase moves to the link phrases.
+  await put('nen-be', 'Substrate', { slug: 'nen-be', name: 'Nền bể', altNames: ['vật liệu nền'], linkNames: ['nền thủy sinh', 'lớp nền'], definition: 'Lớp vật liệu dưới đáy bể.' })
   const llm: Llm = async ({ prompt }) => {
     if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
     if (isCheck(prompt)) return verdicts(prompt) as never
     return { definition: 'Nền là lớp dưới đáy bể.', altNames: ['vật liệu nền'], body: '<h3>Trong bể của bạn</h3><p>Nền giữ rễ cây.</p>', related: [] } as never
   }
   const links = async (id: string) => JSON.parse(await readFile(join(root, `content/glossary/${id}/vi.json`), 'utf8')) as { altNames: string[]; linkNames: string[] }
-  // Sand's saved phrases go in either letter case, and the writer's offer doesn't bring one back as an other name.
+  // Sand's saved phrases go in either letter case, the writer's offer doesn't bring one back as an other name, and its own
+  // is added.
   expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'nen-cat', { kind: 'setup' })).toMatchObject({ id: 'nen-cat', score: 1 })
-  expect(await links('nen-cat')).toMatchObject({ altNames: [], linkNames: ['cát mịn'] })
+  expect(await links('nen-cat')).toMatchObject({ altNames: [], linkNames: ['cát mịn', 'lớp nền cát'] })
   // The bed's: the one it had stays as written, the other is added, and neither turns into an other name.
   expect(await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'nen-be', { kind: 'setup' })).toMatchObject({ id: 'nen-be', score: 1 })
   expect(await links('nen-be')).toMatchObject({ altNames: [], linkNames: ['nền thủy sinh', 'lớp nền', 'vật liệu nền'] })
