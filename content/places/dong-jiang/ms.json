@@ -3,6 +3,12 @@
   "name": "Dong Jiang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-20T01:53:25.163Z",
+    "why": "\"Dong Jiang\" keeps the Chinese word jiang (\"river\") and leaves out the Malay kind word \"Sungai\", so it is not fully Malay."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

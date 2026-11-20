@@ -261,6 +261,73 @@
     "opus": 0.95,
     "back": true
   },
+  "ancistrus-triradiatus": {
+    "hash": "801a2dad6e154c183bd52f45975979194c995a1a29f3c45a9640d1b9075d770a",
+    "at": "2026-11-20T01:41:42.904Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "anostomus-ternetzi": {
+    "hash": "98a75c0bd0648e33b3ba671e2a716df8ff1408a209d691cb82fb37e6e37275f4",
+    "at": "2026-11-20T01:41:54.473Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "aphanius-apodus": {
+    "hash": "5063c31e9a9d00c8a923f4281bcaab617442a0554805742771723ecfae1526f2",
+    "at": "2026-11-20T01:42:03.396Z",
+    "sonnet": 0.5,
+    "back": false
+  },
+  "aphanius-asquamatus": {
+    "hash": "6a07ceebcf9ab5919236c4143973038ea2e53b7410b017c68670d87fac67c57c",
+    "at": "2026-11-20T01:42:49.136Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": false,
+    "held": [
+      "Item 6: 'pure gypsum and epsom salts' – 'ดีเกลือ (epsom salt)' fine, but 'ยิปซัมบริสุทธิ์' ok."
+    ]
+  },
+  "aphanius-sirhani": {
+    "hash": "bf735c81addeadc03fdac1f262fe1c9ed9c5cae91839ce4f4cfe38ccc166af81",
+    "at": "2026-11-20T01:43:06.727Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "aphyocharax-rathbuni": {
+    "hash": "e2e9ae0d624662005ab5387bd83f85fbdae8a4268198af0228b053e0352a3531",
+    "at": "2026-11-20T01:43:26.318Z",
+    "sonnet": 0.68,
+    "back": false
+  },
+  "aphyolebias-schleseri": {
+    "hash": "4fa0bc1dc7052c560c6212b26ca1b0882c5e5841e0e345160a33413ad4f77b22",
+    "at": "2026-11-20T01:43:52.012Z",
+    "sonnet": 0.75,
+    "opus": 0.95,
+    "back": true
+  },
+  "aphyosemion-australe": {
+    "hash": "c52e82fa3a1e3d27bb3a4602a0af2b0dddf1d4fd07148e3dee37b9f931d5f785",
+    "at": "2026-11-20T01:44:40.987Z",
+    "sonnet": 0.92,
+    "opus": 0.8,
+    "back": true
+  },
+  "aphyosemion-cognatum": {
+    "hash": "43ad3aa9afc761c46393d846d49fba6ac23d3d63e61ba9d63a1e19fa41d13b58",
+    "at": "2026-11-20T01:45:04.569Z",
+    "sonnet": 0.8,
+    "opus": 0.8,
+    "back": true
+  },
+  "aphyosemion-erythron": {
+    "hash": "55927a72c4a868274ab58db028af1b6dadfdf1e8de518498dc9ccfc9725f2faa",
+    "at": "2026-11-20T01:45:16.293Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "apistogramma-cacatuoides": {
     "hash": "7f783286c6c79d55645896c1d96c9b7933342bef009e510bc5cc75e7920f9870",
     "at": "2026-11-17T11:29:12.554Z",
@@ -372,9 +439,10 @@
     ]
   },
   "brevibora-dorsiocellata": {
-    "hash": "1d9d0433c410ff6c77c1e7f874a4ca4968f3b5502cef6d4c55c3b41dc4db161c",
-    "at": "2026-11-18T00:36:29.376Z",
-    "sonnet": 0.55,
+    "hash": "d5377a541dcf59ec637f0876994549fa9615008538cc99635e61e0c97ca05877",
+    "at": "2026-11-20T01:41:10.770Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
     "back": false
   },
   "cambarellus-texanus": {
@@ -471,9 +539,9 @@
     "back": false
   },
   "danio-margaritatus": {
-    "hash": "82970e277ce388837d0b8e23ed8d265e0b10900010d257d780f9f810916cb24b",
-    "at": "2026-11-18T00:39:20.230Z",
-    "sonnet": 0.5,
+    "hash": "f53f780732f63a7a81e78bb0e64d0ebba05888a9e3bb02ce785413316c883c20",
+    "at": "2026-11-20T01:39:05.592Z",
+    "sonnet": 0.3,
     "back": false
   },
   "devario-apogon": {
@@ -795,10 +863,11 @@
     "back": false
   },
   "paracheirodon-simulans": {
-    "hash": "38355bf17282d50b92986ad0f015f8ab7d97f7b6edbed6bda26f281a0b713e26",
-    "at": "2026-11-18T05:50:42.662Z",
-    "sonnet": 0.4,
-    "back": false
+    "hash": "1440ee99018617574d2715b7433ddaf2072f33048ca5585c525d95a814f5811f",
+    "at": "2026-11-20T01:40:13.764Z",
+    "sonnet": 0.88,
+    "opus": 0.8,
+    "back": true
   },
   "parambassis-ranga": {
     "hash": "eabdf0f343d3063194a56216a1fa2c1f96ceed61eb36a1bfe97374793b9a5964",
@@ -867,6 +936,18 @@
     "held": [
       "\"จุลชีพ\" is too technical or medical. Use \"สิ่งมีชีวิตขนาดเล็ก/จุลินทรีย์\"."
     ]
+  },
+  "sphaerichthys-vaillanti": {
+    "hash": "56489e0f0d95b4b0ee819eaa55eb1fc4a052823dc3c0f99fd38dd92418ba79d4",
+    "at": "2026-11-20T01:41:19.033Z",
+    "sonnet": 0.3,
+    "back": false
+  },
+  "stiphodon-semoni": {
+    "hash": "f1dc6b0360174e0f75b785a8ec6847b95a695ae88da4b7ecc57907d35ef7049c",
+    "at": "2026-11-20T01:41:26.894Z",
+    "sonnet": 0.5,
+    "back": false
   },
   "tanichthys-albonubes": {
     "hash": "640001e3ea7f44dd64e0283cf8406d558b9a19ef6e7f31e86948e6864830a50c",

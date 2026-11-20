@@ -1,8 +1,8 @@
 {
   "id": "betta-pi",
   "native": {
-    "input": "6a328e4cc165e283",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "2ed29d926da42b20",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "TH",
@@ -24,18 +24,19 @@
         "code": "TH",
         "status": "native",
         "source": "glaser",
-        "quote": "A very rare, mouthbrooding fighting fish (Betta) from Thailand.",
+        "quote": "Betta pi comes from the south of Thailand.",
         "words": "Thailand",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Pru Toe-Daeng",
+        "name": "Peninsular Malaysia",
         "source": "seriouslyfish",
         "quote": "This species is known from the Pru Toe-Daeng peat swamps in southern Thailand near the border town of Sungai Golok, and its range also extends into northern Peninsular Malaysia where it has been collected in the states of Kelantan and Terengganu.",
-        "country": "TH",
-        "ok": true
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
       }
     ],
     "disputed": [],

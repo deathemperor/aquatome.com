@@ -1,16 +1,46 @@
 {
   "id": "pseudanos-winterbottomi",
   "native": {
-    "input": "c5f727c0e468844f",
-    "at": "2026-11-13T05:31:31.275Z",
-    "claims": [],
-    "regions": [],
+    "input": "7d47be7547d4aff0",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Known from the Orinoco in Venezuela and the Tapajós in Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Known from the Orinoco in Venezuela and the Tapajós in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Known from the Orinoco in Venezuela and the Tapajós in Brazil.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "glaser",
+        "quote": "Known from the Orinoco in Venezuela and the Tapajós in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "VE"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -64,8 +94,11 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-13T05:31:31.275Z"
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-20T01:55:49.831Z"
   }
 }

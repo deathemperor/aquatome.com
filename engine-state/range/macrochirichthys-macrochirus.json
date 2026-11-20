@@ -1,8 +1,8 @@
 {
   "id": "macrochirichthys-macrochirus",
   "native": {
-    "input": "45a500ead4b8d944",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "d203915226becc29",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "CN",
@@ -59,6 +59,22 @@
         "quote": "Type locality is 'Java, Indonesia'.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The widespread species occurs from Indonesia to Thailand.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The widespread species occurs from Indonesia to Thailand.",
+        "words": "Thailand",
+        "ok": true
       }
     ],
     "regions": [
@@ -72,14 +88,12 @@
         "name": "Chao Phraya",
         "source": "seriouslyfish",
         "quote": "Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
-        "country": "TH",
         "ok": true
       },
       {
         "name": "Mae Klong",
         "source": "seriouslyfish",
         "quote": "Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
-        "country": "TH",
         "ok": true
       },
       {
@@ -97,7 +111,8 @@
       {
         "name": "Java",
         "source": "seriouslyfish",
-        "quote": "Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+        "quote": "Type locality is 'Java, Indonesia'.",
+        "country": "ID",
         "ok": true
       }
     ],

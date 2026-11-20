@@ -16,9 +16,10 @@
         "ID"
       ],
       "regions": [
-        "Borneo",
         "Arut",
-        "Benipah"
+        "Benipah",
+        "Borneo",
+        "Jelai Bila"
       ],
       "sources": [
         "bwaquatics",
@@ -26,21 +27,30 @@
       ],
       "quotes": [
         {
-          "source": "bwaquatics",
-          "quote": "The Opal Licorice Gourami is endemic to Central Kalimantan in Indonesian Borneo.",
+          "source": "seriouslyfish",
+          "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
           "countries": [
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "Arut",
+            "Benipah"
+          ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "Parosphromenus opallios is a liquorice gourami endemic to Central Kalimantan province in Indonesian Borneo, in the Arut and Benipah river systems.",
+          "quote": "Endemic to Central Kalimantan (Kalimantan Tengah) province, Borneo, Indonesia although the full extent of its range remains somewhat unclear.",
           "countries": [],
           "regions": [
-            "Borneo",
-            "Arut",
-            "Benipah"
+            "Borneo"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Known sites include the Sukamara area, the Jelai Bila basin, the Arut basin near Pangkalanbuun and the Benipah river.",
+          "countries": [],
+          "regions": [
+            "Jelai Bila"
           ]
         }
       ]

@@ -505,17 +505,40 @@
     ]
   },
   "acrochordonichthys-rugosus": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Asian Banjo Catfish",
     "confidence": "low",
-    "score": 0.9,
+    "score": 0.88,
     "notes": [
-      "Item 2/16: \"Risiko Rendah (Least Concern)\" is a slightly non-standard rendering of the IUCN category. \"Berisiko Rendah\" or \"Risiko Rendah\" with the English term is acceptable, but keep it consistent with the Indonesian IUCN usage.",
-      "Item 7: \"kimia air yang naik-turun\" is a bit stiff. Consider \"parameter air yang berfluktuasi\".",
-      "Item 8: \"Kayu dan akar yang sudah lama terendam\" for \"Aged driftwood\" slightly shifts the meaning. Consider \"kayu apung yang sudah matang/tua (driftwood)\".",
-      "Item 12: \"Meskipun sebenarnya tidak suka bergerombol\" is a bit stronger than \"not really gregarious\". Consider \"kurang bersifat bergerombol\"."
-    ]
+      "Item 11: \"batu dan kerikil sungai yang halus terkikis air\" is awkward and adds \"halus\" for \"water-worn\". Use \"batu dan kerikil sungai yang telah terkikis air\" or \"batu kali yang membulat\".",
+      "Item 16: \"menyentuh/mendorong\" leaves a slash alternative in place. Pick one verb, e.g. \"mendorong\" or \"menyentuh\".",
+      "Item 11: \"pakis jawa\" should be \"pakis Jawa\" (capital J), or use the usual hobby name \"Java fern\".",
+      "Item 13: \"cacing sutra\" for Tubifex is a loose equivalent. Consider \"Tubifex (cacing sutra)\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "d6b9f2a87513",
+      "quickFacts:scotcat": "e60493b15db0",
+      "quickFacts:glaser": "bdadd0b1e9a3",
+      "beforeYouBuy:glaser": "034430e49c9b",
+      "distribution:seriouslyfish": "0b776a016a1c",
+      "distribution:scotcat": "f57ea33763fc",
+      "habitat:seriouslyfish": "75554e143a2a",
+      "habitat:scotcat": "6f613958332a",
+      "habitat:glaser": "769525fe89de",
+      "aquariumSize:seriouslyfish": "1bfd390d77ce",
+      "maintenance:seriouslyfish": "10baacdaa14f",
+      "waterConditions:seriouslyfish": "2558f3c9481c",
+      "diet:seriouslyfish": "f9ba60235095",
+      "diet:scotcat": "b654131bf96b",
+      "behaviour:seriouslyfish": "5cf4662cf3ff",
+      "behaviour:glaser": "7a9a3af4e4fe",
+      "dimorphism:seriouslyfish": "7ef623a1be61",
+      "reproduction:seriouslyfish": "1e64a9dab8e9",
+      "notes:seriouslyfish": "a908dc466c7c",
+      "notes:scotcat": "40aa32f39acc",
+      "references:scotcat": "d385b7dbd6eb"
+    }
   },
   "acrochordonichthys-septentrionalis": {
     "at": "2026-10-31",
@@ -2421,11 +2444,31 @@
     ]
   },
   "andinoacara-rivulatus": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Green Terror",
     "confidence": "high",
-    "score": 0.93
+    "score": 0.93,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "c4220fd7e219",
+      "distribution:seriouslyfish": "fa0d5e7d9fce",
+      "habitat:seriouslyfish": "e579f77637dd",
+      "aquariumSize:seriouslyfish": "7803624b1d3a",
+      "maintenance:seriouslyfish": "9cb560064008",
+      "waterConditions:seriouslyfish": "9e5598b49e81",
+      "diet:seriouslyfish": "53ef05044272",
+      "behaviour:seriouslyfish": "08e1e79fda66",
+      "dimorphism:seriouslyfish": "1eaf6c3b4da6",
+      "reproduction:seriouslyfish": "84c1c4681682"
+    },
+    "failed": {
+      "at": "2026-11-19T23:24:52.191Z",
+      "parts": {
+        "beforeYouBuy:glaser": "ab923fd87634",
+        "reproduction:glaser": "a38114de5ae2"
+      }
+    }
   },
   "anematichthys-repasson": {
     "at": "2026-11-06",
@@ -5528,7 +5571,7 @@
     "from": "2026-11-01",
     "name": "Balitoropsis zollingeri",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.9,
     "notes": [
       "Item 5: \"Volume: ~54 litres\" is kept as ~54 liter. 60×30 cm base with ~54 L is the source's own figure, so leave the number as is, but check that it matches the tank depth.",
       "Item 6: \"filter yang kapasitasnya lebih besar dari ukuran akuarium\" is a loose rendering of \"over-sized filter\". Use \"filter berkapasitas besar (di atas ukuran standar)\".",
@@ -5685,7 +5728,7 @@
     "from": "2026-10-31",
     "name": "Spanner barb",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.88,
     "notes": [
       "Item 3: \"Ikan muda dan remaja\" for juveniles and subadults is fine, but \"sungai-sungai kecil\" for \"forest streams\" is acceptable. The real issue is \"batu dan bongkahan batu halus\", which reads as if only the boulders are smooth. Rephrase it.",
       "Item 8: \"Danio, Devario, dan Barilius yang berukuran lebih besar\" is ambiguous. \"larger\" should apply only to Danio (larger Danio). Fix it so the meaning is clear.",
@@ -7014,39 +7057,39 @@
     ]
   },
   "betta-imbellis": {
-    "at": "2026-11-18",
-    "from": "2026-11-18",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Cupang Imbellis",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.8,
     "notes": [
-      "#1: \"dua garis berkilau di bagian pipi (tutup insang)\" — 'bars' on cheek plates; fine, but 'Risiko Rendah (Least Concern)' is OK. Minor: 'ditangkarkan secara line-breeding' is awkward; use 'tidak dikembangbiakkan lewat line-breeding'.",
-      "#1: \"imbellis hasil peternakan\" is awkward; use 'imbellis hasil budidaya/ternak'. Also 'cupang aduan' for 'fighter types' is acceptable but 'dilepas ke daerah tersebut' fine.",
-      "#4: \"saat mendekati betina\" for 'during courtship' is slightly narrowed; use 'saat berpacaran/masa pemijahan (courtship)'.",
-      "#6: \"hasil ternakan\" is non-standard; use 'hasil budidaya' (domestic splendens)."
+      "Item 1: \"dua garis berkilau pada tutup insangnya\" — source says bars on the cheek plates (pipi/operkulum); acceptable but \"hasil farm\" is shop jargon; prefer \"hasil budidaya\".",
+      "Item 4: \"kurang hias\" is awkward; use \"kurang indah/kurang mencolok\" for \"less ornate\".",
+      "Item 4: \"bercumbu\" is odd for courtship; use \"saat berpacaran/proses pemijahan\" or \"saat memikat betina\".",
+      "Item 2: \"Memakai organ labirinnya untuk menghirup udara\" is slightly stiff; use \"Bernapas udara dengan organ labirin\".",
+      "Item 1: \"Risiko Rendah (Least Concern)\" fine, but \"line-breeding\" left in English; use \"dikembangkan melalui seleksi garis keturunan\"."
     ],
     "parts": {
-      "quickFacts:bwaquatics": "dfd8575d7801",
+      "quickFacts:bwaquatics": "0131fdccf86c",
       "quickFacts:seriouslyfish": "f6586ffe727f",
       "distribution:bwaquatics": "aa4a1118e549",
       "distribution:seriouslyfish": "32198702c2e6",
-      "habitat:bwaquatics": "281d37a2f3d7",
+      "habitat:bwaquatics": "b9e60fc4623b",
       "habitat:seriouslyfish": "4e45e55ba7dd",
       "aquariumSize:seriouslyfish": "bb357e73f320",
       "maintenance:seriouslyfish": "304a417f5aef",
-      "waterConditions:bwaquatics": "b6ccb12de63d",
+      "waterConditions:bwaquatics": "fb0b5f75b315",
       "waterConditions:seriouslyfish": "5dc6f12a0d62",
       "diet:bwaquatics": "3a2e4af2770e",
       "diet:seriouslyfish": "8456fa68e5c8",
       "behaviour:bwaquatics": "49541b6a0dbd",
       "behaviour:seriouslyfish": "f44fbf017e0f",
-      "dimorphism:bwaquatics": "8194dd970012",
+      "dimorphism:bwaquatics": "55addb245217",
       "dimorphism:seriouslyfish": "14053387e4e0",
-      "reproduction:bwaquatics": "a948e0d00ecc",
+      "reproduction:bwaquatics": "e41fe77d4217",
       "reproduction:seriouslyfish": "24a5f6f1767b",
       "notes:seriouslyfish": "cb1eb0225be6",
-      "references:seriouslyfish": "b49b277101cd",
-      "notes:bwaquatics": "cb1080023826"
+      "references:seriouslyfish": "b49b277101cd"
     }
   },
   "betta-krataios": {
@@ -7459,12 +7502,17 @@
     }
   },
   "betta-pi": {
-    "at": "2026-11-12",
-    "from": "2026-11-09",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Betta pi",
     "confidence": "high",
-    "score": 0.9,
-    "notes": [],
+    "score": 0.8,
+    "notes": [
+      "#2 \"impor sesekali sangat diharapkan\": the source says it is very desirable; OK in meaning, but \"Akan bagus kalau\" and \"akuaris\" are slightly informal/awkward. Consider \"Alangkah baiknya jika lebih banyak penghobi akuarium...\"",
+      "#2 \"Hal ini tidak merusak populasi di alam\": the source says natural stocks are not damaged by this occasional import. Make the reference explicit: \"Populasi di alam tidak terganggu olehnya.\"",
+      "#5 \"sepat mutiara (Trichogaster leerii)\": the common hobby name is \"sepat mutiara\", which is fine, but \"rasbora harlequin\" could be \"rasbora arlequin/ rasbora harlequin\"; minor.",
+      "#7 \"pola warna sesuai suasana hati ikan\": \"mood colourations\" is slightly over-interpreted; simpler: \"pada warna tertentu saat ikan dalam suasana tertentu\"."
+    ],
     "parts": {
       "quickFacts:seriouslyfish": "876b727b2590",
       "distribution:seriouslyfish": "ad62e35cc095",
@@ -7478,10 +7526,13 @@
       "reproduction:seriouslyfish": "0abb8720438f",
       "notes:seriouslyfish": "a2def3c38a59",
       "references:seriouslyfish": "913557a86c17",
-      "quickFacts:glaser": "80c7f3d2e673",
-      "distribution:glaser": "f51ed04ffb3c",
-      "behaviour:glaser": "ddcc5f119a4b",
-      "reproduction:glaser": "7e3112ddf52a"
+      "quickFacts:glaser": "e58e6c6868a6",
+      "distribution:glaser": "27306f2ccf86",
+      "behaviour:glaser": "4edde9c8321c",
+      "beforeYouBuy:glaser": "fee7d8466bab",
+      "habitat:glaser": "ef9bdd26bb54",
+      "dimorphism:glaser": "6ab5be917aee",
+      "notes:glaser": "37638241f782"
     }
   },
   "betta-picta": {
@@ -8156,20 +8207,39 @@
     ]
   },
   "boraras-merah": {
-    "at": "2026-11-02",
-    "from": "2026-11-02",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Boraras merah",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.95,
     "notes": [
-      "Item 9: \"kayu beech biasa atau kayu ek aman digunakan\" — 'common beech' is mistranslated as an adjective; use \"kayu beech (Fagus) atau ek\" and keep the oak/beech wording clear.",
-      "Item 16: \"pygmy Corydoras\" left in English; use \"Corydoras kerdil/pigmi\".",
-      "Item 18: \"lebih gemuk\" and \"warna yang lebih pudar\" are acceptable, but \"intense fiery red to orange\" is rendered as \"oranye yang pekat\", which shifts the meaning slightly. Rephrase as \"merah menyala pekat hingga oranye\".",
-      "Item 21: \"tidak menjaga anaknya\" is fine, but \"zero parental care\" plus \"Setelah pemijahan dimulai, pemijahan akan berlanjut setiap hari\" is awkward. Rephrase as \"pemijahan akan terus berlanjut setiap hari\".",
-      "Item 22: the whole sentence is omitted. It is shop talk and a byline, so this is acceptable only if it was meant to be dropped; check it.",
-      "Item 14: \"Daphnia\" is rendered \"kutu air (Daphnia)\" in 14 but \"kutu air (daphnia)\" in 13; make the term consistent. \"Kutu air\" is a loose term.",
-      "Item 23: \"kelompok danionin\" for 'the other sub-group contains the danionins' is unclear; say \"subkelompok lainnya berisi danionin\"."
-    ]
+      "#14: \"Hindari ikan yang lebih besar atau yang terlalu aktif dan agresif\" adds \"agresif\"; the English only says \"boisterous\", so use \"yang terlalu aktif/heboh\"."
+    ],
+    "parts": {
+      "quickFacts:bwaquatics": "a5441fd7f0b6",
+      "quickFacts:seriouslyfish": "0439d98c387e",
+      "distribution:bwaquatics": "4b74e2631aa0",
+      "distribution:seriouslyfish": "3bbcc403dcd1",
+      "habitat:bwaquatics": "d1d36cb2881d",
+      "habitat:seriouslyfish": "872d46fa5836",
+      "aquariumSize:seriouslyfish": "aa0b08bd4d4c",
+      "maintenance:seriouslyfish": "1b234ac14223",
+      "maintenance:bwaquatics": "a03627d4c72e",
+      "waterConditions:bwaquatics": "2d9e68d54fe3",
+      "waterConditions:seriouslyfish": "56dff68842e3",
+      "diet:bwaquatics": "63f7df3b5871",
+      "diet:seriouslyfish": "66febc1283db",
+      "behaviour:bwaquatics": "3bf559afff4f",
+      "behaviour:seriouslyfish": "3b745d249fb9",
+      "dimorphism:glaser": "3a35305fc09c",
+      "dimorphism:bwaquatics": "dfc0468eb280",
+      "dimorphism:seriouslyfish": "1069de4dfb05",
+      "reproduction:bwaquatics": "da3f5a097129",
+      "reproduction:seriouslyfish": "ec1188224b10",
+      "notes:seriouslyfish": "675a7a3ad6c5",
+      "notes:bwaquatics": "cfed0f00d3cb",
+      "references:seriouslyfish": "3c32b43b948e"
+    }
   },
   "boraras-micros": {
     "at": "2026-11-17",
@@ -8842,35 +8912,41 @@
     ]
   },
   "brevibora-dorsiocellata": {
-    "at": "2026-11-17",
-    "from": "2026-11-17",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Rasbora Eyespot",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.85,
     "notes": [
-      "Item 7: 'kayu beech atau oak' leaves the English tree names untranslated. Add a gloss, e.g. 'kayu beech (bükan) atau ek (oak)', or say 'kayu keras lokal yang aman'.",
-      "Item 7: 'setup bergaya alami' could be 'penataan akuarium bergaya alami'."
+      "Item 1: \"Endangered/Genting\" – use the Indonesian term consistently, e.g. \"Genting (Endangered)\"; the current form is slightly awkward.",
+      "Item 7: \"Burayak\" is a less common term; \"anakan ikan\" or \"larva\" is more familiar to hobbyists.",
+      "Item 6: \"mengalahkan ikan yang lebih lambat dalam berebut pakan\" is slightly stiff; \"kalah bersaing\" phrasing would be more natural.",
+      "Item 3: \"danau rawa gambut blackwater yang asam\" is ambiguous about what \"asam\" modifies; consider \"air hitam (blackwater)\" in the phrase."
     ],
     "parts": {
       "quickFacts:glaser": "ebffb2371315",
-      "quickFacts:bwaquatics": "fc195c0d805b",
+      "quickFacts:bwaquatics": "f602b4386dd4",
       "quickFacts:seriouslyfish": "63170c74d611",
       "distribution:seriouslyfish": "21820c2e253c",
       "habitat:seriouslyfish": "bdf111632676",
       "aquariumSize:seriouslyfish": "8bcf1b8dab84",
       "maintenance:seriouslyfish": "3e2896e3a75f",
-      "waterConditions:bwaquatics": "5ed07a86d082",
+      "waterConditions:bwaquatics": "78365835a167",
       "waterConditions:seriouslyfish": "7a9f4269b18a",
-      "diet:bwaquatics": "1aec3e3f25af",
+      "diet:bwaquatics": "fb213593158e",
       "diet:seriouslyfish": "715882c029fc",
       "behaviour:glaser": "4ed5d7aef5fc",
-      "behaviour:bwaquatics": "936294aca6a7",
+      "behaviour:bwaquatics": "9cb4ea85c220",
       "behaviour:seriouslyfish": "0f70881b1f77",
       "dimorphism:seriouslyfish": "f85b2326496a",
       "reproduction:seriouslyfish": "18ce33c499e7",
       "notes:seriouslyfish": "8a59a966c5dc",
       "notes:glaser": "49751de99969",
-      "references:seriouslyfish": "75b3805f7653"
+      "references:seriouslyfish": "75b3805f7653",
+      "distribution:bwaquatics": "dd328221348a",
+      "habitat:bwaquatics": "91506e83f5a3",
+      "reproduction:bwaquatics": "7ba0a2be51b1",
+      "notes:bwaquatics": "a95e282bfc1f"
     }
   },
   "brevimyrus-niger": {
@@ -9083,20 +9159,37 @@
     ]
   },
   "bunocephalus-coracoideus": {
-    "at": "2026-11-08",
-    "from": "2026-10-30",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Bunocephalus coracoideus",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "Item 4: 'approximately 68 litres' is kept, which is fine, but the 'kira-kira 68 liter' figure is not rounded to the nearest 5 L (about 70 L). Minor.",
-      "Item 5: 'a couple of inches of sand' became 'setebal sekitar 5 cm'. This is acceptable, but 'kayu bogwood' could use the local term 'kayu akar/driftwood'.",
-      "Item 8: 'cichlid kerdil' is fine, but 'Loricariidae' for 'smaller Loricariids' could be 'lele Loricariidae kecil' for naturalness. Minor.",
-      "Item 11: 'cuma hanyut' is too colloquial for a handbook; use 'hanya hanyut'.",
-      "Item 11: 'Nama lokalnya di daerah asal' is slightly redundant; 'Nama lokalnya' is enough.",
-      "Item 1: 'dibandingkan anggota genusnya yang lain' is a bit awkward. Use 'paling umum dijumpai di antara anggota genusnya di toko ikan hias'.",
-      "Item 10: 'half a dozen' became 'minimal enam ekor'. This is OK. 'mereka mau menerima' is stiff; use 'burayak dapat diberi'."
-    ]
+      "#5: \"ranting yang jatuh\" – \"fallen branches\" is larger than twigs; use \"dahan/cabang yang jatuh\".",
+      "#5: \"puing serupa lainnya\" – \"puing\" means rubble; use \"sisa material organik serupa\" or \"serpihan\" for debris.",
+      "#2: \"berpenampilan kasar dengan tonjolan dan benjolan\" is a bit stiff; \"bertampang garang/kasar\" or similar reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "b7c2baf66153",
+      "quickFacts:scotcat": "e12b2fb5d758",
+      "distribution:seriouslyfish": "0c874b578ec0",
+      "distribution:scotcat": "14293bd23ca4",
+      "habitat:seriouslyfish": "e6d7fe84f646",
+      "aquariumSize:seriouslyfish": "19de6577c583",
+      "maintenance:seriouslyfish": "dad7ad59523c",
+      "maintenance:scotcat": "f7a0112d4cce",
+      "waterConditions:seriouslyfish": "bd120d0507ba",
+      "diet:seriouslyfish": "914856e70f0c",
+      "diet:scotcat": "87b75edaa399",
+      "behaviour:seriouslyfish": "dfcbfd9d5a3c",
+      "dimorphism:seriouslyfish": "8169d6efe171",
+      "reproduction:seriouslyfish": "90d449a682ed",
+      "reproduction:scotcat": "735cf69670c6",
+      "notes:seriouslyfish": "3a65fde090fd",
+      "notes:scotcat": "d6a177d9b856",
+      "references:seriouslyfish": "949c9c2fa8d4",
+      "references:scotcat": "dacc02ca0fd2"
+    }
   },
   "butis-amboinensis": {
     "at": "2026-11-06",
@@ -10652,21 +10745,39 @@
     "notes": []
   },
   "channa-melasoma": {
-    "at": "2026-11-06",
-    "from": "2026-11-06",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Channa melasoma",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.6,
     "notes": [
-      "Item 8: 'ikan umpan hidup (feeder)' is OK, but 'ikan mas koki kecil' for 'small goldfish' is fine; however 'Predator obligat' is non-standard — use 'predator sejati/karnivora murni'.",
-      "Item 8: 'tend not have a high nutritional value unless properly conditioned' is rendered ok, but 'Begitu juga' is slightly stiff; prefer 'Demikian pula'.",
-      "Item 5: 'Volume: ~243 liter' is retained from the source's unit; verify it matches 120×45×45 cm (≈243 L) — it's a derived figure, fine, but 'Kedalaman air tidak terlalu penting' loses nuance of 'less important' (than base area); say 'kurang penting dibanding luas alas'.",
-      "Item 9: 'sisik gular' and 'jari-jari sirip anal' mix terms; use 'sirip dubur' for anal fin, the standard Indonesian term.",
-      "Item 9: 'sisik gurat sisi 50-54' should be 'jumlah sisik gurat sisi' (lateral line scales count); 'pangkal sirip punggung' fine.",
-      "Item 2/6: 'terkenal pandai kabur' is colloquial; prefer 'terkenal suka meloloskan diri'.",
-      "Item 1: 'teman satu akuarium' acceptable but 'penghuni akuarium lain (tankmate)' is more common.",
-      "Item 9: 'kerabat segenusnya' awkward; use 'spesies sekerabat dalam genus yang sama'."
-    ]
+      "Item 8: 'Volume: ~243 litres' was translated as '~243 liter'; the figure is meant to be a tank-size, so it should follow the table (120×45×45 cm ≈ 243 L is not a standard size). Check this number and use a conventional tank size.",
+      "Item 11: \"'pakan hidup' (feeder)\" for 'feeder' fish is fine, but 'ikan mas koki' should be 'ikan mas koki' (goldfish) -> use 'ikan koki' for small goldfish.",
+      "Item 12: 'warna gelap saat terusiknya' is awkward; use 'warna gelap saat terangsang/stres'. 'excitation colour' is not 'terusik'.",
+      "Item 12: 'sangat santai' for 'completely relaxed' is fine, but 'warnanya yang cerah' should be 'warna cerahnya' for natural flow.",
+      "Item 4: 'western Borneo, Indonesia' in the type locality was left in English; translate as 'Kalimantan bagian barat, Indonesia'.",
+      "Item 3: 'pandai kabur' for 'notorious for escaping' is colloquial; use 'terkenal sering melarikan diri'.",
+      "Item 13: 'suasana hatinya sama' is stiff; use 'kondisi/suasana hati yang sama'.",
+      "Item 14: the English describes the yellow young fish being guarded; 'Kedua induk menjaga telur dan anakan' is fine, but 'Kalimantan' consistency aside, 'mengerami telur di mulut' is fine; no change."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "ce8373eed17b",
+      "quickFacts:glaser": "7fbc67bef6a7",
+      "beforeYouBuy:seriouslyfish": "1b63d9c130b8",
+      "distribution:seriouslyfish": "66435fcdb4fd",
+      "distribution:glaser": "df4028d5024d",
+      "habitat:seriouslyfish": "b1ca99856e73",
+      "habitat:glaser": "2c26f61d7b20",
+      "aquariumSize:seriouslyfish": "5d2dc32cd1bb",
+      "maintenance:seriouslyfish": "19f6795e3c7a",
+      "waterConditions:seriouslyfish": "4e938e19ffd7",
+      "diet:seriouslyfish": "554ddf4bfe7c",
+      "behaviour:glaser": "ac0e1e23cce6",
+      "dimorphism:glaser": "496126c588c1",
+      "reproduction:glaser": "f0f85b8561bb",
+      "notes:seriouslyfish": "7e9ffc866960",
+      "references:seriouslyfish": "436dc77e7f9c"
+    }
   },
   "channa-micropeltes": {
     "at": "2026-10-30",
@@ -12191,22 +12302,42 @@
     ]
   },
   "copella-nattereri": {
-    "at": "2026-11-10",
-    "from": "2026-10-30",
-    "name": "Spotted tetra",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Spotted Tetra",
     "confidence": "low",
-    "score": 0.7,
+    "score": 0.6,
     "notes": [
-      "Item 1/11: 'garis gelap di sisi tubuh' / 'bagian samping tubuhnya' is fine, but 'Pyrrhulina... berdasarkan beberapa aspek morfologi kepala' is OK; main issue is below.",
-      "Item 2: 'lokasi yang kedua ini berada di negara bagian Pará' omits the 'corresponding to a locality' nuance (Obidos corresponds to a locality in Pará); phrase it as 'yang sesuai dengan sebuah lokasi di negara bagian Pará'.",
-      "Item 5: 'akar atau ranting juga penting' changes the structure: the English says overhanging vegetation, roots or branches are important; 'beberapa vegetasi yang menjuntai' is awkward. Rephrase as 'dengan vegetasi menjuntai, akar, atau ranting yang penting bila ingin membesarkan burayak bersama induk'.",
-      "Item 5: 'Menambahkan daun kering' loses 'leaf litter'; use 'serasah daun kering'.",
-      "Item 5: 'akuarium yang siklus nitrogennya belum matang' is acceptable, but 'biologically immature' could be simply 'akuarium yang belum matang secara biologis'.",
-      "Item 9: 'saat sedang bertelur' for 'gravid' should be 'saat sedang penuh telur/bunting telur'; 'bertelur' implies laying.",
-      "Item 11: 'kerabat satu genusnya' is clumsy for 'congener'; use 'spesies sekerabat dalam genus yang sama'. 'bercumbu' for 'courtship' is unnatural; use 'pacaran/ritual pemijahan'.",
-      "Item 11: 'tanda segitiga hitam pada jari-jari bagian bawah lobus bawah sirip ekor' should specify 'jari-jari ventral'. 'Faktor pembatas lainnya adalah ... meneliti masing-masing secara menyeluruh' is awkward.",
-      "Item 10: 'filter spons bertenaga aerator' fine; 'jantan juga sebaiknya dipindahkan karena ia bisa mulai memakan burayak' ok. Item 7: 'kutu air (moina)' is acceptable; Item 3 'sungai kecil... anak-anak sungai yang kecil' is redundant."
-    ]
+      "Item 2: 'Lokasi yang kedua ... berada di negara bagian Pará' drops 'Obidos' being the corresponding locality; ok, but 'the latter' is fine. No issue.",
+      "Item 13: 'siripnya lebih lebar' for 'enlarged fins' — better 'siripnya lebih besar/membesar'.",
+      "Item 12: 'Males grows... gravid' translated 'sedang bertelur' (laying eggs); gravid means 'bunting/penuh telur' — use 'saat penuh telur'.",
+      "Item 6: 'Menambahkan daun kering' omits 'leaf litter' sense and 'buah alder' for 'Alder cones' is okay; but 'burayak' used for Artemia nauplii in item 8 ('burayak artemia (nauplii)') is wrong: nauplii are larvae, not fish fry; use 'nauplii artemia'.",
+      "Item 15: 'Faktor pembatas lainnya, dalam banyak kasus satu-satunya cara...' is garbled and changes meaning; should say another limiting factor is that in many cases only exhaustive study of each genus individually can resolve such problems.",
+      "Item 15: 'sirip anal pangkalnya relatif pendek, 13 sisik atau kurang' fine; 'bercumbu' for courtship is awkward — use 'pacaran/penjodohan'.",
+      "Item 1: 'Habitatnya sungai kecil di hutan dan hutan yang tergenang' is awkward; use 'hutan banjir'.",
+      "Item 5: Volume 54 L retained fine; no problem.",
+      "Item 14: 'filter spons bertenaga aerator' fine; 'masa pengeraman' for incubation of eggs: use 'masa inkubasi/penetasan'.",
+      "Item 16: 'Copella berbintik merah ... C. nattereri' original text says first species 'described as C. nattereri' — fine."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "55af5a80fd15",
+      "distribution:seriouslyfish": "a01ecd03eeed",
+      "habitat:seriouslyfish": "7ac8f4f4d06a",
+      "habitat:glaser": "c39332cadf91",
+      "aquariumSize:seriouslyfish": "b6998e141986",
+      "maintenance:seriouslyfish": "0afeda18d49f",
+      "waterConditions:seriouslyfish": "bd419c907cdc",
+      "diet:seriouslyfish": "8d94816985d5",
+      "diet:glaser": "744637139b0b",
+      "behaviour:seriouslyfish": "2a935c0a4fc7",
+      "behaviour:glaser": "df8ab9ab172e",
+      "dimorphism:seriouslyfish": "b2b347d109f1",
+      "dimorphism:glaser": "f31808f68302",
+      "reproduction:seriouslyfish": "dae00e7b0858",
+      "notes:seriouslyfish": "60e190aa6e14",
+      "notes:glaser": "94737caf358e",
+      "references:seriouslyfish": "9cd1b9138113"
+    }
   },
   "corbicula-fluminea": {
     "at": "2026-11-14",
@@ -13118,19 +13249,31 @@
     }
   },
   "corydoras-gracilis": {
-    "at": "2026-11-11",
-    "from": "2026-11-08",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Corydoras gracilis",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.95,
     "notes": [
-      "Item 10: \"peternak\" is a bit off for hobby breeders; prefer \"penangkar\" or \"pembiak\".",
-      "Item 10: \"burayak\" is fine, but \"Burayaknya tidak termasuk yang paling mudah dibesarkan\" is slightly awkward; consider \"Burayak tidak mudah dibesarkan\".",
-      "Item 11: \"lele berlapis baja\" and \"berzirah\" are acceptable, but \"pernapas udara fakultatif\" could read more naturally as \"dapat bernapas langsung dari udara (fakultatif)\".",
-      "Item 11: \"nomor 'C' C041, C088...\" reads awkwardly; add a colon or a comma, e.g. \"nomor 'C', yaitu C041, ...\".",
-      "Item 11: \"cairan yang dikeluarkan kelenjar aksila\" is acceptable, but \"sekresi\" is closer to the source.",
-      "Item 2: \"di hulu Juriti\" loses the \"rio\" (the river name), so write \"di hulu rio Juriti\"."
-    ]
+      "#12: \"betina yang sudah matang kelamin\" adds \"betina\"; the English says \"sexually mature individuals\", so use \"individu yang sudah matang kelamin\"."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "e88110ccc78b",
+      "beforeYouBuy:glaser": "438ad4cf15ad",
+      "distribution:seriouslyfish": "7529172b6636",
+      "distribution:glaser": "492a401dab22",
+      "habitat:seriouslyfish": "36e2ad1f5692",
+      "aquariumSize:seriouslyfish": "648a7dc49bbe",
+      "maintenance:seriouslyfish": "387ed40b52db",
+      "waterConditions:seriouslyfish": "58db4daf7a9a",
+      "diet:seriouslyfish": "15299b746c27",
+      "behaviour:seriouslyfish": "e937301ff286",
+      "behaviour:glaser": "7ccfae63bef7",
+      "dimorphism:seriouslyfish": "86ea2175e8c3",
+      "reproduction:seriouslyfish": "a26bd1d98052",
+      "notes:seriouslyfish": "24e05e8f47b5",
+      "references:seriouslyfish": "b2e86bff6f86"
+    }
   },
   "corydoras-granti": {
     "at": "2026-11-11",
@@ -14102,7 +14245,6 @@
       "maintenance:seriouslyfish": "05d95382627a",
       "waterConditions:bwaquatics": "a6da901ff53e",
       "waterConditions:seriouslyfish": "ecc3e68fc0ac",
-      "diet:bwaquatics": "7d296e42df1e",
       "diet:seriouslyfish": "c3588abceed2",
       "behaviour:bwaquatics": "a66cedb2e7db",
       "behaviour:seriouslyfish": "abe38b80b721",
@@ -14112,17 +14254,15 @@
     }
   },
   "corydoras-simulatus": {
-    "at": "2026-11-13",
-    "from": "2026-11-06",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Corydoras simulatus",
     "confidence": "medium",
     "score": 0.8,
     "notes": [
-      "Item 5: \"Jangan sekali-kali mengandalkan mereka untuk bertahan hidup dari 'sisa-sisa'... atau mengandalkan mereka\" is repetitive; rephrase, e.g. \"Jangan berharap mereka bisa bertahan hidup dari 'sisa-sisa' pakan ... atau diandalkan untuk 'membersihkan' akuarium.\"",
-      "Item 7: \"saat sedang bertelur\" for \"gravid\" is imprecise; use \"saat penuh telur\" or \"saat bunting telur\" (gravid = carrying eggs, not laying).",
-      "Item 6: \"minimal 4–6 ekor\" is awkward; use \"setidaknya 4–6 ekor\".",
-      "Item 1/8: \"sungut rictal\" is jargon; consider \"sungut di sudut mulut (rictal)\". The \"dari sepasang sungut\" phrasing is also slightly awkward; use \"berdasarkan sepasang sungut\".",
-      "Item 8: \"Mereka adalah ikan yang bisa menghirup udara secara fakultatif\" is awkward; use \"Mereka bernapas udara secara fakultatif\"."
+      "\"dengan Corydoras metae yang bermoncong bulat\" is separated from \"sungai-sungai yang sama\" by the Rio Meta clause, so it reads awkwardly. Place it as \"sama dengan Corydoras metae yang bermoncong bulat\".",
+      "\"nama spesies 'simulatus'\" is fine, but \"hanya tampak seperti metae\" could be clearer as \"hanya tampak seperti C. metae\".",
+      "\"ilmuwan yang mendeskripsikan\" is acceptable, but \"para pendeskripsi ilmiah\" or \"para deskriptor\" is the more standard term."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "6b3f653b6ae2",
@@ -14133,7 +14273,9 @@
       "behaviour:seriouslyfish": "e937301ff286",
       "dimorphism:seriouslyfish": "8cea819b7ace",
       "notes:seriouslyfish": "52b3590e24bb",
-      "references:seriouslyfish": "9f020c03558a"
+      "references:seriouslyfish": "9f020c03558a",
+      "distribution:glaser": "a8a82efad770",
+      "notes:glaser": "9e78ed4ac32e"
     }
   },
   "corydoras-sodalis": {
@@ -16188,16 +16330,44 @@
     ]
   },
   "danio-margaritatus": {
-    "at": "2026-11-04",
-    "from": "2026-11-04",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Rasbora Galaxy",
     "confidence": "high",
-    "score": 0.9,
-    "notes": [
-      "Item 8: 'deep forest' became 'hutan lebat' (dense forest); 'hutan yang dalam/hutan belantara' is closer to the original.",
-      "Item 26: 'revalidated the species' became 'mengkaji ulang status spesies ini'; 'memvalidasi kembali spesies ini' keeps the taxonomic meaning.",
-      "Item 9: '~41 litres' became '±41 liter'; 'sekitar/~41 liter' is more natural for an approximate value."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:bwaquatics": "2aa18a400532",
+      "quickFacts:seriouslyfish": "cb95429ef7dc",
+      "quickFacts:aquariumcoop": "1d23f4efe301",
+      "distribution:bwaquatics": "44cf5abbe0b3",
+      "distribution:seriouslyfish": "b3a5331d100e",
+      "distribution:aquariumcoop": "fd5511223945",
+      "habitat:bwaquatics": "a56856d4991c",
+      "habitat:seriouslyfish": "6d9c98f42f64",
+      "aquariumSize:seriouslyfish": "157e940b9573",
+      "aquariumSize:aquariumcoop": "db7503cc3351",
+      "maintenance:seriouslyfish": "4997903a12a1",
+      "maintenance:bwaquatics": "e7e4f79bac56",
+      "waterConditions:seriouslyfish": "9b3273853c09",
+      "waterConditions:aquariumcoop": "4141e91d4fb2",
+      "waterConditions:bwaquatics": "e04a83941ff1",
+      "diet:bwaquatics": "db25f07e5946",
+      "diet:seriouslyfish": "a3c4cf0e670e",
+      "diet:aquariumcoop": "1ada08f0df7c",
+      "behaviour:bwaquatics": "4c8597ed7266",
+      "behaviour:seriouslyfish": "89bf16a4b101",
+      "behaviour:aquariumcoop": "cfeb2410542b",
+      "dimorphism:seriouslyfish": "0336fd874415",
+      "dimorphism:aquariumcoop": "51238c811a37",
+      "dimorphism:bwaquatics": "4a028cce10c6",
+      "reproduction:seriouslyfish": "8edc43a287bb",
+      "reproduction:aquariumcoop": "9c865fed68ae",
+      "reproduction:bwaquatics": "1cbd9b83623f",
+      "notes:bwaquatics": "ea50319cde84",
+      "notes:seriouslyfish": "225910c2df3b",
+      "references:seriouslyfish": "da9510f643ec"
+    }
   },
   "danio-meghalayensis": {
     "at": "2026-11-14",
@@ -19983,7 +20153,6 @@
       "dimorphism:aquariumbreeder": "cb524a27f664",
       "reproduction:seriouslyfish": "b6eb0fd9d0d3",
       "reproduction:aquariumbreeder": "9b373a808e2e",
-      "notes:glaser": "8bcd8bbd27c6",
       "notes:seriouslyfish": "37c60cdd76be",
       "notes:aquariumbreeder": "46fc796e0220",
       "references:seriouslyfish": "725216978b08"
@@ -21687,22 +21856,40 @@
     ]
   },
   "macrochirichthys-macrochirus": {
-    "at": "2026-11-09",
-    "from": "2026-11-08",
-    "name": "Ikan Parang",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Ikan Parang-parang",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.72,
     "notes": [
-      "Item 1: \"Sulit, karena butuh akuarium dengan panjang minimal 2 m\" is fine, but check item 6: \"akuarium yang siklus nitrogennya belum matang\" is acceptable only if it is a tank not yet biologically mature; consider \"akuarium yang belum matang secara biologis (belum siklus)\".",
-      "Item 2/6: \"bisa mudah kaget\" is awkward; use \"mudah kaget\" or \"cenderung gugup\".",
-      "Item 2/8/10: \"makin lama makin menjadi pemangsa ikan seiring bertambah besar\" is redundant and awkward; use \"semakin dominan memangsa ikan seiring bertambah besar\".",
-      "Item 2: \"Penutup yang benar-benar rapat itu wajib\" repeats the first sentence; this duplication follows the source, but \"jago sekali melompat\" is too colloquial for a handbook; use \"pelompat yang sangat ulung\".",
-      "Item 6: \"batu besar yang halus terkikis air\" is clumsy; use \"batu besar yang licin terkikis arus\".",
-      "Item 6: \"tidak tahan dengan menumpuknya limbah organik\" is awkward; use \"tidak tahan terhadap penumpukan limbah organik\".",
-      "Item 10: \"celah mulut hampir tegak lurus\" is unclear; use \"belahan mulut hampir vertikal\". Also \"populasi Indochina dan populasi Sunda\" should be \"populasi Indocina dan Sunda\".",
-      "Item 9: \"karena selain itu ikan ini cukup damai\" is misleading; use \"karena pada dasarnya ikan ini cukup damai dan mudah didominasi\".",
-      "Items 2/5/10: \"600–800 mm\" and \"800 mm SL\" are fine, but \"Panjang standar: 800 mm SL\" is redundant; consider cm for readability."
-    ]
+      "Item 4: 'yang pasti dimiliki tetra predator' – 'obligatory' is stated too absolutely; better 'yang lazimnya dimiliki' or 'yang seharusnya dimiliki'. Minor.",
+      "Items 3/5/10/12: 'semakin dominan memakan ikan' is a stilted rendering of 'increasingly piscivorous'; use 'semakin banyak memangsa ikan' or 'makin bersifat piscivora'.",
+      "Item 3: 'ikan ini bisa mudah terkejut' is awkward; use 'mudah terkejut' or 'mudah kaget'.",
+      "Item 10: 'akuarium yang siklus nitrogennya belum matang' is OK, but 'biologically-immature' is better as 'akuarium baru yang belum matang secara biologis'; also 'Kalau mau' is too casual for a handbook.",
+      "Item 3: 'cyprinid' and 'Giant sword minnow' are left untranslated without a local explanation; add 'ikan karper (Cyprinidae)' or similar; also the lead sentence is duplicated.",
+      "Item 16: 'belahan mulut hampir tegak lurus' is awkward; use 'celah mulut hampir vertikal'. Also the dash in '108-130 + 3-4' should be consistent with the other ranges.",
+      "Item 15: 'lembaran plastik hitam' for 'black foil' is an acceptable rendering, but 'petugas perawatan' is slightly stiff.",
+      "Item 8: 'Panjang standar: 800 mm SL' is redundant; 800 mm could be shown as 80 cm to suit metric habits."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "6a6191cf84eb",
+      "quickFacts:glaser": "95f71010ce9c",
+      "beforeYouBuy:seriouslyfish": "15cede4afa14",
+      "beforeYouBuy:glaser": "8b996ef12778",
+      "distribution:seriouslyfish": "ee6ff8a3cf3c",
+      "distribution:glaser": "dc4c4717f90e",
+      "habitat:seriouslyfish": "4db68b2ab7a7",
+      "aquariumSize:seriouslyfish": "e3bd15fdf589",
+      "aquariumSize:glaser": "1152883f7209",
+      "maintenance:seriouslyfish": "b5cd734cfcbc",
+      "waterConditions:seriouslyfish": "9457840a14d5",
+      "diet:seriouslyfish": "5cee9376669c",
+      "diet:glaser": "1c9d29131d6f",
+      "behaviour:seriouslyfish": "2122003634f6",
+      "behaviour:glaser": "021fca10104f",
+      "notes:seriouslyfish": "12a80b329051",
+      "references:seriouslyfish": "198da0e48fba"
+    }
   },
   "macrognathus-aculeatus": {
     "at": "2026-11-04",
@@ -22649,12 +22836,14 @@
     ]
   },
   "neritina-pulligera": {
-    "at": "2026-11-12",
+    "at": "2026-11-19",
     "from": "2026-11-11",
     "name": "Keong Nerite Black Military Helmet",
     "confidence": "medium",
     "score": 0.8,
-    "notes": [],
+    "notes": [
+      "Item 1: \"Pitchblack racing snail\" is left as English trade name; acceptable, but consider adding a local gloss such as \"keong balap hitam pekat\" for readability."
+    ],
     "parts": {
       "quickFacts:aquariumbreeder": "3f9d0a5842ad",
       "beforeYouBuy:aquariumbreeder": "1e8952018b41",
@@ -22668,16 +22857,11 @@
       "behaviour:aquariumbreeder": "e8719d99cb8e",
       "dimorphism:aquariumbreeder": "563b0a69ca0a",
       "reproduction:aquariumbreeder": "33049efa664a",
-      "notes:aquariumbreeder": "1ed0d85ad724"
-    },
-    "failed": {
-      "at": "2026-11-12T19:19:12.285Z",
-      "parts": {
-        "quickFacts:glaser": "700642141c89",
-        "diet:glaser": "c13d81692d0a",
-        "behaviour:glaser": "e18124442c0e",
-        "reproduction:glaser": "bcd6ca6aab79"
-      }
+      "notes:aquariumbreeder": "1ed0d85ad724",
+      "quickFacts:glaser": "700642141c89",
+      "diet:glaser": "c13d81692d0a",
+      "behaviour:glaser": "e18124442c0e",
+      "reproduction:glaser": "bcd6ca6aab79"
     }
   },
   "neritona-juttingae": {
@@ -23058,36 +23242,44 @@
     ]
   },
   "oryzias-woworae": {
-    "at": "2026-11-16",
-    "from": "2026-11-15",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Daisy's ricefish",
     "confidence": "medium",
-    "score": 0.95,
-    "notes": [],
+    "score": 0.85,
+    "notes": [
+      "Item 5: \"Mau makan pakan serpihan\" is slightly awkward; use \"Pakan: serpihan, artemia, cacing darah, dan jentik nyamuk\" or \"Memakan ...\".",
+      "Item 8: \"Pindahkan telur atau induknya untuk melindungi telur\" is slightly redundant; use \"untuk melindunginya\".",
+      "Item 1: \"Endangered/Genting\" is fine, but \"Sifat\" for Temperament could be \"Perilaku\" or \"Temperamen\"."
+    ],
     "parts": {
-      "quickFacts:bwaquatics": "9f5b2ca64c73",
+      "quickFacts:bwaquatics": "51536730cff7",
       "quickFacts:seriouslyfish": "85ea0bf0d445",
       "quickFacts:glaser": "583b5d7e93e3",
       "beforeYouBuy:glaser": "717911096778",
       "distribution:seriouslyfish": "d8f98f3d4168",
-      "habitat:bwaquatics": "4a0658b852d5",
+      "habitat:bwaquatics": "2dab282c906a",
       "habitat:seriouslyfish": "e7d21638874c",
       "aquariumSize:seriouslyfish": "6d8849fbf6e8",
       "maintenance:seriouslyfish": "217c3dc74af7",
       "waterConditions:seriouslyfish": "c16177e98ada",
       "waterConditions:glaser": "20fa4824628e",
-      "diet:bwaquatics": "3371f4d4821b",
+      "diet:bwaquatics": "e31222a929b5",
       "diet:seriouslyfish": "b33ba7e9d9d6",
       "diet:glaser": "fb7e84a94052",
-      "behaviour:bwaquatics": "4942f19c26b1",
+      "behaviour:bwaquatics": "a5eda843e2fe",
       "behaviour:seriouslyfish": "c019dc06dcf4",
-      "dimorphism:bwaquatics": "452e3753076c",
+      "dimorphism:bwaquatics": "d8b7703cf55b",
       "dimorphism:seriouslyfish": "968fccce49cf",
       "reproduction:seriouslyfish": "08a03a1274cf",
       "reproduction:glaser": "b1966a8425dc",
       "notes:seriouslyfish": "7a83f925eeef",
       "notes:glaser": "c6664895b5a0",
-      "references:seriouslyfish": "733ff2611c8d"
+      "references:seriouslyfish": "733ff2611c8d",
+      "distribution:bwaquatics": "62aa32d5448f",
+      "waterConditions:bwaquatics": "219d0d7cca4a",
+      "reproduction:bwaquatics": "5eeed4c92435",
+      "notes:bwaquatics": "a4c8161ae441"
     }
   },
   "osphronemus-goramy": {
@@ -23471,34 +23663,37 @@
     ]
   },
   "paracheirodon-simulans": {
-    "at": "2026-11-14",
-    "from": "2026-11-08",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Green Neon Tetra",
     "confidence": "medium",
-    "score": 0.88,
+    "score": 0.8,
     "notes": [
-      "#11: \"pada sore atau malam hari\" adds \"sore\"; the English only says \"in the evening\", so use \"pada malam hari\" or \"pada sore hari\".",
-      "#10: \"udang hias kecil dewasa\" is ambiguous (reads like small adults). Use \"udang hias dwarf dewasa\" or \"udang kerdil dewasa\".",
-      "#10: \"ikan utama\" for \"centrepiece fish\" is unclear. Use \"ikan pajangan (centerpiece)\" or \"ikan primadona\"."
+      "Item 8: \"Garis hijau toskanya\" is a wrong/non-standard colour term; use \"hijau toska\" (\"Garis hijau toska di tubuhnya\").",
+      "Item 8: \"Ikan ini yang paling kecil ... bersama neon tetra\" is awkward; use \"Ikan ini yang terkecil dari tiga jenis neon tetra, selain neon tetra (P. innesi) dan cardinal tetra (P. axelrodi)\".",
+      "Item 2: \"rio Negro\" should be capitalised as \"Rio Negro\".",
+      "Item 6: \"Predator mikro\" is acceptable, but \"pakan serpihan yang dihancurkan\" is clumsy; use \"serpihan yang dihaluskan\".",
+      "Item 9: \"mop pemijahan\" is awkward; use \"spawning mop\" or \"mop\" with the English term in brackets.",
+      "Item 4: \"kayu apung (driftwood)\" is imprecise; hobbyists say \"kayu driftwood\" or \"kayu rendam\"."
     ],
     "parts": {
-      "quickFacts:bwaquatics": "dac70182d758",
+      "quickFacts:bwaquatics": "a7815667d095",
       "quickFacts:seriouslyfish": "5959358a5052",
-      "distribution:bwaquatics": "4b1442dc33e2",
+      "distribution:bwaquatics": "856fafb093f1",
       "distribution:seriouslyfish": "9f76eadb4028",
-      "habitat:bwaquatics": "b2bea16fa15b",
+      "habitat:bwaquatics": "996ec71371cb",
       "habitat:seriouslyfish": "df7032bf9c10",
       "aquariumSize:seriouslyfish": "7e881b2ec462",
       "maintenance:seriouslyfish": "be54a178f760",
-      "waterConditions:bwaquatics": "1c3422c9b195",
+      "waterConditions:bwaquatics": "d1cf6f2bd941",
       "waterConditions:seriouslyfish": "842e0452fb8c",
-      "diet:bwaquatics": "95cfba8494ea",
+      "diet:bwaquatics": "8eacff4c6d47",
       "diet:seriouslyfish": "6e363e327cc9",
-      "behaviour:bwaquatics": "6ea2c172c1e3",
+      "behaviour:bwaquatics": "21224ca174c9",
       "behaviour:seriouslyfish": "73747bcd8acd",
       "dimorphism:seriouslyfish": "367f7c9a2d33",
-      "reproduction:bwaquatics": "c4e5b9d8c485",
-      "notes:bwaquatics": "29dc84696227",
+      "reproduction:bwaquatics": "a9d56efd90ab",
+      "notes:bwaquatics": "d73679457147",
       "notes:seriouslyfish": "45eb20c78bf4",
       "references:seriouslyfish": "ea661e1f185a",
       "quickFacts:glaser": "4394c83f65a2",
@@ -23512,7 +23707,9 @@
       "equipment:aquariumcoop": "f36ecedb159a",
       "diet:aquariumcoop": "4365669b6597",
       "behaviour:aquariumcoop": "bc795ead6f7e",
-      "reproduction:aquariumcoop": "a2d3376bfd0a"
+      "reproduction:aquariumcoop": "a2d3376bfd0a",
+      "aquariumSize:bwaquatics": "a4c5896a1b9d",
+      "dimorphism:bwaquatics": "0436780baac5"
     }
   },
   "parakysis-notialis": {
@@ -23706,64 +23903,75 @@
     "confidence": "medium",
     "score": 0.6,
     "notes": [
-      "Item 23: the English source has stray Vietnamese glosses (\"trùng đế giày\", \"vi sinh vật nhỏ\", \"luân trùng\"); the translation correctly dropped them, so no fix is needed there.",
-      "Item 14: the English gives pH 3.0–6.5 while item 13 gives pH 3.5–6.5. The translations follow their sources, but the handbook is inconsistent. Check which lower bound is intended.",
-      "Item 13: the English gives \"Temperature: 22–28 °C (72–82 °F)\" and the translation drops °F. This is correct. However, \"GH 1–4 °d\" and \"KH 0–1 °d\" should be written \"dGH\" and \"dKH\", the form hobbyists in Indonesia use.",
-      "Item 1: \"Genting/Endangered\" is an odd rendering. Use \"Terancam (Endangered)\". Also \"sangat spesifik kebutuhannya\" is vague. Use \"sangat khusus\" or \"menuntut kondisi khusus\".",
-      "Item 8: \"kanopi ranting yang rapat\" for \"dense canopy of branches\" is awkward. Use \"tajuk pohon yang rapat\". \"Sukumara\" in the English is a typo for Sukamara and the translation corrected it, which is acceptable.",
-      "Item 3: \"Jadi risikonya besar bahwa...\" is stiff. Use \"Karena itu ada risiko besar bahwa keanekaragaman hayati...\".",
-      "Item 11: \"paling baik di bawah pencahayaan\" is awkward. Use \"paling cocok dengan pencahayaan yang cukup redup\".",
-      "Item 19: \"Tidak dianjurkan untuk akuarium komunitas biasa karena alasan-alasan yang sudah disinggung sebelumnya\" and \"perawatan oleh induk\" are fine, but \"kalem\" in item 18 is colloquial. Use \"tenang\"."
+      "Item 9: \"sarang busa\" is acceptable for bubble nest, but \"perilaku pendekatan kawin posisi kepala di bawah\" is awkward; consider \"pacaran dengan posisi kepala di bawah\".",
+      "Item 1/2: \"licorice gourami\" is left in English; consider adding a local term or keeping it consistent (minor)."
     ],
     "parts": {
-      "quickFacts:bwaquatics": "3a84e2e49e17",
+      "quickFacts:bwaquatics": "8cfafcf53551",
       "quickFacts:seriouslyfish": "3034189bffad",
       "quickFacts:glaser": "b76a1dbd0263",
-      "beforeYouBuy:bwaquatics": "fa98df892a2a",
+      "beforeYouBuy:bwaquatics": "e1dbf8af26d1",
       "distribution:seriouslyfish": "78833423895f",
       "distribution:glaser": "0253cbc1994d",
-      "habitat:bwaquatics": "5f866744d06c",
+      "habitat:bwaquatics": "c8ae49b71377",
       "habitat:seriouslyfish": "b663d91fbc5b",
       "aquariumSize:seriouslyfish": "2e33e117b59d",
-      "maintenance:bwaquatics": "8c0021bda433",
       "maintenance:seriouslyfish": "7f9e3cfae9cd",
       "maintenance:glaser": "5ef64fb27c28",
-      "waterConditions:bwaquatics": "728d3e73a560",
+      "waterConditions:bwaquatics": "d84a676793fb",
       "waterConditions:seriouslyfish": "984a371d16f6",
-      "equipment:bwaquatics": "a997c312c0a8",
-      "diet:bwaquatics": "8233bc77a374",
       "diet:seriouslyfish": "42566b99457d",
-      "behaviour:bwaquatics": "91c6c3439e69",
+      "behaviour:bwaquatics": "7ad563e019ef",
       "behaviour:seriouslyfish": "00988af6c54f",
       "behaviour:glaser": "9f5aea229b8b",
-      "dimorphism:bwaquatics": "5af1c89db5a1",
+      "dimorphism:bwaquatics": "dc117bd8273b",
       "dimorphism:seriouslyfish": "a0284d1fecc4",
-      "reproduction:bwaquatics": "4a7a25aedff8",
+      "reproduction:bwaquatics": "53deefafd857",
       "reproduction:seriouslyfish": "681a7ca26de0",
       "reproduction:glaser": "1d09ceec8854",
       "notes:seriouslyfish": "9877ee3bea92",
       "notes:glaser": "f7dfc1df2292",
-      "references:seriouslyfish": "ec09e8c2d544"
+      "references:seriouslyfish": "ec09e8c2d544",
+      "distribution:bwaquatics": "b81872dc32d9",
+      "aquariumSize:bwaquatics": "6b8cdb9ac902",
+      "notes:bwaquatics": "53048b29babc"
     }
   },
   "parosphromenus-opallios": {
-    "at": "2026-11-06",
-    "from": "2026-11-06",
-    "name": "Paro opallios",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Paros Opallios",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.9,
     "notes": [
-      "Item 9: 'Alder cone' left in English with no gloss; add a local explanation, e.g. 'kerucut alder (alder cone)'. Same in item 12.",
-      "Item 12: 'peat-safe materials' became 'bahan-bahan yang aman untuk air gambut'. This is vague and slightly changes the meaning. Say 'bahan yang aman untuk air asam/gambut'.",
-      "Item 7: 'Sukumara' is kept as in the source, but the rest of the text says 'Sukamara'. Make the spelling consistent.",
-      "Item 9: 'biologically-immature aquaria' became 'siklus nitrogennya belum matang'. This narrows the meaning. Say 'akuarium yang belum matang secara biologis (belum siklus)'.",
-      "Item 9: 'Parosphromenus spp.' is left as 'spp.' beside Indonesian text, which is fine. However, 'Microsorum, Taxiphyllum atau Cryptocoryne spp.' is fine too, so no change is needed there.",
-      "Item 20: 'bubble nest' became 'sarang busa'. Use 'sarang gelembung'.",
-      "Item 20: 'arbitrarily' became 'secara arbitrer'. Use 'secara sembarang' or 'secara kurang ketat'; 'arbitrer' is stiff.",
-      "Item 23: The reference list is untranslated, which is allowed.",
-      "Item 3: 'Please proceed with caution' became 'Harap berhati-hati'. This is fine, so no change is needed.",
-      "Item 15: 'active feeders' became 'ikan yang rakus saat makan'. This adds a meaning of greed. Use 'ikan yang agresif/aktif saat makan'."
-    ]
+      "Item 3: \"warna jantan berwarna kawin yang tampak berubah-ubah\" is clumsy; use \"warna jantan saat berwarna kawin yang tampak berubah-ubah\".",
+      "Item 16: the added gloss \"(sirip punggung, anal, dan ekor)\" after \"sirip tunggal\" is not in the source; keep it only if the translator intends it as a clarification.",
+      "Item 4: \"Sungai Lamand\" turns \"Lamand basin\" into a river; \"daerah aliran Lamand\" is closer."
+    ],
+    "parts": {
+      "quickFacts:bwaquatics": "adf9aebe3316",
+      "quickFacts:seriouslyfish": "cc64bb8a9d97",
+      "distribution:bwaquatics": "40f1d0e5cf42",
+      "distribution:seriouslyfish": "1f44c69cd22f",
+      "habitat:bwaquatics": "11fbe5b1778d",
+      "habitat:seriouslyfish": "cc2531771aec",
+      "aquariumSize:seriouslyfish": "2475417eba0b",
+      "aquariumSize:bwaquatics": "6b8cdb9ac902",
+      "maintenance:seriouslyfish": "08b33deb2812",
+      "waterConditions:bwaquatics": "0390ea42e5c1",
+      "waterConditions:seriouslyfish": "984a371d16f6",
+      "diet:bwaquatics": "e4e493bbcef9",
+      "diet:seriouslyfish": "f4bf3b4e4231",
+      "behaviour:bwaquatics": "7ad563e019ef",
+      "behaviour:seriouslyfish": "082a36088fd2",
+      "dimorphism:bwaquatics": "21d5ecb3b255",
+      "dimorphism:seriouslyfish": "242ec0803b38",
+      "reproduction:bwaquatics": "a644662489db",
+      "reproduction:seriouslyfish": "adc0f4b11e27",
+      "notes:bwaquatics": "464b1f3f9a5c",
+      "notes:seriouslyfish": "e52a845f431b",
+      "references:seriouslyfish": "1ecbe4a2d8c2"
+    }
   },
   "parosphromenus-ornaticauda": {
     "at": "2026-11-05",
@@ -23784,19 +23992,25 @@
     ]
   },
   "parosphromenus-parvulus": {
-    "at": "2026-11-05",
-    "from": "2026-10-29",
-    "name": "Licorice gourami parvulus",
-    "confidence": "medium",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
+    "name": "Licorice Gourami Parvulus",
+    "confidence": "low",
     "score": 0.85,
     "notes": [
-      "Item 7: \"Pakan beku kadang-kadang mungkin mau dimakan\" is redundant; use \"Pakan beku mungkin sesekali mau dimakan\".",
-      "Item 7: \"kondisinya siap untuk berkembang biak\" translates \"conditioning\" a bit loosely; \"kondisi prima/persiapan pemijahan\" is more precise.",
-      "Item 7: \"kutu air (moina)\" - moina is usually called just \"moina\" or \"kutu air\"; fine, but \"pemangsa mikro sejati\" for \"obligate micropredator\" is slightly awkward; consider \"pemangsa mikro obligat\".",
-      "Item 1: \"Data Deficient\" is left untranslated; add \"(Kekurangan Data)\" in brackets.",
-      "Item 10: \"wadah film\" is unclear; use \"tabung rol film (film canister)\".",
-      "Item 9: \"warnanya lebih kalem\" is fine, but \"di atas pita-pita hitam\" could be \"pada pita hitam yang kontras\"."
-    ]
+      "#5: \"kutu air\" for daphnia is acceptable but \"daphnia\" is the more precise term among hobbyists; consider \"kutu air (daphnia)\".",
+      "#6: \"memamerkan diri untuk merayu betina\" adds \"betina\" and is wordy; the English only says \"courtship display\". Consider \"saat penjantanan/pamer rayuan\"."
+    ],
+    "parts": {
+      "quickFacts:bwaquatics": "f0f1c0b46808",
+      "distribution:bwaquatics": "2c6e893ffb3d",
+      "habitat:bwaquatics": "2d6f6f17d0e9",
+      "waterConditions:bwaquatics": "c54e9bc40fd8",
+      "diet:bwaquatics": "8ef67f96604a",
+      "behaviour:bwaquatics": "8f1cafa7d3d1",
+      "dimorphism:bwaquatics": "774056200461",
+      "reproduction:bwaquatics": "ec51c3363747"
+    }
   },
   "parosphromenus-phoenicurus": {
     "at": "2026-11-05",
@@ -25300,23 +25514,37 @@
     ]
   },
   "sundadanio-axelrodi": {
-    "at": "2026-11-06",
-    "from": "2026-11-06",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Rasbora Axelrodi",
     "confidence": "medium",
-    "score": 0.7,
-    "notes": [
-      "Item 7: 'akuarium 29,5 liter' – the English gives both; the metric figure is correct, so this is fine. But the 3-gallon/12.5 L and 8-gallon/29.5 L figures are correctly kept, so no change is needed there.",
-      "Item 9: 'biologically immature tank' is rendered 'siklus nitrogennya belum matang'. This adds a specific claim. Use 'akuarium yang belum matang secara biologis' (or 'belum cycling').",
-      "Item 9: 'hails from sluggish waters' is rendered 'sebagian besar berasal dari perairan yang tenang'. The word 'mostly' qualifies the origin, not the habitat. Use 'berasal dari perairan yang berarus lambat'.",
-      "Item 18: 'Beri ikan banyak pakan hidup dan beku, maka ikan seharusnya akan siap memijah' is slightly awkward. Rephrase it as a condition ('Jika diberi ... ikan seharusnya siap memijah').",
-      "Item 12: 'filter mesin' is a non-standard term for power filter. Use 'filter eksternal/power filter' or 'filter bertenaga'.",
-      "Item 1: 'Blue Axelrodi Rasbora' and 'Neon Blue Danio' are left in English. This is acceptable as trade names, but 'memukau' for 'stunning' is fine.",
-      "Item 14: 'Corydoras' is rendered 'Corydoras' only. The English says 'Corydoras catfish', so add 'lele kecil' or 'ikan kucing' for the reader.",
-      "Item 16: 'dengkingan/cicitan' is an odd rendering of croaking/chirruping. Use 'suara berkuruk/mencicit'. 'Gelang sirip dada' for pectoral girdle is also stiff.",
-      "Item 19: 'monotipe' and 'danionin' are used loosely. 'Ikan bertulang sejati' for 'bony fishes' is OK, but 'subfamili ... kelompok saudara' needs consistent terminology.",
-      "Item 13: 'kutu air' for Daphnia is acceptable, but 'cacing grindal' and 'cacing mikro' should keep 'grindal' and 'micro worm' as hobbyists know them."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:bwaquatics": "4cb042c41fa8",
+      "quickFacts:seriouslyfish": "ff662bec5253",
+      "distribution:bwaquatics": "9005145fce10",
+      "distribution:seriouslyfish": "9acc2f964414",
+      "habitat:bwaquatics": "aa071763879e",
+      "habitat:seriouslyfish": "f747a4039dc2",
+      "aquariumSize:bwaquatics": "ea83e0154996",
+      "aquariumSize:seriouslyfish": "9f35cb592cab",
+      "maintenance:seriouslyfish": "c29aa5a67680",
+      "waterConditions:bwaquatics": "ec0216da96e9",
+      "waterConditions:seriouslyfish": "20ebe0b793c3",
+      "equipment:bwaquatics": "6c45ee79143b",
+      "diet:seriouslyfish": "6e5031dc0f6b",
+      "diet:bwaquatics": "dba6dc6ee718",
+      "behaviour:bwaquatics": "8d8b2b257f52",
+      "behaviour:seriouslyfish": "4923ec01c407",
+      "dimorphism:seriouslyfish": "b3bf242883da",
+      "dimorphism:bwaquatics": "d6976659a7a2",
+      "reproduction:bwaquatics": "f6840be11b76",
+      "reproduction:seriouslyfish": "8e2310dd66d9",
+      "notes:seriouslyfish": "6aff1789989c",
+      "notes:bwaquatics": "51b098cd22bd",
+      "references:seriouslyfish": "258d9cac7616"
+    }
   },
   "sundasalanx-microps": {
     "at": "2026-11-07",
@@ -25752,17 +25980,59 @@
     ]
   },
   "trigonostigma-heteromorpha": {
-    "at": "2026-11-08",
-    "from": "2026-11-08",
+    "at": "2026-11-19",
+    "from": "2026-11-19",
     "name": "Rasbora Harlequin",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.88,
     "notes": [
-      "Item 25: 'boisterous' is translated as 'berisik' (noisy). It means rowdy or boisterous, so use 'beringas/hiperaktif/kasar' instead, in both places.",
-      "Item 22: 'blanched vegetables' is rendered 'sayuran rebus'. 'Sayuran yang diblansir/direbus sebentar' is more precise.",
-      "Items 29 and 30: 'in the evening' is expanded to 'sore atau malam hari'. This slightly adds to the source; 'pada sore hari' or 'menjelang malam' is closer.",
-      "Item 31: 'Mating: one female per male' contradicts the '2 males and 3–4 females' in the list. This is faithful to the English, but the translator could flag it."
-    ]
+      "#35: \"buah pinus (cone)\" for \"cones\" is imprecise; in blackwater setups these are alder cones, so use \"kerucut alder (cone)\" or similar.",
+      "#33, #34, #35: \"in the evening\" / \"late in the day\" became \"sore atau malam\" / \"menjelang sore atau malam\". The \"atau malam\" is a small addition, so use \"sore hari\" or \"menjelang malam\".",
+      "#24: \"blanched vegetables\" became \"sayuran rebus\". Use \"sayuran yang diblansir\" (or \"direbus sebentar\") for accuracy."
+    ],
+    "parts": {
+      "quickFacts:sprucepets": "f709719bde2a",
+      "quickFacts:seriouslyfish": "99b8958bd7bc",
+      "quickFacts:aquariumbreeder": "546ebb9bf88f",
+      "beforeYouBuy:aquatome": "385499348276",
+      "distribution:sprucepets": "3286b95b84c4",
+      "distribution:seriouslyfish": "6867de8a877f",
+      "distribution:aquariumbreeder": "a9b07a070bda",
+      "habitat:sprucepets": "e4b352f00c0e",
+      "habitat:seriouslyfish": "eccd30a791c0",
+      "habitat:aquariumbreeder": "42279e8ff67c",
+      "aquariumSize:sprucepets": "1761b5d5f727",
+      "aquariumSize:seriouslyfish": "9ea38f884a37",
+      "aquariumSize:aquariumbreeder": "b628b16c25cd",
+      "maintenance:sprucepets": "8b65d39fb472",
+      "maintenance:seriouslyfish": "a4dcaacfbfbc",
+      "maintenance:aquariumbreeder": "0619eb88a2a6",
+      "maintenance:aquatome": "d8b0d5dcbf79",
+      "waterConditions:sprucepets": "0c3b3a50b5a1",
+      "waterConditions:seriouslyfish": "4791b96e456d",
+      "waterConditions:aquariumbreeder": "506ce12e0f01",
+      "equipment:aquariumbreeder": "be13d7890c7d",
+      "diet:sprucepets": "587d622c2ae6",
+      "diet:seriouslyfish": "ff96509d7a11",
+      "diet:aquariumbreeder": "e64b5f287e56",
+      "behaviour:sprucepets": "66fe74fff4b2",
+      "behaviour:seriouslyfish": "c98cbcfa216d",
+      "behaviour:aquariumbreeder": "9d5d0fc2c289",
+      "behaviour:aquatome": "e314314863cd",
+      "dimorphism:sprucepets": "025c0c1b285c",
+      "dimorphism:seriouslyfish": "730ed57ed51a",
+      "dimorphism:aquariumbreeder": "96e020148902",
+      "dimorphism:aquatome": "479334cb363b",
+      "reproduction:sprucepets": "642b5efb3844",
+      "reproduction:seriouslyfish": "bc24a5eee2d4",
+      "reproduction:aquariumbreeder": "a0fb6f772546",
+      "reproduction:aquatome": "cbbb53cbc14c",
+      "notes:sprucepets": "287b3ce22c2a",
+      "notes:seriouslyfish": "a58eebd23123",
+      "notes:aquariumbreeder": "f6d60398b5d9",
+      "references:sprucepets": "878e34fd589a",
+      "references:seriouslyfish": "96a404778ea6"
+    }
   },
   "tropheus-duboisi": {
     "at": "2026-10-31",

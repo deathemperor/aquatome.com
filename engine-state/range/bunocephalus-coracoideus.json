@@ -1,8 +1,8 @@
 {
   "id": "bunocephalus-coracoideus",
   "native": {
-    "input": "52b3fe9ab24100cf",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "897892c1c1882f1f",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "BO",
@@ -27,9 +27,40 @@
         "quote": "The banjo catfish, Bunocephalus coracoideus, is an aspredinid catfish from Bolivia, Peru and Brazil.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil and Peru.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil and Peru.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil and Peru.",
+        "words": "Peru",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Amazon River basin of Bolivia, Brazil and Peru.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

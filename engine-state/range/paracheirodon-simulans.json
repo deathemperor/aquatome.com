@@ -1,9 +1,33 @@
 {
   "id": "paracheirodon-simulans",
   "native": {
-    "input": "548fd4c42b0fe494",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "c8cc4c5ff9b9ccb9",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Paracheirodon simulans lives in the upper Rio Negro and Orinoco basins in Brazil, Colombia and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Paracheirodon simulans lives in the upper Rio Negro and Orinoco basins in Brazil, Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Paracheirodon simulans lives in the upper Rio Negro and Orinoco basins in Brazil, Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
       {
         "code": "BR",
         "status": "native",
@@ -73,25 +97,26 @@
       {
         "name": "Rio Negro",
         "source": "bwaquatics",
-        "quote": "Native to the upper Rio Negro and Orinoco River basins in South America.",
+        "quote": "Paracheirodon simulans lives in the upper Rio Negro and Orinoco basins in Brazil, Colombia and Venezuela.",
         "ok": true
       },
       {
         "name": "Orinoco",
         "source": "bwaquatics",
-        "quote": "Native to the upper Rio Negro and Orinoco River basins in South America.",
+        "quote": "Paracheirodon simulans lives in the upper Rio Negro and Orinoco basins in Brazil, Colombia and Venezuela.",
         "ok": true
       },
       {
         "name": "rio Negro",
         "source": "seriouslyfish",
-        "quote": "The green neon tetra, Paracheirodon simulans, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+        "quote": "Known from the middle-to-upper rio Negro drainage, Brazil upstream of the mouth of its principal tributary the rio Branco, plus the Río Orinoco system in the border region of Venezuela and Colombia, between San Fernando de Atabapo and the mouth of the Río Meta.",
+        "country": "BR",
         "ok": true
       },
       {
-        "name": "Orinoco",
+        "name": "Río Orinoco",
         "source": "seriouslyfish",
-        "quote": "The green neon tetra, Paracheirodon simulans, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
+        "quote": "Known from the middle-to-upper rio Negro drainage, Brazil upstream of the mouth of its principal tributary the rio Branco, plus the Río Orinoco system in the border region of Venezuela and Colombia, between San Fernando de Atabapo and the mouth of the Río Meta.",
         "ok": true
       }
     ],

@@ -1,10 +1,13 @@
 {
   "slug": "gulf-of-mannar",
-  "name": "Gulf of Mannar",
-  "altNames": [],
+  "name": "vịnh Mannar",
+  "altNames": [
+    "Gulf of Mannar"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

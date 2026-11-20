@@ -1,0 +1,27 @@
+{
+ "at": "2026-11-20T02:21:48Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Ít nhất theo góc nhìn của người chụp ảnh thì chúng gần như quá hiền.",
+   "why": "It points to the original article's photographer, someone the reader doesn't know and whose photos aren't on the page."
+  }
+ ],
+ "text": {
+  "slug": "cac-dong-ca-xiem-moi-2-alien-blue-alien-steel-blue-va-alien",
+  "name": "Các dòng cá xiêm mới (2): \"Alien Blue\", \"Alien Steel Blue\" và \"Alien Green\"",
+  "altNames": [],
+  "sections": {},
+  "body": "<p>Mấy dòng cá xiêm mới này chắc chắn cũng được lai thêm máu loài hoang dã, mà ở đây có vẻ là Betta stiktos. Con \"Alien Green\" trông gần như y hệt B. stiktos. Dòng nào cũng có thân rất thon. Chúng thừa hưởng nét của nhóm loài Betta smaragdina, nhóm có cả B. stiktos, nhiều hơn hẳn nét của Betta splendens. Tính nết cũng vậy. Chúng giống cá xiêm hoang dã nhóm B. smaragdina hơn là cá xiêm thuộc nhóm B. splendens. Ít nhất theo góc nhìn của người chụp ảnh thì chúng gần như quá hiền. Các trận đánh ngắn, ít màn xòe vây dọa nhau theo kiểu quen thuộc. Nhưng vẫn không nên nuôi nhiều con đực chung, vì về lâu dài chuyện có thể kết thúc không hay. Dù sao người nuôi cũng muốn ngắm những con cá đẹp với bộ vây nguyên vẹn.</p>",
+  "quality": {
+   "score": 0.8,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.8
+   }
+  }
+ }
+}

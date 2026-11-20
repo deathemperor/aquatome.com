@@ -1944,6 +1944,18 @@
       "kept": true
     }
   ],
+  "id/places/bonaire": [
+    {
+      "at": "2026-11-20T01:03:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bondele": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -4877,6 +4889,18 @@
       "kept": true
     }
   ],
+  "id/places/gulf-of-mannar": [
+    {
+      "at": "2026-11-20T01:03:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/gulf-of-panama": [
     {
       "at": "2026-11-18T05:23:25Z",
@@ -6718,6 +6742,18 @@
       "at": "2026-11-08T05:20:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/konawaruk": [
+    {
+      "at": "2026-11-20T01:03:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -11086,6 +11122,18 @@
       "at": "2026-11-11T01:41:42Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/northern-mariana-islands": [
+    {
+      "at": "2026-11-20T01:03:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.97,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -21512,6 +21560,21 @@
       "kept": true
     }
   ],
+  "ms/places/bonaire": [
+    {
+      "at": "2026-11-20T01:34:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Bonaire and Konawaruk are fine as written.",
+        "No wrong Malay names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/bondele": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -24479,6 +24542,21 @@
       "kept": true
     }
   ],
+  "ms/places/gulf-of-mannar": [
+    {
+      "at": "2026-11-20T01:34:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Source names such as 'vịnh Mannar' and 'quần đảo Northern Mariana' are Vietnamese, but the Malay outputs 'Teluk Mannar' and 'Kepulauan Mariana Utara' are correct.",
+        "No wrong Malay names found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/gulf-of-mexico": [
     {
       "at": "2026-11-08T03:36:56Z",
@@ -26917,6 +26995,21 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/konawaruk": [
+    {
+      "at": "2026-11-20T01:34:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Bonaire and Konawaruk are fine as written.",
+        "No wrong Malay names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30998,6 +31091,21 @@
       "cli": "2.1.322",
       "score": 0.5,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/northern-mariana-islands": [
+    {
+      "at": "2026-11-20T01:34:49Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "Source names such as 'vịnh Mannar' and 'quần đảo Northern Mariana' are Vietnamese, but the Malay outputs 'Teluk Mannar' and 'Kepulauan Mariana Utara' are correct.",
+        "No wrong Malay names found."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -41842,6 +41950,25 @@
       "kept": true
     }
   ],
+  "th/places/bonaire": [
+    {
+      "at": "2026-11-20T01:22:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "Bonaire → โบแนร์ (Thai atlas usually writes โบแนร์ or โบนาแอร์; acceptable but uncertain)"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
   "th/places/bondele": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -44970,6 +45097,23 @@
       "kept": true
     }
   ],
+  "th/places/gulf-of-mannar": [
+    {
+      "at": "2026-11-20T01:22:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.85
+      ]
+    }
+  ],
   "th/places/gulf-of-panama": [
     {
       "at": "2026-11-18T05:28:40Z",
@@ -46892,6 +47036,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/konawaruk": [
+    {
+      "at": "2026-11-20T01:22:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "Konawaruk → โคนาวารุก (a transliteration of an obscure name; plausible)"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.85
+      ]
     }
   ],
   "th/places/korean-peninsula": [
@@ -51552,6 +51715,23 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/northern-mariana-islands": [
+    {
+      "at": "2026-11-20T01:22:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.85
+      ]
     }
   ],
   "th/places/nosy-be": [
@@ -62376,6 +62556,17 @@
       "kept": true
     }
   ],
+  "vi/places/bonaire": [
+    {
+      "at": "2026-11-20T00:54:45Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bondele": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -65806,6 +65997,17 @@
       "kept": true
     }
   ],
+  "vi/places/gulf-of-mannar": [
+    {
+      "at": "2026-11-20T00:54:45Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/gulf-of-mexico": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -68155,6 +68357,17 @@
       "at": "2026-11-07T20:35:06Z",
       "model": "sonnet",
       "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/konawaruk": [
+    {
+      "at": "2026-11-20T00:54:45Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.97,
       "notes": [],
       "attempt": "first",
       "kept": true

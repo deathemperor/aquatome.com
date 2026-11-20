@@ -1,0 +1,146 @@
+{
+  "id": "ancylomenes-pedersoni",
+  "native": {
+    "input": "3c2e8d4e7349c1d1",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Pederson cleaner shrimps occur in tropical waters from Cape Lookout, North Carolina, down the east coast of the United States and around the west coast of Florida, to the Bahamas, West Indies, Bonaire, Netherlands Antilles and Belize.",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "BS",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Pederson cleaner shrimps occur in tropical waters from Cape Lookout, North Carolina, down the east coast of the United States and around the west coast of Florida, to the Bahamas, West Indies, Bonaire, Netherlands Antilles and Belize.",
+        "words": "Bahamas",
+        "ok": true
+      },
+      {
+        "code": "BZ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Pederson cleaner shrimps occur in tropical waters from Cape Lookout, North Carolina, down the east coast of the United States and around the west coast of Florida, to the Bahamas, West Indies, Bonaire, Netherlands Antilles and Belize.",
+        "words": "Belize",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ancylomenes pedersoni",
+    "status": "ACCEPTED",
+    "taxonKey": 6456679,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        242
+      ],
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        230
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        200
+      ],
+      [
+        "b3b7d5c4-f73a-475b-a203-c6a1ddd040cd",
+        115
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        94
+      ],
+      [
+        "a4305468-d94d-4244-b146-738e52d8a6e9",
+        35
+      ],
+      [
+        "da6a07ed-9eee-460d-9448-910f542c1a7b",
+        16
+      ],
+      [
+        "f13e2caf-5093-4f9a-9de6-e38775b5a737",
+        15
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        13
+      ],
+      [
+        "a0a4d131-f53f-43b2-a1ba-254473b8a006",
+        13
+      ],
+      [
+        "b7ca8e9d-5609-4356-b5c3-b2ca7071cf58",
+        6
+      ],
+      [
+        "ec12f461-df32-4c8a-b621-0abd1f6cdab3",
+        5
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        4
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        4
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        4
+      ],
+      [
+        "393b8c26-e4e0-4dd0-a218-93fc074ebf4e",
+        3
+      ],
+      [
+        "56e1198e-188f-4e30-8196-2abc1a6b01af",
+        3
+      ],
+      [
+        "0f6d26c0-c645-4f15-b1c9-fbcb77515545",
+        2
+      ],
+      [
+        "7247dc2e-b862-4555-b533-7701d183271b",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "03b8dac0-be98-4f71-9440-76c406cbf2c1",
+        1
+      ],
+      [
+        "16b0aa56-90aa-436c-bfe8-b5af83f84575",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ]
+    ],
+    "native": [
+      "US",
+      "BS",
+      "BZ"
+    ],
+    "requests": 12,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

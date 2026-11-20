@@ -74,5 +74,29 @@
     }
   ],
   "productSlots": [],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-19",
+  "range": {
+    "records": {
+      "taxonKey": 2348701,
+      "total": 6,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "TZ",
+          5
+        ],
+        [
+          "KE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          37.96875,
+          -5.625,
+          6
+        ]
+      ]
+    }
+  }
 }

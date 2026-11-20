@@ -3394,8 +3394,8 @@
     "products": []
   },
   "id/plants/ceratopteris-thalictroides": {
-    "at": "2026-11-09",
-    "hash": "1bc134d8fad0e6b5",
+    "at": "2026-11-20",
+    "hash": "e811a9962e517900",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -4064,16 +4064,16 @@
     ]
   },
   "id/plants/limnobium-laevigatum": {
-    "at": "2026-11-09",
-    "hash": "839ef00d112b2de7",
+    "at": "2026-11-20",
+    "hash": "cb0738e5dc2b9822",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P4",
-        "quote": "Tanaman air hasil kultur jaringan dalam cup tertutup.",
-        "why": "Describes the source shop's packaged product (tissue-culture cup) rather than the plant, as if the reader were buying that item.",
+        "part": "P15",
+        "quote": "Tanaman akuarium hasil kultur jaringan dalam cup tertutup.",
+        "why": "This is the supplier's description of the product it sells, not advice for the reader.",
         "by": "model"
       }
     ],
@@ -4104,9 +4104,10 @@
     "products": []
   },
   "id/plants/limnophila-sessiliflora": {
-    "at": "2026-11-07",
-    "hash": "31685e1322cc851b",
+    "at": "2026-11-20",
+    "hash": "b4f8b627f2bb0428",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -5281,10 +5282,10 @@
     "products": []
   },
   "id/species/acrochordonichthys-rugosus": {
-    "at": "2026-11-08",
+    "at": "2026-11-20",
     "hash": "0d75a7d3b5277b40",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -9932,16 +9933,16 @@
     "products": []
   },
   "id/species/betta-imbellis": {
-    "at": "2026-11-19",
-    "hash": "c8ce399646e053b8",
+    "at": "2026-11-20",
+    "hash": "dc2b01f7abee4a38",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Asal: tangkapan alam (Provinsi Hau Giang, Vietnam).",
-        "why": "Describes the origin of the source shop's own stock, not the species in general.",
+        "quote": "Ikan yang dibahas di sini adalah hasil tangkapan alam dari Provinsi Hau Giang, Vietnam.",
+        "why": "Describes the source seller's own stock of fish as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -10225,8 +10226,8 @@
     "products": []
   },
   "id/species/betta-pi": {
-    "at": "2026-11-12",
-    "hash": "c2ad9f88361a77c7",
+    "at": "2026-11-20",
+    "hash": "21ef10cfd04fccb3",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -10629,15 +10630,16 @@
     "products": []
   },
   "id/species/boraras-merah": {
-    "at": "2026-11-07",
-    "hash": "674f3fa51247a640",
+    "at": "2026-11-20",
+    "hash": "3afb20f31d364dfc",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P9",
-        "quote": "kayu beech biasa atau kayu ek aman digunakan asalkan sudah dikeringkan sepenuhnya dan dikupas kulit kayunya",
-        "why": "Beech and oak are European woods a hobbyist would collect there, but they don't grow in Indonesia.",
+        "quote": "kayu beech atau oak aman dipakai asalkan sudah dikeringkan sepenuhnya dan dikupas kulitnya",
+        "why": "Beech and oak are temperate European trees that a keeper in Indonesia would not have to hand as a driftwood substitute.",
         "by": "model"
       }
     ],
@@ -11109,16 +11111,16 @@
     "products": []
   },
   "id/species/brevibora-dorsiocellata": {
-    "at": "2026-11-18",
-    "hash": "8ad6fc29e0b32674",
+    "at": "2026-11-20",
+    "hash": "1e32365d4e56e4fb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P7",
+        "part": "P9",
         "quote": "kayu beech atau oak biasa aman digunakan asalkan sudah benar-benar kering dan kulit kayunya dikupas",
-        "why": "Beech and oak are European woods a keeper in Indonesia would not collect as a driftwood substitute.",
+        "why": "Common beech or oak branches are everyday wood for a European reader, not something a keeper in Indonesia has at hand.",
         "by": "model"
       }
     ],
@@ -11221,16 +11223,30 @@
     "products": []
   },
   "id/species/bunocephalus-coracoideus": {
-    "at": "2026-11-12",
-    "hash": "72ab39fab9fc0ea8",
+    "at": "2026-11-20",
+    "hash": "5ba28f474d3398c4",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P6",
+        "quote": "Akuarium berukuran 60 × 38 × 30 cm, sekitar 68 liter, sudah memadai.",
+        "why": "The 38 cm side and 68 litre volume are converted from a 24 × 15 × 12 inch (18 gallon) tank, not a size sold or quoted in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P2",
+        "quote": "Ukuran akuarium: 60 × 38 cm",
+        "why": "The 38 cm tank side is a conversion from 15 inches, not a standard Indonesian tank size.",
+        "by": "model"
+      },
+      {
         "check": "elsewhere",
-        "part": "P5",
-        "quote": "Taburan daun ek atau daun beech kering di atas substrat",
-        "why": "Oak and beech leaves come from temperate countries and aren't easy for a keeper in Indonesia to collect; locally people use ketapang (Indian almond) leaves.",
+        "part": "P8",
+        "quote": "Taburan daun ek atau beech kering di atas substrat",
+        "why": "Oak and beech leaves are what keepers in temperate countries collect; hobbyists in Indonesia use local leaves such as ketapang.",
         "by": "model"
       }
     ],
@@ -12016,10 +12032,10 @@
     "products": []
   },
   "id/species/channa-melasoma": {
-    "at": "2026-11-08",
+    "at": "2026-11-20",
     "hash": "53f5e4150690db89",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -13086,8 +13102,8 @@
     "products": []
   },
   "id/species/copella-nattereri": {
-    "at": "2026-11-10",
-    "hash": "1dbe081f06ee8b4d",
+    "at": "2026-11-20",
+    "hash": "3e45aa9c44c144de",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -13574,8 +13590,8 @@
     "products": []
   },
   "id/species/corydoras-gracilis": {
-    "at": "2026-11-11",
-    "hash": "53e38edba5481bcf",
+    "at": "2026-11-20",
+    "hash": "7a5bdbd15f42abb1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -14327,8 +14343,8 @@
     "products": []
   },
   "id/species/corydoras-simulatus": {
-    "at": "2026-11-13",
-    "hash": "7b1109a21b285aab",
+    "at": "2026-11-20",
+    "hash": "804a1d6f96b842fe",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -15445,29 +15461,23 @@
     "products": []
   },
   "id/species/danio-margaritatus": {
-    "at": "2026-11-07",
-    "hash": "2776d4ce6d02ab97",
+    "at": "2026-11-20",
+    "hash": "7dc2177bfb295e9f",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P23",
-        "quote": "selama musim yang lebih hangat, lalu bawa kembali ke dalam ruangan di akhir musim panas",
-        "why": "Assumes a temperate climate with warm and cold seasons, not Indonesia's tropical climate.",
+        "part": "P25",
+        "quote": "selama musim yang lebih hangat, lalu membawanya kembali ke dalam di akhir musim panas",
+        "why": "Seasonal outdoor-pond advice assumes a summer/winter climate, not Indonesia's.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P10",
-        "quote": "(lihat 'Perilaku dan Kecocokan')",
-        "why": "Points to a section of the source article that this page does not have.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P26",
-        "quote": "kini banyak dijumpai di perdagangan ikan hias (lihat gambar)",
-        "why": "Points to a picture that this page does not have.",
+        "part": "P29",
+        "quote": "kini umum dijumpai di perdagangan ikan hias (lihat gambar)",
+        "why": "Points to pictures the page does not have.",
         "by": "model"
       }
     ],
@@ -18259,11 +18269,20 @@
     ]
   },
   "id/species/macrochirichthys-macrochirus": {
-    "at": "2026-11-09",
-    "hash": "8b4dc9075aff677e",
+    "at": "2026-11-20",
+    "hash": "e064b141d6e8aefd",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P4",
+        "quote": "Giant sword minnow, Macrochirichthys macrochirus, adalah cyprinid pelagis berukuran besar",
+        "why": "An untranslated English common name; Indonesian keepers call this fish parang-parang.",
+        "by": "model",
+        "fix": "Ikan parang-parang"
+      }
+    ],
     "products": []
   },
   "id/species/macrognathus-aculeatus": {
@@ -18774,23 +18793,16 @@
     "products": []
   },
   "id/species/myxocyprinus-asiaticus": {
-    "at": "2026-11-07",
-    "hash": "d8370d79e96263ea",
+    "at": "2026-11-20",
+    "hash": "66456abefaa11c43",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
+        "part": "P1",
         "quote": "Kedua ikan yang difoto akan ditempatkan di akuarium 5.000 liter untuk melihat perkembangannya.",
-        "why": "Refers to the source's own photographed fish and plans as if the reader knew them.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P3",
-        "quote": "Spesies ini tahan menghadapi musim dingin di Eropa Tengah.",
-        "why": "Winter hardiness in Central European ponds is relevant to a European reader, not one in Indonesia.",
+        "why": "Refers to the source's own photographed fish and their planned tank, which the reader doesn't know and the page doesn't show.",
         "by": "model"
       }
     ],
@@ -19213,8 +19225,8 @@
     "products": []
   },
   "id/species/oryzias-woworae": {
-    "at": "2026-11-16",
-    "hash": "63727b073398f308",
+    "at": "2026-11-20",
+    "hash": "6224574d8c827012",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -19444,19 +19456,11 @@
     "products": []
   },
   "id/species/paracheirodon-simulans": {
-    "at": "2026-11-14",
-    "hash": "fb6d53773363bb38",
+    "at": "2026-11-20",
+    "hash": "dcba26926b090029",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P27",
-        "quote": "empat pipa PVC setinggi sekitar 7,5–10 cm",
-        "why": "A 3–4 inch height converted to centimetres; a local keeper would give a round metric figure.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/parakysis-notialis": {
@@ -19572,18 +19576,18 @@
     "products": []
   },
   "id/species/parosphromenus-linkei": {
-    "at": "2026-11-19",
-    "hash": "c6da289cbcaa7f84",
+    "at": "2026-11-20",
+    "hash": "92346e2e4ed1b3fb",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": []
   },
   "id/species/parosphromenus-opallios": {
-    "at": "2026-11-08",
+    "at": "2026-11-20",
     "hash": "1a93429ac9688cb2",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -19604,19 +19608,11 @@
     "products": []
   },
   "id/species/parosphromenus-parvulus": {
-    "at": "2026-11-08",
-    "hash": "70663d967c49f2ea",
+    "at": "2026-11-20",
+    "hash": "770b0e8b61ad8770",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "daun ketapang atau daun beech",
-        "why": "Beech leaves are a European/North American botanical not found in Indonesia; ketapang alone fits a local keeper.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "id/species/parosphromenus-phoenicurus": {
@@ -20751,30 +20747,16 @@
     "products": []
   },
   "id/species/sundadanio-axelrodi": {
-    "at": "2026-11-08",
-    "hash": "207c23f4c52bddb8",
+    "at": "2026-11-20",
+    "hash": "72e2fb7369e6d907",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
-      {
-        "check": "units",
-        "part": "P7",
-        "quote": "akuarium 29,5 liter lebih disarankan",
-        "why": "29.5 litres is a gallon conversion (about 7.8 gal), not a tank size anyone in Indonesia would give.",
-        "by": "model"
-      },
       {
         "check": "elsewhere",
         "part": "P9",
-        "quote": "kayu beech atau oak biasa aman digunakan asalkan sudah benar-benar kering",
-        "why": "It assumes the reader can easily find beech or oak wood, which is temperate-country advice.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P13",
-        "quote": "Ikan yang baru diimpor sering kali dalam kondisi buruk",
-        "why": "It treats this native Kalimantan fish as an import, the viewpoint of a reader abroad.",
+        "quote": "kayu beech atau oak aman dipakai asalkan sudah benar-benar kering dan dikupas kulitnya",
+        "why": "Suggests collecting European beech or oak wood, which a hobbyist in Indonesia cannot find locally.",
         "by": "model"
       }
     ],
@@ -21072,7 +21054,7 @@
     "products": []
   },
   "id/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-14",
+    "at": "2026-11-20",
     "hash": "76a66d3f3fea103e",
     "model": "opus",
     "checklist": 3,
@@ -21081,23 +21063,15 @@
         "check": "units",
         "part": "P12",
         "quote": "Ukuran akuarium minimum: 38 liter.",
-        "why": "38 litres is a converted 10-gallon tank size, not a size used in Indonesia.",
+        "why": "38 litres is a converted 10-gallon tank size, not a figure Indonesian keepers use.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P33",
         "quote": "diberi label T. cf. heteromorpha pada gambar",
-        "why": "Refers to a picture from the source that the page does not have.",
+        "why": "Refers to a labelled picture from the source article that this page does not have.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P29",
-        "quote": "buah pinus (cone)",
-        "why": "Mistranslation of alder cones used for blackwater; keepers do not call them pine fruit.",
-        "by": "model",
-        "fix": "alder cone"
       }
     ],
     "products": [
@@ -22823,9 +22797,10 @@
     "products": []
   },
   "ms/plants/aegagropila-linnaei": {
-    "at": "2026-11-07",
-    "hash": "97767df34164eb14",
+    "at": "2026-11-20",
+    "hash": "7169f483d48e1e27",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -23262,8 +23237,8 @@
     "products": []
   },
   "ms/plants/ceratopteris-thalictroides": {
-    "at": "2026-11-12",
-    "hash": "0f8fcb902b92fa5f",
+    "at": "2026-11-20",
+    "hash": "8aaaa23cfdba25b1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -23913,16 +23888,30 @@
     ]
   },
   "ms/plants/limnobium-laevigatum": {
-    "at": "2026-11-17",
-    "hash": "1607547104453279",
+    "at": "2026-11-20",
+    "hash": "f29e13be99b56094",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lebar daun 1.3 hingga 7.5 cm.",
+        "why": "1.3 cm is a straight conversion of half an inch; a keeper would write about 1.5 cm.",
+        "by": "model"
+      },
+      {
         "check": "source",
-        "part": "P4",
+        "part": "P15",
         "quote": "Tumbuhan akuarium hasil kultur tisu dalam cawan tertutup.",
-        "why": "This is the source shop's description of the product it sells, shown to the reader as if they knew that item.",
+        "why": "Describes the source seller's own tissue-culture cup product as if the reader were buying it.",
+        "by": "model"
+      },
+      {
+        "check": "harm",
+        "part": "P12",
+        "quote": "Ia boleh hidup bersama hampir semua ikan air tawar: tetra, clownfish, ikan laga dan gurami semuanya sesuai.",
+        "why": "Clownfish are marine fish and would die in the freshwater tank this suggests.",
         "by": "model"
       }
     ],
@@ -23953,8 +23942,8 @@
     "products": []
   },
   "ms/plants/limnophila-sessiliflora": {
-    "at": "2026-11-18",
-    "hash": "6cd7726fcb02c2fd",
+    "at": "2026-11-20",
+    "hash": "f4e7e3628d1a2775",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -24554,20 +24543,11 @@
     "products": []
   },
   "ms/species/acrochordonichthys-rugosus": {
-    "at": "2026-11-13",
-    "hash": "0f5ca77c2253ad18",
+    "at": "2026-11-20",
+    "hash": "decdffb49131dd52",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "batu udara, alat pengoksidaan dan sebagainya",
-        "why": "'Alat pengoksidaan' (oxidation device) is a wrong translation of 'powerhead'; keepers in Malaysia just say powerhead.",
-        "by": "model",
-        "fix": "powerhead"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "ms/species/acrochordonichthys-septentrionalis": {
@@ -25913,15 +25893,23 @@
     "products": []
   },
   "ms/species/andinoacara-rivulatus": {
-    "at": "2026-11-07",
-    "hash": "44f03bba95288d87",
+    "at": "2026-11-20",
+    "hash": "0784d0b07f56c5fd",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
+        "part": "P3",
         "quote": "(lihat 'nota')",
-        "why": "Points the reader to a 'notes' section from the source that this page does not have.",
+        "why": "Points the reader to a notes section this page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "baru-baru ini anak ikan hasil pembiakan di Indonesia telah diperoleh",
+        "why": "The source shop's own stock news, not something the reader knows about.",
         "by": "model"
       }
     ],
@@ -27197,30 +27185,39 @@
     "products": []
   },
   "ms/species/danio-margaritatus": {
-    "at": "2026-11-07",
-    "hash": "384ac26d51bab919",
+    "at": "2026-11-20",
+    "hash": "636e4f739028f3e1",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P12",
-        "quote": "Bergantung pada sejauh mana panas rumah anda, anda mungkin boleh memelihara spesies ini dalam akuarium tanpa pemanas.",
-        "why": "Assumes a cool home where an unheated tank stays near 22–24 °C, untrue in Malaysia's warm climate.",
+        "part": "P13",
+        "quote": "Bergantung pada sepanas mana rumah anda, spesies ini mungkin boleh disimpan dalam akuarium tanpa pemanas.",
+        "why": "Assumes a cool-climate home; Malaysian rooms run warmer than this fish's preferred 22–24 °C.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P23",
-        "quote": "kolam mini di luar rumah dengan banyak tumbuhan akuatik semasa musim panas, dan membawanya masuk semula pada akhir musim panas",
-        "why": "Relies on temperate seasons (summer ending) that Malaysia does not have.",
+        "part": "P25",
+        "quote": "semasa musim yang lebih panas dan membawanya masuk semula pada penghujung musim panas",
+        "why": "Refers to temperate seasons the Malaysian reader does not have.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P26",
+        "part": "P29",
         "quote": "kini biasa ditemui dalam perdagangan ikan hiasan (lihat gambar)",
-        "why": "Points to a picture from the source article that the page does not have.",
+        "why": "Points to pictures the page does not have.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P19",
+        "quote": "ikan keli Corydoras",
+        "why": "Calque of 'Corydoras catfish'; local keepers just say Corydoras or cory.",
+        "by": "model",
+        "fix": "Corydoras"
       }
     ],
     "products": []
@@ -28132,31 +28129,25 @@
     "products": []
   },
   "ms/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-14",
-    "hash": "a3fffed13493ba75",
+    "at": "2026-11-20",
+    "hash": "2867ffa12913f97e",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
-        "part": "P12",
-        "quote": "Saiz tangki minimum: 38 liter.",
-        "why": "38 litres is a converted 10-gallon tank size, not one a Malaysian keeper would give.",
-        "by": "model"
-      },
-      {
         "check": "source",
-        "part": "P33",
-        "quote": "dilabel T. cf. heteromorpha dalam gambar",
-        "why": "Refers to a picture from the source that the page does not have.",
+        "part": "P38",
+        "quote": "dilabel sebagai T. cf. heteromorpha dalam gambar",
+        "why": "Points to a picture the page does not have.",
         "by": "model"
       },
       {
-        "check": "elsewhere",
-        "part": "P14",
-        "quote": "Menambah daun kering (daun beech, oak atau ketapang semuanya sesuai)",
-        "why": "Beech and oak leaves are what temperate-country keepers have at hand, not a Malaysian reader.",
-        "by": "model"
+        "check": "words",
+        "part": "P33",
+        "quote": "buah konifer (cone)",
+        "why": "A dictionary rendering of 'alder cone'; local keepers just say alder cone.",
+        "by": "model",
+        "fix": "alder cone"
       }
     ],
     "products": [
@@ -32588,11 +32579,26 @@
     "products": []
   },
   "th/plants/limnobium-laevigatum": {
-    "at": "2026-11-09",
-    "hash": "22cae0116bc50885",
+    "at": "2026-11-20",
+    "hash": "6949cce418bae865",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "ใบกว้าง 1.3 ถึง 7.5 ซม.",
+        "why": "1.3 cm is a converted half-inch, not a figure a Thai keeper would write.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P15",
+        "quote": "ไม้น้ำจากการเพาะเลี้ยงเนื้อเยื่อในถ้วยปิด",
+        "why": "Describes the source shop's own tissue-culture cup product as if the reader is buying it.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/plants/limnophila-aquatica": {
@@ -32619,10 +32625,10 @@
     "products": []
   },
   "th/plants/limnophila-sessiliflora": {
-    "at": "2026-11-08",
-    "hash": "b3b13d3d6c3ae0c8",
+    "at": "2026-11-20",
+    "hash": "3392cb76695a3797",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -33401,11 +33407,23 @@
     "products": []
   },
   "th/plants/taxiphyllum-barbieri": {
-    "at": "2026-11-07",
-    "hash": "9d80970a6689c155",
+    "at": "2026-11-20",
+    "hash": "9eee53e32b6c4905",
     "model": "opus",
-    "findings": [],
-    "products": []
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P13",
+        "quote": "ปลาซอร์ดเทลเขียว (Xiphophorus hellerii)",
+        "why": "Transliteration of the English 'green swordtail'; Thai keepers use a local name.",
+        "by": "model",
+        "fix": "ปลาสอดหางดาบ"
+      }
+    ],
+    "products": [
+      "กาวตราช้าง"
+    ]
   },
   "th/plants/taxiphyllum-sp-flame-moss": {
     "at": "2026-11-08",
@@ -33915,10 +33933,10 @@
     "products": []
   },
   "th/species/acrochordonichthys-rugosus": {
-    "at": "2026-11-08",
-    "hash": "020ae2c0d98d11f9",
+    "at": "2026-11-20",
+    "hash": "54e321e41f797bc0",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -35193,17 +35211,25 @@
     "products": []
   },
   "th/species/andinoacara-rivulatus": {
-    "at": "2026-11-08",
-    "hash": "dd4b2735adae7d5a",
+    "at": "2026-11-20",
+    "hash": "3c7f53bc5b0b64ef",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P2",
-        "quote": "(ดูหัวข้อ 'หมายเหตุ')",
-        "why": "Points the reader to a 'Notes' section from the source article that this page does not have.",
+        "quote": "เมื่อไม่นานมานี้มีการนำลูกปลาที่เพาะจากอินโดนีเซียเข้ามา",
+        "why": "This is the German source's own import news, written as if it were the reader's market.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "ปลาแมวขนาดใหญ่อื่น ๆ",
+        "why": "A word-for-word calque of 'catfish'. Thai keepers say แคทฟิช, and ปลาแมว is the name of a different Thai fish.",
+        "by": "model",
+        "fix": "ปลาแคทฟิชขนาดใหญ่อื่น ๆ"
       }
     ],
     "products": []
@@ -38900,7 +38926,7 @@
     "products": []
   },
   "th/species/betta-pi": {
-    "at": "2026-11-09",
+    "at": "2026-11-20",
     "hash": "4f94cbfc34f2a056",
     "model": "opus",
     "checklist": 3,
@@ -39227,10 +39253,10 @@
     "products": []
   },
   "th/species/biotodoma-cupido": {
-    "at": "2026-11-08",
-    "hash": "a36536ba258ac0b5",
+    "at": "2026-11-20",
+    "hash": "1a684981c5f0b5f0",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -39293,23 +39319,16 @@
     "products": []
   },
   "th/species/boraras-merah": {
-    "at": "2026-11-08",
-    "hash": "21117d0aacc49aa4",
+    "at": "2026-11-20",
+    "hash": "5c1dbb0b6657ce69",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P9",
-        "quote": "กิ่งไม้บีช (common beech) หรือโอ๊กก็ใช้ได้อย่างปลอดภัย หากตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
-        "why": "Collecting beech or oak branches is advice for European keepers; these trees don't grow in Thailand.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P18",
-        "quote": "ในประชากรที่นำเข้ามาในขณะนี้ ดูเหมือนทั้งสองเพศจะมีสีแบบ B. merah",
-        "why": "Refers to the source importer's current stock as if the reader knew it.",
+        "quote": "สามารถใช้กิ่งต้นบีช (common beech) หรือต้นโอ๊กได้อย่างปลอดภัย",
+        "why": "Beech and oak branches are European trees a keeper would collect there; this advice was written for a European reader, not someone in Thailand.",
         "by": "model"
       }
     ],
@@ -39540,16 +39559,16 @@
     "products": []
   },
   "th/species/brachygobius-aggregatus": {
-    "at": "2026-11-10",
-    "hash": "c25d79cc8df96d21",
+    "at": "2026-11-20",
+    "hash": "08a6799c9046fe54",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P12",
-        "quote": "แม้ภาพประกอบจะถูกจัดเข้ากับข้อมูลของแต่ละชนิด",
-        "why": "Refers to the source site's illustrations, which this page does not have.",
+        "quote": "แม้ภาพประกอบจะถูกจัดเข้ากับแต่ละชนิดตามความสอดคล้องกับรูปวิธานของ Inger (1958)",
+        "why": "Refers to the source's illustrations, which this page does not have.",
         "by": "model"
       }
     ],
@@ -39799,16 +39818,16 @@
     "products": []
   },
   "th/species/brevibora-dorsiocellata": {
-    "at": "2026-11-18",
-    "hash": "5c3b07df65358c53",
+    "at": "2026-11-20",
+    "hash": "0c01f700fb98af56",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P7",
+        "part": "P9",
         "quote": "ไม้บีชหรือไม้โอ๊กก็ใช้ได้อย่างปลอดภัยถ้าตากให้แห้งสนิทและลอกเปลือกออกแล้ว",
-        "why": "Beech and oak branches are a European keeper's local substitute, not something a Thai hobbyist has at hand.",
+        "why": "Collecting beech or oak branches is advice for European keepers; these trees aren't a ready alternative in Thailand.",
         "by": "model"
       }
     ],
@@ -39913,23 +39932,30 @@
     "products": []
   },
   "th/species/bunocephalus-coracoideus": {
-    "at": "2026-11-13",
-    "hash": "77f4158fb94b6d44",
+    "at": "2026-11-20",
+    "hash": "3847f1f66d79ff96",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P4",
+        "part": "P2",
+        "quote": "ขนาดตู้ปลา: 60 × 38 ซม.",
+        "why": "A 24 × 15 inch tank converted to centimetres; no keeper in Thailand would describe a tank this way.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P6",
         "quote": "ตู้ปลาขนาด 60 × 38 × 30 ซม. หรือประมาณ 68 ลิตร",
-        "why": "A tank of 24 × 15 × 12 inches (18 gallons) converted to metric; not a size anyone in Thailand would use.",
+        "why": "A 24 × 15 × 12 inch tank (about 18 US gallons) converted to metric, not a size people use in Thailand.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P5",
+        "part": "P8",
         "quote": "การโรยใบโอ๊กหรือใบบีชแห้งไว้บนพื้นตู้",
-        "why": "Dried oak and beech leaves are what temperate-country keepers collect; keepers in Thailand would use local leaves such as Indian almond (ketapang) leaves.",
+        "why": "Oak and beech leaves come from temperate countries and are hard for a keeper in Thailand to find; ใบหูกวาง is used here instead.",
         "by": "model"
       }
     ],
@@ -40542,10 +40568,10 @@
     "products": []
   },
   "th/species/channa-andrao": {
-    "at": "2026-11-08",
-    "hash": "f5c555b9370943e6",
+    "at": "2026-11-20",
+    "hash": "a91a8fbd6540c794",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -40701,10 +40727,10 @@
     "products": []
   },
   "th/species/channa-melasoma": {
-    "at": "2026-11-08",
+    "at": "2026-11-20",
     "hash": "913635a06be60781",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -41699,8 +41725,8 @@
     "products": []
   },
   "th/species/copella-nattereri": {
-    "at": "2026-11-10",
-    "hash": "0f6602785c04ab23",
+    "at": "2026-11-20",
+    "hash": "fd107168b4080172",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -42927,11 +42953,19 @@
     "products": []
   },
   "th/species/corydoras-simulatus": {
-    "at": "2026-11-13",
-    "hash": "2cde6f2e75310d8b",
+    "at": "2026-11-20",
+    "hash": "a61cd05cd748146c",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "น่าเสียดายที่ไม่สามารถให้ลักษณะเฉพาะที่ใช้จำแนกชนิดเพิ่มเติมได้ เนื่องจากไม่สามารถหาเอกสารบรรยายลักษณะต้นแบบมาได้",
+        "why": "The source writer's own voice, apologising that they couldn't get the original description.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "th/species/corydoras-sodalis": {
@@ -43973,38 +44007,30 @@
     "products": []
   },
   "th/species/danio-margaritatus": {
-    "at": "2026-11-08",
-    "hash": "720714fab8a92078",
+    "at": "2026-11-20",
+    "hash": "abdfe72b92d8fdfc",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P12",
-        "quote": "ขึ้นอยู่กับว่าบ้านอุ่นแค่ไหน อาจเลี้ยงปลาชนิดนี้ในตู้ปลาที่ไม่ใช้ฮีตเตอร์ได้",
-        "why": "It assumes a cool-climate home where heaters are the default. In Thailand the usual problem is keeping the water cool enough.",
+        "part": "P25",
+        "quote": "นำปลาไปเลี้ยงในบ่อเล็กกลางแจ้งที่มีไม้น้ำมาก ๆ ในช่วงฤดูที่อากาศอบอุ่น แล้วนำกลับเข้ามาในบ้านเมื่อสิ้นฤดูร้อน",
+        "why": "Assumes a temperate climate with a cold season after summer, not Thailand's.",
         "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P23",
-        "quote": "ในช่วงฤดูที่อากาศอุ่น แล้วนำกลับเข้ามาในบ้านเมื่อสิ้นฤดูร้อน",
-        "why": "Moving fish to a pond for the warm season and bringing them in when summer ends follows a temperate year, not Thailand's.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "ปลาหมูคูลี่",
-        "why": "This is a literal rendering of 'kuhli loach'. Thai keepers call this fish ปลาปล้องอ้อย.",
-        "by": "model",
-        "fix": "ปลาปล้องอ้อย"
       },
       {
         "check": "source",
-        "part": "P26",
-        "quote": "(ดูภาพประกอบ)",
-        "why": "It points the reader to pictures from the source article that this page does not have.",
+        "part": "P29",
+        "quote": "พบได้ทั่วไปในตลาดปลาสวยงาม (ดูภาพประกอบ)",
+        "why": "Points to an illustration the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P29",
+        "quote": "มีลวดลายจุดบนลำตัวเหมือน D. margaritatus (ดูภาพประกอบ)",
+        "why": "Points to an illustration the page does not have.",
         "by": "model"
       }
     ],
@@ -47361,23 +47387,16 @@
     "products": []
   },
   "th/species/myxocyprinus-asiaticus": {
-    "at": "2026-11-08",
-    "hash": "1868005765b3519a",
+    "at": "2026-11-20",
+    "hash": "914a70b2ce2af571",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P5",
-        "quote": "ปลาสองตัวในภาพจะถูกย้ายไปไว้ในตู้ขนาด 5,000 ลิตร",
-        "why": "Refers to a picture the page lacks and to the source writer's own fish and plans.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P10",
-        "quote": "ปลาชนิดนี้ทนต่อฤดูหนาวในยุโรปตอนกลางได้ และเป็นที่ต้องการอย่างมากสำหรับเลี้ยงร่วมกับปลาคาร์ฟ (โคอิ)",
-        "why": "Written for a European pond keeper whose climate includes Central European winters.",
+        "part": "P4",
+        "quote": "ปลาสองตัวในภาพจะถูกย้ายไปไว้ในตู้ขนาด 5,000 ลิตร เพื่อดูว่าจะเติบโตอย่างไร",
+        "why": "Refers to a picture the page lacks and the source writer's own fish as if the reader knew them.",
         "by": "model"
       }
     ],
@@ -48000,17 +48019,18 @@
     "products": []
   },
   "th/species/paracheirodon-simulans": {
-    "at": "2026-11-08",
-    "hash": "866d55c1709ef1ff",
+    "at": "2026-11-20",
+    "hash": "aa8e89af7a0f23af",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
-        "part": "P27",
-        "quote": "วางบนท่อ PVC สี่ท่อสูงประมาณ 7.5–10 ซม.",
-        "why": "7.5–10 cm is a straight conversion of 3–4 inches, not a height a keeper in Thailand would give.",
-        "by": "model"
+        "check": "words",
+        "part": "P29",
+        "quote": "แผงไข่ไฟ (egg crate) หุ้มด้วยตาข่าย",
+        "why": "Literal calque of the English 'egg crate'; Thai keepers call this light-diffuser grid by another name.",
+        "by": "model",
+        "fix": "แผ่นกริดพลาสติก (eggcrate)"
       }
     ],
     "products": []
@@ -48128,17 +48148,18 @@
     "products": []
   },
   "th/species/parosphromenus-linkei": {
-    "at": "2026-11-07",
-    "hash": "4e8bb1c0eaebec31",
+    "at": "2026-11-20",
+    "hash": "5a36bd481d7a8399",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
   "th/species/parosphromenus-opallios": {
-    "at": "2026-11-08",
-    "hash": "476d300e0b4a7c2d",
+    "at": "2026-11-20",
+    "hash": "5a3b3b60a2b6312c",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -49120,16 +49141,16 @@
     "products": []
   },
   "th/species/sphaerichthys-selatanensis": {
-    "at": "2026-11-08",
-    "hash": "7f8784fb7c84f901",
+    "at": "2026-11-20",
+    "hash": "487fef0b59d0ecbc",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
   "th/species/sphaerichthys-vaillanti": {
-    "at": "2026-11-09",
-    "hash": "de3de3d91f9579c4",
+    "at": "2026-11-20",
+    "hash": "2d16206f71fcf67d",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -49191,8 +49212,8 @@
     "products": []
   },
   "th/species/stiphodon-semoni": {
-    "at": "2026-11-10",
-    "hash": "0afb85412d502b67",
+    "at": "2026-11-20",
+    "hash": "2fa57c6b721b4916",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -49502,7 +49523,7 @@
     "products": []
   },
   "th/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-14",
+    "at": "2026-11-20",
     "hash": "4177944d4144d9ba",
     "model": "opus",
     "checklist": 3,
@@ -49511,14 +49532,14 @@
         "check": "units",
         "part": "P12",
         "quote": "ขนาดตู้ขั้นต่ำ: 38 ลิตร",
-        "why": "38 litres is a converted 10-gallon tank size, not one a keeper in Thailand would use.",
+        "why": "38 litres is a converted 10-gallon tank size nobody in Thailand would use.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P33",
-        "quote": "และในภาพประกอบระบุเป็น T. cf. heteromorpha",
-        "why": "Refers to an illustration from the source that this page does not have.",
+        "quote": "ในภาพประกอบระบุเป็น T. cf. heteromorpha",
+        "why": "Points to an illustration from the source article that the page doesn't have.",
         "by": "model"
       }
     ],
@@ -62392,16 +62413,16 @@
     "sourceRead": true
   },
   "vi/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": {
-    "at": "2026-11-19",
-    "hash": "4217f8883fdfe095",
+    "at": "2026-11-20",
+    "hash": "f4c1db2a1d021bf5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "dose-caution",
         "part": "",
-        "quote": "muối hột ở mức 1–2 g/L có thể làm nấm mọc chậm lại",
-        "why": "the source warns about scaleless fish (salt suits only scaled fish): \"VCA says salt treatment is suitable only for scaled fish.\"",
+        "quote": "muối hột 1–2 g/L có thể làm nấm mọc chậm lại",
+        "why": "the source warns about scaleless fish (salt suits only fish with scales): \"VCA says salt treatment is suitable only for scaled fish.\"",
         "by": "model"
       }
     ],
@@ -62453,7 +62474,19 @@
         "perUnit": "litre",
         "use": "fungus",
         "method": "",
-        "quote": "muối hột ở mức 1–2 g/L có thể làm nấm mọc chậm lại"
+        "quote": "muối hột 1–2 g/L có thể làm nấm mọc chậm lại"
+      },
+      {
+        "treatment": "salt",
+        "strength": "",
+        "amount": 5,
+        "amountMax": 0,
+        "unit": "ppt",
+        "per": 0,
+        "perUnit": "",
+        "use": "",
+        "method": "",
+        "quote": "cá nước ngọt thường chịu được muối 5 ppt trong vài tuần"
       }
     ],
     "sourceRead": true
@@ -62884,17 +62917,18 @@
     "products": []
   },
   "vi/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
-    "at": "2026-11-19",
-    "hash": "90c4b4604786e9f8",
+    "at": "2026-11-20",
+    "hash": "bbd717ed96d0f3e2",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
+        "check": "words",
         "part": "P1",
-        "quote": "Theo người này, lúc để trùn trong rọ hay để nguyên búi thì mấy con lớn chiếm hết chỗ ăn.",
-        "why": "Refers to a person from the source article whom the reader has never been introduced to.",
-        "by": "model"
+        "quote": "Một số loài như cichlid vùng Rift Valley có thể ăn trùn chỉ tới phát bệnh.",
+        "why": "English region name left untranslated; Vietnamese keepers call these African lake cichlids by a local name.",
+        "by": "model",
+        "fix": "cá Phi (cichlid hồ Malawi, Tanganyika)"
       }
     ],
     "products": []
@@ -66323,7 +66357,7 @@
     "products": []
   },
   "vi/guides/glaser-en-25-perchlike-fishes-new-bettas-2-alien-blue-alien-steel-blue-and-alien-green": {
-    "at": "2026-11-19",
+    "at": "2026-11-20",
     "hash": "879b91e04df19a19",
     "model": "opus",
     "checklist": 3,
@@ -74470,16 +74504,16 @@
     ]
   },
   "vi/guides/youtube-54hYFlHTSOs": {
-    "at": "2026-11-19",
-    "hash": "a50138cbe448ecf0",
+    "at": "2026-11-20",
+    "hash": "b7aaa4fed942bd09",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Trên lớp tảo phủ kính còn thấy rõ cả vết ốc bò.",
-        "why": "Describes what is visible in the source video's tank, which the page does not show.",
+        "quote": "Chỗ trống phía sau có bóng râm có thể trồng thêm Cryptocoryne lấy từ bể cũ",
+        "why": "Describes the source's own tank layout and 'old tank' as if the reader knew them.",
         "by": "model"
       }
     ],
@@ -79199,23 +79233,16 @@
     "products": []
   },
   "vi/guides/youtube-BV0J8fUMceU": {
-    "at": "2026-11-19",
-    "hash": "6ec9d33315f3de50",
+    "at": "2026-11-20",
+    "hash": "2aba46b0405d216c",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P6",
-        "quote": "Đó là do cây mới nằm trong bể ở tiệm có một ngày, vẫn còn ở dạng lá cạn (emersed)",
-        "why": "Recounts the source video's own plant purchase as if the reader knew that plant.",
-        "by": "model"
-      },
-      {
         "check": "words",
-        "part": "P7",
+        "part": "P1",
         "quote": "Mặt nước không có lớp màng hữu cơ là một dấu hiệu tốt",
-        "why": "Calque of 'organic film'; keepers in Vietnam call surface film 'váng'.",
+        "why": "Calque of English 'biofilm'; keepers in Vietnam call the surface film 'váng'.",
         "by": "model",
         "fix": "váng mặt nước"
       }
@@ -83945,8 +83972,8 @@
     "products": []
   },
   "vi/guides/youtube-Gk88H137s8I": {
-    "at": "2026-11-19",
-    "hash": "8ccf66df890f6130",
+    "at": "2026-11-20",
+    "hash": "e69dd746166be70b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -94997,8 +95024,8 @@
     "mendTried": "2026-11-16"
   },
   "vi/guides/youtube-PQ_DmRR-I2A": {
-    "at": "2026-11-19",
-    "hash": "bc73e105df9a1d3e",
+    "at": "2026-11-20",
+    "hash": "8188d3f546d5be98",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -101403,8 +101430,8 @@
     "products": []
   },
   "vi/guides/youtube-WS2ZDT7_lhU": {
-    "at": "2026-11-19",
-    "hash": "c75456d559d2c623",
+    "at": "2026-11-20",
+    "hash": "e4c68aa22ace26f9",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -109453,26 +109480,11 @@
     "products": []
   },
   "vi/species/anchoviella-alleni": {
-    "at": "2026-11-19",
-    "hash": "7d1eec9de54707a2",
+    "at": "2026-11-20",
+    "hash": "85f09e354a7954dd",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P2",
-        "quote": "Số cá này được nhập về từ Peru.",
-        "why": "Refers to the source's own imported batch of stock as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P4",
-        "quote": "Lứa cá nhận về chỉ dài khoảng 5 cm",
-        "why": "Describes a shipment the source shop received, its own stock.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/ancistrus-cirrhosus": {
@@ -111807,8 +111819,8 @@
     "products": []
   },
   "vi/species/aspredo-aspredo": {
-    "at": "2026-11-19",
-    "hash": "bf9b87fad0b29817",
+    "at": "2026-11-20",
+    "hash": "5360241a9d0f9132",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -111870,16 +111882,23 @@
     "products": []
   },
   "vi/species/astronotus-ocellatus": {
-    "at": "2026-11-19",
-    "hash": "0fbce15291453bda",
+    "at": "2026-11-20",
+    "hash": "6c42f416c009fef1",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P30",
-        "quote": "Chưa tìm được tài liệu nào giải thích chính xác vì sao",
-        "why": "The original writer's own voice about their research, a person the reader doesn't know.",
+        "check": "units",
+        "part": "P12",
+        "quote": "Từng có người nuôi ba con oscar trong bể 470 L",
+        "why": "470 L is a converted 125-gallon tank, a size nobody in Vietnam names.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P21",
+        "quote": "cá con (whitebait)",
+        "why": "Whitebait is a frozen food sold in the UK, not something keepers in Vietnam buy.",
         "by": "model"
       }
     ],
@@ -116888,27 +116907,11 @@
     "products": []
   },
   "vi/species/channa-asiatica": {
-    "at": "2026-11-07",
-    "hash": "f602b91ddd61f058",
+    "at": "2026-11-20",
+    "hash": "21a5ee24d2652d8b",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P19",
-        "quote": "Biến thể \"Platinum\" của Channa asiatica hiện đã được nhập khẩu lần đầu tiên từ nguồn này.",
-        "why": "Reads as the source importer's own stock news, not a fact for the reader.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "Việc lọc cá bột theo cỡ hằng tuần cũng quan trọng không kém.",
-        "why": "\"Lọc\" for grading fry by size is a calque; keepers say tách cỡ / lựa cỡ.",
-        "by": "model",
-        "fix": "tách cỡ cá bột"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/channa-aurantimaculata": {
@@ -117042,26 +117045,11 @@
     "products": []
   },
   "vi/species/channa-marulioides": {
-    "at": "2026-11-08",
-    "hash": "b5b26320a752eb39",
+    "at": "2026-11-20",
+    "hash": "8c5e29ec2555abec",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Cá hiện có chỉ dài 12–15 cm.",
-        "why": "Refers to the source shop's current stock as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P12",
-        "quote": "Ở những nước có loài cá lóc lớn này, người ta rất chuộng chúng làm cá thịt.",
-        "why": "Assumes the reader lives in a country without these snakeheads, unlike Vietnam where snakeheads are common food fish.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/channa-marulius": {
@@ -117715,18 +117703,18 @@
     "products": []
   },
   "vi/species/ciliopagurus-strigatus": {
-    "at": "2026-11-19",
-    "hash": "cdd5a1a8bb29e8f5",
+    "at": "2026-11-20",
+    "hash": "ac9a9df4cee51a05",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P2",
-        "quote": "Ẩn sĩ Halloween sống rải rác khắp vùng Ấn Độ Dương – Tây Thái Bình Dương.",
-        "why": "\"Ẩn sĩ\" alone is a calque of English \"hermit\"; Vietnamese keepers call hermit crabs ốc mượn hồn or cua ẩn sĩ.",
+        "part": "P5",
+        "quote": "nhớ thuần hóa cho chúng làm quen với nước bể",
+        "why": "'Thuần hóa' (domesticate) is a calque of 'acclimate'; keepers say 'thuần nước' or 'cân nước'.",
         "by": "model",
-        "fix": "ốc mượn hồn Halloween"
+        "fix": "nhớ thuần nước (cân nước) cho chúng trước khi thả"
       }
     ],
     "products": []
@@ -118420,16 +118408,16 @@
     "products": []
   },
   "vi/species/corydoras-aeneus": {
-    "at": "2026-11-19",
-    "hash": "268512de041167be",
+    "at": "2026-11-20",
+    "hash": "afc889f3106416cf",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P10",
-        "quote": "thả một hai quả alder (alder cone) để trứng không bị nấm",
-        "why": "Alder cones come from a European/North American tree that keepers in Vietnam don't buy or gather.",
+        "check": "source",
+        "part": "P2",
+        "quote": "Dạng màu này có nguồn gốc từ Peru, ở vùng Puerto Maldonado.",
+        "why": "Refers to a specific colour form from the source catalogue that the page never shows or describes.",
         "by": "model"
       }
     ],
@@ -119682,8 +119670,8 @@
     "products": []
   },
   "vi/species/corydoras-similis": {
-    "at": "2026-11-19",
-    "hash": "84bf95d0ffbb1933",
+    "at": "2026-11-20",
+    "hash": "899c81b911ee546a",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -119691,21 +119679,14 @@
         "check": "source",
         "part": "P7",
         "quote": "Hiện cá đang sống ở nước có pH 6-7.",
-        "why": "The source shop is describing the water its own stock is kept in.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "Lá dẻ gai dùng được, lá sồi cũng hợp.",
-        "why": "Beech and oak leaves are European leaves that keepers in Vietnam don't buy or gather.",
+        "why": "Describes the source shop's own stock and the water it is kept in.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P13",
         "quote": "trùng với mùa đông ở Anh",
-        "why": "It sets the breeding season by the English winter, which is not the reader's.",
+        "why": "Gives the British winter as the reader's own season.",
         "by": "model"
       }
     ],
@@ -119767,53 +119748,46 @@
     "products": []
   },
   "vi/species/corydoras-sterbai": {
-    "at": "2026-11-08",
-    "hash": "62e8f8ba608c9bef",
+    "at": "2026-11-20",
+    "hash": "4b14155e57b55522",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P13",
-        "quote": "Mùa mưa ở đó trùng với mùa đông ở Anh. Vì vậy, nếu thử cho đẻ vào mùa hè mà không được",
-        "why": "Breeding advice is timed to British seasons as if they were the reader's own.",
+        "quote": "Mùa mưa ở đó trùng với mùa đông ở Anh.",
+        "why": "Spawning timing advice is tied to UK seasons, written for a reader in England.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P8",
-        "quote": "có thể dùng gỗ dẻ gai beech, miễn là phơi thật khô và bóc sạch vỏ",
-        "why": "Beech wood is offered as an easy substitute, but it's a European tree that keepers in Vietnam can't easily get.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P8",
-        "quote": "lá beech cũng dùng được, lá sồi oak cũng hợp",
-        "why": "Beech and oak leaves are easy for a UK reader to collect, not for a keeper in Vietnam.",
+        "part": "P13",
+        "quote": "Bạn cũng có thể thả một quả alder (alder cone) vào thùng ấp",
+        "why": "Alder cones come from a European tree that keepers in Vietnam don't gather or usually buy.",
         "by": "model"
       }
     ],
     "products": []
   },
   "vi/species/corydoras-trilineatus": {
-    "at": "2026-11-19",
-    "hash": "eb9c9b515a29aba7",
+    "at": "2026-11-20",
+    "hash": "0429a479faba0dcb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P6",
-        "quote": "Lá dẻ gai hay lá sồi đều dùng được.",
-        "why": "Beech and oak leaves are European leaves keepers in Vietnam don't buy or gather.",
+        "part": "P14",
+        "quote": "Mùa mưa ở đó rơi vào cùng thời điểm với mùa đông ở Anh.",
+        "why": "Times breeding by the British winter as if it were the reader's own season.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P14",
-        "quote": "Mùa mưa ở đó rơi vào cùng thời điểm với mùa đông ở Anh.",
-        "why": "Times breeding by the British winter, written for a reader in the UK.",
+        "quote": "Một cách khác là bỏ một quả alder vào hộp ấp",
+        "why": "Alder cones come from a European tree that keepers in Vietnam don't usually buy or gather.",
         "by": "model"
       }
     ],
@@ -120661,32 +120635,24 @@
     "products": []
   },
   "vi/species/cyprinus-rubrofuscus": {
-    "at": "2026-11-08",
-    "hash": "0071b5e358e95bf2",
+    "at": "2026-11-20",
+    "hash": "17292baf510764d4",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "price",
-        "part": "P2",
-        "quote": "mỗi con giá hàng nghìn đô la!",
-        "why": "Price given in US dollars, a foreign currency.",
+        "check": "units",
+        "part": "P3",
+        "quote": "trừ khi bể có dung tích từ 1.900 lít trở lên",
+        "why": "1,900 litres is a conversion of 500 US gallons, not a size anyone in Vietnam would quote.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P3",
-        "quote": "dung tích từ 1.900 lít trở lên",
-        "why": "1,900 litres is a conversion of 500 gallons, not a figure a Vietnamese keeper would use.",
+        "part": "P7",
+        "quote": "Koi cái dùng để sinh sản nên có khoảng 1.900 lít mỗi con",
+        "why": "1,900 litres is a conversion of 500 US gallons per fish.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P9",
-        "quote": "bùi nhùi đẻ nhân tạo",
-        "why": "Literal rendering of 'spawning mop'; keepers in Vietnam don't call it this.",
-        "by": "model",
-        "fix": "giá thể cho cá đẻ / chà cho trứng bám"
       }
     ],
     "products": []
@@ -120833,32 +120799,24 @@
     "products": []
   },
   "vi/species/danio-margaritatus": {
-    "at": "2026-11-19",
-    "hash": "45763cdeca1e3884",
+    "at": "2026-11-20",
+    "hash": "3c4659956531dc5b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P12",
-        "quote": "lá khô (lá sồi, lá dẻ gai, lá bàng)",
-        "why": "Oak and beech leaves are European tank materials that keepers in Vietnam don't buy or gather.",
+        "part": "P25",
+        "quote": "thả cá ra hồ mini ngoài trời trồng nhiều cây thủy sinh vào mùa ấm, rồi cuối hè đem vào nhà lại",
+        "why": "Bringing an outdoor pond's fish indoors at summer's end is a temperate-climate habit, not the reader's.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P29",
-        "quote": "hoặc bị dị tật hình thái (xem hình ảnh)",
-        "why": "Points to pictures the page does not have.",
+        "quote": "(xem hình ảnh)",
+        "why": "Points to a picture the page does not have.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P16",
-        "quote": "cùng giun siêu nhỏ",
-        "why": "Literal rendering of 'microworm'; keepers use a different term.",
-        "by": "model",
-        "fix": "giun vi sinh (microworm)"
       }
     ],
     "products": []
@@ -122013,8 +121971,8 @@
     "products": []
   },
   "vi/species/dupouyichthys-sapito": {
-    "at": "2026-11-19",
-    "hash": "7157f9a0c9970445",
+    "at": "2026-11-20",
+    "hash": "3dd516213fd5a34e",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -126307,8 +126265,8 @@
     "products": []
   },
   "vi/species/hoplomyzon-sexpapilostoma": {
-    "at": "2026-11-19",
-    "hash": "140a90658216db23",
+    "at": "2026-11-20",
+    "hash": "6c64690d06856431",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -131199,31 +131157,18 @@
     "products": []
   },
   "vi/species/myxocyprinus-asiaticus": {
-    "at": "2026-11-08",
-    "hash": "a5c973c1f555959a",
+    "at": "2026-11-20",
+    "hash": "47a96df25152f1a3",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "gần như lúc nào cũng có hàng",
-        "why": "This is the source shop talking about its own stock, which the reader doesn't know.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P5",
-        "quote": "Hai con trong ảnh sẽ được thả vào một bể 5.000 lít để theo dõi xem chúng lớn lên ra sao.",
-        "why": "It points to a photo the page doesn't have and to the source's own tank plans.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P8",
-        "quote": "bạn nên cố giữ nhiệt độ trong khoảng 15,5 – 21°C",
-        "why": "15.5–21 °C is a straight conversion of 60–70 °F, not a range anyone in Vietnam would give.",
-        "by": "model"
+        "check": "words",
+        "part": "P11",
+        "quote": "Các sọc của cá bán trưởng thành bắt đầu vỡ ra",
+        "why": "Literal calque of English 'stripes break up'; keepers would not say stripes 'vỡ ra'.",
+        "by": "model",
+        "fix": "bắt đầu đứt đoạn"
       }
     ],
     "products": []
@@ -132596,26 +132541,11 @@
     "products": []
   },
   "vi/species/notropis-chrosomus": {
-    "at": "2026-11-08",
-    "hash": "97a645753e8211ff",
+    "at": "2026-11-20",
+    "hash": "6a9953f10758063b",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P4",
-        "quote": "Nuôi chúng ở nhiệt độ phòng (18-22°C) là đủ",
-        "why": "A room at 18-22 °C describes a European home; rooms in Vietnam are much warmer.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P3",
-        "quote": "Nhịp thay đổi của các mùa và nhiệt độ trong năm gần giống với Trung Âu.",
-        "why": "Compares the climate to Central Europe as if the reader lived there.",
-        "by": "model"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/noturus-crypticus": {
@@ -134903,19 +134833,11 @@
     "products": []
   },
   "vi/species/peckoltia-compta": {
-    "at": "2026-11-07",
-    "hash": "ee9eef35e2a32bef",
+    "at": "2026-11-20",
+    "hash": "aaaf122e913e8cae",
     "model": "opus",
-    "findings": [
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "Những con đực đứng tận cuối trong đàn",
-        "why": "Literal calque of 'males at the bottom of the hierarchy'; a Vietnamese keeper would not say 'đứng tận cuối trong đàn'.",
-        "by": "model",
-        "fix": "Những con đực yếu thế (lép vế) trong đàn"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/peckoltia-oligospila": {
@@ -135030,10 +134952,10 @@
     "products": []
   },
   "vi/species/peregriana-peregra": {
-    "at": "2026-11-08",
-    "hash": "331180061645d8ed",
+    "at": "2026-11-20",
+    "hash": "57bf9b037bb38e41",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -135121,37 +135043,30 @@
     "products": []
   },
   "vi/species/pethia-conchonius": {
-    "at": "2026-11-08",
-    "hash": "07b4fa8cc615e06e",
+    "at": "2026-11-20",
+    "hash": "6ed5a45dd9d61379",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P3",
         "quote": "Bể tối thiểu: khoảng 110 lít",
-        "why": "110 litres is a converted 30-gallon tank size, not a size used in Vietnam.",
+        "why": "110 litres is a converted 30-gallon US tank size.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P8",
-        "quote": "Một bể khoảng 75 lít là đủ cho một đàn cá barb hồng. Tuy vậy, bể từ khoảng 110 lít trở lên",
-        "why": "75 and 110 litres are converted 20- and 30-gallon tank sizes.",
+        "quote": "bể từ khoảng 110 lít trở lên vẫn tốt hơn",
+        "why": "110 litres is a converted 30-gallon US tank size.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P20",
         "quote": "Bể đẻ lý tưởng có dung tích khoảng 75 đến 110 lít",
-        "why": "Converted 20–30 gallon tank sizes.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P12",
-        "quote": "tới mùa đông nên đưa cá vào nuôi trong nhà, nhất là ở những vùng hay có đợt lạnh",
-        "why": "Advice to bring pond fish indoors for winter is for a cold-winter climate abroad.",
+        "why": "75–110 litres are converted 20–30 gallon US tank sizes.",
         "by": "model"
       }
     ],
@@ -135190,10 +135105,10 @@
     "products": []
   },
   "vi/species/pethia-gelius": {
-    "at": "2026-11-08",
-    "hash": "f50f5c93d6b5cada",
+    "at": "2026-11-20",
+    "hash": "64e7cab01e952337",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -135238,7 +135153,7 @@
     "products": []
   },
   "vi/species/pethia-padamya": {
-    "at": "2026-11-18",
+    "at": "2026-11-20",
     "hash": "1be02f342ded9253",
     "model": "opus",
     "checklist": 3,
@@ -135407,7 +135322,7 @@
     "products": []
   },
   "vi/species/phalacronotus-bleekeri": {
-    "at": "2026-11-19",
+    "at": "2026-11-20",
     "hash": "fde47f94798f5340",
     "model": "opus",
     "checklist": 3,
@@ -135416,9 +135331,9 @@
         "check": "words",
         "part": "P5",
         "quote": "nhạy với nước xuống cấp",
-        "why": "Calque of 'sensitive to deteriorating water quality'; keepers don't say water 'xuống cấp'.",
+        "why": "Calque of English 'deteriorating water quality'; keepers don't say water 'xuống cấp'.",
         "by": "model",
-        "fix": "nhạy với nước dơ / chất lượng nước kém"
+        "fix": "nhạy với nước bẩn / chất lượng nước kém"
       }
     ],
     "products": []
@@ -135780,22 +135695,16 @@
     "products": []
   },
   "vi/species/planorbella-duryi": {
-    "at": "2026-11-07",
-    "hash": "da7664af179680be",
+    "at": "2026-11-20",
+    "hash": "84ab2688a5c995d7",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P3",
-        "quote": "Ngoài tự nhiên, nó chỉ xuất hiện lác đác ở những vùng nước được làm ấm nhân tạo.",
-        "why": "This describes where the snail turns up in the wild in Europe (Germany), but the page presents it as the reader's own surroundings. In Vietnam's warm climate it would not need artificially warmed water.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
         "part": "P6",
-        "quote": "người ta thường nuôi loài bản địa Planorbarius corneus",
-        "why": "It calls the European Planorbarius corneus 'the native species' as if it were native to the reader, which shows the text was written for a European reader.",
+        "quote": "Ngày xưa, người ta thường nuôi loài bản địa Planorbarius corneus",
+        "why": "Calls the European ramshorn 'the native species' as if native to the reader's country; it is European, not Vietnamese.",
         "by": "model"
       }
     ],
@@ -142357,24 +142266,40 @@
     "products": []
   },
   "vi/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-19",
-    "hash": "e97092958b76aabf",
+    "at": "2026-11-20",
+    "hash": "0dce8a3ae0f2d136",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P16",
-        "quote": "lá dẻ gai, lá sồi",
-        "why": "Beech and oak leaves are European leaves that keepers in Vietnam don't buy or gather.",
+        "check": "units",
+        "part": "P13",
+        "quote": "Bể tối thiểu khoảng 38 lít.",
+        "why": "38 litres is a converted 10-gallon tank size, not one keepers in Vietnam use.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P38",
         "quote": "Trong ảnh, nó được ghi là T. cf. heteromorpha.",
-        "why": "Points to a photo that the page doesn't have.",
+        "why": "Points at a photo the page does not have.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P25",
+        "quote": "cá thủy tinh ma",
+        "why": "Word-for-word copy of 'ghost glass catfish'; not what keepers in Vietnam call it.",
+        "by": "model",
+        "fix": "cá trèn kính"
+      },
+      {
+        "check": "words",
+        "part": "P25",
+        "quote": "cá rummynose brilliant",
+        "why": "English name left in; keepers in Vietnam call the rummynose tetra cá hồng mi.",
+        "by": "model",
+        "fix": "cá hồng mi"
       }
     ],
     "products": [
@@ -143645,6 +143570,143 @@
   "vi/species/xyliphius-melanopterus": {
     "at": "2026-11-20",
     "hash": "28b3417c3a87c560",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": {
+    "at": "2026-11-20",
+    "hash": "53f763ba3da78dfc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "formalin",
+        "strength": "",
+        "amount": 25,
+        "amountMax": 0,
+        "unit": "mg",
+        "per": 1,
+        "perUnit": "litre",
+        "use": "ich",
+        "method": "",
+        "quote": "25 mg/L (1 mL per 38 liter)"
+      },
+      {
+        "treatment": "formalin",
+        "strength": "",
+        "amount": 12.5,
+        "amountMax": 0,
+        "unit": "mg",
+        "per": 1,
+        "perUnit": "litre",
+        "use": "ich",
+        "method": "",
+        "quote": "spesies yang sensitif formalin: 12,5 mg/L"
+      }
+    ],
+    "sourceRead": true
+  },
+  "id/species/neritina-pulligera": {
+    "at": "2026-11-20",
+    "hash": "d34f5963b3540bb4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/apistogramma-personata": {
+    "at": "2026-11-20",
+    "hash": "df422d01a4ba6164",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "semua gambar menunjukkan tiga spesimen yang sama, seekor jantan dan dua ekor betina",
+        "why": "Refers to photos the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hanya terdapat dalam jumlah yang kecil.",
+        "why": "The source dealer's stock note, not a fact for the reader.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/apistogramma-rupununi": {
+    "at": "2026-11-20",
+    "hash": "9a34c3b5ee696335",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cichlid kerdil ini akhirnya diimport semula selepas tempoh yang agak lama.",
+        "why": "This is the source wholesaler's stock news about its own new import, which means nothing to a reader in Malaysia.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/apistogramma-steindachneri": {
+    "at": "2026-11-20",
+    "hash": "c776e435e30c3859",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/apistogramma-trifasciata": {
+    "at": "2026-11-20",
+    "hash": "115741921a6b0eb9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P8",
+        "quote": "jadi pemanas akuarium hanya diperlukan untuk pembiakan",
+        "why": "Assumes a cool-climate home where room water runs below 25 °C; a Malaysian room is warmer than this fish's range, so heating isn't the issue.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P14",
+        "quote": "Ikan ini diimport dari Paraguay dan boleh didapati pada saiz 3–4 cm.",
+        "why": "Describes the source exporter's own stock on offer, which the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/apistogramma-uaupesi": {
+    "at": "2026-11-20",
+    "hash": "306fc89f0f0ab1a4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Ikan tangkapan liar yang cantik dari Brazil telah diimport baru-baru ini.",
+        "why": "This is the source shop's news about its own new stock, not information a reader in Malaysia can use.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/apistogramma-urteagai": {
+    "at": "2026-11-20",
+    "hash": "a02c5121b9424bd5",
     "model": "opus",
     "checklist": 3,
     "findings": [],

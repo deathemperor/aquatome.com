@@ -315,9 +315,9 @@
   "cut": true
  },
  "vi/guides/aquariumcoop-blogs-aquarium-how-to-breed-egg-scatterers": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "14340f871c6dd952",
-  "n": 1,
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "f6e8ac8f61aec745",
+  "n": 2,
   "rule": 3
  },
  "vi/guides/aquariumcoop-blogs-aquarium-how-to-get-started-with-aquarium-plants": {
@@ -542,10 +542,16 @@
   "rule": 3,
   "cut": true
  },
- "vi/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "224c0c38aace671e",
+ "vi/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "4217f8883fdfe095",
   "n": 1,
+  "rule": 3
+ },
+ "vi/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "90c4b4604786e9f8",
+  "n": 2,
   "rule": 3
  },
  "vi/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
@@ -563,6 +569,12 @@
  "vi/guides/glaser-en-07-carp-like-fishes-1-loaches-hillstream-loach-week-at-aquarium-glaser-part-4-chinese-rarities-en": {
   "at": "2026-11-18T12:43:15.401Z",
   "hash": "f6e9a860f29b7f22",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/guides/glaser-en-09-characoids-tetra-relationship-a-new-little-tetra-from-peru": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "ae5bcbebb6f95bdf",
   "n": 1,
   "rule": 3
  },
@@ -665,6 +677,12 @@
  "vi/guides/glaser-en-10-catfishes-corydoras-orcesi-and-c-pastazensis": {
   "at": "2026-11-18T01:14:31.664Z",
   "hash": "59538b29cd4c66ee",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/guides/glaser-en-10-catfishes-hey-hey-hey-hey-little-pirate": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "1a5823ea7b67fe7f",
   "n": 1,
   "rule": 3
  },
@@ -1045,6 +1063,12 @@
   "n": 1,
   "rule": 3
  },
+ "vi/species/anchoviella-alleni": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "7d1eec9de54707a2",
+  "n": 1,
+  "rule": 3
+ },
  "vi/species/aphyolebias-peruensis": {
   "at": "2026-11-16T17:49:54.187Z",
   "hash": "625db0c26cdfc84c",
@@ -1094,8 +1118,14 @@
   "rule": 3
  },
  "vi/species/astronotus-ocellatus": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "3b6536bae2e2dd47",
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "0fbce15291453bda",
+  "n": 2,
+  "rule": 3
+ },
+ "vi/species/atractosteus-spatula": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "46609ae0e7f971cd",
   "n": 1,
   "rule": 3
  },
@@ -1141,6 +1171,12 @@
   "n": 2,
   "rule": 2
  },
+ "vi/species/brachygobius-doriae": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "f0d5e159a505a70f",
+  "n": 1,
+  "rule": 3
+ },
  "vi/species/brochiloricaria-macrodon": {
   "at": "2026-11-18T06:21:24.479Z",
   "hash": "16e2f09a942cdc23",
@@ -1180,6 +1216,18 @@
  "vi/species/chaetobranchopsis-australis": {
   "at": "2026-11-18T06:21:24.479Z",
   "hash": "e05bfc103d00e326",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/channa-asiatica": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "f602b91ddd61f058",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/channa-marulioides": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "b5b26320a752eb39",
   "n": 1,
   "rule": 3
  },
@@ -1231,9 +1279,9 @@
   "rule": 3
  },
  "vi/species/corydoras-aeneus": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "6ad4a5ada6919c4e",
-  "n": 1,
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "268512de041167be",
+  "n": 2,
   "rule": 3
  },
  "vi/species/corydoras-bicolor": {
@@ -1261,15 +1309,21 @@
   "rule": 3
  },
  "vi/species/corydoras-similis": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "b6307f74c8e5df12",
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "84bf95d0ffbb1933",
+  "n": 2,
+  "rule": 3
+ },
+ "vi/species/corydoras-sterbai": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "62e8f8ba608c9bef",
   "n": 1,
   "rule": 3
  },
  "vi/species/corydoras-trilineatus": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "66079fd819e20ae3",
-  "n": 1,
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "eb9c9b515a29aba7",
+  "n": 2,
   "rule": 3
  },
  "vi/species/corydoras-urucu": {
@@ -1305,6 +1359,18 @@
  "vi/species/cynops-orientalis": {
   "at": "2026-11-15T00:39:00.140Z",
   "hash": "fa66b310ebfe2377",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/cyprinus-rubrofuscus": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "0071b5e358e95bf2",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/danio-margaritatus": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "45763cdeca1e3884",
   "n": 1,
   "rule": 3
  },
@@ -1441,6 +1507,12 @@
  "vi/species/hyphessobrycon-pando": {
   "at": "2026-11-16T17:49:54.187Z",
   "hash": "a8e820b89a6d89bd",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/hypostomus-rhantos": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "a59009b93d790c6a",
   "n": 1,
   "rule": 3
  },
@@ -1626,9 +1698,9 @@
   "rule": 3
  },
  "vi/species/melanotaenia-lacustris": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "508f575109b9cf58",
-  "n": 1,
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "4b886e2f5cdf6992",
+  "n": 2,
   "rule": 3
  },
  "vi/species/melanotaenia-praecox": {
@@ -1638,9 +1710,9 @@
   "rule": 3
  },
  "vi/species/melanotaenia-trifasciata": {
-  "at": "2026-11-19T19:05:28.486Z",
-  "hash": "d3fac0059fee5d74",
-  "n": 1,
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "160c08de8a04ace4",
+  "n": 2,
   "rule": 3
  },
  "vi/species/mesoheros-ornatus": {
@@ -1697,6 +1769,12 @@
   "n": 1,
   "rule": 3
  },
+ "vi/species/myxocyprinus-asiaticus": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "a5c973c1f555959a",
+  "n": 1,
+  "rule": 3
+ },
  "vi/species/nannopetersius-ansorgii": {
   "at": "2026-11-17T05:36:30.195Z",
   "hash": "a6c316fb9c805bef",
@@ -1730,6 +1808,12 @@
  "vi/species/notopterus-notopterus": {
   "at": "2026-11-19T13:06:40.388Z",
   "hash": "efef30fdd1038d50",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/notropis-chrosomus": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "97a645753e8211ff",
   "n": 1,
   "rule": 3
  },
@@ -1898,6 +1982,12 @@
  "vi/species/plagioscion-squamosissimus": {
   "at": "2026-11-16T11:52:16.376Z",
   "hash": "4403a1e94989d577",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/planorbella-duryi": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "da7664af179680be",
   "n": 1,
   "rule": 3
  },
@@ -2174,6 +2264,12 @@
  "vi/species/trichodactylus-kensleyi": {
   "at": "2026-11-16T06:04:51.385Z",
   "hash": "07a0b9d28f5c13ae",
+  "n": 1,
+  "rule": 3
+ },
+ "vi/species/trigonostigma-heteromorpha": {
+  "at": "2026-11-20T02:11:04.650Z",
+  "hash": "e97092958b76aabf",
   "n": 1,
   "rule": 3
  },

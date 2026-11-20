@@ -13,18 +13,36 @@
     ]
   },
   "aegagropila-linnaei": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "Marimo",
     "confidence": "high",
     "score": 0.88,
-    "notes": [
-      "#2: \"yang bentuknya yang khas\" has a duplicated \"yang\"; use \"yang bentuk khasnya terbentuk karena...\"",
-      "#7: \"membukanya menjadi karpet\" is a weak rendering of \"unrolled them into thick carpets\"; use \"membentangkannya menjadi karpet tebal\"",
-      "#7: \"Para aquascaper ada yang membukanya\" is awkward; use \"Ada aquascaper yang membentangkannya...\"",
-      "#4: \"kibas-kibaskan perlahan\" for \"gently swish\" is a bit odd for a ball in water; \"goyang-goyangkan perlahan\" or \"bilas perlahan\" is more natural",
-      "#1: the added gloss \"(tersebar luas di seluruh dunia)\" is not in the source; consider removing it or keeping just \"Kosmopolitan\""
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "b6554f869d70",
+      "quickFacts:aquariumcoop": "90b6518b8723",
+      "distribution:aquariumcoop": "6418a40df441",
+      "maintenance:aquariumcoop": "5dc66afe1346",
+      "reproduction:aquariumcoop": "74daaad00314",
+      "notes:tropica": "8db4e4915828",
+      "notes:aquariumcoop": "50362fe6a409"
+    },
+    "failed": {
+      "at": "2026-11-20T00:54:46.424Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "6db0d7c0866c",
+        "beforeYouBuy:aquariumbreeder": "09c0fc476c2b",
+        "distribution:aquariumbreeder": "849cbd7ff40b",
+        "habitat:aquariumbreeder": "b03915b19a96",
+        "aquariumSize:aquariumbreeder": "2f02e9919105",
+        "maintenance:aquariumbreeder": "cc4be3ab25d7",
+        "waterConditions:aquariumbreeder": "8cbefc36809d",
+        "equipment:aquariumbreeder": "c3309ef6f8e0",
+        "behaviour:aquariumbreeder": "ffb2d319ef6f",
+        "notes:aquariumbreeder": "4caf6c7108b8"
+      }
+    }
   },
   "alternanthera-bettzickiana": {
     "at": "2026-10-31",
@@ -656,15 +674,29 @@
     ]
   },
   "ceratopteris-thalictroides": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "Water Sprite",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "Item 3: \"daun emersed\" translates \"surface leaves\" with an untranslated English term. Consider \"daun di atas permukaan air (emersed)\" so it reads more clearly.",
-      "Item 4: \"Dengan cahaya yang cukup\" is weaker than \"In good light\". \"Dengan pencahayaan yang baik\" is closer."
-    ]
+      "Item 3: \"marshes\" is rendered \"lahan basah\" (wetlands, a broader term). \"paya\" or \"rawa payau/rawa air tawar\" is closer.",
+      "Item 8: \"umumnya tidak berpengaruh\" for \"it generally does not care\" is slightly unnatural. \"umumnya tidak terlalu memengaruhi\" or \"tidak terlalu pilih-pilih\" reads better.",
+      "Item 5: the source text is in Vietnamese, not English. The Indonesian is faithful, but check that the pipeline fed the right source."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f489002efa37",
+      "quickFacts:aquariumbreeder": "9ba683b8e8fa",
+      "habitat:aquariumbreeder": "38f69b114569",
+      "aquariumSize:aquariumbreeder": "e4eb2a6c365e",
+      "maintenance:aquatome": "11b63104daa9",
+      "maintenance:tropica": "8e549720f0e5",
+      "maintenance:aquariumbreeder": "d5d767d01d7f",
+      "waterConditions:aquariumbreeder": "21e034ce5393",
+      "equipment:aquariumbreeder": "78b096fb03fe",
+      "notes:tropica": "1b56a594359a",
+      "notes:aquariumbreeder": "829566ffee09"
+    }
   },
   "crinum-calamistratum": {
     "at": "2026-11-07",
@@ -1511,15 +1543,29 @@
     }
   },
   "limnobium-laevigatum": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "Amazon Frogbit",
     "confidence": "high",
-    "score": 0.9,
-    "notes": [
-      "Item 4: \"cup tertutup\" leaves English \"cup\" in place; \"cangkir/wadah tertutup\" or \"cup (wadah) tertutup\" would be more natural. This is minor.",
-      "Item 2: the source text is Vietnamese, not English. The translation is faithful and I found no meaning errors."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "59b516c565c6",
+      "quickFacts:aquariumbreeder": "309cb1253ccf",
+      "beforeYouBuy:aquariumbreeder": "f80b00493746",
+      "distribution:aquariumbreeder": "c53c99d6af68",
+      "habitat:aquariumbreeder": "ab9cd04cc311",
+      "aquariumSize:aquariumbreeder": "dfcccd3d9d7c",
+      "maintenance:aquatome": "350432080dfe",
+      "maintenance:tropica": "20c294bd22f8",
+      "maintenance:aquariumbreeder": "4ffd739b681b",
+      "waterConditions:aquariumbreeder": "e5ca66b5ae45",
+      "equipment:aquariumbreeder": "8166925a629b",
+      "behaviour:aquariumbreeder": "b01967d2ad7d",
+      "reproduction:aquariumbreeder": "c83089c53cbb",
+      "notes:tropica": "b645db1d5396",
+      "notes:aquariumbreeder": "817d0cd318ce"
+    }
   },
   "limnophila-aquatica": {
     "at": "2026-11-04",
@@ -1558,15 +1604,32 @@
     ]
   },
   "limnophila-sessiliflora": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "Ambulia",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "Item 9: \"Pendapat ini tidak sepenuhnya disetujui\" softens the English \"does not agree\". Use a neutral, firm phrasing such as \"Pendapat ini tidak sesuai dengan pengamatan: ...\".",
-      "Item 10: \"bergerigi atau bergerigi tajam\" repeats the same word. Use \"bergerigi atau bergerigi kasar/berduri halus\", or \"bergerigi\" and \"bergigi\" for jagged/serrated."
-    ]
+      "Item 10: \"Pendapat ini tidak disetujui\" is stiff and loses the neutral \"the author does not agree\". Use something like \"Pendapat ini tidak sesuai dengan pengamatan: ...\".",
+      "Item 7: \"gundul memanjang\" for \"leggy\" is a little clumsy. \"kurus dan memanjang\" or \"etiolasi\" would read more naturally."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "0e4e9c0d81b9",
+      "quickFacts:tropica": "2821d4c647a7",
+      "beforeYouBuy:aquariumbreeder": "8decb69bdb36",
+      "distribution:aquariumbreeder": "0eb4bc2ed9a7",
+      "habitat:aquariumbreeder": "28dc0b5559ba",
+      "aquariumSize:aquariumbreeder": "8e0d8b44f218",
+      "maintenance:aquariumbreeder": "40482e9e222e",
+      "maintenance:aquatome": "c5689b476ad3",
+      "waterConditions:aquariumbreeder": "e98af4b49ccb",
+      "equipment:aquariumbreeder": "77857411b705",
+      "reproduction:aquatome": "9de8fafe76a6",
+      "notes:aquariumbreeder": "3d90329f68eb",
+      "notes:tropica": "766801544124",
+      "notes:aquatome": "abec291fa74e",
+      "references:aquariumbreeder": "d5e5c4c51c19"
+    }
   },
   "lindernia-rotundifolia": {
     "at": "2026-11-04",
@@ -2490,17 +2553,36 @@
     ]
   },
   "taxiphyllum-barbieri": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "Java Moss",
     "confidence": "high",
     "score": 0.85,
-    "notes": [
-      "#5: \"burayak\" is a regional term for fry; \"benih ikan\" or \"anakan ikan\" is more common for hobbyists, and \"burayak\" also sounds inconsistent next to \"anakan ikan\" in the same passage.",
-      "#6: \"mirip tanaman rambat\" for ivy is loose; \"mirip ivy/sirih belanda\" would be more precise.",
-      "#3: \"Udang dengan senang hati akan memakan habis serabut putih\" is slightly stiff; the \"white fluff\" is also vague, so say that the shrimp eat the algae.",
-      "#6: \"melayang di situ\" for \"float there\" is awkward; \"mengambang\" would be more natural."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumcoop": "9848f8ed22ca",
+      "quickFacts:tropica": "f8681475033f",
+      "maintenance:aquariumcoop": "063e0b657d5b",
+      "maintenance:tropica": "4befc7c3a8b4",
+      "behaviour:aquariumcoop": "3182b3661432",
+      "notes:aquariumcoop": "d3c5728b46a4",
+      "notes:tropica": "a1cf404c400e"
+    },
+    "failed": {
+      "at": "2026-11-20T01:01:11.280Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "8f8ea319e177",
+        "beforeYouBuy:aquariumbreeder": "ad1fdd4b10fc",
+        "distribution:aquariumbreeder": "495e0cf4a192",
+        "habitat:aquariumbreeder": "48a35ee6ee25",
+        "aquariumSize:aquariumbreeder": "ab50a4f300f5",
+        "maintenance:aquariumbreeder": "2736febdd8f7",
+        "waterConditions:aquariumbreeder": "862aa5dd214a",
+        "equipment:aquariumbreeder": "8bcee5e77aac",
+        "behaviour:aquariumbreeder": "6ee89fdb49cf",
+        "notes:aquariumbreeder": "cf8355fd6b93"
+      }
+    }
   },
   "taxiphyllum-sp-flame-moss": {
     "at": "2026-11-06",

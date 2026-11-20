@@ -1,0 +1,40 @@
+{
+ "at": "2026-11-20T02:22:56Z",
+ "checks": [
+  "elsewhere"
+ ],
+ "findings": [
+  {
+   "check": "elsewhere",
+   "quote": "Loài này nhập khẩu không đều đặn",
+   "why": "The species is native to Vietnam, so saying it is irregularly imported describes a foreign market, not the reader's."
+  }
+ ],
+ "text": {
+  "slug": "ca-tren-bleeker",
+  "name": "Cá trèn Bleeker",
+  "altNames": [
+   "Bleeker's Sheatfish"
+  ],
+  "sections": {
+   "beforeYouBuy:seriouslyfish": "<ul><li>Cần bể rất lớn.</li><li>Phải có nắp đậy khít vì loài này hay nhảy.</li></ul><p>Phalacronotus bleekeri là một loài cá da trơn cỡ lớn thuộc họ Siluridae, sống ở Thái Lan, Campuchia, Lào và Việt Nam. Loài này nhập khẩu không đều đặn và hay bị nhầm với vài loài cùng chi. Cá dài tới 60 cm nên cần nhiều chỗ bơi thoáng, lọc mạnh và nắp nặng, đậy khít. Cá sẽ ăn mọi con cá nhỏ hơn vừa miệng.</p>",
+   "distribution:seriouslyfish": "<p>Thái Lan, Campuchia, Lào, Việt Nam.</p>",
+   "habitat:seriouslyfish": "<p>Loài này sống ở sông, hồ, suối và ao. Đến mùa mưa, chúng di cư lên các vùng ngập nước. Những đợt di cư này chịu ảnh hưởng của chu kỳ trăng và mực nước lên xuống.</p>",
+   "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn: 60 cm SL.</p><p>Đáy bể: 180 × 60 cm.</p><p>Thể tích: khoảng 648 lít.</p><p>Bể 180 × 60 × 60 cm, khoảng 648 lít, là mức tối thiểu cho một con cá trưởng thành. Bể càng lớn càng tốt.</p>",
+   "maintenance:seriouslyfish": "<p>Loài này cần nhiều chỗ bơi thoáng, kèm vài chỗ trốn vừa cỡ với nó. Mấy đoạn ống nhựa dày là đủ dùng làm chỗ trốn, vì cây thủy sinh khó mà chịu nổi một con cá cỡ này quẫy trong bể. Lọc phải mạnh và hiệu quả. Cá ăn bừa bộn, thải nhiều chất bẩn và nhạy cảm với chất lượng nước suy giảm. Cũng vì vậy mà việc thay nước định kỳ phải thực hiện nghiêm túc. Nắp bể phải thật nặng và đậy khít vì cá nhảy giỏi.</p>",
+   "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 22–27°C</li><li>pH: 6,0–7,0</li><li>Độ cứng: 3–10 dGH</li></ul>",
+   "diet:seriouslyfish": "<p>Cá khá dễ ăn, nhận hầu hết đồ tươi sống, đông lạnh và thức ăn khô. Con lớn thì cho ăn giun đất, miếng tôm, miếng trai và cám viên khô.</p>",
+   "behaviour:seriouslyfish": "<p>So với kích thước của nó, loài này khá hiền, nhưng cá sẽ ăn mọi con cá nhỏ hơn vừa miệng. Có thể nuôi chung với cá họ chép cỡ vừa đến lớn, cá characin, các loài cá da trơn châu Á hoặc Nam Mỹ cỡ tương đương và cá cichlid cỡ lớn.</p>",
+   "dimorphism:seriouslyfish": "<p>Gai vây ngực của cá đực có mép răng cưa, cá cái thì không. Cá cái đủ lớn để đẻ thì thân dày hơn cá đực.</p>",
+   "reproduction:seriouslyfish": "<p>Đến nay có lẽ chưa có trường hợp nào cho loài này sinh sản thành công trong bể.</p>",
+   "notes:seriouslyfish": "<p>Loài này ít khi được nhập khẩu và hay bị nhầm với vài loài cùng chi. Nó là một bổ sung thú vị cho bể cá lớn nuôi chung.</p>"
+  },
+  "quality": {
+   "score": 0.85,
+   "indexable": true,
+   "bySource": {
+    "seriouslyfish": 0.85
+   }
+  }
+ }
+}

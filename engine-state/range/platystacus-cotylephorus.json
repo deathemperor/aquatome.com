@@ -1,8 +1,8 @@
 {
   "id": "platystacus-cotylephorus",
   "native": {
-    "input": "350b045726e9537e",
-    "at": "2026-11-12T21:02:28.514Z",
+    "input": "6e2858f4e9f9ca8e",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
       {
         "code": "VE",
@@ -29,12 +29,13 @@
         "ok": true
       },
       {
-        "code": "GF",
+        "code": "FR",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.",
         "words": "French Guiana",
-        "ok": true
+        "ok": false,
+        "why": "\"French Guiana\" is not FR"
       },
       {
         "code": "GY",
@@ -81,7 +82,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "GF"
+      ],
       "sourcesOnly": []
     }
   },
@@ -179,11 +182,10 @@
       "VE",
       "BR",
       "GY",
-      "GF",
       "SR",
       "TT"
     ],
     "requests": 13,
-    "at": "2026-11-12T21:02:28.514Z"
+    "at": "2026-11-20T01:55:49.831Z"
   }
 }

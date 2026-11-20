@@ -10,6 +10,81 @@
     "guyana",
     "essequibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY"
+      ],
+      "regions": [
+        "Essequibo",
+        "Potaro",
+        "Cuyuni",
+        "Mazaruni"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Essequibo River basin, Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: the species has a restricted range in the Essequibo-Potaro and Cuyuni-Mazaruni basins.",
+          "countries": [],
+          "regions": [
+            "Potaro",
+            "Cuyuni",
+            "Mazaruni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340602,
+      "total": 16,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "GY",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          -60.46875,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          5.625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

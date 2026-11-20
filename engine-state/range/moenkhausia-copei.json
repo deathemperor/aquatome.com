@@ -1,0 +1,130 @@
+{
+  "id": "moenkhausia-copei",
+  "native": {
+    "input": "d8398f01f0af6729",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "Moenkhausia copei is widespread in the Amazon and Orinoco basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "Moenkhausia copei is widespread in the Amazon and Orinoco basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Moenkhausia copei",
+    "status": "ACCEPTED",
+    "taxonKey": 2352601,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        408
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        115
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        86
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        83
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        55
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        37
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        30
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        20
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        10
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        9
+      ],
+      [
+        "3b8f8089-0261-4ec1-829c-1f17828fbd96",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        5
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        5
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        4
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

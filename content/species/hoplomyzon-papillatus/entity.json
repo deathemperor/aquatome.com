@@ -10,6 +10,61 @@
     "ecuador",
     "rio-aguarico"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Napo",
+        "Portuguesa",
+        "Rio Aguarico"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Ecuador, Napo Province, Rio Aguarico, about 1 km upstream from confluence with Rio Shushufindi, lat. 0°17'S, long. 76°25.4'W.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Rio Aguarico"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Napo and Portuguesa River basins.",
+          "countries": [],
+          "regions": [
+            "Napo",
+            "Portuguesa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340539,
+      "total": 1,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

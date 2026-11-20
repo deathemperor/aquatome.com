@@ -3,6 +3,12 @@
   "name": "Casiquiare",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T01:51:47.195Z",
+    "why": "Casiquiare is a river/canal (Casiquiare channel), and a Malay atlas would write \"Sungai Casiquiare\" (or \"Terusan Casiquiare\"), so the bare name omits the kind word."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

@@ -12,6 +12,112 @@
     "venezuela",
     "maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Magdalena River",
+        "Lake Maracaibo"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Magdalena River and Lake Maracaibo basins: Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Magdalena River",
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340523,
+      "total": 38,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "CO",
+          35
+        ],
+        [
+          "VE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          1.40625,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -75.9375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

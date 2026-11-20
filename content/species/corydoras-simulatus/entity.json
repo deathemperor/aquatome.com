@@ -17,10 +17,13 @@
         "CO"
       ],
       "regions": [
-        "Meta"
+        "Meta",
+        "Río Ocoá",
+        "Rio Meta"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -31,6 +34,22 @@
           ],
           "regions": [
             "Meta"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Río Ocoá near Puerto López, 4°06'N, 72°57'W, River Meta system, Meta, Colombia', and this species is known only from the upper Meta watershed.",
+          "countries": [],
+          "regions": [
+            "Río Ocoá"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "There it lives in the same rivers – the Rio Meta and its tributaries – as the round-snouted Corydoras metae.",
+          "countries": [],
+          "regions": [
+            "Rio Meta"
           ]
         }
       ]

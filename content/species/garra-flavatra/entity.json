@@ -17,7 +17,10 @@
       ],
       "regions": [
         "Rakhine Yoma",
-        "Arakan"
+        "Arakan",
+        "Rakhine mountain range",
+        "Kamyit Chaung",
+        "Baw Di Chaung"
       ],
       "sources": [
         "glaser",
@@ -40,6 +43,30 @@
           "regions": [
             "Rakhine Yoma",
             "Arakan"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "The Panda Garra is native to the Rakhine mountain range in Western Myanmar.",
+          "countries": [],
+          "regions": [
+            "Rakhine mountain range"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kamyit Chaung river it was collected alongside Opsarius barna, Rasbora daniconius, R. rasbora, Aplocheilus panchax, Lepidocephalichthys berdmorei, Batasio elongatus, Awaous personatus, Sicyopterus punctatus plus unidentified Danio, Eleotris, Redigobius, Mastacembelus and Microphis species as well as G. propulvinus, another previously unknown congener.",
+          "countries": [],
+          "regions": [
+            "Kamyit Chaung"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Baw Di Chaung is the third locality covered in the paper.",
+          "countries": [],
+          "regions": [
+            "Baw Di Chaung"
           ]
         }
       ]

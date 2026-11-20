@@ -9,6 +9,88 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This sand cichlid originates from Lake Tanganyika, where it is found almost all over the lake with the exception of the extreme south.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369716,
+      "total": 105,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "CD",
+          41
+        ],
+        [
+          "BI",
+          36
+        ],
+        [
+          "TZ",
+          28
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          17
+        ],
+        [
+          28.125,
+          -5.625,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          43
+        ],
+        [
+          29.53125,
+          -8.4375,
+          14
+        ],
+        [
+          29.53125,
+          -7.03125,
+          12
+        ],
+        [
+          29.53125,
+          -5.625,
+          16
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1
+        ],
+        [
+          33.75,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -19,9 +19,12 @@
         "PE",
         "BR"
       ],
-      "regions": [],
+      "regions": [
+        "Amazon"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -33,6 +36,14 @@
             "BR"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin of Bolivia, Brazil and Peru.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
         }
       ]
     },

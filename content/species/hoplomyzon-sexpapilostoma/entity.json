@@ -11,6 +11,119 @@
     "orinoco",
     "colombia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Masparro",
+        "Ariari",
+        "Guaviare",
+        "Apure"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Orinoco River basin of Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "In Colombia it occurs in rivers Ariari, Caja, Upamena, Cusiana, and Cravo Norte.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Ariari"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Hoplomyzon sexpapilostoma was described from Masparro river at Masparro dam, Barinas state (Taphorn and Marrero 1990).",
+          "countries": [],
+          "regions": [
+            "Masparro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is widely distributed in Western Andean tributaries of the Orinoco basin, along the piedmont region from the river Ariari (Guaviare drainage) to the Guache river in Portuguesa drainage (Taphorn and Marrero 1990).",
+          "countries": [],
+          "regions": [
+            "Guaviare"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "In Venezuela the species is reported from rivers Torbes, Bumbum, La Yuca, Masparro, Boconó, Guanare, Las Marías and Guache, all in Apure drainage.",
+          "countries": [],
+          "regions": [
+            "Apure"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340538,
+      "total": 34,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "VE",
+          34
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          8.4375,
+          24,
+          24
+        ],
+        [
+          -60.46875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

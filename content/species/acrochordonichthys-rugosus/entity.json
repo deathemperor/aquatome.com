@@ -21,15 +21,16 @@
     "native": {
       "countries": [
         "ID",
-        "MY",
-        "TH"
+        "TH",
+        "MY"
       ],
       "regions": [
-        "Solo",
         "Java",
         "Sumatra",
         "Borneo",
-        "Rajang"
+        "Rajang",
+        "Mahakam",
+        "Solo"
       ],
       "sources": [
         "seriouslyfish",
@@ -43,16 +44,17 @@
             "ID"
           ],
           "regions": [
-            "Solo",
-            "Rajang"
+            "Rajang",
+            "Mahakam",
+            "Solo"
           ]
         },
         {
           "source": "seriouslyfish",
           "quote": "The Asian banjo catfish, Acrochordonichthys rugosus, is an akysid catfish from Java, Sumatra, Borneo, Peninsular Malaysia and southern Thailand.",
           "countries": [
-            "MY",
-            "TH"
+            "TH",
+            "MY"
           ],
           "regions": [
             "Java",

@@ -39,7 +39,8 @@
         "Java"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -58,8 +59,7 @@
             "Chao Phraya",
             "Mae Klong",
             "Borneo",
-            "Sumatra",
-            "Java"
+            "Sumatra"
           ]
         },
         {
@@ -68,7 +68,9 @@
           "countries": [
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "Java"
+          ]
         }
       ]
     },

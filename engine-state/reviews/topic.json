@@ -504,6 +504,41 @@
       ]
     }
   ],
+  "id/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": [
+    {
+      "at": "2026-11-20T01:07:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-20T01:07:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Udang dan invertebrata lain\": the facts only say \"some invertebrates\" are sensitive. Naming shrimp is a small unsupported specific.",
+        "\"Begitu ada tanda bintik putih, segera mulai pengobatan\": this slightly contradicts the facts, which say white spots alone must not be used to diagnose Ich and the diagnosis should be confirmed first. The fact says to treat once a parasite is found."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.88,
+        0.9,
+        0.9
+      ]
+    }
+  ],
   "id/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": [
     {
       "at": "2026-11-08T20:29:33Z",

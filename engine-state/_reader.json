@@ -3108,6 +3108,12 @@
     "findings": [],
     "ruled": "5f8e97e3c782ce7f"
   },
+  "vi/guides/aquariumbreeder-how-to-quarantine-and-disinfect-aquarium-plants": {
+    "at": "2026-11-20",
+    "hash": "035ae1a9f66a797f",
+    "findings": [],
+    "ruled": "035ae1a9f66a797f"
+  },
   "vi/guides/aquariumbreeder-how-to-remove-algae-with-plants": {
     "at": "2026-11-19",
     "hash": "e39229023a9589c9",
@@ -9566,6 +9572,68 @@
     ],
     "ruled": "ea6c44ee79b9aba0"
   },
+  "vi/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": {
+    "at": "2026-11-20",
+    "hash": "521918a57ef50633",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L2",
+        "quote": "vì thuốc chỉ diệt được ký sinh lúc nó đang bơi ngoài nước",
+        "problem": "\"Ngoài nước\" means out of the water, but the parasite is only killed while it swims free in the water. This also clashes with \"trong nước\" in the body text.",
+        "fix": "vì thuốc chỉ diệt được ký sinh lúc nó đang bơi trong nước",
+        "field": "summary.1"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L6",
+        "quote": "Vì thuốc chỉ diệt được ký sinh lúc nó đang bơi ngoài nước.",
+        "problem": "\"Ngoài nước\" means out of the water. It should say the free-swimming stage in the water.",
+        "fix": "Vì thuốc chỉ diệt được ký sinh lúc nó đang bơi tự do trong nước.",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Loài ký sinh này sống trọn vòng đời trên cá mà không cần vật chủ thứ hai.",
+        "problem": "The page says the parasite lives its whole life cycle on the fish, but the next sentence says the adult leaves the fish and forms a cyst in the tank. The intended point is only that it needs no second host.",
+        "fix": "Loài ký sinh này chỉ cần cá làm vật chủ, không cần vật chủ thứ hai.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mà người ta quen gọi là \\\"nấm cá\\\" thật ra",
+        "problem": "Escape backslashes were left in front of the quotation marks.",
+        "fix": "mà người ta quen gọi là \"nấm cá\" thật ra",
+        "rule": "A backslash directly before a quotation mark in the page text.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ở đây Ich thường gọi là bệnh đốm trắng, \\\"cá bị đốm trắng\\\".",
+        "problem": "Escape backslashes were left in front of the quotation marks.",
+        "fix": "Ở đây Ich thường gọi là bệnh đốm trắng, \"cá bị đốm trắng\".",
+        "rule": "A backslash directly before a quotation mark in the page text.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mấy bệnh khác hay gặp:",
+        "problem": "Septicaemia, fish TB and Spironucleus are listed under the \"Chữa\" section of a page about white spot and fungus. That section does not promise them, and they don't belong there.",
+        "field": "body"
+      }
+    ],
+    "ruled": "521918a57ef50633"
+  },
   "vi/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": {
     "at": "2026-11-01",
     "hash": "658a5f2d923fb321",
@@ -10354,6 +10422,32 @@
       }
     ],
     "ruled": "cceabaf542befbaa"
+  },
+  "vi/guides/aquatome-may-sui-oxy-dung-bao-duong-va-co-ton-dien-khong": {
+    "at": "2026-11-20",
+    "hash": "56618364fdca6fb9",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "còn chỉ gắn bơm tạo dòng thì oxy không tăng rõ",
+        "problem": "Uses a translated term for a wave maker instead of the hobby term 'thổi luồng' the site uses.",
+        "fix": "còn chỉ gắn thổi luồng thì oxy không tăng rõ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L1",
+        "quote": "Bọt khí làm mặt nước gợn lên, nhờ vậy CO2 thoát ra và oxy hòa vào nước.",
+        "problem": "'nhờ vậy' reads as translated connective, listed as a phrase to avoid.",
+        "fix": "Bọt khí làm mặt nước gợn lên, CO2 thoát ra và oxy hòa vào nước.",
+        "rule": "the phrase 'nhờ vậy' appearing anywhere on a Vietnamese page",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "56618364fdca6fb9"
   },
   "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon": {
     "at": "2026-11-17",
@@ -11638,6 +11732,22 @@
     ],
     "ruled": "b7d52932040179a1"
   },
+  "vi/guides/glaser-en-10-catfishes-hey-hey-hey-hey-little-pirate": {
+    "at": "2026-11-20",
+    "hash": "8452282e32cd2cf9",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đây là điệp khúc một bài hát của ban nhạc Rodgau Monotones.",
+        "problem": "The page opens by pointing to a song chorus that it never quotes, so readers can't tell what 'this' refers to.",
+        "fix": "Câu chuyện làm nhớ tới một bài hát của ban nhạc Rodgau Monotones.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8452282e32cd2cf9"
+  },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-beautiful-new-varieties-of-liverbearers-arrived-en": {
     "at": "2026-11-17",
     "hash": "305c57c33f0b7498",
@@ -12066,6 +12176,12 @@
     "hash": "343b27a4129473d3",
     "findings": [],
     "ruled": "343b27a4129473d3"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-new-bettas-2-alien-blue-alien-steel-blue-and-alien-green": {
+    "at": "2026-11-20",
+    "hash": "d4df3b858b63d366",
+    "findings": [],
+    "ruled": "d4df3b858b63d366"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-the-total-ban-of-channa-in-the-eu-is-off-the-table": {
     "at": "2026-11-18",
@@ -15998,6 +16114,22 @@
     ],
     "ruled": "2d28fe16a2353f3f"
   },
+  "vi/guides/youtube--Vah5qCPGqo": {
+    "at": "2026-11-20",
+    "hash": "5a34f3413a6a7ac3",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ý này chỉ là nghe nói, cứ coi như được thêm nếu có.",
+        "problem": "This reads like a word-for-word translation, and a Vietnamese reader would stumble over \"cứ coi như được thêm nếu có\".",
+        "fix": "Chuyện này chỉ là nghe nói, nếu đúng thì coi như được lợi thêm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5a34f3413a6a7ac3"
+  },
   "vi/guides/youtube--Vx8LD5r_Zs": {
     "at": "2026-11-11",
     "hash": "47907e7cb0e00465",
@@ -17017,6 +17149,22 @@
     ],
     "ruled": "99e180f39b2f07d8"
   },
+  "vi/guides/youtube-3DsCnBa9360": {
+    "at": "2026-11-20",
+    "hash": "ab0f4e95fa28c366",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nếu thích thì chọn bóng 6500 K, ánh sáng này làm màu xanh của cây trông xanh hơn.",
+        "problem": "The page first names a 4 W, 6500 K bulb as what is enough, then the next sentence presents 6500 K as an optional extra, so readers can't tell whether 6500 K is needed.",
+        "fix": "Chỉ một chiếc đèn bàn lắp bóng LED khoảng 4 W là đủ cho bể cỡ này. Nếu thích thì chọn bóng 6500 K, ánh sáng này làm màu xanh của cây trông xanh hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ab0f4e95fa28c366"
+  },
   "vi/guides/youtube-3ghYi_liXK0": {
     "at": "2026-11-18",
     "hash": "d385b0c15a27d08a",
@@ -17381,6 +17529,21 @@
       }
     ],
     "ruled": "2886fe52c6f6da37"
+  },
+  "vi/guides/youtube-54hYFlHTSOs": {
+    "at": "2026-11-20",
+    "hash": "2f69736e23d56b34",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trên lớp tảo phủ kính còn thấy rõ cả vết ốc bò.",
+        "problem": "This sentence stands alone after the paragraph on telling whether the algae has stopped spreading. It has nothing to do with that section and reads like a leftover note about a video frame.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2f69736e23d56b34"
   },
   "vi/guides/youtube-5ajPkl9rhKQ": {
     "at": "2026-11-07",
@@ -17758,6 +17921,12 @@
     "hash": "34615646d8a96187",
     "findings": [],
     "ruled": "34615646d8a96187"
+  },
+  "vi/guides/youtube-6R-aFWdSN6Y": {
+    "at": "2026-11-20",
+    "hash": "97a3706c380b88a8",
+    "findings": [],
+    "ruled": "97a3706c380b88a8"
   },
   "vi/guides/youtube-6rXHkX20hqA": {
     "at": "2026-11-06",
@@ -19517,6 +19686,33 @@
     "findings": [],
     "ruled": "a06d673ce4833953"
   },
+  "vi/guides/youtube-BV0J8fUMceU": {
+    "at": "2026-11-20",
+    "hash": "db23c5e39173f171",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có thể là do đèn sáng so với lượng cây đang có",
+        "problem": "\"Đèn sáng so với lượng cây\" leaves out \"quá\", so the comparison doesn't read naturally. The same wording appears in L4 and L12.",
+        "fix": "có thể là do đèn quá sáng so với lượng cây đang có",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-20",
+        "field": "body",
+        "score": 0.86,
+        "kept": true,
+        "problems": [
+          "This sentence is garbled: \"những thứ đó\" seems to be the subject of \"để yên\", so it reads as if the algae and dirt themselves should leave the tank alone."
+        ]
+      }
+    ],
+    "ruled": "db23c5e39173f171"
+  },
   "vi/guides/youtube-bWmyz67XkT4": {
     "at": "2026-11-11",
     "hash": "f9020b593f5e45ee",
@@ -20931,6 +21127,12 @@
     ],
     "ruled": "c8136e2f5a2695b6"
   },
+  "vi/guides/youtube-eSOzDN6wfk8": {
+    "at": "2026-11-20",
+    "hash": "5f0b69799ad24890",
+    "findings": [],
+    "ruled": "5f0b69799ad24890"
+  },
   "vi/guides/youtube-esteJB9Ji0Y": {
     "at": "2026-11-11",
     "hash": "e3e9b07d35934f32",
@@ -21688,6 +21890,22 @@
     "hash": "4804a7259ce85734",
     "findings": [],
     "ruled": "4804a7259ce85734"
+  },
+  "vi/guides/youtube-Gk88H137s8I": {
+    "at": "2026-11-20",
+    "hash": "7ba96cb557cb09a5",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "mấy việc chăm định kỳ: thêm cây phía sau bể, cắt tỉa, lau kính và cho ăn ít đi",
+        "problem": "The intro promises a section on adding plants at the back of the tank, but the page has no such section, only pruning, glass cleaning and feeding.",
+        "fix": "Các phần dưới đây là mấy việc chăm định kỳ: cắt tỉa, lau kính và cho ăn ít đi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7ba96cb557cb09a5"
   },
   "vi/guides/youtube-GKB2uxcmJ2g": {
     "at": "2026-11-17",
@@ -23076,6 +23294,22 @@
     ],
     "ruled": "b1c1aa0bd9c6ecba"
   },
+  "vi/guides/youtube-IOT1NeQ6x7g": {
+    "at": "2026-11-20",
+    "hash": "3e632fe71a94e143",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổ nước tới mức nước dự định.",
+        "problem": "The test-run step says to fill to the planned water level, but summary L3 says to add only a little water, and the final step says to top up to the long-term level afterwards.",
+        "fix": "Đổ một ít nước vào, đủ ngập bơm để chạy thử.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3e632fe71a94e143"
+  },
   "vi/guides/youtube-ipTDkQsT6HQ": {
     "at": "2026-11-10",
     "hash": "4bca93139567b8a4",
@@ -23628,6 +23862,22 @@
       }
     ],
     "ruled": "2604d4d0107effa7"
+  },
+  "vi/guides/youtube-JLqSW36m2cI": {
+    "at": "2026-11-20",
+    "hash": "1d37fff9e073ccfe",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một bể dài 120 cm, khoảng 65 ngày tuổi",
+        "problem": "\"Ngày tuổi\" is used for animals, not tanks, so this phrase reads oddly for a tank's age since setup.",
+        "fix": "một bể dài 120 cm, set được khoảng 65 ngày",
+        "field": "body"
+      }
+    ],
+    "ruled": "1d37fff9e073ccfe"
   },
   "vi/guides/youtube-jmOoiLzV0Z8": {
     "at": "2026-11-03",
@@ -27298,6 +27548,12 @@
     ],
     "ruled": "b9812a47dd59d85d"
   },
+  "vi/guides/youtube-Pn0-xaW8S3w": {
+    "at": "2026-11-20",
+    "hash": "979bddb14e4a2eee",
+    "findings": [],
+    "ruled": "979bddb14e4a2eee"
+  },
   "vi/guides/youtube-PnLf3RxViMg": {
     "at": "2026-11-15",
     "hash": "d3529c122641a094",
@@ -27371,6 +27627,22 @@
       }
     ],
     "ruled": "919e3e98326df022"
+  },
+  "vi/guides/youtube-PQ_DmRR-I2A": {
+    "at": "2026-11-20",
+    "hash": "5d3d206b85fb5ede",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Nhận ra cá cái đang mang trứng",
+        "problem": "Endlers give birth to live young, and the section itself says \"mang con\", but the heading says the female is carrying eggs (\"mang trứng\").",
+        "fix": "## Nhận ra cá cái đang mang con",
+        "field": "body"
+      }
+    ],
+    "ruled": "5d3d206b85fb5ede"
   },
   "vi/guides/youtube-pRIhyV1gwaw": {
     "at": "2026-11-06",
@@ -27745,6 +28017,12 @@
       }
     ],
     "ruled": "cec8ab7f2af4b477"
+  },
+  "vi/guides/youtube-QrEpwKvqF8M": {
+    "at": "2026-11-20",
+    "hash": "835c76565c3acec4",
+    "findings": [],
+    "ruled": "835c76565c3acec4"
   },
   "vi/guides/youtube-QRffuIKYrNg": {
     "at": "2026-11-03",
@@ -28170,6 +28448,12 @@
     "hash": "8c2ed8b96d383e38",
     "findings": [],
     "ruled": "8c2ed8b96d383e38"
+  },
+  "vi/guides/youtube-rrH5He5rjMw": {
+    "at": "2026-11-20",
+    "hash": "ac9e4e79f65562af",
+    "findings": [],
+    "ruled": "ac9e4e79f65562af"
   },
   "vi/guides/youtube-RSbUTX0qyzs": {
     "at": "2026-11-04",
@@ -29815,6 +30099,49 @@
     ],
     "ruled": "dc91773415757e91"
   },
+  "vi/guides/youtube-UNtXF-cdJxs": {
+    "at": "2026-11-20",
+    "hash": "7e683a8c2acf7243",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có thể dùng Tropica Aquarium Soil, vì loại này từng dùng và cho kết quả tốt.",
+        "problem": "The clause has no subject (\"loại này từng dùng\" means the soil itself used something), which is a garbled leftover of the source author's \"I've used it\".",
+        "fix": "Có thể dùng Tropica Aquarium Soil, loại này dùng cho kết quả tốt.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "có loại cây trải thảm lan rất nhanh và có thể lớn rất to, cắt tỉa ở đâu cũng được",
+        "problem": "The list item never names the plant, so the reader can't tell which plant should go in the wood's cracks.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "rồi đổ nước rót lên viên đá đó",
+        "problem": "\"đổ nước rót\" puts two verbs that mean the same thing side by side, which reads as garbled.",
+        "fix": "rồi rót nước lên viên đá đó",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy nên dồn bèo về phía sau mặt nước",
+        "problem": "\"Vì vậy nên\" stacks two connectors and copies the English sentence structure.",
+        "fix": "Nên dồn bèo về phía sau mặt nước cho đèn chiếu xuống được nhiều hơn.",
+        "rule": "The phrase \"Vì vậy nên\" appears anywhere in the text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7e683a8c2acf7243"
+  },
   "vi/guides/youtube-UUEH_Ewta2U": {
     "at": "2026-11-15",
     "hash": "2aea17e891c4d1b7",
@@ -30360,6 +30687,12 @@
       }
     ],
     "ruled": "caefca800d903dd2"
+  },
+  "vi/guides/youtube-WS2ZDT7_lhU": {
+    "at": "2026-11-20",
+    "hash": "75bdde864ca915d2",
+    "findings": [],
+    "ruled": "75bdde864ca915d2"
   },
   "vi/guides/youtube-WTIWljtUFxc": {
     "at": "2026-11-16",

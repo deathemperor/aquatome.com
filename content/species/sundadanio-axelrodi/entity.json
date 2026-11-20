@@ -23,19 +23,23 @@
         "Borneo",
         "Sumatra",
         "Riau Archipelago",
-        "Bangka Island"
+        "Bangka"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Numerous records also exist from the Indonesian provinces of West Kalimantan (Kalimantan Barat), Central Kalimantan (Kalimantan Tengah) and South Kalimantan (Kalimantan Selatan), but the species appears not to occur in the north of the island.",
+          "source": "bwaquatics",
+          "quote": "It occurs in the ancient peat swamp forests of Borneo, Bangka and Sumatra, Indonesia.",
           "countries": [
             "ID"
           ],
-          "regions": []
+          "regions": [
+            "Borneo",
+            "Sumatra"
+          ]
         },
         {
           "source": "seriouslyfish",
@@ -50,10 +54,8 @@
           "quote": "Supposedly native to the Greater Sunda Islands of Borneo and Sumatra as well as the Riau Archipelago and Bangka Island off the east coast of Sumatra, but the only collection/locality details available refer to Bornean populations.",
           "countries": [],
           "regions": [
-            "Borneo",
-            "Sumatra",
             "Riau Archipelago",
-            "Bangka Island"
+            "Bangka"
           ]
         }
       ]

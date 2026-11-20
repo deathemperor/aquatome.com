@@ -19,7 +19,6 @@
       ],
       "regions": [
         "Borneo",
-        "Sumatra",
         "Jelai Bila"
       ],
       "sources": [
@@ -33,17 +32,22 @@
           "countries": [
             "ID"
           ],
+          "regions": []
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Boraras merah is a tiny nano rasbora endemic to southern Borneo, Indonesia.",
+          "countries": [],
           "regions": [
-            "Jelai Bila"
+            "Borneo"
           ]
         },
         {
           "source": "bwaquatics",
-          "quote": "Boraras merah is native to the peat swamp forests and slow-moving blackwater streams of Borneo and parts of Sumatra (Indonesia).",
+          "quote": "It was first collected in the Jelai Bila basin near Sukamara, Central Kalimantan; \"merah\" is the local word for red.",
           "countries": [],
           "regions": [
-            "Borneo",
-            "Sumatra"
+            "Jelai Bila"
           ]
         }
       ]

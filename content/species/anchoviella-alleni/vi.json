@@ -4,9 +4,7 @@
   "altNames": [],
   "sections": {
     "quickFacts:glaser": "<p>Anchoviella alleni thuộc họ cá cơm (Engraulididae), và là một trong rất ít loài của họ này chỉ sống trong nước ngọt. Cá lớn tối đa khoảng 10 cm.</p>",
-    "distribution:glaser": "<p>Số cá này được nhập về từ Peru.</p>",
-    "dimorphism:glaser": "<p>Con đoán là đực thì thon hơn, lớn hơn một chút, và bóng bơi có hình dạng khác với con đoán là cái.</p>",
-    "notes:glaser": "<p>Lứa cá nhận về chỉ dài khoảng 5 cm, cỡ một nửa kích thước tối đa.</p>"
+    "dimorphism:glaser": "<p>Con đoán là đực thì thon hơn, lớn hơn một chút, và bóng bơi có hình dạng khác với con đoán là cái.</p>"
   },
   "quality": {
     "score": 0.85,
@@ -15,11 +13,5 @@
       "glaser": 0.85
     },
     "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-20"
   }
 }

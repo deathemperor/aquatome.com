@@ -550,10 +550,81 @@
     "sonnet": 0.6,
     "back": false
   },
+  "badis-tuivaiei": {
+    "hash": "12755756bf6acd1829b01993e45da5156260e318648934bdb9703f13f0b92b30",
+    "at": "2026-11-20T01:36:15.541Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "bagarius-suchus": {
     "hash": "2fede4027778b8248167acfdfc02979342839d9898cc1a309db69bc7e3d2ae8f",
     "at": "2026-11-18T12:08:59.309Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "bagrichthys-hypselopterus": {
+    "hash": "a56fc7da9600e90248917debacd4097bc468ef4da5cec423e01815395da27370",
+    "at": "2026-11-20T01:36:26.872Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "bagrichthys-macracanthus": {
+    "hash": "d5a182f7c7a540b30575f536512c8a9f9d1fd0d73be703ebba95bfc821adfdda",
+    "at": "2026-11-20T01:36:38.697Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "bagrichthys-obscurus": {
+    "hash": "7b0a819fdb1e4b7be995714284f0642d1846a2777b7ed82bb3ffd5915ba9c679",
+    "at": "2026-11-20T01:36:51.395Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "balitoropsis-zollingeri": {
+    "hash": "f454228bbf128e579846e1ab74b8702daf5960b1a34fb805ae253b641e916445",
+    "at": "2026-11-20T01:37:21.697Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
+    "back": true
+  },
+  "barbodes-aurotaeniatus": {
+    "hash": "0f442d501df27dd1253b26296ebbff834700f139217bf6119ed4d33884aa6916",
+    "at": "2026-11-20T01:37:35.213Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "barbodes-binotatus": {
+    "hash": "569f5728f477d2e93b72b7654208da011d0c6fef3d222bab78339558d1d8e385",
+    "at": "2026-11-20T01:37:48.298Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "barbodes-everetti": {
+    "hash": "f42a303a8ae93433879be2ee88c1f603788be474b17bf15a7734ce5dc583c1e1",
+    "at": "2026-11-20T01:38:00.336Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "barbodes-kuchingensis": {
+    "hash": "fdb7a80789540d2b80edf740ea10707105d6f3ace002b56f7b6795dce1936e13",
+    "at": "2026-11-20T01:38:07.193Z",
+    "sonnet": 0.45,
+    "back": false,
+    "held": [
+      "Item 8: \"botiid, nemacheilid\" keep English family-name forms; \"hillstream loach (balitorid)\" is fine, but \"loach dari famili botiid\" is inconsistent with \"balitorid\" being in brackets; harmonise."
+    ]
+  },
+  "barbodes-lateristriga": {
+    "hash": "53d5f197319ca5fb722bfbf0c4c9207e2dd6ceab30d668cbd29588ac2d475d35",
+    "at": "2026-11-20T01:38:41.561Z",
+    "sonnet": 0.88,
+    "opus": 0.88,
+    "back": true
+  },
+  "barbonymus-altus": {
+    "hash": "60a3a7ef3d69614afafa14b1a8a0c6a0857bd1615566d1f284193adaec4cb0ff",
+    "at": "2026-11-20T01:38:53.928Z",
+    "sonnet": 0.7,
     "back": false
   },
   "betta-simplex": {
@@ -612,10 +683,22 @@
     "opus": 0.95,
     "back": true
   },
+  "channa-melasoma": {
+    "hash": "86914b50cfd400d5bb4b4552c981c9391877403d64f846d3798325fcdad1ce5e",
+    "at": "2026-11-20T01:35:22.971Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "chitala-blanci": {
     "hash": "a12e1b53fbf41d167a6fe6ca948179caeff964a4f9fe364002a5648def58cf81",
     "at": "2026-11-18T00:29:14.680Z",
     "sonnet": 0.7,
+    "back": false
+  },
+  "copella-nattereri": {
+    "hash": "b66479a5d4460cfa36f6be06a330953d60f7643866b53edc587d936a7fea846f",
+    "at": "2026-11-20T01:35:35.857Z",
+    "sonnet": 0.6,
     "back": false
   },
   "corydoras-bifasciatus": {
@@ -858,6 +941,12 @@
     "opus": 0.9,
     "back": true
   },
+  "macrochirichthys-macrochirus": {
+    "hash": "7758676db9934ea5e901cea53261ed6fed5425eba08073d6252f1713b3d2e091",
+    "at": "2026-11-20T01:35:47.742Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "marisa-cornuarietis": {
     "hash": "303565fecd565163975e54cb5bf93a7b8c4d4ddef723ebdd9ca94ba25edabe6b",
     "at": "2026-11-18T12:09:13.964Z",
@@ -934,8 +1023,8 @@
     "back": false
   },
   "parosphromenus-linkei": {
-    "hash": "c71388f689d8ad9163f8efca020124b1cf39d27b392a8ebe8de1b6ef7399b803",
-    "at": "2026-11-19T07:35:34.286Z",
+    "hash": "688c1b9587e9a291db31df162902bdd22f95b32d676b820016f0eaee0844a266",
+    "at": "2026-11-20T01:36:02.012Z",
     "sonnet": 0.6,
     "back": false
   },

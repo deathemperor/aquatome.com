@@ -540,14 +540,20 @@
     }
   },
   "acrochordonichthys-rugosus": {
-    "at": "2026-11-13",
-    "from": "2026-10-30",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
     "name": "Asian banjo catfish",
     "confidence": "low",
-    "score": 0.93,
+    "score": 0.75,
     "notes": [
-      "Item 13: \"lipatan berisi\" for \"fleshy flap\" is slightly awkward; \"lipatan kulit berdaging\" would read more naturally.",
-      "Item 1/15: \"liang ketiak\" for \"axillary pore\" is literal; consider \"liang aksila\" with a short gloss."
+      "#1 \"bertaburan luas\": more natural as \"tersebar luas\".",
+      "#1 \"diketahui oleh sains\": more natural as \"telah lama dikenali dalam kalangan saintis\" or \"telah lama diketahui sains\".",
+      "#2 \"bertindak sebagai racun\": \"bersifat toksik/beracun kepada\" is more natural.",
+      "#2 \"tiada pemerhatian kematian\": awkward; use \"tiada kematian yang pernah diperhatikan\".",
+      "#2 \"menghalau pemangsa\": better \"menangkis/menghalang pemangsa\".",
+      "#3 \"benar-benar aktif pada waktu malam sahaja\": \"strictly nocturnal\" is better \"sepenuhnya nokturnal\" (aktif pada waktu malam sahaja).",
+      "#4 \"famili bagi A. rugosus\": use \"famili tempat A. rugosus tergolong\".",
+      "#4 \"ikan keli\": for catfish ok, but keep consistency with \"catfish\" terms used elsewhere."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "d6b9f2a87513",
@@ -566,7 +572,11 @@
       "reproduction:seriouslyfish": "1e64a9dab8e9",
       "notes:seriouslyfish": "a908dc466c7c",
       "notes:scotcat": "40aa32f39acc",
-      "references:scotcat": "d385b7dbd6eb"
+      "references:scotcat": "d385b7dbd6eb",
+      "quickFacts:glaser": "bdadd0b1e9a3",
+      "beforeYouBuy:glaser": "034430e49c9b",
+      "habitat:glaser": "769525fe89de",
+      "behaviour:glaser": "7a9a3af4e4fe"
     }
   },
   "acrochordonichthys-septentrionalis": {
@@ -3360,15 +3370,29 @@
     }
   },
   "andinoacara-rivulatus": {
-    "at": "2026-11-07",
-    "from": "2026-10-29",
-    "name": "Green Terror",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
+    "name": "Green terror",
     "confidence": "high",
     "score": 0.95,
     "notes": [
-      "Item 1/6: \"Kekerasan air (GH)\" adds a \"(GH)\" label that the English doesn't have. Minor. The English says only \"Hardness\", and the value is in dGH.",
-      "Item 5: \"tumbuhan akuatik yang berakar\" is slightly wordy. \"tumbuhan berakar\" would be enough. Minor."
-    ]
+      "Item 11: 'tukar air yang banyak' is slightly clipped; 'penukaran air yang besar' would be more natural.",
+      "Item 5: 'Tapak akuarium sekurang-kurangnya 150 × 45 cm diperlukan' is stiff; 'Diperlukan tapak akuarium sekurang-kurangnya 150 × 45 cm' reads more naturally."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "c4220fd7e219",
+      "beforeYouBuy:glaser": "ab923fd87634",
+      "distribution:seriouslyfish": "fa0d5e7d9fce",
+      "habitat:seriouslyfish": "e579f77637dd",
+      "aquariumSize:seriouslyfish": "7803624b1d3a",
+      "maintenance:seriouslyfish": "9cb560064008",
+      "waterConditions:seriouslyfish": "9e5598b49e81",
+      "diet:seriouslyfish": "53ef05044272",
+      "behaviour:seriouslyfish": "08e1e79fda66",
+      "dimorphism:seriouslyfish": "1eaf6c3b4da6",
+      "reproduction:seriouslyfish": "84c1c4681682",
+      "reproduction:glaser": "a38114de5ae2"
+    }
   },
   "anematichthys-repasson": {
     "at": "2026-11-17",
@@ -5001,6 +5025,123 @@
       "notes:glaser": "c141fe9e91c1"
     }
   },
+  "apistogramma-personata": {
+    "at": "2026-11-20",
+    "from": "2026-11-17",
+    "name": "Apisto personata",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "\"tidaklah menyerlah\" for \"not a burner\": 'burner' means a very brightly coloured fish, so use e.g. \"bukan ikan yang berwarna terang/garang\"; the current wording is vague.",
+      "\"spesies paling jarang ditemui\" is fine, but \"literatur hobi\" is stiff; use \"bahan bacaan hobi\" or \"penerbitan hobi\".",
+      "\"ketika tenang\" for \"in cool moods\" is acceptable; \"ketika tidak teruja/bertenang\" would be more natural."
+    ],
+    "parts": {
+      "notes:glaser": "b740c7046537"
+    }
+  },
+  "apistogramma-rupununi": {
+    "at": "2026-11-20",
+    "from": "2026-11-09",
+    "name": "Apistogramma rupununi",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Cichlid kerdil\" is acceptable; consider \"siklid kerdil\" as the more common local spelling.\"",
+      "\"sesetengah jantan sudah sekitar 5 cm panjang\" is slightly awkward; better \"sesetengah jantan sudah sepanjang kira-kira 5 cm\".",
+      "\"diimport\" is better written \"diimport\" or \"diimportkan\"; \"jejari paling atas dan paling bawah sirip ekor\" could be \"jejari sirip paling atas dan paling bawah pada sirip ekor\".",
+      "\"Ekor berbentuk lira (lyretail)\" is fine, but \"ekor lyretail\" is simpler for hobbyists."
+    ],
+    "parts": {
+      "notes:glaser": "8b408aa4a55f"
+    }
+  },
+  "apistogramma-steindachneri": {
+    "at": "2026-11-20",
+    "from": "2026-10-29",
+    "name": "Apistogramma steindachneri",
+    "confidence": "medium",
+    "score": 0.92,
+    "notes": [
+      "#8: 'diternak dalam kurungan' is stiff; 'diternak (captive-bred)' or 'ternakan' is more natural for hobbyists.",
+      "#10: 'Pembiak substrat, iaitu ikan yang bertelur pada dasar' adds an explanation that is not in the source; keep it as 'pembiak substrat'.",
+      "#3 and #1: 'daun reput' for 'leaf litter' is acceptable, but 'daun gugur' or 'sarap daun' is more usual in Malay hobby writing."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "bd426c213c36",
+      "distribution:seriouslyfish": "e405eece4a60",
+      "habitat:seriouslyfish": "8be6989815be",
+      "aquariumSize:seriouslyfish": "9ecccfb863c6",
+      "maintenance:seriouslyfish": "a8e33dfeaf4c",
+      "waterConditions:seriouslyfish": "f114bd734a5a",
+      "diet:seriouslyfish": "af94da0f9728",
+      "behaviour:seriouslyfish": "a75e3faeadb3",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "cb1ec86c794f",
+      "notes:seriouslyfish": "399650f1dc12",
+      "references:seriouslyfish": "281a792e30b0"
+    }
+  },
+  "apistogramma-trifasciata": {
+    "at": "2026-11-20",
+    "from": "2026-11-09",
+    "name": "Apisto Trifasciata",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"mengurat betina lain\" is too colloquial for a handbook; use \"memikat\" or \"mengawani betina lain\".",
+      "Item 8: \"dibesarkan dalam kurungan\" is stiff; \"dibiakkan dalam tangki/akuarium\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "7b9d6e3aa408",
+      "distribution:seriouslyfish": "4e09c250c779",
+      "habitat:seriouslyfish": "48c4c3401332",
+      "aquariumSize:seriouslyfish": "c3c4ace67847",
+      "maintenance:seriouslyfish": "e29c3316c7ee",
+      "waterConditions:seriouslyfish": "7cfc6bfba794",
+      "diet:seriouslyfish": "af94da0f9728",
+      "behaviour:seriouslyfish": "a75e3faeadb3",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "7c623badd4f3",
+      "notes:seriouslyfish": "cb394bfada50",
+      "references:seriouslyfish": "efd902d4ddb5",
+      "quickFacts:glaser": "7f82e66d456b",
+      "distribution:glaser": "f8bca674ea6f",
+      "waterConditions:glaser": "08d036adb915",
+      "notes:glaser": "29e4f46fa9b0"
+    }
+  },
+  "apistogramma-uaupesi": {
+    "at": "2026-11-20",
+    "from": "2026-11-06",
+    "name": "Apistogramma uaupesi",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Warna jantan dewasa boleh berbeza-beza dengan ketara\" – English says \"very variable\"; acceptable but \"jantan dewasa\" fine. Minor: \"bukan bentuk lokaliti\" is awkward; use \"bukan variasi lokasi (locality form)\".",
+      "Item 1: \"polikromatisme dalam spesies yang sama\" is stiff; consider \"polikromatisme intraspesifik\" with simpler explanation, e.g. \"kepelbagaian warna dalam spesies yang sama\".",
+      "Item 1: \"cichlid kerdil\" is acceptable; hobbyists commonly say \"dwarf cichlid\" – optionally add in brackets."
+    ],
+    "parts": {
+      "quickFacts:glaser": "10a10c1a96db",
+      "beforeYouBuy:glaser": "f823de7a113a"
+    }
+  },
+  "apistogramma-urteagai": {
+    "at": "2026-11-20",
+    "from": "2026-11-09",
+    "name": "Apistogramma urteagai",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 2: 'Cadangan nama umum: Madre de Dios dwarf cichlid' is left in English; give a Malay form, e.g. 'Cichlid kerdil Madre de Dios' (English trade name could go in brackets).",
+      "Item 1: 'berjinak' is a bit odd; 'baru bermula dalam hobi ini' would read more naturally."
+    ],
+    "parts": {
+      "quickFacts:glaser": "e149f1a65045",
+      "notes:glaser": "79e8b6002a89"
+    }
+  },
   "astronotus-ocellatus": {
     "at": "2026-11-16",
     "from": "2026-11-16",
@@ -5530,16 +5671,46 @@
     ]
   },
   "danio-margaritatus": {
-    "at": "2026-11-06",
-    "from": "2026-11-04",
-    "name": "Celestial Pearl Danio",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
+    "name": "Galaxy Rasbora",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "Item 2/26: \"antara ikan yang paling digembar-gemburkan pernah dikenali dalam hobi ini\" reads awkwardly. Try \"antara ikan yang paling hangat diperkatakan dalam hobi ini\".",
-      "Item 19: \"jantan-jantan yang bersaing kerap bertarung\" is too strong for \"sparring\". \"Berlawan\" or \"bergaduh kecil\" fits better, because the fish only spar.",
-      "Item 26: \"dibekalkan\" for \"supplied\" and \"pengkaji itu\" for \"the authors\" are slightly stiff. The English term \"truncate\" is left in brackets after \"rata di hujung\", and it would read more smoothly if the Malay term stood alone."
-    ]
+      "Item 5: \"Pada mulanya ia dianggap terhad\" adds \"initially\", which the English does not say (it says \"thought restricted\"). Use \"Ia dianggap terhad\"."
+    ],
+    "parts": {
+      "quickFacts:bwaquatics": "2aa18a400532",
+      "quickFacts:seriouslyfish": "cb95429ef7dc",
+      "quickFacts:aquariumcoop": "1d23f4efe301",
+      "distribution:bwaquatics": "44cf5abbe0b3",
+      "distribution:seriouslyfish": "b3a5331d100e",
+      "distribution:aquariumcoop": "fd5511223945",
+      "habitat:bwaquatics": "a56856d4991c",
+      "habitat:seriouslyfish": "6d9c98f42f64",
+      "aquariumSize:seriouslyfish": "157e940b9573",
+      "aquariumSize:aquariumcoop": "db7503cc3351",
+      "maintenance:seriouslyfish": "4997903a12a1",
+      "maintenance:bwaquatics": "e7e4f79bac56",
+      "waterConditions:seriouslyfish": "9b3273853c09",
+      "waterConditions:aquariumcoop": "4141e91d4fb2",
+      "waterConditions:bwaquatics": "e04a83941ff1",
+      "diet:bwaquatics": "db25f07e5946",
+      "diet:seriouslyfish": "a3c4cf0e670e",
+      "diet:aquariumcoop": "1ada08f0df7c",
+      "behaviour:bwaquatics": "4c8597ed7266",
+      "behaviour:seriouslyfish": "89bf16a4b101",
+      "behaviour:aquariumcoop": "cfeb2410542b",
+      "dimorphism:seriouslyfish": "0336fd874415",
+      "dimorphism:aquariumcoop": "51238c811a37",
+      "dimorphism:bwaquatics": "4a028cce10c6",
+      "reproduction:seriouslyfish": "8edc43a287bb",
+      "reproduction:aquariumcoop": "9c865fed68ae",
+      "reproduction:bwaquatics": "1cbd9b83623f",
+      "notes:bwaquatics": "ea50319cde84",
+      "notes:seriouslyfish": "225910c2df3b",
+      "references:seriouslyfish": "da9510f643ec"
+    }
   },
   "danio-rerio": {
     "at": "2026-11-10",
@@ -6826,12 +6997,57 @@
     ]
   },
   "trigonostigma-heteromorpha": {
-    "at": "2026-11-08",
-    "from": "2026-11-08",
-    "name": "Harlequin Rasbora",
+    "at": "2026-11-20",
+    "from": "2026-11-19",
+    "name": "Harlequin rasbora",
     "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "score": 0.93,
+    "notes": [
+      "Item 26: \"ikan keli\" for \"catfishes\" is misleading, as keli usually means Clarias. Use \"ikan hampas\" or \"catfish\" instead."
+    ],
+    "parts": {
+      "quickFacts:sprucepets": "f709719bde2a",
+      "quickFacts:seriouslyfish": "99b8958bd7bc",
+      "quickFacts:aquariumbreeder": "546ebb9bf88f",
+      "beforeYouBuy:aquatome": "385499348276",
+      "distribution:sprucepets": "3286b95b84c4",
+      "distribution:seriouslyfish": "6867de8a877f",
+      "distribution:aquariumbreeder": "a9b07a070bda",
+      "habitat:sprucepets": "e4b352f00c0e",
+      "habitat:seriouslyfish": "eccd30a791c0",
+      "habitat:aquariumbreeder": "42279e8ff67c",
+      "aquariumSize:sprucepets": "1761b5d5f727",
+      "aquariumSize:seriouslyfish": "9ea38f884a37",
+      "aquariumSize:aquariumbreeder": "b628b16c25cd",
+      "maintenance:sprucepets": "8b65d39fb472",
+      "maintenance:seriouslyfish": "a4dcaacfbfbc",
+      "maintenance:aquariumbreeder": "0619eb88a2a6",
+      "maintenance:aquatome": "d8b0d5dcbf79",
+      "waterConditions:sprucepets": "0c3b3a50b5a1",
+      "waterConditions:seriouslyfish": "4791b96e456d",
+      "waterConditions:aquariumbreeder": "506ce12e0f01",
+      "equipment:aquariumbreeder": "be13d7890c7d",
+      "diet:sprucepets": "587d622c2ae6",
+      "diet:seriouslyfish": "ff96509d7a11",
+      "diet:aquariumbreeder": "e64b5f287e56",
+      "behaviour:sprucepets": "66fe74fff4b2",
+      "behaviour:seriouslyfish": "c98cbcfa216d",
+      "behaviour:aquariumbreeder": "9d5d0fc2c289",
+      "behaviour:aquatome": "e314314863cd",
+      "dimorphism:sprucepets": "025c0c1b285c",
+      "dimorphism:seriouslyfish": "730ed57ed51a",
+      "dimorphism:aquariumbreeder": "96e020148902",
+      "dimorphism:aquatome": "479334cb363b",
+      "reproduction:sprucepets": "642b5efb3844",
+      "reproduction:seriouslyfish": "bc24a5eee2d4",
+      "reproduction:aquariumbreeder": "a0fb6f772546",
+      "reproduction:aquatome": "cbbb53cbc14c",
+      "notes:sprucepets": "287b3ce22c2a",
+      "notes:seriouslyfish": "a58eebd23123",
+      "notes:aquariumbreeder": "f6d60398b5d9",
+      "references:sprucepets": "878e34fd589a",
+      "references:seriouslyfish": "96a404778ea6"
+    }
   },
   "tropheus-duboisi": {
     "at": "2026-11-12",
