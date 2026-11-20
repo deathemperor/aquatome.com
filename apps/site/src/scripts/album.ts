@@ -113,9 +113,7 @@ if (box && json) {
     const elsewhere = new Set(fit.split(' ').filter(Boolean).map(Number))
     const mobile = matchMedia('(max-width: 860px)')
     const thumbs = [...list.querySelectorAll<HTMLAnchorElement>('a[data-i]')]
-    const capped = box.classList.contains('column') ? thumbs.filter(a => !a.closest('.more')).slice(6) : []
     const fits = () => {
-      for (const a of capped) a.closest('li')!.hidden = mobile.matches
       const v = list.getBoundingClientRect()
       const right = v.left + box.clientWidth
       const seen = new Set(thumbs.filter(a => shows(a, v) && (!mobile.matches ||
