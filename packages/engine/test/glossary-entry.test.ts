@@ -1174,8 +1174,9 @@ test('the step\'s fact check passes the house form for a medicine\'s dose unread
 })
 
 // The chief of staff, 20 Nov 2026: the dose rule stops a save, for an amount given for a medicine or a pointer to "the
-// treatment guide" or to any guide that isn't open; the writer has the open guides' titles and addresses. A guide held
-// while still marked for search isn't open (its page answers 404).
+// treatment guide" or to any guide that isn't open; the writer has the open guides' titles, and no address (an entry's
+// links are stripped, so an address could only be printed). A guide held while still marked for search isn't open (its
+// page answers 404).
 test('the writer and the rules read the open disease guides, and an entry that points to a held one is not saved', async () => {
   const root = await site()
   const guide = async (id: string, vi: object) => {
@@ -1194,7 +1195,8 @@ test('the writer and the rules read the open disease guides, and an entry that p
     return { ...written, body: `<h3>Nên làm gì</h3><p>Ngâm lũa mới 1–2 tuần.</p><p>${toHeld}</p>` } as never
   }
   const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
-  expect(writes[0]).toContain('--- BÀI CHỮA BỆNH ĐANG MỞ (tên bài | địa chỉ) ---\nCá bị thối vây, thối đuôi | /vi/huong-dan/ca-bi-thoi-vay-thoi-duoi/\n')
+  expect(writes[0]).toContain('--- BÀI CHỮA BỆNH ĐANG MỞ (tên bài) ---\nCá bị thối vây, thối đuôi\n')
+  expect(writes[0]).not.toContain('/vi/huong-dan/')
   expect(writes[0]).not.toContain('Cá bị đốm trắng')
   expect(rules[0]).toContain('--- OPEN GUIDES ---\nCá bị thối vây, thối đuôi\n')
   expect(r).toMatchObject({ id: 'lua', skipped: expect.stringMatching(/^stopped by \d+ note/) })

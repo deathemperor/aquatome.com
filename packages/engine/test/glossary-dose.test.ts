@@ -37,7 +37,7 @@ test('the pointer names a disease as that same guide\'s title writes it, whole w
   expect(houseForm('Cách chữa thối vây: xem bài hướng dẫn chữa bệnh.', guides)).toBe(false)
 })
 
-test('the open disease guides: a disease guide search engines may index and that isn\'t held, by its name before ": " and its address', async () => {
+test('the open disease guides: a disease guide search engines may index, that isn\'t held and whose title no other open guide shares, by its name before ": " and its address', async () => {
   const root = await mkdtemp(join(tmpdir(), 'aq-glossary-dose-'))
   expect(await openDiseaseGuides(root)).toEqual([])
   const guide = async (id: string, kind: string, vi: object) => {
@@ -51,6 +51,9 @@ test('the open disease guides: a disease guide search engines may index and that
   await guide('d-whole', 'disease', { slug: 'cach-loai-bo-hydra', name: 'Cách loại bỏ hydra khỏi bể cá nước ngọt', quality: { score: 0.9, indexable: true } })
   // Held while still marked for search, as the white-spot guide was on main (the chief of staff, 20 Nov 2026): its page is 404.
   await guide('f-held-in-search', 'disease', { slug: 'ca-bi-dom-trang-bi-nam', name: 'Cá bị đốm trắng, bị nấm: cách nhận biết, chữa và phòng', quality: { score: 0.8, indexable: true }, held: { checks: ['dose-caution'], at: '2026-11-20' } })
+  // Two open guides one title names (the chief of staff, 20 Nov 2026: "Nước bể cá bị đục", twice on main): both are left out.
+  await guide('g-cloudy', 'disease', { slug: 'nuoc-be-ca-bi-duc', name: 'Nước bể cá bị đục: nguyên nhân, cách làm trong và phòng', quality: { score: 0.9, indexable: true } })
+  await guide('h-cloudy', 'disease', { slug: 'nuoc-be-ca-bi-duc-huong-dan', name: 'Nước bể cá bị đục: nguyên nhân, cách làm trong và xử lý nước', quality: { score: 0.9, indexable: true } })
   await mkdir(join(root, 'content/guides', 'e-empty'))
   const open = await openDiseaseGuides(root)
   expect(open).toEqual([
@@ -61,6 +64,7 @@ test('the open disease guides: a disease guide search engines may index and that
   const toHeld = 'Cách chữa đốm trắng: xem bài Cá bị đốm trắng, bị nấm.'
   expect(houseForm(toHeld, open)).toBe(false)
   expect(houseForm('Cách chữa thối vây: xem bài Cá bị thối vây, thối đuôi.', open)).toBe(true)
+  expect(houseForm('Cách chữa nước bể cá bị đục: xem bài Nước bể cá bị đục.', open)).toBe(false)
   const { llm, given } = stopAll()
   const r = await checkSentences(llm, { facts: [] }, { definition: '', body: `<p>${toHeld}</p>` }, t => houseForm(t, open))
   expect(given[0]).toEqual([toHeld])

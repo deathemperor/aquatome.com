@@ -19,7 +19,8 @@ export type DiseaseGuide = { title: string; address: string }
  * held (`held`, which the site leaves out: its address answers 404). The chief of staff, 20 Nov 2026: the guide form only
  * while that guide is open; five disease guides on main that day were held while still marked for search, among them the
  * white-spot guide. Its title as entries write it is its name before ": " ("Cá bị thối vây, thối đuôi"), the whole name
- * where it has none.
+ * where it has none. A title two open guides share is left out, both of them: a pointer by it can't say which guide, nor
+ * can the link the site makes from it (the chief of staff, 20 Nov 2026: two guides on main were both "Nước bể cá bị đục").
  */
 export async function openDiseaseGuides(root: string): Promise<DiseaseGuide[]> {
   const base = join(root, 'content', 'guides')
@@ -32,7 +33,7 @@ export async function openDiseaseGuides(root: string): Promise<DiseaseGuide[]> {
     if (!v?.name || !v.slug || v.quality?.indexable !== true || v.held) continue
     out.push({ title: v.name.split(': ')[0]!.trim(), address: `/vi/huong-dan/${v.slug}/` })
   }
-  return out
+  return out.filter(g => out.filter(h => h.title === g.title).length === 1)
 }
 
 export const LABEL = 'Liều và cách dùng: theo nhãn thuốc.'
