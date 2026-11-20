@@ -36,6 +36,7 @@ import { unitsMend } from './units-mend'
 import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
+import { fitRewriteKinds, topicCheckLimit, videoCutOn } from './switches'
 import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardPhotos, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
 import { readSecondLook } from './last-photo'
@@ -768,7 +769,9 @@ if (cmd === 'photo-privacy') {
     // Held, and the lane shut: nothing to do.
   } else {
     // A guide off the site for good (@aq/schema retired.ts) is never rewritten.
-    const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && !(p.kind === 'guides' && retiredTo(p.id)) && (!values.kind || values.kind.split(',').includes(p.kind)))
+    // The kinds FIT_REWRITE_KINDS allows (switches.ts: no guides unless named), narrowed by --kind; --only takes no other.
+    const kinds = fitRewriteKinds(process.env, values.kind)
+    const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && kinds.includes(p.kind) && !(p.kind === 'guides' && retiredTo(p.id)))
     const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
     const popular = popularityOrder(await popularFirst(ROOT))
     const rank = (p: (typeof pages)[number]) => { const i = popular.indexOf(p.id); return p.kind === 'guides' ? 2 * popular.length : i >= 0 && p.kind !== 'breeds' ? i : popular.length }
@@ -805,14 +808,18 @@ if (cmd === 'photo-privacy') {
   // for elsewhere waits for the mend), and its words findings' fixes put in (video-cut.ts): code, no model; each cut sentence kept in
   // engine-state/_video-cut.json for the mend to write back; the gate reads the guide after.
   // pnpm engine video-cut [--limit N: guides, 12] [--first vi/guides/<id>,…] [--dry-run: what it would change, old beside new]
-  const r = await videoCut(ROOT, { limit: Number(values.limit ?? VIDEO_CUT_LIMIT), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
-  for (const c of r.cut) {
-    console.log(`${values['dry-run'] ? 'would cut' : 'cut'}: ${c.key} ${c.cuts.length} sentences, ${c.swaps.length} words`)
-    for (const x of c.cuts) console.log(`  gone (${x.check}) ${x.field}: "${x.html.replace(/<[^>]+>/g, '')}"`)
-    for (const x of c.swaps) console.log(`  words ${x.field}: "${x.quote}" → "${x.fix}"`)
+  // Off unless VIDEO_CUT=on (switches.ts), run by the cycle or by hand.
+  if (!videoCutOn(process.env)) console.log('video-cut: off until the chief of staff puts it back (VIDEO_CUT=on)')
+  else {
+    const r = await videoCut(ROOT, { limit: Number(values.limit ?? VIDEO_CUT_LIMIT), ...(values.first ? { first: values.first.split(',') } : {}), dryRun: !!values['dry-run'] })
+    for (const c of r.cut) {
+      console.log(`${values['dry-run'] ? 'would cut' : 'cut'}: ${c.key} ${c.cuts.length} sentences, ${c.swaps.length} words`)
+      for (const x of c.cuts) console.log(`  gone (${x.check}) ${x.field}: "${x.html.replace(/<[^>]+>/g, '')}"`)
+      for (const x of c.swaps) console.log(`  words ${x.field}: "${x.quote}" → "${x.fix}"`)
+    }
+    for (const x of r.left) console.log(`left held: ${x}`)
+    console.log(`video-cut: ${r.cut.length} cut, ${r.left.length} left held`)
   }
-  for (const x of r.left) console.log(`left held: ${x}`)
-  console.log(`video-cut: ${r.cut.length} cut, ${r.left.length} left held`)
 } else if (cmd === 'units-mend') {
   // A page held for units alone gets a tank converted from US gallons as the size a keeper here names ("115 lít" → "120
   // lít", units-mend.ts): code, no model, so no ceiling line; the gate reads it after. From 13 Nov 2026 08:00, but a dry run.
@@ -949,7 +956,8 @@ if (cmd === 'photo-privacy') {
   console.log(`source-kinds: ${r.topics} topics, ${r.changed.length} sources changed\n  before: ${counts(r.before)}\n  after: ${counts(r.after)}`)
 } else if (cmd === 'topic-check') {
   // Guides keep to their title's subject: sections about something else (a video drifting off topic) are dropped.
-  const r = await topicCheck(ROOT, claudeCli, { limit: Number(values.limit ?? 40), ...(values.only ? { only: values.only.split(',') } : {}) })
+  // TOPIC_CHECK_LIMIT guides (0 when unset: switches.ts), or fewer if --limit asks.
+  const r = await topicCheck(ROOT, claudeCli, { limit: topicCheckLimit(process.env, values.limit), ...(values.only ? { only: values.only.split(',') } : {}) })
   for (const t of r.trimmed) console.log(`  ${t.id}: dropped ${t.dropped.join('; ')}`)
   for (const h of r.held) console.log(`  held for a person: ${h}`)
   console.log(`topic-check: ${r.checked.length} checked, ${r.trimmed.length} trimmed, ${r.held.length} held, ${r.failed.length} failed`)
