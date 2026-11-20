@@ -247,7 +247,7 @@ export function computeContentStats(o: StatsInput): ContentStats {
     if (by) g.by = Object.fromEntries(Object.entries(by).map(([k, f]) => [k, hit.filter(f).length]))
     ;(gaps[kind] ??= {})[key] = g
   }
-  const noPhoto = (x: Item) => shown(x.e.photos).length === 0
+  const noPhoto = (x: Item) => onPage(x.e.photos).length === 0
   const latinName = (x: Item) => String(x.t.vi!.name).toLowerCase().includes(String(x.e.scientificName).toLowerCase())
   const summary = (x: Item) => read(join(root, 'summaries', `${x.id}.json`))?.review === 'approved'
   const KEY_FACTS = ['tempC', 'ph', 'sizeCm'] as const
