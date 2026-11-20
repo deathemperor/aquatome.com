@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { toneKey } from '@aq/schema'
 import type { Llm } from '../src/claude'
-import { LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, RULE_SIDE, ruleNumbers, sfGlossaryUrl, stops, type Draft } from '../src/glossary-entry'
+import { LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, RULE_SIDE, ruleNumbers, sfGlossaryUrl, siteNotes, stops, type Draft } from '../src/glossary-entry'
 import { logReviews } from '../src/review-log'
 import type { TopicFacts } from '../src/topics'
 
@@ -1195,6 +1195,34 @@ test('the writer and the rules read are given each source\'s site, and two pages
   const given = (prompt: string, after: string) => (JSON.parse(prompt.split(after)[1]!.split('\n\n---')[0]!) as { sources: { site: string }[] }).sources.map(x => x.site)
   expect(given(writes[0]!, '--- DỮ KIỆN ---\n')).toEqual(['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
   expect(given(rules[0]!, '--- FACTS ---\n')).toEqual(['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
+})
+
+// The writer change's reader, 21 Nov 2026: the writer sees each source's site now, and nothing after it caught one named
+// in the entry. A sentence that writes a site it was given stops, and the note goes back to the writer.
+test('an entry that names a source by its site stops, with a note back to the writer', async () => {
+  const root = await site()
+  const named = 'Theo www.seriouslyfish.com, nên ngâm lũa mới 1–2 tuần.'
+  const writes: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+    if (isCheck(prompt)) return verdicts(prompt) as never
+    writes.push(prompt)
+    return { ...written, body: `<h3>Nên làm gì</h3><p>${named}</p>` } as never
+  }
+  const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
+  const note = `"${named}" names a source by its site (seriouslyfish.com): call it by its kind, as the sources give it, never by its site.`
+  expect(r).toMatchObject({ id: 'lua', skipped: expect.stringMatching(/^stopped by/) })
+  expect((r as { notes: string[] }).notes).toContain(note)
+  expect(writes.slice(1).some(w => w.includes(note))).toBe(true)
+})
+
+test('the site check finds a site the writer was given, alone or in an address, and nothing else', () => {
+  const at = (body: string) => siteNotes({ definition: '', body }, ['ufl.edu', 'example.org', 'seriouslyfish.com', 'example.org'])
+  expect(at('<p>Đại học ufl.edu ghi rằng lũa nhả tanin.</p>')).toHaveLength(1)
+  expect(at('<p>Xem https://www.example.org/boil để biết thêm.</p>')[0]).toContain('(example.org)')
+  expect(at('<p>Theo SeriouslyFish.com, lũa chìm.</p>')).toHaveLength(1)
+  expect(at('<p>Một trường đại học ghi rằng lũa nhả tanin. Một tiệm ghi rằng lũa chìm sau vài ngày.</p>')).toEqual([])
+  expect(at('<p>Theo myexample.org, lũa chìm.</p><p>Theo example.organic, lũa chìm.</p>')).toEqual([])
 })
 
 // The chief of staff, 20 Nov 2026: Tảo's label line, the house form for a medicine's dose, was stopped by the fact check in
