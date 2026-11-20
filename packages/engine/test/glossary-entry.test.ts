@@ -1210,7 +1210,7 @@ test('an entry that names a source by its site stops, with a note back to the wr
     return { ...written, body: `<h3>Nên làm gì</h3><p>${named}</p>` } as never
   }
   const r = await makeGlossaryEntry(root, { research: async () => facts as never, llm }, 'lua', { kind: 'aquascaping' })
-  const note = `"${named}" names a source by its site (seriouslyfish.com): call it by its kind, as the sources give it, never by its site.`
+  const note = `"${named}" names a source by its site (seriouslyfish.com): call it by what it is (a shop, a journal, a keeper's page), as the sources' kinds give it, never by its site.`
   expect(r).toMatchObject({ id: 'lua', skipped: expect.stringMatching(/^stopped by/) })
   expect((r as { notes: string[] }).notes).toContain(note)
   expect(writes.slice(1).some(w => w.includes(note))).toBe(true)
@@ -1223,6 +1223,10 @@ test('the site check finds a site the writer was given, alone or in an address, 
   expect(at('<p>Theo SeriouslyFish.com, lũa chìm.</p>')).toHaveLength(1)
   expect(at('<p>Một trường đại học ghi rằng lũa nhả tanin. Một tiệm ghi rằng lũa chìm sau vài ngày.</p>')).toEqual([])
   expect(at('<p>Theo myexample.org, lũa chìm.</p><p>Theo example.organic, lũa chìm.</p>')).toEqual([])
+  expect(at('<h3>Theo ufl.edu</h3><ul><li>Lũa chìm.</li></ul>')).toHaveLength(1)
+  expect(siteNotes({ definition: 'Lũa, theo example.org, là gỗ.', body: '' }, ['example.org'])).toHaveLength(1)
+  // A source on a bare address gives a "site" of digits (siteOf), which no sentence names.
+  expect(siteNotes({ definition: '', body: '<p>Tăng 2.3 lần mỗi tuần.</p>' }, ['2.3'])).toEqual([])
 })
 
 // The chief of staff, 20 Nov 2026: Tảo's label line, the house form for a medicine's dose, was stopped by the fact check in

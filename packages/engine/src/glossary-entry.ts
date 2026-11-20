@@ -264,10 +264,10 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
  * is the rules read's, as before.
  */
 export function siteNotes(e: { definition: string; body: string }, sites: string[]): string[] {
-  const all = [...new Set(sites)].filter(Boolean)
+  const all = [...new Set(sites)].filter(x => /\p{L}/u.test(x)) // a source on a bare address ("10.1.2.3") has no site to name
   return sentences(e).flatMap(s => {
     const named = all.filter(x => new RegExp(`(?<![\\p{L}\\p{N}-])${x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}-])`, 'iu').test(s.text))
-    return named.length ? [`"${s.text}" names a source by its site (${named.join(', ')}): call it by its kind, as the sources give it, never by its site.`] : []
+    return named.length ? [`"${s.text}" names a source by its site (${named.join(', ')}): call it by what it is (a shop, a journal, a keeper's page), as the sources' kinds give it, never by its site.`] : []
   })
 }
 
