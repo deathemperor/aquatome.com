@@ -244,6 +244,16 @@ export function captionSubject(caption: string, index: Map<string, string>, gene
   return c.split(/[^\p{L}]+/u).some(w => genera.get(w) && !genera.get(w)!.has(ids[0]!)) ? undefined : ids[0]
 }
 
+/**
+ * The page an "another fish" answer names: a name of exactly one other species or plant page, the judged page's own
+ * names and genus left out, as `captionSubject` reads a caption. Its id, never the answer's words.
+ */
+export function namedKind(note: string, page: Pick<Subject, 'id' | 'sci'>, index: { names: Map<string, string>; genera: Map<string, Set<string>> }): string | undefined {
+  const own = norm(page.sci.split(/\s+/)[0] ?? '')
+  const id = captionSubject(note, new Map([...index.names].filter(([, x]) => x !== page.id)), new Map([...index.genera].filter(([g]) => g !== own)))
+  return id === page.id ? undefined : id
+}
+
 function nameIndex(all: Subject[]) {
   const owners = new Map<string, Set<string>>()
   const genera = new Map<string, Set<string>>()
@@ -407,6 +417,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
+  const kindsFile = join(root, 'engine-state/_photo-other-kinds.json')
   const rawCache = (await readJson<Record<string, Record<string, PhotoVerdict>>>(cacheFile)) ?? {}
   const cache = Object.fromEntries(Object.entries(rawCache).map(([u,by])=>[u,Object.fromEntries(Object.entries(by).map(([id,v])=>[id,compactVerdict(v)]))]))
   const rawLegacy = (await readJson<Record<string, PhotoVerdict>>(join(root, 'engine-state/_photo-check.json'))) ?? {}
@@ -585,6 +596,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   })
   const logos = new Set<string>() // photos this run found a logo on
   const others = new Set<string>() // `page\nurl` the model answered "another fish" for, this run, on the page itself
+  const namedKinds = new Map<string, string>() // url → the page ("species/<id>") such an answer named, this run (namedKind)
   const dir = await mkdtemp(join(tmpdir(), 'photo-check-'))
   const judge = (batch: { s: Subject; urls: string[]; i: number | string }[]) =>
     pool(batch, o.parallel ?? 1, async ({ s, urls, i }) => {
@@ -648,7 +660,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
         if (!x || !(VERDICTS as readonly string[]).includes(p.ok)) continue
         cache[x.url] = { ...cache[x.url], [s.id]: compactVerdict({ ok: p.ok, typical: !!p.typical && p.ok !== 'dead', note: String(p.note ?? '').slice(0, 120), logo: !!p.logo, person: !!p.person, ...(p.ok === 'yes' && !captions[p.n - 1] ? { young: !!p.young } : {}), ...(captions[p.n - 1] ? { guide: true } : {}) }) }
         if (p.logo) logos.add(x.url)
-        if (p.ok === 'other' && !captions[p.n - 1]) others.add(`${s.id}\n${x.url}`)
+        if (p.ok === 'other' && !captions[p.n - 1]) {
+          others.add(`${s.id}\n${x.url}`)
+          const kind = namedKind(String(p.note ?? ''), s, index)
+          if (kind && !namedKinds.has(x.url)) namedKinds.set(x.url, `${byId.get(kind)!.kind}/${kind}`)
+        }
         judgedNow.add(`${s.id} ${x.url}`)
         report.judged++
       }
@@ -861,6 +877,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const now = (await readJson<Record<string, string>>(rejectedFile)) ?? {}
   for (const [u, why] of Object.entries(added)) if (!(u in now)) { now[u] = why; report.rejected++ }
   await writePhotoState(rejectedFile, now)
+  // A photo listed this run as another fish, whose answer named a kind we have a page for, keeps that page's id beside
+  // the list, the id only, never the answer's words (the chief of staff, 20 Nov). Added to, never rewritten.
+  const kinds = (await readJson<Record<string, string>>(kindsFile)) ?? {}
+  const kinded = Object.keys(added).filter(u => added[u]!.startsWith('not ') && namedKinds.has(u) && !(u in kinds))
+  for (const u of kinded) kinds[u] = namedKinds.get(u)!
+  if (kinded.length) await writeFile(kindsFile, `${JSON.stringify(Object.fromEntries(Object.entries(kinds).sort()), null, 2)}\n`)
   // This run's hold alone, once its pages, verdicts and never-again list are written (above).
   await writeHeld(heldNow)
   const left = new Map<string, number>()

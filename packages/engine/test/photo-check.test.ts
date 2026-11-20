@@ -77,6 +77,29 @@ test('another fish and no photo of it leave the page and are rejected; can\'t te
   expect(out.unsure).toBe(1)
 })
 
+test("a photo listed as another fish keeps the id of the kind its answer named, when we have a page for it: the id only, never the answer's words (the chief of staff, 20 Nov)", async () => {
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-1', 'named', 'unnamed', 'both', 'dead', 'held'] },
+    { id: 'bbb-fish', sci: 'Bbb fish', vi: { name: 'Cá bbb', altNames: ['Sample tetra'] } },
+    { id: 'ccc-fish', sci: 'Ccc fish' },
+  ])
+  const d = model({
+    'a-1': { typical: true },
+    named: { ok: 'other', note: 'looks like a Sample tetra, not Aaa fish' },
+    unnamed: { ok: 'other', note: 'a cichlid of some kind' },
+    both: { ok: 'other', note: 'Bbb fish or Ccc fish, hard to say' },
+    dead: { ok: 'dead', note: 'Bbb fish on a plate' },
+    // Listed for the person in it, not as another fish: no id.
+    held: { ok: 'other', person: true, note: 'a Sample tetra in a hand' },
+  })
+  await checkPagePhotos(r, d, { limit: 10, today: '2026-11-20' })
+  const listed = await json(r, 'engine-state/_photo-rejected.json')
+  for (const n of ['named', 'unnamed', 'both', 'dead', 'held']) expect(url(n) in listed).toBe(true)
+  const kinds = await readFile(join(r, 'engine-state/_photo-other-kinds.json'), 'utf8')
+  expect(JSON.parse(kinds)).toEqual({ [url('named')]: 'species/bbb-fish' })
+  expect(kinds).not.toMatch(/tetra|looks/i)
+})
+
 test('a re-run costs nothing: every verdict is cached per photo and page', async () => {
   const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['a', 'b'], gallery: ['c', 'd', 'e', 'f', 'g', 'h', 'i'] }])
   const first = model({})

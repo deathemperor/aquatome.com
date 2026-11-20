@@ -719,7 +719,9 @@ The layers above still check the result.
     and, for a breed, what sets it apart. Verdicts: shows it (in the wild too, where it is clearly seen), something else
     (it says what), not a photo of it (a map, chart, hands, a tank, a packshot, a landscape or stream where it can't be
     picked out), or can't tell. "Something else" and "not a photo of it" leave the page; a photo no page keeps joins
-    `_photo-rejected.json`. When the check answers "something else" for an album photo, the same run judges that album's
+    `_photo-rejected.json`. From 20 Nov, a photo listed there as "something else" whose answer named one other species
+    or plant we have a page for keeps that page's id in `engine-state/_photo-other-kinds.json` (`namedKind`): the id
+    only, never the answer's words, and the photo stays listed everywhere (the chief of staff, 20 Nov). When the check answers "something else" for an album photo, the same run judges that album's
     other photos from the same uploader that have no verdict for the page yet: the same source (its id, else the site)
     and author (the author's page where both photos have one, else the name). This round goes past the run's limit and
     stops at the check's daily line. Only the run's own first answers start it: not a file name's verdict, a guide's, a
