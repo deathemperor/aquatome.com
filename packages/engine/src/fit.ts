@@ -822,7 +822,7 @@ export async function runFit(pages: Page[], statePath: string, d: { llm: Llm; mo
       await writeFile(tmp, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
       await rename(tmp, statePath)
     } catch (e) {
-      await rm(tmp, { force: true })
+      await rm(tmp, { force: true }).catch(() => {}) // the save's own error is the one to see; a copy left is ignored (.gitignore)
       throw e
     }
   }
