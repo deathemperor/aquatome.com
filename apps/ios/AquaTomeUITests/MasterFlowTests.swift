@@ -295,19 +295,28 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testSigningOutMidPressSendsNoMoreSteps() {
-    // The fan's step waits 30 s before it goes (a debug launch argument): the owner signs out meanwhile.
-    let app = launch(["-master-steps-wait", "30"])
+    // The fan's step waits a minute and a half before it goes (a debug launch argument): the owner signs out meanwhile. At
+    // 30 s, on GitHub's Mac (main, 21 Nov, both tries) the sign-out landed 31 and 33 s after the press: the step went while
+    // still signed in, as it should, and the flow failed though nothing went signed out. It now says so if the sign-out
+    // lands that late; the time is read after the signed-out check, which can take a while longer (scrolled back up).
+    let stepWait: TimeInterval = 90
+    let app = launch(["-master-steps-wait", "\(Int(stepWait))"])
     tap(app, "master-create")
     add(app, "master-add-Quạt")
     expect(app, "master-step-Quạt", contains: "Ổ cắm · Tắt")
     tap(app, "master-end-60")
     tap(app, "master-done")
+    // The step's wait starts after this, and before the press has landed: the wait for its turn below counts from then.
+    let tapped = Date()
     tap(app, "master-start")
+    let pressed = Date()
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     // Past the step's turn, signed out; then the owner again, to read the card.
-    RunLoop.current.run(until: Date().addingTimeInterval(35))
+    let out = Date().timeIntervalSince(tapped)
+    XCTAssertLessThan(out, stepWait, "signed out \(Int(out)) s after the press, the step due at \(Int(stepWait)) s: the step went signed in, and this proves nothing")
+    RunLoop.current.run(until: pressed.addingTimeInterval(stepWait + 10))
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
@@ -346,7 +355,7 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-log", contains: "switch_3 off", timeout: 20)
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     RunLoop.current.run(until: Date().addingTimeInterval(35))
     app.signInWithStandInApple()
     app.openTab("Đèn")
@@ -368,7 +377,7 @@ final class MasterFlowTests: XCTestCase {
     expect(app, "master-lamp-asked", contains: "on", timeout: 15)
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     // Past the wait, so the answer comes while signed out (Fable, 17 Nov: 20 s was tight for a busy runner).
     RunLoop.current.run(until: Date().addingTimeInterval(45))
     app.signInWithStandInApple()
@@ -389,7 +398,7 @@ final class MasterFlowTests: XCTestCase {
     tap(app, "master-start")
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 60)
@@ -398,11 +407,13 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testAnEndDueWhileSignedOutWaitsForTheOwner() {
-    // Ends a minute after the press; the owner signs out well before then. Nothing goes back while signed out: the light's
-    // outlet goes back once they're signed in again (the master log notes each account change, "account"). At 25 s, on
-    // GitHub's Mac (main, 19 Nov, both tries) the sign-out landed after the end came due: the end went while still signed
-    // in, so the flow failed though the app had sent nothing signed out. It now says so if the sign-out lands that late.
-    let endsIn: TimeInterval = 60
+    // Ends two minutes after the press; the owner signs out well before then. Nothing goes back while signed out: the
+    // light's outlet goes back once they're signed in again (the master log notes each account change, "account"). At 25 s,
+    // on GitHub's Mac (main, 19 Nov, both tries) the sign-out landed after the end came due: the end went while still
+    // signed in, so the flow failed though the app had sent nothing signed out. It now says so if the sign-out lands that
+    // late. A minute then; two since 21 Nov, as the Lab's signed-out check (#1768) can take about 25 s longer, and the time
+    // is read after it.
+    let endsIn: TimeInterval = 120
     let app = launch(["-master-ends-in", "\(Int(endsIn))"])
     tap(app, "master-create")
     add(app, "master-add-Đèn")
@@ -418,7 +429,7 @@ final class MasterFlowTests: XCTestCase {
     let stepped = Date()
     app.openAccount()
     app.scrollToAndTap("sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     let out = Date().timeIntervalSince(tapped)
     XCTAssertLessThan(out, endsIn, "signed out \(Int(out)) s after the press, its end due at \(Int(endsIn)) s: the end came signed in, and this proves nothing")
     // Past the end, signed out.
@@ -559,6 +570,22 @@ final class MasterFlowTests: XCTestCase {
   private func add(_ app: XCUIApplication, _ id: String) {
     tap(app, "master-add")
     tap(app, id)
+  }
+
+  /// Apple's button on the Tài khoản sheet, signed out. Signed out at the sheet's foot (`sign-out` scrolled to), its ways
+  /// to sign in are at its top, which a sheet this long no longer draws from there (as AccountFlowTests' `reached`).
+  private func signedOut(_ app: XCUIApplication) -> Bool {
+    let apple = element(app, "apple-sign-in")
+    // Landed first, within main's 10 s: "Đăng xuất" is drawn only while signed in. Only then scrolled back up, so a drag
+    // never reaches the sheet's top before the sign-out has landed and pulls the sheet down (Fable, 21 Nov).
+    guard element(app, "sign-out").waitForNonExistence(timeout: 10) else { return apple.exists }
+    if apple.waitForExistence(timeout: 2) { return true }
+    repeatUntil(apple.exists, times: 8) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.35)).press(
+        forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75)), withVelocity: .fast,
+        thenHoldForDuration: 0.2)
+    }
+    return apple.exists
   }
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement {
