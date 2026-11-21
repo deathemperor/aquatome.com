@@ -2830,6 +2830,32 @@
   ],
   "vi/glossary/di-hinh-gioi-tinh": [
     {
+      "at": "2026-11-21T19:23:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Dị hình giới tính là khi con đực và con cái của cùng một loài trông khác nhau, như ở cỡ thân, màu hay vây.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này hiện rõ khi cá đã mang bầu.\" (not \"Một tiệm ghi: gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này sẫm màu hơn khi cá mang bầu.\": Rule 12: \"Một tiệm ghi: gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này sẫm màu hơn khi cá man…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:23:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: under \"Xem đực cái Betta thế này\", the first list still opens with \"Một tiệm ghi:\". THIS TERM says to write it as \"Một tiệm khác ghi:\" (source 9), because a shop (source 7) is already named in the Corydoras item.",
+        "Rule 12: under \"Xem đực cái Betta thế này\", the second list still opens with \"Một tiệm khác ghi:\". THIS TERM says to write it as \"Một tiệm thứ ba ghi:\" (source 8).",
+        "Rule 12: under \"Xem đực cái Cichlidae thế này\", the list still opens with \"Một tiệm thứ ba ghi:\". These claims come back to source 7, the shop first named in the Corydoras item. THIS TERM says to write it as \"Tiệm thứ nhất cũng ghi:\".",
+        "Rule 12: \"Các đặc điểm này chỉ là so sánh giữa các con với nhau chứ không phải quy tắc tuyệt đối.\" still has \"chỉ\". THIS TERM says to write it as \"Các đặc điểm này là so sánh giữa các con với nhau chứ không phải quy tắc tuyệt đối.\" (fact 40 has no \"only\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-21T18:56:02Z",
       "model": "sonnet",
       "cli": "2.1.329",
@@ -2887,26 +2913,6 @@
         "Rule 12: \"cá cái to hơn cá đực và thường ít màu hơn\" in the guppy item. The fact that says females are less colourful has no hedge, so \"thường\" adds one. Another fact limits the claim: in high-end lines such as Full Red and Koi, the females also colour up well. That limit isn't said beside the claim. It should be stated, or the claim should take the credit of the site that gives it broadly."
       ],
       "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-21T18:18:37Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 0.89,
-      "notes": [
-        "\"Phân biệt đực cái dễ hay khó là tùy loài đó có dị hình giới tính rõ hay không.\": the facts don't carry it (uncredited, uncredited, uncredited): only msdvetmanual says this; no credit / only msdvetmanual.com gives this; no credit / only msdvetmanual gives this; no credit",
-        "\"Ở một số loài, cá đực to hơn và màu sặc sỡ hơn cá cái.\": the facts don't carry it (uncredited, uncredited, uncredited): only msdvetmanual says males larger and showier; no credit / only msdvetmanual.com gives larger and showier males; no credit / only msdvetmanual gives this; no credit",
-        "\"Corydoras: cá cái to và đầy thân hơn cá đực, cá chuột đồng cũng vậy.\": the facts don't carry it (unsupported, unsupported, supported): drops 'tend to' hedge for bronze cory / drops the 'tend to' hedge for the bronze cory",
-        "Rule 4: The definition's \"Loài nào khác nhau rõ thì nhìn là biết đực cái, còn loài khác ít thì khó nhận ra hơn\" is said again in the body's first sentence, \"Phân biệt đực cái dễ hay khó là tùy loài đó có dị hình giới tính rõ hay không\". It should be said once.",
-        "Rule 12: \"Ở một số loài, cá đực to hơn và màu sặc sỡ hơn cá cái.\" comes from one site only (source 0, a vet manual) but is written as plain fact with no credit. With the three shops already credited, this would make a fourth page, which is over the limit of three. It is background a keeper can't act on, so it should be dropped.",
-        "Rule 12: The headings \"Trong bể của bạn\", \"Xem đực cái ở Betta\" and \"Dấu hiệu ở Cichlidae\" do not end in \"này\", which THIS TERM requires.",
-        "Rule 12: The link phrase \"phân biệt đực cái\" (in \"Phân biệt đực cái dễ hay khó là tùy loài đó…\") is printed as plain text and not linked.",
-        "Rule 12: In \"cá chuột đồng cũng vậy\", the fact's hedge is dropped. The fact says female bronze cory 'tend to' grow larger, and that mature females are rounder 'especially when gravid'. \"cũng vậy\" turns this into a flat match with the Corydoras claim.",
-        "Rule 4: The male Betta's longer, larger fins are said three times: in the list (\"Betta: vây cá đực dài và to hơn vây cá cái\"), again under the first shop (\"Vây dài của cá đực là vây lưng, vây hậu môn và vây đuôi\") and again under the second shop (\"Vây hậu môn cá đực dài, to và cứng hơn\").",
-        "Rule 4: The advice to look in good light is said more than once: \"Khi xem thì soi cá dưới ánh sáng tốt, đừng xem chỗ tối\", \"soi dưới đèn\" and \"Khi xem thì soi đèn pin vào bể\"."
-      ],
-      "attempt": "first",
       "kept": false
     }
   ]
