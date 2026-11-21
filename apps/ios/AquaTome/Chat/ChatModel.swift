@@ -31,7 +31,8 @@ struct ChatSubject: Hashable, Codable {
 /// The chat screen's route: where it starts, and what it's about.
 struct ChatRoute: Hashable {
   let start: Chat.Start
-  let subject: ChatSubject
+  /// What it's about; none from Tìm's "Hỏi AquaTome", which asks about anything.
+  let subject: ChatSubject?
 }
 
 extension ChatRoute {
@@ -42,6 +43,9 @@ extension ChatRoute {
               subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.subUnderName, img: item.img.flatMap(URL.init(string:)), imgBox: item.imgBox,
                                    guesses: nil, second: nil, fish: item.isFish))
   }
+
+  /// Tìm's "Hỏi AquaTome": the chat about nothing yet.
+  static let fromSearch = ChatRoute(start: Chat.Start(from: .search), subject: nil)
 }
 
 /// The chat as GET /api/chat last said, for the entries (a species page's "Hỏi về …", fish ID's row): asked when the app
@@ -51,7 +55,9 @@ extension ChatRoute {
 @MainActor
 final class ChatStore {
   /// Whether chat is on: no entry shows until GET says so.
-  private(set) var on = false
+  var on: Bool { gate.on(for: reader?.user?.id) }
+  private var gate = Chat.Gate()
+  @ObservationIgnored private weak var reader: AccountModel?
   private(set) var maxChars = 500
 
   /// A question was refused as too long at this limit: the Worker's own, until its status next says.
@@ -65,13 +71,15 @@ final class ChatStore {
   /// Whether chat is on, asked as the account when signed in: it may be on for some accounts alone (the owner's, at
   /// first), so it's asked again when the reader signs in or out.
   func refresh(account: AccountModel, site: URL) async {
+    reader = account
     follow(account, site: site)
     func get(_ token: String?) -> URLRequest { Chat.status(site: site, version: ChatModel.version, ownCopy: ChatModel.ownCopy, token: token) }
+    // Asked as this account: the reply is for it, though the reader may sign in or out while it comes.
+    let who = account.user?.id
     var answer: (Data, Int)?
-    if account.user != nil { answer = (try? await account.send { get($0) }) ?? nil } else { answer = await account.fetch(get(nil)) }
-    guard let (data, status) = answer else { return }
+    if who != nil { answer = (try? await account.send { get($0) }) ?? nil } else { answer = await account.fetch(get(nil)) }
+    guard let (data, status) = answer, gate.take((data, status), asked: who, now: account.user?.id) else { return }
     let s = Chat.status(data, status: status)
-    on = s.map { $0.on } ?? false
     maxChars = s?.maxChars ?? 500
     perAccount = s?.perAccount
   }
