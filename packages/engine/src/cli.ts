@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { LANGS, type Lang, WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
-import { nameStep } from './ceiling'
+import { nameStep, stepFor } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, credentialRejected, onNextAccount, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
@@ -207,8 +207,8 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 const cmd = positionals[0]
-// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts).
-nameStep(cmd)
+// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts stepFor).
+nameStep(stepFor(cmd))
 
 // At the end of every command that called Claude: what each account answered, and which were set aside and why
 // (claude-accounts.ts), in the log and on the GitHub run's summary page. 'exit': some commands end with process.exit().
