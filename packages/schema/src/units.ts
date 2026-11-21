@@ -325,7 +325,7 @@ function tanks(seg: string, lang: UnitLang): string {
 
 // Nominal pipe sizes → outside diameter in mm, as Vietnamese shops name them ("phi 27").
 const PIPE: [number, number][] = [[0.5, 21], [0.75, 27], [1, 34], [1.25, 42], [1.5, 49], [2, 60], [2.5, 76], [3, 90], [4, 114]]
-const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong|panjang|potong|ยาว)[^\d.,;:()<>]){0,30}?`
+const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong|panjang|potong(?!an)|ยาว|ลึก)[^\d.,;:()<>]){0,30}?`
 function pipes(t: string, lang: UnitLang): string {
   const od = (fig: string) => PIPE.find(([inch]) => inch === parseNum(fig, lang))?.[1]
   const name = (mm: number) => (lang === 'vi' ? `phi ${mm}` : `${mm} ${lang === 'th' ? 'มม.' : 'mm'}`)

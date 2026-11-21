@@ -143,6 +143,10 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   // Only a pipe's length and cut: "high" names a pressure rating as often (the re-check, 21 Nov).
   expect(id('Pipa PVC bertekanan tinggi ¾ inci')).toBe('Pipa PVC bertekanan tinggi 27 mm')
   expect(th('ท่อ PVC แรงดันสูง ¾ นิ้ว')).toBe('ท่อ PVC แรงดันสูง 27 มม.')
+  // A depth is a length, as "sâu" in Vietnamese; a cut piece ("potongan") still has its size (the third look, 21 Nov).
+  expect(th('ท่อ PVC ฝังลึก 2 นิ้ว')).toBe('ท่อ PVC ฝังลึก 5 ซม.')
+  expect(id('Pipa PVC sisa potongan ukuran ¾ inci')).toBe('Pipa PVC sisa potongan ukuran 27 mm')
+  expect(id('Pipa PVC dipotong 2 inci')).toBe('Pipa PVC dipotong 5 cm')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })
