@@ -1,0 +1,90 @@
+{
+  "id": "tetraodon-schoutedeni",
+  "native": {
+    "input": "81ac38e80937c4f9",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Địa điểm lấy mẫu chuẩn là Kinshasa (khi đó gọi là Leopoldville), nay thuộc Cộng hòa Dân chủ Congo.",
+        "words": "Cộng hòa Dân chủ Congo",
+        "ok": false,
+        "why": "\"Cộng hòa Dân chủ Congo\" is not CD"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo",
+        "source": "aquatome",
+        "quote": "Loài này có nguồn gốc ở lưu vực sông Congo, châu Phi.",
+        "ok": true
+      },
+      {
+        "name": "Pool Malebo",
+        "source": "aquatome",
+        "quote": "Một nguồn ghi nó sống ở các sông lớn của lưu vực Congo, và hình như chỉ có ở Pool Malebo (Kinshasa).",
+        "ok": true
+      },
+      {
+        "name": "Ubangi",
+        "source": "aquatome",
+        "quote": "Một nguồn khác cho rằng nó chủ yếu ở lưu vực sông Ubangi và sông Lua.",
+        "ok": true
+      },
+      {
+        "name": "Lua",
+        "source": "aquatome",
+        "quote": "Một nguồn khác cho rằng nó chủ yếu ở lưu vực sông Ubangi và sông Lua.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Tetraodon schoutedeni",
+    "status": "ACCEPTED",
+    "taxonKey": 5213581,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        23
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        6
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

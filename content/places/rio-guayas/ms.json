@@ -1,8 +1,13 @@
 {
   "slug": "rio-guayas",
-  "name": "Guayas",
+  "name": "Sungai Guayas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-21T18:57:26.491Z"
+  },
   "quality": {
     "score": 0.4,
     "indexable": false

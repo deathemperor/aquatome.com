@@ -1,8 +1,8 @@
 {
   "id": "creteuchiloglanis-macropterus",
   "native": {
-    "input": "cd3a5965f131c4ee",
-    "at": "2026-11-21T13:11:30.372Z",
+    "input": "b1c7a055f4cc5cfa",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "CN",
@@ -19,6 +19,14 @@
         "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
         "words": "Myanmar",
         "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Salween River (Nujiang) and Irrawaddy River drainages in southern China.",
+        "words": "China",
+        "ok": true
       }
     ],
     "regions": [
@@ -33,6 +41,20 @@
         "name": "Irrawaddy River",
         "source": "planetcatfish",
         "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Salween River",
+        "source": "scotcat",
+        "quote": "Asia: Salween River (Nujiang) and Irrawaddy River drainages in southern China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy River",
+        "source": "scotcat",
+        "quote": "Asia: Salween River (Nujiang) and Irrawaddy River drainages in southern China.",
         "country": "CN",
         "ok": true
       }

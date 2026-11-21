@@ -1,6 +1,6 @@
 {
   "slug": "lower-congo-river-basin",
-  "name": "lưu vực sông Lower Congo",
+  "name": "lưu vực hạ lưu sông Congo",
   "altNames": [
     "Lower Congo River basin"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

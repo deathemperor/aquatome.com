@@ -123,12 +123,6 @@
     },
     {
       "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
-      "html": "<p>The sex differences are well pronounced at 5-6 cm length; the males can be recognized by the strong bristling (see photos).</p>"
-    },
-    {
-      "key": "dimorphism",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm",
       "html": "<p>Females have a narrower head with a larger body while males possess odontodes on the edge of the snout, behind the gill cover and to the pectoral fin spine.</p>"
@@ -272,5 +266,49 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It lives in the tributaries of the middle Orinoco in Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6167984,
+      "total": 6,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "VE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          4.21875,
+          6,
+          6
+        ]
+      ]
+    }
+  }
 }

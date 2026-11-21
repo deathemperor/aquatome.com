@@ -43,9 +43,12 @@
         "SD",
         "ML"
       ],
-      "regions": [],
+      "regions": [
+        "Nile"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -68,6 +71,14 @@
             "ML"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "However, the species has a very far distribution and is found in the Nile, most parts of West Africa and also in the rivers that flow through the savannahs and riparian forests of East Africa.",
+          "countries": [],
+          "regions": [
+            "Nile"
+          ]
         }
       ]
     },

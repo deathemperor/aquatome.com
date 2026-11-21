@@ -3,6 +3,12 @@
   "name": "ซัมบู",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-21T19:04:40.348Z",
+    "why": "ซัมบู is a fair transliteration of Sambú, but the place is a region (comarca/district) in Panama's Darién and an atlas would normally add the kind word, e.g. เขตซัมบู, so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

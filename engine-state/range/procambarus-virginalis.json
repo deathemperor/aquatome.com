@@ -1,0 +1,85 @@
+{
+  "id": "procambarus-virginalis",
+  "native": {
+    "input": "f7e2feab905df92d",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Procambarus virginalis",
+    "status": "ACCEPTED",
+    "taxonKey": 9442269,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        25
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        19
+      ],
+      [
+        "4718437d-76c6-432b-9883-4b9a253ac53f",
+        16
+      ],
+      [
+        "aa6c5ee6-d4d7-4a65-a04f-379cffbf4842",
+        14
+      ],
+      [
+        "36914742-56c5-4d54-a18a-6ab1e41b9240",
+        10
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        10
+      ],
+      [
+        "9668b676-f762-11e1-a439-00145eb45e9a",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "3580c8a0-33eb-40ac-b172-995854622428",
+        1
+      ],
+      [
+        "449ae494-44ef-4dc4-b0c8-c1d25ab13c92",
+        1
+      ],
+      [
+        "48aa42d7-86c3-4c3d-a297-151dbca3221a",
+        1
+      ],
+      [
+        "629befd5-fb45-4365-95c4-d07e72479b37",
+        1
+      ],
+      [
+        "73873fcc-2bea-49a0-b38e-96797faf74c0",
+        1
+      ],
+      [
+        "7a63ca74-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

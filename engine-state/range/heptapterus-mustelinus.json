@@ -1,13 +1,21 @@
 {
   "id": "heptapterus-mustelinus",
   "native": {
-    "input": "16e4149e8c4a7385",
-    "at": "2026-11-21T13:11:30.372Z",
+    "input": "8f675c5046d57409",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "planetcatfish",
+        "quote": "South America: La Plata and Uruguay River basins and coastal drainages of southern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
         "quote": "South America: La Plata and Uruguay River basins and coastal drainages of southern Brazil.",
         "words": "Brazil",
         "ok": true
@@ -23,6 +31,18 @@
       {
         "name": "Uruguay River",
         "source": "planetcatfish",
+        "quote": "South America: La Plata and Uruguay River basins and coastal drainages of southern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "La Plata",
+        "source": "scotcat",
+        "quote": "South America: La Plata and Uruguay River basins and coastal drainages of southern Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Uruguay River",
+        "source": "scotcat",
         "quote": "South America: La Plata and Uruguay River basins and coastal drainages of southern Brazil.",
         "ok": true
       }

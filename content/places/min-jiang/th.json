@@ -3,6 +3,12 @@
   "name": "หมิ่นเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T19:00:15.772Z",
+    "why": "หมิ่นเจียง is a fair Thai transliteration of Min Jiang, but it leaves out the kind word แม่น้ำ that a Thai atlas puts before a river's name."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

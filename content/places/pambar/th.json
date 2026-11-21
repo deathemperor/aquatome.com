@@ -3,6 +3,12 @@
   "name": "ปัมบาร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T19:00:41.327Z",
+    "why": "ปัมบาร์ is a fine Thai transliteration of Pambar, but the source uses it as a river system, so a Thai atlas would add the kind word, as in แม่น้ำปัมบาร์."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

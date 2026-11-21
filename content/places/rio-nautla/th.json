@@ -3,6 +3,12 @@
   "name": "นาอูตลา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-21T19:02:50.807Z",
+    "why": "The Thai transliteration นาอูตลา is phonetically reasonable for Nautla, but it lacks the kind word แม่น้ำ that a Thai atlas would put before a river name (แม่น้ำนาอูตลา)."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

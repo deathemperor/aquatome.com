@@ -10,6 +10,72 @@
     "china",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Nujiang",
+        "Salween"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: known only from the middle and lower Nujiang (=Salween) basin, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Nujiang"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Salween drainage, China.",
+          "countries": [],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341241,
+      "total": 26,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CN",
+          26
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          25.3125,
+          9,
+          9
+        ],
+        [
+          98.4375,
+          26.71875,
+          15,
+          15
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -126,69 +192,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
-  "range": {
-    "native": {
-      "countries": [
-        "CN"
-      ],
-      "regions": [
-        "Nujiang",
-        "Salween"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Type locality: hill stream running into the Nu River, near Laowo, Yunlong Xian [now Lushi County, Nujiang Prefecture], Yunnan Province, China.",
-          "countries": [
-            "CN"
-          ],
-          "regions": []
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "Asia: known only from the middle and lower Nujiang (=Salween) basin, China.",
-          "countries": [],
-          "regions": [
-            "Nujiang",
-            "Salween"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2341241,
-      "total": 26,
-      "fetched": "2026-11-21",
-      "countries": [
-        [
-          "CN",
-          26
-        ]
-      ],
-      "cells": [
-        [
-          98.4375,
-          23.90625,
-          2,
-          2
-        ],
-        [
-          98.4375,
-          25.3125,
-          9,
-          9
-        ],
-        [
-          98.4375,
-          26.71875,
-          15,
-          15
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-21"
 }

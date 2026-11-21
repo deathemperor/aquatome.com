@@ -894,10 +894,9 @@
     "back": false
   },
   "brachygobius-doriae": {
-    "hash": "7ac54061ce84a9a00cef02e6bba3f3e4aec217466333a056d3d347e9ced14a5e",
-    "at": "2026-11-20T17:27:11.909Z",
-    "sonnet": 0.93,
-    "opus": 0.7,
+    "hash": "3cc45d537f06d97b13fc8af905820216da7c1eabcd9b4516d6804c8f5b0fdac2",
+    "at": "2026-11-21T18:44:49.381Z",
+    "sonnet": 0.6,
     "back": false
   },
   "brachygobius-kabiliensis": {
@@ -1172,16 +1171,86 @@
     "sonnet": 0.6,
     "back": false
   },
+  "cherax-boesemani": {
+    "hash": "31d2ef5d57d1627c7df4636975598bc62e120dbd387a528d435d2cb058c8ef58",
+    "at": "2026-11-21T18:46:46.886Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "cherax-quadricarinatus": {
+    "hash": "53ba67d1edff04040aaee1184178e4eff62808e7f1653ae7d9e930704ca01393",
+    "at": "2026-11-21T18:47:34.068Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "cherax-tenuimanus": {
+    "hash": "fcae96adc321e53d38daede246651e634233f4ed8a791527b8a9079e7c33ef64",
+    "at": "2026-11-21T18:47:50.157Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 12 Description: 'ada duri pada telsonnya' ok; 'Kini varian biru elektrik dibudidayakan' ok. Item 6 'mortality' -> 'terjadi kematian' ok."
+    ]
+  },
   "chitala-blanci": {
     "hash": "a12e1b53fbf41d167a6fe6ca948179caeff964a4f9fe364002a5648def58cf81",
     "at": "2026-11-18T00:29:14.680Z",
     "sonnet": 0.7,
     "back": false
   },
+  "chonerhinos-naritus": {
+    "hash": "2469e99a3f33dbd74d34514cf0f361379307eb0bfd02d4957049a0591ebf0857",
+    "at": "2026-11-21T18:48:04.136Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Items 1/5: Original gives sg of 1.005 (specific gravity); fine. But item 1 'butuh garam laut' lacks the 'marine salt' qualification; use 'garam akuarium laut'."
+    ]
+  },
+  "chromidotilapia-guntheri": {
+    "hash": "1dd863f52f6ab0187607908d8ae04a7a1b3900a55cd03d3191c665a99106b008",
+    "at": "2026-11-21T18:48:34.106Z",
+    "sonnet": 0.95,
+    "opus": 0.93,
+    "back": true
+  },
+  "cichla-monoculus": {
+    "hash": "29c4103e10ca68584c5e7d1d6a09bdf96435187cbe3ed3e4e30ca3c741366b43",
+    "at": "2026-11-21T18:49:04.446Z",
+    "sonnet": 0.92,
+    "opus": 0.92,
+    "back": true
+  },
+  "cichlasoma-trimaculatum": {
+    "hash": "459595ee4d5c5e209426f1f7975e5c3ddab4ebf8a0e7a0e9a0360752176e1c65",
+    "at": "2026-11-21T18:49:37.609Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
   "ciliopagurus-strigatus": {
     "hash": "44d545723020b12436dce980e611fcf82eb5f97334384af690e73b0adf138670",
     "at": "2026-11-20T06:51:12.807Z",
     "sonnet": 0.6,
+    "back": false
+  },
+  "cincelichthys-pearsei": {
+    "hash": "a0d37a7edfe348a2c9ba9fc1703cd4ef28cdc57a15124e64822fbdafb79b540e",
+    "at": "2026-11-21T18:49:48.324Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "citharinus-citharus": {
+    "hash": "07f390216882e801c64ee61926631c1f7020626504195ac92b90c26a5d0c08b9",
+    "at": "2026-11-21T18:49:59.198Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "clarias-anfractus": {
+    "hash": "1dc195622f58316ada29d08cd479384efa04e60f3944d55551bef667d78332e0",
+    "at": "2026-11-21T18:50:09.786Z",
+    "sonnet": 0.7,
     "back": false
   },
   "copella-nattereri": {
@@ -1232,6 +1301,13 @@
     "at": "2026-11-20T06:51:50.684Z",
     "sonnet": 0.85,
     "opus": 0.85,
+    "back": true
+  },
+  "dawkinsia-assimilis": {
+    "hash": "84d1d31110c8c34032e407721c1f5b4901be3e63c5b15689b0199945cc9c7008",
+    "at": "2026-11-21T18:45:28.394Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
     "back": true
   },
   "devario-chrysotaeniatus": {
@@ -1402,6 +1478,19 @@
     "sonnet": 0.6,
     "back": false
   },
+  "geosesarma-dennerle": {
+    "hash": "a685c8b9548e638a2b25d18431f45281d0f425e7e24919f0a8649ae64ed576e7",
+    "at": "2026-11-21T18:45:42.150Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "glyptothorax-schmidti": {
+    "hash": "c5f828935da3b21e2f82444ace47cc0f88b9bdbc0a303a59ca055d0ce23b0d99",
+    "at": "2026-11-21T18:46:04.129Z",
+    "sonnet": 0.8,
+    "opus": 0.96,
+    "back": true
+  },
   "gymnothorax-polyuranodon": {
     "hash": "1a3f6ab005382ac94819acb54a94ccf243cac210403151d8af0f6bca132c20a4",
     "at": "2026-11-18T05:44:14.288Z",
@@ -1491,6 +1580,13 @@
     "held": [
       "#14: the English 'TDS: 18 to 179 ppm' is kept correctly, no change needed."
     ]
+  },
+  "microphis-brachyurus": {
+    "hash": "32d08b5186d101960499dd421110a1bb541726c8965d0d8d86c81b74ce64e101",
+    "at": "2026-11-21T18:46:32.583Z",
+    "sonnet": 0.75,
+    "opus": 0.85,
+    "back": true
   },
   "mikrogeophagus-ramirezi": {
     "hash": "08f12294cad7ba729bc3be9017777a19c219869d8a950c50de6b728b5e097e32",

@@ -3,6 +3,12 @@
   "name": "Luongo",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T18:57:49.418Z",
+    "why": "Luongo is a place name in Zambia (Luongo District/region), and the bare name Luongo keeps the source spelling, but an Indonesian atlas would typically add a kind word such as \"Distrik\" or \"Wilayah\", so the bare form is incomplete and I can't confirm it."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

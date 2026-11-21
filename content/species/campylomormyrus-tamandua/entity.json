@@ -33,8 +33,14 @@
         "BF",
         "NE"
       ],
-      "regions": [],
+      "regions": [
+        "Volta",
+        "Shari",
+        "Lake Chad",
+        "Congo"
+      ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
@@ -53,6 +59,17 @@
             "NE"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The species is widespread in western Africa (drainages of the rivers Volta, Niger, Shari (including Lake Chad) and Congo).",
+          "countries": [],
+          "regions": [
+            "Volta",
+            "Shari",
+            "Lake Chad",
+            "Congo"
+          ]
         }
       ]
     },

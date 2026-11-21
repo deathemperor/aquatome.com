@@ -1,8 +1,8 @@
 {
   "id": "nangra-assamensis",
   "native": {
-    "input": "93f2a840f47df7f2",
-    "at": "2026-11-21T13:11:30.372Z",
+    "input": "99b0cc994778a4e2",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "IN",
@@ -15,9 +15,17 @@
       {
         "code": "IN",
         "status": "native",
-        "source": "planetcatfish",
-        "quote": "Asia: India.",
+        "source": "scotcat",
+        "quote": "Asia: Ganges and Brahmaputra Rivers in India.",
         "words": "India",
+        "ok": true
+      },
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Also occurs in Nepal.",
+        "words": "Nepal",
         "ok": true
       }
     ],
@@ -25,7 +33,7 @@
       {
         "name": "Brahmaputra",
         "source": "planetcatfish",
-        "quote": "Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.",
+        "quote": "Type locality: Brahmaputra River at Neematighat, 14 kilometres from Jorhat, Assam, India.",
         "country": "IN",
         "ok": true
       },
@@ -33,20 +41,31 @@
         "name": "Ganges",
         "source": "planetcatfish",
         "quote": "Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.",
-        "country": "IN",
         "ok": true
       },
       {
         "name": "Padma",
         "source": "planetcatfish",
         "quote": "Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.",
-        "country": "IN",
         "ok": true
       },
       {
         "name": "Jamuna",
         "source": "planetcatfish",
         "quote": "Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.",
+        "ok": true
+      },
+      {
+        "name": "Ganges",
+        "source": "scotcat",
+        "quote": "Asia: Ganges and Brahmaputra Rivers in India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "scotcat",
+        "quote": "Asia: Ganges and Brahmaputra Rivers in India.",
         "country": "IN",
         "ok": true
       }
@@ -81,9 +100,10 @@
       ]
     ],
     "native": [
-      "IN"
+      "IN",
+      "NP"
     ],
     "requests": 12,
-    "at": "2026-11-21T13:11:30.372Z"
+    "at": "2026-11-21T19:07:52.042Z"
   }
 }

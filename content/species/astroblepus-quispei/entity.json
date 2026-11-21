@@ -10,6 +10,38 @@
     "peru",
     "andes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Andes"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Andes, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Andes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9652816,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

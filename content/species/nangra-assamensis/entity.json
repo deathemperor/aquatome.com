@@ -12,6 +12,105 @@
     "nepal",
     "koshi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Ganges",
+        "Padma",
+        "Jamuna"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Brahmaputra River at Neematighat, 14 kilometres from Jorhat, Assam, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Also occurs in Nepal.",
+          "countries": [
+            "NP"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.",
+          "countries": [],
+          "regions": [
+            "Ganges",
+            "Padma",
+            "Jamuna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341143,
+      "total": 10,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "IN",
+          4
+        ],
+        [
+          "BD",
+          3
+        ],
+        [
+          "NP",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          82.96875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          84.375,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          85.78125,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          87.1875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -164,93 +263,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
-  "range": {
-    "native": {
-      "countries": [
-        "IN"
-      ],
-      "regions": [
-        "Brahmaputra",
-        "Ganges",
-        "Padma",
-        "Jamuna"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Type locality: Brahmaputra River at Neematighat, 14 kilometres from Jorhat, Assam, India.",
-          "countries": [
-            "IN"
-          ],
-          "regions": []
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.",
-          "countries": [],
-          "regions": [
-            "Brahmaputra",
-            "Ganges",
-            "Padma",
-            "Jamuna"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2341143,
-      "total": 10,
-      "fetched": "2026-11-21",
-      "countries": [
-        [
-          "IN",
-          4
-        ],
-        [
-          "BD",
-          3
-        ],
-        [
-          "NP",
-          3
-        ]
-      ],
-      "cells": [
-        [
-          82.96875,
-          26.71875,
-          1,
-          0
-        ],
-        [
-          84.375,
-          25.3125,
-          3,
-          3
-        ],
-        [
-          85.78125,
-          25.3125,
-          2,
-          0
-        ],
-        [
-          87.1875,
-          22.5,
-          1,
-          1
-        ],
-        [
-          90,
-          22.5,
-          3,
-          0
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-21"
 }

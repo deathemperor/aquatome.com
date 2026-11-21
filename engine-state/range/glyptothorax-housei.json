@@ -1,0 +1,43 @@
+{
+  "id": "glyptothorax-housei",
+  "native": {
+    "input": "b2bdeaf1d7e269db",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Glyptothorax housei",
+    "status": "ACCEPTED",
+    "taxonKey": 2341298,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

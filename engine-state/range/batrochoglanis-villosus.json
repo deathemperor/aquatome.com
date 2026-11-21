@@ -1,42 +1,12 @@
 {
   "id": "batrochoglanis-villosus",
   "native": {
-    "input": "20c1fa06d5b122ea",
-    "at": "2026-11-06T15:17:52.851Z",
-    "claims": [
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "planetcatfish",
-        "quote": "Photographed in the Rio Nanay near Iquitos, Peru.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "GY",
-        "status": "native",
-        "source": "scotcat",
-        "quote": "Type locality: Potaro Landing, British Guiana.",
-        "words": "British Guiana",
-        "ok": true
-      }
-    ],
+    "input": "a33b2139392acae6",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [],
     "regions": [
       {
-        "name": "Amazon",
-        "source": "planetcatfish",
-        "quote": "Amazon, Upper Amazon, Nanay.",
-        "ok": true
-      },
-      {
-        "name": "Rio Nanay",
-        "source": "planetcatfish",
-        "quote": "Photographed in the Rio Nanay near Iquitos, Peru.",
-        "country": "PE",
-        "ok": true
-      },
-      {
-        "name": "Orinoco",
+        "name": "Demerara River",
         "source": "scotcat",
         "quote": "South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins.",
         "ok": true
@@ -48,7 +18,13 @@
         "ok": true
       },
       {
-        "name": "Demerara River",
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
         "source": "scotcat",
         "quote": "South America: Demerara River, Essequibo basin, Orinoco, and Amazon River basins.",
         "ok": true
@@ -58,6 +34,8 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
+        "PE",
+        "GY",
         "BR"
       ],
       "sourcesOnly": []
@@ -153,11 +131,8 @@
         1
       ]
     ],
-    "native": [
-      "PE",
-      "GY"
-    ],
-    "requests": 12,
-    "at": "2026-11-06T15:17:52.851Z"
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-21T19:07:52.042Z"
   }
 }
