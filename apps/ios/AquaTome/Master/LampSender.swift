@@ -172,11 +172,11 @@ extension LampAirError {
   /// What the lamp's card says of it.
   var line: String {
     switch self {
-    case .off: String(localized: "Bật Bluetooth để gửi lệnh tới đèn.")
-    case .refused: String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.")
-    case .unsupported: String(localized: "Máy này không có Bluetooth.")
-    case .failed: String(localized: "Không gửi được lệnh tới đèn. Thử lại.")
-    case .cut: String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
+    case .off: String(localized: "Bật Bluetooth để gửi lệnh tới đèn.", bundle: .app)
+    case .refused: String(localized: "AquaTome chưa được dùng Bluetooth. Bật trong Cài đặt → AquaTome → Bluetooth.", bundle: .app)
+    case .unsupported: String(localized: "Máy này không có Bluetooth.", bundle: .app)
+    case .failed: String(localized: "Không gửi được lệnh tới đèn. Thử lại.", bundle: .app)
+    case .cut: String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", bundle: .app)
     }
   }
 }

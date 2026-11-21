@@ -2915,5 +2915,107 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/nitrat": [
+    {
+      "at": "2026-11-21T19:11:58Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Các nguồn ghi mức an toàn khác nhau khá xa.\" (not \"Mức khuyên giữ nitrat trong bể cá đi từ 5–10 ppm tới dưới 80–100 ppm.\": it drops the advice \"Các nguồn ghi mức an toàn khác nhau khá xa\")",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\" (not \"Về lâu dài: cho ăn ít đi và bớt cá.\": Rule 12: Under \"Nên làm gì\", the second step's first sentence reads \"Về lâu dài: cho ăn ít đi và bớt cá.\", but the line asks for it word for word as \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\" The …",
+        "Rule 4: The warning that low nitrate harms plants appears three times: \"ở 0–20 ppm cây có thể gặp vấn đề\", \"Nitrat thấp không hại cá, ốc hay tép, chỉ hại cây\" (both in the shop's list under \"Mức nitrat các nguồn ghi\") and again under \"Sai lầm cần tránh\" in \"ép nitrat xuống thấp nhất có thể, làm hại cây\". It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:11:58Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition's first sentence \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" was not changed to the required wording \"Nitrat (NO3) là sản phẩm phụ của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" Three sites call nitrate a byproduct. Only one uncredited site calls it the end product.",
+        "Rule 12: Under \"Trong bể của bạn\", \"Nitrat tăng khi cho ăn quá tay, khi thả quá nhiều cá và khi để lá cây mục trong bể.\" should read \"Nitrat tăng khi cho ăn quá tay và khi để lá cây mục trong bể.\" Overstocking as a cause comes from only one site, which would be a fourth source past the three the entry credits.",
+        "Rule 12: Under \"Nguồn thú y ghi:\", \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" should be the two sentences \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng. Triệu chứng gồm lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" The source says the signs include these, so …",
+        "Rule 12: Under \"Mức nitrat các nguồn ghi\", \"Nguồn thú y ghi hầu hết các loài cá chịu được tới 20 mg/l, có loài đã có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt hơn cá biển, tùy loài.\" should read \"Hai nguồn cùng lấy 20 mg/l làm mốc. Nguồn thú y ghi hầu hết cá chịu được tới mức đó, một số loài có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt hơn cá biển…",
+        "Rule 12: In the keeper source's list, \"… trên 10 hay 20 ppm là hại cá không có cơ sở trong tài liệu khoa học.\" should end \"… trên 10 hay 20 ppm là hại cá không được tài liệu khoa học ủng hộ.\" The fact says \"not supported\".",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Nguồn thú y ghi thay tới 50%, nước mới khớp pH, nhiệt độ với bể.\" should read \"Nguồn thú y ghi thay tới 50%, nước mới đã khử clo và khớp pH, nhiệt độ với bể.\" The fact says the new water is dechlorinated.",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Tiệm này ghi thay 30–50%, và khi nitrat quá cao thì chia ra thay trong nhiều ngày.\" should be \"Tiệm này ghi thay 30–50%. Khi nitrat rất cao, chia việc thay nước ra nhiều ngày.\" Two sites give the second part, so it stands plain in its own sentence.",
+        "Rule 12: Under \"Nên làm gì\", second step, \"Cho ăn ít đi, bớt cá và vớt lá cây chết.\" should read \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\" The fact frames this as long-term advice.",
+        "Rule 12: Under \"Sai lầm cần tránh\", \"Thay quá nhiều nước một lần có thể làm cá sốc.\" should read \"Thay nước quá nhiều có thể làm cá sốc.\" The fact says nothing about \"một lần\" (in one go).",
+        "Rule 12: Under \"Sai lầm cần tránh\", \"Bỏ châm phân cho nitrat thấp, làm cây thiếu các chất khác.\" should read \"Bỏ châm phân để giữ nitrat thấp, làm cây thiếu các chất khác.\" The fact itself links the two: fertiliser is skipped to keep nitrate down."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:05:54Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" the advice \"do vi khuẩn chuyển từ nitrit mà ra\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" the advice \"thường chỉ lộ ra khi đã có triệu chứng\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và sa giông axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\" the name Sa giông axolotl, and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Nguồn thú y khuyên đo nitrat mỗi tháng, và đo mỗi tuần khi thêm cá, cây, tép, ốc, khi đổi thức ăn hay đổi lọc.\" the advice \"ốc\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 6: \"axolotl\" in \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\": the animal has a page, so it should be called by that page's name, written mid-sentence as \"sa giông axolotl\". The THIS TERM line from Sun 22 Nov 2026 asks for \"tép và axolotl\" word for word, so that line clashes with this rule.",
+        "Rule 4: the warning that low nitrate harms plants appears three times: \"còn ở 0–20 ppm cây có thể gặp vấn đề\" and \"Nitrat thấp không hại cá, ốc hay tép, chỉ hại cây\" under \"Một tiệm ghi:\", and again under \"Sai lầm cần tránh\" as \"ép nitrat xuống thấp nhất có thể, làm hại cây\". It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:05:54Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" the advice \"do vi khuẩn chuyển từ nitrit mà ra\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" the advice \"thường chỉ lộ ra khi đã có triệu chứng\", and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và sa giông axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\" the name Sa giông axolotl, and nothing lets that sentence go: write it as it was, word for word.",
+        "The rewrite dropped from \"Nguồn thú y khuyên đo nitrat mỗi tháng, và đo mỗi tuần khi thêm cá, cây, tép, ốc, khi đổi thức ăn hay đổi lọc.\" the advice \"ốc\", and nothing lets that sentence go: write it as it was, word for word.",
+        "Rule 6: \"axolotl\" in \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\": the animal has a line in PAGES, so it should be called by that page's name, \"sa giông axolotl\". This wording follows the Glossary lead's word-for-word line under THIS TERM (Sun 22 Nov 2026), which conflicts with Rule 6. The lead needs to decide which one applies.",
+        "Rule 4: the warning that low nitrate harms plants appears three times. It is in \"còn ở 0–20 ppm cây có thể gặp vấn đề\", in \"Nitrat thấp không hại cá, ốc hay tép, chỉ hại cây\" and in \"Cho rằng cứ trên 0 ppm là có vấn đề rồi ép nitrat xuống thấp nhất có thể, làm hại cây\". It should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:05:54Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Các nguồn ghi mức an toàn khác nhau khá xa.\" (not \"Mức nitrat cá chịu được khác nhau tùy loài.\": it drops the advice \"Các nguồn ghi mức an toàn khác nhau khá xa\")",
+        "Rule 12: The definition's first sentence \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ, do vi khuẩn chuyển từ nitrit mà ra.\" must read word for word \"Nitrat (NO3) là sản phẩm phụ của chu trình nitơ.\"",
+        "Rule 12: Under \"Trong bể của bạn\", \"Nitrat tăng khi cho ăn quá tay, khi thả quá nhiều cá và khi để lá cây mục trong bể.\" must read word for word \"Nitrat tăng khi cho ăn quá tay và khi để lá cây mục trong bể.\" Overstocking as a cause comes from a fourth site only.",
+        "Rule 12: Under \"Nguồn thú y ghi:\", \"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" must read word for word \"Cá ngộ độc nitrat từ từ và thường không ai để ý cho tới khi có triệu chứng. Triệu chứng gồm lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh và chết đột ngột.\" The fact says the signs \"include\" these.",
+        "Rule 12: Under \"Mức nitrat các nguồn ghi\", \"Nguồn thú y ghi hầu hết các loài cá chịu được tới 20 mg/l, có loài đã có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt hơn cá biển, tùy loài.\" must read word for word \"Hai nguồn cùng lấy 20 mg/l làm mốc. Nguồn thú y ghi hầu hết cá chịu được tới mức đó, một số loài có triệu chứng ở mức thấp hơn, và cá nước ngọt thường chịu nitrat tốt…",
+        "Rule 12: In the keeper source's list, \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và sa giông axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\" must read word for word \"Dưới khoảng 80 ppm thì chưa thấy cá bị ảnh hưởng rõ, nhưng tép và axolotl có thể bị ảnh hưởng từ khoảng 40 ppm.\"",
+        "Rule 12: In the keeper source's list, the sentence ending \"… trên 10 hay 20 ppm là hại cá không có cơ sở trong tài liệu khoa học.\" must end word for word \"… trên 10 hay 20 ppm là hại cá không được tài liệu khoa học ủng hộ.\" The fact says \"not supported\".",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Nguồn thú y ghi thay tới 50%, nước mới khớp pH, nhiệt độ với bể.\" must read word for word \"Nguồn thú y ghi thay tới 50%, nước mới đã khử clo và khớp pH, nhiệt độ với bể.\"",
+        "Rule 12: Under \"Nên làm gì\", first step, \"Tiệm này ghi thay 30–50%, và khi nitrat quá cao thì chia ra thay trong nhiều ngày.\" must read word for word \"Tiệm này ghi thay 30–50%. Khi nitrat rất cao, chia việc thay nước ra nhiều ngày.\" Two sites give the second part, so it stands plain.",
+        "Rule 12: Under \"Nên làm gì\", the second step's \"Cho ăn ít đi, bớt cá và vớt lá cây chết.\" must read word for word \"Về lâu dài: cho ăn ít đi, bớt cá và vớt lá cây chết.\""
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:34:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Các nguồn ghi mức an toàn khác nhau khá xa.\" (not \"Mức nitrat cá chịu được khác nhau tùy loài.\": Rule 4: the point that nitrate tolerance depends on the species comes twice in a row. It opens with \"Mức nitrat cá chịu được khác nhau tùy loài.\" and comes back at the end of the vet source's next sentence (\"……",
+        "Rule 12: \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ\" states as plain fact something only one site gives. Only Cá Dĩa Đại Phát calls nitrate the end product of the cycle; PetMD only calls it a byproduct. This part needs that site's credit, in its own sentence.",
+        "Rules 4 and 12: \"do vi khuẩn chuyển từ nitrit mà ra\" in the definition gives a step of the nitrogen cycle as where nitrate comes from. The body then says it again with the pointer \"Nitrat đến từ đâu: xem mục Chu trình nitơ.\" THIS TERM says the Chu trình nitơ entry is linked for where nitrate comes from and its steps aren't repeated, so this should be said once.",
+        "Rule 12: \"Nitrat tăng khi cho ăn quá tay, khi thả quá nhiều cá và khi để lá cây mục trong bể\" puts overstocking in a plain sentence with the other causes. Only Therium gives overstocking as a cause, so it needs its own sentence under that shop's credit and can't be joined to the parts two sites give.",
+        "Rule 12: \"hầu hết các loài cá chịu được tới 20 mg/l\" widens the fact's \"most fish\" with \"các loài\". The standing line never allows \"các loài\" for a group, so it should keep the fact's own word (\"hầu hết cá\")."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    }
   ]
 }

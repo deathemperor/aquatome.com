@@ -8,6 +8,7 @@ import UIKit
 /// about itself, in the browser; signing out and deleting the account; the app's version.
 struct AccountView: View {
   @Environment(AccountModel.self) private var account
+  @Environment(AppLanguageNow.self) private var language
   @Environment(\.dismiss) private var dismiss
 
   var body: some View {
@@ -45,6 +46,9 @@ struct AccountView: View {
       .background { AppearanceProbe(id: "appearance-sheet") }
       #endif
     }
+    // A language picked here shows at once: the sheet stays open and its words change under the finger, drawn again
+    // in it (the words its views work out, as SwiftUI's own follow the locale by themselves).
+    .id(language.code)
     // On the stack, not its first screen: the pages pushed onto it read their environment from here.
     .environment(\.closeAccountSheet, { dismiss() })
     .ownerScreen("account")
@@ -90,7 +94,7 @@ private struct AppSection: View {
   @Environment(\.openScreen) private var openScreen
   @AppStorage(TabBarGlass.key) private var tabBarGlass = true
 
-  /// "Ngôn ngữ" as kept, which the section's footer reads too.
+  /// "Ngôn ngữ" as kept.
   @State private var language = AppLanguage.stored
 
   var body: some View {
@@ -122,11 +126,13 @@ private struct AppSection: View {
           }
         }
         .accessibilityIdentifier("kept-row")
+      } else {
+        ElsewhereNote(saved: false)
       }
     } header: {
       Text("Ứng dụng").font(.subheadline.weight(.semibold))
     } footer: {
-      LanguageNote(choice: language)
+      LanguageNote()
     }
   }
 }
@@ -197,9 +203,9 @@ private struct PrivacySection: View {
     } header: {
       Text("Quyền riêng tư").font(.subheadline.weight(.semibold))
     } footer: {
-      Text.linked(String(localized: "Thống kê không gồm tài khoản, tên bể, nội dung tìm kiếm hay ảnh."),
-                  String(localized: "Chính sách bảo mật"),
-                  URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#thong-ke-ung-dung"))!)
+      Text.linked(String(localized: "Thống kê không gồm tài khoản, tên bể, nội dung tìm kiếm hay ảnh.", bundle: .app),
+                  String(localized: "Chính sách bảo mật", bundle: .app),
+                  URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#thong-ke-ung-dung", bundle: .app))!)
     }
   }
 }
@@ -209,9 +215,9 @@ private struct PrivacySection: View {
 private struct AboutSection: View {
   var body: some View {
     Section {
-      out("Giới thiệu", URL(string: String(localized: "https://aquatome.com/gioi-thieu/"))!, id: "about")
-      out("Liên hệ", URL(string: String(localized: "https://aquatome.com/lien-he/"))!, id: "about-contact")
-      out("Chính sách bảo mật", URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/"))!, id: "about-privacy")
+      out("Giới thiệu", URL(string: String(localized: "https://aquatome.com/gioi-thieu/", bundle: .app))!, id: "about")
+      out("Liên hệ", URL(string: String(localized: "https://aquatome.com/lien-he/", bundle: .app))!, id: "about-contact")
+      out("Chính sách bảo mật", URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/", bundle: .app))!, id: "about-privacy")
     } header: {
       Text("Về AquaTome").font(.subheadline.weight(.semibold))
     }

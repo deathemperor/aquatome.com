@@ -13,7 +13,11 @@ struct V2Root: View {
   @Binding var tab: AquaTomeApp.Tab
   @Binding var handbookPath: NavigationPath
   @Binding var tanksPath: NavigationPath
-  @State private var selection = Pick.today
+  /// The tab in front: the app keeps it, so a language picked in the Tài khoản sheet, which draws the tabs again, leaves
+  /// it in front.
+  @Binding var selection: V2Tab
+  /// The language the tabs were drawn in: they're drawn again in another (AquaTomeApp.speak).
+  let lang: String
   @State private var todayPath = NavigationPath()
   @State private var searchPath = NavigationPath()
   @Environment(HandbookModel.self) private var handbook
@@ -22,11 +26,9 @@ struct V2Root: View {
   @State private var ownFrom: Int?
   @State private var todayOwnFrom: Int?
 
-  enum Pick: Hashable { case today, browse, tanks, lights, search }
-
   var body: some View {
     TabView(selection: $selection) {
-      Tab("Hôm nay", systemImage: "sparkles", value: Pick.today) {
+      Tab("Hôm nay", systemImage: "sparkles", value: V2Tab.today) {
         TodayView(path: $todayPath)
           .environment(\.v2OpenFull) { item, at in
             if todayOwnFrom == nil { todayOwnFrom = todayPath.count }
@@ -34,7 +36,7 @@ struct V2Root: View {
           }
           .v2ClearUnderTabBar()
       }
-      Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
+      Tab("Khám phá", systemImage: "square.grid.2x2", value: V2Tab.browse) {
         BrowseHome(path: $handbookPath, front: selection == .browse)
           .environment(\.v2OpenFull) { item, at in
             if ownFrom == nil { ownFrom = handbookPath.count }
@@ -52,11 +54,11 @@ struct V2Root: View {
           .v2ClearUnderTabBar()
       }
       // v1's screens: a fade of a set height, as their ends have no room for one that grows with the text.
-      Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) {
+      Tab("Bể của tôi", systemImage: "fish", value: V2Tab.tanks) {
         TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
-      Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
-      Tab(value: Pick.search, role: .search) {
+      Tab("Đèn", systemImage: "lightbulb", value: V2Tab.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
+      Tab(value: V2Tab.search, role: .search) {
         HandbookView(path: $searchPath).v2StackLinks($searchPath)
           .environment(\.v2Pages, true)
           .environment(\.v2OpenFull) { item, at in searchPath.append(FullPage(item: item, at: at)) }
@@ -96,6 +98,8 @@ struct V2Root: View {
     // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws; with nothing open on
     // Khám phá, what Hôm nay had open, or else the search tab (which pushes only v1's own screens).
     .onDisappear {
+      // Drawn again in another language: every stack starts at its first screen, none taken over.
+      guard AppLanguageNow.shared.code == lang else { return }
       if let f = ownFrom, handbookPath.count > f { handbookPath.removeLast(handbookPath.count - f) }
       if let f = todayOwnFrom, todayPath.count > f { todayPath.removeLast(todayPath.count - f) }
       if handbookPath.isEmpty { handbookPath = todayPath.isEmpty ? searchPath : todayPath }
@@ -126,6 +130,9 @@ struct V2Root: View {
     }
   }
 }
+
+/// v2's tabs.
+enum V2Tab: Hashable { case today, browse, tanks, lights, search }
 
 /// v2 or the old look. v2 is the app's look for everyone (the owner, 2026-11-08), installs from before too: on unless
 /// the reader turned it off by hand (a stored false), where it stays off. The Tài khoản sheet's switch offers the old

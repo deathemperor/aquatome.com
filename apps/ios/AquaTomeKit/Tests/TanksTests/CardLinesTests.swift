@@ -48,7 +48,7 @@ let masterCardList = #"""
 ### AquaTome/Master/MasterModel.swift
 - buttonKey · `runKey = "master.run"` · The one key a run is kept under: read in `init`, written only by `keep` and `store`.
 - init · `run = d.data(forKey: Self.runKey)` · The run as kept. Kept by build 390 (no `mayHaveGone`): a put-back with a line counts as one that may have gone (`Back.earlier`, the over-count the chief accepted); one without, as one that didn't (known and open).
-- defaultName · `static let defaultName = String(localized:` · The button's name when the owner gives none. Nothing on what went.
+- defaultName · `static var defaultName: String { String(localized:` · The button's name when the owner gives none. Nothing on what went.
 - save · `refusal = []` · Clears the last press's refusals. Says nothing.
 - delete · `refusal = []` · The same.
 - delete · `run = nil` · Only a run ended with nothing owed.
@@ -136,6 +136,7 @@ let masterCardList = #"""
 - store · `private func store(_ r: MasterRun)` · The one write of a run.
 - tell · `private func tell(` · A note, once.
 - schedule · `c.body = String(localized:` · The notification at the end time, where allowed: the time is up, open the app to put things back. Nothing on what went.
+- schedule · `guard still() else {` · Set only while still wanted, asked with nothing awaited before it's set: a language picked sets it again in the new words only for the same press, still running, with no end or press going on.
 
 ### AquaTome/Master/Switcher.swift
 - send · `return (.failed(words(why, c)), false)` · Withdrawn before any of it went (signed out, the role no longer allows it, the device no longer on a tank): said so, and nothing went.

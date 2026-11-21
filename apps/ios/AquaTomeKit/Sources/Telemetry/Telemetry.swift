@@ -17,6 +17,8 @@ public final class Telemetry: Sendable {
     /// nil until the site's index has said.
     var site: Bool?
     var reader: Bool
+    /// The app, the phone and the language its events are in: the language changes when the reader picks another.
+    var about: About
     var allowed: Bool { site == true && reader }
     var closed: Bool { site == false || !reader }
 
@@ -30,7 +32,6 @@ public final class Telemetry: Sendable {
 
   /// Random, made anew at each launch and never reused for another launch (a batch waiting in the queue keeps its own).
   public let session = UUID().uuidString.lowercased()
-  private let about: About
   /// nil: no install id sent.
   private let install: Install?
   private let started = ContinuousClock.now
@@ -42,10 +43,9 @@ public final class Telemetry: Sendable {
   public init(about: About, readerAllows: Bool, file: URL?, site: URL, send: @escaping Send,
               userAgent: @escaping @Sendable () -> String? = { nil }, install: Install? = nil,
               now: (@Sendable () -> Double)? = nil) {
-    self.about = about
     self.install = install
     if !readerAllows { install?.forget() }
-    let waiting = OSAllocatedUnfairLock(initialState: Waiting(reader: readerAllows))
+    let waiting = OSAllocatedUnfairLock(initialState: Waiting(reader: readerAllows, about: about))
     self.waiting = waiting
     outbox = Outbox(file: file, site: site, send: send, userAgent: userAgent, now: now ?? { Telemetry.seconds() },
                     allowed: { waiting.withLock { $0.allowed } })
@@ -69,10 +69,10 @@ public final class Telemetry: Sendable {
   /// (`Diagnostic.kept`). Dropped when none of that is in it, or when it's larger than the Worker takes.
   public func diagnostic(_ kind: Diagnostic.Kind, json: Data) {
     guard let kept = Diagnostic.kept(kind, json: json) else { return }
-    let d = Diagnostic(kind: kind, about: about, payload: String(decoding: kept, as: UTF8.self))
-    guard Wire.body(d).count <= Wire.maxReport else { return }
+    let payload = String(decoding: kept, as: UTF8.self)
     waiting.withLock { w in
-      guard !w.closed else { return }
+      let d = Diagnostic(kind: kind, about: w.about, payload: payload)
+      guard !w.closed, Wire.body(d).count <= Wire.maxReport else { return }
       w.diagnostics = Array((w.diagnostics + [d]).suffix(Outbox.diagnosticsCap))
     }
   }
@@ -100,17 +100,43 @@ public final class Telemetry: Sendable {
   }
 
   /// Moves what was recorded to the queue and sends what's due, when both switches are on.
-  public func flush() async {
+  public func flush() async { await send(take(then: nil)) }
+
+  /// The app now shows `lang`: what was recorded before goes to the queue in the language it was seen in and is sent (by
+  /// the task returned), and what's recorded from here on is in `lang`. Taken and changed at once, under the lock, so no
+  /// event falls between. Before the site has said it takes the telemetry, what waits on the phone goes in `lang`: it
+  /// isn't sent until then.
+  @discardableResult
+  public func speaks(_ lang: String) -> Task<Void, Never> {
+    let taken = take(then: lang)
+    return Task { await send(taken) }
+  }
+
+  private struct Taken: Sendable {
+    let events: [Event]
+    let diagnostics: [Diagnostic]
+    let install: String?
+    let about: About
+  }
+
+  /// What was recorded, when both switches are on; then the language changed, if `lang`.
+  private func take(then lang: String?) -> Taken? {
     // The install id asked under the lock, so a switch turned off meanwhile can't leave one made.
     let install = install
-    let taken: (events: [Event], diagnostics: [Diagnostic], install: String?)? = waiting.withLock { w in
+    return waiting.withLock { w in
+      defer {
+        if let lang { w.about = About(app: w.about.app, os: w.about.os, device: w.about.device, lang: lang) }
+      }
       guard w.allowed else { return nil }
       defer { w.events = []; w.diagnostics = [] }
-      return (w.events, w.diagnostics, w.events.isEmpty ? nil : install?.id())
+      return Taken(events: w.events, diagnostics: w.diagnostics, install: w.events.isEmpty ? nil : install?.id(), about: w.about)
     }
+  }
+
+  private func send(_ taken: Taken?) async {
     guard let taken else { return }
     // A switch turned off since: the queue takes none of it (`Outbox.add`), and sends nothing.
-    await outbox.add(taken.events, about: about, session: session, install: taken.install)
+    await outbox.add(taken.events, about: taken.about, session: session, install: taken.install)
     await outbox.add(taken.diagnostics)
     await outbox.flush()
   }

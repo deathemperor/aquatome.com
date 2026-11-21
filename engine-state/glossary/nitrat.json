@@ -1,0 +1,452 @@
+{
+  "found": true,
+  "species": [
+    "Danio rerio",
+    "Oncorhynchus mykiss",
+    "Pogostemon stellatus",
+    "Anubias"
+  ],
+  "sources": [
+    {
+      "url": "https://www.petmd.com/fish/conditions/toxicity/nitrate-poisoning-fish",
+      "title": "Nitrate Poisoning in Fish: Signs, Causes, and Treatment | PetMD",
+      "kind": "vet"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/nitrate",
+      "title": "Is Nitrate Good or Bad for Your Aquarium? | Water Chemistry 101 – Aquarium Co-Op",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumscience.org/index.php/5-4-1-nitrate-in-depth",
+      "title": "5.4.1. Nitrate in Depth - Aquarium Science",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.therium.vn/dung-chu-quan-voi-nong-do-nitrate",
+      "title": "ĐỪNG CHỦ QUAN VỚI NỒNG ĐỘ NITRATE",
+      "kind": "shop"
+    },
+    {
+      "url": "https://cadiadaiphat.com/vai-tro-cua-nitrat-no3-trong-be-ca-canh/",
+      "title": "Vai trò của Nitrat (NO3) trong Bể cá cảnh - CÁ DĨA ĐẠI PHÁT",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/chu-trinh-nito",
+      "title": "Chu trình nitơ hoạt động như thế nào (Nitrogen Cycle)",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Nitrate\"",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"NO3-\"",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Nitrat\"",
+      "source": 4,
+      "also": [
+        5
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"NO3\"",
+      "source": 4,
+      "also": [
+        5
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Nitrate is a byproduct of the nitrogen cycle: bacteria turn ammonia from fish waste into nitrite and then into nitrate.",
+      "source": 0,
+      "also": [
+        1,
+        3
+      ]
+    },
+    {
+      "section": "what",
+      "fact": "Nitrate builds up in aquarium water over time.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Nitrate is less toxic than ammonia because fish take it up less readily through their gills.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Nitrate's presence in an aquarium cannot be avoided.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Nitrobacter bacteria convert nitrite (NO2) into nitrate (NO3).",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Plants use nitrate as food, so nitrate is needed in planted tanks.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Denitrifying bacteria are anaerobic. They live in substrate or sediment deeper than about 5 cm and turn nitrate into nitrogen gas.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrate shows no visible signs in the water, so it has to be measured with a test kit.",
+      "source": 0,
+      "also": [
+        1,
+        3
+      ]
+    },
+    {
+      "section": "signs",
+      "fact": "Signs of nitrate poisoning include lethargy, decreased appetite, skin irritation or redness, faster breathing and sudden death.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrate poisoning develops slowly and often goes unnoticed until symptoms appear.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Nitrate poisoning can look like gill parasites or like problems with ammonia, nitrite, pH or temperature.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Vets use a liquid test kit. PetMD says test strips are not reliable for diagnosing water-quality problems.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "In an established tank, algae growth is a sign of high nitrate. In a new tank, algae can appear even below 10 ppm.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Many fish show no symptoms at 100 ppm or more, but long exposure makes them more prone to fungal disease and slows growth and reproduction.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "At extreme levels, fish become lethargic and develop ulcers or sores on the body.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Fish newly added to a high-nitrate tank can suffer \"nitrate shock\" and die suddenly, while fish already used to the level usually survive.",
+      "source": 3
+    },
+    {
+      "section": "signs",
+      "fact": "Too little nitrate makes plant leaves turn yellow or translucent, starting at the tips, and the leaves eventually melt.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "High nitrate can cause algal blooms, which may lower oxygen overnight and cause pH swings.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Most fish tolerate up to 20 mg/L of nitrate. Some species show symptoms at lower levels.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Freshwater fish are generally more tolerant of nitrate than saltwater fish, though sensitivity varies by species.",
+      "source": 0,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Therium recommends keeping nitrate at 5–10 ppm and calls 20–50 ppm too high.",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Thuysinh4u says nitrate is harmless at low levels but becomes toxic above 20 ppm (20 mg/L).",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Aquarium Co-Op recommends keeping fish tanks under 80–100 ppm nitrate, and lower for nitrate-sensitive species.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Aquarium Co-Op says planted tanks should aim for about 50 ppm nitrate, and that 0–20 ppm can cause plant problems.",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Aquarium Science reports no evident effect on fish below about 80 ppm, but says shrimp and axolotls may be affected at about 40 ppm.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Aquarium Science says mixed fish and plant tanks commonly run 40–80 ppm, and suggests aiming for orange-red rather than red-red on the API test.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Lab studies report nitrate as nitrogen only (NO3-N). Multiply by about 4.4 to compare with hobby test kits that read NO3. For example, API orange is 40 ppm NO3, while Hach orange is 8 ppm NO3-N.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "For juvenile zebrafish (Danio rerio), a study cited by Aquarium Science recommends a limit of 100 mg/L nitrate-nitrogen (about 440 ppm as NO3).",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "For rainbow trout (Oncorhynchus mykiss), a study cited by Aquarium Science found effects at 80–100 mg/L nitrate-nitrogen (about 352–440 ppm as NO3).",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Aquarium Science puts the chronic toxic limit for freshwater fish at about 440–1,200 ppm nitrate, depending on species.",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Bacteria and phosphate rise along with nitrate, and algae blooms can lower oxygen.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Causes of high nitrate include waste buildup, infrequent water changes, decaying plant material that is not removed, and overfeeding.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Therium names overfeeding as the main cause of high nitrate.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Too many fish (overstocking) raises nitrate.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Dirty filters raise nitrate, because filter media traps waste without removing it from the system.",
+      "source": 3
+    },
+    {
+      "section": "causes",
+      "fact": "Old plant leaves and dead animals or insects left in the tank raise nitrate.",
+      "source": 3,
+      "also": [
+        4
+      ]
+    },
+    {
+      "section": "causes",
+      "fact": "Tap water used for water changes may already contain nitrate, depending on the source.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "All-in-one plant fertilizers such as Easy Green raise nitrate because they contain nitrogen.",
+      "source": 1
+    },
+    {
+      "section": "firstAid",
+      "fact": "PetMD's treatment is a partial water change of up to 50%, with the new water dechlorinated and matched to the tank's pH and temperature.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "A gravel siphon helps remove debris during the water change.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If low KH (old tank syndrome) has caused low pH, use smaller water changes for a while.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "When nitrate is very high, change a small amount of water each day so the fish are not shocked. Once it is down to 5–10 ppm, set up a regular routine.",
+      "source": 3
+    },
+    {
+      "section": "firstAid",
+      "fact": "Aquarium Co-Op suggests a 30–50% water change with a siphon. For very high levels, spread the changes over several days.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Full recovery from nitrate poisoning may take several days to a week.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "A 50% water change cuts nitrate by about 50%.",
+      "source": 3
+    },
+    {
+      "section": "treatment",
+      "fact": "Live plants absorb nitrate. Fast growers such as Pogostemon stellatus work faster than slow growers such as anubias.",
+      "source": 1
+    },
+    {
+      "section": "treatment",
+      "fact": "Long term, lower nitrate by keeping fewer fish, feeding less or moving to a bigger tank.",
+      "source": 1,
+      "also": [
+        0
+      ]
+    },
+    {
+      "section": "treatment",
+      "fact": "In saltwater tanks, well-cured live rock hosts denitrifying bacteria that turn nitrate into nitrogen gas. Daily bacteria doses or a nitrate reactor are also options.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "Easy Green dose: 1 pump per 10 gallons, weekly in low light and twice weekly in medium light.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "With Easy Green: if nitrate is 50 ppm or more, do 50% water changes until it is 25 ppm or less, then dose up to about 50 ppm.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "With Easy Green: if nitrate reaches 75–100 ppm after 3–4 days, change water again and consider removing fish or adding fast-growing plants.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "During cycling of a freshwater tank, nitrate starts rising around day 27, when a water change of about 40% is needed.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Test nitrate monthly, and weekly when you add fish, plants or invertebrates, change diet or change filtration.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Replace the liquid test kit yearly, store it indoors and keep a record of the results.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Test your water source, and switch to bottled spring water or reverse-osmosis water if needed.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Feed only what the fish eat in about 2 minutes, split into 2–3 small feedings, and remove leftover food, leaves, dead fish and insects every day.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Estimate how many fish the tank could hold and keep only half that number.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Change water weekly, and clean or replace filter pads, cleaning one filter chamber at a time each week.",
+      "source": 3
+    },
+    {
+      "section": "prevention",
+      "fact": "Thuysinh4u recommends changing about 30% of the water weekly in freshwater tanks.",
+      "source": 5
+    },
+    {
+      "section": "prevention",
+      "fact": "Use dechlorinated water for water changes and trim dead plant leaves.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "One mistake is skipping fertilizer to keep nitrate down, which starves plants of other nutrients.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Very large water changes can shock fish.",
+      "source": 1,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "It is a mistake to think any nitrate above 0 ppm is a problem, or to push nitrate as low as possible, which harms plants.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overfeeding protein raises nitrate.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Co-Op says the belief that nitrate is always bad is wrong, because plants need it.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Co-Op says fish waste alone is not enough plant fertilizer, because it lacks the right nutrients in the right ratios.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Co-Op says fish, snails and shrimp are not harmed by low nitrate. Only plants are.",
+      "source": 1
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says the common advice that nitrate above 10 or 20 ppm harms fish is not supported by the scientific literature.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science disputes that nitrate makes algae thrive, saying high nitrate with fast plant growth helps control algae.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science disputes that any level above 100 ppm is toxic to aquarium fish.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science says tap water above 40 ppm nitrate is usually no reason to panic for adult fish.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "Cá Dĩa Đại Phát claims a biological filter turns nitrate into less harmful substances, but nitrate is itself the end product of the cycle in the filter.",
+      "source": 4,
+      "also": [
+        0
+      ]
+    }
+  ]
+}

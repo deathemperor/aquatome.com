@@ -227,7 +227,7 @@ private struct SavedLightRow: View {
   /// "WRGB II Slim · lịch 13:00–19:00 · 40%".
   private var meta: String {
     let a = device.schedules.first { $0.id == device.activeScheduleId }
-    return [device.model, a.map { String(localized: "lịch \(label($0))") }].compactMap { $0 }.joined(separator: " · ")
+    return [device.model, a.map { String(localized: "lịch \(label($0))", bundle: .app) }].compactMap { $0 }.joined(separator: " · ")
   }
 }
 
@@ -236,7 +236,7 @@ private struct BusyCard: View {
 
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
-      Text(verbatim: lights.connecting ?? "").font(.title3.weight(.semibold))
+      Text(verbatim: lights.connectingText ?? "").font(.title3.weight(.semibold))
       ProgressView().frame(maxWidth: .infinity)
       Button("Hủy") { lights.disconnect() }.buttonStyle(.bordered).controlSize(.large).accessibilityIdentifier("disconnect")
     }
@@ -261,7 +261,7 @@ private struct ReadyCard: View {
           .submitLabel(.done)
           .onSubmit { naming = false }
           .accessibilityIdentifier("nickname")
-        Text(verbatim: [d?.nickname == nil ? String(localized: "Bấm vào tên để đổi") : lights.model?.name, lights.firmware.map { "firmware \($0)" }]
+        Text(verbatim: [d?.nickname == nil ? String(localized: "Bấm vào tên để đổi", bundle: .app) : lights.model?.name, lights.firmware.map { "firmware \($0)" }]
           .compactMap { $0 }.joined(separator: " · "))
           .font(.caption).foregroundStyle(.secondary)
           .accessibilityIdentifier("light-meta")
@@ -430,7 +430,7 @@ private struct ClockFact: View {
           Group {
             switch lights.clock {
             case .lost: Text("Đèn mất giờ, có thể do mất điện: lịch sẽ chạy sai giờ.")
-            case .off(let d): Text("Đồng hồ đèn \(d > 0 ? String(localized: "nhanh") : String(localized: "chậm")) \(span(abs(d))): lịch sẽ chạy lệch.")
+            case .off(let d): Text("Đồng hồ đèn \(d > 0 ? String(localized: "nhanh", bundle: .app) : String(localized: "chậm", bundle: .app)) \(span(abs(d))): lịch sẽ chạy lệch.")
             default: Text("Chưa đọc được giờ của đèn.")
             }
           }
@@ -573,7 +573,7 @@ private struct WriteBar: View {
 
   /// "12:00–20:00 · 70% · 8 tiếng", as the site's.
   private func summary(_ s: Schedule) -> String {
-    label(s) + " · " + String(localized: "\(s.hoursOn.formatted(.number.locale(.app).precision(.fractionLength(0...1)))) tiếng")
+    label(s) + " · " + String(localized: "\(s.hoursOn.formatted(.number.locale(.app).precision(.fractionLength(0...1)))) tiếng", bundle: .app)
   }
 }
 
@@ -621,7 +621,7 @@ private struct SavedSchedules: View {
 
   /// "Bể mới trồng · sáng dần 30 phút · 1/11/2026".
   private func meta(_ s: SavedSchedule) -> String {
-    [s.name.flatMap { $0.isEmpty ? nil : $0 }, String(localized: "sáng dần \(s.ramp) phút"), day(s.savedAt)].compactMap { $0 }.joined(separator: " · ")
+    [s.name.flatMap { $0.isEmpty ? nil : $0 }, String(localized: "sáng dần \(s.ramp) phút", bundle: .app), day(s.savedAt)].compactMap { $0 }.joined(separator: " · ")
   }
 }
 
@@ -668,10 +668,10 @@ private struct AboutText: View {
 extension Channel {
   var title: String {
     switch self {
-    case .red: String(localized: "Đỏ")
-    case .green: String(localized: "Xanh lá")
-    case .blue: String(localized: "Xanh dương")
-    case .white: String(localized: "Trắng")
+    case .red: String(localized: "Đỏ", bundle: .app)
+    case .green: String(localized: "Xanh lá", bundle: .app)
+    case .blue: String(localized: "Xanh dương", bundle: .app)
+    case .white: String(localized: "Trắng", bundle: .app)
     }
   }
 }
@@ -690,8 +690,8 @@ private func day(_ timestamp: String) -> String {
 
 /// "40 phút", "7 tiếng", "1,5 tiếng".
 private func span(_ minutes: Int) -> String {
-  minutes < 60 ? String(localized: "\(minutes) phút")
-    : String(localized: "\((Double(minutes) / 60 * 10).rounded() / 10, format: .number.precision(.fractionLength(0...1))) tiếng")
+  minutes < 60 ? String(localized: "\(minutes) phút", bundle: .app)
+    : String(localized: "\((Double(minutes) / 60 * 10).rounded() / 10, format: .number.precision(.fractionLength(0...1))) tiếng", bundle: .app)
 }
 
 #if DEBUG
