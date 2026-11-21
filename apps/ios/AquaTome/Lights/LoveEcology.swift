@@ -272,7 +272,19 @@ final class LoveEcologyModel {
   /// `-lamp-drag-holds` in a debug build: a drag's pause and lift send nothing, so its words ("Ngừng kéo để gửi…") stay
   /// for the Design Lead's screenshot of a drag (a test's finger lifts before it can take one).
   private static let dragHolds = ProcessInfo.processInfo.arguments.contains("-lamp-drag-holds")
+  /// `-lamp-gap-held` with `-test-gates` in a debug build: a send after another waits past the gap until the test opens
+  /// `lamp-gap`, so a flow can leave the app while one waits however slow its own taps (on 21 Nov GitHub's Mac took 11 s
+  /// between two, past the first's three seconds and the gap).
+  private static let gapHeld = ProcessInfo.processInfo.arguments.contains("-lamp-gap-held")
   #endif
+
+  /// When the one waiting may go: `due`, or a second from now while `-lamp-gap-held` holds it (debug builds).
+  private static func dueHeld(_ due: ContinuousClock.Instant) -> ContinuousClock.Instant {
+    #if DEBUG
+    if gapHeld, LampRadio.lastEnded != nil, !TestGate.isOpen("lamp-gap") { return .now.advanced(by: .seconds(1)) }
+    #endif
+    return due
+  }
   private static let key = "loveEcology.sent"
 
   private(set) var line: Line {
@@ -514,7 +526,7 @@ final class LoveEcologyModel {
   private func next() {
     gap?.cancel()
     guard !held, onAir == nil, let q = waiting else { return }
-    let due = Self.pacer.due(moved: .now, lifted: true, lastEnded: LampRadio.lastEnded)
+    let due = Self.dueHeld(Self.pacer.due(moved: .now, lifted: true, lastEnded: LampRadio.lastEnded))
     if due <= .now { return broadcast(q) }
     gap = Task { [weak self] in
       try? await Task.sleep(until: due, clock: .continuous)

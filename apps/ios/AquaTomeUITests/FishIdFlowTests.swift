@@ -308,8 +308,9 @@ final class FishIdFlowTests: XCTestCase {
   }
 }
 
-/// The app's waits the test moves on itself (`TestGate`): a folder of its own, where opening one writes its file.
-private struct Gates {
+/// The app's waits the test moves on itself (`TestGate`): a folder of its own, where opening one writes its file. The
+/// master button's flows open them too.
+struct Gates {
   let path = FileManager.default.temporaryDirectory.appending(path: "gates-\(UUID().uuidString)").path
 
   init() { try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true) }

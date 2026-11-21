@@ -208,9 +208,9 @@ REACH = {
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     # The photo picker both screens open (the flows hand them a photo, as picked).
     APP + 'Handbook/ImagePicker.swift': ['FishIdFlowTests', 'ReaderPostFlowTests'],
-    # The waits a flow moves on itself (`-test-gates`): only the fish-ID flows open them (the page shots' fish-ID screens
-    # get the plain wait it replaced, as with FakeServer's).
-    APP + 'TestGate.swift': ['FishIdFlowTests'],
+    # The waits a flow moves on itself (`-test-gates`): the fish-ID flows open them, and the light's flow that leaves the
+    # app while a send waits (the page shots' fish-ID screens get the plain wait it replaced, as with FakeServer's).
+    APP + 'TestGate.swift': ['FishIdFlowTests', 'LightFlowTests/testTheLoveEcologyCardKeepsWhatWasSentAndWhatLeavingCutOff'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
     # Its flows, and a fish page's link that opens it.
     APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
@@ -435,7 +435,7 @@ def check(runs, left, reached, ran):
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
-    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests'}
+    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests', 'LightFlowTests/testTheLoveEcologyCardKeepsWhatWasSentAndWhatLeavingCutOff'}
     # The chat: its contract and its stand-in reach its flows and its shots (drawn from the stand-in's recordings); the
     # events' reader its flows alone; its entries, a fish's page and fish ID's result.
     for p in (KIT + 'Sources/Handbook/Chat.swift', APP + 'Chat/ChatView.swift', APP + 'Account/FakeChat.swift',

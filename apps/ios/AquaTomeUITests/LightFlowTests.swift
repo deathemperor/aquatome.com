@@ -1000,8 +1000,12 @@ final class LightFlowTests: XCTestCase {
     expect(app, "lamp-status", contains: "Đã gửi “Trắng”, \(level) lúc", timeout: 15)
     XCTAssertEqual(element(app, "lamp-sent").label, "white@\(level.dropLast())")
     app.terminate()
-    // The light's gap made 8 s (`-lamp-gap`), so green still waits when the app leaves the front on a slow Mac.
-    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", "-lamp-gap", "8", reset: false)
+    // The light's gap made 8 s (`-lamp-gap`), and held past it until the test opens it (`-lamp-gap-held`): green still
+    // waits when the app leaves the front, however slow the taps. On 21 Nov GitHub's Mac took 11 and 13 s from red's tap
+    // to green's, past red's three seconds and the gap, so green had gone in full and the card rightly said so.
+    let gates = Gates()
+    app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", "-lamp-gap", "8", "-lamp-gap-held", "-test-gates", gates.path,
+                 reset: false)
     expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”, \(level) · ", timeout: 20)
     expect(app, "lamp-level", value: level)
     let under = gap(app, "lamp-level", "lamp-trial-off")
@@ -1012,6 +1016,7 @@ final class LightFlowTests: XCTestCase {
     leaveAndComeBack(app)
     expect(app, "lamp-status", contains: "Gửi “Xanh lá”, \(level) bị ngắt vì bạn rời ứng dụng.")
     XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "Gửi lại moved the trial row")
+    gates.open("lamp-gap")
     tap(app, "lamp-again")
     expect(app, "lamp-status", contains: "Đã gửi “Xanh lá”, \(level) lúc", timeout: 15)
     let sent = element(app, "lamp-sent").label
