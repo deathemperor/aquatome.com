@@ -732,14 +732,18 @@ test('a plant\'s row whose seventh thumbnail is cut by under two pixels shows "X
 
 // The strip's fourth read, 21 Nov: on a phone the column's row is the thumbnails and the button's place, with a gap
 // between them that stays when the button is hidden. Measured to the strip's edge, a thumbnail ending in that gap counted
-// as seen though the row cuts it. The album is cut to the strip's own photos, so only the row's measure decides.
+// as seen though the row cuts it. The album is cut to the photos the phone's row shows (not the column's further ones,
+// hidden at this width), so only the row's measure decides: wide enough for every thumbnail and the gap, no button.
 test('a fish\'s column row whose last thumbnail ends in the gap before the button\'s place shows "Xem tất cả"', async ({ page, request, isMobile }) => {
   test.skip(isMobile, 'a screen of one pixel to the pixel, as the gap is counted')
   const found = await albumPage(request, 'ca', (_, html) => /<section class="strip column\b[\s\S]*?<button type="button" class="all"/.test(html))
   test.skip(!found, 'no fish page whose photo column has a strip with its button in this build')
   const { path, html } = found!
   const strip = /<section class="strip column\b[\s\S]*?<\/ul>/.exec(html)![0]
-  const n = Math.max(...[...strip.matchAll(/data-i="(\d+)"/g)].map(m => Number(m[1]))) + 1
+  // The row's own thumbnails: an <li> without the column's "more" class.
+  const own = [...strip.matchAll(/<li(?![^>]*\bclass="more")[^>]*><a [^>]*\bdata-i="(\d+)"/g)].map(m => Number(m[1]))
+  expect(own.length, 'the row has thumbnails').toBeGreaterThan(1)
+  const n = Math.max(...own) + 1
   const body = html.replace(/(<section[^>]*data-album[\s\S]*?<script type="application\/json"[^>]*>)([\s\S]*?)(<\/script>)/, (_, a, j, b) => {
     const album = JSON.parse(j) as { photos: unknown[] }
     return a + JSON.stringify({ ...album, photos: album.photos.slice(0, n) }).replace(/</g, '\\u003c') + b
@@ -749,16 +753,21 @@ test('a fish\'s column row whose last thumbnail ends in the gap before the butto
   await page.goto(path)
   await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
   const all = page.locator('section.strip .all')
-  const ends = await page.locator('section.strip').evaluate(box => {
-    const ul = box.querySelector('ul')!, left = ul.getBoundingClientRect().left
-    const last = Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => a.checkVisibility()).map(a => a.getBoundingClientRect().right + ul.scrollLeft))
-    const gap = parseFloat(getComputedStyle(box).columnGap)
-    // The strip as wide as its thumbnails and half its gap: hidden, the button leaves the row that half a gap short.
-    box.style.width = `${last - left + gap / 2}px`
-    return { gap, cut: last - ul.getBoundingClientRect().right }
+  const box = page.locator('section.strip')
+  // How far the row's thumbnails run, and the gap before the button's place.
+  const { run, gap } = await box.evaluate(el => {
+    const ul = el.querySelector('ul')!
+    const right = Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => a.checkVisibility()).map(a => a.getBoundingClientRect().right + ul.scrollLeft))
+    return { run: right - ul.getBoundingClientRect().left, gap: parseFloat(getComputedStyle(el).columnGap) }
   })
-  expect(ends.gap, 'the column row has a gap').toBeGreaterThan(2)
-  expect(ends.cut, 'the row cuts its last thumbnail').toBeGreaterThan(1)
+  expect(gap, 'the column row has a gap').toBeGreaterThan(2)
+  const width = (w: number) => box.evaluate((el, w) => { el.style.width = `${w}px` }, w)
+  // Room for every thumbnail and the gap: all of the album is seen, no button.
+  await width(run + gap + 2)
+  await expect(all, 'every thumbnail in view').toBeHidden()
+  // Half a gap short: the row cuts its last thumbnail by half the gap.
+  await width(run + gap / 2)
+  expect(await box.evaluate(el => { const ul = el.querySelector('ul')!; return Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => a.checkVisibility()).map(a => a.getBoundingClientRect().right + ul.scrollLeft)) - ul.getBoundingClientRect().right }), 'the row cuts its last thumbnail').toBeGreaterThan(1)
   await expect(all).toBeVisible()
 })
 
