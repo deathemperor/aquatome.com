@@ -1101,6 +1101,39 @@ test('no video guide\'s label names a person or the channel', () => {
   expect(named).toEqual([])
 })
 
+// The read of the cutter's 17 cuts (20 Nov 2026): five took something nothing else on the page carried. Each is back in
+// the Writing Lead's words, said as the keeper's, and the goldfish guide's summary and FAQ keep to what the keeper saw in
+// two tanks (test/fixtures/cutter-answers-1120.json). Each body guarded; the goldfish guide's FAQ too.
+test("the Writing Lead's answers to five of the cutter's cuts hold", () => {
+  handFixesHold('cutter-answers-1120.json')
+  // Each where the Lead put it (#1721's reader): the check above would pass a passage moved whole within its field.
+  const fixture = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/cutter-answers-1120.json', import.meta.url)), 'utf8')) as Record<string, { in: string; now?: string }[]>
+  const guide = (id: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/youtube-${id}/vi.json`, import.meta.url)), 'utf8')) as { body: string; summary: string[]; faq: { q: string; a: string }[] }
+  // What stands just before each new body passage, in the fixture's order ('' = the page's opening).
+  const before: Record<string, string[]> = {
+    '3jqe5KGD9lI': ['Nếu ít tiền thì đèn LED loại dùng cho nhà xưởng cũng là một lựa chọn. '],
+    '6MVlcgTchtE': ['những cây không đòi nhiều dinh dưỡng, ít phải chăm và '],
+    'LiotY1HIneo': ['Có thể giữ nguyên cục chì ở gốc khi trồng, vì ráy kiếm có chì vẫn lên tốt. '],
+    'N_35ut9PWGM': ['Khi cây cao thì cắt tỉa rồi cắm lại ngọn ', 'Cây lên màu xanh tươi và mọc tốt. '],
+    '5yH835oMU04': [''],
+  }
+  for (const [id, entries] of Object.entries(fixture)) {
+    const g = guide(id)
+    const bodies = entries.filter(e => e.in === 'body' && e.now).map(e => e.now!)
+    const want = before[id] ?? []
+    expect(bodies.length, id).toBe(want.length)
+    bodies.forEach((now, i) => {
+      const at = g.body.indexOf(now), b = want[i] ?? ''
+      expect(g.body.slice(0, at).endsWith(b) && (b !== '' || at === 0), `${id}: ${now}`).toBe(true)
+    })
+  }
+  const goldfish = guide('N_35ut9PWGM')
+  const said = (where: string) => fixture['N_35ut9PWGM']!.find(e => e.in === where)!.now!
+  expect(goldfish.summary[3]).toContain(said('summary'))
+  expect(goldfish.faq[2]?.q).toBe('Nuôi cá vàng thì trồng cây gì để không bị phá?')
+  expect(goldfish.faq[2]?.a).toContain(said('faq'))
+})
+
 // The chief of staff, 15 Nov 2026: care facts the lane's whole-sentence cuts would take go on hand-fixed text first, so
 // the fact never leaves the page. Two climate lines and two places stay as they were, their parts fixed; in four guides
 // the fact stays in plain words, only the comparison, the product or the shop goes, and the body is fixed.
