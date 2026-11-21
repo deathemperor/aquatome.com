@@ -15,19 +15,21 @@ extension XCUIApplication {
     // At the end once two flings in a row leave the page where it was. With one, a kind of kit's page stopped after its
     // second fling (main's run, 21 Nov): 877.7 read after both, under the screen's foot, though its recording shows the
     // page moving between them; the retry flung five times and passed. Where it was: read from the page that scrolls,
-    // not the bars (`Reading`): its lowest words the same, within half a point of where the run of still readings began,
-    // and its highest words' top there too, so repeated words can't read still alone. Not still after 30 flings, or no
+    // not the bars (`Reading`): its lowest and its highest words the same, each within half a point of the reading
+    // before and of where the run of still readings began (against the first alone, 700 then 700.49 then 699.51 read
+    // still, a step of 0.98; Codex, 21 Nov), so repeated words can't read still alone. Not still after 30 flings, or no
     // reading of the screen, fails: a check that never saw the page's end proves nothing (Codex and the chief, 21 Nov).
-    var from: Reading?, still = 0, flings = 0
+    var from: Reading?, last: Reading?, still = 0, flings = 0
     while still < 2 {
       guard flings < 30 else {
-        return XCTFail("\(screen): not still after 30 flings: \(from?.what ?? "no reading of the screen")", file: file, line: line)
+        return XCTFail("\(screen): not still after 30 flings: \(last?.what ?? "no reading of the screen")", file: file, line: line)
       }
       swipeUp()
       flings += 1
       _ = XCTWaiter.wait(for: [XCTestExpectation(description: "still")], timeout: 0.8)
       let now = pageReading()
-      if let now, let from, now.isStill(from) { still += 1 } else { still = 0; from = now }
+      if let now, let from, let last, now.isStill(from), now.isStill(last) { still += 1 } else { still = 0; from = now }
+      last = now
     }
     let bar = tabBars.firstMatch
     XCTAssertTrue(bar.exists, "\(screen): no tab bar", file: file, line: line)
@@ -173,10 +175,13 @@ extension XCUIApplication {
     return low
   }
 
-  /// The scrolling page's words at rest after a fling: which are lowest and where they end, and where its highest begin.
+  /// The scrolling page's words at rest after a fling: which are lowest and where they end, which are highest and where
+  /// they begin.
   private struct Reading {
-    let low: CGFloat, words: String, high: CGFloat, what: String
-    func isStill(_ o: Reading) -> Bool { words == o.words && abs(low - o.low) < 0.5 && abs(high - o.high) < 0.5 }
+    let low: CGFloat, words: String, high: CGFloat, top: String, what: String
+    func isStill(_ o: Reading) -> Bool {
+      words == o.words && top == o.top && abs(low - o.low) < 0.5 && abs(high - o.high) < 0.5
+    }
   }
 
   /// What stays put while a page scrolls: the bars and what they hold.
@@ -197,18 +202,19 @@ extension XCUIApplication {
       for c in e.children { find(c) }
     }
     find(snap)
-    var low: (y: CGFloat, words: String, what: String)?, high = CGFloat.infinity
+    var low: (y: CGFloat, words: String, what: String)?, high: (y: CGFloat, words: String)?
     func walk(_ e: XCUIElementSnapshot) {
       if Self.fixed.contains(e.elementType) { return }
       let f = e.frame
       if e.elementType == .staticText, !f.isEmpty, f.minY < screen.maxY, f.maxY > screen.minY {
         if f.maxY > low?.y ?? 0 { low = (f.maxY, e.label, "“\(e.label)” at \(f)") }
-        high = min(high, f.minY)
+        if f.minY < high?.y ?? .infinity { high = (f.minY, e.label) }
       }
       for c in e.children { walk(c) }
     }
     walk(page)
-    return low.map { Reading(low: $0.y, words: $0.words, high: high, what: $0.what) }
+    guard let low, let high else { return nil }
+    return Reading(low: low.y, words: low.words, high: high.y, top: high.words, what: low.what)
   }
 
   /// The Tài khoản sheet, from the open tab's profile button (top right of its first screen), unless it's open already.
