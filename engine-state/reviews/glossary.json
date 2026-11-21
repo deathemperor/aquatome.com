@@ -2830,6 +2830,33 @@
   ],
   "vi/glossary/de-con": [
     {
+      "at": "2026-11-21T19:52:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:52:45Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 12 and 15: under \"Loài hay nuôi và sinh sản\", the vet list still ends with \"Chỉ một con cá cái có bầu cũng có thể làm bể chật cá nhanh, và chỉ vài tháng là bể có thể có mấy thế hệ nối nhau.\" and \"Nuôi riêng cá đực với cá cái thì không có lứa ngoài ý muốn.\" These two items are a warning and how to prevent it, which that heading doesn't cover. Sun 22 Nov's line moves them word for word under …",
+        "Rule 12: the pointer \"Cá đẻ trứng rải rác: xem mục đẻ trứng rải rác.\" must be written word for word as \"Đẻ trứng rải rác: xem mục Đẻ trứng rải rác.\" and stay under \"Loài hay nuôi và sinh sản\".",
+        "Rule 12: the pointer \"Vây của cá đực: xem mục vây hậu môn.\" must be written word for word as \"Vây của cá đực: xem mục Vây hậu môn.\" It should also move out of \"Loài hay nuôi và sinh sản\" and go after the list under \"Tránh lứa ngoài ý muốn\".",
+        "Rule 12: the pointer \"Cách nuôi cá con: xem mục cá bột.\" must be written word for word as \"Cách nuôi cá con: xem mục Cá bột.\" (the entry by its own name).",
+        "Rule 12: under \"Nhận ra cá cái sắp đẻ\", \"Cá bơi chậm, cụp đuôi, hay trốn và hầu như bỏ ăn.\" must be written word for word as \"Cá bơi chậm, cụp đuôi, đi trốn và hầu như bỏ ăn.\" Fact 12 says the fish hides, not that it often hides.",
+        "Rule 12: under \"Nên làm gì\", \"Sau khoảng 3–5 ngày mới tăng đạm lại.\" must be written word for word as \"Sau khoảng 3–5 ngày thì có thể tăng đạm lại.\" Fact 25 says protein can be increased again; it doesn't say only after 3–5 days.",
+        "Rules 12 and 14: the first sentence under \"Sai lầm cần tránh\", \"Nguồn thú y coi chuyện lai cận huyết bừa bãi là đáng lo, chẳng hạn ở cá bảy màu “designer”.\", goes back to the vet source already named. Only one vet source has been named, so it must read \"Nguồn thú y này coi chuyện lai cận huyết bừa bãi là đáng lo, chẳng hạn ở cá bảy màu “designer”.\"",
+        "Rule 12: altNames is empty (\"altNames\":[]). THIS TERM gives \"cá đẻ con\" as the term's other name, and the entry doesn't give it as one."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-21T19:35:07Z",
       "model": "sonnet",
       "cli": "2.1.329",
