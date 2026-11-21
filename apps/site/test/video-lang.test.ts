@@ -20,10 +20,12 @@ test('a video titled in Vietnamese is spoken in Vietnamese, whatever its label; 
 })
 
 test("other languages' fish pages leave out a video titled in Vietnamese, and the Vietnamese page keeps it", async () => {
-  for (const lang of ['id', 'th', 'vi'] as const) {
+  // The fixture's one fish with another language's copy: the dwarf cichlid's Malay page.
+  for (const lang of ['ms', 'vi'] as const) {
     const c = await getContent(lang)
-    const s0 = c.species[0]!
-    const p = await speciesParts(lang, c, { ...s0, videos: [viClip, enClip] })
+    const s0 = c.species.find(x => x.id === 'apistogramma-cacatuoides')
+    expect(s0, lang).toBeDefined()
+    const p = await speciesParts(lang, c, { ...s0!, videos: [viClip, enClip] })
     expect(p.videos.map(v => v.youtubeId), lang).toEqual(lang === 'vi' ? [viClip.youtubeId, enClip.youtubeId] : [enClip.youtubeId])
   }
 }, 120_000)
