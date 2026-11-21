@@ -330,7 +330,11 @@ function pipes(t: string, lang: UnitLang): string {
   const od = (fig: string) => PIPE.find(([inch]) => inch === parseNum(fig, lang))?.[1]
   const name = (mm: number) => (lang === 'vi' ? `phi ${mm}` : `${mm} ${lang === 'th' ? 'มม.' : 'mm'}`)
   const INCH = String.raw`\s*-?\s*(?:inch(?:es)?|inci|in|นิ้ว|${INCH_MARK})${END}`
+  // A range of two sizes, as a source gives a pipe that will do: "phi 21 đến phi 27", "21–27 mm".
+  const span = (a: number, b: number) => (lang === 'vi' ? `phi ${a} đến phi ${b}` : `${a}–${b} ${lang === 'th' ? 'มม.' : 'mm'}`)
   return t
+    // "ống PVC ½–¾ inch (khoảng 13–19 mm)": before the one size, which would take the second figure alone ("½–phi 27").
+    .replace(re(String.raw`(${PIPE_WORD})(${N})${TO}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}(?:${TO}${N})?\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, lo: string, hi: string) => { const a = od(lo), b = od(hi); return a && b && a < b ? `${pre}${span(a, b)}` : all })
     // "ống ... ¾ inch (khoảng 19 mm)"
     .replace(re(String.raw`(${PIPE_WORD})(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
     // "ống ... đường kính khoảng 19 mm (3/4 inch)"

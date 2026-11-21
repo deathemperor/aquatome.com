@@ -122,6 +122,16 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(vi('Một đoạn ngắn ống nhựa mềm đường kính trong 1 inch (khoảng 25 mm) được dùng')).toBe('Một đoạn ngắn ống nhựa mềm đường kính trong 25 mm được dùng')
   expect(vi('Mũi khoét lỗ 1½ inch (khoảng 38 mm) có cỡ vừa khéo')).toBe('Mũi khoét lỗ 38 mm có cỡ vừa khéo')
   expect(id('pipa PVC 3/4 inci')).toBe('pipa PVC 27 mm')
+  // A range of two sizes the pipe may be (the chief of staff, 20 Nov 2026): each one's size, as #1716's egg scatterers' pipe
+  // was fixed by hand. The one-size rule took the second figure alone, and the rest went to the length rule: the DIY gang
+  // valve's "½ to ¾ inch PVC pipe" became "Ống PVC cỡ 13–19 mm".
+  expect(vi('Ống PVC cỡ ½–¾ inch, loại thành dày Schedule 40')).toBe('Ống PVC cỡ phi 21 đến phi 27, loại thành dày Schedule 40')
+  expect(vi('ống PVC 1/2 đến 3/4 inch (khoảng 13–19 mm), đủ dài')).toBe('ống PVC phi 21 đến phi 27, đủ dài')
+  expect(vi('Lấy ống PVC 1 đến 2 inch, cắt bốn đoạn')).toBe('Lấy ống PVC phi 34 đến phi 60, cắt bốn đoạn')
+  expect(id('pipa PVC 1/2–3/4 inci')).toBe('pipa PVC 21–27 mm')
+  expect(th('ท่อ PVC 1/2–3/4 นิ้ว')).toBe('ท่อ PVC 21–27 มม.')
+  // A hose is its own size, a range too.
+  expect(vi('ống mềm ½–¾ inch')).toBe('ống mềm 1,5–2 cm')
 })
 
 test('guides: a change of temperature, and the middle of a decade of °F', () => {
