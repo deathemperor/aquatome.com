@@ -275,9 +275,9 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
   // so the night's glossary work runs by day (the chief of staff, 20 Nov 2026). $35 again on 21 and 22 Nov, from the first
   // run after the check's two new sentences are on main, with the backstop $23 higher, then $12 from 23 Nov; and from 21 Nov
   // the video job's check has its own $4 a day, with the backstop $4 higher (the chief of staff, 20 Nov 2026).
-  // FishLoft's hand runs: from 21 Nov 16:30 to midnight the fish pages' video step has $12 in place of the small line and
-  // the guides' video step $34 in place of $30, with the Mac's backstop $16 higher, so the Mac keeps its $59 room; both
-  // as before from 22 Nov (the chief of staff, 21 Nov 2026).
+  // FishLoft's hand runs, on 21 Nov alone: the fish pages' video step has $12 in place of the small line and the guides'
+  // video step $34 in place of $30, with the Mac's backstop $16 higher, so the Mac keeps its $59 room; from 22 Nov the 21 Nov
+  // table as it stood before the raise (the chief of staff, 21 Nov 2026).
   const periods = [
     { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 142, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1, board: 1, photos: 6 },
     { from: '2026-11-13T08:00:00+07:00', to: '2026-11-13T21:59:00+07:00', steps: 278, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 12, crops: 4, board: 2, photos: 10 },
@@ -292,8 +292,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 521, backstop: 580, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
     { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 540, backstop: 599, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
     { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 574, backstop: 633, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 115, material: 8, ask: 2, ideas: 4, judge: 24, photos: 35, recheck: 25 },
-    { from: '2026-11-21T00:00:00+07:00', to: '2026-11-21T16:29:00+07:00', whole: true, steps: 549, backstop: 622, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 35, videoCheck: 4, recheck: 25, guideVideos: 30 },
-    { from: '2026-11-21T16:30:00+07:00', to: '2026-11-21T23:59:00+07:00', whole: true, steps: 565, backstop: 638, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 35, videoCheck: 4, recheck: 25, fishVideos: 12, guideVideos: 34 },
+    { from: '2026-11-21T00:00:00+07:00', to: '2026-11-21T23:59:00+07:00', whole: true, steps: 565, backstop: 638, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 35, videoCheck: 4, recheck: 25, fishVideos: 12, guideVideos: 34 },
     { from: '2026-11-22T00:00:00+07:00', to: '2026-11-22T23:59:00+07:00', whole: true, steps: 549, backstop: 622, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 35, videoCheck: 4, recheck: 25, guideVideos: 30 },
     { from: '2026-11-23T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 526, backstop: 599, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, videoCheck: 4, recheck: 25 },
     { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 447, backstop: 520, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12, videoCheck: 4, recheck: 6 },
