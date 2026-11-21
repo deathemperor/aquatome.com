@@ -12,6 +12,79 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM"
+      ],
+      "regions": [
+        "Salween River",
+        "Irrawaddy River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
+          "countries": [
+            "CN",
+            "MM"
+          ],
+          "regions": [
+            "Salween River",
+            "Irrawaddy River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6103917,
+      "total": 147,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CN",
+          147
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          23.90625,
+          6,
+          6
+        ],
+        [
+          98.4375,
+          25.3125,
+          59,
+          59
+        ],
+        [
+          98.4375,
+          26.71875,
+          12,
+          12
+        ],
+        [
+          104.0625,
+          37.96875,
+          69,
+          69
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -133,77 +206,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
-  "range": {
-    "native": {
-      "countries": [
-        "CN",
-        "MM"
-      ],
-      "regions": [
-        "Salween River",
-        "Irrawaddy River"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.",
-          "countries": [
-            "CN",
-            "MM"
-          ],
-          "regions": [
-            "Salween River",
-            "Irrawaddy River"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 6103917,
-      "total": 147,
-      "fetched": "2026-11-21",
-      "countries": [
-        [
-          "CN",
-          147
-        ]
-      ],
-      "cells": [
-        [
-          97.03125,
-          26.71875,
-          1,
-          1
-        ],
-        [
-          98.4375,
-          23.90625,
-          6,
-          6
-        ],
-        [
-          98.4375,
-          25.3125,
-          59,
-          59
-        ],
-        [
-          98.4375,
-          26.71875,
-          12,
-          12
-        ],
-        [
-          104.0625,
-          37.96875,
-          69,
-          69
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-21"
 }

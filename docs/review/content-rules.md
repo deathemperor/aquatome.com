@@ -132,7 +132,7 @@ A Loricariidae fish with an L or LDA number on record whose name in a language g
 
 - none
 
-## Words hobbyists rarely write (3004)
+## Words hobbyists rarely write (3005)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
@@ -160,7 +160,7 @@ Words and turns the engine writes far more often than the language's hobbyists d
 - vi · "thị trường cá cảnh" → "tiệm cá", "trên thị trường": 314 pages, 431 times
 - vi · "được xem là" → nói thẳng ("CO2 coi như bắt buộc", "cây khó giữ lâu"), đừng đổi sang "được coi là": 310 pages, 391 times
 - vi · "chỗ trú" → "chỗ trốn": 302 pages, 357 times
-- vi · "được cho là" → đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói": 254 pages, 311 times
+- vi · "được cho là" → đúng mức chắc của nguồn: chắc thì nói thẳng, nguồn còn ngờ thì "có lẽ", "nghe nói": 255 pages, 312 times
 - vi · "bể trồng cây" → "bể thủy sinh", "đèn thủy sinh": 193 pages, 263 times
 - vi · "thủ phạm" → "nguyên nhân", "là do": 169 pages, 199 times
 - vi · "cá mê cung" → gọi tên con: "cá sặc, cá betta": 133 pages, 180 times

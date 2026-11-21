@@ -2816,5 +2816,96 @@
       "notes:tropica": "9094aa345a5f",
       "notes:2hraquarist": "f82913d82d1a"
     }
+  },
+  "pogostemon-helferi": {
+    "at": "2026-11-21",
+    "from": "2026-10-31",
+    "name": "Downoi",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 9, Benefits: \"ia tidak membesar\" says the plant does not grow at all. \"does not grow big\" should be \"ia tidak tumbuh besar\".",
+      "Item 9: \"Sama ada ia mati agak cepat atau tumbuh subur dalam tangki, tiada pertengahan\" is slightly awkward. Consider \"Ia sama ada cepat mati atau tumbuh subur dalam tangki, tiada keadaan di antara.\"",
+      "Item 5, DSM: \"menjalankan kitaran substrat\" is unclear for \"cycles the substrate\". Consider \"mematangkan substrat\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "9066fe988d52",
+      "quickFacts:tropica": "0b55361a9655",
+      "distribution:aquariumbreeder": "953b2a77f97e",
+      "habitat:aquariumbreeder": "5fa54fdde955",
+      "maintenance:aquariumbreeder": "62a983678ff9",
+      "maintenance:tropica": "4d7509794577",
+      "waterConditions:aquariumbreeder": "d3f19cf30cff",
+      "equipment:aquariumbreeder": "1286a104c38e",
+      "notes:aquariumbreeder": "fe84b4234a9d",
+      "notes:tropica": "03b57aef0303",
+      "references:aquariumbreeder": "d8993c022569"
+    }
+  },
+  "pogostemon-quadrifolius": {
+    "at": "2026-11-21",
+    "from": "2026-11-09",
+    "name": "Pogostemon Octopus",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:tropica": "f1e35a16b1b3",
+      "quickFacts:aquariumbreeder": "ad941eb3c9f2",
+      "distribution:aquariumbreeder": "e8ef9ee18d10",
+      "habitat:aquariumbreeder": "b4b87d04eb37",
+      "aquariumSize:aquariumbreeder": "a6223f905f04",
+      "maintenance:tropica": "8d25b2c856b7",
+      "maintenance:aquariumbreeder": "ebe99217aa79",
+      "waterConditions:aquariumbreeder": "bac095bad387",
+      "equipment:aquariumbreeder": "22d775188579",
+      "notes:tropica": "90aee389e11c",
+      "notes:aquariumbreeder": "caba8321ab8e"
+    }
+  },
+  "pogostemon-stellatus": {
+    "at": "2026-11-21",
+    "from": "2026-11-09",
+    "name": "Pogostemon stellatus",
+    "confidence": "high",
+    "score": 0.3,
+    "notes": [
+      "Item 2: the source text is Vietnamese, not English, so it can't be judged as an English→Malay translation. The Malay output is also not a faithful rendering of this source: it adds 'di kedai ikan hiasan' and 'tangki' details and uses 'emersed' untranslated. The item should be flagged for source-text correction.",
+      "Item 2: 'emersed' is left in English. Use 'ditanam di atas air (emersed)' or 'secara emers'.",
+      "Item 2: 'bahagian tengah atau belakang tangki' is fine, but 'tangki' and 'akuarium' are mixed. Use one term consistently, preferably 'akuarium'.",
+      "Item 4: 'Pogostemon stellata' differs from 'Pogostemon stellatus' in item 2. Keep the Latin name unchanged and consistent with the source.",
+      "Item 4: 'Stems from 20-60 cm and up to 10 cm wide' is rendered 'Batangnya ... lebarnya sehingga 10 cm', which says the stems are 10 cm wide. The source means the plant spreads up to 10 cm wide. Reword to 'tumbuhan mengembang sehingga 10 cm'.",
+      "Item 3: 'perlukan baja' should be 'memerlukan baja'.",
+      "Item 3: 'intensive light' is translated as 'cahaya yang kuat'. 'Cahaya yang terang/tinggi' is more natural for high light demand, but this is minor.",
+      "Item 1: 'Tumbuhan batang' is acceptable, but 'Jenis: Tumbuhan batang' could use the common hobby term 'Tumbuhan berbatang' (minor)."
+    ],
+    "parts": {
+      "quickFacts:tropica": "792fda4a34a6",
+      "maintenance:aquatome": "9686be695826",
+      "maintenance:tropica": "bc2be2ea0f83",
+      "notes:tropica": "8ad3e74e70dd"
+    }
+  },
+  "proserpinaca-palustris": {
+    "at": "2026-11-21",
+    "from": "2026-10-31",
+    "name": "Proserpinaca palustris",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "b85cc879d3f5",
+      "quickFacts:tropica": "3c5d9cf76049",
+      "distribution:aquariumbreeder": "bdf9ed9d3e87",
+      "habitat:aquariumbreeder": "da4e8fbf822d",
+      "aquariumSize:aquariumbreeder": "53458442f6d1",
+      "maintenance:aquariumbreeder": "4198cce6c8ca",
+      "waterConditions:aquariumbreeder": "4b122d1f6acd",
+      "equipment:aquariumbreeder": "1a716783886e",
+      "reproduction:aquariumbreeder": "d28b294b37c3",
+      "notes:aquariumbreeder": "92ed92d15d61",
+      "notes:tropica": "1a4ae2b751af",
+      "references:aquariumbreeder": "344279637e87"
+    }
   }
 }

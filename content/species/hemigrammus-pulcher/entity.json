@@ -19,15 +19,22 @@
         "Upper Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Endemic to the Upper Amazon in Peru.",
+          "quote": "The pretty tetra, Holopristis pulchra, is a small characin endemic to the Upper Amazon in Peru, found in slow-moving tributaries under forest cover.",
           "countries": [
             "PE"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Upper Amazon in Peru.",
+          "countries": [],
           "regions": [
             "Upper Amazon"
           ]

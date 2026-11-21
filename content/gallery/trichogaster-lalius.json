@@ -102,18 +102,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/504511852.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/504511852-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/504511852",
-      "caption": "Cá sặc gấm màu cam vàng trong bể",
-      "best": false,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/470430345.webp",
       "thumb": "https://media.aquatome.com/inaturalist/470430345-480.webp",
       "width": 1024,
@@ -124,18 +112,6 @@
       "caption": "Cá sặc gấm đực sọc xanh bơi gần cây thủy sinh",
       "best": false,
       "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/545966910.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/545966910-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/545966910",
-      "caption": "Cá sặc gấm màu cam đỏ trong bể nuôi chung",
-      "best": false,
-      "kind": "form"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/545966912.webp",
@@ -364,6 +340,30 @@
       "caption": "Cá sặc gấm màu cam nhạt bơi trong bể cảnh",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/504511852.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/504511852-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/504511852",
+      "caption": "Cá sặc gấm màu cam vàng trong bể",
+      "best": false,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/545966910.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545966910-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545966910",
+      "caption": "Cá sặc gấm màu cam đỏ trong bể nuôi chung",
+      "best": false,
+      "kind": "form"
     }
   ],
   "seen": 73,

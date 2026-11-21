@@ -1,0 +1,131 @@
+{
+  "id": "astroblepus-taczanowskii",
+  "scientificName": "Astroblepus taczanowskii",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "ucayali"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "html": "<ul><li>Synonym: Arges taczanowskii</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "html": "<p>South America: Upper Ucayali River basin (Peru). Type locality: Amable Maria, Peruvian Andes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "html": "<p>Fishes of the family Astroblepidae (and its one valid genus Astroblepus Humboldt, 1805) are found in freshwater streams (between 200 to 13,400 feet above sea level) of the tropical Andes from Panama to Bolivia, and occur in both the western Pacific and eastern Amazonian slope drainage systems in South and Central America. Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "html": "<p>Not an easy family of catfishes to keep so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm and blackworm (although these won’t tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "html": "<p>Etymology: The specific name taczanowskii: In memory of Polish zoologist Wladyslaw (or Ladislas) Taczanowski (1819–1890), who provided the holotype during an exchange between the British Museum (Natural History) and the Warsaw University Museum.</p><p>IUCN Red List: This species is listed Data Deficient (DD) because there is not enough information about its distribution, ecology, population status, and the threats that may be affecting it, but needs updating (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2026. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2026 ).</p><p>Velasquez Quispe, M. &amp; Hidalgo del Aguila, M. 2016. Astroblepus taczanowskii. The IUCN Red List of Threatened Species 2016.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/eaefaa58325a7e85.webp",
+      "thumb": "https://media.aquatome.com/scotcat/eaefaa58325a7e85-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Kiruya Momochi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "caption": "Astroblepus taczanowskii: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/fd60866e0574b8d1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fd60866e0574b8d1-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Kiruya Momochi / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm",
+      "caption": "Astroblepus taczanowskii",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "bơm tạo dòng cho bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

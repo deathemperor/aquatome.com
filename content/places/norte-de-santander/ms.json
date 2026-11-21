@@ -3,6 +3,12 @@
   "name": "Norte de Santander",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-21T18:56:53.618Z",
+    "why": "Malay atlases would typically write \"Jabatan Norte de Santander\" (or \"Wilayah\"), using a kind word for this Colombian department; the bare Spanish name omits it, though the proper name itself is correctly kept."
+  },
   "quality": {
     "score": 0.3,
     "indexable": false

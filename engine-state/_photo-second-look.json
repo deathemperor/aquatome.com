@@ -7246,6 +7246,14 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/1436c34cf7d73205.webp": {
+    "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/astroblepus-sabalo"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/scotcat/15db785e1fccf91b.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -7766,6 +7774,14 @@
     "at": "2026-11-20",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/eaefaa58325a7e85.webp": {
+    "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/astroblepus-taczanowskii"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/scotcat/f11255b93f407c00.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -7809,6 +7825,14 @@
     ],
     "at": "2026-11-21",
     "off": true
+  },
+  "https://media.aquatome.com/scotcat/fd60866e0574b8d1.webp": {
+    "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
+    "step": "the watermark screen",
+    "pages": [
+      "species/astroblepus-taczanowskii"
+    ],
+    "at": "2026-11-21"
   },
   "https://media.aquatome.com/seriouslyfish/0c824d6e385e47d6.webp": {
     "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
@@ -7928,6 +7952,33 @@
     "step": "the chief of staff's look",
     "pages": [
       "guides/sprucepets-what-fish-species-are-coldwater-1380965"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/12202793.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hexanematichthys-sagor"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/151730269.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/bagre-pinnimaculatus"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
+  "https://media.aquatome.com/inaturalist/726952954.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/hexanematichthys-mastersi"
     ],
     "at": "2026-11-21",
     "off": true

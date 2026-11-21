@@ -10,6 +10,56 @@
     "peru",
     "rio-nanay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Nanay"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "For a long time this beautiful dwarf cichlid from the basin of the Rio Nanay in Peru sailed under the name \"cf. juruensis\" or \"sp. Black Chin\".",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Rio Nanay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8290133,
+      "total": 13,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "PE",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -3,6 +3,12 @@
   "name": "Maripicru",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.4,
+    "at": "2026-11-21T18:55:10.433Z",
+    "why": "The name \"Maripicru\" drops the kind word for a creek; Indonesian atlases write \"Sungai Maripicru\" (or \"Kali\"), so the bare name is cut short."
+  },
   "quality": {
     "score": 0.1,
     "indexable": false

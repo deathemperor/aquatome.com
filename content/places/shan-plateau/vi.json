@@ -1,10 +1,13 @@
 {
   "slug": "shan-plateau",
-  "name": "Shan Plateau",
-  "altNames": [],
+  "name": "cao nguyên Shan",
+  "altNames": [
+    "Shan Plateau"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

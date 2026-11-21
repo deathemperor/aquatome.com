@@ -13,6 +13,98 @@
     "myanmar",
     "ganges"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "BD",
+        "MM"
+      ],
+      "regions": [
+        "Ganges",
+        "Bengal"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: India, Bangladesh and Myanmar.",
+          "countries": [
+            "IN",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Ganges River basin, India and Bangladesh.",
+          "countries": [],
+          "regions": [
+            "Ganges"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: fresh water rivers and estuaries of Bengal.",
+          "countries": [],
+          "regions": [
+            "Bengal"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341154,
+      "total": 14,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BD",
+          10
+        ],
+        [
+          "IN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          87.1875,
+          22.5,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          3,
+          3
+        ],
+        [
+          91.40625,
+          21.09375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -181,87 +273,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
-  "range": {
-    "native": {
-      "countries": [
-        "IN",
-        "BD",
-        "MM"
-      ],
-      "regions": [
-        "Bengal"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Asia: India, Bangladesh and Myanmar.",
-          "countries": [
-            "IN",
-            "BD",
-            "MM"
-          ],
-          "regions": []
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "Type locality: fresh water rivers and estuaries of Bengal.",
-          "countries": [],
-          "regions": [
-            "Bengal"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 2341154,
-      "total": 14,
-      "fetched": "2026-11-21",
-      "countries": [
-        [
-          "BD",
-          10
-        ],
-        [
-          "IN",
-          4
-        ]
-      ],
-      "cells": [
-        [
-          87.1875,
-          22.5,
-          2,
-          2
-        ],
-        [
-          88.59375,
-          21.09375,
-          3,
-          3
-        ],
-        [
-          88.59375,
-          25.3125,
-          1,
-          1
-        ],
-        [
-          90,
-          22.5,
-          3,
-          3
-        ],
-        [
-          91.40625,
-          21.09375,
-          5,
-          5
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-21"
 }

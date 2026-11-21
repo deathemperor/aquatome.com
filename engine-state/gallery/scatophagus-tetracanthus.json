@@ -1,7 +1,8 @@
 {
  "queue": [],
  "judged": [
-  "inat:61680082"
+  "inat:61680082",
+  "gbif:6227247796:0955078608404e80"
  ],
  "hashes": {
   "https://media.aquatome.com/glaser/c3cfb2532a3bab34.webp": "49c716171717060e",
@@ -17,5 +18,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-17"
+ "commons": "2026-11-17",
+ "gbif": {
+  "key": 2394729,
+  "next": null
+ }
 }

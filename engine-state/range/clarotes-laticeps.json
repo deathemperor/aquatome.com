@@ -1,8 +1,8 @@
 {
   "id": "clarotes-laticeps",
   "native": {
-    "input": "e908bbaedda770d5",
-    "at": "2026-11-07T06:20:08.160Z",
+    "input": "6cd41d7b9141773f",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "EG",
@@ -117,7 +117,14 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Nile",
+        "source": "glaser",
+        "quote": "However, the species has a very far distribution and is found in the Nile, most parts of West Africa and also in the rivers that flow through the savannahs and riparian forests of East Africa.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

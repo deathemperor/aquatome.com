@@ -612,9 +612,9 @@
     ]
   },
   "bangana-behri": {
-    "hash": "e3a172fa696ed6c1e792ec39ca86d92cb7d947a644d363b661d2b236ca2a05b6",
-    "at": "2026-11-20T17:30:33.431Z",
-    "sonnet": 0.6,
+    "hash": "1f6bbfef672c007e88008f28acb7710fb9322f54d60f72b37b490d8cbfe04de0",
+    "at": "2026-11-21T18:52:12.062Z",
+    "sonnet": 0.55,
     "back": false,
     "held": [
       "Item 12: \"ไม่ค่อยรอด\" (don't survive well) changes \"not do well\". Use \"อยู่ได้ไม่ดี/ไม่ค่อยเจริญเติบโตดี\" so it does not claim a death rate."
@@ -671,8 +671,8 @@
     "back": false
   },
   "batrochoglanis-villosus": {
-    "hash": "9765a3247b974719c62466d0d72065766fac87f8fa54a5149c823b8b298b70fb",
-    "at": "2026-11-20T17:33:03.963Z",
+    "hash": "f09236a6efd706b0da9ed74b007a94adae37c45cccc1d9a4115ddfa0db02c41e",
+    "at": "2026-11-21T18:52:21.887Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -914,6 +914,18 @@
     "opus": 0.7,
     "back": false
   },
+  "brotia-pagodula": {
+    "hash": "ad7180838eb50d130860b8a49e85b26cadc6c351c307b8d1bb605f9952b5581a",
+    "at": "2026-11-21T18:52:41.478Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brycon-cephalus": {
+    "hash": "cab8b2492745b94bceb81fea4a5add95e149b5f919c220626baaaeef5f5acc1e",
+    "at": "2026-11-21T18:52:57.139Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "bunocephalus-amaurus": {
     "hash": "0a3f755c712b99b7b488e44f7d746f2c9f66b744ac827052b3a9a6faa5e3675c",
     "at": "2026-11-20T17:27:52.136Z",
@@ -930,11 +942,37 @@
     "sonnet": 0.7,
     "back": false
   },
+  "butis-amboinensis": {
+    "hash": "9dfb502fbfea9b157502dfa9e1256671a1d3ae963ab7ce1c7199602b41984b9e",
+    "at": "2026-11-21T18:53:16.022Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "butis-butis": {
+    "hash": "c4f5900259c139ea4a1a6498873dd1ec2a00810260af1aa4fcb68c89b290692b",
+    "at": "2026-11-21T18:53:33.750Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "caelatoglanis-zonatus": {
+    "hash": "bffcbde9f0d2f65f921dbd67c5ebfb8208e437db83d32ea0ded216d998283764",
+    "at": "2026-11-21T18:54:13.334Z",
+    "sonnet": 0.82,
+    "opus": 0.8,
+    "back": true
+  },
   "callochromis-pleurospilus": {
     "hash": "b2a4ccb6c9a3f788f276390b53d97a91ea08c853aa75687980c2edde4c32b1c0",
     "at": "2026-11-20T11:47:45.508Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "cambarellus-puer": {
+    "hash": "b189b59d919cb74c5e09a495b76b1742004f27eb0f7d38c9fa009cb03e379ec8",
+    "at": "2026-11-21T18:55:00.414Z",
+    "sonnet": 0.75,
+    "opus": 0.8,
+    "back": true
   },
   "cambarellus-texanus": {
     "hash": "8a4e2708e5539821e35c1d98a4b24c985d29d1e261d83280a57574e6e105dbe9",
@@ -945,6 +983,12 @@
     "held": [
       "#6: \"ควรปรับสภาพน้ำก่อนปล่อยลงตู้\" reads like treating tap water. The source means acclimating the animals, so use \"ควรค่อย ๆ ปรับกุ้งให้คุ้นกับน้ำในตู้ (acclimate) ก่อนปล่อย\"."
     ]
+  },
+  "campylomormyrus-tamandua": {
+    "hash": "ffa0137edc3c0e0c294afefe932f65bb9d1fc33bd26e0ae0196eeaf189ca5d3b",
+    "at": "2026-11-21T18:50:30.085Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "caquetaia-kraussii": {
     "hash": "7a01309fb8226beef0e5b61f93421b63c1e20a3a659a547e14edc86293bbc8a8",
@@ -1024,8 +1068,8 @@
     "back": false
   },
   "corydoras-elegans": {
-    "hash": "707481e6ac8dac92f047916ce5b3f9166ef44926c93d1143bfbdea7b0c7f6470",
-    "at": "2026-11-21T07:02:22.854Z",
+    "hash": "6268b94a86e7210ea19247e82d2132d50a27ba62c6db4fb2f703de18d3f18f29",
+    "at": "2026-11-21T18:50:48.980Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -1262,6 +1306,12 @@
     "sonnet": 0.5,
     "back": false
   },
+  "filopaludina-martensi-cambodjensis": {
+    "hash": "51df1e908880a5c5f7f50c5830e3eda86778ab0817e9702ec452a9fe933dd5b4",
+    "at": "2026-11-21T18:51:57.497Z",
+    "sonnet": 0.7,
+    "back": false
+  },
   "garra-flavatra": {
     "hash": "b281983a36322abb10759cd4717d2ce94a6ac385990c5e58534f5d5dfc284685",
     "at": "2026-11-17T11:27:29.902Z",
@@ -1281,6 +1331,18 @@
     "held": [
       "Item 12: 'fights are always harmless' is translated as 'ไม่เคยเป็นอันตราย' (never dangerous). Use 'ไม่เป็นอันตราย'. 'ไม่สนใจปลาชนิดอื่น' also lacks a subject."
     ]
+  },
+  "geosesarma-dennerle": {
+    "hash": "ec8c33152421f045ed6a764f7e4c9c4d9e638744060d47635cde1c0893629dd5",
+    "at": "2026-11-21T18:51:06.219Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "glyptothorax-schmidti": {
+    "hash": "01d26df781ba9f9c59803ed9e4846e15e813197ef11ccd62a3ca5f1bbe3f017f",
+    "at": "2026-11-21T18:51:19.987Z",
+    "sonnet": 0.6,
+    "back": false
   },
   "gymnochanda-ploegi": {
     "hash": "6181676fd55d5cf8ee91fc829a0c7fbfafdbeaaf0e0716249749619c1920ba51",
@@ -1375,6 +1437,12 @@
     "opus": 0.85,
     "back": true
   },
+  "microphis-brachyurus": {
+    "hash": "53baca069f2bbd69a7f0f2802f726a5a5a16c18f5b92900ea3004547068943c2",
+    "at": "2026-11-21T18:51:32.208Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "monopterus-albus": {
     "hash": "db99a6a8ca8b2aa75da2e89c27fe54667b57f189d8c2057f587ca2f2c5207649",
     "at": "2026-11-18T18:13:26.370Z",
@@ -1412,6 +1480,12 @@
     "sonnet": 0.8,
     "opus": 0.9,
     "back": true
+  },
+  "oligolepis-acutipennis": {
+    "hash": "aad0dd7216cfab7a25a3364a444bfc499e634ae527f28bc6de8d08928c1d39b3",
+    "at": "2026-11-21T18:51:44.882Z",
+    "sonnet": 0.72,
+    "back": false
   },
   "osteogeneiosus-militaris": {
     "hash": "e0a27d4b6a6254872ad013b7d9d02b77ad06eab047777f3d7252f3cd33533678",

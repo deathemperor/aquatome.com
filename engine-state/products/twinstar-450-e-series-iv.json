@@ -2,89 +2,49 @@
   "found": true,
   "specs": [
     {
+      "key": "Model",
+      "value": "Twinstar 450E (E series Vr. IV), 18 inch class",
+      "source": 0
+    },
+    {
+      "key": "Dimensions",
+      "value": "17.72\" x 3.74\" x 3.27\"",
+      "source": 0
+    },
+    {
       "key": "Power",
       "value": "28 W",
       "source": 0
     },
     {
       "key": "Luminous flux",
-      "value": "1850 lm",
+      "value": "1,850 lm",
       "source": 0
     },
     {
-      "key": "Dimensions (W x D x H)",
-      "value": "17.72 x 3.74 x 3.27 in",
-      "source": 0
-    },
-    {
-      "key": "Tank size",
-      "value": "UNS 45 (18 in / 45 cm tanks)",
-      "source": 0
-    },
-    {
-      "key": "Max glass thickness",
+      "key": "Maximum glass thickness",
       "value": "5 mm",
       "source": 0
     },
     {
-      "key": "Colour temperature",
-      "value": "7050K",
-      "source": 1
-    },
-    {
-      "key": "LED type",
-      "value": "RGB-W",
-      "source": 1
-    },
-    {
-      "key": "Materials",
-      "value": "Aluminium housing with acrylic legs",
-      "source": 1
-    },
-    {
       "key": "Mounting",
-      "value": "Fixed-width legs that rest on the rim of rimless tanks",
+      "value": "Fixed legs sized for specific rimless tanks (the adjustable-leg version is a different model)",
       "source": 0
     },
     {
       "key": "Controller",
-      "value": "Inline dimmer included",
-      "source": 1
+      "value": "Dimmer/controller included with version IV",
+      "source": 0
+    },
+    {
+      "key": "Price abroad (reference)",
+      "value": "US$144.99 at Buce Plant",
+      "source": 0
     }
   ],
   "variants": [
     {
-      "name": "300E (12 in)",
-      "specs": [
-        {
-          "key": "Power",
-          "value": "16 W",
-          "source": 0
-        },
-        {
-          "key": "Luminous flux",
-          "value": "1000 lm",
-          "source": 0
-        },
-        {
-          "key": "Dimensions",
-          "value": "11.8 x 3.74 x 3.27 in",
-          "source": 0
-        },
-        {
-          "key": "Max glass thickness",
-          "value": "5 mm",
-          "source": 0
-        },
-        {
-          "key": "Tank fit",
-          "value": "UNS 30",
-          "source": 0
-        }
-      ]
-    },
-    {
-      "name": "450E (18 in)",
+      "name": "450E IV",
       "specs": [
         {
           "key": "Power",
@@ -93,28 +53,18 @@
         },
         {
           "key": "Luminous flux",
-          "value": "1850 lm",
+          "value": "1,850 lm",
           "source": 0
         },
         {
           "key": "Dimensions",
-          "value": "17.72 x 3.74 x 3.27 in",
-          "source": 0
-        },
-        {
-          "key": "Max glass thickness",
-          "value": "5 mm",
-          "source": 0
-        },
-        {
-          "key": "Tank fit",
-          "value": "UNS 45",
+          "value": "17.72\" x 3.74\" x 3.27\"",
           "source": 0
         }
       ]
     },
     {
-      "name": "600E (24 in)",
+      "name": "600E IV",
       "specs": [
         {
           "key": "Power",
@@ -123,58 +73,13 @@
         },
         {
           "key": "Luminous flux",
-          "value": "2400 lm",
-          "source": 0
-        },
-        {
-          "key": "Dimensions",
-          "value": "23.50 x 4.92 x 3.98 in",
-          "source": 0
-        },
-        {
-          "key": "Max glass thickness",
-          "value": "6 mm",
-          "source": 0
-        },
-        {
-          "key": "Tank fit",
-          "value": "UNS 60",
+          "value": "2,400 lm",
           "source": 0
         }
       ]
     },
     {
-      "name": "900E (36 in)",
-      "specs": [
-        {
-          "key": "Power",
-          "value": "60 W",
-          "source": 0
-        },
-        {
-          "key": "Luminous flux",
-          "value": "3750 lm",
-          "source": 0
-        },
-        {
-          "key": "Dimensions",
-          "value": "35.40 x 4.92 x 3.98 in",
-          "source": 0
-        },
-        {
-          "key": "Max glass thickness",
-          "value": "10 mm",
-          "source": 0
-        },
-        {
-          "key": "Tank fit",
-          "value": "UNS 90 (not 90L or 90B)",
-          "source": 0
-        }
-      ]
-    },
-    {
-      "name": "450EA IV (adjustable-leg sibling)",
+      "name": "450EA IV (adjustable legs, with added orange LEDs; a separate sub-line)",
       "specs": [
         {
           "key": "Power",
@@ -187,180 +92,189 @@
           "source": 3
         },
         {
-          "key": "Tank fit",
-          "value": "45–59 cm",
+          "key": "Colour temperature",
+          "value": "8300K",
           "source": 3
         },
         {
-          "key": "Max glass thickness",
+          "key": "LEDs",
+          "value": "28 orange + 52 RGB",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "43.7 x 7.5 x 1.6 cm",
+          "source": 3
+        },
+        {
+          "key": "Tank length",
+          "value": "45-60 cm",
+          "source": 3
+        },
+        {
+          "key": "Maximum glass thickness",
           "value": "6 mm",
           "source": 3
         },
         {
-          "key": "Colour temperature",
-          "value": "8300K",
-          "source": 2
+          "key": "Rated life",
+          "value": "up to 30,000 h",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "450E V (successor generation)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "31 W (the maker's site lists 33 W)",
+          "source": 1
         },
         {
-          "key": "Length",
-          "value": "43.7 cm",
+          "key": "Luminous flux",
+          "value": "2,100 lm",
+          "source": 1
+        },
+        {
+          "key": "Dimensions",
+          "value": "16.93\" x 2.76\" x 5.12\"",
+          "source": 1
+        },
+        {
+          "key": "Control",
+          "value": "Bluetooth app (LightControl Pro), 6-colour spectrum",
+          "source": 1
+        },
+        {
+          "key": "Recommended tank width",
+          "value": "up to 50 cm",
           "source": 2
         }
       ]
     }
   ],
-  "prices": [
-    {
-      "shop": "Brothers Concept",
-      "url": "https://brothersconcept.vn/den-led-twinstar",
-      "variant": "Twinstar 600ES; the page does not say which generation, out of stock, no 450 listed",
-      "vnd": 3600000,
-      "source": 5
-    },
-    {
-      "shop": "Brothers Concept",
-      "url": "https://brothersconcept.vn/den-led-twinstar",
-      "variant": "Twinstar 900ES; the page does not say which generation, out of stock",
-      "vnd": 4600000,
-      "source": 5
-    }
-  ],
+  "prices": [],
   "fits": [
     {
-      "fact": "Made for 45 cm rimless tanks (UNS 45) with glass no thicker than 5 mm",
+      "fact": "The 450E IV has fixed legs that only suit certain rimless tanks with glass up to 5 mm thick. Buyers who need adjustable legs are pointed to another version.",
       "source": 0
     },
     {
-      "fact": "The legs have a fixed width, so it only fits the tank size it was made for. If you may upgrade tanks, the EA version has adjustable legs",
-      "source": 1
-    },
-    {
-      "fact": "Mid-range output, brighter than the C and B lines but weaker than the S line. It suits low-tech to high-tech tanks and a wide range of plants",
-      "source": 1
-    },
-    {
-      "fact": "Demanding plants such as red stem plants are better served by the S or SA series",
-      "source": 1
-    },
-    {
-      "fact": "For a 450E paired with a 45 × 35 × 30 cm tank, the Korean brand site gives a maximum tank width of about 50 cm (this refers to the current E Line)",
-      "source": 4
-    },
-    {
-      "fact": "The 450EA IV sibling is not waterproof. It is meant for open-top tanks, hung at least 6 inches above the water, and not inside a hood or lid",
+      "fact": "The E-line 450 models are aimed at planted freshwater tanks. The maker recommends a tank width of up to about 50 cm for the 450E.",
       "source": 2
+    },
+    {
+      "fact": "The sibling 450EA IV is listed for 45-60 cm tanks with glass up to 6 mm. It is meant for open-top tanks and is not recommended inside a hood or lid.",
+      "source": 3
+    },
+    {
+      "fact": "The 450E V is listed as fitting UNS 45U, 45T, 45C, 45S and 50C tanks.",
+      "source": 1
     }
   ],
   "usage": [
     {
-      "fact": "Installs by resting the fixed legs on the glass edges of a rimless tank",
-      "source": 0
+      "fact": "The inline controller on the IV-generation E line has on/off, sunrise/sunset, a 7-step dimmer and a timer.",
+      "source": 3
     },
     {
-      "fact": "Brightness is set with the inline dimmer that comes in the box",
-      "source": 1
+      "fact": "The fixture is not waterproof. The retailer says to keep at least about 6 inches between the light and the water and to run it on an open top.",
+      "source": 3
     },
     {
-      "fact": "The EA IV sibling's inline controller has on/off, a sunrise/sunset ramp, a 7-step dimmer and a timer",
-      "source": 2
-    },
-    {
-      "fact": "Includes a power supply and brackets. EU-plug units need an adapter in other markets",
-      "source": 2
+      "fact": "The power supply and brackets come in the box. Some EU stock ships with an EU plug, so you may need an adapter.",
+      "source": 3
     }
   ],
   "issues": [
     {
-      "fact": "Version IV has been replaced by E Line V. The V version has six colour channels, Bluetooth app control (LightControl Pro) and legs that extend up to 4 inches per side. Version IV has fixed legs and only the inline dimmer",
+      "fact": "Retailers list conflicting specs for '450E IV', and the 450E and 450EA IV are often mixed up. The E is listed at 28 W and 1,850 lm, while the EA is listed at 30 W and 1,500 lm with added orange LEDs, so check the exact model code.",
+      "source": 5
+    },
+    {
+      "fact": "Version IV is being replaced by the E-line V, which adds a 6-colour spectrum and Bluetooth app control. Several IV listings abroad are out of stock or have stale prices.",
       "source": 1
     },
     {
-      "fact": "The 450E V is rated at 31 W and 2100 lm, compared with 28 W and 1850 lm for the 450E IV",
+      "fact": "A Vietnamese hobby writer called Twinstar an early, expensive, premium RGB light. The same writer rated the ADA Solar RGB as brighter than Twinstar.",
       "source": 9
     },
     {
-      "fact": "Stock of version IV is limited: one US retailer lists it only for pre-order",
-      "source": 0
-    },
-    {
-      "fact": "Retailers mix up the E and EA names. One shop titles its page '450E IV' but lists 450EA specs (30 W, 1500 lm), so check the model code before buying",
-      "source": 2
-    },
-    {
-      "fact": "No Vietnamese shop website lists the 450E IV. Brothers Concept has only 600ES and 900ES (out of stock), and Vuaqua lists an ES 600E as 'Liên hệ' (call for price)",
-      "source": 8
+      "fact": "No Vietnamese shop website listed the 450E IV with a price. Vua Aqua's Twinstar page shows only ES 60/90 models, priced as 'Liên hệ' (contact for price).",
+      "source": 6
     }
   ],
   "alternatives": [
     {
+      "brand": "Twinstar",
+      "model": "450E V (E-Line V)",
+      "why": "This is the direct successor. It is brighter (2,100 lm), has a 6-colour spectrum and Bluetooth app control, and is easier to find now that IV is being phased out.",
+      "source": 1
+    },
+    {
       "brand": "Chihiros",
-      "model": "WRGB 2 Slim45",
-      "why": "A cheaper WRGB light for 45 cm tanks, sold at a Vietnamese shop for about 1,750,000₫",
+      "model": "WRGB 2 45cm",
+      "why": "It is widely sold in Vietnam for about 2.02 million VND, rated 49 W and 3,600 lm for 45-60 cm tanks. That is far more output than the 450E IV, and you can get local support.",
       "source": 7
     },
     {
       "brand": "Twinstar",
-      "model": "C Line III 450C",
-      "why": "A cheaper, lower-output Twinstar sold in Vietnam (the C Line III range lists at 1,135,000–3,405,000₫), suitable for beginner and low-tech tanks",
-      "source": 6
-    },
-    {
-      "brand": "Twinstar",
-      "model": "450E V (E Line V)",
-      "why": "The newer replacement, with more output (31 W, 2100 lm), six colour channels, Bluetooth app control and width-adjustable legs",
-      "source": 9
+      "model": "C-Line III",
+      "why": "It is a cheaper Twinstar RGB-W light sold in Vietnam for about 1.39 million VND, with a soft-start feature and a rated life of about 30,000 h.",
+      "source": 8
     }
   ],
   "sources": [
     {
-      "url": "https://buceplant.com/a/amp-1/products/twinstar-led",
+      "url": "https://buceplant.com/products/twinstar-led",
       "title": "Twinstar LED E Series Vr. IV Aquarium Light — Buce Plant",
-      "kind": "shop"
-    },
-    {
-      "url": "https://buceplant.com/blogs/aquascaping-guides-and-tips/which-twinstar-led-light-is-best-for-you",
-      "title": "Which Twinstar LED light is best for you — Buce Plant",
-      "kind": "review"
-    },
-    {
-      "url": "https://www.completeaquatics.co.uk/twinstar-450ea",
-      "title": "Twinstar 450E IV — Complete Aquatics",
-      "kind": "shop"
-    },
-    {
-      "url": "https://fitzfishponds.com/twinstar-led-e-iv-line-450/",
-      "title": "Twinstar LED EA IV Line 450 — Fitz's Fish Ponds",
-      "kind": "shop"
-    },
-    {
-      "url": "https://twinstarkorea.com/aquarium-lighting/",
-      "title": "Aquarium Lights for Plants & Fish — Twinstar Korea",
-      "kind": "manufacturer"
-    },
-    {
-      "url": "https://brothersconcept.vn/den-led-twinstar",
-      "title": "ĐÈN LED TWINSTAR — Brothers Concept",
-      "kind": "shop"
-    },
-    {
-      "url": "https://shrimphome.vn/twinstar",
-      "title": "Twinstar — Shrimp Home",
-      "kind": "shop"
-    },
-    {
-      "url": "https://thuysinhtim.vn/den-thuy-sinh",
-      "title": "Đèn Thủy Sinh — Thủy Sinh Tím",
-      "kind": "shop"
-    },
-    {
-      "url": "https://vuaqua.vn/twinstar/twinstar-led-es-60/",
-      "title": "TwinStar Led ES 60 — Vuaqua",
       "kind": "shop"
     },
     {
       "url": "https://buceplant.com/products/twinstar-led-e-series-vr-v-aquarium-light-fixture",
       "title": "Twinstar LED - E Series Vr. V Aquarium Light Fixture — Buce Plant",
       "kind": "shop"
+    },
+    {
+      "url": "https://twinstarkorea.com/aquarium-lighting/",
+      "title": "Twinstar Korea - Aquarium Lights for Plants & Fish",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.completeaquatics.co.uk/twinstar-450ea",
+      "title": "Twinstar 450EA - Complete Aquatics",
+      "kind": "shop"
+    },
+    {
+      "url": "https://shop.glassaqua.com/products/twinstar-aquarium-light-e-series",
+      "title": "Twinstar Aquarium Light - E V Series - Glass Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://buceplant.com/products/twinstar-led-ea-iv-series-aquarium-light-fixture",
+      "title": "Twinstar LED - EA Series Vr. IV Aquarium Light Fixture — Buce Plant",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vuaqua.vn/twinstar/",
+      "title": "Twinstar - Vua Aqua",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhquoidecor.com/san-pham/den-chihiros-wrgb-2-kich-thuoc-45-120cm/",
+      "title": "Đèn Chihiros WRGB 2 45cm - Thủy Sinh Quới Decor",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-thuy-sinh-cao-cap-twinstar-c-line-iii",
+      "title": "Đèn Thuỷ Sinh Cao Cấp Twinstar C-Line III - Thủy Sinh Tím",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh365.com/articles/den-thuy-sinh-tot-va-mac-nhat-tren-thi-truong",
+      "title": "Đèn thuỷ sinh tốt và mắc nhất trên thị trường - thuysinh365",
+      "kind": "review"
     }
   ]
 }

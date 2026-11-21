@@ -1,14 +1,22 @@
 {
   "id": "chaetostoma-joropo",
   "native": {
-    "input": "2caef7fd868babd2",
-    "at": "2026-11-21T13:11:30.372Z",
+    "input": "3245d3002e29455d",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "CO",
         "status": "native",
         "source": "glaser",
         "quote": "It originates from creeks in the catchment area of the Rio Meta in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Colombia: Río Güejar (upper Río Guaviare drainage), Río Cusiana, Río Caja, Río Tocoragu, Río Casanare, Río Meta drainage (Meta, Arauca).",
         "words": "Colombia",
         "ok": true
       }
@@ -18,6 +26,27 @@
         "name": "Rio Meta",
         "source": "glaser",
         "quote": "It originates from creeks in the catchment area of the Rio Meta in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "Chaetostoma joropo is described from the piedmont of the Orinoco River drainage in Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Guaviare",
+        "source": "scotcat",
+        "quote": "Colombia: Río Güejar (upper Río Guaviare drainage), Río Cusiana, Río Caja, Río Tocoragu, Río Casanare, Río Meta drainage (Meta, Arauca).",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Meta",
+        "source": "scotcat",
+        "quote": "Colombia: Río Güejar (upper Río Guaviare drainage), Río Cusiana, Río Caja, Río Tocoragu, Río Casanare, Río Meta drainage (Meta, Arauca).",
         "country": "CO",
         "ok": true
       }

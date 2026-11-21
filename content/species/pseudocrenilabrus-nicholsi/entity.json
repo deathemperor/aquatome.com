@@ -15,9 +15,12 @@
       "countries": [
         "CD"
       ],
-      "regions": [],
+      "regions": [
+        "Congo"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -27,6 +30,14 @@
             "CD"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "This dwarf mouth-breeder comes from the middle and upper Congo.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
         }
       ]
     },

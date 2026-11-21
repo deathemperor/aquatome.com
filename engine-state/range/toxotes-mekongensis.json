@@ -1,0 +1,33 @@
+{
+  "id": "toxotes-mekongensis",
+  "native": {
+    "input": "f0fdfdc6c6220ae6",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "This freshwater species is known from the Mekong River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Toxotes mekongensis",
+    "status": "ACCEPTED",
+    "taxonKey": 11184543,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

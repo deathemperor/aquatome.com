@@ -19,7 +19,7 @@ under `<lang>/<path>`.
 | product-reviews | 24 | 0 | 0 |
 | summary | 2709 | 153 (vi 153) | 153 |
 | localize | 2879 | 840 (id 361, ms 67, th 412) | 840 |
-| glossary | 35 | 0 | 0 |
+| glossary | 37 | 0 | 0 |
 | places | 7688 | 4677 (id 1609, ms 1601, th 1368, vi 99) | 1419 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
@@ -595,7 +595,7 @@ under `<lang>/<path>`.
 
 ## glossary: glossary terms in Indonesian and Thai (reviewed in batches)
 
-0 of 35 pages under the bar.
+0 of 37 pages under the bar.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 

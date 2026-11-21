@@ -3,6 +3,12 @@
   "name": "ลวงโก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T18:59:08.211Z",
+    "why": "ลวงโก is a plausible transliteration of Luongo, but the name lacks a kind word such as \"เขต\" for a region, and the Zambian place is obscure, so the form is uncertain."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

@@ -14,7 +14,8 @@
     "usumacinta",
     "puerto-rico",
     "united-states",
-    "hawaii"
+    "hawaii",
+    "rio-candelaria"
   ],
   "range": {
     "native": {
@@ -266,16 +267,16 @@
       "html": "<p>The firemouth cichlid, Thorichthys meeki, is a Central American cichlid from Mexico's Atlantic slope and the Yucatán south into Belize and Guatemala. A popular aquarium fish for a long time, it is almost always commercially raised. It is easily identified by the bright red or orange underside of the head, which is more pronounced in adults. It is not especially aggressive but becomes territorial when breeding.</p><ul><li>Max size: 120 mm SL (5 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–32°C (68–90°F)</li><li>pH: 6.5–8.5</li><li>Hardness: 2–15 dGH</li></ul>"
     },
     {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-2/",
-      "html": "<p>The Firemouth (Thorichthys meeki, formerly Cichlasoma meeki) originates from Mexico and belongs to the most popular cichlids at all. This popularity is not least due to the impressive face mask of the species.</p>"
-    },
-    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thorichthys-meeki",
       "html": "<p>Its natural range extends eastward from the Río Tonalá system near Coatzacoalcos, on Mexico's Atlantic slope, through the states of Veracruz, Chiapas, Tabasco, around the Yucatán Peninsula, then southward into northern Belize and Guatemala.</p><p>Type locality is given simply as 'Near Progreso, Yucutan, Mexico'.</p><p>Naturalised populations exist in Hawaii (since 1940), and Puerto Rico (since the late 2000s), plus there are reports from Arizona and Florida states, USA.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "html": "<p>The Rio Candelaria is a lowland river in Central America. It originates in northern Guatemala and flows through regions there and in southeastern Mexico whose jungle landscapes were almost untouched by man for a long time.</p>"
     },
     {
       "key": "habitat",
@@ -316,8 +317,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-2/",
-      "html": "<p>No other species of cichlid shows in such perfection the bottom of the mouth and the deep red skin that covers the gills. The Firemouth acts that way to look much bigger for a potential aggressor. Another trick of the Firemouth are the spots on the operculum that look like eyes.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "html": "<p>The firemouth cichlid is a relatively peaceful and magnificent species. This location variant has all the advantages of the species, plus the originality of this strain.</p>"
     },
     {
       "key": "dimorphism",
@@ -336,6 +337,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/thorichthys-meeki",
       "html": "<p>This species has been a popular aquarium fish for a considerable period and virtually all fish traded are now raised commercially for the purpose.</p><p>It is easily identified by the characteristic bright red or orange underside of the head, which is more pronounced in adults.</p><p>Following Miller and Taylor (1984)[7], the genus Thorichthys is identified by the following combination of characters: soft dorsal and anal fins without scales; caudal fin truncate to lunate, outer rays typically elongated as filaments in adult; pectoral fin long and pointed, tip extending beyond anal-fin origin; snout pronounced, preorbital region typically deep; uniform development of five (rather than four) mandibular pores; precaudal vertebrae almost always 12 (vs 13 or more); colour pattern comprising a series of five or six vertical bars along flank, the third intensified as a blackish blotch on midside that often extends over both upper and lower lateral lines; intermandibular region strikingly coloured, ranging from orange to salmon to red or rose (black in T. pasionis); subopercle typically with a conspicuous dark blotch (almost invisible in T. callolepis and reduced in T. pasionis and T. socolofi); head, nape and anterior parts of body often with prominent chalky or iridescent blue to turquoise spots that may also be developed on vertical fins.</p><p>Thorichthys is generally considered to represent a monophyletic species group. It was described within Cichlasoma by Regan, then a subgenus, and finally elevated to generic rank by Kullander (1983). Molecular and morphological analyses have supported this monophyly, but its evolutionary position in terms of other Middle American cichlid groups is still in question.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "html": "<p>The Rio Candelaria gained sad fame because the conquistador Hernán Cortez had the last Aztec ruler Cuautémoc, a fierce fighter for the independence of his people, executed here. Whether the firemouth cichlids of the Rio Candelaria are so intensely red in color because the blood of the Aztec got into the river? Probably not, because Cuautémoc was hanged, but the thought is romantic, isn't it?</p>"
     },
     {
       "key": "references",
@@ -359,6 +366,36 @@
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thorichthys_meeki_-_Feuermaulbuntbarsch.jpg",
       "caption": "Cá cichlid miệng lửa đực họng đỏ, đuôi xanh trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/3b98523a558d012a.webp",
+      "thumb": "https://media.aquatome.com/glaser/3b98523a558d012a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b3dca8bd71c5e25b.webp",
+      "thumb": "https://media.aquatome.com/glaser/b3dca8bd71c5e25b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f059150a97b1245a.webp",
+      "thumb": "https://media.aquatome.com/glaser/f059150a97b1245a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -416,5 +453,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-21"
 }

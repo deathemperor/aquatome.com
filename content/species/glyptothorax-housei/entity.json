@@ -10,6 +10,31 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2341298,
+      "total": 7,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "IN",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          18.28125,
+          1
+        ],
+        [
+          75.9375,
+          9.84375,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

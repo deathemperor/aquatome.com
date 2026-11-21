@@ -25,14 +25,16 @@
     "distribution:bwaquatics": "<p>Dideskripsikan pada 1982 dan dinamai menurut Adolfo Schwartz, eksportir ikan asal Manaus yang pertama kali mengoleksinya. Asalnya dari anak-anak sungai blackwater kecil di hulu Rio Negro dekat São Gabriel da Cachoeira, Brasil.</p>",
     "habitat:bwaquatics": "<p>Sungai-sungai kecil blackwater berdasar pasir.</p>",
     "maintenance:bwaquatics": "<p>Bentuk tubuh: corydoras (ikan lele lapis baja) yang gempal, bermoncong pendek, dengan punggung melengkung. Siripnya bening hingga putih, dengan duri tajam di sirip punggung dan sirip dada. Warna: tubuh krem hingga putih dengan bercak oranye di kepala, garis hitam yang melintasi mata, dan pita hitam di sepanjang punggung.</p><p>Akuarium: pasir lembut untuk melindungi sungut, serta area teduh dengan kayu dan tanaman.</p>",
-    "reproduction:bwaquatics": "<p>Memijah dengan posisi T yang khas corydoras. Ganti air dengan air yang lebih dingin bisa memicu pemijahan. Telur ditempelkan di tanaman atau kaca; pindahkan ke wadah terpisah untuk melindunginya.</p>"
+    "reproduction:bwaquatics": "<p>Memijah dengan posisi T yang khas corydoras. Ganti air dengan air yang lebih dingin bisa memicu pemijahan. Telur ditempelkan di tanaman atau kaca; pindahkan ke wadah terpisah untuk melindunginya.</p>",
+    "notes:glaser": "<p>adolfoi: untuk menghormati Adolfo Schwartz.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
       "bwaquatics": 0.85,
-      "seriouslyfish": 0.75
+      "seriouslyfish": 0.75,
+      "glaser": 0.95
     }
   },
   "held": {

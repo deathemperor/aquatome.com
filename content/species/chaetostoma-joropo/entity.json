@@ -18,9 +18,12 @@
         "CO"
       ],
       "regions": [
-        "Rio Meta"
+        "Rio Meta",
+        "Orinoco",
+        "Río Guaviare"
       ],
       "sources": [
+        "scotcat",
         "glaser"
       ],
       "quotes": [
@@ -32,6 +35,22 @@
           ],
           "regions": [
             "Rio Meta"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Chaetostoma joropo is described from the piedmont of the Orinoco River drainage in Colombia.",
+          "countries": [],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Colombia: Río Güejar (upper Río Guaviare drainage), Río Cusiana, Río Caja, Río Tocoragu, Río Casanare, Río Meta drainage (Meta, Arauca).",
+          "countries": [],
+          "regions": [
+            "Río Guaviare"
           ]
         }
       ]

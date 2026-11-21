@@ -12,6 +12,58 @@
     "nepal",
     "jinshajiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NP",
+        "CN"
+      ],
+      "regions": [
+        "Min-Jiang River",
+        "Yangtze River",
+        "Jinshajiang"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Nepal and China.",
+          "countries": [
+            "NP",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Upper Min-Jiang River, Yangtze River basin.",
+          "countries": [],
+          "regions": [
+            "Min-Jiang River",
+            "Yangtze River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Asia: Jinshajiang (upper Yangtze River basin).",
+          "countries": [],
+          "regions": [
+            "Jinshajiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10689408,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -128,47 +180,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
-  "range": {
-    "native": {
-      "countries": [
-        "NP",
-        "CN"
-      ],
-      "regions": [
-        "Min-Jiang River",
-        "Yangtze"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Asia: Nepal and China.",
-          "countries": [
-            "NP",
-            "CN"
-          ],
-          "regions": []
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "Upper Min-Jiang River, Yangtze River basin.",
-          "countries": [],
-          "regions": [
-            "Min-Jiang River",
-            "Yangtze"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 10689408,
-      "total": 0,
-      "fetched": "2026-11-21",
-      "countries": [],
-      "cells": []
-    }
-  }
+  "updatedAt": "2026-11-21"
 }

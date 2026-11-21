@@ -1,0 +1,146 @@
+{
+  "id": "pimelodina-flavipinnis",
+  "native": {
+    "input": "54d88a53e97454ae",
+    "at": "2026-11-21T19:07:52.042Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "glaser",
+        "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pimelodina flavipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2338806,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        35
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        34
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        20
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        18
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        12
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T19:07:52.042Z"
+  }
+}

@@ -15,26 +15,16 @@
   "range": {
     "native": {
       "countries": [
-        "CO",
         "GY",
         "GF"
       ],
       "regions": [
-        "Amazon"
+        "Amazon River basin"
       ],
       "sources": [
-        "glaser",
         "scotcat"
       ],
       "quotes": [
-        {
-          "source": "glaser",
-          "quote": "Origin: Colombia.",
-          "countries": [
-            "CO"
-          ],
-          "regions": []
-        },
         {
           "source": "scotcat",
           "quote": "South America: Amazon River basin, Guyana and French Guiana.",
@@ -43,7 +33,7 @@
             "GF"
           ],
           "regions": [
-            "Amazon"
+            "Amazon River basin"
           ]
         }
       ]
@@ -51,7 +41,7 @@
     "records": {
       "taxonKey": 2344107,
       "total": 397,
-      "fetched": "2026-11-06",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "GF",
@@ -119,19 +109,19 @@
           -77.34375,
           0,
           1,
-          1
+          0
         ],
         [
           -77.34375,
           4.21875,
           1,
-          1
+          0
         ],
         [
           -75.9375,
           0,
           1,
-          1
+          0
         ],
         [
           -74.53125,
@@ -155,7 +145,7 @@
           -74.53125,
           4.21875,
           1,
-          1
+          0
         ],
         [
           -73.125,
@@ -203,13 +193,13 @@
           -70.3125,
           0,
           1,
-          1
+          0
         ],
         [
           -68.90625,
           1.40625,
           1,
-          1
+          0
         ],
         [
           -67.5,

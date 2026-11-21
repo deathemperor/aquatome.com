@@ -1,14 +1,22 @@
 {
   "id": "hopliancistrus-xikrin",
   "native": {
-    "input": "2ae6a06cad74b7f8",
-    "at": "2026-11-21T13:11:30.372Z",
+    "input": "be079633066e3eca",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "quote": "Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Rio Iriri.",
         "words": "Brazil",
         "ok": true
       }
@@ -17,27 +25,21 @@
       {
         "name": "Rio Xingu",
         "source": "planetcatfish",
-        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "quote": "Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
         "country": "BR",
         "ok": true
       },
       {
         "name": "Rio Iriri",
-        "source": "planetcatfish",
-        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "source": "scotcat",
+        "quote": "South America: Brazil, Rio Iriri.",
         "ok": true
       },
       {
         "name": "Rio Bacajá",
         "source": "planetcatfish",
-        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "quote": "Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
         "country": "BR",
-        "ok": true
-      },
-      {
-        "name": "Amazon",
-        "source": "planetcatfish",
-        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
         "ok": true
       }
     ],

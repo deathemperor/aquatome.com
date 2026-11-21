@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gall
 | covered | 30 | 866 | 32 | 9 | 28 | 879 |
 | rest | 20 | 1926 | 81 | 0 | 120 | 1887 |
 
-## Short of target: every source read (771)
+## Short of target: every source read (774)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -64,9 +64,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/pseudobagarius-filifer | rest | 0 | 20 |
 | species/pseudobunocephalus-bifidus | rest | 0 | 20 |
 | species/puntigrus-navjotsodhii | rest | 0 | 20 |
-| species/sciades-couma | rest | 2 | 20 |
 | species/sciades-parkeri | rest | 0 | 20 |
-| species/sciades-paucus | rest | 2 | 20 |
 | species/serrasalmus-gouldingi | rest | 0 | 20 |
 | species/sinibotia-superciliaris | rest | 0 | 20 |
 | species/synodontis-pleurops | rest | 0 | 20 |
@@ -87,12 +85,14 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astroblepus-grixalvii | rest | 0 | 20 |
 | species/astroblepus-huallagaensis | rest | 0 | 20 |
 | species/astroblepus-latidens | rest | 0 | 20 |
-| species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/astroblepus-mojicai | rest | 0 | 20 |
 | species/astroblepus-nettoferreirai | rest | 0 | 20 |
 | species/astroblepus-onzagaensis | rest | 0 | 20 |
+| species/astroblepus-pradai | rest | 0 | 20 |
 | species/astroblepus-quispei | rest | 0 | 20 |
 | species/bagre-panamensis | rest | 0 | 20 |
+| species/bagrus-bajad | rest | 0 | 20 |
+| species/bunocephalus-chamaizelus | rest | 0 | 20 |
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
 | species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
 | species/hypostomus-isbrueckeri | covered | 0 | 30 |
@@ -161,7 +161,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/cyperus-helferi | shop | 1 | 60 |
 | species/garra-flavatra | shop | 8 | 60 |
 | plants/aponogeton-madagascariensis | shop | 1 | 60 |
-| plants/riccardia-chamedryfolia | shop | 59 | 60 |
+| plants/riccardia-chamedryfolia | shop | 56 | 60 |
 | species/synodontis-petricola | shop | 2 | 60 |
 | species/peckoltia-compta | shop | 3 | 60 |
 | plants/monosolenium-tenerum | shop | 3 | 60 |
@@ -785,5 +785,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/rineloricaria-eigenmanni | covered | 0 | 30 |
 | species/rita-kuturnee | covered | 0 | 30 |
 | species/serrasalmus-brandtii | covered | 3 | 30 |
+| species/astroblepus-mindoensis | rest | 1 | 20 |
 | species/eutropiichthys-vacha | rest | 1 | 20 |
 | species/hyphessobrycon-compressus | rest | 1 | 20 |
+| species/sciades-couma | rest | 2 | 20 |
+| species/sciades-paucus | rest | 2 | 20 |

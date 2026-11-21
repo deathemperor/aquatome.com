@@ -1,10 +1,13 @@
 {
   "slug": "nujiang",
-  "name": "Nujiang",
-  "altNames": [],
+  "name": "sông Nộ",
+  "altNames": [
+    "Nujiang"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

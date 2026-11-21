@@ -2,21 +2,49 @@
   "id": "hexanematichthys-sagor",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/12202793.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/12202793-480.webp",
-      "width": 800,
-      "height": 532,
+      "url": "https://media.aquatome.com/inaturalist/714957745.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/714957745-480.webp",
+      "width": 768,
+      "height": 1024,
       "licence": "CC BY-NC",
-      "author": "Tan Kok Hui",
-      "sourceUrl": "https://www.inaturalist.org/photos/12202793",
-      "caption": "Hai cá úc trong thùng xốp có nước",
+      "author": "klearad",
+      "sourceUrl": "https://www.inaturalist.org/photos/714957745",
+      "caption": "Đàn cá úc non bơi gần nhau dưới đáy sỏi",
       "best": true,
       "kind": "group",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/603046333.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/603046333-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Muhammad Faris Nazal",
+      "sourceUrl": "https://www.inaturalist.org/photos/603046333",
+      "caption": "Cá úc Sagor chụp nền đen cạnh thước đo",
+      "best": true,
+      "kind": "other",
       "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/631794620.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/631794620-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "antoine_vespe",
+      "sourceUrl": "https://www.inaturalist.org/photos/631794620",
+      "caption": "Cá úc Sagor màu vàng nâu nằm trên nền đá",
+      "best": true,
+      "kind": "other",
+      "setup": false,
       "unchecked": true
     }
   ],
-  "seen": 20,
+  "seen": 49,
   "updatedAt": "2026-11-21",
   "builtAt": "2026-11-21"
 }

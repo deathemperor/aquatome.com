@@ -12,6 +12,62 @@
     "xingu",
     "rio-xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu",
+        "Rio Iriri",
+        "Rio Bacajá"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu",
+            "Rio Bacajá"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Brazil, Rio Iriri.",
+          "countries": [],
+          "regions": [
+            "Rio Iriri"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11178069,
+      "total": 1,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -160,55 +216,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21",
-  "range": {
-    "native": {
-      "countries": [
-        "BR"
-      ],
-      "regions": [
-        "Rio Xingu",
-        "Rio Iriri",
-        "Rio Bacajá",
-        "Amazon"
-      ],
-      "sources": [
-        "planetcatfish"
-      ],
-      "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
-          "countries": [
-            "BR"
-          ],
-          "regions": [
-            "Rio Xingu",
-            "Rio Iriri",
-            "Rio Bacajá",
-            "Amazon"
-          ]
-        }
-      ]
-    },
-    "records": {
-      "taxonKey": 11178069,
-      "total": 1,
-      "fetched": "2026-11-21",
-      "countries": [
-        [
-          "BR",
-          1
-        ]
-      ],
-      "cells": [
-        [
-          -54.84375,
-          -5.625,
-          1,
-          1
-        ]
-      ]
-    }
-  }
+  "updatedAt": "2026-11-21"
 }

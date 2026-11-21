@@ -10,6 +10,34 @@
     "vietnam",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This freshwater species is known from the Mekong River.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11184543,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
@@ -24,12 +52,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/toxotes-mekongensis-2/",
       "html": "<p>Archerfishes can be divided into two groups: those that live in the brackish water of estuaries, reproduce there as well (all archerfishes are free spawners without brood care) and can also live in pure seawater. These species are therefore widely distributed along the coasts of the Indo-Pacific from India to Japan and Australia. And then there are the freshwater species that spend their entire lives in freshwater and reproduce there as well. Complicating things is that there are populations of the brackish water species that live in pure freshwater. However, you cannot tell from which population the brackish water species come from and therefore you have to rely on the information provided by the exporter so that you can finally care for them correctly.</p><p>Many of these findings have only been made in the last few years and have not yet become common knowledge. One of the pure freshwater species is Toxotes mekongensis, which, as the name suggests, is known from the Mekong River. The pattern of markings with the long band in the middle of the body, reaching from the back to the belly, is typical for this species.</p><p>T. mekongensis grows to about 15 cm in length.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/toxotes-mekongensis-2/",
-      "html": "<p>This freshwater species is known from the Mekong River. The animals were received from Vietnam.</p>"
     },
     {
       "key": "diet",

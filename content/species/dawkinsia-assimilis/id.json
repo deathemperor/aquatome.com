@@ -25,10 +25,10 @@
     "references:glaser": "<p>Katwate, U., J. D. Marcus Knight, V. K. Anoop, R. Raghavan &amp; N. Dahanukar (2020): Three new species of filament barbs of the genus Dawkinsia (Teleostei: Cyprinidae) from the Western Ghats of India. Vertebrate Zoology v. 70 (no. 2): 207-233.</p>"
   },
   "quality": {
-    "score": 0.55,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.55,
+      "seriouslyfish": 0.9,
       "glaser": 0.9
     }
   }

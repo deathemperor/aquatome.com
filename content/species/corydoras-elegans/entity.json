@@ -27,14 +27,15 @@
       ],
       "regions": [
         "Amazon",
-        "Solimões",
         "Ucayali",
         "Napo",
+        "Solimões",
         "Marañón"
       ],
       "sources": [
         "planetcatfish",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -47,7 +48,7 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil. Unlike most congeners it spends a fair amount of time away from the substrate, often forming groups in midwater.",
+          "quote": "The elegant cory, Gastrodermus elegans, long known as Corydoras elegans, is an armoured catfish from the western Amazon basin in Peru, Ecuador and Brazil.",
           "countries": [
             "PE",
             "EC"
@@ -60,9 +61,9 @@
           "countries": [],
           "regions": [
             "Amazon",
-            "Solimões",
             "Ucayali",
-            "Napo"
+            "Napo",
+            "Solimões"
           ]
         },
         {

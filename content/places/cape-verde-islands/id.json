@@ -3,6 +3,12 @@
   "name": "Kepulauan Tanjung Verde",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.2,
+    "at": "2026-11-21T18:57:44.957Z",
+    "why": "Indonesian uses the Portuguese name \"Tanjung Verde\" rarely; atlases and Indonesian usage write \"Kepulauan Tanjung Verde\" or \"Tanjung Verde\", but \"Tanjung\" translates \"Cabo\" word by word, whereas the standard name is \"Tanjung Verde\" as the country name, so this is acceptable."
+  },
   "quality": {
     "score": 0.6,
     "indexable": false

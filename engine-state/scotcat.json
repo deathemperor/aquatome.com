@@ -2035,6 +2035,43 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/astroblepidae/astroblepus_rosei.htm": {
+    "entityIds": [
+      "species/astroblepus-rosei"
+    ],
+    "updatedAt": "2026-11-21T17:56:10.103Z",
+    "hash": "f39a0464ef0b7e4255b6f81387ec6d668d2bfb8e8f3cb9e1e16dfd1c4651daec",
+    "processedHash": "f39a0464ef0b7e4255b6f81387ec6d668d2bfb8e8f3cb9e1e16dfd1c4651daec",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_sabalo.htm": {
+    "entityIds": [
+      "species/astroblepus-sabalo"
+    ],
+    "updatedAt": "2026-11-21T17:59:36.127Z",
+    "hash": "c5d1230343ff43d84b8c9a50305a9ebe046ec25a2e85b4e29700084d9d6a6f03",
+    "processedHash": "c5d1230343ff43d84b8c9a50305a9ebe046ec25a2e85b4e29700084d9d6a6f03",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_sp.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-21T18:03:08.699Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://www.scotcat.com/astroblepidae/astroblepus_sp.htm\", waiting until \"domcontentloaded\"\n"
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_taczanowskii.htm": {
+    "entityIds": [
+      "species/astroblepus-taczanowskii"
+    ],
+    "updatedAt": "2026-11-21T18:03:59.105Z",
+    "hash": "d47ae918a751b06190949c307b8c6993496ca622ff87c656b7852fd4bb30bcd3",
+    "processedHash": "d47ae918a751b06190949c307b8c6993496ca622ff87c656b7852fd4bb30bcd3",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm": {
     "entityIds": [
       "species/ageneiosus-lineatus"
@@ -2202,6 +2239,16 @@
     "updatedAt": "2026-11-11T02:45:17.462Z",
     "hash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
     "processedHash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm": {
+    "entityIds": [
+      "species/tympanopleura-cryptica"
+    ],
+    "updatedAt": "2026-11-21T17:54:24.836Z",
+    "hash": "9192bfc9b1d66e891d45840b4061ef03b46dd6c48d7df70d150c62e4af983fb0",
+    "processedHash": "9192bfc9b1d66e891d45840b4061ef03b46dd6c48d7df70d150c62e4af983fb0",
     "status": "processed",
     "attempts": 0
   },
@@ -2602,6 +2649,16 @@
     "updatedAt": "2026-11-03T08:25:39.822Z",
     "hash": "b759ac2b8c381c09bf8ac9b636cf27618394435b00c57d2a4c2b853c544301b8",
     "processedHash": "b759ac2b8c381c09bf8ac9b636cf27618394435b00c57d2a4c2b853c544301b8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm": {
+    "entityIds": [
+      "species/lithodoras-dorsalis"
+    ],
+    "updatedAt": "2026-11-21T17:46:10.130Z",
+    "hash": "9405e5273f42a23bb471016eec34a916a8b60868fe22b384d8df79c44e70bbef",
+    "processedHash": "9405e5273f42a23bb471016eec34a916a8b60868fe22b384d8df79c44e70bbef",
     "status": "processed",
     "attempts": 0
   },
@@ -3513,6 +3570,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/pseudolithoxus_kelsorum.htm": {
+    "entityIds": [
+      "species/pseudolithoxus-kelsorum"
+    ],
+    "updatedAt": "2026-11-21T17:51:18.142Z",
+    "hash": "37f2b85be17dde819ac5acc8e53011cd020e1ffc20bc6e75d698d451211ee079",
+    "processedHash": "37f2b85be17dde819ac5acc8e53011cd020e1ffc20bc6e75d698d451211ee079",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm": {
     "entityIds": [
       "species/pseudolithoxus-tigris"
@@ -3810,6 +3877,16 @@
     "updatedAt": "2026-11-04T13:40:23.598Z",
     "hash": "e386a6cdc61cc36c0bcca1db4327ff071d2e698a3a7843457ab5eda9d97c90ee",
     "processedHash": "e386a6cdc61cc36c0bcca1db4327ff071d2e698a3a7843457ab5eda9d97c90ee",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm": {
+    "entityIds": [
+      "species/pimelodina-flavipinnis"
+    ],
+    "updatedAt": "2026-11-21T17:49:22.822Z",
+    "hash": "d3d7f40475f5297bf0e2b3f4423e852d2e186cadc832f6cdc801a0886fbf8971",
+    "processedHash": "d3d7f40475f5297bf0e2b3f4423e852d2e186cadc832f6cdc801a0886fbf8971",
     "status": "processed",
     "attempts": 0
   },

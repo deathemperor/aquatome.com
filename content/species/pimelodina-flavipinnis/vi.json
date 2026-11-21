@@ -7,20 +7,25 @@
     "distribution:glaser": "<p>Loài này có mô tả khoa học từ năm 1876 và phân bố rộng. Con cá nhập về có nguồn gốc từ Rio Negro ở Brazil, nhưng loài này cũng có ở Rio Madeira, ở Peru, ở vùng llanos của Venezuela và nhiều vùng khác thuộc lưu vực Orinoco. Ở đó nó là cá thực phẩm nhiều người ăn và được buôn bán thường xuyên. Tuy nhiên, các công trình khoa học mô tả màu sắc của loài này khác nhau rất nhiều, nên có lẽ dưới cái tên này đang gộp vài loài chưa ai tách riêng.</p>",
     "habitat:glaser": "<p>Loài này thích sống ở các đầm phá ven sông. Vào tháng 6 và tháng 7, chúng di cư đi đẻ. Ở Brazil, ngư dân chuyên nghiệp dùng lưới vây dài để bắt loài này làm thức ăn.</p>",
     "diet:glaser": "<p>Giữa các loài cá da trơn lớn ở Nam Mỹ, P. flavipinnis dễ nhận ra nhờ cái mõm có hình dạng lạ đi cùng miệng nằm phía dưới. Bộ râu dài khiến người ta nghĩ nó là cá săn mồi. Nhưng khi xem thức ăn trong dạ dày, người ta lại thấy ấu trùng côn trùng nước cùng những thứ lẫn vào khi cá nhai sục qua lớp đất, như cát và hạt cây.</p>",
-    "behaviour:glaser": "<p>Về chuyện nuôi trong bể thì hiện chưa nói được nhiều. Chỉ biết con cá nhập về khá điềm tĩnh và không hay quẫy loạn. Với cá lớn, quẫy loạn là chuyện đáng ngại, vì cá đã hoảng thì rất dễ bị thương. Vì vậy, mấy vết thương nhẹ trên con cá lúc mới nhập về có lẽ là do lúc đánh bắt.</p>"
+    "behaviour:glaser": "<p>Về chuyện nuôi trong bể thì hiện chưa nói được nhiều. Với cá lớn, quẫy loạn là chuyện đáng ngại, vì cá đã hoảng thì rất dễ bị thương. Vì vậy, mấy vết thương nhẹ trên con cá lúc mới nhập về có lẽ là do lúc đánh bắt.</p>",
+    "quickFacts:scotcat": "<p>Pimelodina flavipinnis là loài duy nhất trong giống Pimelodina. Họ: Pimelodidae. Kích thước: 39 cm. Nhiệt độ: 22–25 °C. pH: 6,0–7,0.</p><p>Nguồn gốc tên gọi: tên loài flavipinnis ghép từ flavus (tiếng Latin, nghĩa là màu vàng) và pinnis (tính từ Tân Latin của pinna, nghĩa là vây, tức là \"có vây\"). Cái tên này nói về bộ vây màu vàng đỏ của cá.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon và sông Orinoco. Địa điểm mẫu chuẩn: Amazonenstrom bei Para [Brazil].</p>",
+    "habitat:scotcat": "<p>Loài này sống ở các đầm nông và kiếm ăn các sinh vật sống dưới đáy.</p>",
+    "notes:scotcat": "<p>Danh sách Đỏ IUCN: thông tin về loài này còn ít, nhưng vùng phân bố của nó rộng và chưa thấy mối đe dọa rõ ràng nào. Vì thế IUCN xếp loài này vào mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 01/2016 ). Salvador, G.N. 2023. Pimelodina flavipinnis. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.95
+    }
   },
   "held": {
     "checks": [
       "source"
     ],
-    "at": "2026-11-21"
+    "at": "2026-11-22"
   }
 }

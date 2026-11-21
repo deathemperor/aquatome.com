@@ -8,13 +8,37 @@
   "places": [
     "south-america",
     "peru",
-    "solimoes"
+    "solimoes",
+    "brazil",
+    "amazon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8.5
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,16 +50,40 @@
       "html": "<p>A small dolphin catfish imported from Peru for the first time. The largest scientifically known specimen had a standard length (without the tail fin) of barely 8.5 cm. Tympanopleura cryptica was described scientifically only in 2015.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "html": "<p>Family: Auchenipteridae. Size: 10 cm. Temperature: 24–27°C. pH: 6.5–7.5. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tympanopleura-cryptica-4/",
       "html": "<p>It occurs in the upper Amazon, where the river is still called the Solimões.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "html": "<p>South America: Middle and upper Amazon River basin, State of Amazonas in Brazil and Loreto Region in Peru. Type locality: Loreto, río Solimões drainage, río Orosa, mouth of Tonche Cano, about 112 km east of Iquitos, about 3°47'26\"S, 73°14'50\"W, Peru.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "html": "<p>Although smaller than its close relative Ageneiosus, they could still prove to be predatory like this genus, so they need to be kept with fish that are not too small. Keep them in groups, as they are far happier than singly.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tympanopleura-cryptica-4/",
       "html": "<p>The catfish accept all usual frozen food. They are predatory and can eat surprisingly large fish.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "html": "<p>Presumably meat based, with shrimp, prawns, mussel, whitebait and carnivore pellets, as they can be problematic to get started on a feeding regime.</p>"
     },
     {
       "key": "behaviour",
@@ -54,9 +102,43 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tympanopleura-cryptica-4/",
       "html": "<p>The species name cryptica means \"hidden, concealed\": before its description the species was probably always confused with other species. The very large nose pores at first suggested the animals had bumped into something, but since this occurs in many specimens, always on both sides, and is also seen in the preserved type specimens, it is considered normal.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "html": "<p>Tympanopleura cryptica is distinct from its congeners by a unique combination of characters, including gill rakers on the first arch 21–26, total vertebrae 38–41 and anal-fin rays 23–30. Dorsal spines (total): 2; dorsal soft rays (total): 6. It is distinguished from T. atronasus, T. brevis, T. longipinna, T. piperata and T. rondoni by differences in fin ray counts, vertebrae, gill rakers, body proportions and pigmentation, and by a uniform body colouration without a dark blotch above the anal-fin base or streaks in the caudal fin.</p><p>Etymology: the genus name means tympano-, tympanum; pleuro, side, referring to the prominent pseudotympanum, an area on the side of the body devoid of epaxial musculature where the gas bladder contacts the internal coelomic wall. The specific epithet cryptica is derived from the Greek kryptos, meaning hidden or concealed, referring to the close morphological and pigmentation similarities of this species to its congeners and its previously unrecognised taxonomic distinctiveness. Gender feminine.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "html": "<p>Grant, S. (2021): Banjos, Dorads and Woodcats. Aspredinidae, Doradidae and Auchenipteridae Catfishes. ATS-Aquashop, Neustadt am Rübenberge: 1-300. Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org ( 07/2023 ). Walsh, S.J., F.R.V. Ribeiro and L.H. Rapp Py-Daniel, 2015. Revision of Tympanopleura Eigenmann (Siluriformes: Auchenipteridae) with description of two new species. Neotrop. Ichthyol. 13(1):1-46.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/2bc81b5fad7c1a6c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2bc81b5fad7c1a6c-480.webp",
+      "width": 500,
+      "height": 339,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "caption": "Tympanopleura cryptica",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b95d25308734cbee.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b95d25308734cbee-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/auchenipteridae/tympanopleura_cryptica.htm",
+      "caption": "Tympanopleura cryptica: head view",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/1cf11174b1586d33.webp",
       "thumb": "https://media.aquatome.com/glaser/1cf11174b1586d33-480.webp",
@@ -86,36 +168,6 @@
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tympanopleura-cryptica-4/",
       "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/1883776d312cc13b.webp",
-      "thumb": "https://media.aquatome.com/glaser/1883776d312cc13b-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tympanopleura-cryptica-4/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/a3206d044017f6a1.webp",
-      "thumb": "https://media.aquatome.com/glaser/a3206d044017f6a1-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tympanopleura-cryptica-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/9892134ee988074c.webp",
-      "thumb": "https://media.aquatome.com/glaser/9892134ee988074c-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/tympanopleura-cryptica-2/",
-      "source": "glaser"
     }
   ],
   "videos": [],
@@ -135,5 +187,65 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Amazon",
+        "Solimões"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It occurs in the upper Amazon, where the river is still called the Solimões.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Solimões"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8755660,
+      "total": 8,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "PE",
+          6
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          5
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1
+        ]
+      ]
+    }
+  }
 }

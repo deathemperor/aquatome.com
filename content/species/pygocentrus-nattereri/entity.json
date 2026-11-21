@@ -20,7 +20,8 @@
     "paraguay",
     "parana",
     "argentina",
-    "uruguay"
+    "uruguay",
+    "amazonas"
   ],
   "range": {
     "native": {
@@ -1426,6 +1427,10 @@
       {
         "source": "seriouslyfish",
         "value": 35
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -1445,8 +1450,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus_nattereri_small_spots_en/",
-      "html": "<p>The Red Piranha, Pygocentrus nattereri, is the only species of piranha that is bred on a commercial basis due to the high demand on these fishes in the ornamental fish trade. So it is always available in the shops and almost all of the offered fish are bred ones.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "html": "<p>The red-breasted shoaling piranha (Pygocentrus nattereri) is the most common piranha species kept in aquariums. The final size of these fish is 25-30 cm.</p>"
     },
     {
       "key": "quickFacts",
@@ -1455,10 +1460,16 @@
       "html": "<p>The red bellied piranha, Pygocentrus nattereri, occurs through much of the Amazon basin and south into the Paraná and Uruguay river systems. Famed as a rapacious predator, it is among the most notorious freshwater fishes in the world. According to Herbert Axelrod (1976), the myth began with a feeding frenzy staged for Theodore Roosevelt in Brazil in 1913. Usually only juveniles form aggregations, and the species is relatively easy to breed in the aquarium.</p><ul><li>Difficulty: 6 of 8 (difficult), because it needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "html": "<p>Mostly captive-bred fish are supplied for the aquarium trade, but occasionally wild catches are also imported, and then one notices that there are locally quite clear coloration differences between populations. Many wild-caught fish are very intensively coloured. Especially the blood-red breast makes them very attractive. As juveniles of 6-15 cm length these piranhas are most beautiful. The pictures show 6-7 cm long wild catches from Colombia (Dept. Amazonas).</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus_nattereri_small_spots_en/",
-      "html": "<p>Wild collected specimens of an extremely pretty and colourful local variety of P. nattereri, called “Small Spots”, were imported. The fish originate from the area around the city of Manacapuru (catchment of the Rio Negro), Brazil.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "html": "<p>Present throughout the Amazon River basin.</p>"
     },
     {
       "key": "distribution",
@@ -1477,6 +1488,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-nattereri",
       "html": "<p>Standard length 350 mm SL. Aquarium base 240 × 90 cm. Volume ~1296 litres.</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "html": "<p>The final size of these fish is 25-30 cm, so you have to provide big aquariums for them.</p>"
     },
     {
       "key": "maintenance",
@@ -1503,6 +1520,12 @@
       "html": "<p>Best-maintained alone, although adults do not tend to prey on much smaller fishes.</p><p>It is often said that wild P. nattereri hunt in voracious packs, but usually only juveniles form aggregations. Older individuals exist in loose groups and form dominance hierarchies, therefore the purchase of either a single specimen or group of 5+ is recommended, with the latter preferable.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "html": "<p>This piranha species lives in a shoal (most of the approximately 30 species are incompatible loners), so they can be raised together.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-nattereri",
@@ -1513,6 +1536,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pygocentrus-nattereri",
       "html": "<p>Wild populations exhibit two annual reproductive seasons, the first during the rising of the water level at the onset of the wet season, and the second during the low water period during November and December, when there is a sudden temporary increase in water level. Flooded marginal vegetation and marginal grasses within floodplain lakes are the preferred spawning areas.</p><p>P. nattereri is relatively easily to breed in the aquarium. Sexual maturity is reached at around a year of age and 100–150 mm TL. Unless you can find a sexed pair it is perhaps best to begin with a group of 6+ individuals, allowing pairs to form naturally. In some documented cases spawning has been initiated by large, cool water changes, whereas in others it occurred without intervention.</p><p>As males come into breeding condition they begin to become territorial, mouth and caudal-fin to create a pit in the substrate at the centre of their chosen site. Aquatic plants may also be cropped, and the resultant 'nest' is defended against other males.</p><p>Receptive females demonstrate interest by mouthing the substrate around the nest, and both male and female now display a darker body colouration. Eggs and spawn are deposited in several batches and guarded by the male, sometimes assisted by the female. In very large aquaria multiple pairs can spawn simultaneously.</p><p>The eggs hatch in 2-3 days with fry free-swimming by the fifth. At this point it is considered best practice to siphon them into smaller, sponge-filtered, set-ups. Several meals of Artemia nauplii, microworm, or equivalent, and water changes of ~10% tank volume are required daily.</p><p>The fry become increasingly cannibalistic as they grow so should be moved to progressively larger aquaria in batches of similarly-sized individuals. Think carefully before taking on such a project, however, as you could end up with 1000+ young fish with very little sell-on value.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "html": "<p>Breeding succeeds according to plan. Pairs are formed from a shoal and spawn in bottom pits; the parents guard the spawning site, there is no brood care beyond that.</p>"
     },
     {
       "key": "notes",
@@ -1527,15 +1556,15 @@
       "thumb": "https://media.aquatome.com/commons/860a08f5c6dffe9c-480.webp",
       "width": 960,
       "height": 638,
-      "licence": "CC BY 2.0",
-      "author": "Gregory Moine from Niantic, USA",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gregory_Moine_-_Red_bellied_Piranha_(by).jpg",
-      "caption": "Although they have a reputation of being very aggressive, they are very sociable fish living in schools in the wild. Adult red-bellied piranhas tend to feed on worms, insects and other fish mostly at ",
       "large": {
         "url": "https://media.aquatome.com/commons/860a08f5c6dffe9c-large.webp",
         "width": 1807,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Gregory Moine from Niantic, USA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gregory_Moine_-_Red_bellied_Piranha_(by).jpg",
+      "caption": "Although they have a reputation of being very aggressive, they are very sociable fish living in schools in the wild. Adult red-bellied piranhas tend to feed on worms, insects and other fish mostly at "
     },
     {
       "url": "https://media.aquatome.com/commons/fbb178c163b627f4.webp",
@@ -1556,6 +1585,36 @@
       "author": "Morten Johansen at Danish Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Voksen_Pygocentrus_Nattereri.jpg",
       "caption": "Adult red bellied piranha of circa 23 cm"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e61807bfd9a7bea7.webp",
+      "thumb": "https://media.aquatome.com/glaser/e61807bfd9a7bea7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/29488acade8af0cd.webp",
+      "thumb": "https://media.aquatome.com/glaser/29488acade8af0cd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/aa7254e7593c4b91.webp",
+      "thumb": "https://media.aquatome.com/glaser/aa7254e7593c4b91-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -1612,5 +1671,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-21"
 }

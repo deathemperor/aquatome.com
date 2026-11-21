@@ -1,8 +1,8 @@
 {
   "id": "glyptothorax-schmidti",
   "native": {
-    "input": "4b7eca2a221969e3",
-    "at": "2026-11-21T13:11:30.372Z",
+    "input": "ee4f6609d5a6b8c2",
+    "at": "2026-11-21T19:07:52.042Z",
     "claims": [
       {
         "code": "ID",
@@ -19,6 +19,14 @@
         "quote": "Also Pacific, Greater Sunda Island Rivers, Sumatra Waters, and Pacific, Malaysia Waters, Peninsular Malaysia Waters.",
         "words": "Malaysia",
         "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
       }
     ],
     "regions": [
@@ -30,12 +38,16 @@
         "ok": true
       },
       {
-        "name": "Peninsular Malaysia",
-        "source": "planetcatfish",
-        "quote": "Also Pacific, Greater Sunda Island Rivers, Sumatra Waters, and Pacific, Malaysia Waters, Peninsular Malaysia Waters.",
-        "country": "MY",
-        "ok": false,
-        "why": "a country"
+        "name": "Sumatra",
+        "source": "scotcat",
+        "quote": "This species is reported from river drainages in northern Sumatra and the northern Malay Peninsula.",
+        "ok": true
+      },
+      {
+        "name": "Malay Peninsula",
+        "source": "scotcat",
+        "quote": "This species is reported from river drainages in northern Sumatra and the northern Malay Peninsula.",
+        "ok": true
       }
     ],
     "disputed": [],
