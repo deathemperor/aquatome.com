@@ -162,9 +162,11 @@ export async function listAgreed(root: string): Promise<string[]> {
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   for (const url of agreed) {
-    // One off at its first verdict: its waiting entry, for this reason or another, takes the verdict's own reason, and so
-    // does a mark's entry, which a shop's own kept mark could otherwise lift (the independent reader, 20 Nov).
-    if (sl[url]!.off && (rejected[url]?.startsWith('waiting:') || rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
+    // A waiting entry, for this reason or another, takes the verdict's own reason, on a record marked off or not: two runs'
+    // records can meet in a merge with the unmarked one kept and the waiting entry beside it (the chief of staff, 20 Nov,
+    // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
+    // lift (the independent reader, 20 Nov).
+    if (rejected[url]?.startsWith('waiting:') || (sl[url]!.off && rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
     else rejected[url] ??= sl[url]!.why
     delete sl[url]
   }

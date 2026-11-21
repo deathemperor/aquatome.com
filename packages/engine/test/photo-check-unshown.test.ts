@@ -305,6 +305,17 @@ test("an agree on a photo marked off whose waiting entry is for another reason m
   expect(out.waitingOdd).toEqual([])
 })
 
+test("an agree on an unmarked record whose never-again entry is a waiting one gives the entry the record's reason: two runs' records can meet so in a merge", async () => {
+  const r = await store({ aaa: ['a-fish'] })
+  const why = compactRejection('dead: a fish on a board')
+  const rec = { why, step: 'the watermark screen', pages: ['species/aaa'], at: '2026-11-20', look: { said: 'agree', by: 'the chief of staff', on: '2026-11-21' } }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('a-dead')]: rec }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('a-dead')]: waitingEntry(compactRejection('dead: on a tray')) }))
+  expect(await listAgreed(r)).toEqual([url('a-dead')])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('a-dead')]: why })
+  expect(await json(r, 'engine-state/_photo-second-look.json')).toEqual({})
+})
+
 test("a clear takes the waiting entry off the never-again list, and where a step puts the photo back no verdict takes it off again; an agree gives the entry the verdict's own reason and the record leaves", async () => {
   const r = await store({ mmm: ['m-dead'], nnn: ['n-dead'] })
   await checkPagePhotos(r, model({ 'm-dead': dead, 'n-dead': dead }), { limit: 10 })
