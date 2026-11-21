@@ -161,3 +161,34 @@ test("videoImages: a Commons file listed off a guide's parts isn't picked for th
   await expect(videoImages(g.root, g.d)).rejects.toThrow(/EISDIR/)
   expect(await g.figures()).toBeUndefined()
 })
+
+// The chief of staff, 21 Nov 2026: a frame of two bettas lying flat in bottles, taken off by hand. A guide written again
+// starts with no frames, and a plan at 70 s cuts the tiles at 65, 70, 75 and 80 s again, at the same addresses.
+test("videoImages: a frame listed off a guide bars its seconds on that guide's video, and only there", async () => {
+  // A storyboard of 5 s tiles, 2×2 a sheet, over 100 s.
+  const sheets = Array.from({ length: 5 }, () => ({ url: 'sb0' }))
+  const cut = async (off?: unknown) => {
+    const g = await guide({
+      llm: async <T,>() => ({ sections: [{ times: [70], query: '' }, { times: [], query: '' }] }) as T,
+      faces: async files => files.map(() => 0),
+      frames: async () => ({ storyboard: { fps: 0.2, interval: 5, rows: 2, columns: 2, width: 32, height: 18, fragments: sheets }, stream: { url: 'https://stream/a1' } }),
+    })
+    if (off !== undefined) {
+      await mkdir(join(g.base, 'engine-state'), { recursive: true })
+      await writeFile(join(g.base, 'engine-state', '_part-photos-off.json'), JSON.stringify(off))
+    }
+    await videoImages(g.root, g.d)
+    return { moments: ((await g.figures())?.[0]?.moments ?? []).map((m: { t: number }) => m.t), grabs: g.grabs }
+  }
+  const frame = 'https://m/video/a1/at70-hd.webp'
+  const seconds = [70, 75, 80, 85, 90]
+  // Unlisted: the model's two picks, the tiles at 65 and 70 s.
+  expect((await cut()).moments).toEqual([65, 70])
+  const barred = await cut({ [frame]: { why: 'two fish lying flat in bottles', guides: ['youtube-a1'], seconds } })
+  expect(barred.moments).toEqual([65])
+  expect(barred.grabs.filter(s => seconds.includes(s))).toEqual([]) // no frame cut at a barred second
+  // Listed for another guide: nothing barred on this one.
+  expect((await cut({ [frame]: { why: 'two fish lying flat in bottles', guides: ['youtube-b2'], seconds } })).moments).toEqual([65, 70])
+  // Seconds with no guides would bar them on every video: the list stops the step instead.
+  await expect(cut({ [frame]: { why: 'two fish lying flat in bottles', seconds } })).rejects.toThrow(/names no guides/)
+})
