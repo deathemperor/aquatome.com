@@ -2,6 +2,7 @@ import { mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { nameStep } from '../src/ceiling'
 import type { Llm } from '../src/claude'
 import { fitKey, fitText, runFit, type FitState } from '../src/fit'
 import fitPass from '../src/fit-pass.json'
@@ -95,4 +96,30 @@ test('a read the pass gives is of the page as given, due or not, and its record 
   const plain = await runFit([b, a], statePath, { llm, jobs: 1 })
   expect(plain.report.read).toBe(1)
   expect(plain.state[fitKey(a)]?.pass).toBeUndefined()
+})
+
+// GitHub's piece-loops check (every ceiling step has an item admission decision): each page the read takes is a piece of
+// its step, so a line that can't cover a read starts none, and the step stops with nothing written (pieces.ts).
+test("a read its step's line can't cover isn't started, and nothing is written", async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aq-fit-pass-'))
+  const statePath = join(dir, '_fit.json')
+  const log = join(dir, 'cost.jsonl')
+  await writeFile(log, `${JSON.stringify({ at: new Date().toISOString(), step: 'fit-pass', piece: 'last', pieceUsd: 10000, finished: true })}\n`)
+  const before = { ENGINE_COST_LOG: process.env.ENGINE_COST_LOG }
+  process.env.ENGINE_COST_LOG = log
+  nameStep('fit-pass')
+  try {
+    let calls = 0
+    const llm = (async () => { calls++; throw new Error('must not call') }) as Llm
+    const { report, state } = await runFit([page('vi', 'guides', 'a')], statePath, { llm, jobs: 1, given: true, mark: { pass: true } })
+    expect(report.stopped).toContain('not started')
+    expect(report.read).toBe(0)
+    expect(report.failed).toEqual([])
+    expect(calls).toBe(0)
+    expect(state).toEqual({})
+  } finally {
+    nameStep(undefined)
+    if (before.ENGINE_COST_LOG === undefined) delete process.env.ENGINE_COST_LOG
+    else process.env.ENGINE_COST_LOG = before.ENGINE_COST_LOG
+  }
 })

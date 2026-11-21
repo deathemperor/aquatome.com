@@ -9,6 +9,7 @@ import { LlmError, type Llm } from './claude'
 import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
+import { piece } from './pieces'
 import { label, norm, readable, render, RETRACTED } from './reader'
 import { CONVERTED_LITRES, sourceGives } from './round'
 import { sentences } from './sentences'
@@ -818,7 +819,8 @@ export async function runFit(pages: Page[], statePath: string, d: { llm: Llm; mo
     while (next < due.length && !report.stopped) {
       const p = due[next++]!
       try {
-        state[fitKey(p)] = { ...(await readFit(d.llm, p, d.model, (d.now ?? (() => new Date()))(), d.root ? await fitSource(d.root, p) : undefined)), ...d.mark }
+        // Each page is a piece of the step: started only when what's left of its day's line covers a read (pieces.ts).
+        state[fitKey(p)] = { ...(await piece(fitKey(p), async () => readFit(d.llm, p, d.model, (d.now ?? (() => new Date()))(), d.root ? await fitSource(d.root, p) : undefined))), ...d.mark }
         if (++report.read % 10 === 0) await save()
       } catch (e) {
         if (e instanceof LlmError && /limit|rejected|no account/i.test(e.message)) report.stopped = e.message.slice(0, 200)
