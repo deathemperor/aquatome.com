@@ -3043,6 +3043,14 @@
     "genus": "Asterophysus",
     "matchType": "EXACT"
   },
+  "Astroblepus acostai": {
+    "canonicalName": "Astroblepus acostai",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
   "Astroblepus ardiladuartei": {
     "canonicalName": "Astroblepus ardiladuartei",
     "phylum": "Chordata",
@@ -3077,6 +3085,46 @@
   },
   "Astroblepus cyclopus": {
     "canonicalName": "Astroblepus cyclopus",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus grixalvii": {
+    "canonicalName": "Astroblepus grixalvii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus hidalgoi": {
+    "canonicalName": "Astroblepus hidalgoi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus homodon": {
+    "canonicalName": "Astroblepus homodon",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus itae": {
+    "canonicalName": "Astroblepus itae",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus latidens": {
+    "canonicalName": "Astroblepus latidens",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Astroblepidae",
@@ -4319,6 +4367,7 @@
     "matchType": "EXACT"
   },
   "Barbus johorensis": null,
+  "Barbus kuchingensis": null,
   "Barbus lateristriga": {
     "canonicalName": "Barbodes lateristriga",
     "order": "Cypriniformes",
@@ -5084,6 +5133,7 @@
     "genus": "Boergesenia",
     "matchType": "EXACT"
   },
+  "Boeseman thu": null,
   "Boesemani rainbowfish": null,
   "Boesemania microlepis": {
     "canonicalName": "Boesemania microlepis",
@@ -9232,6 +9282,14 @@
     "genus": "Corydoras",
     "matchType": "EXACT"
   },
+  "Corydoras sipaliwini": {
+    "canonicalName": "Corydoras sipaliwini",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Callichthyidae",
+    "genus": "Corydoras",
+    "matchType": "EXACT"
+  },
   "Corydoras sodalis": {
     "canonicalName": "Corydoras sodalis",
     "order": "Siluriformes",
@@ -9991,6 +10049,7 @@
     "genus": "Cualac",
     "matchType": "EXACT"
   },
+  "Cuatro nueva": null,
   "Curimata vittata": {
     "canonicalName": "Curimata vittata",
     "order": "Characiformes",
@@ -13031,6 +13090,7 @@
     "genus": "Geosesarma",
     "matchType": "EXACT"
   },
+  "Geosesarma includes": null,
   "Geosesarma krathing": {
     "canonicalName": "Geosesarma krathing",
     "order": "Decapoda",
@@ -13141,6 +13201,22 @@
   },
   "Glossolepis incisus": {
     "canonicalName": "Glossolepis incisus",
+    "order": "Atheriniformes",
+    "family": "Melanotaeniidae",
+    "genus": "Glossolepis",
+    "matchType": "EXACT"
+  },
+  "Glossolepis pseudoincisa": {
+    "canonicalName": "Glossolepis pseudoincisus",
+    "phylum": "Chordata",
+    "order": "Atheriniformes",
+    "family": "Melanotaeniidae",
+    "genus": "Glossolepis",
+    "matchType": "FUZZY"
+  },
+  "Glossolepis pseudoincisus": {
+    "canonicalName": "Glossolepis pseudoincisus",
+    "phylum": "Chordata",
     "order": "Atheriniformes",
     "family": "Melanotaeniidae",
     "genus": "Glossolepis",
@@ -13468,6 +13544,14 @@
   },
   "Gymnochanda filamentosa": {
     "canonicalName": "Gymnochanda filamentosa",
+    "order": "Perciformes",
+    "family": "Ambassidae",
+    "genus": "Gymnochanda",
+    "matchType": "EXACT"
+  },
+  "Gymnochanda flamea": {
+    "canonicalName": "Gymnochanda flamea",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Ambassidae",
     "genus": "Gymnochanda",
@@ -13843,6 +13927,7 @@
     "matchType": "EXACT"
   },
   "Hasemania negodagua": null,
+  "Hawksbill turtles": null,
   "Hazar toothcarp": null,
   "Heaterstat inline": null,
   "Heckel hoang": null,
@@ -15814,6 +15899,15 @@
     "genus": "Hyphessobrycon",
     "matchType": "EXACT"
   },
+  "Hypnea musciformis": {
+    "canonicalName": "Hypnea musciformis",
+    "phylum": "Rhodophyta",
+    "class": "Florideophyceae",
+    "order": "Gigartinales",
+    "family": "Cystocloniaceae",
+    "genus": "Hypnea",
+    "matchType": "EXACT"
+  },
   "Hypoestes phyllostachya": {
     "canonicalName": "Hypoestes phyllostachya",
     "order": "Lamiales",
@@ -16502,7 +16596,17 @@
     "genus": "Janalychas",
     "matchType": "EXACT"
   },
+  "Jania rubens": {
+    "canonicalName": "Jania rubens",
+    "phylum": "Rhodophyta",
+    "class": "Florideophyceae",
+    "order": "Corallinales",
+    "family": "Corallinaceae",
+    "genus": "Jania",
+    "matchType": "EXACT"
+  },
   "Jaya rainbowfish": null,
+  "Jayapura kho": null,
   "Jayaramichthys honours": null,
   "Jeg har": null,
   "Jenynsia maculata": {
@@ -17994,6 +18098,15 @@
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Rasbora",
+    "matchType": "EXACT"
+  },
+  "Liagora viscida": {
+    "canonicalName": "Liagora viscida",
+    "phylum": "Rhodophyta",
+    "class": "Florideophyceae",
+    "order": "Nemaliales",
+    "family": "Liagoraceae",
+    "genus": "Liagora",
     "matchType": "EXACT"
   },
   "Liebig trong": null,
@@ -19908,6 +20021,14 @@
     "order": "Syngnathiformes",
     "family": "Syngnathidae",
     "genus": "Microphis",
+    "matchType": "EXACT"
+  },
+  "Microphysogobio tafangensis": {
+    "canonicalName": "Microphysogobio tafangensis",
+    "phylum": "Chordata",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Microphysogobio",
     "matchType": "EXACT"
   },
   "Micropoecilia branneri": {
@@ -23240,6 +23361,14 @@
     "genus": "Panaque",
     "matchType": "EXACT"
   },
+  "Panaque schaeferi": {
+    "canonicalName": "Panaque schaeferi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Panaque",
+    "matchType": "EXACT"
+  },
   "Panaque suttoni": {
     "canonicalName": "Panaque suttonorum",
     "order": "Siluriformes",
@@ -23575,6 +23704,7 @@
     "genus": "Mikrogeophagus",
     "matchType": "EXACT"
   },
+  "Papua thu": null,
   "Papuligobius ocellatus": {
     "canonicalName": "Papuligobius ocellatus",
     "order": "Perciformes",
@@ -24285,6 +24415,14 @@
   },
   "Parotocinclus combines": null,
   "Parotocinclus described": null,
+  "Parotocinclus eppleyi": {
+    "canonicalName": "Parotocinclus eppleyi",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Parotocinclus",
+    "matchType": "EXACT"
+  },
   "Parotocinclus jimi": {
     "canonicalName": "Parotocinclus jimi",
     "order": "Siluriformes",
@@ -26171,6 +26309,14 @@
     "order": "Characiformes",
     "family": "Prochilodontidae",
     "genus": "Prochilodus",
+    "matchType": "EXACT"
+  },
+  "Proterorhinus marmoratus": {
+    "canonicalName": "Proterorhinus marmoratus",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Proterorhinus",
     "matchType": "EXACT"
   },
   "Protomelas fenestratus": {
@@ -29699,6 +29845,7 @@
     "matchType": "EXACT"
   },
   "Sentani chung": null,
+  "Sentani kho": null,
   "Sepotuba empties": null,
   "Serov moved": null,
   "Serpenticobitis cingulata": {
@@ -29803,6 +29950,14 @@
     "matchType": "EXACT"
   },
   "Serrasalmus immaculatus": null,
+  "Serrasalmus irritans": {
+    "canonicalName": "Serrasalmus irritans",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Serrasalmus",
+    "matchType": "EXACT"
+  },
   "Serrasalmus maculatus": {
     "canonicalName": "Serrasalmus maculatus",
     "order": "Characiformes",
@@ -29826,6 +29981,14 @@
   },
   "Serrasalmus niger": {
     "canonicalName": "Serrasalmus rhombeus",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Serrasalmus",
+    "matchType": "EXACT"
+  },
+  "Serrasalmus pingke": {
+    "canonicalName": "Serrasalmus elongatus",
+    "phylum": "Chordata",
     "order": "Characiformes",
     "family": "Serrasalmidae",
     "genus": "Serrasalmus",
@@ -30439,6 +30602,33 @@
     "genus": "Stenopus",
     "matchType": "EXACT"
   },
+  "Stenopus scutellatus": {
+    "canonicalName": "Stenopus scutellatus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Stenopodidae",
+    "genus": "Stenopus",
+    "matchType": "EXACT"
+  },
+  "Stenopus tenuirostris": {
+    "canonicalName": "Stenopus tenuirostris",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Stenopodidae",
+    "genus": "Stenopus",
+    "matchType": "EXACT"
+  },
+  "Stenopus zanzibaricus": {
+    "canonicalName": "Stenopus zanzibaricus",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Stenopodidae",
+    "genus": "Stenopus",
+    "matchType": "EXACT"
+  },
   "Stenorhynchus seticornis": {
     "canonicalName": "Stenorhynchus seticornis",
     "phylum": "Arthropoda",
@@ -30528,6 +30718,14 @@
   },
   "Stiphodon birdsong": {
     "canonicalName": "Stiphodon birdsong",
+    "order": "Perciformes",
+    "family": "Gobiidae",
+    "genus": "Stiphodon",
+    "matchType": "EXACT"
+  },
+  "Stiphodon elegans": {
+    "canonicalName": "Stiphodon elegans",
+    "phylum": "Chordata",
     "order": "Perciformes",
     "family": "Gobiidae",
     "genus": "Stiphodon",
@@ -30700,6 +30898,15 @@
     "matchType": "EXACT"
   },
   "Stuttgart und": null,
+  "Stypocaulon scoparium": {
+    "canonicalName": "Halopteris scoparia",
+    "phylum": "Ochrophyta",
+    "class": "Phaeophyceae",
+    "order": "Sphacelariales",
+    "family": "Stypocaulaceae",
+    "genus": "Halopteris",
+    "matchType": "EXACT"
+  },
   "Sundadanio axelrodi": {
     "canonicalName": "Sundadanio axelrodi",
     "order": "Cypriniformes",
@@ -33041,6 +33248,7 @@
   },
   "Xenurolebias using": null,
   "Xingu drainages": null,
+  "Xingu has": null,
   "Xiphophorus andersi": {
     "canonicalName": "Xiphophorus andersi",
     "phylum": "Chordata",
@@ -33143,6 +33351,14 @@
   },
   "Xiphophorus variatus": {
     "canonicalName": "Xiphophorus variatus",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Xiphophorus",
+    "matchType": "EXACT"
+  },
+  "Xiphophorus xiphidium": {
+    "canonicalName": "Xiphophorus xiphidium",
+    "phylum": "Chordata",
     "order": "Cyprinodontiformes",
     "family": "Poeciliidae",
     "genus": "Xiphophorus",
