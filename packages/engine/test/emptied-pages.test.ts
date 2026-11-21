@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process'
 import { access, copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import * as schema from '@aq/schema'
 import { loadAll, PHOTO_SCREEN_FILE } from '@aq/schema'
 import { expect, test } from 'vitest'
@@ -118,6 +119,43 @@ test("a page emptied by this run's removal and main's together is listed on main
   git('rebase', '-q', 'main')
   expect(git('status', '--porcelain', '--', 'content')).toBe('')
   expect(await listEmptied(r, '2026-11-21')).toEqual(['species/pair'])
+})
+
+test('two runs that each emptied one page list it on their own day; the earlier day stays through the later-pushed run\'s rebase, and its sweep after', async () => {
+  const { r, put } = await store({ species: { both: ['b1'] } })
+  const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  git('config', 'merge.jsonmap.driver', `node ${fileURLToPath(new URL('../../../scripts/merge-json-map.mjs', import.meta.url))} %O %A %B`)
+  await writeFile(join(r, '.gitattributes'), `engine-state/${EMPTIED_FILE} merge=jsonmap\n`)
+  git('add', '.'); git('commit', '-qm', 'pages')
+  git('switch', '-q', '-c', 'run'); git('branch', '-q', '--set-upstream-to=main')
+  // Run A, on the 20th: takes both's photo off and lists it.
+  await put('content/species/both/entity.json', fish('both', []))
+  expect(await listEmptied(r, '2026-11-20')).toEqual(['species/both'])
+  git('add', '.'); git('commit', '-qm', 'run A')
+  // Run B, on the 21st, from the same main: the same, and its push lands first.
+  git('switch', '-q', 'main')
+  await put('content/species/both/entity.json', fish('both', []))
+  expect(await listEmptied(r, '2026-11-21')).toEqual(['species/both'])
+  git('add', '.'); git('commit', '-qm', 'run B')
+  // Run A catches up (git pull --rebase), and sweeps on main as it is now.
+  git('switch', '-q', 'run'); git('rebase', '-q', 'main')
+  expect(await listEmptied(r, '2026-11-22')).toEqual([])
+  expect(JSON.parse(await readFile(join(r, 'engine-state', EMPTIED_FILE), 'utf8'))).toEqual({ 'species/both': '2026-11-20' })
+})
+
+test("no other file the map driver merges holds an emptied page's entry, the shape the driver keeps the earlier day of", async () => {
+  const repo = fileURLToPath(new URL('../../../', import.meta.url))
+  const attrs = (await readFile(join(repo, '.gitattributes'), 'utf8')).split('\n').filter(l => / merge=jsonmap$/.test(l)).map(l => l.split(' ')[0]!)
+  const files = execFileSync('git', ['ls-files', '--', ...attrs], { cwd: repo, encoding: 'utf8' }).split('\n').filter(Boolean)
+  expect(files).toContain(`engine-state/${EMPTIED_FILE}`)
+  const shaped: string[] = []
+  for (const f of files) {
+    let d: unknown
+    try { d = JSON.parse(await readFile(join(repo, f), 'utf8')) } catch { continue }
+    if (d && typeof d === 'object' && !Array.isArray(d) && Object.entries(d).some(([k, v]) => /^(species|breeds)\/[a-z0-9-]+$/.test(k) && typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v))) shaped.push(f)
+  }
+  expect(shaped).toEqual([`engine-state/${EMPTIED_FILE}`])
 })
 
 test("an emptied page is taken first until its first shown photo; the owner's fish keep their six; oldest day first", async () => {
