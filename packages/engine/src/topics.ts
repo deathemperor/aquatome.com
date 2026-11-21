@@ -102,16 +102,41 @@ const words = (s: string) => s.normalize('NFC').toLowerCase().split(/[^\p{L}\p{N
  * is kept nowhere), and a reason the magazine's step keeps never repeats it (ideas.ts writeMagazine).
  */
 export function copiesGiven(s: string, text: string): boolean {
-  const w = words(s)
-  if (w.length < COPY_WORDS) return false
+  return copying([s], runsOf(text)).size > 0
+}
+/** Every run of COPY_WORDS words in a text. */
+const runsOf = (text: string) => {
   const t = words(text)
   const runs = new Set<string>()
   for (let i = 0; i + COPY_WORDS <= t.length; i++) runs.add(t.slice(i, i + COPY_WORDS).join(' '))
-  for (let i = 0; i + COPY_WORDS <= w.length; i++) if (runs.has(w.slice(i, i + COPY_WORDS).join(' '))) return true
-  return false
+  return runs
 }
-/** Research's facts without those that copy the given page's text (copiesGiven), whichever source they cite. */
-const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => (g && r.facts ? { ...r, facts: r.facts.filter(f => !copiesGiven(f.fact, g.text.slice(0, GIVEN_MAX))) } : r)
+/** Which of `texts`, read in order as one, a run of `runs` passes through: each that holds a word of one. */
+function copying(texts: string[], runs: Set<string>): Set<number> {
+  const w = texts.flatMap((s, i) => words(s).map(x => ({ x, i })))
+  const out = new Set<number>()
+  for (let k = 0; k + COPY_WORDS <= w.length; k++) {
+    const run = w.slice(k, k + COPY_WORDS)
+    if (runs.has(run.map(y => y.x).join(' '))) for (const y of run) out.add(y.i)
+  }
+  return out
+}
+/**
+ * Research's answer without what repeats the given page's text (copiesGiven), whichever source it cites (Codex, 21 Nov 2026):
+ * a fact, or the facts that repeat it between them, read in order (a run split across two); a source's title, which
+ * becomes its site's name (the given page keeps its own); a species' name.
+ */
+const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => {
+  if (!g) return r
+  const runs = runsOf(g.text.slice(0, GIVEN_MAX))
+  const out = copying((r.facts ?? []).map(f => f.fact), runs)
+  return {
+    ...r,
+    ...(r.facts ? { facts: r.facts.filter((_, i) => !out.has(i)) } : {}),
+    ...(r.sources ? { sources: r.sources.map(s => (s.via !== 'archive' && copying([s.title], runs).size ? { ...s, title: siteOf(s.url) } : s)) } : {}),
+    ...(r.species ? { species: r.species.filter(s => !copying([s], runs).size) } : {}),
+  }
+}
 /** One page, however research writes its address ("http:", "www.", a closing slash). */
 /** A page on the host of a site the engine reads through the Archive itself (idea-sources.ts `viaArchive`): the only kind a `via` may mark. */
 const viaArchiveHost = (url: string) => {
@@ -319,12 +344,12 @@ export function viFacts(researched: TopicFacts, o: { also?: boolean } = {}) {
  * ideas among them), or a site refused as a source (cycle-only.ts REFUSED_SITES). Research is denied those hosts, but may
  * still name a page it found through search (the chief of staff, 14 Nov 2026).
  */
-async function citedFacts(root: string, researched: TopicFacts, o: { archived?: boolean } = {}) {
+async function citedFacts(root: string, researched: TopicFacts, o: { archived?: boolean; also?: boolean } = {}) {
   const off = await cycleOnlyHosts(root)
   // A page the engine gave research itself (`via`), read through the Archive, stays: research didn't open it. Only on a host
   // the engine reads that way, so a mark kept from elsewhere (a stored record, `reuse`) opens nothing else.
   const kept = (x: TopicFacts['sources'][number]) => o.archived !== false && x.via === 'archive' && viaArchiveHost(x.url) && !isMarketplace(x.url)
-  return viFacts({ ...researched, sources: researched.sources.map(x => (!kept(x) && (isMarketplace(x.url) || refused(off, x.url)) ? { ...x, url: '' } : x)) })
+  return viFacts({ ...researched, sources: researched.sources.map(x => (!kept(x) && (isMarketplace(x.url) || refused(off, x.url)) ? { ...x, url: '' } : x)) }, { also: o.also })
 }
 
 /**
@@ -335,17 +360,26 @@ async function citedFacts(root: string, researched: TopicFacts, o: { archived?: 
 function givenUse(researched: TopicFacts, cited: Awaited<ReturnType<typeof citedFacts>>): 'cited' | 'not cited' | 'too much of one source' | undefined {
   const given = givenPages(researched)
   if (!given.length) return undefined
-  const urls = (facts: typeof cited.facts) => facts.map(f => cited.refs[f.source]?.url ?? '')
-  if (!urls(cited.facts).some(u => given.includes(u))) return 'not cited'
+  const cites = (facts: typeof cited.facts) => facts.map(f => citing(cited.refs, f))
+  if (!cites(cited.facts).some(c => fromGiven(given, c))) return 'not cited'
   // Held on the Vietnamese page's facts and on those the other languages' pages get, which leave Vietnam's own out
   // (localFacts, which holds it again when they are written).
-  return tooMuchOfGiven(given, urls(cited.facts)) || tooMuchOfGiven(given, urls(cited.facts.filter(f => f.section !== 'vietnam'))) ? 'too much of one source' : 'cited'
+  return tooMuchOfGiven(given, cites(cited.facts)) || tooMuchOfGiven(given, cites(cited.facts.filter(f => f.section !== 'vietnam'))) ? 'too much of one source' : 'cited'
 }
+/** A fact's pages, by address: the one it cites and those it cites `also`. */
+type Citing = { url: string; also: string[] }
+const citing = (refs: { url: string }[], f: { source: number; also?: number[] }): Citing => ({ url: refs[f.source]?.url ?? '', also: (f.also ?? []).map(i => refs[i]?.url ?? '') })
+/** A fact from the given pages: one it cites, or cites also (Codex, 21 Nov 2026: a fact leaning on the post is the post's). */
+const fromGiven = (given: string[], c: Citing) => given.includes(c.url) || c.also.some(u => given.includes(u))
 /** The pages the engine gave research itself (`via`), on a host it reads that way. */
 const givenPages = (researched: TopicFacts) => researched.sources.filter(s => s.via === 'archive' && viaArchiveHost(s.url)).map(s => s.url)
-/** Facts, by the address each cites, that take more than POST_SHARE from the given pages, or lack POST_OTHER_SITES other sites. */
-function tooMuchOfGiven(given: string[], urls: string[]) {
-  const from = urls.filter(u => given.includes(u)).length
+/**
+ * Facts, by the pages each cites, that take more than POST_SHARE from the given pages (fromGiven), or lack POST_OTHER_SITES
+ * other sites, each fact's counted by the page it cites first.
+ */
+function tooMuchOfGiven(given: string[], facts: Citing[]) {
+  const from = facts.filter(c => fromGiven(given, c)).length
+  const urls = facts.map(c => c.url)
   const others = new Set(urls.filter(u => u && !given.includes(u)).map(siteOf))
   for (const u of given) others.delete(siteOf(u))
   return from > 0 && (from > urls.length * POST_SHARE || others.size < POST_OTHER_SITES)
@@ -364,7 +398,7 @@ function localFacts(researched: TopicFacts, entity: GuideEntity) {
   // reference gone, can leave it too much of them; then they go without it.
   const given = givenPages(researched)
   const urlOf = (f: TopicFacts['facts'][number]) => researched.sources[f.source]?.url ?? ''
-  if (given.length && tooMuchOfGiven(given, kept.map(urlOf))) kept = kept.filter(f => !given.includes(urlOf(f)))
+  if (given.length && tooMuchOfGiven(given, kept.map(f => citing(researched.sources, f)))) kept = kept.filter(f => !given.includes(urlOf(f)))
   const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
   const facts = kept.map(f => ({ section: f.section, fact: f.fact, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
   return { facts, refs, sources: kindsOf(researched, refs) }
@@ -449,21 +483,25 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 
   let cited = await citedFacts(root, researched)
-  const post = givenUse(researched, cited)
+  // The post's share counts a fact that cites it also (citedFacts `also`); the writer gets no `also`, as before.
+  const withAlso = await citedFacts(root, researched, { also: true })
+  const post = givenUse(researched, withAlso)
   // Too much of one source: written as if the page hadn't been given, from the other sources' facts alone.
   if (post === 'too much of one source') cited = await citedFacts(root, researched, { archived: false })
   const { facts, refs, sources } = cited
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts`, ...(post ? { post } : {}) }
-  // How many of the facts the writer is given come from the given page (the chief of staff, 21 Nov 2026: printed with each
-  // magazine guide).
-  const given = o.given ? { from: facts.filter(f => givenPages(researched).includes(refs[f.source]?.url ?? '')).length, of: facts.length } : undefined
+  // How many of the facts the writer is given come from the given page, one it cites also counted (the chief of staff, 21 Nov
+  // 2026: printed with each magazine guide); none when no page was given, or it was left out.
+  const given = { from: o.given && post !== 'too much of one source' ? withAlso.facts.filter(f => fromGiven(givenPages(researched), citing(withAlso.refs, f))).length : 0, of: facts.length }
 
+  // The writer and the checker read the facts alone; with a page given, they keep no session either (Codex, 21 Nov 2026).
+  const llm: Llm = o.given ? <T,>(x: Parameters<Llm>[0]) => d.llm<T>({ ...x, unkept: true }) : d.llm
   const forWriter = { topic: a.topic, kind: a.kind, sources, facts }
-  const write = (notes?: string[]) => d.llm<Written>({
+  const write = (notes?: string[]) => llm<Written>({
     system: 'You write Vietnamese aquarium guides from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
     prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
   })
-  const check = (x: Written) => checkGuide(d.llm, 'Vietnamese', forWriter, x)
+  const check = (x: Written) => checkGuide(llm, 'Vietnamese', forWriter, x)
   // A redo starts from what the last review of the guide on the site found, as the rewrite below does.
   const before = kept ? await lastKept(root, { id: `guides/${id}`, lang: 'vi' }, ['topic']) : undefined
   let w = await write(before?.notes)
@@ -507,7 +545,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
   await logReviews(root, 'topic', { id: `guides/${id}`, lang: 'vi' }, tries, review, o.now ? { now: o.now() } : {})
-  return { id, slug, score: review.score, notes: review.notes, refs: refs.length, ...(post ? { post } : {}), ...(given ? { given } : {}) }
+  return { id, slug, score: review.score, notes: review.notes, refs: refs.length, ...(post ? { post } : {}), given }
 }
 
 /**

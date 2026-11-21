@@ -105,9 +105,13 @@ test("the magazine's step is the pages part's, right after the sources' run, and
   expect(pages[run + 1]?.cmd).toBe('magazine')
   expect(STEPS.filter(s => s.cmd === 'magazine')).toHaveLength(1)
   const body = BRANCHES.get('magazine')!
-  const stop = body.indexOf("if (machine() !== 'mac') {")
+  // Codex's fresh read of 21 Nov 2026: GITHUB_ACTIONS alone could be unset on another machine.
+  const stop = body.indexOf("if (machine() !== 'mac' || process.platform !== 'darwin') {")
   expect(stop).toBeGreaterThanOrEqual(0)
   expect(body.indexOf('process.exit(1)', stop)).toBeLessThan(body.indexOf('archiveReader('))
+  // Its listing, and the shops' (GitHub's ideas step), follow redirects by hand, never to the Archive (ideas.ts fetchListing).
+  for (const cmd of ['ideas', 'magazine']) expect(BRANCHES.get(cmd), cmd).toMatch(/\bconst get = fetchListing\(fetch, UA\)/)
+  expect(CLI).not.toMatch(/listingText\(await fetch\(/)
 })
 
 test("the magazine's record is written by its step alone: no other command reaches its writers, nor any other code its file", () => {

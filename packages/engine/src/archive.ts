@@ -90,15 +90,23 @@ export class ArchiveFetcher {
 
   /**
    * One request, none during a refusal's wait, and one longer wait if the network fails; the Archive's redirects followed
-   * (REDIRECTS), each a request of its own. The request after a wait gets no second try.
+   * (REDIRECTS), each a request of its own. The request after a wait gets no second try, and the wait ends only on the
+   * Archive's answer itself, not on a redirect to it: a refusal on the redirect's request doubles the wait as before.
+   * `at`: the address that answered.
    */
   private async call(url: string) {
-    let rest = JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
+    const resting = async () => JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
+    let rest = await resting()
     if (rest && this.d.now().getTime() < new Date(rest.until).getTime()) throw new ArchiveRefused(rest.until)
     let at = url
     for (let attempt = 0, hops = 0; ; attempt++) {
       if (this.asked >= this.cap) throw new AsksSpent(this.cap)
       await this.onAsk?.()
+      // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this
+      // one waited its pace.
+      const now = await resting()
+      if (now && this.d.now().getTime() < new Date(now.until).getTime()) throw new ArchiveRefused(now.until)
+      rest ??= now
       this.asked++
       let r
       try {
@@ -110,11 +118,6 @@ export class ArchiveFetcher {
         continue
       }
       if (r.status === 429) throw await this.refused(rest, `HTTP ${r.status}`)
-      if (rest) {
-        console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
-        await rm(this.d.restFile, { force: true })
-        rest = null
-      }
       const to = REDIRECTS.has(r.status) ? r.headers.get('location') : null
       if (to) {
         const next = new URL(to, at)
@@ -125,29 +128,41 @@ export class ArchiveFetcher {
         attempt = -1
         continue
       }
-      return r
+      if (rest) {
+        console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
+        await rm(this.d.restFile, { force: true })
+        rest = null
+      }
+      return { r, at }
     }
   }
 
   /** `id_` is the page as it was captured, without the archive's toolbar or rewritten links. */
+  /** The copy's date: the Archive's own header, else the capture's stamp in the address that answered. */
   private async capture(stamp: string, url: string) {
-    const r = await this.call(`${WAYBACK}/web/${stamp}id_/${url}`)
+    const { r, at } = await this.call(`${WAYBACK}/web/${stamp}id_/${url}`)
     const html = await r.text()
     if (!r.ok) throw new Error(`no archived copy (HTTP ${r.status})`)
     const date = r.headers.get('memento-datetime')
-    return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, ...(date ? { capturedAt: new Date(date).toISOString() } : {}) } }
+    const s = /\/web\/(\d{14})[a-z_]*\//.exec(at)?.[1]
+    const capturedAt = date ? new Date(date).toISOString() : s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}T${s.slice(8, 10)}:${s.slice(10, 12)}:${s.slice(12, 14)}.000Z` : undefined
+    return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, ...(capturedAt ? { capturedAt } : {}) } }
   }
 
-  /** The newest copy; if that is a browser check, the next newest of the last few that isn't. */
+  /**
+   * The newest copy; if that is a browser check, the next newest of the last few that isn't, one that can't be read passed
+   * over. A refusal, or the requests allowed spent, stops it there: what it hasn't asked is not "no copy".
+   */
   async get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> {
     const newest = await this.capture(this.today(), url)
     if (!newest.challenge) return newest.page
     await this.d.sleep(ARCHIVE_POLITE)
-    const stamps = (await this.text(capturesQuery(url)).catch(e => { if (e instanceof ArchiveRefused) throw e; return '' })).split('\n').filter(Boolean).reverse()
+    const stop = (e: unknown) => e instanceof ArchiveRefused || e instanceof AsksSpent
+    const stamps = (await this.text(capturesQuery(url)).catch(e => { if (stop(e)) throw e; return '' })).split('\n').filter(Boolean).reverse()
     for (const stamp of stamps) {
       await this.d.sleep(ARCHIVE_POLITE)
-      const older = await this.capture(stamp, url)
-      if (!older.challenge) return older.page
+      const older = await this.capture(stamp, url).catch(e => { if (stop(e)) throw e; return undefined })
+      if (older && !older.challenge) return older.page
     }
     throw new Error('no archived copy (the archive holds a browser-check page)')
   }
@@ -156,7 +171,7 @@ export class ArchiveFetcher {
   async text(url: string): Promise<string> {
     // The index is often briefly down: a 5xx, or a "Temporarily Offline" page served as 200. Three more tries, waiting longer each time.
     for (let attempt = 0; ; attempt++) {
-      const r = await this.call(url)
+      const { r } = await this.call(url)
       const body = r.ok ? await r.text() : ''
       if (r.ok && !/^\s*</.test(body)) return body
       if (r.status < 500 && !r.ok) throw new Error(`HTTP ${r.status} from ${new URL(url).host}`)
@@ -166,7 +181,7 @@ export class ArchiveFetcher {
   }
 
   async bytes(url: string): Promise<Uint8Array> {
-    const r = await this.call(`${WAYBACK}/web/${this.today()}im_/${url}`)
+    const { r } = await this.call(`${WAYBACK}/web/${this.today()}im_/${url}`)
     if (!r.ok) throw new Error(`no archived image (HTTP ${r.status})`)
     // PlanetCatfish answers image hotlinks with a page, and the archive kept that page.
     if (!/^image\//.test(r.headers.get('content-type') ?? '')) throw new Error(`no archived image (${r.headers.get('content-type')})`)

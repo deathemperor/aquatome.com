@@ -201,9 +201,12 @@ test(`the magazine's listing asks the Archive at most ${ARCHIVE_LISTING_WEEK} ti
     total += a.asked.length
   }
   expect(total).toBe(ARCHIVE_LISTING_WEEK)
-  // Seven days after the first asks, the week has room again.
-  const later = await archive(checks, '2026-11-28T06:00:00Z')
-  await refreshMagazine(root, macOf(root, nowhere, later.reader, '2026-11-28T06:00:00Z'))
+  // A day's asks count for seven whole days after it: on the 28th, the 21st's still do; on the 29th, there is room again.
+  const seventh = await archive(checks, '2026-11-28T16:59:00Z')
+  await refreshMagazine(root, macOf(root, nowhere, seventh.reader, '2026-11-28T16:59:00Z'))
+  expect(seventh.asked).toEqual([])
+  const later = await archive(checks, '2026-11-29T06:00:00Z')
+  await refreshMagazine(root, macOf(root, nowhere, later.reader, '2026-11-29T06:00:00Z'))
   expect(later.asked.length).toBeGreaterThan(0)
   // Eight asks made this week: the sitemap's copy is read, the index isn't asked, and a post the earlier read marked keeps
   // its mark; the others stand unmarked.
@@ -334,10 +337,12 @@ test("a post the Archive doesn't hold, or holds only as a browser check: the gui
   // Every copy a browser check: the newest, then the index's last four, each older one checked: six requests at most.
   const a = await archive(checks)
   const asked: string[] = []
-  await write(root, researchCiting(0, 3, asked), a.reader)
+  const r = await write(root, researchCiting(0, 3, asked), a.reader)
   expect(a.asked).toHaveLength(6)
   expect(asked).toHaveLength(1)
   expect(asked[0]).not.toContain('Address: ')
+  // The count is printed with it too: none of the facts came from the post (Codex, 21 Nov 2026).
+  expect(r.posts).toEqual([`Nước bể cá bị đục: ${POST}: no copy; 0 of the 3 facts the writer was given came from it`])
   expect(await guideOf(root, 'Nước bể cá bị đục')).toMatchObject({ guide: topicId('Nước bể cá bị đục'), post: { url: POST, via: 'archive', result: 'no copy' } })
 })
 
@@ -514,6 +519,11 @@ test('one magazine step at a time on the Mac: another one running fails, naming 
   const old = new Date(Date.now() - 7 * 3_600_000)
   await utimes(file, old, old)
   await (await holdMagazine(file, now))()
+  // A lock with no number yet: a step that has just taken it (Codex, 21 Nov 2026). Left so for six hours, it gives way.
+  await writeFile(file, '')
+  await expect(holdMagazine(file, now)).rejects.toThrow(`another magazine step is starting (${file})`)
+  await utimes(file, old, old)
+  await (await holdMagazine(file, now))()
 })
 
 test(`a fact research copied out of the post (${COPY_WORDS} words of it in a row, whatever their case or marks) is dropped before anything keeps or reads it, and research keeps no session of the post`, async () => {
@@ -539,6 +549,50 @@ test(`a fact research copied out of the post (${COPY_WORDS} words of it in a row
   const without: Llm = async <T>(x: { prompt: string; schema: object; system: string; unkept?: boolean }) => { expect(x.unkept).toBeUndefined(); return researchCiting(0, 3, asked)<T>(x) }
   await write(plain, without, (await archive(() => res(404, ''))).reader)
   expect(asked).toHaveLength(1)
+})
+
+// Codex's fresh read of 21 Nov 2026: the post's words could still pass in a source's title, a species' name, or a run split
+// between two facts; and the writer's and checker's calls kept their sessions.
+test("the post's words pass in no title, no species' name and no run split between facts; the writer and checker keep no session of a guide given it", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const echoing: Llm = async <T>() => {
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, { url: 'https://a.example/x', title: 'Placeholder text about cloudy water and bacterial blooms', kind: 'vet' }, ...['https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' }))]
+    const facts = [{ section: 'causes', fact: 'Placeholder text about cloudy', source: 0 }, { section: 'causes', fact: 'water and bacterial blooms.', source: 0 }, { section: 'causes', fact: 'A bloom clears in days.', source: 0 },
+      ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i }))]
+    return { found: true, facts, species: ['Placeholder text about cloudy water and bacterial blooms', 'Danio rerio'], sources } as T
+  }
+  const kept: (boolean | undefined)[] = []
+  const recording: Llm = async <T>(x: Parameters<Llm>[0]) => { kept.push(x.unkept); return writer<T>(x) }
+  await write(root, echoing, (await archive(article())).reader, undefined, recording)
+  const facts = JSON.parse(await readFile(join(root, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts
+  expect(facts.facts.map(f => f.fact)).toEqual(['A bloom clears in days.', 'Other fact 1.', 'Other fact 2.', 'Other fact 3.'])
+  expect(facts.sources.map(x => x.title)).toEqual(['Cloudy water explained | Practical Fishkeeping', 'a.example', 'Other 0', 'Other 1'])
+  expect(facts.species).toEqual(['Danio rerio'])
+  expect((await files(root)).filter(([, text]) => /placeholder text about cloudy/i.test(text)).map(([f]) => f)).toEqual([])
+  // The writer, then the checker: neither keeps a session.
+  expect(kept.length).toBeGreaterThanOrEqual(2)
+  expect(kept.every(k => k === true)).toBe(true)
+  // Without the post, they keep theirs as before.
+  const plain = await waiting([magazineIdea('Nước bể cá bị đục')])
+  kept.length = 0
+  await write(plain, researchCiting(0, 3, []), (await archive(() => res(404, ''))).reader, undefined, recording)
+  expect(kept.length).toBeGreaterThanOrEqual(2)
+  expect(kept.every(k => k === undefined)).toBe(true)
+})
+
+// Codex's fresh read of 21 Nov 2026: a fact citing another site first and the post `also` leans on the post too.
+test("a fact that cites the post also counts as the post's, in its share and in the count printed; other sites are counted by the page each fact cites first", async () => {
+  const leaning = (also: number): Llm => async <T>() => {
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' }))]
+    const facts = [{ section: 'causes', fact: 'Post fact.', source: 0 }, ...[1, 2, 3, 1].map((i, k) => ({ section: 'prevention', fact: `Other fact ${k}.`, source: i, ...(k < also ? { also: [0] } : {}) }))]
+    return { found: true, facts, species: [], sources } as T
+  }
+  // One fact from the post and one leaning on it, of five: two, within the share.
+  const one = await waiting([magazineIdea('Nước bể cá bị đục')])
+  expect((await write(one, leaning(1), (await archive(article())).reader)).posts).toEqual([`Nước bể cá bị đục: ${POST}: cited; 2 of the 5 facts the writer was given came from it`])
+  // One from it and two leaning on it, of five: three, too much of one source.
+  const two = await waiting([magazineIdea('Nước bể cá bị đục')])
+  expect((await write(two, leaning(2), (await archive(article())).reader)).posts).toEqual([`Nước bể cá bị đục: ${POST}: too much of one source; 0 of the 4 facts the writer was given came from it`])
 })
 
 test("a failure's reason that repeats the post is kept and printed without its words", async () => {

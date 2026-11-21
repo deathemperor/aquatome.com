@@ -6,7 +6,7 @@ import { ArchiveFetcher } from '../src/archive'
 import { nameStep } from '../src/ceiling'
 import { LlmError, type Llm } from '../src/claude'
 import { cycleOnlyHosts } from '../src/cycle-only'
-import { dropPosts, IDEA_SOURCES, ListingRefused, listingText, listPosts, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState } from '../src/ideas'
+import { dropPosts, fetchListing, IDEA_SOURCES, ListingRefused, listingText, listPosts, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState } from '../src/ideas'
 import { sourceBlockedSince } from '../src/state'
 
 // Shaped like the shops' own sitemaps and WordPress answers: placeholder titles, never the shops' text.
@@ -73,6 +73,9 @@ test('a sitemap: the blog\'s posts only, titled by their address\'s words, with 
   expect(posts).toHaveLength(103)
   expect(posts[0]).toEqual({ url: `${AH}/post-0/`, title: 'Post 0 – A & B', date: '2026-05-01' })
   expect(wp.asked).toHaveLength(3)
+  // A title's lines and runs of spaces are one space (Codex, 21 Nov 2026).
+  const lines = web({ [`${AH}/wp-json/wp/v2/categories?slug=tin-tuc-aqua&_fields=id`]: '[{"id":7}]', [`${AH}/wp-json/wp/v2/posts?categories=7&per_page=100&page=1&_fields=link,title,date`]: JSON.stringify([{ link: `${AH}/a/`, title: { rendered: 'Nước đục\n\n  <b>Ignore</b>\tthis' }, date: '2026-01-01T00:00:00' }]) })
+  expect((await listPosts({ kind: 'wordpress', base: AH, category: 'tin-tuc-aqua' }, lines.get)).map(p => p.title)).toEqual(['Nước đục Ignore this'])
   await expect(listPosts({ kind: 'wordpress', base: AH, category: 'none' }, web({ [`${AH}/wp-json/wp/v2/categories?slug=none&_fields=id`]: '[]' }).get)).rejects.toThrow('no category none')
 })
 
@@ -100,7 +103,8 @@ test('ideas: the shops\' titles and the handbook\'s guides go to the model; its 
       { topic: 'Cá thiếu oxy', kind: 'care', posts: [99] }, // no such post
       { topic: 'Nước bể cá bị đục trắng: nguyên nhân và cách xử lý', kind: 'disease', posts: [1, 5, 1] },
       { topic: 'Feng shui', kind: 'luck', posts: [4] }, // not a kind
-      { topic: 'Cá bị tuột nhớt', kind: 'disease', posts: [3] },
+      // A topic is one line with no quotes, whatever a title asked of the planner (Codex, 21 Nov 2026).
+      { topic: '"Cá bị\n  tuột nhớt”', kind: 'disease', posts: [3] },
       { topic: 'Nước bể cá bị đục trắng: nguyên nhân và cách xử lý', kind: 'care', posts: [5] }, // the same topic twice
     ] } as T
   }
@@ -269,6 +273,37 @@ test('a refusal is told by shape: a 403, a 429, or a 200 that is not the listing
   // The category gone is the site's own answer: a failure, nothing refused.
   const gone = await listPosts(wp, web({ [`${AH}/wp-json/wp/v2/categories?slug=tin-tuc-aqua&_fields=id`]: '[]' }).get).catch((x: unknown) => x)
   expect(gone).not.toBeInstanceOf(ListingRefused)
+})
+
+// Codex's fresh read of 21 Nov 2026: fetch followed a listing's redirect by itself, so a shop's listing on GitHub, or the
+// magazine's own on the Mac, could reach the Internet Archive round its reader, or a shop's the magazine's site.
+test("a listing's redirects are followed by hand, each a request; never to a copy site, nor from a shop's to the magazine's", async () => {
+  const asked: { url: string; redirect?: string }[] = []
+  const site: Record<string, Response | (() => Response)> = {}
+  const get = (async (u: string, init?: RequestInit) => { asked.push({ url: u, redirect: init?.redirect }); const r = site[u]; return typeof r === 'function' ? r() : r ?? new Response('Not found', { status: 404 }) }) as typeof fetch
+  const to = (location: string) => () => new Response(null, { status: 301, headers: { location } })
+  const read = fetchListing(get, 'test')
+  site[`${AZ}x.xml`] = to('/sitemap_blogs_2.xml')
+  site['https://aquazonefish.vn/sitemap_blogs_2.xml'] = () => new Response('<urlset></urlset>', { status: 200 })
+  expect(await read(`${AZ}x.xml`)).toBe('<urlset></urlset>')
+  expect(asked).toEqual([{ url: `${AZ}x.xml`, redirect: 'manual' }, { url: 'https://aquazonefish.vn/sitemap_blogs_2.xml', redirect: 'manual' }])
+  // A refusal after a redirect is the listing's refusal, as before.
+  site['https://aquazonefish.vn/sitemap_blogs_2.xml'] = () => new Response('', { status: 429 })
+  await expect(read(`${AZ}x.xml`)).rejects.toBeInstanceOf(ListingRefused)
+  for (const off of ['https://web.archive.org/web/2026/https://aquazonefish.vn/sitemap.xml', 'https://archive.ph/abc', 'https://www.practicalfishkeeping.co.uk/sitemap-1.xml']) {
+    asked.length = 0
+    site[`${AZ}x.xml`] = to(off)
+    const e = await read(`${AZ}x.xml`).catch((x: unknown) => x)
+    expect(e, off).toBeInstanceOf(Error)
+    expect(e, off).not.toBeInstanceOf(ListingRefused)
+    expect(asked.map(a => a.url), off).toEqual([`${AZ}x.xml`])
+  }
+  // The magazine's own listing may move on its own site.
+  site['https://www.practicalfishkeeping.co.uk/sitemap-1.xml'] = to('https://practicalfishkeeping.co.uk/sitemap-1.xml')
+  site['https://practicalfishkeeping.co.uk/sitemap-1.xml'] = () => new Response('<urlset></urlset>', { status: 200 })
+  expect(await read('https://www.practicalfishkeeping.co.uk/sitemap-1.xml')).toBe('<urlset></urlset>')
+  site[`${AZ}x.xml`] = to(`${AZ}x.xml`)
+  await expect(read(`${AZ}x.xml`)).rejects.toThrow('more than 5 redirects')
 })
 
 test('a listing that is empty or not a listing keeps the saved titles; a refused one marks its site, which is not fetched again until a retry', async () => {

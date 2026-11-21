@@ -246,6 +246,71 @@ test('the one request after the wait isn\'t refused: reading carries on, and the
   await expect(f.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MS).toISOString()))
 })
 
+// Codex's fresh read of 21 Nov 2026: the wait ended on the redirect, so a refusal of the redirect's own request started a
+// fresh 12 hours instead of a day.
+test('after the wait, a redirect ends nothing: refused on its request, the wait doubles; answered, it ends with that answer', async () => {
+  const { t, f } = refusals()
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  let n = 0
+  t.answer = () => (n++ === 0 ? capture(302, '', { location: `/web/20251017040955id_/${article}` }) : capture(429, ''))
+  await expect(f.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+  expect(t.asked).toBe(3)
+  t.clock += ARCHIVE_REST_MAX_MS
+  n = 0
+  t.answer = () => (n++ === 0 ? capture(302, '', { location: `/web/20251017040955id_/${article}` }) : capture(200, '<title>ok</title>'))
+  await f.get(article)
+  t.answer = () => capture(429, '')
+  await expect(f.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MS).toISOString()))
+})
+
+// Codex's fresh read of 21 Nov 2026: a job's pace wait comes after the rest was read, and another job on this Mac may be
+// refused in it.
+test('a refusal written while a request waited its turn stops that request', async () => {
+  const file = restFile()
+  const { t, f: other } = refusals(file)
+  const f = new ArchiveFetcher({ restFile: file, fetch: async () => { t.asked++; return capture(200, '<title>ok</title>') }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+  const waiting = f.capped(5, async () => { await expect(other.get(article)).rejects.toBeInstanceOf(ArchiveRefused) })
+  await expect(waiting.get(article)).rejects.toThrow(/no request before 2026-11-10T12:00:00.000Z/)
+  expect(t.asked).toBe(1)
+  expect(waiting.asked).toBe(0)
+})
+
+// Codex's fresh read of 21 Nov 2026: past a browser check, the requests allowed ran out or one copy failed, and the post
+// was recorded as having no copy.
+test('past a browser check: requests spent stop the search, not "no copy"; an older copy that fails is passed over', async () => {
+  const check = capture(200, '<html><head><title>Just a moment...</title></head></html>')
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async () => check, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  await expect(f.capped(1).get(article)).rejects.toBeInstanceOf(AsksSpent)
+  const calls: string[] = []
+  const g = new ArchiveFetcher({
+    restFile: restFile(),
+    fetch: async u => {
+      calls.push(u)
+      if (u.includes('/cdx/')) return capture(200, '20240101000000\n20250101000000\n')
+      if (u.includes('/web/20250101000000id_/')) return capture(404, '')
+      if (u.includes('/web/20240101000000id_/')) return capture(200, '<title>Best temperature</title>')
+      return check
+    },
+    now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test',
+  })
+  // And with no date in the answer, the copy's date is its stamp.
+  expect(await g.get(article)).toMatchObject({ html: '<title>Best temperature</title>', capturedAt: '2024-01-01T00:00:00.000Z' })
+  expect(calls).toHaveLength(4)
+})
+
+// Codex's fresh read of 21 Nov 2026: a copy reached through a redirect, with no Memento-Datetime, had no date.
+test("a copy with no date of its own takes the stamp of the address that answered, never today's", async () => {
+  const answers: Record<string, ReturnType<typeof capture>> = {
+    [`https://web.archive.org/web/20261121id_/${article}`]: capture(302, '', { location: `/web/20251017040955id_/${article}` }),
+    [`https://web.archive.org/web/20251017040955id_/${article}`]: capture(200, '<title>Best temperature</title>'),
+  }
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async u => answers[u] ?? capture(404, ''), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  expect((await f.get(article)).capturedAt).toBe('2025-10-17T04:09:55.000Z')
+  answers[`https://web.archive.org/web/20261121id_/${article}`] = capture(200, '<title>Best temperature</title>')
+  expect((await f.get(article)).capturedAt).toBeUndefined()
+})
+
 test('a refused connection is a refusal, with no minute\'s wait and no second try', async () => {
   const waits: number[] = []
   let n = 0

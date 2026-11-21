@@ -112,7 +112,7 @@ import { localizeTopic, makeTopic } from './topics'
 import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
-import { holdMagazine, listingText, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine } from './ideas'
+import { fetchListing, holdMagazine, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates, type PhotoCheckDeps } from './photo-check'
@@ -1229,7 +1229,7 @@ if (cmd === 'photo-privacy') {
   // Vietnamese shops' blogs, read for ideas (their posts' titles, never their text), a week apart unless --force: the
   // topics the handbook has no guide on, most asked first, in engine-state/_ideas.json. pnpm engine ideas [--force]
   // [--retry-blocked]: a site that refused us its listing is fetched again only with --retry-blocked.
-  const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
+  const get = fetchListing(fetch, UA)
   const r = await refreshIdeas(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
   const s = await readIdeas(ROOT)
   console.log(r.fresh ? `ideas: read ${s.readAt}, still fresh` : `ideas: ${r.posts} posts, ${r.ideas} new ideas${r.failed.length ? `; failed: ${r.failed.join('; ')}` : ''}`)
@@ -1252,7 +1252,7 @@ if (cmd === 'photo-privacy') {
   // Practical Fishkeeping through the Internet Archive, on the Mac alone, whose rest the Archive's is (the chief of staff,
   // 21 Nov 2026): its titles a week apart (once a day while it has none), then the day's one guide on its ideas, given its
   // post (ideas.ts refreshMagazine, writeMagazine). pnpm engine magazine [--force] [--retry-blocked]
-  if (machine() !== 'mac') {
+  if (machine() !== 'mac' || process.platform !== 'darwin') {
     console.error("magazine: the Mac's alone: the Internet Archive's rest is the Mac's, so nothing else asks it")
     process.exit(1)
   }
@@ -1262,7 +1262,7 @@ if (cmd === 'photo-privacy') {
   const ledger = join(cache, 'magazine-archive.json')
   const release = await holdMagazine(join(cache, 'magazine.lock'), () => new Date()).catch((e: Error) => { console.error(`magazine: ${e.message}`); process.exit(1) })
   const archive = archiveReader()
-  const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
+  const get = fetchListing(fetch, UA)
   try {
     const l = await refreshMagazine(ROOT, { get, archive, ledger, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
     if (l.fresh.length) console.log(`magazine: ${l.fresh.join(', ')}: read within the week`)

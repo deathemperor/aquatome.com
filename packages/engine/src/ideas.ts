@@ -4,7 +4,7 @@ import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
 import { ARCHIVE_POLITE, ArchiveRefused, AsksSpent, cdxQuery, type ArchiveReader } from './archive'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
-import { cycleOnlyHosts, refused } from './cycle-only'
+import { COPY_HOSTS, cycleOnlyHosts, refused } from './cycle-only'
 import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED, type Drop, type IdeaSource, type Listing } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { htmlToOutline, isChallenge } from './outline'
@@ -143,6 +143,8 @@ export async function holdMagazine(file: string, now: () => Date, pid = process.
       if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || tries > 0) throw e
       const held = Number((await readFile(file, 'utf8').catch(() => '')).trim())
       const age = now().getTime() - (await stat(file).then(x => x.mtimeMs, () => 0))
+      // A lock with no number yet is a step that has just taken it and not yet written its own (Codex, 21 Nov 2026).
+      if (!held && age < LOCK_STALE_MS) throw new Error(`another magazine step is starting (${file})`)
       if (held && alive(held) && age < LOCK_STALE_MS) throw new Error(`another magazine step is running (pid ${held}, ${file})`)
       await rm(file, { force: true })
     }
@@ -171,6 +173,22 @@ export async function listingText(res: Response): Promise<string> {
   await res.body?.cancel().catch(() => undefined)
   if (res.status === 403 || res.status === 429) throw new ListingRefused(`refused, HTTP ${res.status}`)
   throw new Error(`HTTP ${res.status}`)
+}
+/**
+ * A site's listing, its redirects followed by hand (Codex, 21 Nov 2026): never to a copy site (the Internet Archive's is read
+ * only through its reader, on the Mac, under its rest), nor from a shop's listing to the magazine's site.
+ */
+export const fetchListing = (get: typeof fetch, ua: string) => async (u: string): Promise<string> => {
+  for (let hop = 0, url = u; hop <= 5; hop++) {
+    if (refused(COPY_HOSTS, url)) throw new Error(`its listing points to a copy site, not followed: ${url}`)
+    if (isMagazinePost(url) && bareHost(url) !== bareHost(u)) throw new Error(`its listing points to the magazine's site, not followed: ${url}`)
+    const res = await get(url, { redirect: 'manual', headers: { 'user-agent': ua }, signal: AbortSignal.timeout(60_000) })
+    const next = res.status >= 300 && res.status < 400 ? res.headers.get('location') : null
+    if (!next) return listingText(res)
+    await res.body?.cancel().catch(() => undefined)
+    url = new URL(next, url).href
+  }
+  throw new Error('its listing: more than 5 redirects')
 }
 /** An answer of 200 that isn't the listing asked for: a refusal. */
 const notA = (what: string) => new ListingRefused(`refused, not ${what}`)
@@ -211,7 +229,7 @@ export async function listPosts(list: Listing, get: (url: string) => Promise<str
   for (let page = 1; page <= 20; page++) {
     const rows = json<{ link: string; title: { rendered: string }; date: string }[]>(await get(`${list.base}/wp-json/wp/v2/posts?categories=${cats[0].id}&per_page=100&page=${page}&_fields=link,title,date`), 'a list of posts')
     if (!Array.isArray(rows) || !rows.every(r => typeof r?.link === 'string' && bareHost(r.link) === bareHost(list.base) && typeof r.title?.rendered === 'string' && typeof r.date === 'string')) throw notA('a list of its own posts')
-    out.push(...rows.map(r => ({ url: r.link, title: unescape(r.title.rendered).replace(/<[^>]+>/g, '').trim(), date: r.date.slice(0, 10) })))
+    out.push(...rows.map(r => ({ url: r.link, title: unescape(r.title.rendered).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(), date: r.date.slice(0, 10) })))
     if (rows.length < 100) break
   }
   return out
@@ -268,9 +286,15 @@ export const ARCHIVE_POST_DAY = 6
 export const ARCHIVE_LISTING_WEEK = 9
 /** Vietnam's last `n` days, today's included. */
 const lastDays = (now: Date, n: number) => new Set(Array.from({ length: n }, (_, i) => vnDay(new Date(now.getTime() - i * 86_400_000))))
-/** The requests to the Archive still allowed: for the post, today's; for the listing, the last seven days'. */
+/**
+ * Vietnam's days a request to the Archive for the listing counts in: today and the seven before, so a day's requests are
+ * counted for at least seven whole days after any of them (Codex, 21 Nov 2026: seven days in the calendar let 18 in a little
+ * over six).
+ */
+const LISTING_DAYS = 8
+/** The requests to the Archive still allowed: for the post, today's; for the listing, those of the last LISTING_DAYS. */
 function asksLeft(l: MagazineLedger, kind: 'listing' | 'post', now: Date) {
-  const days = lastDays(now, kind === 'post' ? 1 : 7)
+  const days = lastDays(now, kind === 'post' ? 1 : LISTING_DAYS)
   const made = Object.entries(l.asks ?? {}).reduce((n, [day, a]) => n + (days.has(day) ? a[kind] ?? 0 : 0), 0)
   return (kind === 'post' ? ARCHIVE_POST_DAY : ARCHIVE_LISTING_WEEK) - made
 }
@@ -286,8 +310,8 @@ const magazineReader = (reader: ArchiveReader, l: MagazineLedger, file: string, 
     const asks = (l.asks ??= {})
     const today = (asks[vnDay(now())] ??= {})
     today[kind] = (today[kind] ?? 0) + 1
-    const week = lastDays(now(), 7)
-    for (const day of Object.keys(asks)) if (!week.has(day)) delete asks[day]
+    const kept = lastDays(now(), LISTING_DAYS)
+    for (const day of Object.keys(asks)) if (!kept.has(day)) delete asks[day]
     await saveLedger(file, l)
   })
 }
@@ -451,7 +475,8 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
   const made = new Map<string, Idea>()
   const shops = (i: Idea) => i.posts.filter(u => !isMagazinePost(u))
   for (const x of r.ideas ?? []) {
-    const topic = String(x.topic ?? '').trim().slice(0, 140)
+    // One line, no quotes: a topic goes into research's prompt, whatever a title asked of the planner (Codex, 21 Nov 2026).
+    const topic = String(x.topic ?? '').replace(/["“”\s]+/g, ' ').trim().slice(0, 140)
     const mine = [...new Set((x.posts ?? []).map(n => posts[Math.round(n) - 1]).filter(p => p !== undefined))]
     if (!topic || !KINDS.includes(x.kind) || !mine.length || done.has(slugify(topic)) || made.has(slugify(topic))) continue
     const fromMagazine = mine.every(p => MAGAZINES.has(p.site))

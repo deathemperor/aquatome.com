@@ -11,7 +11,7 @@ import { SOURCES, type SourceConfig } from './sources'
  * archive.fo, and the bare or sub-hosts of the proxies, were missing (Codex, 17 Nov 2026). refused-sources.ts reads the
  * archives' copies and names the proxies' addresses, and its test holds every one of its hosts to this list.
  */
-const COPY_HOSTS = [
+export const COPY_HOSTS = [
   'archive.org', '*.archive.org',
   ...['archive.ph', 'archive.is', 'archive.today', 'archive.li', 'archive.md', 'archive.vn', 'archive.fo'].flatMap(h => [h, `*.${h}`]),
   ...['webcache.googleusercontent.com', 'translate.goog', 'r.jina.ai'].flatMap(h => [h, `*.${h}`]),
