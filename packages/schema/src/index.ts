@@ -25,6 +25,7 @@ export { loadAll, MARKET, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, placeNamed, QUALI
 export { linkGlossary, type GlossaryLinkTerm } from './glossary-link'
 export { capitalFirst, glossaryKinds, kindLine, kindsSection, type GlossaryKindItem } from './glossary-kinds'
 export { headingSubject, linkTerms, type LinkTarget } from './link-terms'
+export { GLOSSARY_HELD, heldPhrase, type HeldPhrase } from './glossary-held'
 export { headingRoles, OWN_NUMBER, ownNumber, type HeadingRole } from './headings'
 export { COOKIE_PHOTO_HOSTS, MEDIA_HOST, setsCookies, THUMB_WIDTH, thumbOf } from './thumb'
 export { awaitsScreen, LOGO_FOLDERS, logoFolder, ocrHit, validOcrSummary, type PhotoScreenEntry, type OcrSummary, type LegacyOcrLine } from './photo-screen'
