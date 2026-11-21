@@ -65,7 +65,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm xanh bơi sát những tảng đá trong bể trồng cây.",
-            "sharpness": 649.1
+            "sharpness": 649.1,
+            "person": false
           },
           {
             "t": 75,
@@ -73,7 +74,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm xanh dương nằm yên trên đá trong bể có cây thủy sinh.",
-            "sharpness": 339.6
+            "sharpness": 339.6,
+            "person": false
           }
         ]
       },
@@ -107,7 +109,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá xiêm cái bơi chung trong một bể nuôi (betta sorority).",
-            "sharpness": 342.4
+            "sharpness": 342.4,
+            "person": false
           },
           {
             "t": 225,
@@ -115,7 +118,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm cái ẩn nấp giữa cây thủy sinh trong bể nuôi chung.",
-            "sharpness": 501.3
+            "sharpness": 501.3,
+            "person": false
           }
         ]
       },
@@ -128,7 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm bơi gần đám cây thủy sinh xanh và hòn đá trong bể.",
-            "sharpness": 528.8
+            "sharpness": 528.8,
+            "person": false
           },
           {
             "t": 300,
@@ -136,7 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm trắng xanh bơi trong bể tối, nhìn rõ vây đuôi.",
-            "sharpness": 264.3
+            "sharpness": 264.3,
+            "person": false
           }
         ],
         "photo": {
@@ -167,30 +173,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm màu đỏ trắng bơi trong bể nhỏ, nhìn rõ vây đuôi.",
-            "sharpness": 395.7
+            "sharpness": 395.7,
+            "person": false
           }
         ]
       },
       {
         "heading": "Cá xiêm ngoài tự nhiên có sống trong vũng bùn không",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/_6k5YEYOcRQ/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ruộng lúa ngập nước rộng với người đang cấy lúa.",
-            "sharpness": 839.8
-          },
-          {
-            "t": 475,
-            "url": "https://media.aquatome.com/video/_6k5YEYOcRQ/at475-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh ruộng lúa non ngập nước, nơi cá xiêm hoang sinh sống.",
-            "sharpness": 3073.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/_6k5YEYOcRQ/p5-VGhhaWxhbmQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/_6k5YEYOcRQ/p5-VGhhaWxhbmQuanBn-480.webp",
@@ -211,7 +201,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá xiêm bơi giữa bụi cây thủy sinh trong bể.",
-            "sharpness": 189.3
+            "sharpness": 189.3,
+            "person": false
           },
           {
             "t": 540,
@@ -219,7 +210,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm cái màu đỏ tím bơi dưới tán cây thủy sinh.",
-            "sharpness": 198.9
+            "sharpness": 198.9,
+            "person": false
           }
         ],
         "photo": {
@@ -242,7 +234,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm đực vây trắng bơi sát vách bể, xòe vây.",
-            "sharpness": 317.3
+            "sharpness": 317.3,
+            "person": false
           },
           {
             "t": 615,
@@ -250,7 +243,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm đực xòe vây đỏ rực trong bể, sẵn sàng gây hấn.",
-            "sharpness": 193.2
+            "sharpness": 193.2,
+            "person": false
           }
         ],
         "photo": {

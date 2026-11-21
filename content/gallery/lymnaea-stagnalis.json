@@ -2,20 +2,6 @@
   "id": "lymnaea-stagnalis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/1344588.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/1344588-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Sarah Richardson",
-      "sourceUrl": "https://www.inaturalist.org/photos/1344588",
-      "caption": "Ốc ao lớn sống bò giữa cây cỏ ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/13618428.webp",
       "thumb": "https://media.aquatome.com/inaturalist/13618428-480.webp",
       "width": 1024,
@@ -26,8 +12,7 @@
       "caption": "Ốc ao lớn vỏ nâu bò trên cỏ ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/14921561.webp",
@@ -40,8 +25,7 @@
       "caption": "Ốc ao lớn vỏ sọc bò trong nước nông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/28209426.webp",
@@ -54,22 +38,7 @@
       "caption": "Ốc ao lớn dưới nước nông, thân mềm vươn ra",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/28988499.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/28988499-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Jenny Saito",
-      "sourceUrl": "https://www.inaturalist.org/photos/28988499",
-      "caption": "Ốc ao lớn vỏ vàng nâu trên bãi cỏ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/29611139.webp",
@@ -82,8 +51,7 @@
       "caption": "Ốc ao lớn bám trên cây thủy sinh dưới nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/34009182.webp",
@@ -96,8 +64,7 @@
       "caption": "Ốc ao lớn bò trên thân sậy trong nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/36272299.webp",
@@ -110,22 +77,7 @@
       "caption": "Ốc ao lớn trôi dưới mặt nước ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/43711529.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/43711529-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Анастасия",
-      "sourceUrl": "https://www.inaturalist.org/photos/43711529",
-      "caption": "Ốc ao lớn vỏ vàng nổi gần mặt nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/45634176.webp",
@@ -138,8 +90,7 @@
       "caption": "Ốc ao lớn trườn trong nước nông trên nền bùn",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/45635471.webp",
@@ -152,50 +103,7 @@
       "caption": "Ốc ao lớn thò đầu và chân khi bò trong nước nông",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/48540811.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/48540811-480.webp",
-      "width": 576,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Анастасия",
-      "sourceUrl": "https://www.inaturalist.org/photos/48540811",
-      "caption": "Ốc ao lớn vỏ nâu bò trên đá và lá ven nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/18680614.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/18680614-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "carnifex",
-      "sourceUrl": "https://www.inaturalist.org/photos/18680614",
-      "caption": "Hai con ốc ao lớn trên đá ven nước",
-      "best": false,
-      "kind": "pair",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/36205734.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/36205734-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "charlielinton",
-      "sourceUrl": "https://www.inaturalist.org/photos/36205734",
-      "caption": "Hai con ốc ao lớn trong khay nhựa",
-      "best": false,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/4806098.webp",
@@ -208,8 +116,7 @@
       "caption": "Ốc ao lớn bò trên tảng đá ven nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/13899087.webp",
@@ -222,8 +129,7 @@
       "caption": "Ốc ao lớn trôi dưới mặt nước, thò chân bám màng nước",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/13618425.webp",
@@ -236,8 +142,7 @@
       "caption": "Ốc ao lớn bò trên thảm cỏ xanh ẩm",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/28295093.webp",
@@ -250,8 +155,7 @@
       "caption": "Ốc ao lớn bò trên gỗ ẩm cạnh viên đá",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/19271757.webp",
@@ -264,36 +168,7 @@
       "caption": "Ốc ao lớn bò trên cây thủy sinh ở ao tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/43437887.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/43437887-480.webp",
-      "width": 666,
-      "height": 888,
-      "licence": "CC0",
-      "author": "formicacid",
-      "sourceUrl": "https://www.inaturalist.org/photos/43437887",
-      "caption": "Ốc ao lớn bò trên nền sỏi cát",
-      "best": false,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/43389932.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/43389932-480.webp",
-      "width": 1024,
-      "height": 1003,
-      "licence": "CC BY",
-      "author": "Cassian",
-      "sourceUrl": "https://www.inaturalist.org/photos/43389932",
-      "caption": "Ốc ao lớn bám trên cành cây dưới nước",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/45830902.webp",
@@ -306,8 +181,7 @@
       "caption": "Ốc ao lớn bò sát mặt nước, ánh xanh",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/45050219.webp",
@@ -320,8 +194,7 @@
       "caption": "Ốc ao lớn bò trên cành khô và đá ven bờ",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/45830895.webp",
@@ -334,8 +207,7 @@
       "caption": "Ốc ao lớn dưới nước trong suối nông, vỏ ánh xanh",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/47234920.webp",
@@ -348,8 +220,7 @@
       "caption": "Ốc ao lớn bò trên đáy nước đục",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/48539141.webp",
@@ -362,8 +233,59 @@
       "caption": "Ốc ao lớn ngoi lên gần mặt nước",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/48540811.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/48540811-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Анастасия",
+      "sourceUrl": "https://www.inaturalist.org/photos/48540811",
+      "caption": "Ốc ao lớn vỏ nâu bò trên đá và lá ven nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/43389932.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/43389932-480.webp",
+      "width": 1024,
+      "height": 1003,
+      "licence": "CC BY",
+      "author": "Cassian",
+      "sourceUrl": "https://www.inaturalist.org/photos/43389932",
+      "caption": "Ốc ao lớn bám trên cành cây dưới nước",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/36205734.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/36205734-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "charlielinton",
+      "sourceUrl": "https://www.inaturalist.org/photos/36205734",
+      "caption": "Hai con ốc ao lớn trong khay nhựa",
+      "best": false,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/43437887.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/43437887-480.webp",
+      "width": 666,
+      "height": 888,
+      "licence": "CC0",
+      "author": "formicacid",
+      "sourceUrl": "https://www.inaturalist.org/photos/43437887",
+      "caption": "Ốc ao lớn bò trên nền sỏi cát",
+      "best": false,
+      "kind": "other",
+      "setup": false
     }
   ],
   "seen": 80,

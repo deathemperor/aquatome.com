@@ -97560,6 +97560,14 @@
   ],
   "products": []
  },
+ "vi/guides/youtube-qMgSEhoBfPM": {
+  "at": "2026-11-21",
+  "hash": "a528f41f11604ff0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/guides/youtube-QoLZvjObqYM": {
   "at": "2026-11-09",
   "hash": "a276e9797c805c27",
@@ -99381,6 +99389,22 @@
   "products": [
    "ADA Wave"
   ]
+ },
+ "vi/guides/youtube-Shhe4SNvXpY": {
+  "at": "2026-11-21",
+  "hash": "439f732feb157970",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "trong một bể khoảng 1363 lít nuôi rồng bạc, oscar và hai con severum vàng",
+    "why": "1363 litres is a converted 360-gallon tank, a size nobody in Vietnam would give.",
+    "by": "model"
+   }
+  ],
+  "products": []
  },
  "vi/guides/youtube-SIMNLeXB8Pc": {
   "at": "2026-11-09",

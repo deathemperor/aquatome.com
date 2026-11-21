@@ -1,6 +1,20 @@
 [
   {
     "date": "2026-11-21",
+    "kind": "guide",
+    "id": "youtube-Shhe4SNvXpY",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-21",
+    "kind": "guide",
+    "id": "youtube-qMgSEhoBfPM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-21",
     "kind": "species",
     "id": "pethia-nigrofasciata",
     "source": "aquatome",
@@ -3482,20 +3496,6 @@
     "date": "2026-11-18",
     "kind": "species",
     "id": "microdevario-kubotai",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-18",
-    "kind": "species",
-    "id": "bostrychus-zonatus",
-    "source": "glaser",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-18",
-    "kind": "species",
-    "id": "leporacanthicus-joselimai",
     "source": "glaser",
     "action": "updated"
   }

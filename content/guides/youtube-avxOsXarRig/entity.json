@@ -100,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc trong đặt trong bể cùng bộ sưởi, nhìn từ phía trên.",
-            "sharpness": 820.7
+            "sharpness": 820.7,
+            "person": false
           },
           {
             "t": 85,
@@ -108,28 +109,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED kẹp thành bể sáng, bên cạnh là lọc trong và sưởi.",
-            "sharpness": 747.6
-          }
-        ]
-      },
-      {
-        "heading": "Đắp nền và làm lối đi",
-        "moments": [
-          {
-            "t": 245,
-            "url": "https://media.aquatome.com/video/avxOsXarRig/at245-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã đắp nền và xếp đá, nhìn rõ độ cao thấp của bố cục.",
-            "sharpness": 336.3
-          },
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/avxOsXarRig/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Góc rộng hơn của bể đang làm bố cục nền và đá.",
-            "sharpness": 789.7
+            "sharpness": 747.6,
+            "person": false
           }
         ]
       },
@@ -142,7 +123,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cành lũa đặt trước bể với các tảng đá xếp xen kẽ phía sau.",
-            "sharpness": 376.3
+            "sharpness": 376.3,
+            "person": false
           },
           {
             "t": 305,
@@ -150,28 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã xếp đá và lũa xen kẽ, có khóm cây xanh làm điểm nhấn.",
-            "sharpness": 289.5
-          }
-        ]
-      },
-      {
-        "heading": "Châm nước và cho bể chạy",
-        "moments": [
-          {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/avxOsXarRig/at395-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm chai thuốc khử clo để cho vào nước bể mới.",
-            "sharpness": 388.2
-          },
-          {
-            "t": 405,
-            "url": "https://media.aquatome.com/video/avxOsXarRig/at405-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm chai vi sinh bên cạnh bể và bộ lọc để châm vào nước.",
-            "sharpness": 863.9
+            "sharpness": 289.5,
+            "person": false
           }
         ]
       },
@@ -184,7 +146,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm xanh đậu trên hòn đá giữa lũa trong bể.",
-            "sharpness": 559.5
+            "sharpness": 559.5,
+            "person": false
           },
           {
             "t": 565,
@@ -192,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm xanh dương bơi trên đá trong bể, vây xòe khỏe.",
-            "sharpness": 454.8
+            "sharpness": 454.8,
+            "person": false
           }
         ]
       }

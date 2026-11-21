@@ -126,7 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta xanh bơi giữa các tán cây lá xanh trong bể.",
-            "sharpness": 449
+            "sharpness": 449,
+            "person": false
           },
           {
             "t": 130,
@@ -157,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nước ngả màu nâu như nước trà, nhiều cá betta bơi bên trong.",
-            "sharpness": 428.8
+            "sharpness": 428.8,
+            "person": false
           },
           {
             "t": 200,
@@ -186,7 +188,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi quanh lũa và cây trong bể trồng cây.",
-            "sharpness": 1398.8
+            "sharpness": 1398.8,
+            "person": false
           }
         ]
       },
@@ -199,7 +202,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta xanh bơi chung với đàn cá nhỏ trong hồ trồng nhiều cây.",
-            "sharpness": 379.5
+            "sharpness": 379.5,
+            "person": false
           }
         ],
         "photo": {
@@ -217,20 +221,13 @@
         "heading": "Bể bao nhiêu lít là đủ",
         "moments": [
           {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/zYwObJhuJ5k/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá betta màu hồng bơi trong bể có cây thủy sinh.",
-            "sharpness": 446.5
-          },
-          {
             "t": 350,
             "url": "https://media.aquatome.com/video/zYwObJhuJ5k/at350-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Những chiếc bình thủy tinh nhỏ bày bán ở tiệm cá.",
-            "sharpness": 714.9
+            "sharpness": 714.9,
+            "person": false
           }
         ]
       },
@@ -251,7 +248,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta vàng bơi luồn giữa bụi cây xanh um tùm trong bể.",
-            "sharpness": 203.8
+            "sharpness": 203.8,
+            "person": false
           }
         ]
       },
@@ -272,7 +270,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta hồng vây dài bơi nhẹ nhàng trong nước lặng.",
-            "sharpness": 203.1
+            "sharpness": 203.1,
+            "person": false
           }
         ]
       },
@@ -285,7 +284,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc bể có cây, đá và lũa tạo chỗ ẩn cho cá.",
-            "sharpness": 580.6
+            "sharpness": 580.6,
+            "person": false
           },
           {
             "t": 620,
@@ -293,7 +293,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta bơi gần cây thủy sinh và gốc lũa trong bể.",
-            "sharpness": 696.9
+            "sharpness": 696.9,
+            "person": false
           }
         ]
       }

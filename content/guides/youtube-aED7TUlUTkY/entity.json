@@ -95,20 +95,13 @@
         "heading": "Nền, phông và đồ trang trí",
         "moments": [
           {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/aED7TUlUTkY/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phông nền đen cùng cây giả sặc sỡ chuẩn bị trang trí hồ.",
-            "sharpness": 1239.8
-          },
-          {
             "t": 120,
             "url": "https://media.aquatome.com/video/aED7TUlUTkY/at120-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây giả màu neon và các gói sỏi dạ quang bày trên bàn.",
-            "sharpness": 316.6
+            "sharpness": 316.6,
+            "person": false
           }
         ]
       },
@@ -150,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta đực trắng nổi bật giữa đám cây giả màu hồng và xanh.",
-            "sharpness": 521.2
+            "sharpness": 521.2,
+            "person": false
           }
         ]
       }
