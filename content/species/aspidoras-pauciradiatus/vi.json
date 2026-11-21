@@ -5,7 +5,8 @@
     "Cá chuột giả",
     "Cá chuột sáu tia",
     "False corydoras",
-    "Sixray corydoras"
+    "Sixray corydoras",
+    "Dwarf armored catfish"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Aspidoras pauciradiatus là một loài cá chuột giáp nhỏ, dường như chỉ phân bố ở thượng lưu lưu vực Araguaia, bang Goiás, Brazil. Đôi khi được gọi là 'cá chuột giả' hay 'cá chuột sáu tia', loài này có 6 tia vây lưng mềm so với 7 ở các loài Aspidoras khác, cùng kiểu màu sắc đặc trưng. Aspidoras được phân biệt với Corydoras rất giống chủ yếu nhờ có hai thóp sọ.</p><ul><li>Kích thước tối đa: 35 mm SL</li><li>Kích thước bể: 60 × 30 cm</li><li>Nhiệt độ: 20–27°C</li><li>pH: 6,0–7,0</li><li>Độ cứng: 2–12 dGH</li></ul>",
@@ -19,15 +20,16 @@
     "reproduction:seriouslyfish": "<p>Cá đẻ tương tự Corydoras, và thường có thể kích thích bằng cách thay một lượng nước lớn với nước mát hơn nhiều, đặc biệt khi áp suất khí quyển giảm.</p>",
     "notes:seriouslyfish": "<p>Loài này đôi khi được gọi là 'cá chuột giả' hoặc 'cá chuột sáu tia'.</p><p>A. pauciradiatus có thể phân biệt với các loài cùng giống nhờ có 6 tia vây lưng mềm, trong khi các loài Aspidoras khác có 7, cùng kiểu màu sắc đặc trưng.</p><p>Các loài Aspidoras được phân biệt với Corydoras spp. rất giống chủ yếu nhờ có hai thóp sọ, so với một thóp ở Corydoras.</p>",
     "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Britto, M. R., F. C. T. Lima, and C. R. Moreira (2002). Aspidoras velites, a new catfish from the upper rio Araguaia basin, Brazil (Teleostei: Siluriformes: Callichthyidae). Proceedings of the Biological Society of Washington 115(4), 727-736</li><li>Weitzman, S. H. and M. H. Balph (1979). Some phylogenetic implications of a discovery of Aspidoras pauciradiatus (Pisces: Siluriformes: Callichthyidae) from the rio Negro in Brazil. Proceedings of the Biological Society of Washington 92, 10-22</li><li>Weitzman, S. H. and H. Nijssen (1970). Four new species and one new subspecies of the catfish genus Corydoras from Ecuador, Colombia and Brazil (Pisces, Siluriformes, Callichthyidae). Beaufortia 18(233), 119-132</li></ul>",
-    "quickFacts:glaser": "<p>Đây là một loài cá da trơn lùn rất dễ thương, quê ở lưu vực sông Rio Negro. Cá trưởng thành chỉ dài tối đa khoảng 3 cm. Nó hợp làm bạn cùng bể với cá tetra, cá cichlid lùn và những loài cá tương tự.</p>",
-    "distribution:glaser": "<p>Loài này sống tự nhiên ở lưu vực sông Rio Negro.</p>"
+    "quickFacts:glaser": "<p>Con cá da trơn giáp lùn xinh xắn này lớn nhất cũng chỉ dài 3 cm.</p>",
+    "distribution:glaser": "<p>Aspidoras pauciradiatus sống ở vùng giữa sông Rio Negro. Lạ là những con mẫu dùng để mô tả loài này nghe nói lại được bắt ở sông Rio Araguaia, gần thị trấn Aruana. Chỗ đó cách nơi người ta vẫn hay bắt loài này khoảng 2.000 km. Từ lần ấy tới giờ, chưa ai tìm lại được chúng ở đó.</p>",
+    "behaviour:glaser": "<p>Loài này rất hợp để nuôi chung với cá tetra, cá cichlid lùn và các loài hiền tương tự.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
       "seriouslyfish": 0.85,
-      "glaser": 0.9
+      "glaser": 0.8
     }
   }
 }

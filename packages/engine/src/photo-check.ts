@@ -834,10 +834,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // A held page keeps its album too.
   const held = new Set([...heldPages, ...heldPages.map(galleryOf)])
   const pageOf = (file: string) => file.slice(content.length + 1).split('/').slice(0, 2).join('/')
-  // Each first verdict the hold would have kept, or that a held page doesn't keep, waits for its look, marked.
+  // Each first verdict on a page left with nothing waits for its look, marked: the page's own and its album's, whether or
+  // not the page is held. On a page only first verdicts empty, the album's first-verdict photos are its last hope of a
+  // picture, as its own are (the chief of staff, 21 Nov 2026).
   const firstOff = new Map<string, { why: string; pages: string[]; off: true }>()
   for (const file of holdOn ? emptying : []) for (const f of [file, galleryOf(file)]) for (const p of await ownPhotos(f)) {
-    if (!first(p.url) || !(emptyBy.get(file)!.includes(p.url) || held.has(f)) || sl.off(p.url)) continue
+    if (!first(p.url) || sl.off(p.url)) continue
     const h = firstOff.get(p.url) ?? { why: added[p.url]!, pages: [], off: true as const }
     if (!h.pages.includes(pageOf(file))) h.pages.push(pageOf(file))
     firstOff.set(p.url, h)

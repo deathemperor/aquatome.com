@@ -12,6 +12,65 @@
     "oceania",
     "tami-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "New Guinea",
+        "Tami"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Loài này là cá đặc hữu của tỉnh Papua thuộc Indonesia, trên đảo New Guinea.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "New Guinea"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Boeseman thu những mẫu đầu tiên vào tháng 11 năm 1954, ở một hồ móng ngựa biệt lập cạnh sông Tami.",
+          "countries": [],
+          "regions": [
+            "Tami"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5214489,
+      "total": 3,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          139.21875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          140.625,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

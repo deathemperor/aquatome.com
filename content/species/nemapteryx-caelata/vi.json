@@ -1,0 +1,22 @@
+{
+  "slug": "ca-uc-bien-vay-dom",
+  "name": "Cá úc biển vây đốm",
+  "altNames": [
+    "Spotfin Sea Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Kyataphisa nenga (Hamilton, 1822)</li><li>Tên thường gọi: cá úc biển vây đốm (Spotfin Sea Catfish)</li><li>Nơi thu mẫu chuẩn: vùng cửa sông ở Bengal, Ấn Độ.</li><li>Sách đỏ IUCN: chưa đánh giá</li></ul>",
+    "distribution:planetcatfish": "<p>Ấn Độ – Tây Thái Bình Dương: phía đông biển Ả Rập, vịnh Bengal và vùng tây trung Thái Bình Dương.</p>",
+    "reproduction:planetcatfish": "<p>Chưa thấy ai cho đẻ được loài này trong bể.</p>",
+    "notes:planetcatfish": "<p>Tiếc là muốn phân biệt chắc chắn N. nenga với Arius maculatus thì chỉ có cách xem răng. Tuy nhiên, gai vây lưng của N. nenga thường dài bằng đầu, còn gai vây lưng của A. maculatus thì lúc nào cũng ngắn hơn đầu.</p>",
+    "references:planetcatfish": "<p>An account of the fishes found in the river Ganges, pp 171, 376.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.7
+    },
+    "reason": "thin"
+  }
+}

@@ -67,7 +67,7 @@ const alternates = await alternatesOf('breeds', b.id)
     </div>
   </header>
 
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} name={b.t.name} />}
+  {gallery.length > 0 && <GalleryStrip photos={gallery} shown={strip} name={b.t.name} />}
   {b.t.summary?.length ? <div class="wrap"><div class="verdict"><h2>{t('Tóm tắt')}</h2>{b.t.summary.map(s => <p>{s}</p>)}</div></div> : null}
   {body && <div class="wrap"><div class="prose body" set:html={body} /></div>}
 

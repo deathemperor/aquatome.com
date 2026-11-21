@@ -1,0 +1,67 @@
+{
+  "id": "astroblepus-mancoi",
+  "native": {
+    "input": "1e1a3274ac0a2e70",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Ucayali River basin and the Madre De Dios region, Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "scotcat",
+        "quote": "South America: Upper Ucayali River basin and the Madre De Dios region, Peru.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Madre De Dios",
+        "source": "scotcat",
+        "quote": "South America: Upper Ucayali River basin and the Madre De Dios region, Peru.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus mancoi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342149,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        18
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        1
+      ]
+    ],
+    "native": [
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

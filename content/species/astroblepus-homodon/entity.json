@@ -73,17 +73,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/81c82434e49c6e56.webp",
-      "thumb": "https://media.aquatome.com/scotcat/81c82434e49c6e56-480.webp",
-      "width": 500,
-      "height": 191,
-      "licence": "dùng với sự cho phép",
-      "author": "Ochoa LE., et al 2020 / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_homodon.htm",
-      "caption": "Astroblepus homodon",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/56424867f69940bb.webp",
       "thumb": "https://media.aquatome.com/scotcat/56424867f69940bb-480.webp",
       "width": 500,
@@ -120,5 +109,115 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Cauca",
+        "Magdalena"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Andean streams of the Cauca and Magdalena River basins, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Cauca",
+            "Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342079,
+      "total": 673,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          672
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          1.40625,
+          49,
+          49
+        ],
+        [
+          -75.9375,
+          2.8125,
+          56,
+          56
+        ],
+        [
+          -75.9375,
+          4.21875,
+          246,
+          246
+        ],
+        [
+          -75.9375,
+          5.625,
+          245,
+          245
+        ],
+        [
+          -75.9375,
+          7.03125,
+          54,
+          54
+        ],
+        [
+          -74.53125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          -74.53125,
+          5.625,
+          3,
+          3
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

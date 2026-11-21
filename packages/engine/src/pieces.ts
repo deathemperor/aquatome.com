@@ -121,6 +121,7 @@ export const ONE_CALL: Record<string, string> = {
   'quota-road-test': "The AI lead's end-to-end test of the board's quota road, outside the engine, on 15 Nov alone: four calls it logs itself.",
   'video-titles-redo': 'Ceiling set ahead of its step, for 17 Nov (the video titles\' full run); its command is on feat/video-titles-r9. When it lands, it goes on WRAPPED or here with its reason.',
   'video-titles-check': 'Ceiling set ahead of its step, for 17 Nov (the titles\' meaning check); its command is on feat/video-titles-r9. When it lands, it goes on WRAPPED or here with its reason.',
+  'species-videos': 'The fish pages\' video step, named on 21 Nov alone for FishLoft\'s hand runs: its videos are not wrapped by piece() yet, so claude.ts stops its next call at the day\'s line and a video stopped part way is tried again on the next run.',
   'writer-evidence': 'A hand script outside the engine\'s CLI, on 19 Nov alone: about ten held video guides written again from the writer\'s new instructions and read by the check, its calls logged by claude.ts.',
 
 }

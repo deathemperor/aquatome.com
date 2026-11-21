@@ -10,13 +10,19 @@
     "habitat:scotcat": "<p>Loài này sống dọc bờ biển. Ở bờ đông châu Phi, nó còn bơi vào vùng hạ lưu các con sông.</p>",
     "diet:scotcat": "<p>Loài này ăn các con mồi không có xương sống và cá nhỏ. Cá được bán tươi hoặc muối phơi khô. Bóng hơi của nó được dùng để làm keo cá (isinglass).</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: Tên chi Plicofollis ghép từ plico là nếp gấp và follis là ống bễ, hay túi bễ, túi hơi. Tên này nói đến bóng hơi có nếp nhăn hoặc mép lượn sóng, đặc trưng của chi này. Tên loài dussumieri đặt để tưởng nhớ Jean-Jacques Dussumier (1792–1883), nhà du hành kiêm thương nhân người Pháp. Ông là người đã báo cáo về loài cá này ở vùng biển ngoài khơi bờ Malabar, Ấn Độ.</p><p>Danh sách Đỏ IUCN: IUCN xếp loài này vào nhóm Ít quan tâm (Least Concern) vì vùng phân bố rất rộng và chưa thấy mối đe dọa lớn nào trên diện rộng. Cá có bị khai thác, nhưng hiện chưa có bằng chứng nào cho thấy chuyện đánh bắt là mối đe dọa lớn với loài. Nếu có thêm nghiên cứu về sản lượng khai thác thì mới khẳng định chắc được rằng chuyện này không đe dọa lớn tới loài (IUCN 2017).</p>",
-    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2008).</li><li>Sparks, J.S., Kaymaram, F., Bishop, J., Al-Husaini, M., Almukhtar, M. &amp; Alam, S. 2017. Plicofollis dussumieri. The IUCN Red List of Threatened Species 2017.</li><li>The ETYFish Project Fish Name Etymology Database.</li></ul>"
+    "references:scotcat": "<ul><li>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2008).</li><li>Sparks, J.S., Kaymaram, F., Bishop, J., Al-Husaini, M., Almukhtar, M. &amp; Alam, S. 2017. Plicofollis dussumieri. The IUCN Red List of Threatened Species 2017.</li><li>The ETYFish Project Fish Name Etymology Database.</li></ul>",
+    "quickFacts:planetcatfish": "<p>Plicofollis dussumieri (Valenciennes in Cuvier &amp; Valenciennes, 1840). Nơi thu mẫu chuẩn: Malabar, Ấn Độ. Kích thước: 620 mm chiều dài chuẩn (SL, đo từ mõm tới gốc đuôi). Danh sách Đỏ IUCN: Ít quan ngại.</p><p>Nhận dạng: Xương sàng bên của loài này nhô rõ, tạo thành một cái \"gờ\" giữa mắt và lỗ mũi. Nó có hai cặp mảng răng xương lá mía, và gốc vây mỡ rất ngắn. Thân màu nâu sẫm, còn mặt dưới phủ kín những đốm sắc tố nâu li ti.</p>",
+    "distribution:planetcatfish": "<p>Loài này sống ở Ấn Độ Dương, và cũng có ở vùng hạ lưu những con sông đổ ra biển. Vùng phân bố trải từ Mozambique và Madagascar tới Sri Lanka, bờ đông Ấn Độ, Bangladesh, rồi từ Myanmar xuống tới Sumatra.</p>",
+    "diet:planetcatfish": "<p>Chúng ăn cá nhỏ, tép, ốc và những con nhỏ tương tự.</p>",
+    "reproduction:planetcatfish": "<p>Chưa có tài liệu nào ghi lại cách loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Hist. Nat. Poiss.v. 15 - pp84</p>"
   },
   "quality": {
-    "score": 0.72,
+    "score": 0.5,
     "indexable": false,
     "bySource": {
-      "scotcat": 0.72
+      "scotcat": 0.72,
+      "planetcatfish": 0.5
     },
     "reason": "score"
   }

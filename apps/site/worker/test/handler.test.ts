@@ -288,7 +288,7 @@ test('an old /vi/… address answers 301 to the same path without /vi, query kep
     ['/vi/cong-cu/nuoi-chung/?ca=ca-neon-vua:10', '/cong-cu/nuoi-chung/?ca=ca-neon-vua:10'],
     ['/vi/ca/ca-dia/index.md', '/ca/ca-dia/index.md'],
     // An old photo page: its page, not /ca/…/anh/ and then the page.
-    ['/vi/ca/ca-neon-vua/anh/', '/ca/ca-neon-vua/'], ['/vi/cay/cryptocoryne-wendtii/anh/?x=1', '/cay/cryptocoryne-wendtii/?x=1'],
+    ['/vi/ca/ca-neon-vua/anh/', '/ca/ca-neon-vua/?album=1'], ['/vi/cay/cryptocoryne-wendtii/anh/?x=1', '/cay/cryptocoryne-wendtii/?x=1&album=1'],
   ]) {
     const r = await handle(get(from!), e)
     expect([r.status, r.headers.get('location')], from).toEqual([301, to])
@@ -539,7 +539,11 @@ test("a fish's or plant's album address 301s to its page for good (the album ope
   const table = { '/ca/old/anh/': '/ca/x/' }
   const live = ['/ca/x/', '/cay/y/', '/ca/old/']
   const { e } = env({ ASSETS: { fetch: async (r: Request) => { const p = new URL(r.url).pathname; return p === '/redirects.json' ? Response.json(table) : live.includes(p) ? new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } } as unknown as Fetcher })
-  for (const [from, to] of [['/ca/x/anh/', '/ca/x/'], ['/cay/y/anh/', '/cay/y/'], ['/ca/x/anh', '/ca/x/'], ['/ca/x/anh/?a=1', '/ca/x/?a=1']]) {
+  for (const [from, to] of [['/ca/x/anh/', '/ca/x/?album=1'], ['/cay/y/anh/', '/cay/y/?album=1'], ['/ca/x/anh', '/ca/x/?album=1'], ['/ca/x/anh/?a=1', '/ca/x/?a=1&album=1'],
+    // An album the old address had already goes, or the page's script reads it first and the viewer doesn't open.
+    ['/ca/x/anh/?album=0', '/ca/x/?album=1'], ['/ca/x/anh/?a=1&album=0&b=2', '/ca/x/?a=1&b=2&album=1'], ['/ca/x/anh/?album', '/ca/x/?album=1'],
+    // However its name is written (the second reader, 21 Nov); one only in a value stays.
+    ['/ca/x/anh/?%61lbum=0', '/ca/x/?album=1'], ['/ca/x/anh/?a=%61lbum', '/ca/x/?a=%61lbum&album=1']]) {
     const r = await handle(get(from!), e)
     expect([r.status, r.headers.get('location')], from).toEqual([301, to])
     expect((await follow(r, e)).status, from).toBe(200)
@@ -548,7 +552,7 @@ test("a fish's or plant's album address 301s to its page for good (the album ope
     expect((await handle(get(path), e)).status, path).toBe(404)
   }
   const renamed = await handle(get('/ca/old/anh/'), e)
-  expect([renamed.status, renamed.headers.get('location')]).toEqual([301, '/ca/x/'])
+  expect([renamed.status, renamed.headers.get('location')]).toEqual([301, '/ca/x/?album=1'])
   live.push('/ca/x/anh/')
   const existing = await handle(get('/ca/x/anh/'), e)
   expect([existing.status, existing.headers.get('location')]).toEqual([200, null])
@@ -572,7 +576,7 @@ test("Indonesian, Thai and Malay fish and plant album addresses 301 to their pag
     for (const [i, gallery] of galleries.entries()) {
       for (const from of [gallery, gallery.slice(0, -1), `${gallery}?a=1`]) {
         const r = await handle(get(from), e)
-        expect([r.status, r.headers.get('location')], from).toEqual([301, `${parents[i]}${from.includes('?') ? '?a=1' : ''}`])
+        expect([r.status, r.headers.get('location')], from).toEqual([301, `${parents[i]}${from.includes('?') ? '?a=1&' : '?'}album=1`])
         expect((await follow(r, e)).status, from).toBe(200)
       }
       expect((await handle(get(gallery.replace(/\/(x|y)\//, '/missing/')), e)).status).toBe(404)

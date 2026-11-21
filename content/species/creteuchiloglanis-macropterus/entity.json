@@ -1,0 +1,59 @@
+{
+  "id": "creteuchiloglanis-macropterus",
+  "scientificName": "Creteuchiloglanis macropterus",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Creteuchiloglanis",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "salween",
+    "myanmar",
+    "irrawaddy"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 17.6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1412",
+      "html": "<p>Scientific name: Creteuchiloglanis macropterus (Ng, 2004). Family: Sisoridae. Maximum size: 176 mm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1412",
+      "html": "<p>Known from the Salween River (Nujiang) and Irrawaddy River drainages in southern China, and from Myanmar waters.</p><p>Type locality: about 5 kilometers to Liuku on the Yongping-Liuku road, Laowo River, a tributary of the Salween River (Nujiang), Salween River drainage, Yunnan Province, China.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1412",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1412",
+      "html": "<p>Creteuchiloglanis is distributed in the upper Mekong River (Lancang-Jiang) basin west to the Brahmaputra River basin and is distinguished from Pareuchiloglanis by a unique combination of characteristics involving the form of the connection of the lower lip to the maxillary barbel, premaxillary tooth patches, and the morphology of the dilator, operculi, sternohyoideus, and adductor pelvicalis superficialis muscles.</p><p>Differs from its congeners by a unique combination of characters: prepelvic length 37.0-42.2% SL; length of adipose-fin base 31.8-37.0% SL; caudal peduncle length 17.6-20.0% SL; caudal peduncle depth 6.8-7.4% SL; body depth at anus 9.5-12.6% SL; snout length 50.3-56.5% HL; interorbital distance 24.6-30.2% HL; vertebrae 41-42; pectoral fin reaching to pelvic-fin origin; posterior base of adipose fin notched and separate from caudal fin; and presence of pale patches on body.</p><p>Etymology: Creteuchiloglanis is formed from the Latin prefix cret-, meaning to separate/distinguish, with the generic name Euchiloglanis. The species name is from Greek makros (large) and pteron (fin), referring to the long adipose fin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1412",
+      "html": "<p>Zootaxa No. 4283. A New Genus of Glyptosternine Catfish (Siluriformes: Sisoridae) with Descriptions of Two New Species from Yunnan, China. Wei Zhou, Xu Li, and Alfred W. Thomson.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

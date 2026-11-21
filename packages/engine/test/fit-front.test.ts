@@ -150,9 +150,12 @@ test("the pages fixed by hand are read first, ahead of the front list, and the r
   expect(orderFront(readFirst({ read: [key(c)], front: [key(b)] }), [a, b, c]).map(key)).toEqual([key(c), key(b), key(a)])
   // The guides of #1705 and #1712, the crab bowl's (#1720), the cutter's five (#1721) and the held-and-dropped three
   // (#1723); then the 12 open pages a clashed push left with no read of their text, ten fish pages and two video guides
-  // (the chief of staff, 21 Nov 2026; the thirteenth, 3jqe5KGD9lI, is among the cutter's five). Each a page on the site.
-  expect(list.read).toHaveLength(32)
-  expect(new Set(list.read).size).toBe(32)
+  // (the chief of staff, 21 Nov 2026; the thirteenth, 3jqe5KGD9lI, is among the cutter's five); then the egg scatterers'
+  // guide, its photo captions changed by hand after the gate let it out, open with no read of that text (the chief of
+  // staff, 21 Nov 2026). Each a page on the site.
+  expect(list.read).toHaveLength(33)
+  expect(new Set(list.read).size).toBe(33)
+  expect(list.read.at(-1)).toBe('vi/guides/aquariumcoop-blogs-aquarium-how-to-breed-egg-scatterers')
   for (const k of list.read) {
     const [, kind, id] = k.split('/')
     expect(existsSync(join(ROOT, 'content', kind!, id!, 'vi.json')), k).toBe(true)

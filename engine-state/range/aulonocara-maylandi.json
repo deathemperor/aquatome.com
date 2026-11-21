@@ -1,8 +1,8 @@
 {
   "id": "aulonocara-maylandi",
   "native": {
-    "input": "5716ff9b7cc27c9c",
-    "at": "2026-11-06T12:17:30.771Z",
+    "input": "8e60e3f3e67fa137",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [],
     "regions": [
       {
@@ -15,6 +15,12 @@
         "name": "Kande Island",
         "source": "seriouslyfish",
         "quote": "The 'sulphur head' variant inhabits West Reef and Eccles Reef, close to Makanjila Point in the southeastern part of the lake, while the form often referred to by the subspecific name A. m. kandeensis is known only from Kande Island, just off the central-western shoreline.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "In the wild these fish only live in two reefs of the south-eastern Lake Malawi, namely Chimwalani Reef (formerly Eccles Reef) and Luwala Reef (formerly West Reef).",
         "ok": true
       }
     ],

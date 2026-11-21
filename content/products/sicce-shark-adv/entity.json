@@ -1,0 +1,226 @@
+{
+  "id": "sicce-shark-adv",
+  "brand": "Sicce",
+  "model": "Shark ADV",
+  "category": "loc",
+  "specs": [
+    {
+      "key": "Type",
+      "value": "Submersible internal filter with transparent body, Venturi aeration and adjustable intake",
+      "source": 0
+    },
+    {
+      "key": "Filtering volume",
+      "value": "320 cm³ (main chamber)",
+      "source": 0
+    },
+    {
+      "key": "Power supply",
+      "value": "230–240 V / 50 Hz, 1.5 m cable",
+      "source": 0
+    },
+    {
+      "key": "Connection system",
+      "value": "Magnetic quick-release coupling (MCS), modular add-on chambers",
+      "source": 0
+    },
+    {
+      "key": "Flow control",
+      "value": "Water flow adjusted from the bottom grid; Venturi and flow regulator on top; flow-ducting device included",
+      "source": 0
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 5
+    },
+    {
+      "key": "Warranty",
+      "value": "3 years",
+      "source": 5
+    },
+    {
+      "key": "Origin",
+      "value": "Italy (SICCE)",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "Shark ADV 400",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "400 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "6.5 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "10–35 gallons (about 38–132 L)",
+          "source": 5
+        },
+        {
+          "key": "Dimensions",
+          "value": "8.5\" x 2.4\" x 3.1\"",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "Shark ADV 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "600 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "8.2 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "up to about 47.5 gallons (about 180 L)",
+          "source": 6
+        }
+      ]
+    },
+    {
+      "name": "Shark ADV 800",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "800 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "8.6 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "130–200 L",
+          "source": 3
+        },
+        {
+          "key": "Extra",
+          "value": "Adds a 211 cm³ modular cartridge for chemical or biological media; can be converted into a fluid reactor for a sump",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.sicce.com/en/products/filters/shark-adv-internal.html",
+      "title": "Sicce – Shark ADV internal filter",
+      "kind": "manufacturer",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-adv-400-400-l-h-6-5w",
+      "title": "Sinh Cảnh Việt – Sicce Shark ADV 400",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-adv-800-800-l-h-8-6w",
+      "title": "Sinh Cảnh Việt – Sicce Shark ADV 800",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.aqualively.com/product/sicce-shark-adv-800-internal-aquarium-filter-800l-h-130-200l-tank-8-6w/",
+      "title": "Aqualively – Sicce Shark ADV 800",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://reefbuilders.com/2013/06/17/sicce-shark-adv-filter-magnetic-coupling-maintenance-breeze",
+      "title": "Reef Builders – Sicce Shark ADV magnetic coupling",
+      "kind": "review",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.saltwateraquarium.com/shark-adv-400-interal-aquarium-filter-106-gph-sicce/",
+      "title": "SaltwaterAquarium.com – Shark ADV 400",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.saltwateraquarium.com/shark-adv-600-internal-aquarium-filter-158-gph-sicce/",
+      "title": "SaltwaterAquarium.com – Shark ADV 600",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://manuals.plus/asin/B007GCFYW4",
+      "title": "Manuals+ – Sicce Shark ADV 800 manual",
+      "kind": "other",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/25154-sicce-shark-filter-help/",
+      "title": "Aquarium Co-Op forum – Sicce Shark filter help",
+      "kind": "forum",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-pro-700-700-l-h-7w",
+      "title": "Sinh Cảnh Việt – Sicce Shark PRO 700",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://greendeal.vn/sicce-shark-pro-500-internal-filter",
+      "title": "Greendeal – Sicce Shark PRO 500",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://greendeal.vn/sicce-shark-pro-900-internal-filter",
+      "title": "Greendeal – Sicce Shark PRO 900",
+      "kind": "shop",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2FG3y_jfdNw",
+      "title": "The BEST Internal AQUARIUM Filter On The Market! The Shark ADV Canister Filter!",
+      "kind": "video",
+      "at": "2026-11-21"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Sp-gWd2InNk",
+      "title": "SICCE Shark ADV 800",
+      "kind": "video",
+      "at": "2026-11-21"
+    }
+  ],
+  "reviews": {
+    "checkedAt": "2026-11-21",
+    "videos": [
+      {
+        "youtubeId": "2FG3y_jfdNw",
+        "title": "The BEST Internal AQUARIUM Filter On The Market! The Shark ADV Canister Filter!",
+        "durationSec": 1396,
+        "lang": "en",
+        "channel": "KGTropicals"
+      },
+      {
+        "youtubeId": "Sp-gWd2InNk",
+        "title": "SICCE Shark ADV 800",
+        "durationSec": 1428,
+        "lang": "en",
+        "channel": "Divine Aquariums"
+      }
+    ]
+  },
+  "updatedAt": "2026-11-21"
+}

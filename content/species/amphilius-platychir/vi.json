@@ -2,7 +2,8 @@
   "slug": "ca-amphilius-platychir",
   "name": "Cá Amphilius platychir",
   "altNames": [
-    "Mountain barbel"
+    "Mountain barbel",
+    "Cá nheo suối châu Phi"
   ],
   "sections": {
     "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá trê núi</li></ul>",
@@ -13,13 +14,20 @@
     "equipment:scotcat": "<p>Có thể nuôi trong bể nền sỏi hạt nhỏ hoặc nền cát, trồng nhiều cây và tạo dòng chảy nhẹ cho giống nơi chúng sống ngoài tự nhiên. Xếp thêm đá và tạo vài cái hang.</p>",
     "diet:scotcat": "<p>Ấu trùng muỗi, trùn chỉ, Cyclops, bo bo, giun grindal, rau, thức ăn viên và thức ăn dạng vảy.</p>",
     "notes:scotcat": "<p>Nguồn gốc tên gọi: tên loài platychir ghép từ platy (dẹt, rộng) và cheiros (bàn tay), chỉ các tia vây ngực rộng, xòe ra như cái quạt.</p><p>Sách đỏ IUCN: loài này phân bố rộng, chưa thấy mối đe dọa lớn nào, nên được xếp vào mức Ít quan ngại. Các nghiên cứu cho thấy trong nhóm A. platychir có thể còn những loài ẩn chưa được mô tả, vì vậy cần nghiên cứu thêm về phân loại và phân bố của loài này (IUCN 2020).</p>",
-    "references:scotcat": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>"
+    "references:scotcat": "<p>Diouf, K. &amp; Entsua-Mensah, M. 2020. Amphilius platychir. The IUCN Red List of Threatened Species 2020.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Seegers, Lothar; The Catfishes of Africa. A handbook for identification and maintenance. Tetra Verlag GmbH. 604p.</p>",
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Amphilius platychir (Günther, 1864)</li><li>Tên thường gọi: Mountain Barbel</li><li>Nơi thu mẫu chuẩn: Sierra Leone</li><li>Danh sách Đỏ IUCN: Ít quan ngại (đánh giá lần cuối năm 2019)</li></ul>",
+    "distribution:planetcatfish": "<p>Châu Phi: Sierra Leone, Guinea và Côte d'Ivoire. Ở Ghana và Tanzania cũng có báo cáo, nhưng chưa ai xác nhận. Loài này có ở các sông Senegal, Niger, Gambia, Corubal, Konkouré và Little Scarcies. Ngoài ra còn có báo cáo thấy nó ở sông Luongo, thuộc hệ thống sông Congo, Zambia.</p>",
+    "habitat:planetcatfish": "<p>Cá họ Amphiliidae chủ yếu sống ở những con suối nước trong, chảy xiết, nhiều đá trên vùng cao, hoặc ở ghềnh thác của các sông lớn vùng thấp. Các loài Amphilius quen với dòng chảy mạnh và đáy nhiều đá. Để sống được ở đó, cơ thể chúng có mấy điểm đặc biệt: vây ngực và vây bụng to ra, tia vây đầu tiên dày, thân dẹt, mắt hướng lên trên và bóng bơi nhỏ lại. Vây bụng lớn cùng phần thân làm thành một đĩa hút yếu mà cá dùng để bám vào đá.</p>",
+    "diet:planetcatfish": "<p>Theo các báo cáo, các loài Amphilius chủ yếu ăn côn trùng thủy sinh sống ở đáy.</p>",
+    "reproduction:planetcatfish": "<p>Hiện chưa có báo cáo nào về sinh sản của loài này.</p>",
+    "references:planetcatfish": "<p>Catalogue of the fishes in the British Museum v. 5, pp 134.</p>"
   },
   "quality": {
-    "score": 0.95,
+    "score": 0.88,
     "indexable": true,
     "bySource": {
-      "scotcat": 0.95
+      "scotcat": 0.95,
+      "planetcatfish": 0.88
     }
   }
 }

@@ -9231,6 +9231,247 @@
       ]
     }
   ],
+  "vi/species/astroblepus-fissidens#scotcat": [
+    {
+      "at": "2026-11-21T04:58:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 5: 'Invertebrates' translated as 'tép, ốc nhỏ' – adds specific facts (shrimp, small snails) not in the source; use generic 'động vật không xương sống'.",
+        "Item 5: 'glassworm' rendered 'ấu trùng muỗi trong (glassworm)' is OK, but keep consistency; 'blackworm' as 'giun đen' fine.",
+        "Item 4: 'nhất định phải có bể lớn' is stronger than the English 'would have to have'; 'Nước trong bể phải chảy mạnh' fine. Replace the jargon 'set bể' with 'bố trí bể'.",
+        "Item 4: 'Not an easy family ... so they would have to' – meaning is kept but 'muốn nuôi thì nhất định' is overly emphatic; soften to 'cần'.",
+        "Item 3: 'Its EOO' expanded to 'Phạm vi xuất hiện (EOO)' – acceptable; 'Peru, nước láng giềng' adds 'neighbouring' correctly. 'Vùng sống ... hẹp' fine.",
+        "Item 3: 'It is classified as Near Threatened but needs updating' – 'IUCN xếp' attributes the classification to IUCN, a mild addition; 'đánh giá này cần cập nhật' is fine.",
+        "Item 1: 'cá da trơn leo Regan' – use an established name, e.g. 'cá da trơn leo núi Regan'; 'Synonym' OK.",
+        "Item 2: 'Río Guayas' and 'Esmeraldas basin' fine; 'Địa điểm mẫu chuẩn' OK."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.62,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "at": "2026-11-21T04:58:20Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 2: the English lists 'Río Mataje, Río Guayas, Río Esmeraldas basin'. The Vietnamese 'lưu vực sông Esmeraldas' is acceptable, but 'Nơi thu mẫu chuẩn' is non-standard; use 'Nơi thu mẫu định danh' or 'Địa điểm mẫu chuẩn'.",
+        "Item 3: 'Peru nằm ngay gần đó, nhưng có vẻ chưa ai xác nhận chắc chắn là ở đó có loài này' reads awkwardly and rewrites 'nearby Peru'. Suggested: 'Loài này dường như chưa được xác nhận chắc chắn ở Peru, nước láng giềng.'",
+        "Item 3: 'Vùng phân bố (EOO)' is inaccurate. EOO is 'extent of occurrence', so use 'Phạm vi xuất hiện (EOO)'.",
+        "Item 3: the English says 'The species has a restricted range and is being affected by pollution'. The translation 'nước ở đó đang bị ô nhiễm' changes the meaning: the species is affected by pollution, not only the water. Also 'Near Threatened … but needs updating' is rendered acceptably.",
+        "Item 4: 'luồn dây oxy vào luồng nước ra của máy bơm' is unclear. Use 'ống dẫn khí' and name the powerhead as 'máy bơm tạo dòng'. 'a large tank' lost the sense of 'would have to'. The sentence structure is choppy.",
+        "Item 5: 'ấu trùng muỗi trong (glassworm)' is acceptable, but the ordering and 'Có điều hai thứ này' add a clumsy split. 'spirulina' is fine. Minor.",
+        "Item 6: 'răng xương tiền hàm' is a slight embellishment. The English says 'premaxillary teeth', so use 'răng ở xương tiền hàm'. 'chẻ nhọn thành hai mũi' for 'acutely bicuspid' is loose. Use 'hai mũi nhọn'."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.7,
+        0.7
+      ]
+    }
+  ],
+  "vi/species/astroblepus-grixalvii#scotcat": [
+    {
+      "at": "2026-11-21T04:58:56Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "#1: 'At the time of writing, Lithogenes is currently placed...' - 'At the time of writing' is dropped; 'Hiện nay' is acceptable, but consider 'Tại thời điểm viết bài' to stay faithful.",
+        "#1: 'seems intermediate' is rendered as 'trông như nằm lưng chừng giữa hai họ'; this is colloquial, and 'có vẻ mang đặc điểm trung gian giữa hai họ' is more encyclopedic.",
+        "#1: 'cá lau kiếng' is a common name for Loricariidae, but it is usually used for plecos/suckermouth catfish in general; consider 'họ cá da trơn Loricariidae (cá lau kiếng)'.",
+        "#3: 'Muốn nuôi thì phải có bể lớn' makes the care advice slightly more imperative than 'would have to have'; this is acceptable. The sentence 'Để bổ sung oxy, dẫn ống sục khí...' is an imperative with no subject, so smooth it into 'cấp thêm oxy bằng cách dẫn ống sục khí vào luồng nước của máy bơm tạo dòng'.",
+        "#4: 'giòi thủy tinh (glassworm)' - glassworm is the larva of the phantom midge (Chaoborus), so 'giòi' (maggot) is a questionable term; use 'ấu trùng muỗi lắc/trùng thủy tinh' or keep 'glassworm'. Also, 'blackworm' is left in English, so consider 'trùng chỉ đen' or add a gloss.",
+        "#4: 'Invertebrates' is placed first as a food item; consider specifying 'động vật không xương sống nhỏ'. The meaning is intact."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.85,
+        0.8
+      ]
+    }
+  ],
+  "vi/species/astroblepus-homodon#scotcat": [
+    {
+      "at": "2026-11-21T05:00:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Item 5: \"Invertebrates\" mistranslated as \"tép, ốc nhỏ\" — this adds specific facts (shrimp, small snails) not in the source; use generic \"động vật không xương sống\".",
+        "Item 3: added clause \"để dòng chảy mang khí đi khắp bể\" is not in the English; remove it. The English says the air tube is fed into the powerhead flow, nothing about distributing air through the tank.",
+        "Item 3: \"Muốn nuôi thì phải có bể lớn\" is fine, but \"vegetation\" is rendered as \"cây thủy sinh\" and \"some appropriate\" is OK. Keep it, but the clause \"Nước phải chảy mạnh\" is fine.",
+        "Item 5: \"glassworm\" is rendered as \"ấu trùng muỗi trong suốt\", which is acceptable. \"Spirulina dạng viên hoặc bột spirulina dạng nhão\" is awkward and misreads \"paste\" as \"bột ... nhão\". Use \"spirulina dạng viên hoặc dạng sệt/nhão\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.55,
+        0.5,
+        0.5
+      ]
+    },
+    {
+      "at": "2026-11-21T05:00:17Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "Item 3: \"thổi luồng\" is a non-standard, hard-to-understand rendering of \"powerhead\"; use \"máy bơm tạo dòng\" (powerhead) instead.",
+        "Item 3: \"luồn dây sục khí vào chỗ nước ra\" is clumsy; say the air tube is fed into the powerhead's water flow so the current carries the air (\"đưa ống sục khí vào dòng nước của máy bơm\").",
+        "Item 3: \"would have to have a large tank... appropriate vegetation\" – \"vài loại cây hợp với chúng\" is acceptable, but \"cây thủy sinh phù hợp\" is more natural.",
+        "Item 5: \"glassworm\" is rendered as \"ấu trùng muỗi trong suốt\" and \"blackworm\" as \"giun đen\"; fine, but the sentence \"Có điều hai thứ này\" is slightly colloquial. Prefer \"tuy nhiên\".",
+        "Item 5: \"Invertebrates\" as a staple is fine; \"spirulina dạng bột nhão\" is OK but could use \"bột spirulina dạng nhão\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
+  "vi/species/astroblepus-huallagaensis#scotcat": [
+    {
+      "at": "2026-11-21T05:01:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "Item 3: \"từ Panama xuống Bolivia\" is fine, but the original lists \"western Pacific and eastern Amazonian slope drainage systems in South and Central America\"; the VI wording \"thuộc Nam Mỹ và Trung Mỹ\" now attaches ambiguously to the Amazon drainages only. Restructure to make clear it covers both.",
+        "Item 4: \"Nước cần chảy mạnh và phải có thêm oxy\" then \"nối dây oxy vào dòng nước của máy bơm tạo dòng\" is OK, but \"dây oxy\" is non-standard; use \"ống dẫn khí\" (air tube).",
+        "Item 4: \"Không dễ nuôi\" is rendered as \"khó nuôi\", acceptable, but \"cây hợp với chúng\" is vague for \"appropriate vegetation\"; use \"cây thủy sinh phù hợp\".",
+        "Item 5: \"thức ăn có tảo\" for \"algae based foods\" should be \"thức ăn làm từ tảo\".",
+        "Item 5: \"giun đen\" for blackworm is fine, but \"glassworm\" is retained in parentheses while blackworm is not; keep consistent. \"muỗi bóng ma\" is non-standard; consider \"ấu trùng muỗi lắc trong suốt (glassworm)\".",
+        "Item 6: \"Xương cung mang thứ năm\" for \"fifth cerato-branchial bone\" should be \"xương sừng mang thứ năm (ceratobranchial)\".",
+        "Item 6: \"first pectoral radius longer than head longitude\" is translated as \"Tia vây ngực đầu tiên dài hơn chiều dài đầu\", acceptable. \"Mặt cắt ngang thân hình bầu dục\" adds \"thân\", which is not in the source, so use \"Mặt cắt ngang: hình bầu dục\".",
+        "Item 6: \"Ghi chú... giữa các con\" adds \"giữa các con\" (between individuals), which is not in the source; remove it."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.85,
+        0.8
+      ]
+    }
+  ],
+  "vi/species/astroblepus-itae#scotcat": [
+    {
+      "at": "2026-11-21T05:02:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Item 6: \"Invertebrates\" was rendered as \"tép, ốc nhỏ\" (shrimp, small snails). This adds specifics the source doesn't give. Use a generic term such as \"động vật không xương sống\".",
+        "Item 5: \"thổi luồng\" is not a standard term for \"powerhead\". Use \"máy bơm tạo dòng\" or \"bơm tạo dòng chảy\".",
+        "Item 5: \"dây oxy\" for \"air tube\" is imprecise. Use \"ống dẫn khí\" or \"dây sục khí\".",
+        "Item 1: \"cerato-brachial\" is left as raw English/Latin anatomical text. Give a Vietnamese rendering or a clear gloss, e.g. \"xương ceratobranchial (xương sừng mang) thứ năm\". Also check that \"brachial opening\" as \"khe mang\" is accurate.",
+        "Item 1: \"Khoảng cách trước vây lưng\" for \"pre-dorsal distance\" is awkward. Use \"khoảng cách từ mõm đến vây lưng\" or \"chiều dài trước vây lưng\".",
+        "Item 7: \"trường\" (school) is added. The English only says \"Instituto Técnico Agrícola\", although it is in fact a school. This is a minor addition."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.65,
+        0.55
+      ]
+    },
+    {
+      "at": "2026-11-21T05:02:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Item 1: the list adds facts that are not in the English: \"Họ: Astroblepidae\", \"Kích thước: 6,5 cm\" and \"Nhiệt độ: 15–20°C\". Keep only the IUCN Red List item.",
+        "Item 6: \"ấu trùng muỗi Chaoborus (glassworm)\" adds a genus name that the English does not give. Use just \"glassworm\" (ấu trùng muỗi thủy tinh) without the added Latin name.",
+        "Item 1: the description is split into a bullet list although the English is one sentence. The content is fine, but this is a structural change."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/astroblepus-latidens#scotcat": [
+    {
+      "at": "2026-11-21T05:03:07Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "Item 5: \"(ấu trùng muỗi lông Chaoborus)\" is an added explanation and genus name that the English does not give. Remove it, or keep only \"bọ gậy trong suốt\".",
+        "Item 6: \"làm bùn lắng tăng lên\" is a little awkward. Consider \"làm tăng lượng bùn lắng\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.85,
+        0.8
+      ]
+    }
+  ],
+  "vi/species/astroblepus-mancoi#scotcat": [
+    {
+      "at": "2026-11-21T05:04:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Item 5: elevation '200 and 13,400 feet' converted wrongly: should be about 61 m to 4,084 m — check: 200 ft = 61 m, 13,400 ft = 4,084 m, so this is OK; but the order of the sentences was changed (family/genus sentence split) — acceptable.",
+        "Item 5: 'Moses của người da đỏ Peru' — 'người da đỏ' is outdated; use 'người bản địa Peru' and render Moses as 'Moise'.",
+        "Item 4: 'tép, ốc nhỏ' replaces 'Invertebrates' with invented specifics (tép, ốc); use 'động vật không xương sống'.",
+        "Item 4: added '(ấu trùng muỗi Chaoborus)' for glassworm is an addition not in source; keep 'giun thủy tinh' or glassworm without the added Latin name.",
+        "Item 3: 'hợp với kiểu bể này' and 'trồng một ít cây' fine, but 'Not an easy family' is OK; 'Muốn nuôi thì phải có' is slightly stilted. Minor.",
+        "Item 2: 'le haut, Peru' left untranslated — acceptable as a locality fragment, but 'Nơi thu mẫu định danh' should be 'Nơi thu mẫu chuẩn (type locality)'.",
+        "Item 5: 'Thực tế có một chi' — 'and in fact' ok; 'Loài trong ảnh có thể là A. mancoi' changes 'This species' slightly; fine.",
+        "Item 1: 'Cá trê sao hổ' — stargazer catfish for Astroblepus is better rendered 'cá trê ngắm sao'/'cá trê leo núi'; common name is questionable and the English name was added in brackets."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T05:04:18Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.5,
+      "notes": [
+        "Item 5: '200 and 13,400 feet' converted wrongly: 200 ft ≈ 61 m is right, but 13,400 ft ≈ 4,084 m is right too; however '1471 m' and '443 m' are kept, fine. Check: no error in the feet conversion.",
+        "Item 5: 'Remarks' sentence 'These images were taken by the image contributor' is fine, but 'Loài trong ảnh' is OK; no issue.",
+        "Item 2: 'le haut' is a type locality name; the added gloss '(tên địa danh tiếng Pháp, nghĩa là vùng thượng lưu)' is an added fact/explanation not in the source. Remove it and keep 'le haut' only.",
+        "Item 2: 'Nơi thu mẫu chuẩn' is non-standard; use 'Nơi thu mẫu định danh' or 'Địa điểm mẫu chuẩn'.",
+        "Item 1: 'cá da trơn sao hổ' is not an established name for the tiger stargazer catfish; use an established name or a literal 'cá trê ... sao hổ'. Also capitalise 'Cá' after the label is optional.",
+        "Item 4: 'Invertebrates' translated as 'động vật không xương sống' is OK, but 'spirulina ... bột nhão' for 'paste' should be 'dạng sệt/dạng nhão', not 'bột nhão'. Minor.",
+        "Item 3: 'cấp thêm oxy bằng một dây oxy' - 'air tube' should be 'ống sục khí/dây sục khí'; 'máy bơm tạo dòng' ok.",
+        "Item 5: 'Etymology' translated as 'Nguồn gốc tên loài' is acceptable, but 'Môi-se của người bản địa Peru' changes 'Peruvian Indians' slightly; acceptable.",
+        "Item 5: 'Remarks ... 15.6°C' ok; 'the western Pacific' rendered as 'đổ về Thái Bình Dương ở sườn tây' fine."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/astronotus-ocellatus#aquariumcoop": [
     {
       "at": "2026-11-16T22:08:45Z",

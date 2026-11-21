@@ -17,9 +17,12 @@
         "MY",
         "SG"
       ],
-      "regions": [],
+      "regions": [
+        "Malaysian peninsula"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,6 +33,14 @@
             "SG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Barbodes dunckeri originally comes from the Malaysian peninsula.",
+          "countries": [],
+          "regions": [
+            "Malaysian peninsula"
+          ]
         }
       ]
     },

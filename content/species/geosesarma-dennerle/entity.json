@@ -10,6 +10,40 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Sulawesi",
+        "Java",
+        "Krakatau",
+        "Riau Islands"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They come from Sulawesi, Java, Krakatau or the Riau Islands.",
+          "countries": [],
+          "regions": [
+            "Sulawesi",
+            "Java",
+            "Krakatau",
+            "Riau Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9016339,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

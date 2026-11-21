@@ -65,41 +65,7 @@
       "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 03/2024 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Velasquez Quispe, M. &amp; Hidalgo del Aguila, M. 2016. Astroblepus grixalvii. The IUCN Red List of Threatened Species 2016.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/e0ab171a4f9d8a7a.webp",
-      "thumb": "https://media.aquatome.com/scotcat/e0ab171a4f9d8a7a-480.webp",
-      "width": 500,
-      "height": 191,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_grixalvii.htm",
-      "caption": "Astroblepus grixalvii",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/5c05b98d3200f362.webp",
-      "thumb": "https://media.aquatome.com/scotcat/5c05b98d3200f362-480.webp",
-      "width": 500,
-      "height": 228,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_grixalvii.htm",
-      "caption": "Astroblepus grixalvii: dorsal view",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/bc63afb4c600838d.webp",
-      "thumb": "https://media.aquatome.com/scotcat/bc63afb4c600838d-480.webp",
-      "width": 500,
-      "height": 196,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_grixalvii.htm",
-      "caption": "Astroblepus grixalvii: ventral view",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
@@ -126,5 +92,139 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Cauca",
+        "Magdalena"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Cauca and Magdalena River basins, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Cauca",
+            "Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342069,
+      "total": 502,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          461
+        ],
+        [
+          "EC",
+          41
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -2.8125,
+          7,
+          0
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          5,
+          0
+        ],
+        [
+          -80.15625,
+          0,
+          6,
+          0
+        ],
+        [
+          -78.75,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          -78.75,
+          0,
+          21,
+          4
+        ],
+        [
+          -77.34375,
+          1.40625,
+          27,
+          27
+        ],
+        [
+          -77.34375,
+          2.8125,
+          32,
+          32
+        ],
+        [
+          -75.9375,
+          1.40625,
+          39,
+          39
+        ],
+        [
+          -75.9375,
+          2.8125,
+          131,
+          131
+        ],
+        [
+          -75.9375,
+          4.21875,
+          102,
+          102
+        ],
+        [
+          -75.9375,
+          5.625,
+          50,
+          50
+        ],
+        [
+          -75.9375,
+          7.03125,
+          51,
+          51
+        ],
+        [
+          -74.53125,
+          2.8125,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          4.21875,
+          17,
+          17
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

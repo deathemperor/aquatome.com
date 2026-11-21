@@ -8,7 +8,7 @@
     "quickFacts:glaser": "<p>Cá mún kiếm (Xiphophorus xiphidium) là một trong những loài cá đẻ con hiếm nhất. Loài cá rất đẹp này nhỏ hơn hẳn cá mún (Xiphophorus maculatus): con đực chỉ dài khoảng 3 cm, con cái khoảng 4 cm.</p>",
     "beforeYouBuy:glaser": "<p>Trong bể, hai loài này có thể lai với nhau. X. xiphidium vốn đã hiếm, nên đừng nuôi chung nó với các loài họ hàng gần.</p>",
     "distribution:glaser": "<p>Loài này sống ở thượng nguồn sông Soto La Marina và các nhánh của nó, thuộc bang Tamaulipas, phía bờ Đại Tây Dương của Mexico.</p>",
-    "maintenance:glaser": "<p>Cá mún kiếm khó nuôi và khó cho đẻ hơn cá mún nhiều. Điều quan trọng nhất là không để nước quá ấm. Tốt nhất là nuôi ở nhiệt độ phòng, không cần sưởi.</p>",
+    "maintenance:glaser": "<p>Cá mún kiếm khó nuôi và khó cho đẻ hơn cá mún nhiều. Điều quan trọng nhất là không để nước quá ấm.</p>",
     "dimorphism:glaser": "<p>Cá đực non trông rất giống cá cái, một phần vì chúng cũng có “đốm mang thai”. Khi đã lớn hẳn, những con đực đầu đàn rất đẹp với hoa văn vằn hổ.</p>"
   },
   "quality": {
@@ -18,11 +18,5 @@
       "glaser": 0.95
     },
     "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-21"
   }
 }

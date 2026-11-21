@@ -250,6 +250,31 @@
       "kept": true
     }
   ],
+  "vi/products/sicce-shark-adv": [
+    {
+      "at": "2026-11-21T07:48:27Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T07:48:27Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 0,
+      "notes": [
+        "\"Một bài review lưu ý phải gắn dây oxy cho Venturi trước khi nhấn máy xuống nước, và đầu dây phải nằm trên mặt nước.\" names Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Hai bài review cùng thấy máy chạy êm, hầu như không nghe tiếng gì. Nếu bật Venturi thì chỉ có chút tiếng bọt lăn tăn.\" names Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Một bài review thấy Venturi chạy rất tốt, cho bọt và thêm oxy cho bể.\" names Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Bài kia cũng thấy Venturi cho bọt và làm mặt nước gợn tốt, nhưng thích bọt sủi từ đáy hơn và có thể sẽ tắt Venturi để dùng máy sủi riêng.\" names Venturi, Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/sunsun-hbl-802": [
     {
       "at": "2026-11-13T19:15:19Z",

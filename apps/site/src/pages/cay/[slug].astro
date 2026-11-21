@@ -55,7 +55,7 @@ const alternates = await alternatesOf('plants', p.id)
       <dl class="facts">{facts.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
     </div>
   </header>
-  {strip.some(Boolean) && <GalleryStrip photos={gallery} shown={strip} name={p.t.name} />}
+  {gallery.length > 0 && <GalleryStrip photos={gallery} shown={strip} name={p.t.name} />}
   <Sections sections={p.sections} t={p.t} self={`plant:${p.id}`} selfNames={[p.scientificName, p.t.name, ...p.t.altNames]} figures={figures.map(photo => ({ photo }))} co2={p.co2} refs={p.refs} />
   {/* The guides that say more about it, then the shops (Vietnam's, Shopee/Lazada links: Vietnamese pages only). */}
   <GuideLinks guides={guides} heading={t('Bài viết nhắc đến cây này')} />

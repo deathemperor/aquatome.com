@@ -1,0 +1,105 @@
+{
+  "id": "astroblepus-putumayoensis",
+  "scientificName": "Astroblepus putumayoensis",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "putumayo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 4.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "html": "<p>Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae.</p><p>Astroblepus putumayoensis is recognised among the other species of the genus Astroblepus by its adipose fin with thorn insert, connected with the caudal peduncle with a membrane.</p><p>Description: Vertebrae: 21 - 22. Distinguished by having a movable spine connected to the caudal peduncle with a membrane in adipose fin, 7 soft radii, premaxillary with 1-5 bicuspid teeth and 4-6 conic teeth in external row, and 21-22 free vertebrae.</p><p>Colouration: The head is brown with black eyes. Lateral region of the body with brown background and yellow irregular spots, a large yellow spot in the anterior region of the spine of the adipose fin, another half of the fat and another yellow spot in the start of the pectoral fin. Caudal fin with a vertical dark brown band at the base and spokes with points of the same colour. Yellow abdomen.</p><p>Size: 4.5 cm. Temperature: 15-20°C.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "html": "<p>South America: Colombia, Department of Putumayo, Rumiyaco River, tributary of the Mocoa River. Municipality of Mocoa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "html": "<p>Fishes of the family Astroblepidae are found in freshwater streams (between 200 to 13,400 feet above sea level) of the tropical Andes from Panama to Bolivia, and occur in both the western Pacific and eastern Amazonian slope drainage systems in South and Central America.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "html": "<p>Not an easy family of catfishes to keep so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "html": "<p>Invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm and blackworm (although these won’t tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "html": "<p>Etymology: The specific name putumayoensis: –ensis, suffix denoting place: Putumayo, Colombia, only known area of occurrence.</p><p>Common name: None. Synonyms: None.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "html": "<p>Ardila Rodríguez, Carlos A.; Five New Species of Astroblepus Fish for Colombian Andes. Universidad Metropolitana, Barranquilla, Colombia. Vol. 1, Núm. 27 (2015). Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 12/2019 ). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/368c748697fa4119.webp",
+      "thumb": "https://media.aquatome.com/scotcat/368c748697fa4119-480.webp",
+      "width": 500,
+      "height": 258,
+      "licence": "dùng với sự cho phép",
+      "author": "Carlos A. Ardila Rodriguez / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm",
+      "caption": "Astroblepus putumayoensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "sủi khí oxy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}
