@@ -2742,5 +2742,42 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/nitrat": [
+    {
+      "at": "2026-11-21T18:34:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Các nguồn ghi mức an toàn khác nhau khá xa.\" (not \"Mức nitrat cá chịu được khác nhau tùy loài.\": Rule 4: the point that nitrate tolerance depends on the species comes twice in a row. It opens with \"Mức nitrat cá chịu được khác nhau tùy loài.\" and comes back at the end of the vet source's next sentence (\"……",
+        "Rule 12: \"Nitrat (NO3) là chất cuối cùng của chu trình nitơ\" states as plain fact something only one site gives. Only Cá Dĩa Đại Phát calls nitrate the end product of the cycle; PetMD only calls it a byproduct. This part needs that site's credit, in its own sentence.",
+        "Rules 4 and 12: \"do vi khuẩn chuyển từ nitrit mà ra\" in the definition gives a step of the nitrogen cycle as where nitrate comes from. The body then says it again with the pointer \"Nitrat đến từ đâu: xem mục Chu trình nitơ.\" THIS TERM says the Chu trình nitơ entry is linked for where nitrate comes from and its steps aren't repeated, so this should be said once.",
+        "Rule 12: \"Nitrat tăng khi cho ăn quá tay, khi thả quá nhiều cá và khi để lá cây mục trong bể\" puts overstocking in a plain sentence with the other causes. Only Therium gives overstocking as a cause, so it needs its own sentence under that shop's credit and can't be joined to the parts two sites give.",
+        "Rule 12: \"hầu hết các loài cá chịu được tới 20 mg/l\" widens the fact's \"most fish\" with \"các loài\". The standing line never allows \"các loài\" for a group, so it should keep the fact's own word (\"hầu hết cá\")."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:34:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "\"Bác sĩ thú y dùng bộ test nước, vì que thử không đáng tin khi cần tìm ra lỗi nước.\": the facts don't carry it (loose, unsupported, loose, unsupported, loose, unsupported): Drops 'liquid' and adds a 'because' link the fact doesn't state / drops 'liquid' kit and adds causal link / 'liquid' kit generalized to water test kit; causal link implied / The sentence drops \"liquid\" from the vets' test kit.…",
+        "\"Cá ngộ độc nitrat từ từ, và thường chỉ lộ ra khi đã có triệu chứng: lờ đờ, kém ăn, da kích ứng hoặc đỏ lên, thở nhanh, có khi chết đột ngột.\": the facts don't carry it (supported, unsupported, unsupported): adds hedge 'sometimes' to sudden death / adds hedge 'có khi' to sudden death sign",
+        "\"Thay quá nhiều nước một lần, làm cá sốc.\": the facts don't carry it (unsupported, supported, supported, unsupported, unsupported, unsupported): Drops the 'can' hedge: says large changes do shock fish / The facts say very large water changes \"can\" shock fish. The sentence drops that hedge and says it does (\"làm cá sốc\"). / The fact says very large water changes \"can\" shock fish. The sentence drop…",
+        "Rule 12: \"Bể nào cũng có nitrat.\" (definition) comes only from Cá Dĩa Đại Phát (cadiadaiphat.com) but is written as plain fact. Two sites define the term, so a claim from one site needs that site's credit. Naming it also adds another page to the entry.",
+        "Rule 12: \"Nó tích dần trong nước\" (definition) comes only from PetMD but is written as plain fact, without the vet source's credit.",
+        "Rule 12: \"Hai nguồn, trong đó có nguồn thú y, cùng lấy 20 mg/l làm mốc\" uses a fourth page (Thuysinh4u) alongside the vet, the shop (Aquarium Co-Op) and the keeper (Aquarium Science). An entry may name at most three pages.",
+        "Rule 12: \"cùng lấy 20 mg/l làm mốc cá chịu được\" drops PetMD's hedge \"most fish\" (\"Most fish tolerate up to 20 mg/L\"). As written, the limit reads as one for all fish.",
+        "Rule 12: \"Bác sĩ thú y dùng bộ test nước, vì que thử không đáng tin khi cần tìm ra lỗi nước\" joins two facts with \"vì\" when no single fact joins them. The facts only say vets use a liquid test kit, and separately that PetMD calls test strips unreliable.",
+        "Rule 12: \"bộ test nước\" leaves out \"liquid\" (PetMD's liquid test kit), and the entry has already used \"bộ test\" for any test kit (\"phải đo bằng bộ test\"). One word ends up used for two things.",
+        "Rule 4: \"Đo nitrat bằng bộ test\" (Nên làm gì) says again what was already said under Trong bể của bạn (\"phải đo bằng bộ test\")."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
