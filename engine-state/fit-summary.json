@@ -1,5 +1,5 @@
 {
- "day": "2026-11-21",
+ "day": "2026-11-22",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -59,42 +59,37 @@
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
-   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
-   "title": "Cá Hemibagrus microphthalmus",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "Nhiều khả năng"
-    },
-    {
-     "check": "words",
-     "quote": "giữ lãnh thổ"
-    },
-    {
-     "check": "words",
-     "quote": "ghi nhận"
-    }
-   ]
+   "path": "/vi/ca/ca-nheo-guitar-nho/",
+   "url": "https://aquatome.com/ca/ca-nheo-guitar-nho/",
+   "title": "Cá nheo guitar nhỏ",
+   "wrong": []
+  },
+  {
+   "lang": "id",
+   "path": "/id/peralatan/test-nuoc/",
+   "url": "https://aquatome.com/id/peralatan/test-nuoc/",
+   "title": "Test kit air",
+   "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-oto-peppermint/",
-   "url": "https://aquatome.com/ca/ca-oto-peppermint/",
-   "title": "Cá oto peppermint",
+   "path": "/vi/huong-dan/xu-ly-reu-toc-o-be-thuy-sinh-ha-lan-moi-set/",
+   "url": "https://aquatome.com/huong-dan/xu-ly-reu-toc-o-be-thuy-sinh-ha-lan-moi-set/",
+   "title": "Xử lý rêu tóc ở bể thủy sinh Hà Lan mới set",
    "wrong": [
     {
+     "check": "source",
+     "quote": "Bể Hà Lan 60 cm này trồng toàn các loại cây cắt cắm phổ biến."
+    },
+    {
+     "check": "source",
+     "quote": "Bể 60 cm này chỉ dùng hai đèn giá rẻ."
+    },
+    {
      "check": "words",
-     "quote": "chúng được bên nước xuất xử lý khéo đến đâu"
+     "quote": "Một cách tự nhiên"
     }
    ]
-  },
-  {
-   "lang": "th",
-   "path": "/th/fish/corydoras-paleatus/",
-   "url": "https://aquatome.com/th/fish/corydoras-paleatus/",
-   "title": "แพะพริกไทย",
-   "wrong": []
   }
  ]
 }
