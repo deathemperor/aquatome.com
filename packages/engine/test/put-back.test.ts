@@ -166,7 +166,7 @@ test('a guide it left takes it back too', async () => {
   expect(((await json(r, 'content/guides/ggg/entity.json')).photos as { url: string }[]).map(p => name(p.url))).toEqual(['a-dead', 'g-1'])
 })
 
-test('the history from git: each page, album and guide file the photo left since the commit that marked it off, its place and entry just before it last left, and how often it left', async () => {
+test('the history from git: each page, album and guide file that showed the photo when it was marked off and that it left since, its place and entry just before it first left, and how often it left', async () => {
   const { r, git, put } = await repo('aq-put-back-git-')
   await put('content/species/ggg/entity.json', ent(['g1', 'g-dead', 'g2'])); await put('content/gallery/ggg.json', ent(['g-dead'])); await put('content/species/hhh/entity.json', ent(['h1']))
   await put('content/guides/care/entity.json', ent(['c1', 'g-dead']))
@@ -180,7 +180,7 @@ test('the history from git: each page, album and guide file the photo left since
   expect(places?.sort((a, b) => a.file.localeCompare(b.file))).toEqual([
     { file: 'content/gallery/ggg.json', index: 0, photo: photo('g-dead'), times: 1 },
     { file: 'content/guides/care/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
-    { file: 'content/species/ggg/entity.json', index: 0, photo: photo('g-dead'), times: 2 },
+    { file: 'content/species/ggg/entity.json', index: 1, photo: photo('g-dead'), times: 2 },
   ])
   // A mark before its record's day isn't read: records are dated by the day in UTC, and the day before is another's.
   const d = await mkdtemp(join(tmpdir(), 'aq-put-back-day-'))
@@ -195,16 +195,24 @@ test('the history from git: each page, album and guide file the photo left since
   expect(await gitHistory(await mkdtemp(join(tmpdir(), 'aq-put-back-none-')))(url('g-dead'), '2026-11-20')).toBeUndefined()
 })
 
-test("the history reads main's own line from the commit that marked it off: not a removal before the mark, a parallel removal once, a removal made in a merge, and a renamed page's old file", async () => {
+test("the history, along main's own line: a place that showed it at the mark and that a later run emptied counts; not one emptied before the mark or one it came to after; a parallel removal once, a merge's own removal, and a renamed page's old file", async () => {
   const today = new Date().toISOString().slice(0, 10)
   const sorted = (p: LeftPlace[] | undefined) => p?.sort((a, b) => a.file.localeCompare(b.file))
-  // Taken off bbb by hand in the morning, then off aaa at its first verdict: only aaa's removal is the mark's.
+  // Taken off bbb by hand in the morning, then off aaa at its first verdict, and off eee in the next run on its waiting
+  // entry (as a mark written by hand leaves it); later it shows on ccc and is taken off there by hand. aaa and eee are
+  // the mark's; bbb and ccc aren't.
   const one = await repo('aq-put-back-before-')
-  await one.put('content/species/aaa/entity.json', ent(['a1', 'g-dead'])); await one.put('content/species/bbb/entity.json', ent(['b1', 'g-dead'])); await one.put(SL, {})
+  await one.put('content/species/aaa/entity.json', ent(['a1', 'g-dead'])); await one.put('content/species/bbb/entity.json', ent(['b1', 'g-dead'])); await one.put('content/species/eee/entity.json', ent(['e1', 'g-dead'])); await one.put(SL, {})
   one.git('add', '.'); one.git('commit', '-qm', 'pages')
   await one.put('content/species/bbb/entity.json', ent(['b1'])); one.git('commit', '-qam', 'off bbb by hand')
   await one.put('content/species/aaa/entity.json', ent(['a1'])); await one.put(SL, marked()); one.git('commit', '-qam', 'off at its first verdict')
-  expect.soft(await gitHistory(one.r)(url('g-dead'), today)).toEqual([{ file: 'content/species/aaa/entity.json', index: 1, photo: photo('g-dead'), times: 1 }])
+  await one.put('content/species/eee/entity.json', ent(['e1'])); one.git('commit', '-qam', 'the next run, on its waiting entry')
+  await one.put('content/species/ccc/entity.json', ent(['c1', 'g-dead'])); one.git('add', '.'); one.git('commit', '-qm', 'on ccc')
+  await one.put('content/species/ccc/entity.json', ent(['c1'])); one.git('commit', '-qam', 'off ccc by hand')
+  expect.soft(sorted(await gitHistory(one.r)(url('g-dead'), today))).toEqual([
+    { file: 'content/species/aaa/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
+    { file: 'content/species/eee/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
+  ])
   // Not marked off at all: nothing of its history is the mark's.
   expect.soft(await gitHistory(one.r)(url('b1'), today)).toEqual([])
 
@@ -218,18 +226,23 @@ test("the history reads main's own line from the commit that marked it off: not 
   two.git('checkout', '-q', 'main'); two.git('merge', '-q', '--no-edit', 'side')
   expect.soft(await gitHistory(two.r)(url('g-dead'), today)).toEqual([{ file: 'content/species/aaa/entity.json', index: 1, photo: photo('g-dead'), times: 1 }])
 
-  // Off aaa at the mark, then off bbb in the merge that brought a branch in.
+  // Off aaa at the mark, made in a merge; it shows on bbb only after; a later merge takes it off bbb and ddd, which showed
+  // it at the mark. The merges' own removals count, from places that showed it at the mark: aaa and ddd.
   const three = await repo('aq-put-back-merge-')
-  await three.put('content/species/aaa/entity.json', ent(['a1', 'g-dead'])); await three.put('content/species/bbb/entity.json', ent(['b1', 'g-dead'])); await three.put(SL, {})
+  await three.put('content/species/aaa/entity.json', ent(['a1', 'g-dead'])); await three.put('content/species/ddd/entity.json', ent(['d1', 'g-dead'])); await three.put(SL, {})
   three.git('add', '.'); three.git('commit', '-qm', 'pages')
-  await three.put('content/species/aaa/entity.json', ent(['a1'])); await three.put(SL, marked()); three.git('commit', '-qam', 'off at its first verdict')
-  three.git('checkout', '-q', '-b', 'side')
-  await three.put('content/species/zzz/entity.json', ent(['z1'])); three.git('add', '.'); three.git('commit', '-qm', 'a page elsewhere')
-  three.git('checkout', '-q', 'main'); three.git('merge', '-q', '--no-ff', '--no-commit', 'side')
-  await three.put('content/species/bbb/entity.json', ent(['b1'])); three.git('add', '.'); three.git('commit', '-qm', 'merge, off bbb')
+  const merging = async (branch: string, page: string, change: () => Promise<void>) => {
+    three.git('checkout', '-q', '-b', branch)
+    await three.put(`content/species/${page}/entity.json`, ent([`${page}1`])); three.git('add', '.'); three.git('commit', '-qm', `a page elsewhere, ${page}`)
+    three.git('checkout', '-q', 'main'); three.git('merge', '-q', '--no-ff', '--no-commit', branch)
+    await change(); three.git('add', '.'); three.git('commit', '-qm', `merge ${branch}`)
+  }
+  await merging('side', 'zzz', async () => { await three.put('content/species/aaa/entity.json', ent(['a1'])); await three.put(SL, marked()) })
+  await three.put('content/species/bbb/entity.json', ent(['b1', 'g-dead'])); three.git('add', '.'); three.git('commit', '-qm', 'on bbb')
+  await merging('later', 'yyy', async () => { await three.put('content/species/bbb/entity.json', ent(['b1'])); await three.put('content/species/ddd/entity.json', ent(['d1'])) })
   expect.soft(sorted(await gitHistory(three.r)(url('g-dead'), today))).toEqual([
     { file: 'content/species/aaa/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
-    { file: 'content/species/bbb/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
+    { file: 'content/species/ddd/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
   ])
 
   // Its page renamed in the commit that took it off: the old file is the place it left (the put-back reports it gone).
