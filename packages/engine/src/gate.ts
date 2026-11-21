@@ -223,8 +223,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   // On the read list (fit-front.json `read`), a kit holds no page: it stays in the page's record for the chief of staff, and
   // harm alone holds it (20 Nov 2026). So its checks leave the kit out on every path: a cycle's change, a held page's read,
   // a text put back, what a held page waits for and the last sweep (a reader of #1718: a guide held for harm and a kit
-  // stayed held for the kit once its harm was gone).
-  const listed = (p: Pick<Page, 'lang' | 'kind' | 'id'>) => (d.handRead ?? HAND_READ).has(fitKey(p as Page))
+  // stayed held for the kit once its harm was gone). The same for a page whose record is the pass's (fit-pass.ts: only harm
+  // holds what it reads, the chief of staff, 21 Nov 2026); once a cycle changes the page, the gate's read of it has no mark.
+  const listed = (p: Pick<Page, 'lang' | 'kind' | 'id'>) => (d.handRead ?? HAND_READ).has(fitKey(p as Page)) || state[fitKey(p as Page)]?.pass === true
   const unkit = (p: Pick<Page, 'lang' | 'kind' | 'id'>, checks: Iterable<FitCheck>) => [...checks].filter(c => c !== 'kit' || !listed(p))
   const checksFor = (p: Page, e?: FitEntry) => new Set(unkit(p, gateChecks(p, e)))
   const statePath = join(root, 'engine-state/_fit.json')
