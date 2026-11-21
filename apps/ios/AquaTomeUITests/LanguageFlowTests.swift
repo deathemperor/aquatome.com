@@ -22,8 +22,9 @@ final class LanguageFlowTests: XCTestCase {
   private static let th = Words(fish: "ปลานีออน", sheet: "บัญชี", done: "เสร็จ", privacy: "สถิติไม่รวมบัญชี",
                                 tabs: ["วันนี้", "สำรวจ", "ตู้ของฉัน", "ไฟ"])
 
-  /// v2: a post open on Hôm nay and a fish's page on Khám phá, Thai picked from Bể của tôi, then Tiếng Việt again. Neither
-  /// page comes back on any tab (v2 hands Hôm nay's open post to Khám phá when it goes, but not for a language).
+  /// v2: a post open on Hôm nay, a fish's page on Khám phá and Week Aqua's screen on Đèn, Thai picked from Bể của tôi,
+  /// then Tiếng Việt again. None comes back on any tab (v2 hands Hôm nay's open post to Khám phá when it goes, but not for
+  /// a language). Đèn's stack is the lights' own, above the redraw: it stayed open (Codex, 21 Nov).
   func testAPickedLanguageShowsAtOnceOnV2() {
     let app = launch(.v2, "-plan", "-today", "2026-11-13")
     let card = app.buttons["v2-fish-of-the-day"]
@@ -35,9 +36,14 @@ final class LanguageFlowTests: XCTestCase {
     XCTAssertTrue(neon.waitForExistence(timeout: 10), "no Cá neon on Khám phá")
     neon.tap()
     XCTAssertTrue(app.buttons["v2-add"].waitForExistence(timeout: 5), "Cá neon's page didn't open")
+    app.openTab("Đèn")
+    app.scrollToAndTap("weekaqua")
+    XCTAssertTrue(app.buttons["wa-scan"].waitForExistence(timeout: 5), "the Week Aqua screen didn't open")
     app.openTab("Bể của tôi")
 
     pick(app, "ภาษาไทย", Self.th)
+    app.openTab("ไฟ")
+    XCTAssertFalse(app.buttons["wa-scan"].waitForExistence(timeout: 3), "Week Aqua's screen is still open on Đèn")
     app.openTab("วันนี้")
     XCTAssertFalse(app.buttons["v2-close-post"].firstMatch.exists, "Hôm nay's post is still open")
     app.openTab("สำรวจ")
@@ -180,9 +186,10 @@ final class LanguageFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "frames").label, sent, "the switch back sent the light something")
   }
 
-  /// The Love Ecology light's colour on air (40 s here, `-lamp-on-air`) as a language is picked: it ends at its time, as
-  /// without the switch. The card's sends were drawn again with the tabs, and the one on air was left broadcasting with
-  /// nothing to end it.
+  /// The Love Ecology light's colour on air (40 s here, `-lamp-on-air`) as a language is picked: the card after the switch
+  /// is the same, its sends kept, and red ends at its time, as without the switch. As the card's own, its model was drawn
+  /// again with the tabs: the new one knew nothing of red (its sends empty), though the old one still ended it (Codex,
+  /// 21 Nov: the stops alone held without the fix).
   func testTheLampsColourOnAirEndsAtItsTimeAcrossASwitch() {
     let onAir: TimeInterval = 40
     let app = launch(.v2, "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-lamp-on-air", "\(Int(onAir))")
@@ -198,6 +205,9 @@ final class LanguageFlowTests: XCTestCase {
     let picked = Date().timeIntervalSince(red)
     XCTAssertLessThan(picked, onAir, "Thai picked \(Int(picked)) s after red went on air, past its \(Int(onAir)) s: this proves nothing")
     app.closeAccount()
+    // The card's own record of what it sent, by model: a new card's is empty.
+    let sends = element(app, "lamp-sent").label
+    XCTAssertTrue(sends.hasPrefix("red@"), "the card after the switch isn't the one that sent red: its sends read \"\(sends)\"")
     XCTAssertEqual(element(app, "lamp-stops").label, "0", "red stopped at the switch, before its time")
     // Past red's time on air: stopped once, then.
     _ = XCTWaiter.wait(for: [XCTestExpectation(description: "red's time passes")], timeout: max(0, onAir + 5 - Date().timeIntervalSince(red)))

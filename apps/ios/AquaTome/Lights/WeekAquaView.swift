@@ -247,10 +247,10 @@ private struct WeekAquaColour: View {
     }
   }
 
-  private static let channels: [(id: String, title: String, swatch: Color)] = [
+  private static var channels: [(id: String, title: String, swatch: Color)] { [
     ("red", String(localized: "Đỏ", bundle: .app), Channel.red.swatch), ("green", String(localized: "Xanh lá", bundle: .app), Channel.green.swatch),
     ("blue", String(localized: "Xanh dương", bundle: .app), Channel.blue.swatch), ("uv", "UV", Color(red: 0x7b / 255, green: 0x4f / 255, blue: 0xc9 / 255)),
-  ]
+  ] }
 }
 
 /// One of WEEK AQUA's presets, marked when the colour is it.

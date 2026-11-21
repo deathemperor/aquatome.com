@@ -122,12 +122,12 @@ struct ColourWheel: View {
     names[Int((hue / 15).rounded()) % names.count]
   }
 
-  private static let names = [
+  private static var names: [String] { [
     String(localized: "đỏ", bundle: .app), String(localized: "đỏ cam", bundle: .app), String(localized: "cam", bundle: .app), String(localized: "cam vàng", bundle: .app),
     String(localized: "vàng", bundle: .app), String(localized: "vàng chanh", bundle: .app), String(localized: "xanh nõn chuối", bundle: .app), String(localized: "xanh cốm", bundle: .app),
     String(localized: "xanh lá", bundle: .app), String(localized: "xanh lá tươi", bundle: .app), String(localized: "xanh bạc hà", bundle: .app), String(localized: "xanh ngọc", bundle: .app),
     String(localized: "xanh lơ", bundle: .app), String(localized: "xanh da trời", bundle: .app), String(localized: "xanh biển", bundle: .app), String(localized: "xanh coban", bundle: .app),
     String(localized: "xanh dương", bundle: .app), String(localized: "chàm", bundle: .app), String(localized: "tím", bundle: .app), String(localized: "tím hoa cà", bundle: .app),
     String(localized: "hồng tím", bundle: .app), String(localized: "hồng sen", bundle: .app), String(localized: "hồng", bundle: .app), String(localized: "đỏ hồng", bundle: .app),
-  ]
+  ] }
 }

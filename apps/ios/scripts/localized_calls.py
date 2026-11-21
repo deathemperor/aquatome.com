@@ -17,7 +17,10 @@ import os, re, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 APP = os.path.join(HERE, '..', 'AquaTome')
-CALL = re.compile(r'\b(Attributed)?String\(localized:')
+# A line break or spaces before `localized:` too (Codex, 21 Nov: `String(\n localized: "Đèn")` went unseen).
+CALL = re.compile(r'\b(Attributed)?String\(\s*localized:')
+# A type's or a file's constant: made once, at its first reading.
+DECL = re.compile(r'^(\s*)(?:@MainActor\s+)?(?:(?:private|fileprivate|public|internal)\s+)?(?:nonisolated\s+)?(static\s+let|let)\s+\w+')
 # Labels after the key, in the order the initializers take them.
 ORDER = ('defaultValue', 'options', 'table', 'bundle', 'locale', 'comment', 'including')
 # Files the edit and the check leave alone, each with why. Take a line out when its file is ready: --apply then edits it.
@@ -121,10 +124,11 @@ def calls_in(src):
     for m in CALL.finditer(src):
         if in_comment(src, m.start()):
             continue
-        open_paren = m.start() + len(m.group(0)) - len('localized:') - 1
+        open_paren = src.index('(', m.start())
         close = skip_parens(src, open_paren) - 1
         args = top_level_args(src, open_paren, close)
         labels = [a[0] for a in args]
+        bundle = next((src[s:e].split(':', 1)[1].strip() for label, s, e in args[1:] if label == 'bundle'), None)
         key = src[args[0][1]:args[0][2]].split(':', 1)[1].lstrip()
         literal = key.startswith('"') or key.startswith('#"')
         # bundle: goes before the first argument whose label comes after it in ORDER, else at the end.
@@ -137,6 +141,7 @@ def calls_in(src):
             'line': src.count('\n', 0, m.start()) + 1,
             'attributed': bool(m.group(1)),
             'labels': labels,
+            'bundle': bundle,
             'literal': literal,
             'key': key,
             'multiline': '\n' in src[m.start():close],
@@ -156,16 +161,41 @@ def rel(path):
     return os.path.relpath(path, os.path.join(HERE, '..'))
 
 
+def cached_in(src):
+    """The lines of the constants built from a lookup: a `static let`, or a file's own `let`. Made once, they keep the
+    language of their first reading whatever the reader picks after (Codex, 21 Nov: Week Aqua's channel names, the colour
+    wheel's hue names, a page's jump chips)."""
+    out, lines = [], src.split('\n')
+    for i, l in enumerate(lines):
+        m = DECL.match(l)
+        if not m or (m.group(2) == 'let' and m.group(1)):
+            continue
+        body, j = l, i
+        depth = sum(l.count(c) for c in '([{') - sum(l.count(c) for c in ')]}')
+        while depth > 0 and j + 1 < len(lines):
+            j += 1
+            body += '\n' + lines[j]
+            depth += sum(lines[j].count(c) for c in '([{') - sum(lines[j].count(c) for c in ')]}')
+        if CALL.search(body):
+            out.append(i + 1)
+    return out
+
+
 def problems_in(src):
-    """The calls that look up in the language the app opened in, as (line, why): a string key without `bundle:`, or a
-    LocalizedStringResource (which takes no `bundle:`) not given the app's locale with `.inApp`."""
+    """The calls that look up in the language the app opened in, as (line, why): a string key without `bundle:`, one
+    given another bundle than `.app`, a LocalizedStringResource (which takes no `bundle:`) not given the app's locale with
+    `.inApp`, or a constant made from one."""
     out = []
     for c in calls_in(src):
-        if c['literal'] and 'bundle' not in c['labels']:
+        if c['bundle'] is not None and c['bundle'] != '.app':
+            out.append((c['line'], f'bundle: {c["bundle"]} (the language picked is bundle: .app)'))
+        elif c['literal'] and 'bundle' not in c['labels']:
             out.append((c['line'], 'no bundle: (add bundle: .app)'))
         elif not c['literal'] and not c['key'].rstrip().endswith('.inApp') and 'bundle' not in c['labels']:
             out.append((c['line'], 'a resource without .inApp (give it the app\'s locale: resource.inApp)'))
-    return out
+    for line in cached_in(src):
+        out.append((line, 'a constant made from a lookup keeps the first language (make it computed: static var … { … })'))
+    return sorted(out)
 
 
 def missing(files=None):
@@ -202,6 +232,11 @@ SAMPLE = '''struct S {
   var e: String { String(localized: name.inApp) }
   var f: String { String(localized: name) }
   // String(localized: "in a comment")
+  var g: String { String(
+    localized: "Đèn") }
+  var h: String { String(localized: "Đèn", bundle: .main) }
+  static let i = [String(localized: "Đèn", bundle: .app)]
+  static var j: [String] { [String(localized: "Đèn", bundle: .app)] }
 }
 '''
 
@@ -209,13 +244,15 @@ SAMPLE = '''struct S {
 def self_test():
     """The check fails on a bad line, names its line, and passes the same lines once the edit has made them."""
     found = problems_in(SAMPLE)
-    assert [l for l, _ in found] == [2, 4, 5, 7], found
+    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12], found
     fixed, made, skipped = apply_to(SAMPLE)
-    assert made == 3 and skipped == [6, 7], (made, skipped)
+    assert made == 4 and skipped == [6, 7], (made, skipped)
+    assert 'String(\n    localized: "Đèn", bundle: .app) }' in fixed, fixed
     assert 'String(localized: "Đèn", bundle: .app) }\n  var b' in fixed, fixed
     assert 'AttributedString(localized: "**Đèn** \\(n) ổ", bundle: .app)' in fixed, fixed
     assert 'String(localized: "Đèn (\\(f(x, y)))", bundle: .app, comment: "x, y")' in fixed, fixed
-    assert [l for l, _ in problems_in(fixed)] == [7], problems_in(fixed)
+    # Left for a person: the resource, the other bundle, the constant.
+    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12], problems_in(fixed)
 
 
 def count(ref=None):

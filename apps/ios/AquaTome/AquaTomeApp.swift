@@ -16,7 +16,8 @@ struct AquaTomeApp: App {
   /// Whether the chat is on (its entries), and the conversation kept.
   @State private var chat = ChatStore()
   /// The Love Ecology light's card's sends (LoveEcologyCard), here above the tabs a language picked draws again (`.id`):
-  /// the card's own, drawn again with them, left a broadcast on air with nothing to end it.
+  /// as the card's own, drawn again with them, a new card knew nothing of the send on air or what it had sent (the old
+  /// one still ended it at its time, Codex, 21 Nov).
   @State private var loveEcology = LoveEcologyModel()
   @State private var tab = Tab.handbook
   /// v2's tab in front (V2Root), kept here so a language picked while the app runs leaves it in front.
@@ -247,6 +248,9 @@ struct AquaTomeApp: App {
     // Before the tabs are drawn again: a page left on a stack would open once more, onto the new language's pages read.
     handbookPath = NavigationPath()
     tanksPath = NavigationPath()
+    // Đèn's stack is the lights' own, above the redraw: Week Aqua's screen closes too (Codex, 21 Nov). Its connection and
+    // a write going on stay: they're the model's, not the screen's.
+    lights.weekAqua.path = []
     // Sentences finished in the old language: what they told is done.
     lights.notice = nil
     lights.weekAqua.notice = nil

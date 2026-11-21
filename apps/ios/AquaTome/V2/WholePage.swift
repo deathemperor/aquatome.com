@@ -488,9 +488,9 @@ struct WholeParts {
   let cardPhotos: [PageDoc.Image]
 
   /// The sections a chip leads to, by their heading's key (`muc-<key>`, the site's sections.ts).
-  private static let chips: [(key: String, label: String)] = [
+  private static var chips: [(key: String, label: String)] { [
     ("waterConditions", String(localized: "Nước", bundle: .app)), ("diet", String(localized: "Cho ăn", bundle: .app)), ("reproduction", String(localized: "Sinh sản", bundle: .app)),
-  ]
+  ] }
 
   init(_ doc: PageDoc) {
     let parts = PagePart.of(doc)

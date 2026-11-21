@@ -324,7 +324,7 @@ final class HandbookModel {
     // kept pages as from another count.
     search = HandbookSearch([])
     searching.search = search
-    pages = [:]
+    pages = ItemsByKey([]) { _ in nil }
     matcher = PageMatcher([])
     shardCounts = [:]
     shelves = HandbookShelves(HandbookIndex(lang: code, items: []))
