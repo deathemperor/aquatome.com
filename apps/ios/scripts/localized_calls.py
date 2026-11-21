@@ -285,7 +285,7 @@ def code_only(text):
 def initializer(src, at):
     """The expression from src[at] (just past a declaration's `=`) to its end: a line's end at its own level whose next
     line doesn't go on with it (`.`, an operator), a `;`, or its scope's `}`. Strings and comments skipped."""
-    i, depth, seen, last = at, 0, False, ''
+    i, depth, seen, last, spaced = at, 0, False, '', False
     while i < len(src):
         c = src[i]
         if c == '"' or (c == '#' and re.match(r'#+"', src[i:])):
@@ -311,13 +311,14 @@ def initializer(src, at):
         elif c == ';' and depth == 0:
             break
         elif c == '\n' and depth == 0 and seen:
-            # Goes on when the line ends with a binary operator (`+`, `??`, `&&`, `==`, `>`; Fable, Codex, 21 Nov), not a
-            # postfix `!`, or the next begins with one.
+            # Goes on when the line ends with a binary operator (`+`, `??`, `&&`, `==`, a spaced `>`; Fable, Codex, 21
+            # Nov), not a postfix `!` nor a generic's `>`, or the next begins with one.
             rest = src[i:].lstrip()
-            if last not in '+-*/%=&|?:,<>' and not re.match(r'(\.(?!\.)|\?\?|\?|:|&&|\|\||[-+*/%<>=!]=?)(?!/)', rest):
+            binary = last in '+-*/%=&|?:,' or last in '<>' and spaced
+            if not binary and not re.match(r'(\.(?!\.)|\?\?|\?|:|&&|\|\||[-+*/%<>=!]=?)(?!/)', rest):
                 break
         if not c.isspace():
-            seen, last = True, c
+            seen, last, spaced = True, c, i > 0 and src[i - 1] in ' \t'
         i += 1
     return src[at:i]
 
@@ -425,6 +426,8 @@ SAMPLE = '''struct S {
   static let z = #/
     "{
   /#
+  static let g = x as? Box<Int>
+  var gg: String { String(localized: "Đèn", bundle: .app) }
 }
 final class C {
   let m = String(localized: "Đèn", bundle: .app)
@@ -444,8 +447,8 @@ def self_test():
     """The check fails on a bad line, names its line, and passes the same lines once the edit has made them."""
     found = problems_in(SAMPLE)
     # Not 13 (computed), 15 (a struct's, made again with it), 18 (words in a string), 22 and 26 (regexes without a
-    # lookup, the second over lines), 32 (a closure), 34 (a local).
-    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 20, 23, 24, 31, 33, 39], found
+    # lookup, the second over lines), 29 (a generic's `>` ends it: 30 is computed), 34 (a closure), 36 (a local).
+    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 20, 23, 24, 33, 35, 41], found
     fixed, made, skipped = apply_to(SAMPLE)
     assert made == 4 and skipped == [6, 7], (made, skipped)
     assert 'String(\n    localized: "Đèn", bundle: .app) }' in fixed, fixed
@@ -453,7 +456,7 @@ def self_test():
     assert 'AttributedString(localized: "**Đèn** \\(n) ổ", bundle: .app)' in fixed, fixed
     assert 'String(localized: "Đèn (\\(f(x, y)))", bundle: .app, comment: "x, y")' in fixed, fixed
     # Left for a person: the resource, the other bundle, the constant.
-    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 16, 19, 20, 23, 24, 31, 33, 39], problems_in(fixed)
+    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 16, 19, 20, 23, 24, 33, 35, 41], problems_in(fixed)
 
 
 def count(ref=None):

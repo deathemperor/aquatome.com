@@ -79,11 +79,11 @@ final class LightsModel {
   /// "Thử màu trên đèn": the light shows the colour being edited (manual mode) until the test ends.
   private(set) var trying = false
   /// The notice says what the light is doing now, and it still is: the trial colour on, today's colour before its end
-  /// (Codex, 21 Nov: past it, the sentence no longer is).
+  /// (Codex, 21 Nov: past it, the sentence no longer is), on the light's screen's clock (`now`, as the plan reads it).
   var noticeStillSo: Bool {
     switch notice?.lasting {
     case .trial: trying
-    case .today: today.map { !$0.isOver(at: Date()) } ?? false
+    case .today: today.map { !$0.isOver(at: now) } ?? false
     case nil: false
     }
   }

@@ -188,7 +188,8 @@ final class LanguageFlowTests: XCTestCase {
 
   /// A schedule written over another, its undo offered, then Thai picked: the undo is still there after the switch, and
   /// puts the first schedule back. The notice is the only place it's offered, and a switch cleared every notice (Fable,
-  /// 21 Nov); one with a button or a warning now stays, in its words.
+  /// 21 Nov); one with a button or a warning now stays, in its words. Then the trial colour on, and Tiếng Việt again: its
+  /// notice stays too, as the light is still so.
   func testTheUndoOfASchedulesWriteStaysAcrossASwitch() {
     let app = launch(.v2)
     app.openTab("Đèn")
@@ -211,6 +212,14 @@ final class LanguageFlowTests: XCTestCase {
     XCTAssertTrue(reached(app, "notice-action").exists, "the switch took the undo away")
     tap(app, "notice-action")
     XCTAssertTrue(waitFor { element(app, "notice").label.contains("13:00") }, "the undo after the switch didn't put the first schedule back")
+
+    let undone = element(app, "notice").label
+    tap(app, "try")
+    XCTAssertTrue(waitFor { element(app, "try").isSelected && element(app, "notice").label != undone }, "no trial colour's notice")
+    let trial = element(app, "notice").label
+    pick(app, "Tiếng Việt", Self.vi)
+    XCTAssertTrue(reached(app, "notice").exists, "the switch took the notice of the trial colour on")
+    XCTAssertEqual(element(app, "notice").label, trial, "not the trial colour's notice after the switch")
   }
 
   /// The Love Ecology light's colour on air (40 s here, `-lamp-on-air`) as a language is picked: the card after the switch

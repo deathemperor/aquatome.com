@@ -23,6 +23,8 @@ final class HandbookModel {
   /// it, and a screen leaving doesn't stop it, as a tank's save may wait on it (Fable, Codex, 21 Nov). A language picked
   /// stops the old language's.
   @ObservationIgnored private var reading: Task<Void, Never>?
+  /// Counts the reads begun: a read lets go of `reading` as it ends, unless a newer one has it.
+  @ObservationIgnored private var reads = 0
   private(set) var count = 0
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
@@ -361,6 +363,7 @@ final class HandbookModel {
     // The old language's read lands nowhere (`generation`): stopped, not left to fetch.
     reading?.cancel()
     reading = nil
+    reads += 1
     Task { await load() }
   }
 
@@ -391,10 +394,16 @@ final class HandbookModel {
   /// or a new one (`reading`).
   func load() async {
     if let r = reading { return await r.value }
-    let r = Task { await read() }
+    reads += 1
+    let n = reads
+    // Let go as it ends, in the same turn: one asked between its end and its starter's return would join it, ended, and
+    // read nothing (Fable, 21 Nov).
+    let r = Task {
+      await read()
+      if reads == n { reading = nil }
+    }
     reading = r
     await r.value
-    if reading == r { reading = nil }
   }
 
   private func read() async {
