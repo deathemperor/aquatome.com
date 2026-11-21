@@ -195,7 +195,8 @@ export class ArchiveFetcher {
     const stamps = (await this.text(capturesQuery(url)).catch(e => { if (!/^HTTP 4\d\d from /.test((e as Error).message)) throw e; return '' })).split('\n').filter(Boolean).reverse()
     for (const stamp of stamps) {
       await this.d.sleep(ARCHIVE_POLITE)
-      const older = await this.capture(stamp, url).catch(e => { if (!noCopy(e)) throw e; return undefined })
+      // A 403 is no copy of this page, and its older copies aren't asked either (Fable, 21 Nov 2026).
+      const older = await this.capture(stamp, url).catch(e => { if (!noCopy(e) || /\(HTTP 403\)/.test((e as Error).message)) throw e; return undefined })
       if (older && !older.challenge) return older.page
     }
     throw new Error('no archived copy (the archive holds a browser-check page)')

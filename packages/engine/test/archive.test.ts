@@ -388,6 +388,15 @@ test('past a browser check: requests spent stop the search, not "no copy"; an ol
     now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test',
   })
   await expect(h.get(article)).rejects.toThrow(/^the archive isn't answering/)
+  // A 403 on an older copy: no copy of this page, and its other older copies aren't asked (Fable, 21 Nov 2026).
+  const asked403: string[] = []
+  const j = new ArchiveFetcher({
+    restFile: restFile(),
+    fetch: async u => { asked403.push(u); return u.includes('/cdx/') ? capture(200, '20240101000000\n20250101000000\n') : u.includes('/web/2026') ? check : capture(403, '') },
+    now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test',
+  })
+  await expect(j.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  expect(asked403.filter(u => /\/web\/20[0-9]{12}id_/.test(u))).toHaveLength(1)
   // The index itself not answering, or down, stops it too: only its saying it holds nothing (a 4xx) is no copies.
   for (const [index, said] of [[async () => { throw new TypeError('fetch failed') }, /^the archive isn't answering/], [async () => capture(502, ''), /^HTTP 502 from web\.archive\.org/], [async () => capture(404, ''), /^no archived copy \(the archive holds a browser-check page\)$/]] as const) {
     const i = new ArchiveFetcher({ restFile: restFile(), fetch: async u => (u.includes('/cdx/') ? index() : check), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })

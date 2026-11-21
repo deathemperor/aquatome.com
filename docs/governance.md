@@ -940,36 +940,39 @@ The layers above still check the result.
     guides, gets its post from the Archive's newest good copy (an archived challenge page is no copy), given to research
     as a page to take facts from, never instructions. Its text is held for that run alone and written nowhere: the
     magazine has given no permission to republish and the repository is public (the chief of staff, 21 Nov 2026).
-    Research's, the writer's and the checker's calls keep no session on disk. A fact that repeats eight of its words in
-    a row, or facts that do between them in order, is dropped before anything keeps it, a source's address that does is
-    no source (its escapes undone), its title becomes its site's name, a species' name that does goes, and a failure's
-    reason that repeats it is kept without its words. The guide itself is held to it too: one whose writer puts its
-    sentence back together is not kept, and a checker's note that quotes it is kept without its words. A copy with no
-    title of its own is named by its site, and research citing the post with a query is citing the post. The repository
-    keeps its record: its own address and title, the copy's date (the copy's stamp when the Archive sends none), a hash
-    of the text, and the Archive as how it was read (`via: "archive"`), so sites are still counted by a source's
-    address. A guide that takes more than half its facts from the post (a fact that cites it `also` counted as its), or
-    has fewer than two other sites beside it, drops the post's facts, those citing it `also` with them, and is written
-    from the others; each other language's guide is held to the same on the facts it is written from. Each guide prints
-    how many of the facts its writer was given came from the post (none, with no post). No photo is read, and the writer
+    Research's, the writer's and the checker's calls keep no session on disk, and research's answer is kept as its
+    schema has it, no other field. Every check reads a text as a reader sees it, its entities undone and its markup
+    gone. A fact that repeats eight of its words in a row, or facts that do between them in order, is dropped before
+    anything keeps it, a source's address that does is no source (its escapes undone), its title becomes its site's
+    name, a species' name that does goes, and a failure's reason that repeats it is kept without its words. The guide
+    itself is held to it too: one whose writer puts its sentence back together is not kept, and a checker's note that
+    quotes it is kept without its words. A copy with no title of its own is named by its site, and research citing the
+    post with a query is citing the post. The repository keeps its record: its own address and title, the copy's date
+    (the copy's stamp when the Archive sends none), a hash of the text, and the Archive as how it was read (`via:
+    "archive"`), so sites are still counted by a source's address. A guide that takes more than half its facts from the
+    post (a fact that cites it `also` counted as its), or has fewer than two other sites beside it, drops the post's
+    facts, those citing it `also` with them, and is written from the others; each other language's guide is held to the
+    same on the facts it is written from, and leaves them out too where the Vietnamese one did. Each guide prints how
+    many of the facts its writer was given came from the post (none, with no post). No photo is read, and the writer
     sees facts, not the post. A post the Archive lacks, or one not reached within the day's requests, is counted as such
     and the guide written as before; a copy of another page (a redirect's) is no copy; past a browser-check copy, the
     requests spent, a refusal, or the Archive down or not answering stop the search without calling it "no copy", and an
-    older copy the Archive holds nothing for is passed over. At most 6 requests a day for the post, and 9 for the list
-    in Vietnam's last eight days (so a day's count for seven whole days after it), a redirect counted as one (none
-    followed off the Archive), each counted on the day it is made, against that day's allowance, and written down just
-    before it is made (one the rest stops is not counted) in the Mac's own file beside the Archive's rest
-    (`~/.cache/aquatome/magazine-archive.json`), so a cycle that starts again from main forgets none; the record carries
-    a copy. The magazine's own listing, GitHub's shops' listings and its forum step follow redirects by hand, never to a
-    copy site such as the Archive, nor from a shop's to the magazine's. One magazine step runs at a time (one that takes
-    the lock reads it again 2 s on, and goes on only if it is still its own), on the Mac alone (not on GitHub, and only
-    on macOS). The reader, name, pace (10 s) and rest are the archived sources': a rest another job writes while a
-    request waits its pace stops it, and a rest ends only on the Archive's own answer, never on a redirect nor a 403,
-    and only the rest that request came after. A 403 from the Archive's index is a refusal, as a 429; on one page's copy
-    it is no copy of that page, but on a second page's in the same run it is a refusal, the reader shut out (the owner's
-    rule on refusals; the chief of staff, 21 Nov 2026). The log names both pages. GitHub's ideas step takes what the Mac
-    made of each magazine idea at every run. During a rest the guide waits, its idea kept, and the days it waits in a
-    row are printed. Research still opens neither the magazine's hosts nor the Archive's.
+    older copy the Archive holds nothing for is passed over (one that answers 403 ends the search). At most 6 requests a
+    day for the post, and 9 for the list in Vietnam's last eight days (so a day's count for seven whole days after it),
+    a redirect counted as one (none followed off the Archive), each counted on the day it is made, against that day's
+    allowance, and written down just before it is made (one the rest stops is not counted) in the Mac's own file beside
+    the Archive's rest (`~/.cache/aquatome/magazine-archive.json`), so a cycle that starts again from main forgets none;
+    the record carries a copy. The magazine's own listing, GitHub's shops' listings and its forum step follow redirects
+    by hand, never to a copy site such as the Archive, nor from a shop's to the magazine's. One magazine guide a day,
+    counted in the Mac's ledger too. One magazine step runs at a time (one that takes the lock reads it again 2 s on,
+    and goes on only if it is still its own), on the Mac alone (not on GitHub, and only on macOS). The reader, name,
+    pace (10 s) and rest are the archived sources': a rest another job writes while a request waits its pace stops it,
+    and a rest ends only on the Archive's own answer, never on a redirect nor a 403, and only the rest that request came
+    after. A 403 from the Archive's index is a refusal, as a 429; on one page's copy it is no copy of that page, but on
+    a second page's in the same run it is a refusal, the reader shut out (the owner's rule on refusals; the chief of
+    staff, 21 Nov 2026). The log names both pages. GitHub's ideas step takes what the Mac made of each magazine idea at
+    every run. During a rest the guide waits, its idea kept, and the days it waits in a row are printed; they end only
+    when the Archive answers for the post. Research still opens neither the magazine's hosts nor the Archive's.
   - Chợ Thủy Sinh's fish, shrimp and snails go into the private Vietnamese shop list (`engine-state/shop-lists/vi.json`:
     which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,

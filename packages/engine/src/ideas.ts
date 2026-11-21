@@ -107,7 +107,10 @@ const saveMagazine = (root: string, s: MagazineState) => writeFile(magazineFile(
  * the days in a row the day's guide waited for the Archive's rest. The limits read this. The magazine's record carries a
  * copy for the chief of staff (mirror), which seeds it only when it is missing.
  */
-export type MagazineLedger = Pick<MagazineState, 'asks' | 'tried' | 'waits'>
+export type MagazineLedger = Pick<MagazineState, 'asks' | 'tried' | 'waits'> & {
+  /** The day's guides by Vietnam's day, kept here too, so a cycle that starts again from main writes no second one (Fable, 21 Nov 2026). */
+  made?: Record<string, number>
+}
 async function readLedger(file: string, m: MagazineState): Promise<MagazineLedger> {
   const raw = await readFile(file, 'utf8').catch(() => undefined)
   if (raw !== undefined) return JSON.parse(raw) as MagazineLedger
@@ -147,11 +150,15 @@ export async function holdMagazine(file: string, now: () => Date, pid = process.
       return async () => { if (await mine()) await rm(file, { force: true }) }
     } catch (e) {
       if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || tries > 0) throw e
-      const held = Number((await readFile(file, 'utf8').catch(() => '')).trim())
-      const age = now().getTime() - (await stat(file).then(x => x.mtimeMs, () => 0))
+      const seen = async () => ({ pid: Number((await readFile(file, 'utf8').catch(() => '')).trim()), at: await stat(file).then(x => x.mtimeMs, () => 0) })
+      const was = await seen()
+      const age = now().getTime() - was.at
       // A lock with no number yet is a step that has just taken it and not yet written its own (Codex, 21 Nov 2026).
-      if (!held && age < LOCK_STALE_MS) throw new Error(`another magazine step is starting (${file})`)
-      if (held && alive(held) && age < LOCK_STALE_MS) throw new Error(`another magazine step is running (pid ${held}, ${file})`)
+      if (!was.pid && age < LOCK_STALE_MS) throw new Error(`another magazine step is starting (${file})`)
+      if (was.pid && alive(was.pid) && age < LOCK_STALE_MS) throw new Error(`another magazine step is running (pid ${was.pid}, ${file})`)
+      // Still the lock just read, just before it goes (Fable, 21 Nov 2026): another step may have taken it over meanwhile.
+      const is = await seen()
+      if (is.pid !== was.pid || is.at !== was.at) throw new Error(`another magazine step is running (${file})`)
       await rm(file, { force: true })
     }
   }
@@ -621,7 +628,15 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
   const clean = (e: unknown) => { const msg = (e as Error).message ?? String(e); return held && copiesGiven(msg, held) ? `${(e as Error).name}: its message repeats the post` : msg }
   const today = () => vnDay(d.now())
   const report: { written: string[]; skipped: string[]; failed: string[]; stopped: string; posts: string[]; waited?: number } = { written: [], skipped: [], failed: [], stopped: '', posts: [] }
-  const doneToday = () => Object.values(m.guides).filter(g => g.at && vnDay(new Date(g.at)) === today()).length
+  const doneToday = () => Math.max(Object.values(m.guides).filter(g => g.at && vnDay(new Date(g.at)) === today()).length, l.made?.[today()] ?? 0)
+  /** A guide that counts as the day's, in the ledger before the record. */
+  const counted = async () => {
+    const made = (l.made ??= {})
+    made[today()] = (made[today()] ?? 0) + 1
+    const kept = lastDays(d.now(), LISTING_DAYS)
+    for (const day of Object.keys(made)) if (!kept.has(day)) delete made[day]
+    await saveLedger(d.ledger, l)
+  }
   for (const idea of ideas.ideas) {
     if (doneToday() >= MAGAZINE_PER_DAY) break
     const key = slugify(idea.topic)
@@ -637,8 +652,9 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
       const { r, post } = await piece(id, async () => {
         const post = await magazinePost(idea, m.posts, magazineReader(d.archive, l, d.ledger, 'post', d.now, sleep))
         held = post?.page?.text
-        // The Archive answered: the wait for its rest is over.
-        if (l.waits) { delete l.waits; await saveLedger(d.ledger, l) }
+        // The Archive answered (its copy, or that it has none): the wait for its rest is over. Not reached, it may not have
+        // (Fable, 21 Nov 2026).
+        if (l.waits && (post?.page || post?.unread === 'no copy')) { delete l.waits; await saveLedger(d.ledger, l) }
         const r = await makeTopic(root, { research: d.research, llm: d.llm }, { topic: idea.topic, kind: idea.kind }, { leads, now: d.now, ...(post?.page ? { given: post.page } : {}), ...(o.researchModel ? { researchModel: o.researchModel } : {}) })
         return { r, post }
       }, { now: d.now })
@@ -646,6 +662,7 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
       const record: PostRecord | undefined = post && { url: post.url, ...(p ? { title: p.title, ...(p.capturedAt ? { capturedAt: p.capturedAt } : {}), hash: p.hash } : {}), via: 'archive', result: p ? ('post' in r && r.post) || 'not cited' : post.unread ?? 'no copy' }
       const skipped = 'skipped' in r && r.skipped ? r.skipped : undefined
       m.guides[key] = { ...(skipped ? { skipped } : { guide: r.id }), at: d.now().toISOString(), ...(record ? { post: record } : {}) }
+      await counted()
       if (skipped) report.skipped.push(skipped); else report.written.push(r.id)
       // With how many of the facts its writer was given came from the post (the chief of staff, 21 Nov 2026).
       const share = 'given' in r && r.given ? `; ${r.given.from} of the ${r.given.of} facts the writer was given came from it` : ''
@@ -665,6 +682,7 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
       }
       // It counts, and is not tried again (the reason is kept).
       m.guides[key] = { skipped: `failed: ${clean(err).slice(0, 120)}`, at: d.now().toISOString() }
+      await counted()
       report.failed.push(`${idea.topic}: ${m.guides[key]!.skipped}`)
       await save()
     } finally {

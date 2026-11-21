@@ -1,3 +1,4 @@
+import { writeFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, readFile, rm, utimes, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -493,7 +494,8 @@ test("the Archive's requests are the Mac's ledger's, written before each is made
   const again = await archive(checks, '2026-11-21T09:00:00Z')
   const r = await write(root, researchCiting(0, 3, []), again.reader, '2026-11-21T09:00:00Z')
   expect(again.asked).toEqual([])
-  expect(r.stopped).toBe(`the day's ${ARCHIVE_POST_DAY} requests to the archive for the magazine's post are spent`)
+  // The day's guide is counted in the ledger too (Fable, 21 Nov 2026), so the step stops at that, before its requests.
+  expect([r.written, r.stopped]).toEqual([[], ''])
   // The days waited stand there too.
   const rest = await waiting([magazineIdea('Một')])
   const day = async (now: string) => (await write(rest, researchCiting(0, 3, []), (await resting('2026-12-31T00:00:00Z', now)).reader, now)).waited
@@ -536,6 +538,13 @@ test('one magazine step at a time on the Mac: another one running fails, naming 
   await writeFile(file, '2147483645\n')
   await release2()
   expect(await readFile(file, 'utf8')).toBe('2147483645\n')
+  // A step that read a dead lock, then stalled while another took it over (Fable, 21 Nov 2026): it reads it again just before
+  // removing it, and gives way.
+  await writeFile(file, '2147483646\n')
+  let swapped = false
+  const stalling = () => { if (!swapped) { swapped = true; writeFileSync(file, `${process.ppid}\n`) } return new Date() }
+  await expect(holdMagazine(file, stalling, 12345, quick)).rejects.toThrow(`another magazine step is running (${file})`)
+  expect(await readFile(file, 'utf8')).toBe(`${process.ppid}\n`)
 })
 
 test(`a fact research copied out of the post (${COPY_WORDS} words of it in a row, whatever their case or marks) is dropped before anything keeps or reads it, and research keeps no session of the post`, async () => {
@@ -650,6 +659,59 @@ test("a guide whose writer puts the post's own sentence back together is not kep
   expect(w.written).toEqual([topicId('Nước bể cá bị đục')])
   expect(quoted(await files(notes))).toEqual([])
   expect((await files(notes)).some(([, t]) => t.includes('a note that repeats the post'))).toBe(true)
+})
+
+// Fable's read of 21 Nov 2026: an entity between the words hid them from the check, and the page shows them plain; a field
+// research's schema doesn't name passed into the kept file unread.
+test("the post's words are found through entities and markup, and research's answer is kept as its schema has it, nothing more", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const spaced = 'Placeholder&#32;text&#32;about&#32;cloudy&#32;water&#32;and&#32;bacterial&#32;blooms.'
+  const entities: Llm = async <T>(x: Parameters<Llm>[0]) => (isBody(x) ? { name: 'Nước bể cá bị đục', summary: [spaced], body: '<p>Nước đục.</p>', faq: [] } : { score: 0.95, notes: [] }) as T
+  const r = await write(root, researchCiting(2, 3, []), (await archive(article())).reader, undefined, entities)
+  expect(r.skipped).toEqual(['Nước bể cá bị đục: the guide repeats the post'])
+  const extra = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const carrying: Llm = async <T>() => {
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine', excerpt: 'Placeholder text about cloudy water and bacterial blooms' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' }))]
+    const facts = [{ section: 'causes', fact: 'A bloom clears in days.', source: 0, quote: 'Placeholder text about cloudy water and bacterial blooms' }, { section: 'causes', fact: spaced, source: 0 },
+      ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i }))]
+    return { found: true, facts, species: [], sources, notes: 'Placeholder text about cloudy water and bacterial blooms' } as T
+  }
+  await write(extra, carrying, (await archive(article())).reader)
+  const facts = JSON.parse(await readFile(join(extra, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts
+  expect(facts.facts.map(f => f.fact)).toEqual(['A bloom clears in days.', 'Other fact 1.', 'Other fact 2.', 'Other fact 3.'])
+  expect(quoted(await files(extra))).toEqual([])
+  expect((await files(extra)).filter(([, t]) => t.includes('&#32;')).map(([f]) => f)).toEqual([])
+})
+
+// Fable's read of 21 Nov 2026: the day's one guide was counted from the checkout's record alone, which a cycle that starts
+// again from main drops.
+test("the day's one magazine guide is counted in the Mac's ledger too: a record dropped since writes no second one that day", async () => {
+  const root = await waiting([magazineIdea('Một'), magazineIdea('Hai')])
+  const r1 = await write(root, researchCiting(2, 3, []), (await archive(article())).reader)
+  expect(r1.written).toHaveLength(1)
+  await rm(magazineFile(root))
+  await rm(join(root, 'content/guides'), { recursive: true, force: true })
+  await mkdir(join(root, 'content/guides'), { recursive: true })
+  const a = await archive(article())
+  const r2 = await write(root, researchCiting(2, 3, []), a.reader, '2026-11-21T09:00:00Z')
+  expect([r2.written, a.asked]).toEqual([[], []])
+  // The next day, one again.
+  const next = await archive(article(), '2026-11-22T06:00:00Z')
+  expect((await write(root, researchCiting(2, 3, []), next.reader, '2026-11-22T06:00:00Z')).written).toHaveLength(1)
+})
+
+// Fable's read of 21 Nov 2026: the days waited were wiped when the post was not reached, the Archive not answering.
+test("the days the guide waited for the Archive's rest stand when the post is not reached", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  await writeFile(ledgerOf(root), JSON.stringify({ waits: ['2026-11-20'] }))
+  await write(root, researchCiting(0, 3, []), (await archive(() => { throw new TypeError('fetch failed') })).reader)
+  expect(await guideOf(root, 'Nước bể cá bị đục')).toMatchObject({ post: { result: 'not reached' } })
+  expect((await ledger(root)).waits).toEqual(['2026-11-20'])
+  // Read, the wait is over.
+  const read = await waiting([magazineIdea('Nước bể cá bị đục')])
+  await writeFile(ledgerOf(read), JSON.stringify({ waits: ['2026-11-20'] }))
+  await write(read, researchCiting(2, 3, []), (await archive(article())).reader)
+  expect((await ledger(read)).waits).toBeUndefined()
 })
 
 // Codex's fresh read of f4e7985fae: a copy with no title took research's, and an address with its spaces escaped passed.
