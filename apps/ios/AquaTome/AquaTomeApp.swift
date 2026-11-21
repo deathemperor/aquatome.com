@@ -17,8 +17,9 @@ struct AquaTomeApp: App {
   @State private var chat = ChatStore()
   /// The Love Ecology light's card's sends (LoveEcologyCard), here above the tabs a language picked draws again (`.id`):
   /// as the card's own, drawn again with them, a new card knew nothing of the send on air or what it had sent (the old
-  /// one still ended it at its time, Codex, 21 Nov).
-  @State private var loveEcology = LoveEcologyModel()
+  /// one still ended it at its time, Codex, 21 Nov). Made in `init`, after the tests' reset: made before it, it kept the
+  /// last test's record (Codex, 21 Nov).
+  @State private var loveEcology: LoveEcologyModel
   @State private var tab = Tab.handbook
   /// v2's tab in front (V2Root), kept here so a language picked while the app runs leaves it in front.
   @State private var v2Tab = V2Tab.today
@@ -78,6 +79,7 @@ struct AquaTomeApp: App {
     _tanks = State(initialValue: tanks)
     let lights = LightsModel(radio: AquaTomeApp.radio(), tanks: tanks)
     _lights = State(initialValue: lights)
+    _loveEcology = State(initialValue: LoveEcologyModel())
     let (account, wanted) = AquaTomeApp.server(tanks)
     _account = State(initialValue: account)
     // What a save puts on a tank without a page, that no page has, is sent as wanted: asked once the index is read (at
