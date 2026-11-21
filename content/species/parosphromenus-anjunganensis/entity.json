@@ -17,9 +17,11 @@
         "ID"
       ],
       "regions": [
-        "Borneo"
+        "Borneo",
+        "Kapuas"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish"
       ],
       "quotes": [
@@ -31,6 +33,14 @@
           ],
           "regions": [
             "Borneo"
+          ]
+        },
+        {
+          "source": "bwaquatics",
+          "quote": "Parosphromenus anjunganensis was described in 1991 from Sungai Kepayang, about 7 km southeast of Anjungan in the Kapuas system of West Kalimantan, Borneo.",
+          "countries": [],
+          "regions": [
+            "Kapuas"
           ]
         }
       ]

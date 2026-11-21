@@ -11,6 +11,52 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "However, it is assumed that the Panaque from Peru, first named as L90c and later as L203, is the juvenile form of P. schaeferi.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961547,
+      "total": 8,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "PE",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

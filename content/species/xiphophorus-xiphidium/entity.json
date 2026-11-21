@@ -124,5 +124,77 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Soto La Marina River"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is found on the headwaters of the Soto La Marina River and its tributaries, Tamaulipas State, on the Atlantic side of Mexico.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Soto La Marina River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350182,
+      "total": 49,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "MX",
+          48
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -99.84375,
+          22.5,
+          9,
+          9
+        ],
+        [
+          -99.84375,
+          23.90625,
+          36,
+          36
+        ],
+        [
+          -98.4375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          -98.4375,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -82.96875,
+          28.125,
+          1,
+          0
+        ]
+      ]
+    }
+  }
 }

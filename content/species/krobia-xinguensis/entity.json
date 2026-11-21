@@ -12,10 +12,33 @@
     "rio-xingu"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "As the name suggests, the animal originally comes from the Rio Xingu in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 7193200,
       "total": 6,
-      "fetched": "2026-11-19",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "BR",
@@ -26,16 +49,19 @@
         [
           -53.4375,
           -4.21875,
+          3,
           3
         ],
         [
           -53.4375,
           -1.40625,
+          1,
           1
         ],
         [
           -52.03125,
           -14.0625,
+          2,
           2
         ]
       ]

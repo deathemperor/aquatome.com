@@ -11,6 +11,66 @@
     "peru",
     "shampupa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Shampupa"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "One of the most spectacular species comes from Peru and was given the L-number 418.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Characteristic for the fish, which exporters call \"shampupa\" after the river in Peru where they catch the animals, are the broad, light-coloured tail fin seam and the blue-green base colouring.",
+          "countries": [],
+          "regions": [
+            "Shampupa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961549,
+      "total": 6,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          4
+        ],
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

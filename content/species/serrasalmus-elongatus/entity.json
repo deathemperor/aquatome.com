@@ -28,10 +28,13 @@
       ],
       "regions": [
         "Amazon",
-        "Orinoco"
+        "Orinoco",
+        "Rio Guaporé",
+        "Rio Apure"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -44,9 +47,31 @@
             "BO",
             "BR"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from Venezuela, Ecuador, Peru, Bolivia and Brazil, where it occurs in both the Amazon and Rio Orinoco river basins.",
+          "countries": [],
           "regions": [
             "Amazon",
             "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The type locality is the Rio Guaporé, Mato Grosso, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Guaporé"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Serrasalmus pingke from Venezuela was described from the Rio Apure.",
+          "countries": [],
+          "regions": [
+            "Rio Apure"
           ]
         }
       ]

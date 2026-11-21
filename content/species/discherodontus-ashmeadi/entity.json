@@ -23,7 +23,8 @@
       "regions": [
         "Mekong",
         "Mae Klong",
-        "Xe Bangfai"
+        "Xe Bangfai",
+        "Meklong"
       ],
       "sources": [
         "seriouslyfish",
@@ -49,6 +50,14 @@
           "countries": [],
           "regions": [
             "Xe Bangfai"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "They occur widespread in the Mekong and Meklong areas.",
+          "countries": [],
+          "regions": [
+            "Meklong"
           ]
         }
       ]

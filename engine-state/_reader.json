@@ -1871,6 +1871,12 @@
     "findings": [],
     "ruled": "03361a6f4f0e2c14"
   },
+  "vi/guides/aquariumbreeder-can-you-keep-crayfish-with-other-fish": {
+    "at": "2026-11-21",
+    "hash": "a3f717d356e937f3",
+    "findings": [],
+    "ruled": "a3f717d356e937f3"
+  },
   "vi/guides/aquariumbreeder-co2-in-planted-tank": {
     "at": "2026-11-18",
     "hash": "c7d4ebfe8e213c60",
@@ -3918,6 +3924,22 @@
     ],
     "ruled": "515cf4bbec73a79f"
   },
+  "vi/guides/aquariumbreeder-introduction-to-the-crayfish-care-setup-diet-and-facts": {
+    "at": "2026-11-21",
+    "hash": "4dc383392f787031",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tôm hùm đất người ta hay nuôi chủ yếu không cần bể paludarium",
+        "problem": "The sentence is garbled: the subject 'tôm hùm đất người ta hay nuôi' is followed by a misplaced 'chủ yếu', which reads like a word-for-word translation of 'most crayfish species in our hobby'.",
+        "fix": "Các loài tôm hùm đất hay nuôi thường không cần bể paludarium",
+        "field": "body"
+      }
+    ],
+    "ruled": "4dc383392f787031"
+  },
   "vi/guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew": {
     "at": "2026-11-19",
     "hash": "b21639fe94012c24",
@@ -4020,6 +4042,22 @@
       }
     ],
     "ruled": "09546c3edab09e8a"
+  },
+  "vi/guides/aquariumbreeder-list-of-freshwater-aquarium-snails-pros-and-cons": {
+    "at": "2026-11-21",
+    "hash": "1a5dcfce971554e2",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ốc nước ngọt là những \"hàng xóm\" dễ chịu. Chúng rất hiền và không làm phiền con nào trong bể.",
+        "problem": "The source's \"in general\" is dropped, so this flat claim clashes with later sections: assassin snails eat other snails, and Colombian ramshorns can eat eggs and small snails.",
+        "fix": "Ốc nước ngọt thường là những \"hàng xóm\" dễ chịu. Phần lớn loài rất hiền và không làm phiền con nào trong bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1a5dcfce971554e2"
   },
   "vi/guides/aquariumbreeder-live-plants-and-fake-plants-pros-and-cons": {
     "at": "2026-11-16",
@@ -5683,6 +5721,41 @@
     "hash": "f623a87130d4cf4a",
     "findings": [],
     "ruled": "f623a87130d4cf4a"
+  },
+  "vi/guides/aquariumbreeder-what-is-the-difference-between-crab-crayfish-lobster-and-dwarf-shrimp": {
+    "at": "2026-11-21",
+    "hash": "29e01734cc4d72f0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bị tôm hùm đất kẹp tay thì không sao",
+        "problem": "The sentence before says crayfish claws are often dangerous, and the source also calls them potentially dangerous, but this line says a pinch on the hand is harmless.",
+        "fix": "Bị tôm hùm đất kẹp tay thì chỉ đau thôi, nhưng cú kẹp đó có thể giết chết một số loài cá trong bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cũng khá nhiều người chơi thấy nó làm một chiếc bể hợp với nó thú vị hơn hẳn",
+        "problem": "\"nó\" is used twice and the sentence is built awkwardly, so it reads like a word-for-word translation.",
+        "fix": "nhưng cũng khá nhiều người chơi thấy thả tôm hùm vào đúng loại bể thì bể thú vị hơn hẳn.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Tép\n| Tôm hùm đất\n| Tôm hùm\n| Cua",
+        "problem": "The comparison table's header row has 4 cells but every data row has 5, because there is no empty corner cell. The columns don't line up, so the figures can be read against the wrong animal.",
+        "fix": "Thêm một ô trống ở đầu hàng tiêu đề: | | Tép | Tôm hùm đất | Tôm hùm | Cua",
+        "rule": "A table whose header row has fewer cells than its data rows.",
+        "field": "body"
+      }
+    ],
+    "ruled": "29e01734cc4d72f0"
   },
   "vi/guides/aquariumbreeder-what-is-this-thing-in-my-tank": {
     "at": "2026-11-16",
@@ -10159,6 +10232,22 @@
       }
     ],
     "ruled": "e61d6f3928b7bce6"
+  },
+  "vi/guides/aquatome-cach-tang-cuong-he-mien-dich-va-phong-benh-cho-ca-canh-vitamin-toi-muoi": {
+    "at": "2026-11-21",
+    "hash": "9b37baaabca1e29c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Thay nước hai lần một tuần. Bài ghi mức 20%, nhưng cũng dặn mỗi lần đừng thay quá 15%.",
+        "problem": "The page gives two conflicting water-change amounts (20% and no more than 15% per change) and doesn't say which one to use.",
+        "fix": "Thay nước hai lần một tuần, mỗi lần không quá 15%.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9b37baaabca1e29c"
   },
   "vi/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": {
     "at": "2026-11-06",
@@ -19466,6 +19555,22 @@
     "findings": [],
     "ruled": "10ed593883e280b2"
   },
+  "vi/guides/youtube-aED7TUlUTkY": {
+    "at": "2026-11-21",
+    "hash": "0c4589c571710aae",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên càng thêm hiệu ứng",
+        "problem": "The phrase is awkward and unnatural in Vietnamese: 'thêm hiệu ứng' has no object and reads like a literal translation.",
+        "fix": "nên bể càng thêm rực",
+        "field": "body"
+      }
+    ],
+    "ruled": "0c4589c571710aae"
+  },
   "vi/guides/youtube-AEMv84NfI4o": {
     "at": "2026-11-17",
     "hash": "c1d7eedbe1d739b2",
@@ -19683,6 +19788,12 @@
       }
     ],
     "ruled": "39a5b12942019158"
+  },
+  "vi/guides/youtube-avxOsXarRig": {
+    "at": "2026-11-21",
+    "hash": "be438803a15305e2",
+    "findings": [],
+    "ruled": "be438803a15305e2"
   },
   "vi/guides/youtube-awbC9AkUd6A": {
     "at": "2026-11-08",
@@ -21072,6 +21183,12 @@
       }
     ],
     "ruled": "51d12ab827621d3d"
+  },
+  "vi/guides/youtube-d1IqnjVMBnI": {
+    "at": "2026-11-21",
+    "hash": "d9e35d9cf3b9c74c",
+    "findings": [],
+    "ruled": "d9e35d9cf3b9c74c"
   },
   "vi/guides/youtube-D4_yBawlkJY": {
     "at": "2026-11-18",
@@ -22746,6 +22863,12 @@
     ],
     "ruled": "dfae2a05c78b7f85"
   },
+  "vi/guides/youtube-GMAu_upVyVw": {
+    "at": "2026-11-21",
+    "hash": "e1ea5d6be4d7e1b2",
+    "findings": [],
+    "ruled": "e1ea5d6be4d7e1b2"
+  },
   "vi/guides/youtube-gMyhZZKGrNQ": {
     "at": "2026-11-06",
     "hash": "f62ff99f0cc112d9",
@@ -22905,6 +23028,31 @@
     "hash": "1c95fd1e15e045a6",
     "findings": [],
     "ruled": "1c95fd1e15e045a6"
+  },
+  "vi/guides/youtube-gxAOSUOjveA": {
+    "at": "2026-11-21",
+    "hash": "14c534650776517d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "để bạn tự chọn bạn cho con cá xiêm của mình",
+        "problem": "The word \"bạn\" is used twice in one clause, once for the reader and once for \"tank mate\", which reads awkwardly.",
+        "fix": "để tự chọn cá nuôi chung cho con cá xiêm của mình",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đi khắp bể tìm thứ để gặm, không đụng tới cá khác",
+        "problem": "In a table about numbers and tank sizes, the 'Cách nuôi' cell for Ancistrus describes behaviour instead of how many to keep.",
+        "fix": "1 con | Không đụng tới cá khác, không thay được việc vệ sinh bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "14c534650776517d"
   },
   "vi/guides/youtube-GZPSghtqMKk": {
     "at": "2026-11-03",
@@ -23981,6 +24129,12 @@
     "findings": [],
     "ruled": "7ae2aa78a62eeec2"
   },
+  "vi/guides/youtube-Ig7niE0c78E": {
+    "at": "2026-11-21",
+    "hash": "c66115c0551caa53",
+    "findings": [],
+    "ruled": "c66115c0551caa53"
+  },
   "vi/guides/youtube-igpCCJlHwb8": {
     "at": "2026-11-13",
     "hash": "76389db98ca9c91d",
@@ -24752,6 +24906,31 @@
       }
     ],
     "ruled": "d7d51a91e435d739"
+  },
+  "vi/guides/youtube-Jjbg-DFwfYU": {
+    "at": "2026-11-21",
+    "hash": "449f264b0dc6c71e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Thả cá phân tán sự chú ý trước",
+        "problem": "This heading is word-for-word English: it reads as 'release fish, distract attention first' instead of 'add dither fish first'.",
+        "fix": "## Thả trước một đàn cá bơi nhanh để đánh lạc hướng cá xiêm",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể cá xiêm cái không dễ như có thể tưởng",
+        "problem": "This copies the English 'not as easy as you might think' and leaves out who is doing the thinking, so it sounds like a translation.",
+        "fix": "Nuôi đàn cá xiêm cái khó hơn nhiều người nghĩ",
+        "field": "body"
+      }
+    ],
+    "ruled": "449f264b0dc6c71e"
   },
   "vi/guides/youtube-jLaoKifwo1Y": {
     "at": "2026-11-09",
@@ -25753,6 +25932,12 @@
     "findings": [],
     "ruled": "99b88e265695c3f7"
   },
+  "vi/guides/youtube-KYQc-uWNhEA": {
+    "at": "2026-11-21",
+    "hash": "3b4f865a2a3c757b",
+    "findings": [],
+    "ruled": "3b4f865a2a3c757b"
+  },
   "vi/guides/youtube-kzwkw7Qw51c": {
     "at": "2026-11-16",
     "hash": "2103bdd1cba8a022",
@@ -26624,6 +26809,33 @@
       }
     ],
     "ruled": "81d4327afb4cffba"
+  },
+  "vi/guides/youtube-lYyEHHmeZY0": {
+    "at": "2026-11-21",
+    "hash": "2257577d14180266",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "miệng chai nhô hơi cao hơn mặt nước để vật liệu lọc không tràn ra",
+        "problem": "Here too, \"miệng chai\" means the cut-off end, which clashes with the capped mouth that sits underwater.",
+        "fix": "đầu chai vừa cắt nhô hơi cao hơn mặt nước để vật liệu lọc không tràn ra",
+        "field": "summary.3"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-21",
+        "field": "body",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "The page uses \"miệng chai\" (the bottle's mouth) for the open, cut-off bottom end. But the real mouth, with its cap and sponge, sits at the bottom underwater, so readers will be confused about which end should stick out above the water."
+        ]
+      }
+    ],
+    "ruled": "2257577d14180266"
   },
   "vi/guides/youtube-m-uLNI5xx2Y": {
     "at": "2026-11-02",
@@ -27961,6 +28173,31 @@
     "findings": [],
     "ruled": "239ad489593e889e"
   },
+  "vi/guides/youtube-OBvaJ0FgHPI": {
+    "at": "2026-11-21",
+    "hash": "f20b12979de57abb",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tránh loại lũa giống lũa chìm còn mới.",
+        "problem": "Garbled sentence: unclear which driftwood to avoid; 'lũa chìm' normally means sinking wood, which makes the advice confusing.",
+        "fix": "Tránh lũa mới chưa ngâm, vì loại này ra màu nhiều.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L4",
+        "quote": "Thả 5–10 con tép Amano là dọn được tảo silic và rêu tóc.",
+        "problem": "The summary says Amanos clear hair algae too and gives 5–10 shrimp, but the body only credits them with clearing diatoms and suggests 10–15 for a fair-sized tank.",
+        "fix": "Thả khoảng 10 con tép Amano là dọn được tảo silic trong một đêm.",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "f20b12979de57abb"
+  },
   "vi/guides/youtube-oc5mid3nQLY": {
     "at": "2026-11-19",
     "hash": "fdaccd102e0116de",
@@ -28908,6 +29145,12 @@
       }
     ],
     "ruled": "40b81ff30acb4782"
+  },
+  "vi/guides/youtube-pXgHpSWHzFE": {
+    "at": "2026-11-21",
+    "hash": "bbc67b32c9694456",
+    "findings": [],
+    "ruled": "bbc67b32c9694456"
   },
   "vi/guides/youtube-py-6gyQwVWU": {
     "at": "2026-11-06",
@@ -30242,6 +30485,12 @@
       }
     ],
     "ruled": "75250b70521bbcf7"
+  },
+  "vi/guides/youtube-sV6LatlgWNg": {
+    "at": "2026-11-21",
+    "hash": "9e44d370da632442",
+    "findings": [],
+    "ruled": "9e44d370da632442"
   },
   "vi/guides/youtube-SVD46Uvw66A": {
     "at": "2026-11-04",
@@ -31748,6 +31997,61 @@
     "findings": [],
     "ruled": "8c04faadb4507db8"
   },
+  "vi/guides/youtube-vHAw3347CLE": {
+    "at": "2026-11-21",
+    "hash": "3292da3488a1da7a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nó cũng thân người, thấy chủ là bơi ra đón.",
+        "problem": "\"Thân người\" is not natural Vietnamese for \"friendly with people\", so a reader will stumble on it.",
+        "fix": "Nó cũng quen người, thấy chủ là bơi ra đón.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chúng to con, có bị động cũng chẳng sợ",
+        "problem": "\"Bị động\" reads as \"passive\". The intended meaning is \"being disturbed\".",
+        "fix": "Chúng to con, có bị động tới cũng chẳng sợ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Dùng lá bàng đều đặn như vậy thì cá ít gặp vấn đề hơn hẳn, và cách này có lẽ đóng góp phần lớn vào đó.",
+        "problem": "The sentence goes in a circle: it first states the benefit as fact, then hedges that the same method \"probably contributes\" to it. It reads like a garbled translation of a first-person remark.",
+        "fix": "Dùng lá bàng đều đặn như vậy thì cá có lẽ sẽ ít gặp vấn đề hơn.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách bày tùy ý thích, chỉ có một điều phải giữ:",
+        "problem": "The sentence promises one rule, but the list has three items. Only the first is a rule; the other two are the reasons for it.",
+        "fix": "Cách bày tùy ý thích, chỉ cần nhớ một điều: nếu nuôi betta đuôi dài, đừng thả đá hay đồ trang trí có cạnh sắc.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-21",
+        "field": "body",
+        "score": 0.55,
+        "kept": false,
+        "problems": [
+          "\"Thân người\" is not natural Vietnamese for \"friendly with people\", so a reader will stumble on it.",
+          "The sentence goes in a circle: it first states the benefit as fact, then hedges that the same method \"probably contributes\" to it. It reads like a garbled translation of a first-person remark."
+        ]
+      }
+    ],
+    "ruled": "3292da3488a1da7a"
+  },
   "vi/guides/youtube-viG-wVICUZo": {
     "at": "2026-11-06",
     "hash": "672a75b5900db6b6",
@@ -32983,6 +33287,12 @@
     "findings": [],
     "ruled": "77cf97026ba57d38"
   },
+  "vi/guides/youtube-YFcioRUCa6c": {
+    "at": "2026-11-21",
+    "hash": "5ee83988d85957cc",
+    "findings": [],
+    "ruled": "5ee83988d85957cc"
+  },
   "vi/guides/youtube-yfiUqZ8IZU4": {
     "at": "2026-11-07",
     "hash": "64e3af80a9e1e815",
@@ -33861,6 +34171,12 @@
     "hash": "421950faddab921e",
     "findings": [],
     "ruled": "421950faddab921e"
+  },
+  "vi/guides/youtube-ZJV8f7Ug0-M": {
+    "at": "2026-11-21",
+    "hash": "85bb4631a58e6116",
+    "findings": [],
+    "ruled": "85bb4631a58e6116"
   },
   "vi/guides/youtube-Zl5gW-39XRE": {
     "at": "2026-11-14",

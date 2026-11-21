@@ -1,0 +1,212 @@
+{
+  "id": "leporinus-granti",
+  "native": {
+    "input": "28dbc776f12e6a9f",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.",
+        "words": "Guiana thuộc Pháp",
+        "ok": false,
+        "why": "\"Guiana thuộc Pháp\" is not GF"
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "doubtful",
+        "source": "aquatome",
+        "quote": "Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mana",
+        "source": "aquatome",
+        "quote": "Có nguồn chỉ ghi lưu vực sông Mana ở phía tây Guiana thuộc Pháp, trên bờ biển đông bắc Nam Mỹ.",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "aquatome",
+        "quote": "Một nguồn khác thì ghi rộng hơn nhiều: từ lưu vực sông Orinoco tới Guiana thuộc Pháp và Brazil, có cả ở Guyana, Suriname và Colombia, còn Ecuador thì chưa chắc.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leporinus granti",
+    "status": "ACCEPTED",
+    "taxonKey": 2355410,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        192
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        180
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        57
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        37
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        22
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        21
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        12
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        12
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        10
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        6
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "e42bf2ce-364f-444c-ba0e-c5947cc5f4b3",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "68ace562-4acd-4a6e-a1ef-52c73a5018d8",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "240e848b-47bc-40a3-a44c-6e745901d2d0",
+        1
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        1
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "941aeef8-2aa1-490d-b6fc-0133095dccea",
+        1
+      ],
+      [
+        "cff7cefc-b0d5-4128-9fac-d26e8b5a7f81",
+        1
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GY",
+      "SR",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

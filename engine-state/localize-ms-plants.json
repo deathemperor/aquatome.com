@@ -2675,5 +2675,67 @@
       "maintenance:tropica": "b4c78212c83c",
       "notes:tropica": "91fcfc38fbaa"
     }
+  },
+  "peperomia-emarginella": {
+    "at": "2026-11-21",
+    "from": "2026-11-02",
+    "name": "Peperomia emarginella",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Minor: \"hardscape\" left in English; consider adding a local term, e.g. \"hiasan keras (hardscape)\".",
+      "Minor: \"dahan kayu\" is not used; \"dahan\" is fine but \"kayu apungan/ranting\" is more common for terrarium branches, and \"latar depan\" is better as \"bahagian hadapan\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "d7b934863f61",
+      "notes:tropica": "69f53ed5118c"
+    }
+  },
+  "peperomia-prostrata": {
+    "at": "2026-11-21",
+    "from": "2026-10-31",
+    "name": "String of Turtles",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "\"Sederhana\" for growth rate/light demand is fine; no change needed except consider \"sederhana\" consistency - none.",
+      "\"hiasan hardscape\": leave English \"hardscape\" without gloss; consider \"hardscape (hiasan akuarium/terrarium)\" or \"batu dan kayu hiasan\" for clarity.",
+      "\"mengingatkan kita kepada\" is slightly wordy; \"menyerupai\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:tropica": "a1771edd529b",
+      "notes:tropica": "3baa47306eed"
+    }
+  },
+  "philodendron-sp-mini-midget": {
+    "at": "2026-11-21",
+    "from": "2026-11-03",
+    "name": "Philodendron Mini Midget",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "Item 2: \"ditanam dengan diikat pada kayu\" is slightly awkward; \"dilekatkan/diikat pada kayu\" would be more natural. \"hardscape\" is acceptable, but \"hiasan keras\" could also be considered.",
+      "Item 3: \"rupa tropika\" is slightly informal; \"penampilan tropika\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:tropica": "3a980d87ae7f",
+      "maintenance:tropica": "a2d04c077546",
+      "notes:tropica": "9f34c2919a5e"
+    }
+  },
+  "phyllanthus-fluitans": {
+    "at": "2026-11-21",
+    "from": "2026-10-31",
+    "name": "Red Root Floater",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "\"kalis air\" for water-repellent leaves is slightly off; \"menolak air\" or \"hidrofobik\" is more precise.",
+      "\"Semakin terang cahaya, semakin perang warna daunnya\" is fine, but \"Semakin kuat pencahayaan\" is more natural for hobbyists."
+    ],
+    "parts": {
+      "quickFacts:tropica": "4eb1321bafe6",
+      "notes:tropica": "1c6755ad01f3"
+    }
   }
 }

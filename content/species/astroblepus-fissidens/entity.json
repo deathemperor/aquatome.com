@@ -96,5 +96,99 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Río Mataje",
+        "Río Guayas",
+        "Río Esmeraldas",
+        "Santiago",
+        "Andes"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Andes of Ecuador.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Río Mataje, Río Guayas, Río Esmeraldas basin.",
+          "countries": [],
+          "regions": [
+            "Río Mataje",
+            "Río Guayas",
+            "Río Esmeraldas"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "This species is only known from the Mataje and Santiago basins in northwestern Ecuador (Jiménez-Prado et al. 2015).",
+          "countries": [],
+          "regions": [
+            "Santiago"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Its type locality is the Andes of Ecuador (Regan 1904).",
+          "countries": [],
+          "regions": [
+            "Andes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342150,
+      "total": 13,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          10
+        ],
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -78.75,
+          0,
+          4,
+          4
+        ],
+        [
+          -75.9375,
+          2.8125,
+          3,
+          0
+        ]
+      ]
+    }
+  }
 }

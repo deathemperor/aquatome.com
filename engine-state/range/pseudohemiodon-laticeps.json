@@ -1,37 +1,13 @@
 {
   "id": "pseudohemiodon-laticeps",
   "native": {
-    "input": "f3d46a0e85b924bc",
-    "at": "2026-11-13T05:31:31.275Z",
+    "input": "176407e3c00ae97d",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The giant whiptail catfish, Pseudohemiodon laticeps, is a loricariid from the rios Uruguay, Paraná and Paraguay in Brazil, Paraguay and Argentina.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "PY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The giant whiptail catfish, Pseudohemiodon laticeps, is a loricariid from the rios Uruguay, Paraná and Paraguay in Brazil, Paraguay and Argentina.",
-        "words": "Paraguay",
-        "ok": true
-      },
-      {
-        "code": "AR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The giant whiptail catfish, Pseudohemiodon laticeps, is a loricariid from the rios Uruguay, Paraná and Paraguay in Brazil, Paraguay and Argentina.",
-        "words": "Argentina",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
         "quote": "Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.",
         "words": "Brazil",
         "ok": true
@@ -50,30 +26,37 @@
         "source": "seriouslyfish",
         "quote": "Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.",
         "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pseudohemiodon laticeps from Paraguay is one of the longest-known mouth-breeding Whiptail Catfish in the hobby.",
+        "words": "Paraguay",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Rio Uruguay",
+        "name": "Uruguay",
         "source": "seriouslyfish",
         "quote": "Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.",
         "ok": false,
-        "why": "its name is not in the quote"
+        "why": "a country"
       },
       {
-        "name": "Rio Paraná",
+        "name": "Paraná",
         "source": "seriouslyfish",
         "quote": "Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "ok": true
       },
       {
-        "name": "Rio Paraguay",
+        "name": "Paraguay",
         "source": "seriouslyfish",
         "quote": "Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.",
         "ok": false,
-        "why": "its name is not in the quote"
+        "why": "a country"
       }
     ],
     "disputed": [],

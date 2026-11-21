@@ -10,6 +10,44 @@
     "indonesia",
     "borneo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Gymnochanda flamea, the red filamentous glassfish, is a dwarf glassfish from Indonesia, up to 4 cm long.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "G. flamea occurs in South Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2387165,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

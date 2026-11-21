@@ -10,6 +10,56 @@
     "colombia",
     "norte-de-santander"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río Cáchira"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Departamento de Norte de Santander, Municipio de Cáchira, Quebrada La Amoladera, Vereda Ramírez, tributary of the upper Río Cáchira, elevation 2035 metres.",
+          "countries": [],
+          "regions": [
+            "Río Cáchira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9565019,
+      "total": 3,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          7.03125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

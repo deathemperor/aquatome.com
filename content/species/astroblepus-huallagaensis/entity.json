@@ -104,5 +104,46 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Huallaga",
+        "Andes"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Andes of Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Andes"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Etymology: The specific name huallagaensis: Named for its type locality, Río Huallaga (Perú, elevation 997 m).",
+          "countries": [],
+          "regions": [
+            "Río Huallaga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11163935,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  }
 }

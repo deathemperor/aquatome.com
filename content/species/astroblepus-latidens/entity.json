@@ -97,5 +97,87 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Upper Meta River",
+        "Suarez River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Meta River basin, Colombia and Suarez River basin, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Upper Meta River",
+            "Suarez River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342128,
+      "total": 128,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          128
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          4.21875,
+          102,
+          102
+        ],
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -73.125,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  }
 }

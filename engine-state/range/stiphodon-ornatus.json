@@ -1,14 +1,22 @@
 {
   "id": "stiphodon-ornatus",
   "native": {
-    "input": "a4fa9a2759c7acc2",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "75a3b0a12de51e55",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Known only from the provinces of Aceh and West Sumatra, Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from West Sumatra (Indonesia).",
         "words": "Indonesia",
         "ok": true
       }
