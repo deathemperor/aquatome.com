@@ -7,7 +7,7 @@ import { GLOSSARY_HELD, linkTerms, toneKey, type LinkTarget } from '@aq/schema'
  * nền", "giun đỏ", "lãnh thổ", "oxy già" and "đốm trắng" linked what they don't mean). Every place the site's linker links
  * a term by its name, an other name or a link phrase on a live page, with the words on either side, flagged where the
  * words around it may make it something else:
- * - name: a capitalised word stands right after it, or right before it inside a sentence ("Lãnh thổ Bắc Úc");
+ * - name: a capitalised word stands right after it ("Lãnh thổ Bắc Úc");
  * - longer: the word after it makes a phrase the site writes often (LONGER times on LONGER_PAGES pages or more) that is
  *   none of the term's own names ("oxy già").
  * It deletes nothing and links nothing: the chief of staff reads the flags and rules, and a phrase held is on the list the
@@ -53,15 +53,16 @@ export function checkLinks(terms: Term[], pages: Page[], held: Set<string> = new
   const longerOf = (t: Term, n: string) => {
     if (toneKey(n) === toneKey(t.name) || n.split(/\s+/).length > 2) return []
     const k = `${t.id}\n${n}`, names = own.get(t.id)!.map(toneKey), mine = toneKey(plain(t.text ?? ''))
-    return [...count.get(k)!].filter(([w, c]) => c >= LONGER && after.get(k)!.get(w)!.size >= LONGER_PAGES && !STOP.has(w)
+    return [...(count.get(k) ?? [])].filter(([w, c]) => c >= LONGER && after.get(k)!.get(w)!.size >= LONGER_PAGES && !STOP.has(w)
       && !names.some(x => x.startsWith(toneKey(`${n} ${w}`))) && !mine.includes(toneKey(`${n} ${w}`)))
       .map(([w, c]) => [w, c, after.get(k)!.get(w)!.size] as [string, number, number]).sort((a, b) => b[1] - a[1])
   }
   const reports = new Map<string, PhraseReport>()
   const report = (t: Term, n: string) => {
     const k = `${t.id}\n${toneKey(n)}`
-    // The entry itself writes it before a name ("lưu vực sông Amazon"): a name after it is the term's own use.
-    const ownCaps = new RegExp(`(?<![\\p{L}\\p{M}\\p{N}])${escape(n)} \\p{Lu}\\p{Ll}`, 'iu').test(plain(t.text ?? ''))
+    // The entry itself writes it before a name ("lưu vực sông Amazon"): a name after it is the term's own use. The phrase is
+    // matched in any case and the word after it tested apart: under the case-blind flag, \p{Lu} matches any letter.
+    const ownCaps = [...plain(t.text ?? '').matchAll(new RegExp(`(?<![\\p{L}\\p{M}\\p{N}])${escape(n)} ([\\p{L}\\p{M}]+)`, 'giu'))].some(m => /^\p{Lu}\p{Ll}/u.test(m[1]!))
     return reports.get(k) ?? reports.set(k, { term: t.id, phrase: n, links: 0, longer: longerOf(t, own.get(t.id)!.find(x => toneKey(x) === toneKey(n)) ?? n), ownCaps, flagged: [] }).get(k)!
   }
   const byId = new Map(terms.map(t => [t.id, t]))

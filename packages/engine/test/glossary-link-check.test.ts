@@ -44,3 +44,12 @@ test('a held phrase doesn\'t link, so it isn\'t counted or flagged, and the file
   expect(text).toContain('"oxy già" 12 times on 12 pages')
   expect(text).toContain('- longer: beside "già", 12 places')
 })
+
+// The reader of #1805, 22 Nov 2026: with the case-blind flag, "a name after it" matched any word, so an entry that writes
+// "lãnh thổ là …" let every "Lãnh thổ Bắc Úc" through. Only a capitalised word in the entry's own text makes it the term's use.
+test('an entry that writes the phrase before a lower-case word still has a name after it flagged', () => {
+  const t: Term = { id: 'tinh-lanh-tho', name: 'Tính lãnh thổ', altNames: [], linkNames: ['lãnh thổ'], text: '<p>Cá giữ lãnh thổ rất chặt.</p>' }
+  const r = checkLinks([t], [page('ca-uc', '<p>Loài này sống ở Lãnh thổ Bắc Úc.</p>')])
+  expect(r[0]!.ownCaps).toBe(false)
+  expect(r[0]!.flagged.map(f => [f.flag, f.next])).toEqual([['name', 'Bắc']])
+})
