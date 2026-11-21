@@ -1085,6 +1085,12 @@ test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", ()
 // guide's whole id).
 test("the Writing Lead's words hold on the four guides the night of 19 Nov cut", () => handFixesHold('guarded-four-1120.json', ''))
 
+// The gang valve guide's PVC pipe, "½ to ¾ inch" at its source: two pipe sizes, which a keeper buys as phi 21 and phi 27,
+// not the inches' length in millimetres ("13–19 mm"). The pipe range rule (units.ts pipes) writes it so from now on; the
+// guide's body was fixed by hand to match, bodyFixed, and stays held for the gate's read (the chief of staff, 21 Nov 2026;
+// test/fixtures/pipe-range-1121.json).
+test("the gang valve guide's pipe is said as the two pipe sizes", () => handFixesHold('pipe-range-1121.json', ''))
+
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
 // bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
 // the list of guides where a step the video took had become advice. Each guide is bodyFixed, and faqFixed where its FAQ
