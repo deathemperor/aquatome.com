@@ -1,7 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { beforeAll, expect, test } from 'vitest'
 import { loadAll, type Content } from '@aq/schema'
-import { GALLERY_MIN } from '../src/lib/gallery'
 import { renamedPages } from '../src/lib/renamed'
 import { slow } from '@aq/schema/test-time'
 
@@ -92,17 +91,17 @@ test('the pencilfish guide took "cá chì" and its old address 301s to it', () =
 test('an old address another page has taken since stays that page: it never redirects', () => {
   const t = (slug: string, redirectFrom?: { slug: string; name: string }[]) => ({ t: { slug, ...(redirectFrom ? { redirectFrom } : {}) } })
   const pages = { species: [t('ca-dia', [{ slug: 'ca-dia-nau', name: 'Cá đĩa nâu' }]), t('ca-dia-heckel', [{ slug: 'ca-dia', name: 'Cá đĩa' }])], breeds: [], plants: [], guides: [], galleries: {} }
-  expect(renamedPages(pages as unknown as Pages)).toEqual({ '/ca/ca-dia-nau/': '/ca/ca-dia/?tu=ca-dia-nau' })
+  expect(renamedPages(pages as unknown as Pages)).toEqual({ '/ca/ca-dia-nau/': '/ca/ca-dia/?tu=ca-dia-nau', '/ca/ca-dia-nau/anh/': '/ca/ca-dia/' })
 })
 
 // Search Console, 2026-11-05: /ca/ca-tu-van-puntigrus/anh/ was a 404 when the fish's own old address redirected. Since
 // 18 Nov an album opens over its page, and the old photo address goes to the page itself, in one step.
-test('a renamed page with an album takes its old photo address with it, to the page; a page without one has none to redirect', () => {
+test('renamed fish and plants take their old photo addresses with them', () => {
   const page = (id: string, slug: string, old: string) => ({ id, t: { slug, redirectFrom: [{ slug: old, name: old }] } })
-  const pages = { species: [page('a', 'ca-moi', 'ca-cu'), page('b', 'ca-it-anh', 'ca-it-anh-cu')], breeds: [], plants: [page('c', 'cay-moi', 'cay-cu')], guides: [], galleries: { a: Array(GALLERY_MIN).fill({}), b: Array(GALLERY_MIN - 1).fill({}), c: Array(GALLERY_MIN).fill({}) } }
+  const pages = { species: [page('a', 'ca-moi', 'ca-cu'), page('b', 'ca-it-anh', 'ca-it-anh-cu')], breeds: [], plants: [page('c', 'cay-moi', 'cay-cu')], guides: [] }
   expect(renamedPages(pages as unknown as Pages)).toEqual({
     '/ca/ca-cu/': '/ca/ca-moi/?tu=ca-cu', '/ca/ca-cu/anh/': '/ca/ca-moi/',
-    '/ca/ca-it-anh-cu/': '/ca/ca-it-anh/?tu=ca-it-anh-cu',
+    '/ca/ca-it-anh-cu/': '/ca/ca-it-anh/?tu=ca-it-anh-cu', '/ca/ca-it-anh-cu/anh/': '/ca/ca-it-anh/',
     '/cay/cay-cu/': '/cay/cay-moi/?tu=cay-cu', '/cay/cay-cu/anh/': '/cay/cay-moi/',
   })
   expect(renamedPages(c)['/ca/ca-tu-van-puntigrus/anh/']).toBe('/ca/ca-tu-van/')

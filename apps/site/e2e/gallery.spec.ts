@@ -89,7 +89,7 @@ for (const [what, section] of [['fish', 'ca'], ['plant', 'cay']] as const) {
 
 // The photos' chip stays at the row's end, in sight while the others scroll beside it, and opens the album over the page.
 test('a fish\'s jump row ends with the photos and their count, in sight, and opens the album', async ({ page, request, errors }, info) => {
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length > 0 && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
   test.skip(!found, 'no fish with a jump row and an album in this build')
   const { path, album } = found!
   await page.goto(path)
@@ -165,7 +165,7 @@ test('album: a thumb tapped while the album\'s script loads opens its photo over
 // Two thumbs tapped before the album's script has run: the second photo opens once it runs, on one entry: one Back
 // closes it, the next leaves.
 test('album: two thumbs tapped while the album\'s script loads open the second, and one Back closes it', async ({ page, request, errors }) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 2)
   test.skip(!found, 'no fish album in this build')
   const { path, album } = found!
   let release = () => {}
@@ -196,7 +196,7 @@ test('album: two thumbs tapped while the album\'s script loads open the second, 
 
 // Back pressed while the viewer's code is still on its way: nothing opens once it arrives, and the page stays as it was.
 test('album: Back pressed while the viewer loads opens nothing once it arrives', async ({ page, request, errors }) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 3)
   test.skip(!found, 'no fish album in this build')
   const { path } = found!
   let release = () => {}, asked = () => {}
@@ -224,7 +224,7 @@ test('album: Back pressed while the viewer loads opens nothing once it arrives',
 // A photo's address typed into the address bar on the page: the photo opens on that entry, Back closes it on the page,
 // and the next Back leaves (no second copy of the page in the history).
 test('album: a photo\'s address typed on the page opens it there; Back closes it, the next Back leaves', async ({ page, request, errors }) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 3)
   test.skip(!found, 'no fish album in this build')
   const { path, album } = found!
   await page.goto('/')
@@ -272,26 +272,28 @@ test('album, a tall computer screen: closed on a photo the column clips, focus g
   expect(errors).toEqual([])
 })
 
-// A strip that shows every photo has no "Xem tất cả"; a phone's wrapped strip shows 6 of its thumbs, so one of 7 or 8
-// keeps it there alone (the Design Lead, 18 Nov).
+// A strip that shows every photo has no "Xem tất cả" while every thumb is in view, and a row that runs past the screen's
+// edge has it (the Design Lead, 18 Nov; the strip's readers, 20 and 21 Nov: a phone keeps every thumb, in one sideways
+// row, and the row measures itself at any width). Its strip is "strip wrap row": this looked for "strip wrap" alone, and
+// skipped from 20 Nov.
 test('album: "Xem tất cả" only where the strip doesn\'t show every photo', async ({ page, request, errors }, info) => {
-  // Found by its thumbs, not by the button: a wrapped strip (a breed's, or a fish's with no photo) of 7 or 8, whole.
+  // Found by its thumbs, not by the button: a strip outside the photo column (a breed's, or a fish's with no photo) of 7
+  // or 8, whole.
   const found = await albumPage(request, 'ca', (a, html) => {
-    const strip = /<section class="strip wrap"[\s\S]*?<\/ul>/.exec(html)?.[0] ?? ''
+    const strip = /<section class="strip wrap\b[^"]*"[\s\S]*?<\/ul>/.exec(html)?.[0] ?? ''
     const n = strip.match(/<li\b/g)?.length ?? 0
     return n >= 7 && n === a.photos.length
   })
-  test.skip(!found, 'no wrapped strip of 7 or 8 photos, all of its album, in this build')
+  test.skip(!found, 'no strip of 7 or 8 photos outside the photo column, all of its album, in this build')
   await page.goto(found!.path)
-  const seen = page.locator('section.strip li a[data-i]:visible')
+  await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+  const thumbs = page.locator('section.strip li a[data-i]')
+  await expect(page.locator('section.strip li a[data-i]:visible')).toHaveCount(await thumbs.count())
   const all = page.locator('section.strip [data-all]:visible')
-  if (info.project.name === 'phone') {
-    await expect(seen).toHaveCount(6)
-    await expect(all).toHaveText(`Xem tất cả ${found!.album.photos.length} ảnh`)
-  } else {
-    await expect(seen).toHaveCount(await page.locator('section.strip li a[data-i]').count())
-    await expect(all).toHaveCount(0)
-  }
+  const past = await page.locator('section.strip ul').evaluate(ul => ul.scrollWidth > ul.clientWidth)
+  if (info.project.name === 'phone') expect(past, "a phone's row of seven runs past its edge").toBe(true)
+  if (past) await expect(all).toHaveText(`Xem tất cả ${found!.album.photos.length} ảnh`)
+  else await expect(all).toHaveCount(0)
   expect(errors).toEqual([])
 })
 
@@ -299,7 +301,7 @@ test('album: "Xem tất cả" only where the strip doesn\'t show every photo', a
 // stays where it was (the Design Lead, 18 Nov).
 test('album, a phone: closed on a photo whose thumb is past the row\'s edge, the row scrolls it into view, focused', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 5 && /class="strip column/.test(html))
   test.skip(!found, 'no fish page with a photo row in this build')
   const { path } = found!
   await page.goto(path)
@@ -336,7 +338,7 @@ test('album, a phone: closed on a photo whose thumb is past the row\'s edge, the
 // past the row's edge: the page stays where it was, and focus goes back to the chip, not to a thumb off the screen.
 test('album, a phone: closed with the strip off the screen, the page stays, focus on the chip that opened it', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 5 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
   test.skip(!found, 'no fish page with a photo row and a jump row in this build')
   const { path } = found!
   await page.goto(path)
@@ -373,7 +375,7 @@ test('album, a phone: closed with the strip off the screen, the page stays, focu
 // is, and the page stays where it was (Codex's read, 18 Nov).
 test('album, a phone: the row partly on the screen, closed on the thumb beside the one tapped, focus there, the page still', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 2 && /class="strip column/.test(html))
   test.skip(!found, 'no fish page with a photo row in this build')
   await page.goto(found!.path)
   await page.waitForLoadState()
@@ -410,7 +412,7 @@ test('album, a phone: the row partly on the screen, closed on the thumb beside t
 // 18 Nov).
 test('album, a phone: closed on a thumb under a bar at the screen\'s top, focus goes to the chip', async ({ page, request, errors, isMobile }) => {
   test.skip(!isMobile, 'the photo column is a sideways row on a phone')
-  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 6 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
+  const found = await albumPage(request, 'ca', (a, html) => a.photos.length >= 2 && /class="strip column/.test(html) && /<nav[^>]*class="[^"]*\bjump\b/.test(html))
   test.skip(!found, 'no fish page with a photo row and a jump row in this build')
   const { path } = found!
   await page.goto(path)
@@ -555,7 +557,7 @@ test('album, a tall computer screen: "Xem tất cả" goes when the column shows
 // On a phone the Back button closes the photo, not the page; the photo follows a swipe to the next one; a photo's own
 // address (#a3, a shared photo's) opens it over the page.
 test('album viewer: #a3 opens photo 3, a swipe goes to the next, Back closes it and stays on the page', async ({ page, request, errors }, info) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 4)
   test.skip(!found, 'no fish album in this build')
   const { path, album } = found!
   const n = album.photos.length
@@ -587,7 +589,7 @@ test('album viewer: #a3 opens photo 3, a swipe goes to the next, Back closes it 
 // Zoomed in (a pinch or a double tap on a phone, the wheel or a double click on a computer), a drag pans the photo
 // instead of going to the next one; a double tap or click zooms back out, and the swipe works again.
 test('album viewer: a zoomed photo pans rather than swiping; a double tap zooms back out', async ({ page, request, errors }, info) => {
-  const found = await albumPage(request, 'ca')
+  const found = await albumPage(request, 'ca', a => a.photos.length >= 2)
   test.skip(!found, 'no fish album in this build')
   const touch = info.project.name === 'phone'
   // The album's widest photo: zoomed on a computer's wide screen, a tall one can stay narrower than the screen, with
@@ -648,12 +650,156 @@ test('album viewer: one click zooms in with a mouse, the next zooms out; a doubl
   expect(errors).toEqual([])
 })
 
+test('a short album adds one thumbnail beside the lead and opens it over the page', async ({ page }) => {
+  test.skip(LIVE, 'uses the fixture whose two-photo album includes its lead')
+  await page.goto('/ca/ca-neon-xanh/')
+  const strip = page.locator('[data-album]')
+  const thumb = strip.locator('li a[data-i]')
+  await expect(thumb).toHaveCount(1)
+  await expect(strip.locator('[data-all]:visible')).toHaveCount(0)
+  await expect.poll(() => strip.locator('ul').evaluate(ul => ul.scrollWidth - ul.clientWidth)).toBe(0)
+  await expect(strip).toHaveAttribute('data-ready', '')
+  await thumb.click()
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('2/2')
+})
+
+// The photo strip's reader, 20 Nov 2026: a plant's strip on a phone was a grid of three that hid its thumbnails past the
+// sixth. Every strip outside the fish page's photo column is now the column's sideways row: each thumbnail it carries in
+// one row that swipes, none hidden.
+test('a plant\'s strip on a phone 360 px wide: every thumbnail in one sideways row, none hidden', async ({ page, request, isMobile }) => {
+  test.skip(!isMobile, 'a phone\'s row')
+  const found = await albumPage(request, 'cay', (_, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) >= 7)
+  test.skip(!found, 'no plant whose strip carries seven thumbnails or more in this build')
+  await page.setViewportSize({ width: 360, height: 800 })
+  await page.goto(found!.path)
+  const thumbs = page.locator('section.strip li:has(a[data-i])')
+  const n = await thumbs.count()
+  expect(n).toBeGreaterThanOrEqual(7)
+  const boxes = await thumbs.evaluateAll(els => els.map(el => ({ shown: getComputedStyle(el).display !== 'none', top: (el as HTMLElement).offsetTop })))
+  expect(boxes.filter(b => !b.shown), 'hidden thumbnails').toEqual([])
+  expect(new Set(boxes.map(b => b.top)).size, 'rows').toBe(1)
+  const ul = page.locator('section.strip ul')
+  expect(await ul.evaluate(el => el.scrollWidth > el.clientWidth), 'swipes sideways').toBe(true)
+  expect(await sideways(page), 'the page itself scrolls sideways').toBeNull()
+})
+
+// The strip's reader, 21 Nov: the row runs up to 860 px, and its "Xem tất cả" showed only up to 640, so at 700 px a row of
+// seven or eight ran past the screen's edge with no button. The row measures itself at every width now. Its second read,
+// 21 Nov: measured against the strip's whole width, its side margins counted as room, so at 740 px the seventh thumbnail
+// was cut by 28 px and the button stayed hidden. The row is measured inside those margins.
+test('a plant\'s row 700 or 740 px wide that runs past the edge shows "Xem tất cả", and one that fits doesn\'t', async ({ page, request, isMobile }) => {
+  test.skip(isMobile, 'a width between a phone and a computer')
+  // Seven or eight thumbnails that are the whole album (GALLERY_STRIP), so only the row's own measure decides.
+  // Seven exactly: eight thumbnails run past 740 px by more than the margins, so they would pass on the bug (the strip's
+  // third read, 21 Nov).
+  const found = await albumPage(request, 'cay', (a, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) === 7 && a.photos.length === 7)
+  test.skip(!found, 'no plant whose strip is its whole album of seven in this build')
+  const ul = page.locator('section.strip ul')
+  const see = page.locator('section.strip [data-all]')
+  // Each width loaded afresh, so the button is the page's first measure, not one left from the width before.
+  for (const width of [700, 740]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto(found!.path)
+    await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+    expect(await ul.evaluate(el => el.scrollWidth > el.clientWidth), `the row runs past the edge at ${width} px`).toBe(true)
+    await expect(see, `"Xem tất cả" at ${width} px`).toBeVisible()
+  }
+  // Wide enough for the row's four columns, every thumb in view: no button.
+  await page.setViewportSize({ width: 1280, height: 900 })
+  await expect(see).toBeHidden()
+})
+
+// The strip's fourth read, 21 Nov: a row's edge read in whole pixels let a thumbnail cut by under two pixels count as
+// seen. The plant's strip is set to 766.625 px from the page's left, so its row of seven (720 px) has 718.625: the seventh
+// is cut by 1.375 px, and a width rounded up to 767 would make it 1, inside the 1 px allowance.
+test('a plant\'s row whose seventh thumbnail is cut by under two pixels shows "Xem tất cả"', async ({ page, request, isMobile }) => {
+  test.skip(isMobile, 'a screen of one pixel to the pixel, as the fractions are counted')
+  const found = await albumPage(request, 'cay', (a, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) === 7 && a.photos.length === 7)
+  test.skip(!found, 'no plant whose strip is its whole album of seven in this build')
+  await page.setViewportSize({ width: 800, height: 900 })
+  await page.goto(found!.path)
+  await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+  const see = page.locator('section.strip [data-all]')
+  await expect(see, 'the row fits at 800 px').toBeHidden()
+  const cut = await page.locator('section.strip').evaluate(box => {
+    Object.assign(box.style, { width: '766.625px', maxWidth: 'none', marginInline: '0' })
+    const ul = box.querySelector('ul')!, v = ul.getBoundingClientRect()
+    return Math.max(...[...ul.querySelectorAll('a[data-i]')].map(a => a.getBoundingClientRect().right)) - v.right
+  })
+  expect(cut, 'the seventh thumbnail is cut by 1.375 px').toBeCloseTo(1.375, 3)
+  await expect(see).toBeVisible()
+})
+
+// The strip's fourth read, 21 Nov: on a phone the column's row is the thumbnails and the button's place, with a gap
+// between them that stays when the button is hidden. Measured to the strip's edge, a thumbnail ending in that gap counted
+// as seen though the row cuts it. The album is cut to the photos the phone's row shows (not the column's further ones,
+// hidden at this width), so only the row's measure decides: wide enough for every thumbnail and the gap, no button.
+test('a fish\'s column row whose last thumbnail ends in the gap before the button\'s place shows "Xem tất cả"', async ({ page, request, isMobile }) => {
+  test.skip(isMobile, 'a screen of one pixel to the pixel, as the gap is counted')
+  // The row's own thumbnails: an <li> without the column's "more" class. Two at least, so one can be cut.
+  const own = (html: string) => {
+    const strip = /<section class="strip column\b[\s\S]*?<\/ul>/.exec(html)?.[0] ?? ''
+    return [...strip.matchAll(/<li(?![^>]*\bclass="more")[^>]*><a [^>]*\bdata-i="(\d+)"/g)].map(m => Number(m[1]))
+  }
+  const found = await albumPage(request, 'ca', (_, html) => /<section class="strip column\b[\s\S]*?<button type="button" class="all"/.test(html) && own(html).length >= 2)
+  test.skip(!found, 'no fish page whose photo column has a strip of two thumbnails or more and its button in this build')
+  const { path, html } = found!
+  const n = Math.max(...own(html)) + 1
+  const body = html.replace(/(<section[^>]*data-album[\s\S]*?<script type="application\/json"[^>]*>)([\s\S]*?)(<\/script>)/, (_, a, j, b) => {
+    const album = JSON.parse(j) as { photos: unknown[] }
+    return a + JSON.stringify({ ...album, photos: album.photos.slice(0, n) }).replace(/</g, '\\u003c') + b
+  })
+  await page.route(u => u.pathname === path, route => route.fulfill({ contentType: 'text/html; charset=utf-8', body }))
+  await page.setViewportSize({ width: 800, height: 900 })
+  await page.goto(path)
+  await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+  const all = page.locator('section.strip .all')
+  const box = page.locator('section.strip')
+  // How far the row's thumbnails run, and the gap before the button's place.
+  const { run, gap } = await box.evaluate(el => {
+    const ul = el.querySelector('ul')!
+    const right = Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => a.checkVisibility()).map(a => a.getBoundingClientRect().right + ul.scrollLeft))
+    return { run: right - ul.getBoundingClientRect().left, gap: parseFloat(getComputedStyle(el).columnGap) }
+  })
+  expect(gap, 'the column row has a gap').toBeGreaterThan(2)
+  // Two frames after each width, so the strip is laid out and the measure has had it before anything is asserted.
+  const width = (w: number) => box.evaluate((el, w) => new Promise<void>(done => { el.style.width = `${w}px`; requestAnimationFrame(() => requestAnimationFrame(() => done())) }), w)
+  // Each width waits for the measure's answer before the next: half a gap short first, the button shown; then room for
+  // every thumbnail and the gap, all of the album seen, no button; then half a gap short again.
+  await width(run + gap / 2)
+  await expect(all, 'the last thumbnail cut').toBeVisible()
+  await width(run + gap + 2)
+  await expect(all, 'every thumbnail in view').toBeHidden()
+  await width(run + gap / 2)
+  expect(await box.evaluate(el => { const ul = el.querySelector('ul')!; return Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => a.checkVisibility()).map(a => a.getBoundingClientRect().right + ul.scrollLeft)) - ul.getBoundingClientRect().right }), 'the row cuts its last thumbnail').toBeGreaterThan(1)
+  await expect(all).toBeVisible()
+})
+
+test('a lead-only album has no strip', async ({ page }) => {
+  test.skip(LIVE, 'uses the lead-only fixture')
+  await page.goto('/ca/ca-boraras-do/')
+  await expect(page.locator('header.top #anh img')).toBeVisible()
+  await expect(page.locator('section.strip, nav.jump a[href="#a1"]')).toHaveCount(0)
+  await page.goto('/ca/ca-boraras-do/#a1')
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('1/1')
+})
+
+test('a short album opens on the photo carried through a legacy redirect', async ({ page }) => {
+  test.skip(LIVE, 'uses the two-photo fixture')
+  await page.goto('/ca/ca-neon-xanh/?album=1#a2')
+  await expect(page).toHaveURL(at('/ca/ca-neon-xanh/', '#a2'))
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('2/2')
+  await page.goto('/ca/ca-neon-xanh/?album=1')
+  await expect(page).toHaveURL(at('/ca/ca-neon-xanh/', '#a1'))
+  await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('1/2')
+})
+
 // Live only (the Worker forwards; the local server is files alone): an album's old address, as Google and old links keep
 // it, lands on its page, and the browser keeps the photo's #aN across the forward, which opens it there.
 test('an album\'s old address forwards to its page, and its #a2 opens photo 2 there', async ({ page, request, errors }) => {
   test.skip(!LIVE, 'the Worker forwards it: live only')
-  const found = await albumPage(request, 'ca')
-  test.skip(!found, 'no fish album on the site')
+  const found = await albumPage(request, 'ca', a => a.photos.length === 2)
+  test.skip(!found, 'no two-photo fish album in the sample')
   const { path, album } = found!
   await page.goto(`${path}anh/#a2`)
   await expect(page).toHaveURL(at(path, '#a2'))

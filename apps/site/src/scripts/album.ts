@@ -96,22 +96,42 @@ if (box && json) {
     if (from) opener = from
     v.open(i, { ...how(), from })
   }, () => {})
+  // A retired album URL requests the first photo unless it carried a specific photo's fragment.
+  const entry = new URL(location.href)
+  const legacy = entry.searchParams.get('album') === '1'
+  if (legacy) {
+    entry.searchParams.delete('album')
+    if (at() === null) entry.hash = '#a1'
+    history.replaceState(history.state, '', entry)
+  }
   if (mine()) void view().then(v => v.restore(), () => {})
-  else if (at() !== null) openHere(() => (arrived() ? { under: location.pathname + location.search } : { adopt: true }))
+  else if (at() !== null) openHere(() => (legacy || arrived() ? { under: location.pathname + location.search } : { adopt: true }))
   addEventListener('hashchange', () => { if (at() !== null && !mine()) openHere(() => ({ adopt: true })) })
-  // The tall screen's column shows as many whole rows of thumbs as fit (GalleryStrip.astro): when they're every photo,
-  // given those the page shows already (data-fit, their places), "Xem tất cả" goes (data-fits; the Design Lead, 18 Nov).
+  // Measure against the full row width so showing or hiding its button cannot change the result: the strip's right edge
+  // inside its side margins (a strip outside the column has the page's; one in the column, none). The strip's second read,
+  // 21 Nov: counted as room, those margins hid the button at 740 px with the seventh thumbnail cut. Its third: the edge is
+  // read as the browser lays it out, fractions kept, since a width rounded to whole pixels could hide a cut thumbnail. Its
+  // fourth: the column's row keeps the gap before its button's place when the button is hidden, so the list ends that gap
+  // short of the strip's edge, and the measure ends there too.
   const fit = box.dataset.fit, list = box.querySelector('ul')
   if (fit !== undefined && list) {
     const elsewhere = new Set(fit.split(' ').filter(Boolean).map(Number))
+    const mobile = matchMedia('(max-width: 860px)')
+    const thumbs = [...list.querySelectorAll<HTMLAnchorElement>('a[data-i]')]
     const fits = () => {
       const v = list.getBoundingClientRect()
-      const seen = new Set([...list.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => shows(a, v)).map(a => Number(a.dataset.i)))
+      const s = getComputedStyle(box)
+      const right = box.getBoundingClientRect().right - parseFloat(s.paddingRight) - (parseFloat(s.columnGap) || 0)
+      const seen = new Set(thumbs.filter(a => shows(a, v) && (!mobile.matches ||
+        a.getBoundingClientRect().right + list.scrollLeft <= right + 1)).map(a => Number(a.dataset.i)))
       const every = photos.every((_, i) => seen.has(i) || elsewhere.has(i))
       for (const b of box.querySelectorAll('[data-all]')) b.toggleAttribute('data-fits', every)
     }
     fits()
-    new ResizeObserver(fits).observe(list)
+    const observer = new ResizeObserver(fits)
+    observer.observe(box)
+    observer.observe(list)
+    mobile.addEventListener('change', fits)
   }
   box.setAttribute('data-ready', '')
 }
