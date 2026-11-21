@@ -576,7 +576,10 @@ final class MasterFlowTests: XCTestCase {
   /// to sign in are at its top, which a sheet this long no longer draws from there (as AccountFlowTests' `reached`).
   private func signedOut(_ app: XCUIApplication) -> Bool {
     let apple = element(app, "apple-sign-in")
-    if apple.waitForExistence(timeout: 5) { return true }
+    // Landed first, within main's 10 s: "Đăng xuất" is drawn only while signed in. Only then scrolled back up, so a drag
+    // never reaches the sheet's top before the sign-out has landed and pulls the sheet down (Fable, 21 Nov).
+    guard element(app, "sign-out").waitForNonExistence(timeout: 10) else { return apple.exists }
+    if apple.waitForExistence(timeout: 2) { return true }
     repeatUntil(apple.exists, times: 8) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.35)).press(
         forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75)), withVelocity: .fast,

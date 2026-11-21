@@ -17,8 +17,10 @@ extension XCUIApplication {
     // page moving between them; the retry flung five times and passed. Where it was: read from the page that scrolls,
     // not the bars (`Reading`): its lowest and its highest words the same, each within half a point of the reading
     // before and of where the run of still readings began (against the first alone, 700 then 700.49 then 699.51 read
-    // still, a step of 0.98; Codex, 21 Nov), so repeated words can't read still alone. Not still after 30 flings, or no
-    // reading of the screen, fails: a check that never saw the page's end proves nothing (Codex and the chief, 21 Nov).
+    // still, a step of 0.98; Codex, 21 Nov), so repeated words can't read still alone. And the whole screen's lowest
+    // words still too, as the check read them before it read the page, so it never stops sooner than that did (a larger
+    // scroller than the one a fling moves reads still at once; Fable, 21 Nov). Not still after 30 flings, or no reading
+    // of the screen, fails: a check that never saw the page's end proves nothing (Codex and the chief, 21 Nov).
     var from: Reading?, last: Reading?, still = 0, flings = 0
     while still < 2 {
       guard flings < 30 else {
@@ -159,15 +161,15 @@ extension XCUIApplication {
 
   /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
   /// text (a fish's page has hundreds, and the screen may change between two). Nil for no snapshot or no words.
-  private func lowestWords() -> (y: CGFloat, what: String)? {
-    guard let snap = try? snapshot() else { return nil }
+  private func lowestWords(_ taken: XCUIElementSnapshot? = nil) -> (y: CGFloat, words: String, what: String)? {
+    guard let snap = taken ?? (try? snapshot()) else { return nil }
     let screen = snap.frame
-    var low: (y: CGFloat, what: String)?
+    var low: (y: CGFloat, words: String, what: String)?
     func walk(_ e: XCUIElementSnapshot) {
       if e.elementType == .tabBar { return }
       let f = e.frame
       if e.elementType == .staticText, !f.isEmpty, f.minY < screen.maxY, f.maxY > screen.minY, f.maxY > low?.y ?? 0 {
-        low = (f.maxY, "“\(e.label)” at \(f)")
+        low = (f.maxY, e.label, "“\(e.label)” at \(f)")
       }
       for c in e.children { walk(c) }
     }
@@ -179,8 +181,12 @@ extension XCUIApplication {
   /// they begin.
   private struct Reading {
     let low: CGFloat, words: String, high: CGFloat, top: String, what: String
+    /// The whole screen's lowest words but the tab bar's, from the same snapshot: what the check read before it read the
+    /// page (`lowestWords`).
+    let screen: CGFloat, screenWords: String
     func isStill(_ o: Reading) -> Bool {
-      words == o.words && top == o.top && abs(low - o.low) < 0.5 && abs(high - o.high) < 0.5
+      words == o.words && top == o.top && screenWords == o.screenWords
+        && abs(low - o.low) < 0.5 && abs(high - o.high) < 0.5 && abs(screen - o.screen) < 0.5
     }
   }
 
@@ -213,8 +219,8 @@ extension XCUIApplication {
       for c in e.children { walk(c) }
     }
     walk(page)
-    guard let low, let high else { return nil }
-    return Reading(low: low.y, words: low.words, high: high.y, top: high.words, what: low.what)
+    guard let low, let high, let all = lowestWords(snap) else { return nil }
+    return Reading(low: low.y, words: low.words, high: high.y, top: high.words, what: low.what, screen: all.y, screenWords: all.words)
   }
 
   /// The Tài khoản sheet, from the open tab's profile button (top right of its first screen), unless it's open already.
