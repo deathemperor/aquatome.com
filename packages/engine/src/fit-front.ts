@@ -66,7 +66,11 @@ export function laneFirst<P extends { lang: string; kind: string; id: string }>(
  * those; `products`: those with a foreign product (fit-rewrite.ts cuts their sentences by code when a writer's cut is
  * refused).
  */
-export function frontPlan<P extends { lang: string; kind: string; id: string }>(list: { cleared: boolean | string; lane: boolean; products?: boolean | string; front: readonly string[] }, last: FirstRun | undefined, ranked: readonly P[], held: ReadonlyMap<string, HeldMark>, product: (p: P) => boolean = () => false) {
+export function frontPlan<P extends { lang: string; kind: string; id: string }>(list: { cleared: boolean | string; lane: boolean; products?: boolean | string; front: readonly string[]; read?: readonly string[] }, last: FirstRun | undefined, every: readonly P[], held: ReadonlyMap<string, HeldMark>, product: (p: P) => boolean = () => false) {
+  // A page a person changed by hand (`read`) is the read's, never the rewrite's: it takes no place in any of its lines, a
+  // foreign product found on it or a hold included (#1718's reader).
+  const reads = new Set(list.read ?? [])
+  const ranked = every.filter(p => !reads.has(keyOf(p)))
   const isHeld = frontHeld(list, last)
   const lane = list.lane ? laneFirst(ranked, held) : []
   const inLane = new Set(lane.map(keyOf))
@@ -88,6 +92,12 @@ export const offLane = (r: { rewritten: string[]; notKept: string[]; skipped: st
   const ours = (x: string) => !lane.has(x.split(' ')[0]!.replace(/:$/, ''))
   return { rewritten: r.rewritten.filter(ours), notKept: r.notKept.filter(ours), skipped: r.skipped.filter(ours), failed: r.failed.filter(ours), ...(r.stopped ? { stopped: r.stopped } : {}) }
 }
+
+/**
+ * The order the read takes: the pages a person changed by hand (`read`), then the front list. The rewrite's plan leaves a
+ * page on `read` out (frontPlan), so it costs the rewrite no place (the chief of staff, 20 Nov 2026).
+ */
+export const readFirst = (list: { read?: readonly string[]; front: readonly string[] }) => ({ front: [...new Set([...(list.read ?? []), ...list.front])] })
 
 /**
  * The front list's pages first, in the list's order, then every other page in the order given. A listed key with no

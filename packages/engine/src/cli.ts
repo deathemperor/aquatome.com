@@ -37,7 +37,7 @@ import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { fitRewriteKinds, topicCheckLimit, videoCutOn } from './switches'
-import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
+import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, readFirst, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardPhotos, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
 import { readSecondLook } from './last-photo'
 import { phraseRun } from './phrases'
@@ -732,13 +732,15 @@ if (cmd === 'photo-privacy') {
   if (values.front) {
     // runFit reads the pages it is given in its own order. One page a call keeps the front list's order under --limit.
     // A page not due a read (fitDue) is not passed, so it costs no call and does not use a place in the limit.
-    const want = new Set(fitFront.front)
+    // The pages a person changed by hand first (fit-front.json read), then the front list.
+    const first = readFirst(fitFront)
+    const want = new Set(first.front)
     const prior = JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}')) as FitState
     // Then the Vietnamese pages whose saved read found a foreign product still on them, read again once their text has
     // changed, so the rewrite can take them (the chief of staff, 17 Nov 2026: 11 of the 54 left had a read of older text).
     // Only the kinds the rewrite takes: a product or equipment page's read could lead to no rewrite.
     const products = values.lang || values.only ? [] : filtered.filter(p => p.lang === 'vi' && ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && !want.has(fitKey(p)) && !(p.kind === 'guides' && retiredTo(p.id)) && foreignProduct(p, prior[fitKey(p)]))
-    const chosen = [...orderFront(fitFront, filtered).filter(p => want.has(fitKey(p))), ...products]
+    const chosen = [...orderFront(first, filtered).filter(p => want.has(fitKey(p))), ...products]
     const stale = fitDue(chosen, prior)
     r = { read: 0, failed: [], left: 0 }
     state = prior

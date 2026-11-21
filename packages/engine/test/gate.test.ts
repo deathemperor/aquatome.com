@@ -1183,6 +1183,87 @@ test('a guide held for the video\'s own dose goes to its editor while the read f
 // The chief of staff, 20 Nov 2026: the guard on a body a person fixed (bodyFixed) stops the writers and the menders, never
 // the gate. A guarded guide is read like any other: held, it stays held while its read finds a fault; live, harm found on
 // it holds it.
+// The chief of staff, 20 Nov 2026: a page a person changed by hand is read first (fit-front.json read), and what that read
+// finds goes to the chief of staff. Only harm holds it until the chief of staff says; off the list, a kit holds it.
+test('a page on the read list is held for harm on its read, not for a kit until the chief of staff says', async () => {
+  const kit = async (handRead: ReadonlySet<string>, check: 'kit' | 'harm') => {
+    const root = await repo()
+    const page = await guidePage(root)
+    await saveState(root, { [fitKey(page)]: { at: '2026-11-09', hash: fitText(page).hash, model: 'opus', checklist: 3, findings: [{ check, part: 'P1', quote: 'Lọc', why: 'x', by: 'model' }], products: [] } })
+    await gate(root, { llm: reader(), now, handRead })
+    return (await readJson(root, GUIDE)).held
+  }
+  const listed = new Set(['vi/guides/youtube-r53ZQW0m8VM'])
+  expect(await kit(listed, 'kit')).toBeUndefined()
+  expect(await kit(listed, 'harm')).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  expect(await kit(new Set(), 'kit')).toEqual({ checks: ['kit'], at: '2026-11-09' })
+})
+
+// The same for a guide a cycle changed (#1718's reader): a kit its old text carried, or the old text put back with its kit,
+// waits for the chief of staff when the guide is on the list; harm holds it all the same.
+test('a guide on the read list that a cycle changed is held for harm, not for a kit its old text had', async () => {
+  const listed = new Set(['vi/guides/youtube-r53ZQW0m8VM'])
+  const kit = { checks: ['kit'], at: '2026-11-09' }
+  // Changed beside it: the new text keeps the old text's sentence.
+  const carried = async (handRead: ReadonlySet<string>, sentence: string) => {
+    const root = await repo()
+    await edit(root, GUIDE, t => { t.body = `<p>${sentence}</p>${t.body as string}` })
+    commit(root, 'old text')
+    await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+    await gate(root, { llm: reader(), now, handRead })
+    return (await readJson(root, GUIDE)).held
+  }
+  expect(await carried(listed, 'Bể Aqueon.')).toBeUndefined()
+  expect(await carried(new Set(), 'Bể Aqueon.')).toEqual(kit)
+  expect(await carried(listed, 'Cứ tắt lọc qua đêm.')).toEqual({ checks: ['harm'], at: '2026-11-09' })
+  // Put back: the new text brings a shop, so the old text goes back, with its kit.
+  const back = async (handRead: ReadonlySet<string>) => {
+    const root = await repo()
+    await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}` })
+    commit(root, 'kit')
+    await edit(root, GUIDE, t => { t.body = (t.body as string).replace('<p>Bể Aqueon.</p>', '<p>Mua ở Petco.</p>') })
+    const r = await gate(root, { llm: reader(), now, handRead })
+    expect(r.report.revert).toHaveLength(1)
+    return readJson(root, GUIDE)
+  }
+  const listedBack = await back(listed)
+  expect(listedBack.body).toContain('Bể Aqueon')
+  expect(listedBack.held).toBeUndefined()
+  expect((await back(new Set())).held).toEqual(kit)
+})
+
+// #1718's second reader: a guide on the list held already for harm and a kit stayed held for the kit once the harm was
+// gone, since a held page's kit waits for a person (WAITS). On the list, the kit holds it on no path.
+test('a guide on the read list held for harm and a kit is let out once its harm is gone; off the list the kit holds it', async () => {
+  const cleared = async (handRead: ReadonlySet<string>) => {
+    const root = await repo()
+    await edit(root, GUIDE, t => { t.body = `<p>Cứ tắt lọc qua đêm.</p><p>Bể Aqueon.</p>${t.body as string}`; t.held = { checks: ['harm', 'kit'], at: '2026-11-08' } })
+    commit(root, 'held for harm and a kit')
+    await edit(root, GUIDE, t => { t.body = (t.body as string).replace('<p>Cứ tắt lọc qua đêm.</p>', '') })
+    await gate(root, { llm: reader(), now, handRead })
+    return (await readJson(root, GUIDE)).held as { checks: string[] } | undefined
+  }
+  expect(await cleared(new Set(['vi/guides/youtube-r53ZQW0m8VM']))).toBeUndefined()
+  expect((await cleared(new Set()))?.checks).toContain('kit')
+})
+
+// #1718's third reader: leaving the kit out let a listed guide held for a kit and a dose's caution go on a read that found
+// the kit alone. The caution waits for a person, so it keeps the guide held; the kit isn't among its reasons.
+test('a guide on the read list held for a kit and a dose caution stays held for the caution when its read finds the kit', async () => {
+  const held = async (handRead: ReadonlySet<string>, checks = ['dose-caution', 'kit']) => {
+    const root = await repo()
+    await edit(root, GUIDE, t => { t.body = `<p>Bể Aqueon.</p>${t.body as string}`; t.held = { checks, at: '2026-11-08' } })
+    commit(root, 'held for a kit and a caution')
+    await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Thay nước mỗi tuần.</p>` })
+    await gate(root, { llm: reader(), now, handRead })
+    return ((await readJson(root, GUIDE)).held as { checks: string[] } | undefined)?.checks
+  }
+  expect(await held(new Set(['vi/guides/youtube-r53ZQW0m8VM']))).toEqual(['dose-caution'])
+  expect(await held(new Set())).toEqual(['dose-caution', 'kit'])
+  // The fifth read: held besides for harm and a dose the read no longer finds, it isn't held for them again.
+  expect(await held(new Set(['vi/guides/youtube-r53ZQW0m8VM']), ['dose', 'dose-caution', 'harm', 'kit'])).toEqual(['dose-caution'])
+})
+
 test('a body a person fixed is read and held like any other: the guard stops only the writers and menders', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.bodyFixed = true; t.held = { checks: ['shop'], at: '2026-11-08' } })
