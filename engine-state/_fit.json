@@ -95217,64 +95217,71 @@
  },
  "vi/guides/youtube-ojUhcailsfc": {
   "at": "2026-11-21",
-  "hash": "f15278f9c7841eda",
+  "hash": "fb949d9272455854",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Bể suối trong bài mới set khoảng ba tuần",
-    "why": "Refers to the source video's own tank as if the reader knew it.",
+    "quote": "Bể suối trong bài mới set khoảng ba tuần và đã đi qua vài giai đoạn xấu.",
+    "why": "Treats the source's own tank as one the reader already knows.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "tới lúc quay video thì lớp này đã hết hẳn",
-    "why": "Points to the source video's filming.",
+    "why": "Refers to the source video, which the reader doesn't have.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "ở một bể khác của người nuôi, nuôi đàn cá mù",
-    "why": "Introduces the source keeper's other tanks the reader doesn't know.",
+    "quote": "ở một bể khác của người nuôi, nuôi đàn cá mù, có lẽ cá không làm việc này",
+    "why": "Brings in the source keeper's other tanks as if the reader knew them.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Một bể của người nuôi đã chạy lâu, sạch rêu",
-    "why": "Narrates the source keeper's own tank.",
+    "quote": "Một bể của người nuôi đã chạy lâu, sạch rêu, cây nào bỏ vào cũng lên tốt",
+    "why": "Tells the source keeper's own tank story.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Bể dưỡng cây của người nuôi châm CO2 rất ít",
-    "why": "Refers to the source keeper's own tank.",
+    "quote": "Ở bể cá mù của người nuôi, số cây gom về từ một bố cục vừa phá được cắm tạm phía sau",
+    "why": "Tells the source keeper's own story about a layout the reader never saw.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "người nuôi khen nó làm việc giỏi",
-    "why": "Source keeper's own voice.",
+    "quote": "Bể dưỡng cây của người nuôi châm CO2 rất ít, dưới 1 bọt mỗi giây",
+    "why": "Gives the source keeper's own tank as the reference.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "L1",
-    "quote": "Bể suối trong bài, set được ba tuần",
-    "why": "Refers to the source's tank.",
+    "quote": "Bể suối trong bài, set được ba tuần, đã qua một đợt vi khuẩn bùng",
+    "why": "Summary refers to the source's tank as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L4",
+    "quote": "Một bể của người nuôi trong bài, dùng làm chỗ dưỡng cây",
+    "why": "Refers to the keeper in the source article.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "L7",
-    "quote": "Người nuôi trong bài nói",
-    "why": "Refers to the person in the source article/video.",
+    "quote": "Người nuôi trong bài nói với mức dưới 1 bọt mỗi giây ở bể của mình",
+    "why": "Brings in the source's keeper, a person the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -96500,7 +96507,7 @@
  },
  "vi/guides/youtube-Pn0-xaW8S3w": {
   "at": "2026-11-21",
-  "hash": "728cd60ed91adc69",
+  "hash": "e136102f332bf6bc",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -96515,70 +96522,49 @@
     "check": "source",
     "part": "P1",
     "quote": "Ở bể trong bài, người nuôi hay quên vớt nên bèo bắt đầu thành của nợ.",
-    "why": "The source keeper's own story about their tank.",
+    "why": "The original keeper's personal story about their own tank.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Ở bể trong bài, người nuôi rút khoảng một nửa lượng nước đang có",
-    "why": "Describes the source's own tank and keeper.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Người nuôi trong bài chọn thả thêm ốc và tép.",
-    "why": "Introduces the article's keeper, a stranger to the reader.",
+    "quote": "Ở bể trong bài, ngay sau khi thả chưa thấy con tép nào.",
+    "why": "Narrates what happened in the source video's tank.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Đàn cá này do người nuôi tự cho đẻ, ở nước mát từ trước",
-    "why": "The source keeper's personal story about their own fish.",
+    "why": "Story about the source keeper's own fish, someone the reader doesn't know.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "L1",
-    "quote": "Bể trong bài không có lọc nên vẫn phải thay nước",
-    "why": "Refers to the source's tank.",
+    "quote": "Bể trong bài không có lọc mà vẫn có cá",
+    "why": "Summary refers to the source's tank instead of giving general advice.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "L2",
-    "quote": "Người nuôi khuyên",
-    "why": "Attributes advice to the source's keeper, whom the reader doesn't know.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "L3",
-    "quote": "Bể trong bài được thay chừng 30–40% nước so với bể đầy",
-    "why": "Refers to the source's tank.",
+    "part": "L5",
+    "quote": "Bể trong bài dựa vào ốc và tép để dọn chất thải",
+    "why": "Summary is about the source's own tank.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "L7",
     "quote": "Lần này người nuôi rút khoảng một nửa lượng nước đang có",
-    "why": "A bare 'lần này' pointing to the source's session.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "L11",
-    "quote": "Người nuôi trong bài khuyên",
-    "why": "Introduces the article's keeper.",
+    "why": "A bare \"lần này\" pointing to the source's session.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "L11",
     "quote": "Ở bể trong bài, người nuôi hay quên vớt nên bèo bắt đầu thành của nợ.",
-    "why": "The source keeper's own story.",
+    "why": "The source keeper's personal story repeated in the FAQ.",
     "by": "model"
    }
   ],
