@@ -223,9 +223,10 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
  * call a fish by its page's name, and the check, never told it, read it as a name no fact gives). Each line is a page's
  * names, then "=" and the scientific name a fact writes whole. A page whose scientific name no fact writes isn't listed,
  * so a page name for a species no fact carries still stops, and a name two pages share ("Cá neon") is listed for neither.
- * A fact on a variety, a cultivar, a subspecies or a "group" lists neither its base species' page nor another cultivar's,
- * an unidentified "sp." page or an uncertain "cf." one is never listed, an other name that is a scientific name (another
- * species', or an old one) isn't either, and "×" and "x" write one hybrid (the outside reads of #1809).
+ * A name is matched within one fact. A fact on a variety, a cultivar, a subspecies or a "group" lists neither its base
+ * species' page nor another cultivar's, an unidentified "sp." page or an uncertain "cf." one is never listed, an other name
+ * that may be a scientific name (another species', or an old one) isn't either, and "×" and "x" write one hybrid (the
+ * outside reads of #1809).
  */
 export async function factPageNames(root: string, text: string): Promise<string[]> {
   const pages: { sci?: string; names: string[] }[] = []
@@ -244,20 +245,24 @@ export async function factPageNames(root: string, text: string): Promise<string[
   const hybrid = (w: string) => w.toLowerCase() === 'x'
   const words = (sci: string) => {
     const ws = sci.replace(/×/g, ' x ').trim().split(/\s+/)
-    return ws.map((w, i) => (i ? (hybrid(w) || hybrid(ws[i - 1]!) ? '\\s*' : '\\s+') : '') + (hybrid(w) ? '(?:×|(?<!\\p{L})x)' : esc(w))).join('')
+    return ws.map((w, i) => (hybrid(w) ? '(?:\\s*×\\s*|\\s+x\\s+)' : `${i && !hybrid(ws[i - 1]!) ? '\\s+' : ''}${esc(w)}`)).join('')
   }
-  // Whole, and not the start of a longer name: a variety's, a cultivar's, a subspecies' or a group's ("Anubias barteri var.
-  // nana 'Pinto'" is no fact on "Anubias barteri var. nana", nor "Epiplatys dageti monroviae" on "Epiplatys dageti"); a page
-  // for an unidentified or uncertain one ("Bucephalandra sp.", "cf.") names no species.
+  // Whole, in one fact, and not the start of a longer name: a variety's, a cultivar's, a subspecies' or a group's
+  // ("Anubias barteri var. nana 'Pinto'" is no fact on "Anubias barteri var. nana", nor "Epiplatys dageti monroviae" on
+  // "Epiplatys dageti", nor "Betta unimaculata-group" on Betta unimaculata); a page for an unidentified or uncertain one
+  // ("Bucephalandra sp.", "cf.") names no species.
+  const facts = text.split('\n')
   const named = (sci: string) => {
     const longer = pages.flatMap(q => (q.sci?.toLowerCase().startsWith(`${sci.toLowerCase()} `) ? [words(q.sci.slice(sci.length))] : []))
-    return new RegExp(`(?<![\\p{L}\\p{N}])${words(sci)}(?![\\p{L}\\p{N}])(?!\\s+['"‘’“”])(?!\\s+(?:var|cv|subsp|ssp|f)\\.)(?!\\s+(?:group|complex)(?![\\p{L}\\p{N}]))${longer.length ? `(?!\\s+(?:${longer.join('|')})(?![\\p{L}\\p{N}]))` : ''}`, 'iu').test(text)
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${words(sci)}(?![\\p{L}\\p{N}])(?!\\s+['"‘’“”])(?!\\s+(?:var|cv|subsp|ssp)\\.?(?![\\p{L}\\p{N}])|\\s+f\\.)(?!\\s*[-‐–]\\s*\\p{L})(?!\\s+(?:group|complex)(?![\\p{L}\\p{N}]))${longer.length ? `(?!\\s+(?:${longer.join('|')})(?![\\p{L}\\p{N}]))` : ''}`, 'iu')
+    return facts.some(f => re.test(f))
   }
   const vague = (sci: string) => /\s(?:spp?)\.?$/i.test(sci) || /\s(?:cf|aff)\.\s/i.test(sci)
-  // An other name written as a scientific name ("Betta ocellata" on Betta unimaculata's page) may be another species' or an
-  // old one, so it isn't the page's to give; a trade name after a genus ("Anubias nana Large") is.
+  // An other name that starts with a genus a page has and has no Vietnamese letter may be a scientific name ("Betta ocellata"
+  // or "Betta Ocellata" on Betta unimaculata's page: another species', or an old one), so it isn't the page's to give. A
+  // Vietnamese one after a genus ("Bucephalandra lá đậm") is.
   const genera = new Set(pages.flatMap(p => (p.sci ? [p.sci.split(' ')[0]!.toLowerCase()] : [])))
-  const latin = (n: string) => { const [g, ...rest] = n.trim().split(/\s+/); return !!rest.length && genera.has(g!.toLowerCase()) && rest.every(w => /^(?:[a-z-]+\.?|×)$/.test(w)) }
+  const latin = (n: string) => genera.has(n.trim().split(/[\s-]+/)[0]!.toLowerCase()) && !/[^\x00-\x7f×]/.test(n)
   return pages.filter(p => p.sci?.includes(' ') && !vague(p.sci) && named(p.sci)).flatMap(p => {
     const own = p.names.filter(n => pagesOf.get(toneKey(n)) === 1 && !latin(n)).slice(0, 5)
     return own.length ? [`${own.join(' | ')} = ${p.sci}`] : []

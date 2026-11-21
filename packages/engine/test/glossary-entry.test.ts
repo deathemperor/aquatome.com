@@ -1316,21 +1316,26 @@ test('the fact check is told the site\'s names for the species the facts name by
     await writeFile(join(more, 'content/plants', id, 'vi.json'), JSON.stringify({ name, altNames: [] }))
   }
   await plant('anubias-barteri', 'Anubias barteri', 'Ráy Anubias barteri')
-  await plant('anubias-barteri-var-nana', 'Anubias barteri var. nana', 'Anubias nana Large')
+  await plant('anubias-barteri-var-nana', 'Anubias barteri var. nana', 'Ráy nana lá lớn')
   await plant('bucephalandra-sp', 'Bucephalandra sp.', 'Bucephalandra lá đậm')
   expect(await factPageNames(more, "Anubias barteri var. nana 'Pinto' grows slowly. Bucephalandra sp. grows on rocks.")).toEqual([])
-  expect(await factPageNames(more, 'Anubias barteri var. nana grows slowly.')).toEqual(['Anubias nana Large = Anubias barteri var. nana'])
+  expect(await factPageNames(more, 'Anubias barteri var. nana grows slowly.')).toEqual(['Ráy nana lá lớn = Anubias barteri var. nana'])
   expect(await factPageNames(more, "Tanichthys micagemmae's fins are red.")).toEqual(['Cá neon Việt Nam | Vietnamese minnow = Tanichthys micagemmae'])
-  // Its second read's: a subspecies or a group names neither its species' page; an other name written as a scientific name
-  // isn't the page's to give; and "×" and "x" write one hybrid.
+  // Its second read's: a subspecies or a group names neither its species' page; an other name that may be a scientific
+  // name (a genus a page has, and no Vietnamese letter) isn't the page's to give; and "×" and "x" write one hybrid.
   await page(more, 'epiplatys-dageti', 'Epiplatys dageti', 'Cá sóc Epiplatys dageti')
   await page(more, 'epiplatys-dageti-monroviae', 'Epiplatys dageti monroviae', 'Cá sóc đuôi đỏ')
   await page(more, 'betta-unimaculata', 'Betta unimaculata', 'Cá betta đầu rắn')
-  await writeFile(join(more, 'content/species/betta-unimaculata/vi.json'), JSON.stringify({ name: 'Cá betta đầu rắn', altNames: ['Betta ocellata', 'Betta unimaculata Sabah'] }))
+  await writeFile(join(more, 'content/species/betta-unimaculata/vi.json'), JSON.stringify({ name: 'Cá betta đầu rắn', altNames: ['Betta ocellata', 'Betta Ocellata', 'Betta unimaculata Sabah', 'Betta đầu rắn'] }))
   await plant('cryptocoryne-willisii', 'Cryptocoryne x willisii', 'Ráy willisii')
   expect(await factPageNames(more, 'Epiplatys dageti monroviae lives in Liberia. The Betta unimaculata group is wide.')).toEqual(['Cá sóc đuôi đỏ = Epiplatys dageti monroviae'])
-  expect(await factPageNames(more, 'Epiplatys dageti lives in Ghana. Betta unimaculata is a mouthbrooder.')).toEqual(['Cá betta đầu rắn | Betta unimaculata Sabah = Betta unimaculata', 'Cá sóc Epiplatys dageti = Epiplatys dageti'])
+  expect(await factPageNames(more, 'Epiplatys dageti lives in Ghana. Betta unimaculata is a mouthbrooder.')).toEqual(['Cá betta đầu rắn | Betta đầu rắn = Betta unimaculata', 'Cá sóc Epiplatys dageti = Epiplatys dageti'])
   for (const hybrid of ['Cryptocoryne × willisii', 'Cryptocoryne ×willisii', 'Cryptocoryne x willisii']) expect(await factPageNames(more, `${hybrid} grows slowly.`)).toEqual(['Ráy willisii = Cryptocoryne x willisii'])
+  // Its third read's: a name is matched within one fact, never across two; a rank with no full stop or a hyphened group is
+  // a longer name; and "xwillisii" is no hybrid's.
+  expect(await factPageNames(more, 'The genus is Tanichthys\nMicagemmae is the collection label.')).toEqual([])
+  expect(await factPageNames(more, 'Epiplatys dageti subsp monroviae lives in Liberia. The Betta unimaculata-group is wide.')).toEqual([])
+  expect(await factPageNames(more, 'Cryptocoryne xwillisii grows slowly.')).toEqual([])
   const withFish: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Tanichthys micagemmae is known only from the Ben Hai river system', source: 0 }] }
   // A check that knows a fish's name only from what it is given to read with the sentences.
   const names = ['Cá neon Việt Nam', 'Cá neon xanh']
