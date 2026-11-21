@@ -17,13 +17,9 @@ final class PerformanceTests: XCTestCase {
   /// The simulator reports no scroll hitches, only the length of the deceleration animation, which the app doesn't
   /// set; the hosted runners' virtual Macs read CPU instructions and cycles as 0, so the budget is on CPU time.
   /// On the old look, whose "Tất cả loài" lists every fish on one long list.
-  /// Its photos are the stand-ins (`-fixed-pictures`), the same on every run: the home it starts from shows the large
-  /// index's photos at the site's addresses, fetched from the site as the fling runs or not. Main's runs read 71.8 MB
-  /// (38604910c, all five tries) and 83.6 MB (3bfea03b8, over the budget) for the same work (CPU 2.31 and 2.34 s); the
-  /// step of about 10 MB came at a different try on each run, or none.
   func testFlingingThroughTheFish() {
     let app = XCUIApplication()
-    app.launchArguments = args + ["-v2", Look.old.rawValue, "-fixed-pictures"]
+    app.launchArguments = args + ["-v2", Look.old.rawValue]
     app.launch()
     // Every fish: the home's "Tất cả loài", as photo cards, under the fish shelf's picks.
     app.homeRow("all-fish").tap()

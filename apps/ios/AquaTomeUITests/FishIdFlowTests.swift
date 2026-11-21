@@ -308,18 +308,6 @@ final class FishIdFlowTests: XCTestCase {
   }
 }
 
-/// The app's waits the test moves on itself (`TestGate`): a folder of its own, where opening one writes its file. The
-/// master button's flows open them too.
-struct Gates {
-  let path = FileManager.default.temporaryDirectory.appending(path: "gates-\(UUID().uuidString)").path
-
-  init() { try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true) }
-
-  func open(_ name: String) {
-    XCTAssertTrue(FileManager.default.createFile(atPath: (path as NSString).appendingPathComponent(name), contents: Data()), "gate \(name) not opened")
-  }
-}
-
 private extension XCUIElement {
   func waitForLabel(_ label: String, timeout: TimeInterval) -> Bool {
     XCTWaiter().wait(for: [XCTNSPredicateExpectation(predicate: NSPredicate(format: "label == %@", label), object: self)], timeout: timeout) == .completed
