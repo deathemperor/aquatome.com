@@ -146,8 +146,15 @@ Give n and a caption: one short Vietnamese sentence (≤ 14 words) saying what t
  * but a guide written again (videos --redo) starts with none, and the same searches would bring the photo back, at an
  * address with the part's new number that the never-again list (by address) doesn't know. A file whose page names what
  * its lettering says is listed as `sha256:` and the hash of its page instead, since that is never written out.
+ *
+ * It holds video frames too, since 21 Nov (the chief of staff: two bettas lying flat in bottles, which a reader can take
+ * for dead): listed by the frame's address, with `seconds`, the seconds of the guide's video the step doesn't cut a
+ * frame at, for the guides listed. A guide written again starts with no frames, and its plan's times, each cut at t-5,
+ * t, t+5 and t+10, can land on the same second again, at the same address. `seconds` is always written in the entry,
+ * never read off the address, and an entry with `seconds` and no `guides` stops the step: it never bars a second on
+ * every video.
  */
-export type PartPhotosOff = Record<string, { why: string; guides?: string[] }>
+export type PartPhotosOff = Record<string, { why: string; guides?: string[]; seconds?: number[] }>
 /** The list; none where the file isn't there. A file that is there but can't be read stops the step, so no photo comes back. */
 export async function readPartPhotosOff(contentRoot: string): Promise<PartPhotosOff> {
   const raw = await readFile(join(contentRoot, '..', 'engine-state', '_part-photos-off.json'), 'utf8').catch((err: NodeJS.ErrnoException) => {
@@ -157,6 +164,11 @@ export async function readPartPhotosOff(contentRoot: string): Promise<PartPhotos
   if (!raw.trim()) return {}
   const off: unknown = JSON.parse(raw)
   if (typeof off !== 'object' || off === null || Array.isArray(off)) throw new Error('_part-photos-off.json: not a list of files')
+  for (const [key, o] of Object.entries(off as Record<string, { guides?: unknown; seconds?: unknown }>)) {
+    if (o?.seconds === undefined) continue
+    if (!Array.isArray(o.seconds) || !o.seconds.every(s => Number.isInteger(s))) throw new Error(`_part-photos-off.json: ${key}: seconds is not a list of whole seconds`)
+    if (!Array.isArray(o.guides) || !o.guides.length) throw new Error(`_part-photos-off.json: ${key} bars seconds but names no guides`)
+  }
   return off as PartPhotosOff
 }
 const partPhotoOff = (off: PartPhotosOff, guide: string, sourceUrl: string) => {
@@ -178,6 +190,8 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
   const frameAt = sb ? frames(sb, d.get) : null
   const out: Figure[] = []
   const seen = new Set<number>()
+  // The seconds a person took this guide's frames off at (the list's `seconds`, for the guides it names).
+  const barred = new Set(Object.values(off).flatMap(o => (o.seconds && o.guides?.includes(e.id) ? o.seconds : [])))
   for (const [i, s] of secs.entries()) {
     const p = plan[i]
     if (!p) continue
@@ -185,7 +199,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
 
     // Video moments: stills around each planned time, the model picks, no faces.
     const times = [...new Set((p.times ?? []).filter(t => t >= 0 && t <= v.durationSec).slice(0, 3).flatMap(t => [t - 5, t, t + 5, t + 10]))]
-    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is NonNullable<typeof f> => !!f && !seen.has(f.t)) : []
+    const cands = frameAt ? (await Promise.all(times.map(frameAt))).filter((f): f is NonNullable<typeof f> => !!f && !seen.has(f.t) && !barred.has(f.t)) : []
     const uniq = [...new Map(cands.map(c => [c.t, c])).values()].slice(0, 12)
     if (uniq.length) {
       const sheet = join(dir, `${v.youtubeId}-${i}-m.jpg`)
