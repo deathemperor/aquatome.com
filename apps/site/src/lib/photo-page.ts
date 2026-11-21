@@ -1,4 +1,4 @@
-import { unmarked, type Content, type Photo } from '@aq/schema'
+import type { Content, Photo } from '@aq/schema'
 import { breedGallery, type Breed } from './breeds'
 import { GALLERY_MIN } from './gallery'
 import { distinctPhotos } from './pictures'
@@ -13,8 +13,7 @@ type Albums = Pick<Content, 'galleries' | 'pictureHashes'>
 export function albumOf(c: Albums, kind: 'breeds', x: Breed): Photo[]
 export function albumOf(c: Albums, kind: 'species' | 'plants', x: { id: string }): Photo[]
 export function albumOf(c: Albums, kind: 'species' | 'breeds' | 'plants', x: Breed | { id: string }): Photo[] {
-  const photos = kind === 'breeds' ? breedGallery(c, x as Breed) : (c.galleries[x.id] ?? [])
-  return distinctPhotos(c, [...photos.filter(unmarked), ...photos.filter(p => !unmarked(p))])
+  return distinctPhotos(c, kind === 'breeds' ? breedGallery(c, x as Breed) : (c.galleries[x.id] ?? []))
 }
 
 /** Whether an album (albumOf) holds enough pictures to show as one. */

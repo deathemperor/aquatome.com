@@ -539,7 +539,9 @@ test("a fish's or plant's album address 301s to its page for good (the album ope
   const table = { '/ca/old/anh/': '/ca/x/' }
   const live = ['/ca/x/', '/cay/y/', '/ca/old/']
   const { e } = env({ ASSETS: { fetch: async (r: Request) => { const p = new URL(r.url).pathname; return p === '/redirects.json' ? Response.json(table) : live.includes(p) ? new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } } as unknown as Fetcher })
-  for (const [from, to] of [['/ca/x/anh/', '/ca/x/?album=1'], ['/cay/y/anh/', '/cay/y/?album=1'], ['/ca/x/anh', '/ca/x/?album=1'], ['/ca/x/anh/?a=1', '/ca/x/?a=1&album=1']]) {
+  for (const [from, to] of [['/ca/x/anh/', '/ca/x/?album=1'], ['/cay/y/anh/', '/cay/y/?album=1'], ['/ca/x/anh', '/ca/x/?album=1'], ['/ca/x/anh/?a=1', '/ca/x/?a=1&album=1'],
+    // An album the old address had already goes, or the page's script reads it first and the viewer doesn't open.
+    ['/ca/x/anh/?album=0', '/ca/x/?album=1'], ['/ca/x/anh/?a=1&album=0&b=2', '/ca/x/?a=1&b=2&album=1'], ['/ca/x/anh/?album', '/ca/x/?album=1']]) {
     const r = await handle(get(from!), e)
     expect([r.status, r.headers.get('location')], from).toEqual([301, to])
     expect((await follow(r, e)).status, from).toBe(200)

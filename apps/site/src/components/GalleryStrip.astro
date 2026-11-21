@@ -25,7 +25,7 @@ const { photos, name, column, more = [] } = Astro.props
 const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
 // "Xem tất cả": a button opening the viewer on the first photo, with no arrow (it said "to another page"), and none when
 // the strip shows every photo (the Design Lead, 18 Nov; lib/gallery.ts seeAll).
-const { all, phone, fit } = seeAll(photos.length, shown, more, !!column)
+const { all, fit } = seeAll(photos.length, shown, more, !!column)
 // A strip outside the photo column is the same thumbnail row on a phone, its heading kept (the strip's reader, 20 Nov:
 // in a grid of three a phone showed six of eight thumbnails and hid the rest).
 const count = shown.filter(Boolean).length
@@ -36,7 +36,7 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
 ---
 <section class:list={count ? ['strip', column ? 'column' : 'wrap', row && 'row'] : []} hidden={!count} aria-labelledby={count ? 'gal-h' : undefined} data-album data-fit={fit ?? (measure ? shown.flatMap((p, i) => p ? [] : [i]).join(' ') : undefined)}>
   {count > 0 && <>
-  <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{(all || measure) && <button type="button" class:list={['see', phone && 'phone']} data-all data-fits={!all ? '' : undefined} aria-haspopup="dialog">{see}</button>}</div>
+  <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{(all || measure) && <button type="button" class="see" data-all data-fits={!all ? '' : undefined} aria-haspopup="dialog">{see}</button>}</div>
   <ul style={column ? `--rows: ${Math.ceil(count / 4)}` : undefined}>
     {[...shown, ...more].map((p, i) => p && (
       <li class={i >= shown.length ? 'more' : undefined}><a href={p.url} data-i={i}><img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading="lazy" decoding="async" /><AiPhotoLabel photo={p} /></a></li>
@@ -63,8 +63,7 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
   :where(button[data-all]):hover { color: var(--c-ink); }
   /* On one line beside the heading or under it; wrapped only where it can't fit on one (a phone 320 px wide). */
   .see { text-wrap: balance; font-size: 0.95rem; display: inline-block; padding-block: 10px; margin-block: -10px; text-align: start; }
-  .see.phone, .strip [data-all][data-fits] { display: none; }
-  @media (max-width: 640px) { .see.phone { display: inline-block; } }
+  .strip [data-all][data-fits] { display: none; }
   /* Each column its share (minmax(0, 1fr)), never its content's width: a photo that doesn't load shows its alt text in its
      place, and a long word in it widened the row past a phone's edge (13 November). */
   ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-2); }

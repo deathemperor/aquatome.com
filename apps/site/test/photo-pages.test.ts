@@ -54,11 +54,13 @@ test('a plant shows a strip only when the album adds a picture to its lead', () 
   expect(withPhotos(lead).strip.filter(Boolean)).toEqual([])
 })
 
-test('marked Glaser photos follow the clean photos in a short album', () => {
+// The strip's reader, 21 Nov: an album's order is its photos' addresses (an old /anh/ address's #aN opens the Nth) and the
+// app's album order, so it stays the gallery's, a marked Glaser photo first included.
+test('an album keeps its gallery\'s order, a marked Glaser photo first included', () => {
   const clean = base.galleries[PLANT]![0]!
   const marked = { ...base.galleries[PLANT]![1]!, source: 'glaser' as const }
   const content = { ...base, galleries: { [PLANT]: [marked, clean] }, pictureHashes: {} }
-  expect(albumOf(content, 'plants', { id: PLANT })).toEqual([clean, marked])
+  expect(albumOf(content, 'plants', { id: PLANT })).toEqual([marked, clean])
 })
 
 test('the browser fixtures have a two-photo album with its lead and a lead-only album', async () => {

@@ -148,9 +148,14 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
 /** A page's address in any language: Vietnamese ones at the root, the others under their prefix (/id/, /th/). */
 const isPage = (path: string) => isViPage(path) || !!prefixedLang(path)
 
-/** Keep the reader's query and let the browser carry any #aN through the redirect. */
+/**
+ * Keep the reader's query and let the browser carry any #aN through the redirect. An `album` the query has already goes:
+ * the page's script reads the first, so "?album=0" would win over ours and the viewer wouldn't open (the strip's reader,
+ * 21 Nov).
+ */
 function albumLocation(path: string, search: string) {
-  return `${path}${search}${search ? '&' : '?'}album=1`
+  const kept = search.replace(/^\?/, '').split('&').filter(part => part && !/^album(=|$)/.test(part)).join('&')
+  return `${path}?${kept ? `${kept}&` : ''}album=1`
 }
 
 /**

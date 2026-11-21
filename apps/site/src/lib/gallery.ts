@@ -67,17 +67,17 @@ export const GALLERY_COLUMN = 40
 /**
  * "Xem tất cả" under a strip of an album of `photos` (GalleryStrip.astro; the Design Lead, 18 Nov): there unless the
  * strip shows every photo, each a thumb or one the page shows already (null in `shown` or `more`, at its place).
- * `phone`: a wrapped strip (not a column) shows 6 thumbs on a phone, so one of 7 or 8 keeps it there alone. `fit`: in a
+ * A strip that shows them all measures its own row instead (scripts/album.ts): "Xem tất cả" shows while a thumb is out of
+ * view, at any width (the strip's reader, 21 Nov: a row of eight at 700 px hid its last ones with no button). `fit`: in a
  * column with `more` thumbs, which a tall screen shows as many of as fit, the places of the photos the page shows
  * already, for the album's script to hide it when the column shows the rest (scripts/album.ts).
  */
 export function seeAll(photos: number, shown: readonly unknown[], more: readonly unknown[], column: boolean) {
   const slots = [...shown, ...more]
   const every = Array.from({ length: photos }, (_, i) => i < shown.length || (i < slots.length && !slots[i])).every(Boolean)
-  const phone = every && !column && shown.filter(Boolean).length > 6
-  const all = !every || phone
+  const all = !every
   const fit = all && column && more.some(Boolean) ? slots.flatMap((p, i) => (p ? [] : [i])).join(' ') : undefined
-  return { all, phone, fit }
+  return { all, fit }
 }
 
 /** Photo sites by the address of a photo's own page. */
