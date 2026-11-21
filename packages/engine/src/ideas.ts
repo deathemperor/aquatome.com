@@ -312,13 +312,23 @@ const magazineReader = (reader: ArchiveReader, l: MagazineLedger, file: string, 
   let first = true
   const most = kind === 'post' ? ARCHIVE_POST_DAY : ARCHIVE_LISTING_WEEK
   return reader.capped(most, async () => {
-    if (asksLeft(l, kind, now()) <= 0) throw new AsksSpent(most)
-    const asks = (l.asks ??= {})
-    const today = (asks[vnDay(now())] ??= {})
-    today[kind] = (today[kind] ?? 0) + 1
-    const kept = lastDays(now(), LISTING_DAYS)
-    for (const day of Object.keys(asks)) if (!kept.has(day)) delete asks[day]
-    await saveLedger(file, l)
+    // Counted on the day it goes out: a day that turns while the count is written takes it, if it has any left (Codex, 21
+    // Nov 2026).
+    for (;;) {
+      const at = now()
+      if (asksLeft(l, kind, at) <= 0) throw new AsksSpent(most)
+      const asks = (l.asks ??= {})
+      const day = vnDay(at)
+      const on = (asks[day] ??= {})
+      on[kind] = (on[kind] ?? 0) + 1
+      const kept = lastDays(at, LISTING_DAYS)
+      for (const x of Object.keys(asks)) if (!kept.has(x)) delete asks[x]
+      await saveLedger(file, l)
+      if (vnDay(now()) === day) return
+      if (!(on[kind] = on[kind]! - 1)) delete on[kind]
+      if (!Object.keys(on).length) delete asks[day]
+      await saveLedger(file, l)
+    }
   }, async () => { if (first) { first = false; await sleep(ARCHIVE_POLITE) } })
 }
 
@@ -645,6 +655,7 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
     // A guide of that name already: taken as written, never rewritten from here, and not the day's.
     if (await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8').then(() => true, () => false)) { m.guides[key] = { guide: id }; continue }
     if (asksLeft(l, 'post', d.now()) <= 0) { report.stopped = `the day's ${ARCHIVE_POST_DAY} requests to the archive for the magazine's post are spent`; break }
+    let done = false
     try {
       const leads = ideaLeads(idea, ideas, await cycleOnlyHosts(root))
       // The post is read inside the piece, so a day's line that won't cover the guide asks the Archive nothing. Each request
@@ -663,12 +674,16 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
       const skipped = 'skipped' in r && r.skipped ? r.skipped : undefined
       m.guides[key] = { ...(skipped ? { skipped } : { guide: r.id }), at: d.now().toISOString(), ...(record ? { post: record } : {}) }
       await counted()
+      done = true
       if (skipped) report.skipped.push(skipped); else report.written.push(r.id)
       // With how many of the facts its writer was given came from the post (the chief of staff, 21 Nov 2026).
       const share = 'given' in r && r.given ? `; ${r.given.from} of the ${r.given.of} facts the writer was given came from it` : ''
       if (record) report.posts.push(`${idea.topic}: ${record.url}: ${record.result}${share}`)
       await save()
     } catch (err) {
+      // Its guide made and counted, the record not saved: it stands as made, counted once, and the step stops, the record
+      // saved again at its end (Codex, 21 Nov 2026).
+      if (done) { report.stopped = `the magazine's record was not saved: ${clean(err).slice(0, 120)}`; break }
       if (err instanceof LlmError) { report.stopped = clean(err); break }
       // The Archive resting: the guide waits for its post, the idea as it was. The days it waits in a row are kept.
       if (err instanceof ArchiveRefused) {

@@ -145,8 +145,10 @@ export class ArchiveFetcher {
         this.forbidden.add(page)
         return { r, at }
       }
-      const to = REDIRECTS.has(r.status) ? r.headers.get('location') : null
-      if (to) {
+      if (REDIRECTS.has(r.status)) {
+        const to = r.headers.get('location')
+        // A redirect to nowhere is no answer of the page's: no copy, and the rest stands (Codex, 21 Nov 2026).
+        if (!to) throw new Error(`no archived copy (HTTP ${r.status} to no address)`)
         const next = new URL(to, at)
         if (next.hostname !== new URL(WAYBACK).hostname) throw new Error(`no archived copy (the archive points off itself, to ${next.hostname})`)
         if (++hops > MAX_HOPS) throw new Error(`no archived copy (more than ${MAX_HOPS} redirects)`)

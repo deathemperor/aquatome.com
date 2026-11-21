@@ -1,5 +1,5 @@
-import { writeFileSync } from 'node:fs'
-import { mkdir, mkdtemp, readdir, readFile, rm, utimes, writeFile } from 'node:fs/promises'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { chmod, mkdir, mkdtemp, readdir, readFile, rm, utimes, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { slugify } from '@aq/schema'
@@ -783,6 +783,84 @@ test("a read that passes Vietnam's midnight counts each request on its own day, 
   expect(asked).toHaveLength(2)
   expect((await ledger(root)).asks).toEqual({ '2026-11-21': { post: ARCHIVE_POST_DAY }, '2026-11-22': { post: 1 } })
   expect(r.posts).toEqual([`Nước bể cá bị đục: ${POST}: cited; 2 of the 5 facts the writer was given came from it`])
+})
+
+// Codex's read of 43fc906eab: the day was chosen before the count was written, and the request went out on the next.
+test("a request whose count is written as Vietnam's midnight passes is counted on the day it goes out, from that day's allowance", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  await writeFile(ledgerOf(root), JSON.stringify({ asks: { '2026-11-21': { post: ARCHIVE_POST_DAY - 1 } } }))
+  // 23:59:55 in Vietnam until the count is on disk, then 00:00:05.
+  let turned = false
+  const clock = () => {
+    turned ||= (JSON.parse(readFileSync(ledgerOf(root), 'utf8')) as { asks?: Record<string, { post?: number }> }).asks?.['2026-11-21']?.post === ARCHIVE_POST_DAY
+    return new Date(turned ? '2026-11-21T17:00:05Z' : '2026-11-21T16:59:55Z')
+  }
+  const asked: string[] = []
+  const reader = new ArchiveFetcher({ restFile: await restFile(), ua: 'test', sleep: async () => {}, now: clock, fetch: async u => { asked.push(u); return article()(u) } })
+  await writeMagazine(root, { research: researchCiting(2, 3, []), llm: writer, now: clock, archive: reader, ledger: ledgerOf(root), sleep: async () => {} })
+  expect(asked).toHaveLength(1)
+  expect((await ledger(root)).asks).toEqual({ '2026-11-21': { post: ARCHIVE_POST_DAY - 1 }, '2026-11-22': { post: 1 } })
+})
+
+// Codex's read of 43fc906eab: a guide made and counted whose record then failed to save was counted again, as a failure.
+test("a guide made whose record isn't saved is counted once, and the step stops there", async () => {
+  const root = await waiting([magazineIdea('Một'), magazineIdea('Hai')])
+  const locking: Llm = async <T>(x: Parameters<Llm>[0]) => { await chmod(magazineFile(root), 0o444); return writer<T>(x) }
+  try {
+    await expect(write(root, researchCiting(2, 3, []), (await archive(article())).reader, undefined, locking)).rejects.toThrow(/EACCES|EPERM/)
+  } finally { await chmod(magazineFile(root), 0o644) }
+  expect((JSON.parse(await readFile(ledgerOf(root), 'utf8')) as { made?: Record<string, number> }).made).toEqual({ '2026-11-21': 1 })
+  expect(await readFile(join(root, 'content/guides', topicId('Một'), 'vi.json'), 'utf8')).toBeTruthy()
+})
+
+// Codex's read of 43fc906eab: a tag inside one word and a line break between two others hid the post's sentence.
+test("a guide that puts the post's sentence back with markup inside its words and between them is not kept", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const marking: Llm = async <T>(x: Parameters<Llm>[0]) => (isBody(x) ? { name: 'Nước bể cá bị đục', summary: ['Một ý.'], body: '<p>Placeholder te<strong>xt</strong> about cloudy<br>water and bacterial blooms.</p>', faq: [] } : { score: 0.95, notes: [] }) as T
+  const r = await write(root, researchCiting(2, 3, []), (await archive(article())).reader, undefined, marking)
+  expect(r.skipped).toEqual(['Nước bể cá bị đục: the guide repeats the post'])
+  expect((await files(root)).filter(([, t]) => t.includes('cloudy<br>water')).map(([f]) => f)).toEqual([])
+})
+
+// Codex's read of 43fc906eab: an escape that isn't one ("%ZZ") left the whole address unread.
+test("an address that repeats the post is no source, an escape in it that isn't one or all", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const naming: Llm = async <T>() => {
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' })),
+      { url: 'https://d.example/Placeholder%20text%20about%20cloudy%20water%20and%20bacterial%20blooms?x=%ZZ', title: 'D', kind: 'vet' }]
+    const facts = [{ section: 'causes', fact: 'A bloom clears in days.', source: 0 }, ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i })), { section: 'prevention', fact: 'D fact.', source: 4 }]
+    return { found: true, facts, species: [], sources } as T
+  }
+  await write(root, naming, (await archive(article())).reader)
+  const facts = JSON.parse(await readFile(join(root, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts
+  expect(facts.sources[4]).toMatchObject({ url: '' })
+  expect(quoted(await files(root))).toEqual([])
+})
+
+// Codex's read of 43fc906eab: two halves of the post's sentence apart in research's facts were kept, side by side once the
+// fact between them left (a refused site's), or apart, for another language's writer, which reads the kept facts
+// (localizeTopic), to put together.
+const rejoin = (fs: string[]) => fs.some((a, i) => fs.some((b, j) => i !== j && `${a}${b}`.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '').includes('placeholdertextaboutcloudywaterandbacterialblooms')))
+async function halvesKept(between: string) {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const halves: Llm = async <T>() => {
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' })), { url: between, title: 'Between', kind: 'vet' }]
+    const facts = [{ section: 'causes', fact: 'Placeholder text about cloudy', source: 0 }, { section: 'causes', fact: 'A fact between.', source: 4 }, { section: 'causes', fact: 'water and bacterial blooms.', source: 0 },
+      ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i }))]
+    return { found: true, facts, species: [], sources } as T
+  }
+  await write(root, halves, (await archive(article())).reader)
+  return (JSON.parse(await readFile(join(root, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts).facts.map(f => f.fact)
+}
+test("two halves of the post's sentence are not kept side by side once a refused site's fact between them leaves", async () => {
+  const kept = await halvesKept('https://cabaymau.vn/ca-bi-loi-mat/')
+  expect(kept).toEqual(['Other fact 1.', 'Other fact 2.', 'Other fact 3.'])
+  expect(rejoin(kept)).toBe(false)
+})
+test("no two facts kept make the post's sentence between them in either order, apart as they may be", async () => {
+  const kept = await halvesKept('https://e.example/w')
+  expect(kept).toEqual(['Placeholder text about cloudy', 'A fact between.', 'Other fact 1.', 'Other fact 2.', 'Other fact 3.'])
+  expect(rejoin(kept)).toBe(false)
 })
 
 // Codex's fresh read of f4e7985fae: with the magazine's titles as they were, GitHub's step stopped before taking what the Mac

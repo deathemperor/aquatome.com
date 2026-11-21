@@ -317,6 +317,20 @@ test('no 403 ends a rest: after one on a page\'s copy, the next refusal doubles 
   await expect(make().get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
 })
 
+// Codex's read of 43fc906eab: a redirect with no address passed by the redirects' branch and ended the rest, so the next
+// refusal started a fresh 12 hours.
+test('after the wait, a redirect to no address is no copy and ends nothing: the next refusal doubles the wait', async () => {
+  const file = restFile()
+  const { t, f, make } = refusals(file)
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  t.answer = () => capture(302, '')
+  await expect(make().get(article)).rejects.toThrow(/^no archived copy \(HTTP 302/)
+  expect(JSON.parse(readFileSync(file, 'utf8'))).toMatchObject({ waitMs: ARCHIVE_REST_MS })
+  t.answer = () => capture(429, '')
+  await expect(make().get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+})
+
 test("a 403 on a second page's copy in the same run is the reader shut out: a refusal, said in the log with both pages", async () => {
   const log = vi.spyOn(console, 'log').mockImplementation(() => {})
   try {
