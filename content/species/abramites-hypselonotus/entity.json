@@ -593,6 +593,10 @@
       {
         "source": "seriouslyfish",
         "value": 14
+      },
+      {
+        "source": "glaser",
+        "value": 20
       }
     ],
     "tankCm": [
@@ -616,10 +620,22 @@
       "html": "<p>The marbled headstander, Abramites hypselonotus, is an anostomid from the Amazon, Orinoco and Paraguay-Paraná basins in South America. An ecological generalist, it occurs in turbid main river channels, minor tributaries and backwaters, and enters inundated zones during the annual floods. Best kept as a group in a large tank alongside cichlids, characins and catfishes, it may nip long or trailing fins and eat soft-leaved plants.</p><ul><li>Max size: 140 mm SL (6 in SL)</li><li>Aquarium size: 120 × 30 cm (48 × 12 in)</li><li>Temperature: 20–30°C (68–86°F)</li><li>pH: 5.5–7.5</li><li>Hardness: 1–15 dGH</li><li>Difficulty: 2 of 8 (easy)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/abramites-hypselonotus-2/",
+      "html": "<p>The marbled headstander is perhaps the most unusual of all headstanders. This beautiful fish grows to about 15-20 cm in length and is hard to mistake because of its high body shape.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/abramites-hypselonotus",
       "html": "<p>Described from 'Xeberos', Peru, which presumably refers to modern-day Jeberos district, Alto Amazonas Province, Loreto region in northeastern (Amazonian) Peru.</p><p>As currently recognised though it has an enormous natural range, occurring throughout much of the Amazon and Orinoco river basins in Bolivia, Brazil, Colombia, Ecuador, Guyana, Peru and Venezuela plus the Paraguay-Paraná system in southern Brazil, Paraguay and Argentina.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/abramites-hypselonotus-2/",
+      "html": "<p>In the extremely widespread Abramites hypselonotus – it exists practically in the whole of South America east of the Andes, from Argentina to Venezuela – the stripes start directly behind the head. There is only a second Abramites species, A. eques, but it has never been imported alive. It lives exclusively in the Rio Magdalena in Colombia.</p>"
     },
     {
       "key": "habitat",
@@ -652,10 +668,22 @@
       "html": "<p>Anostomids are opportunistic omnivores feeding chiefly on benthic items including sponges, insect larvae, organic detritus, seeds, leaves and filamentous algae in nature.</p><p>Captive specimens are generally adaptable and will accept most good quality prepared foods as well as live or frozen bloodworm, Daphnia, Artemia, etc. but should be offered a varied diet ideally including some greenery in the form of fresh algae, fruit, vegetables or a dried product containing a high proportion of Spirulina or similar.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/abramites-hypselonotus-2/",
+      "html": "<p>Unfortunately, these beautiful fish are extreme herbivores.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/abramites-hypselonotus",
       "html": "<p>Best maintained as a group in a large tank alongside robust cichlids, characins and catfishes.</p><p>It may nip at long or trailing fins.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/abramites-hypselonotus-2/",
+      "html": "<p>Abramites are social animals that interact constantly. If you have too few animals, this can become a nuisance, but in larger groups and large aquariums this is not so noticeable.</p><p>At least in wild collected ones, each animal is individually recognizable by its stripe pattern. One has to doubt that the marbled headstander is really the same species everywhere in this vast area, but they look very, very similar.</p>"
     },
     {
       "key": "dimorphism",
@@ -685,31 +713,86 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/015bedeb7d93d7f3.webp",
+      "thumb": "https://media.aquatome.com/commons/015bedeb7d93d7f3-480.webp",
       "width": 960,
       "height": 674,
-      "licence": "CC BY-SA 4.0",
-      "author": "Petruss",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abramites_hypselonotus1.jpg",
-      "caption": "Abramites hypselonotus en el acuario del Zoológico de Cali, Colombia",
-      "thumb": "https://media.aquatome.com/commons/015bedeb7d93d7f3-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/015bedeb7d93d7f3-large.webp",
         "width": 1708,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Petruss",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abramites_hypselonotus1.jpg",
+      "caption": "Abramites hypselonotus en el acuario del Zoológico de Cali, Colombia"
     },
     {
       "url": "https://media.aquatome.com/commons/aa0220c87b8ca157.webp",
+      "thumb": "https://media.aquatome.com/commons/aa0220c87b8ca157-480.webp",
       "width": 918,
       "height": 914,
       "licence": "CC BY-SA 3.0",
       "author": "User:Haplochromis",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Abramites_hypselonotus.jpg",
-      "caption": "Brachsensalmler",
-      "thumb": "https://media.aquatome.com/commons/aa0220c87b8ca157-480.webp"
+      "caption": "Brachsensalmler"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a71ff399bc208bb3.webp",
+      "thumb": "https://media.aquatome.com/glaser/a71ff399bc208bb3-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/abramites-hypselonotus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/155e4bc9b640c610.webp",
+      "thumb": "https://media.aquatome.com/glaser/155e4bc9b640c610-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/abramites-hypselonotus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bd134ebe3376dd77.webp",
+      "thumb": "https://media.aquatome.com/glaser/bd134ebe3376dd77-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/abramites-hypselonotus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "0iN5aTF1KGs",
+      "title": "[남미] 마블 헤드스탠더_Abramites hypselonotus",
+      "durationSec": 385,
+      "lang": "ko"
+    },
+    {
+      "youtubeId": "S95C-9aka-c",
+      "title": "Abramites hypselonotus THE ATTRACTIVE Marbled Headstander. (Leopard Aquatic C080A)",
+      "durationSec": 51,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "bvxYc0KzvRY",
+      "title": "Exclusive new aquarium fish Abramites hypselonotus (Абрамитес Мраморный) 😎",
+      "durationSec": 68,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "H29mErrG4xk",
+      "title": "Abramites hypselonotus Marbled head stander",
+      "durationSec": 47,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -738,5 +821,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-21"
 }

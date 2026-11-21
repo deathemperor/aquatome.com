@@ -1,13 +1,18 @@
 {
   "id": "betta-gladiator",
-  "summary": "Cá betta gladiator (Betta gladiator) hợp với người muốn nuôi riêng một cặp trong bể ít đèn, nước chua và mềm. Cần bể tối thiểu 90 cm, nhiệt độ 22–27 °C, pH 4–6, độ cứng 0–5 dGH, cá lớn tới 9 cm, độ khó 4/8. Khó nhất là tính hung dữ nên không hợp thả chung với cá hiền trong bể nhiều loài thông thường, và bể cần đậy thật kín.",
+  "summary": "Cá betta gladiator (Betta gladiator) hợp với người chịu nuôi riêng một cặp trong bể dài tối thiểu 90 cm, độ khó 4/8. Cần nước chua mềm, 22–27 °C, pH 4–6, độ cứng 0–5 dGH, đèn tối, lọc nhẹ, có rễ lũa và lá khô làm chỗ nấp. Điểm khó nhất là tính hung dữ: khó nuôi chung với cá khác, đực nhốt chung hay đánh nhau, và cá nhảy giỏi nên bể phải đậy kín.",
   "mistakes": [
-    "Thả chung với cá hiền trong bể cộng đồng thì cá to hơn hay hiếu động hơn chắc sẽ làm nó sợ và tranh hết phần ăn; nên nuôi riêng hoặc chỉ nuôi với loài thật hiền.",
-    "Nhốt nhiều con đực chung, nhất là bể chật, có thể bị đánh nhau đến chết; nên nuôi một cặp trong bể đủ rộng.",
-    "Đậy bể hở hoặc đổ nước đầy tới miệng thì dễ bị nhảy ra vì loài này chắc là nhảy rất giỏi; nên đậy kín và chừa khoảng không khí ẩm phía trên mặt nước."
+    "Thả chung với cá hiền trong bể cộng đồng thông thường thì dễ có chuyện; nên nuôi riêng, hoặc chỉ ghép với loài thật hiền.",
+    "Nuôi nhiều con đực chung trong bể chật, chúng đánh nhau suốt và có thể giết nhau; nên nuôi một cặp, hoặc nuôi nhóm một thời gian để cá tự chọn đôi.",
+    "Để bể hở hoặc đổ nước đầy tới miệng thì cá dễ nhảy ra ngoài; nên đậy bể thật kín và đừng đổ nước đầy tới miệng."
   ],
   "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-14T05:10:13.781Z",
-  "review": "approved",
-  "writtenFrom": "19811de1a47c52e8"
+  "writtenFrom": "c7a751a638de05e8",
+  "generatedAt": "2026-11-21T22:57:21.698Z",
+  "review": "pending",
+  "problems": [
+    "\"cá nhảy giỏi nên bể phải đậy kín\": the page hedges with \"Loài này chắc là cũng nhảy rất giỏi\" (probably a very good jumper), and the summary states it as certain.",
+    "\"đực nhốt chung hay đánh nhau\" and \"chúng đánh nhau suốt và có thể giết nhau\": the page says only \"nghe nói đánh nhau suốt\" (reportedly fight constantly), and the summary drops that hedge.",
+    "\"Điểm khó nhất là tính hung dữ\": the page frames aggression as a reputation (\"nổi tiếng\", \"Nếu loài này dữ đúng như lời đồn\"), and the summary states it as established fact."
+  ]
 }

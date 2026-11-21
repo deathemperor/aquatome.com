@@ -140,17 +140,17 @@
         }
       },
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 22,
-          "max": 26
-        }
-      },
-      {
         "source": "glaser",
         "value": {
           "min": 18,
           "max": 24
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 26
         }
       }
     ],
@@ -170,17 +170,17 @@
         }
       },
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 6.5,
-          "max": 7.5
-        }
-      },
-      {
         "source": "glaser",
         "value": {
           "min": 6.2,
           "max": 6.5
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
+          "max": 7
         }
       }
     ],
@@ -216,6 +216,10 @@
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "bwaquatics",
+        "value": 3.6
       }
     ],
     "tankCm": [
@@ -277,7 +281,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>Epiplatys annulatus, commonly known as the Clown Killifish, is a small, colorful freshwater fish native to West Africa. Its striking appearance and relatively easy care requirements make it a popular choice for aquarium hobbyists. They have a tan-yellow body with black bands and red stripes down the caudal fins.</p>"
+      "html": "<p>Epiplatys annulatus belongs to the Epiplatys genus (African panchax killifish). IUCN Red List: Least Concern. Origin: tank raised. Epiplatys comes from the Greek for \"flat on top\" and annulatus from the Latin for \"ringed\", referring to the black bands.</p>"
     },
     {
       "key": "distribution",
@@ -296,6 +300,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
       "html": "<p>West Africa.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
+      "html": "<p>The Clown Killifish, also called the Banded or Rocket Panchax, lives in coastal swamps, sluggish streams and small rivers from southern Guinea and Sierra Leone to northwestern Liberia around Monrovia.</p>"
     },
     {
       "key": "habitat",
@@ -319,7 +329,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>Epiplatys annulatus thrives in lowland swamps, sluggish streams, and small rivers within regions characterized by open savannahs and tropical rainforests. It is commonly found in areas with marginal vegetation or aquatic plants. While most habitats are freshwater, it can also tolerate slightly brackish conditions in certain locations.</p><p>The climate in its range is consistently hot and humid, with a distinct wet season spanning April-May and October-November. Most rivers in this region flow year-round. The water is typically warm, soft, and acidic, though extensive deforestation of primary rainforest has impacted many habitats. Consequently, surviving populations often reside within protected forest reserves.</p>"
+      "html": "<p>It stays among marginal vegetation and aquatic plants, and can tolerate slightly brackish water in some places. The water is typically warm, soft and acidic. Deforestation has hit many habitats, so many surviving populations are in protected forest reserves. Unlike many killifish, it is not seasonal and lives in loose groups at the very top of the water. Habitat: swamps and shallow, slow forest streams with dense edge plants.</p>"
     },
     {
       "key": "aquariumSize",
@@ -343,7 +353,7 @@
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>A minimum of 40 litres is recommended for a group of 6 or more.</p>"
+      "html": "<p>Tank: 10 gallons (40 litres) or more for a group of 6, densely planted with floating plants and very little surface current. Max size: about 3.6 cm.</p>"
     },
     {
       "key": "aquariumSize",
@@ -385,7 +395,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<ul><li>pH: 6.5-7.5</li><li>Temperature: 22-26°C</li><li>Hardness: Soft to moderately hard</li></ul>"
+      "html": "<p>pH: 6.0 to 7.0 (soft water). Temperature: 22 to 26°C.</p>"
     },
     {
       "key": "waterConditions",
@@ -404,12 +414,6 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Filtration: sponge filters can be used. They cause some surface agitation, but much less than other filters, and they are safe for fry. With most other filters you will need an extra sponge pre-filter to prevent fry from being sucked in.</p><p>Lighting: lighting should suit the plants in the tank. Ideally pick floating plants or plants that do not need much light, because too much light washes out their coloration.</p><p>Lid: a tight lid is required because they are phenomenal jumpers.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>A densely planted aquarium with plenty of hiding places is ideal.</p>"
     },
     {
       "key": "equipment",
@@ -439,7 +443,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>Omnivorous, feeding on a variety of small live and flake foods.</p>"
+      "html": "<p>Tiny mouth. Baby brine shrimp, daphnia, moina, grindal worms, wingless fruit flies and crushed flake.</p>"
     },
     {
       "key": "diet",
@@ -469,7 +473,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>Peaceful and compatible with other small, peaceful fish.</p>"
+      "html": "<p>Peaceful and timid. Keep in groups of 6 or more. Males display but rarely fight. Only house with other tiny, calm fish. Use a tight lid.</p>"
     },
     {
       "key": "behaviour",
@@ -499,7 +503,7 @@
       "key": "dimorphism",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>Females have shorter and less colorful fins.</p>"
+      "html": "<p>Body shape: tiny, slender surface fish with a flat head and upturned mouth. Males have a flame-shaped tail with red, yellow and blue bands and extended ventral fins. Females have a rounder, plainer tail. Coloration: cream to tan-yellow body with four broad black bands. Blue eyes.</p>"
     },
     {
       "key": "reproduction",
@@ -523,7 +527,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>Epiplatys annulatus are egg scatterers, meaning they don't build nests. They will typically lay their eggs on plants or in the substrate of their tank. Use spawning mops, mosses or floating plants.</p>"
+      "html": "<p>Lays eggs a few at a time on plants or in the substrate rather than building nests. Use spawning mops, mosses or floating plant roots and move eggs or fry to a separate container. Fry need infusoria or vinegar eels at first.</p>"
     },
     {
       "key": "notes",
@@ -542,12 +546,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_en/",
       "html": "<p>Pseudepiplatys: from ancient Greek, meaning \"False Epiplatys\". annulatus: Latin for \"ringed\".</p>"
-    },
-    {
-      "key": "notes",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/clown-killifish",
-      "html": "<p>Epiplatys means \"to float\", while \"annulus\" means rings, referring to the black bands.</p>"
     },
     {
       "key": "references",
@@ -667,5 +665,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-21"
 }

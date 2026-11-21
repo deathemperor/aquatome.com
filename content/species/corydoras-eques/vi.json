@@ -7,8 +7,6 @@
     "Horsemans Cory"
   ],
   "sections": {
-    "distribution:glaser": "<p>Corydoras eques đến từ bang Amazonas của Brazil. Giới khoa học đã biết loài này từ lâu, nhưng trong giới chơi cá cảnh thì gần như chẳng ai biết đến nó. Mẫu cá được thu gần Anori.</p>",
-    "behaviour:glaser": "<p>Đây là một loài Corydoras độc đáo, màu sắc cực kỳ rực rỡ, và sống theo đàn đúng kiểu Corydoras. Cá lên màu đẹp nhất khi nuôi trong nước đen. Dải cam sáng vắt ngang vùng cổ giúp cả đàn bám sát nhau trong vùng nước khó nhìn xa.</p>",
     "quickFacts:seriouslyfish": "<p>Osteogaster eques, từ lâu vẫn được biết đến với tên Corydoras eques, là một loài cá da trơn có giáp. Loài này được mô tả từ mẫu thu trên sông Amazon tại Codajás, thuộc dòng chính rio Solimões ở miền tây Brazil. Hiện chưa rõ loài còn phân bố ở những đâu, dù thỉnh thoảng vẫn có những con trông tương tự được xuất khẩu từ Peru. Loài này đôi khi bị nhầm với C. venezuelanus. Ngoài ra còn có hai loài cá ở Peru trông tương tự nhưng chưa định danh, mang mã CW007 và CW043.</p>",
     "distribution:seriouslyfish": "<p>Nơi thu mẫu chuẩn là 'sông Amazon tại Codajás, Amazonas, Brazil'. Codajás nằm khoảng giữa Tefé và Manaus, trên dòng chính rio Solimões (Amazon) ở miền tây Brazil. Hiện chưa rõ loài này còn phân bố rộng tới đâu, dù thỉnh thoảng có những con trông tương tự được xuất khẩu từ Peru.</p>",
     "aquariumSize:seriouslyfish": "<p>Bể nên có đáy tối thiểu 90 × 30 cm (khoảng 81 lít).</p>",
@@ -29,13 +27,17 @@
     "dimorphism:planetcatfish": "<p>Con cái dài hơn con đực, thân cũng đầy đặn và tròn hơn.</p>",
     "reproduction:planetcatfish": "<p>Loài này đã đẻ được trong bể nuôi.</p>",
     "notes:planetcatfish": "<p>Nhận dạng: dễ nhận ra nhờ mảng màu lớn hình yên ngựa trên thân, màu nâu xanh sẫm. Tên thường gọi của loài này cũng là từ mảng màu đó mà ra.</p>",
-    "references:planetcatfish": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 140 [92], Pl. 12 (fig. 3-3a).</p>"
+    "references:planetcatfish": "<p>Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften. Mathematisch-Naturwissenschaftliche Classe v. 74 (1. Abth.), pp 140 [92], Pl. 12 (fig. 3-3a).</p>",
+    "quickFacts:glaser": "<p>Corydoras eques là một loài cá chuột mà khoa học đã biết từ lâu, nhưng ít khi thấy người chơi nuôi. Cá lớn tới khoảng 6 cm.</p>",
+    "distribution:glaser": "<p>Những con cá nhập về có nguồn từ bang Amazonas của Brazil, cụ thể là vùng quanh thành phố Anori.</p>",
+    "behaviour:glaser": "<p>Đây là một loài Corydoras sống theo đàn điển hình. Dải cam sáng ở cổ chắc chắn là để cả đàn bám sát nhau khi nước đục, khó nhìn.</p>",
+    "waterConditions:glaser": "<p>Nuôi trong nước đen thì cá trông đẹp nhất.</p>"
   },
   "quality": {
-    "score": 0.82,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "glaser": 0.9,
+      "glaser": 0.8,
       "seriouslyfish": 0.82,
       "planetcatfish": 0.85
     }

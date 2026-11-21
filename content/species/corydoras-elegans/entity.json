@@ -5,6 +5,7 @@
   "family": "Callichthyidae",
   "genus": "Corydoras",
   "group": "catfish",
+  "lNumber": "C123",
   "places": [
     "south-america",
     "brazil",
@@ -16,7 +17,8 @@
     "colombia",
     "caqueta",
     "itaya",
-    "solimoes"
+    "solimoes",
+    "rio-nanay"
   ],
   "range": {
     "native": {
@@ -267,6 +269,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "gh": [
@@ -301,8 +307,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
-      "html": "<p>The armored catfishes of the closer relationship around Corydoras elegans belong to the most interesting species of this huge genus. They do not live as strongly bottom-bound as most other armored catfishes and are very nicely colored.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-c123-2/",
+      "html": "<p>The beautiful Corydoras elegans is widely distributed in the Amazon region and locally forms numerous color forms. Possibly all these variants are even independent species, but scientifically this has not been investigated yet.</p>"
     },
     {
       "key": "distribution",
@@ -319,8 +325,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
-      "html": "<p>The species is known from Peru; a Brazilian variant is also currently available.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-c123-2/",
+      "html": "<p>A color variant from the Rio Nanay in Peru stands out above all by yellow-orange tinted fins. This Rio Nanay variant has been given the code number C123 to facilitate communication among enthusiasts.</p>"
     },
     {
       "key": "habitat",
@@ -377,6 +383,12 @@
       "html": "<p>Peaceful, gregarious, and a popular inhabitant of the community set-up. Should be maintained in a group of at least 4-6 individuals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-c123-2/",
+      "html": "<p>Apart from the pretty fin coloration, C123 is a typical Corydoras elegans. The fish are very social and peaceful, swimming in open water more often than most other Corydoras. The maximum length is about 5-6 cm.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=110",
@@ -391,8 +403,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
-      "html": "<p>Males and females differ relatively clearly in coloration. However, it is not easy to provide a color description of these extremely variable colored animals because coloration changes with sexual activity. Animals ready to spawn are the most colorful and contrasting in coloration, the males also more intense than the females. Outside the spawning period the color intensity decreases.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-c123-2/",
+      "html": "<p>Males have higher dorsal fins with dark bands. Some males have even strongly orange colored dorsal fins, but only in old age.</p>"
     },
     {
       "key": "reproduction",
@@ -457,6 +469,26 @@
       "caption": "The Elegant corydoras (Corydoras elegans)."
     },
     {
+      "url": "https://media.aquatome.com/glaser/4abe6763abc6c8c8.webp",
+      "thumb": "https://media.aquatome.com/glaser/4abe6763abc6c8c8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-c123-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9182d887f1a36977.webp",
+      "thumb": "https://media.aquatome.com/glaser/9182d887f1a36977-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-c123-2/",
+      "source": "glaser"
+    },
+    {
       "url": "https://media.aquatome.com/glaser/c18981a9bbc6699a.webp",
       "thumb": "https://media.aquatome.com/glaser/c18981a9bbc6699a-480.webp",
       "width": 850,
@@ -464,26 +496,6 @@
       "licence": "dùng với sự cho phép",
       "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/5b811089cec0980c.webp",
-      "thumb": "https://media.aquatome.com/glaser/5b811089cec0980c-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/c95411c654ed9c34.webp",
-      "thumb": "https://media.aquatome.com/glaser/c95411c654ed9c34-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
       "source": "glaser"
     }
   ],

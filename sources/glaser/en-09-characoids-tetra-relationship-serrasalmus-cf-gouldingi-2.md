@@ -1,0 +1,13 @@
+---
+url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-cf-gouldingi-2/
+title: Serrasalmus cf. gouldingi - Aquarium Glaser GmbH
+fetchedAt: 2026-11-21T22:08:09.471Z
+hash: ed2876bfe24f66168263b3c59d7cbf8856491636e5be1215131a7471bac2157b
+---
+
+It is indicative of the difficulties in piranha identification that this widespread species, which also occurs in an area intensively collected for the aquarium hobby (namely, the Rio Negro) was not scientifically described until 1992 and, moreover, almost never appears in the hobby. The terra typica is Anavilhanas, Río Negro, Brazil.
+The representatives of this species undergo a dramatic change of color and shape during their life. The fish, which grows to about 30 cm in length, is quite round-backed when old and then resembles a Pygocentrus. As a juvenile, it has a peculiar head shape reminiscent of Serrasalmus manueli, with a massive, nearly horizontal lower jaw. In contrast to S. manueli, which like S. gouldingi often shows vertically elongated body dots when young (but there are also specimens with a rounded dot pattern), S. gouldingi lacks the humeral spot (= a dark, conspicuous spot immediately behind the edge of the gill cover), which is always very prominent in S. manueli, at all age stages.
+Juvenile S. gouldingi have a transparent caudal fin with a black wedge at the base, making them very reminiscent of S. eigenmanni, which, however, has a prominent humeral spot. As they grow, the caudal fin becomes darker and darker and eventually is almost black except for a transparent fringe. This distinguishes S. gouldingi well from S. rhombeus, which also occurs in the Rio Negro, but always has a black fringed caudal fin. In older S. rhombeus, which, like S. gouldingi, tend to become very dark to black overall, eye color is a reliable distinguishing characteristic. S. rhombeus always has a red iris, S. gouldingi has a silvery iris.
+Serrasalmus gouldingi is widely distributed in the Amazon and Orinoco, our current stocked specimens were obtained via Manaus. Outside of the spawning season the adult fish appears silvery with smoky black fins and red or yellow coloration of the gill cover area, at spawning time the entire animal darkens considerably and then appears almost completely black. Any dot patterns are only indistinctly discernible on the body of adult live animals. S. gouldingi is a typical fin eater and therefore must be kept mostly individually.
+For our customers: the animals have code 292105 (10-12 cm) and 292106 (12-15 cm) on our stocklist. Please note that we only supply wholesale.
+Text & photos. Frank Schäfer

@@ -1,9 +1,14 @@
 {
   "id": "hyphessobrycon-micropterus",
-  "summary": "Hồ sơ này chưa có thông tin về bể, nước hay độ khó, và thẻ dữ liệu cũng trống, nên chưa đủ cơ sở nói loài này hợp với ai. Chỉ biết cá tetra Hyphessobrycon micropterus là loài đặc hữu của Rio Sao Francisco ở Brazil, con nhập về trông hơi giống cá Pristella nhưng màu đậm hơn hẳn. Điểm khó nhất là chưa chắc cá nhập về đúng là H. micropterus, vì còn phải nghiên cứu thêm.",
-  "mistakes": [],
+  "summary": "Hồ sơ này gần như không có thông tin nuôi: không có số liệu về bể, nước, nhiệt độ hay độ khó, nên chưa đủ cơ sở để nói loài này hợp với ai. Điều chắc chắn là cá tetra Hyphessobrycon micropterus là loài đặc hữu của hệ sông Rio Sao Francisco ở Brazil. Điểm khó nhất là nhận dạng: cá tetra nhập từ sông này trông hơi giống cá Pristella nhưng màu đậm hơn, và chưa chắc đúng là H. micropterus.",
+  "mistakes": [
+    "Đừng mặc nhiên coi con tetra nhập từ Rio Sao Francisco là H. micropterus; hồ sơ nói còn phải nghiên cứu thêm, nên ghi là chưa xác định chắc chắn."
+  ],
   "speciesUpdatedAt": "2026-11-21",
-  "writtenFrom": "3b3d1a9b7f6e1e10",
-  "generatedAt": "2026-11-21T19:20:01.021Z",
-  "review": "approved"
+  "writtenFrom": "74f391cf2a879eb9",
+  "generatedAt": "2026-11-21T22:53:21.198Z",
+  "review": "pending",
+  "problems": [
+    "\"Điều chắc chắn là cá tetra Hyphessobrycon micropterus là loài đặc hữu của hệ sông Rio Sao Francisco\": the page hedges this with \"Theo những gì đã biết\" (as far as is known). The summary turns that into a certainty. The page also says it is still unconfirmed that the fish from this river are H. micropterus."
+  ]
 }

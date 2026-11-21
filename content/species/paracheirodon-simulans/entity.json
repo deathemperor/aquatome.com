@@ -199,15 +199,15 @@
         "value": 2.5
       },
       {
-        "source": "glaser",
-        "value": 2.5
-      },
-      {
         "source": "aquariumcoop",
         "value": 2.5
       },
       {
         "source": "bwaquatics",
+        "value": 2.5
+      },
+      {
+        "source": "glaser",
         "value": 2.5
       }
     ],
@@ -269,8 +269,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon_simulans_en/",
-      "html": "<p>They originate from Brazil and Colombia.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon-simulans-2/",
+      "html": "<p>They originate from Colombia and Brazil.</p>"
     },
     {
       "key": "distribution",
@@ -301,12 +301,6 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
       "html": "<p>An aquarium with base dimensions of 45 × 30 cm or larger is recommended (about 41 litres).</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon_simulans_en/",
-      "html": "<p>It is a good idea to stock a nano tank with these shimmering jewels.</p>"
     },
     {
       "key": "aquariumSize",
@@ -423,6 +417,12 @@
       "html": "<p>This species is not bred on a commercial basis and is thus less common and usually more expensive than its congeners.</p><p>It is sometimes traded as 'false neon tetra' or 'blue neon tetra'.</p><p>As in all members of the genus some wild specimens possess a variable number of golden metallic scales and are marketed as P. simulans 'platinum' or 'gold'. Although naturally-occurring the condition is said to be caused by a parasite which stimulates increased guanine deposition in the scales.</p><p>P. simulans can be told apart from its congeners P. innesi and P. axelrodi by the following combination of characters following Weitzman and Fink (1983): premaxilla with 2 distinct rows of teeth; outer row with 1 or sometimes 2 conical teeth; inner row comprising 4-5 multicuspid teeth with 5-9 cusps; maxilla usually toothless, sometimes with 1 conical tooth; 7-8, usually 8, branched dorsal-fin rays; 7-9, usually 8, branched pectoral-fin rays; 5-6, usually 6, branched pelvic-fin rays; blue-green lateral stripe on the body of live specimens terminating at the caudal-fin base.</p><p>For aquarists perhaps more useful are the subtle differences in colour pattern with P. simulans differing from both P. innesi and P. axelrodi in possessing a greener (vs. bluer) lateral stripe which covers more (vs. less) of the eye/head and extends to the caudal-fin base (vs. terminating anterior to caudal-fin base), a lesser (vs. greater) amount of relatively duller (vs. brighter) red pigmentation on the flanks.</p><p>The taxonomic history of all three species is complicated with earlier authors such as Géry (1960, 1977) tending to include them in separate genera as Hypessobrycon simulans, Cheirodon axelrodi and Paracheirodon innesi, respectively, with this classification mostly based on dental morphology following the system proposed by Eigenmann (1915).</p><p>Others such as Madsen (1975) placed both P. axelrodi and P. simulans in the genus Cheirodon while van Ramshorst (1981) included P. innesi in Cheirodon as well.</p><p>Weitzman and Fink (1983) provided the first evidence for the monophyly of Paracheirodon, containing all three species, via a number of osteological characters plus their distinctive colour pattern consisting of an intense blue or blue-green lateral stripe, dense red pigment on the body restricted to the portion ventral to the lateral stripe, and a stripe of dark brown or black chromatophores underlying and extending dorsally to the lateral stripe.</p><p>A fourth Paracheirodon species has apparently been discovered at a single locality within the rio Purus system, the main channel of which enters the Amazon upstream of the rio Negro but little additional information is currently available.</p><p>The closer relationships of Paracheirodon within the family Characidae have not yet been fully-confirmed with the grouping considered incertae sedis by the majority of recent authors.</p><p>Results obtained in the molecular phylogenetic analysis of Oliveira et al. (2011) recovered P. axelrodi to be most-closely related to certain members of Hyphessobrycon species (specifically H. eques and H. megalopterus) among those species included in the study.</p><p>The function of the intense blue lateral stripe in Paracheirodon spp. may have evolved as a predator evasion strategy according to the hypothesis of Ikeda and Kohshima (2009) which was published following direct field study of the fish in blackwater streams near Requena in the Peruvian Amazon plus observation of wild specimens in aquaria under different conditions.</p><p>The reserachers found that the bright colouration of the lateral stripe in P. innesi is less conspicuous in blackwater except when viewed from a limited angle of around 30° above the horizon, and that this could aid in confusing predators via bright mirror images of the stripe being projected onto the underside of the water surface.</p><p>Whereas most characids displaying a laterally-striped colour pattern possess a dark-coloured lateral stripe with a lighter stripe dorsally, this pattern is reversed in Paracheirodon and may be an adaptation for forming such mirror images.</p><p>The fish are also able to change the intensity of their overall colour pattern to an extent, becoming lighter in bright conditions with pale substrate or background and clear water, and duller with a violet lateral stripe at night, and this may also be a response designed to make them less visible.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/paracheirodon-simulans-2/",
+      "html": "<p>Only rarely are such large, adult (about 2 cm long) specimens available. This is a perfect occasion to stock a nano tank with these shimmering jewels.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
@@ -451,6 +451,37 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
       "caption": "Adult male.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b508a90bce4be27e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b508a90bce4be27e-480.webp",
+      "width": 794,
+      "height": 596,
+      "licence": "dùng với sự cho phép",
+      "author": "Peter Macguire / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/0b413da48f8882f9-480.webp",
+      "width": 1000,
+      "height": 659,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
+      "source": "bwaquatics"
+    },
+    {
+      "url": "https://media.aquatome.com/bwaquatics/72e065dab2201632.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/72e065dab2201632-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
+      "source": "bwaquatics"
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/9e08cc6eadef557d.webp",
@@ -484,37 +515,6 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/green-neon-tetra",
       "caption": "school of green neon tetras",
       "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/b508a90bce4be27e.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b508a90bce4be27e-480.webp",
-      "width": 794,
-      "height": 596,
-      "licence": "dùng với sự cho phép",
-      "author": "Peter Macguire / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/paracheirodon-simulans",
-      "caption": "Head detail.",
-      "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/0b413da48f8882f9-480.webp",
-      "width": 1000,
-      "height": 659,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "source": "bwaquatics"
-    },
-    {
-      "url": "https://media.aquatome.com/bwaquatics/72e065dab2201632.webp",
-      "thumb": "https://media.aquatome.com/bwaquatics/72e065dab2201632-480.webp",
-      "width": 1000,
-      "height": 750,
-      "licence": "dùng với sự cho phép",
-      "author": "BW Aquatics",
-      "sourceUrl": "https://bwaquatics.com/products/paracheirodon-simulans-green-neon-tetra",
-      "source": "bwaquatics"
     }
   ],
   "videos": [
@@ -574,5 +574,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-21"
 }

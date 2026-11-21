@@ -186,7 +186,7 @@
       },
       {
         "source": "bwaquatics",
-        "value": 2.5
+        "value": 2
       }
     ],
     "tankCm": [
@@ -246,7 +246,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
-      "html": "<p>Hyphessobrycon amanda, more commonly known as the Ember Tetra, is a small, vibrant tropical fish that is a popular choice among aquarium enthusiasts. Their striking orange and red coloration, combined with their peaceful nature, make them a great addition to any freshwater community tank.</p><ul><li>Size: Adults typically reach a length of about 2.5 cm.</li><li>Coloration: Bright orange or red body with a translucent appearance, often with a slight coppery sheen.</li></ul>"
+      "html": "<ul><li>Genus: Hyphessobrycon (South American tetras).</li><li>IUCN Red List: Least Concern.</li><li>Origin: tank raised.</li><li>Temperament: peaceful.</li></ul><p>Body shape: tiny, slender tetra. Fins: orange-red fins fading to clear at the edges; dark leading edge on the dorsal and anal fins. Coloration: bright orange to red translucent body with a slight copper sheen. The eye ring matches the body colour.</p>"
     },
     {
       "key": "distribution",
@@ -267,6 +267,12 @@
       "html": "<p>Hyphessobrycon amandae is a common tetra found in Brazil. It comes from the same genus as many other well-known tetras in the pet trade, such as the black neon tetra, Von Rio tetra and lemon tetra.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<p>Hyphessobrycon amandae was described in 1987 from the Rio das Mortes in Mato Grosso, part of the Araguaia basin in central Brazil, and named for Amanda Bleher, mother of collector Heiko Bleher.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
@@ -277,6 +283,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
       "html": "<p>Ember tetras come from mildly acidic waters.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<p>Slow, vegetated waters of the Araguaia basin.</p>"
     },
     {
       "key": "aquariumSize",
@@ -294,7 +306,7 @@
       "key": "aquariumSize",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
-      "html": "<p>A minimum of a 20-litre tank is recommended, but a larger tank will allow for more natural schooling behaviour.</p>"
+      "html": "<p>Max size: about 2 cm standard length (about 2.5 cm total length). Tank: 20 litres minimum; a larger tank allows more natural schooling.</p>"
     },
     {
       "key": "maintenance",
@@ -324,7 +336,7 @@
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
-      "html": "<ul><li>pH: 6.0–7.5</li><li>Temperature: 22–28°C</li><li>Hardness: Soft to moderately hard</li></ul>"
+      "html": "<p>pH: 6.0 to 7.5. Temperature: 22 to 28°C.</p>"
     },
     {
       "key": "equipment",
@@ -354,7 +366,7 @@
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
-      "html": "<p>Easy to feed; will take pellets.</p>"
+      "html": "<p>Easy to feed, will take pellets. Baby brine shrimp and water fleas bring out the best colour.</p>"
     },
     {
       "key": "behaviour",
@@ -378,7 +390,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
-      "html": "<p>Best kept in a school of 6 or more with plenty of vegetation. Ember Tetras are peaceful fish that can be kept with other small, peaceful species. Because of their speed, they can be kept with some medium-sized mouthbrooders such as Taeniata, dimidiata and betta rubra, as well as other small rasboras and tetras.</p>"
+      "html": "<p>Peaceful. Best kept in a school of 6 or more with plenty of vegetation. Because of their speed, they can be kept with some medium-size mouthbrooders such as Betta taeniata, Betta dimidiata and Betta rubra, as well as other small rasboras and tetras.</p>"
     },
     {
       "key": "dimorphism",
@@ -415,6 +427,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
       "html": "<p>Buy at least six fish to have a higher chance of getting both sexes. As egg scatterers, they show no parental care and will eat their own eggs and fry. They can be bred in a colony setting in a seasoned, mature aquarium with lots of microfauna and dense plants (such as Pogostemon stellatus 'octopus' and water sprite).</p><p>To produce greater numbers, prepare a small mature tank with a sponge filter or air stone for slow flow. Cover the bottom with plastic craft mesh and place java moss (or a spawning mop) underneath; eggs fall through the holes while adults cannot reach them. Catappa leaves can create biofilm for the fry and slightly acidify the water. After conditioning the adults with heavy feeding, move them to the breeding tank and remove them after a few days of spawning.</p><p>Fry need tiny foods such as infusoria, vinegar eels and powdered fry food at first. Feed small meals several times a day and do small daily water changes. After a couple of weeks they may take baby brine shrimp, greatly improving growth and survival. If fry sizes differ greatly, move the bigger ones to another grow-out tank.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<p>Egg scatterer that spawns among fine-leaved plants or moss. Adults eat eggs, so a separate tank with moss or mops gives the best results. Fry need infusoria at first.</p>"
     },
     {
       "key": "notes",
@@ -456,6 +474,17 @@
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
       "caption": "Adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/44e15b1953f7f6a9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/44e15b1953f7f6a9-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Choy Heng Wah / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
+      "caption": "Adult male with pale colouration.",
       "source": "seriouslyfish"
     },
     {
@@ -501,17 +530,6 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
       "caption": "ember tetra",
       "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/44e15b1953f7f6a9.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/44e15b1953f7f6a9-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "dùng với sự cho phép",
-      "author": "Choy Heng Wah / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-amandae",
-      "caption": "Adult male with pale colouration.",
-      "source": "seriouslyfish"
     }
   ],
   "videos": [
@@ -569,5 +587,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

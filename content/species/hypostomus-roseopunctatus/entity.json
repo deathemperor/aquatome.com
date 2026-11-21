@@ -5,13 +5,16 @@
   "family": "Loricariidae",
   "genus": "Hypostomus",
   "group": "catfish",
+  "lNumber": "L311",
   "places": [
     "south-america",
     "argentina",
     "rio-parana",
     "uruguay",
     "brazil",
-    "rio-pelotas"
+    "rio-pelotas",
+    "paraguay",
+    "la-plata"
   ],
   "range": {
     "native": {
@@ -140,6 +143,10 @@
       {
         "source": "scotcat",
         "value": 23
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tempC": [
@@ -173,6 +180,18 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1337",
       "html": "<ul><li>Scientific name: Hypostomus roseopunctatus Reis, Weber &amp; Malabarba, 1990</li><li>Common name: Rose-spotted Pleco</li><li>IUCN Red List: Least Concern (last assessed 2020)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-roseopunctatus-l311-2/",
+      "html": "<p>Hypostomus roseopunctatus grows to about 25 cm long, so the specimens shown are almost fully grown.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-roseopunctatus-l311-2/",
+      "html": "<p>No fewer than 148 species are counted in the genus Hypostomus, but no more than five of them appear regularly in the trade. Special is of course H. luteus with its sail-like dorsal fin and bright yellow coloration, but most species are \"plecos\", brown or grey with black spots. In addition, most species grow quite large (20-40 cm) for normal aquariums.</p>"
     },
     {
       "key": "distribution",
@@ -209,6 +228,18 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
       "html": "<p>Peaceful and, being a smaller species of Hypostomus, although territorial, more than one Hypostomus species in a large tank would be okay.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-roseopunctatus-l311-2/",
+      "html": "<p>These catfishes are very tolerant among each other and towards other fishes anyway.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-roseopunctatus-l311-2/",
+      "html": "<p>The two fish shown in the photo are probably a pair due to the physical differences.</p>"
     },
     {
       "key": "reproduction",
@@ -252,6 +283,36 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm",
       "caption": "Hypostomus roseopunctatus",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/344eec15fdff539a.webp",
+      "thumb": "https://media.aquatome.com/glaser/344eec15fdff539a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-roseopunctatus-l311-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/dc91173d46b3ff89.webp",
+      "thumb": "https://media.aquatome.com/glaser/dc91173d46b3ff89-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-roseopunctatus-l311-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/75dbac3a6bbbc92c.webp",
+      "thumb": "https://media.aquatome.com/glaser/75dbac3a6bbbc92c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/hypostomus-roseopunctatus-l311-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -295,5 +356,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-13"
+  "updatedAt": "2026-11-21"
 }

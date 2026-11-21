@@ -1,13 +1,16 @@
 {
   "id": "betta-stiktos",
-  "summary": "Cá betta Stiktos (Betta stiktos) hợp với người muốn nuôi một loài betta nhỏ, dài tối đa 5 cm, và chấp nhận cá chỉ có từ cá đẻ trong bể. Nước giữ ở 24–29 °C, pH 5–7,5, trên 26 °C cá lên màu đẹp hơn hẳn. Khó nhất là con đực rất dữ, nên chỉ nuôi riêng hoặc chung với betta không phải con đực.",
+  "summary": "Betta stiktos hợp với người muốn nuôi một loài betta hiếm, nhỏ (5 cm), ăn thịt. Nước nên mềm, hơi chua, pH 5–7,5, nhiệt độ 24–29 °C, và nước trên 26 °C thì cá lên màu đẹp hơn hẳn. Khó nhất là con đực rất dữ, nên nuôi một mình hoặc chung với cá khác không phải betta đực.",
   "mistakes": [
-    "Thả chung con đực với nhau là sai, vì đực rất dữ; nuôi riêng, hoặc chỉ thả chung với betta không phải con đực.",
-    "Để mặt nước động khi cá đẻ làm tổ bọt vỡ; giữ mặt nước êm.",
-    "Để con cái ở lại bể sau khi cặp cá đẻ xong; vớt con cái ra."
+    "Thả hai con đực chung bể là lỗi hay gặp vì đực rất dữ; mỗi bể chỉ nuôi một đực.",
+    "Thả nhiều con cái vào bể chật; chỉ nuôi nhóm cái trong bể thủy sinh đủ rộng.",
+    "Để con cái trong bể sau khi đẻ xong; nên vớt con cái ra và giữ mặt nước yên để tổ bọt không vỡ."
   ],
-  "speciesUpdatedAt": "2026-11-18",
-  "writtenFrom": "2adef1c1443c204b",
-  "generatedAt": "2026-11-19T01:54:30.606Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-21",
+  "writtenFrom": "76467185c2263770",
+  "generatedAt": "2026-11-21T22:53:12.778Z",
+  "review": "pending",
+  "problems": [
+    "\"là lỗi hay gặp\": the page never says that keeping two males together is a common mistake. This frequency claim is invented."
+  ]
 }

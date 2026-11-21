@@ -71,12 +71,78 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius_cf_leopoldianus_en/",
-      "html": "<p>Many species of African tetra have never been photographed alive or kept in aquaria, so it is often very difficult to determine a species of that group. This tetra was obtained for the first time from Lac Mai Ndombe (formerly known as Lake Leopold). It has wonderful shining colours in the right light. Most probably the fish belong to the species Alestopetersius leopoldianus.</p><p>Currently the fish are 6-7 cm long. They are expected not to grow larger than 9 cm. The fish have an orange longitudinal band, the large scales of the back and the belly shine blue-green, and the dorsal and caudal fins have an orange tinge.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius-leopoldianus-2/",
+      "html": "<p>The species reaches a maximum length of about 9 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius-leopoldianus-2/",
+      "html": "<p>Alestopetersius leopoldianus originates from Lac Mai Ndombe (formerly: Lake Leopold) and the middle Congo.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius-leopoldianus-2/",
+      "html": "<p>Depending on the incidence of light the animal looks completely different. With the naked eye one almost always sees a dark, broad longitudinal band. This is also the only significant coloration feature mentioned in the first scientific description from 1899.</p><p>The deep blue dorsum is striking. Depending on the angle of light, the reflective colors can be so intense on the body that they even cover the longitudinal band, or make it almost invisible.</p><p>In the aquarium all these colors can be seen at once, because the fish swims and so the incidence of light also changes permanently.</p>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/cbc195d8813378b8.webp",
+      "thumb": "https://media.aquatome.com/glaser/cbc195d8813378b8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius-leopoldianus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/874af60fe22f5040.webp",
+      "thumb": "https://media.aquatome.com/glaser/874af60fe22f5040-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius-leopoldianus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c3b2f32259353999.webp",
+      "thumb": "https://media.aquatome.com/glaser/c3b2f32259353999-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius-leopoldianus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/14b43b93af929346.webp",
+      "thumb": "https://media.aquatome.com/glaser/14b43b93af929346-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/alestopetersius-leopoldianus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "gQtce9Rrgw4",
+      "title": "Alestopetersius leopoldianus, Congochromis sabinae.",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vy6Visg844Y",
+      "title": "Alestopetersius leopoldianus",
+      "durationSec": 53,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -100,5 +166,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-21"
 }

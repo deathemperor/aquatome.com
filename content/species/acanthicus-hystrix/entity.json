@@ -196,6 +196,10 @@
       {
         "source": "seriouslyfish",
         "value": 100
+      },
+      {
+        "source": "glaser",
+        "value": 100
       }
     ],
     "tankCm": [
@@ -219,10 +223,28 @@
       "html": "<ul><li><strong>Max size:</strong> 1000 mm SL (39 in SL)</li><li><strong>Aquarium size:</strong> 600 × 200 cm (236 × 79 in)</li><li><strong>Temperature:</strong> 23–30°C (73–86°F)</li><li><strong>pH:</strong> 6.0–7.5</li><li><strong>Hardness:</strong> 2–12 dGH</li></ul><p>The lyre tail pleco, Acanthicus hystrix, is a very large loricariid catfish from the Amazon region of Brazil and Peru. A handful of records come from the Orinoco in Venezuela. Juveniles are traded in quite large numbers, but it can reach at least 1000 mm in nature and 500 to 600 mm in captivity, and becomes increasingly belligerent with age. Young fish are easily told from A. adonis by lacking its white to yellowish body spots.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-sp-l155-furo-maguari-2/",
+      "html": "<p>Acanthicus hystrix is one of the great myths in the literal sense. With a length of almost one meter it is one of the largest loricariid catfishes at all. In addition, the species, which was already described in 1829, is extremely prickly: \"hystrix\" means \"porcupine\"!</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-sp-l155-furo-maguari-2/",
+      "html": "<p>Black Adonis Catfish are fish for specialists who can accommodate these giants, which can also be quite aggressive. For show aquariums large Adonis catfish are excellent subjects.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-hystrix",
       "html": "<p>The precise type locality is unknown and given simply as 'Amazon River', although the species has subsequently been recorded throughout much of the Amazon region in Brazil and Peru, plus there exist a handful of records pertaining to the Río Orinoco drainage in Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-sp-l155-furo-maguari-2/",
+      "html": "<p>Where the specimen on which the description of this species is based was captured is unknown. The L155 come from the Furo Maguari, a tributary of the Rio Tocantins.</p>"
     },
     {
       "key": "habitat",
@@ -277,9 +299,26 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-hystrix",
       "html": "<p>Despite its patent unsuitability as an aquarium subject attractively-coloured juvenile specimens of this species are traded in quite large numbers, although the scarcity of privately-maintained adults would suggest that most fail to reach their potential. Since it becomes increasingly belligerent with age it can only be recommended to owners of the largest private aquaria or tropical ponds. There exists an albino form which is available from time-to-time.</p><p>The genus Acanthicus currently comprises just two species but there exist a handful of undescribed ones, some of which have been exported for the aquarium hobby. Members are most easily characterised by lacking an adipose fin plus possessing extensive keels along the flanks as well as a greatly-extended pterotic-supracleithrum, a bony formation comprising fused pterotic, posttemporal, and supracleithrum bones and located just above the pectoral girdle. All are extremely spiny meaning extreme care should be taken when netting or otherwise handling them as they can easily become entangled in the mesh of aquarium nets or cause physical injury.</p><p>The two described taxa, A. adonis and A. hystrix, are easily distinguished when young since the latter lacks white to yellowish spots on the body. As adults they appear more similar although A. adonis tends to retain some degree of spotted patterning, most often on the fins or fin filaments.</p><p>The family Loricariidae is the largest among catfishes with over 700 species described to date and many awaiting description. The latter are typically assigned a specific 'L' number by hobbyists and scientists alike in order to provide a basic means of identification, although in some cases several species have been referred to the same number, or multiple numbers have been used for different populations of a single taxon. All loricariids are also commonly referred to as 'pleco', 'plecostomus' or 'suckermouth armoured catfishes'.</p><p>The sucking disc formed by the mouthparts is common to all representatives but both oral and dental morphology are highly variable depending on a given species' ecological adaptation(s), and some species even practice xylophagy (wood eating). Many species are also facultative air-breathers i.e. they possess the ability to respire atmospheric air if necessary.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-sp-l155-furo-maguari-2/",
+      "html": "<p>Unfortunately, the specimen on which the description of this species is based was destroyed during the Second World War. Where it was captured is unknown. Thus, it is unclear which of the three or four Black Adonis Catfishes known so far is the \"real\" A. hystrix. For one of them, a form from the Rio Xingu, the L-number 155 was assigned. In the trade it has become common practice to refer to the Black Adonis Catfishes all as L155, regardless of origin.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/d89124cdd38bbda5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/d89124cdd38bbda5-480.webp",
+      "width": 922,
+      "height": 481,
+      "licence": "dùng với sự cho phép",
+      "author": "Adam Carvalho / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-hystrix",
+      "caption": "The following series of images all depict the same live specimen, from the rio Tocantins near Estreito.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/scotcat/182ed7b053958cdb.webp",
       "thumb": "https://media.aquatome.com/scotcat/182ed7b053958cdb-480.webp",
@@ -303,17 +342,6 @@
       "source": "scotcat"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/d89124cdd38bbda5.webp",
-      "width": 922,
-      "height": 481,
-      "licence": "dùng với sự cho phép",
-      "author": "Adam Carvalho / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/acanthicus-hystrix",
-      "caption": "The following series of images all depict the same live specimen, from the rio Tocantins near Estreito.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/d89124cdd38bbda5-480.webp"
-    },
-    {
       "url": "https://media.aquatome.com/scotcat/1d07339eba6159c5.webp",
       "thumb": "https://media.aquatome.com/scotcat/1d07339eba6159c5-480.webp",
       "width": 500,
@@ -334,9 +362,64 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/acanthicus_hystrix.htm",
       "caption": "Acanthicus hystrix: showing mouth",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/17f30fe60b56d061.webp",
+      "thumb": "https://media.aquatome.com/glaser/17f30fe60b56d061-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-sp-l155-furo-maguari-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bff2fdff0207ddb0.webp",
+      "thumb": "https://media.aquatome.com/glaser/bff2fdff0207ddb0-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-sp-l155-furo-maguari-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/44337c638b1d6963.webp",
+      "thumb": "https://media.aquatome.com/glaser/44337c638b1d6963-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/acanthicus-sp-l155-furo-maguari-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "bN-Sh2zH794",
+      "title": "Acanthicus hystrix",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "QE3GjYndfQc",
+      "title": "Acanthicus hystrix sp. L155 Lyre Tail Pleco, Hedgehog Pleco",
+      "durationSec": 60,
+      "lang": "vi"
+    },
+    {
+      "youtubeId": "djoKX6TKSxY",
+      "title": "L155 (Acanthicus hystrix)",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PLLJfpMa71E",
+      "title": "Large Lyre Tail Pleco",
+      "durationSec": 10,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -366,5 +449,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-28"
+  "updatedAt": "2026-11-21"
 }

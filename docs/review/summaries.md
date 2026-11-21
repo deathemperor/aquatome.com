@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (173)
+# Tóm tắt chờ duyệt (181)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -314,6 +314,33 @@ Benitochromis nigrodorsalis là cichlid Tây Phi hiếm, dài khoảng 12 cm, nu
 Kiểm tra:
 - The mistake says "Đừng chuẩn bị hang đẻ như với Pelvicachromis" and the fix says "theo dõi cả đôi chứ đừng chỉ nhìn hang". The page gives no advice about caves or about watching the pair. It only says Pelvicachromis spawn in caves and Benitochromis are mouthbrooders. The summary turns that contrast into care advice the page doesn't give.
 
+## Cá betta cracens (Betta cracens)
+id: `betta-cracens`
+
+Cá betta cracens (Betta cracens) hợp với người đã có kinh nghiệm, thích nuôi riêng cá mê cung ấp trứng bằng miệng, độ khó 6/8. Cần bể dài tối thiểu 80 cm (đáy 80 × 30 cm, khoảng 72 lít), nước 22–27 °C, pH 5,5–6,5, 0–5 dGH, ánh sáng yếu, lọc bông sủi khí nhẹ, có lá khô và chỗ trốn. Khó nhất là mua đúng loài, vì cá bán dưới tên này phần lớn là B. pugnax, B. raja hoặc loài gần khác, và phải đậy bể thật kín vì cá nhảy giỏi.
+
+- Để bể hở hoặc đổ nước đầy tới miệng: cá nhảy rất giỏi và cần lớp không khí ẩm phía trên mặt nước, nên đậy thật kín và chừa khoảng trống.
+- Thả chung với cá lớn hoặc hiếu động: chúng sẽ làm cá sợ và giành hết thức ăn, nên nuôi riêng hoặc chung với loài thật hiền.
+- Cho ăn quá tay: Betta dễ béo phì, nên cho ăn vừa phải và thường xuyên đổi sang thức ăn sống hoặc đông lạnh cỡ nhỏ như Daphnia, Artemia, trùng huyết.
+
+Kiểm tra:
+- "ánh sáng yếu" is listed as a requirement ("Cần ... ánh sáng yếu"), but the page only hedges: "có vẻ hợp nhất với ánh sáng khá yếu" (seems to suit fairly weak light). The hedge became a certainty.
+- "Betta dễ béo phì" drops the page's hedge "có vẻ đặc biệt dễ béo phì" (seem especially prone to obesity), so a caution is stated as a fact.
+
+## Cá betta gladiator (Betta gladiator)
+id: `betta-gladiator`
+
+Cá betta gladiator (Betta gladiator) hợp với người chịu nuôi riêng một cặp trong bể dài tối thiểu 90 cm, độ khó 4/8. Cần nước chua mềm, 22–27 °C, pH 4–6, độ cứng 0–5 dGH, đèn tối, lọc nhẹ, có rễ lũa và lá khô làm chỗ nấp. Điểm khó nhất là tính hung dữ: khó nuôi chung với cá khác, đực nhốt chung hay đánh nhau, và cá nhảy giỏi nên bể phải đậy kín.
+
+- Thả chung với cá hiền trong bể cộng đồng thông thường thì dễ có chuyện; nên nuôi riêng, hoặc chỉ ghép với loài thật hiền.
+- Nuôi nhiều con đực chung trong bể chật, chúng đánh nhau suốt và có thể giết nhau; nên nuôi một cặp, hoặc nuôi nhóm một thời gian để cá tự chọn đôi.
+- Để bể hở hoặc đổ nước đầy tới miệng thì cá dễ nhảy ra ngoài; nên đậy bể thật kín và đừng đổ nước đầy tới miệng.
+
+Kiểm tra:
+- "cá nhảy giỏi nên bể phải đậy kín": the page hedges with "Loài này chắc là cũng nhảy rất giỏi" (probably a very good jumper), and the summary states it as certain.
+- "đực nhốt chung hay đánh nhau" and "chúng đánh nhau suốt và có thể giết nhau": the page says only "nghe nói đánh nhau suốt" (reportedly fight constantly), and the summary drops that hedge.
+- "Điểm khó nhất là tính hung dữ": the page frames aggression as a reputation ("nổi tiếng", "Nếu loài này dữ đúng như lời đồn"), and the summary states it as established fact.
+
 ## Cá betta Kuehne (Betta kuehnei)
 id: `betta-kuehnei`
 
@@ -363,6 +390,18 @@ Cá betta Siamorientalis nhỏ, chỉ 3,3 cm, hợp với người đã có chú
 
 Kiểm tra:
 - "hợp với người đã có chút kinh nghiệm": neither the page text nor the card says the species suits experienced keepers. Card difficulty 4/8 only means medium (vừa), so this audience claim is not supported.
+
+## Cá betta Stiktos (Betta stiktos)
+id: `betta-stiktos`
+
+Betta stiktos hợp với người muốn nuôi một loài betta hiếm, nhỏ (5 cm), ăn thịt. Nước nên mềm, hơi chua, pH 5–7,5, nhiệt độ 24–29 °C, và nước trên 26 °C thì cá lên màu đẹp hơn hẳn. Khó nhất là con đực rất dữ, nên nuôi một mình hoặc chung với cá khác không phải betta đực.
+
+- Thả hai con đực chung bể là lỗi hay gặp vì đực rất dữ; mỗi bể chỉ nuôi một đực.
+- Thả nhiều con cái vào bể chật; chỉ nuôi nhóm cái trong bể thủy sinh đủ rộng.
+- Để con cái trong bể sau khi đẻ xong; nên vớt con cái ra và giữ mặt nước yên để tổ bọt không vỡ.
+
+Kiểm tra:
+- "là lỗi hay gặp": the page never says that keeping two males together is a common mistake. This frequency claim is invented.
 
 ## Cá betta tussyae (Betta tussyae)
 id: `betta-tussyae`
@@ -553,6 +592,20 @@ Kiểm tra:
 - The fix "nên xác định rõ mình lấy quần thể \"Guadalupe Aguilera\" hay \"Puente Pino Suarez\"" is advice the page does not give. The page only says these two populations are on the market.
 - The reason "cá to nhỏ chênh nhau" is tied to not buying pairs, but the page does not link size differences to pairing. The page's "Cá to nhỏ khá chênh nhau" may refer to differences between the populations.
 
+## Cá Cichlasoma istlanum (Cichlasoma istlanum)
+id: `cichlasoma-istlanum`
+
+Cá Cichlasoma istlanum hợp với người đã quen cichlid lớn Trung Mỹ và sẵn sàng đầu tư bể lớn cùng thiết bị phù hợp. Con đực có thể dài tới 30 cm, con cái nhỏ hơn, hai giới khác màu nên dễ phân biệt. Hồ sơ không có số liệu về nhiệt độ, pH hay bể tối thiểu, nên điểm khó nhất là chuẩn bị bể đủ rộng cho con đực to và tìm được loài hiếm này.
+
+- Đừng nuôi trong bể nhỏ vì con đực lớn nhanh và có thể dài tới 30 cm; hãy chuẩn bị bể lớn cùng thiết bị phù hợp ngay từ đầu.
+- Đừng chờ cá lớn hết cỡ mới lo chuyện sinh sản, vì cá còn khá nhỏ đã đủ lớn để đẻ; hãy tính trước chỗ cho cá đẻ.
+- Đừng nghĩ cá không đẻ là bệnh vì loài này có khi mỗi năm chỉ đẻ một lần; hãy kiên nhẫn theo dõi.
+
+Kiểm tra:
+- "hợp với người đã quen cichlid lớn Trung Mỹ": the page never says the species suits only experienced keepers. It says that anyone with a big tank and suitable equipment will love it ("ai nuôi cũng sẽ thấy mê").
+- "hãy tính trước chỗ cho cá đẻ": the page gives no advice about planning space for spawning. It only says the fish can breed at 8-10 cm.
+- "Đừng nghĩ cá không đẻ là bệnh ... hãy kiên nhẫn theo dõi": the page never links breeding frequency to illness and gives no advice to wait and watch. It only says the fish may breed just once a year. This mistake and its fix are invented.
+
 ## Cá hồng cầu đen (Colossoma macropomum)
 id: `colossoma-macropomum`
 
@@ -673,6 +726,18 @@ Hợp với người đã quen nuôi cichlid, muốn một loài săn mồi cỡ
 Kiểm tra:
 - "Hợp với người đã quen nuôi cichlid": the page never says the species suits keepers experienced with cichlids. It gives no suitability advice, and the card difficulty 4/8 is only medium. This audience claim is invented.
 - "loài săn mồi cỡ vừa": the page does not call the fish medium-sized. It says it reaches about 20 cm.
+
+## Cá pike cichlid Crenicichla jegui (Crenicichla jegui)
+id: `crenicichla-jegui`
+
+Cá pike cichlid Crenicichla jegui hợp với người đã có kinh nghiệm nuôi cá săn mồi và chịu tìm loài cực hiếm trong giới nuôi cá cảnh. Cá dài tới 30 cm, ăn cá, cá cắt miếng, tép, sống sát đáy và giữ chỗ ở rất quyết liệt. Hồ sơ không nêu thông số nước hay bể tối thiểu, nên khó nhất là nuôi chung nhiều con: cần bể thật lớn, nhiều chỗ trốn và dòng chảy mạnh.
+
+- Thả nhiều con vào bể nhỏ, ít chỗ trốn: con nào cũng giữ chỗ rất quyết liệt, nên dùng bể thật lớn, nhiều chỗ trốn và dòng chảy mạnh.
+- Cho ăn đồ không hợp với cá săn mồi: nên cho ăn cá, cá cắt miếng, tép và những thứ tương tự.
+- Vội xác định đực cái khi cá còn nhỏ: lúc này chưa phân biệt được, nên chờ con cái đủ lớn để đẻ, lúc đó có sọc đỏ tươi ở phần sau vây lưng.
+
+Kiểm tra:
+- "hợp với người đã có kinh nghiệm nuôi cá săn mồi": the page and card never say the fish needs an experienced keeper. The card gives no difficulty rating either. This suitability claim is advice the page doesn't give.
 
 ## Cá pike cichlid Proteus (Crenicichla proteus)
 id: `crenicichla-proteus`
@@ -1025,6 +1090,16 @@ Cá nhỏ, trưởng thành 4,2 cm, xuất xứ Brazil (bắt ở Mato Grosso). 
 Kiểm tra:
 - "Hồ sơ chưa có ... thông số nước chuẩn của trang": the page does give water conditions (about 10 dGH, pH 7, about 24°C). The summary leaves them out and says they are missing, which misleads readers.
 - "nên đó là điểm khó nhất": the page never says missing data is the hardest part of keeping this fish. Missing profile data is not a care difficulty, so the summary does not name a real hardest point from the page.
+
+## Cá tetra Hyphessobrycon micropterus (Hyphessobrycon micropterus)
+id: `hyphessobrycon-micropterus`
+
+Hồ sơ này gần như không có thông tin nuôi: không có số liệu về bể, nước, nhiệt độ hay độ khó, nên chưa đủ cơ sở để nói loài này hợp với ai. Điều chắc chắn là cá tetra Hyphessobrycon micropterus là loài đặc hữu của hệ sông Rio Sao Francisco ở Brazil. Điểm khó nhất là nhận dạng: cá tetra nhập từ sông này trông hơi giống cá Pristella nhưng màu đậm hơn, và chưa chắc đúng là H. micropterus.
+
+- Đừng mặc nhiên coi con tetra nhập từ Rio Sao Francisco là H. micropterus; hồ sơ nói còn phải nghiên cứu thêm, nên ghi là chưa xác định chắc chắn.
+
+Kiểm tra:
+- "Điều chắc chắn là cá tetra Hyphessobrycon micropterus là loài đặc hữu của hệ sông Rio Sao Francisco": the page hedges this with "Theo những gì đã biết" (as far as is known). The summary turns that into a certainty. The page also says it is still unconfirmed that the fish from this river are H. micropterus.
 
 ## Cá lau kiếng Hypostomus pagei (Hypostomus pagei)
 id: `hypostomus-pagei`
@@ -1472,6 +1547,18 @@ Cá panchax xanh phấn (Pachypanchax omalonotus) hợp người đã có bể r
 
 Kiểm tra:
 - "cá nhỏ sẽ bị ăn, nên nuôi riêng, không thả chung loài khác": the page hedges ("chắc sẽ bị ăn", "có lẽ nên nuôi riêng"), but the summary states both as certainties.
+
+## Cá nóc Pao abei (Pao abei)
+id: `pao-abei`
+
+Cá nóc Pao abei cỡ trưởng thành 10 cm, hợp với người thích cá nóc nước ngọt đẹp và thú vị, chấp nhận loài này sống hoàn toàn trong nước ngọt. Hồ sơ không nêu bể tối thiểu, nhiệt độ hay pH, nên cần tự tìm thêm trước khi nuôi. Khó nhất là định loài: cá đổi màu rất nhanh, hoa văn mỗi con một khác, nên lứa mới nhập về chưa chắc đã đúng Pao abei.
+
+- Đừng tin màu sắc hay ảnh nhà cung cấp để khẳng định loài, vì cá đổi màu rất nhanh và rất mạnh; hãy coi tên loài là chưa chắc chắn.
+- Đừng cho rằng con cá mới nhập chắc chắn là Pao abei; nhóm này khó phân biệt, nên hỏi rõ nguồn gốc lứa cá trước khi mua.
+
+Kiểm tra:
+- The second mistake's fix, "nên hỏi rõ nguồn gốc lứa cá trước khi mua", is advice the page never gives. The page only says the species identity is uncertain. It says nothing about asking the seller about the batch's origin.
+- "cần tự tìm thêm trước khi nuôi" is also advice the page does not give, though it is minor.
 
 ## Cá chạch Parabotia lijiangensis (Parabotia lijiangensis)
 id: `parabotia-lijiangensis`
@@ -1969,6 +2056,20 @@ Loài này không hợp với người chơi bình thường, chỉ hợp ngư�
 
 Kiểm tra:
 - "5–8 cm" is neither the card's adult size (15 cm) nor its minimum tank (75 cm)
+
+## Cá Tometes kranponhah (Tometes kranponhah)
+id: `tometes-kranponhah`
+
+Cá Tometes kranponhah lớn tới 40 cm, hợp với người có bể rất rộng và đã quen nuôi cá lớn. Hồ sơ không nêu thông số nước hay bể tối thiểu, nên chưa đủ cơ sở để nói cần bể bao nhiêu lít hay nước thế nào. Điểm khó nhất là nhận đúng loài: cá lúc nhỏ dễ lẫn với loài khác và hình dáng, màu sắc đổi nhiều khi lớn.
+
+- Đừng tin tên trên nhãn khi mua: cá bán ra lúc đầu hóa ra là Mylesinus paucisquamatus, nên hãy kiểm tra hình dạng miệng và đốm đen trên nắp mang khi cá lớn.
+- Đừng nhầm với Tometes anclorhynchus: loài này không có đốm đen trên nắp mang, nên hãy đối chiếu đốm đen và hình dạng miệng, rồi tính chỗ cho cá tới 40 cm.
+- Đừng chủ quan khi nuôi đàn con non: một đàn 10 con non đã hơi hay cắn nhau, làm rách vây nhẹ, nên cần theo dõi vây cá thường xuyên.
+
+Kiểm tra:
+- "hợp với người có bể rất rộng và đã quen nuôi cá lớn": the page says nothing about keeper experience or about suiting people used to big fish.
+- "cá bán ra lúc đầu hóa ra là Mylesinus paucisquamatus, nên hãy kiểm tra hình dạng miệng và đốm đen": the page gives mouth shape and the gill-cover spot only to tell the two Tometes species apart, not to tell Mylesinus from Tometes. This fix is invented.
+- "Đừng chủ quan khi nuôi đàn con non ... cần theo dõi vây cá thường xuyên": the page says the nipping and slightly torn fins were "vẫn ở mức chấp nhận được". The summary turns that into a warning and adds advice to monitor fins that the page doesn't give.
 
 ## Cá mahseer Himalaya (Tor putitora)
 id: `tor-putitora`

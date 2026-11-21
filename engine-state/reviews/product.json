@@ -64,6 +64,39 @@
       "kept": true
     }
   ],
+  "vi/products/ada-power-sand": [
+    {
+      "at": "2026-11-21T22:47:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "\"Số túi cần mua thì xem cột liều tham khảo trong bảng phiên bản phía trên\" refers to a table that is not in the page; minor, though the facts do contain example doses.",
+        "\"Hạt Power Sand to ... Thế là nền không bị nén chặt\" is fine, but \"Hợp nhất với cây rễ sâu\" (\"fits best\") slightly strengthens the facts' \"works well\".",
+        "\"Netlea ... rẻ hơn nhiều\" is supported, but the page omits the prices; no invention.",
+        "\"Nước khó giữ ở bể mới\" as a heading is a mild paraphrase of \"harder maintenance\"; acceptable.",
+        "\"Hàng giả\" heading and \"Lúc nhận hàng thì kiểm tra tem này\" slightly extend the facts, which say only to check when buying."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T22:47:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.88,
+      "notes": [
+        "\"Hai nguồn lệch nhau ở các bể cao khoảng 40–60 cm\": this is the page's own inference. The facts give both recommendations but don't say they conflict, and they don't map Thủy Sinh Tím's 2 L pack to size S.",
+        "\"Phủ mỏng hơn thì lớp lót bên dưới dễ lọt ra nước\": this extends the 5 cm minimum into a claim about thinner layers. The facts don't state it.",
+        "\"Các chữ S, M, L là cỡ hạt\" and \"chỉ khác nhau ở cỡ hạt\": the facts only say to pick the grain size by tank height. They don't say that S/M/L differ only in grain size.",
+        "\"Nhầm giữa các đời máy\": the \"đời máy\" wording and the heading are loosely framed. They treat a product-version mix-up as a common error, which the facts don't say."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/aquario-neo-soil": [
     {
       "at": "2026-11-09T10:46:42Z",
