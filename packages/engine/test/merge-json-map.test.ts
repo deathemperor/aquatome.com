@@ -15,6 +15,16 @@ test('keys added, changed or removed on either side all land; untouched keys sta
   expect(mergeMaps(base, ours, theirs)).toEqual({ a: 1, c: 0, x: 0, y: 1 })
 })
 
+test("an emptied page both sides listed keeps the earlier day, whichever side has it; any other value both changed, ours as before", () => {
+  expect(mergeMaps({}, { 'species/a': '2026-11-21' }, { 'species/a': '2026-11-20' })).toEqual({ 'species/a': '2026-11-20' })
+  expect(mergeMaps({}, { 'species/a': '2026-11-20' }, { 'breeds/b': '2026-11-21', 'species/a': '2026-11-21' })).toEqual({ 'species/a': '2026-11-20', 'breeds/b': '2026-11-21' })
+  // A page one side took off the list (it's gone) stays off.
+  expect(mergeMaps({ 'species/a': '2026-11-20' }, {}, { 'species/a': '2026-11-20' })).toEqual({})
+  // Not an emptied page's entry: ours, as before.
+  expect(mergeMaps({}, { 'https://m/x.webp': '2026-11-21' }, { 'https://m/x.webp': '2026-11-20' })).toEqual({ 'https://m/x.webp': '2026-11-21' })
+  expect(mergeMaps({}, { 'species/a': 'waiting' }, { 'species/a': '2026-11-20' })).toEqual({ 'species/a': 'waiting' })
+})
+
 test('as a git merge driver: two engine jobs that both append to a photo cache rebase cleanly', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'jm-'))
   const git = (...a: string[]) => execFileSync('git', a, { cwd: dir, encoding: 'utf8' })
