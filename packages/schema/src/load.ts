@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
+import { awaitsScreen, DEAD_OWED_FILE, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
@@ -227,13 +227,17 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // album, a guide or a card, and shows by itself once judged. The engine's own reads see every photo.
   const screen = !publicBuild || opts.photoScreen === false ? undefined
     : typeof opts.photoScreen === 'object' ? opts.photoScreen : await photoScreenOf(root, opts.photoScreen === 'required')
+  // A new photo the dead-fish screen still owes a look waits the same way (photo-screen.ts DEAD_OWED_FILE). No list beside
+  // the root (the fixture build, a test's store): none waits for it.
+  const owed = screen ? await stateRecord<Record<string, string>>(root, DEAD_OWED_FILE) : undefined
+  const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url))
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).
   const shown = new Set<string>(), waiting = new Set<string>()
   const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
     if (!screen) return true
-    const waits = awaitsScreen(p.url, screen[p.url])
+    const waits = waitsFor(p.url)
     for (const u of [p.url, p.thumb, p.large?.url]) if (u) (waits ? waiting : shown).add(u)
     return !waits
   }
@@ -244,7 +248,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (shown.has(address)) return false
     if (waiting.has(address)) return true
     const photo = address.replace(new RegExp(`-(?:${THUMB_WIDTH}|large)\\.webp$`), '.webp')
-    return awaitsScreen(photo, screen![photo])
+    return waitsFor(photo)
   }
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;

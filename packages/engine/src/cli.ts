@@ -368,7 +368,7 @@ if (cmd === 'photo-privacy') {
 } else if (cmd === 'faces') {
   // Drop photos showing people (macOS Vision face detection); each photo is checked once, cached in engine-state. Then
   // the dead-fish screen on the photos it judged now (faces.ts screenNewPhotos), counted under this step's line.
-  const { faces: r, dead, deadFailed } = await screenNewPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
+  const { faces: r, dead, deadFailed, owed } = await screenNewPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-faces.json'), {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     detect: visionFaces, dead: deadScreenDeps(),
   }, join(ROOT, 'engine-state/_photo-rejected.json'), ROOT)
@@ -385,6 +385,7 @@ if (cmd === 'photo-privacy') {
     for (const x of dead.firstOff) console.log(`off at its first verdict, waiting for a second look: ${x}`)
     for (const x of dead.failed.slice(0, 30)) console.log(`failed: ${x}`)
   }
+  if (owed) console.log(`dead-screen of new photos: ${owed} owed a look, off every public page until judged`)
 } else if (cmd === 'calibrate-marks') {
   if (!values.manifest) throw new Error('calibrate-marks needs a reviewed --manifest in the private image cache')
   const cases = JSON.parse(await readFile(String(values.manifest), 'utf8')) as Parameters<typeof calibrateMarks>[0]

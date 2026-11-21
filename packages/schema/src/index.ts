@@ -27,7 +27,7 @@ export { capitalFirst, glossaryKinds, kindLine, kindsSection, type GlossaryKindI
 export { headingSubject, linkTerms, type LinkTarget } from './link-terms'
 export { headingRoles, OWN_NUMBER, ownNumber, type HeadingRole } from './headings'
 export { COOKIE_PHOTO_HOSTS, MEDIA_HOST, setsCookies, THUMB_WIDTH, thumbOf } from './thumb'
-export { awaitsScreen, LOGO_FOLDERS, logoFolder, ocrHit, validOcrSummary, type PhotoScreenEntry, type OcrSummary, type LegacyOcrLine } from './photo-screen'
+export { awaitsScreen, DEAD_OWED_FILE, LOGO_FOLDERS, logoFolder, ocrHit, validOcrSummary, type PhotoScreenEntry, type OcrSummary, type LegacyOcrLine } from './photo-screen'
 export { cleanPhoto, fitsCard, hashDistance, PictureSet, pictureOf, SAME_PICTURE, unmarked, type PictureHashes } from './pictures'
 export * from './tanks'
 export * from './devices'
