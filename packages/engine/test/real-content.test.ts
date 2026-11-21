@@ -1055,13 +1055,13 @@ test('the two kits and the quarantine video are off for good, each to the page i
 // test/fixtures/held-video-fixes.json: what went, and what stands in its place.
 const handFixesHold = (fixture: string, prefix = 'youtube-') => {
   const root = fileURLToPath(new URL('../../../content/guides', import.meta.url))
-  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL(`./fixtures/${fixture}`, import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq'; gone?: string; now?: string }[]>
+  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL(`./fixtures/${fixture}`, import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq' | 'faqQ'; gone?: string; now?: string }[]>
   for (const [id, edits] of Object.entries(fixes)) {
     const t = JSON.parse(readFileSync(join(root, `${prefix}${id}`, 'vi.json'), 'utf8')) as { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; faqFixed?: boolean }
     expect(t.bodyFixed, id).toBe(true)
-    const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n') }
+    const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n'), faqQ: (t.faq ?? []).map(q => q.q).join('\n') }
     for (const e of edits) {
-      if (e.in === 'faq') expect(t.faqFixed, id).toBe(true)
+      if (e.in === 'faq' || e.in === 'faqQ') expect(t.faqFixed, id).toBe(true)
       if (e.gone) expect(text[e.in], `${id}: ${e.gone}`).not.toContain(e.gone)
       if (e.now) expect(text[e.in], `${id}: ${e.now}`).toContain(e.now)
     }
@@ -1076,12 +1076,14 @@ test('the hand fixes to the 17 held video guides hold: each cut line is gone, ea
 // so no run takes them back (test/fixtures/mend-fixes-1120.json).
 test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", () => handFixesHold('mend-fixes-1120.json'))
 
-// The morning check of 20 Nov 2026: four things the night's steps took from guides, put back by hand as they stood (the
-// chief of staff): the Endlers guide's condition and another guide's hedge, which the cutter took; the rummynose guide's
-// warning, with its section and summary line, which the topic check took; the egg scatterers' frame step, which the
-// reader-fit rewrite took. Each guide is bodyFixed, which keeps its summary too, so no run takes them out again
-// (test/fixtures/net-putbacks-1120.json, by each guide's whole id).
-test('the four things the night of 19 Nov took from guides are back', () => handFixesHold('net-putbacks-1120.json', ''))
+// The morning check of 20 Nov 2026 found four things the night's steps took from guides (the Endlers guide's condition and
+// another's hedge, which the cutter took; the rummynose guide's warning, which the topic check took; the egg scatterers'
+// frame step, which the reader-fit rewrite took). They came back as they stood, then in the Writing Lead's words of the
+// same day, with its answer on every finding standing on each guide: what was done said as done with its condition, the
+// keeper's hedge kept as the keeper's, the shop's own captions and shopping out. Each guide is bodyFixed, and faqFixed
+// where its FAQ changed; each stays held until the gate's read lets it out (test/fixtures/guarded-four-1120.json, by each
+// guide's whole id).
+test("the Writing Lead's words hold on the four guides the night of 19 Nov cut", () => handFixesHold('guarded-four-1120.json', ''))
 
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
 // bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
