@@ -1,11 +1,12 @@
 {
   "https://media.aquatome.com/aquariumbreeder/a731834d47b98c83.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/lithopoma-tectum"
     ],
-    "at": "2026-11-20"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/commons/23ebe7c95deeba42.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -107,7 +108,12 @@
     "pages": [
       "species/hemigrammus-stictus"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-17",
+    "look": {
+      "said": "clear",
+      "by": "the chief of staff",
+      "on": "2026-11-21"
+    }
   },
   "https://media.aquatome.com/glaser/0051c3d6b54ab92e.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -3907,6 +3913,15 @@
     ],
     "at": "2026-11-19"
   },
+  "https://media.aquatome.com/seriouslyfish/7c56ace857fadf4f.webp": {
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "species/hyphessobrycon-auca"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/glaser/97089e274c118765.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -7064,15 +7079,16 @@
     "at": "2026-11-15"
   },
   "https://media.aquatome.com/inaturalist/530745592.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/hyphessobrycon-heterorhabdus"
     ],
-    "at": "2026-11-20"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/inaturalist/547360386.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:3ba8ffa5decde107ea6fdd88718abce37c7d0c5852fbaf16531a35ee7e7142a6]",
     "step": "the photo check",
     "pages": [
       "species/polypterus-retropinnis"
@@ -7081,47 +7097,52 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/011537a418211e90.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/trachydoras-steindachneri"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/066f46e1bd7c664b.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-natalensis"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/0f18393d5e479141.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/phractura-fasciata"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/107471e8fc77a0ad.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/aspredinichthys-tibicen"
     ],
-    "at": "2026-11-19"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/15db785e1fccf91b.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/bagre-bagre"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/17080277a1fdcddd.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-eigenmanni"
@@ -7130,31 +7151,34 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/1741f1c1de20ee95.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-kivuensis"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/237a09d82de4045a.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/bunocephalus-chamaizelus"
     ],
-    "at": "2026-11-19"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/272a4581e87c4430.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hypostomus-uruguayensis"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/28676406f3e8e0a2.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-cacharas"
@@ -7171,12 +7195,13 @@
     "at": "2026-11-19"
   },
   "https://media.aquatome.com/scotcat/3d5effaef0851b63.webp": {
-    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/zaireichthys-kunenensis"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/411ab228a2685ff2.webp": {
     "why": "rejected: withheld [sha256:0a7c0806b6889d5d62757a41f2d405cb2218f411339ac15cb70fec1dda9c81d0]",
@@ -7195,20 +7220,22 @@
     "at": "2026-11-19"
   },
   "https://media.aquatome.com/scotcat/4dd2225153b00155.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/bagre-panamensis"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/51749f2c311d34c2.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hypostomus-pyrineusi"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/53c9802cde27d581.webp": {
     "why": "rejected: withheld [sha256:c760553a12fb8f0adf696ed06ffbafb2e5bf511cc3fd30ad6b4d33421641d6c5]",
@@ -7219,12 +7246,13 @@
     "at": "2026-11-19"
   },
   "https://media.aquatome.com/scotcat/58bd83dd6a02eeb4.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/phractura-fasciata"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/5c05b98d3200f362.webp": {
     "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
@@ -7235,44 +7263,49 @@
     "at": "2026-11-21"
   },
   "https://media.aquatome.com/scotcat/5c1c2c44e80b7d1a.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-frieli"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/65b786df580a474e.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/mochokus-niloticus"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/6b3ba0f73bdb1ab6.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-natalensis"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/6b9c86dfe43ef007.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/pangasius-macronema"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/6e1d34948f5dae79.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hexanematichthys-mastersi"
     ],
-    "at": "2026-11-19"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/74d87d5b18b18b97.webp": {
     "why": "watermark: withheld [sha256:403d47e9a93e47f363d02d31aad3a0d276f44b9c5da270d8c9bc5101ea4fd65a]",
@@ -7283,7 +7316,7 @@
     "at": "2026-11-15"
   },
   "https://media.aquatome.com/scotcat/7783ad15d228de10.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-caquetae"
@@ -7292,20 +7325,22 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/80a79f80f1e56e28.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/doumea-typica"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/824e09d38a913277.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-frieli"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/83a8f561f3a253f2.webp": {
     "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
@@ -7316,36 +7351,40 @@
     "at": "2026-11-19"
   },
   "https://media.aquatome.com/scotcat/86759a4e333522ba.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-ardiladuartei"
     ],
-    "at": "2026-11-20"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/87cea066bbf76788.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/netuma-bilineata"
     ],
-    "at": "2026-11-18"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/88f6a116c119a170.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hemibagrus-spilopterus"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/9476fd9905d2d9c2.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hemiarius-verrucosus"
     ],
-    "at": "2026-11-18"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/98e503ab81d979fd.webp": {
     "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
@@ -7356,44 +7395,49 @@
     "at": "2026-11-19"
   },
   "https://media.aquatome.com/scotcat/a04b10ffe3bf192d.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/osteogeneiosus-militaris"
     ],
-    "at": "2026-11-19"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/a06c2a73c40d7b66.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/netuma-proxima"
     ],
-    "at": "2026-11-19"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/a0b3b1c461c59d7f.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-kivuensis"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/a66cb31a3bc36c68.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hypostomus-pyrineusi"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/ae446a870295ade5.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/bagre-pinnimaculatus"
     ],
-    "at": "2026-11-17"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/b1ba43629c19d991.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -7412,52 +7456,58 @@
     "at": "2026-11-21"
   },
   "https://media.aquatome.com/scotcat/c49afb16d11f99cc.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/sciades-herzbergii"
     ],
-    "at": "2026-11-19"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/c7aed417e6d5f153.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/amphilius-frieli"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/d004255c94521927.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hexanematichthys-sagor"
     ],
-    "at": "2026-11-18"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/d11bf0016bc1df90.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hemiancistrus-landoni"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/d468b861d4747fd0.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/genidens-barbus"
     ],
-    "at": "2026-11-18"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/d799f3a83dc624f0.webp": {
-    "why": "rejected: withheld [sha256:48ac0ea2e54f7658975534753358bc91a3d57fc013febfe0d26357ce439779e5]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hypostomus-isbrueckeri"
     ],
-    "at": "2026-11-20"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/df9c59dd4246381e.webp": {
     "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
@@ -7476,15 +7526,16 @@
     "at": "2026-11-21"
   },
   "https://media.aquatome.com/scotcat/e2cbcf021d362ff3.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/plicofollis-argyropleuron"
     ],
-    "at": "2026-11-19"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/e4377bd955a32417.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/astroblepus-eigenmanni"
@@ -7493,12 +7544,13 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/f11255b93f407c00.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hexanematichthys-sagor"
     ],
-    "at": "2026-11-18"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/f4f72c3c3df65cc0.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -7509,12 +7561,13 @@
     "at": "2026-11-15"
   },
   "https://media.aquatome.com/scotcat/f7be80717d0bd741.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/hemibagrus-spilopterus"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/seriouslyfish/0c824d6e385e47d6.webp": {
     "why": "watermark: withheld [sha256:101f998699d85f20480374ff82c73ccd896458fda9d7d9f6c1da91da544ff832]",
@@ -7525,12 +7578,13 @@
     "at": "2026-11-14"
   },
   "https://media.aquatome.com/seriouslyfish/38b89a1ede1e5f7b.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/leporinus-arcus"
     ],
-    "at": "2026-11-21"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/seriouslyfish/64e390f2549559c9.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -7546,12 +7600,13 @@
     }
   },
   "https://media.aquatome.com/seriouslyfish/731153e85d0b3b5d.webp": {
-    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/pethia-ticto"
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/seriouslyfish/7ba4048a75c17760.webp": {
     "why": "rejected: withheld [sha256:915d72407dd700bd3a3ba438b15e15717aa92752c6efe524519143a4a4da7031]",
