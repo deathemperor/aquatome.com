@@ -38,7 +38,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { holdForSecondLook, listAgreed, looks, mendWaiting, readSecondLook, unlistCleared } from './last-photo'
+import { gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, putBackCleared, readSecondLook, unlistCleared, type History } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -148,6 +148,10 @@ export type SweepReport = {
   agreed: string[]
   /** Photos off at their first verdict that the second look cleared, off the never-again list (last-photo.ts). */
   unlisted: string[]
+  /** Cleared photos put back where they were, `file: url`; ones another reason keeps off, `url: why`; ones with no history here to read (last-photo.ts putBackCleared). */
+  putBack: string[]
+  putBackOff: string[]
+  putBackUnread: string[]
   /** Photos marked off at their first verdict whose never-again entry was missing, written back in this pass (last-photo.ts mendWaiting). */
   waitingBack: string[]
   /** Where the two lists still disagree on a photo off at its first verdict, each kept off, `url: what` (last-photo.ts mendWaiting). */
@@ -554,14 +558,21 @@ async function regroupPages(content: string): Promise<string[]> {
   }
   return moved
 }
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string; switches?: Readonly<ImageSwitches> } = {}): Promise<SweepReport> {
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string; switches?: Readonly<ImageSwitches>; history?: History } = {}): Promise<SweepReport> {
   // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
   // the cap would be off (the independent reader, 2026-11-11).
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], waitingBack: [], waitingOdd: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], pickOverOrder: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], putBack: [], putBackOff: [], putBackUnread: [], waitingBack: [], waitingOdd: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], pickOverOrder: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
+  // A photo off at its first verdict that the second look cleared, back where it was, before anything reads a page: what
+  // the pass does after acts on it as on any photo (last-photo.ts putBackCleared).
+  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today)
+  for (const x of put.back) changed(x.slice(0, x.indexOf(': ')).replace(/^content\//, ''))
+  report.putBack = put.back
+  report.putBackOff = put.off
+  report.putBackUnread = put.unread
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
   // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
