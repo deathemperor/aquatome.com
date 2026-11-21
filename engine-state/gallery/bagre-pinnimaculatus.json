@@ -28,9 +28,29 @@
   "gbif:1456438457:9520b6b1f15c5819",
   "gbif:1456438457:0799510ae1b62273",
   "gbif:1456438457:1ceca04f9cf1b52f",
-  "gbif:1456480758:d2d61cffdcbeb25d"
+  "gbif:1456480758:d2d61cffdcbeb25d",
+  "inat:73987071",
+  "inat:94568352",
+  "inat:151730269",
+  "inat:231016491",
+  "inat:231043211",
+  "inat:231043237",
+  "inat:238849528",
+  "inat:238849547",
+  "inat:238849560",
+  "inat:244791642",
+  "inat:258845697",
+  "inat:264100514",
+  "inat:264100531",
+  "inat:264100556",
+  "inat:576619531",
+  "inat:576619562",
+  "inat:576619586",
+  "inat:609078998"
  ],
- "hashes": {},
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/151730269/large.jpeg": "03293d6ccc928400"
+ },
  "inat": {
   "taxon": 95041,
   "pass": "done",
@@ -43,5 +63,12 @@
  "gbif": {
   "key": 5202984,
   "next": null
+ },
+ "openverse": {
+  "next": 2
+ },
+ "inatNc": {
+  "after": 335293707,
+  "done": true
  }
 }

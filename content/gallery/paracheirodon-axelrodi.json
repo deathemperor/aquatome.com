@@ -278,18 +278,6 @@
       "caption": "Cá neon vua bơi gần rong đuôi chó trong bể nuôi"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/484104824.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/484104824-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "adamcvean",
-      "sourceUrl": "https://www.inaturalist.org/photos/484104824",
-      "caption": "Hai cá neon vua bên lá cây thủy sinh",
-      "best": false,
-      "kind": "pair"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/271031046.webp",
       "thumb": "https://media.aquatome.com/inaturalist/271031046-480.webp",
       "width": 1024,
@@ -314,18 +302,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/329233696.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/329233696-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Kaden Slone",
-      "sourceUrl": "https://www.inaturalist.org/photos/329233696",
-      "caption": "Cá neon vua trong bể cát vàng có cây thủy sinh",
-      "best": false,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/commons/1445e84e10809727.webp",
       "thumb": "https://media.aquatome.com/commons/1445e84e10809727-480.webp",
       "width": 1024,
@@ -334,6 +310,18 @@
       "author": "úlfhams_víkingur",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_tetra_%26_neon_tetra.jpg",
       "caption": "Hai cá neon vua bơi giữa cây thủy sinh trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/484104824.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/484104824-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "adamcvean",
+      "sourceUrl": "https://www.inaturalist.org/photos/484104824",
+      "caption": "Hai cá neon vua bên lá cây thủy sinh",
+      "best": false,
+      "kind": "pair"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/338879279.webp",
@@ -346,8 +334,7 @@
       "caption": "Đàn cá neon vua bơi giữa lá khô trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 101,
