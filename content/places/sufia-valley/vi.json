@@ -1,10 +1,13 @@
 {
   "slug": "sufia-valley",
-  "name": "Sufia Valley",
-  "altNames": [],
+  "name": "thung lũng Sufia",
+  "altNames": [
+    "Sufia Valley"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -2228,6 +2228,20 @@
       "kept": true
     }
   ],
+  "id/places/cachira-river": [
+    {
+      "at": "2026-11-21T06:37:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Cáchira → Cáchira (Vietnamese 'sông' prefix, not Indonesian; Indonesian would be Sungai Cachira)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cachoeira-do-el-dorado": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -2919,6 +2933,18 @@
       "notes": [
         "\"Chao Phraya\" (Chao Praya region): acceptable but ID typically 'Sungai Chao Phraya'; bare name lacks 'Sungai'"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/chapada-diamantina": [
+    {
+      "at": "2026-11-21T06:37:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -3845,6 +3871,18 @@
       "at": "2026-11-09T07:33:46Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/demerara-berbice": [
+    {
+      "at": "2026-11-21T06:37:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5405,6 +5443,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/indo-pacific": [
+    {
+      "at": "2026-11-21T06:37:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "Ấn Độ – Thái Bình Dương (Vietnamese, not Indonesian)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9234,6 +9286,36 @@
       "kept": true
     }
   ],
+  "id/places/mana-river": [
+    {
+      "at": "2026-11-21T06:37:25Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Mana (Vietnamese)",
+        "lưu vực sông Mana (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mana-river-basin": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Mana (Vietnamese)",
+        "lưu vực sông Mana (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/manambalo-creek": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -9494,6 +9576,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/maripicru-creek": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "suối Maripicru (Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -10136,6 +10232,18 @@
       "kept": true
     }
   ],
+  "id/places/mira": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mirinay": [
     {
       "at": "2026-11-14T05:11:42Z",
@@ -10338,6 +10446,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/morocco": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "Morocco (English; Indonesian is Maroko)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -11291,6 +11413,18 @@
       "kept": true
     }
   ],
+  "id/places/norte-de-santander": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/north-andaman": [
     {
       "at": "2026-11-14T05:11:42Z",
@@ -11642,6 +11776,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/orinoco-river-basin": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "lưu vực sông Orinoco (Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -12730,6 +12878,20 @@
       "score": 0.6,
       "notes": [
         "\"Puyankutty\": lacks 'Sungai'"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/qiantang": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Tiền Đường (Vietnamese)"
       ],
       "attempt": "first",
       "kept": true
@@ -16457,6 +16619,18 @@
       "kept": true
     }
   ],
+  "id/places/shampupa": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/shanushi": [
     {
       "at": "2026-11-10T06:36:34Z",
@@ -16873,6 +17047,18 @@
       "kept": true
     }
   ],
+  "id/places/soto-la-marina": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/south-china-sea": [
     {
       "at": "2026-11-14T05:11:44Z",
@@ -17139,6 +17325,20 @@
       "cli": "2.1.322",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sufia-valley": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "thung lũng Sufia (Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -17419,6 +17619,20 @@
       "cli": "2.1.322",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tami-river": [
+    {
+      "at": "2026-11-21T06:37:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.1,
+      "notes": [
+        "sông Tami (Vietnamese; should be Sungai Tami)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -22348,6 +22562,21 @@
       "kept": true
     }
   ],
+  "ms/places/cachira-river": [
+    {
+      "at": "2026-11-21T06:55:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "cachira-river: Cáchira (river should be Sungai Cáchira)",
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/cachoeira-do-el-dorado": [
     {
       "at": "2026-11-08T03:36:45Z",
@@ -23045,6 +23274,20 @@
       "score": 0.1,
       "notes": [
         "sông Chao Phraya"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/chapada-diamantina": [
+    {
+      "at": "2026-11-21T06:55:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
       ],
       "attempt": "first",
       "kept": true
@@ -23876,6 +24119,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/demerara-berbice": [
+    {
+      "at": "2026-11-21T06:55:23Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -25682,6 +25939,21 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/indo-pacific": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "indo-pacific: Indo-Pasifik acceptable",
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -29713,6 +29985,35 @@
       "kept": true
     }
   ],
+  "ms/places/mana-river": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "mana-river: Mana (should be Sungai Mana)",
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/mana-river-basin": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/manambalo-creek": [
     {
       "at": "2026-11-08T12:45:10Z",
@@ -29944,6 +30245,21 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/maripicru-creek": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "maripicru-creek: Maripicru (should be Sungai/Anak Sungai Maripicru)",
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30506,6 +30822,20 @@
       "kept": true
     }
   ],
+  "ms/places/mira": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/mirinay": [
     {
       "at": "2026-11-14T05:31:11Z",
@@ -30696,6 +31026,21 @@
         0.93,
         0.96
       ]
+    }
+  ],
+  "ms/places/morocco": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "morocco: Maghribi (Malaysia atlases commonly use Maghribi, but Maroko is the common name; questionable)",
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "ms/places/mota-talau": [
@@ -31670,6 +32015,20 @@
       "kept": true
     }
   ],
+  "ms/places/norte-de-santander": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/north-andaman": [
     {
       "at": "2026-11-14T05:31:11Z",
@@ -31997,6 +32356,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/orinoco-river-basin": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -33247,6 +33620,21 @@
       "cli": "2.1.322",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/qiantang": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "qiantang: Qiantang (should be Sungai Qiantang if river)",
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -37447,6 +37835,20 @@
       "kept": true
     }
   ],
+  "ms/places/shampupa": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/shanushi": [
     {
       "at": "2026-11-10T10:08:07Z",
@@ -37824,6 +38226,20 @@
       "kept": true
     }
   ],
+  "ms/places/soto-la-marina": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/south-china-sea": [
     {
       "at": "2026-11-14T05:31:12Z",
@@ -38094,6 +38510,20 @@
       "cli": "2.1.322",
       "score": 0.55,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/sufia-valley": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -38377,6 +38807,21 @@
       "cli": "2.1.322",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/tami-river": [
+    {
+      "at": "2026-11-21T06:55:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.3,
+      "notes": [
+        "tami-river: Tami (should be Sungai Tami)",
+        "The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -43077,6 +43522,20 @@
       "kept": true
     }
   ],
+  "th/places/cachira-river": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "sông Cáchira → กาชีรา (river name lacks แม่น้ำ; Cáchira is better rendered as กาชิรา)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cachoeira-do-el-dorado": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -43818,6 +44277,20 @@
       "score": 0.3,
       "notes": [
         "'เจ้าพระยา' for 'chao-praya': the region/river type is missing and the form is incomplete; 'แม่น้ำเจ้าพระยา' is standard."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/chapada-diamantina": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Chapada Diamantina → ชาปาดาดีอามันตีนา (should be ชาปาดาดิอามันตินา)"
       ],
       "attempt": "first",
       "kept": true
@@ -44803,6 +45276,20 @@
       "score": 0.6,
       "notes": [
         "Many entries are Thai-script transliterations, but several are questionable or incomplete."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/demerara-berbice": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Demerara-Berbice → เดเมรารา-เบอร์บิซ (usually เดเมอรารา-เบอร์บีซ)"
       ],
       "attempt": "first",
       "kept": true
@@ -46490,6 +46977,18 @@
       "at": "2026-11-08T05:27:55Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/indo-pacific": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -50510,6 +51009,32 @@
       "kept": true
     }
   ],
+  "th/places/mana-river": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "sông Mana → มานา (river name lacks แม่น้ำ)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mana-river-basin": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/manambalo-creek": [
     {
       "at": "2026-11-08T05:28:39Z",
@@ -50767,6 +51292,20 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/maripicru-creek": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "suối Maripicru → มาริพิครู (creek name lacks ลำธาร)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -51430,6 +51969,18 @@
       "kept": true
     }
   ],
+  "th/places/mira": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mirinay": [
     {
       "at": "2026-11-14T05:18:31Z",
@@ -51653,6 +52204,18 @@
         "มันโรเวีย (Monrovia): Thai usage is มอนโรเวีย",
         "ซารามักกา (Saramacca): the usual Thai form is ซารามักกา or ซาราแมกคา, so this one is borderline"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/morocco": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -52726,6 +53289,20 @@
       "kept": true
     }
   ],
+  "th/places/norte-de-santander": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Norte de Santander → นอร์เตเดซันตันเดร์ (should be นอร์เตเดซันตันเดร์ with the conventional form นอร์เตเดซานตันเดร์)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/north-andaman": [
     {
       "at": "2026-11-14T05:18:31Z",
@@ -53083,6 +53660,18 @@
     {
       "at": "2026-11-08T05:28:40Z",
       "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/orinoco-river-basin": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
       "score": 0.6,
       "notes": [],
       "attempt": "first",
@@ -54245,6 +54834,20 @@
       "cli": "2.1.322",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/qiantang": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "sông Tiền Đường → เฉียนถัง (river name lacks แม่น้ำ; should be แม่น้ำเฉียนถัง)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -58207,6 +58810,18 @@
       "kept": true
     }
   ],
+  "th/places/shampupa": [
+    {
+      "at": "2026-11-21T06:40:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/shanushi": [
     {
       "at": "2026-11-10T06:47:14Z",
@@ -58627,6 +59242,18 @@
       "kept": true
     }
   ],
+  "th/places/soto-la-marina": [
+    {
+      "at": "2026-11-21T06:40:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/south-china-sea": [
     {
       "at": "2026-11-14T05:18:31Z",
@@ -58903,6 +59530,18 @@
         0.72,
         0.72
       ]
+    }
+  ],
+  "th/places/sufia-valley": [
+    {
+      "at": "2026-11-21T06:40:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "th/places/sulawesi-tenggara": [
@@ -59229,6 +59868,20 @@
         "Tambraparni → ตามระปรรณี (nonstandard; ทามรปารณี)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/tami-river": [
+    {
+      "at": "2026-11-21T06:40:02Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "sông Tami → ตามี (river name lacks แม่น้ำ)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -64175,6 +64828,20 @@
       "kept": true
     }
   ],
+  "vi/places/cachira-river": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/cachoeira-do-el-dorado": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -65013,6 +65680,20 @@
       "cli": "2.1.322",
       "score": 0.85,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/chapada-diamantina": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -66049,6 +66730,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/demerara-berbice": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -67922,6 +68617,21 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/indo-pacific": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "'Ấn Độ – Thái Bình Dương' is the usual Vietnamese name for the Indo-Pacific.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -72774,6 +73484,34 @@
       "kept": true
     }
   ],
+  "vi/places/mana-river": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mana-river-basin": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/manambalo-creek": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -73065,6 +73803,20 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/maripicru-creek": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -73792,6 +74544,21 @@
         "All 26 names point to the right place.",
         "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
         "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mira": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "'sông Tiền Đường' is the usual Vietnamese name for the Qiantang. Adding 'sông' (river) assumes the entry means the Qiantang River, not Qiantang District. That is likely but not certain, since the entry is typed 'region'. The Mira entry is also typed 'region' but looks like a river, which suggests these type labels are loose.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
       ],
       "attempt": "first",
       "kept": true
@@ -75285,6 +76052,20 @@
       "kept": true
     }
   ],
+  "vi/places/norte-de-santander": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/north-andaman": [
     {
       "at": "2026-11-14T05:11:10Z",
@@ -75696,6 +76477,20 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/orinoco-river-basin": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -77044,6 +77839,21 @@
       "cli": "2.1.322",
       "score": 0.85,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/qiantang": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "'sông Tiền Đường' is the usual Vietnamese name for the Qiantang. Adding 'sông' (river) assumes the entry means the Qiantang River, not Qiantang District. That is likely but not certain, since the entry is typed 'region'. The Mira entry is also typed 'region' but looks like a river, which suggests these type labels are loose.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -81550,6 +82360,20 @@
       "kept": true
     }
   ],
+  "vi/places/shampupa": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/shan-state": [
     {
       "at": "2026-11-07T20:40:24Z",
@@ -82071,6 +82895,20 @@
       "kept": true
     }
   ],
+  "vi/places/soto-la-marina": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/south-china-sea": [
     {
       "at": "2026-11-14T05:11:10Z",
@@ -82348,6 +83186,20 @@
       "cli": "2.1.322",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sufia-valley": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -82735,6 +83587,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tami-river": [
+    {
+      "at": "2026-11-21T06:36:19Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "All 15 names look right, so nothing is listed as wrong.",
+        "The other names keep the source's spelling. Where there is a generic word, it is in Vietnamese: sông (river), suối (creek), thung lũng (valley), lưu vực (basin)."
+      ],
       "attempt": "first",
       "kept": true
     }

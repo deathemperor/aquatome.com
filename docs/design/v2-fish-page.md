@@ -18,7 +18,7 @@ the screens have ⋯, and the tab bar is v2's. The owner agreed to all three.
 ## From the top
 
 1. **Banner.** This is the page's main photo.
-   - On a page with a gallery (6 photos or more), "N ảnh" sits in the bottom right corner: 12 points from the edges,
+   - On a page with 6 photos or more, "N ảnh" sits in the bottom right corner: 12 points from the edges,
      32 tall, fully rounded, black at 46% with a blur, white 14 semibold, after a photo icon.
    - A tap anywhere on the photo opens the photo grid. With fewer photos there's no badge, and the tap does what it does
      today.
@@ -44,7 +44,8 @@ the screens have ⋯, and the tab bar is v2's. The owner agreed to all three.
    - No line about its sources or when it was updated: the owner said no.
 6. **Photos.** v2's one-row carousel, before any of the text.
    - A photo opens the viewer at that photo.
-   - Its last tile, "Xem tất cả N ảnh", opens the grid.
+   - From one photo that isn't the banner's. Its last tile, "Xem tất cả N ảnh", only on a page with 6 or more.
+   - Its last tile opens the grid.
 7. **The page's parts**, in #921's order, a long one folding under "thêm".
    - The row of chips above them (Nuôi chung, Nước, Cho ăn, Sinh sản) stays for readers and is hidden for whoever has the
      page's title below. It goes for everyone when the title opens to everyone.

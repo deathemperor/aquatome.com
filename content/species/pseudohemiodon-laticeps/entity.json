@@ -20,20 +20,25 @@
         "PY",
         "AR"
       ],
-      "regions": [],
+      "regions": [
+        "Paraná"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The giant whiptail catfish, Pseudohemiodon laticeps, is a loricariid from the rios Uruguay, Paraná and Paraguay in Brazil, Paraguay and Argentina.",
+          "quote": "Distributed throughout the rios Uruguay, Paraná and Paraguay with records existing from southern Brazil, Paraguay and Argentina.",
           "countries": [
             "BR",
             "PY",
             "AR"
           ],
-          "regions": []
+          "regions": [
+            "Paraná"
+          ]
         }
       ]
     },

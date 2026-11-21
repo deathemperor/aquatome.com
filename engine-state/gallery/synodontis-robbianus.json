@@ -3,9 +3,7 @@
  "judged": [
   "File:Synodontis angelica.jpg"
  ],
- "hashes": {
-  "https://media.aquatome.com/commons/97136e5e9b861931.webp": "ef4dd386d8ececf8"
- },
+ "hashes": {},
  "commons": "2026-11-10",
  "inat": {
   "taxon": 113670,
@@ -14,5 +12,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 2344335,
+  "next": null
  }
 }

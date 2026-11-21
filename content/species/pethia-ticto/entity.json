@@ -585,15 +585,19 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/731153e85d0b3b5d.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/731153e85d0b3b5d-480.webp",
-      "width": 800,
-      "height": 426,
-      "licence": "dùng với sự cho phép",
-      "author": "J. D. Marcus Knight / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/pethia-ticto",
-      "caption": "Wild-collected specimen from close to Chennai, Tamil Nadu state, India.",
-      "source": "seriouslyfish"
+      "url": "https://media.aquatome.com/inaturalist/600041946.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/600041946-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY",
+      "author": "Ronith Urs",
+      "sourceUrl": "https://www.inaturalist.org/photos/600041946",
+      "caption": "Hai cá ticto cùng bơi trong hộp nước trong",
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/600041946-large.webp",
+        "width": 1280,
+        "height": 960
+      }
     }
   ],
   "videos": [],

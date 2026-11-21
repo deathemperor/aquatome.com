@@ -11,7 +11,8 @@ Readers' photos in the mockups are stand-ins from the gallery, and their count i
 
 ## The app
 
-**Ways in.** Only a page with a gallery has them (a gallery starts at 6 photos, `GALLERY_MIN`):
+**Ways in.** Only a page with 6 photos or more has them (`GALLERY_MIN`, now
+the app's grid alone). Below that, the carousel and the viewer show every photo.
 
 - The page's "Xem tất cả N ảnh". Today it opens the viewer; it opens the grid instead.
 - The lead photo. It carries "N ảnh" in a corner, and the whole photo opens the grid.
@@ -56,13 +57,10 @@ The app's target is iOS 17: nothing here may need a later API without a fallback
 
 ## The website
 
-The `/anh/` page is already a grid. Three changes:
-
-- Its title is the count ("110 ảnh"), first thing on the page, with readers' photos under the grid as today and a link
-  down to them.
-- It keeps two 4:3 columns on phones: 4:3 barely crops these mostly landscape photos.
-- On the jump row of a fish page with a grid, Ảnh is never dropped. It stays at the row's end with the count ("Ảnh 110")
-  and opens this page. A fish with no grid has no Ảnh chip: its photo is right above the row.
+The website has no grid page since 18 Nov (the owner: opening a new page for it is unnecessary). A fish, breed or
+plant page shows its album as a strip from one photo that isn't the lead: a sideways row under the photo on a
+phone, four columns on a wide screen, a short row filled from the left. Every thumb opens the viewer over the page.
+"Xem tất cả N ảnh" shows only while some thumb is out of view. Old `/anh/` addresses open the page's viewer.
 
 ## The v2 fish page
 

@@ -18,7 +18,12 @@
     "peru",
     "suriname",
     "trinidad-and-tobago",
-    "venezuela"
+    "venezuela",
+    "amazon",
+    "orinoco",
+    "maranhao",
+    "trinidad",
+    "mana-river"
   ],
   "range": {
     "records": {
@@ -755,6 +760,13 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 17,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -763,6 +775,13 @@
         "value": {
           "min": 6,
           "max": 8
+        }
+      },
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.5,
+          "max": 8.2
         }
       }
     ],
@@ -779,6 +798,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "planetcatfish",
+        "value": 12.4
       }
     ],
     "tankCm": [
@@ -802,16 +825,34 @@
       "html": "<p>The spotted hoplo, Megalechis thoracata, is a callichthyid catfish widespread across northern South America, living primarily in still waters. Still widely referred to as Hoplosternum thoracatum, it can breathe atmospheric air, absorbing the oxygen through the intestine, and this lets it endure poor conditions in the wild. It is also eaten as a food fish in parts of South America.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>Megalechis thoracata (Valenciennes, 1840). Size: 124 mm (4.9 in) SL. Can be distinguished from the similar M. picta by the absence of a conspicuous dark vertical band in the caudal fin; in M. thoracata the caudal fin is all-over greyish.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalechis-thoracata",
       "html": "<p>Widespread across northern South America.</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>South America: Amazon, Orinoco and upper Paraguay River basins, as well as coastal rivers of the Guianas and northern Brazil, including Trinidad rivers and Maranhão waters (Itapicurú). Type locality: Mana River, French Guiana.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalechis-thoracata",
       "html": "<p>Primarily still waters.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>Megalechis can be found in South American low-oxygen plant infested pools, almost puddles in some cases, but will happily live in most set-ups.</p>"
     },
     {
       "key": "aquariumSize",
@@ -832,10 +873,22 @@
       "html": "<ul><li>Temperature: 18–28°C (64–82°F)</li><li>pH: 6.0–8.0</li><li>Hardness: up to 20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>pH 5.5–8.2. Temperature 17–28°C. Able to survive in poor water conditions.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalechis-thoracata",
       "html": "<p>Accepts most commercially available foods. Live or frozen foods should also form part of the diet.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>Not a fussy eater, most foods are accepted. Bloodworm and sinking catfish tablets are best, but once established will eat flakes at the surface. Larger fish will take cichlid tablets / doromin.</p>"
     },
     {
       "key": "behaviour",
@@ -844,10 +897,22 @@
       "html": "<p>Peaceful community fish, can be kept with smaller fish such as tetras and barbs. The adaptable and hardy nature of the hoplo means that they can be kept in almost any setup, including with larger more aggressive species such as Central American cichlids.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>Peaceful and not predatory, although larger specimens can be downright boisterous at feeding time.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalechis-thoracata",
       "html": "<p>In the male, the leading ray of the pectoral fins is thicker and orangey / yellow in colour. The male also develops a more colourful belly when in breeding condition.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>A sexually mature male exhibits a thickened first pectoral ray which ranges from orange / brown to scarlet in colour.</p>"
     },
     {
       "key": "reproduction",
@@ -856,10 +921,28 @@
       "html": "<p>Bubble nester. The male builds the nest and it is helpful if floating plants are provided to strengthen this. The breeding tank should have very gentle filtration to avoid surface agitation which may destroy the nest. The female can be removed after spawning as the male will guard the nest and may show aggression towards the female. Eggs hatch in around 48 hours and the fry are free swimming 3–4 days after this. It is a good idea to remove the male from the breeding tank at this point as, on occasion, they have been known to eat the fry. Fry should be fed newly hatched brine shrimp initially and progressed onto fry foods and crushed flake and pellets as they grow. Breeding is fairly easy. As with most callichthyid catfish, reluctant fish can be induced to spawn with a water change of cooler water.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>Well conditioned pairs should spawn readily, but a large water change should prompt spawning of a more reluctant pair. Mature fish are typically 18 months to 2 years old. The male builds a large bubble nest, therefore surface movement from filtration should be kept to a minimum. A mass of floating plants (Wysteria is good) are necessary to anchor the nest. After spawning the male guards the nest. The eggs within should hatch after 4 days. The fry are free swimming after 2 days and should be fed newly hatched brine shrimp. They will grow rapidly and should be fed small amounts frequently for the first 6–8 weeks, during which they can attain sizes of up to 4 cm.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/megalechis-thoracata",
       "html": "<p>Still widely referred to as Hoplosternum thoracatum, the hoplo cat is a popular and hardy fish. These fish have the ability to breathe atmospheric air by gulping down mouthfuls of air, and the oxygen is then absorbed into the bloodstream through the intestine. This allows the fish to endure poor conditions in the wild, but it can still be observed exhibiting this behaviour in captivity. The hoplo is also eaten as a food fish in parts of South America.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>Etymology: Megalechis, from the Greek megas, meaning large, and lekis, meaning plate; in allusion to the extreme development of the coracoid bones on the breast of fully developed males.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=14",
+      "html": "<p>Histoire naturelle des poissons v. 15, pp309, Pl. 443.</p>"
     }
   ],
   "photos": [
@@ -872,6 +955,17 @@
       "author": "Chris Ralph / ScotCat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/megalechis_thoracata.htm",
       "caption": "Megalechis thoracata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f0a8d1120916b4b3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f0a8d1120916b4b3-480.webp",
+      "width": 500,
+      "height": 202,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Duffill / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/callichthyidae/megalechis_thoracata.htm",
+      "caption": "Megalechis thoracata: female",
       "source": "scotcat"
     },
     {
@@ -894,17 +988,6 @@
       "author": "Chris Ralph / ScotCat",
       "sourceUrl": "https://www.scotcat.com/callichthyidae/megalechis_thoracata.htm",
       "caption": "Megalechis thoracata: Showing the male Papilla",
-      "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/scotcat/f0a8d1120916b4b3.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f0a8d1120916b4b3-480.webp",
-      "width": 500,
-      "height": 202,
-      "licence": "dùng với sự cho phép",
-      "author": "Mark Duffill / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/callichthyidae/megalechis_thoracata.htm",
-      "caption": "Megalechis thoracata: female",
       "source": "scotcat"
     }
   ],
@@ -938,5 +1021,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-21"
 }

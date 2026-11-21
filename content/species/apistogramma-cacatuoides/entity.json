@@ -19,8 +19,7 @@
     "native": {
       "countries": [
         "PE",
-        "BR",
-        "CO"
+        "BR"
       ],
       "regions": [
         "Amazon",
@@ -28,8 +27,7 @@
         "Solimões"
       ],
       "sources": [
-        "seriouslyfish",
-        "glaser"
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -40,24 +38,9 @@
             "BR"
           ],
           "regions": [
-            "Solimões"
-          ]
-        },
-        {
-          "source": "glaser",
-          "quote": "The species occurs in the Amazon basin of Brazil, Colombia and Peru between 69°W and 71°W and is imported only occasionally.",
-          "countries": [
-            "CO"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
-          "countries": [],
-          "regions": [
             "Amazon",
-            "Ucayali"
+            "Ucayali",
+            "Solimões"
           ]
         }
       ]
@@ -65,7 +48,7 @@
     "records": {
       "taxonKey": 2371275,
       "total": 87,
-      "fetched": "2026-11-16",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "PE",
@@ -129,7 +112,7 @@
           -75.9375,
           0,
           1,
-          1
+          0
         ],
         [
           -74.53125,
@@ -171,7 +154,7 @@
           -71.71875,
           -4.21875,
           1,
-          1
+          0
         ],
         [
           -70.3125,
@@ -189,13 +172,13 @@
           -70.3125,
           -4.21875,
           2,
-          2
+          1
         ],
         [
           -68.90625,
           2.8125,
           1,
-          1
+          0
         ],
         [
           -67.5,

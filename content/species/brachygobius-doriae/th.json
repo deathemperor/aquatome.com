@@ -30,11 +30,11 @@
     "references:seriouslyfish": "<ul><li>Günther, A. (1868). Description of two new gobioid fishes from Sarawak. Annals and Magazine of Natural History (Series 4) v. 1 (no. 4) (art. 34): 264-266, 264-266</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Tan, H. H. and K. K. P. Lim (2004). Inland fishes from the Anambas and Natuna Islands, South China Sea, with description of a new species of Betta (Teleostei: Osphronemidae). Raffles Bulletin of Zoology Supplement 11, 107-115</li><li>Larson, H. K., Z. Jaafar, and K. K. P. Lim (2008). An annotated checklist of the gobioid fishes of Singapore. Raffles Bulletin of Zoology 56(1), 135-155</li><li>Miller, P. J. (1989). The classification of bumble-bee gobies (Brachygobius and associated genera) (Teleostei: Gobiidae). Cybium 13(4), 375-383</li><li>Inger, R. F. (1958). Notes on the fishes of the genus Brachygobius. Fieldiana Zoology 39(14), 107-117</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6,
-      "glaser": 0.6
+      "seriouslyfish": 0.85,
+      "glaser": 0.85
     }
   }
 }

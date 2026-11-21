@@ -1,4 +1,5 @@
-import { mkdir, readdir, readFile } from 'node:fs/promises'
+import { spawnSync } from 'node:child_process'
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { compactRejection } from './photo-observations'
 import { writeImageCache } from './image-cache-write'
@@ -34,7 +35,8 @@ import { writePhotoState } from './photo-state'
  * is reported (`mendWaiting`). No disagreement loosens the list for any other kind.
  */
 export type Look = { said: 'agree' | 'clear'; by: string; on: string }
-export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look }
+/** `back`: the day the sweep put a cleared photo back where it was, or found another reason keeps it off (`putBackCleared`). */
+export type SecondLook = { why: string; step: string; pages: string[]; at: string; off?: true; look?: Look; back?: string }
 export type SecondLooks = Record<string, SecondLook>
 export const SECOND_LOOK_FILE = '_photo-second-look.json'
 
@@ -162,9 +164,11 @@ export async function listAgreed(root: string): Promise<string[]> {
   const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
   const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
   for (const url of agreed) {
-    // One off at its first verdict: its waiting entry, for this reason or another, takes the verdict's own reason, and so
-    // does a mark's entry, which a shop's own kept mark could otherwise lift (the independent reader, 20 Nov).
-    if (sl[url]!.off && (rejected[url]?.startsWith('waiting:') || rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
+    // A waiting entry, for this reason or another, takes the verdict's own reason, on a record marked off or not: two runs'
+    // records can meet in a merge with the unmarked one kept and the waiting entry beside it (the chief of staff, 20 Nov,
+    // after that night's seven). On one marked off, a mark's entry does too, which a shop's own kept mark could otherwise
+    // lift (the independent reader, 20 Nov).
+    if (rejected[url]?.startsWith('waiting:') || (sl[url]!.off && rejected[url]?.startsWith('watermark:'))) rejected[url] = sl[url]!.why
     else rejected[url] ??= sl[url]!.why
     delete sl[url]
   }
@@ -186,6 +190,150 @@ export async function unlistCleared(root: string): Promise<string[]> {
   if (!out.length) return []
   for (const u of out) delete rejected[u]
   await writePhotoState(rejectedFile, rejected)
+  return out
+}
+
+/**
+ * A place a photo's mark took it off: its page's, album's or guide's file (from the repository's root), its place in the
+ * list and its entry there, as they were just before it first left from the mark on; and how many times it left.
+ */
+export type LeftPlace = { file: string; index: number; photo: Record<string, unknown>; times: number }
+/**
+ * The repository's history, as the put-back reads it: each page, album or guide file that showed a photo just before
+ * the commit that marked it off, and that it left from that commit on, with its place and its entry as they were just
+ * before it first left. That commit is the first since the start of `since` (its record's day, UTC, as records are
+ * dated) whose record has it `off`. None if no commit since marked it. Undefined where there's no history to read here
+ * (not a repository, or a shallow clone): nothing is put back, and a full clone does it later.
+ */
+export type History = (url: string, since: string) => Promise<LeftPlace[] | undefined>
+
+/** The pages, albums and guides a photo shows on. */
+const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
+
+/**
+ * `History` from git in `root`, along main's own line (the independent reader, 21 Nov). The places are the files that
+ * showed the photo just before its mark and that it left from the mark on: a check's mark takes it off in its own commit,
+ * a mark written by hand leaves that to the next run, which reads its waiting entry (the 46 the chief of staff marked
+ * by hand on 21 Nov all left their pages in the next run). A removal before the mark was another reason's and stays, and so does one from
+ * a place it came to after the mark. A place it left more than once, so it came back and left again, counts each time.
+ * Each merge is read as its change to main, so a removal made in a merge counts and one made on both sides of a merge
+ * counts once. A page renamed as it left keeps its old file, which the put-back reports gone.
+ */
+export function gitHistory(root: string): History {
+  const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+  const line = ['--first-parent', '--diff-merges=first-parent', '--no-patch', '--no-renames']
+  // The record as each commit had it, read once for every photo the sweep asks about.
+  const records = new Map<string, SecondLooks | undefined>()
+  const recordAt = (sha: string) => {
+    if (!records.has(sha)) {
+      const r = git('show', `${sha}:engine-state/${SECOND_LOOK_FILE}`)
+      let v: unknown
+      try { v = r.status === 0 ? JSON.parse(r.stdout) : undefined } catch { v = undefined }
+      records.set(sha, object(v) ? (v as SecondLooks) : undefined)
+    }
+    return records.get(sha)
+  }
+  return async (url, since) => {
+    const shallow = git('rev-parse', '--is-shallow-repository')
+    if (shallow.status !== 0 || shallow.stdout.trim() !== 'false') return undefined
+    const marks = git('log', ...line, '--reverse', '--format=%H', `--since=${since}T00:00:00Z`, '--', `engine-state/${SECOND_LOOK_FILE}`)
+    if (marks.status !== 0) return undefined
+    const mark = marks.stdout.split('\n').filter(Boolean).find(sha => recordAt(sha)?.[url]?.off === true)
+    if (!mark) return []
+    const parent = git('rev-parse', '--verify', '-q', `${mark}^`).stdout.trim()
+    if (!parent) return []
+    const at = (rev: string, file: string) => { const r = git('show', `${rev}:${file}`); try { return r.status === 0 ? JSON.parse(r.stdout) as { photos?: unknown } : undefined } catch { return undefined } }
+    const urls = (d: { photos?: unknown } | undefined) => (Array.isArray(d?.photos) ? d.photos as Record<string, unknown>[] : [])
+    // The places that showed it just before its mark (grep's status is 1 when none does).
+    const held = git('grep', '-l', '-F', '-e', url, parent, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
+    if (held.status !== 0 && held.status !== 1) return undefined
+    const places = held.stdout.split('\n').map(l => l.slice(parent.length + 1)).filter(f => PLACE.test(f) && urls(at(parent, f)).some(p => p?.url === url))
+    if (!places.length) return []
+    const log = git('log', ...line, '--reverse', '--format=%H', '-S', url, `${parent}..HEAD`, '--', ...places)
+    if (log.status !== 0) return undefined
+    const out = new Map<string, LeftPlace>()
+    // Oldest first: the first leaving gives the place and the entry; every leaving counts.
+    for (const sha of log.stdout.split('\n').filter(Boolean)) {
+      const files = git('diff', '--name-only', '--no-renames', '-S', url, `${sha}^`, sha, '--', ...places)
+      for (const file of files.stdout.split('\n').filter(Boolean)) {
+        const before = urls(at(`${sha}^`, file)), index = before.findIndex(p => p?.url === url)
+        if (index < 0 || urls(at(sha, file)).some(p => p?.url === url)) continue
+        const had = out.get(file)
+        if (had) had.times++
+        else out.set(file, { file, index, photo: before[index]!, times: 1 })
+      }
+    }
+    return [...out.values()]
+  }
+}
+
+/**
+ * The subject verdict a second look's clear answers, on the pages its record names, for a photo marked off at its first
+ * verdict: the dead fish (a person is a mark on a verdict, not a verdict of its own). Another fish, nothing of the
+ * subject and "no" are the page's own, and stand (the chief of staff, 21 Nov).
+ */
+export const CLEARED_VERDICT = 'dead' as const
+
+/**
+ * The sweep's part, before anything else reads a page: each photo off at its first verdict that the look cleared goes
+ * back where it was, once (the chief of staff, 20 Nov 2026). Every page, album and guide that showed it when it was
+ * marked off and that it left from then on, at its place there and as its entry was, from the repository's history; one
+ * that already shows it is left as it is.
+ * Its own waiting entry leaves the never-again list with it, so nothing later in the pass takes it off on that.
+ *
+ * Only the removal its mark made comes back, and nothing another reason took off (the independent reader, 21 Nov):
+ * - a photo on the never-again list for anything else stays off everywhere;
+ * - a place it left before its mark keeps that removal, and so does a place it came to only after the mark, and one it
+ *   came back to and left again;
+ * - a reason on record always wins (the chief of staff, 21 Nov): a page or album whose subject record refuses the photo
+ *   (`refused`: another fish, nothing of the subject, "no") stays without it, Synodontis robbianus's album being the case.
+ *   On its record's pages the clear sets aside only the verdict it answers, the dead fish (`CLEARED_VERDICT`), as the
+ *   album step does;
+ * - a file that's gone (a page renamed or folded) is passed over and reported.
+ * The sweep's own rules (the credit rule, the cap, the captions) still act on what returns. Its record takes `back` (the
+ * day), so a later removal, on any step's word, stands. Where there's no history to read, it waits, unmarked (`unread`).
+ * Returns `file: url` for each place it went back to, `url: why` for each place or photo kept off, and `unread`.
+ */
+export async function putBackCleared(root: string, history: History, at = today(), refused: (id: string, url: string, aside?: typeof CLEARED_VERDICT) => boolean = () => false): Promise<{ back: string[]; off: string[]; unread: string[] }> {
+  const out = { back: [] as string[], off: [] as string[], unread: [] as string[] }
+  const sl = await readSecondLook(root)
+  const l = looks(sl)
+  const due = Object.keys(sl).filter(u => sl[u]!.off === true && l.cleared(u) && !sl[u]!.back)
+  if (!due.length) return out
+  const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
+  const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  let unlisted = false
+  for (const u of due) {
+    const entry = rejected[u]
+    if (entry !== undefined && entry !== waitingEntry(sl[u]!.why)) {
+      out.off.push(`${u}: on the never-again list as ${entry.split(':')[0]}`)
+      sl[u]!.back = at
+      continue
+    }
+    const places = await history(u, sl[u]!.at)
+    if (!places) { out.unread.push(u); continue }
+    if (!places.length) out.off.push(`${u}: it left no page or album that showed it when it was marked off`)
+    const named = new Set(sl[u]!.pages.map(x => x.split('/')[1]))
+    for (const p of places) {
+      if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }
+      const id = p.file.match(/^content\/(?:species|plants|breeds)\/([^/]+)\/entity\.json$|^content\/gallery\/([^/]+)\.json$/)
+      const page = id?.[1] ?? id?.[2]
+      if (page && refused(page, u, named.has(page) ? CLEARED_VERDICT : undefined)) { out.off.push(`${u}: the check refused it on ${page}`); continue }
+      const file = join(root, p.file)
+      const raw = await readFile(file, 'utf8').catch(() => undefined)
+      if (raw === undefined) { out.off.push(`${u}: ${p.file} is gone`); continue }
+      const doc = JSON.parse(raw) as { photos?: Record<string, unknown>[] }
+      const photos = Array.isArray(doc.photos) ? doc.photos : (doc.photos = [])
+      if (photos.some(x => x?.url === u)) continue
+      photos.splice(Math.min(p.index, photos.length), 0, p.photo)
+      await writeFile(file, `${JSON.stringify(doc, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
+      out.back.push(`${p.file}: ${u}`)
+    }
+    if (entry !== undefined) { delete rejected[u]; unlisted = true }
+    sl[u]!.back = at
+  }
+  if (unlisted) await writePhotoState(rejectedFile, rejected)
+  await writeSecondLook(root, sl)
   return out
 }
 

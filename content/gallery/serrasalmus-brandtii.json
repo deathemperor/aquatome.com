@@ -2,20 +2,6 @@
   "id": "serrasalmus-brandtii",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/722422824.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/722422824-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "Brian Williams",
-      "sourceUrl": "https://www.inaturalist.org/photos/722422824",
-      "caption": "Cá piranha trắng có đốm bơi giữa thảm thực vật dưới nước",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/722422962.webp",
       "thumb": "https://media.aquatome.com/inaturalist/722422962-480.webp",
       "width": 1024,
@@ -26,8 +12,7 @@
       "caption": "Cá piranha trắng bơi trong môi trường tự nhiên giữa cỏ nước",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/722423310.webp",
@@ -40,8 +25,20 @@
       "caption": "Cá piranha trắng có đốm trong nước tự nhiên giữa cây thủy sinh",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/722422824.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/722422824-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "Brian Williams",
+      "sourceUrl": "https://www.inaturalist.org/photos/722422824",
+      "caption": "Cá piranha trắng có đốm bơi giữa thảm thực vật dưới nước",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 13,

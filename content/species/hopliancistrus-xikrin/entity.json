@@ -1,0 +1,86 @@
+{
+  "id": "hopliancistrus-xikrin",
+  "scientificName": "Hopliancistrus xikrin",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hopliancistrus",
+  "group": "catfish",
+  "lNumber": "L171",
+  "places": [
+    "south-america",
+    "brazil",
+    "xingu"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1401",
+      "html": "<ul><li>Scientific name: Hopliancistrus xikrin Oliveira, Zuanon, Rapp Py-Daniel, Birindelli &amp; Sousa, 2021</li><li>Common names: LDA015, L171, Greyspotted Hook Pleco</li><li>IUCN Red List: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1401",
+      "html": "<p>Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1401",
+      "html": "<p>Male Hopliancistrus develop very stout recurved odontodes at the corners of the snout. The presence of three stout, strongly recurved odontodes in the cheek mass putatively separate Hopliancistrus from all other Ancistrini; however, the actual number of hypertrophied cheek odontodes is 1-16, with 1-5 of those being stout and recurved. The only other ancistrin that develops hypertrophied odontodes just in the corners of the snout is Lasiancistrus, but Lasiancistrus have the odontodes very thin, like long whiskers; also, Lasiancistrus has three rows of plates on the caudal peduncle vs. five in Hopliancistrus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1401",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/6b51013cb835d813.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6b51013cb835d813-480.webp",
+      "width": 500,
+      "height": 196,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "caption": "Hopliancistrus xikrin",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

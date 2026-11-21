@@ -248,6 +248,26 @@ test('localizeTopic: a redo keeps a body a person fixed, and its mark', async ()
   expect(again.summary).toEqual(['baru'])
 })
 
+// The chief of staff, 21 Nov 2026: an FAQ a person fixed in a copy is theirs too (the live-food guide's Malay allergy
+// answer), so a redo keeps it and its mark, and writes the rest afresh.
+test('localizeTopic: a redo keeps an FAQ a person fixed, and its mark', async () => {
+  const root = await site()
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research: async () => facts as never, llm: llm0 }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' })
+  const llm: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Mata tersembul', slug: 'x', summary: ['baru'], body: '<p>tulisan baru</p>', faq: [{ q: 'Soalan?', a: 'Jawapan baru.' }] }) as never
+  await localizeTopic(root, llm, r0.id, 'ms')
+  const file = join(root, 'content/guides', r0.id, 'ms.json')
+  const t = JSON.parse(await readFile(file, 'utf8'))
+  const fixed = [{ q: 'Soalan?', a: 'Jawapan dibetulkan dengan tangan.' }]
+  await writeFile(file, JSON.stringify({ ...t, faq: fixed, faqFixed: true }))
+  await localizeTopic(root, llm, r0.id, 'ms', { redo: true })
+  const again = JSON.parse(await readFile(file, 'utf8'))
+  expect(again.faq).toEqual(fixed)
+  expect(again.faqFixed).toBe(true)
+  expect(again.body).toBe('<p>tulisan baru</p>')
+  expect(again.summary).toEqual(['baru'])
+})
+
 test('localizeTopic in Malay: addressed by its name, and a name another guide has takes its word for "guide"', async () => {
   const root = await site()
   const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Cá bị lồi mắt', summary: ['x'], body: '<p>x</p>', faq: [] }) as never

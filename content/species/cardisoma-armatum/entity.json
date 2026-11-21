@@ -141,17 +141,12 @@
       "author": "Maciek Stanikowski (the base photo), and Arlo from JoeMonster",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainbow_crab.jpg",
       "caption": "The rainbow crab, corrected version of that",
-      "thumb": "https://media.aquatome.com/commons/62f65c8dbd4c425c-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/14204e19d481803c.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Iwanjayz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_crab_by_the_lagoon.jpg",
-      "caption": "A crab by the lagoon",
-      "thumb": "https://media.aquatome.com/commons/14204e19d481803c-480.webp"
+      "thumb": "https://media.aquatome.com/commons/62f65c8dbd4c425c-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/62f65c8dbd4c425c-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d60ff132972a0a13.webp",
@@ -164,14 +159,14 @@
       "thumb": "https://media.aquatome.com/commons/d60ff132972a0a13-480.webp"
     },
     {
-      "url": "https://media.aquatome.com/commons/4e9f3acf4e8956b9.webp",
+      "url": "https://media.aquatome.com/commons/14204e19d481803c.webp",
       "width": 960,
-      "height": 1451,
-      "licence": "CC0",
-      "author": "Daderot",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardisoma_armatum_-_Royal_Museum_for_Central_Africa_-_DSC06898.JPG",
-      "caption": "Exhibit in the Royal Museum for Central Africa, Tervuren, Belgium. Photography was permitted in the museum without restriction.",
-      "thumb": "https://media.aquatome.com/commons/4e9f3acf4e8956b9-480.webp"
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Iwanjayz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_crab_by_the_lagoon.jpg",
+      "caption": "A crab by the lagoon",
+      "thumb": "https://media.aquatome.com/commons/14204e19d481803c-480.webp"
     }
   ],
   "videos": [
@@ -233,5 +228,191 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "records": {
+      "taxonKey": 4382786,
+      "total": 65,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "ST",
+          13
+        ],
+        [
+          "CM",
+          8
+        ],
+        [
+          "CI",
+          7
+        ],
+        [
+          "GA",
+          7
+        ],
+        [
+          "NG",
+          7
+        ],
+        [
+          "SN",
+          6
+        ],
+        [
+          "AO",
+          4
+        ],
+        [
+          "BJ",
+          3
+        ],
+        [
+          "GH",
+          3
+        ],
+        [
+          "CG",
+          2
+        ],
+        [
+          "CR",
+          1
+        ],
+        [
+          "CV",
+          1
+        ],
+        [
+          "GN",
+          1
+        ],
+        [
+          "LR",
+          1
+        ],
+        [
+          "SL",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -82.96875,
+          8.4375,
+          1
+        ],
+        [
+          -23.90625,
+          14.0625,
+          1
+        ],
+        [
+          -18.28125,
+          14.0625,
+          2
+        ],
+        [
+          -16.875,
+          14.0625,
+          2
+        ],
+        [
+          -16.875,
+          15.46875,
+          2
+        ],
+        [
+          -15.46875,
+          9.84375,
+          1
+        ],
+        [
+          -14.0625,
+          7.03125,
+          1
+        ],
+        [
+          -11.25,
+          5.625,
+          1
+        ],
+        [
+          -5.625,
+          4.21875,
+          1
+        ],
+        [
+          -4.21875,
+          4.21875,
+          6
+        ],
+        [
+          -1.40625,
+          4.21875,
+          3
+        ],
+        [
+          1.40625,
+          5.625,
+          3
+        ],
+        [
+          2.8125,
+          5.625,
+          2
+        ],
+        [
+          5.625,
+          0,
+          12
+        ],
+        [
+          7.03125,
+          1.40625,
+          1
+        ],
+        [
+          7.03125,
+          4.21875,
+          5
+        ],
+        [
+          8.4375,
+          -2.8125,
+          2
+        ],
+        [
+          8.4375,
+          0,
+          5
+        ],
+        [
+          8.4375,
+          2.8125,
+          6
+        ],
+        [
+          9.84375,
+          2.8125,
+          1
+        ],
+        [
+          9.84375,
+          5.625,
+          1
+        ],
+        [
+          11.25,
+          -7.03125,
+          2
+        ],
+        [
+          11.25,
+          -5.625,
+          4
+        ]
+      ]
+    }
+  }
 }

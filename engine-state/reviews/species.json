@@ -1265,6 +1265,32 @@
       "kept": false
     }
   ],
+  "vi/species/glossolepis-pseudoincisus": [
+    {
+      "at": "2026-11-21T02:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "\"nhưng loài này hoạt động nhiều nên bể dài và rộng hơn thì tốt hơn\" — The facts give no advice to go bigger than the recommended tank. This is a small unsupported generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T02:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"cá táo đỏ\" is used as the Vietnamese name for G. incisus. The facts give no Vietnamese names, so this name is unsupported. It is a minor point."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/hemigrammus-erythrozonus#lmfsTkys5ZE": [
     {
       "at": "2026-11-19T02:47:21Z",
@@ -2091,6 +2117,42 @@
         "[beforeYouBuy] \"giữ cho người dân không phải chuyển sang những cách kiếm sống hại rừng hơn\" adds 'rừng'. The video says 'hurt the environment', not forest.",
         "[waterConditions] The advice \"khoảng 22 °C là đẹp\" and \"từ khoảng 26 °C trở lên\" is presented as fact. The video gives it as one keeper's view (72°F, upper 70s and 80s), and the 26 °C conversion is loose. The page's temperature range overlaps.",
         "[waterConditions] \"Pha nước RO vào nước máy\" and \"quá ấm\" are given as general rules, not attributed to one keeper. \"Sức đề kháng kém\" is presented as fact for hard water."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/pethia-nigrofasciata#W780ni6bKgw": [
+    {
+      "at": "2026-11-21T09:32:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.86,
+      "notes": [
+        "Minor: \"Loài này ăn nhanh và giành ăn dữ\" is stated as a general rule, while the video gives it as the keeper's own observation.",
+        "Minor: \"Con đực nào trội nhất thì màu cũng rực nhất\" has no keeper attribution of its own, though the sentence before it does.",
+        "Minor: the colour-change-through-the-day point sits under [notes] and would fit [dimorphism] or [behaviour] better.",
+        "Minor: \"có lẽ là lúc chúng đẻ\" is hedged correctly, matching the video's \"might be spawning\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T09:32:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"Mua về thấy cá xỉn thì cũng không cần lo\" is advice the video doesn't give as such. It is stated as a general rule, not as one keeper's experience.",
+        "\"Một người nuôi loài này thấy chúng khỏe\" is vague. The video says \"hearty\", but the sentence is a stiff paraphrase.",
+        "\"Cá thích bể trồng nhiều cây\" repeats the page's maintenance text (dense planting, floating plants, driftwood).",
+        "\"nhưng chúng ở ngoài vùng nước trống là chính\" is garbled Vietnamese. The video says they spend most of their time in open water.",
+        "\"Lúc cho ăn, cá hăng đến mức đã hơn một lần nhảy ra khỏi bể\" is not attributed to one keeper. It reads as a species rule, but it was only the video maker's experience.",
+        "\"Chúng cũng rỉa rêu tóc\" is stated as a fact about the species. The video only says they look for hair algae to nibble on.",
+        "\"cá chuột, cá otto và tép Amano\" says the fish ignore these tankmates. This is attributed to one keeper, so it is acceptable, but \"cá chuột\" for corydoras reads as a mistranslation.",
+        "\"có lẽ là lúc chúng đẻ\" is fine as hedged. \"Con cái thân màu nâu vàng nhạt\" overlaps the page's dimorphism text. Male head colour and the three bars are already on the page."
       ],
       "attempt": "first",
       "kept": false

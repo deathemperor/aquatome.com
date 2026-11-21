@@ -10,6 +10,50 @@
     "china",
     "qiantang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Qiantang"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This species originates from the southern Chinese province of Zhejiang, where it is endemic (i.e., seen worldwide, only there) in the system of the most important river of this province, the Qiantang.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Qiantang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367343,
+      "total": 1,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {
@@ -41,12 +85,6 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microphysogobio-tafangensis-2/",
       "html": "<p>They are peaceful among each other and against other fish.</p>"
-    },
-    {
-      "key": "dimorphism",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/microphysogobio-tafangensis-2/",
-      "html": "<p>The males of Microphysogobio tafangensis have sail-like, bluish dorsal fins with reddish fin rays, which looks truly magnificent; the import of females is still pending.</p>"
     }
   ],
   "photos": [

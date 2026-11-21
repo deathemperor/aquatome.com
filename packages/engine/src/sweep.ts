@@ -7,6 +7,7 @@ import { IMAGE_SWITCHES, isNonCommercial, loadAll, mayPublish, vnDate, ownNumber
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
+import { listEmptied } from './emptied-pages'
 import { dealerNotice } from './fit'
 import { droppedName, FISH_NAMES, KIND_PASSAGES, ownWords, type FishName, type KindPassage } from './names'
 import { withLNumber } from './l-numbers'
@@ -38,7 +39,7 @@ import { readVideoRejected } from './videos'
 import { dropNonCommercial, orderAlbums } from './gallery'
 import { keptOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
 import { rejectedEntry } from './photos'
-import { holdForSecondLook, listAgreed, looks, mendWaiting, readSecondLook, unlistCleared } from './last-photo'
+import { gitHistory, holdForSecondLook, listAgreed, looks, mendWaiting, putBackCleared, readSecondLook, unlistCleared, type History } from './last-photo'
 import { keptCapOwn, keptLast, keptMarks } from './own-mark'
 import { ageOf, grownFirst, grownHead } from './young-heads'
 import { namedOn, namedOrder, passesHead } from './photo-named'
@@ -148,6 +149,10 @@ export type SweepReport = {
   agreed: string[]
   /** Photos off at their first verdict that the second look cleared, off the never-again list (last-photo.ts). */
   unlisted: string[]
+  /** Cleared photos put back where they were, `file: url`; ones another reason keeps off, `url: why`; ones with no history here to read (last-photo.ts putBackCleared). */
+  putBack: string[]
+  putBackOff: string[]
+  putBackUnread: string[]
   /** Photos marked off at their first verdict whose never-again entry was missing, written back in this pass (last-photo.ts mendWaiting). */
   waitingBack: string[]
   /** Where the two lists still disagree on a photo off at its first verdict, each kept off, `url: what` (last-photo.ts mendWaiting). */
@@ -172,6 +177,8 @@ export type SweepReport = {
   albumKeptOut: string[]
   /** Aquarium Glaser kept-mark photos past what a page shows, left out of the page's own photos (own-mark.ts keptCapOwn), `kind/id: url`. */
   ownKeptOut: string[]
+  /** Fish pages this run left with no photo, put first for new photos (emptied-pages.ts), `kind/id`. */
+  emptiedListed?: string[]
   /**
    * Non-commercial photos taken off an album or a page (gallery.ts dropNonCommercial), `file: url`: every one with
    * IMAGE_SWITCHES.inatNonCommercial off, all but iNaturalist's album photos with it on.
@@ -554,14 +561,39 @@ async function regroupPages(content: string): Promise<string[]> {
   }
   return moved
 }
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string; switches?: Readonly<ImageSwitches> } = {}): Promise<SweepReport> {
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number; today?: string; switches?: Readonly<ImageSwitches>; history?: History } = {}): Promise<SweepReport> {
   // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
   // the cap would be off (the independent reader, 2026-11-11).
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], waitingBack: [], waitingOdd: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], pickOverOrder: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, again: [], held: [], secondLook: [], agreed: [], unlisted: [], putBack: [], putBackOff: [], putBackUnread: [], waitingBack: [], waitingOdd: [], unwell: [], heads: [], named: [], noAnimal: [], refused: [], refusedSources: [], refusedHeld: [], refusedPicked: [], pickOverOrder: [], albums: [], albumKeptOut: [], ownKeptOut: [], nonCommercial: [], videos: [], card: [], summaries: [], tanks: [], shop: [], dealer: [], dealerOnly: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], folds: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
+  // A photo off at its first verdict that the second look cleared, back where it was, before anything reads a page: what
+  // the pass does after acts on it as on any photo (last-photo.ts putBackCleared).
+  // A page keeps the check's refusal (photo-check.ts refusedOn, with the head picks that stand); on its record's pages the
+  // clear sets aside only the verdict it answers (`aside`, last-photo.ts CLEARED_VERDICT), read there as a pass.
+  const putRefused = await (async () => {
+    const subjects = JSON.parse(await readFile(join(root, 'engine-state', '_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
+    const picks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+    const yes = await readPersonYes(root)
+    const standing = Object.entries(picks).filter(([ref, url]) => pickStands(ref, url, subjects, yes))
+    const kindOf = new Map<string, string>()
+    for (const kind of ['species', 'breeds', 'plants']) for (const id of await readdir(join(content, kind)).catch(() => [] as string[])) kindOf.set(id, kind)
+    const pickedOn = new Set(standing.map(([ref, url]) => `${ref.split('/')[1]}\n${url}`))
+    const why = (cache: typeof subjects) => refusedOn(cache, id => kindOf.get(id), (id, url) => pickedOn.has(`${id}\n${url}`), new Set(standing.map(([, url]) => url)))
+    const all = why(subjects)
+    return (id: string, url: string, aside?: PhotoVerdict['ok']) => {
+      const v = subjects[url]?.[id]
+      if (!aside || v?.ok !== aside) return all(id, url) !== undefined
+      return why({ [url]: { ...subjects[url], [id]: { ...v, ok: 'yes' as const } } })(id, url) !== undefined
+    }
+  })()
+  const put = await putBackCleared(root, o.history ?? gitHistory(root), o.today, putRefused)
+  for (const x of put.back) changed(x.slice(0, x.indexOf(': ')).replace(/^content\//, ''))
+  report.putBack = put.back
+  report.putBackOff = put.off
+  report.putBackUnread = put.unread
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
   // A species page filed under the wrong animal, joined to its fish's or moved to it (page-folds.ts): first, so the
@@ -1426,6 +1458,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     ;(report.text['emails'] ??= []).push(f.replace(/\.json$/, ''))
   }
   if (emails.emptied.length) report.text['emails-emptied'] = emails.emptied
+  // Last of all: a fish page this run's steps left with no photo goes first for new photos (emptied-pages.ts).
+  report.emptiedListed = await listEmptied(root, o.today ?? vnDate(new Date()))
   return report
 }
 

@@ -1,10 +1,13 @@
 {
   "slug": "indo-pacific",
-  "name": "Indo-Pacific",
-  "altNames": [],
+  "name": "Ấn Độ – Thái Bình Dương",
+  "altNames": [
+    "Indo-Pacific"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

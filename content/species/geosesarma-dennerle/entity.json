@@ -10,6 +10,40 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Sulawesi",
+        "Java",
+        "Krakatau",
+        "Riau Islands"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They come from Sulawesi, Java, Krakatau or the Riau Islands.",
+          "countries": [],
+          "regions": [
+            "Sulawesi",
+            "Java",
+            "Krakatau",
+            "Riau Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9016339,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -142,12 +176,6 @@
   ],
   "videos": [
     {
-      "youtubeId": "CoGScOoNME4",
-      "title": "Geosesarma Dennerle Species Profile (Purple Vampire Crabs)",
-      "durationSec": 427,
-      "lang": "en"
-    },
-    {
       "youtubeId": "zNdXg2BJijY",
       "title": "Geosesarma dennerle. The father of all vampire crab! (Leopard Aquatic Y001A)",
       "durationSec": 59,
@@ -157,12 +185,6 @@
       "youtubeId": "yVuMXud8DBg",
       "title": "How to keep Vampire Crabs - Ultimate Care Guide for Geosesarma dennerle",
       "durationSec": 1400,
-      "lang": "en"
-    },
-    {
-      "youtubeId": "Hxh8vhPFVQE",
-      "title": "How to Build Vampire Crab Paludarium for Geosesarma hagen & dennerle",
-      "durationSec": 411,
       "lang": "en"
     }
   ],

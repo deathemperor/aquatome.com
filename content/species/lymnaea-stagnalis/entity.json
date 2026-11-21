@@ -1,0 +1,152 @@
+{
+  "id": "lymnaea-stagnalis",
+  "scientificName": "Lymnaea stagnalis",
+  "order": "",
+  "family": "Lymnaeidae",
+  "genus": "Lymnaea",
+  "group": "snails",
+  "places": [
+    "europe",
+    "asia",
+    "north-america",
+    "oceania",
+    "australia",
+    "tasmania",
+    "new-zealand"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 7
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 1
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 1.5,
+          "max": 3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Common names: Great Pond snail, Giant Pond snail</li><li>Scientific name: Lymnaea stagnalis (family Lymnaeidae, \"mud snails\")</li><li>Minimum tank size: about 4 litres</li><li>Keeping: very easy; breeding: very easy</li><li>Temperature: 0 to 33°C</li><li>Optimal KH: 2–8 (tolerated 0–25)</li><li>TDS: optimal 150–250 (tolerated 50–500)</li><li>Nitrate: less than 100 ppm</li><li>Diet: omnivore / algae eater</li><li>Temperament: peaceful, solitary</li><li>Colour: brownish</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pond snails are considered \"pest snails\" by many aquarium owners. Aquarists rarely add them on purpose; they usually arrive as hitchhikers on aquatic plants, driftwood, stones and decorations (all plants should be quarantined). They are extremely hardy and have a reputation for being bombproof, living in conditions that prove fatal to their tank mates.</p><p>They are usually not welcome in planted tanks because they feed on aquatic plants. They are not to be confused with Bladder snails (Physella acuta):</p><table><tr><th></th><th>Pond snails</th><th>Bladder snails</th></tr><tr><td>Size</td><td>2.5–7 cm</td><td>Up to about 1.5 cm</td></tr><tr><td>Shell form</td><td>Usually spiral to the right</td><td>Usually spiral to the left</td></tr><tr><td>Shell colour</td><td>Brown variations</td><td>Pale with markings (spots)</td></tr><tr><td>Tentacles</td><td>Thick and triangular</td><td>Thin and short</td></tr><tr><td>Plant safe</td><td>No</td><td>Yes</td></tr><tr><td>Reproduction</td><td>Prolific egg layers</td><td>Extremely prolific, \"born pregnant\"</td></tr></table>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pond snails occur commonly in European lakes, ponds, marshes and ditches. Nowadays they can also be found in northern Asia, North America, Tasmania and even New Zealand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>These snails prefer calm, still water with lots of plants, or very slow-moving rivers and streams. The Latin name \"stagnalis\" suggests that the species prefers stagnant water. In the wild they live in puddles and mucky ponds without circulation, and can overwinter in ponds that do not freeze to the bottom.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pond snails do not care about tank size. You can keep them in a tank of about 4 litres or in small buckets. They can be fine even without filters, pumps or heaters, but then you must do at least regular water changes. The simplest sponge filter is still recommended, especially if you plan to breed them as food for your fish, as it greatly increases their number.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pond snails are extremely easy to care for and can be kept in various water parameters. They can survive even the cycling process, and their tolerance to ammonia spikes is incredible. Although super hardy, they are still mortal.</p><p>Like all snails and shrimp, they need calcium in the diet or in the water (ideally both) to build hard shells. Add enough calcium (eggshells, antacids, cuttlefish bones, etc.).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>They have no real preferences and can tolerate even very soft water for some time. Temporary pH changes can be tolerated over a wider range, down to pH 3.5. However, if the pH stays below 6.5 for weeks or months, the snails will have problems with shell formation, because calcium uptake is difficult at low pH. They feel no stress at either 15°C or 25°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pond snails are omnivores, eating both plant and animal material. In the wild they play a pivotal role in consuming and decomposing aquatic plants, living and dead. The most common food is detritus (50–90%), followed by algae (25%), so in tanks they can also act as a cleanup crew. They may occasionally be cannibalistic, eating smaller snails, and can eat Hydra, helping to reduce their population.</p><p>They are not plant safe: they do not eat plants voraciously, but will damage them, usually eating holes and preferring the soft parts of leaves over the midrib. Green food can distract them for a while but does not solve the problem.</p><p>Feeding is extremely easy; they will eat absolutely everything. A snail outbreak means the tank is overfed. Metabolic rate and consumption increase with temperature, so raising the temperature and feeding heavily makes them breed rapidly; this is best done in a dedicated snail tank only, since leftovers can lead to toxic build-up and outbreaks of infections or pests (Scutariella japonica, planaria, Vorticella, Hydra, Ellobiopsidae or green fungus). They can be fed on purpose as food for pufferfish, crayfish, birds, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Peaceful and solitary. Pond snails are bimodal breathers: they can take oxygen through the skin or through aerial respiration via a rudimentary lung, for which the snail must surface and open its breathing pore. Even laboratory-reared snails that have never met a natural predator (crayfish) can detect and respond to a historically sympatric predator.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pond snails are hermaphrodites that can self- and cross-fertilise, with a preference for outcrossing. Adults can mate in either the male or female role; the male-role snail climbs on the shell of the female and moves counter-clockwise until it reaches the female gonophore. Mating can last several hours. Younger snails tend to mate as male and older snails mostly as female, but roles are not restricted: snails of 18 mm can already mate in both roles. They mature sexually at 2.5–3.5 months depending on temperature and feeding.</p><p>Sperm can be donated and received at least once per week and stored for about 3 months. Egg masses are produced at a high rate (more than one per week) below the waterline, each with 50–100 eggs in a gelatinous mass. Juveniles in adult form emerge after about 10 days, without a free-living larval stage.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pond-snails-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Pond snails have sharply tapered shells with wide openings, with 2 to 6 weakly convex whorls. Shell shape and size vary by region, environment and age. The shell is yellowish-brown (light to dark brown), usually without obvious markings. Tentacles are thick and triangular. The snail has no operculum (lid). Total length is 3–7 cm, though in freshwater tanks they usually do not grow beyond 2.5–5 cm. In captivity they live about 1.5 to 3 years.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc mút bể thủy sinh",
+        "lọc sponge mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho ốc",
+        "bổ sung canxi cho ốc tép"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy sinh mini",
+        "bể nuôi ốc"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

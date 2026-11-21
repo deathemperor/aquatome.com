@@ -11,31 +11,31 @@
  },
  "langs": {
   "vi": {
-   "pages": 4988,
-   "read": 4305,
-   "wrong": 1587,
+   "pages": 5027,
+   "read": 4345,
+   "wrong": 1591,
    "pct": 37,
-   "held": 584
+   "held": 589
   },
   "id": {
    "pages": 1680,
-   "read": 1530,
-   "wrong": 427,
+   "read": 1534,
+   "wrong": 423,
    "pct": 28,
-   "held": 174
+   "held": 172
   },
   "th": {
-   "pages": 1668,
-   "read": 1504,
-   "wrong": 395,
+   "pages": 1671,
+   "read": 1513,
+   "wrong": 393,
    "pct": 26,
-   "held": 152
+   "held": 153
   },
   "ms": {
-   "pages": 532,
-   "read": 490,
+   "pages": 542,
+   "read": 501,
    "wrong": 140,
-   "pct": 29,
+   "pct": 28,
    "held": 94
   }
  },
@@ -84,8 +84,8 @@
    "title": "Cá oto peppermint",
    "wrong": [
     {
-     "check": "source",
-     "quote": "Lô cá nhập từ Venezuela hiện nay rất ổn định và không gặp vấn đề gì."
+     "check": "words",
+     "quote": "chúng được bên nước xuất xử lý khéo đến đâu"
     }
    ]
   },

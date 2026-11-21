@@ -1,0 +1,276 @@
+{
+  "id": "engina-mendicaria",
+  "native": {
+    "input": "79f5a455589e1fd0",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+        "words": "Florida",
+        "ok": false,
+        "why": "\"Florida\" is not US"
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "KE",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+        "words": "Kenya",
+        "ok": true
+      },
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+        "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "MU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+        "words": "Mauritius",
+        "ok": true
+      },
+      {
+        "code": "MZ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+        "words": "Mozambique",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Bumble Bee Snails are found on marshy islands and are very commonly seen in the waters of Florida, Indonesia, Chagos, Kenya, Madagascar, Mauritius, Mozambique, Tanzania and Hawaii.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "US"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Engina mendicaria",
+    "status": "ACCEPTED",
+    "taxonKey": 5727962,
+    "datasets": [
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        121
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        48
+      ],
+      [
+        "2b74f1d8-d1c0-4f88-a869-18507c65cf59",
+        35
+      ],
+      [
+        "71d7bac8-f762-11e1-a439-00145eb45e9a",
+        27
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        21
+      ],
+      [
+        "a307e4d7-1de2-4adc-95d5-a0a8d5f57236",
+        17
+      ],
+      [
+        "0214a6a7-898f-4ee8-b888-0be60ecde81f",
+        16
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        13
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        13
+      ],
+      [
+        "85487457-e02f-4dee-95ea-8dc0d220c52d",
+        11
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        10
+      ],
+      [
+        "417f4d21-959b-4773-90a2-c38d1822d873",
+        10
+      ],
+      [
+        "6d28a527-bf84-4e58-b133-0e60987b5e7c",
+        10
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        6
+      ],
+      [
+        "cfb98735-6065-42fa-8613-fce70d39cbbe",
+        6
+      ],
+      [
+        "19841134-3010-4cdf-8be5-24e0e21c0b76",
+        4
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        4
+      ],
+      [
+        "3e0e4ec9-1905-4cae-9691-c0fa79361ac3",
+        3
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "005eb8d8-ed94-41be-89cf-e3115a9058e4",
+        2
+      ],
+      [
+        "3ee66eb3-4786-4bda-b7f1-c145b1a57a6b",
+        2
+      ],
+      [
+        "56aa0680-0c60-11dd-84cd-b8a03c50a862",
+        2
+      ],
+      [
+        "68262f35-4928-445e-959c-2aa191bed29f",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        2
+      ],
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        2
+      ],
+      [
+        "80dcfbe6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        2
+      ],
+      [
+        "d962a7dc-2183-4824-bb88-5e0ba14ec62d",
+        2
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        2
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "2429f28c-dc43-40e7-92f6-49206e0729fb",
+        1
+      ],
+      [
+        "4ffe66a0-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        1
+      ],
+      [
+        "71d46a30-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "7a9ad56e-7452-4f24-a1b4-3be3400c9a9d",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "cd6fe3a0-eee9-4066-8420-e36313ed833d",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "e5d2aed2-a177-46ba-9ea8-c349160a4c2d",
+        1
+      ],
+      [
+        "e9ef15ac-1078-44c1-bc86-f1ecc4115a68",
+        1
+      ],
+      [
+        "f0f52ff5-64d7-442f-8d12-da62a889667c",
+        1
+      ],
+      [
+        "f5783452-6ff5-4bef-8f30-9adfeba81bd7",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "KE",
+      "MG",
+      "MU",
+      "MZ",
+      "TZ"
+    ],
+    "requests": 16,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

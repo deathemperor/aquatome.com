@@ -1,0 +1,91 @@
+{
+  "id": "astroblepus-latidens",
+  "native": {
+    "input": "5987bae7154a537c",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Meta River basin, Colombia and Suarez River basin, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Upper Meta River",
+        "source": "scotcat",
+        "quote": "South America: Upper Meta River basin, Colombia and Suarez River basin, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Suarez River",
+        "source": "scotcat",
+        "quote": "South America: Upper Meta River basin, Colombia and Suarez River basin, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus latidens",
+    "status": "ACCEPTED",
+    "taxonKey": 2342128,
+    "datasets": [
+      [
+        "e2807119-02f5-4c4c-b08b-ead05f38d146",
+        84
+      ],
+      [
+        "0d055e8f-d1be-43dd-be4b-f44b53605554",
+        12
+      ],
+      [
+        "3c965d17-9d2d-426a-8780-215b005bd037",
+        9
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        2
+      ],
+      [
+        "b4ba17bb-057d-460f-9968-ff40333037b9",
+        2
+      ],
+      [
+        "2ebf4603-755b-4370-ad98-403f875899d6",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

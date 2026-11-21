@@ -1,22 +1,14 @@
 {
   "id": "rineloricaria-formosa",
   "native": {
-    "input": "4e9f5ceb063efa9d",
-    "at": "2026-11-21T01:22:16.258Z",
+    "input": "a5d3c2c95c2f58c0",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "VE",
         "status": "native",
         "source": "glaser",
         "quote": "The animals come from the Rio Atabapo in Venezuela.",
-        "words": "Venezuela",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Overall, this species is the most widespread of the group described above and colonizes the greater area of the western Orinoco catchment and the upper Amazon catchment in Brazil, Colombia and Venezuela.",
         "words": "Venezuela",
         "ok": true
       },
@@ -35,16 +27,25 @@
         "quote": "Overall, this species is the most widespread of the group described above and colonizes the greater area of the western Orinoco catchment and the upper Amazon catchment in Brazil, Colombia and Venezuela.",
         "words": "Colombia",
         "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Overall, this species is the most widespread of the group described above and colonizes the greater area of the western Orinoco catchment and the upper Amazon catchment in Brazil, Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Western Orinoco and upper Amazon River basins. Type locality: Colombia, Lagoon about 1 km upriver from Puerto Inírida, Río Orinoco basin.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
     "regions": [
-      {
-        "name": "Rio Atabapo",
-        "source": "glaser",
-        "quote": "The animals come from the Rio Atabapo in Venezuela.",
-        "country": "VE",
-        "ok": true
-      },
       {
         "name": "Orinoco",
         "source": "glaser",
@@ -55,6 +56,25 @@
         "name": "Amazon",
         "source": "glaser",
         "quote": "Overall, this species is the most widespread of the group described above and colonizes the greater area of the western Orinoco catchment and the upper Amazon catchment in Brazil, Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Atabapo",
+        "source": "glaser",
+        "quote": "The animals come from the Rio Atabapo in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Western Orinoco and upper Amazon River basins. Type locality: Colombia, Lagoon about 1 km upriver from Puerto Inírida, Río Orinoco basin.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "scotcat",
+        "quote": "South America: Western Orinoco and upper Amazon River basins. Type locality: Colombia, Lagoon about 1 km upriver from Puerto Inírida, Río Orinoco basin.",
         "ok": true
       }
     ],
