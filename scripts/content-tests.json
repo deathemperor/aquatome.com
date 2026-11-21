@@ -410,6 +410,7 @@
     "packages/engine/test/cycle-due.test.ts": "scripts/engine-due.sh in a temp home",
     "packages/engine/test/cycle-gate.test.ts": "the cycle's scripts on repositories it makes in the temp folder",
     "packages/engine/test/cycle-kept.test.ts": "the cycle's scripts on repositories it makes in the temp folder",
+    "packages/engine/test/cycle-languages.test.ts": "one block of the cycle's script in bash, with pnpm, node and the log stand-ins",
     "packages/engine/test/cycle-menders.test.ts": "the cycle's menders, with pnpm a stand-in",
     "packages/engine/test/cycle-net.test.ts": "a stand-in cycle script in the temp folder",
     "packages/engine/test/cycle-timeouts.test.ts": "the cycle's checks on stand-in steps in the temp folder",
