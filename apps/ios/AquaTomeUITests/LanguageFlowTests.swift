@@ -204,7 +204,7 @@ final class LanguageFlowTests: XCTestCase {
     let confirm = app.alerts.buttons["Ghi lịch"]
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation of the first write")
     confirm.tap()
-    XCTAssertTrue(waitFor { element(app, "notice").label.contains("13:00") }, "the first schedule wasn't written")
+    XCTAssertTrue(waitFor { self.element(app, "notice").label.contains("13:00") }, "the first schedule wasn't written")
     tap(app, "preset-settled")
     tap(app, "write")
     XCTAssertTrue(element(app, "notice-action").waitForExistence(timeout: 10), "no undo after the second write")
@@ -212,11 +212,11 @@ final class LanguageFlowTests: XCTestCase {
     pick(app, "ภาษาไทย", Self.th)
     XCTAssertTrue(reached(app, "notice-action").exists, "the switch took the undo away")
     tap(app, "notice-action")
-    XCTAssertTrue(waitFor { element(app, "notice").label.contains("13:00") }, "the undo after the switch didn't put the first schedule back")
+    XCTAssertTrue(waitFor { self.element(app, "notice").label.contains("13:00") }, "the undo after the switch didn't put the first schedule back")
 
     let undone = element(app, "notice").label
     tap(app, "try")
-    XCTAssertTrue(waitFor { element(app, "try").isSelected && element(app, "notice").label != undone }, "no trial colour's notice")
+    XCTAssertTrue(waitFor { self.element(app, "try").isSelected && self.element(app, "notice").label != undone }, "no trial colour's notice")
     let trial = element(app, "notice").label
     pick(app, "Tiếng Việt", Self.vi)
     XCTAssertTrue(reached(app, "notice").exists, "the switch took the notice of the trial colour on")
@@ -224,12 +224,12 @@ final class LanguageFlowTests: XCTestCase {
 
     tap(app, "try")
     // Its notice changed too: set as the light's write ends, when "Bật với màu của lịch" takes a tap again (Fable, 21 Nov).
-    XCTAssertTrue(waitFor { !element(app, "try").isSelected && element(app, "notice").label != trial }, "the trial didn't end")
+    XCTAssertTrue(waitFor { !self.element(app, "try").isSelected && self.element(app, "notice").label != trial }, "the trial didn't end")
     tap(app, "quick-as-scheduled")
     let confirm2 = app.alerts.buttons["Bật với màu của lịch"]
     XCTAssertTrue(confirm2.waitForExistence(timeout: 5), "no confirmation of today's colour")
     confirm2.tap()
-    XCTAssertTrue(waitFor { element(app, "notice").label.contains("19:00") }, "no notice of today's colour until 19:00")
+    XCTAssertTrue(waitFor { self.element(app, "notice").label.contains("19:00") }, "no notice of today's colour until 19:00")
     let today = element(app, "notice").label
     pick(app, "ภาษาไทย", Self.th)
     XCTAssertTrue(reached(app, "notice").exists, "the switch took the notice of today's colour, before its end")
