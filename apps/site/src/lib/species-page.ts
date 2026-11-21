@@ -8,6 +8,7 @@ import { guideImages, guidesMentioning } from './mentions'
 import { morePhotos, pagePictures, takeEach } from './pictures'
 import { foldNearEmpty } from './sections'
 import { approvedSummary } from './summaries'
+import { spokenIn } from './video-about'
 
 /**
  * The data card with its sources named for the page: a figure AquaTome researched names the page it comes from (its
@@ -64,7 +65,7 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const vn = lang === 'vi'
   // What to buy (Vietnam's shops: Vietnamese pages only), after the care text, with a chip in the jump row.
   const kit = vn && s.productSlots.length > 0
-  const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
+  const videos = vn ? s.videos : s.videos.filter(v => spokenIn(v) !== 'vi')
   const breeds = breedsOf(lang, c, s.id)
   const breedPhotos = takeEach(pics, breeds, b => b.photos)
   const more = strip.some(Boolean) ? morePhotos(pics, gallery, strip, GALLERY_COLUMN) : []
