@@ -42,3 +42,12 @@ export const logoFolder = (url: string) => LOGO_FOLDERS.some(f => url.includes(`
  */
 export const awaitsScreen = (url: string, entry: PhotoScreenEntry | undefined): boolean =>
   !entry || (entry.watermark === undefined && (ocrHit(entry.ocr) || logoFolder(url)))
+
+/**
+ * The photos the dead-fish screen owes a look, in engine-state (address → the day first owed): each photo new to a fish
+ * or plant page that the faces step's screen hasn't judged, past its sheets, on a failed sheet or after a stop (the
+ * engine's faces.ts `screenNewPhotos`). Such a photo waits as one the watermark screen owes does: a public build doesn't
+ * show it (load.ts). It shows by itself once the screen or the photo check has judged it and a faces step has taken it
+ * off the list. The chief of staff told the owner the screen sees every new photo before it can show (21 Nov 2026).
+ */
+export const DEAD_OWED_FILE = '_photo-dead-owed.json'

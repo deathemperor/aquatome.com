@@ -261,6 +261,41 @@ test('a public build shows no photo from a host that sets third-party cookies; a
   expect(await urls(false)).toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
 })
 
+test("a public build shows no new photo the dead-fish screen still owes a look: it waits on a page, in an album and by address, and shows by itself once off the list", async () => {
+  const { mkdir } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-dead-owed-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  e.photos = [photo('commons/judged'), photo('commons/owed')]
+  await writeFile(file, JSON.stringify(e))
+  await mkdir(join(store, 'gallery'))
+  await writeFile(join(store, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 2, updatedAt: '2026-11-21', photos: [photo('commons/album-owed'), photo('commons/album')] }))
+  // The watermark screen has read every one, with no text on any: only the dead-fish screen's list holds them.
+  await mkdir(join(site, 'engine-state'))
+  const all = ['commons/judged', 'commons/owed', 'commons/album-owed', 'commons/album']
+  await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+  const owedFile = join(site, 'engine-state', '_photo-dead-owed.json')
+  await writeFile(owedFile, JSON.stringify({ 'https://media.test/commons/owed.webp': '2026-11-21', 'https://media.test/commons/album-owed.webp': '2026-11-21' }))
+  const shown = async (publicBuild: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild })
+    const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+    return { own: c.species.find(s => s.id === 'alpha')!.photos.map(p => short(p.url)), album: (c.galleries.alpha ?? []).map(p => short(p.url)) }
+  }
+  expect(await shown(true)).toEqual({ own: ['commons/judged'], album: ['commons/album'] })
+  // The engine's own reads see every photo: it is in content, waiting, not refused.
+  expect(await shown(false)).toEqual({ own: ['commons/judged', 'commons/owed'], album: ['commons/album-owed', 'commons/album'] })
+  // By address too (the calendar), a thumb's and a larger copy's.
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(['commons/owed', 'commons/owed-480', 'commons/owed-large', 'commons/judged'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`)))
+    .toEqual(['commons/owed', 'commons/owed-480', 'commons/owed-large'])
+  // Off the list (a faces step found it judged by the screen or the check): each shows by itself in the next build.
+  await writeFile(owedFile, '{}')
+  expect(await shown(true)).toEqual({ own: ['commons/judged', 'commons/owed'], album: ['commons/album-owed', 'commons/album'] })
+})
+
 test('a public build shows no photo the watermark screen still owes a look: it waits, and shows by itself once judged', async () => {
   const { mkdir, rm, utimes } = await import('node:fs/promises')
   const site = await mkdtemp(join(tmpdir(), 'aq-screen-'))

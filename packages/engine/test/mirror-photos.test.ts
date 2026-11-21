@@ -21,6 +21,7 @@ async function root() {
   await writeFile(join(r, 'content/gallery/astronotus-ocellatus.json'), JSON.stringify({ id: 'astronotus-ocellatus', photos: [photo(C500), photo(INAT)] }, null, 2) + '\n')
   await writeFile(join(r, 'content/equipment/co2.json'), JSON.stringify({ category: 'co2', types: [{ id: 'mini', photo: photo(CO2) }] }, null, 1) + '\n')
   await writeFile(join(r, 'engine-state/_photo-faces.json'), JSON.stringify({ [C1280]: 0 }))
+  await writeFile(join(r, 'engine-state/_photo-dead-owed.json'), JSON.stringify({ [C1280]: '2026-11-21' }))
   return r
 }
 
@@ -74,6 +75,8 @@ test('hot-linked photos move to our bucket once each; credit, licence, source li
   const faces = JSON.parse(await readFile(join(r, 'engine-state/_photo-faces.json'), 'utf8'))
   expect(faces[sp.photos[0].url]).toBe(0)
   expect(faces[C1280]).toBe(0)
+  // A photo the dead-fish screen still owes a look keeps waiting at its new address (faces.ts screenNewPhotos).
+  expect(JSON.parse(await readFile(join(r, 'engine-state/_photo-dead-owed.json'), 'utf8'))).toEqual({ [C1280]: '2026-11-21', [sp.photos[0].url]: '2026-11-21' })
 
   // A second run has nothing to do.
   const again = deps()
