@@ -57,7 +57,7 @@ async function emptyArchive(now = '2026-11-03T00:00:00Z') {
  * magazine's record, which GitHub's ideas step reads and never writes (the chief of staff, 21 Nov 2026).
  */
 const macReads = async (root: string, pages: Record<string, string> = PAGES, now = '2026-11-03T00:00:00Z') =>
-  refreshMagazine(root, { get: web(pages).get, sleep: async () => {}, now: () => new Date(now), archive: await emptyArchive(now) })
+  refreshMagazine(root, { get: web(pages).get, sleep: async () => {}, now: () => new Date(now), archive: await emptyArchive(now), ledger: `${root}.ledger.json` })
 
 test('a sitemap: the blog\'s posts only, titled by their address\'s words, with their date; a WordPress category: every page of 100, titles unescaped', async () => {
   const { get } = web(PAGES)
@@ -385,7 +385,7 @@ test("the magazine's ideas are listed behind the shops', a shop's idea ranks by 
     await writeIdeas(root, { research, llm: research, now }, { perDay: 2 })
     const github = topics(from)
     const mac = asked.length
-    await writeMagazine(root, { research, llm: research, now, archive: await emptyArchive(`${d}T05:00:00Z`) })
+    await writeMagazine(root, { research, llm: research, now, archive: await emptyArchive(`${d}T05:00:00Z`), ledger: `${root}.ledger.json` })
     return { github, mac: topics(mac) }
   }
   // The first day: the two most asked shop ideas on GitHub, and the magazine's first on the Mac, though four shop ideas

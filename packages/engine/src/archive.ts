@@ -10,7 +10,8 @@ import { isChallenge } from './outline'
  */
 export const WAYBACK = 'https://web.archive.org'
 /**
- * Between two calls to the archive. Each is two requests, the redirect to a capture and the capture itself. At 5 s the
+ * Between two calls to the archive. Each is two requests, the redirect to a capture and the capture itself (each counted:
+ * ArchiveFetcher.call). At 5 s the
  * archive answered 429 and then refused the connection within a few pages (2Hr Aquarist, November 2026); this stays
  * under 15 requests a minute.
  */
@@ -39,7 +40,15 @@ export function errorGot(e: unknown): string {
   const code = (x.name === 'TimeoutError' || x.name === 'AbortError' ? x.name : undefined) ?? text(x.cause?.code) ?? text(x.code)
   return code ? `${code} (${x.message ?? ''})` : (x.message ?? String(e))
 }
-type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: AbortSignal }) => Promise<{ ok: boolean; status: number; headers: { get(name: string): string | null }; text(): Promise<string>; arrayBuffer(): Promise<ArrayBuffer> }>
+type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: AbortSignal; redirect?: 'manual' }) => Promise<{ ok: boolean; status: number; headers: { get(name: string): string | null }; text(): Promise<string>; arrayBuffer(): Promise<ArrayBuffer> }>
+
+/**
+ * The Archive's redirects, followed one by one so each is a request counted and capped like any (Codex, 21 Nov 2026: an
+ * automatic follow sent two requests for one counted), and only on the Archive's own host: one that points anywhere else
+ * (a site the engine may not read but through the Archive) is no copy, never followed.
+ */
+const REDIRECTS = new Set([301, 302, 303, 307, 308])
+export const MAX_HOPS = 5
 
 /** A capped reader has made the requests it was allowed (ArchiveFetcher.capped): none was made, and it is no refusal. */
 export class AsksSpent extends Error {
@@ -47,16 +56,22 @@ export class AsksSpent extends Error {
 }
 
 export class ArchiveFetcher {
-  /** Requests this reader has made: each try counts, a retry after a network failure too. */
+  /** Requests this reader has made: each try counts, a retry after a network failure and each redirect followed too. */
   asked = 0
   private cap = Number.POSITIVE_INFINITY
+  /** Called before each request is made, after the cap and the rest let it: where a capped reader's requests are kept. */
+  private onAsk?: () => Promise<void>
   /** `restFile`: where the wait is kept, outside any checkout, since it's this Mac the archive refuses. */
   constructor(private d: { fetch: Fetch; now: () => Date; sleep: (ms: number) => Promise<void>; ua: string; restFile: string }) {}
 
-  /** The same reader (name, pace, rest) allowed `n` requests at most: the next throws AsksSpent before it is made. */
-  capped(n: number): ArchiveFetcher {
+  /**
+   * The same reader (name, pace, rest) allowed `n` requests at most: the next throws AsksSpent before it is made. `onAsk`
+   * runs before each one is made, so a request is counted even if the run dies while it is out.
+   */
+  capped(n: number, onAsk?: () => Promise<void>): ArchiveFetcher {
     const r = new ArchiveFetcher(this.d)
     r.cap = Math.max(0, n)
+    r.onAsk = onAsk
     return r
   }
 
@@ -73,16 +88,21 @@ export class ArchiveFetcher {
     return new ArchiveRefused(until)
   }
 
-  /** One request, none during a refusal's wait, and one longer wait if the network fails. The request after a wait gets no second try. */
+  /**
+   * One request, none during a refusal's wait, and one longer wait if the network fails; the Archive's redirects followed
+   * (REDIRECTS), each a request of its own. The request after a wait gets no second try.
+   */
   private async call(url: string) {
-    const rest = JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
+    let rest = JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
     if (rest && this.d.now().getTime() < new Date(rest.until).getTime()) throw new ArchiveRefused(rest.until)
-    for (let attempt = 0; ; attempt++) {
+    let at = url
+    for (let attempt = 0, hops = 0; ; attempt++) {
       if (this.asked >= this.cap) throw new AsksSpent(this.cap)
+      await this.onAsk?.()
       this.asked++
       let r
       try {
-        r = await this.d.fetch(url, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000) })
+        r = await this.d.fetch(at, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000), redirect: 'manual' })
       } catch (e) {
         if (rest || (e as { cause?: { code?: string } }).cause?.code === 'ECONNREFUSED') throw await this.refused(rest, errorGot(e))
         if (attempt > 0) throw new Error(`the archive isn't answering (${(e as Error).message})`)
@@ -93,6 +113,17 @@ export class ArchiveFetcher {
       if (rest) {
         console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
         await rm(this.d.restFile, { force: true })
+        rest = null
+      }
+      const to = REDIRECTS.has(r.status) ? r.headers.get('location') : null
+      if (to) {
+        const next = new URL(to, at)
+        if (next.hostname !== new URL(WAYBACK).hostname) throw new Error(`no archived copy (the archive points off itself, to ${next.hostname})`)
+        if (++hops > MAX_HOPS) throw new Error(`no archived copy (more than ${MAX_HOPS} redirects)`)
+        at = next.href
+        // A new request: its own try if the network fails.
+        attempt = -1
+        continue
       }
       return r
     }

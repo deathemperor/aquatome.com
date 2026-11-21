@@ -1,7 +1,7 @@
-import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { mkdir, readdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
 import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
-import { ARCHIVE_POLITE, ArchiveRefused, cdxQuery, type ArchiveReader } from './archive'
+import { ARCHIVE_POLITE, ArchiveRefused, AsksSpent, cdxQuery, type ArchiveReader } from './archive'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
 import { cycleOnlyHosts, refused } from './cycle-only'
@@ -11,7 +11,7 @@ import { htmlToOutline, isChallenge } from './outline'
 import { piece } from './pieces'
 import { snapshotHash } from './snapshot'
 import { setSourceBlock, sourceBlockedSince } from './state'
-import { makeTopic, topicId, type GivenPage } from './topics'
+import { copiesGiven, makeTopic, topicId, type GivenPage } from './topics'
 
 export { IDEA_SOURCES } from './idea-sources'
 
@@ -38,10 +38,10 @@ const KINDS: GuideKind[] = ['setup', 'care', 'breeding', 'disease', 'aquascaping
 export type Post = { url: string; title: string; date?: string; held?: true }
 /**
  * What came of the post behind a magazine idea's guide (writeMagazine): research cited it; it read it and cited none of it;
- * the Archive had no copy, or only a browser check; or it would have given too much of the guide (topics.ts POST_SHARE),
- * so the guide was written without it.
+ * the Archive had no copy, or only a browser check; none was reached (the day's requests ran out, or the Archive didn't
+ * answer); or it would have given too much of the guide (topics.ts POST_SHARE), so the guide was written without it.
  */
-export type PostResult = 'cited' | 'not cited' | 'no copy' | 'too much of one source'
+export type PostResult = 'cited' | 'not cited' | 'no copy' | 'not reached' | 'too much of one source'
 /**
  * The record of a magazine idea's post, all the repository keeps of it (the chief of staff, 21 Nov 2026: the magazine has
  * given no permission to republish, and the repository is public): its own address and title, the copy's date, a hash of
@@ -69,8 +69,11 @@ export type IdeasState = {
   magazineAt?: string
 }
 export type IdeasDeps = { get: (url: string) => Promise<string>; llm: Llm; sleep: (ms: number) => Promise<void>; now: () => Date }
-/** `archive`: the Mac's Archive reader (cli.ts archiveReader), the one the sources read through it use. */
-export type MagazineDeps = { get: (url: string) => Promise<string>; sleep: (ms: number) => Promise<void>; now: () => Date; archive: ArchiveReader }
+/**
+ * `archive`: the Mac's Archive reader (cli.ts archiveReader), the one the sources read through it use. `ledger`: the Mac's
+ * file of the magazine's Archive requests (MagazineLedger).
+ */
+export type MagazineDeps = { get: (url: string) => Promise<string>; sleep: (ms: number) => Promise<void>; now: () => Date; archive: ArchiveReader; ledger: string }
 
 const file = (root: string) => join(root, 'engine-state/_ideas.json')
 export const readIdeas = async (root: string): Promise<IdeasState> =>
@@ -97,6 +100,55 @@ const magazineFile = (root: string) => join(root, 'engine-state/_magazine.json')
 export const readMagazine = async (root: string): Promise<MagazineState> =>
   ({ posts: {}, guides: {}, ...JSON.parse(await readFile(magazineFile(root), 'utf8').catch(() => '{}')) as Partial<MagazineState> })
 const saveMagazine = (root: string, s: MagazineState) => writeFile(magazineFile(root), `${JSON.stringify(s, null, 2)}\n`)
+/**
+ * The Mac's own record of the magazine's Archive work (Codex, 21 Nov 2026), kept beside the Archive's rest (archive.ts),
+ * outside any checkout: a pages cycle whose tests fail starts again from main and drops the checkout's record. `asks`: the
+ * requests by Vietnam's day, each written before it is made; `tried`: the last listing try through the Archive; `waits`:
+ * the days in a row the day's guide waited for the Archive's rest. The limits read this. The magazine's record carries a
+ * copy for the chief of staff (mirror), which seeds it only when it is missing.
+ */
+export type MagazineLedger = Pick<MagazineState, 'asks' | 'tried' | 'waits'>
+async function readLedger(file: string, m: MagazineState): Promise<MagazineLedger> {
+  const raw = await readFile(file, 'utf8').catch(() => undefined)
+  if (raw !== undefined) return JSON.parse(raw) as MagazineLedger
+  return { ...(m.asks ? { asks: m.asks } : {}), ...(m.tried ? { tried: m.tried } : {}), ...(m.waits ? { waits: m.waits } : {}) }
+}
+/** Written whole or not at all. */
+async function saveLedger(file: string, l: MagazineLedger) {
+  await mkdir(dirname(file), { recursive: true })
+  const tmp = `${file}.${process.pid}.tmp`
+  await writeFile(tmp, `${JSON.stringify(l)}\n`)
+  await rename(tmp, file)
+}
+/** The ledger's copy in the magazine's record. */
+function mirror(m: MagazineState, l: MagazineLedger) {
+  if (l.asks) m.asks = l.asks; else delete m.asks
+  if (l.tried) m.tried = l.tried; else delete m.tried
+  if (l.waits?.length) m.waits = l.waits; else delete m.waits
+}
+/** A lock older than this is a step that died: none runs so long. */
+const LOCK_STALE_MS = 6 * 3_600_000
+/**
+ * One magazine step at a time on the Mac, since its ledger is read and then written at each request: a step that finds
+ * another running fails, naming it, so the cycle logs it. A lock whose step has died, or older than LOCK_STALE_MS, is
+ * taken over. The release removes it.
+ */
+export async function holdMagazine(file: string, now: () => Date, pid = process.pid): Promise<() => Promise<void>> {
+  await mkdir(dirname(file), { recursive: true })
+  for (let tries = 0; ; tries++) {
+    try {
+      await writeFile(file, `${pid}\n`, { flag: 'wx' })
+      return () => rm(file, { force: true })
+    } catch (e) {
+      if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || tries > 0) throw e
+      const held = Number((await readFile(file, 'utf8').catch(() => '')).trim())
+      const age = now().getTime() - (await stat(file).then(x => x.mtimeMs, () => 0))
+      if (held && alive(held) && age < LOCK_STALE_MS) throw new Error(`another magazine step is running (pid ${held}, ${file})`)
+      await rm(file, { force: true })
+    }
+  }
+}
+const alive = (pid: number) => { try { process.kill(pid, 0); return true } catch (e) { return (e as NodeJS.ErrnoException).code === 'EPERM' } }
 /** The magazine's newest read: GitHub's ideas are made again when it is newer than the one they were made from. */
 const magazineRead = (m: MagazineState) => Object.values(m.readAt ?? {}).filter((x): x is string => !!x).sort().at(-1)
 
@@ -217,20 +269,21 @@ export const ARCHIVE_LISTING_WEEK = 9
 /** Vietnam's last `n` days, today's included. */
 const lastDays = (now: Date, n: number) => new Set(Array.from({ length: n }, (_, i) => vnDay(new Date(now.getTime() - i * 86_400_000))))
 /** The requests to the Archive still allowed: for the post, today's; for the listing, the last seven days'. */
-function asksLeft(state: MagazineState, kind: 'listing' | 'post', now: Date) {
+function asksLeft(l: MagazineLedger, kind: 'listing' | 'post', now: Date) {
   const days = lastDays(now, kind === 'post' ? 1 : 7)
-  const made = Object.entries(state.asks ?? {}).reduce((n, [day, a]) => n + (days.has(day) ? a[kind] ?? 0 : 0), 0)
+  const made = Object.entries(l.asks ?? {}).reduce((n, [day, a]) => n + (days.has(day) ? a[kind] ?? 0 : 0), 0)
   return (kind === 'post' ? ARCHIVE_POST_DAY : ARCHIVE_LISTING_WEEK) - made
 }
-/** Counts a capped reader's requests under today, dropping days older than the week. */
-function countAsks(state: MagazineState, kind: 'listing' | 'post', now: Date, n: number) {
-  if (!n) return
-  const asks = (state.asks ??= {})
-  const today = (asks[vnDay(now)] ??= {})
-  today[kind] = (today[kind] ?? 0) + n
-  const week = lastDays(now, 7)
-  for (const day of Object.keys(asks)) if (!week.has(day)) delete asks[day]
-}
+/** A capped reader for the magazine: each request counted under the day it is made, and written down before it is made. */
+const magazineReader = (reader: ArchiveReader, l: MagazineLedger, file: string, kind: 'listing' | 'post', now: () => Date) =>
+  reader.capped(asksLeft(l, kind, now()), async () => {
+    const asks = (l.asks ??= {})
+    const today = (asks[vnDay(now())] ??= {})
+    today[kind] = (today[kind] ?? 0) + 1
+    const week = lastDays(now(), 7)
+    for (const day of Object.keys(asks)) if (!week.has(day)) delete asks[day]
+    await saveLedger(file, l)
+  })
 
 /**
  * A site's listing from the Archive's copy of its sitemap (the newest that isn't a browser check: archive.ts get), read
@@ -285,7 +338,7 @@ const listedReport = (): Listed => ({ failed: [], needsHuman: [], blocked: [], l
  * the posts kept and how many the index holds. A refusal of the Archive's stops the read there, the titles standing:
  * nothing goes round it.
  */
-async function listSite(root: string, s: IdeaSource, before: Post[] | undefined, get: (url: string) => Promise<string>, d: { sleep: (ms: number) => Promise<void>; now: () => Date }, o: { force?: boolean; retryBlocked?: boolean }, report: Listed, archive?: { state: MagazineState; reader: ArchiveReader }): Promise<Post[] | undefined> {
+async function listSite(root: string, s: IdeaSource, before: Post[] | undefined, get: (url: string) => Promise<string>, d: { sleep: (ms: number) => Promise<void>; now: () => Date }, o: { force?: boolean; retryBlocked?: boolean }, report: Listed, archive?: { ledger: MagazineLedger; file: string; reader: ArchiveReader }): Promise<Post[] | undefined> {
   const since = await sourceBlockedSince(root, s.id)
   if (since && !o.retryBlocked && !archive) { report.blocked.push(s.id); return undefined }
   try {
@@ -300,31 +353,28 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
         if (!archive) throw err
       }
     }
-    // Through the Archive: once a day at most, by a reader capped at what's left of the week's requests, each counted as made.
+    // Through the Archive: once a day at most, `force` or not, by a reader capped at what's left of the week's requests,
+    // each written down before it is made.
     let reader: ArchiveReader | undefined
     if (!listed) {
-      const m = archive!.state
-      const tried = m.tried?.[s.id]
-      if (!o.force && tried && d.now().getTime() - Date.parse(tried) < ARCHIVE_TRY_MS) throw new Error('read through the archive within a day')
-      const left = asksLeft(m, 'listing', d.now())
-      if (left <= 0) throw new Error(`the week's ${ARCHIVE_LISTING_WEEK} requests to the archive are spent`)
-      reader = archive!.reader.capped(left)
-      ;(m.tried ??= {})[s.id] = d.now().toISOString()
+      const { ledger: l, file } = archive!
+      const tried = l.tried?.[s.id]
+      if (tried && d.now().getTime() - Date.parse(tried) < ARCHIVE_TRY_MS) throw new Error('read through the archive within a day')
+      if (asksLeft(l, 'listing', d.now()) <= 0) throw new Error(`the week's ${ARCHIVE_LISTING_WEEK} requests to the archive are spent`)
+      ;(l.tried ??= {})[s.id] = d.now().toISOString()
+      await saveLedger(file, l)
+      reader = magazineReader(archive!.reader, l, file, 'listing', d.now)
     }
-    try {
-      const { kept, dropped, titles } = dropPosts(listed ?? await archivedListing(s, reader!), s.drop ?? [])
-      report.listed[s.id] = { kept: kept.length, dropped, titles }
-      if (!kept.length) throw new Error('an empty listing')
-      if (reader) {
-        const r = await heldPosts(s, kept, reader, d.sleep, before)
-        report.archived[s.id] = { listed: kept.length, ...(r.held === undefined ? {} : { held: r.held }) }
-        return r.posts
-      }
-      if (since) await setSourceBlock(root, s.id, undefined)
-      return kept
-    } finally {
-      if (reader) countAsks(archive!.state, 'listing', d.now(), reader.asked)
+    const { kept, dropped, titles } = dropPosts(listed ?? await archivedListing(s, reader!), s.drop ?? [])
+    report.listed[s.id] = { kept: kept.length, dropped, titles }
+    if (!kept.length) throw new Error('an empty listing')
+    if (reader) {
+      const r = await heldPosts(s, kept, reader, d.sleep, before)
+      report.archived[s.id] = { listed: kept.length, ...(r.held === undefined ? {} : { held: r.held }) }
+      return r.posts
     }
+    if (since) await setSourceBlock(root, s.id, undefined)
+    return kept
   } catch (err) {
     report.failed.push(`${s.id}: ${(err as Error).message.slice(0, 120)}, its last titles kept`)
     return undefined
@@ -339,15 +389,17 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
  */
 export async function refreshMagazine(root: string, d: MagazineDeps, o: { force?: boolean; retryBlocked?: boolean } = {}) {
   const m = await readMagazine(root)
+  const l = await readLedger(d.ledger, m)
   const report = { fresh: [] as SourceId[], ...listedReport() }
   let first = true
   const get = async (url: string) => { if (!first) await d.sleep(DELAY); first = false; return d.get(url) }
   for (const s of IDEA_SOURCES.filter(x => x.viaArchive)) {
     const at = m.readAt?.[s.id]
     if (!o.force && m.posts[s.id]?.length && at && d.now().getTime() - Date.parse(at) < FRESH_DAYS * 86_400_000) { report.fresh.push(s.id); continue }
-    const posts = await listSite(root, s, m.posts[s.id], get, d, o, report, { state: m, reader: d.archive })
+    const posts = await listSite(root, s, m.posts[s.id], get, d, o, report, { ledger: l, file: d.ledger, reader: d.archive })
     if (posts) { m.posts[s.id] = posts; (m.readAt ??= {})[s.id] = d.now().toISOString() }
   }
+  mirror(m, l)
   await saveMagazine(root, m)
   return report
 }
@@ -441,10 +493,10 @@ const magazineOf = (url: string) => IDEA_SOURCES.find(s => s.magazine && ideaHos
  * The one post behind a magazine idea's guide (the chief of staff, 21 Nov 2026): the first of its posts the Archive's index
  * holds (refreshMagazine), else its first, read from the Archive's newest good copy (archive.ts get: an archived browser check
  * is no copy). Its text (the outline's: no photo is fetched) is held for this run alone and never written anywhere; `hash`
- * stands for it in the record. `page` undefined: no copy, or none found within the day's requests. A refusal of the
- * Archive's is thrown, so the guide waits for the next run.
+ * stands for it in the record. `page` undefined: `unread` says why, no copy, or none reached (the day's requests spent,
+ * the Archive not answering). A refusal of the Archive's is thrown, so the guide waits for the next run.
  */
-async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: ArchiveReader): Promise<{ url: string; page?: GivenPage & { hash: string } } | undefined> {
+async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: ArchiveReader): Promise<{ url: string; page?: GivenPage & { hash: string }; unread?: 'no copy' | 'not reached' } | undefined> {
   const mine = idea.posts.filter(isMagazinePost)
   const held = new Set(Object.values(posts).flat().filter(p => p?.held).map(p => p!.url))
   const url = mine.find(u => held.has(u)) ?? mine[0]
@@ -455,10 +507,10 @@ async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: 
   } catch (e) {
     if (e instanceof ArchiveRefused) throw e
     console.warn(`magazine: ${url}: ${(e as Error).message.slice(0, 120)}`)
-    return { url }
+    return { url, unread: !(e instanceof AsksSpent) && /^no archived copy/.test((e as Error).message) ? 'no copy' : 'not reached' }
   }
   const o = htmlToOutline(got.html)
-  if (!o.outline.trim() || isChallenge(o.title, o.outline)) return { url }
+  if (!o.outline.trim() || isChallenge(o.title, o.outline)) return { url, unread: 'no copy' }
   return { url, page: { url, title: o.title, text: o.outline, hash: snapshotHash({ title: o.title, outline: o.outline }), ...(got.capturedAt ? { capturedAt: got.capturedAt } : {}) } }
 }
 
@@ -519,9 +571,14 @@ export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now
  * rests, or the day's requests are spent, the guide waits, its idea untouched; `waited`: the days in a row it has waited
  * for a rest, kept in the record.
  */
-export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; now: () => Date; archive: ArchiveReader }, o: { researchModel?: string } = {}) {
+export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; now: () => Date; archive: ArchiveReader; ledger: string }, o: { researchModel?: string } = {}) {
   const ideas = await readIdeas(root)
   const m = await readMagazine(root)
+  const l = await readLedger(d.ledger, m)
+  const save = () => { mirror(m, l); return saveMagazine(root, m) }
+  // The post's text while a guide is written from it: a reason kept or printed never repeats it (copiesGiven).
+  let held: string | undefined
+  const clean = (e: unknown) => { const msg = (e as Error).message ?? String(e); return held && copiesGiven(msg, held) ? `${(e as Error).name}: its message repeats the post` : msg }
   const today = () => vnDay(d.now())
   const report: { written: string[]; skipped: string[]; failed: string[]; stopped: string; posts: string[]; waited?: number } = { written: [], skipped: [], failed: [], stopped: '', posts: [] }
   const doneToday = () => Object.values(m.guides).filter(g => g.at && vnDay(new Date(g.at)) === today()).length
@@ -532,44 +589,46 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
     const id = topicId(idea.topic)
     // A guide of that name already: taken as written, never rewritten from here, and not the day's.
     if (await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8').then(() => true, () => false)) { m.guides[key] = { guide: id }; continue }
-    if (asksLeft(m, 'post', d.now()) <= 0) { report.stopped = `the day's ${ARCHIVE_POST_DAY} requests to the archive for the magazine's post are spent`; break }
+    if (asksLeft(l, 'post', d.now()) <= 0) { report.stopped = `the day's ${ARCHIVE_POST_DAY} requests to the archive for the magazine's post are spent`; break }
     try {
       const leads = ideaLeads(idea, ideas, await cycleOnlyHosts(root))
-      // The post is read inside the piece, so a day's line that won't cover the guide asks the Archive nothing. Its
-      // requests are counted and saved as made: a guide the model stops later asks no more of the Archive that day.
+      // The post is read inside the piece, so a day's line that won't cover the guide asks the Archive nothing. Each request
+      // is written down before it is made: a guide the model stops later asks no more of the Archive that day.
       const { r, post } = await piece(id, async () => {
-        const reader = d.archive.capped(asksLeft(m, 'post', d.now()))
-        let post: Awaited<ReturnType<typeof magazinePost>>
-        try { post = await magazinePost(idea, m.posts, reader) } finally { countAsks(m, 'post', d.now(), reader.asked); await saveMagazine(root, m) }
+        const post = await magazinePost(idea, m.posts, magazineReader(d.archive, l, d.ledger, 'post', d.now))
+        held = post?.page?.text
         // The Archive answered: the wait for its rest is over.
-        delete m.waits
+        if (l.waits) { delete l.waits; await saveLedger(d.ledger, l) }
         const r = await makeTopic(root, { research: d.research, llm: d.llm }, { topic: idea.topic, kind: idea.kind }, { leads, now: d.now, ...(post?.page ? { given: post.page } : {}), ...(o.researchModel ? { researchModel: o.researchModel } : {}) })
         return { r, post }
       }, { now: d.now })
       const p = post?.page
-      const record: PostRecord | undefined = post && { url: post.url, ...(p ? { title: p.title, ...(p.capturedAt ? { capturedAt: p.capturedAt } : {}), hash: p.hash } : {}), via: 'archive', result: p ? ('post' in r && r.post) || 'not cited' : 'no copy' }
+      const record: PostRecord | undefined = post && { url: post.url, ...(p ? { title: p.title, ...(p.capturedAt ? { capturedAt: p.capturedAt } : {}), hash: p.hash } : {}), via: 'archive', result: p ? ('post' in r && r.post) || 'not cited' : post.unread ?? 'no copy' }
       const skipped = 'skipped' in r && r.skipped ? r.skipped : undefined
       m.guides[key] = { ...(skipped ? { skipped } : { guide: r.id }), at: d.now().toISOString(), ...(record ? { post: record } : {}) }
       if (skipped) report.skipped.push(skipped); else report.written.push(r.id)
       if (record) report.posts.push(`${idea.topic}: ${record.url}: ${record.result}`)
-      await saveMagazine(root, m)
+      await save()
     } catch (err) {
-      if (err instanceof LlmError) { report.stopped = err.message; break }
+      if (err instanceof LlmError) { report.stopped = clean(err); break }
       // The Archive resting: the guide waits for its post, the idea as it was. The days it waits in a row are kept.
       if (err instanceof ArchiveRefused) {
         report.stopped = err.message
-        const waits = m.waits ?? []
+        const waits = l.waits ?? []
         const last = waits.at(-1)
-        m.waits = last === today() ? waits : last === vnDay(new Date(d.now().getTime() - 86_400_000)) ? [...waits, today()] : [today()]
-        report.waited = m.waits.length
+        l.waits = last === today() ? waits : last === vnDay(new Date(d.now().getTime() - 86_400_000)) ? [...waits, today()] : [today()]
+        await saveLedger(d.ledger, l)
+        report.waited = l.waits.length
         break
       }
       // It counts, and is not tried again (the reason is kept).
-      m.guides[key] = { skipped: `failed: ${(err as Error).message.slice(0, 120)}`, at: d.now().toISOString() }
+      m.guides[key] = { skipped: `failed: ${clean(err).slice(0, 120)}`, at: d.now().toISOString() }
       report.failed.push(`${idea.topic}: ${m.guides[key]!.skipped}`)
-      await saveMagazine(root, m)
+      await save()
+    } finally {
+      held = undefined
     }
   }
-  await saveMagazine(root, m)
+  await save()
   return report
 }

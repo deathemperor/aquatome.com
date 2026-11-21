@@ -2,7 +2,7 @@ import { mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
-import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot } from '../src/archive'
+import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot, MAX_HOPS } from '../src/archive'
 import { discover } from '../src/discover'
 import { sourceById } from '../src/sources'
 
@@ -130,6 +130,44 @@ test('a capped reader makes its requests and no more: past them it stops before 
   await expect(none.get('https://www.example.org/post/')).rejects.toBeInstanceOf(AsksSpent)
   expect(calls).toHaveLength(3)
   expect(f.asked).toBe(0)
+})
+
+// Codex's read of 21 Nov 2026: an automatic follow of the Archive's redirect sent two requests for one counted.
+test("the Archive's redirects are followed one by one, each a request counted against the cap and noted before it is made; one off the Archive is no copy", async () => {
+  const calls: { url: string; redirect?: string }[] = []
+  const notes: number[] = []
+  const at = (to: string) => capture(302, '', { location: to })
+  const answers: Record<string, ReturnType<typeof capture>> = {
+    [`https://web.archive.org/web/20261121id_/${article}`]: at(`/web/20251017040955id_/${article}`),
+    [`https://web.archive.org/web/20251017040955id_/${article}`]: capture(200, '<title>Best temperature</title>', { 'memento-datetime': 'Fri, 17 Oct 2025 04:09:55 GMT' }),
+  }
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async (u, init) => { calls.push({ url: u, redirect: init?.redirect }); return answers[u] ?? capture(404, '') }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  const two = f.capped(2, async () => { notes.push(calls.length) })
+  expect(await two.get(article)).toMatchObject({ finalUrl: article, capturedAt: '2025-10-17T04:09:55.000Z' })
+  expect(calls).toEqual([{ url: `https://web.archive.org/web/20261121id_/${article}`, redirect: 'manual' }, { url: `https://web.archive.org/web/20251017040955id_/${article}`, redirect: 'manual' }])
+  expect(two.asked).toBe(2)
+  // Each noted before its request went out.
+  expect(notes).toEqual([0, 1])
+  // One request allowed: the redirect is the second, and is not made.
+  calls.length = 0
+  await expect(f.capped(1).get(article)).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(1)
+  // A redirect to the site itself, which the engine may read only through the Archive: not followed, no copy.
+  calls.length = 0
+  answers[`https://web.archive.org/web/20261121id_/${article}`] = at(article)
+  await expect(f.get(article)).rejects.toThrow(/^no archived copy \(the archive points off itself, to www\.2hraquarist\.com\)$/)
+  expect(calls.map(c => c.url)).toEqual([`https://web.archive.org/web/20261121id_/${article}`])
+  // A loop: no copy after MAX_HOPS redirects.
+  calls.length = 0
+  const loop = new ArchiveFetcher({ restFile: restFile(), fetch: async u => { calls.push({ url: u }); return at(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  await expect(loop.text('https://web.archive.org/cdx/search/cdx?url=x')).rejects.toThrow(`no archived copy (more than ${MAX_HOPS} redirects)`)
+  expect(calls).toHaveLength(MAX_HOPS + 1)
+  // A 429 on a redirect's request is a refusal, as on any.
+  const { t, f: r } = refusals()
+  let first = true
+  t.answer = () => (first ? ((first = false), at('/web/2025id_/x')) : capture(429, ''))
+  await expect(r.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  expect(t.asked).toBe(2)
 })
 
 test('a refusal asks nothing more: no retry in the run, and none for 12 hours', async () => {

@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, rm, utimes, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { slugify } from '@aq/schema'
@@ -6,8 +6,8 @@ import { expect, test } from 'vitest'
 import { ARCHIVE_POLITE, ArchiveFetcher } from '../src/archive'
 import { LlmError, type Llm } from '../src/claude'
 import { cycleOnlyHosts } from '../src/cycle-only'
-import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, ListingRefused, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState, type MagazineState } from '../src/ideas'
-import { makeTopic, POST_OTHER_SITES, POST_SHARE, siteOf, topicId } from '../src/topics'
+import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, holdMagazine, ListingRefused, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState, type MagazineState } from '../src/ideas'
+import { COPY_WORDS, makeTopic, POST_OTHER_SITES, POST_SHARE, siteOf, topicId } from '../src/topics'
 
 // The owner, 20 Nov 2026: "Pratical fishkeeping: use internet archive" (and 9 Nov: "any site that are often blocked should
 // use the same way"). The chief of staff's order of 21 Nov: the magazine's list, and each day the one post behind that
@@ -79,9 +79,12 @@ async function site(blocked = true) {
 const magazineFile = (root: string) => join(root, 'engine-state/_magazine.json')
 const ideasFile = (root: string) => join(root, 'engine-state/_ideas.json')
 const setMagazine = (root: string, m: Partial<MagazineState>) => writeFile(magazineFile(root), JSON.stringify({ posts: {}, guides: {}, ...m }))
-/** The Mac's magazine step's deps: its own site's listing (`get`), the Archive's reader, the step's sleep, the clock. */
-const macOf = (get: (u: string) => Promise<string>, a: ArchiveFetcher, now = '2026-11-21T06:00:00Z', slept: number[] = []) =>
-  ({ get, archive: a, sleep: async (ms: number) => { slept.push(ms) }, now: () => new Date(now) })
+/** The Mac's ledger of the magazine's Archive requests, outside the checkout, as ~/.cache/aquatome's is. */
+const ledgerOf = (root: string) => `${root}.ledger.json`
+const ledger = async (root: string) => JSON.parse(await readFile(ledgerOf(root), 'utf8')) as Pick<MagazineState, 'asks' | 'tried' | 'waits'>
+/** The Mac's magazine step's deps: its own site's listing (`get`), the Archive's reader, its ledger, the step's sleep, the clock. */
+const macOf = (root: string, get: (u: string) => Promise<string>, a: ArchiveFetcher, now = '2026-11-21T06:00:00Z', slept: number[] = []) =>
+  ({ get, archive: a, ledger: ledgerOf(root), sleep: async (ms: number) => { slept.push(ms) }, now: () => new Date(now) })
 const ideasOf = (llm: Llm, get: (u: string) => Promise<string>, now = '2026-11-21T06:00:00Z') => ({ get, llm, sleep: async () => {}, now: () => new Date(now) })
 const noIdeas: Llm = async <T>() => ({ ideas: [] }) as T
 const nowhere = async (u: string): Promise<string> => { throw new Error(`asked ${u}`) }
@@ -92,7 +95,7 @@ test("while the magazine's own site refuses, its list is read from the Archive's
   const root = await site()
   const slept: number[] = []
   const a = await archive(holding)
-  const r = await refreshMagazine(root, macOf(nowhere, a.reader, '2026-11-21T06:00:00Z', slept))
+  const r = await refreshMagazine(root, macOf(root, nowhere, a.reader, '2026-11-21T06:00:00Z', slept))
   // The site itself is never asked while its block stands. The Archive: the sitemap's newest copy, then the index once for
   // each of the three sections, 10 s apart (the step's own waits, as the archived sources' run keeps).
   expect(a.asked[0]).toBe('https://web.archive.org/web/20261121id_/https://www.practicalfishkeeping.co.uk/sitemap-1.xml')
@@ -117,7 +120,7 @@ test("while the magazine's own site refuses, its list is read from the Archive's
   expect(await cycleOnlyHosts(root)).toEqual(expect.arrayContaining(['practicalfishkeeping.co.uk', '*.practicalfishkeeping.co.uk', 'archive.org', '*.archive.org']))
   // A week fresh: the next run asks nothing.
   const again = await archive(holding, '2026-11-25T06:00:00Z')
-  expect((await refreshMagazine(root, macOf(nowhere, again.reader, '2026-11-25T06:00:00Z'))).fresh).toEqual(['practicalfishkeeping'])
+  expect((await refreshMagazine(root, macOf(root, nowhere, again.reader, '2026-11-25T06:00:00Z'))).fresh).toEqual(['practicalfishkeeping'])
   expect(again.asked).toEqual([])
 })
 
@@ -127,7 +130,7 @@ test('a site that refuses its listing in this run is marked, and read from the A
   expect(await cycleOnlyHosts(root)).toEqual(expect.arrayContaining(['practicalfishkeeping.co.uk', '*.practicalfishkeeping.co.uk', 'archive.org', '*.archive.org']))
   const refusing = async (u: string): Promise<string> => { throw new ListingRefused(`refused, HTTP 403 (${u})`) }
   const a = await archive(holding)
-  const r = await refreshMagazine(root, macOf(refusing, a.reader))
+  const r = await refreshMagazine(root, macOf(root, refusing, a.reader))
   expect(r.needsHuman).toEqual(['practicalfishkeeping'])
   expect(r.archived.practicalfishkeeping).toEqual({ listed: 3, held: 2 })
   expect((await readMagazine(root)).posts.practicalfishkeeping).toHaveLength(3)
@@ -135,7 +138,7 @@ test('a site that refuses its listing in this run is marked, and read from the A
   // Its own site answering (a retry once the owner has looked): read as itself, no Archive asked, the block cleared.
   const own = await archive(holding)
   const site2 = web({ [`${PF}sitemap-1.xml`]: MAGAZINE_MAP })
-  const back = await refreshMagazine(root, macOf(site2.get, own.reader, '2026-11-22T06:00:00Z'), { force: true, retryBlocked: true })
+  const back = await refreshMagazine(root, macOf(root, site2.get, own.reader, '2026-11-22T06:00:00Z'), { force: true, retryBlocked: true })
   expect(own.asked).toEqual([])
   expect(back.listed.practicalfishkeeping).toMatchObject({ kept: 3, dropped: { 'a visit': 1 } })
   expect(JSON.parse(await readFile(join(root, 'engine-state/_sources.json'), 'utf8')).practicalfishkeeping).toBeUndefined()
@@ -146,14 +149,16 @@ test("an Archive that refuses stops the magazine's listing at once: its titles s
   const kept = [{ url: `${PF}features/old-post/`, title: 'old post' }]
   await setMagazine(root, { posts: { practicalfishkeeping: kept }, readAt: { practicalfishkeeping: '2026-11-01T00:00:00Z' } })
   const a = await archive(() => res(429, ''))
-  const r = await refreshMagazine(root, macOf(nowhere, a.reader))
+  const r = await refreshMagazine(root, macOf(root, nowhere, a.reader))
   expect(a.asked).toHaveLength(1)
   expect(r.failed).toEqual([expect.stringMatching(/^practicalfishkeeping: the archive refused this Mac: no request before .*, its last titles kept$/)])
   expect((await readMagazine(root)).posts.practicalfishkeeping).toEqual(kept)
-  // Within the Archive's rest, the next run asks it nothing.
+  // Within the Archive's rest, a run asks it nothing: one on another checkout too, whose day's try is still to come.
+  const other = await site()
   const again = await archive(holding, '2026-11-21T07:00:00Z', a.rest)
-  await refreshMagazine(root, macOf(nowhere, again.reader, '2026-11-21T07:00:00Z'), { force: true })
+  const r2 = await refreshMagazine(other, macOf(other, nowhere, again.reader, '2026-11-21T07:00:00Z'))
   expect(again.asked).toEqual([])
+  expect(r2.failed).toEqual([expect.stringMatching(/^practicalfishkeeping: the archive refused this Mac/)])
 })
 
 test("a refusal from the Archive's index after its sitemap answered: the earlier titles and their marks stand, nothing more is asked", async () => {
@@ -161,24 +166,27 @@ test("a refusal from the Archive's index after its sitemap answered: the earlier
   const before = [{ url: `${PF}features/old-post/`, title: 'old post', held: true as const }]
   await setMagazine(root, { posts: { practicalfishkeeping: before }, readAt: { practicalfishkeeping: '2026-11-01T00:00:00Z' } })
   const a = await archive(u => (u.includes('/cdx/') ? res(429, '') : holding(u)))
-  const r = await refreshMagazine(root, macOf(nowhere, a.reader))
+  const r = await refreshMagazine(root, macOf(root, nowhere, a.reader))
   expect(a.asked).toHaveLength(2)
   expect(r.failed).toEqual([expect.stringMatching(/^practicalfishkeeping: the archive refused this Mac: no request before .*, its last titles kept$/)])
   expect((await readMagazine(root)).posts.practicalfishkeeping).toEqual(before)
 })
 
-test('the listing through the Archive is tried once a day at most, its week overdue or not', async () => {
+test('the listing through the Archive is tried once a day at most, its week overdue or not, forced or not', async () => {
   const root = await site()
   const before = [{ url: `${PF}features/old-post/`, title: 'old post' }]
   await setMagazine(root, { posts: { practicalfishkeeping: before }, readAt: { practicalfishkeeping: '2026-11-01T00:00:00Z' }, tried: { practicalfishkeeping: '2026-11-21T03:00:00Z' } })
   const a = await archive(holding)
-  const r = await refreshMagazine(root, macOf(nowhere, a.reader))
+  const r = await refreshMagazine(root, macOf(root, nowhere, a.reader))
   expect(a.asked).toEqual([])
   expect(r.failed).toEqual([expect.stringMatching(/^practicalfishkeeping: .*within a day.*, its last titles kept$/)])
   expect((await readMagazine(root)).posts.practicalfishkeeping).toEqual(before)
+  // `--force` passes the week's wait, never the day's try (Codex, 21 Nov 2026).
+  await refreshMagazine(root, macOf(root, nowhere, a.reader, '2026-11-21T09:00:00Z'), { force: true })
+  expect(a.asked).toEqual([])
   // A day on, it is tried.
   const next = await archive(holding, '2026-11-22T06:00:00Z')
-  await refreshMagazine(root, macOf(nowhere, next.reader, '2026-11-22T06:00:00Z'))
+  await refreshMagazine(root, macOf(root, nowhere, next.reader, '2026-11-22T06:00:00Z'))
   expect(next.asked.length).toBeGreaterThan(0)
 })
 
@@ -188,20 +196,20 @@ test(`the magazine's listing asks the Archive at most ${ARCHIVE_LISTING_WEEK} ti
   let total = 0
   for (const d of ['21', '22', '23', '24', '25']) {
     const a = await archive(checks, `2026-11-${d}T06:00:00Z`)
-    await refreshMagazine(root, macOf(nowhere, a.reader, `2026-11-${d}T06:00:00Z`))
+    await refreshMagazine(root, macOf(root, nowhere, a.reader, `2026-11-${d}T06:00:00Z`))
     total += a.asked.length
   }
   expect(total).toBe(ARCHIVE_LISTING_WEEK)
   // Seven days after the first asks, the week has room again.
   const later = await archive(checks, '2026-11-28T06:00:00Z')
-  await refreshMagazine(root, macOf(nowhere, later.reader, '2026-11-28T06:00:00Z'))
+  await refreshMagazine(root, macOf(root, nowhere, later.reader, '2026-11-28T06:00:00Z'))
   expect(later.asked.length).toBeGreaterThan(0)
   // Eight asks made this week: the sitemap's copy is read, the index isn't asked, and a post the earlier read marked keeps
   // its mark; the others stand unmarked.
   const eight = await site()
   await setMagazine(eight, { posts: { practicalfishkeeping: [{ url: `${PF}features/cloudy-water-explained/`, title: 'cloudy water explained', held: true }] }, asks: { '2026-11-18': { listing: 8 } } })
   const a8 = await archive(holding)
-  const r8 = await refreshMagazine(eight, macOf(nowhere, a8.reader), { force: true })
+  const r8 = await refreshMagazine(eight, macOf(eight, nowhere, a8.reader), { force: true })
   expect(a8.asked).toHaveLength(1)
   expect(r8.archived.practicalfishkeeping).toEqual({ listed: 3 })
   expect((await readMagazine(eight)).posts.practicalfishkeeping!.filter(p => p.held).map(p => p.url)).toEqual([`${PF}features/cloudy-water-explained/`])
@@ -280,7 +288,7 @@ const researchCiting = (from: number, others: number, asked: string[], sites = [
 }
 const writer: Llm = async <T>({ schema }: { schema: { required?: string[] } }) =>
   (schema.required?.includes('body') ? { name: 'Nước bể cá bị đục', summary: ['Một ý.'], body: '<h3>Vì sao</h3><p>Nước đục.</p>', faq: [] } : { score: 0.95, notes: [] }) as T
-const write = (root: string, research: Llm, a: ArchiveFetcher, now = '2026-11-21T06:00:00Z') => writeMagazine(root, { research, llm: writer, now: () => new Date(now), archive: a })
+const write = (root: string, research: Llm, a: ArchiveFetcher, now = '2026-11-21T06:00:00Z', llm: Llm = writer) => writeMagazine(root, { research, llm, now: () => new Date(now), archive: a, ledger: ledgerOf(root) })
 const guideOf = async (root: string, topic: string) => (await readMagazine(root)).guides[slugify(topic)]
 
 test("the day's magazine guide gets its one post from the Archive's newest good copy: held for that run alone, given to research, cited by the magazine's own address; the repository keeps its record, never its text", async () => {
@@ -443,15 +451,96 @@ test(`one magazine guide a day and one post for it, never a crawl: at most ${ARC
   expect(await guideOf(quota, 'Nước bể cá bị đục')).toBeUndefined()
   expect((await run('2026-11-22T06:00:00Z', researchCiting(0, 3, []))).asked).toBe(6)
   // Asks already made today count: four made, so the search for a good copy stops after two more, and the guide is
-  // written from other sources, its post counted as no copy.
+  // written from other sources, its post counted as not reached: the Archive may hold a good copy all the same.
   const four = await waiting([magazineIdea('Nước bể cá bị đục')], undefined, { asks: { '2026-11-21': { post: 4 } } })
   const b4 = await archive(checks)
   await write(four, researchCiting(0, 3, []), b4.reader)
   expect(b4.asked).toHaveLength(2)
-  expect((await guideOf(four, 'Nước bể cá bị đục'))!.post).toEqual({ url: POST, via: 'archive', result: 'no copy' })
+  expect((await guideOf(four, 'Nước bể cá bị đục'))!.post).toEqual({ url: POST, via: 'archive', result: 'not reached' })
   // The post picked is the first of the idea's the index holds.
   const second = await waiting([magazineIdea('Hai bài', [`${PF}features/not-held/`, POST])], { practicalfishkeeping: [{ url: `${PF}features/not-held/`, title: 'not held' }, { url: POST, title: 'cloudy water explained', held: true }] })
   const b = await archive(article())
   await write(second, researchCiting(1, 3, []), b.reader)
   expect(b.asked).toEqual([`https://web.archive.org/web/20261121id_/${POST}`])
+})
+
+// ---- Codex's read of 21 Nov 2026 ----
+
+test("the Archive's requests are the Mac's ledger's, written before each is made: a cycle that starts again from main and drops the checkout's record forgets none", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const record = await readFile(magazineFile(root), 'utf8')
+  // Each request finds itself counted already, in the ledger, when it goes out.
+  const seen: number[] = []
+  const a = await archive(u => checks(u))
+  const counted = new ArchiveFetcher({ fetch: async u => { seen.push((await ledger(root)).asks?.['2026-11-21']?.post ?? 0); return checks(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'AquaTome test', restFile: a.rest })
+  await write(root, researchCiting(0, 3, []), counted)
+  expect(seen).toEqual([1, 2, 3, 4, 5, 6])
+  // The record carries a copy, for the chief of staff.
+  expect((await readMagazine(root)).asks).toEqual({ '2026-11-21': { post: 6 } })
+  // The cycle's tests fail and it starts again from main: the record as it was, the guide and its count gone with it. The
+  // ledger stands: the day's requests are spent, so nothing more is asked of the Archive today.
+  await writeFile(magazineFile(root), record)
+  await rm(join(root, 'content/guides', topicId('Nước bể cá bị đục')), { recursive: true })
+  const again = await archive(checks, '2026-11-21T09:00:00Z')
+  const r = await write(root, researchCiting(0, 3, []), again.reader, '2026-11-21T09:00:00Z')
+  expect(again.asked).toEqual([])
+  expect(r.stopped).toBe(`the day's ${ARCHIVE_POST_DAY} requests to the archive for the magazine's post are spent`)
+  // The days waited stand there too.
+  const rest = await waiting([magazineIdea('Một')])
+  const day = async (now: string) => (await write(rest, researchCiting(0, 3, []), (await resting('2026-12-31T00:00:00Z', now)).reader, now)).waited
+  expect(await day('2026-11-21T06:00:00Z')).toBe(1)
+  await setMagazine(rest, { posts: { practicalfishkeeping: [{ url: POST, title: 'cloudy water explained', held: true }] } })
+  expect(await day('2026-11-22T06:00:00Z')).toBe(2)
+  expect((await ledger(rest)).waits).toEqual(['2026-11-21', '2026-11-22'])
+})
+
+test('one magazine step at a time on the Mac: another one running fails, naming it; one that died, or ran past six hours, gives way', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'magazine-lock-'))
+  const file = join(dir, 'magazine.lock')
+  const now = () => new Date()
+  const release = await holdMagazine(file, now)
+  await expect(holdMagazine(file, now, 12345)).rejects.toThrow(`another magazine step is running (pid ${process.pid}, ${file})`)
+  await release()
+  await (await holdMagazine(file, now))()
+  // A step that died: its number is no process's now.
+  await writeFile(file, '2147483646\n')
+  await (await holdMagazine(file, now))()
+  // A step's lock left from more than six hours ago.
+  await writeFile(file, `${process.pid}\n`)
+  const old = new Date(Date.now() - 7 * 3_600_000)
+  await utimes(file, old, old)
+  await (await holdMagazine(file, now))()
+})
+
+test(`a fact research copied out of the post (${COPY_WORDS} words of it in a row, whatever their case or marks) is dropped before anything keeps or reads it, and research keeps no session of the post`, async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const calls: { prompt: string; unkept?: boolean }[] = []
+  const echoing: Llm = async <T>(x: { prompt: string; unkept?: boolean }) => {
+    calls.push(x)
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' }))]
+    const facts = [{ section: 'causes', fact: '"PLACEHOLDER text, about cloudy water and bacterial blooms!"', source: 0 }, { section: 'causes', fact: 'A bloom clears in days.', source: 0 },
+      ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i }))]
+    return { found: true, facts, species: [], sources } as T
+  }
+  await write(root, echoing, (await archive(article())).reader)
+  expect(calls).toHaveLength(1)
+  expect(calls[0]!.unkept).toBe(true)
+  const id = topicId('Nước bể cá bị đục')
+  const facts = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as Facts
+  expect(facts.facts.map(f => f.fact)).toEqual(['A bloom clears in days.', 'Other fact 1.', 'Other fact 2.', 'Other fact 3.'])
+  expect((await files(root)).filter(([, text]) => /placeholder text,? about cloudy water/i.test(text)).map(([f]) => f)).toEqual([])
+  // A guide without the post is researched as before, its session kept as any.
+  const plain = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const asked: string[] = []
+  const without: Llm = async <T>(x: { prompt: string; schema: object; system: string; unkept?: boolean }) => { expect(x.unkept).toBeUndefined(); return researchCiting(0, 3, asked)<T>(x) }
+  await write(plain, without, (await archive(() => res(404, ''))).reader)
+  expect(asked).toHaveLength(1)
+})
+
+test("a failure's reason that repeats the post is kept and printed without its words", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const broken: Llm = async () => { throw new Error('the writer answered: Placeholder text about cloudy water and bacterial blooms.') }
+  const r = await write(root, researchCiting(1, 3, []), (await archive(article())).reader, '2026-11-21T06:00:00Z', broken)
+  expect(r.failed).toEqual(['Nước bể cá bị đục: failed: Error: its message repeats the post'])
+  expect((await files(root)).filter(([, text]) => text.includes('Placeholder text about cloudy water')).map(([f]) => f)).toEqual([])
 })

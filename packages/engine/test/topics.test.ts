@@ -172,6 +172,34 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   expect(await localizeTopic(root, llm, r0.id, 'th')).toMatchObject({ skipped: 'done' })
 })
 
+// Codex's read of 21 Nov 2026: the magazine's post was held to its share when the Vietnamese guide was written, and not
+// again when the other languages' were, from the facts as they are then.
+test("another language's guide holds the magazine's post to its share again, on the facts it is written from: a reference gone leaves the post out", async () => {
+  const root = await site()
+  const POST = 'https://www.practicalfishkeeping.co.uk/features/cloudy-water-explained/'
+  const research = async () => ({ found: true, species: [],
+    sources: [{ url: POST, title: 'research calls it', kind: 'shop' }, { url: 'https://a.example/x', title: 'A', kind: 'vet' }, { url: 'https://b.example/y', title: 'B', kind: 'university' }],
+    facts: [{ section: 'causes', fact: 'Post fact one.', source: 0 }, { section: 'causes', fact: 'Post fact two.', source: 0 }, { section: 'prevention', fact: 'A fact.', source: 1 }, { section: 'treatment', fact: 'B fact.', source: 2 }] }) as never
+  const llm0: Llm = async ({ prompt }) => (prompt.startsWith('Below are FACTS') ? { score: 0.9, notes: [] } : { name: 'Nước đục', summary: ['x'], body: '<p>x</p>', faq: [] }) as never
+  const r0 = await makeTopic(root, { research, llm: llm0 }, { topic: 'Nước bể cá bị đục', kind: 'care' }, { given: { url: POST, title: 'Cloudy water explained', text: 'Placeholder.' } })
+  expect(r0).toMatchObject({ post: 'cited' })
+  // B's reference gone from the guide since: the post would be half the facts beside one other site.
+  const file = join(root, 'content/guides', r0.id, 'entity.json')
+  const entity = JSON.parse(await readFile(file, 'utf8')) as { refs: { url: string }[] }
+  expect(entity.refs.map(x => x.url)).toEqual([POST, 'https://a.example/x', 'https://b.example/y'])
+  await writeFile(file, JSON.stringify({ ...entity, refs: entity.refs.filter(x => x.url !== 'https://b.example/y') }))
+  const prompts: string[] = []
+  const llm: Llm = async ({ prompt }) => {
+    prompts.push(prompt)
+    if (prompt.startsWith('Below are FACTS')) return { score: 0.9, notes: [] } as never
+    return { name: 'Air keruh', slug: 'air-keruh', summary: ['x'], body: '<p>x</p>', faq: [] } as never
+  }
+  await localizeTopic(root, llm, r0.id, 'id')
+  expect(prompts[0]).toContain('A fact.')
+  expect(prompts[0]).not.toContain('Post fact')
+  expect((JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'id.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(x => x.url)).toEqual(['https://a.example/x'])
+})
+
 // The chief of staff, 17 Nov 2026: the quarantine guide's Thai copy printed its facts' source numbers to readers 55 times.
 test('a copy that prints the facts\' source numbers is written once more without them, and not saved if it still does', async () => {
   expect(sourceNumbers('<p>ตามแหล่งที่ 0 และแหล่งที่ 12 (แหล่งที่ 0)</p><p>แหล่งหนึ่ง</p>')).toEqual(['แหล่งที่ 0', 'แหล่งที่ 12'])

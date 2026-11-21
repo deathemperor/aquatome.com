@@ -112,7 +112,7 @@ import { localizeTopic, makeTopic } from './topics'
 import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
-import { listingText, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine } from './ideas'
+import { holdMagazine, listingText, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine } from './ideas'
 import { backfillVideoItems } from './video-items'
 import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames, ytGrab } from './youtube'
 import { checkPagePhotos, EMPTY_CAP, PHOTO_CHECK_SCHEMA, recheckCandidates, type PhotoCheckDeps } from './photo-check'
@@ -1256,21 +1256,30 @@ if (cmd === 'photo-privacy') {
     console.error("magazine: the Mac's alone: the Internet Archive's rest is the Mac's, so nothing else asks it")
     process.exit(1)
   }
+  // Its requests to the Archive are kept beside the Archive's rest, outside any checkout (ideas.ts MagazineLedger), and one
+  // such step runs at a time: one that finds another running fails, naming it.
+  const cache = join(homedir(), '.cache/aquatome')
+  const ledger = join(cache, 'magazine-archive.json')
+  const release = await holdMagazine(join(cache, 'magazine.lock'), () => new Date()).catch((e: Error) => { console.error(`magazine: ${e.message}`); process.exit(1) })
   const archive = archiveReader()
   const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
-  const l = await refreshMagazine(ROOT, { get, archive, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
-  if (l.fresh.length) console.log(`magazine: ${l.fresh.join(', ')}: read within the week`)
-  for (const [id, x] of Object.entries(l.listed)) console.log(`magazine: ${id}: ${x.kept} posts kept${Object.keys(x.dropped).length ? `; left out: ${Object.entries(x.dropped).map(([rule, n]) => `${rule} ${n}`).join(', ')}` : ''}`)
-  // The owner's count (the chief of staff, 21 Nov 2026): the posts kept from the Archive's copy of the listing, and those its
-  // index holds a good capture of, an upper bound (a capture that is a browser check shows only when that post is read).
-  for (const [id, x] of Object.entries(l.archived)) console.log(`magazine: ${id}: read through the Internet Archive: ${x.listed} posts kept, ${x.held === undefined ? "its index didn't answer" : `${x.held} with a good capture in its index, at most (a capture that is a browser check shows only when that post is read)`}`)
-  if (l.failed.length) console.log(`magazine: failed: ${l.failed.join('; ')}`)
-  if (l.needsHuman.length) console.log(`magazine: needs-human: ${l.needsHuman.join(', ')} refused us its listing; read through the Internet Archive meanwhile`)
-  const w = await writeMagazine(ROOT, { archive, research: claudeResearch, llm: claudeCli, now: () => new Date() }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
-  console.log(`magazine: ${w.written.length} written, ${w.skipped.length} skipped, ${w.failed.length} failed${w.stopped ? ` (stopped: ${w.stopped})` : ''}\n${[...w.written, ...w.skipped, ...w.failed].join('\n')}`)
-  for (const p of w.posts) console.log(`magazine: the post, read through the Internet Archive: ${p}`)
-  const waits = (await readMagazine(ROOT)).waits?.length ?? 0
-  if (waits) console.log(`magazine: the guide has waited ${waits} day${waits > 1 ? 's' : ''} running for the Internet Archive's rest${waits >= 3 ? ': three or more, for the chief of staff' : ''}`)
+  try {
+    const l = await refreshMagazine(ROOT, { get, archive, ledger, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
+    if (l.fresh.length) console.log(`magazine: ${l.fresh.join(', ')}: read within the week`)
+    for (const [id, x] of Object.entries(l.listed)) console.log(`magazine: ${id}: ${x.kept} posts kept${Object.keys(x.dropped).length ? `; left out: ${Object.entries(x.dropped).map(([rule, n]) => `${rule} ${n}`).join(', ')}` : ''}`)
+    // The owner's count (the chief of staff, 21 Nov 2026): the posts kept from the Archive's copy of the listing, and those its
+    // index holds a good capture of, an upper bound (a capture that is a browser check shows only when that post is read).
+    for (const [id, x] of Object.entries(l.archived)) console.log(`magazine: ${id}: read through the Internet Archive: ${x.listed} posts kept, ${x.held === undefined ? "its index didn't answer" : `${x.held} with a good capture in its index, at most (a capture that is a browser check shows only when that post is read)`}`)
+    if (l.failed.length) console.log(`magazine: failed: ${l.failed.join('; ')}`)
+    if (l.needsHuman.length) console.log(`magazine: needs-human: ${l.needsHuman.join(', ')} refused us its listing; read through the Internet Archive meanwhile`)
+    const w = await writeMagazine(ROOT, { archive, ledger, research: claudeResearch, llm: claudeCli, now: () => new Date() }, { researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+    console.log(`magazine: ${w.written.length} written, ${w.skipped.length} skipped, ${w.failed.length} failed${w.stopped ? ` (stopped: ${w.stopped})` : ''}\n${[...w.written, ...w.skipped, ...w.failed].join('\n')}`)
+    for (const p of w.posts) console.log(`magazine: the post, read through the Internet Archive: ${p}`)
+    const waits = (await readMagazine(ROOT)).waits?.length ?? 0
+    if (waits) console.log(`magazine: the guide has waited ${waits} day${waits > 1 ? 's' : ''} running for the Internet Archive's rest${waits >= 3 ? ': three or more, for the chief of staff' : ''}`)
+  } finally {
+    await release()
+  }
 } else if (cmd === 'topic') {
   // A guide AquaTome writes itself from web research: pnpm engine topic "<chủ đề tiếng Việt>" --kind disease|care|setup|plantCare|breeding|aquascaping|discovery [--redo]
   // --redo: rewrite the guide from the research already kept (engine-state/topics), no new searching.

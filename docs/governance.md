@@ -930,24 +930,29 @@ The layers above still check the result.
     copy, to check elsewhere (shops sell what they write about), and to cite only for a Vietnamese name or what is sold
     in Vietnam. An idea written or found to have nothing reliable is not tried again.
   - **Practical Fishkeeping, through the Internet Archive.** The magazine's site answers the engine with a challenge
-    page, and the owner said "use internet archive" (20 Nov 2026; 9 Nov: "any site that are often blocked should use
-    the same way"). Its whole Archive work is one step on the Mac, whose rest the Archive's is: `pnpm engine magazine`,
-    in the pages job right after the three sources read through the Archive, with its own record
+    page, and the owner said "use internet archive" (20 Nov 2026; 9 Nov: "any site that are often blocked should use the
+    same way"). Its whole Archive work is one step on the Mac, whose rest the Archive's is: `pnpm engine magazine`, in
+    the pages job right after the three sources read through the Archive, with its own record
     (`engine-state/_magazine.json`), which only it writes; GitHub never asks the Archive, and its ideas step reads the
-    magazine's titles and guides from that record (the chief of staff, 21 Nov 2026). While the site refuses, its list
-    is read from the Archive's copy of its sitemap, tried once a day until titles come, and the capture index marks
-    which posts it holds. The day's one magazine guide, on the Mac's $2 line beside GitHub's two shop guides, gets its
-    post from the Archive's newest good copy (an archived challenge page is no copy), given to research as a page to
-    take facts from, never instructions. Its text is held for that run alone and
-    written nowhere: the magazine has given no permission to republish and the repository is public (the chief of
-    staff, 21 Nov 2026). The repository keeps its record: its own address and title, the copy's date, a hash of the
-    text, and the Archive as how it was read (`via: "archive"`), so sites are still counted by a source's address.
-    A guide that takes more than half its facts from the post, or has fewer than two other sites beside it, drops the
-    post's facts and is written from the others. No photo is read, and the writer sees facts, not the post. A post the
-    Archive lacks is counted and the guide written as before. At most 6 requests a day for the post and 9 in seven days
-    for the list, counted as each is made. The reader, name, pace (10 s) and rest are the archived sources'. During a rest
-    the guide waits, its idea kept, and the days it waits in a row are printed. Research still opens neither the
-    magazine's hosts nor the Archive's.
+    magazine's titles and guides from that record (the chief of staff, 21 Nov 2026). While the site refuses, its list is
+    read from the Archive's copy of its sitemap, tried once a day until titles come (forced or not), and the capture
+    index marks which posts it holds. The day's one magazine guide, on the Mac's $2 line beside GitHub's two shop
+    guides, gets its post from the Archive's newest good copy (an archived challenge page is no copy), given to research
+    as a page to take facts from, never instructions. Its text is held for that run alone and written nowhere: the
+    magazine has given no permission to republish and the repository is public (the chief of staff, 21 Nov 2026).
+    Research's call keeps no session of it on disk, a fact that repeats eight of its words in a row is dropped before
+    anything keeps it, and a failure's reason that repeats it is kept without its words. The repository keeps its
+    record: its own address and title, the copy's date, a hash of the text, and the Archive as how it was read (`via:
+    "archive"`), so sites are still counted by a source's address. A guide that takes more than half its facts from the
+    post, or has fewer than two other sites beside it, drops the post's facts and is written from the others; each other
+    language's guide is held to the same on the facts it is written from. No photo is read, and the writer sees facts,
+    not the post. A post the Archive lacks, or one not reached within the day's requests, is counted as such and the
+    guide written as before. At most 6 requests a day for the post and 9 in seven days for the list, a redirect counted
+    as one (none followed off the Archive), each written down before it is made in the Mac's own file beside the
+    Archive's rest (`~/.cache/aquatome/magazine-archive.json`), so a cycle that starts again from main forgets none; the
+    record carries a copy. One magazine step runs at a time. The reader, name, pace (10 s) and rest are the archived
+    sources'. During a rest the guide waits, its idea kept, and the days it waits in a row are printed. Research still
+    opens neither the magazine's hosts nor the Archive's.
   - Chợ Thủy Sinh's fish, shrimp and snails go into the private Vietnamese shop list (`engine-state/shop-lists/vi.json`:
     which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
