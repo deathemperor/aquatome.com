@@ -325,13 +325,15 @@ function tanks(seg: string, lang: UnitLang): string {
 
 // Nominal pipe sizes → outside diameter in mm, as Vietnamese shops name them ("phi 27").
 const PIPE: [number, number][] = [[0.5, 21], [0.75, 27], [1, 34], [1.25, 42], [1.5, 49], [2, 60], [2.5, 76], [3, 90], [4, 114]]
-const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d½¼¾.,;:()<>]){0,30}?`
-// A range right after a length word is a length: a pipe's length, depth, cut or a distance to slide it ("pipa PVC panjang
-// 1–2 inci", "ท่อ PVC ยาวประมาณ 1–2 นิ้ว", "luồn ống PVC thêm 1–2 inch"), holes' spacing or size along a spray bar ("ống
-// PVC khoan lỗ cách nhau 1–2 inch"), past one "roughly". The range rule's alone: for one
-// size the same words also name a long fitting's size ("model panjang ¾ inci", "แบบยาว 2 นิ้ว"), which the one-size rule
-// has always read as a size (Codex's reads of #1782, 21 Nov 2026).
-const NOT_LENGTH = String.raw`(?<!(?:panjang|dipotong|potong|ยาว|ลึก|thêm|cách(?: nhau)?|lỗ|jarak|berjarak|lubang|ห่าง(?:กัน)?|รู)\s*(?:${QUAL}\s*)?)`
+const PIPE_NAME = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})`
+const PIPE_WORD = String.raw`${PIPE_NAME}(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d.,;:()<>]){0,30}?`
+// A range is two pipe sizes only where it can't be a length: right after the pipe's name ("ống PVC ½–¾ inch", "pipa PVC
+// 1–2 inci") or a size word ("cỡ", "ukuran", "ขนาด"). Elsewhere it stays a length, as before: a pipe's length, a distance
+// to slide it in, the height it stands above the water, a spray bar's hole spacing ("Ống PVC nhô lên 1–2 inch", "lỗ cách
+// nhau 1–2 inch"; Codex's reads of #1782, 21 Nov 2026).
+const SIZE_WORD = String.raw`(?:cỡ|loại|size|kích thước|đường kính(?! trong)(?:\s+ngoài)?|ukuran|saiz|diameter|berdiameter|ขนาด|เส้นผ่าน(?:ศูนย์กลาง)?)`
+// The one-size rule never takes a range's second figure ("½–phi 27"): a range it can't read stays a length.
+const NOT_SECOND = String.raw`(?<!(?:\d|[½¼¾])${TO})`
 function pipes(t: string, lang: UnitLang): string {
   const od = (fig: string) => PIPE.find(([inch]) => inch === parseNum(fig, lang))?.[1]
   const name = (mm: number) => (lang === 'vi' ? `phi ${mm}` : `${mm} ${lang === 'th' ? 'มม.' : 'mm'}`)
@@ -341,9 +343,9 @@ function pipes(t: string, lang: UnitLang): string {
   return t
     // "ống PVC ½–¾ inch (khoảng 13–19 mm)", "ống PVC ½ inch đến ¾ inch": before the one size, which would take the second
     // figure alone ("½–phi 27").
-    .replace(re(String.raw`(${PIPE_WORD})${NOT_LENGTH}(${N})(?:${INCH})?${TO}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}(?:${TO}${N})?\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, lo: string, hi: string) => { const a = od(lo), b = od(hi); return a && b && a < b ? `${pre}${span(a, b)}` : all })
+    .replace(re(String.raw`(${PIPE_NAME}\s*(?:${SIZE_WORD}\s*)?)(${N})(?:${INCH})?${TO}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}(?:${TO}${N})?\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, lo: string, hi: string) => { const a = od(lo), b = od(hi); return a && b && a < b ? `${pre}${span(a, b)}` : all })
     // "ống ... ¾ inch (khoảng 19 mm)"
-    .replace(re(String.raw`(${PIPE_WORD})(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
+    .replace(re(String.raw`(${PIPE_WORD})${NOT_SECOND}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
     // "ống ... đường kính khoảng 19 mm (3/4 inch)"
     .replace(re(String.raw`(${PIPE_WORD})(?:đường kính\s+(?:ngoài\s+)?)?(?:${QUAL}\s*)?${N}\s*(?:mm|มม\.)\s*\(\s*(${N})${INCH}\s*\)`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
 }

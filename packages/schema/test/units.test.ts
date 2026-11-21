@@ -164,6 +164,13 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(vi('ống PVC khoan lỗ ½–¾ inch')).toBe('ống PVC khoan lỗ 1,5–2 cm')
   expect(id('Bor pipa PVC dengan lubang berjarak 1–2 inci')).toBe('Bor pipa PVC dengan lubang berjarak 2,5–5 cm')
   expect(th('เจาะรูท่อ PVC ห่างกัน 1–2 นิ้ว')).toBe('เจาะรูท่อ PVC ห่างกัน 2.5–5 ซม.')
+  // A range is two sizes only right after the pipe's name or a size word; elsewhere a length, as before: how far a
+  // standpipe stands above the water. And a fraction before the size is the pipe's length (Codex's seventh look).
+  expect(vi('Ống PVC nhô lên 1–2 inch khỏi mặt nước.')).toBe('Ống PVC nhô lên 2,5–5 cm khỏi mặt nước.')
+  expect(id('Pipa PVC ukuran ½–¾ inci')).toBe('Pipa PVC ukuran 21–27 mm')
+  expect(vi('Dùng ống PVC ½ mét cỡ ¾ inch.')).toBe('Dùng ống PVC ½ mét cỡ phi 27.')
+  expect(th('ใช้ท่อ PVC ½ เมตร ขนาด ¾ นิ้ว')).toBe('ใช้ท่อ PVC ½ เมตร ขนาด 27 มม.')
+  expect(vi('Dùng ống PVC ½ mét cỡ 19 mm (¾ inch).')).toBe('Dùng ống PVC ½ mét cỡ phi 27.')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })
