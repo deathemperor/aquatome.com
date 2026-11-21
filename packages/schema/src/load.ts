@@ -5,7 +5,7 @@ import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies, THUMB_WIDTH } from './thumb'
-import { awaitsScreen, DEAD_OWED_FILE, type PhotoScreenEntry } from './photo-screen'
+import { awaitsScreen, DEAD_OWED_FILE, FACES_FILE, UNREAD_FACES_LIMIT, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { HAND_BOXES } from './hand-boxes'
@@ -230,7 +230,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // A new photo the dead-fish screen still owes a look waits the same way (photo-screen.ts DEAD_OWED_FILE). No list beside
   // the root (the fixture build, a test's store): none waits for it.
   const owed = screen ? await stateRecord<Record<string, string>>(root, DEAD_OWED_FILE) : undefined
-  const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url))
+  // So does an own photo of a species, plant or guide page that the face finder has never read (photo-screen.ts
+  // FACES_FILE), filled below once those pages are read. The site's build of the real content needs the record.
+  const faces = screen ? await stateRecord<Record<string, number>>(root, FACES_FILE) : undefined
+  if (screen && !faces && opts.photoScreen === 'required') throw new Error(`${join(dirname(root), 'engine-state', FACES_FILE)}: the face finder's record is missing, so no page's own photo can be shown as read`)
+  const unread = new Set<string>()
+  const waitsFor = (url: string) => awaitsScreen(url, screen![url]) || (!!owed && Object.hasOwn(owed, url)) || unread.has(url)
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
   // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
   // for what names a picture by address alone (the calendar: `photoWaits`).
@@ -364,14 +369,23 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // After the depth is judged: a block set aside here still counts for the page's place in search.
   const generatedPages = new Set<string>()
   const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
-  const species = allSpecies.filter(s => !(leaveOutHeld && s.t.held)).map(rememberGenerated)
+  const shownSpecies = allSpecies.filter(s => !(leaveOutHeld && s.t.held))
+  const allPlants = await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)
+  const allGuides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld)).filter(g => allowed(g.source))
+  if (faces) {
+    for (const e of [...shownSpecies, ...allPlants, ...allGuides]) for (const p of e.photos) if (!Object.hasOwn(faces, p.url)) unread.add(p.url)
+    if (opts.photoScreen === 'required') {
+      console.log(`${lang}: ${unread.size} own photos of species, plant and guide pages wait, the face finder has never read them`)
+      if (unread.size > UNREAD_FACES_LIMIT) throw new Error(`${lang}: ${unread.size} own photos of species, plant and guide pages the face finder has never read (${join(dirname(root), 'engine-state', FACES_FILE)}). More than ${UNREAD_FACES_LIMIT} is a lost or damaged record, not a run's new photos: not built, rather than publish the pages without them. A faces step (pnpm engine faces) reads them.`)
+    }
+  }
+  const species = shownSpecies.map(rememberGenerated)
     .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: pagePhotos(s.photos, `species/${s.id}`, s.scientificName), videos: forPage(s.videos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
-  const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
+  const plants = allPlants.map(rememberGenerated)
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: pagePhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
-  const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
-    .filter(g => allowed(g.source))
+  const guides = allGuides
     // A video's sections show a photo and stills of their own, and a section's photo can lead the guide or a card.
     .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo ? { photo: screened(f.photo) ? boxed(f.photo) : undefined } : {}) })) } } : {}) }))
 
