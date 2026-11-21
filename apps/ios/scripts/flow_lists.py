@@ -107,9 +107,10 @@ HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 # (AppScreen).
 # Also the anonymous statistics, which wait for the index's flag.
 # And the language picked while the app runs, which reads another language's index (the test index in it too).
+# And the links into the app, which wait for the index (`-index-later`, read here).
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
                                      'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'GuideTopFlowTests',
-                                     'LanguageFlowTests']
+                                     'LanguageFlowTests', 'AppLinkFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one. In v2, a guide's top
 # (GuideTopFlowTests) and the flows that open a guide on Hôm nay and go back from it.
 PAGES = ['NativePageFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
@@ -219,9 +220,9 @@ REACH = {
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     # The photo picker both screens open (the flows hand them a photo, as picked).
     APP + 'Handbook/ImagePicker.swift': ['FishIdFlowTests', 'ReaderPostFlowTests'],
-    # The waits a flow moves on itself (`-test-gates`): only the fish-ID flows open them (the page shots' fish-ID screens
-    # get the plain wait it replaced, as with FakeServer's).
-    APP + 'TestGate.swift': ['FishIdFlowTests'],
+    # The waits a flow moves on itself (`-test-gates`): the fish-ID flows open them (the page shots' fish-ID screens get
+    # the plain wait it replaced, as with FakeServer's), and the tank flow that holds the index while fish are added.
+    APP + 'TestGate.swift': ['FishIdFlowTests', 'TankLifeFlowTests/testFishAddedByNameBeforeTheIndexIsReadAreSentOnceItIs'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
     # Its flows, and a fish page's link that opens it.
     APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
@@ -455,7 +456,8 @@ def check(runs, left, reached, ran):
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
-    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests'}
+    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests', 'TankLifeFlowTests/testFishAddedByNameBeforeTheIndexIsReadAreSentOnceItIs'}
+    assert 'AppLinkFlowTests' in reached([APP + 'Handbook/HandbookModel.swift'])
     # The chat: its contract and its stand-in reach its flows and its shots (drawn from the stand-in's recordings); the
     # events' reader its flows alone; its entries, a fish's page and fish ID's result.
     for p in (KIT + 'Sources/Handbook/Chat.swift', APP + 'Chat/ChatView.swift', APP + 'Account/FakeChat.swift',

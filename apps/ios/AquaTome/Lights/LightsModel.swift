@@ -16,6 +16,8 @@ final class LightsModel {
     var isError = false
     /// A button beside the text: put the last schedule back, or connect again to the light that dropped.
     var action: Action?
+    /// It says what the light is doing now (a trial colour, lit until a time): kept across a language picked.
+    var lasting = false
   }
   enum Action { case undo, reconnect }
   /// What the light card shows.
@@ -603,7 +605,7 @@ final class LightsModel {
     supersedeHeld()
     trying = true
     send(form.levels)
-    notice = Notice(text: String(localized: "Đèn đang hiện màu thử.", bundle: .app))
+    notice = Notice(text: String(localized: "Đèn đang hiện màu thử.", bundle: .app), lasting: true)
   }
 
   // MARK: "Bật với màu của lịch"
@@ -680,7 +682,8 @@ final class LightsModel {
         $0.manual = nil
         $0.clockSyncedAt = Timestamp.string(Date())
       }
-      self.notice = Notice(text: String(localized: "Đèn sáng với màu của lịch tới \(p.ends.description), rồi tự chạy lại theo lịch.", bundle: .app))
+      self.notice = Notice(text: String(localized: "Đèn sáng với màu của lịch tới \(p.ends.description), rồi tự chạy lại theo lịch.", bundle: .app),
+                           lasting: true)
     }
     guard self.session === session else { return .cancelled }
     return failure.map { .failed($0) } ?? .done

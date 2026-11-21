@@ -19,6 +19,8 @@ final class HandbookModel {
   private(set) var status = Status.loading
   /// What waits for the index shown to be read (`settled`): let go once the status leaves `.loading`.
   @ObservationIgnored private var settling: [CheckedContinuation<Void, Never>] = []
+  /// Reads of the index on their way (`load`, and one of its own for what waits).
+  @ObservationIgnored private var reading = 0
   private(set) var count = 0
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
@@ -282,14 +284,32 @@ final class HandbookModel {
   /// Once the index shown is read, or its read failed: until then which pages there are isn't known (at launch, and
   /// after a language picked, whose first read can take the network's time). A tank's entry saved meanwhile asks this
   /// before it's said to have no page (Fable, Codex, 21 Nov).
+  /// Decided on the index of the language shown once it's read, as a save made then would be.
   func settled() async {
-    while status == .loading { await withCheckedContinuation { settling.append($0) } }
+    while status == .loading {
+      await withCheckedContinuation {
+        settling.append($0)
+        readForWaiters()
+      }
+    }
   }
 
   private func settle() {
     let waiting = settling
     settling = []
     for w in waiting { w.resume() }
+  }
+
+  /// What waits on the index with no read on its way (one left for another tab, as a screen's read stops with it, or
+  /// none begun): a read of its own, which no screen stops (Fable, 21 Nov).
+  private func readForWaiters() {
+    guard status == .loading, !settling.isEmpty, reading == 0 else { return }
+    reading += 1
+    Task {
+      await load()
+      reading -= 1
+      readForWaiters()
+    }
   }
 
   /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
@@ -377,6 +397,11 @@ final class HandbookModel {
 
   /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one.
   func load() async {
+    reading += 1
+    defer {
+      reading -= 1
+      readForWaiters()
+    }
     let gen = generation, lang = lang
     if case .fixed(var ix) = source {
       #if DEBUG
@@ -400,7 +425,13 @@ final class HandbookModel {
       if ProcessInfo.processInfo.arguments.contains("-index-kept-only") { return use(ix, .offline) }
       // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
       // waits for it: AppLink). With `-test-gates`, when the test opens `index-later`.
-      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await TestGate.wait("index-later", or: .seconds(2)) }
+      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 {
+        do { try await TestGate.wait("index-later", or: .seconds(2)) } catch {
+          // Left for another tab while the test holds it: nothing lands, as with the site's read (Fable, 21 Nov). The 2 s
+          // stand-in lands at once, as it always has (the link flows).
+          if ProcessInfo.processInfo.arguments.contains("-test-gates") { return }
+        }
+      }
       guard gen == generation else { return }
       #endif
       use(ix, .ready)

@@ -165,6 +165,30 @@ def rel(path):
     return os.path.relpath(path, os.path.join(HERE, '..'))
 
 
+def regex_end(src, i):
+    """Index just past a regex literal at src[i] (`/…/` where an expression starts, `#/…/#`), else None: its quotes
+    and braces aren't code's (Fable, 21 Nov)."""
+    if src.startswith('#/', i):
+        j = src.find('/#', i + 2)
+        return None if j < 0 else j + 2
+    if src[i] != '/' or src.startswith('//', i) or src.startswith('/*', i):
+        return None
+    k = i - 1
+    while k >= 0 and src[k] in ' \t':
+        k -= 1
+    if k >= 0 and src[k] not in '=(,:[{;!&|?\n' and not re.search(r'\b(?:return|case|in)$', src[max(0, k - 6):k + 1]):
+        return None  # a division
+    j = i + 1
+    while j < len(src) and src[j] != '\n':
+        if src[j] == '\\':
+            j += 2
+            continue
+        if src[j] == '/':
+            return j + 1
+        j += 1
+    return None
+
+
 def scopes(src):
     """For each line, the kind of the innermost braces it starts in: 'file', 'class' (a class's or an actor's body),
     'type' (a struct's, an enum's, an extension's, a protocol's) or 'code'. Strings and comments skipped."""
@@ -188,6 +212,11 @@ def scopes(src):
             for _ in range(src.count('\n', i, j)):
                 kinds.append(stack[-1] if stack else 'file')
             i = j
+            continue
+        r = regex_end(src, i) if c in '/#' else None
+        if r is not None:
+            head.append('//')
+            i = r
             continue
         if c == '{':
             # What opens it: the last declaration word since the last brace or `;`, on its line or the lines before
@@ -239,6 +268,11 @@ def code_only(text):
         if text.startswith('/*', i):
             i = text.index('*/', i) + 2
             continue
+        r = regex_end(text, i) if c in '/#' else None
+        if r is not None:
+            out.append('//')
+            i = r
+            continue
         out.append(c)
         i += 1
     return ''.join(out)
@@ -247,11 +281,11 @@ def code_only(text):
 def initializer(src, at):
     """The expression from src[at] (just past a declaration's `=`) to its end: a line's end at its own level whose next
     line doesn't go on with it (`.`, an operator), a `;`, or its scope's `}`. Strings and comments skipped."""
-    i, depth, seen = at, 0, False
+    i, depth, seen, last = at, 0, False, ''
     while i < len(src):
         c = src[i]
         if c == '"' or (c == '#' and re.match(r'#+"', src[i:])):
-            i, seen = skip_string(src, i), True
+            i, seen, last = skip_string(src, i), True, '"'
             continue
         if src.startswith('//', i):
             n = src.find('\n', i)
@@ -259,6 +293,10 @@ def initializer(src, at):
             continue
         if src.startswith('/*', i):
             i = src.index('*/', i) + 2
+            continue
+        r = regex_end(src, i) if c in '/#' else None
+        if r is not None:
+            i, seen, last = r, True, 'r'
             continue
         if c in '([{':
             depth += 1
@@ -269,11 +307,13 @@ def initializer(src, at):
         elif c == ';' and depth == 0:
             break
         elif c == '\n' and depth == 0 and seen:
+            # Goes on when the line ends with a binary operator (`+`, `??`, `&&`, `==`; Fable, 21 Nov), not a postfix `!`,
+            # or the next begins with one.
             rest = src[i:].lstrip()
-            if not re.match(r'(\.(?!\.)|\?\?|\?|:|&&|\|\||[-+*/%<>=!]=?)(?!/)', rest):
+            if last not in '+-*/%=&|?:,' and not re.match(r'(\.(?!\.)|\?\?|\?|:|&&|\|\||[-+*/%<>=!]=?)(?!/)', rest):
                 break
         if not c.isspace():
-            seen = True
+            seen, last = True, c
         i += 1
     return src[at:i]
 
@@ -372,6 +412,9 @@ SAMPLE = '''struct S {
     String(localized: "Đèn", bundle: .app)
   static let s = "locale: .app"
   static let t = "\\(String(localized: "Đèn", bundle: .app))"
+  static let w = "x" +
+    String(localized: "Đèn", bundle: .app)
+  static let v = /"{/
 }
 final class C {
   let m = String(localized: "Đèn", bundle: .app)
@@ -390,8 +433,9 @@ final class D: NSObject,
 def self_test():
     """The check fails on a bad line, names its line, and passes the same lines once the edit has made them."""
     found = problems_in(SAMPLE)
-    # Not 13 (computed), 15 (a struct's, made again with it), 18 (words in a string), 23 (a closure), 25 (a local).
-    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 22, 24, 30], found
+    # Not 13 (computed), 15 (a struct's, made again with it), 18 (words in a string), 22 (a regex), 26 (a closure), 28
+    # (a local).
+    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 20, 25, 27, 33], found
     fixed, made, skipped = apply_to(SAMPLE)
     assert made == 4 and skipped == [6, 7], (made, skipped)
     assert 'String(\n    localized: "Đèn", bundle: .app) }' in fixed, fixed
@@ -399,7 +443,7 @@ def self_test():
     assert 'AttributedString(localized: "**Đèn** \\(n) ổ", bundle: .app)' in fixed, fixed
     assert 'String(localized: "Đèn (\\(f(x, y)))", bundle: .app, comment: "x, y")' in fixed, fixed
     # Left for a person: the resource, the other bundle, the constant.
-    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 16, 19, 22, 24, 30], problems_in(fixed)
+    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 16, 19, 20, 25, 27, 33], problems_in(fixed)
 
 
 def count(ref=None):

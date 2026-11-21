@@ -256,9 +256,10 @@ struct AquaTomeApp: App {
     // a write going on stay: they're the model's, not the screen's.
     lights.weekAqua.path = []
     // Sentences finished in the old language, what they told done: gone. A warning (a schedule the light didn't read
-    // back, a write cut short), and a notice with a button (the undo of the schedule just written, connect again), stay in
-    // their words: the button is the only way to it (Fable, 21 Nov).
-    if let n = lights.notice, !n.isError, n.action == nil { lights.notice = nil }
+    // back, a write cut short), a notice with a button (the undo of the schedule just written, connect again), and one of
+    // what the light is doing now (a trial colour, lit until a time) stay in their words: the button is the only way to
+    // it, and the state is still so (Fable, 21 Nov).
+    if let n = lights.notice, !n.isError, n.action == nil, !n.lasting { lights.notice = nil }
     if lights.weekAqua.notice?.isError == false { lights.weekAqua.notice = nil }
     account.clearMessage()
     // What was recorded in the old language goes with it, first.
