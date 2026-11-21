@@ -419,8 +419,11 @@ test('the web first screen is the app\'s five cards, from what the app gets: Nee
     // Needs you: its name and how many; three rows, the rest under "N more"; each row its whole link, its line and its pages.
     const needs = page.querySelector('section.needs')!
     expect(txt(needs.querySelector('h2'))).toBe(norm(`${tile('needs').label}${j.needs.length ? ` · ${j.needs.length}` : ''}`))
+    // The web's order and tones (the Design Lead, 20 Nov): a browser check waits on the owner (rust), faults first.
+    const toned = j.needs.map(x => (x.kind === 'engine' && / browser check$/.test(x.text) ? { ...x, tone: 'wait' as const } : x))
+    const web = [...toned.filter(x => x.tone === 'bad'), ...toned.filter(x => x.tone !== 'bad')]
     expect(needs.querySelectorAll('.nrows > li').map(li => [txt(li.querySelector('b')), txt(li.querySelector('.sub')), li.querySelector('a')!.getAttribute('href'), li.getAttribute('class')]))
-      .toEqual(j.needs.map(x => [x.text, norm(x.sub ?? ''), placeHref(x), x.tone]))
+      .toEqual(web.map(x => [x.text, norm(x.sub ?? ''), placeHref(x), x.tone]))
     expect(needs.querySelectorAll(':scope > .nrows > li')).toHaveLength(Math.min(NEEDS_SHOWN, j.needs.length))
     expect(txt(needs.querySelector('details.more > summary'))).toBe(j.needs.length > NEEDS_SHOWN ? `${j.needs.length - NEEDS_SHOWN} more` : '')
     // All clear: said so, then the owner's last decision in words, its page and when, as the app shows it.
@@ -432,13 +435,20 @@ test('the web first screen is the app\'s five cards, from what the app gets: Nee
       expect(last!.querySelector('a')!.getAttribute('href')).toBe(`/_ab/${j.lastAction.section}/`)
       expect(last!.querySelector('time')!.getAttribute('datetime')).toBe(j.lastAction.at)
     }
-    // New pages: the kinds' totals added up and today's, then each kind's name, total and today's; the card opens its page.
+    // Pages written (the Design Lead, 20 Nov: every page written, held ones too, until the board's "live" on Fri 27): the
+    // kinds' totals added up and today's, then each kind as the board names and orders them, its total and today's; the
+    // card opens its page.
     const content = page.querySelector('section.card[aria-labelledby="content"]')
     if (j.publishing) {
       const totals = j.publishing.kinds.map(k => Number(k.total.replace(/,/g, '')))
+      expect(content!.querySelector('h2 a')!.text).toBe('Content · pages written')
       expect(txt(content!.querySelector('.top .fig'))).toBe(totals.reduce((a, b) => a + b, 0).toLocaleString('en-US'))
-      expect(content!.querySelectorAll('.kinds .k').map(txt).slice(0, j.publishing.kinds.length)).toEqual(j.publishing.kinds.map(k => k.label))
-      expect(content!.querySelectorAll('.kinds .n').map(txt)).toEqual(j.publishing.kinds.map(k => k.total))
+      expect(txt(content!.querySelector('.top'))).toMatch(/^[\d,]+ written( [+−-]?\d+ today)?$/)
+      const board = [['fish', 'Species'], ['videoGuide', 'Video guides'], ['guide', 'Guides'], ['plant', 'Plants']] as const
+      const rows = board.filter(([key]) => j.publishing!.kinds.some(k => k.key === key))
+      expect(rows.length).toBe(j.publishing.kinds.length)
+      expect(content!.querySelectorAll('.kinds .k').map(txt).slice(0, rows.length)).toEqual(rows.map(([, name]) => name))
+      expect(content!.querySelectorAll('.kinds .n').map(txt)).toEqual(rows.map(([key]) => j.publishing!.kinds.find(k => k.key === key)!.total))
       expect(content!.querySelector('h2 a')!.getAttribute('href')).toBe('/_ab/noi-dung/')
     } else expect(content).toBeNull()
     // Readers: this week's, and its change against the same point last week; without the beacon, why not.
@@ -468,8 +478,9 @@ test('what needs you is one card: a dot in each need\'s tone, faults first, the 
   expect(needs.getAttribute('class')).toBe('card needs bad')
   expect(needs.querySelectorAll('.nrows > li').map(li => [txt(li.querySelector('b')), li.getAttribute('class'), li.querySelector('.sub')?.text ?? ''])).toEqual([
     ['Fish ID and chat are down', 'bad', 'Every key resting, the first until Wed 4 Nov, 16:30.'],
-    ['2Hr Aquarist needs a browser check', 'bad', '2Hr Aquarist since Wed 4 Nov, 5:00'],
     ['No new video guides', 'bad', 'Since Tue 27 Oct, 3:17'],
+    // A browser check waits on the owner's hand: rust, after the faults (the Design Lead, 20 Nov). The app's data is as it was.
+    ['2Hr Aquarist needs a browser check', 'wait', '2Hr Aquarist since Wed 4 Nov, 5:00'],
     ['5 comments held for review', 'wait', 'Cá neon vua · Cá betta (cá xiêm)'],
     ['2 reader photos to approve', 'wait', 'Cá betta (cá xiêm) · Betta halfmoon'],
   ])

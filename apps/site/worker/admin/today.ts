@@ -74,6 +74,15 @@ const badNote = (text: string): NoteBlock => ({ kind: 'note', text, tone: 'bad' 
 /** "+18%" against the 7 days before: as the old overview's chips, coloured past 5%. */
 const chipText = (now: number, before: number) => chipOf(now, before, 'the 7 days before', 'up')
 
+/**
+ * The first screen's pages card, as the board names its rows and in its order (the Design Lead, 20 Nov): "Species", as the
+ * count holds shrimp, crabs and snails too, then "Video guides", "Guides", "Plants". Every page written is in the figure,
+ * held ones too, so the card says "written" until the board's "pages a reader can open" replaces it (Fri 27).
+ */
+const BOARD_ROW: Partial<Record<string, string>> = { fish: 'Species', videoGuide: 'Video guides', guide: 'Guides', plant: 'Plants' }
+const BOARD_ORDER = ['fish', 'videoGuide', 'guide', 'plant']
+const byBoard = <K extends { key: string }>(kinds: K[]) => [...kinds].sort((a, b) => (BOARD_ORDER.indexOf(a.key) + 1 || 99) - (BOARD_ORDER.indexOf(b.key) + 1 || 99))
+
 /** The pages' groups, their names, and the sections they open: the rail's order (shell.ts NAV). */
 export const PAGE_GROUPS: readonly (readonly [string, readonly (readonly [string, string])[]])[] = [...new Set(NAV.map(([, , g]) => g).filter(Boolean))]
   .map(g => [g, NAV.filter(([, , x]) => x === g).map(([path, name]) => [path.slice('/_ab/'.length, -1), name] as const)] as const)
@@ -380,11 +389,18 @@ export function todayPage(t: Today): string {
   // What needs the owner, faults first, each a dot in its tone, its line, and the pages it's on; the whole row is its
   // link. Three, then the rest under "N more" in the same card: the web has no page of them, as the app has.
   const row = (x: Need) => `<li class="${x.tone}"><a href="${esc(placeHref(x))}"><span class="dot" aria-hidden="true"></span><span class="tx"><b>${esc(x.text)}</b>${x.sub ? `<span class="sub">${esc(x.sub)}</span>` : ''}</span>${ICON.chevron}</a></li>`
-  const needsTone = j.needs.length ? (tile('needs')?.tone ?? 'plain') : 'good'
-  const more = j.needs.length - NEEDS_SHOWN
+  // A source behind a browser check waits on the owner's hand, not a fault: rust, as what waits (the Design Lead, 20 Nov,
+  // on her ruling of 9 Nov), and faults first, then what waits. The web's first screen only: the app follows in its own
+  // change, so what the app gets (needsOf) is as it was.
+  const checks = new Set(todos(t).filter(x => x.kind === 'engine').map(x => x.title))
+  const toned = j.needs.map(x => (x.kind === 'engine' && checks.has(x.text) ? { ...x, tone: 'wait' as const } : x))
+  const shown = [...toned.filter(x => x.tone === 'bad'), ...toned.filter(x => x.tone !== 'bad')]
+  const tileTone = tile('needs')?.tone ?? 'plain'
+  const needsTone = !shown.length ? 'good' : shown.some(x => x.tone === 'bad') ? 'bad' : tileTone === 'bad' ? 'wait' : tileTone
+  const more = shown.length - NEEDS_SHOWN
   const needs = card('needs', `${needsTone === 'good' ? ICON.check : needsTone === 'plain' ? '' : ICON.alert}<span>${esc(tile('needs')?.label ?? 'Needs you')}</span>${j.needs.length ? ` <span class="count">· ${fmt(j.needs.length)}</span>` : ''}`, undefined,
     j.needs.length
-      ? `<ul class="nrows">${j.needs.slice(0, NEEDS_SHOWN).map(row).join('')}</ul>${more > 0 ? `<details class="more"><summary>${fmt(more)} more${ICON.chevron}</summary><ul class="nrows">${j.needs.slice(NEEDS_SHOWN).map(row).join('')}</ul></details>` : ''}`
+      ? `<ul class="nrows">${shown.slice(0, NEEDS_SHOWN).map(row).join('')}</ul>${more > 0 ? `<details class="more"><summary>${fmt(more)} more${ICON.chevron}</summary><ul class="nrows">${shown.slice(NEEDS_SHOWN).map(row).join('')}</ul></details>` : ''}`
       : `<p class="clear">${esc(j.needsEmpty)}</p>${j.lastAction ? `<p class="last"><a href="/_ab/${j.lastAction.section}/">${esc(j.lastAction.text)}</a> · <time datetime="${j.lastAction.at}">${esc(j.lastAction.when)}</time></p>` : ''}`,
     `needs ${needsTone}`)
   // New pages by kind: the kinds' totals added up and what today has added so far, then a line a kind: its name, its last
@@ -399,13 +415,13 @@ export function todayPage(t: Today): string {
     const plus = (n: number | undefined) => (n === undefined ? '<span class="t"></span>' : `<span class="t${n > 0 ? ' good' : ''}">${esc(signed(n))}</span>`)
     const first = p.kinds[0]?.bars
     const [from, to] = first ? weekOf(first) : [0, 0]
-    const rows = p.kinds.map(k => {
+    const rows = byBoard(p.kinds).map(k => {
       const [a, b] = weekOf(k.bars)
       const open = k.bars.today !== undefined && k.bars.today >= a && k.bars.today < b ? k.bars.today - a : undefined
-      return `<span class="k">${esc(k.label)}</span>${smallBars(k.bars.values.slice(a, b), open)}<b class="n">${esc(k.total)}</b>${plus(addedToday(k.bars) ?? undefined)}`
+      return `<span class="k">${esc(BOARD_ROW[k.key] ?? k.label)}</span>${smallBars(k.bars.values.slice(a, b), open)}<b class="n">${esc(k.total)}</b>${plus(addedToday(k.bars) ?? undefined)}`
     }).join('')
     const axis = first ? `<span class="k cap" aria-hidden="true">written a day</span><span class="days" aria-hidden="true"><span>${esc(barDay(first.days[from]!))}</span><span>${esc(barDay(first.days[to - 1]!))}</span></span>` : ''
-    return card('content', esc(p.title), '/_ab/noi-dung/', `<p class="top">${total === undefined ? '' : `<b class="fig">${esc(fmt(total))}</b> pages`}${today === undefined ? '' : ` <span class="today">${plus(today)} today</span>`}</p><div class="kinds">${rows}${axis}</div>`)
+    return card('content', 'Content · pages written', '/_ab/noi-dung/', `<p class="top">${total === undefined ? '' : `<b class="fig">${esc(fmt(total))}</b> written`}${today === undefined ? '' : ` <span class="today">${plus(today)} today</span>`}</p><div class="kinds">${rows}${axis}</div>`)
   })()
   // Readers this week against the same point last week; without them, why not.
   const rf = j.answers.figures?.find(f => f.label === 'Readers')
