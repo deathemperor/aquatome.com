@@ -31,14 +31,14 @@ struct TankScene: View {
     let level = s.level(atMinute: at)
     let p = Int((Double(s.top) * level).rounded())
     if minute != nil {
-      return t + ": " + (level > 0 ? String(localized: "sáng \(p)%") : String(localized: "đèn tắt"))
+      return t + ": " + (level > 0 ? String(localized: "sáng \(p)%", bundle: .app) : String(localized: "đèn tắt", bundle: .app))
     }
-    if level == 0 { return String(localized: "Bây giờ \(t): đèn tắt, bật lại lúc \(s.on.description).") }
+    if level == 0 { return String(localized: "Bây giờ \(t): đèn tắt, bật lại lúc \(s.on.description).", bundle: .app) }
     if level < 1 {
-      let dir = at < s.on.minutes + s.ramp ? String(localized: "sáng dần") : String(localized: "tối dần")
-      return String(localized: "Bây giờ \(t): đèn đang \(dir), \(p)%.")
+      let dir = at < s.on.minutes + s.ramp ? String(localized: "sáng dần", bundle: .app) : String(localized: "tối dần", bundle: .app)
+      return String(localized: "Bây giờ \(t): đèn đang \(dir), \(p)%.", bundle: .app)
     }
-    return String(localized: "Bây giờ \(t): đèn sáng \(s.top)%.")
+    return String(localized: "Bây giờ \(t): đèn sáng \(s.top)%.", bundle: .app)
   }
 }
 
@@ -72,7 +72,7 @@ struct ColourSection: View {
         .frame(maxWidth: 240)
         .clipShape(RoundedRectangle(cornerRadius: 8))
       if ch.count > 1 { Looks() }
-      ChannelSlider(id: "master", title: String(localized: "Độ sáng"), swatch: nil, value: lights.form.top) { lights.setBrightness($0) }
+      ChannelSlider(id: "master", title: String(localized: "Độ sáng", bundle: .app), swatch: nil, value: lights.form.top) { lights.setBrightness($0) }
       if ch.count > 1 {
         DisclosureGroup(isExpanded: $each) {
           ForEach(Array(ch.enumerated()), id: \.offset) { i, c in
@@ -221,10 +221,10 @@ struct ChannelSlider: View {
 extension Look {
   var name: String {
     switch id {
-    case "red": String(localized: "Cây đỏ rực")
-    case "cool": String(localized: "Nước trong, mát")
-    case "warm": String(localized: "Ấm, dịu mắt")
-    default: String(localized: "Tự nhiên")
+    case "red": String(localized: "Cây đỏ rực", bundle: .app)
+    case "cool": String(localized: "Nước trong, mát", bundle: .app)
+    case "warm": String(localized: "Ấm, dịu mắt", bundle: .app)
+    default: String(localized: "Tự nhiên", bundle: .app)
     }
   }
 }

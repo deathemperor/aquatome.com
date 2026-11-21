@@ -62,7 +62,7 @@ final class Switcher {
     switch w {
     case .signedOut: MasterModel.signedOut
     // A device no longer on a tank says so, as `set` would have (Fable, 19 Nov).
-    case .role: gone(c) ?? String(localized: "Nút không bật tắt ổ \(name(c)) được trong bản này.")
+    case .role: gone(c) ?? String(localized: "Nút không bật tắt ổ \(name(c)) được trong bản này.", bundle: .app)
     }
   }
 
@@ -76,29 +76,29 @@ final class Switcher {
 
   /// What the card says of a device a command may have reached, its state not known since.
   func notKnown(_ c: DeviceCommand) -> String {
-    c.isLamp ? String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.")
-      : String(localized: "Không rõ ổ \(name(c)) đã đổi chưa: xem trong Bể của tôi.")
+    c.isLamp ? String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", bundle: .app)
+      : String(localized: "Không rõ ổ \(name(c)) đã đổi chưa: xem trong Bể của tôi.", bundle: .app)
   }
 
   /// What the app calls the device: the lamp's name, or the outlet's.
   func name(_ c: DeviceCommand) -> String {
-    c.isLamp ? String(localized: "Đèn Love Ecology") : outlet(c)?.name ?? String(localized: "Ổ cắm")
+    c.isLamp ? String(localized: "Đèn Love Ecology", bundle: .app) : outlet(c)?.name ?? String(localized: "Ổ cắm", bundle: .app)
   }
 
   /// Why which devices are on a tank isn't known: the tanks on this phone weren't read (a newer app's, or unreadable), so
   /// none can be called deleted. The tank list's own words.
   var unreadTanks: String? {
     switch tanks.problem {
-    case .newerStore: String(localized: "Các bể trên máy này được lưu bằng bản ứng dụng mới hơn. Cập nhật AquaTome để xem và sửa.")
-    case .unreadable: String(localized: "Không đọc được các bể đã lưu trên máy này. Dữ liệu được giữ nguyên.")
+    case .newerStore: String(localized: "Các bể trên máy này được lưu bằng bản ứng dụng mới hơn. Cập nhật AquaTome để xem và sửa.", bundle: .app)
+    case .unreadable: String(localized: "Không đọc được các bể đã lưu trên máy này. Dữ liệu được giữ nguyên.", bundle: .app)
     default: nil
     }
   }
 
   /// Why a command can't be sent whatever happens: its device is no longer on a tank. Nil while it is.
   func gone(_ c: DeviceCommand) -> String? {
-    if c.isLamp { return tanks.store.device(c.device)?.isLoveEcology == true ? nil : String(localized: "Đèn này không còn trên bể nào.") }
-    return outlet(c) == nil ? String(localized: "Ổ cắm này không còn trên bể nào.") : nil
+    if c.isLamp { return tanks.store.device(c.device)?.isLoveEcology == true ? nil : String(localized: "Đèn này không còn trên bể nào.", bundle: .app) }
+    return outlet(c) == nil ? String(localized: "Ổ cắm này không còn trên bể nào.", bundle: .app) : nil
   }
 
   /// Sets it, from the list last read (read it first: `plugs.refresh()`).
@@ -117,16 +117,16 @@ final class Switcher {
                                 withReason: e != nil && e != .failed && e != .cut, withdrawn: withdrawn())
       return (said(end, c, name: name(c), lamp: e), !end.nothingSent)
     }
-    guard let o = outlet(c) else { return (.failed(String(localized: "Ổ cắm này không còn trên bể nào.")), false) }
+    guard let o = outlet(c) else { return (.failed(String(localized: "Ổ cắm này không còn trên bể nào.", bundle: .app)), false) }
     let (key, name) = o
     let board = plugs.board
-    guard plugs.current != nil else { return (.failed(String(localized: "Chưa có khóa Tuya trên máy này: thêm trong Bể của tôi.")), false) }
+    guard plugs.current != nil else { return (.failed(String(localized: "Chưa có khóa Tuya trên máy này: thêm trong Bể của tôi.", bundle: .app)), false) }
     guard let live = board.list?.plug(provider: key.provider, id: key.device) else {
-      return (.failed(board.list == nil ? Self.unreached(name) : String(localized: "Không thấy ổ \(name) trong dự án Tuya.")), false)
+      return (.failed(board.list == nil ? Self.unreached(name) : String(localized: "Không thấy ổ \(name) trong dự án Tuya.", bundle: .app)), false)
     }
-    guard live.online, board.online(provider: key.provider, device: key.device) == true else { return (.failed(String(localized: "Ổ \(name) đang mất kết nối.")), false) }
+    guard live.online, board.online(provider: key.provider, device: key.device) == true else { return (.failed(String(localized: "Ổ \(name) đang mất kết nối.", bundle: .app)), false) }
     // The board sends nothing for an outlet already being switched.
-    guard !board.switching.contains(key) else { return (.failed(String(localized: "Ổ \(name) đang được bật tắt: thử lại sau.")), false) }
+    guard !board.switching.contains(key) else { return (.failed(String(localized: "Ổ \(name) đang được bật tắt: thử lại sau.", bundle: .app)), false) }
     // This call's own outcome, even when the keys changed while it was on its way.
     let end = CommandEnd.plug(await board.set(key, on: c.on, allowed: { await allowed() }), withdrawn: withdrawn())
     return (said(end, c, name: name), !end.nothingSent)
@@ -138,20 +138,20 @@ final class Switcher {
     case .done: .done
     case .withdrawn(let w): .failed(words(w, c))
     case .notSent: .failed(Self.unreached(name))
-    case .refused(.plugOffline): .failed(String(localized: "Ổ \(name) đang mất kết nối."))
-    case .refused(let e): .failed(String(localized: "Không tới được ổ \(name): \(PlugProblem.text(e))"))
+    case .refused(.plugOffline): .failed(String(localized: "Ổ \(name) đang mất kết nối.", bundle: .app))
+    case .refused(let e): .failed(String(localized: "Không tới được ổ \(name): \(PlugProblem.text(e))", bundle: .app))
     case .lampNotSent: .failed((lamp ?? .failed).line)
-    case .unconfirmed: .failed(String(localized: "Ổ \(name) chưa báo đã đổi."))
-    case .unknown: .failed(String(localized: "Không rõ ổ \(name) đã đổi chưa: xem trong Bể của tôi."))
-    case .lampOnOnly(.signedOut): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất."))
-    case .lampOnOnly(.own): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu: \((lamp ?? .failed).line)"))
-    case .lampOnOnly(.unknown): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại."))
-    case .lampUnknown(onWent: false): .failed(String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn."))
-    case .lampUnknown(onWent: true): .failed(String(localized: "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn."))
+    case .unconfirmed: .failed(String(localized: "Ổ \(name) chưa báo đã đổi.", bundle: .app))
+    case .unknown: .failed(String(localized: "Không rõ ổ \(name) đã đổi chưa: xem trong Bể của tôi.", bundle: .app))
+    case .lampOnOnly(.signedOut): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu vì bạn đã đăng xuất.", bundle: .app))
+    case .lampOnOnly(.own): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu: \((lamp ?? .failed).line)", bundle: .app))
+    case .lampOnOnly(.unknown): .failed(String(localized: "Đèn Love Ecology đã bật nhưng chưa đổi màu. Thử lại.", bundle: .app))
+    case .lampUnknown(onWent: false): .failed(String(localized: "Không rõ đèn Love Ecology đã nhận lệnh chưa. Bạn xem lại đèn.", bundle: .app))
+    case .lampUnknown(onWent: true): .failed(String(localized: "Đèn Love Ecology đã bật, nhưng không rõ đã đổi màu chưa. Bạn xem lại đèn.", bundle: .app))
     }
   }
 
-  static func unreached(_ name: String) -> String { String(localized: "Không tới được ổ \(name): kiểm tra mạng rồi thử lại") }
+  static func unreached(_ name: String) -> String { String(localized: "Không tới được ổ \(name): kiểm tra mạng rồi thử lại", bundle: .app) }
 
   /// What the chat may switch, as it is now: each outlet on, off or not known, and whether its plug was reached (the
   /// list read once); the lamp, only what this phone last sent it and when, never whether it is on.

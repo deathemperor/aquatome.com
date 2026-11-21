@@ -265,17 +265,17 @@ private struct CompareBlock: View {
     let range = { (r: F.Range?) in r.map { F.range($0, locale) } }
     let key = { (r: F.Range?) in r.map { "\($0.min)-\($0.max)" } }
     return [
-      row(String(localized: "Nhiệt độ"), { range($0.tempC).map { "\($0)°C" } }, by: { key($0.tempC) }),
-      row(String(localized: "pH"), { range($0.ph) }, by: { key($0.ph) }),
-      row(String(localized: "Độ cứng (dGH)"), { range($0.gh) }, by: { key($0.gh) }),
-      row(String(localized: "Kích thước"), { $0.sizeCm.map { "\(F.number($0, locale)) cm" } }, by: { $0.sizeCm }),
-      row(String(localized: "Tuổi thọ"), { range($0.lifeYears).map { "\($0) \(String(localized: "năm"))" } }, by: { key($0.lifeYears) }),
-      row(String(localized: "Bể tối thiểu"), { $0.tankCm.map { "\(F.number($0, locale)) cm" } }, by: { $0.tankCm }),
+      row(String(localized: "Nhiệt độ", bundle: .app), { range($0.tempC).map { "\($0)°C" } }, by: { key($0.tempC) }),
+      row(String(localized: "pH", bundle: .app), { range($0.ph) }, by: { key($0.ph) }),
+      row(String(localized: "Độ cứng (dGH)", bundle: .app), { range($0.gh) }, by: { key($0.gh) }),
+      row(String(localized: "Kích thước", bundle: .app), { $0.sizeCm.map { "\(F.number($0, locale)) cm" } }, by: { $0.sizeCm }),
+      row(String(localized: "Tuổi thọ", bundle: .app), { range($0.lifeYears).map { "\($0) \(String(localized: "năm", bundle: .app))" } }, by: { key($0.lifeYears) }),
+      row(String(localized: "Bể tối thiểu", bundle: .app), { $0.tankCm.map { "\(F.number($0, locale)) cm" } }, by: { $0.tankCm }),
       // Difficulty by its number: "Dễ 3/8" and "Dễ 2/8" differ.
-      row(String(localized: "Độ khó"), { $0.difficulty.map { "\(FactsCard.level($0)) \(F.number($0, locale))/8" } }, by: { $0.difficulty }),
+      row(String(localized: "Độ khó", bundle: .app), { $0.difficulty.map { "\(FactsCard.level($0)) \(F.number($0, locale))/8" } }, by: { $0.difficulty }),
       // By the word it shows: one this app has no word for is missing, not a difference.
-      row(String(localized: "Tính cách"), { $0.temperament.flatMap(FactsCard.temperament) }, by: { $0.temperament.flatMap(FactsCard.temperament) }),
-      row(String(localized: "Đàn tối thiểu"), { $0.schoolMin.map { String(localized: "\($0) con") } }, by: { $0.schoolMin }),
+      row(String(localized: "Tính cách", bundle: .app), { $0.temperament.flatMap(FactsCard.temperament) }, by: { $0.temperament.flatMap(FactsCard.temperament) }),
+      row(String(localized: "Đàn tối thiểu", bundle: .app), { $0.schoolMin.map { String(localized: "\($0) con", bundle: .app) } }, by: { $0.schoolMin }),
     ].compactMap { $0 } + plantRows
   }
 
@@ -289,11 +289,11 @@ private struct CompareBlock: View {
       return Row(label: label, values: values, differs: Chat.differs(values))
     }
     return [
-      row(String(localized: "Độ khó")) { p in p.difficulty.map { word("difficulty", "\($0)") } },
-      row(String(localized: "Ánh sáng")) { p in p.light.map { word("light", $0) } },
-      row(String(localized: "CO₂")) { p in p.co2.map { word("co2", $0) } },
-      row(String(localized: "Tốc độ mọc")) { p in p.growth.map { word("growth", $0) } },
-      row(String(localized: "Vị trí")) { p in p.placement.isEmpty ? nil : p.placement.map { word("placement", $0) }.joined(separator: ", ") },
+      row(String(localized: "Độ khó", bundle: .app)) { p in p.difficulty.map { word("difficulty", "\($0)") } },
+      row(String(localized: "Ánh sáng", bundle: .app)) { p in p.light.map { word("light", $0) } },
+      row(String(localized: "CO₂", bundle: .app)) { p in p.co2.map { word("co2", $0) } },
+      row(String(localized: "Tốc độ mọc", bundle: .app)) { p in p.growth.map { word("growth", $0) } },
+      row(String(localized: "Vị trí", bundle: .app)) { p in p.placement.isEmpty ? nil : p.placement.map { word("placement", $0) }.joined(separator: ", ") },
     ].compactMap { $0 }
   }
 
@@ -355,7 +355,7 @@ private struct CompareBlock: View {
         Text(whose(r, i)).font(.subheadline).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
       }
       .buttonStyle(.plain)
-      .accessibilityLabel(Text(verbatim: "\(cards[i].page.name): \(r.values[i] ?? String(localized: "chưa có"))"))
+      .accessibilityLabel(Text(verbatim: "\(cards[i].page.name): \(r.values[i] ?? String(localized: "chưa có", bundle: .app))"))
       .accessibilityRemoveTraits(.isButton)
       .accessibilityAddTraits(.isLink)
     } else {
@@ -368,7 +368,7 @@ private struct CompareBlock: View {
     var line = AttributedString(r.label)
     line.foregroundColor = .secondary
     guard r.differs.differ else { return line }
-    var mark = AttributedString(" · " + String(localized: "khác"))
+    var mark = AttributedString(" · " + String(localized: "khác", bundle: .app))
     mark.foregroundColor = .accentColor
     mark.font = .footnote.weight(.semibold)
     return line + mark
@@ -398,18 +398,18 @@ private struct CompareBlock: View {
   /// As VoiceOver reads a row: "Bể tối thiểu, khác: Cá neon xanh 60 cm, Cá neon đen 80 cm", a missing figure "chưa có". The
   /// one figure that alone differs, as bold can't be heard: "Cá neon đen 80 cm, hai loài kia 60 cm".
   private func spoken(_ r: Row) -> String {
-    let missing = cards.indices.filter { r.values[$0] == nil }.map { "\(cards[$0].page.name) \(String(localized: "chưa có"))" }
+    let missing = cards.indices.filter { r.values[$0] == nil }.map { "\(cards[$0].page.name) \(String(localized: "chưa có", bundle: .app))" }
     var each: [String]
     if let odd = r.differs.alone, let same = cards.indices.first(where: { $0 != odd && r.values[$0] != nil }).flatMap({ r.values[$0] }),
        let oddFigure = r.values[odd] {
       let others = cards.indices.filter { $0 != odd && r.values[$0] != nil }.count
-      each = ["\(cards[odd].page.name) \(oddFigure)", (others == 2 ? String(localized: "hai loài kia") : String(localized: "ba loài kia")) + " \(same)"]
+      each = ["\(cards[odd].page.name) \(oddFigure)", (others == 2 ? String(localized: "hai loài kia", bundle: .app) : String(localized: "ba loài kia", bundle: .app)) + " \(same)"]
     } else {
       each = cards.indices.filter { r.values[$0] != nil }.map { "\(cards[$0].page.name) \(r.values[$0]!)" }
     }
     each += missing
     let all = each.joined(separator: ", ")
-    return r.differs.differ ? String(localized: "\(r.label), khác: \(all)") : "\(r.label): \(all)"
+    return r.differs.differ ? String(localized: "\(r.label), khác: \(all)", bundle: .app) : "\(r.label): \(all)"
   }
 }
 
@@ -577,7 +577,7 @@ private struct SectionBlock: View {
   /// Over the heading: its kind and page, or that this is only the nearest page and its kind.
   private var from: String {
     let kind = Self.kind(page.kind)
-    return covered ? "\(kind) · \(page.title)" : "\(String(localized: "Trang gần nhất")) · \(kind)"
+    return covered ? "\(kind) · \(page.title)" : "\(String(localized: "Trang gần nhất", bundle: .app)) · \(kind)"
   }
 
   /// The page's kind as a symbol.
@@ -595,24 +595,24 @@ private struct SectionBlock: View {
   /// The page's kind, over the heading.
   static func kind(_ k: String) -> String {
     switch k {
-    case "guide": String(localized: "Hướng dẫn")
-    case "fish": String(localized: "Trang loài")
-    case "plant": String(localized: "Cây thủy sinh")
-    case "glossary": String(localized: "Thuật ngữ")
-    case "video": String(localized: "Video")
-    default: String(localized: "Thiết bị")
+    case "guide": String(localized: "Hướng dẫn", bundle: .app)
+    case "fish": String(localized: "Trang loài", bundle: .app)
+    case "plant": String(localized: "Cây thủy sinh", bundle: .app)
+    case "glossary": String(localized: "Thuật ngữ", bundle: .app)
+    case "video": String(localized: "Video", bundle: .app)
+    default: String(localized: "Thiết bị", bundle: .app)
     }
   }
 
   /// What's left: "còn tiếp: 3 bước, 1 ảnh".
   static func rest(_ r: Chat.Rest) -> String {
     var each: [String] = []
-    if r.steps > 0 { each.append(String(localized: "\(r.steps) bước")) }
-    if r.items > 0 { each.append(String(localized: "\(r.items) ý")) }
-    if r.paragraphs > 0 { each.append(String(localized: "\(r.paragraphs) đoạn")) }
-    if r.photos > 0 { each.append(String(localized: "\(r.photos) ảnh")) }
-    if r.others > 0 { each.append(String(localized: "\(r.others) phần")) }
-    return String(localized: "còn tiếp: \(each.joined(separator: ", "))")
+    if r.steps > 0 { each.append(String(localized: "\(r.steps) bước", bundle: .app)) }
+    if r.items > 0 { each.append(String(localized: "\(r.items) ý", bundle: .app)) }
+    if r.paragraphs > 0 { each.append(String(localized: "\(r.paragraphs) đoạn", bundle: .app)) }
+    if r.photos > 0 { each.append(String(localized: "\(r.photos) ảnh", bundle: .app)) }
+    if r.others > 0 { each.append(String(localized: "\(r.others) phần", bundle: .app)) }
+    return String(localized: "còn tiếp: \(each.joined(separator: ", "))", bundle: .app)
   }
 }
 
@@ -764,10 +764,10 @@ private struct ToolBlock: View {
     }
     let size = t.dims.map { "\(Int($0[0].rounded())) cm" } ?? t.litres.map { litresText($0) }
     let head = [t.name, size].compactMap { $0 }.joined(separator: ", ")
-    let added = t.added.isEmpty ? nil : String(localized: "thêm \(t.added.map { one($0.name, $0.count) }.joined(separator: ", "))")
+    let added = t.added.isEmpty ? nil : String(localized: "thêm \(t.added.map { one($0.name, $0.count) }.joined(separator: ", "))", bundle: .app)
     let room = 4 - (added == nil ? 0 : 1), hidden = max(0, t.fish.count - room)
     var parts = t.fish.prefix(room).map { one($0.name, $0.count) }
-    if hidden > 0 { parts[parts.count - 1] += " " + String(localized: "và \(hidden) loài khác") }
+    if hidden > 0 { parts[parts.count - 1] += " " + String(localized: "và \(hidden) loài khác", bundle: .app) }
     if let added { parts.append(added) }
     return parts.isEmpty ? head : "\(head): \(parts.joined(separator: ", "))"
   }

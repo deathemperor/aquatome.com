@@ -53,7 +53,7 @@ struct FishIdView: View {
           Text("Ảnh không được lưu lại: ảnh được gửi tới Claude, mô hình AI của Anthropic, để nhận diện rồi bỏ đi.")
             .font(.footnote).foregroundStyle(.secondary)
           // In the browser, as the site's pages about itself open (PageRoute): a screen in the app would be left blank.
-          Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca"))!)
+          Link("Chính sách bảo mật", destination: URL(string: String(localized: "https://aquatome.com/vi/chinh-sach-bao-mat/#nhan-dien-ca", bundle: .app))!)
             .font(.footnote)
         }
         Section("Chụp sao cho dễ nhận") {
@@ -71,7 +71,7 @@ struct FishIdView: View {
       .onChange(of: found) { _, f in
         guard let f else { return }
         withAnimation { proxy.scrollTo(f.line != nil ? "fish-id-line" : "fish-id-guess-0", anchor: .top) }
-        let first = f.results.first.map { [String(localized: "Có thể là"), $0.page?.name ?? name($0)].joined(separator: " ") }
+        let first = f.results.first.map { [String(localized: "Có thể là", bundle: .app), $0.page?.name ?? name($0)].joined(separator: " ") }
         if let s = f.line.map(text) ?? first { AccessibilityNotification.Announcement(s).post() }
       }
     }
@@ -212,9 +212,9 @@ struct FishIdView: View {
   private var sent: Data? { box == nil ? whole : part }
 
   private var boxSaid: String {
-    if box == nil { return String(localized: "Kéo một khung quanh con cá trên ảnh.") }
-    if part == nil { return String(localized: "Đang thu nhỏ ảnh…") }
-    return String(localized: "Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác.")
+    if box == nil { return String(localized: "Kéo một khung quanh con cá trên ảnh.", bundle: .app) }
+    if part == nil { return String(localized: "Đang thu nhỏ ảnh…", bundle: .app) }
+    return String(localized: "Sẽ gửi phần trong khung. Kéo lại để khoanh chỗ khác.", bundle: .app)
   }
 
   // MARK: The guesses
@@ -266,9 +266,9 @@ struct FishIdView: View {
 
   private func text(_ line: FishId.Line) -> String {
     switch line {
-    case .notFish: String(localized: "Ảnh này có vẻ không có cá, tép, ốc hay cây thủy sinh nào. Thử một ảnh khác nhé.")
-    case .unclear: String(localized: "Chưa nhìn rõ để nhận diện. Thử chụp ngang thân, gần hơn, qua kính sạch và không bật flash.")
-    case .onlyAGuess: String(localized: "Ảnh chưa rõ lắm, đây chỉ là phỏng đoán. Ảnh rõ hơn sẽ cho kết quả chắc hơn.")
+    case .notFish: String(localized: "Ảnh này có vẻ không có cá, tép, ốc hay cây thủy sinh nào. Thử một ảnh khác nhé.", bundle: .app)
+    case .unclear: String(localized: "Chưa nhìn rõ để nhận diện. Thử chụp ngang thân, gần hơn, qua kính sạch và không bật flash.", bundle: .app)
+    case .onlyAGuess: String(localized: "Ảnh chưa rõ lắm, đây chỉ là phỏng đoán. Ảnh rõ hơn sẽ cho kết quả chắc hơn.", bundle: .app)
     }
   }
 
@@ -295,17 +295,17 @@ struct FishIdView: View {
     round += 1
     let mine = round
     (original, whole, preview, part, box, boxing, found) = (nil, nil, nil, nil, nil, false, nil)
-    said = String(localized: "Đang thu nhỏ ảnh…")
+    said = String(localized: "Đang thu nhỏ ảnh…", bundle: .app)
     let data = await read()
     guard mine == round else { return }
-    guard let data else { return said = String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.") }
+    guard let data else { return said = String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.", bundle: .app) }
     // Off the main thread: a phone's photo is tens of megapixels.
     let small = await Task.detached(priority: .userInitiated) { FishId.photo(data) }.value
     guard mine == round else { return }
     original = small == nil ? nil : data
     whole = small
     preview = small.flatMap(UIImage.init(data:))
-    said = small == nil ? String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.") : nil
+    said = small == nil ? String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.", bundle: .app) : nil
   }
 
   /// The box's part, cut from the full-size photo and shrunk as the whole one is.
@@ -315,7 +315,7 @@ struct FishIdView: View {
     let piece = await Task.detached(priority: .userInitiated) { FishId.photo(original, box: box) }.value
     guard !Task.isCancelled else { return }
     part = piece
-    if piece == nil { said = String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.") }
+    if piece == nil { said = String(localized: "Không đọc được ảnh này. Hãy thử một ảnh JPEG hoặc PNG khác.", bundle: .app) }
   }
 
   private func send() async {
@@ -323,14 +323,14 @@ struct FishIdView: View {
     sending = true
     onWait = true
     found = nil
-    said = String(localized: "Đang nhận diện… thường mất vài giây.")
+    said = String(localized: "Đang nhận diện… thường mất vài giây.", bundle: .app)
     // Done, it says so where VoiceOver is: a problem's words, or the guesses (read out as they come, onChange(of: found)).
     defer { onSaid = said != nil }
     // Claude may take up to 25 s on the Worker, and the app waits 65: past the first seconds, the screen says so.
     let longer = Task {
       try await TestGate.wait("fish-id-longer", or: .seconds(10))
       guard !Task.isCancelled else { return }
-      said = String(localized: "Vẫn đang nhận diện… có thể mất đến một phút.")
+      said = String(localized: "Vẫn đang nhận diện… có thể mất đến một phút.", bundle: .app)
     }
     let lang = handbook.lang, site = handbook.site
     var answer: (Data, Int)?, timedOut = false
@@ -345,8 +345,8 @@ struct FishIdView: View {
     sending = false
     // No answer in the request's time: most likely the Worker's run, not the network, so the site's words for a run that
     // failed.
-    if timedOut { return said = String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.") }
-    guard let answer else { return said = String(localized: "Không có mạng: thử lại khi có mạng.") }
+    if timedOut { return said = String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", bundle: .app) }
+    guard let answer else { return said = String(localized: "Không có mạng: thử lại khi có mạng.", bundle: .app) }
     switch FishId.answer(answer.0, status: answer.1) {
     case .identified(let f):
       said = nil
@@ -355,7 +355,7 @@ struct FishIdView: View {
       // The account looked itself up again. Its session over, the sign-in takes the tool's place, saying so, and the
       // photo waits; still signed in (or not reached), the screen says it didn't work.
       if case .signedIn = account.state {
-        said = String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.")
+        said = String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", bundle: .app)
       } else {
         said = nil
       }
@@ -370,13 +370,13 @@ struct FishIdView: View {
     case "rate":
       // The Worker gives the limit; GET's, then its default, if not.
       let n = limit ?? { if case .on(let n) = tool { n } else { nil } }() ?? 10
-      return String(localized: "Bạn đã dùng hết \(n) lượt nhận diện hôm nay. Quay lại ngày mai nhé.")
-    case "busy": return String(localized: "Hôm nay công cụ đã hết lượt cho mọi người. Quay lại ngày mai nhé.")
-    case "resting": return String(localized: "Công cụ đang tạm nghỉ. Bạn quay lại sau vài giờ nhé.")
-    case "fish_id_off": return String(localized: "Công cụ nhận diện tạm thời chưa dùng được. Bạn tìm cá theo tên trong danh sách cá nhé.")
-    case "not an image": return String(localized: "Chỉ nhận ảnh JPEG, PNG hoặc WebP.")
-    case "too large": return String(localized: "Ảnh quá lớn. Chọn ảnh khác nhé.")
-    default: return String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.")
+      return String(localized: "Bạn đã dùng hết \(n) lượt nhận diện hôm nay. Quay lại ngày mai nhé.", bundle: .app)
+    case "busy": return String(localized: "Hôm nay công cụ đã hết lượt cho mọi người. Quay lại ngày mai nhé.", bundle: .app)
+    case "resting": return String(localized: "Công cụ đang tạm nghỉ. Bạn quay lại sau vài giờ nhé.", bundle: .app)
+    case "fish_id_off": return String(localized: "Công cụ nhận diện tạm thời chưa dùng được. Bạn tìm cá theo tên trong danh sách cá nhé.", bundle: .app)
+    case "not an image": return String(localized: "Chỉ nhận ảnh JPEG, PNG hoặc WebP.", bundle: .app)
+    case "too large": return String(localized: "Ảnh quá lớn. Chọn ảnh khác nhé.", bundle: .app)
+    default: return String(localized: "Chưa nhận diện được lúc này. Thử lại sau ít phút nhé.", bundle: .app)
     }
   }
 
@@ -409,10 +409,10 @@ extension FishIdView {
   /// How sure a guess is, in words.
   static func sure(_ confidence: Double) -> String {
     switch FishId.Sure(confidence) {
-    case .almostCertain: String(localized: "Gần như chắc chắn")
-    case .quiteLike: String(localized: "Khá giống")
-    case .maybe: String(localized: "Có thể")
-    case .unlikely: String(localized: "Ít khả năng")
+    case .almostCertain: String(localized: "Gần như chắc chắn", bundle: .app)
+    case .quiteLike: String(localized: "Khá giống", bundle: .app)
+    case .maybe: String(localized: "Có thể", bundle: .app)
+    case .unlikely: String(localized: "Ít khả năng", bundle: .app)
     }
   }
 }

@@ -33,7 +33,10 @@ TEST_SECONDS = {'AccountFlowTests': 63, 'AppIconFlowTests': 30, 'AppLinkFlowTest
                 'TankMatesFlowTests': 50, 'TankVolumeFlowTests': 54, 'TanksFlowTests': 30, 'TelemetryFlowTests': 38,
                 'V2FlowTests': 38, 'ViAtRootFlowTests': 25, 'VideoFlowTests': 35, 'WholePhotoFlowTests': 20,
                 # Skipped on GitHub's Macs: the Design Lead's shots of the Love Ecology card, taken on the night Mac.
-                'LoveEcologyShotsFlowTests': 1}
+                'LoveEcologyShotsFlowTests': 1,
+                # Not on GitHub yet: 8 tests on this Mac's 27.2 simulator (16 Nov), about 750 s; the largest text's shots
+                # and the switch with a plug, a light and an account take the longest.
+                'LanguageFlowTests': 100}
 FLOW_SECONDS = 45
 
 # What a path can reach. The longest prefix that matches a path decides: a list of flows (a class, or one of its
@@ -103,8 +106,11 @@ HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 # a tank's fish and plants, its guides), and the tank volume and tank-mates tools, which search and a page's links open
 # (AppScreen).
 # Also the anonymous statistics, which wait for the index's flag.
+# And the language picked while the app runs, which reads another language's index (the test index in it too).
+# And the links into the app, which wait for the index (`-index-later`, read here).
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
-                                     'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'GuideTopFlowTests']
+                                     'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests', 'GuideTopFlowTests',
+                                     'LanguageFlowTests', 'AppLinkFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one. In v2, a guide's top
 # (GuideTopFlowTests) and the flows that open a guide on Hôm nay and go back from it.
 PAGES = ['NativePageFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
@@ -127,6 +133,11 @@ LIGHTS_ON_TANKS = ['LightFlowTests/' + t for t in (
     'testASavedLightIsListedAfterARelaunchAndConnectsWithWhatWasWritten',
     'testWeekAquaKeepsTheGroupOnATankAndConnectsItFromThere')] + LIGHT_OUTLET
 CONNECT_SENT = 'TelemetryFlowTests/testConnectingTheLightIsSentWithoutTheLightsNameOrTheAccount'
+# The language flows that check Đèn across a language picked: the light still connected and nothing sent, the notices
+# with a button kept (the undo), a preset's name in the new words, Week Aqua's screen closed (Fable, 21 Nov).
+LANGUAGE_LIGHTS = ['LanguageFlowTests/' + t for t in (
+    'testAPickedLanguageShowsAtOnceOnV2', 'testBackToVietnameseFromThaiReachesThePresetsAndAFieldsHint',
+    'testTheAccountThePlugsAndTheLightStayAcrossASwitch', 'testTheUndoOfASchedulesWriteStaysAcrossASwitch')]
 LOVE_ECOLOGY = ['LightFlowTests/' + t for t in (
     'testTheOwnersLoveEcologyLightTakesOffThenAColour', 'testTheLoveEcologyCardKeepsWhatWasSentAndWhatLeavingCutOff',
     'testKhacsWheelSendsOncePerDragAndIsTwoValuesToAdjust', 'testAKeptRecordWithoutALevelOrWithAHueBelowZeroStillReads',
@@ -151,8 +162,9 @@ TANKS_TAB = ['TanksFlowTests', 'TankLifeFlowTests', 'TankCheckFlowTests', 'Accou
              'ReaderPostFlowTests/testABlockedPosterIsListedInTheAccountSheet', 'TankVolumeFlowTests',
              'TankMatesFlowTests', 'TelemetryFlowTests'] + LIGHTS_ON_TANKS
 KEPT_ROW = 'OfflineFlowTests/testTheAccountSheetCountsTheKeptPagesAndOpensTheirShelfOnTim'
+# Its row for the language, picked while the app runs: the language's flows.
 ACCOUNT_SHEET = ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'TelemetryFlowTests',
-                 'ProfilePictureFlowTests'] + shots('account')
+                 'ProfilePictureFlowTests', 'LanguageFlowTests'] + shots('account')
 REACH = {
     # The app's start (it routes a page's links to the tabs, wires a tank's wanted names and pages, sends the lights back
     # to their schedule when the app leaves, syncs the account), and what selects and runs the flows: every flow, as
@@ -208,9 +220,9 @@ REACH = {
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     # The photo picker both screens open (the flows hand them a photo, as picked).
     APP + 'Handbook/ImagePicker.swift': ['FishIdFlowTests', 'ReaderPostFlowTests'],
-    # The waits a flow moves on itself (`-test-gates`): only the fish-ID flows open them (the page shots' fish-ID screens
-    # get the plain wait it replaced, as with FakeServer's).
-    APP + 'TestGate.swift': ['FishIdFlowTests'],
+    # The waits a flow moves on itself (`-test-gates`): the fish-ID flows open them (the page shots' fish-ID screens get
+    # the plain wait it replaced, as with FakeServer's), and the tank flow that holds the index while fish are added.
+    APP + 'TestGate.swift': ['FishIdFlowTests', 'TankLifeFlowTests/testFishAddedByNameBeforeTheIndexIsReadAreSentOnceItIs'],
     APP + 'Handbook/TankVolumeView.swift': ['TankVolumeFlowTests'],
     # Its flows, and a fish page's link that opens it.
     APP + 'Handbook/TankMatesView.swift': ['TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'],
@@ -226,26 +238,31 @@ REACH = {
     APP + 'Tanks/TankLife.swift': ['TankLifeFlowTests', 'TankCheckFlowTests', 'TanksFlowTests', 'NativePageFlowTests',
                                    'V2FlowTests/testAFishPutOnATankFromItsPageOpensTheTank'],
     APP + 'Tanks/TankForm.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
-    APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
+    # Its hint, set again on each update: the language flow that reads it after a switch too.
+    APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests',
+                                      'LanguageFlowTests/testBackToVietnameseFromThaiReachesThePresetsAndAFieldsHint'],
     # The anonymous statistics: their own flows; and a light connected is one of the events sent.
     APP + 'Telemetry/': ['TelemetryFlowTests'], KIT + 'Sources/Telemetry/': ['TelemetryFlowTests'],
     # Its switch, a row of the Tài khoản sheet.
     APP + 'Telemetry/TelemetrySwitch.swift': ACCOUNT_SHEET,
-    APP + 'Lights/': ['LightFlowTests', CONNECT_SENT],
+    APP + 'Lights/': ['LightFlowTests', CONNECT_SENT] + LANGUAGE_LIGHTS,
     # The Love Ecology light's card sends through the broadcaster it shares with the master button.
-    APP + 'Lights/LoveEcology.swift': ['LightFlowTests', CONNECT_SENT] + MASTER_LAMP,
+    APP + 'Lights/LoveEcology.swift': ['LightFlowTests', CONNECT_SENT] + MASTER_LAMP + [
+                                       'LanguageFlowTests/testTheLampsColourOnAirEndsAtItsTimeAcrossASwitch'],
     # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
-    APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light') + [
+    APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light') + LANGUAGE_LIGHTS + [
                                       'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
     APP + 'Lights/LightOutlet.swift': ['LightFlowTests', CONNECT_SENT] + shots('light'),
     # The Week Aqua screen, which the page shots take too.
-    APP + 'Lights/WeekAquaView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light'),
-    APP + 'Plugs/': ['PlugFlowTests'] + LIGHT_OUTLET,
+    APP + 'Lights/WeekAquaView.swift': ['LightFlowTests', CONNECT_SENT, 'LanguageFlowTests/testAPickedLanguageShowsAtOnceOnV2'] + shots('light'),
+    # The plugs above the redraw: the language flow that keeps a plug and its outlets across a switch too.
+    APP + 'Plugs/': ['PlugFlowTests', 'LanguageFlowTests/testTheAccountThePlugsAndTheLightStayAcrossASwitch'] + LIGHT_OUTLET,
     # The master button on Đèn (its card, sheet and run), and the broadcaster it shares with the Love Ecology light's card.
     APP + 'Master/': ['MasterFlowTests'] + LOVE_ECOLOGY,
     # Fish ID sends as the reader's account (signed out, its sign-in comes first); the account also holds the owner's
     # dashboard (its session, and signing out on a 401).
-    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests'],
+    APP + 'Account/': ['AccountFlowTests', 'ReaderPostFlowTests', 'FishIdFlowTests', 'OwnerFlowTests', 'ProfilePictureFlowTests', 'ChatFlowTests',
+                       'LanguageFlowTests'],
     # The Tài khoản sheet and the button that opens it on every tab: the flows that go through it (the account, the
     # blocked, the owner's dashboard, the anonymous statistics' switch), and the page shots, which take it; its card's
     # Apple and Google buttons too.
@@ -307,7 +324,7 @@ REACH = {
     'protocols/chat-stream-': ['ChatFlowTests'] + shots('chat'),
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request that changes what it builds or checks.
-    'apps/ios/scripts/check-strings.py': NONE,
+    'apps/ios/scripts/check-strings.py': NONE, 'apps/ios/scripts/localized_calls.py': NONE,
     'apps/ios/scripts/asc-build-state.mjs': NONE, 'apps/ios/scripts/testflight-notes.py': NONE,
     # The App Store's screenshots and listing (app-store.yml).
     'apps/ios/store/': NONE, 'apps/ios/scripts/asc-listing.mjs': NONE, 'apps/ios/scripts/store-shots.py': NONE,
@@ -366,10 +383,11 @@ def check(runs, left, reached, ran):
                   ['apps/ios/scripts/a-new-script.sh', 'apps/ios/design/at-1024.png']):
         assert runs(paths) == [] and left(paths) == '', paths
     assert reached([KIT + 'Sources/FishLamp/love-ecology.json']) == set(LOVE_ECOLOGY)
-    assert reached([APP + 'Lights/LoveEcology.swift']) == {'LightFlowTests', CONNECT_SENT, *MASTER_LAMP}
+    assert reached([APP + 'Lights/LoveEcology.swift']) == {'LightFlowTests', CONNECT_SENT, *MASTER_LAMP,
+                                                           'LanguageFlowTests/testTheLampsColourOnAirEndsAtItsTimeAcrossASwitch'}
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
     assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_FLOWS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'])))
-    assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'
+    assert left([APP + 'Lights/Radio.swift']) == 'LanguageFlowTests LightFlowTests TelemetryFlowTests'
     assert left([APP + 'Tanks/TankCheckView.swift']) == 'TankCheckFlowTests TankLifeFlowTests TankMatesFlowTests'
 
     # What a change reaches, which main runs after the merge (read from the flows and the app).
@@ -395,12 +413,14 @@ def check(runs, left, reached, ran):
     assert 'AccountFlowTests' in reached([APP + 'Tanks/CappedField.swift'])
     got = reached([KIT + 'Sources/Tanks/TankStore.swift'])
     assert 'HandbookFlowTests/testFiltersTheFishToMyTank' in got and set(LIGHTS_ON_TANKS) <= got, got
-    assert reached([APP + 'Lights/Radio.swift']) == reached([KIT + 'Sources/Chihiros/Frames.swift']) == {'LightFlowTests', CONNECT_SENT}
-    assert reached([APP + 'Lights/LightOutlet.swift']) == reached([APP + 'Lights/WeekAquaView.swift']) == {
-        'LightFlowTests', CONNECT_SENT, *shots('light')}
+    assert reached([KIT + 'Sources/Chihiros/Frames.swift']) == {'LightFlowTests', CONNECT_SENT}
+    assert reached([APP + 'Lights/Radio.swift']) == {'LightFlowTests', CONNECT_SENT, *LANGUAGE_LIGHTS}
+    assert reached([APP + 'Lights/LightOutlet.swift']) == {'LightFlowTests', CONNECT_SENT, *shots('light')}
+    assert reached([APP + 'Lights/WeekAquaView.swift']) == {'LightFlowTests', CONNECT_SENT, *shots('light'),
+                                                            'LanguageFlowTests/testAPickedLanguageShowsAtOnceOnV2'}
     assert reached([KIT + 'Sources/WeekAqua/WeekAquaSession.swift']) == {'LightFlowTests'}
     # The tab's first screen also has the profile button, which the account's flow opens the sheet from.
-    assert reached([APP + 'Lights/LightsView.swift']) == {'LightFlowTests', CONNECT_SENT, *shots('light'),
+    assert reached([APP + 'Lights/LightsView.swift']) == {'LightFlowTests', CONNECT_SENT, *shots('light'), *LANGUAGE_LIGHTS,
                                                           'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'}
     # The owner's dashboard: its flows and its page shots, and the tanks tab's with them where its row is; its vectors
     # reach them too, and the owner's row, which counts the overview's to-dos.
@@ -423,7 +443,8 @@ def check(runs, left, reached, ran):
     assert 'OwnerFlowTests' not in reached([APP + 'Tanks/TankForm.swift'])
     # A new file in a folder that has a rule takes that folder's flows: the plugs', and the light's outlet's.
     assert reached([KIT + 'Sources/Plugs/NewSource.swift']) == {'PlugFlowTests'} | set(LIGHT_OUTLET)
-    assert reached([APP + 'Plugs/PlugsModel.swift']) == reached([KIT + 'Sources/Plugs/NewSource.swift'])
+    assert reached([APP + 'Plugs/PlugsModel.swift']) == reached([KIT + 'Sources/Plugs/NewSource.swift']) | {
+        'LanguageFlowTests/testTheAccountThePlugsAndTheLightStayAcrossASwitch'}
     # The anonymous statistics: their own folders run their flows, and a light connected is one of the events sent.
     for p in (APP + 'Telemetry/TelemetryModel.swift', KIT + 'Sources/Telemetry/Outbox.swift'):
         assert reached([p]) == {'TelemetryFlowTests'}, p
@@ -435,7 +456,8 @@ def check(runs, left, reached, ran):
               KIT + 'Sources/AccountSync/Accounts.swift'):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
-    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests'}
+    assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests', 'TankLifeFlowTests/testFishAddedByNameBeforeTheIndexIsReadAreSentOnceItIs'}
+    assert 'AppLinkFlowTests' in reached([APP + 'Handbook/HandbookModel.swift'])
     # The chat: its contract and its stand-in reach its flows and its shots (drawn from the stand-in's recordings); the
     # events' reader its flows alone; its entries, a fish's page and fish ID's result.
     for p in (KIT + 'Sources/Handbook/Chat.swift', APP + 'Chat/ChatView.swift', APP + 'Account/FakeChat.swift',

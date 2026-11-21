@@ -168,9 +168,9 @@ struct TankMatesView: View {
 
   /// A new tank's name when none is typed: its size, as the site's tool names it.
   private var newName: String {
-    guard let d = newDims else { return String(localized: "Bể mới") }
+    guard let d = newDims else { return String(localized: "Bể mới", bundle: .app) }
     let cm = { (x: Double) in x.formatted(.number.locale(.app).precision(.fractionLength(0...1)).rounded(rule: .toNearestOrAwayFromZero)) }
-    return String(localized: "Bể \(cm(d.l)) × \(cm(d.w)) × \(cm(d.h))")
+    return String(localized: "Bể \(cm(d.l)) × \(cm(d.w)) × \(cm(d.h))", bundle: .app)
   }
 
   // MARK: The fish
