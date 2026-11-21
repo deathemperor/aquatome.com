@@ -109,8 +109,14 @@ test('what needs you: each title on one line on a 390 px phone, on any font; a n
     const rows = page.locator('section.needs .nrows > li')
     await expect(rows).toHaveCount(needs.length)
     if (needs.length > 3) await page.locator('section.needs details.more > summary').click()
-    for (const [k, row] of (await rows.all()).entries()) {
-      const x = needs[k]!
+    // The web shows faults first, then what waits (a source behind a browser check among them; the Design Lead, 20 Nov),
+    // so a row is matched to its need by its title, not by where the data has it.
+    const left = [...needs]
+    for (const row of await rows.all()) {
+      const title = (await row.locator('b').textContent()) ?? ''
+      const at = left.findIndex(n => n.text === title)
+      expect(at, title).toBeGreaterThanOrEqual(0)
+      const x = left.splice(at, 1)[0]!
       const m = await row.locator('b').evaluate(b => {
         const cs = getComputedStyle(b)
         const r = document.createRange()
