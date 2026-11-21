@@ -394,6 +394,28 @@ test("the app's page shows no album under six photos, though the site's page sho
   expect(one(await fishDoc('vi', c, big, listedPaths('vi', c)), 'gallery')).toBeDefined()
 })
 
+// The photo strip's reader, 20 Nov 2026: under six photos the app shows no strip, so its copy takes no photo for one. A
+// photo of the fish's own that its short album also holds stays between the app's sections, where the site's page puts
+// it in the strip.
+test("under six photos, the app's copy keeps a photo the site's short strip shows", async () => {
+  const c0 = await getContent('vi')
+  const s0 = c0.species.find(x => x.id === 'paracheirodon-innesi')!
+  // A photo of its album's that isn't its lead (the lead is the page's own photo and never in the strip).
+  const shared = (await speciesParts('vi', c0, s0)).gallery.find(p => p.url !== s0.photos[0]!.url)!
+  const c = { ...c0, species: c0.species.map(x => (x.id === s0.id ? { ...x, photos: [x.photos[0]!, shared] } : x)) } as Content
+  const s = c.species.find(x => x.id === s0.id)!
+  const site = await speciesParts('vi', c, s)
+  expect(site.gallery.length).toBeLessThan(APP_GALLERY_MIN)
+  expect(site.strip.some(p => p?.url === shared.url)).toBe(true)
+  expect(site.figures.map(p => p.url)).not.toContain(shared.url)
+  const app = await speciesParts('vi', c, s, { app: true })
+  expect(app.strip).toEqual([])
+  expect(app.figures.map(p => p.url)).toContain(shared.url)
+  const d = await fishDoc('vi', c, s, listedPaths('vi', c))
+  expect(all(d, 'figure').map(f => f.img.src)).toContain(shared.url)
+  expect(one(d, 'gallery')).toBeUndefined()
+})
+
 test('a fish\'s copy: its blocks in page order, every one credited and sourced', async () => {
   const c = await getContent('vi')
   const s = c.species.find(x => x.id === 'paracheirodon-axelrodi')!

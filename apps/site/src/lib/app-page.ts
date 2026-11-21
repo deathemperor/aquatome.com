@@ -199,7 +199,7 @@ export async function fishDoc(lang: Lang, c: Content, s: Localized<SpeciesEntity
   const t = translator(lang)
   const { num } = fmt(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  const p = await speciesParts(lang, c, s)
+  const p = await speciesParts(lang, c, s, { app: true })
   const lead = headImage(lang, headPhoto(s.photos), nameAndSci(s.t.name, s.scientificName))
   const sources = [...new Set(s.sections.map(x => c.sources[x.source]?.name ?? x.source))].join(', ')
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.text.sections, t: p.text.t, self: `species:${s.id}`, selfNames: [s.scientificName, s.t.name, ...s.t.altNames], figures: p.figures.map(photo => ({ photo })), card: s.dataCard, range: { id: s.id, name: s.t.name, range: s.range }, refs: s.refs })
@@ -314,7 +314,7 @@ export function breedDoc(lang: Lang, c: Content, b: Breed, listed: Set<string>):
  */
 export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, listed: Set<string>): PageDoc {
   const t = translator(lang)
-  const parts = plantParts(lang, c, p)
+  const parts = plantParts(lang, c, p, { app: true })
   const lead = headImage(lang, headPhoto(p.photos), nameAndSci(p.t.name, p.scientificName))
   const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
