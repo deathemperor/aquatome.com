@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as schema from '@aq/schema'
-import { loadAll, PHOTO_SCREEN_FILE } from '@aq/schema'
+import { PHOTO_SCREEN_FILE } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { GALLERY_MIN } from '../../../apps/site/src/lib/gallery'
 import { albumOf, hasAlbum } from '../../../apps/site/src/lib/photo-page'
@@ -46,11 +46,19 @@ test("the engine's rule is the site's: a page shows a photo when the loader leav
     breeds: { 'with-one': ['b1'], 'with-none': [] },
     waiting: ['w1', 'w2'], closed: ['c1'],
   })
-  // The one voice takes hushed's only section off, so the site has no page for it, photo or not.
+  // The one voice takes hushed's only section off, and the reader-fit gate holds held back: the site has no page for
+  // either, photo or not.
   await put('content/one-voice.json', { hushed: { habitat: false } })
-  const refs = ['species/own', 'species/waits', 'species/album', 'species/none', 'species/closed', 'species/hushed', 'breeds/with-one', 'breeds/with-none']
+  await put('content/species/held/entity.json', fish('held', [photo('hd1')])); await put('content/species/held/vi.json', { ...vi('ca-held'), held: { checks: ['harm'], at: '2026-11-20' } })
+  await put(`engine-state/${PHOTO_SCREEN_FILE}`, { ...JSON.parse(await readFile(join(r, 'engine-state', PHOTO_SCREEN_FILE), 'utf8')), [url('hd1')]: judged })
+  const refs = ['species/own', 'species/waits', 'species/album', 'species/none', 'species/closed', 'species/hushed', 'species/held', 'breeds/with-one', 'breeds/with-none']
   const engine = await showingPhotos(refs, disk(r))
-  const c = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: true })
+  // The site's own content, as its public build loads it (apps/site/src/lib/content.ts).
+  const env = { CONTENT_ROOT: process.env.CONTENT_ROOT, PUBLIC_BUILD: process.env.PUBLIC_BUILD, HIDDEN_FILE: process.env.HIDDEN_FILE }
+  Object.assign(process.env, { CONTENT_ROOT: join(r, 'content'), PUBLIC_BUILD: '1', HIDDEN_FILE: join(r, 'no-hidden.json') })
+  const c = await (await import('../../../apps/site/src/lib/content')).getContent('vi').finally(() => {
+    for (const [k, v] of Object.entries(env)) if (v === undefined) delete process.env[k]; else process.env[k] = v
+  })
   const site = new Map([
     ...c.species.map(s => [`species/${s.id}`, s.photos.length > 0 || hasAlbum(albumOf(c, 'species', s))] as const),
     ...c.breeds.map(b => [`breeds/${b.id}`, b.photos.length > 0 || hasAlbum(albumOf(c, 'breeds', b))] as const),
@@ -58,6 +66,7 @@ test("the engine's rule is the site's: a page shows a photo when the loader leav
   expect([...engine].sort()).toEqual([...site].sort())
   expect([...engine].filter(([, shows]) => shows).map(([ref]) => ref).sort()).toEqual(['breeds/with-one', 'species/album', 'species/own'])
   expect(engine.has('species/hushed')).toBe(false)
+  expect(engine.has('species/held')).toBe(false)
 })
 
 test("every file the site's loader reads is copied for the engine's rule, or named as deciding nothing of whether a fish page shows a photo", async () => {
@@ -76,7 +85,9 @@ test("every file the site's loader reads is copied for the engine's rule, or nam
 })
 
 test('a run that leaves a fish page with no photo lists it, dated; one emptied before the run, one still showing a photo, one that lost its text, and one listed already are not listed again', async () => {
-  const { r, put } = await store({ species: { gone: ['g1'], still: ['s1', 's2'], before: [], album: [], quiet: ['q1'] }, albums: { album: ['a1'] } })
+  const { r, put } = await store({ species: { gone: ['g1'], still: ['s1', 's2'], before: [], album: [], quiet: ['q1'], held: ['h1'] }, albums: { album: ['a1'] } })
+  // held is held back by the reader-fit gate: no page on the site.
+  await put('content/species/held/vi.json', { ...vi('ca-held'), held: { checks: ['harm'], at: '2026-11-20' } })
   await put(`engine-state/${EMPTIED_FILE}`, { 'species/listed': '2026-11-20' })
   await put('content/species/listed/entity.json', fish('listed', [photo('l1')])); await put('content/species/listed/vi.json', vi('ca-listed'))
   const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })
@@ -89,6 +100,7 @@ test('a run that leaves a fish page with no photo lists it, dated; one emptied b
   await put('content/species/listed/entity.json', fish('listed', []))
   // quiet's last section goes, its photo stays: the site has no page for it, which is no page left without a photo.
   await put('content/species/quiet/entity.json', fish('quiet', [photo('q1')], false))
+  await put('content/species/held/entity.json', fish('held', []))
   expect(await listEmptied(r, '2026-11-21')).toEqual(['species/album', 'species/gone'])
   expect(JSON.parse(await readFile(join(r, 'engine-state', EMPTIED_FILE), 'utf8'))).toEqual({ 'species/album': '2026-11-21', 'species/gone': '2026-11-21', 'species/listed': '2026-11-20' })
   // Run again with nothing more taken off: nothing new.
@@ -160,9 +172,10 @@ test("no other file the map driver merges holds an emptied page's entry, the sha
 
 test("an emptied page is taken first until its first shown photo; the owner's fish keep their six; oldest day first", async () => {
   const { r, put } = await store({ species: { found: ['f1'], empty: [], owners: ['w1'] } })
-  // textless has no section the site may show: no page to find photos for.
+  // textless has no section the site may show, and held is held back by the reader-fit gate: no page to find photos for.
   await put('content/species/textless/entity.json', fish('textless', [], false)); await put('content/species/textless/vi.json', vi('ca-textless'))
-  await put(`engine-state/${EMPTIED_FILE}`, { 'species/found': '2026-11-20', 'species/empty': '2026-11-21', 'species/textless': '2026-11-20' })
+  await put('content/species/held/entity.json', fish('held', [])); await put('content/species/held/vi.json', { ...vi('ca-held'), held: { checks: ['harm'], at: '2026-11-20' } })
+  await put(`engine-state/${EMPTIED_FILE}`, { 'species/found': '2026-11-20', 'species/empty': '2026-11-21', 'species/textless': '2026-11-20', 'species/held': '2026-11-19' })
   await put('engine-state/_priority-fish.json', { 'species/owners': '2026-11-16' })
   expect(await priorityFish(r)).toEqual(['species/owners', 'species/empty'])
   // The owner's list wins for a page on both: one photo doesn't end its turn.

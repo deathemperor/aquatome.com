@@ -17,7 +17,9 @@ import { loadAll, PHOTO_BOXES_FILE, PHOTO_SCREEN_FILE, vnDate } from '@aq/schema
  * removal and another run's together is seen there (the independent reader, 21 Nov). A page the list holds already keeps
  * its first day. The one gap: a hand change that takes a page's last photo off the page itself isn't seen, as no run's
  * step made that removal. Hand changes go through the records and the sweep, so the next run's removal is seen (as with
- * the chief of staff's 46 of 21 Nov).
+ * the chief of staff's 46 of 21 Nov). And one the engine can't know: a page hidden on the owner's dashboard is dropped by
+ * the site at deploy (apps/site/src/lib/hidden.ts, from a file fetched then, not in the repository), so it can be listed
+ * and taken first.
  */
 export const EMPTIED_FILE = '_priority-emptied.json'
 
@@ -46,11 +48,13 @@ export const LOADER_FILES = {
 
 /**
  * Whether each of `refs` (`species/id`, `breeds/id`) shows a photo, by the site's own rule, read from where the site
- * reads it: the site's loader (@aq/schema loadAll, as a public build runs it) over those pages as `read` holds them, with
+ * reads it: the site's loader (@aq/schema loadAll, as the site's public build runs it in Vietnamese, held pages left out:
+ * apps/site/src/lib/content.ts getContent) over those pages as `read` holds them, with
  * every other file it reads that decides a fish page and its photos (LOADER_FILES). A page shows a photo when the loader
  * leaves it one of its own, or when its album (a species' gallery; a breed's own photos after its first, then its
  * gallery: apps/site/src/lib/photo-page.ts albumOf) holds SITE_GALLERY_MIN pictures. A page the loader drops (no section
- * it may show) has no answer: it is no page, with or without photos. The loader runs on a copy of those files in the
+ * it may show, or held back by the reader-fit gate) has no answer: it is no page, with or without photos. The loader runs
+ * on a copy of those files in the
  * system's temp folder, removed after.
  */
 export async function showingPhotos(refs: string[], read: Read): Promise<Map<string, boolean>> {
@@ -71,7 +75,7 @@ export async function showingPhotos(refs: string[], read: Read): Promise<Map<str
       const [kind, id] = ref.split('/') as [string, string]
       for (const f of [`content/${kind}/${id}/entity.json`, `content/${kind}/${id}/vi.json`, `content/gallery/${id}.json`]) await put(f)
     }
-    const c = await loadAll({ root: join(tmp, 'content'), lang: 'vi', publicBuild: true })
+    const c = await loadAll({ root: join(tmp, 'content'), lang: 'vi', publicBuild: true, leaveOutHeld: true })
     const album = (photos: unknown[]) => photos.length >= SITE_GALLERY_MIN
     for (const s of c.species) out.set(`species/${s.id}`, s.photos.length > 0 || album(c.galleries[s.id] ?? []))
     for (const b of c.breeds) out.set(`breeds/${b.id}`, b.photos.length > 0 || album([...b.photos.slice(1), ...(c.galleries[b.id] ?? [])]))
