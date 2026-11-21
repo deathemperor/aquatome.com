@@ -328,8 +328,9 @@ const PIPE: [number, number][] = [[0.5, 21], [0.75, 27], [1, 34], [1.25, 42], [1
 const PIPE_WORD = String.raw`(?<!\p{Script=Latin})(?:[ốỐ]ng|PVC|manifold|[rR]en|[pP]ipa|[pP]aip|ท่อ)(?!\p{Script=Latin})(?:(?!mềm|selang|สายยาง|tubing|hose|dài|cao|sâu|rộng|cắt|đường kính trong)[^\d.,;:()<>]){0,30}?`
 // A length right before the figure: a pipe's length, depth, cut or a distance to slide it ("pipa PVC panjang 2 inci",
 // "ท่อ PVC ฝังลึก 2 นิ้ว", "luồn ống PVC thêm 1–2 inch"). Only right before it: "model panjang ukuran ¾ inci" and "แบบยาว ขนาด
-// 2 นิ้ว" are a long fitting's size (Codex's reads of #1782, 21 Nov 2026).
-const NOT_LENGTH = String.raw`(?<!(?:panjang|dipotong|potong|ยาว|ลึก|thêm)\s*)`
+// 2 นิ้ว" are a long fitting's size (Codex's reads of #1782, 21 Nov 2026). A "roughly" between them still makes it a length
+// ("ยาวประมาณ 1–2 นิ้ว", "sepanjang kira-kira 1–2 inci").
+const NOT_LENGTH = String.raw`(?<!(?:panjang|dipotong|potong|ยาว|ลึก|thêm)\s*(?:${QUAL}\s*)?)`
 function pipes(t: string, lang: UnitLang): string {
   const od = (fig: string) => PIPE.find(([inch]) => inch === parseNum(fig, lang))?.[1]
   const name = (mm: number) => (lang === 'vi' ? `phi ${mm}` : `${mm} ${lang === 'th' ? 'มม.' : 'mm'}`)

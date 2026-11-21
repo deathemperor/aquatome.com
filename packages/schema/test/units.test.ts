@@ -152,6 +152,11 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(id('Sambungan pipa PVC model panjang ukuran ¾ inci')).toBe('Sambungan pipa PVC model panjang ukuran 27 mm')
   expect(th('ข้อต่อท่อ PVC แบบยาว ขนาด 2 นิ้ว')).toBe('ข้อต่อท่อ PVC แบบยาว ขนาด 60 มม.')
   expect(vi('Luồn ống PVC thêm 1–2 inch vào khớp nối')).toBe('Luồn ống PVC thêm 2,5–5 cm vào khớp nối')
+  // A "roughly" between the length word and the figure: still a length (Codex's fifth look).
+  expect(vi('Luồn ống PVC thêm khoảng 1–2 inch vào khớp nối')).toBe('Luồn ống PVC thêm khoảng 2,5–5 cm vào khớp nối')
+  expect(id('Pipa PVC dipotong sepanjang kira-kira 1–2 inci')).toBe('Pipa PVC dipotong sepanjang kira-kira 2,5–5 cm')
+  expect(ms('Potong paip PVC sepanjang kira-kira 1–2 inci')).toBe('Potong paip PVC sepanjang kira-kira 2.5–5 cm')
+  expect(th('ท่อ PVC ยาวประมาณ 1–2 นิ้ว')).toBe('ท่อ PVC ยาวประมาณ 2.5–5 ซม.')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })
