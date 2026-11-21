@@ -419,6 +419,7 @@
     "packages/engine/test/ios-27-daily.test.ts": "the daily script in a temp home",
     "packages/engine/test/machine-load.test.ts": "install scripts into a temp home, git on repositories in the temp folder",
     "packages/engine/test/main-merge.test.ts": "the hook on repositories in the temp folder",
+    "packages/engine/test/merge-json-map.test.ts": "git and scripts/merge-json-map.mjs (the merge driver) on a scratch repository in the system temp folder",
     "packages/engine/test/photo-backfill.test.ts": "vitest on one of its own tests, in a temp home, on content it writes in the temp folder",
     "packages/engine/test/push-clash-hold.test.ts": "the cycle's scripts, main-holds.mjs and the merge drivers on repositories it makes in the temp folder",
     "packages/engine/test/quiet-recording.test.ts": "the recording script and the queue's lock in a temp home (on a Mac)",
