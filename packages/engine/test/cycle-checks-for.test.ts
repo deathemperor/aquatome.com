@@ -129,8 +129,11 @@ test('a merge with main: its code is main\'s newest, which GitHub is asked about
 }, slow(120_000))
 
 test('a unit job still running is waited on, up to its limit: green in time is the short path, still running is the whole suite', () => {
-  const late = decide({ unit: ['pending', 'pending', 'success'], stamp: 2 })
-  expect(late.step).toBe(CONTENT)
+  // Its limit is far past the work: the clock starts before the script's git calls, and on a loaded Mac three answers took
+  // over the 3 s the others have, so it gave up on the second "still running" (a whole plain run, 21 Nov 2026, 02:49). The
+  // third answer ends the wait at once, so it never waits it out.
+  const late = decide({ unit: ['pending', 'pending', 'success'], stamp: 2, env: { UNIT_WAIT_SECONDS: '30' } })
+  expect([late.step, late.why]).toEqual([CONTENT, `the content's checks: its code is main's ${late.code.slice(0, 9)}, whose unit tests passed on GitHub`])
   expect(late.out).toMatch(/LOG GitHub's unit tests on \w{9}, the code this run publishes on, are still running: waiting up to 0 min/)
   const never = decide({ unit: ['pending'], stamp: 2, env: { UNIT_POLL_SECONDS: '1', UNIT_WAIT_SECONDS: '2' } })
   expect(never.step).toBe(FULL)
