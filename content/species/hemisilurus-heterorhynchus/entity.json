@@ -214,7 +214,12 @@
       "author": "Rafael Abizar",
       "sourceUrl": "https://www.inaturalist.org/photos/490852112",
       "caption": "Cá Hemisilurus heterorhynchus thân dài ánh tím trong bể nền sỏi",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/490852112-large.webp",
+        "width": 2048,
+        "height": 1125
+      }
     }
   ],
   "videos": [],

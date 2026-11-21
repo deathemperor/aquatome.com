@@ -132,12 +132,12 @@ A Loricariidae fish with an L or LDA number on record whose name in a language g
 
 - none
 
-## Words hobbyists rarely write (2996)
+## Words hobbyists rarely write (2997)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
 - vi · "dù vậy" → "nhưng", "tuy nhiên": 1671 pages, 3911 times
-- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1647 pages, 3698 times
+- vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1648 pages, 3700 times
 - vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1587 pages, 3961 times
 - vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1096 pages, 2128 times
 - vi · "nhiều khả năng" → "chắc là", "có lẽ" (giữ đúng mức chắc chắn của nguồn): 994 pages, 1581 times
@@ -149,7 +149,7 @@ Words and turns the engine writes far more often than the language's hobbyists d
 - vi · "không xương sống" → gọi tên con: "tép, ốc": 546 pages, 628 times
 - vi · "giới chơi" → "người chơi", hoặc bỏ: 533 pages, 780 times
 - vi · "nhờ vậy" → để câu sau tự nói; "thế là" chỉ khi đúng là chuyện xảy ra tiếp: 508 pages, 619 times
-- vi · "lý do là" → "vì", "là do": 487 pages, 535 times
+- vi · "lý do là" → "vì", "là do": 488 pages, 536 times
 - vi · "nhìn chung" → "thường", hoặc bỏ: 422 pages, 571 times
 - vi · "hung hăng" → "dữ", "hung dữ": 388 pages, 616 times
 - vi · "dân chơi" → thường bỏ được ("gọi là…", "hay nuôi…"); "người chơi" khi cần nói ai: 371 pages, 486 times

@@ -50,18 +50,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/21807661.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/21807661-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "C.",
-      "sourceUrl": "https://www.inaturalist.org/photos/21807661",
-      "caption": "Đám Bèo tấm lớn xanh tươi mọc dày",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/22862117.webp",
       "thumb": "https://media.aquatome.com/inaturalist/22862117-480.webp",
       "width": 768,
@@ -84,18 +72,6 @@
       "caption": "Bèo tấm lớn nổi trên mặt nước đen",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/26632484.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/26632484-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Andre Hosper",
-      "sourceUrl": "https://www.inaturalist.org/photos/26632484",
-      "caption": "Cận cảnh các thân Bèo tấm lớn xanh tươi",
-      "best": true,
-      "kind": "detail"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/16538043.webp",
@@ -422,6 +398,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/26632484.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/26632484-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Andre Hosper",
+      "sourceUrl": "https://www.inaturalist.org/photos/26632484",
+      "caption": "Cận cảnh các thân Bèo tấm lớn xanh tươi",
+      "best": true,
+      "kind": "detail"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/19948315.webp",
       "thumb": "https://media.aquatome.com/inaturalist/19948315-480.webp",
       "width": 962,
@@ -431,6 +419,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/19948315",
       "caption": "Bèo tấm lớn nổi trong nước, rễ rủ xuống",
       "best": false,
+      "kind": "emersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/21807661.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/21807661-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "C.",
+      "sourceUrl": "https://www.inaturalist.org/photos/21807661",
+      "caption": "Đám Bèo tấm lớn xanh tươi mọc dày",
+      "best": true,
       "kind": "emersed"
     }
   ],

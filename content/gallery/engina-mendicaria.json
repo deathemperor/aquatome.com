@@ -12,8 +12,7 @@
       "caption": "Ốc Engina mendicaria sống, vằn đen vàng, trên đá san hô",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/33a371573c9d771e.webp",
@@ -27,8 +26,7 @@
       "sourceCaption": "Engina mendicaria",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/333899814.webp",
@@ -41,8 +39,7 @@
       "caption": "Ốc Engina mendicaria sọc vàng đen trên rạn san hô",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/425493881.webp",
@@ -55,8 +52,7 @@
       "caption": "Ốc Engina mendicaria sọc vàng đen trên nền đá",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/425658101.webp",
@@ -69,8 +65,7 @@
       "caption": "Ốc Engina mendicaria cận cảnh trên đá ven biển",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/445235253.webp",
@@ -83,22 +78,7 @@
       "caption": "Ốc Engina mendicaria sọc vàng đen trên đá ướt",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/598372531.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/598372531-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Nicola Crockford",
-      "sourceUrl": "https://www.inaturalist.org/photos/598372531",
-      "caption": "Ốc Engina mendicaria sọc vàng đen trên rạn đá ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/623853340.webp",
@@ -111,8 +91,7 @@
       "caption": "Ốc Engina mendicaria cỡ lớn sọc vàng đen bám trên đá",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/655077591.webp",
@@ -125,8 +104,33 @@
       "caption": "Ốc Engina mendicaria sọc đen trắng bò trên rong rêu",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/334595488.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/334595488-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/334595488",
+      "caption": "Ốc Engina mendicaria bò giữa đá và san hô",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/441930688.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/441930688-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Petr Harant",
+      "sourceUrl": "https://www.inaturalist.org/photos/441930688",
+      "caption": "Ốc Engina mendicaria sọc vàng đen trên nền cát",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/112c61e3eeb93eeb.webp",
@@ -140,8 +144,7 @@
       "sourceCaption": "Engina mendicaria",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/342072314.webp",
@@ -154,36 +157,7 @@
       "caption": "Nhóm ốc Engina mendicaria trên đá ven bờ",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/334595488.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/334595488-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Nicola Crockford",
-      "sourceUrl": "https://www.inaturalist.org/photos/334595488",
-      "caption": "Ốc Engina mendicaria bò giữa đá và san hô",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/366644258.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/366644258-480.webp",
-      "width": 1024,
-      "height": 865,
-      "licence": "CC BY",
-      "author": "Debra Baker",
-      "sourceUrl": "https://www.inaturalist.org/photos/366644258",
-      "caption": "Vài con ốc Engina mendicaria trong vũng đá ven biển",
-      "best": false,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/366644227.webp",
@@ -196,8 +170,20 @@
       "caption": "Ốc Engina mendicaria trong vũng triều giữa đá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/366644258.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/366644258-480.webp",
+      "width": 1024,
+      "height": 865,
+      "licence": "CC BY",
+      "author": "Debra Baker",
+      "sourceUrl": "https://www.inaturalist.org/photos/366644258",
+      "caption": "Vài con ốc Engina mendicaria trong vũng đá ven biển",
+      "best": false,
+      "kind": "group",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/430153129.webp",
@@ -210,8 +196,20 @@
       "caption": "Nhóm ốc Engina mendicaria sọc vàng đen trên nền đá ngoài tự nhiên",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/598372531.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/598372531-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/598372531",
+      "caption": "Ốc Engina mendicaria sọc vàng đen trên rạn đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/430507372.webp",
@@ -224,22 +222,7 @@
       "caption": "Ốc Engina mendicaria sọc đen trắng bò trên cát ven đá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/441930688.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/441930688-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Petr Harant",
-      "sourceUrl": "https://www.inaturalist.org/photos/441930688",
-      "caption": "Ốc Engina mendicaria sọc vàng đen trên nền cát",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/445235065.webp",
@@ -252,8 +235,7 @@
       "caption": "Ốc Engina mendicaria nhìn từ đỉnh vỏ xoắn trên đá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 137,

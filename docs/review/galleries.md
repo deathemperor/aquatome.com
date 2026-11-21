@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gall
 | covered | 30 | 833 | 32 | 9 | 28 | 846 |
 | rest | 20 | 1912 | 81 | 0 | 117 | 1876 |
 
-## Short of target: every source read (711)
+## Short of target: every source read (713)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -33,6 +33,15 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/paravandellia-oxyptera | covered | 1 | 30 |
 | species/wallago-attu | covered | 1 | 30 |
 | species/neolamprologus-pulcher | covered | 3 | 30 |
+| species/amphilius-lujani | rest | 0 | 20 |
+| species/amphilius-zairensis | rest | 0 | 20 |
+| species/arius-latiscutatus | covered | 0 | 30 |
+| species/polypterus-retropinnis | covered | 0 | 30 |
+| species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
+| species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
+| species/hypostomus-isbrueckeri | covered | 0 | 30 |
+| species/leporinus-arcus | covered | 0 | 30 |
+| species/mochokus-niloticus | covered | 0 | 30 |
 | species/paracheirodon-innesi | staple | 21 | 100 |
 | species/paracheirodon-axelrodi | staple | 30 | 100 |
 | species/trigonostigma-heteromorpha | staple | 26 | 100 |
@@ -304,7 +313,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypancistrus-inspector | covered | 0 | 30 |
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/hyphessobrycon-vilmae | covered | 2 | 30 |
-| species/hypostomus-isbrueckeri | covered | 0 | 30 |
 | species/hypostomus-luteus | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 3 | 30 |
@@ -376,7 +384,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/apistogramma-trifasciata | covered | 3 | 30 |
 | species/ariopsis-felis | covered | 20 | 30 |
 | species/ariopsis-seemanni | covered | 0 | 30 |
-| species/arius-latiscutatus | covered | 0 | 30 |
 | species/aspidoras-pauciradiatus | covered | 4 | 30 |
 | species/aspidoras-taurus | covered | 3 | 30 |
 | species/asterophysus-batrachus | covered | 1 | 30 |
@@ -547,7 +554,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/dichotomyctere-ocellatus | covered | 0 | 30 |
 | species/dicrossus-filamentosus | covered | 1 | 30 |
 | species/dicrossus-maculatus | covered | 2 | 30 |
-| species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
 | species/discherodontus-ashmeadi | covered | 0 | 30 |
 | species/distichodus-affinis | covered | 0 | 30 |
 | species/distichodus-lusosso | covered | 0 | 30 |
@@ -624,7 +630,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hyphessobrycon-eschwartzae | covered | 0 | 30 |
 | species/hyphessobrycon-flammeus | covered | 8 | 30 |
 | species/hyphessobrycon-haraldschultzi | covered | 0 | 30 |
-| species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
 | species/hyphessobrycon-loretoensis | covered | 1 | 30 |
 | species/hyphessobrycon-melanostichos | covered | 0 | 30 |
 | species/hyphessobrycon-pyrrhonotus | covered | 0 | 30 |
@@ -679,7 +684,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/leporacanthicus-galaxias | covered | 0 | 30 |
 | species/leporacanthicus-triactis | covered | 0 | 30 |
 | species/leporellus-vittatus | covered | 7 | 30 |
-| species/leporinus-arcus | covered | 0 | 30 |
 | species/leporinus-friderici | covered | 5 | 30 |
 | species/leptobarbus-hoevenii | covered | 2 | 30 |
 | species/leptobotia-elongata | covered | 2 | 30 |
@@ -706,7 +710,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/melanotaenia-rubrostriata | covered | 0 | 30 |
 | species/metaloricaria-nijsseni | covered | 0 | 30 |
 | species/microctenopoma-fasciolatum | covered | 1 | 30 |
-| species/mochokus-niloticus | covered | 0 | 30 |
 | species/nannostomus-anduzei | covered | 0 | 30 |
 | species/neblinichthys-pilosus | covered | 0 | 30 |
 | species/nematogenys-inermis | covered | 1 | 30 |
@@ -719,7 +722,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/parosphromenus-anjunganensis | covered | 1 | 30 |
 | species/parosphromenus-bintan | covered | 0 | 30 |
 | species/pelvicachromis-taeniatus | covered | 11 | 30 |
-| species/polypterus-retropinnis | covered | 0 | 30 |
 | species/pseudoplatystoma-corruscans | covered | 1 | 30 |
 | species/retroculus-acherontos | covered | 0 | 30 |
 | species/rhadinoloricaria-rhami | covered | 0 | 30 |

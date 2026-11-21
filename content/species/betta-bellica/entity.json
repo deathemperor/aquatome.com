@@ -303,7 +303,12 @@
       "author": "Aiman Azmi",
       "sourceUrl": "https://www.inaturalist.org/photos/110661848",
       "caption": "Cá betta bellica cái màu nâu vàng trong bể thủy sinh",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/110661848-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

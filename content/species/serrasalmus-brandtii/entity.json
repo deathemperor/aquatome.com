@@ -522,7 +522,12 @@
       "author": "Brian Williams",
       "sourceUrl": "https://www.inaturalist.org/photos/722423310",
       "caption": "Cá piranha trắng có đốm trong nước tự nhiên giữa cây thủy sinh",
-      "setup": false
+      "setup": false,
+      "large": {
+        "url": "https://media.aquatome.com/inaturalist/722423310-large.webp",
+        "width": 2048,
+        "height": 1153
+      }
     }
   ],
   "videos": [],

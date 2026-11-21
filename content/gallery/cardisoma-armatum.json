@@ -2,20 +2,6 @@
   "id": "cardisoma-armatum",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/132891181.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/132891181-480.webp",
-      "width": 1024,
-      "height": 703,
-      "licence": "CC BY-SA",
-      "author": "Thibaud Aronson",
-      "sourceUrl": "https://www.inaturalist.org/photos/132891181",
-      "caption": "Hai con cua nhỏ màu tím và cam trên nền đất ven rừng",
-      "best": true,
-      "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/262026279.webp",
       "thumb": "https://media.aquatome.com/inaturalist/262026279-480.webp",
       "width": 1024,
@@ -26,65 +12,7 @@
       "caption": "Cua cam càng tím nhô ra khỏi hang trên đất bùn",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/228186568.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/228186568-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "bewambay",
-      "sourceUrl": "https://www.inaturalist.org/photos/228186568",
-      "caption": "Cua trưởng thành càng cam trên nền xi măng",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/469323321.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/469323321-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "William Stephens",
-      "sourceUrl": "https://www.inaturalist.org/photos/469323321",
-      "caption": "Cua cầu vồng châu Phi chân cam dưới tảng đá ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/348219420.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/348219420-480.webp",
-      "width": 1024,
-      "height": 578,
-      "licence": "CC BY-SA",
-      "author": "Ong Jyh Seng",
-      "sourceUrl": "https://www.inaturalist.org/photos/348219420",
-      "caption": "Cua mai xanh càng cam bên cạnh viên thức ăn",
-      "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/40c1dc658d3282ec.webp",
-      "thumb": "https://media.aquatome.com/commons/40c1dc658d3282ec-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "BetacommandBot",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gecarcinus_quadratus_(dead).jpg",
-      "caption": "Cua Cardisoma armatum chân đỏ trên nền đá ngoài tự nhiên",
-      "sourceCaption": "Description: A dead specimen of Gecarcinus quadratus on the Pacific coast of Costa Rica Source: self made Date: 2002-19-03 Author = --Ruestz 21:29, 26 June 2006 (UTC)",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/e5729c6439810554.webp",
@@ -98,23 +26,20 @@
       "sourceCaption": "The rainbow crab (Cardisoma armatum), closer version of Image:Rainbow crab.jpg, itself corrected version of that",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
-      "url": "https://media.aquatome.com/commons/4259872c3fcc12e0.webp",
-      "thumb": "https://media.aquatome.com/commons/4259872c3fcc12e0-480.webp",
-      "width": 1200,
-      "height": 801,
-      "licence": "CC BY-SA 4.0",
-      "author": "VSchagow",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harlekinkrabbe_(Cardisoma_armatum)_2006.jpg",
-      "caption": "Cua Cardisoma armatum chân đỏ càng trắng trên đá trong bể",
-      "sourceCaption": "Harlekinkrabbe (Cardisoma armatum), Westafrikanische Landkrabbe, fotografiert im Dresdner Zoo",
+      "url": "https://media.aquatome.com/inaturalist/469323321.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/469323321-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "William Stephens",
+      "sourceUrl": "https://www.inaturalist.org/photos/469323321",
+      "caption": "Cua cầu vồng châu Phi chân cam dưới tảng đá ngoài tự nhiên",
       "best": true,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/86e92d4f077bfe8d.webp",
@@ -128,22 +53,20 @@
       "sourceCaption": "Cangrejo DT [E Río Verde] (2)",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/65620642.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65620642-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/132891289.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/132891289-480.webp",
       "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Thomas Ebner",
-      "sourceUrl": "https://www.inaturalist.org/photos/65620642",
-      "caption": "Cua xanh lam trên bãi bùn ven biển",
+      "height": 779,
+      "licence": "CC BY-SA",
+      "author": "Thibaud Aronson",
+      "sourceUrl": "https://www.inaturalist.org/photos/132891289",
+      "caption": "Cua màu tím cam đứng gần chiếc lá trên đất",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/561f3a1fbfeaa9c2.webp",
@@ -157,22 +80,7 @@
       "sourceCaption": "Krab tęczowy",
       "best": false,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/132891289.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/132891289-480.webp",
-      "width": 1024,
-      "height": 779,
-      "licence": "CC BY-SA",
-      "author": "Thibaud Aronson",
-      "sourceUrl": "https://www.inaturalist.org/photos/132891289",
-      "caption": "Cua màu tím cam đứng gần chiếc lá trên đất",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/1a5590f3af1e762f.webp",
@@ -186,8 +94,60 @@
       "sourceCaption": "Океанариум в Ейске «Акулий риф»",
       "best": false,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/132891181.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/132891181-480.webp",
+      "width": 1024,
+      "height": 703,
+      "licence": "CC BY-SA",
+      "author": "Thibaud Aronson",
+      "sourceUrl": "https://www.inaturalist.org/photos/132891181",
+      "caption": "Hai con cua nhỏ màu tím và cam trên nền đất ven rừng",
+      "best": true,
+      "kind": "group",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4259872c3fcc12e0.webp",
+      "thumb": "https://media.aquatome.com/commons/4259872c3fcc12e0-480.webp",
+      "width": 1200,
+      "height": 801,
+      "licence": "CC BY-SA 4.0",
+      "author": "VSchagow",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harlekinkrabbe_(Cardisoma_armatum)_2006.jpg",
+      "caption": "Cua Cardisoma armatum chân đỏ càng trắng trên đá trong bể",
+      "sourceCaption": "Harlekinkrabbe (Cardisoma armatum), Westafrikanische Landkrabbe, fotografiert im Dresdner Zoo",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/228186568.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/228186568-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "bewambay",
+      "sourceUrl": "https://www.inaturalist.org/photos/228186568",
+      "caption": "Cua trưởng thành càng cam trên nền xi măng",
+      "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65620642.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65620642-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Thomas Ebner",
+      "sourceUrl": "https://www.inaturalist.org/photos/65620642",
+      "caption": "Cua xanh lam trên bãi bùn ven biển",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/469323325.webp",
@@ -200,8 +160,7 @@
       "caption": "Cua chân cam gần gốc cây ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/525145929.webp",
@@ -214,8 +173,7 @@
       "caption": "Cua cầu vồng trên bãi cỏ xanh ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/601281821.webp",
@@ -228,8 +186,7 @@
       "caption": "Hai con cua mai xanh chân cam trên nền bùn đá",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 46,
