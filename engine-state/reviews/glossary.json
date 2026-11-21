@@ -2827,5 +2827,54 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/de-con": [
+    {
+      "at": "2026-11-21T19:35:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:35:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.91,
+      "notes": [
+        "\"Cá cái có bầu có một đốm tối gần vây hậu môn, và đốm này sẫm dần khi gần ngày đẻ.\": the facts don't carry it (uncredited, uncredited, supported): only liveaquaria gives this generally; the guppy-only source's limit isn't next to it / general claim only from liveaquaria; other shop's guppy limit not adjacent",
+        "\"Nuôi riêng cá đực với cá cái thì không có lứa ngoài ý muốn.\": the facts don't carry it (uncredited, uncredited, uncredited): only the vet site says this, and the credit ended with the previous sentence / only vet source; credit ended at previous sentence / only cafishvet says this, and the credit stopped at the previous sentence's full stop",
+        "Rule 15: Under \"Nên làm gì\", the sentence \"Nguồn thú y cũng ghi rằng chỉ một con cá cái có bầu cũng có thể làm bể chật cá nhanh, và chỉ vài tháng là bể có thể có mấy thế hệ nối nhau.\" is background, not something the reader does. It belongs under a heading that says what it holds, or should be cut back to the action.",
+        "Rule 12: \"Nuôi riêng cá đực với cá cái thì không có lứa ngoài ý muốn.\" comes from the vet source alone but is written as plain fact in its own sentence, outside the credit \"Nguồn thú y cũng ghi rằng…\". The vet's two claims in a row should go under one opening, as a list or as one sentence with semicolons, and not as a credited sentence followed by a plain one.",
+        "Rule 12: The first shop's claims are split under \"Nên làm gì\": \"Tiệm thứ nhất ghi:\" (breeding tank, moving the fry), then the second shop and the vet, then \"Tiệm thứ nhất cũng ghi:\" (sponge over the filter intake, floating cuttings). Nothing in the order stops these from being kept together under one opening.",
+        "Rule 4: The difference from egg-laying fish is said twice: in the definition (\"lúc ra đời đã là cá con chứ không phải trứng\") and again in the vet list (\"Cá đẻ con thụ tinh trong bụng cá mẹ, khác với cá đẻ trứng.\"). It should be said once, in one place.",
+        "Rule 12: \"Nguồn thú y coi chuyện cho cá bảy màu lai cận huyết bừa bãi là đáng lo.\" narrows the fact. The fact calls reckless inbreeding a concern in general and gives 'designer' guppies only as an example ('as with'). The entry makes it about cá bảy màu alone and drops 'designer'.",
+        "Rule 12: Under \"Sai lầm cần tránh\", the second shop comes back after the first shop has been named, so it should open \"Tiệm thứ hai cũng ghi:\", as the Thu 19 line has it, and not \"Tiệm thứ hai ghi về cá bảy màu:\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:35:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.86,
+      "notes": [
+        "\"Người nuôi cần nhận ra lúc cá cái sắp đẻ, vì một số cá lớn ăn cá con mới đẻ.\": the facts don't carry it (unsupported, unsupported, unsupported): No fact gives recognising birth as advice tied to fry-eating / The facts never advise recognizing that a birth is near for this reason / The need to spot imminent birth is not given as advice; the cause is joined from separate facts",
+        "\"Chỉ một con cá cái có bầu cũng có thể làm bể chật cá rất nhanh, và chỉ vài tháng là bể có mấy thế hệ nối nhau.\": the facts don't carry it (unsupported, unsupported, unsupported): 'rất nhanh' is stronger than 'quickly' / 'rất nhanh' is stronger than the source's 'quickly' / 'rất nhanh' overstates 'quickly'; drops 'can' on generations building up",
+        "\"Với cá bảy màu và cá Xiphophorus, đẻ xong thì phải tách cá mẹ ra.\": the facts don't carry it (uncredited, loose, uncredited): Each kind's claim comes from a single site (hanoizoo, chothuysinh) but is stated as plain fact / Joins the swordtail rule with the guppy source's implied separation / Guppy claim only from chothuysinh, Xiphophorus claim only from hanoizoo; no credit given",
+        "\"Cá bảy màu mẹ vừa đẻ xong thì không thả ngay về bể cũ.\": the facts don't carry it (uncredited, uncredited, uncredited): Only mayaqua.vn gives this, and it is stated as plain fact / Only mayaqua says this, and the sentence gives no credit / Only mayaqua.vn says this; stated with no credit",
+        "Rule 12: \"Người nuôi cần nhận ra lúc cá cái sắp đẻ, vì một số cá lớn ăn cá con mới đẻ\" uses \"vì\" to join two things that no single fact joins. No fact says the keeper needs to spot a female close to birth. The claim that some adults eat newborn fry comes only from liveaquaria.com, but it stands as plain fact without that shop's credit.",
+        "Rule 12: \"Cá đẻ con là cá mà cá mẹ giữ trứng trong bụng\" (definition) and \"Ở cá đẻ con, cá mẹ giữ trứng trong bụng\" (body) say all livebearers keep eggs inside. The fact says only \"Most Poeciliidae\" are ovoviviparous, so its hedge is dropped. It also says some livebearers (splitfins, halfbeaks) are viviparous and feed their embryos through placenta-like structures, and that limit is not given.",
+        "Rule 12: \"Ở cá đẻ con, cá mẹ giữ trứng trong bụng, và cá con lớn lên ngay trong bụng mẹ trước khi ra đời\" is a plain sentence that joins two claims each given by only one site. Keeping the eggs inside comes from wikipedia.org; the fry developing inside the mother comes from cafishvet.com. Each should be its own sentence under its own credit.",
+        "Rule 4: the egg-keeping trait (\"cá mẹ giữ trứng trong bụng\") is said twice, once in the definition and again as the first sentence of \"Trong bể của bạn\".",
+        "Rule 15: under \"Trong bể của bạn\" the section holds what a livebearer is, example species, pregnancy lengths, how broods build up and the inbreeding worry (\"Cho cá bảy màu lai cận huyết bừa bãi là chuyện đáng lo\"). None of this is what the fish does in the tank or its signs there. The section should get a heading that says what it holds.",
+        "Rule 4: the darkening gravid spot is said twice: \"đốm này sẫm dần khi gần ngày đẻ\" and again in \"đốm bầu sẫm và to hơn\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
