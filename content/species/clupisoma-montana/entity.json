@@ -1,0 +1,52 @@
+{
+  "id": "clupisoma-montana",
+  "scientificName": "Clupisoma montana",
+  "order": "Siluriformes",
+  "family": "Schilbeidae",
+  "genus": "Clupisoma",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "ganges",
+    "nepal"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1418",
+      "html": "<ul><li>Scientific name: Clupisoma montanum Hora, 1938</li><li>Type locality: Teestra [Teesta] R., below Darjeeling, India.</li><li>IUCN Red List status: Least Concern</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1418",
+      "html": "<p>Asia: India and Nepal. Ganges Drainage, Pilibhit, Uttar Pradesh, India.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1418",
+      "html": "<p>Breeding: Unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1418",
+      "html": "<p>J. Bombay Nat. Hist. Soc. v. 39 - pp 673 - Figs. 7-8</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

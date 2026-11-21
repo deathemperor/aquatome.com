@@ -7,12 +7,55 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'
 
+// A second-look record (engine-state/_photo-second-look.json, packages/engine/src/last-photo.ts), told by its shape since
+// the driver isn't told the file's name. Where both sides changed one: one taken out (an agree moves it to the never-again
+// list) stays out; else a person's answer (a well-formed look) is kept, and where the other side marked the record off at
+// its first verdict, the answer goes on that marked record, so the waiting entry its run wrote keeps a record marked for
+// it and a clear can lift it (the independent reader, 21 Nov 2026). A clear for another reason than the mark's is the one
+// answer dropped: the mark and its waiting entry stay, for a look of their own, since no mismatch loosens the never-again
+// list (the chief of staff's rule, 20 Nov) and the entry the merge keeps is the mark's (the independent reader, 21 Nov).
+// Else the record marked off wins over one that isn't, so that waiting entry keeps its record (two runs met so on 20 Nov,
+// and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
+const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
+const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
+function bothChanged(base, ours, theirs, k) {
+  if (!(k in ours) || !(k in theirs)) return k in base ? undefined : (k in ours ? ours : theirs)
+  const [o, t] = [ours[k], theirs[k]]
+  if (answered(o) !== answered(t)) {
+    const [a, m] = answered(o) ? [o, t] : [t, o]
+    if (m.off === true && a.look.said === 'clear' && a.why !== m.why) return { [k]: m }
+    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : a }
+  }
+  if ((o.off === true) !== (t.off === true)) return o.off === true ? ours : theirs
+  return ours
+}
+
+// A never-again entry (engine-state/_photo-rejected.json) both sides changed, one a waiting entry (last-photo.ts
+// waitingEntry) and the other a reason for good: the reason for good wins. A run's first verdict and an agree's sweep met
+// so in a merge, and the waiting entry that won stood with no record for it, for good (the independent reader, 21 Nov
+// 2026). Told by its exact shape: no other file the driver merges holds one.
+const WAITING = /^waiting: withheld \[sha256:[0-9a-f]{64}\]$/
+const waitingAndFinal = (o, t) => typeof o === 'string' && typeof t === 'string' && WAITING.test(o) !== WAITING.test(t)
+
+// An emptied fish page's entry (engine-state/_priority-emptied.json, packages/engine/src/emptied-pages.ts): `species/id`
+// or `breeds/id` to the day it went on the list. Told by its shape: no other file the driver merges holds one (a test in
+// emptied-pages.test.ts holds that). Where both sides gave it a day, the earlier wins, so the page keeps its first day:
+// two runs that each emptied one page list it on their own day, and in a run's rebase ours is main's, so the later run's
+// day stood (the independent reader, 21 Nov 2026).
+const LISTED = /^(species|breeds)\/[a-z0-9-]+$/, DAY = /^\d{4}-\d{2}-\d{2}$/
+const listedDays = (k, o, t) => LISTED.test(k) && typeof o === 'string' && typeof t === 'string' && DAY.test(o) && DAY.test(t)
+
 export function mergeMaps(base, ours, theirs) {
   const same = (side, k) => (k in side) === (k in base) && JSON.stringify(side[k]) === JSON.stringify(base[k])
   const out = {}
   for (const k of new Set([...Object.keys(ours), ...Object.keys(theirs), ...Object.keys(base)])) {
-    const side = !same(ours, k) ? ours : !same(theirs, k) ? theirs : base
-    if (k in side) out[k] = side[k]
+    const changed = !same(ours, k) && !same(theirs, k)
+    const both = changed && [base[k], ours[k], theirs[k]].some(record) && [base[k], ours[k], theirs[k]].every(v => v === undefined || record(v))
+    const side = both ? bothChanged(base, ours, theirs, k)
+      : changed && k in ours && k in theirs && waitingAndFinal(ours[k], theirs[k]) ? (WAITING.test(ours[k]) ? theirs : ours)
+      : changed && k in ours && k in theirs && listedDays(k, ours[k], theirs[k]) ? (theirs[k] < ours[k] ? theirs : ours)
+      : !same(ours, k) ? ours : !same(theirs, k) ? theirs : base
+    if (side && k in side) out[k] = side[k]
   }
   return out
 }

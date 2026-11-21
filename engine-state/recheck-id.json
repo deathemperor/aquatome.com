@@ -601,9 +601,10 @@
     "back": false
   },
   "barbodes-everetti": {
-    "hash": "f42a303a8ae93433879be2ee88c1f603788be474b17bf15a7734ce5dc583c1e1",
-    "at": "2026-11-20T01:38:00.336Z",
-    "sonnet": 0.6,
+    "hash": "61b19f5502aa40b741de6e24f2015fb5930d1fa65bb8aa6f02789014fd870c03",
+    "at": "2026-11-21T06:57:09.498Z",
+    "sonnet": 0.75,
+    "opus": 0.7,
     "back": false
   },
   "barbodes-kuchingensis": {
@@ -785,6 +786,16 @@
     "opus": 0.85,
     "back": true
   },
+  "betta-simorum": {
+    "hash": "3c7c8a4dd991b3b81799f804507d1efdbecf3752fed8bda0331ad20c4eb7386d",
+    "at": "2026-11-21T06:57:41.799Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": false,
+    "held": [
+      "#12: 'Perlakukan seperti Betta splendens' – the advice is ambiguous; clarify that it means treating them as aggressive (as with B. splendens)."
+    ]
+  },
   "betta-simplex": {
     "hash": "e8e22287a63e2f2ea2cfe7d63a609b65381622ac926f419f01bb24c5d391cf51",
     "at": "2026-11-18T00:29:03.853Z",
@@ -841,13 +852,11 @@
     "back": true
   },
   "botia-striata": {
-    "hash": "84ab2eecc15424135e744766b0738f0ff401b7c3f792fb63c2af19bfdf4f2792",
-    "at": "2026-11-20T17:25:05.939Z",
-    "sonnet": 0.6,
-    "back": false,
-    "held": [
-      "Item 12: \"Levamisole yang tergolong antibiotik\" repeats the source's error, but Levamisole is an anthelmintic, not an antibiotic. Fenbendazole is also an anthelmintic. Fix the wording or add a neutral note. Check this against the source before finalising."
-    ]
+    "hash": "24b98611adc1c3ace3569b362714e95743a8a25ff044b8170057252dc822e8df",
+    "at": "2026-11-21T06:58:20.714Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
   },
   "botia-udomritthiruji": {
     "hash": "0bcb19e36a04a02646e958b692a42ec4f987f7dda046be6e86f00f1fa11c6b13",
@@ -977,6 +986,13 @@
       "Section 6: \"dapat bertahan (LC50) pada pH 2,43\" is imprecise. Say that LC50 (50% mortality) was reached at pH 2,43 over 96 jam."
     ]
   },
+  "camposcia-retusa": {
+    "hash": "b1a1f41bede7fcc07471e7ce87f96dcc4fdb2935a4775af67d8c204651b97add",
+    "at": "2026-11-21T06:59:33.615Z",
+    "sonnet": 0.95,
+    "opus": 0.95,
+    "back": true
+  },
   "caquetaia-myersi": {
     "hash": "7369a31ceb4d1105bb2e26677406592964768d6389004342300d73cf83ea9398",
     "at": "2026-11-17T11:23:49.887Z",
@@ -989,15 +1005,68 @@
     "sonnet": 0.7,
     "back": false
   },
+  "caridina-mariae": {
+    "hash": "f1e1bc2c3dcf90523bc310a277afadfafd78d0985ed9f4ef1a04b2139bedc218",
+    "at": "2026-11-21T06:59:42.344Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "caridina-multidentata": {
     "hash": "49490649fe0a56585449e8ddd797bf93d143e91836bc3997dcd475b2e92dec36",
     "at": "2026-11-19T07:34:54.235Z",
     "sonnet": 0.5,
     "back": false
   },
+  "carinotetraodon-lorteti": {
+    "hash": "9f4782b42507f71da7449cff658a8b51128e6ad3c95a418e7850b978d2623dfe",
+    "at": "2026-11-21T06:59:57.564Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "carinotetraodon-salivator": {
+    "hash": "7e3da37b8589f3154e33f1e73c5f882446a0f638d42690055d6a2ac3a2103e42",
+    "at": "2026-11-21T07:00:13.526Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "catalaphyllia-jardinei": {
+    "hash": "d653e7a90417e0f24f3157a1d288d796411e4465b9eafb8b4f174c5f74dade6c",
+    "at": "2026-11-21T07:00:31.295Z",
+    "sonnet": 0.72,
+    "back": false
+  },
   "cathorops-dasycephalus": {
     "hash": "ccf665a3527aaedadbb19de441af33797979c67dfb401ca26361c46196006603",
     "at": "2026-11-18T18:06:10.697Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "catoprion-mento": {
+    "hash": "708b3e4eeeebecd1c0f82df3336d1802ebb0b4463ce30ccfa438cc4c3de45c5d",
+    "at": "2026-11-21T07:01:02.152Z",
+    "sonnet": 0.9,
+    "opus": 0.9,
+    "back": true
+  },
+  "centrochir-crocodili": {
+    "hash": "245e5f145a57615e7e50a999a413afc8143d7e818e1fc986efc7690346521807",
+    "at": "2026-11-21T07:01:26.274Z",
+    "sonnet": 0.8,
+    "opus": 0.85,
+    "back": false,
+    "held": [
+      "#7: \"sirip dadanya yang tajam dan dikenal bisa membunuh kaiman\" is vague. Make it clear that the spines are known to kill caiman that try to eat the fish."
+    ]
+  },
+  "centromochlus-macracanthus": {
+    "hash": "af0307a1818aa72190d749eaaa72d655f494784025786be61bddc108967cfd90",
+    "at": "2026-11-21T07:01:37.872Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "centromochlus-perugiae": {
+    "hash": "70ae595ae209844b4bbf6b87b85bbf18675310b8f7a14de504b2b85d1816c4b1",
+    "at": "2026-11-21T07:01:49.460Z",
     "sonnet": 0.7,
     "back": false
   },
@@ -1063,6 +1132,12 @@
     "opus": 0.9,
     "back": true
   },
+  "cyclocheilichthys-janthochir": {
+    "hash": "8d60f0b9b0e08caf67e86a8cd41e87963aefbbc7fe31ea377de78c81bc390a39",
+    "at": "2026-11-21T06:58:34.517Z",
+    "sonnet": 0.55,
+    "back": false
+  },
   "danio-aesculapii": {
     "hash": "74c5389cd5f9474e6b0c220bb1f4e8556ef2c6bff938be902419d571df09ae66",
     "at": "2026-11-17T11:24:29.567Z",
@@ -1115,8 +1190,8 @@
     "back": false
   },
   "discherodontus-ashmeadi": {
-    "hash": "c54dbfbff67261b6ee07ba6f826788f76c9506b1925b7f6adb9ecb45e077b8b7",
-    "at": "2026-11-17T11:26:04.459Z",
+    "hash": "f4f736ea5589fa158fc75316a1971f89c30ad7244dc7d9e12417b6d72f719d76",
+    "at": "2026-11-21T06:58:46.344Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -1441,9 +1516,9 @@
     "back": true
   },
   "sphaerichthys-vaillanti": {
-    "hash": "3701d22e6e77749ac7ad9cf70de94953acce044cb4d6c7dd9faea01adbb94d8e",
-    "at": "2026-11-18T05:44:20.449Z",
-    "sonnet": 0.3,
+    "hash": "e92072c82159989d007bf478a74c2e6e343491ae24ade2614cfaa92fdc49d7be",
+    "at": "2026-11-21T06:59:00.143Z",
+    "sonnet": 0.55,
     "back": false
   },
   "trichogaster-lalius": {

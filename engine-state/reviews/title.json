@@ -369,6 +369,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-Shhe4SNvXpY": [
+    {
+      "at": "2026-11-21T12:03:27Z",
+      "model": "opus",
+      "ran": "claude-opus-5-5",
+      "cli": "2.1.329",
+      "score": 0.9,
+      "notes": [
+        "The count was dropped instead of fixed. The headings name 10 fish, but only 9 have bold leads (cá lau kiếng has none), so leaving the number out avoids the mismatch.",
+        "Without a number, 'Các loại...' is a bit more generic than the original listicle title, but it reads naturally and keeps the subject."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-iFDXqeBOxQk": [
     {
       "at": "2026-11-09T13:54:17Z",

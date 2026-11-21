@@ -232,34 +232,6 @@
       "setup": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/720019887.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/720019887-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY-NC",
-      "author": "donnymidas",
-      "sourceUrl": "https://www.inaturalist.org/photos/720019887",
-      "caption": "Đàn cá tam giác trong hộp nhựa cạnh thước đo",
-      "best": false,
-      "kind": "group",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/482036680.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/482036680-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Lumin Ong",
-      "sourceUrl": "https://www.inaturalist.org/photos/482036680",
-      "caption": "Cá tam giác bơi trên nền cát đỏ ngoài tự nhiên",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/100111739.webp",
       "thumb": "https://media.aquatome.com/inaturalist/100111739-480.webp",
       "width": 847,
@@ -308,6 +280,32 @@
       "sourceUrl": "https://www.inaturalist.org/photos/619266920",
       "caption": "Cá tam giác trong môi trường tự nhiên, nước đục",
       "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/720019887.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/720019887-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY-NC",
+      "author": "donnymidas",
+      "sourceUrl": "https://www.inaturalist.org/photos/720019887",
+      "caption": "Đàn cá tam giác trong hộp nhựa cạnh thước đo",
+      "best": false,
+      "kind": "group",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/482036680.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/482036680-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "Lumin Ong",
+      "sourceUrl": "https://www.inaturalist.org/photos/482036680",
+      "caption": "Cá tam giác bơi trên nền cát đỏ ngoài tự nhiên",
+      "best": false,
       "kind": "habitat",
       "setup": false
     }

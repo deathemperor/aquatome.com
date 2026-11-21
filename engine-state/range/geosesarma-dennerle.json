@@ -1,0 +1,51 @@
+{
+  "id": "geosesarma-dennerle",
+  "native": {
+    "input": "e4437eea7f0d62ef",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Sulawesi",
+        "source": "aquariumbreeder",
+        "quote": "They come from Sulawesi, Java, Krakatau or the Riau Islands.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "aquariumbreeder",
+        "quote": "They come from Sulawesi, Java, Krakatau or the Riau Islands.",
+        "ok": true
+      },
+      {
+        "name": "Krakatau",
+        "source": "aquariumbreeder",
+        "quote": "They come from Sulawesi, Java, Krakatau or the Riau Islands.",
+        "ok": true
+      },
+      {
+        "name": "Riau Islands",
+        "source": "aquariumbreeder",
+        "quote": "They come from Sulawesi, Java, Krakatau or the Riau Islands.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geosesarma dennerle",
+    "status": "ACCEPTED",
+    "taxonKey": 9016339,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

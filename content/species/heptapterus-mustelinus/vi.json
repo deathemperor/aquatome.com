@@ -1,0 +1,30 @@
+{
+  "slug": "ca-da-tron-chon",
+  "name": "Cá da trơn chồn",
+  "altNames": [
+    "Cá heptapterus",
+    "Weasel Catfish"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Heptapterus mustelinus (Valenciennes, 1835)</li><li>Tên thường gọi: Weasel Catfish (cá da trơn chồn)</li><li>Nơi thu mẫu chuẩn: Rio de la Plata, Nam Mỹ</li><li>Sinh sản: chưa có báo cáo</li></ul>",
+    "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông La Plata, sông Uruguay và các sông đổ ra biển ở miền nam Brazil.</p>",
+    "waterConditions:planetcatfish": "<ul><li>pH: 6,0–8,0</li><li>Nhiệt độ: 18–24 °C</li><li>dH: 6–10</li></ul>",
+    "reproduction:planetcatfish": "<p>Chưa có tài liệu nào nói về sinh sản của loài này. Cũng chưa ai báo cáo đã cho chúng đẻ.</p>",
+    "notes:planetcatfish": "<p>Deprá và cộng sự (2022) mô tả lại giống Heptapterus với những đặc điểm chung sau: (1) vây mỡ dính liền với vây đuôi trên một đoạn dài, (2) vây đuôi không chẻ đôi, (3) có vạch và sọc sẫm màu ở phần lưng thân, (4) có 5–6 cặp xương sườn, (5) thân thon dài với chiều dài đầu bằng 16,1–24,9%, (6) mép miệng kéo về phía sau một đoạn ngắn, (7) tấm răng hàm trên không có hoặc chỉ có một phần nhô nhỏ về phía sau bên, (8) vây bụng mọc sau đường thẳng đứng kẻ qua gốc vây lưng và vây hậu môn mọc sau đường thẳng đứng kẻ qua điểm bắt đầu vây mỡ, (9) vây hậu môn có 10–23 tia, (10) vây hậu môn và vây đuôi tách rời nhau, (11) hai lỗ cảm giác trên ổ mắt số 6 (s6) dính liền hoặc nằm sát nhau.</p><p>Kích thước SL ở đây không khớp với Fishbase, nơi ghi 9 cm TL cho cùng loài này. Nhưng con số trên trang này đã được kiểm chứng.</p>",
+    "references:planetcatfish": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (figs. 1-4).</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.88
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-21"
+  }
+}

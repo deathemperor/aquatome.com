@@ -17,9 +17,12 @@
         "MY",
         "SG"
       ],
-      "regions": [],
+      "regions": [
+        "Malaysian peninsula"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -30,6 +33,14 @@
             "SG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Barbodes dunckeri originally comes from the Malaysian peninsula.",
+          "countries": [],
+          "regions": [
+            "Malaysian peninsula"
+          ]
         }
       ]
     },
@@ -250,17 +261,6 @@
     }
   ],
   "photos": [
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/4d43deba9a8e4c39-480.webp",
-      "width": 640,
-      "height": 311,
-      "licence": "dùng với sự cho phép",
-      "author": "Rupert Collins / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-dunckeri",
-      "caption": "Another individual from the aquarium trade.",
-      "source": "seriouslyfish"
-    },
     {
       "url": "https://media.aquatome.com/glaser/9c961689e984f2d9.webp",
       "thumb": "https://media.aquatome.com/glaser/9c961689e984f2d9-480.webp",

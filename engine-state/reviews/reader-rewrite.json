@@ -1154,6 +1154,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-lYyEHHmeZY0#body": [
+    {
+      "at": "2026-11-21T07:26:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "AFTER adds 'vừa cắt' to 'đầu chai' (the bottle top is described as freshly cut), which is not in BEFORE; 'miệng chai' became 'đầu chai vừa cắt', a small change in meaning.",
+        "'tràn ra ngoài theo miệng chai' became 'tràn theo nước ra ngoài', so the overflow path is slightly changed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-lnOzt5QoSzY#body": [
     {
       "at": "2026-11-16T17:46:43Z",
@@ -1252,6 +1267,24 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-vHAw3347CLE#body": [
+    {
+      "at": "2026-11-21T07:25:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Item 2: dropped \"và cách này có lẽ đóng góp phần lớn vào đó\" (hedged claim that leaf use contributes most) - content lost.",
+        "Item 2: \"cá ít gặp vấn đề hơn hẳn\" (definite, strong) became \"cá có lẽ sẽ ít gặp vấn đề hơn\" - certainty turned into hedge, strength of claim reduced.",
+        "Item 1: \"thân người\" -> \"quen người\" minor nuance shift; acceptable.",
+        "Item 1: \"nó sẽ tìm chỗ chạy trốn\" -> \"hễ có gì ... là nó đi tìm chỗ trốn\" slightly stronger generalization (hễ), minor.",
+        "Item 1: added \"Betta cũng vậy.\" is a small restructure, no new fact."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-xBtOIR5wt6k#body": [

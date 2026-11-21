@@ -761,6 +761,13 @@
     "opus": 0.8,
     "back": true
   },
+  "betta-pugnax": {
+    "hash": "e987ddcddd42c5ac80617f1935492873fdec0ba3df820f1714eefb4269bff376",
+    "at": "2026-11-21T07:05:50.615Z",
+    "sonnet": 0.92,
+    "opus": 0.88,
+    "back": true
+  },
   "betta-siamorientalis": {
     "hash": "8b085e1a488698dbb43e4842e6aec67c44f58225063ee1d32b60367331680402",
     "at": "2026-11-19T07:40:46.331Z",
@@ -782,6 +789,59 @@
     "held": [
       "Item 3: \"Soft soil\" is translated as \"พื้นตู้ที่นุ่ม\". Use \"วัสดุรองพื้นละเอียดนุ่ม (ทราย)\" for clarity. \"light addition of salt\" is fine."
     ]
+  },
+  "botia-histrionica": {
+    "hash": "596cbf8e6011bfb05070c8cd2c13badc7825f4f6a37829fbb5e2ef32b82835a0",
+    "at": "2026-11-21T07:06:46.461Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "botia-rostrata": {
+    "hash": "352e187fe791abd10720a79e63d4d20053f57f6cf0d49aeedf83369aa3e32aa1",
+    "at": "2026-11-21T07:07:47.451Z",
+    "sonnet": 0.88,
+    "opus": 0.86,
+    "back": false,
+    "held": [
+      "Item 12: 'Spironucleus' care advice is kept, but 'Levamisole' is described as an antibiotic (ยาปฏิชีวนะ) as in source; Levamisole is an anthelmintic, so source error is carried over without any hint. Consider 'ยาถ่ายพยาธิ' only if corrected by editor."
+    ]
+  },
+  "botia-udomritthiruji": {
+    "hash": "e0421c9f675ae5f881f6afd1243a3178fd214c411b383df7ed1e2b885eb610ab",
+    "at": "2026-11-21T07:08:42.166Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": false,
+    "held": [
+      "Item 12: 'Levamisole' is described as an antibiotic, and the Thai keeps 'ยาปฏิชีวนะ'. The source says the same, but Levamisole is an anthelmintic. Do not pass the error on as care advice. At minimum, say 'ยากำจัดปรสิต'."
+    ]
+  },
+  "boulengerella-cuvieri": {
+    "hash": "2a048bca3e475a182b27599ee6e4281cf9ca882aee320de8d30895f5133c354d",
+    "at": "2026-11-21T07:08:56.607Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "boulengerella-lucius": {
+    "hash": "f7f8172ab0f8e8278ae069edfe075383a60f7ffa0d4f6e7793f56feb3cfbbab7",
+    "at": "2026-11-21T07:09:49.025Z",
+    "sonnet": 0.88,
+    "opus": 0.75,
+    "back": true
+  },
+  "boulengerella-maculata": {
+    "hash": "b8f15cba2ef24f52d70fe489ea369e6dc07e953123386ab6a3164940aed59668",
+    "at": "2026-11-21T07:10:05.899Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "brachygobius-doriae": {
+    "hash": "accdd66a9ff9911d9b0132f7d618c3960d4981db3ac84e4130f05539c5bd5110",
+    "at": "2026-11-21T07:10:51.729Z",
+    "sonnet": 0.88,
+    "opus": 0.85,
+    "back": true
   },
   "brevibora-dorsiocellata": {
     "hash": "d5377a541dcf59ec637f0876994549fa9615008538cc99635e61e0c97ca05877",
@@ -878,11 +938,23 @@
     "opus": 0.9,
     "back": true
   },
+  "corydoras-atropersonatus": {
+    "hash": "b84c5d2257b98fda0d36e1d1144f35602d7f802e6f19dc228b1706de30d9082a",
+    "at": "2026-11-21T07:02:06.918Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "corydoras-duplicareus": {
     "hash": "fbc47e22846950c951965721a2802df88c21b7deb5b69f7a63571e790bab7ab5",
     "at": "2026-11-17T11:30:50.779Z",
     "sonnet": 0.85,
     "opus": 0.7,
+    "back": false
+  },
+  "corydoras-elegans": {
+    "hash": "707481e6ac8dac92f047916ce5b3f9166ef44926c93d1143bfbdea7b0c7f6470",
+    "at": "2026-11-21T07:02:22.854Z",
+    "sonnet": 0.6,
     "back": false
   },
   "corydoras-panda": {
@@ -897,6 +969,20 @@
     "sonnet": 0.85,
     "opus": 0.8,
     "back": true
+  },
+  "cryptarius-truncatus": {
+    "hash": "9b4f436e1c87851ed3954b6f7d33d70cd56ac564d4a784597f34e4343ab4472a",
+    "at": "2026-11-21T07:02:45.608Z",
+    "sonnet": 0.85,
+    "opus": 0.95,
+    "back": true
+  },
+  "cyclocheilichthys-janthochir": {
+    "hash": "5c809f6d40b82aab270d92b728801a3e15d3d22451b6210571ac073e5eca2545",
+    "at": "2026-11-21T07:03:47.158Z",
+    "sonnet": 0.88,
+    "opus": 0.65,
+    "back": false
   },
   "cyrtocara-moorii": {
     "hash": "4c43298442c535c43dc19b121f93cce24168db82658bf678c447af63eb86d4f9",
@@ -980,6 +1066,12 @@
     "hash": "c0a374a5f1cf2ac46c9f005de8cb98088fc23dccfdcf5e90484c5892bec17074",
     "at": "2026-11-17T17:51:19.439Z",
     "sonnet": 0.7,
+    "back": false
+  },
+  "dupouyichthys-sapito": {
+    "hash": "cb82dce7fe99e60bc938a93ec8591c0e0133ec686580953a0d0937372942b7de",
+    "at": "2026-11-21T07:03:59.266Z",
+    "sonnet": 0.6,
     "back": false
   },
   "elassoma-zonatum": {
@@ -1118,6 +1210,12 @@
       "Item 12: 'fights are always harmless' is translated as 'ไม่เคยเป็นอันตราย' (never dangerous). Use 'ไม่เป็นอันตราย'. 'ไม่สนใจปลาชนิดอื่น' also lacks a subject."
     ]
   },
+  "gymnochanda-ploegi": {
+    "hash": "6181676fd55d5cf8ee91fc829a0c7fbfafdbeaaf0e0716249749619c1920ba51",
+    "at": "2026-11-21T07:04:14.645Z",
+    "sonnet": 0.72,
+    "back": false
+  },
   "gymnothorax-polyuranodon": {
     "hash": "499aea06b9506e34b526dae11ea51516ef6fbf6783bb8f4b8646b795117b1f72",
     "at": "2026-11-18T05:48:10.387Z",
@@ -1153,6 +1251,13 @@
     "at": "2026-11-19T00:31:18.570Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "homaloptera-orthogoniata": {
+    "hash": "34b7d3b604d9aea73c8796118775ee237de7117d7a9ccc56c0a08bd12a8642a1",
+    "at": "2026-11-21T07:05:09.550Z",
+    "sonnet": 0.93,
+    "opus": 0.8,
+    "back": true
   },
   "hyphessobrycon-amandae": {
     "hash": "d8e8db18290368c818909c6371590cbc32aa60b0e8ae2c0b144328d37b39f4df",

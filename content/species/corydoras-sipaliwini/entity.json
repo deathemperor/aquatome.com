@@ -10,6 +10,76 @@
     "suriname",
     "sipaliwini"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SR"
+      ],
+      "regions": [
+        "Sipaliwini River"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Originally the species comes from Surinam, where it was first collected in the Sipaliwini River.",
+          "countries": [
+            "SR"
+          ],
+          "regions": [
+            "Sipaliwini River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342729,
+      "total": 15,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "SR",
+          11
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "GY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          1.40625,
+          6,
+          5
+        ],
+        [
+          -57.65625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

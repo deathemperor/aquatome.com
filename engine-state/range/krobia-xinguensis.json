@@ -1,16 +1,31 @@
 {
   "id": "krobia-xinguensis",
   "native": {
-    "input": "682deaf9dc39acf4",
-    "at": "2026-11-19T07:58:14.453Z",
-    "claims": [],
-    "regions": [],
+    "input": "8fb0ed57dedba350",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "As the name suggests, the animal originally comes from the Rio Xingu in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "glaser",
+        "quote": "As the name suggests, the animal originally comes from the Rio Xingu in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "BR"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -32,8 +47,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-19T07:58:14.453Z"
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T07:12:58.512Z"
   }
 }

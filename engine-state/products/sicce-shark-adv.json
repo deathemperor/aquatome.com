@@ -1,0 +1,285 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Type",
+      "value": "Submersible internal filter with transparent body, Venturi aeration and adjustable intake",
+      "source": 0
+    },
+    {
+      "key": "Filtering volume",
+      "value": "320 cm³ (main chamber)",
+      "source": 0
+    },
+    {
+      "key": "Power supply",
+      "value": "230–240 V / 50 Hz, 1.5 m cable",
+      "source": 0
+    },
+    {
+      "key": "Connection system",
+      "value": "Magnetic quick-release coupling (MCS), modular add-on chambers",
+      "source": 0
+    },
+    {
+      "key": "Flow control",
+      "value": "Water flow adjusted from the bottom grid; Venturi and flow regulator on top; flow-ducting device included",
+      "source": 0
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 5
+    },
+    {
+      "key": "Warranty",
+      "value": "3 years",
+      "source": 5
+    },
+    {
+      "key": "Origin",
+      "value": "Italy (SICCE)",
+      "source": 1
+    }
+  ],
+  "variants": [
+    {
+      "name": "Shark ADV 400",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "400 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "6.5 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "10–35 gallons (about 38–132 L)",
+          "source": 5
+        },
+        {
+          "key": "Dimensions",
+          "value": "8.5\" x 2.4\" x 3.1\"",
+          "source": 5
+        }
+      ]
+    },
+    {
+      "name": "Shark ADV 600",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "600 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "8.2 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "up to about 47.5 gallons (about 180 L)",
+          "source": 6
+        }
+      ]
+    },
+    {
+      "name": "Shark ADV 800",
+      "specs": [
+        {
+          "key": "Flow rate",
+          "value": "800 l/h",
+          "source": 0
+        },
+        {
+          "key": "Power",
+          "value": "8.6 W",
+          "source": 0
+        },
+        {
+          "key": "Tank size",
+          "value": "130–200 L",
+          "source": 3
+        },
+        {
+          "key": "Extra",
+          "value": "Adds a 211 cm³ modular cartridge for chemical or biological media; can be converted into a fluid reactor for a sump",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Sinh Cảnh Việt",
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-adv-400-400-l-h-6-5w",
+      "variant": "Shark ADV 400",
+      "vnd": 590000,
+      "source": 1
+    },
+    {
+      "shop": "Sinh Cảnh Việt",
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-adv-800-800-l-h-8-6w",
+      "variant": "Shark ADV 800",
+      "vnd": 800000,
+      "source": 2
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Works in both freshwater and marine tanks",
+      "source": 5
+    },
+    {
+      "fact": "The 400 is rated for tanks of roughly 10–35 gallons",
+      "source": 5
+    },
+    {
+      "fact": "The 800 is rated for tanks of about 130–200 L",
+      "source": 3
+    },
+    {
+      "fact": "Reviewers see it as a good fit for small tanks, quarantine tanks and setups with a moderate bioload",
+      "source": 4
+    },
+    {
+      "fact": "The intake opening can be made smaller so small fish and fry don't get sucked in",
+      "source": 0
+    },
+    {
+      "fact": "The 800 can also be used in a sump as a fluid reactor",
+      "source": 0
+    }
+  ],
+  "usage": [
+    {
+      "fact": "The filter must be fully submerged. Use the top wheel to set the water flow and how much air the Venturi draws in",
+      "source": 0
+    },
+    {
+      "fact": "The magnetic coupling lets you pull off the media chamber with one hand for cleaning, without unclipping latches",
+      "source": 4
+    },
+    {
+      "fact": "The body is see-through, so you can tell by eye when the sponge is clogged and needs cleaning",
+      "source": 5
+    },
+    {
+      "fact": "You can attach extra modular chambers to hold more filter media",
+      "source": 0
+    },
+    {
+      "fact": "Unplug the filter before taking out the media to clean it",
+      "source": 7
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Many users say the Venturi air intake is the loudest part. Without it the filter is very quiet, and some owners use an airstone instead",
+      "source": 8
+    },
+    {
+      "fact": "A few owners say the outlet was noisy even with the air tube removed. Others suggest checking that the impeller is seated properly and free of debris",
+      "source": 8
+    },
+    {
+      "fact": "Noise can come back when evaporation lowers the water level around the filter head",
+      "source": 8
+    },
+    {
+      "fact": "Published flow ratings disagree: some shops list the 400 at 106 GPH and others at 136 GPH, so check the official figures",
+      "source": 6
+    },
+    {
+      "fact": "The 800 differs from the 400 and 600 by having the extra 211 cm³ cartridge and the fluid-reactor option",
+      "source": 0
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Sicce",
+      "model": "Shark PRO 700",
+      "why": "Newer Sicce internal filter rated 700 l/h at 7 W; Sinh Cảnh Việt sells it for 1,000,000₫, more than the ADV 800",
+      "source": 9
+    },
+    {
+      "brand": "Sicce",
+      "model": "Shark PRO 500",
+      "why": "Same brand and also covered by a 3-year warranty; Greendeal sells it for 800,000₫ and it can be mounted horizontally or vertically",
+      "source": 10
+    },
+    {
+      "brand": "Sicce",
+      "model": "Shark PRO 900",
+      "why": "Stronger option for bigger tanks; Greendeal lists it at 1,200,000₫ with a 3-year warranty, but it was out of stock when checked",
+      "source": 11
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.sicce.com/en/products/filters/shark-adv-internal.html",
+      "title": "Sicce – Shark ADV internal filter",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-adv-400-400-l-h-6-5w",
+      "title": "Sinh Cảnh Việt – Sicce Shark ADV 400",
+      "kind": "shop"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-adv-800-800-l-h-8-6w",
+      "title": "Sinh Cảnh Việt – Sicce Shark ADV 800",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.aqualively.com/product/sicce-shark-adv-800-internal-aquarium-filter-800l-h-130-200l-tank-8-6w/",
+      "title": "Aqualively – Sicce Shark ADV 800",
+      "kind": "shop"
+    },
+    {
+      "url": "https://reefbuilders.com/2013/06/17/sicce-shark-adv-filter-magnetic-coupling-maintenance-breeze",
+      "title": "Reef Builders – Sicce Shark ADV magnetic coupling",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.saltwateraquarium.com/shark-adv-400-interal-aquarium-filter-106-gph-sicce/",
+      "title": "SaltwaterAquarium.com – Shark ADV 400",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.saltwateraquarium.com/shark-adv-600-internal-aquarium-filter-158-gph-sicce/",
+      "title": "SaltwaterAquarium.com – Shark ADV 600",
+      "kind": "shop"
+    },
+    {
+      "url": "https://manuals.plus/asin/B007GCFYW4",
+      "title": "Manuals+ – Sicce Shark ADV 800 manual",
+      "kind": "other"
+    },
+    {
+      "url": "https://forum.aquariumcoop.com/topic/25154-sicce-shark-filter-help/",
+      "title": "Aquarium Co-Op forum – Sicce Shark filter help",
+      "kind": "forum"
+    },
+    {
+      "url": "https://sinhcanhviet.com.vn/may-loc-nuoc-ho-ca-sicce-shark-pro-700-700-l-h-7w",
+      "title": "Sinh Cảnh Việt – Sicce Shark PRO 700",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/sicce-shark-pro-500-internal-filter",
+      "title": "Greendeal – Sicce Shark PRO 500",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/sicce-shark-pro-900-internal-filter",
+      "title": "Greendeal – Sicce Shark PRO 900",
+      "kind": "shop"
+    }
+  ]
+}

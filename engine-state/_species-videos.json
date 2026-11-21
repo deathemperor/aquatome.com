@@ -4179,10 +4179,14 @@
     "reason": "no scientific name given"
   },
   "pxhkIYRxa0Q": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "The Most Underrated Rainbowfish? | Millennium Rainbowfish",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Glossolepis pseudoincisus",
+    "page": "species/glossolepis-pseudoincisus",
+    "done": "new page",
+    "score": 0.92
   },
   "pyPB6VaP6o4": {
     "at": "2026-11-07",
@@ -4201,16 +4205,26 @@
     "reason": "accessories/products"
   },
   "q7ykTVcGOUU": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Carpet Plant - Micro Sword (Lileaopsis brasiliensis)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Lilaeopsis brasiliensis",
+    "page": "plants/lilaeopsis-brasiliensis",
+    "done": "low",
+    "score": 0.6,
+    "reason": "\"Một người nuôi loài này lâu năm\": the video never says the keeper has kept it for years, so \"lâu năm\" is invented.; \"vẫn lên được thảm\": the video only says the plant keeps growing without CO2 or fertilizer. It doesn't say it forms a carpet."
   },
   "Q80bX9fgzro": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Sagittaria Subulata - Easy to Keep Foreground Carpet Plant",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sagittaria subulata",
+    "page": "plants/sagittaria-subulata",
+    "done": "low",
+    "score": 0.6,
+    "reason": "\"Người này cũng chỉ dùng phân nhét, không châm phân nước\" – the video says tablet fertilizer only, no liquid fertilizer; OK, but the page already says nền giàu dinh dưỡng/phân nhét when substrate poor, partial overlap.; \"Có CO2 thì thảm dày nhanh hơn, nhưng ... không cần\" – the page already says CO2 is not required (\"Không châm CO2 thì cây vẫn lên tốt\"), so it duplicates the page."
   },
   "QfdQ9WSt2po": {
     "at": "2026-11-07",
@@ -4221,10 +4235,15 @@
     "reason": "fish room update"
   },
   "qixOoS3J0gE": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "title": "Dappled Whiptail: A Little Weird, a Lot to Like",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Rineloricaria melini",
+    "page": "species/rineloricaria-melini",
+    "done": "low",
+    "score": 0.7,
+    "reason": "[beforeYouBuy] gives ~13 cm and ~15 cm (excluding tail), but the page says max 9–12 cm. The text never says it differs from the page or how.; [diet] 'Một người nuôi lâu năm cho rằng' – the video never says the speaker is a long-time keeper; 'lâu năm' is invented."
   },
   "QjzRqIvfxpM": {
     "at": "2026-11-07",
@@ -5072,6 +5091,16 @@
     "kind": "other",
     "done": "skipped",
     "reason": "old footage"
+  },
+  "W780ni6bKgw": {
+    "at": "2026-11-21",
+    "title": "Keeping Black Ruby Barbs: What I Learned",
+    "channel": "FishLoft",
+    "kind": "profile",
+    "species": "Pethia nigrofasciata",
+    "page": "species/pethia-nigrofasciata",
+    "done": "added",
+    "score": 0.86
   },
   "W7ISk2WI3zA": {
     "at": "2026-11-07",

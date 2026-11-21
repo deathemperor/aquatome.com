@@ -60,5 +60,47 @@
       "caption": "Trùng huyết đỏ tươi cuộn vào nhau.",
       "source": "aquariumbreeder"
     }
+  ],
+  "kinds": [
+    {
+      "id": "trung-huyet-dong-lanh",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/4c511cefbefd0e99.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/4c511cefbefd0e99-480.webp",
+        "width": 1000,
+        "height": 744,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-food-types",
+        "caption": "Trùng huyết đông lạnh: một vỉ 12 viên trùng huyết đông lạnh.",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "trung-huyet-song",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/a67c54dc625fed13.webp",
+        "thumb": "https://media.aquatome.com/commons/a67c54dc625fed13-480.webp",
+        "width": 1200,
+        "height": 911,
+        "licence": "Public domain",
+        "author": "USFWS Mountain Prairie",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Midge_(chironomid)_larvae_at_Seedskadee_National_Wildlife_Refuge_(47519310422).jpg",
+        "caption": "Trùng huyết sống: vài con ấu trùng muỗi lắc màu đỏ trong một khay nước trắng."
+      }
+    },
+    {
+      "id": "trung-huyet-dong-kho",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/f0c9789a4ada2ab8.webp",
+        "thumb": "https://media.aquatome.com/commons/f0c9789a4ada2ab8-480.webp",
+        "width": 1001,
+        "height": 1000,
+        "licence": "CC BY-SA 3.0",
+        "author": "Buchling",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fischfutter-Mueckenlarven.jpg",
+        "caption": "Trùng huyết đông khô: một nhúm trùng huyết đông khô trên nền trắng."
+      }
+    }
   ]
 }

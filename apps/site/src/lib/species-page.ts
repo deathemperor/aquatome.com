@@ -1,13 +1,14 @@
 import type { Content, Localized, SectionKey, SpeciesEntity } from '@aq/schema'
 import { breedsOf } from './breeds'
 import { companionsOf, matePhoto } from './companions'
-import { GALLERY_COLUMN, GALLERY_STRIP } from './gallery'
+import { APP_GALLERY_MIN, GALLERY_COLUMN, GALLERY_STRIP } from './gallery'
 import { albumOf, hasAlbum } from './photo-page'
 import { translator, type Lang } from './i18n'
 import { guideImages, guidesMentioning } from './mentions'
 import { morePhotos, pagePictures, takeEach } from './pictures'
 import { foldNearEmpty } from './sections'
 import { approvedSummary } from './summaries'
+import { spokenIn } from './video-about'
 
 /**
  * The data card with its sources named for the page: a figure AquaTome researched names the page it comes from (its
@@ -41,7 +42,7 @@ export function jumpRow<T extends { href: string }>(chips: T[]): T[] {
  * gallery's next photos, which fill the photo column on a tall computer screen: chosen last, so they never take a photo
  * from the parts the app's copy shares (it shows the strip alone).
  */
-export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesEntity>) {
+export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesEntity>, o: { app?: boolean } = {}) {
   const t = translator(lang)
   const places = s.places.map(id => c.places.find(p => p.id === id)).filter(p => p !== undefined)
   const country = places.find(p => p.kind === 'country')
@@ -56,14 +57,15 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   // The app's gallery still links the album's old address (app-page.ts galleryBlock), which forwards to this page; the app
   // doesn't open it, and protocols/page-vectors.json holds it until the protocols next change.
   const galleryPath = `/vi/ca/${s.t.slug}/anh/`
-  const grid = hasAlbum(gallery)
-  const strip = grid ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
+  // The app shows the strip only from six photos (APP_GALLERY_MIN): under that its copy takes no photo for one, so a
+  // photo the site's short strip shows stays between the app's sections.
+  const strip = (o.app ? gallery.length >= APP_GALLERY_MIN : hasAlbum(gallery)) ? gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null) : []
   const figures = s.photos.slice(1).filter(p => pics.take([p]))
   // Other languages' pages carry what's written for every reader; Vietnam-only parts (shops, climate, Vietnamese notes) stay on /vi/.
   const vn = lang === 'vi'
   // What to buy (Vietnam's shops: Vietnamese pages only), after the care text, with a chip in the jump row.
   const kit = vn && s.productSlots.length > 0
-  const videos = vn ? s.videos : s.videos.filter(v => (v.lang ?? 'en') !== 'vi')
+  const videos = vn ? s.videos : s.videos.filter(v => spokenIn(v) !== 'vi')
   const breeds = breedsOf(lang, c, s.id)
   const breedPhotos = takeEach(pics, breeds, b => b.photos)
   const more = strip.some(Boolean) ? morePhotos(pics, gallery, strip, GALLERY_COLUMN) : []
@@ -81,7 +83,7 @@ export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesE
   const jumps = jumpRow<JumpChip>([
     ...JUMPS.filter(([key]) => written(key)).map(([key, label]) => ({ href: `#muc-${key}`, label: t(label) })),
     ...(kit ? [{ href: '#mua-do', label: t('Mua đồ') }] : []),
-    ...(grid ? [{ href: '#a1', label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
+    ...(strip.some(Boolean) ? [{ href: '#a1', label: t('Ảnh {n}', { n: gallery.length }), end: true }] : []),
   ])
   const mentioning = guidesMentioning(c, `species:${s.id}`)
   // The video guides' cards last, as on the page: two of one channel can carry the same photo.

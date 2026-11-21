@@ -1,0 +1,32 @@
+{
+  "slug": "ca-dao-rhamphichthys-rostratus",
+  "name": "Cá dao Rhamphichthys rostratus",
+  "altNames": [
+    "Cá dao mõm ống",
+    "Knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Rhamphichthys là nhóm cá dao đẹp mắt. Lúc nghỉ chúng nằm nghiêng, thoạt nhìn tưởng chết rồi, nhưng thật ra chỉ đang ngủ. Đây là cá hoạt động lúc chạng vạng và ban đêm, còn ban ngày thì nằm nghỉ.</p>",
+    "beforeYouBuy:glaser": "<p>Hiện có 8 loài Rhamphichthys được công nhận, và chúng giống nhau đến lạ. Cá bán ra là cá cho đẻ trong bể, nhưng không ai biết đàn bố mẹ ban đầu gốc từ đâu, nên tạm thời vẫn gọi là Rhamphichthys rostratus. Lứa cá đang bán là cá con đẻ ở Indonesia, hiện dài 15-20 cm.</p>",
+    "distribution:glaser": "<p>Loài này sống rải rác khắp Nam Mỹ: Argentina, Bolivia, Brazil, các nước vùng Guyana, Colombia và Uruguay.</p>",
+    "aquariumSize:glaser": "<p>Cá dài tối đa 100 cm, nhưng con to cỡ đó chắc là rất hiếm. Nuôi trong bể thì thực tế cá lên khoảng 50 cm. Dù sao thì muốn nuôi lâu dài vẫn phải có bể thật lớn.</p>",
+    "waterConditions:glaser": "<p>Loài này không kén độ cứng hay pH. Nhiệt độ nước giữ trong khoảng 22-28°C là được.</p>",
+    "equipment:glaser": "<p>Nên trải nền cát mềm để cá rúc xuống được.</p>",
+    "diet:glaser": "<p>Cá ăn trùn chỉ sống và lăng quăng đông lạnh.</p>",
+    "behaviour:glaser": "<p>Nhiều loài cá điện yếu khác thường hay gây gổ với nhau, còn Rhamphichthys thì ngược lại. Chúng thích nằm sát nhau và tìm đến đồng loại để được chạm vào nhau. Miệng chúng nhỏ, hình ống, nên hầu như không gây hại cho cá khác.</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.88
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-21"
+  }
+}

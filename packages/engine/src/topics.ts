@@ -444,7 +444,7 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     // of them kept (Astra's read).
     const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as Translation | null
     const said = (x: Written) => {
-      const text = savedText(prev?.bodyFixed ? { ...x, body: '' } : x)
+      const text = savedText({ ...x, ...(prev?.bodyFixed ? { body: '' } : {}), ...(prev?.faqFixed ? { faq: [] } : {}) })
       return { seasons: foreignSeasons(text, lang), numbers: sourceNumbers(text) }
     }
     const found = said(w)
@@ -473,11 +473,15 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     const name = unescapePlain(w.name).trim()
     const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
     // A body a person fixed (bodyFixed) is theirs, as in Vietnamese above: a redo keeps it and its mark (the chief of
-    // staff, 16 Nov 2026: the popeye guide's day count went by hand in every language, and its facts still hold it).
+    // staff, 16 Nov 2026: the popeye guide's day count went by hand in every language, and its facts still hold it). So is
+    // an FAQ a person fixed (faqFixed; the chief of staff, 21 Nov 2026: the live-food guide's Malay allergy answer).
+    const parts = plainParts(w.summary, w.faq)
     const t = TranslationSchema.parse(metricPage({
-      slug, name, altNames: [], sections: {}, body: prev?.bodyFixed ? prev.body : sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
+      slug, name, altNames: [], sections: {}, body: prev?.bodyFixed ? prev.body : sanitizeHtml(w.body), ...parts,
+      ...(prev?.faqFixed ? { faq: prev.faq } : {}),
       refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
       ...(prev?.bodyFixed ? { bodyFixed: true } : {}),
+      ...(prev?.faqFixed ? { faqFixed: true } : {}),
     }, lang))
     await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
     await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, review)

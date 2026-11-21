@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { LANGS, type Lang, WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
-import { nameStep } from './ceiling'
+import { nameStep, stepFor } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, credentialRejected, onNextAccount, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
@@ -207,8 +207,8 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 const cmd = positionals[0]
-// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts).
-nameStep(cmd)
+// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts stepFor).
+nameStep(stepFor(cmd))
 
 // At the end of every command that called Claude: what each account answered, and which were set aside and why
 // (claude-accounts.ts), in the log and on the GitHub run's summary page. 'exit': some commands end with process.exit().
@@ -655,6 +655,7 @@ if (cmd === 'photo-privacy') {
   const r = await sweep(ROOT, { ...(titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {}), ...photoCap })
   console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.again.length} never-again photos off; ${r.heads.length} heads picked; ${r.named.length} heads behind one named to the species; ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.dealer.length} dealer notices off; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.refusedSources) console.log(`refused source: ${x}`)
+  for (const x of r.emptiedListed ?? []) console.log(`left with no photo, first for new photos: ${x}`)
   if (r.noAnimal.length) console.log(`sweep: ${r.noAnimal.length} heads with no animal in them and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json)`)
   for (const x of r.noAnimal) console.log(`no animal: ${x}`)
   for (const x of r.named) console.log(`head behind one named to the species: ${x}`)
@@ -664,6 +665,7 @@ if (cmd === 'photo-privacy') {
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
   for (const x of [...r.refusedHeld.map(x => `refused held: ${x}`), ...r.refusedPicked.map(x => `picked head the check calls none: ${x}`), ...r.refused.map(x => `refused off: ${x}`)]) console.log(x)
   for (const x of [...r.secondLook.map(x => `held for a second look: ${x}`), ...r.agreed.map(x => `second look agreed, now never-again: ${x}`), ...r.unlisted.map(x => `second look cleared one off at its first verdict, off the never-again list: ${x}`), ...r.waitingBack.map(x => `second look marked it off at its first verdict, its never-again entry written back: ${x}`)]) console.log(x)
+  for (const x of [...r.putBack.map(x => `second look cleared it, put back where it was: ${x}`), ...r.putBackOff.map(x => `second look cleared it, kept off: ${x}`), ...r.putBackUnread.map(x => `second look cleared it, not put back yet (no history to read here): ${x}`)]) console.log(x)
   // Where the two lists still disagree, the photo stays off, and a person sets the record right (last-photo.ts mendWaiting).
   if (r.waitingOdd.length) console.log(`sweep: ${r.waitingOdd.length} photos off at their first verdict where the second look and the never-again list disagree: each kept off. Set each one's record right by hand.`)
   for (const x of r.waitingOdd) console.log(`second look and never-again list disagree: ${x}`)

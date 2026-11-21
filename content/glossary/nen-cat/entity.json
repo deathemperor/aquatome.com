@@ -52,5 +52,34 @@
       "report": "https://api.unsplash.com/photos/46Njv9L2XV8/download?ixid=M3wxMTE4MjA2fDB8MXxhbGx8fHx8fHx8fHwxNzk0NzM3NzE3fA",
       "caption": "Nền cát mịn màu sáng dưới chân cây và lũa, vài viên đá nhỏ nằm trên mặt cát."
     }
+  ],
+  "kinds": [
+    {
+      "id": "cat-thach-anh",
+      "photo": {
+        "url": "https://media.aquatome.com/video/laoEUOhsnMw/p4-J0el9zYW5kLmpwZw.webp",
+        "thumb": "https://media.aquatome.com/video/laoEUOhsnMw/p4-J0el9zYW5kLmpwZw-480.webp",
+        "width": 960,
+        "height": 720,
+        "licence": "CC BY-SA 4.0",
+        "author": "cty long lanh",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_quartz_sand.jpg",
+        "caption": "Cát thạch anh: một đống cát trắng ngà, hạt mịn."
+      }
+    },
+    {
+      "id": "cat-san-ho",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/0db50bbfa19726ad.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/0db50bbfa19726ad-480.webp",
+        "width": 1000,
+        "height": 764,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/time-saving-tips-for-aquariums",
+        "caption": "Cát san hô: san hô vụn đang được xả nước trong vợt.",
+        "source": "aquariumcoop"
+      }
+    }
   ]
 }

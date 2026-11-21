@@ -134,5 +134,62 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_dried_food2.jpg",
       "caption": "Vài dạng thức ăn khô: dạng mảnh, dạng que nhỏ, viên dẹt màu đỏ và một khối nén."
     }
+  ],
+  "kinds": [
+    {
+      "id": "dang-manh",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/25c6078571ac6924.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/25c6078571ac6924-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/how-often-to-feed-fish",
+        "caption": "Dạng mảnh: thức ăn dạng mảnh ở ba bát, là hai bát phía trên và bát lớn bên trái. Bát nhỏ phía dưới và muỗng gỗ đựng loại khác.",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "dang-vien",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/f9d8381f10276607.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/f9d8381f10276607-480.webp",
+        "width": 1000,
+        "height": 667,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-food-types",
+        "caption": "Dạng viên: một con cá koi ngoi lên đớp những viên thức ăn nổi trên mặt nước.",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "dang-tam",
+      "photo": {
+        "url": "https://media.aquatome.com/aquariumcoop/a383567e4b4b0985.webp",
+        "thumb": "https://media.aquatome.com/aquariumcoop/a383567e4b4b0985-480.webp",
+        "width": 832,
+        "height": 832,
+        "licence": "dùng với sự cho phép",
+        "author": "Aquarium Co-op",
+        "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/fish-food-types",
+        "caption": "Dạng tấm: đàn cá chạch kuhli gặm những tấm thức ăn tròn dưới đáy.",
+        "source": "aquariumcoop"
+      }
+    },
+    {
+      "id": "thuc-an-dong-kho",
+      "photo": {
+        "url": "https://media.aquatome.com/commons/f0c9789a4ada2ab8.webp",
+        "thumb": "https://media.aquatome.com/commons/f0c9789a4ada2ab8-480.webp",
+        "width": 1001,
+        "height": 1000,
+        "licence": "CC BY-SA 3.0",
+        "author": "Buchling",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fischfutter-Mueckenlarven.jpg",
+        "caption": "Thức ăn đông khô: một nhúm trùng huyết (ấu trùng muỗi đỏ) đông khô trên nền trắng."
+      }
+    }
   ]
 }

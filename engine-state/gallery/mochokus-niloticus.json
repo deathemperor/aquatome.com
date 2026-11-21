@@ -1,9 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/scotcat/65b786df580a474e.webp": "5a9a9a140d17371a"
- },
+ "hashes": {},
  "inat": {
   "taxon": 105931,
   "pass": "done",
@@ -19,5 +17,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

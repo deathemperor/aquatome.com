@@ -1,0 +1,69 @@
+{
+  "id": "pseudexostoma-brachysoma",
+  "scientificName": "Pseudexostoma brachysoma",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Pseudexostoma",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "salween"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=140",
+      "html": "<p>Scientific name: Pseudexostoma brachysoma Chu, 1979. Family: Sisoridae. Size: 153 mm (6\") SL. IUCN Red List: Not Evaluated.</p><p>Type locality: hill stream running into the Nu River, near Laowo, Yunlong Xian [now Lushi County, Nujiang Prefecture], Yunnan Province, China.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=140",
+      "html": "<p>Asia: known only from the middle and lower Nujiang (=Salween) basin, China.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=140",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=140",
+      "html": "<p>Identification: continuous post-labial groove, gill openings not extending onto the venter, heterodont dentition (different types of teeth) in both jaws. The outer teeth are shovel-shaped and sparsely arranged in one or two rows whilst the inner teeth are conical and numerous. The tooth patches are separated in the upper jaw. 16–18 branched pectoral rays.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=140",
+      "html": "<p>Acta Zootaxonomica Sinica v. 4 (no. 1), pp78 [English p. 81], Fig. 3.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/e251d842ec7a21ac.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e251d842ec7a21ac-480.webp",
+      "width": 500,
+      "height": 231,
+      "licence": "dùng với sự cho phép",
+      "author": "Zhou Hang / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/pseudexostoma_brachysoma.htm",
+      "caption": "Pseudexostoma brachysoma",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

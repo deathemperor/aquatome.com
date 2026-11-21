@@ -1965,6 +1965,66 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm": {
+    "entityIds": [
+      "species/astroblepus-mindoensis"
+    ],
+    "updatedAt": "2026-11-21T05:49:25.660Z",
+    "hash": "265836439a4adc24a6a49b00ddf1a63765b1d3ded15a2cdb49ae0afa8e0f84e2",
+    "processedHash": "265836439a4adc24a6a49b00ddf1a63765b1d3ded15a2cdb49ae0afa8e0f84e2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_mojicai.htm": {
+    "entityIds": [
+      "species/astroblepus-mojicai"
+    ],
+    "updatedAt": "2026-11-21T05:52:24.589Z",
+    "hash": "32d7882eb7c1bfa4dc82f80cd57b732ba03b0bc368c45177ff6a70a8e69b5333",
+    "processedHash": "32d7882eb7c1bfa4dc82f80cd57b732ba03b0bc368c45177ff6a70a8e69b5333",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_nettoferreirai.htm": {
+    "entityIds": [
+      "species/astroblepus-nettoferreirai"
+    ],
+    "updatedAt": "2026-11-21T05:55:22.446Z",
+    "hash": "75738a6d0bd7bb1489b29ca7b6cf747eceb9f27537ec5a07557880e309eb3d93",
+    "processedHash": "75738a6d0bd7bb1489b29ca7b6cf747eceb9f27537ec5a07557880e309eb3d93",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_onzagaensis.htm": {
+    "entityIds": [
+      "species/astroblepus-onzagaensis"
+    ],
+    "updatedAt": "2026-11-21T05:57:45.595Z",
+    "hash": "63643eaefa58d50730617b7bb743ac98ebcbf9fd28a0f6bca6682b7227cc3fe4",
+    "processedHash": "63643eaefa58d50730617b7bb743ac98ebcbf9fd28a0f6bca6682b7227cc3fe4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_pradai.htm": {
+    "entityIds": [
+      "species/astroblepus-pradai"
+    ],
+    "updatedAt": "2026-11-21T06:00:30.125Z",
+    "hash": "721459e24369d712fc654ccf5026541105a744df65be7b93199f4ca7eb44f2ea",
+    "processedHash": "721459e24369d712fc654ccf5026541105a744df65be7b93199f4ca7eb44f2ea",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm": {
+    "entityIds": [
+      "species/astroblepus-putumayoensis"
+    ],
+    "updatedAt": "2026-11-21T06:02:51.810Z",
+    "hash": "1b660c15f500dcd588b507ad1d9c95e8ef8b63ef54faad6e8399202c40e66fa0",
+    "processedHash": "1b660c15f500dcd588b507ad1d9c95e8ef8b63ef54faad6e8399202c40e66fa0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm": {
     "entityIds": [
       "species/ageneiosus-lineatus"
@@ -3263,6 +3323,16 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm": {
+    "entityIds": [
+      "species/panaque-schaeferi"
+    ],
+    "updatedAt": "2026-11-21T05:42:31.152Z",
+    "hash": "dbacf9f576666769d270d23910eb9f95455a0eb844c90f159ff7df9c4c8c88c5",
+    "processedHash": "dbacf9f576666769d270d23910eb9f95455a0eb844c90f159ff7df9c4c8c88c5",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm": {
     "entityIds": [
       "species/panaque-suttonorum"
@@ -3270,6 +3340,16 @@
     "updatedAt": "2026-11-09T05:44:48.193Z",
     "hash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
     "processedHash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/panaque_titan.htm": {
+    "entityIds": [
+      "species/panaque-titan"
+    ],
+    "updatedAt": "2026-11-21T05:46:25.348Z",
+    "hash": "12d7580928afc4065c6c4c0e7df667dbfa62590a1552b3632fa1c36301ec80e3",
+    "processedHash": "12d7580928afc4065c6c4c0e7df667dbfa62590a1552b3632fa1c36301ec80e3",
     "status": "processed",
     "attempts": 0
   },

@@ -71,19 +71,7 @@
       "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ).</p><p>Mesa-Salazar, L., Sanchez-Duarte, P. &amp; Lasso, C. 2016. Astroblepus latidens. The IUCN Red List of Threatened Species 2016.</p><p>Ochoa LE, Melo BF, García-Melo JE, Maldonado-Ocampo JA, Souza CS, Albornoz-Garzón JG, Conde-Saldaña CC, Villa-Navarro F, Ortega-Lara A, Oliveira C. Species delimitation reveals an underestimated diversity of Andean catfishes of the family Astroblepidae (Teleostei: Siluriformes). Neotrop Ichthyol. 2020; 18(4).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
-  "photos": [
-    {
-      "url": "https://media.aquatome.com/scotcat/f7590029396b0372.webp",
-      "thumb": "https://media.aquatome.com/scotcat/f7590029396b0372-480.webp",
-      "width": 500,
-      "height": 196,
-      "licence": "dùng với sự cho phép",
-      "author": "Ochoa LE., et al 2020 / ScotCat",
-      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm",
-      "caption": "Astroblepus latidens",
-      "source": "scotcat"
-    }
-  ],
+  "photos": [],
   "videos": [],
   "productSlots": [
     {
@@ -109,5 +97,87 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Upper Meta River",
+        "Suarez River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Meta River basin, Colombia and Suarez River basin, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Upper Meta River",
+            "Suarez River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342128,
+      "total": 128,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          128
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          4.21875,
+          102,
+          102
+        ],
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -73.125,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  }
 }

@@ -21,9 +21,10 @@
         "Torres Strait",
         "Embley",
         "Mission",
-        "Herbert River"
+        "Cape York"
       ],
       "sources": [
+        "bwaquatics",
         "seriouslyfish",
         "glaser"
       ],
@@ -55,11 +56,11 @@
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Those from northern and southern localities have been considered distinct by various authors, for example, and in Queensland forms originating north and south of the Herbert River also appear dissimilar, with an intermediate form apparently native to the area around Townsville (Ross River).",
+          "source": "bwaquatics",
+          "quote": "Pseudomugil signifer lives along the east coast of Australia, from Cape York to New South Wales.",
           "countries": [],
           "regions": [
-            "Herbert River"
+            "Cape York"
           ]
         }
       ]
@@ -587,17 +588,6 @@
       "source": "seriouslyfish"
     },
     {
-      "url": "https://media.aquatome.com/seriouslyfish/406b66f585cc3802.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/406b66f585cc3802-480.webp",
-      "width": 800,
-      "height": 590,
-      "licence": "dùng với sự cho phép",
-      "author": "Ricardo Kobe / Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
-      "caption": "Males will spar often if present in numbers.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/commons/586cdd65ba782ce5.webp",
       "thumb": "https://media.aquatome.com/commons/586cdd65ba782ce5-480.webp",
       "width": 960,
@@ -626,6 +616,17 @@
       "author": "MurkySeb",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pacific_Blue_eyes.jpg",
       "caption": "These native fish in a national park showing off their fins. Only 1.2Mpx"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/406b66f585cc3802.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/406b66f585cc3802-480.webp",
+      "width": 800,
+      "height": 590,
+      "licence": "dùng với sự cho phép",
+      "author": "Ricardo Kobe / Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-signifer",
+      "caption": "Males will spar often if present in numbers.",
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/commons/83b701c35fd85c3c.webp",

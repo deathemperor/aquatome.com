@@ -92,6 +92,32 @@ test('an emptied page the fill refills with a photo the check calls dead shows n
   expect(await photosOf(r, 'bbb')).toEqual(['b-dead'])
 })
 
+test("on a page only first verdicts empty, its album's first-verdict photos wait marked like the page's own; on a page that keeps a photo, its album's go on the never-again list as before", async () => {
+  // The chief of staff, 21 Nov 2026 (the put-back's second point, (a)): those album photos are the page's last hope of a
+  // picture, the same reason the page's own wait.
+  const r = await store({ mmm: ['m-dead'], nnn: ['n-dead', 'n-fish'] })
+  const album = (id: string, ns: string[]) => writeFile(join(r, `content/gallery/${id}.json`), `${JSON.stringify({ id, photos: ns.map(photo), seen: 1, updatedAt: '2026-11-21' }, null, 2)}\n`)
+  await album('mmm', ['m-album-dead', 'm-album-fish'])
+  await album('nnn', ['n-album-dead'])
+  const out = await checkPagePhotos(r, model({ 'm-dead': dead, 'm-album-dead': dead, 'n-dead': dead, 'n-album-dead': dead }), { limit: 10 })
+  const albumOf = async (id: string) => ((await json(r, `content/gallery/${id}.json`)).photos as { url: string }[]).map(p => name(p.url))
+  expect(await photosOf(r, 'mmm')).toEqual([])
+  expect(await albumOf('mmm')).toEqual(['m-album-fish'])
+  expect(out.firstOff.sort()).toEqual([`species/mmm: ${url('m-album-dead')}`, `species/mmm: ${url('m-dead')}`])
+  const sl = await json(r, 'engine-state/_photo-second-look.json')
+  expect(Object.keys(sl).sort()).toEqual([url('m-album-dead'), url('m-dead')])
+  expect(sl[url('m-album-dead')]).toMatchObject({ step: 'the photo check', pages: ['species/mmm'], off: true })
+  // The page that keeps a photo: its own dead and its album's dead go as before, listed dead with no second look.
+  expect(await photosOf(r, 'nnn')).toEqual(['n-fish'])
+  expect(await albumOf('nnn')).toEqual([])
+  const listed = await json(r, 'engine-state/_photo-rejected.json')
+  expect(listed[url('m-dead')]).toBe(waitingEntry(sl[url('m-dead')].why))
+  expect(listed[url('m-album-dead')]).toBe(waitingEntry(sl[url('m-album-dead')].why))
+  expect(listed[url('n-dead')]).toMatch(/^dead: /)
+  expect(listed[url('n-album-dead')]).toMatch(/^dead: /)
+  expect(out.rejected).toBe(2)
+})
+
 test('a held page keeps the photo that passed before and loses the one judged for the first time; a photo that passed on another page is held here too', async () => {
   const r = await store({ eee: ['e-old', 'e-new'], fff: ['shared'], ggg: ['shared'] }, { 'e-old': { eee: oldPass }, shared: { fff: oldPass } })
   const out = await checkPagePhotos(r, model({ 'e-old': dead, 'e-new': dead, shared: dead }), { limit: 10 })
@@ -303,6 +329,17 @@ test("an agree on a photo marked off whose waiting entry is for another reason m
   expect((await json(r, 'engine-state/_photo-rejected.json'))[url('h-dead')]).toBe(rec.why)
   expect(await json(r, 'engine-state/_photo-second-look.json')).toEqual({})
   expect(out.waitingOdd).toEqual([])
+})
+
+test("an agree on an unmarked record whose never-again entry is a waiting one gives the entry the record's reason: two runs' records can meet so in a merge", async () => {
+  const r = await store({ aaa: ['a-fish'] })
+  const why = compactRejection('dead: a fish on a board')
+  const rec = { why, step: 'the watermark screen', pages: ['species/aaa'], at: '2026-11-20', look: { said: 'agree', by: 'the chief of staff', on: '2026-11-21' } }
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [url('a-dead')]: rec }))
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('a-dead')]: waitingEntry(compactRejection('dead: on a tray')) }))
+  expect(await listAgreed(r)).toEqual([url('a-dead')])
+  expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({ [url('a-dead')]: why })
+  expect(await json(r, 'engine-state/_photo-second-look.json')).toEqual({})
 })
 
 test("a clear takes the waiting entry off the never-again list, and where a step puts the photo back no verdict takes it off again; an agree gives the entry the verdict's own reason and the record leaves", async () => {

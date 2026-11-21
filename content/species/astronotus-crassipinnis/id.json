@@ -1,25 +1,26 @@
 {
   "slug": "oscar-crassipinnis",
-  "name": "Oscar crassipinnis",
+  "name": "Oscar Crassipinnis",
   "altNames": [
-    "Ikan oscar",
-    "Oskar",
-    "Black oscar"
+    "Ikan Oscar",
+    "Crassipinnis Oscar"
   ],
   "sections": {
-    "notes:glaser": "<p>Tidak ada genus cichlid besar lain dari Amerika Selatan yang sebegitu kurang dipahami seperti oscar (Astronotus). Saat ini hanya dua spesies yang diakui secara luas, yaitu A. ocellatus dan A. crassipinnis. Namun, sebenarnya ada jauh lebih banyak spesies, seperti yang bisa dengan mudah diamati dengan mata telanjang. Salah satunya, A. zebra, sudah berulang kali diimpor belakangan ini.</p><p>Kini oscar sudah diimpor dari Paraguay (Rio Paraguay, dekat Asuncion). Kemungkinan besar spesimen-spesimen ini termasuk spesies A. crassipinnis. Namun, dengan pengetahuan saat ini, hanya spesimen dari Rio Guaporé yang bisa dinamai A. crassipinnis tanpa keraguan. Karena itu, ikan-ikan ini dinamai A. cf. crassipinnis. \"cf.\" adalah singkatan dari kata Latin \"conferre\", yang berarti \"bandingkan (dengan)\".</p><p>Meskipun polanya sangat bervariasi antarindividu, ikan-ikan yang sangat menarik ini punya beberapa ciri khas. Pertama, warna dasar tubuhnya sangat gelap, hampir hitam. Kedua, tidak ada bintik mata (ocellus) di daerah sirip punggung, yang justru sangat khas pada A. ocellatus.</p><p>Astronotus crassipinnis tampaknya tetap sedikit lebih kecil daripada A. ocellatus. Panjang maksimum yang pernah dilaporkan untuk A. crassipinnis adalah 24 cm panjang standar (tanpa sirip ekor). Spesimen yang diimpor berukuran 14–18 cm (termasuk sirip ekor). Mudah-mudahan ikan yang jumlahnya sedikit ini (hanya 7 ekor) akan membentuk pasangan yang mau berkembang biak.</p>"
+    "diet:glaser": "<p>Oscar seukuran ini ke atas lebih suka memangsa ikan kecil sendiri, tetapi di akuarium mereka juga mau menerima jenis pakan bergizi tinggi lain yang bersifat karnivora.</p>",
+    "behaviour:glaser": "<p>Oscar muda menunjukkan perilaku khas semua Astronotus muda: mereka sangat butuh berada bersama sesamanya. Warna mencolok pada semua Oscar muda sebenarnya adalah kamuflase. Ikan-ikan ini membentuk kelompok yang cukup besar dan berenang sangat rapat sehingga di mata calon pemangsa mereka terlihat seperti satu ikan besar.</p><p>Hilangnya corak juvenil ditandai dengan munculnya bintik mata khas di pangkal ekor. Sejak saat itu, Oscar muda mulai hidup lebih menyendiri (atau dalam kelompok kecil). Bintik mata ini berfungsi mengecoh pemangsa, yang saat menyerang mengincar mata mangsanya.</p>",
+    "notes:glaser": "<p>Saat ini Oscar muda yang sangat cantik diimpor dari Brasil dengan nama \"Astronotus crassipinnis\". Spesies A. crassipinnis memang ada di Brasil, tetapi tidak ada cara untuk memastikan apakah identifikasi spesiesnya benar. Ikan-ikan ini diduga merupakan hasil penangkaran.</p><p>Belum diketahui seperti apa rupa Oscar ini setelah dewasa, sehingga penentuan spesies secara ilmiah yang pasti belum bisa dilakukan. Namun, dengan cukup yakin dapat diasumsikan bahwa spesies Astronotus ini juga tumbuh hingga panjang sekitar 25-30 cm.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "glaser": 0.9
+      "glaser": 0.85
     }
   },
   "held": {
     "checks": [
       "source"
     ],
-    "at": "2026-11-10"
+    "at": "2026-11-21"
   }
 }

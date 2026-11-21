@@ -1,0 +1,51 @@
+{
+  "id": "astroblepus-itae",
+  "native": {
+    "input": "768ffbe577179e38",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Cáchira",
+        "source": "scotcat",
+        "quote": "Type locality: Departamento de Norte de Santander, Municipio de Cáchira, Quebrada La Amoladera, Vereda Ramírez, tributary of the upper Río Cáchira, elevation 2035 metres.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus itae",
+    "status": "ACCEPTED",
+    "taxonKey": 9565019,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

@@ -6,12 +6,12 @@ export type Album = { name: string; photos: { u: string; w: number; h: number; a
 
 /** The album a page's strip carries for the viewer (GalleryStrip.astro), read from its HTML. */
 export const albumIn = (html: string): Album | undefined => {
-  const m = /<section[^>]*\bdata-album\b[^>]*>[\s\S]*?<script type="application\/json"[^>]*>([\s\S]*?)<\/script>/.exec(html)
+  const m = /<section(?![^>]*\bhidden\b)[^>]*\bdata-album\b[^>]*>[\s\S]*?<script type="application\/json"[^>]*>([\s\S]*?)<\/script>/.exec(html)
   return m ? (JSON.parse(m[1]!) as Album) : undefined
 }
 
-/** The first page of a section (of at most 40) whose album passes `ok`: by default one with "Xem tất cả", six photos or more. */
-export async function albumPage(request: APIRequestContext, section: 'ca' | 'cay', ok = (a: Album, html: string) => a.photos.length >= 6 && !!html) {
+/** The first page of a section (of at most 40) whose album passes `ok`: by default any nonempty album. */
+export async function albumPage(request: APIRequestContext, section: 'ca' | 'cay', ok = (a: Album, html: string) => a.photos.length > 0 && !!html) {
   for (const path of sourcePages().filter(p => new RegExp(`^/${section}/[^/]+/$`).test(p)).slice(0, 40)) {
     const html = await (await request.get(path)).text()
     const album = albumIn(html)

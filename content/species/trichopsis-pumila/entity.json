@@ -26,14 +26,22 @@
         "Mekong"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
+          "quote": "The sparkling gourami, Trichopsis pumila, is a small labyrinth fish from the lower Mekong basin and central and southern Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
           "quote": "Distributed throughout the lower Mekong River basin in Laos, Vietnam, Cambodia, and Thailand, and in watersheds across central and southern (peninsular) Thailand.",
           "countries": [
-            "TH",
             "LA",
             "VN",
             "KH"

@@ -149,6 +149,20 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
 const isPage = (path: string) => isViPage(path) || !!prefixedLang(path)
 
 /**
+ * Keep the reader's query and let the browser carry any #aN through the redirect. An `album` the query has already goes,
+ * however its name is written ("%61lbum" is "album" to the page): the page's script reads the first, so "?album=0" would
+ * win over ours and the viewer wouldn't open (the strip's readers, 21 Nov).
+ */
+const queryName = (part: string) => {
+  const name = part.split('=')[0]!.replace(/\+/g, ' ')
+  try { return decodeURIComponent(name) } catch { return name }
+}
+function albumLocation(path: string, search: string) {
+  const kept = search.replace(/^\?/, '').split('&').filter(part => part && queryName(part) !== 'album').join('&')
+  return `${path}?${kept ? `${kept}&` : ''}album=1`
+}
+
+/**
  * An old Vietnamese address (/vi/…, before the pages moved to the root) → 301 to its page, in one hop: the path without
  * /vi, with its trailing slash (force-trailing-slash would add a second hop), through redirects.json when the page was
  * renamed since, the query kept.
@@ -159,8 +173,8 @@ async function fromVi(url: URL, env: Env): Promise<Response> {
   if (!path.endsWith('/') && !/\.[a-z0-9]+$/i.test(path)) path += '/'
   const renamed = await redirectFor(env.ASSETS, url.origin, path)
   // An old photo page's address goes straight to its page too (galleryParent), not to its root form first.
-  const page = galleryParent(path) ?? path
-  const location = !renamed ? `${page}${url.search}` : url.search ? `${renamed}${renamed.includes('?') ? '&' : '?'}${url.search.slice(1)}` : renamed
+  const album = galleryParent(path)
+  const location = album ? albumLocation(renamed ?? album, url.search) : !renamed ? `${path}${url.search}` : url.search ? `${renamed}${renamed.includes('?') ? '&' : '?'}${url.search.slice(1)}` : renamed
   return new Response(null, { status: 301, headers: { location } })
 }
 
@@ -283,12 +297,12 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   const assetMs = Date.now() - t // Server-Timing: a cold edge fetches the page from storage (0.3–2 s), a warm one ~10 ms
   if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
-    if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
     // An album's address for good (it has no page of its own since 18 Nov), a list's numbered page for now (it can come back).
     const album = galleryParent(url.pathname)
+    if (to) return finish(new Response(null, { status: 301, headers: { location: album ? albumLocation(to, url.search) : to } }), env)
     const parent = album ?? listParent(url.pathname)
     if (parent && (await env.ASSETS.fetch(new Request(`${url.origin}${parent}`))).ok) {
-      return finish(new Response(null, { status: album ? 301 : 302, headers: { location: parent + url.search } }), env)
+      return finish(new Response(null, { status: album ? 301 : 302, headers: { location: album ? albumLocation(parent, url.search) : parent + url.search } }), env)
     }
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)

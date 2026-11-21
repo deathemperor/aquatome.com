@@ -9,13 +9,97 @@
   "places": [
     "south-america",
     "peru",
-    "shampupa"
+    "shampupa",
+    "ecuador",
+    "napo-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Shampupa"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "One of the most spectacular species comes from Peru and was given the L-number 418.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Characteristic for the fish, which exporters call \"shampupa\" after the river in Peru where they catch the animals, are the broad, light-coloured tail fin seam and the blue-green base colouring.",
+          "countries": [],
+          "regions": [
+            "Shampupa"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961549,
+      "total": 6,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          4
+        ],
+        [
+          "PE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -1.40625,
+          4,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -27,19 +111,89 @@
       "html": "<p>The magnificent panaques of the nigrolineatus complex have long been sought-after aquarium fish. All species seem to grow around 40 cm long. One of the most spectacular species comes from Peru and was given the L-number 418. It is probably identical with the described species Panaque titan, but since this is not completely certain, the animal is better called P. cf. titan in the hobby. Characteristic for the fish, which exporters call \"shampupa\" after the river in Peru where they catch the animals, are the broad, light-coloured tail fin seam and the blue-green base colouring.</p><p>Shampupa is a very rare species that is always available only in very small quantities.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<ul><li>Common name: Gold Trim Panaque, L418</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<p>South America: Ecuador, Napo River basin. Type locality: (Holotype) Ecuador, Sucumbíos Province, Napo River drainage, Apoalla Creek, tributary of the lower Shushufindi River.</p><p>Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia. Specific information on the population is lacking, as well as any evidence of threats causing fragmentation or decreasing its population, so the population is presumed to be stable. The species also occurs close to the Yasuni and Cuyabeno National Parks, with potential occurrence in these protected areas. It is assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<p>Saul (1975) conducted an ecological study of the fishes in the Napo River in Ecuador and reported the following about a single specimen of Panaque titan: it was taken in an inlet of the Río Aguarico in deep, fast-moving water (1.0–2.5 m deep) where submerged trees, limbs and logs formed a mass of snags. The bottom in this area was rock, giving way to a quietly flowing, sandy-bottomed pool. Stomach contents: plant debris. Many of the other type specimens came from similarly deep waters, and those that were examined had mostly wood particles in their anterior gut.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<p>This species is a bit robust in an aquarium set-up, so it needs plenty of hiding places, plenty of water changes (due to its wood-eating habits) and powerful filtration. It needs a spacious aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/panaque-cf-titan-shampupa-l418-2/",
       "html": "<p>Like all panaques they are specialized wood eaters, so plenty of dead wood is a must for the basic equipment of a panaque aquarium. However, numerous other types of food are also accepted.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<p>All Panaque (Panaqolus) are wood eaters, so wood is needed in an aquarium set-up. Also feed vegetable foods such as cucumber, courgette (zucchini) and sinking tablets.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<p>Males possess a broad head and odontodes on the posterior part of the body, behind the gill covers and on the pectoral spines. The latter two are much shorter in females.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/panaque-cf-titan-shampupa-l418-2/",
       "html": "<p>Lexicon: Panaque: after the native name of P. nigrolineatus in Venezuela.</p><p>Suggestion of a common name: Shampupa Royal Pleco.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<p>The differences between the Panaqolus and Panaque genera: the latter has an oval-shaped mouth and jaws with very large spatulate teeth with a single cusp, arranged in a V form, while Panaqolus have a small number of spatulate teeth and are a smaller genus.</p><p>Description: Panaque titan is diagnosed from all members of subgenus Scobinancistrus by having more than six dentary and premaxillary teeth (vs. three or four), by dentary and premaxillary tooth cusps being unicuspid (vs. bicuspid), and by the cusps being short and ladle- or spoon-shaped (vs. long and spatulate).</p><p>Colouration: it differs from all members of subgenus Panaqolus by a body colour pattern of irregular, widely spaced dark grey to brown stripes and spots on a light brown to tan base colour (vs. white spots on a black base or vertical and/or oblique bands), by individuals over 145 mm SL having a hyaline caudal-fin window (vs. caudal fin uniformly opaque, banded or spotted), and by reaching a maximum adult size of at least 394 mm SL (vs. under 150 mm SL).</p><p>Etymology: the specific name titan is from the Greek Titan, son or daughter of Uranus and Gaea, representing brute force and large size (Lujan et al. 2010).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "html": "<p>Lujan, NK, M Hidalgo &amp; DJ Stewart, 2010. Revision of Panaque (Panaque), with descriptions of three new species from the Amazon basin (Siluriformes, Loricariidae). Copeia 2010: 676–704.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>Varella, H.R. 2023. Panaque titan. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/510c355dcfda502a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/510c355dcfda502a-480.webp",
+      "width": 500,
+      "height": 436,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "caption": "Panaque titan: Sub-Adult",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1b202c4dc5fac7dc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1b202c4dc5fac7dc-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_titan.htm",
+      "caption": "Panaque titan: View of mouth",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/72fefef2aae76a5d.webp",
       "thumb": "https://media.aquatome.com/glaser/72fefef2aae76a5d-480.webp",
@@ -63,16 +217,6 @@
     {
       "url": "https://media.aquatome.com/glaser/47ce0622e9da72c4.webp",
       "thumb": "https://media.aquatome.com/glaser/47ce0622e9da72c4-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/panaque-cf-titan-shampupa-l418-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/9876c9ec409a2803.webp",
-      "thumb": "https://media.aquatome.com/glaser/9876c9ec409a2803-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

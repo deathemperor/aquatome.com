@@ -1,8 +1,8 @@
 {
   "id": "osteoglossum-bicirrhosum",
   "native": {
-    "input": "ae18bc5edf9a32bd",
-    "at": "2026-11-09T23:57:44.132Z",
+    "input": "e6c5fdcf1a6a2a2b",
+    "at": "2026-11-21T07:12:58.512Z",
     "claims": [
       {
         "code": "BR",
@@ -59,6 +59,54 @@
         "quote": "In the rio Negro, Brazil, plus a handful of blackwater rivers draining into the Río Orinoco through eastern Colombia it's replaced by the congener O. ferreirai while there exist no records of the genus from the Orinoco or other drainages in Venezuela.",
         "words": "Venezuela",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "words": "Peru",
+        "ok": true
       }
     ],
     "regions": [
@@ -72,14 +120,30 @@
         "name": "Rupununi",
         "source": "seriouslyfish",
         "quote": "Cuvier gave type locality as 'Brazil', with modern records indicating it to range throughout much of the Amazon basin in Brazil, Peru, Colombia and Ecuador, plus the Rupununi and Oyapock systems in Guyana and French Guiana, respectively.",
-        "country": "GY",
         "ok": true
       },
       {
         "name": "Oyapock",
         "source": "seriouslyfish",
         "quote": "Cuvier gave type locality as 'Brazil', with modern records indicating it to range throughout much of the Amazon basin in Brazil, Peru, Colombia and Ecuador, plus the Rupununi and Oyapock systems in Guyana and French Guiana, respectively.",
-        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "ok": true
+      },
+      {
+        "name": "Rupununi",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
+        "ok": true
+      },
+      {
+        "name": "Oyapock",
+        "source": "glaser",
+        "quote": "One of the absolute classics among the large fish, which have been an indispensable part of the assortment of zoos, show aquariums and also private large aquariums for decades, is the silver arowana, Osteoglossum bicirrhosum, which is widespread in the Amazon region and the rivers Rupununi and Oyapock (Brazil, Colombia, Ecuador, Guyana, French Guiana and Peru).",
         "ok": true
       }
     ],
