@@ -68,8 +68,8 @@ export async function shownPictures(root: string, kind: string, id: string): Pro
 
 /**
  * The fish to take first, as `kind/id`, oldest day first: those on the owner's list whose album row doesn't show six
- * yet, and the pages our removals emptied (emptied-pages.ts) that show no photo yet, by the site's own rule. A page on
- * both keeps the owner's six.
+ * yet, and the pages our removals emptied (emptied-pages.ts) that are pages with no photo yet, by the site's own rule.
+ * A page on both keeps the owner's six.
  */
 export async function priorityFish(root: string): Promise<string[]> {
   const out: [string, string][] = []
@@ -80,6 +80,7 @@ export async function priorityFish(root: string): Promise<string[]> {
   }
   const emptied = Object.entries(await readList(root, EMPTIED_FILE)).filter(([ref]) => !Object.hasOwn(owner, ref))
   const showing = await showingPhotos(emptied.map(([ref]) => ref), p => readFile(join(root, p), 'utf8').catch(() => undefined))
-  for (const [ref, day] of emptied) if (!showing.has(ref)) out.push([ref, day])
+  // A page with no photo yet; one the loader drops (no section it may show) is no page to find photos for.
+  for (const [ref, day] of emptied) if (showing.get(ref) === false) out.push([ref, day])
   return out.sort((a, b) => a[1].localeCompare(b[1]) || a[0].localeCompare(b[0])).map(([ref]) => ref)
 }
