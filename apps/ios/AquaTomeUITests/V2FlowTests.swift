@@ -131,21 +131,35 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
   }
 
+  /// A Hôm nay post (the fish of the day) open as the switch goes: the old look's Tìm shows its page, not a blank one with
+  /// SwiftUI's warning triangle and a back button (20 Nov). Switched to the new look again with it open, Khám phá, which
+  /// shares Tìm's stack, shows it with iOS's back button, where a post on Hôm nay has none (the Codex read of 21 Nov).
   func testSwitchingBackWithAPageOpenOnHomNayLeavesItOnTim() {
-    let app = launch()
+    // A day the editors haven't planned: Hôm nay's own fish, Cá neon.
+    let app = launch("-plan", "-today", "2026-11-15")
     app.launchForFlow(nil)
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá neon"), fish.label)
     fish.tap()
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     // The sheet's button is on a tab's first screen, not on a page.
     app.openTab("Khám phá")
     flip(app)
     XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
-    let back = app.navigationBars.buttons.element(boundBy: 0)
-    XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
-    back.tap()
-    XCTAssertTrue(app.navigationBars["Tìm"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Tìm's top")
+    // v1's page, the app's own (Cá neon's, in the fixture), drawn: not its head while it's read.
+    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 8), "Tìm shows a page it can't draw, not the post's")
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].isSelected, "the old look opened another tab")
+    XCTAssertTrue(app.navigationBars["Cá neon"].waitForExistence(timeout: 5), "Tìm shows another page than the post's")
+
+    app.openTab("Bể của tôi")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't come back")
+    app.openTab("Khám phá")
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "Khám phá doesn't show the fish's page")
+    XCTAssertTrue(app.pageBack.waitForExistence(timeout: 5), "the fish's page on Khám phá has no back button")
+    app.pageBack.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "the fish's page wasn't one step from Khám phá's top")
   }
 
   /// A group's page (a chip's) is v2's own, and v1's Tìm, which shares Khám phá's stack, has no screen for it: switched
