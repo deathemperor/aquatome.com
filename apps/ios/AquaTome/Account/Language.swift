@@ -44,7 +44,9 @@ final class AppLanguageNow {
     init(_ s: SiteLanguage) {
       code = s.code
       // The language's .lproj, whose strings table the catalog writes. Vietnamese, the catalog's own language, has no
-      // table there: a lookup in its .lproj gives the key, which is the Vietnamese.
+      // table there: a lookup in its .lproj gives the key, which is the Vietnamese. Its .lproj is there for
+      // InfoPlist.xcstrings' Vietnamese; without it, `.main` reads the language the app opened in, and
+      // LanguageFlowTests' way back from Thai fails on the sheet's privacy line (Fable, 21 Nov).
       bundle = Bundle.main.path(forResource: s.code, ofType: "lproj").flatMap(Bundle.init(path:)) ?? .main
       // The phone's own locale where it's in this language (its region's dates and numbers), else the language's.
       locale = Locale.current.language.languageCode?.identifier == s.code ? .current : Locale(identifier: s.code)

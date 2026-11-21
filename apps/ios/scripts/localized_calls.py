@@ -19,8 +19,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 APP = os.path.join(HERE, '..', 'AquaTome')
 # A line break or spaces before `localized:` too (Codex, 21 Nov: `String(\n localized: "Đèn")` went unseen).
 CALL = re.compile(r'\b(Attributed)?String\(\s*localized:')
-# A type's or a file's constant: made once, at its first reading.
-DECL = re.compile(r'^(\s*)(?:@MainActor\s+)?(?:(?:private|fileprivate|public|internal)\s+)?(?:nonisolated\s+)?(static\s+let|let)\s+\w+')
+# A type's or a file's constant, or a type's stored `static var`: made once, at its first reading. And a class's own stored
+# property (a model lives on across a language picked; a view is made again): `let`/`var` with `=`.
+DECL = re.compile(r'^(\s*)(?:@\w+(?:\([^)]*\))?\s+)*(?:(?:private|fileprivate|public|internal)(?:\(set\))?\s+)*(?:nonisolated\s+)?'
+                  r'(?:lazy\s+)?(static\s+let|static\s+var|let|var)\s+\w+\s*(:[^={]*)?(=)?')
+# A value made in the app's locale without a lookup (a formatter's, a date style's).
+LOCALE = re.compile(r'\bLocale\.app\b|\blocale\s*[:=]\s*\.app\b')
 # Labels after the key, in the order the initializers take them.
 ORDER = ('defaultValue', 'options', 'table', 'bundle', 'locale', 'comment', 'including')
 # Files the edit and the check leave alone, each with why. Take a line out when its file is ready: --apply then edits it.
@@ -161,22 +165,72 @@ def rel(path):
     return os.path.relpath(path, os.path.join(HERE, '..'))
 
 
+def scopes(src):
+    """For each line, the kind of the innermost braces it starts in: 'file', 'class' (a class's or an actor's body),
+    'type' (a struct's, an enum's, an extension's, a protocol's) or 'code'. Strings and comments skipped."""
+    kinds, stack, i, line = ['file'], [], 0, 0
+    while i < len(src):
+        c = src[i]
+        if c == '"' or (c == '#' and re.match(r'#+"', src[i:])):
+            j = skip_string(src, i)
+            for _ in range(src.count('\n', i, j)):
+                kinds.append(stack[-1] if stack else 'file')
+            i = j
+            continue
+        if src.startswith('//', i):
+            i = src.find('\n', i)
+            if i < 0:
+                break
+            continue
+        if src.startswith('/*', i):
+            j = src.index('*/', i) + 2
+            for _ in range(src.count('\n', i, j)):
+                kinds.append(stack[-1] if stack else 'file')
+            i = j
+            continue
+        if c == '{':
+            head = src[src.rfind('\n', 0, i) + 1:i]
+            if re.search(r'\b(?:class|actor)\s+\w+', head) and not re.search(r'\bclass\s+(?:func|var|let)\b', head):
+                stack.append('class')
+            elif re.search(r'\b(?:struct|enum|extension|protocol)\s+\w+', head):
+                stack.append('type')
+            else:
+                stack.append('code')
+        elif c == '}' and stack:
+            stack.pop()
+        elif c == '\n':
+            kinds.append(stack[-1] if stack else 'file')
+        i += 1
+    return kinds
+
+
 def cached_in(src):
-    """The lines of the constants built from a lookup: a `static let`, or a file's own `let`. Made once, they keep the
-    language of their first reading whatever the reader picks after (Codex, 21 Nov: Week Aqua's channel names, the colour
-    wheel's hue names, a page's jump chips)."""
-    out, lines = [], src.split('\n')
+    """The lines of the values made once from a lookup, or in the app's locale: a `static let`, a stored `static var`, a
+    file's own `let`, or a class's stored property. They keep the language of their first reading whatever the reader
+    picks after (Codex, 21 Nov: Week Aqua's channel names, the colour wheel's hue names, a page's jump chips; Fable, 21
+    Nov: a stored `static var`, a model's property, a formatter in the app's locale). A closure kept to call later isn't
+    one: it looks up each time."""
+    out, lines, kinds = [], src.split('\n'), scopes(src)
     for i, l in enumerate(lines):
         m = DECL.match(l)
-        if not m or (m.group(2) == 'let' and m.group(1)):
+        if not m:
             continue
+        kind, scope = m.group(2), kinds[i] if i < len(kinds) else 'file'
+        stored = m.group(4) is not None
+        if kind == 'static var' and not stored:
+            continue  # computed: made at each reading
+        if kind in ('let', 'var') and not (scope == 'file' and kind == 'let' or scope == 'class' and stored):
+            continue  # a local, a struct's (made again with it), or a computed property
         body, j = l, i
         depth = sum(l.count(c) for c in '([{') - sum(l.count(c) for c in ')]}')
         while depth > 0 and j + 1 < len(lines):
             j += 1
             body += '\n' + lines[j]
             depth += sum(lines[j].count(c) for c in '([{') - sum(lines[j].count(c) for c in ')]}')
-        if CALL.search(body):
+        value = body.split('=', 1)[1].strip() if stored else ''
+        if value.startswith('{') and not value.rstrip().endswith('}()'):
+            continue
+        if CALL.search(body) or LOCALE.search(body):
             out.append(i + 1)
     return out
 
@@ -194,7 +248,7 @@ def problems_in(src):
         elif not c['literal'] and not c['key'].rstrip().endswith('.inApp') and 'bundle' not in c['labels']:
             out.append((c['line'], 'a resource without .inApp (give it the app\'s locale: resource.inApp)'))
     for line in cached_in(src):
-        out.append((line, 'a constant made from a lookup keeps the first language (make it computed: static var … { … })'))
+        out.append((line, 'a value made once from a lookup or the app\'s locale keeps the first language (make it computed: var … { … })'))
     return sorted(out)
 
 
@@ -237,6 +291,14 @@ SAMPLE = '''struct S {
   var h: String { String(localized: "Đèn", bundle: .main) }
   static let i = [String(localized: "Đèn", bundle: .app)]
   static var j: [String] { [String(localized: "Đèn", bundle: .app)] }
+  static var k = String(localized: "Đèn", bundle: .app)
+  let l = String(localized: "Đèn", bundle: .app)
+}
+final class C {
+  let m = String(localized: "Đèn", bundle: .app)
+  var n: () -> String = { String(localized: "Đèn", bundle: .app) }
+  static let o = Date.FormatStyle(locale: .app)
+  func p() { let q = String(localized: "Đèn", bundle: .app); _ = q }
 }
 '''
 
@@ -244,7 +306,8 @@ SAMPLE = '''struct S {
 def self_test():
     """The check fails on a bad line, names its line, and passes the same lines once the edit has made them."""
     found = problems_in(SAMPLE)
-    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12], found
+    # Not 13 (computed), 15 (a struct's, made again with it), 19 (a closure), 21 (a local).
+    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 18, 20], found
     fixed, made, skipped = apply_to(SAMPLE)
     assert made == 4 and skipped == [6, 7], (made, skipped)
     assert 'String(\n    localized: "Đèn", bundle: .app) }' in fixed, fixed
@@ -252,7 +315,7 @@ def self_test():
     assert 'AttributedString(localized: "**Đèn** \\(n) ổ", bundle: .app)' in fixed, fixed
     assert 'String(localized: "Đèn (\\(f(x, y)))", bundle: .app, comment: "x, y")' in fixed, fixed
     # Left for a person: the resource, the other bundle, the constant.
-    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12], problems_in(fixed)
+    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 18, 20], problems_in(fixed)
 
 
 def count(ref=None):

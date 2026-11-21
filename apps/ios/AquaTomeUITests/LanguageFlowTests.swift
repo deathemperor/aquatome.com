@@ -186,6 +186,33 @@ final class LanguageFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "frames").label, sent, "the switch back sent the light something")
   }
 
+  /// A schedule written over another, its undo offered, then Thai picked: the undo is still there after the switch, and
+  /// puts the first schedule back. The notice is the only place it's offered, and a switch cleared every notice (Fable,
+  /// 21 Nov); one with a button or a warning now stays, in its words.
+  func testTheUndoOfASchedulesWriteStaysAcrossASwitch() {
+    let app = launch(.v2)
+    app.openTab("Đèn")
+    app.buttons["scan"].tap()
+    let light = app.buttons["light"].firstMatch
+    XCTAssertTrue(light.waitForExistence(timeout: 5), "no light found")
+    light.tap()
+    XCTAssertTrue(element(app, "notice").waitForExistence(timeout: 10), "no notice after connecting")
+    tap(app, "preset-new")
+    tap(app, "write")
+    let confirm = app.alerts.buttons["Ghi lịch"]
+    XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation of the first write")
+    confirm.tap()
+    XCTAssertTrue(waitFor { element(app, "notice").label.contains("13:00") }, "the first schedule wasn't written")
+    tap(app, "preset-settled")
+    tap(app, "write")
+    XCTAssertTrue(element(app, "notice-action").waitForExistence(timeout: 10), "no undo after the second write")
+
+    pick(app, "ภาษาไทย", Self.th)
+    XCTAssertTrue(reached(app, "notice-action").exists, "the switch took the undo away")
+    tap(app, "notice-action")
+    XCTAssertTrue(waitFor { element(app, "notice").label.contains("13:00") }, "the undo after the switch didn't put the first schedule back")
+  }
+
   /// The Love Ecology light's colour on air (40 s here, `-lamp-on-air`) as a language is picked: the card after the switch
   /// is the same, its sends kept, and red ends at its time, as without the switch. As the card's own, its model was drawn
   /// again with the tabs: the new one knew nothing of red (its sends empty), though the old one still ended it (Codex,

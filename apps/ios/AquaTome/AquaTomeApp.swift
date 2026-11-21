@@ -80,9 +80,11 @@ struct AquaTomeApp: App {
     _lights = State(initialValue: lights)
     let (account, wanted) = AquaTomeApp.server(tanks)
     _account = State(initialValue: account)
-    // What a save puts on a tank without a page, that no page has, is sent as wanted.
+    // What a save puts on a tank without a page, that no page has, is sent as wanted. While the index is on its way (at
+    // launch, and after a language picked, whose first read can take the network's time) which pages there are isn't
+    // known: nothing is sent (Fable, 21 Nov).
     tanks.wanted = wanted
-    tanks.hasPage = { handbook.page(for: $0) != nil }
+    tanks.hasPage = { handbook.status == .loading || handbook.page(for: $0) != nil }
     let plugs = AquaTomeApp.plugs()
     _plugs = State(initialValue: plugs)
     let master = MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs))
@@ -251,9 +253,11 @@ struct AquaTomeApp: App {
     // Đèn's stack is the lights' own, above the redraw: Week Aqua's screen closes too (Codex, 21 Nov). Its connection and
     // a write going on stay: they're the model's, not the screen's.
     lights.weekAqua.path = []
-    // Sentences finished in the old language: what they told is done.
-    lights.notice = nil
-    lights.weekAqua.notice = nil
+    // Sentences finished in the old language, what they told done: gone. A warning (a schedule the light didn't read
+    // back, a write cut short), and a notice with a button (the undo of the schedule just written, connect again), stay in
+    // their words: the button is the only way to it (Fable, 21 Nov).
+    if let n = lights.notice, !n.isError, n.action == nil { lights.notice = nil }
+    if lights.weekAqua.notice?.isError == false { lights.weekAqua.notice = nil }
     account.clearMessage()
     // What was recorded in the old language goes with it, first.
     telemetry.speaks(to.code)

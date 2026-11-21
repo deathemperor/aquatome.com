@@ -342,9 +342,13 @@ final class MasterModel {
 
   /// Another language picked while the app runs (AquaTomeApp.speak): the press's end notification, if one waits, set again
   /// in the words of that language, for the same end and under the same name.
+  /// A press starting sets its own, in the words of when it's set; an end going on cancels it.
   func speaks() async {
-    guard let r = run, r.isRunning, let ends = r.ends, let name = button?.name, await EndNotice.waiting() else { return }
+    guard let r = run, r.isRunning, !sending, let ends = r.ends, let name = button?.name, await EndNotice.waiting() else { return }
     await EndNotice.schedule(at: ends, title: name)
+    // An end that began during the awaits (only an end sends while the press runs) cancelled the old words' notice
+    // already: the new words' would tell to put back a run that has ended (Fable, 21 Nov).
+    if sending || run?.isRunning != true { EndNotice.cancel() }
   }
 
   /// Wakes at the end while it runs (the app open).
