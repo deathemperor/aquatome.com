@@ -2743,6 +2743,179 @@
       "kept": false
     }
   ],
+  "vi/glossary/dac-huu": [
+    {
+      "at": "2026-11-21T17:55:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T17:55:00Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): name 'Cá neon Việt Nam' not in facts; sources give 'Vietnamese minnow' etc. / name 'Cá neon Việt Nam' not given in facts / name 'Cá neon Việt Nam' not in facts",
+        "Rule 12: The first section, \"Cá chỉ được biết ở một nơi tại Việt Nam\", has to follow the set wording exactly. That wording leaves out Tanichthys micagemmae (facts 34 to 36). The entry still has the item \"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị. Các mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\" under \"Một tài liệu tham khảo…",
+        "Rule 12: In the first section, the Annamia cf. thuathienensis item sits under \"Một bài khác ghi:\". The set wording puts it as the only item straight under \"Một tài liệu tham khảo ghi:\". The section should be just the heading, then \"Một tài liệu tham khảo ghi:\", then the one item \"Annamia cf. thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, miền Trung Việt Nam, và không có ghi chép nào …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:48:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rules 6 and 12: \"Tanichthys micagemmae\" in \"Tanichthys micagemmae chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": this fish has a page, so it should be called by that page's name, \"Cá neon Việt Nam\". THIS TERM also says this item must be written word for word as \"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:48:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): Name 'cá neon Việt Nam' not among the trade names in the facts / name 'Cá neon Việt Nam' not in facts / name 'cá neon Việt Nam' not among given trade names"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "eab899a39695e3c93bb7fd854ca28e7935c2fa74ede709263d5369cd64c6de1a"
+    },
+    {
+      "at": "2026-11-21T17:48:01Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.89,
+      "notes": [
+        "\"Cá chạch suối Annamia thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": the facts don't carry it (unsupported, unsupported, unsupported): adds common name 'cá chạch suối' and drops 'cf.' / adds common name 'cá chạch suối' not in facts; drops 'cf.' / drops 'cf.' and adds common name 'cá chạch suối' not in facts",
+        "\"Có những loài cá đã tuyệt chủng ngoài tự nhiên mà nay vẫn còn, vì người nuôi giữ và cho chúng đẻ trong bể.\": the facts don't carry it (loose, unsupported, uncredited): 'many' softened to 'some'; 'only because' generalised / 'many' species softened to 'some' / only phys.org says this; stated as plain fact",
+        "Rule 12: The heading \"Ví dụ ở Việt Nam\" must be \"Cá chỉ được biết ở một nơi tại Việt Nam\". Facts 34 and 37 say each fish is known only from its place. They never say endemic.",
+        "Rule 12: Under \"Ví dụ ở Việt Nam\", the section must be written word for word: \"Một tài liệu tham khảo ghi:\" with only the Cá neon Việt Nam item, then \"Một bài khác ghi:\" with only the Annamia cf. thuathienensis item. The draft puts three items under one \"Một tài liệu tham khảo ghi:\". Because of this, the second seriouslyfish page (fact 37) is not credited apart as \"Một bài khác ghi:\".",
+        "Rules 6 and 12: \"Tanichthys micagemmae\" in \"Tanichthys micagemmae mới chỉ thấy ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the fish has a page, so it should be called \"Cá neon Việt Nam (Tanichthys micagemmae)\", as the line under THIS TERM writes it.",
+        "Rules 12 and 4: \"mới chỉ thấy ở hệ sông Bến Hải\" adds a hedge (\"mới\") that fact 34 doesn't give. It should be \"chỉ được biết ở hệ sông Bến Hải\". Also, \"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình\" should be \"Các mẫu chuẩn của loài lấy ở tỉnh Quảng Bình\", word for word.",
+        "Rule 12: The item \"Tanichthys sp. 'Vietnam' mới chỉ thấy ở tỉnh Đà Nẵng, miền Trung. Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả. Vây bụng và vây hậu môn của nó vàng tươi, còn ở Tanichthys micagemmae các vây này ngả đỏ.\" must be left out. Facts 31 and 32 are about a fish that may be undescribed. The item also adds the hedge \"mới\".",
+        "Rule 6: \"Tanichthys micagemmae\" in \"Vây bụng và vây hậu môn của nó vàng tươi, còn ở Tanichthys micagemmae các vây này ngả đỏ.\": the fish has a page and should be called \"cá neon Việt Nam\".",
+        "Rules 6 and 12: \"Cá chạch suối Annamia thuathienensis\" in \"Cá chạch suối Annamia thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": fact 37 is about \"Annamia cf. thuathienensis\". That page's hedge \"cf.\" must stay, with the scientific name as the fact writes it. The item also drops \"miền Trung Việt Nam\". It changes \"không có ghi chép nào khác được liệ…",
+        "Rule 12: The section \"Ví dụ ở nơi khác\" and its sentence \"Một bài báo nói Glossolepis wanamensis là loài bản địa của một hồ ở Papua New Guinea và đang cực kỳ nguy cấp.\" must be cut. Fact 25 says native, not endemic, and \"bản địa\" is never given as an example of endemic."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:25:46Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.76,
+      "notes": [
+        "\"Một tài liệu tham khảo ghi cá neon Việt Nam mới chỉ thấy ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): name 'cá neon Việt Nam' not given; trade names are 'Vietnamese minnow' etc. / name 'cá neon Việt Nam' not given; facts say 'Vietnamese minnow' / name 'cá neon Việt Nam' not given in facts",
+        "\"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\": the facts don't carry it (uncredited, uncredited, uncredited): single site (seriouslyfish), credit ended at previous full stop / type locality only from seriouslyfish, sentence not credited / one site only, credit ended at prior sentence",
+        "\"Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả.\": the facts don't carry it (uncredited, uncredited, uncredited): single site (seriouslyfish), not credited in this sentence / only seriouslyfish, credit ended with previous sentence / one site only, stands under no credit",
+        "\"Vây bụng và vây hậu môn của nó vàng tươi, còn ở cá neon Việt Nam các vây này ngả đỏ.\": the facts don't carry it (unsupported, unsupported, unsupported): uses name 'cá neon Việt Nam' not in facts for T. micagemmae / uses name 'cá neon Việt Nam' not in facts; also single-site and uncredited / uses name 'cá neon Việt Nam' not in facts",
+        "Rule 12: \"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\" is a claim from only one site (seriouslyfish), but it stands as its own sentence after the credited one, so it reads as plain fact. It should go under the same opening (\"Một tài liệu tham khảo ghi …\"), joined with a semicolon or as a list.",
+        "Rule 12: \"Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả.\" is a one-site claim written as plain fact, outside the opening \"Một bài khác ghi …\". Same-page claims in a row belong under one opening, as a list or one sentence with semicolons.",
+        "Rule 12: \"Vây bụng và vây hậu môn của nó vàng tươi, còn ở cá neon Việt Nam các vây này ngả đỏ.\" is also a one-site claim that sits outside its credit and reads as plain fact. It should be carried under the same opening.",
+        "Rule 6: \"Annamia cf. thuathienensis\" in \"Một bài khác ghi Annamia cf. thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": this fish has a line in PAGES, so it should be called by its page's name, \"cá chạch suối Annamia thuathienensis\", not by the scientific name alone."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
+  "vi/glossary/di-hinh-gioi-tinh": [
+    {
+      "at": "2026-11-21T19:23:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Dị hình giới tính là khi con đực và con cái của cùng một loài trông khác nhau, như ở cỡ thân, màu hay vây.\"",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này hiện rõ khi cá đã mang bầu.\" (not \"Một tiệm ghi: gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này sẫm màu hơn khi cá mang bầu.\": Rule 12: \"Một tiệm ghi: gần hậu môn cá cái có một đốm sẫm (gravid spot), và đốm này sẫm màu hơn khi cá man…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:23:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: under \"Xem đực cái Betta thế này\", the first list still opens with \"Một tiệm ghi:\". THIS TERM says to write it as \"Một tiệm khác ghi:\" (source 9), because a shop (source 7) is already named in the Corydoras item.",
+        "Rule 12: under \"Xem đực cái Betta thế này\", the second list still opens with \"Một tiệm khác ghi:\". THIS TERM says to write it as \"Một tiệm thứ ba ghi:\" (source 8).",
+        "Rule 12: under \"Xem đực cái Cichlidae thế này\", the list still opens with \"Một tiệm thứ ba ghi:\". These claims come back to source 7, the shop first named in the Corydoras item. THIS TERM says to write it as \"Tiệm thứ nhất cũng ghi:\".",
+        "Rule 12: \"Các đặc điểm này chỉ là so sánh giữa các con với nhau chứ không phải quy tắc tuyệt đối.\" still has \"chỉ\". THIS TERM says to write it as \"Các đặc điểm này là so sánh giữa các con với nhau chứ không phải quy tắc tuyệt đối.\" (fact 40 has no \"only\")."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:56:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Dị hình giới tính là khi con đực và con cái của cùng một loài trông khác nhau, như ở cỡ thân, màu hay vây.\"",
+        "Rule 12: \"Một tiệm thứ ba ghi:\" opens the Cichlidae list, but that list comes from the same shop as the Corydoras item, \"một tiệm ghi cá cái to và đầy thân hơn cá đực\" (both are source 7, aquaplantshub). It is not a third shop. Since it comes back after other shops, it should read \"Tiệm thứ nhất cũng ghi:\". The Betta list then opens a second shop with \"Một tiệm ghi:\", which should be \"Một tiệm kh…"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:56:02Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\": the facts don't carry it (uncredited, uncredited, uncredited): Only caguppy.com gives this, and the list opening credits no page / only caguppy.com says this; not credited / Only caguppy.com says this, and the sentence gives no credit",
+        "Rule 12: in the definition, \"Loài nào khác nhau rõ thì nhìn là biết đực cái, còn loài khác ít thì khó nhận ra hơn.\" must be written word for word as \"Loài nào đực cái khác nhau rõ thì dễ phân biệt hơn, còn loài khác ít thì khó nhận ra hơn.\" Fact 4 says only that how hard it is depends on how visibly the sexes differ. \"nhìn là biết\" says more than that.",
+        "Rule 12: under \"Dấu hiệu ở các loài này\", the opening \"Dấu hiệu thì mỗi loài một khác:\" must go. No fact says it, and the list should stand under its heading.",
+        "Rule 12: in the Cá bảy màu item, \"cá cái to hơn cá đực và ít màu hơn.\" must be written word for word as \"cá cái to hơn cá đực.\" (facts 11, 12 and 14).",
+        "Rule 12: in the Cá bảy màu item, \"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\" must go. Only one site gives it (fact 17), and that site would be a fourth past the three the entry credits.",
+        "Rule 12: in the Corydoras item, \"cá cái to và đầy thân hơn cá đực.\" is a claim only one site gives (fact 28, aquaplantshub.com, a shop). It is written as plain fact with no credit such as \"Một tiệm ghi …\".",
+        "Rule 12: in the Betta item, \"vây cá đực dài và to hơn vây cá cái.\" must be written word for word as \"vây hậu môn cá đực dài và to hơn cá cái.\" Facts 20 and 21 agree on the anal fin only.",
+        "Rule 12: in the first shop's list under \"Xem đực cái Betta thế này\", \"Betta bắt đầu trổ mã từ 2–3 tháng tuổi.\" must be written word for word as \"Betta bắt đầu có dấu hiệu trưởng thành từ 2–3 tháng tuổi.\"",
+        "Rule 12: \"Tiệm này chỉ dùng các đặc điểm phân đực cái của cá trưởng thành cho cá từ 4 tháng tuổi trở lên.\" adds \"chỉ\", a hedge fact 19 doesn't have. It must be written as \"Tiệm này dùng các đặc điểm phân đực cái của cá trưởng thành cho cá từ 4 tháng tuổi trở lên.\"",
+        "Rule 12: \"Cá cái đầu thuôn, bụng tròn và có sọc.\" must be written word for word as \"Cá cái đầu thuôn, bụng đầy đặn và có sọc.\" (fact 38: plump)."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:18:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\": the facts don't carry it (uncredited, uncredited, uncredited): only caguppy.com gives this; no credit / Full Red/Koi female colour comes only from caguppy.com / only caguppy.com, list opening credits no page",
+        "Rule 12: \"Riêng các dòng cao cấp như Full Red và Koi thì cá cái cũng lên màu đẹp.\" Only one site gives this: caguppy.com, a shop. The standing line says a claim only one site gives must say whose it is, for example \"Một tiệm ghi …\". Here it is written as plain fact, and it sits in the same item as the two-site claims about guppies (cá bảy màu)."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "2dbbad6bffe2fd82756843bfe3d56b6199b37e7b0832739d73f014a33da2f45f"
+    },
+    {
+      "at": "2026-11-21T18:18:37Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"Ở cá chuột đồng, cá cái có xu hướng to hơn, và cá cái đã đến tuổi đẻ tròn, rộng thân hơn hẳn cá đực, nhất là khi mang trứng.\": the facts don't carry it (supported, uncredited, uncredited): bronze cory detail only from seriouslyfish.com, no credit / bronze cory claim only from seriouslyfish.com, stated as plain fact",
+        "\"Khi xem thì soi cá dưới ánh sáng tốt.\": the facts don't carry it (uncredited, uncredited, supported): good-light advice only from aquariumcare.vn, stated without credit / good-light advice only from aquariumcare.vn, no credit",
+        "Rule 12: \"Ở cá chuột đồng, cá cái có xu hướng to hơn, và cá cái đã đến tuổi đẻ tròn, rộng thân hơn hẳn cá đực, nhất là khi mang trứng.\" Only one site gives this (seriouslyfish.com, a reference site), but it is written as plain fact with no credit. Crediting it would make seriouslyfish a fourth named source, after the three shops already named. The claim is background that a keeper can't act on, s…",
+        "Rule 4: \"cá cái to và đầy thân hơn cá đực\" and \"cá cái có xu hướng to hơn\" in the Corydoras item both say that females are bigger. The second sentence repeats the first, so this should be said once.",
+        "Rule 12: \"cá cái to hơn cá đực và thường ít màu hơn\" in the guppy item. The fact that says females are less colourful has no hedge, so \"thường\" adds one. Another fact limits the claim: in high-end lines such as Full Red and Koi, the females also colour up well. That limit isn't said beside the claim. It should be stated, or the claim should take the credit of the site that gives it broadly."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    }
+  ],
   "vi/glossary/nitrat": [
     {
       "at": "2026-11-21T19:11:58Z",
@@ -2843,91 +3016,6 @@
       ],
       "attempt": "rewrite",
       "kept": true
-    }
-  ],
-  "vi/glossary/dac-huu": [
-    {
-      "at": "2026-11-21T17:55:00Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 1,
-      "notes": [],
-      "attempt": "rewrite",
-      "kept": true
-    },
-    {
-      "at": "2026-11-21T17:55:00Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 0.92,
-      "notes": [
-        "\"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): name 'Cá neon Việt Nam' not in facts; sources give 'Vietnamese minnow' etc. / name 'Cá neon Việt Nam' not given in facts / name 'Cá neon Việt Nam' not in facts",
-        "Rule 12: The first section, \"Cá chỉ được biết ở một nơi tại Việt Nam\", has to follow the set wording exactly. That wording leaves out Tanichthys micagemmae (facts 34 to 36). The entry still has the item \"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị. Các mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\" under \"Một tài liệu tham khảo…",
-        "Rule 12: In the first section, the Annamia cf. thuathienensis item sits under \"Một bài khác ghi:\". The set wording puts it as the only item straight under \"Một tài liệu tham khảo ghi:\". The section should be just the heading, then \"Một tài liệu tham khảo ghi:\", then the one item \"Annamia cf. thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, miền Trung Việt Nam, và không có ghi chép nào …"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-21T17:48:01Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 1,
-      "notes": [
-        "Rules 6 and 12: \"Tanichthys micagemmae\" in \"Tanichthys micagemmae chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": this fish has a page, so it should be called by that page's name, \"Cá neon Việt Nam\". THIS TERM also says this item must be written word for word as \"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở …"
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-21T17:48:01Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 0.92,
-      "notes": [
-        "\"Cá neon Việt Nam (Tanichthys micagemmae) chỉ được biết ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): Name 'cá neon Việt Nam' not among the trade names in the facts / name 'Cá neon Việt Nam' not in facts / name 'cá neon Việt Nam' not among given trade names"
-      ],
-      "attempt": "rewrite",
-      "kept": false,
-      "draft": "eab899a39695e3c93bb7fd854ca28e7935c2fa74ede709263d5369cd64c6de1a"
-    },
-    {
-      "at": "2026-11-21T17:48:01Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 0.89,
-      "notes": [
-        "\"Cá chạch suối Annamia thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": the facts don't carry it (unsupported, unsupported, unsupported): adds common name 'cá chạch suối' and drops 'cf.' / adds common name 'cá chạch suối' not in facts; drops 'cf.' / drops 'cf.' and adds common name 'cá chạch suối' not in facts",
-        "\"Có những loài cá đã tuyệt chủng ngoài tự nhiên mà nay vẫn còn, vì người nuôi giữ và cho chúng đẻ trong bể.\": the facts don't carry it (loose, unsupported, uncredited): 'many' softened to 'some'; 'only because' generalised / 'many' species softened to 'some' / only phys.org says this; stated as plain fact",
-        "Rule 12: The heading \"Ví dụ ở Việt Nam\" must be \"Cá chỉ được biết ở một nơi tại Việt Nam\". Facts 34 and 37 say each fish is known only from its place. They never say endemic.",
-        "Rule 12: Under \"Ví dụ ở Việt Nam\", the section must be written word for word: \"Một tài liệu tham khảo ghi:\" with only the Cá neon Việt Nam item, then \"Một bài khác ghi:\" with only the Annamia cf. thuathienensis item. The draft puts three items under one \"Một tài liệu tham khảo ghi:\". Because of this, the second seriouslyfish page (fact 37) is not credited apart as \"Một bài khác ghi:\".",
-        "Rules 6 and 12: \"Tanichthys micagemmae\" in \"Tanichthys micagemmae mới chỉ thấy ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the fish has a page, so it should be called \"Cá neon Việt Nam (Tanichthys micagemmae)\", as the line under THIS TERM writes it.",
-        "Rules 12 and 4: \"mới chỉ thấy ở hệ sông Bến Hải\" adds a hedge (\"mới\") that fact 34 doesn't give. It should be \"chỉ được biết ở hệ sông Bến Hải\". Also, \"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình\" should be \"Các mẫu chuẩn của loài lấy ở tỉnh Quảng Bình\", word for word.",
-        "Rule 12: The item \"Tanichthys sp. 'Vietnam' mới chỉ thấy ở tỉnh Đà Nẵng, miền Trung. Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả. Vây bụng và vây hậu môn của nó vàng tươi, còn ở Tanichthys micagemmae các vây này ngả đỏ.\" must be left out. Facts 31 and 32 are about a fish that may be undescribed. The item also adds the hedge \"mới\".",
-        "Rule 6: \"Tanichthys micagemmae\" in \"Vây bụng và vây hậu môn của nó vàng tươi, còn ở Tanichthys micagemmae các vây này ngả đỏ.\": the fish has a page and should be called \"cá neon Việt Nam\".",
-        "Rules 6 and 12: \"Cá chạch suối Annamia thuathienensis\" in \"Cá chạch suối Annamia thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": fact 37 is about \"Annamia cf. thuathienensis\". That page's hedge \"cf.\" must stay, with the scientific name as the fact writes it. The item also drops \"miền Trung Việt Nam\". It changes \"không có ghi chép nào khác được liệ…",
-        "Rule 12: The section \"Ví dụ ở nơi khác\" and its sentence \"Một bài báo nói Glossolepis wanamensis là loài bản địa của một hồ ở Papua New Guinea và đang cực kỳ nguy cấp.\" must be cut. Fact 25 says native, not endemic, and \"bản địa\" is never given as an example of endemic."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-21T17:25:46Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 0.76,
-      "notes": [
-        "\"Một tài liệu tham khảo ghi cá neon Việt Nam mới chỉ thấy ở hệ sông Bến Hải, vùng Bắc Trung Bộ, chủ yếu ở tỉnh Quảng Trị.\": the facts don't carry it (unsupported, unsupported, unsupported): name 'cá neon Việt Nam' not given; trade names are 'Vietnamese minnow' etc. / name 'cá neon Việt Nam' not given; facts say 'Vietnamese minnow' / name 'cá neon Việt Nam' not given in facts",
-        "\"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\": the facts don't carry it (uncredited, uncredited, uncredited): single site (seriouslyfish), credit ended at previous full stop / type locality only from seriouslyfish, sentence not credited / one site only, credit ended at prior sentence",
-        "\"Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả.\": the facts don't carry it (uncredited, uncredited, uncredited): single site (seriouslyfish), not credited in this sentence / only seriouslyfish, credit ended with previous sentence / one site only, stands under no credit",
-        "\"Vây bụng và vây hậu môn của nó vàng tươi, còn ở cá neon Việt Nam các vây này ngả đỏ.\": the facts don't carry it (unsupported, unsupported, unsupported): uses name 'cá neon Việt Nam' not in facts for T. micagemmae / uses name 'cá neon Việt Nam' not in facts; also single-site and uncredited / uses name 'cá neon Việt Nam' not in facts",
-        "Rule 12: \"Mẫu chuẩn của loài lấy ở tỉnh Quảng Bình.\" is a claim from only one site (seriouslyfish), but it stands as its own sentence after the credited one, so it reads as plain fact. It should go under the same opening (\"Một tài liệu tham khảo ghi …\"), joined with a semicolon or as a list.",
-        "Rule 12: \"Người ta thu được nó lần đầu năm 2009, và có thể nó là loài chưa được mô tả.\" is a one-site claim written as plain fact, outside the opening \"Một bài khác ghi …\". Same-page claims in a row belong under one opening, as a list or one sentence with semicolons.",
-        "Rule 12: \"Vây bụng và vây hậu môn của nó vàng tươi, còn ở cá neon Việt Nam các vây này ngả đỏ.\" is also a one-site claim that sits outside its credit and reads as plain fact. It should be carried under the same opening.",
-        "Rule 6: \"Annamia cf. thuathienensis\" in \"Một bài khác ghi Annamia cf. thuathienensis được mô tả từ sông Bô ở tỉnh Thừa Thiên Huế, và chưa có ghi chép nào ở nơi khác.\": this fish has a line in PAGES, so it should be called by its page's name, \"cá chạch suối Annamia thuathienensis\", not by the scientific name alone."
-      ],
-      "attempt": "rewrite",
-      "kept": false
     }
   ]
 }
