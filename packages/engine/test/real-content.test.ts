@@ -1086,15 +1086,19 @@ test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", ()
 test("the Writing Lead's words hold on the four guides the night of 19 Nov cut", () => handFixesHold('guarded-four-1120.json', ''))
 
 // The chief of staff's yes of 21 Nov 2026 on the live-food guide's Indonesian and Malay copies: the bloodworm survey said
-// as the Writing Lead's English fix of the saved fact says it (an informal 2018 survey of 445 respondents, 34% known or
+// in the Writing Lead's fix of 20 Nov, the Thai page's form (an informal 2018 survey of 445 respondents, 34% known or
 // suspected, the median of four years), and the Malay FAQ's allergy line no more than the English. Each copy's body is
 // bodyFixed and the Malay FAQ faqFixed, so a redo keeps them; both stay held for the gate's read
-// (test/fixtures/live-food-1121-id.json, -ms.json, by the guide's whole id).
+// (test/fixtures/live-food-1121-id.json, -ms.json, by the guide's whole id). The saved fact the writers read says
+// respondents too, so no copy written from it says "readers" again (Codex's read, 21 Nov).
 test("the live-food guide's Indonesian and Malay survey lines hold", () => {
   handFixesHold('live-food-1121-id.json', '', 'id')
   handFixesHold('live-food-1121-ms.json', '', 'ms')
   const dir = fileURLToPath(new URL('../../../content/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo', import.meta.url))
   for (const lang of ['id', 'ms']) expect(JSON.parse(readFileSync(join(dir, `${lang}.json`), 'utf8')).held, lang).toBeTruthy()
+  const facts = readFileSync(fileURLToPath(new URL('../../../engine-state/topics/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo.json', import.meta.url)), 'utf8')
+  expect(facts).toContain('survey of 445 respondents')
+  expect(facts).not.toContain('445 readers')
 })
 
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
