@@ -1,4 +1,4 @@
-import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
+import { boxFractions, cleanPhoto, FIRST_GUIDES, FIRST_PLANTS, frameOf, isNonCommercial, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, unmarked, type BreedEntity, type Chip, type Content, type Curation, type GuideEntity, type Localized, type Loop, type Photo, type PlantEntity, type Range, type SpeciesEntity, type Traits } from '@aq/schema'
 import type { Box, KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -349,7 +349,8 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
     const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
     // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
     // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
-    const fits = (p: Photo) => !p.generated && unmarked(p) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
+    // No non-commercial photo: a chip stands for many fish (the chief of staff's rule, 17 Nov).
+    const fits = (p: Photo) => !p.generated && unmarked(p) && !isNonCommercial(p.licence ?? '') && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
     // Whose each photo is, the first member to show it: a head, or a photo from a member's page text (Cá chuột's).
     const owner = new Map<Photo, string>()
     const own = (p: Photo, id: string) => { if (!owner.has(p)) owner.set(p, id); return p }
@@ -488,9 +489,12 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   // and guides are Curation's lists in their order, each page only as this index lists it (one that stops passing reader
   // fit drops out), then the home's own ranking: a language with fewer of Curation's pages (most are Vietnamese) still
   // fills its shelf.
-  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
+  // No fish or plant led by a non-commercial photo: a shelf features them (the chief of staff's rule, 17 Nov).
+  const ncLed = (xs: { id: string; photos: Photo[] }[]) => new Set(xs.filter(x => x.photos.some(p => isNonCommercial(p.licence ?? ''))).map(x => x.id))
+  const fishNc = ncLed([...c.species, ...c.breeds]), plantNc = ncLed(c.plants)
+  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img && !fishNc.has(i.id ?? '')).map(i => [i.id, i.path]))
   const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
-  const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
+  const plantAt = new Map(items.filter(i => i.kind === 'plant' && !plantNc.has(i.id ?? '')).map(i => [i.id, i.path]))
   home.browse = {
     fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE.fish),
     plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, BROWSE.plants),

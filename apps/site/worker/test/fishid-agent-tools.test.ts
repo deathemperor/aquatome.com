@@ -259,4 +259,7 @@ test('a non-commercial album photo never supplies Fish ID facts pictures: it sta
   const pages = { species: [page], breeds: [], plants: [] }, catalog = buildCatalog([{ lang: 'vi', pages, at: p => p }], p => p.url)
   const facts = buildFacts(catalog, pages, p => p.url, { gallery: () => [nc] })
   expect(facts[0]?.photos).toEqual([open.url])
+  // Nor as the page's head (the chief of staff's rule, 17 Nov: never a fish-ID reference).
+  const led = { species: [{ ...page, photos: [nc] }], breeds: [], plants: [] }
+  expect(buildFacts(buildCatalog([{ lang: 'vi', pages: led, at: p => p }], p => p.url), led, p => p.url, { gallery: () => [] })[0]?.photos ?? []).toEqual([])
 })

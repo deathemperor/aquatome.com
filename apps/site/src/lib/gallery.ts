@@ -22,6 +22,16 @@ export function licenceUrl(licence: string): string | undefined {
 }
 
 /**
+ * The picture a fish's page offers to shares and search (`og:image`, its Article's image): its head, but never a
+ * non-commercial one, which shows only on its own page and card; the site's own default stands in (the chief of staff's
+ * rule, 17 Nov).
+ */
+export const shareImage = (photos: Pick<Photo, 'url' | 'licence'>[]): string | undefined => {
+  const head = photos[0]
+  return head && !isNonCommercial(head.licence) ? head.url : undefined
+}
+
+/**
  * A licence's page as the credits list links it: Unsplash's with AquaTome's UTM, as Unsplash asks of every link to it
  * (unsplash.ts); the others as licenceUrl. Structured data names the page itself.
  */

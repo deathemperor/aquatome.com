@@ -63,12 +63,14 @@ const URL_KEYED = ['_album-ask.json', '_photo-check.json', '_photo-faces.json', 
  * cookies (Lighthouse Best Practices), send JPEGs with a short cache life, and each is one more connection before the
  * page's main picture. Each photo becomes a ≤1200 px WebP plus a 480 px thumb; credit, licence and the link to the
  * photo's own page are kept. `limit`: uploads this run. Idempotent: a photo already on our host is left alone. A
- * non-commercial photo is copied only where the site shows it: an iNaturalist album photo under CC BY-NC or CC BY-NC-SA,
- * its switch on (`switches`, IMAGE_SWITCHES.inatNonCommercial).
+ * non-commercial photo is copied only where the site shows it: an iNaturalist photo under CC BY-NC or CC BY-NC-SA in an
+ * album or on a fish's page, which keeps one only as its head (gallery.ts dropNonCommercial), its switch on (`switches`,
+ * IMAGE_SWITCHES.inatNonCommercial).
  */
 export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: number; dryRun?: boolean; switches?: Readonly<ImageSwitches> } = {}) {
   const nc = (o.switches ?? IMAGE_SWITCHES).inatNonCommercial
   const albums = join(root, 'content', 'gallery')
+  const shows = (file: string) => file.startsWith(albums) || ['species', 'plants', 'breeds'].some(k => file.startsWith(join(root, 'content', k)) && file.endsWith('entity.json'))
   const report = { mirrored: 0, files: 0, pending: 0, failed: [] as string[] }
   const done = new Map<string, Stored>()
   const moved: [string, string][] = []
@@ -83,7 +85,7 @@ export async function mirrorPhotos(root: string, d: MirrorDeps, o: { limit?: num
     for (const p of photosIn(data)) {
       const plan = mirrorPlan(p.url)
       if (!plan || marked(p.url)) continue
-      if (isNonCommercial(p.licence) && !(nc && file.startsWith(albums) && isInatNonCommercial(p))) continue
+      if (isNonCommercial(p.licence) && !(nc && shows(file) && isInatNonCommercial(p))) continue
       let stored = done.get(plan.key)
       if (!stored) {
         if (o.dryRun || (o.limit !== undefined && done.size >= o.limit)) { report.pending++; continue }

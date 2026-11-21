@@ -275,6 +275,18 @@ test('gallery: a photo blocked after it moved to our bucket (a watermark) is kno
   expect(await readFile(join(r, 'content/gallery/betta-splendens.json'), 'utf8').then(t => JSON.parse(t).photos)).toEqual([])
 })
 
+test('gallery: a candidate queued before it joined the never-again list leaves the queue unscreened', async () => {
+  const r = await root()
+  const queued = { url: 'https://inaturalist-open-data.s3.amazonaws.com/photos/78/original.jpg', thumb: 'https://inaturalist-open-data.s3.amazonaws.com/photos/78/medium.jpg', width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: 'https://www.inaturalist.org/photos/78', key: 'inat:78' }
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [queued], judged: [], hashes: {} }))
+  // Listed by our copy's address, for any page.
+  await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [`https://media.aquatome.com/${mirrorPlan(queued.url)!.key}`]: 'people: a hand' }))
+  await galleries(r, deps(), { sheets: 5 })
+  expect(urls(await read(r, 'content/gallery/betta-splendens.json'))).not.toContain(queued.sourceUrl)
+  expect((await read(r, 'engine-state/gallery/betta-splendens.json')).queue.map((c: { key: string }) => c.key)).not.toContain('inat:78')
+})
+
 test("gallery: a photo the photo check took off this page is never put back, from the queue or a search; another page's verdict doesn't count", async () => {
   const r = await root()
   const inat1 = 'https://inaturalist-open-data.s3.amazonaws.com/photos/1/large.jpg'

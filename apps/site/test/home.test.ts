@@ -1,6 +1,6 @@
 import type { Content } from '@aq/schema'
 import { expect, test } from 'vitest'
-import { cleanPhoto, featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
+import { cleanPhoto, easyPlants, featuredSpecies, groupTiles, listOrder, nativeCards, nativeSpecies } from '../src/lib/home'
 
 const fish = (id: string, o: { places?: string[]; indexable?: boolean; photo?: boolean } = {}) => ({
   id, places: o.places ?? ['thailand'], sections: [], photos: o.photo === false ? [] : [{ url: `https://x/${id}.jpg`, width: 800, height: 600 }],
@@ -120,6 +120,21 @@ test("the home page's native fish: one whose photos are all strips waits", () =>
     ],
   } as unknown as Content
   expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['akysis-hendricksoni'])
+})
+
+test("the home page's native fish and easy plants: one led by a non-commercial photo waits, the row features them (the chief of staff's rule, 17 Nov)", () => {
+  const shot = (id: string, licence: string) => [{ url: `https://x/${id}.jpg`, width: 800, height: 600, licence }]
+  const plant = (id: string, licence: string) => ({ id, photos: shot(id, licence), light: 'low', co2: 'none', difficulty: 1, sections: [], t: { name: id } })
+  const c = {
+    places: [{ id: 'thailand', parent: 'asia', t: { name: 'ไทย' } }],
+    species: [
+      { ...fish('akysis-hendricksoni'), dataCard: {}, photos: shot('a', 'CC BY-NC 4.0'), range: { records: { countries: [['TH', 50]] } } },
+      { ...fish('trichopodus-trichopterus'), dataCard: {}, photos: shot('t', 'CC BY 4.0'), range: { records: { countries: [['TH', 20]] } } },
+    ],
+    plants: [plant('plant-nc', 'CC BY-NC-SA 4.0'), plant('plant-open', 'CC BY-SA 4.0')],
+  } as unknown as Content
+  expect(nativeCards('th', c, [], 4).map(s => s.id)).toEqual(['trichopodus-trichopterus'])
+  expect(easyPlants(c, 4).map(p => p.id)).toEqual(['plant-open'])
 })
 
 test("the home page's native fish: one kept in brackish or sea water waits, and the row still fills", () => {

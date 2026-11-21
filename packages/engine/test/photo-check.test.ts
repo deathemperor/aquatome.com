@@ -370,7 +370,7 @@ test("a lead nothing has looked at is judged first, Flickr's and Commons' before
   ])
 })
 
-test("non-commercial album photos that wait are judged last: after every other photo that waits, a page with none too, more-read page or not (the chief of staff, 2026-11-17)", async () => {
+test("non-commercial album photos that wait are judged last: after every other photo that waits, more-read page or not, but on a page with no photo of its own (the chief of staff, 2026-11-17)", async () => {
   const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
   const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
   // In page order: a page with a photo of its own and a non-commercial photo waiting, a page with none of its own whose
@@ -401,6 +401,55 @@ test("non-commercial album photos that wait are judged last: after every other p
   await writeFile(join(r2, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': seen }, [url('c-own')]: { 'ccc-fish': seen } }))
   await checkPagePhotos(r2, d2, { limit: 1 })
   expect(d2.seen.map(s => s.photos)).toEqual([['c-wait']])
+})
+
+test("a page with no photo of its own has its non-commercial photo judged in the first-photo turn, after its open ones and before the photos that wait on a page with no strip (the chief of staff's rule, 17 Nov)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  // In page order: a page with a photo of its own and an open photo waiting (no strip), then a page with none of its own
+  // whose album has only a non-commercial photo waiting.
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'bbb-fish', sci: 'Bbb fish' }])
+  await writeFile(join(r, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [waits('a-wait')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r, 'content/gallery/bbb-fish.json'), JSON.stringify({ id: 'bbb-fish', photos: [nc('b-nc')], seen: 0, updatedAt: '' }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': { ok: 'yes', typical: true, note: '', logo: false, person: false } } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([['b-nc']])
+})
+
+test("the non-commercial photos on pages with no photo of their own take at most their share of a run's sheets; the rest go on to the strip pages (a reader's point, the chief of staff, 20 Nov)", async () => {
+  const nc = (n: string) => ({ ...photo(n), licence: 'CC BY-NC 4.0', sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  const waits = (n: string) => ({ ...photo(n), sourceUrl: `https://www.inaturalist.org/photos/${n}`, unchecked: true })
+  // A page with a photo of its own and an open photo waiting (no strip), then three pages with none of their own, each
+  // with one non-commercial photo waiting: a sheet each.
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'bbb-fish', sci: 'Bbb fish' }, { id: 'ccc-fish', sci: 'Ccc fish' }, { id: 'ddd-fish', sci: 'Ddd fish' }])
+  await writeFile(join(r, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [waits('a-wait')], seen: 0, updatedAt: '' }))
+  for (const x of ['b', 'c', 'd']) await writeFile(join(r, `content/gallery/${x.repeat(3)}-fish.json`), JSON.stringify({ id: `${x.repeat(3)}-fish`, photos: [nc(`${x}-nc`)], seen: 0, updatedAt: '' }))
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': { ok: 'yes', typical: true, note: '', logo: false, person: false } } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 3, ncShare: 2 })
+  expect(d.seen.map(s => s.photos)).toEqual([['b-nc'], ['c-nc'], ['a-wait']])
+  // A page with seven of them takes two sheets: with a share of one, it gets one in the share, and its seventh photo waits
+  // for the last turn, judged this run if there is room (a reader's point).
+  const r2 = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'bbb-fish', sci: 'Bbb fish' }])
+  await writeFile(join(r2, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [waits('a-wait')], seen: 0, updatedAt: '' }))
+  const seven = [1, 2, 3, 4, 5, 6, 7].map(i => `b-nc${i}`)
+  await writeFile(join(r2, 'content/gallery/bbb-fish.json'), JSON.stringify({ id: 'bbb-fish', photos: seven.map(nc), seen: 0, updatedAt: '' }))
+  await writeFile(join(r2, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': { ok: 'yes', typical: true, note: '', logo: false, person: false } } }))
+  const d2 = model({})
+  await checkPagePhotos(r2, d2, { limit: 3, ncShare: 1 })
+  expect(d2.seen.map(s => s.photos)).toEqual([seven.slice(0, 6), ['a-wait'], ['b-nc7']])
+  // Past its share, such a photo waits for the last turn, not the turn for pages with no strip, which every page with no
+  // photo is: a photo readers see already, not judged yet, goes first (a reader's point).
+  const r3 = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { id: 'bbb-fish', sci: 'Bbb fish' }, { id: 'ccc-fish', sci: 'Ccc fish' }, { id: 'ddd-fish', sci: 'Ddd fish' }, { id: 'eee-fish', sci: 'Eee fish', photos: ['e-own'] }])
+  await writeFile(join(r3, 'content/gallery/aaa-fish.json'), JSON.stringify({ id: 'aaa-fish', photos: [waits('a-wait')], seen: 0, updatedAt: '' }))
+  for (const x of ['b', 'c', 'd']) await writeFile(join(r3, `content/gallery/${x.repeat(3)}-fish.json`), JSON.stringify({ id: `${x.repeat(3)}-fish`, photos: [nc(`${x}-nc`)], seen: 0, updatedAt: '' }))
+  await writeFile(join(r3, 'content/gallery/eee-fish.json'), JSON.stringify({ id: 'eee-fish', photos: [{ ...photo('e-shown'), sourceUrl: 'https://www.inaturalist.org/photos/e-shown' }], seen: 0, updatedAt: '' }))
+  const yes = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  await writeFile(join(r3, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': yes }, [url('e-own')]: { 'eee-fish': yes } }))
+  const d3 = model({})
+  await checkPagePhotos(r3, d3, { limit: 10, ncShare: 2 })
+  expect(d3.seen.map(s => s.photos)).toEqual([['b-nc'], ['c-nc'], ['a-wait'], ['e-shown'], ['d-nc']])
 })
 
 test("the photos that wait on a page that shows no strip go before the turns, the open ones first, then the non-commercial ones; a page with a strip, or a breed's, waits its turn (the chief of staff, 2026-11-19)", async () => {

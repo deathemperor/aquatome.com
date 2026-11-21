@@ -1,4 +1,4 @@
-import { fitsCard, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
+import { fitsCard, isNonCommercial, linkTerms, stillShown, THUMB_WIDTH, thumbOf, unmarked, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity, type BreedEntity } from '@aq/schema'
 import { categoriesIn } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -290,7 +290,9 @@ function stillPhoto(v: Video, m: NonNullable<Video['figures']>[number]['moments'
 /** The photos the calendar keeps off cards (content/curation.json `avoid`: its photo → why), set as the site loads its
  * content (content.ts), as withVietnameseHeads sets the Vietnamese. */
 const OFF_CARDS = new WeakMap<Content, Readonly<Record<string, string>>>()
-const offCards = (c: Content) => { const off = OFF_CARDS.get(c) ?? {}; return (p: Photo) => Object.hasOwn(off, p.url) }
+// A non-commercial photo is off them too, a plant's as well as a fish's: the engine's list holds fish and breeds only (the
+// chief of staff's rule, 17 Nov).
+const offCards = (c: Content) => { const off = OFF_CARDS.get(c) ?? {}; return (p: Photo) => Object.hasOwn(off, p.url) || isNonCommercial(p.licence ?? '') }
 export function withOffCards(c: Content, avoid: Readonly<Record<string, string>>): Content {
   OFF_CARDS.set(c, avoid)
   return c

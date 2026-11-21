@@ -378,8 +378,9 @@ const sameUploader = (a: Shown, b: Shown) =>
  * 2. photos that wait (`unchecked`) on a page with no photo of its own, which they would fill;
  * 3. the other photos that wait;
  * 4. non-commercial album photos that wait (iNaturalist's, IMAGE_SWITCHES.inatNonCommercial): they rank last in their
- *    album and never give a page its head, so they wait behind every other photo, a page with none too (the chief of
- *    staff, 2026-11-17, with up to 1,200 of them a cycle), but for those on a page that shows no strip (below).
+ *    album, so they wait behind every other photo (the chief of staff, 2026-11-17, with up to 1,200 of them a cycle), but
+ *    for those on a page with no photo of its own, which one may lead where it's the one way to show that fish, and
+ *    those on a page that shows no strip (below).
  *
  * Before all of them, a share of each run (`fill` sheets): a permitted source's own photos in the gallery of a page that
  * has none, which give that page its first photo once judged (Tropica's on the plant pages with none: the chief of
@@ -388,7 +389,8 @@ const sameUploader = (a: Shown, b: Shown) =>
  * And before the turns (the chief of staff, 2026-11-11, after the owner found a parasite paper's plate as a page's only
  * photo, which the check had not reached in three days): a page's lead that neither check has looked at, from Flickr and
  * Commons first, then from the other sources; then the gallery of a page with no photo of its own, which gives it one
- * once judged. A lead's sheet is filled with its page's other photos, as any sheet is.
+ * once judged, its open photos and then its non-commercial ones (the chief of staff's rule, 17 Nov: the first-photo
+ * turn). A lead's sheet is filled with its page's other photos, as any sheet is.
  *
  * Then, still before the turns (the chief of staff, 2026-11-19): the photos that wait on a page that shows no strip, its
  * album showing fewer than ALBUM photos, which may give it one once judged, the open ones first, then the non-commercial
@@ -435,11 +437,20 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 
  * out part empty.
  * `limit`: model calls this run, but for an uploader's album photos (above); stops on a model failure (usage limit, the
  * step's daily line), and the rest wait. `fill`: how many of them go
- * first to a source's photos that fill a page with none (`turn`).
+ * first to a source's photos that fill a page with none (`turn`). `ncShare`: at most this many of a run's sheets go to
+ * the non-commercial photos on pages with no photo of their own (`bareNc`, BARE_NC_SHARE).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
+/**
+ * A run's share for the non-commercial photos that wait on pages with no photo of their own (`bareNc`), built like the
+ * first-photo share: the rest of the run goes on to the strip pages and the turns. Each such page takes a sheet of its
+ * own, and the album step tops them up every cycle, so with no share they could take every sheet left, run after run
+ * (a reader's point; the chief of staff, 20 Nov).
+ */
+export const BARE_NC_SHARE = 20
+
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; ncShare?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
@@ -510,9 +521,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       let place = 0
       for (const [i, p] of photos.entries()) {
         const origin = p.source ?? site(p.sourceUrl)
-        // A non-commercial album photo fills no page that has none: it can't be a head (turn).
+        // A non-commercial album photo fills a page that has none only where it's the one way to show that fish
+        // (lead-photo.ts): it is judged in the first-photo turn, after that page's open ones (`bareNc`).
         const nc = file.includes('/gallery/') && isNonCommercial(p.licence ?? '')
-        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true, ...(short ? { short: true } : {}) } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') && !nc ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true, ...(short ? { short: true } : {}) } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
         // A photo that waits is on no page, so it takes no place in the strip.
         if (p.unchecked !== true) place++
       }
@@ -572,26 +584,30 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
   const onPage = new Map<string, Shown[]>()
   for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
+  // Sheets this run has given the non-commercial photos on pages with no photo of their own, across both queues.
+  let ncTaken = 0
   const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
     // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
-    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), the photos
-    // that wait on a page with no strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in
-    // order.
-    const phase = (x: Shown, now: 'aside' | 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
+    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`: the open ones,
+    // `bareNc`: the non-commercial ones, the chief of staff's rule of 17 Nov), the photos that wait on a page with no
+    // strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in order.
+    const phase = (x: Shown, now: 'aside' | 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'bareNc' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
       now === 'aside' ? `${x.page} ${x.url}` in asideBefore
       : now === 'noAnimal' ? noAnimal(x)
       : now === 'first' ? !!x.sourced
       : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
-      : now === 'bare' ? !!x.bare
-      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc')
+      : now === 'bare' || now === 'bareNc' ? !!x.bare && !!x.nc === (now === 'bareNc')
+      // A non-commercial photo on a page with no photo of its own is judged in its share (`bareNc`) or in the last turn,
+      // never here, past its share (a reader's point, 20 Nov).
+      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc') && !(x.nc && x.bare)
       : turn(x) === now
     // A sheet set aside last run goes first (the chief of staff, 19 Nov); then a head with no animal in it, before the
     // rest: a page whose head is a river should not wait (the chief of staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
     let firstAt = from
-    for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
+    for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'bareNc', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
-      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill)) break
+      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill) || (now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE))) break
       if (only && !only.has(s.id)) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
@@ -609,8 +625,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const album = (x: Shown) => Number(!lead || !x.file.endsWith('entity.json'))
       const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => album(a) - album(b) || turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
       const todo = [...first, ...more]
-      for (const u of todo) queued.add(`${s.id}\n${u}`)
-      for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
+      // The share ends at its last sheet, a page's next sheets too. A photo is taken for this run only with its sheet, so
+      // one a share leaves out still comes in its later turn (a reader's point, 20 Nov).
+      for (let i = 0; i < todo.length && sheets.length < o.limit && !(now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE)); i += PER_SHEET) {
+        const urls = todo.slice(i, i + PER_SHEET)
+        for (const u of urls) queued.add(`${s.id}\n${u}`)
+        sheets.push({ s, urls })
+        if (now === 'bareNc') ncTaken++
+      }
     }
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }
