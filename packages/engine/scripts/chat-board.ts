@@ -48,12 +48,12 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { costOf as mainCost, priceOf as mainPrice } from '../../../apps/site/worker/fishid/claude'
+import { costOf as mainCost } from '../../../apps/site/worker/fishid/claude'
 import type { KeyEntry } from '../../../apps/site/worker/fishid/keys'
-import { Billed, BilledLimit, worstOf, type Tokens } from '../src/billed'
+import { Billed, BilledLimit } from '../src/billed'
 import { ceilingsAsMain, costLog, leftYielding, nameStep, stepName } from '../src/ceiling'
 import { claudeCli, claudeTools } from '../src/claude'
-import { type Cut, noAnswer, streamOnce } from './board-stream'
+import { boardSender, type CallLog, tokensOf } from './board-stream'
 import { pool, retry } from './eval-lib'
 import { JUDGE_SCHEMA, JUDGE_SYSTEM, judgePrompt, outcome, type PairOutcome, type PostTank, savedTank, seenOurs, tankFacts, unbrand, type Verdict } from './chat-vs-plain-lib'
 
@@ -88,11 +88,9 @@ const { positionals, values: args } = parseArgs({
 
 /**
  * The run's billed calls, on the chat's keys (`answer`, and `plain` with Haiku): each held to the board's billed line
- * before it goes and logged after (billed.ts), apart from the Mac's quota. Prices are main's (fishid/claude.ts).
+ * before it goes and logged after (billed.ts), apart from the Mac's quota, at the chat's list prices (billed.ts `billedPrice`).
  */
 const billed = new Billed()
-/** A reply's usage as tokens; none when the API sent none, and the call then counts at its worst (billed.ts). */
-const tokensOf = (u: any): Tokens | undefined => (u ? { input: u.input_tokens ?? 0, output: u.output_tokens ?? 0, cacheRead: u.cache_read_input_tokens ?? 0, cacheWrite: u.cache_creation_input_tokens ?? 0 } : undefined)
 if (args.step) nameStep(args.step)
 
 type Post = { id: string; topic: string; post: string; short: string; tank: PostTank }
@@ -155,7 +153,7 @@ async function answer() {
   const handoverFor = existsSync(`${W}/apps/site/worker/chat/handover.ts`) ? (await import(`${W}/apps/site/worker/chat/handover.ts`)).handoverFor : undefined
   // The keys and their client are main's, whatever checkout's chat is asked: a call is one request, held and logged once.
   const { clientFor } = await import('../../../apps/site/worker/fishid/claude')
-  const { healthyKeys, loadKeys, memoryHealth, rotate } = await import('../../../apps/site/worker/fishid/keys')
+  const { healthyKeys, loadKeys, memoryHealth } = await import('../../../apps/site/worker/fishid/keys')
   const get = async (path: string) => { const r = await fetch(new URL(path, args.site)); return r.ok ? r.json() : null }
   const hb = await handbookOf({ index: (l: string) => get(`/app/${l}.json`), shard: (l: string, k: string, n: number) => get(`/app/pages/${l}/${k}-${n}.json`), topics: (l: string) => get(`/app/chat/${l}.json`) }, 'vi')
   const given = new Map<string, { path: string; heading: string | null }[]>()
@@ -163,28 +161,9 @@ async function answer() {
     given.set(g.id, g.calls.flatMap(c => c.asked).map(a => JSON.parse(a.slice('read_page '.length))))
   const { keys } = await loadKeys(await readFile(args.keys!, 'utf8'))
   const store = memoryHealth()
-  // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past.
-  // Each call's start, length and output, so the time rule can be set from the calls' own times.
-  const sender = (healthy: KeyEntry[], log: { call: number; at: number; ms: number; out?: number; tools?: number; failed?: boolean; cut?: string }[] = [], t0 = Date.now()) => {
-    return async (b: any, o: any) => {
-      if (billed.stopped) throw new BilledLimit(billed.stopped)
-      const at = Date.now(), cut: Cut = {}
-      // Each try on a key is a billed call, held to the line and logged (billed.ts).
-      const r = await rotate(healthy, store, async (k: any, left: number) => {
-        const c = await clientFor(k)
-        return billed.call({ model: b.model, worst: worstOf(b, mainPrice(b.model)), key: k.hash }, async () => {
-          const timeout = Math.min(left, o.timeoutMs)
-          const m = await streamOnce<any>(signal => c.messages.stream(b, { timeout, signal }), timeout, o, cut)
-          const tokens = tokensOf(m.usage)
-          return { value: m, usd: tokens ? mainCost(b.model, tokens) : NaN, tokens }
-        })
-      }, { budgetMs: o.timeoutMs })
-      if (!r.ok && billed.stopped) throw new BilledLimit(billed.stopped)
-      if (!r.ok) { log.push({ call: o.call, at: at - t0, ms: Date.now() - at, failed: true, ...(cut.by ? { cut: cut.by } : {}) }); throw new Error(noAnswer(cut, r.reason)) }
-      log.push({ call: o.call, at: at - t0, ms: Date.now() - at, out: r.value.usage?.output_tokens, tools: r.value.content.filter((x: any) => x.type === 'tool_use').length })
-      return r.value
-    }
-  }
+  // As the Worker sends: every call goes through the keys in turn, a key that fails rotated past, each try billed
+  // (board-stream.ts `boardSender`). Each call's start, length and output, so the time rule can be set from its own times.
+  const sender = (healthy: KeyEntry[], log: CallLog[] = [], t0 = Date.now()) => boardSender({ billed, healthy, store, clientFor, log, t0 })
   const { done, jobs } = await todo(args.arm)
   console.log(`${args.arm}: ${jobs.length} to answer, ${done.size} kept`)
   let n = 0
@@ -312,10 +291,9 @@ async function plain() {
     const client = await clientFor(keys[0]!)
     send = async q => {
       const body = { model: args.model!, max_tokens: 8192, messages: [{ role: 'user', content: q }], output_config: { effort: 'medium' } }
-      const m: any = await billed.call({ model: body.model, worst: worstOf(body, mainPrice(body.model)), key: keys[0]!.hash }, async () => {
+      const m: any = await billed.call({ body, key: keys[0]!.hash }, async () => {
         const r: any = await client.messages.create(body as any, { timeout: 120_000 })
-        const tokens = tokensOf(r.usage)
-        return { value: r, usd: tokens ? mainCost(body.model, tokens) : NaN, tokens }
+        return { value: r, tokens: tokensOf(r.usage) }
       })
       // A cut-off answer is a failure, asked again on the next run, never judged as whole.
       if (m.stop_reason !== 'end_turn') throw new Error(`stopped: ${m.stop_reason}`)
