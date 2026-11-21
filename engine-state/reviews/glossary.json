@@ -2742,5 +2742,87 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/tanin": [
+    {
+      "at": "2026-11-21T18:52:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, left as written (the definition's first sentence): \"Tanin là chất tự nhiên mà lá cây, vỏ hạt và gỗ như lũa nhả ra trong nước.\"",
+        "Loose, reworded: \"Nước có KH thấp thì pH có thể tụt nhanh hơn dự tính. pH: xem mục pH.\" → \"Một trang ghi: nước máy có KH dưới 3–4 dKH thì tanin có thể đẩy pH xuống nhanh hơn dự tính. pH: xem mục pH.\" (supported)",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn có tanin trong bể thì thả lá khô hoặc dùng lũa.\" (not \"Lá khô và lũa đều nhả tanin vào nước.\": Rules 4 and 15: \"Lá khô và lũa đều nhả tanin vào nước.\" under \"Nên làm gì\" says what a thing does, not what the reader does. It also repeats the definition's \"lá cây, vỏ hạt và gỗ như lũa nhả ra trong nước\"…",
+        "Loose, reworded: \"Thay khoảng 30% nước, 2–3 lần mỗi tuần trong những tuần đầu.\" → \"Thay khoảng 30% nước, 2–3 lần mỗi tuần.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:52:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: \"Mỗi loại lũa nhả nhiều ít khác nhau.\" was not rewritten. The line under THIS TERM says it must read, word for word, \"Các loại lũa nhả nhiều ít khác nhau.\" because the facts compare some kinds, not each one.",
+        "Rule 12: \"Tanin hạ pH được bao nhiêu là do KH.\" was not rewritten. It must read, word for word, \"Tanin hạ pH được bao nhiêu phụ thuộc vào KH.\" (fact 11).",
+        "Rules 10 and 12: \"Nước cứng, đệm tốt thì tanin hạ pH được một chút rồi thôi.\" says the effect is small. Fact 12 says it is fleeting, not small. It must read, word for word, \"Nước cứng, đệm tốt thì tác dụng hạ pH của tanin khá thoáng qua.\"",
+        "Rule 12: \"Lũa nhả tanin nhiều nhất trong 2–3 tháng đầu, sau đó ít hẳn, …\" was not rewritten. It must open, word for word, \"Lũa nhả phần lớn tanin trong 2–3 tháng đầu, sau đó ít hẳn, …\" (fact 34 says most of its tannin comes out in that time).",
+        "Rule 12: The list under \"Một tiệm ghi thêm:\" in \"Trong bể của bạn\" does not end with the required item, word for word: \"Thay nước chỉ pha loãng tanin, không phải cách khắc phục lâu dài.\" (fact 43).",
+        "Rules 12 and 15: \"Tiệm này cũng ghi thay nước chỉ pha loãng tanin, không làm hết hẳn.\" is still under \"Nên làm gì\". It says what water changes do, not what the reader does, so it must be removed from there. Its replacement belongs in the shop's list under \"Trong bể của bạn\".",
+        "Rules 12 and 15: The magazine's two items, \"Quá nhiều tanin có thể làm nhớt cá đông lại và bít các sợi mang…\" and \"Tanin dư cũng có thể làm da cá bị kích ứng.\", are still under \"Sai lầm cần tránh\", but they are not mistakes. They must move, word for word, under their own heading \"Khi bể dư tanin\" after \"Sai lầm cần tránh\", opened by \"Một tạp chí ghi:\", with a third item, word for word: \"Thay nhiề…",
+        "Rules 12 and 4: \"Tạp chí này khuyên khi bể dư tanin thì thay nhiều nước ngay và vớt hết lá hay sợi than bùn trôi lềnh bềnh.\" must be removed from \"Nên làm gì\". The same step belongs once, as the third item under \"Khi bể dư tanin\".",
+        "Rules 12 and 15: Under \"Nên làm gì\", the second way should read only \"Cho than hoạt tính vào lọc.\" Instead it also carries what the carbon does: \"Một nguồn ghi than có thể làm nước trong lại sau 24–48 giờ…\" and \"Tiệm này ghi nước trong hơn sau vài giờ…\". That text must go under its own last heading, \"Than hoạt tính\", in the given words.",
+        "Rule 12: Several things from the required \"Than hoạt tính\" text are missing. (a) The draft writes \"sau 24–48 giờ\" where fact 36 says \"within\" (\"trong vòng 24–48 giờ\"). (b) The source's warning is missing: \"Nguồn này cũng ghi: lấy than ra trước khi dùng thuốc, vì than hút cả thuốc.\" (fact 37). (c) The shop's claim drops fact 38's \"can\" and \"within\", writing \"nước trong hơn sau vài giờ\" instead of …"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:07:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Tiệm này ghi nước trong hơn sau vài giờ và than hết tác dụng sau 2–4 tuần.\": the facts don't carry it (supported, unsupported, unsupported): drops the 'can' hedge on clearing within hours / drops hedge 'can' on clarity within hours",
+        "Rule 15: under the heading \"Nên làm gì\", two sentences describe what something does rather than what the reader does. They are \"Một nguồn ghi than có thể làm nước trong lại sau 24–48 giờ và thường hết tác dụng sau 3–4 tuần. Tiệm này ghi nước trong hơn sau vài giờ và than hết tác dụng sau 2–4 tuần.\" (how activated carbon performs) and \"Tiệm này cũng ghi thay nước chỉ pha loãng tanin, không làm hết…"
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "draft": "b7780050beca79324036883357c0e02e1c9df6b3377470bc10a25138fe955170"
+    },
+    {
+      "at": "2026-11-21T18:07:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Tanin thường không hại trực tiếp tới cá, nhưng quá nhiều tanin thì có hại.\": the facts don't carry it (unsupported, supported, supported, uncredited, unsupported, unsupported): drops 'can' hedge on harm from excess / Two sites support \"usually not directly harmful\", but only tfhmagazine says too much tannin harms fish, and the sentence states it with no credit. / The facts only say too much tann…",
+        "Rules 4 and 12: \"nhưng quá nhiều tanin thì có hại\" in \"Tanin thường không hại trực tiếp tới cá, nhưng quá nhiều tanin thì có hại.\": only one site (the magazine) gives this warning, yet it stands as plain fact with no credit. It is also joined in one sentence to a claim that two sites give (\"thường không hại trực tiếp\"). The same warning is said again under \"Sai lầm cần tránh\" (\"Quá nhiều tanin có…",
+        "Rule 4: \"Nước RO có KH gần 0 thì pH có thể sập.\" repeats the warning already given in \"Nước có KH thấp thì pH có thể tụt nhanh hơn dự tính.\" The warning that pH falls fast when KH is low should be said once, in one place."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T18:07:08Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.79,
+      "notes": [
+        "\"Nó làm nước ngả vàng tới nâu như nước trà và làm pH hạ, nên bể có lũa hay lá khô thường đổi màu nước và pH.\": the facts don't carry it (loose, unsupported, unsupported): adds an inferred 'tanks with wood or leaves often change' conclusion / 'usually changes pH' not given; pH effect depends on KH / adds 'thường' hedge; pH change not stated as usual",
+        "\"Lá, vỏ hạt và gỗ nhả tanin khi mục dần trong nước.\": the facts don't carry it (uncredited, uncredited, uncredited): leaves and seed pods breaking down: only bulkreefsupply / leaves/seed pods breaking down only from bulkreefsupply / release on breaking down only from bulkreefsupply",
+        "\"Ít tanin thì nước chỉ hơi vàng, nhiều hơn thì nước ngả màu trà hoặc nâu.\": the facts don't carry it (uncredited, uncredited, uncredited): only aquasetup gives this / little vs more gradation only from aquasetup / amount-to-colour gradation only from aquasetup",
+        "\"Lũa nhả mạnh nhất trong mấy tháng đầu, sau đó giảm hẳn.\": the facts don't carry it (loose, unsupported, unsupported): 'a few months' joins 2-3 months and 4-12 weeks / 'first 2-3 months' widened to vague 'a few months' / 'mấy tháng' vaguer than 2-3 months / 4-12 weeks",
+        "\"Với nước máy còn KH, tanin làm pH lệch chưa tới 0,2.\": the facts don't carry it (unsupported, unsupported, unsupported): drops the KH 3-6 range / drops KH 3-6 range / drops KH 3-6 range qualifier",
+        "\"Tanin không diệt tảo.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'directly'; says it doesn't kill algae at all / drops 'directly' qualifier / drops 'directly'",
+        "\"Than làm nước trong lại và hết tác dụng sau vài tuần.\": the facts don't carry it (loose, unsupported, unsupported): 'a few weeks' joins 2-4 and 3-4 weeks / 2-4 weeks widened to vague 'a few weeks' / drops 'can' on clearing; 'vài tuần' vaguer than 2-4 weeks",
+        "Rule 12: \"nên bể có lũa hay lá khô thường đổi màu nước và pH\" (definition) uses \"nên\" to join tannin's effects to a conclusion that no fact draws, and it adds the hedge \"thường\". The facts also say the pH effect is fleeting in hard water.",
+        "Rule 4: \"Lá, vỏ hạt và gỗ nhả tanin khi mục dần trong nước\" says again what the definition already says (\"lá cây, vỏ hạt và gỗ như lũa nhả ra trong nước\").",
+        "Rule 4: \"Ít tanin thì nước chỉ hơi vàng, nhiều hơn thì nước ngả màu trà hoặc nâu\" repeats the colour already given in the definition (\"làm nước ngả vàng tới nâu như nước trà\")."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
