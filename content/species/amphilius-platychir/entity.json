@@ -24,11 +24,17 @@
       "countries": [
         "SL",
         "GN",
-        "CI"
+        "CI",
+        "ZM"
       ],
-      "regions": [],
+      "regions": [
+        "Corubal",
+        "Konkouré",
+        "Congo"
+      ],
       "sources": [
-        "scotcat"
+        "scotcat",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -40,13 +46,32 @@
             "CI"
           ],
           "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Reported from Luongo River, Congo system, Zambia.",
+          "countries": [
+            "ZM"
+          ],
+          "regions": [
+            "Congo"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Known from the Senegal, Niger, Gambia, Corubal, Konkouré and Little Scarcies Rivers.",
+          "countries": [],
+          "regions": [
+            "Corubal",
+            "Konkouré"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2340734,
       "total": 86,
-      "fetched": "2026-11-16",
+      "fetched": "2026-11-21",
       "countries": [
         [
           "GN",
@@ -146,7 +171,7 @@
           25.3125,
           -18.28125,
           1,
-          0
+          1
         ],
         [
           29.53125,

@@ -10,6 +10,38 @@
     "colombia",
     "putumayo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Mocoa River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Department of Putumayo, Rumiyaco River, tributary of the Mocoa River.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Mocoa River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9468282,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,44 @@
+{
+  "id": "astroblepus-mindoensis",
+  "native": {
+    "input": "8736e48de301db65",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Pacific coastal drainages (Ecuador).",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus mindoensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342122,
+    "datasets": [
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

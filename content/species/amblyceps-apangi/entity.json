@@ -10,6 +10,82 @@
     "india",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Padma",
+        "Jamuna",
+        "Subansiri",
+        "Dikrong"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Amblyceps apangi Nath & Dey, 1989. Type locality: Dikrong River, Arunachal Pradesh, India. IUCN Red List category: Least Concern (last assessed 2009).",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Brahmaputra drainage in India (North Eastern India, Padma, Jamuna, Brahmaputra, Subansiri, Dikrong).",
+          "countries": [],
+          "regions": [
+            "Brahmaputra",
+            "Padma",
+            "Jamuna",
+            "Subansiri",
+            "Dikrong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342856,
+      "total": 11,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "IN",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          94.21875,
+          28.125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

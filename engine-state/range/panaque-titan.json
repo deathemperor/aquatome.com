@@ -1,8 +1,8 @@
 {
   "id": "panaque-titan",
   "native": {
-    "input": "b6327b05b67d57ca",
-    "at": "2026-11-21T07:12:58.512Z",
+    "input": "2223b0246ebe6b7e",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
       {
         "code": "PE",
@@ -11,14 +11,30 @@
         "quote": "One of the most spectacular species comes from Peru and was given the L-number 418.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia.",
+        "words": "Colombia",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Shampupa",
-        "source": "glaser",
-        "quote": "Characteristic for the fish, which exporters call \"shampupa\" after the river in Peru where they catch the animals, are the broad, light-coloured tail fin seam and the blue-green base colouring.",
-        "country": "PE",
+        "name": "Napo River",
+        "source": "scotcat",
+        "quote": "Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia.",
+        "country": "EC",
         "ok": true
       }
     ],
@@ -44,9 +60,10 @@
       ]
     ],
     "native": [
-      "PE"
+      "PE",
+      "EC"
     ],
     "requests": 11,
-    "at": "2026-11-21T07:12:58.512Z"
+    "at": "2026-11-21T13:11:30.372Z"
   }
 }

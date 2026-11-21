@@ -16,13 +16,16 @@
   "range": {
     "native": {
       "countries": [
-        "IN"
+        "IN",
+        "BD",
+        "MM"
       ],
       "regions": [
         "Ganges"
       ],
       "sources": [
-        "scotcat"
+        "scotcat",
+        "planetcatfish"
       ],
       "quotes": [
         {
@@ -34,17 +37,26 @@
           "regions": [
             "Ganges"
           ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: India, Bangladesh and Myanmar, including West Bengal.",
+          "countries": [
+            "BD",
+            "MM"
+          ],
+          "regions": []
         }
       ]
     },
     "records": {
       "taxonKey": 5202562,
-      "total": 26,
-      "fetched": "2026-11-08",
+      "total": 25,
+      "fetched": "2026-11-21",
       "countries": [
         [
           "IN",
-          16
+          15
         ],
         [
           "BD",
@@ -72,31 +84,31 @@
           87.1875,
           25.3125,
           1,
-          0
+          1
         ],
         [
           88.59375,
           23.90625,
           2,
-          0
+          2
         ],
         [
           88.59375,
           25.3125,
           2,
-          1
+          2
         ],
         [
           90,
           22.5,
           2,
-          0
+          2
         ],
         [
           91.40625,
           23.90625,
           5,
-          2
+          5
         ],
         [
           92.8125,
@@ -113,8 +125,8 @@
         [
           94.21875,
           28.125,
-          5,
-          5
+          4,
+          4
         ]
       ]
     }

@@ -1083,9 +1083,92 @@
     "opus": 0.95,
     "back": true
   },
+  "chaetostoma-fischeri": {
+    "hash": "338f67879e019a6336ac0a91c2c9965e01175aa8ce4226958dc76d3ea599c07f",
+    "at": "2026-11-21T12:58:30.910Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "chaetostoma-leucomelas": {
+    "hash": "51005a0cef17ea255509a91809c0ab44d36316d54c339e25bdb21e4168779cdf",
+    "at": "2026-11-21T12:58:57.566Z",
+    "sonnet": 0.8,
+    "opus": 0.9,
+    "back": true
+  },
+  "chaetostoma-marginatum": {
+    "hash": "283275130fae5138d425af7d5ccba778631cabf367e49ec8d01cfe0a9ce4b647",
+    "at": "2026-11-21T12:59:08.375Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "champsochromis-caeruleus": {
+    "hash": "520c4833a457cd2aed2d0a7c0c762b63c640b52137230f8a26a2f4a7d3fff2ec",
+    "at": "2026-11-21T12:59:41.184Z",
+    "sonnet": 0.85,
+    "opus": 0.9,
+    "back": true
+  },
+  "champsochromis-spilorhynchus": {
+    "hash": "682db47aa999aad9c0e871be80757d332432a498a8fe4cbf11713f46b8479cc4",
+    "at": "2026-11-21T12:59:54.507Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "channa-argus": {
+    "hash": "f9b22bca8a3fe1f55e494d34b29cd2c9e035619183b4f39165741a751267f718",
+    "at": "2026-11-21T13:00:06.806Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "channa-baramensis": {
+    "hash": "960de14a379128d41391253c029e3278584ad19ef134f591ef5e933a2b97cd5a",
+    "at": "2026-11-21T13:00:15.248Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "channa-burmanica": {
+    "hash": "87729e67cc2de47ab343ee579c1cd517ea18f00faf61a84de970e0f95bd894cb",
+    "at": "2026-11-21T13:00:26.969Z",
+    "sonnet": 0.55,
+    "back": false
+  },
+  "channa-gachua": {
+    "hash": "58072c54dbbea2f6849e2ef7d2d28bb3bf4f60f3f162aec719c4bcedbc487a8c",
+    "at": "2026-11-21T13:00:39.694Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "channa-marulioides": {
+    "hash": "5fd94d9fbef1d6f93c72388bacd9c31b208e1ef0f246e007a796ff66c298c797",
+    "at": "2026-11-21T13:00:53.484Z",
+    "sonnet": 0.72,
+    "back": false
+  },
   "channa-melasoma": {
     "hash": "86914b50cfd400d5bb4b4552c981c9391877403d64f846d3798325fcdad1ce5e",
     "at": "2026-11-20T01:35:22.971Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "channa-orientalis": {
+    "hash": "dae178cdc141fe6255371595d4245b698793e28d81b8a6631a584e5b6b6726b0",
+    "at": "2026-11-21T13:01:06.844Z",
+    "sonnet": 0.6,
+    "back": false,
+    "held": [
+      "Item 11: 'Channa gachua (non Hamilton, 1822)' is kept as in the source. This is fine, and the added gloss '(sisik di bawah dagu)' for gular scales is an addition, though harmless."
+    ]
+  },
+  "characidium-fasciatum": {
+    "hash": "e71d7679a630680a24f1b15806ac88a0baadf78eb36bfca9ca512921ddd1b549",
+    "at": "2026-11-21T13:01:18.737Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "chela-cachius": {
+    "hash": "39e58078679b8fbf97bedff8cd7d9e50cec4ff6b196bc091cc18bf608520ee76",
+    "at": "2026-11-21T13:01:31.260Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -1465,6 +1548,12 @@
     "sonnet": 0.6,
     "back": false
   },
+  "parosphromenus-anjunganensis": {
+    "hash": "6022b003bb8b976f1c8c973736cfdf5d6986afe92cfe28ecde0dccefe4172b99",
+    "at": "2026-11-21T12:58:02.890Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "parosphromenus-filamentosus": {
     "hash": "f11d18df428974562f550db844f6328e640367f09ca7f455bf40059453939faa",
     "at": "2026-11-20T11:41:18.521Z",
@@ -1519,6 +1608,12 @@
     "hash": "e92072c82159989d007bf478a74c2e6e343491ae24ade2614cfaa92fdc49d7be",
     "at": "2026-11-21T06:59:00.143Z",
     "sonnet": 0.55,
+    "back": false
+  },
+  "stiphodon-ornatus": {
+    "hash": "a8117e6e2de9f571cd2f953884421642305c3d24bccdaccacbc796a11a953ec1",
+    "at": "2026-11-21T12:58:18.231Z",
+    "sonnet": 0.6,
     "back": false
   },
   "trichogaster-lalius": {

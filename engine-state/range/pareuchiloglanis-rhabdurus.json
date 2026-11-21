@@ -1,0 +1,64 @@
+{
+  "id": "pareuchiloglanis-rhabdurus",
+  "native": {
+    "input": "85f047ddbc15d610",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Red River drainage in northern Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Cao Bo stream (Bac Trao river) near camp 1, Vi Xuyen District, Red River (Song Hong) drainage, Ha Giang Province, Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Red River",
+        "source": "planetcatfish",
+        "quote": "Asia: Red River drainage in northern Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pareuchiloglanis rhabdurus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341107,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "a25d99ce-5c50-41d8-9da7-0bd787ec8a75",
+        1
+      ],
+      [
+        "a75ebb21-197b-450e-bdea-b41c4dcad504",
+        1
+      ]
+    ],
+    "native": [
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

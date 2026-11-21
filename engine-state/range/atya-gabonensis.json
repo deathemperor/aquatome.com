@@ -1,0 +1,66 @@
+{
+  "id": "atya-gabonensis",
+  "native": {
+    "input": "f202ced82909396a",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Common in West Africa and first reported in Gabon.",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cross River",
+        "source": "aquariumbreeder",
+        "quote": "They inhabit mangrove environments, in available boles, crevices and root masses of the Cross River system.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NG",
+        "CM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Atya gabonensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2223031,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        19
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        1
+      ]
+    ],
+    "native": [
+      "GA"
+    ],
+    "requests": 14,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

@@ -10,6 +10,77 @@
     "india",
     "tista"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Padma",
+        "Jamuna",
+        "Tista",
+        "Torsha"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Indian waters, north-eastern India, Padma, Jamuna, Brahmaputra, Tista and Torsha.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Brahmaputra",
+            "Padma",
+            "Jamuna",
+            "Torsha"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Tista River at Tista barrage, 26°45'10\"N, 88°34'11\"E, West Bengal, India.",
+          "countries": [],
+          "regions": [
+            "Tista"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341547,
+      "total": 6,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "IN",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          22.5,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          88.59375,
+          26.71875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

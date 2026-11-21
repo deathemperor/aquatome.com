@@ -1,0 +1,57 @@
+{
+  "id": "chimarrichthys-kishinouyei",
+  "native": {
+    "input": "a9c0e01a3abb5f23",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Nepal and China.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Nepal and China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Min-Jiang River",
+        "source": "planetcatfish",
+        "quote": "Upper Min-Jiang River, Yangtze River basin.",
+        "ok": true
+      },
+      {
+        "name": "Yangtze",
+        "source": "planetcatfish",
+        "quote": "Upper Min-Jiang River, Yangtze River basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chimarrichthys kishinouyei",
+    "status": "ACCEPTED",
+    "taxonKey": 10689408,
+    "datasets": [],
+    "native": [
+      "NP",
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "chaetostoma-joropo",
+  "native": {
+    "input": "2caef7fd868babd2",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It originates from creeks in the catchment area of the Rio Meta in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Meta",
+        "source": "glaser",
+        "quote": "It originates from creeks in the catchment area of the Rio Meta in Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chaetostoma joropo",
+    "status": "ACCEPTED",
+    "taxonKey": 8671505,
+    "datasets": [
+      [
+        "44df51cb-f239-4037-9dfc-355b86bf1f57",
+        10
+      ],
+      [
+        "0d055e8f-d1be-43dd-be4b-f44b53605554",
+        5
+      ],
+      [
+        "e2807119-02f5-4c4c-b08b-ead05f38d146",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "3c965d17-9d2d-426a-8780-215b005bd037",
+        4
+      ],
+      [
+        "2ebf4603-755b-4370-ad98-403f875899d6",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

@@ -843,6 +843,70 @@
     "opus": 0.85,
     "back": true
   },
+  "brachygobius-kabiliensis": {
+    "hash": "b496e91e6a038e931652a216c473a6c8da445d73bcdff9df24cf72ed9a1c6c32",
+    "at": "2026-11-21T13:06:17.944Z",
+    "sonnet": 0.85,
+    "opus": 0.85,
+    "back": true
+  },
+  "brachygobius-nunus": {
+    "hash": "f209673f977039f4574982bd6d54ac0b94cc5dfb5fea8d8851864cc975be0688",
+    "at": "2026-11-21T13:06:34.321Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brachyplatystoma-juruense": {
+    "hash": "951379a1877e4c70f9ce1735b5f0ed334615d953513e2403235a54dc84c000fd",
+    "at": "2026-11-21T13:06:49.607Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brachyplatystoma-vaillantii": {
+    "hash": "638b3037f0ddfbd9113d699d6f973c011dc3cfbe176300bfc5860daa953f3711",
+    "at": "2026-11-21T13:07:09.056Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "brachyrhamdia-heteropleura": {
+    "hash": "c65af25e2389ca27f3332138a6102eaa8e9a8f9b4a876121f190195c58629206",
+    "at": "2026-11-21T13:07:45.880Z",
+    "sonnet": 0.9,
+    "opus": 0.7,
+    "back": false
+  },
+  "brachyrhamdia-imitator": {
+    "hash": "4822e3b4c8882dad21a65c872fecedc5837d08559ba79e7261f504901c7931ef",
+    "at": "2026-11-21T13:08:00.392Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "brachyrhamdia-meesi": {
+    "hash": "ef17b9dbccae949617d275a841f662b94420eafe9403519879c73a72d53973c1",
+    "at": "2026-11-21T13:04:04.860Z",
+    "sonnet": 0.92,
+    "opus": 0.85,
+    "back": true
+  },
+  "brachyrhamdia-rambarrani": {
+    "hash": "08cf47a028348b289f1009f311e87ba01c79f4b9441f57e3bab68a4075e5e5a4",
+    "at": "2026-11-21T13:08:09.161Z",
+    "sonnet": 0.45,
+    "back": false
+  },
+  "brachyrhaphis-roseni": {
+    "hash": "50ee3baefaa09a166c1535145b903936fc2eba458976acb59fdba273e2eb1fb9",
+    "at": "2026-11-21T13:08:21.770Z",
+    "sonnet": 0.72,
+    "back": false
+  },
+  "brevibora-cheeya": {
+    "hash": "4518cf252f17f8a2a8340ef5eb1cd080bae2f8d8c6114489c669a149650e14a4",
+    "at": "2026-11-21T13:09:24.761Z",
+    "sonnet": 0.78,
+    "opus": 0.7,
+    "back": false
+  },
   "brevibora-dorsiocellata": {
     "hash": "d5377a541dcf59ec637f0876994549fa9615008538cc99635e61e0c97ca05877",
     "at": "2026-11-20T01:41:10.770Z",
@@ -904,13 +968,11 @@
     "back": false
   },
   "carinotetraodon-travancoricus": {
-    "hash": "79a66e9e1f96e4df2e74a180b5d939ae91ac4d53c8898e41ff8ec90e6ff2f58b",
-    "at": "2026-11-18T05:51:52.152Z",
-    "sonnet": 0.4,
-    "back": false,
-    "held": [
-      "Item 6: 'quarantine medication trio' translated 'ชุดยากักโรคสามตัว' is vague/awkward; 'pet store chains' as 'ร้านสัตว์เลี้ยงแบบเครือข่าย' awkward."
-    ]
+    "hash": "39f0c4c73ae587a21a31de5dd669107b9b1b8793691f405268f437515df40e89",
+    "at": "2026-11-21T13:03:20.931Z",
+    "sonnet": 0.8,
+    "opus": 0.65,
+    "back": false
   },
   "centrodoras-brachiatus": {
     "hash": "2ff3b96c9e761cb86fbf636aeda94e26646b34dbad9d912423ec0858c604801c",
@@ -930,6 +992,16 @@
     "at": "2026-11-18T05:47:49.490Z",
     "sonnet": 0.7,
     "back": false
+  },
+  "channa-melanoptera": {
+    "hash": "0ed366c4e8c9238e5c0b21680fc439a27a5162a9972bf6dfc788f412bfb6b72c",
+    "at": "2026-11-21T13:04:18.362Z",
+    "sonnet": 0.7,
+    "back": false,
+    "held": [
+      "Sentence 2: 'การรักษาโรคที่ดี' for 'good medical care' is fine, but 'ระดับสถิติ' is awkward; use 'ขนาดที่ใหญ่เป็นสถิติ/ใหญ่เกินปกติ'.",
+      "Item 2: \"good medical care\" -> \"ได้รับการรักษาโรคที่ดี\" is okay, but \"considerably longer life time\" is rendered as \"อายุยืนกว่ามาก\" without clarifying it refers to the fish living longer in captivity; fine, but \"โตได้ใหญ่ระดับสถิติ\" is awkward - use \"อาจโตใหญ่จนทำลายสถิติได้\" or \"ใหญ่เป็นพิเศษ\"."
+    ]
   },
   "corydoras-aeneus": {
     "hash": "fe666451ebec0431887efc5f07660fa3d9803c341405b866b2b6a8cb33ca40b8",
@@ -1069,8 +1141,8 @@
     "back": false
   },
   "dupouyichthys-sapito": {
-    "hash": "cb82dce7fe99e60bc938a93ec8591c0e0133ec686580953a0d0937372942b7de",
-    "at": "2026-11-21T07:03:59.266Z",
+    "hash": "165c4c5823c6aa9cd51a0438124210d4bde03e0ed4304e123915242973c672e9",
+    "at": "2026-11-21T13:04:31.993Z",
     "sonnet": 0.6,
     "back": false
   },
@@ -1276,6 +1348,12 @@
     "at": "2026-11-18T12:15:31.828Z",
     "sonnet": 0.75,
     "opus": 0.7,
+    "back": false
+  },
+  "luciocephalus-aura": {
+    "hash": "dbc44399a13010252e9e9172d71050335469cccdbe65ff162f94dce9f7ec7b7b",
+    "at": "2026-11-21T13:04:44.388Z",
+    "sonnet": 0.7,
     "back": false
   },
   "melanotaenia-boesemani": {
@@ -1489,6 +1567,13 @@
     "at": "2026-11-18T12:16:12.828Z",
     "sonnet": 0.6,
     "back": false
+  },
+  "xenentodon-canciloides": {
+    "hash": "76f3c0a99115708fe2f5e1b4736535e948d40f1ca7e4f36c8960e36ca819f03c",
+    "at": "2026-11-21T13:05:38.645Z",
+    "sonnet": 0.88,
+    "opus": 0.8,
+    "back": true
   },
   "xiphophorus-hellerii": {
     "hash": "6d76e375d8b29d7573110e5e7575f5cc98930bb07cc3e94a08e34980699ffa1d",

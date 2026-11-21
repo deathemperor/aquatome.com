@@ -1,9 +1,25 @@
 {
   "id": "panaque-schaeferi",
   "native": {
-    "input": "04398626034f0000",
-    "at": "2026-11-21T07:12:58.512Z",
+    "input": "883eb5ffee9830bc",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Peru, Ucayali drainage to Colombia (Leticia).",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Peru, Ucayali drainage to Colombia (Leticia).",
+        "words": "Colombia",
+        "ok": true
+      },
       {
         "code": "PE",
         "status": "native",
@@ -13,7 +29,22 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "scotcat",
+        "quote": "South America: Peru, Ucayali drainage to Colombia (Leticia).",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Aguaytia River",
+        "source": "scotcat",
+        "quote": "Type locality: Peru, Ucayali Department, Padre Abad Province, Aguaytia River drainage, Santa Ana River, Cordillera Azul National Park, 250 m elevation.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -48,9 +79,10 @@
       ]
     ],
     "native": [
-      "PE"
+      "PE",
+      "CO"
     ],
     "requests": 11,
-    "at": "2026-11-21T07:12:58.512Z"
+    "at": "2026-11-21T13:11:30.372Z"
   }
 }

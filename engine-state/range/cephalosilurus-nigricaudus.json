@@ -1,0 +1,99 @@
+{
+  "id": "cephalosilurus-nigricaudus",
+  "native": {
+    "input": "867332d3970151e1",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Sipaliwini, Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Sipaliwini River basin, Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Also listed for Guyana Waters, Coastal Rivers of Guyanas, Suriname Coastal Rivers and Corintijns.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sipaliwini River",
+        "source": "planetcatfish",
+        "quote": "South America: Sipaliwini River basin, Suriname.",
+        "country": "SR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "GY"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Cephalosilurus nigricaudus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344114,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        24
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        17
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "GY"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

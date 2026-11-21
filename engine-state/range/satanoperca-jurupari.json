@@ -1,17 +1,9 @@
 {
   "id": "satanoperca-jurupari",
   "native": {
-    "input": "a735e96f80d5b38d",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "4ca6d0c2cfbb3411",
+    "at": "2026-11-21T13:11:30.372Z",
     "claims": [
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "glaser",
-        "quote": "Rio Tocantins, Brazil.",
-        "words": "Brazil",
-        "ok": true
-      },
       {
         "code": "BR",
         "status": "native",
@@ -59,14 +51,6 @@
         "quote": "Recorded throughout much of the Amazon river basin in Brazil, Bolivia, Peru, Ecuador, and Colombia (and possibly the Orinoco watershed in Colombia and Venezuela; see 'Notes'), but genetic research suggests that downstream of the rio Madeira it may be restricted to the Amazon main channel and lower reaches of affluents, while upstream it occurs in the Amazon/Solimões and throughout other tributary systems including the rios Negro, Purus, Japurá, Juruá, Putomayo, Javary, Napo, Marañón, Huallaga, and Ucayali.",
         "words": "Venezuela",
         "ok": true
-      },
-      {
-        "code": "GF",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It has also been recorded in smaller coastal river drainages north of the Amazon's mouth, such as the rio Araguari in Amapá state, northeastern Brazil, and several watersheds in French Guiana, but these populations display certain morphological differences when compared with Amazonian fish and are possibly distinct (see 'Notes').",
-        "words": "French Guiana",
-        "ok": true
       }
     ],
     "regions": [
@@ -77,10 +61,15 @@
         "ok": true
       },
       {
-        "name": "Rio Tocantins",
+        "name": "Rio Negro",
         "source": "glaser",
-        "quote": "Rio Tocantins, Brazil.",
-        "country": "BR",
+        "quote": "The type locality of S. jurupari is the mouth of the Rio Negro into the Amazon (below Manaus).",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "The type locality of S. jurupari is the mouth of the Rio Negro into the Amazon (below Manaus).",
         "ok": true
       },
       {
@@ -91,19 +80,7 @@
         "ok": true
       },
       {
-        "name": "Purus",
-        "source": "seriouslyfish",
-        "quote": "Recorded throughout much of the Amazon river basin in Brazil, Bolivia, Peru, Ecuador, and Colombia (and possibly the Orinoco watershed in Colombia and Venezuela; see 'Notes'), but genetic research suggests that downstream of the rio Madeira it may be restricted to the Amazon main channel and lower reaches of affluents, while upstream it occurs in the Amazon/Solimões and throughout other tributary systems including the rios Negro, Purus, Japurá, Juruá, Putomayo, Javary, Napo, Marañón, Huallaga, and Ucayali.",
-        "ok": true
-      },
-      {
-        "name": "Ucayali",
-        "source": "seriouslyfish",
-        "quote": "Recorded throughout much of the Amazon river basin in Brazil, Bolivia, Peru, Ecuador, and Colombia (and possibly the Orinoco watershed in Colombia and Venezuela; see 'Notes'), but genetic research suggests that downstream of the rio Madeira it may be restricted to the Amazon main channel and lower reaches of affluents, while upstream it occurs in the Amazon/Solimões and throughout other tributary systems including the rios Negro, Purus, Japurá, Juruá, Putomayo, Javary, Napo, Marañón, Huallaga, and Ucayali.",
-        "ok": true
-      },
-      {
-        "name": "Rio Araguari",
+        "name": "Araguari",
         "source": "seriouslyfish",
         "quote": "It has also been recorded in smaller coastal river drainages north of the Amazon's mouth, such as the rio Araguari in Amapá state, northeastern Brazil, and several watersheds in French Guiana, but these populations display certain morphological differences when compared with Amazonian fish and are possibly distinct (see 'Notes').",
         "country": "BR",
@@ -113,7 +90,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "GF"
+      ],
       "sourcesOnly": []
     }
   },
@@ -288,10 +267,9 @@
       "BO",
       "PE",
       "EC",
-      "CO",
-      "GF"
+      "CO"
     ],
     "requests": 12,
-    "at": "2026-11-14T11:07:07.888Z"
+    "at": "2026-11-21T13:11:30.372Z"
   }
 }

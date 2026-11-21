@@ -16,20 +16,36 @@
   "range": {
     "native": {
       "countries": [
-        "PE"
+        "PE",
+        "CO"
       ],
-      "regions": [],
+      "regions": [
+        "Ucayali",
+        "Aguaytia River"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "However, it is assumed that the Panaque from Peru, first named as L90c and later as L203, is the juvenile form of P. schaeferi.",
+          "source": "scotcat",
+          "quote": "South America: Peru, Ucayali drainage to Colombia (Leticia).",
           "countries": [
-            "PE"
+            "PE",
+            "CO"
           ],
-          "regions": []
+          "regions": [
+            "Ucayali"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Peru, Ucayali Department, Padre Abad Province, Aguaytia River drainage, Santa Ana River, Cordillera Azul National Park, 250 m elevation.",
+          "countries": [],
+          "regions": [
+            "Aguaytia River"
+          ]
         }
       ]
     },

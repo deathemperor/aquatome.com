@@ -123,5 +123,93 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This magnificent swordtail has a comparatively limited distribution area in nature (rivers in the state of San Luis Potosí, on the Atlantic side of Mexico).",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350178,
+      "total": 132,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "MX",
+          132
+        ]
+      ],
+      "cells": [
+        [
+          -108.28125,
+          28.125,
+          2,
+          2
+        ],
+        [
+          -104.0625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -102.65625,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          -101.25,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          -99.84375,
+          21.09375,
+          98,
+          98
+        ],
+        [
+          -99.84375,
+          22.5,
+          20,
+          20
+        ],
+        [
+          -98.4375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -98.4375,
+          21.09375,
+          4,
+          4
+        ],
+        [
+          -90,
+          21.09375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

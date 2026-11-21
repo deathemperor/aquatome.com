@@ -10,6 +10,53 @@
     "colombia",
     "narino"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Telembí River",
+        "River Peje"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Department of Nariño.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Tributary of the Telembí River, municipality of Barbacoas.",
+          "countries": [],
+          "regions": [
+            "Telembí River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "River Peje, tributary Nambi.",
+          "countries": [],
+          "regions": [
+            "River Peje"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9611632,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

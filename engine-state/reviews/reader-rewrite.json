@@ -439,6 +439,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-1F7-mRplxeo#body": [
+    {
+      "at": "2026-11-21T13:25:32Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "BEFORE: \"thay hoặc giặt cái mới vào\" (replace, or wash the new one) is awkward; AFTER \"giặt sạch, hoặc thay cái mới vào\" reads as wash the old one or replace it. This is a reasonable fix, but the meaning shifts slightly.",
+        "\"cắm điện cho bơm chạy lại\" is a minor wording change with the same meaning."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-1MBa4r8jhFs#body": [
     {
       "at": "2026-11-08T11:26:39Z",

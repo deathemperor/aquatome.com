@@ -10,6 +10,72 @@
     "mexico",
     "rio-mezquital"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [
+        "Rio Mezquital"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Characodon audax occurs endemically (i.e. exclusively there) in parts of the catchment area of the headwaters of the Rio Mezquital in the Mexican state of Durango.",
+          "countries": [
+            "MX"
+          ],
+          "regions": [
+            "Rio Mezquital"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347672,
+      "total": 27,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "MX",
+          26
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -105.46875,
+          22.5,
+          4,
+          4
+        ],
+        [
+          -105.46875,
+          23.90625,
+          20,
+          20
+        ],
+        [
+          -105.46875,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

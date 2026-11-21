@@ -16,13 +16,15 @@
   "range": {
     "native": {
       "countries": [
-        "PE"
+        "PE",
+        "EC"
       ],
       "regions": [
-        "Shampupa"
+        "Napo River"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -34,11 +36,13 @@
           "regions": []
         },
         {
-          "source": "glaser",
-          "quote": "Characteristic for the fish, which exporters call \"shampupa\" after the river in Peru where they catch the animals, are the broad, light-coloured tail fin seam and the blue-green base colouring.",
-          "countries": [],
+          "source": "scotcat",
+          "quote": "Panaque titan is known only from relatively large rivers in lowland and piedmont habitats of the Napo River basin in Ecuador and possibly in the Caquetá river basin in Colombia.",
+          "countries": [
+            "EC"
+          ],
           "regions": [
-            "Shampupa"
+            "Napo River"
           ]
         }
       ]
@@ -62,7 +66,7 @@
           -77.34375,
           -1.40625,
           4,
-          0
+          4
         ],
         [
           -74.53125,

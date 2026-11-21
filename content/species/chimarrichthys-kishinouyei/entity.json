@@ -66,5 +66,47 @@
   ],
   "videos": [],
   "productSlots": [],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "NP",
+        "CN"
+      ],
+      "regions": [
+        "Min-Jiang River",
+        "Yangtze"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: Nepal and China.",
+          "countries": [
+            "NP",
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Upper Min-Jiang River, Yangtze River basin.",
+          "countries": [],
+          "regions": [
+            "Min-Jiang River",
+            "Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10689408,
+      "total": 0,
+      "fetched": "2026-11-21",
+      "countries": [],
+      "cells": []
+    }
+  }
 }

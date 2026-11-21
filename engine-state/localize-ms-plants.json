@@ -2737,5 +2737,84 @@
       "quickFacts:tropica": "4eb1321bafe6",
       "notes:tropica": "1c6755ad01f3"
     }
+  },
+  "phyllantus-fluitans": {
+    "at": "2026-11-21",
+    "from": "2026-11-16",
+    "name": "Phyllantus fluitans",
+    "confidence": "high",
+    "score": 0.95,
+    "notes": [
+      "Item 10: \"kalis air\" for \"water-repellent\" leaves is slightly imprecise; \"menolak air\" or \"hidrofobik\" would be clearer. This is minor."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "84386acfb575",
+      "distribution:aquariumbreeder": "10f61d50071c",
+      "habitat:aquariumbreeder": "3d25c0804c2d",
+      "aquariumSize:aquariumbreeder": "47b3d66824e7",
+      "maintenance:aquatome": "93eaabd38bf6",
+      "maintenance:aquariumbreeder": "77a79b6197bc",
+      "waterConditions:aquariumbreeder": "9b4355068917",
+      "equipment:aquariumbreeder": "17266401026a",
+      "reproduction:aquariumbreeder": "298da21280b6",
+      "notes:aquariumbreeder": "7d46c69258b3"
+    }
+  },
+  "pistia-stratiotes": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "Dwarf Water Lettuce",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"jentik-jentik\" is more Indonesian; use \"larva nyamuk\" in Malaysian Malay.",
+      "\"crayfish\" left in English; use \"udang karang\" (crayfish) for readability.",
+      "\"siput Malaysian trumpet\" / \"siput Japanese trapdoor\" mix languages; consider \"siput trumpet Malaysia (Malaysian trumpet snail)\"."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "3eb80a8a1e48",
+      "distribution:aquariumbreeder": "db39b6147851",
+      "aquariumSize:aquariumbreeder": "663e05138600",
+      "maintenance:aquariumbreeder": "b42da1c29bf2",
+      "waterConditions:aquariumbreeder": "5ab34853ef5b",
+      "equipment:aquariumbreeder": "99af1c617753",
+      "reproduction:aquariumbreeder": "96034b16044b",
+      "notes:aquariumbreeder": "28b4fc2db8bc"
+    }
+  },
+  "plagiomnium-sp-thyme-moss": {
+    "at": "2026-11-21",
+    "from": "2026-10-31",
+    "name": "Thyme Moss",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"daunnya agak besar berbanding lumut lain\" slightly changes the source, which says the leaves are comparatively large as a trait. It is minor.",
+      "\"lut cahaya\" is acceptable, but \"lutsinar\" is the more common term."
+    ],
+    "parts": {
+      "quickFacts:tropica": "f4b37823f130",
+      "notes:tropica": "833e9a5c746c"
+    }
+  },
+  "pogostemon-deccanensis": {
+    "at": "2026-11-21",
+    "from": "2026-11-08",
+    "name": "Pogostemon deccanensis",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Item 3: \"dos baja cecair yang tinggi ke dalam air\" is awkward; use \"dos baja cecair yang tinggi dalam turus air\".",
+      "Item 4: \"akarnya kuat\" for \"vigorous roots\" is slightly flat; \"akarnya tumbuh subur\" is more natural.",
+      "Item 5: \"dari segi susun atur\" is loose for \"for aquascaping purposes\"; \"untuk tujuan aquascaping\" is more faithful.",
+      "Item 1: \"Sederhana\" for light/CO2 is fine, but \"Tumbuhan batang\" could be \"Tumbuhan berbatang\" (stem plant) as hobbyists write it."
+    ],
+    "parts": {
+      "quickFacts:tropica": "476ac82fff27",
+      "quickFacts:2hraquarist": "53db6865be22",
+      "maintenance:2hraquarist": "00c7bc62df4b",
+      "notes:tropica": "9094aa345a5f",
+      "notes:2hraquarist": "f82913d82d1a"
+    }
   }
 }

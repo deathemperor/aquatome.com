@@ -616,8 +616,12 @@
   "hash": "c898d3ad15609b0d"
  },
  "vi/species/astroblepus-mancoi": {
-  "at": "2026-11-21T07:30:36.506Z",
-  "hash": "6821248c98a699b0"
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "dc172748d371c4e5"
+ },
+ "vi/species/astroblepus-putumayoensis": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "8195bc7584153399"
  },
  "vi/species/astronotus-ocellatus": {
   "at": "2026-11-20T02:11:04.650Z",
@@ -628,16 +632,24 @@
   "hash": "715fedd5bb3f0f0b"
  },
  "vi/species/astyanax-leopoldi": {
-  "at": "2026-11-21T07:30:36.506Z",
-  "hash": "be9e9f7c50ccf178"
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "a6c80dcac04568cd"
  },
  "vi/species/ataeniobius-toweri": {
   "at": "2026-11-21T07:30:36.506Z",
   "hash": "89953d095a7dfc13"
  },
  "vi/species/atractosteus-tristoechus": {
-  "at": "2026-11-21T07:30:36.506Z",
-  "hash": "11e846495edc9072"
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "a351482d902c953a"
+ },
+ "vi/species/atya-gabonensis": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "7d394328233306d8"
+ },
+ "vi/species/auchenipterichthys-punctatus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "17b6b51b05a00b87"
  },
  "vi/species/auchenoglanis-biscutatus": {
   "at": "2026-11-19T13:06:40.388Z",
@@ -651,9 +663,49 @@
   "at": "2026-11-21T07:30:36.506Z",
   "hash": "aaa3688c0587af3e"
  },
+ "vi/species/badis-blosyrus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "ee9c8e0fe63dcefb"
+ },
+ "vi/species/badis-corycaeus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "8ea430449444ffb1"
+ },
+ "vi/species/badis-ferrarisi": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "1a9f569756664bf8"
+ },
+ "vi/species/badis-kyar": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "1b5bf38a9d1856fa"
+ },
+ "vi/species/badis-pyema": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "d8299d21f9be66d5"
+ },
+ "vi/species/badis-singenensis": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "a5db2b04d5822b6a"
+ },
+ "vi/species/bangana-behri": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "71f6577207e6e9a5"
+ },
+ "vi/species/batrochoglanis-raninus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "c92b5a52e6d7b70f"
+ },
+ "vi/species/batrochoglanis-villosus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "552241e61062ab35"
+ },
  "vi/species/beaufortia-leveretti": {
   "at": "2026-11-15T00:39:00.140Z",
   "hash": "6c115bdc966b4dc9"
+ },
+ "vi/species/betta-apollon": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "20900a54b9a5b534"
  },
  "vi/species/boraras-maculatus": {
   "at": "2026-11-14T00:29:15.650Z",
@@ -674,6 +726,10 @@
  "vi/species/caquetaia-myersi": {
   "at": "2026-11-16T11:52:16.376Z",
   "hash": "cec5a11fffed0e07"
+ },
+ "vi/species/carinotetraodon-travancoricus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "ed5e07275db75a1c"
  },
  "vi/species/catathyridium-jenynsii": {
   "at": "2026-11-18T01:14:31.664Z",
@@ -726,6 +782,10 @@
  "vi/species/coreoperca-liui": {
   "at": "2026-11-15T00:39:00.140Z",
   "hash": "96a3feefb26430a5"
+ },
+ "vi/species/corydoras-adolfoi": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "616f08f2a457465a"
  },
  "vi/species/corydoras-aeneus": {
   "at": "2026-11-20T02:11:04.650Z",
@@ -846,6 +906,10 @@
  "vi/species/hemiodus-thayeria": {
   "at": "2026-11-20T17:57:15.353Z",
   "hash": "fe74f412775cf042"
+ },
+ "vi/species/heptapterus-mustelinus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "d2804bcfc9754158"
  },
  "vi/species/hyphessobrycon-elachys": {
   "at": "2026-11-19T19:05:28.486Z",
@@ -1234,6 +1298,10 @@
  "vi/species/rasbora-dandia": {
   "at": "2026-11-18T18:38:04.419Z",
   "hash": "d4bb766c2232a475"
+ },
+ "vi/species/rhamphichthys-rostratus": {
+  "at": "2026-11-21T13:30:24.305Z",
+  "hash": "b12d719e355f0e95"
  },
  "vi/species/rhinogobius-flumineus": {
   "at": "2026-11-19T19:05:28.486Z",

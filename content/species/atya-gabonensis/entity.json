@@ -221,5 +221,119 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-21",
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Cross River"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "Common in West Africa and first reported in Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "They inhabit mangrove environments, in available boles, crevices and root masses of the Cross River system.",
+          "countries": [],
+          "regions": [
+            "Cross River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2223031,
+      "total": 24,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          19
+        ],
+        [
+          "GH",
+          2
+        ],
+        [
+          "BJ",
+          1
+        ],
+        [
+          "GA",
+          1
+        ],
+        [
+          "LR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -43.59375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          6,
+          0
+        ],
+        [
+          -42.1875,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -37.96875,
+          -9.84375,
+          11,
+          0
+        ],
+        [
+          -11.25,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -2.8125,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          0,
+          5.625,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

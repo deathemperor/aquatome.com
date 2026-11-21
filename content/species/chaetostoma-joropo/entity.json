@@ -11,6 +11,68 @@
     "colombia",
     "rio-meta"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Meta"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from creeks in the catchment area of the Rio Meta in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Rio Meta"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8671505,
+      "total": 29,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          29
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          4.21875,
+          11,
+          11
+        ],
+        [
+          -73.125,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

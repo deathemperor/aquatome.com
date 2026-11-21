@@ -11,6 +11,72 @@
     "ganges",
     "nepal"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "NP"
+      ],
+      "regions": [
+        "Ganges",
+        "Teesta"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Teestra [Teesta] R., below Darjeeling, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Teesta"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: India and Nepal. Ganges Drainage, Pilibhit, Uttar Pradesh, India.",
+          "countries": [
+            "NP"
+          ],
+          "regions": [
+            "Ganges"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341708,
+      "total": 3,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "NP",
+          2
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          84.375,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

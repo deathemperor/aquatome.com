@@ -9,6 +9,64 @@
     "south-america",
     "ecuador"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Pacific coastal drainages (Ecuador).",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342122,
+      "total": 7,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          0,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

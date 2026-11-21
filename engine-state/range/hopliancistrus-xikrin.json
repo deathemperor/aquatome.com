@@ -1,0 +1,67 @@
+{
+  "id": "hopliancistrus-xikrin",
+  "native": {
+    "input": "2ae6a06cad74b7f8",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "planetcatfish",
+        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Iriri",
+        "source": "planetcatfish",
+        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Rio Bacajá",
+        "source": "planetcatfish",
+        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "planetcatfish",
+        "quote": "Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hopliancistrus xikrin",
+    "status": "ACCEPTED",
+    "taxonKey": 11178069,
+    "datasets": [
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

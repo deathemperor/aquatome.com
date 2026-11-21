@@ -1,0 +1,111 @@
+{
+  "id": "auchenipterichthys-punctatus",
+  "native": {
+    "input": "2bd7966d3ab2fba8",
+    "at": "2026-11-21T13:11:30.372Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "So far it has been reported only from the upper Orinoco and the Rio Negro in Venezuela, and from the central portion of the Amazon river in Brazil.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "So far it has been reported only from the upper Orinoco and the Rio Negro in Venezuela, and from the central portion of the Amazon river in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "So far it has been reported only from the upper Orinoco and the Rio Negro in Venezuela, and from the central portion of the Amazon river in Brazil.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "So far it has been reported only from the upper Orinoco and the Rio Negro in Venezuela, and from the central portion of the Amazon river in Brazil.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "glaser",
+        "quote": "So far it has been reported only from the upper Orinoco and the Rio Negro in Venezuela, and from the central portion of the Amazon river in Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Auchenipterichthys punctatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344723,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        20
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        8
+      ],
+      [
+        "3f6e022f-240e-4288-b655-84d5904d4ca6",
+        7
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T13:11:30.372Z"
+  }
+}

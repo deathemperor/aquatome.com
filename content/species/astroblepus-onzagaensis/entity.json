@@ -10,6 +10,46 @@
     "colombia",
     "santander"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Municipio de Onzaga, Departamento de Santander, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9490401,
+      "total": 2,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
