@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "india",
-    "khasi-hills"
+    "khasi-hills",
+    "bangladesh"
   ],
   "range": {
     "native": {
@@ -138,6 +139,10 @@
       {
         "source": "scotcat",
         "value": 4.5
+      },
+      {
+        "source": "planetcatfish",
+        "value": 4.2
       }
     ]
   },
@@ -149,16 +154,46 @@
       "html": "<p><strong>Family:</strong> Amblycipitidae</p><p><strong>Size:</strong> 4.5 cm</p><p><strong>Temperature:</strong> 18-22°C</p><p><strong>pH:</strong> 6.5-7.5</p><p><strong>Vertebrae:</strong> 41-43.</p><p>Differs from all Indochinese species of Amblyceps in having a narrow head (9.5-11.1% SL versus 13.1-21.2) with a strongly projecting lower jaw (versus non- or weakly-projecting, except in A. platycephalus), and a very slender, elongate body (body depth at anus 7.6-11.1% SL versus 11.2-16.9 except in A. caecutiens) with 41-43 (versus 34-41) vertebrae.</p><p><strong>Colouration:</strong> Olive brown body, lighter below.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1419",
+      "html": "<p>Amblyceps laticeps (McClelland, 1842). Synonym: Olyra laticeps. Type locality: Khasi Hills, India. Etymology: from the Greek amblys, meaning blunt, and kephale, meaning head, in reference to the blunt snout. Size: 42 mm SL (4.2 cm).</p>"
+    },
+    {
       "key": "distribution",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_laticeps.htm",
       "html": "<p>Asia: India, Assam, Khasi Hills. Type locality: Kasyah mountains, India. The species' distribution in India and Bangladesh is estimated at around 40,000 km².</p>"
     },
     {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1419",
+      "html": "<p>Asia: Bangladesh and India. IUCN Red List category: Least Concern (last assessed 2009).</p>"
+    },
+    {
       "key": "habitat",
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_laticeps.htm",
       "html": "<p>It is found in river beds with huge boulder outcrops at the base of hills.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1419",
+      "html": "<p>Readily eats all manner of live and prepared foods.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1419",
+      "html": "<p>Other fish collected together with it belong to the genera Devario, Danio, Opsarius, Garra, Rasbora, Aborichthys, Schistura, Olyra and Batasio.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1419",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
     },
     {
       "key": "notes",
@@ -171,6 +206,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/amblycipitidae/amblyceps_laticeps.htm",
       "html": "<ul><li>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2010).</li><li>Jayaram, K.C. 2006. Catfishes of India. Narendera Publishing House. 383p.</li><li>Ng, H.H. and M. Kottelat 2000. A review of the genus Amblyceps (Osteichthyes: Amblycipitidae) in Indochina, with descriptions of five new species. Ichthyol. Explor. Freshwat. 11(4):335-348.</li><li>Ng, H.H. 2010. Amblyceps laticeps. The IUCN Red List of Threatened Species 2010.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1419",
+      "html": "<p>Calcutta Journal of Natural History v. 2 (no. 8), pp 588, Pl. 21 (fig. 2).</p>"
     }
   ],
   "photos": [
@@ -216,5 +257,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

@@ -190,6 +190,13 @@
           "min": 25,
           "max": 32
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -198,6 +205,13 @@
         "value": {
           "min": 5.5,
           "max": 7.5
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6.5,
+          "max": 7
         }
       }
     ],
@@ -214,6 +228,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -237,16 +255,34 @@
       "html": "<p>Max size: 55 mm SL. Aquarium size: 75 × 30 cm. Temperature: 25–32°C. pH: 5.5–7.5. Hardness: 5–20 dGH. Difficulty: moderate, because it needs a well-established tank and stable water.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "html": "<p>Genus Pseudomugil (blue-eye rainbowfish). IUCN Red List: Least Concern. A beautiful schooling rainbowfish, yellowish orange in colour with a metallic streak across the top. One of the more uncommon fishes you will see.</p><ul><li>Body shape: small, slim body with a large eye.</li><li>Fins: two dorsal fins. Males have larger, longer dorsal and anal fins with bright edges.</li><li>Coloration: yellowish orange with a metallic streak along the back. Males have yellow to white fin edges.</li><li>Temperament: peaceful.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-tenellus",
       "html": "<p>Described from 'Large Billabong at Oenpelli, Arnhem Land, Northern Territory, Australia', which is part of the East Alligator river system, and now known to have a patchy but wide range throughout much of coastal northern Australia.</p><p>Its western limit appears to be close to the city of Darwin in the Northern Territory, with populations inhabiting nearby Leanyer swamp, Rapid Creek, Benjamin Lagoon, and other small watercourses in the area.</p><p>Additional records from the Northern Territory include the Alligator, Blyth, Daly, Finniss, Howard, Liverpool, and Mary river drainages.</p><p>To the east its range extends as far as the Cape York Peninsula with Queensland populations including the Coleman, Edward, Jardine, Lockhart, and Watson river systems, plus the Jacky Jacky and Scrubby creeks.</p><p>It also occurs on the Aru Islands, Maluku province, Indonesia, and in the Bensbach River, Papua New Guinea, and may be more widely distributed in southern New Guinea.</p><p>The fish do vary somewhat in colour pattern depending on locality, reproductive status, and water chemistry, though this is yet to be documented in full.</p>"
     },
     {
+      "key": "distribution",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "html": "<p>Northern Australia (Northern Territory and Cape York) and southern Papua New Guinea.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-tenellus",
       "html": "<p>Euryhaline and mostly inhabits coastal floodplains where it's found in both fresh and brackish habitats, including tidal estuaries and salt marshes.</p><p>It's particularly common in swamps, billabongs, and slow-moving streams where aquatic vegetation grows densely, but some populations have colonised upper sections of freshwater streams. Larger individuals may also move into main river channels.</p><p>Tappin (2010) gives the following ranges of parameters based on those taken from various localities: temperature 27–38°C, pH 5.0–7.1, conductivity 6–120 µS/cm.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "html": "<p>Pseudomugil tenellus lives in warm, vegetated lagoons, swamps and slow streams.</p>"
     },
     {
       "key": "aquariumSize",
@@ -267,16 +303,34 @@
       "html": "<p>Temperature: prefers warmer conditions within the range 25–32°C.</p><p>pH: 5.5–7.5</p><p>Hardness: 5–20 dGH</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "html": "<ul><li>pH: 6.5 to 7.0 is the range they are kept at. Wild habitats are often neutral to alkaline.</li><li>Temperature: 22 to 25°C. They tolerate warmer water in the wild.</li></ul>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-tenellus",
       "html": "<p>Feeds chiefly on floating or suspended zooplankton, phytoplankton, algae, and invertebrates in nature, with the principal constituents of the diet changing with the time of year.</p><p>In the aquarium it must be offered items of a suitable size and quality, particularly live Daphnia, Moina, Artemia nauplii, micro worm, etc.</p><p>Small or crushed floating dried foods are also accepted and should ideally contain some plant or algal material.</p>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "html": "<p>Crushed pellets, fine flakes, baby brine shrimp, daphnia and other small live foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-tenellus",
       "html": "<p>Peaceful and suitable for well-chosen community aquaria alongside fishes of comparable size, disposition, and requirements, with many cyprinids, gobiids, eleotrids, and smaller melanotaeniids suitable.</p><p>It's a shoaling species and should be kept in a group of at least 8–10 specimens, ideally more.</p><p>Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display.</p><p>Males will also display their best colours and some fascinating behaviour as they compete with one another for female attention.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "html": "<p>Peaceful. Keep in groups of 6 or more. Good with small rasboras, tetras and shrimp. Males constantly flick their enlarged dorsal and anal fins at each other. Pseudomugil species can hybridize, so keep only one blue-eye species per tank if you plan to breed.</p>"
     },
     {
       "key": "dimorphism",
@@ -291,6 +345,12 @@
       "html": "<p>This species is an egg-scatterer exhibiting no parental care and will consume its own eggs and fry given the opportunity.</p><p>Spawning is more likely at temperatures towards the upper end of the range suggested above, with females capable of depositing a few eggs daily for a period of several days, these being attached to aquatic vegetation or other substrate by adhesive filaments.</p><p>An individual male may also mate with multiple females during a single day, and spawning usually continues throughout daylight hours during warmer periods.</p><p>In nature it displays a seasonal reproductive cycle coinciding with the onset of the wet season, around October–December, when food and aquatic vegetation are at their most plentiful.</p><p>Spawning occurs during daylight hours with a peak of activity in late morning/early afternoon when water temperature is 24–28°C, and in the aquarium breeding can occur throughout the year if temperature is raised to these values.</p><p>There exist two basic methods for aquarium breeding.</p><p>The first involves isolating a small group comprising a single male and two or three females into a container with an air-powered sponge filter and spawning medium in the form of nylon mops or aquatic moss.</p><p>The medium is checked several times per day and any eggs removed to a separate container for incubation and hatching.</p><p>The alternative is to maintain a colony of adults in a larger, fully-decorated set-up which if well-planted should allow some fry to survive.</p><p>Since they spend the early part of life close to the water surface, aquatic mosses from the genus Taxiphyllum attached to décor high in the water column apparently produce the most favourable results, but floating plants with trailing roots are also recommended.</p><p>The latter approach is normally less productive but simpler and more reliable as mature, planted aquaria facilitate relatively stable water conditions and the resident microfauna can constitute a valuable early food source for fish fry.</p><p>The incubation period is around 10 days depending on temperature and the fry require microscopic food such as Paramecium for up to 5 days before they're able to accept Artemia nauplii, micro worm, and similarly-sized foods immediately.</p><p>They can also be raised using good quality, powdered dry products of which some are available in incrementally-graded particle sizes, and growth rate is normally quite fast compared with some congeners.</p><p>Should eggs containing developed embryos fail to hatch they can apparently be stimulated to do so by putting them in a small vial or similar container with some water from the aquarium and shaking it vigorously, or placing it in your pocket and walking around with it. It appears the resultant change in pressure causes the eggs to hatch.</p><p>Small meals should be offered at least twice daily. Aged water can result in high mortality so regular, small water changes are essential and uneaten food should not be allowed to accumulate in the rearing tank.</p><p>Pseudomugil spp. are quite short-lived with females tending to survive for only a single reproductive season in nature.</p><p>Though lifespan tends to increase in well-maintained aquaria the fish will normally be less fecund once they reach an age of 12–18 months.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "html": "<p>Continuous spawner. Eggs are attached to fine plants, moss or spawning mops. Move the mop to a separate container to raise fry, which need infusoria or green water first.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-tenellus",
@@ -303,8 +363,44 @@
       "html": "<ul><li>Allen, G. R. (1980). A Generic Classification of The Rainbowfishes (Family Melanotaeniidae). Records of the Western Australian Museum 8(3), 449-490</li><li>Sparks, J. S. and W. L. Smith (2004). Phylogeny and biogeography of the Malagasy and Australasian rainbowfishes (Teleostei: Melanotaenioidei): Gondwanan vicariance and evolution in freshwater. Molecular Phylogenetics and Evolution 33(3), 719-734</li><li>Herder, F., J. Schwarzer, J. Pfaender, R. K. Hadiaty, and U. K. Schliewen (2006). Preliminary checklist of sailfin silversides (Teleostei: Telmatherinidae) in the Malili Lakes of Sulawesi (Indonesia), with a synopsis of systematics and threats. Verhandlungen der Gesellschaft für Ichthyologie Band 5, 139-163</li><li>Tappin, A. R. (2010). Rainbowfishes - Their Care and Keeping in Captivity. Art Publications, 1-484</li><li>Allen, G. R., H. Midgley, and M. Allen (2002). Field guide to the freshwater fishes of Australia. Western Australian Museum, i-xiv + 1-394</li></ul>"
     }
   ],
-  "photos": [],
-  "videos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/bwaquatics/619ffde0fd6ab169.webp",
+      "thumb": "https://media.aquatome.com/bwaquatics/619ffde0fd6ab169-480.webp",
+      "width": 885,
+      "height": 749,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/pseudomugil-tenellus",
+      "source": "bwaquatics"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "vcLIJfTYjWk",
+      "title": "#Pseudomugil tenellus #yozakura #medaka #ricefish #rainbowfish",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MwAdnov-3p4",
+      "title": "Pseudomugil Tenellus ( Fast and Furious )",
+      "durationSec": 118,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JTvfgdvxQos",
+      "title": "Pseudomugil Tenellus - Delicate Blue Eye Rainbowfish Coloring Up Nicely!",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XYhU4_wD_bY",
+      "title": "Rainbow Fish - Pseudomugil Tenellus (Delicate Blue Eye) (Yerli Üretim)",
+      "durationSec": 28,
+      "lang": "tr"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -335,5 +431,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

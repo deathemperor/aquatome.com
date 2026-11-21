@@ -1,0 +1,58 @@
+{
+  "id": "chimarrichthys-kishinouyei",
+  "scientificName": "Chimarrichthys kishinouyei",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Chimarrichthys",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "china",
+    "min-jiang",
+    "nepal"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 14.8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1410",
+      "html": "<p>Scientific name: Chimarrichthys kishinouyei (Kimura, 1934). Synonyms: Coraglanis kishinouyei, Euchiloglanis kishinouyei, Exostoma kishinouyei. Family Sisoridae. Size: 148 mm SL. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1410",
+      "html": "<p>Asia: Nepal and China. Upper Min-Jiang River, Yangtze River basin. Type locality: Yingxiu, Dujiangyan City [formerly Kwan-hsien, Szechwan Province], Sichuan Province, China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1410",
+      "html": "<p>Inhabits rocky and gravel bed pools in streams.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1410",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1410",
+      "html": "<p>Journal of the Shanghai Science Institute Section 3, v. 1, pp 178, Pl. 6.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

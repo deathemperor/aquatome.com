@@ -854,6 +854,43 @@
       "kept": false
     }
   ],
+  "vi/products/sicce-shark-adv": [
+    {
+      "at": "2026-11-21T07:45:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.82,
+      "notes": [
+        "\"Nên xem số chính thức của hãng, là 400 l/h\" - facts only say to check official figures; 400 l/h is listed in specs, but presenting it as the confirmed official figure is a mild extrapolation.",
+        "\"bình phản ứng tầng sôi\" - facts say 'fluid reactor'; 'tầng sôi' (fluidized bed) is an added interpretation.",
+        "\"Châm thêm nước cho đủ mực là việc nên xem trước\" - recommendation not in facts (facts only say noise can return when the level drops).",
+        "\"Khoảng bể của bản 400 và bản 800 chồng lên nhau một đoạn ở quanh mức 130 L\" - derived overlap; 400 is up to ~132 L and 800 starts at 130 L, so roughly consistent, but it is the page's own inference.",
+        "\"Lưới phía dưới cũng chỉnh được dòng nước\" - supported; \"bản mạnh hơn cho bể lớn hơn\" for PRO 900 supported.",
+        "\"Nguồn ghi bảo hành 3 năm\" - supported, but the ADV warranty is not attributed to a specific variant or seller."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T07:45:01Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"Nhiều người dùng nói ... Ồn trở lại sau vài ngày\" – facts say noise can return when evaporation lowers the water level, not 'after a few days'; the timeframe is invented.",
+        "\"Đầu ra vẫn ồn khi đã rút dây khí\" is fine, but \"Máy phải nằm ngập hoàn toàn mới chạy đúng\" adds a consequence not stated (facts only say it must be fully submerged).",
+        "\"một shop ghi hợp bể khoảng 10–35 gallon\" / \"Một shop ghi bảo hành 3 năm\" – the attribution to a single shop is loosely supported; the facts give sources without specifying them as shops.",
+        "\"Để ý là mức trên của bản 400 (132 L) gần chạm mức dưới của bản 800 (130 L). Đó là do mỗi bên lấy số từ một nơi\" – the explanation for the overlap is an inference not in the facts (and 132 actually exceeds 130).",
+        "\"bể nuôi lượng cá vừa phải, không quá dày\" – 'không quá dày' is an embellishment of 'moderate bioload'.",
+        "\"Có hút cá con hay tép nhỏ không?\" – shrimp are mentioned in the question, but the facts only cover small fish and fry; the page answers without claiming for shrimp, though it implies coverage.",
+        "\"Shark PRO 900: bản mạnh hơn cho bể lớn hơn\" is supported, but \"Shark PRO 700 lọc trong đời mới hơn\" is supported only as 'newer Sicce internal filter' – okay; \"tắt nó đi... rút dây khí\" is a minor extrapolation of removing the air tube."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/tropica-aquarium-soil": [
     {
       "at": "2026-11-20T10:45:56Z",

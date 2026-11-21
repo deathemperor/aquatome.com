@@ -150,8 +150,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/aspidoras_pauciradiatus_en/",
-      "html": "<p>This charming dwarf catfish originates from the Rio Negro basin and attains a maximum length of about 3 cm. It is an ideal tankmate for tetras, dwarf cichlids and similar fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-pauciradiatus-2/",
+      "html": "<p>This cute dwarf armored catfish reaches a maximum length of only 3 cm.</p>"
     },
     {
       "key": "distribution",
@@ -162,8 +162,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10a-catfishes-corydoras-co/aspidoras_pauciradiatus_en/",
-      "html": "<p>The species originates from the Rio Negro basin.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-pauciradiatus-2/",
+      "html": "<p>Aspidoras pauciradiatus comes from the central Rio-Negro area. Strangely enough, the specimens on which the scientific description is based were allegedly collected in the Rio Araguaia near the town of Aruana, about 2,000 km from the usual fishing grounds of the species. Since then they could not be found there again.</p>"
     },
     {
       "key": "aquariumSize",
@@ -194,6 +194,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-pauciradiatus-2/",
+      "html": "<p>It is an ideal community fish for characins, dwarf cichlids etc.</p>"
     },
     {
       "key": "dimorphism",
@@ -231,6 +237,36 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/aspidoras-pauciradiatus",
       "caption": "Adult male specimen.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/00b553bc2ba1ee4f.webp",
+      "thumb": "https://media.aquatome.com/glaser/00b553bc2ba1ee4f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-pauciradiatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2675473be017b999.webp",
+      "thumb": "https://media.aquatome.com/glaser/2675473be017b999-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-pauciradiatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ad47745838365e68.webp",
+      "thumb": "https://media.aquatome.com/glaser/ad47745838365e68-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aspidoras-pauciradiatus-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -288,5 +324,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-21"
 }

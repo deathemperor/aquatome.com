@@ -302,13 +302,13 @@
   "dataCard": {
     "sizeCm": [
       {
+        "source": "seriouslyfish",
+        "value": 15
+      },
+      {
         "source": "glaser",
         "value": 7.5,
         "overruled": "Glaser's 'about 7.5 cm'; Seriously Fish gives 150 mm SL. Seriously Fish's figure stands where two sources are twice apart and no second source agrees with the other (rule of 10 Nov 2026; chief of staff, 17 Nov)"
-      },
-      {
-        "source": "seriouslyfish",
-        "value": 15
       }
     ],
     "tempC": [
@@ -368,7 +368,7 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-4/",
       "html": "<p>The species has a very wide distribution in South America. It can be found in Guyana and the whole Amazon and Orinoco basins.</p>"
     },
     {
@@ -390,6 +390,12 @@
       "html": "<p>A 120 × 45 × 45 cm (~243 litres) tank is big enough to house a shoal of these. In anything smaller, you're likely to end up with only a few surviving specimens.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-4/",
+      "html": "<p>The tank should be large, and the fish should be kept in a school as large as possible.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
@@ -404,8 +410,8 @@
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
-      "html": "<p>In the wild, Exodon paradoxus feed almost exclusively on scales of other fish. Their highly specialized teeth enable that. In the aquarium, any type of usual fish food will be accepted readily.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-4/",
+      "html": "<p>In the wild, Exodon paradoxus feed almost exclusively on scales of other fish. Their highly specialized teeth enable that. Like a flash they attack their prey and the victim doesn't understand what actually happened. In the aquarium, any type of usual fish food will be accepted readily.</p>"
     },
     {
       "key": "diet",
@@ -416,8 +422,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
-      "html": "<p>They hunt and hit their conspecifics permanently and an uneducated watcher may become quite concerned that the fish will eventually hurt each other. But this doesn't happen. Like a flash they attack their prey and the victim doesn't understand what actually happened. The game of the Bucktooth tetras has two purposes. First: the game fools the potential victims and makes them \"believe\" that the Bucktooth tetras are not interested in them. And second: this permanent swimming is a perfect training for the small predators.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-4/",
+      "html": "<p>The splendid fish glitter and glimmer like diamonds and they never stay still. They hunt and hit their conspecifics permanently and an uneducated watcher may become quite concerned that the fish will eventually hurt each other. But this doesn't happen. The game of the Bucktooth tetras has two purposes. First: the game fools the potential victims and makes them \"believe\" that the Bucktooth tetras are not interested in them. And second: for sure this permanent swimming is a perfect training for the small predators.</p><p>In respect of eventually planned tankmates one must be very careful. Best choice are catfish, for they have no scales at all and so they don't fit the prey scheme of the Bucktooth tetras.</p>"
     },
     {
       "key": "behaviour",
@@ -439,12 +445,6 @@
     },
     {
       "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-2/",
-      "html": "<p>In respect of eventually planned tankmates one must be very careful. Best choice are catfish, for they have no scales at all and so they don't fit the prey scheme of the Bucktooth tetras.</p>"
-    },
-    {
-      "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/exodon-paradoxus",
       "html": "<p>The genus Exodon is currently monotypic, with this single species having uniquely designed teeth. These allow it to rip the scales from other species. It's an ideal choice for those wishing to keep a large shoal of a predatory species without possessing the massive amount of tank space needed for a shoal of piranha or similar. A tank full of these makes for a very colourful and active display.</p>"
@@ -460,6 +460,36 @@
       "author": "Jonathan (Jon) Armbruster",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSCN6064_(6260740474).jpg",
       "caption": "Cá tetra răng cưa với đốm đen trên thân, bơi trong bể tối"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d10d87ffcc5effe5.webp",
+      "thumb": "https://media.aquatome.com/glaser/d10d87ffcc5effe5-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/9a05ad12fa15f694.webp",
+      "thumb": "https://media.aquatome.com/glaser/9a05ad12fa15f694-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-4/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/974e13c020351d66.webp",
+      "thumb": "https://media.aquatome.com/glaser/974e13c020351d66-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/exodon-paradoxus-4/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -485,5 +515,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-21"
 }

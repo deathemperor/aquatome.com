@@ -110118,10 +110118,10 @@
     "products": []
   },
   "vi/species/ailia-coila": {
-    "at": "2026-11-08",
-    "hash": "7c99798c265538ce",
+    "at": "2026-11-21",
+    "hash": "609ca013555e0bc6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -110591,9 +110591,10 @@
     "products": []
   },
   "vi/species/amblyceps-laticeps": {
-    "at": "2026-11-07",
-    "hash": "8e0c23b1ce4142a7",
+    "at": "2026-11-21",
+    "hash": "af22577a88031ab5",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -110806,8 +110807,8 @@
     "products": []
   },
   "vi/species/amphilius-platychir": {
-    "at": "2026-11-16",
-    "hash": "55f74bac5ee41a8b",
+    "at": "2026-11-21",
+    "hash": "320bed87818714c3",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -113197,26 +113198,18 @@
     "products": []
   },
   "vi/species/aspidoras-pauciradiatus": {
-    "at": "2026-11-07",
-    "hash": "fc13ea654af3dc0b",
+    "at": "2026-11-21",
+    "hash": "6525425a1d4303ba",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P6",
         "quote": "không bao giờ nên thả vào bể chưa trưởng thành về mặt sinh học",
-        "why": "Calque of 'biologically mature tank'; local keepers speak of a cycled tank.",
+        "why": "Calque of English 'biologically immature tank'; Vietnamese keepers talk about a tank that hasn't cycled its bacteria yet.",
         "by": "model",
-        "fix": "bể chưa ổn định vi sinh / bể chưa chạy vi sinh"
-      },
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "ấu trùng muỗi chironomid (trùn chỉ đỏ)",
-        "why": "Bloodworm is called trùng huyết locally; trùn chỉ means tubifex.",
-        "by": "model",
-        "fix": "trùng huyết"
+        "fix": "bể mới chưa chạy vi sinh / bể chưa có vi sinh"
       }
     ],
     "products": []
@@ -117189,10 +117182,10 @@
     "products": []
   },
   "vi/species/brachyrhamdia-meesi": {
-    "at": "2026-11-08",
-    "hash": "cb157e9d058be22b",
+    "at": "2026-11-21",
+    "hash": "fce20fc6d5575500",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -117992,54 +117985,61 @@
     "products": []
   },
   "vi/species/carinotetraodon-travancoricus": {
-    "at": "2026-11-14",
-    "hash": "dc25eeec234975fb",
+    "at": "2026-11-21",
+    "hash": "501d8c37281e05a7",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P14",
-        "quote": "Bể 38 lít có thể nuôi ba con, bể 76 lít có thể nuôi sáu đến bảy con",
-        "why": "38 and 76 litres are 10 and 20 US gallon tanks converted.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P14",
+        "part": "P16",
         "quote": "nhiều người chỉ nuôi một con trong bể khoảng 19 lít",
         "why": "19 litres is a converted 5-gallon tank.",
         "by": "model"
       },
       {
-        "check": "source",
-        "part": "P6",
-        "quote": "Bộ ba thuốc cách ly đã được dùng để phòng bệnh cho hàng nghìn con cá nóc đậu",
-        "why": "Refers to the source shop's own quarantine medicine trio as if the reader knew it.",
+        "check": "units",
+        "part": "P16",
+        "quote": "Bể 38 lít có thể nuôi ba con, bể 76 lít có thể nuôi sáu đến bảy con",
+        "why": "38 and 76 litres are converted 10- and 20-gallon tanks.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P6",
+        "part": "P7",
         "quote": "còn chuỗi cửa hàng thú cưng thì thường không có",
-        "why": "Refers to US pet store chains as the reader's own shops.",
+        "why": "This means the US pet-store chains, which aren't where a reader in Vietnam shops.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P7",
+        "quote": "Bộ ba thuốc cách ly đã được dùng để phòng bệnh cho hàng nghìn con cá nóc đậu",
+        "why": "It refers to the source shop's own unnamed three-medicine quarantine set, as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P47",
+        "quote": "có lẽ đó là cách duy nhất để người chơi ở đây góp phần bảo vệ loài này",
+        "why": "'Here' means the German source's own readers.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P29",
-        "quote": "bể không có cá ăn rêu hay đội dọn bể",
-        "why": "Calque of English 'cleanup crew'.",
+        "part": "P28",
+        "quote": "các loại hải sản đông lạnh khác (frutti di mare)",
+        "why": "An Italian term carried over from the German source; Vietnamese keepers don't use it.",
         "by": "model",
-        "fix": "cá, ốc dọn bể"
+        "fix": "hải sản đông lạnh"
       },
       {
         "check": "words",
-        "part": "P36",
+        "part": "P41",
         "quote": "giun vi mô (microworm)",
-        "why": "Dictionary rendering; keepers say giun vi sinh.",
+        "why": "A word-for-word translation; keepers call it giun vi sinh or microworm.",
         "by": "model",
-        "fix": "giun vi sinh"
+        "fix": "giun vi sinh (microworm)"
       }
     ],
     "products": [
@@ -120109,23 +120109,37 @@
     "products": []
   },
   "vi/species/corydoras-adolfoi": {
-    "at": "2026-11-08",
-    "hash": "d7fea698d09d1cca",
+    "at": "2026-11-21",
+    "hash": "4e823592ba03089a",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P6",
-        "quote": "Cá đang được nuôi ở pH 6-7.",
-        "why": "Describes the source shop's own stock as it is kept now, which the reader can't know about.",
+        "part": "P3",
+        "quote": "Cá đang bán là cá cho đẻ trong bể.",
+        "why": "Refers to the source shop's own stock for sale.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P8",
-        "quote": "Thức ăn hiện dùng cho cá gồm giun đen, trùng huyết đông lạnh và thức ăn viên.",
-        "why": "Describes what the source shop currently feeds its own stock.",
+        "part": "P10",
+        "quote": "cá hiện đang nuôi ở pH 6 đến 7",
+        "why": "Describes how the source shop currently keeps its stock.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "Cá hiện đang ăn trùn đen (blackworm), trùng huyết đông lạnh và thức ăn viên.",
+        "why": "Describes what the source shop's stock is currently fed.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P18",
+        "quote": "thả một hai quả cây alder để trứng không bị nấm",
+        "why": "Alder cones come from a European tree that keepers in Vietnam don't usually buy or gather.",
         "by": "model"
       }
     ],
@@ -121385,23 +121399,37 @@
     "products": []
   },
   "vi/species/corydoras-similis": {
-    "at": "2026-11-20",
-    "hash": "899c81b911ee546a",
+    "at": "2026-11-21",
+    "hash": "ce2ec47cfbf22874",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P7",
-        "quote": "Hiện cá đang sống ở nước có pH 6-7.",
-        "why": "Describes the source shop's own stock and the water it is kept in.",
+        "part": "P1",
+        "quote": "Cá bán ra là cá cho đẻ trong bể.",
+        "why": "Refers to the source shop's own fish for sale.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "cá hiện đang nuôi ở pH 6–7",
+        "why": "Describes the source shop's current stock as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P13",
+        "quote": "Hiện cá đang ăn trùn đen, trùng huyết đông lạnh và cám viên.",
+        "why": "Describes what the source shop's stock is currently fed.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P13",
+        "part": "P19",
         "quote": "trùng với mùa đông ở Anh",
-        "why": "Gives the British winter as the reader's own season.",
+        "why": "Gives British seasons as the reader's own.",
         "by": "model"
       }
     ],
@@ -122446,11 +122474,19 @@
     "products": []
   },
   "vi/species/danio-erythromicron": {
-    "at": "2026-11-08",
-    "hash": "b7451e15efe4462b",
+    "at": "2026-11-21",
+    "hash": "3826cfef23c73879",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P8",
+        "quote": "lá sồi, lá dẻ gai, lá bàng",
+        "why": "Oak and beech leaves are European tank leaves that keepers in Vietnam don't buy or gather.",
+        "by": "model"
+      }
+    ],
     "products": []
   },
   "vi/species/danio-feegradei": {
@@ -122880,26 +122916,11 @@
     "products": []
   },
   "vi/species/dawkinsia-assimilis": {
-    "at": "2026-11-11",
-    "hash": "d31bd2c0b5f73d87",
+    "at": "2026-11-21",
+    "hash": "93afbd33a7637a30",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P12",
-        "quote": "Đợt này về vài con đã lớn hẳn và khá nhiều cá con.",
-        "why": "The source shop's own stock news about a new arrival.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P13",
-        "quote": "Cảm ơn J. D. Marcus Knight đã góp ý cho phần thông tin này.",
-        "why": "Thanks from the original writer to a person the reader doesn't know.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/dawkinsia-exclamatio": {
@@ -124296,10 +124317,10 @@
     "products": []
   },
   "vi/species/erethistes-pusillus": {
-    "at": "2026-11-08",
-    "hash": "bb448d4d10dc1cf4",
+    "at": "2026-11-21",
+    "hash": "9da2f08f045cc501",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -124597,25 +124618,18 @@
     "products": []
   },
   "vi/species/exodon-paradoxus": {
-    "at": "2026-11-08",
-    "hash": "9108ac1c91931a0f",
+    "at": "2026-11-21",
+    "hash": "6f1751ade5b34e0b",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P10",
-        "quote": "giun đất và cá lancefish",
-        "why": "Lancefish is a frozen food sold in UK shops, given as an everyday food for the reader.",
-        "by": "model"
-      },
-      {
         "check": "words",
-        "part": "P14",
+        "part": "P15",
         "quote": "vì có cơ hội là chúng sẽ ăn trứng",
-        "why": "Calque of English 'there's a chance'; Vietnamese keepers wouldn't phrase it this way.",
+        "why": "Literal calque of English 'there's a chance'; not how keepers write it.",
         "by": "model",
-        "fix": "vì chúng có thể ăn trứng"
+        "fix": "vì dễ bị chúng ăn trứng"
       }
     ],
     "products": []
@@ -126303,7 +126317,7 @@
     "products": []
   },
   "vi/species/gymnothorax-tile": {
-    "at": "2026-11-13",
+    "at": "2026-11-21",
     "hash": "eb08d630ebcc5681",
     "model": "opus",
     "checklist": 3,
@@ -126320,13 +126334,13 @@
         "perUnit": "litre",
         "use": "water",
         "method": "wholeTank",
-        "quote": "Pha khoảng 15 g/l là được, không cần đong thật chính xác."
+        "quote": "Pha khoảng 15 g/l là được"
       }
     ],
     "sourceRead": true
   },
   "vi/species/gymnotus-carapo": {
-    "at": "2026-11-08",
+    "at": "2026-11-21",
     "hash": "6e29eee1e0c3811c",
     "model": "opus",
     "checklist": 3,
@@ -129231,7 +129245,7 @@
     "products": []
   },
   "vi/species/iriatherina-werneri": {
-    "at": "2026-11-17",
+    "at": "2026-11-21",
     "hash": "4672756f781ee6bd",
     "model": "opus",
     "checklist": 3,
@@ -129239,6 +129253,7 @@
     "products": [
       "ADA Amazonia",
       "Fluval Plant and Shrimp Stratum",
+      "Akadama-Bonsai",
       "Fluval Bug Bites",
       "Hikari First Bites",
       "TetraMin Crisps"
@@ -130208,8 +130223,8 @@
     "products": []
   },
   "vi/species/lepidocephalichthys-kranos": {
-    "at": "2026-11-08",
-    "hash": "e983079cd23cd8c7",
+    "at": "2026-11-21",
+    "hash": "12e9e9a69410e538",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -130906,8 +130921,8 @@
     "products": []
   },
   "vi/species/luciocephalus-aura": {
-    "at": "2026-11-09",
-    "hash": "097ef8a7cc70df69",
+    "at": "2026-11-21",
+    "hash": "02ebe8fe9f103bb2",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -131637,8 +131652,8 @@
     "products": []
   },
   "vi/species/megalechis-thoracata": {
-    "at": "2026-11-13",
-    "hash": "7bfb0bac4de3a8af",
+    "at": "2026-11-21",
+    "hash": "4afcc622a231d75c",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -135546,7 +135561,7 @@
   },
   "vi/species/panaque-titan": {
     "at": "2026-11-21",
-    "hash": "69edc49176ead1d5",
+    "hash": "b399bb7d5e8f3774",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -137811,8 +137826,8 @@
     "products": []
   },
   "vi/species/plicofollis-dussumieri": {
-    "at": "2026-11-20",
-    "hash": "3c7a934d1aab4369",
+    "at": "2026-11-21",
+    "hash": "02d62419fb40b244",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -139195,8 +139210,8 @@
     "products": []
   },
   "vi/species/pseudomugil-tenellus": {
-    "at": "2026-11-09",
-    "hash": "94e5388ebaa442a2",
+    "at": "2026-11-21",
+    "hash": "79a5bde5a5812f78",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -141028,23 +141043,16 @@
     "products": []
   },
   "vi/species/satanoperca-jurupari": {
-    "at": "2026-11-07",
-    "hash": "11d1da30d3e0691f",
+    "at": "2026-11-21",
+    "hash": "6f3e27dc5baec34a",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P1",
-        "quote": "Đây là một con Satanoperca jurupari từ Rio Tocantins ở Brazil, dài khoảng 15 cm. Dòng cá ăn đất này rất hiếm khi có hàng.",
-        "why": "Describes a particular fish the source shop had in stock, and the shop's supply, as if the reader could see them.",
-        "by": "model"
-      },
-      {
         "check": "words",
-        "part": "P10",
+        "part": "P11",
         "quote": "giáp xác râu ngành (Cladocera)",
-        "why": "This is a textbook or dictionary term. Keepers call these small crustaceans bo bo.",
+        "why": "Dictionary term; keepers call these live foods bo bo.",
         "by": "model",
         "fix": "bo bo"
       }
@@ -145648,6 +145656,472 @@
   "th/species/parosphromenus-sumatranus": {
     "at": "2026-11-21",
     "hash": "0fef33aa243d656a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-30-frequently-asked-questions-about-snails-in-freshwater-tanks": {
+    "at": "2026-11-21",
+    "hash": "beaf966280ba45ab",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-7-freshwater-crabs-for-the-tank": {
+    "at": "2026-11-21",
+    "hash": "11487f22f2d43176",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "cá, chuột sơ sinh, trùng huyết, thức ăn viên cho cua, mực nang",
+        "why": "Mistranslation of 'cuttlebone': 'mực nang' is the cuttlefish itself, while crabs are given the bone for calcium.",
+        "by": "model",
+        "fix": "mai mực"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-how-to-increase-shrimplets-survival-rate": {
+    "at": "2026-11-21",
+    "hash": "6a6d2dd04bc67143",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "API Master Test Kit",
+      "Bacter AE"
+    ]
+  },
+  "vi/guides/aquariumbreeder-nassarius-snail-detailed-guide-care-diet-and-breeding": {
+    "at": "2026-11-21",
+    "hash": "1587ca434b5abbca",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-understanding-dwarf-shrimp-diseases-and-parasites": {
+    "at": "2026-11-21",
+    "hash": "184da545990ae769",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P7",
+        "quote": "Châm 5 ml cho mỗi 40 lít nước bể.",
+        "why": "A per-volume dose of a named commercial product.",
+        "by": "model",
+        "product": "API Pimafix"
+      }
+    ],
+    "products": [
+      "Paraguard",
+      "Aquarium Solutions ICH-X",
+      "API Pimafix",
+      "Panacur C",
+      "Canine DeWormer",
+      "jbl Fungol",
+      "Kordon Rid Ich Plus",
+      "Benibachi"
+    ],
+    "doses": [
+      {
+        "treatment": "api pimafix",
+        "strength": "",
+        "amount": 5,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 40,
+        "perUnit": "litre",
+        "use": "fungus",
+        "method": "wholeTank",
+        "quote": "Châm 5 ml cho mỗi 40 lít nước bể."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/glaser-en-32-all-the-rest-complete-documentation-about-the-advantages-of-the-wild-caught-ornamental-fish-in-amazonia-now-available": {
+    "at": "2026-11-21",
+    "hash": "f50c4816329de079",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "cũng không nên bỏ qua phim này",
+        "why": "The page sends the reader to a documentary film it doesn't contain, so the reader can't watch it here.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/amblyceps-apangi": {
+    "at": "2026-11-21",
+    "hash": "faf9723c28dda92f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-mindoensis": {
+    "at": "2026-11-21",
+    "hash": "b0384f13d7309665",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "luồn dây oxy vào dòng nước của máy bơm thổi luồng",
+        "why": "\"Máy bơm thổi luồng\" is a word-for-word rendering of \"powerhead\" that keepers in Vietnam don't use.",
+        "by": "model",
+        "fix": "máy tạo dòng"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/astroblepus-mojicai": {
+    "at": "2026-11-21",
+    "hash": "e3769258c7f4db92",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-nettoferreirai": {
+    "at": "2026-11-21",
+    "hash": "f01da5abbfda9bcb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-onzagaensis": {
+    "at": "2026-11-21",
+    "hash": "d04b86b0026eaf82",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P4",
+        "quote": "nối dây oxy vào đầu thổi luồng để nó đẩy bọt khí theo dòng nước",
+        "why": "\"Đầu thổi luồng\" is a calque of \"powerhead\" that keepers in Vietnam don't use.",
+        "by": "model",
+        "fix": "đầu bơm"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/astroblepus-pradai": {
+    "at": "2026-11-21",
+    "hash": "d5c6e85b751fc3d3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-putumayoensis": {
+    "at": "2026-11-21",
+    "hash": "51057c3ba855899e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở thời điểm bài này được viết, Lithogenes đang được xếp vào họ Loricariidae.",
+        "why": "Refers to when the source article was written, a time this reader can't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/atya-gabonensis": {
+    "at": "2026-11-21",
+    "hash": "03d2da619e6c0ff3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "Người ép đẻ ở Đức (crustahunter.com) dùng bể 60 lít, nền sỏi Dennerle.",
+        "why": "Introduces the source's breeder and website as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "lá tầm ma khô",
+        "why": "Dried nettle leaves are a European food item that keepers in Vietnam don't buy or gather.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Hikari First Bites",
+      "New Life Spectrum Small Fry starter",
+      "Golden Pearls",
+      "Dennerle",
+      "Liquizell"
+    ]
+  },
+  "vi/species/auchenipterichthys-punctatus": {
+    "at": "2026-11-21",
+    "hash": "78b0a3000a8dd7ec",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Hiện đã có Auchenipterichthys punctatus bắt ở Venezuela được nhập về.",
+        "why": "This is the source's import news from another country, given to the reader as if it were current stock news for them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/batasio-affinis": {
+    "at": "2026-11-21",
+    "hash": "c7a5274fd5835717",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/cephalosilurus-nigricaudus": {
+    "at": "2026-11-21",
+    "hash": "980279b17a419a39",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/chaetostoma-joropo": {
+    "at": "2026-11-21",
+    "hash": "2e5ea286276e929c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/characodon-audax": {
+    "at": "2026-11-21",
+    "hash": "64e2beb815098f04",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/chimarrichthys-kishinouyei": {
+    "at": "2026-11-21",
+    "hash": "ed34d10dcf618de5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/clupisoma-montana": {
+    "at": "2026-11-21",
+    "hash": "45fb4ca50d4c4eaf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/creteuchiloglanis-macropterus": {
+    "at": "2026-11-21",
+    "hash": "71456c39d66f631b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/gagata-gagata": {
+    "at": "2026-11-21",
+    "hash": "337212e4ccc19429",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/glyptothorax-schmidti": {
+    "at": "2026-11-21",
+    "hash": "fe94219ffe4bfb39",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hemichromis-stellifer": {
+    "at": "2026-11-21",
+    "hash": "c0f912cb528d724a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/heptapterus-mustelinus": {
+    "at": "2026-11-21",
+    "hash": "32d4859f86ac77cb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Kích thước SL ở đây không khớp với Fishbase, nơi ghi 9 cm TL cho cùng loài này.",
+        "why": "This refers to an SL size figure from the source site's page, and no such figure appears on this page.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/hopliancistrus-xikrin": {
+    "at": "2026-11-21",
+    "hash": "2729ffe172b073d9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/limnopilos-naiyanetri": {
+    "at": "2026-11-21",
+    "hash": "70d4da81c3a7396d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lymnaea-stagnalis": {
+    "at": "2026-11-21",
+    "hash": "164fe491efa8323e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/lysmata-wurdemanni": {
+    "at": "2026-11-21",
+    "hash": "0d274e0d8910e944",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Marine Cuisine"
+    ]
+  },
+  "vi/species/nangra-assamensis": {
+    "at": "2026-11-21",
+    "hash": "1e0993facbc8ede8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/nemapteryx-caelata": {
+    "at": "2026-11-21",
+    "hash": "a3cd0cdc9d420921",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parasesarma-bidens": {
+    "at": "2026-11-21",
+    "hash": "8ce30cbfe60effce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "harm",
+        "part": "P12",
+        "quote": "Tính cho cả quá trình phát triển của ấu trùng thì 25% là tốt nhất.",
+        "why": "The salinity figures are really parts per thousand. Read as percent, 25% is strong brine and would kill the larvae.",
+        "by": "model"
+      },
+      {
+        "check": "harm",
+        "part": "P13",
+        "quote": "Cá bơi nhanh ở tầng trên như neon tetra, bảy màu và molly thì nuôi chung được.",
+        "why": "Neon tetras are soft-water freshwater fish, and the page's brackish water at SG 1.005 would badly hurt them.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P13",
+        "quote": "Cua vĩ cầm (fiddler)",
+        "why": "This is a word-for-word copy of the English 'fiddler crab'. Keepers in Vietnam call this crab còng.",
+        "by": "model",
+        "fix": "còng"
+      }
+    ],
+    "products": [
+      "Instant Ocean",
+      "Carib Sea",
+      "TetraMin",
+      "Hikari Shrimp Cuisine"
+    ]
+  },
+  "vi/species/pareuchiloglanis-rhabdurus": {
+    "at": "2026-11-21",
+    "hash": "0af22daa3c884d6f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudexostoma-brachysoma": {
+    "at": "2026-11-21",
+    "hash": "7851125ff6dde8f9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudolaguvia-foveolata": {
+    "at": "2026-11-21",
+    "hash": "40dfca29cecb101a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhamphichthys-rostratus": {
+    "at": "2026-11-21",
+    "hash": "32f271c3daeed263",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Lứa cá đang bán là cá con đẻ ở Indonesia, hiện dài 15-20 cm.",
+        "why": "Refers to the source shop's current stock for sale, which the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/serrasalmus-irritans": {
+    "at": "2026-11-21",
+    "hash": "810102f0fb2a5acd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/xiphophorus-montezumae": {
+    "at": "2026-11-21",
+    "hash": "a3bc96d58c8ad218",
     "model": "opus",
     "checklist": 3,
     "findings": [],

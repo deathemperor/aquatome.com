@@ -1,0 +1,137 @@
+{
+  "id": "heptapterus-mustelinus",
+  "scientificName": "Heptapterus mustelinus",
+  "order": "Siluriformes",
+  "family": "Heptapteridae",
+  "genus": "Heptapterus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "argentina",
+    "la-plata",
+    "uruguay",
+    "uruguay-river",
+    "brazil",
+    "pelotas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 6,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1416",
+      "html": "<ul><li>Scientific name: Heptapterus mustelinus (Valenciennes, 1835)</li><li>Common name: Weasel Catfish</li><li>Type locality: Rio de la Plata, South America</li><li>Breeding: unreported</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1416",
+      "html": "<p>South America: La Plata and Uruguay River basins and coastal drainages of southern Brazil.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1416",
+      "html": "<ul><li>pH: 6.0–8.0</li><li>Temperature: 18–24°C</li><li>dH: 6–10</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1416",
+      "html": "<p>Breeding is unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1416",
+      "html": "<p>Deprá et al. (2022) redescribed the genus Heptapterus as having the following shared features: (1) adipose fin extensively fused with the caudal fin; (2) caudal fin non-bifurcate; (3) dark bars and stripes on the back of the trunk; (4) 5–6 pairs of pleural ribs; (5) elongate body with a head length of 16.1–24.9%; (6) posterior extension of the mouth rim short; (7) premaxillary tooth plate with no or a small posterolateral extension; (8) pelvic-fin insertion posterior to the vertical through the insertion of the dorsal fin and anal-fin insertion posterior to the vertical through the adipose-fin origin; (9) 10–23 anal-fin rays; (10) anal and caudal fins separated; (11) supraorbital pore 6 (s6) fused or closer to each other.</p><p>The SL size given is at odds with Fishbase (which lists 9 cm TL) for the same species, however the size given on this site is verified.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1416",
+      "html": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (figs. 1-4).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/a91ecbbee935caa2.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 4.0",
+      "author": "Tomás Carranza Perales",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heptapterus_mustelinus_397078175.jpg",
+      "caption": "Heptapterus mustelinus in Argentina",
+      "thumb": "https://media.aquatome.com/commons/a91ecbbee935caa2-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d2153f6599ab4c7f.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 4.0",
+      "author": "Tomás Carranza Perales",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heptapterus_mustelinus_397078307.jpg",
+      "caption": "Heptapterus mustelinus in Argentina",
+      "thumb": "https://media.aquatome.com/commons/d2153f6599ab4c7f-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát nước bể cá",
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

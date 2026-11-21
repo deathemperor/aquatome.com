@@ -1,0 +1,57 @@
+{
+  "id": "nemapteryx-caelata",
+  "scientificName": "Nemapteryx caelata",
+  "order": "Siluriformes",
+  "family": "Ariidae",
+  "genus": "Nemapteryx",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "bay-of-bengal"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<ul><li>Scientific name: Kyataphisa nenga (Hamilton, 1822)</li><li>Common name: Spotfin Sea Catfish</li><li>Type locality: Estuaries of Bengal, India.</li><li>IUCN Red List category: Not Evaluated</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>Indo-west Pacific: Eastern Arabian Sea, Bay of Bengal and western central Pacific.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>Unreported in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>Unfortunately, the only way you can reliably tell N. nenga from Arius maculatus is in the teeth. However, N. nenga frequently has a dorsal spine that is as long as the head (the dorsal spine in A. maculatus is always shorter than the head).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1409",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 171, 376.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}
