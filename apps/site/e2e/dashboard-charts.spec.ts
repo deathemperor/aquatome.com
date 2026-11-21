@@ -40,6 +40,10 @@ test('the scoreboard reads a week off its chart, and fits a 320 px screen', asyn
   await serve(page, '/_ab/thanh-cong/', tz => scoreboardPage(scoreboard(), tz))
   await page.goto('/_ab/thanh-cong/')
   await expect(page.getByRole('heading', { level: 1, name: 'Scoreboard' })).toBeVisible()
+  // The page's first readout keeps its own row: the first screen's grid is Today's alone (#1689's reader, 21 Nov).
+  await expect(page.locator('.readout.first')).toHaveCount(1)
+  await expect(page.locator('.readout.first')).toHaveCSS('display', 'flex')
+  await expect(page.locator('.readout.first')).toHaveCSS('margin-top', '4px')
   const chart = page.locator('figure[aria-labelledby="w-star-t"]')
   await expect(chart.locator('.readout .when')).toHaveText('12 weeks')
   await expect(chart.locator('.readout b')).toHaveText('18')

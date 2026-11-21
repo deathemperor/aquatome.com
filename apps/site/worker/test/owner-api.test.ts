@@ -7,7 +7,7 @@ import { appPage, appSection, summariseApp } from '../admin/app'
 import { paged, tablePage, type Action, type Block, type FormField, type Section } from '../admin/blocks'
 import { chatReportsPage, chatReportsSection } from '../admin/chat-reports'
 import { scoreboardPage, scoreboardSection, summariseScoreboard, weekByDay } from '../admin/scoreboard'
-import { ICON } from '../admin/shell'
+import { ICON, isFailed } from '../admin/shell'
 import { NEEDS_SHOWN, smallBars, todayJson, todayPage, PAGE_GROUPS, type OwnerAct } from '../admin/today'
 import { CHANGE_COLUMN, changelogPage, changelogSection } from '../daily/changelog'
 import { dashboardJson } from '../owner-api'
@@ -416,7 +416,7 @@ test('the web first screen is the app\'s five cards, from what the app gets: Nee
     const j = todayJson(t)
     const page = dom(todayPage(t))
     const tile = (k: string) => j.tiles.find(x => x.key === k)!
-    expect(page.querySelectorAll('.first section.card').map(c => c.getAttribute('aria-labelledby'))).toEqual(['needs', ...(j.publishing ? ['content'] : []), 'readers', 'shipped', 'cost'])
+    expect(page.querySelectorAll('.first-screen section.card').map(c => c.getAttribute('aria-labelledby'))).toEqual(['needs', ...(j.publishing ? ['content'] : []), 'readers', 'shipped', 'cost'])
     // Needs you: its name and how many; three rows, the rest under "N more"; each row its whole link, its line and its pages.
     const needs = page.querySelector('section.needs')!
     expect(txt(needs.querySelector('h2'))).toBe(norm(`${tile('needs').label}${j.needs.length ? ` · ${j.needs.length}` : ''}`))
@@ -464,7 +464,8 @@ test('the web first screen is the app\'s five cards, from what the app gets: Nee
       boardForm++
       expect(readers.querySelector('.line')!.text).toMatch(/^this week · [+−±][\d,]+% vs [\d,]+ by now last week$/)
     }
-    expect(readers.querySelector('h2 a')!.getAttribute('href')).toBe('/_ab/doc-gia/')
+    // Its page; with the beacon failed, the scoreboard's, which has the error, as Needs you's row.
+    expect(readers.querySelector('h2 a')!.getAttribute('href')).toBe(isFailed(t.beacon) ? '/_ab/thanh-cong/' : '/_ab/doc-gia/')
     // Shipped: the count, by where in the board's name and words ("Shipped, 24 h", "site 32 · app 9 · engine 38"), and the
     // newest change in its words; the app's tile keeps its own ("32 site · 9 app · 38 engine").
     const shipped = page.querySelector('section.card[aria-labelledby="shipped"]')!

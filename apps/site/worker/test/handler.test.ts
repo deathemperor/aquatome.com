@@ -178,7 +178,8 @@ test('dashboard: a part that can\'t load says why in its place; the rest of the 
     // page says why: Design's first screen is five cards, each a tap into its part, and a read that failed shows its
     // words on its own page (docs/design dashboard-revamp, direction.md and pages-spec.md).
     const readers = /<section class="card" aria-labelledby="readers">.*?<\/section>/s.exec(html)?.[0] ?? ''
-    expect(readers).toContain('<a href="/_ab/doc-gia/">Readers</a>')
+    // The card's figures are the beacon's: it opens the scoreboard, whose page has the beacon's error.
+    expect(readers).toContain('<a href="/_ab/thanh-cong/">Readers</a>')
     expect(readers).toContain('Couldn’t load the readers’ beacon')
     expect(html).toMatch(/<a href="\/_ab\/doc-gia\/">(?:(?!<\/a>).)*Readers didn’t load/s)
     expect(html).not.toContain('analytics engine sql 422')
@@ -187,6 +188,9 @@ test('dashboard: a part that can\'t load says why in its place; the rest of the 
     // The rest renders: the shop clicks, from D1.
     expect(html).toContain('<a href="/_ab/affiliate/"><span>Affiliate</span><span class="fig">4 · +4</span></a>')
     expect(fetch.mock.calls.every(([u]) => String(u).startsWith('https://api.cloudflare.com/client/v4/accounts/acc/analytics_engine/sql'))).toBe(true)
+    // The scoreboard, the Readers card's page while the beacon fails, says why too (it also reads the live checks).
+    const board = await (await handle(get('/_ab/thanh-cong/', { ...browser, cookie: owner }), e)).text()
+    expect(board).toContain('analytics engine sql 422: Unknown function')
     const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: owner }), e)).text()
     expect(fish).toContain('Couldn’t load the fish ID log')
     expect(fish).toContain('Anthropic keys')

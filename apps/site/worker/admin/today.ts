@@ -430,7 +430,9 @@ export function todayPage(t: Today): string {
   const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon, t.countingFrom)
   const before = w?.lastSoFar?.readers
   const rd = rf?.delta && w && before ? deltaJson({ now: w.now.readers, before, vs: `${fmt(before)} by now last week`, good: 'up' }) : rf?.delta
-  const readers = card('readers', esc(rf?.label ?? 'Readers'), '/_ab/doc-gia/', `<p class="fig">${esc(rf?.value ?? at?.value ?? '—')}</p>${rf
+  // Its page is Readers; with the beacon failed, the scoreboard, whose page has the error, as Needs you's row says (#1689's
+  // reader, 21 Nov: Readers runs other queries and can load while the beacon doesn't).
+  const readers = card('readers', esc(rf?.label ?? 'Readers'), isFailed(t.beacon) ? '/_ab/thanh-cong/' : '/_ab/doc-gia/', `<p class="fig">${esc(rf?.value ?? at?.value ?? '—')}</p>${rf
     ? `<p class="line">this week${rd ? ` · ${changeHtml(rd)}` : ''}</p>${rf.sub ? `<p class="line">${esc(rf.sub)}</p>` : ''}`
     : at ? `<p class="line${at.tone === 'bad' || at.tone === 'wait' ? ` ${at.tone}` : ''}">${esc(at.sub)}</p>` : ''}`)
   // Changes shipped in the last 24 hours, by where, and the newest in its words. The board's name and split (the Design
@@ -446,7 +448,7 @@ export function todayPage(t: Today): string {
   const groups = `<div class="groups">${j.pages.map(g => `<section><h3>${esc(g.name)}</h3><ul>${g.pages.map(x => `<li><a href="/_ab/${x.key}/"><span>${esc(x.name)}</span><span class="fig${x.figure.tone === 'wait' || x.figure.tone === 'bad' ? ` ${x.figure.tone}` : ''}">${esc(x.figure.text)}</span></a></li>`).join('')}</ul></section>`).join('')}</div>`
   const day = localDay(t.now, tz)
   const body = `<h1>Today</h1><p class="lede">${FULL_DAY[weekdayOf(day)]} ${dayLabel(day)} · figures as of ${hourMinute(t.now, tz)}</p>
-<div class="first"><div>${needs}${pages}</div><div><div class="pair">${readers}${shipped}</div>${cost}</div></div>
+<div class="first-screen"><div>${needs}${pages}</div><div><div class="pair">${readers}${shipped}</div>${cost}</div></div>
 <section aria-labelledby="pages"><h2 id="pages">Every page</h2>${groups}</section>`
   return page('/_ab/', 'Today', body, t.now, tz)
 }

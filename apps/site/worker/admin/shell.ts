@@ -388,10 +388,10 @@ button.bad{color:var(--rust)}
 i.sci{font-style:italic}
 /* Today: the app's first screen (Design's board2, 14 Nov; the cards' parts, 15 Nov), five cards in the web's own colours,
    then every page by its group. Each card but Needs you is one link to its page; two columns from 1000 px. */
-.first{display:grid;gap:10px;margin-top:14px}
-.first>div{display:grid;gap:10px;align-content:start}
+.first-screen{display:grid;gap:10px;margin-top:14px}
+.first-screen>div{display:grid;gap:10px;align-content:start}
 .card{position:relative;background:var(--plate);border:1px solid var(--rule);border-radius:14px;padding:12px 14px}
-.first .card>h2{font:600 14.5px/1.35 var(--sans);margin:0 0 4px;display:flex;align-items:center;gap:6px}
+.first-screen .card>h2{font:600 14.5px/1.35 var(--sans);margin:0 0 4px;display:flex;align-items:center;gap:6px}
 .card>h2>a{color:inherit;text-decoration:none;flex:1;min-width:0}
 .card>h2>a:after{content:'';position:absolute;inset:0;border-radius:inherit}
 .card>h2>a:focus-visible{outline:none}
@@ -442,7 +442,7 @@ i.sci{font-style:italic}
 .sb i.zero.open{background:var(--mute)}
 .sb i.none{height:0;min-height:0;border-bottom:2px dotted var(--mute);border-radius:0;background:none}
 /* The cost: one row, its figure and what it's made of */
-.first .cost>h2{margin:0}
+.first-screen .cost>h2{margin:0}
 .cost>h2>a{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
 .cost b{font-variant-numeric:tabular-nums}
 .cost b.bad{color:var(--rust)}
@@ -486,7 +486,7 @@ td.bad,th.bad{color:var(--rust)}
 .rail .grp{display:block;padding:14px 12px 4px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 main{padding:24px 24px 64px}
 .groups{grid-template-columns:repeat(3,minmax(0,1fr))}
-.first{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+.first-screen{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
 }
 @media (max-width:420px){.masthead time span{display:none}th,td{padding:.55rem .6rem}.chart{padding:12px 12px 4px}.rank th{min-width:7rem}}`
 
