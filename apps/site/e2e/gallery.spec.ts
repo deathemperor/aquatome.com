@@ -736,14 +736,15 @@ test('a plant\'s row whose seventh thumbnail is cut by under two pixels shows "X
 // hidden at this width), so only the row's measure decides: wide enough for every thumbnail and the gap, no button.
 test('a fish\'s column row whose last thumbnail ends in the gap before the button\'s place shows "Xem tất cả"', async ({ page, request, isMobile }) => {
   test.skip(isMobile, 'a screen of one pixel to the pixel, as the gap is counted')
-  const found = await albumPage(request, 'ca', (_, html) => /<section class="strip column\b[\s\S]*?<button type="button" class="all"/.test(html))
-  test.skip(!found, 'no fish page whose photo column has a strip with its button in this build')
+  // The row's own thumbnails: an <li> without the column's "more" class. Two at least, so one can be cut.
+  const own = (html: string) => {
+    const strip = /<section class="strip column\b[\s\S]*?<\/ul>/.exec(html)?.[0] ?? ''
+    return [...strip.matchAll(/<li(?![^>]*\bclass="more")[^>]*><a [^>]*\bdata-i="(\d+)"/g)].map(m => Number(m[1]))
+  }
+  const found = await albumPage(request, 'ca', (_, html) => /<section class="strip column\b[\s\S]*?<button type="button" class="all"/.test(html) && own(html).length >= 2)
+  test.skip(!found, 'no fish page whose photo column has a strip of two thumbnails or more and its button in this build')
   const { path, html } = found!
-  const strip = /<section class="strip column\b[\s\S]*?<\/ul>/.exec(html)![0]
-  // The row's own thumbnails: an <li> without the column's "more" class.
-  const own = [...strip.matchAll(/<li(?![^>]*\bclass="more")[^>]*><a [^>]*\bdata-i="(\d+)"/g)].map(m => Number(m[1]))
-  expect(own.length, 'the row has thumbnails').toBeGreaterThan(1)
-  const n = Math.max(...own) + 1
+  const n = Math.max(...own(html)) + 1
   const body = html.replace(/(<section[^>]*data-album[\s\S]*?<script type="application\/json"[^>]*>)([\s\S]*?)(<\/script>)/, (_, a, j, b) => {
     const album = JSON.parse(j) as { photos: unknown[] }
     return a + JSON.stringify({ ...album, photos: album.photos.slice(0, n) }).replace(/</g, '\\u003c') + b
@@ -762,10 +763,12 @@ test('a fish\'s column row whose last thumbnail ends in the gap before the butto
   })
   expect(gap, 'the column row has a gap').toBeGreaterThan(2)
   const width = (w: number) => box.evaluate((el, w) => { el.style.width = `${w}px` }, w)
-  // Room for every thumbnail and the gap: all of the album is seen, no button.
+  // Each width waits for the measure's answer before the next: half a gap short first, the button shown; then room for
+  // every thumbnail and the gap, all of the album seen, no button; then half a gap short again.
+  await width(run + gap / 2)
+  await expect(all, 'the last thumbnail cut').toBeVisible()
   await width(run + gap + 2)
   await expect(all, 'every thumbnail in view').toBeHidden()
-  // Half a gap short: the row cuts its last thumbnail by half the gap.
   await width(run + gap / 2)
   expect(await box.evaluate(el => { const ul = el.querySelector('ul')!; return Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => a.checkVisibility()).map(a => a.getBoundingClientRect().right + ul.scrollLeft)) - ul.getBoundingClientRect().right }), 'the row cuts its last thumbnail').toBeGreaterThan(1)
   await expect(all).toBeVisible()
