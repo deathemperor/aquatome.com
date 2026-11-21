@@ -111,6 +111,7 @@ import { writePlanting } from './planting'
 import { localizeTopic, makeTopic } from './topics'
 import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
+import { writeLinkCheck } from './glossary-link-check'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { listingText, readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
@@ -697,6 +698,10 @@ if (cmd === 'photo-privacy') {
   const by = new Map<string, Set<string>>()
   for (const f of checked.findings) by.set(f.rule, (by.get(f.rule) ?? new Set()).add(f.page.path))
   console.log(`rules: ${pages.length} pages, ${[...by].map(([r, ps]) => `${r} ${ps.size}`).join(', ') || 'nothing found'}${checked.errors.length ? `, ${checked.errors.length} rule errors` : ''}`)
+  // The standing check on the glossary's link phrases, with no model (glossary-link-check.ts): flags only, for the chief of
+  // staff to read in docs/review/glossary-link-check.md; it links and deletes nothing.
+  const links = await writeLinkCheck(ROOT, join(ROOT, 'docs/review'), new Date().toISOString().slice(0, 10))
+  console.log(`glossary links: ${links.flagged} of ${links.links} linked places flagged`)
 } else if (cmd === 'reader') {
   // A reader's eye on a few pages a cycle (reader.ts): the model reads each as a reader would, against a rubric; Vietnamese
   // wording it flags is rewritten, reviewer-gated, the rest goes to docs/review/reader.md. READER_MODEL: the reading model (default opus).
