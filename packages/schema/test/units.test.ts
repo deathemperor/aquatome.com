@@ -171,6 +171,12 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(vi('Dùng ống PVC ½ mét cỡ ¾ inch.')).toBe('Dùng ống PVC ½ mét cỡ phi 27.')
   expect(th('ใช้ท่อ PVC ½ เมตร ขนาด ¾ นิ้ว')).toBe('ใช้ท่อ PVC ½ เมตร ขนาด 27 มม.')
   expect(vi('Dùng ống PVC ½ mét cỡ 19 mm (¾ inch).')).toBe('Dùng ống PVC ½ mét cỡ phi 27.')
+  // A length word right after the range, with no figure of its own: the range is the length (the eighth look). With one,
+  // the range is sizes and the length another measure.
+  expect(vi('Dùng ống PVC loại 1–2 inch (2,5–5 cm) chiều dài để làm chân kê.')).toBe('Dùng ống PVC loại 2,5–5 cm chiều dài để làm chân kê.')
+  expect(th('ใช้ท่อ PVC ขนาด 1–2 นิ้ว ตามแนวยาวเป็นขารอง')).toBe('ใช้ท่อ PVC ขนาด 2.5–5 ซม. ตามแนวยาวเป็นขารอง')
+  expect(vi('Ống PVC 1 đến 2 inch chiều dài.')).toBe('Ống PVC 2,5 đến 5 cm chiều dài.')
+  expect(vi('ống PVC ½–¾ inch dài 1 m')).toBe('ống PVC phi 21 đến phi 27 dài 1 m')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })

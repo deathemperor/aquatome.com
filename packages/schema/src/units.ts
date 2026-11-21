@@ -332,6 +332,9 @@ const PIPE_WORD = String.raw`${PIPE_NAME}(?:(?!mềm|selang|สายยาง|t
 // to slide it in, the height it stands above the water, a spray bar's hole spacing ("Ống PVC nhô lên 1–2 inch", "lỗ cách
 // nhau 1–2 inch"; Codex's reads of #1782, 21 Nov 2026).
 const SIZE_WORD = String.raw`(?:cỡ|loại|size|kích thước|đường kính(?! trong)(?:\s+ngoài)?|ukuran|saiz|diameter|berdiameter|ขนาด|เส้นผ่าน(?:ศูนย์กลาง)?)`
+// A length word right after a range, with no figure of its own, says the range is the length ("1–2 inch chiều dài", "1–2
+// นิ้ว ตามแนวยาว"); with one, it's another measure ("½–¾ inch dài 1 m": sizes, then a length; Codex's eighth look).
+const LENGTH_AFTER = new RegExp(String.raw`^\s*(?:theo\s+)?(?:chiều dài|dài|panjangnya|panjang|ตามแนวยาว|ความยาว|ยาว)(?!\s*(?:${QUAL}\s*)?\d)`, 'u')
 // The one-size rule never takes a range's second figure ("½–phi 27"): a range it can't read stays a length.
 const NOT_SECOND = String.raw`(?<!(?:\d|[½¼¾])${TO})`
 function pipes(t: string, lang: UnitLang): string {
@@ -343,7 +346,10 @@ function pipes(t: string, lang: UnitLang): string {
   return t
     // "ống PVC ½–¾ inch (khoảng 13–19 mm)", "ống PVC ½ inch đến ¾ inch": before the one size, which would take the second
     // figure alone ("½–phi 27").
-    .replace(re(String.raw`(${PIPE_NAME}\s*(?:${SIZE_WORD}\s*)?)(${N})(?:${INCH})?${TO}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}(?:${TO}${N})?\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, lo: string, hi: string) => { const a = od(lo), b = od(hi); return a && b && a < b ? `${pre}${span(a, b)}` : all })
+    .replace(re(String.raw`(${PIPE_NAME}\s*(?:${SIZE_WORD}\s*)?)(${N})(?:${INCH})?${TO}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}(?:${TO}${N})?\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, lo: string, hi: string, at: number, s: string) => {
+      const a = od(lo), b = od(hi)
+      return a && b && a < b && !LENGTH_AFTER.test(s.slice(at + all.length)) ? `${pre}${span(a, b)}` : all
+    })
     // "ống ... ¾ inch (khoảng 19 mm)"
     .replace(re(String.raw`(${PIPE_WORD})${NOT_SECOND}(${N})${INCH}(?:\s*\(\s*(?:${QUAL}\s*)?${N}\s*(?:mm|cm|มม\.|ซม\.)\s*\))?`), (all, pre: string, fig: string) => { const mm = od(fig); return mm ? `${pre}${name(mm)}` : all })
     // "ống ... đường kính khoảng 19 mm (3/4 inch)"
