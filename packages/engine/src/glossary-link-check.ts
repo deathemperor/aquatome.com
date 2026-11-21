@@ -131,6 +131,5 @@ export async function writeLinkCheck(root: string, outDir: string, date: string)
   const r = await glossaryLinkCheck(root, new Set(GLOSSARY_HELD.map(h => `${h.term}\n${toneKey(h.phrase)}`)))
   const file = join(outDir, 'glossary-link-check.md')
   await writeFile(file, linkCheckText(r, date))
-  await writeFile(join(outDir, 'glossary-link-check.json'), `${JSON.stringify({ date, links: r.links, flagged: r.flagged, reports: r.reports.filter(x => x.flagged.length) }, null, 2)}\n`)
   return { links: r.links, flagged: r.flagged, file }
 }

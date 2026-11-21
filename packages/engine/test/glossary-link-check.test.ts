@@ -1,5 +1,8 @@
+import { mkdir, mkdtemp, readdir, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { checkLinks, linkCheckText, type Page, type Term } from '../src/glossary-link-check'
+import { checkLinks, linkCheckText, type Page, type Term, writeLinkCheck } from '../src/glossary-link-check'
 
 // The standing check on link phrases, its half with no model (the chief of staff, 21 Nov 2026): "oxy" linked "oxy già"
 // and "lãnh thổ" linked "Lãnh thổ Bắc Úc". Each is flagged where the linker links it; a term's own use isn't.
@@ -52,4 +55,15 @@ test('an entry that writes the phrase before a lower-case word still has a name 
   const r = checkLinks([t], [page('ca-uc', '<p>Loài này sống ở Lãnh thổ Bắc Úc.</p>')])
   expect(r[0]!.ownCaps).toBe(false)
   expect(r[0]!.flagged.map(f => [f.flag, f.next])).toEqual([['name', 'Bắc']])
+})
+
+// The chief of staff, 22 Nov 2026: nothing reads the check's 587 KB .json, so the cycle writes only the page he reads.
+test('the check writes only its page for the chief of staff, no .json beside it', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'aq-link-check-'))
+  await mkdir(join(root, 'content/glossary/oxy-hoa-tan'), { recursive: true })
+  await writeFile(join(root, 'content/glossary/oxy-hoa-tan/vi.json'), JSON.stringify({ name: 'Oxy hòa tan', altNames: [], linkNames: ['oxy'] }))
+  const out = join(root, 'review')
+  await mkdir(out)
+  await writeLinkCheck(root, out, '2026-11-22')
+  expect(await readdir(out)).toEqual(['glossary-link-check.md'])
 })
