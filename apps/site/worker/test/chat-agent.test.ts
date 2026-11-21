@@ -138,6 +138,16 @@ test('a problem\'s steps each carry a figure, with no cap of five, and the answe
   expect(SYSTEM).not.toContain('0,25 mg/l')
 })
 
+test('the instructions keep to the pages where the board found the answers going wrong (16 Nov, sick fish and stocking)', () => {
+  // Odds no page gives; a pair planned against the page's one male to three females; specks called harmless past the
+  // page's hydra; a tank's water turnover scaled up to a pond. (A rule that a precise figure says what it rests on helped
+  // none on the board's re-run, 16 Nov, and brought out an overstated size: left out.)
+  expect(SYSTEM).toContain('Never put odds or shares on a cause')
+  expect(SYSTEM).toContain('A page\'s grouping (how many females to a male, the smallest school, one to a tank) is the plan, over the reader\'s word for it')
+  expect(SYSTEM).toContain('name the harmful look-alike the page lists beside it')
+  expect(SYSTEM).toContain('is for a tank: never scale it up to a pond')
+})
+
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
   const h = await hb()
   const tank: Tank = { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 2 }, { name: 'Rong lạ', kind: 'plant' }] }
