@@ -9,15 +9,20 @@ import { pathToFileURL } from 'node:url'
 
 // A second-look record (engine-state/_photo-second-look.json, packages/engine/src/last-photo.ts), told by its shape since
 // the driver isn't told the file's name. Where both sides changed one: one taken out (an agree moves it to the never-again
-// list) stays out; else a person's answer (a well-formed look) is never dropped; else the record marked off at its first
-// verdict wins over one that isn't, so the waiting entry its run wrote on the never-again list keeps its record (two runs
-// met so on 20 Nov, and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
+// list) stays out; else a person's answer (a well-formed look) is never dropped, and where the other side marked the
+// record off at its first verdict, the answer goes on that marked record, so the waiting entry its run wrote keeps a
+// record marked for it and a clear can lift it (the independent reader, 21 Nov 2026); else the record marked off wins over
+// one that isn't, so that waiting entry keeps its record (two runs met so on 20 Nov, and main's unmarked records won: the
+// chief of staff, 20 Nov 2026); else ours.
 const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
 const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
 function bothChanged(base, ours, theirs, k) {
   if (!(k in ours) || !(k in theirs)) return k in base ? undefined : (k in ours ? ours : theirs)
   const [o, t] = [ours[k], theirs[k]]
-  if (answered(o) !== answered(t)) return answered(o) ? ours : theirs
+  if (answered(o) !== answered(t)) {
+    const [a, m] = answered(o) ? [o, t] : [t, o]
+    return { [k]: m.off === true && a.off !== true ? { ...m, look: a.look } : a }
+  }
   if ((o.off === true) !== (t.off === true)) return o.off === true ? ours : theirs
   return ours
 }
