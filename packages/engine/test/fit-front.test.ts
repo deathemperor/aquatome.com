@@ -149,10 +149,15 @@ test("the pages fixed by hand are read first, ahead of the front list, and the r
   expect(readFirst({ front: [key(b)] }).front).toEqual([key(b)])
   expect(orderFront(readFirst({ read: [key(c)], front: [key(b)] }), [a, b, c]).map(key)).toEqual([key(c), key(b), key(a)])
   // The guides of #1705 and #1712, the crab bowl's (#1720), the cutter's five (#1721) and the held-and-dropped three
-  // (#1723), each a page on the site.
-  expect(list.read).toHaveLength(20)
-  expect(new Set(list.read).size).toBe(20)
-  for (const k of list.read) expect(existsSync(join(ROOT, 'content/guides', k.split('/')[2]!, 'vi.json')), k).toBe(true)
+  // (#1723); then the 12 open pages a clashed push left with no read of their text, ten fish pages and two video guides
+  // (the chief of staff, 21 Nov 2026; the thirteenth, 3jqe5KGD9lI, is among the cutter's five). Each a page on the site.
+  expect(list.read).toHaveLength(32)
+  expect(new Set(list.read).size).toBe(32)
+  for (const k of list.read) {
+    const [, kind, id] = k.split('/')
+    expect(existsSync(join(ROOT, 'content', kind!, id!, 'vi.json')), k).toBe(true)
+  }
+  expect(list.read.filter(k => k.split('/')[1] === 'species')).toHaveLength(10)
   expect(list.front.filter(k => list.read.includes(k))).toEqual([])
   expect(list.front).toHaveLength(32)
 })
