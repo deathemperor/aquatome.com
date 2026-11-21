@@ -1369,6 +1369,45 @@
       "kept": true
     }
   ],
+  "vi/species/haludaria-fasciata#qSYgR3ZQGXk": [
+    {
+      "at": "2026-11-21T14:46:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.4,
+      "notes": [
+        "\"Cá trong bể này lớn chậm hơn mốc tự bơi khoảng 24 giờ sau khi nở mà người ta hay nói\" is not in the video. The video never compares against a norm. The sentence also reads like a translation.",
+        "\"Loài này đẻ được ngay trong bể chính, không cần bể đẻ riêng\" is stated as a rule for the species. The video shows one keeper's method in one tank.",
+        "\"Lấy một hộp nhựa nhỏ, rải bi thủy tinh... rồi đặt hộp vào đúng khu con đực\" and \"Xem đàn cá vài tiếng là biết khu đó nằm ở đâu\" are written as general instructions, not as one keeper's experience. The spawning mop the video mentions is left out.",
+        "\"Trứng tốt trong suốt, còn trứng trắng đục là trứng hỏng, gắp bỏ đi\" is given as a general rule. The video only shows this keeper picking out the milky eggs.",
+        "\"Ngày 5: cá mới tự bơi được\" differs from the page, which says fry swim freely about 24 hours after hatching. NEW never says so plainly and only hints at the difference through the invented comparison.",
+        "\"sưởi để 26 °C\" converts 78°F. It is a setting given without attribution to the keeper, and it sits inside the page's temperature range.",
+        "\"cá con hiện một vạch đen đứng, chạy từ lưng xuống bụng ở giữa thân\" adds detail. The video only says a vertical black stripe at mid-body.",
+        "\"Một người nuôi đặt bẫy kiểu này\" attributes the account to one keeper, but the section slides back into general rules."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T14:46:45Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.68,
+      "notes": [
+        "Hatching timeline: the page says eggs hatch in 24–48 h and fry swim free about 24 h later. The video has free swimming on day 5. NEW says \"Tới ngày thứ năm cá mới tự bơi được\" but never states that this differs from the page.",
+        "\"Sáng hôm sau con đực sẽ đẻ với vài con cái\" is written as a general rule. The page already says fish usually spawn the next morning. In the video this was one trap in one tank.",
+        "\"cá đã ăn gần hết trùng cỏ\": the video says the fry finished off the naturally occurring infusoria, not paramecium. NEW mixes the two.",
+        "\"Lúc này nên chuyển chúng sang bể lớn hơn\" turns one keeper's move to a grow-out tank (about 200 fry) into a general instruction.",
+        "\"Cá con ... hiện một vạch đen dọc ở giữa thân\": the video says a black vertical stripe at mid-body. \"dọc\" is ambiguous, and the passage also omits that microworms were the only live food used.",
+        "\"Rải bi thủy tinh ... cắm thêm một búi sợi\": the page's reproduction section already mentions marbles and spawning mops. Only the trap-in-territory setup is new, so part of this is redundant.",
+        "Several sentences read like translated phrasing: \"Ngồi xem đàn cá vài tiếng là thấy ngay chỗ đó\", \"Người nuôi này thấy\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/hemigrammus-erythrozonus#lmfsTkys5ZE": [
     {
       "at": "2026-11-19T02:47:21Z",
@@ -2908,6 +2947,39 @@
         "[habitat] 'Nước ở đó mềm và có tính axit' – the page already has soft, slightly acidic water; the habitat is already covered there.",
         "[reproduction] 'Một người nuôi loài này thấy cá bột lớn khá chậm' – the video states this as a general fact, not a keeper's experience; also the page says fry eat artemia nauplii right away, and the video differs (infusoria/powder first) without saying so plainly.",
         "[reproduction] 'Nuôi theo nhóm thì cá thường bắt cặp… vớt riêng cặp đó' and 'chậu đất nung' – partly repeat page content (grouping, pairing, tubes, live/frozen feeding, water change, dance display); 'đến khi đủ lớn' and 'vài tuần' are in the video, but the several-week claim conflicts with the page's 2–4 days without noting it."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/tetraodon-schoutedeni": [
+    {
+      "at": "2026-11-21T14:45:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T14:45:13Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"bể breeder 150 lít\" – facts say a 40-gallon breeder tank; the keepers' size is 150 litres per the conversion table, so this is OK, but no issue here",
+        "\"khoảng 24–28 °C, pH 6.5–8\" – the video recommends 75–82 °F, which converts to about 24–28 °C; this is supported and not an error",
+        "\"Có nguồn xếp nó vào loại vô hại với người\" – supported by FishBase, so no issue",
+        "\"Bể cần chín và ổn định trước khi thả cá.\" – generalised care advice; facts only say the video recommends the parameters in a mature, stable tank",
+        "\"Các khoảng này chồng lên nhau ở pH 6.5–7.5\" – derived claim; the 22–26 °C and 26–27.5 °C ranges barely meet, and the hardness ranges are not mentioned",
+        "\"Vì các nguồn còn trái ngược nhau, nuôi chung là chuyện phải theo dõi kỹ.\" – care recommendation not in the facts",
+        "\"tới giờ ăn thì bơi theo chủ\" – supported by the video; no issue",
+        "\"cặp cá bơi song song để tán tỉnh\" – tandem swimming is supported; no issue",
+        "\"Nghe nói con đực mõm ngắn hơn\" – supported; no issue",
+        "The data card figures (difficulty 1, lifespan 8–10 years, adult size 9 cm) are not stated in the page, so there is no contradiction"
       ],
       "attempt": "first",
       "kept": false

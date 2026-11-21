@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-11-21",
+    "kind": "species",
+    "id": "tetraodon-schoutedeni",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-21",
     "kind": "guide",
     "id": "youtube-Shhe4SNvXpY",
     "source": "youtube",
@@ -3491,12 +3498,5 @@
     "id": "trichogaster-lalius",
     "source": "glaser",
     "action": "updated"
-  },
-  {
-    "date": "2026-11-19",
-    "kind": "species",
-    "id": "krobia-xinguensis",
-    "source": "glaser",
-    "action": "new"
   }
 ]

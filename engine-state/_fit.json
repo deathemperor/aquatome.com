@@ -144880,6 +144880,22 @@
   "findings": [],
   "products": []
  },
+ "vi/species/tetraodon-schoutedeni": {
+  "at": "2026-11-21",
+  "hash": "a268c76748f8cacd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P4",
+    "quote": "một bể breeder 150 lít là đủ cho cá sống cả đời",
+    "why": "A 'breeder' tank is a standard US tank model (the 40-gallon breeder); keepers in Vietnam have tanks made to size and don't use this name.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/species/thaiphusa-sirikit": {
   "at": "2026-11-17",
   "hash": "040cf2b5e123e577",
