@@ -429,6 +429,7 @@
     "packages/engine/test/start-clean.test.ts": "vitest on two cycle test files",
     "packages/engine/test/test-scratch.test.ts": "printf of the temp folder's name",
     "packages/engine/test/test-time-scale.test.ts": "the cycle's checks on stand-in steps in the temp folder",
+    "packages/engine/test/video-hold.test.ts": "the sweep's emptied-pages part: one git call in the temp folder the test writes its guide in, which is no repository, so it stops there",
     "packages/schema/test/content-trace.test.ts": "vitest on its own probe, which opens two content files and a folder only to see the trace record them, into a trace file of its own"
   }
 }
