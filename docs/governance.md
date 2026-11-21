@@ -964,10 +964,12 @@ The layers above still check the result.
     copy site such as the Archive, nor from a shop's to the magazine's. One magazine step runs at a time (one that takes
     the lock reads it again 2 s on, and goes on only if it is still its own), on the Mac alone (not on GitHub, and only
     on macOS). The reader, name, pace (10 s) and rest are the archived sources': a rest another job writes while a
-    request waits its pace stops it, and a rest ends only on the Archive's own answer, never on a redirect, and only the
-    rest that request came after. GitHub's ideas step takes what the Mac made of each magazine idea at every run. During
-    a rest the guide waits, its idea kept, and the days it waits in a row are printed. Research still opens neither the
-    magazine's hosts nor the Archive's.
+    request waits its pace stops it, and a rest ends only on the Archive's own answer, never on a redirect nor a 403,
+    and only the rest that request came after. A 403 from the Archive's index is a refusal, as a 429; on one page's copy
+    it is no copy of that page, but on a second page's in the same run it is a refusal, the reader shut out (the owner's
+    rule on refusals; the chief of staff, 21 Nov 2026). The log names both pages. GitHub's ideas step takes what the Mac
+    made of each magazine idea at every run. During a rest the guide waits, its idea kept, and the days it waits in a
+    row are printed. Research still opens neither the magazine's hosts nor the Archive's.
   - Chợ Thủy Sinh's fish, shrimp and snails go into the private Vietnamese shop list (`engine-state/shop-lists/vi.json`:
     which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,

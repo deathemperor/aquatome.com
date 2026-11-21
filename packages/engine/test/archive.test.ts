@@ -286,6 +286,56 @@ test('a refusal written while a request waited its turn stops that request', asy
   await expect(late.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MS).toISOString()))
 })
 
+// The chief of staff, 21 Nov 2026, on the owner's rule on refusals: what a 403 from the Archive is.
+test("a 403 from the Archive's index is a refusal: stop, and rest as on a 429", async () => {
+  const { t, f } = refusals()
+  t.answer = () => capture(403, '')
+  await expect(f.text('https://web.archive.org/cdx/search/cdx?url=x')).rejects.toThrow(new RegExp(new Date(start + ARCHIVE_REST_MS).toISOString()))
+  expect(t.asked).toBe(1)
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  expect(t.asked).toBe(1)
+})
+
+test("a 403 on one page's copy is no copy of that page, and rests nothing", async () => {
+  const file = restFile()
+  const { t, f } = refusals(file)
+  t.answer = () => capture(403, '')
+  await expect(f.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  // The same page again in the run: still only that page.
+  await expect(f.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  expect(() => readFileSync(file, 'utf8')).toThrow()
+  expect(t.asked).toBe(2)
+})
+
+test('no 403 ends a rest: after one on a page\'s copy, the next refusal doubles the wait', async () => {
+  const { t, f, make } = refusals()
+  await expect(f.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
+  t.clock = start + ARCHIVE_REST_MS
+  t.answer = () => capture(403, '')
+  await expect(make().get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  t.answer = () => capture(429, '')
+  await expect(make().get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+})
+
+test("a 403 on a second page's copy in the same run is the reader shut out: a refusal, said in the log with both pages", async () => {
+  const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    const { t, f, make } = refusals()
+    t.answer = () => capture(403, '')
+    const other = 'https://www.2hraquarist.com/blogs/hot-topics/other'
+    // The run's readers share what they met: a capped one made from it, as the magazine's are.
+    await expect(f.get(article)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+    await expect(f.capped(5).get(other)).rejects.toThrow(new RegExp(new Date(start + ARCHIVE_REST_MS).toISOString()))
+    expect(log.mock.calls.at(-1)?.[0]).toContain("HTTP 403 on a second page's copy in this run (2hraquarist.com/blogs/hot-topics/other, after 2hraquarist.com/blogs/hot-topics/best-temperature)")
+    // A new run starts with none met.
+    t.clock = start + ARCHIVE_REST_MS
+    t.answer = () => capture(200, '<title>ok</title>')
+    await make().get(article)
+    t.answer = () => capture(403, '')
+    await expect(make().get(other)).rejects.toThrow(/^no archived copy \(HTTP 403\)$/)
+  } finally { log.mockRestore() }
+})
+
 // Codex's fresh read of f4e7985fae: two jobs each sent the one request after a wait; the first refused wrote a new wait, and
 // the second, answered after, took it away.
 test("an answer after the wait ends only that wait: a new one another job's refusal wrote meanwhile stands", async () => {

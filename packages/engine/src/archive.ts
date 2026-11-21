@@ -55,6 +55,13 @@ export class AsksSpent extends Error {
   constructor(readonly cap: number) { super(`the ${cap} requests allowed of the archive here are spent`) }
 }
 
+/** The page an Archive address is a copy of (`/web/<stamp><flags>/<page>`), by its bare host, path and query; none for the index's. */
+const copyPage = (at: string) => {
+  const u = new URL(at)
+  const m = /^\/web\/\d+[a-z_]*\/(.+)$/.exec(u.pathname + u.search)?.[1]
+  if (!m) return undefined
+  try { const p = new URL(m); return `${p.hostname.toLowerCase().replace(/^www\./, '')}${p.pathname.replace(/\/+$/, '')}${p.search}` } catch { return m }
+}
 /** A copy the Archive has nothing for: no copy, unlike its being down (a 5xx) or not answering. */
 export const noCopy = (e: unknown) => /^no archived copy/.test((e as Error).message) && !/\(HTTP 5\d\d\)/.test((e as Error).message)
 
@@ -66,6 +73,8 @@ export class ArchiveFetcher {
   private onAsk?: () => Promise<void>
   /** Called before each request, before the rest is read again: a capped reader's own pace. */
   private pace?: () => Promise<void>
+  /** The pages whose copy the Archive answered with a 403 in this run: shared by the capped readers made from this one. */
+  private forbidden = new Set<string>()
   /** `restFile`: where the wait is kept, outside any checkout, since it's this Mac the archive refuses. */
   constructor(private d: { fetch: Fetch; now: () => Date; sleep: (ms: number) => Promise<void>; ua: string; restFile: string }) {}
 
@@ -79,6 +88,7 @@ export class ArchiveFetcher {
     r.cap = Math.max(0, n)
     r.onAsk = onAsk
     r.pace = pace
+    r.forbidden = this.forbidden
     return r
   }
 
@@ -98,7 +108,7 @@ export class ArchiveFetcher {
   /**
    * One request, none during a refusal's wait, and one longer wait if the network fails; the Archive's redirects followed
    * (REDIRECTS), each a request of its own. The request after a wait gets no second try, and the wait ends only on the
-   * Archive's answer itself, not on a redirect to it: a refusal on the redirect's request doubles the wait as before.
+   * Archive's answer itself, not on a redirect to it nor on a 403: a refusal on the next request doubles the wait as before.
    * `at`: the address that answered.
    */
   private async call(url: string) {
@@ -126,6 +136,15 @@ export class ArchiveFetcher {
         continue
       }
       if (r.status === 429) throw await this.refused(rest, `HTTP ${r.status}`)
+      // A 403 (the owner's rule on refusals, the chief of staff, 21 Nov 2026): from the index, a refusal; on one page's copy,
+      // no copy of that page, but on a second page's in the same run, the reader shut out, a refusal. None ends a rest.
+      if (r.status === 403) {
+        const page = copyPage(at)
+        if (!page) throw await this.refused(rest, 'HTTP 403 from the index')
+        if (this.forbidden.size && !this.forbidden.has(page)) throw await this.refused(rest, `HTTP 403 on a second page's copy in this run (${page}, after ${[...this.forbidden].join(', ')})`)
+        this.forbidden.add(page)
+        return { r, at }
+      }
       const to = REDIRECTS.has(r.status) ? r.headers.get('location') : null
       if (to) {
         const next = new URL(to, at)
