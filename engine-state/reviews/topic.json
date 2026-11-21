@@ -664,6 +664,53 @@
       "kept": false
     }
   ],
+  "id/guides/aquatome-ca-koi-thuc-an-cho-an-sinh-san-dieu-kien-nuoi": [
+    {
+      "at": "2026-11-21T00:30:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Langkah pertama: ukur suhu dan kualitas air\" and \"Telur perlu segera dipisahkan dari induknya\" are generalized framing; the facts only say breeders isolate pairs and remove parents after spawning, not eggs.",
+        "\"Seleksi berlanjut hingga sekitar umur 6 bulan\" is supported. \"Kolam terlalu padat\" is attributed to spawning, which is a reasonable reading of the facts.",
+        "\"Pakan harian\" for \"staple\" and \"Produk pakan lain dari produsen yang sama\" are slight paraphrases, but they are acceptable.",
+        "\"Produsen menyarankan tutupan tanaman sekitar 30–50%\" is supported.",
+        "\"Nafsu makan dan pencernaannya mengikuti suhu air\" is a mild generalization; the facts only say digestion slows near 28°C."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-21T00:30:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"Di kolam koi yang padat, ganti air sekitar 20% setiap hari terbukti meningkatkan tingkat hidup\" - the fact says it improved survival according to the review; \"terbukti\" overstates it slightly.",
+        "\"Sumber-sumber memberi patokan yang sedikit berbeda, jadi keduanya ditampilkan\" and the combined maker table merge Hikari wheat-germ label, N-20 and other Hikari guides, with 68–78°F and >82°F rows mixed into the 'label' table; the heading \"dari label pakan wheat germ dan panduannya\" is loose.",
+        "\"Betina yang siap bertelur juga terlihat lebih gemuk\" - the facts say females swell with eggs, so this is roughly supported but stated as a general sign.",
+        "\"Sisa pakan merusak kualitas air dan menghabiskan oksigen, apalagi saat air sangat hangat\" - the oxygen depletion is tied to uneaten food only above 90°F in the facts.",
+        "\"Kalau sering bersisa, kurangi porsinya\" - an unsupported specific instruction, though a reasonable inference.",
+        "\"Telur yang sehat biasanya menetas dalam sekitar 3–4 hari\" - the facts give fry hatching in 3–4 days without saying 'healthy' eggs.",
+        "\"Para pembudidaya biasanya juga memisahkan pasangan saat pemijahan\" - the facts say breeders isolate pairs, not that they separate pairs during spawning.",
+        "\"Langkah pertama: ... beri pakan sedikit-sedikit ... \" and \"makin hangat air, makin aktif ikan makan\" - the second is a generality not directly stated in the facts."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.88,
+        0.82
+      ]
+    }
+  ],
   "id/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": [
     {
       "at": "2026-11-13T23:38:41Z",
@@ -868,6 +915,50 @@
       "reads": [
         0.88,
         0.92,
+        0.9
+      ]
+    }
+  ],
+  "id/guides/aquatome-cach-tang-cuong-he-mien-dich-va-phong-benh-cho-ca-canh-vitamin-toi-muoi": [
+    {
+      "at": "2026-11-21T00:32:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.82,
+      "notes": [
+        "\"misalnya pelet dan pakan serpihan\" – pellets and flake examples are not in the facts.",
+        "\"Sebuah laporan berita menyebutkan penelitian di sebuah universitas di Australia\" – 'in Australia' is not in the facts (only James Cook University).",
+        "\"Pakai garam ikan hanya saat diperlukan, dengan dosis dan lama yang sesuai\" and \"Ikan tak bersisik ... kesulitan pada dosis tinggi\" – minor generalisations, though broadly supported.",
+        "\"Salah satu produk bawang putih komersial untuk akuarium\" – the facts name Seachem's Garlic Guard, so this is supported; but \"Seorang pemelihara ikan\" for NippyFish (keeper) is fine.",
+        "\"Sebuah penelitian pada barramundi menunjukkan perlindungan\" – barramundi is a marine fish; the guide presents it fairly, so no issue.",
+        "\"Naikkan dosisnya bila tidak ada perbaikan\" – supported, no issue."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.92,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-21T00:32:59Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "\"Vitamin, garam, dan bawang putih hanya pelengkap, bukan pengganti ketiga hal itu\" is the guide's own framing. The facts do not say this.",
+        "\"Daya tahan tubuh ikan paling banyak ditentukan oleh kualitas air, pakan yang bergizi, dan akuarium yang bersih\" overstates the facts. They only frame prevention as good management.",
+        "\"Selama dan sesudah pengobatan garam, amati ikan setiap minggu\" is not supported. The facts give weekly observation only after the final unsalted water changes.",
+        "\"laporan sebuah majalah ikan hias tahun 1999\" is a source-type label the facts do not give for the report. They name it only as a 1999 Tropical Fish Hobbyist report, relayed by a keeper."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.86,
+        0.9,
         0.9
       ]
     }
@@ -3697,6 +3788,54 @@
   ],
   "th/guides/aquatome-ca-betta-cach-nuoi-thuc-an-benh-va-nuoi-chung": [
     {
+      "at": "2026-11-21T00:43:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "\"ผู้เลี้ยงรายหนึ่งระบุว่าอาหารเต้าหู้ไข่สำหรับลูกปลา\" – the fact only says Interfish Thailand's egg tofu food can be fed from 3 weeks; \"สำหรับลูกปลา\" (for fry) is an addition",
+        "\"คู่มือการเลี้ยงปลาระบุสาเหตุ\" for fin rot – source 3 is a shop, so a fishkeeping guide is OK; but the 'tank 45x30 cm' source being called \"เว็บไซต์อ้างอิง\" is fine. The 'โหล' (jar) wording: facts say 'bowls' – minor.",
+        "\"ปลาออตโต\" and \"ปลาแพะคอรีดอรัส\" – ok; however \"ปลาเตตร้าดำ (widow)\" adds 'black tetra' not in facts (widow tetra is a different name)",
+        "\"ใส่ไม้น้ำหรือของตกแต่งให้ปลาหลบซ่อน\" – fine; \"ไรแดง\"/\"ไส้เดือนน้ำ\" translating tubifex/daphnia: 'ไรทะเล' used for both brine shrimp and bloodworm confusion (black worm/ไรทะเล) – minor translation drift",
+        "\"ไม่ใช้ฮีตเตอร์ ปล่อยให้น้ำแกว่งตามอุณหภูมิห้อง\" and \"ล้างกรองด้วยน้ำประปา\" listed as common mistakes – derived from facts but framed as mistakes not stated as such",
+        "\"รักษาคุณภาพน้ำและอุณหภูมิให้คงที่\" and \"ไม่ใช้ของตกแต่งที่แหลมคม\" as prevention – general, loosely supported",
+        "\"ถ้าปลาเริ่มป่วย ให้ตรวจคุณภาพน้ำและเปลี่ยนน้ำก่อน\" – generalised from mild fin rot only",
+        "\"ปลากัดอ้วนง่าย\" fine; \"ถ้าครีบเปื่อยลามจากระยะเบาเป็นปานกลาง ควรย้ายปลา\" – progression advice not in facts"
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    },
+    {
+      "at": "2026-11-21T00:43:42Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "\"วัดแบบความยาวมาตรฐาน ไม่รวมหาง\" is an explanation of SL not in the facts (mild).",
+        "\"หรืออาหารแผ่น\" (flake/sheet food) as a main food is not in the facts; the facts say pellets or granules (source 0) or pellets or flakes (source 4).",
+        "\"ไรแดง\" is given as a supplement in the first source's list and \"ไส้เดือนน้ำ\" for tubifex; these mappings are fine, but \"ไรทะเล\" is used for brine shrimp and daphnia is listed as both \"ไส้เดือนน้ำ\" and \"ไรแดง\", which is slightly muddled.",
+        "The treatment table row \"ยาที่มีไนโตรฟูราโซน ขนาดตามฉลาก\" replaces the lab dose of 46 mg/L; it is not wrong, but it frames a lab regimen for mild fin rot as a label-dosed product.",
+        "The treatment table row for velvet, \"ยาสำหรับโรคนี้ ขนาดตามฉลาก\", leaves out the Proform C and 30 µL/L lab figures; acceptable but it changes what the study did.",
+        "\"ปลาโตเต็มวัยราว 10 สัปดาห์\" is a mistranslation of the fact that fish matured around 10 weeks; the guide puts it among the rest periods, which makes it read as a rest time.",
+        "\"เพราะคลอรีนอาจฆ่าแบคทีเรียที่มีประโยชน์ในวงจรไนโตรเจน\" adds \"nitrogen cycle\", which the facts do not mention.",
+        "\"ปลากัดอ้วนง่าย\" and the fact that \"คู่มือการเลี้ยงปลา\" is named for the fin rot and quarantine advice are right (shop). The opening summary \"ตรวจคุณภาพน้ำและเปลี่ยนน้ำก่อน แล้วค่อยพิจารณาเรื่องยา\" is a reasonable summary of the facts."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.6,
+        0.72
+      ]
+    },
+    {
       "at": "2026-11-19T18:15:35Z",
       "model": "sonnet",
       "ran": "claude-sonnet-5-5",
@@ -3805,6 +3944,47 @@
         0.72,
         0.62,
         0.72
+      ]
+    }
+  ],
+  "th/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": [
+    {
+      "at": "2026-11-21T00:47:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"ทั้งสองแหล่งให้ค่อย ๆ ปรับอุณหภูมิ ไม่ปรับทีเดียว และควรเพิ่มออกซิเจนด้วย\" is overstated. The vet source says to raise the temperature slowly and add oxygen. The maker (sera) only says to lower it slowly afterwards.",
+        "\"สิ่งมีชีวิตเซลล์เดียวที่มีลักษณะคล้ายเชื้อรา\" says the fungus-like organisms are single-celled. The facts only call them fungus-like protists.",
+        "\"ให้อาหารปลาที่หลากหลายและสมดุล\" adds \"varied\" to the facts' \"balanced diet\".",
+        "\"แยกปลาที่ไล่กัดออก\" is a specific action. The facts only say to manage aggression or tank mates.",
+        "\"ยิ่งเริ่มรักษาเร็วยิ่งดี\" is a general claim that the facts don't state in this form."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.88,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-21T00:47:47Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.85,
+      "notes": [
+        "\"ถ้าเป็นคอลัมนาริสที่ดูคล้ายเชื้อรา ต้องรักษาคนละแบบ\": the facts give no columnaris treatment, so saying it needs a different treatment is unsupported.",
+        "\"เชื้อราลามขึ้นเหงือกหรือไม่ดีขึ้นหลังแก้ต้นเหตุแล้ว ... ควรปรึกษาสัตวแพทย์สัตว์น้ำ\": the facts give no such trigger for seeing an aquatic vet, so this is a generic addition."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.82,
+        0.85
       ]
     }
   ],

@@ -682,6 +682,85 @@
     "sonnet": 0.7,
     "back": false
   },
+  "bedotia-geayi": {
+    "hash": "ad5bc80e5d3db6c1f159a3d47b4ece9dd6b498c09d64919a2d50fb8faa49e321",
+    "at": "2026-11-21T01:09:15.468Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "benitochromis-finleyi": {
+    "hash": "3c04ee4fd39580a8178a2cd421f34b38b07726de8fa357103bccc1d2363ec1a7",
+    "at": "2026-11-21T01:09:24.625Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betadevario-ramachandrani": {
+    "hash": "c1f3ee58f5a1de2979b35d848289e1c2dc1cb4b84de6b1fd753f8cd043e122fa",
+    "at": "2026-11-21T01:09:58.867Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
+    "back": true
+  },
+  "betta-akarensis": {
+    "hash": "01c3a68c59c3dbeffed2edc85a63cd81c5df7377142a086325adeea47c9c542e",
+    "at": "2026-11-21T01:10:45.027Z",
+    "sonnet": 0.9,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-apollon": {
+    "hash": "60886b8c8aa994bba3251b9860ba85670f5573e23c1eabcd9c75cb4536d3bce9",
+    "at": "2026-11-21T01:10:57.572Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-bellica": {
+    "hash": "735ce68b31f17f3ee132e5802495029c5f6524b88eeab9af43b4e9adf84ad468",
+    "at": "2026-11-21T01:11:16.298Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-breviobesus": {
+    "hash": "ed51c79cc71e4dc5d43de5072c89726d953f197b8a1503605a9fc9aab5d2928b",
+    "at": "2026-11-21T01:11:26.065Z",
+    "sonnet": 0.6,
+    "back": false
+  },
+  "betta-dimidiata": {
+    "hash": "7666d95dfb1c8e4b5fea3af80b205e97a783bf6fc0ba32238ef2600b36d4b8b6",
+    "at": "2026-11-21T01:11:45.302Z",
+    "sonnet": 0.7,
+    "back": false
+  },
+  "betta-enisae": {
+    "hash": "2f41c0f0820642fe64384dfc7876c1df0b3058a45a5ce951af8e80d07bf04f49",
+    "at": "2026-11-21T01:12:31.457Z",
+    "sonnet": 0.9,
+    "opus": 0.8,
+    "back": true
+  },
+  "betta-hipposideros": {
+    "hash": "2e0293f1aa609bfb1f41f53666c6f80b22676037fd8cccfa0bf62d73e8c809ed",
+    "at": "2026-11-21T01:13:11.615Z",
+    "sonnet": 0.93,
+    "opus": 0.9,
+    "back": true
+  },
+  "betta-mandor": {
+    "hash": "c2b300ebefd0855ec574ab4473d476b332ff6b7e28cf83c14bf19e1e5b572149",
+    "at": "2026-11-21T01:14:03.738Z",
+    "sonnet": 0.92,
+    "opus": 0.85,
+    "back": true
+  },
+  "betta-pinguis": {
+    "hash": "35255758b7edc82c4006481c77d0fc4de285c2c236be52710cb0f7f5edea75f2",
+    "at": "2026-11-21T01:14:43.999Z",
+    "sonnet": 0.85,
+    "opus": 0.8,
+    "back": true
+  },
   "betta-siamorientalis": {
     "hash": "8b085e1a488698dbb43e4842e6aec67c44f58225063ee1d32b60367331680402",
     "at": "2026-11-19T07:40:46.331Z",
@@ -773,6 +852,12 @@
       "Item 6: 'quarantine medication trio' translated 'ชุดยากักโรคสามตัว' is vague/awkward; 'pet store chains' as 'ร้านสัตว์เลี้ยงแบบเครือข่าย' awkward."
     ]
   },
+  "centrodoras-brachiatus": {
+    "hash": "2ff3b96c9e761cb86fbf636aeda94e26646b34dbad9d912423ec0858c604801c",
+    "at": "2026-11-21T01:08:14.671Z",
+    "sonnet": 0.6,
+    "back": false
+  },
   "cephalocassis-jatia": {
     "hash": "98fda630e67d9b5d868cbe8655794b1a2413bd1af08e371522857935108cb1c8",
     "at": "2026-11-19T00:30:49.272Z",
@@ -859,9 +944,9 @@
     "back": true
   },
   "dicrossus-maculatus": {
-    "hash": "71e32c94b624816c571a5219295ca072e50861f38bf6cdcc1edff906683ba747",
-    "at": "2026-11-17T17:50:00.806Z",
-    "sonnet": 0.55,
+    "hash": "b0291a69e7d4c63f1853aabb999766b564d97e0105f691e07e69663f6bab0571",
+    "at": "2026-11-21T01:08:28.832Z",
+    "sonnet": 0.6,
     "back": false
   },
   "dimidiochromis-compressiceps": {
@@ -1055,6 +1140,12 @@
     "hash": "327ae590d67c92e89eddc4411c8cbd1b097d79e28113d40a3cba058ce76a64f3",
     "at": "2026-11-18T18:16:33.594Z",
     "sonnet": 0.55,
+    "back": false
+  },
+  "hemirhamphodon-tengah": {
+    "hash": "251cba33581df7d8b9cdc663b262a9b13bc36ece94d40e87bc96411e33382f5c",
+    "at": "2026-11-21T01:08:40.879Z",
+    "sonnet": 0.7,
     "back": false
   },
   "hexanematichthys-sagor": {

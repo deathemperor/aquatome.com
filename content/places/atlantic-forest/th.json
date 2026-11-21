@@ -3,6 +3,12 @@
   "name": "ป่าแอตแลนติก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:16:57.611Z",
+    "why": "ป่าแอตแลนติก is a reasonable transliteration, but Thai atlases usually write the Brazilian biome as \"ป่าแอตแลนติก\" with \"มาตา\" or as \"ป่าatlantic\" less often, and the common form is \"ป่าแอตแลนติก (มาตาอัตลังติกา)\"; a plain name is uncertain."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

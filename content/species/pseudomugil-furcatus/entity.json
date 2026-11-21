@@ -19,15 +19,16 @@
       ],
       "regions": [
         "Kwagira River",
-        "Peria Creek",
         "Musa",
-        "Kwagila"
+        "New Guinea",
+        "Sufia Valley"
       ],
       "sources": [
         "bwaquatics",
         "sprucepets",
         "seriouslyfish",
-        "aquariumcoop"
+        "aquariumcoop",
+        "glaser"
       ],
       "quotes": [
         {
@@ -43,8 +44,7 @@
           "quote": "Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province.",
           "countries": [],
           "regions": [
-            "Kwagira River",
-            "Peria Creek"
+            "Kwagira River"
           ]
         },
         {
@@ -52,8 +52,23 @@
           "quote": "It's been recorded in the Musa and Kwagila river basins which drain into Dyke Ackland Bay and Collingwood Bay, respectively, and presumably occurs in drainages between the two as well.",
           "countries": [],
           "regions": [
-            "Musa",
-            "Kwagila"
+            "Musa"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The blue-eyes Pseudomugil furcatus, relatives of the rainbow fish, originate from the island of New Guinea.",
+          "countries": [],
+          "regions": [
+            "New Guinea"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The natural distribution area is relatively small; the species occurs, as far as known, exclusively in the Sufia Valley, Papua New Guinea.",
+          "countries": [],
+          "regions": [
+            "Sufia Valley"
           ]
         }
       ]

@@ -19,20 +19,31 @@
         "CM",
         "CG"
       ],
-      "regions": [],
+      "regions": [
+        "Congo"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The clown Synodontis, Synodontis decorus, is a large catfish from the Democratic Republic of Congo, Cameroon and the Republic of Congo.",
+          "quote": "Democratic Republic of Congo, Cameroon, Republic of Congo.",
           "countries": [
             "CD",
             "CM",
             "CG"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "One of the most beautiful squeaker catfish (Synodontis) comes from the Congo: Synodontis decorus.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
         }
       ]
     },

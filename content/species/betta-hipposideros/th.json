@@ -25,11 +25,11 @@
     "references:seriouslyfish": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Ng, P. K. L. and M. Kottelat (1994). Revision of the Betta waseri species group (Teleostei: Belontiidae). Raffles Bulletin of Zoology 42(3), 593-611</li><li>Tan, H. H. and P. K. L. Ng (2005). The labyrinth fishes (Teleostei: Anabantoidei, Channoidei) of Sumatra, Indonesia. Raffles Bulletin of Zoology Supplement 13, 115-138</li><li>Tan, H. H. (2009). Betta pardalotos, a new species of fighting fish (Teleostei: Osphronemidae) from Sumatra, Indonesia. Raffles Bulletin of Zoology 57(2), 501-504</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6,
-      "bwaquatics": 0.6
+      "seriouslyfish": 0.9,
+      "bwaquatics": 0.9
     }
   }
 }

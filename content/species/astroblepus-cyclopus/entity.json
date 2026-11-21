@@ -117,5 +117,149 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "CO"
+      ],
+      "regions": [
+        "Esmeraldas",
+        "Mira",
+        "Magdalena"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "This species occurs in the Mira and Esmeraldas River basin and other Pacific coastal drainages in Ecuador and in the Magdalena River Basin of Colombia (Cundinamarca, Santander and Risaralda departments, Maldonado-Ocampo et al. 2005).",
+          "countries": [
+            "EC",
+            "CO"
+          ],
+          "regions": [
+            "Esmeraldas",
+            "Mira",
+            "Magdalena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342160,
+      "total": 83,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          65
+        ],
+        [
+          "CO",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -80.15625,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -80.15625,
+          0,
+          35,
+          35
+        ],
+        [
+          -78.75,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -78.75,
+          0,
+          14,
+          14
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          5.625,
+          6,
+          6
+        ],
+        [
+          -75.9375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

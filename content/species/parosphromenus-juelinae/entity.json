@@ -11,10 +11,33 @@
     "bangka"
   ],
   "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Bangka Island"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "It is known only from a few forest streams and swamps in a single river system on Bangka Island, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Bangka Island"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 11372239,
       "total": 0,
-      "fetched": "2026-11-12",
+      "fetched": "2026-11-21",
       "countries": [],
       "cells": []
     }

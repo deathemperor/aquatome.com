@@ -625,6 +625,21 @@
       "\"Tanam ... ke dalam substrat dengan sedikit jarak\" is ambiguous: the English means plant with some depth into the substrate. Clarify as \"tanam sedikit dalam ke dalam substrat\" and keep \"jarak\" separate if spacing is meant."
     ]
   },
+  "cabomba-furcata": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "Cabomba Merah",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [
+      "Item 2: \"dengan baja cecair terus ke dalam air\" adds \"cecair\" (liquid), which the source doesn't say. Use \"pembajaan terus ke dalam turus air\" or \"baja terus ke dalam air\"."
+    ],
+    "parts": {
+      "quickFacts:2hraquarist": "9c74b81d21a2",
+      "maintenance:2hraquarist": "1be9bcc7d10e",
+      "notes:2hraquarist": "79323d5a2ef5"
+    }
+  },
   "cabomba-sp": {
     "at": "2026-11-17",
     "from": "2026-11-17",
@@ -2596,6 +2611,69 @@
       "quickFacts:aquariumcoop": "36ae9278875a",
       "maintenance:aquariumcoop": "5ad73eefe4da",
       "notes:aquariumcoop": "1670e0d44cda"
+    }
+  },
+  "nymphaea-zenkeri": {
+    "at": "2026-11-21",
+    "from": "2026-11-19",
+    "name": "Nymphaea zenkeri",
+    "confidence": "high",
+    "score": 0.9,
+    "notes": [
+      "Item 1: \"tompok merah\" for \"red variegation\" is slightly off; \"corak/belang merah\" would be better, since variegation is not blotches.",
+      "Item 9: \"getah gelang\" for \"rubber band\" is acceptable. \"gelang getah\" is the more standard Malaysian term."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "17cd6f6bf4eb",
+      "quickFacts:aquariumbreeder": "59666ae52df8",
+      "distribution:aquariumbreeder": "51c1c9240de6",
+      "habitat:aquariumbreeder": "04ff6b2c7fc6",
+      "maintenance:aquatome": "b3a4b18a9054",
+      "maintenance:aquariumcoop": "d6525a05acb9",
+      "reproduction:aquariumcoop": "4cd409ecc872",
+      "notes:aquariumcoop": "91813775cdd3",
+      "notes:aquariumbreeder": "d175ae3deb85"
+    }
+  },
+  "nymphoides-aquatica": {
+    "at": "2026-11-21",
+    "from": "2026-10-29",
+    "name": "Banana Plant",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 3: '5-gallon (about 19 litre) nano tank' rendered as '20 liter' is correct per table, but spelling should be 'liter/liter' -> Malaysian standard 'liter' is fine; no change needed.",
+      "Item 3: 'at least two inches (about 5 cm)' became 'sekurang-kurangnya kira-kira 5 cm' – 'at least' plus 'about' is contradictory; use 'sekurang-kurangnya 5 cm'.",
+      "Item 3: 'Do not suffocate the tubers' translated as 'Jangan tenggelamkan ubinya' (do not drown/sink) – wrong meaning; use 'Jangan tanam ubi terlalu dalam sehingga lemas/tertimbus' (do not bury/smother the tubers).",
+      "Item 3: 'gentle water flow' as 'arus air yang perlahan' is acceptable, but 'batu kelikir akuarium' for aquarium gravel is fine; 'tumbuhan cuba terapung' should be 'tumbuhan cuba timbul/terapung naik'.",
+      "Item 1: 'Sesuai untuk pemula dan tumbuhan cahaya rendah' is ambiguous; rephrase as 'Tumbuhan cahaya rendah yang sesuai untuk pemula'.",
+      "Item 2: 'banana plant' left in English in running text; use 'tumbuhan pisang air (banana plant)' for readability.",
+      "Item 2: 'dalam sesetengah kes' is stiff; use 'kadangkala' for 'in some cases'."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "1e4b99441326",
+      "maintenance:aquariumcoop": "57f6912bacb9",
+      "notes:aquariumcoop": "5e0b039b3679"
+    }
+  },
+  "nymphoides-hydrophylla": {
+    "at": "2026-11-21",
+    "from": "2026-10-31",
+    "name": "Nymphoides hydrophylla 'Taiwan'",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"Asal: Asia\" is slightly stiff; \"Asal usul\" or \"Asal-usul\" is more natural.",
+      "Item 1: \"Ketinggian ... lebar\" is a mismatched pair; \"Tinggi ... lebar\" is more natural.",
+      "Item 2: \"nutrien\" is acceptable, but \"zat makanan\" or \"nutrien\" with the plant-fertiliser context (\"baja\") would be clearer for \"nourishment\".",
+      "Item 2: \"daun yang terapung di permukaan\" adds the sense of floating; the source says \"surface leaves\", so use \"daun permukaan\" or \"daun apungan\".",
+      "Item 3: \"dicirikan oleh\" is stiff; \"ciri varian ini ialah\" reads more naturally.",
+      "Item 3: \"daripada helaian daun lama\" is fine for \"plates of old leaves\", but \"lut sinar\" for \"transparent\" is acceptable; \"dari\" should be used consistently for origin rather than a mix of \"dari\" and \"daripada\"."
+    ],
+    "parts": {
+      "quickFacts:tropica": "cbdd79f0245c",
+      "maintenance:tropica": "b4c78212c83c",
+      "notes:tropica": "91fcfc38fbaa"
     }
   }
 }

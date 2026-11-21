@@ -10,6 +10,58 @@
     "colombia",
     "santander"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Municipio de Curiti, Dept. de Santander, Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9300251,
+      "total": 12,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          5.625,
+          8,
+          8
+        ],
+        [
+          -73.125,
+          7.03125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

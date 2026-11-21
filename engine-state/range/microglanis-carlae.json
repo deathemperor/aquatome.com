@@ -1,8 +1,8 @@
 {
   "id": "microglanis-carlae",
   "native": {
-    "input": "464cfc09ad90d2d0",
-    "at": "2026-11-20T17:43:20.430Z",
+    "input": "cc2d6790b13f53d5",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "PY",
@@ -13,7 +13,14 @@
         "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Río Paraguay",
+        "source": "scotcat",
+        "quote": "South America: Río Paraguay basin.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {

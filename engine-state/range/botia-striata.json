@@ -1,8 +1,8 @@
 {
   "id": "botia-striata",
   "native": {
-    "input": "1c8f9052579c4be4",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "9b1d5e80a7644041",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "IN",
@@ -11,20 +11,28 @@
         "quote": "Described from the Tunga River in Karnataka (previously Mysore) state, southern India.",
         "words": "India",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is known only from a comparatively restricted area in the south of India.",
+        "words": "India",
+        "ok": true
       }
     ],
     "regions": [
-      {
-        "name": "Krishna",
-        "source": "seriouslyfish",
-        "quote": "B. striata has been recorded at other localities within the Krishna drainage, including the Koyna and Panchganga rivers in Maharashtra.",
-        "ok": true
-      },
       {
         "name": "Tunga",
         "source": "seriouslyfish",
         "quote": "Described from the Tunga River in Karnataka (previously Mysore) state, southern India.",
         "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "B. striata has been recorded at other localities within the Krishna drainage, including the Koyna and Panchganga rivers in Maharashtra.",
         "ok": true
       },
       {

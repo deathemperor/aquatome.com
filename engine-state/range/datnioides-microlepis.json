@@ -1,8 +1,8 @@
 {
   "id": "datnioides-microlepis",
   "native": {
-    "input": "1cd5499866717d98",
-    "at": "2026-11-14T00:09:29.977Z",
+    "input": "3a0b296be6957b95",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "MY",
@@ -32,7 +32,7 @@
         "code": "ID",
         "status": "native",
         "source": "glaser",
-        "quote": "It invariably has 5 bars, while specimens from Indonesia have an individually variable number of bars.",
+        "quote": "There are two populations of this perch, one originating from the southeast Asian mainland (the Chao Phraya and Mekong basins, this population is sometimes regarded as a separate species, D. pulcher) which has invariably 5 bars, while specimens from Indonesia have an individually variable number of bars.",
         "words": "Indonesia",
         "ok": true
       }
@@ -46,17 +46,15 @@
         "ok": true
       },
       {
-        "name": "Batang Hari",
-        "source": "seriouslyfish",
-        "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
-        "country": "ID",
-        "ok": true
-      },
-      {
         "name": "Musi",
         "source": "seriouslyfish",
         "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
-        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "Apparently restricted to the Malay Peninsula and western Indonesia, where it is known from the Perak and Selangor river systems in Peninsular Malaysia, Batang Hari and Musi watersheds in Sumatra, and Kapuas basin in Kalimantan (Indonesian Borneo).",
         "ok": true
       },
       {
@@ -86,7 +84,8 @@
       "pagesOnly": [
         "TH",
         "LA",
-        "VN"
+        "VN",
+        "KH"
       ],
       "sourcesOnly": []
     }

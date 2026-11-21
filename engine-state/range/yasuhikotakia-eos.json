@@ -1,9 +1,17 @@
 {
   "id": "yasuhikotakia-eos",
   "native": {
-    "input": "6f729bd23aa89f20",
-    "at": "2026-11-17T18:05:08.130Z",
+    "input": "b707718aef7aacf8",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This beautiful and interesting loach, which can attain a maximum length of about 12 cm, originates from Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
       {
         "code": "LA",
         "status": "native",
@@ -49,7 +57,7 @@
       {
         "name": "Mekong",
         "source": "seriouslyfish",
-        "quote": "Described from the Nam Ngum river basin in Vientiane province, Laos, one of the major tributaries of the Mekong River.",
+        "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
         "ok": true
       },
       {

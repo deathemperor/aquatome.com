@@ -11,13 +11,22 @@
     "habitat:glaser": "<p>Meskipun wilayah sebarannya luas, hampir tidak ada yang diketahui tentang kehidupan spesies ini di alam.</p>",
     "diet:glaser": "<p>Bantalan gigi yang besar di rahang bawah menunjukkan bahwa ikan ini mungkin mengerok dan memakan lapisan tumbuhan penempel (aufwuchs).</p>",
     "behaviour:glaser": "<p>Ikan-ikan ini sering \"menahan napas\": setelah gerakan bernapas yang kuat, mereka berulang kali berhenti bernapas cukup lama (setidaknya tidak terlihat ada gerakan bernapas). Perilaku ini belum pernah teramati pada ikan lain.</p>",
-    "notes:glaser": "<p>Ciri khasnya adalah bentuk deretan tulang di sepanjang sisi tubuh, yang lempeng tulangnya (scute) sangat besar tepat di bawah sirip punggung lalu dengan cepat mengecil ke arah ekor. Spesies ini jarang sekali diimpor.</p>"
+    "notes:glaser": "<p>Ciri khasnya adalah bentuk deretan tulang di sepanjang sisi tubuh, yang lempeng tulangnya (scute) sangat besar tepat di bawah sirip punggung lalu dengan cepat mengecil ke arah ekor. Spesies ini jarang sekali diimpor.</p>",
+    "quickFacts:scotcat": "<p>Famili: Doradidae. Sinonim: Doras brachiatus. Ukuran maksimal 35 cm. Suhu 22–26 °C, pH 6,0–7,5.</p>",
+    "distribution:scotcat": "<p>Amerika Selatan: daerah aliran Sungai Amazon.</p>",
+    "habitat:scotcat": "<p>Meskipun spesies ini sudah dideskripsikan secara ilmiah sejak tahun 1872 dan wilayah sebarannya luas, hampir tidak ada yang diketahui tentang kehidupannya di alam.</p>",
+    "maintenance:scotcat": "<p>Cukup jarang diimpor, tetapi perawatannya sama seperti doradid besar lainnya. Bisa dipelihara bersama teman satu akuarium yang berukuran besar atau sedang.</p>",
+    "diet:scotcat": "<p>Bantalan gigi yang besar di rahang bawah menunjukkan bahwa ikan ini mungkin mengerok dan memakan lapisan tumbuhan penempel.</p>",
+    "behaviour:scotcat": "<p>Yang mencolok dari ikan ini adalah mereka sering \"menahan napas\". Setelah gerakan bernapas yang kuat, mereka berulang kali berhenti bernapas cukup lama (setidaknya tidak terlihat ada gerakan bernapas). Perilaku ini belum pernah teramati pada ikan lain (Aquarium Glaser 2019).</p>",
+    "notes:scotcat": "<p>Etimologi: Nama spesies brachiatus berasal dari bahasa Latin yang berarti memiliki cabang seperti lengan, kemungkinan merujuk pada duri sirip dadanya yang \"sangat besar\".</p>",
+    "references:scotcat": "<p>The ETYFish Project Fish Name Etymology Database. www.aquariumglaser.de</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.75,
     "indexable": true,
     "bySource": {
-      "glaser": 0.8
+      "glaser": 0.8,
+      "scotcat": 0.75
     }
   }
 }

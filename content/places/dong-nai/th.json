@@ -3,6 +3,12 @@
   "name": "ด่งนาย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-21T01:19:20.833Z",
+    "why": "ด่งนาย is the usual Thai spelling of Đồng Nai, but the place is the river (sông Đồng Nai) and the name leaves out the kind word แม่น้ำ, so it could be read as the province."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

@@ -686,21 +686,22 @@
     ]
   },
   "afruca-tangeri": {
-    "at": "2026-11-18",
-    "from": "2026-11-18",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "ปูก้ามดาบแอฟริกา",
     "confidence": "low",
-    "score": 0.9,
+    "score": 0.85,
     "notes": [
-      "Sentence 1: \"ตัวที่นำเข้ามาขาย\" adds the idea of import and sale. The source only says the animals are obtained from Nigeria. Use something like \"ตัวที่หาได้มาจากไนจีเรีย\".",
-      "Sentence 3: \"ควรมีที่หลบซ่อนไว้บ้างให้ปูได้หลบ\" repeats \"หลบ\". Shorten it to \"ควรมีที่หลบซ่อนไว้บ้าง\"."
+      "Item 3: \"ควรมีที่หลบซ่อนไว้บ้าง\" is fine, but \"ส่วนน้ำที่ใส่น้ำกร่อย\" could be more natural, e.g. \"ส่วนน้ำเป็นน้ำกร่อย\".",
+      "Item 1: \"นำเข้าจากไนจีเรีย\" is fine, but the English \"are obtained from\" is more neutral, e.g. \"ได้มาจากไนจีเรีย\"; minor.",
+      "Item 4: \"กินสารอินทรีย์แทบทุกอย่างที่หาได้จากทะเล\" is slightly literal; \"สารอินทรีย์\" could be \"อินทรียวัตถุ\"."
     ],
     "parts": {
-      "distribution:glaser": "f6e06c706d52",
-      "habitat:glaser": "cf3bb8758e7f",
-      "maintenance:glaser": "2a0554e287a1",
-      "diet:glaser": "ce230ba4ff87",
-      "behaviour:glaser": "47d0657e7660"
+      "distribution:glaser": "f6456dd95231",
+      "habitat:glaser": "d877c654157e",
+      "maintenance:glaser": "d9c4abffa999",
+      "diet:glaser": "357c02526e1b",
+      "dimorphism:glaser": "24a64fe186a5"
     }
   },
   "agamyxis-pectinifrons": {
@@ -736,15 +737,23 @@
     "from": "2026-11-20",
     "name": "ดอลฟินแคทฟิช",
     "confidence": "low",
-    "score": 0.9,
+    "score": 0.8,
     "notes": [
-      "\"Ageinosus vittatus\" is copied from the English typo; the Latin name should be Ageneiosus vittatus. Correct it only if Latin names may be fixed, otherwise leave it.",
-      "\"ปลาดอลฟินแคทฟิช\" is acceptable, but \"Green Stripe\" is in Latin letters without a Thai reading. This is minor, so no change is needed.",
-      "\"ชนิดนี้ยังเป็นที่รู้จักในชื่อ sp. III\" lacks a subject. Use \"ปลาชนิดนี้\" for smoother Thai."
+      "Item 6: 'tympanic region' left in English without Thai; give a Thai term (e.g. บริเวณแก้วหู/ส่วนหู) or keep in brackets after Thai.",
+      "Item 6: 'กล้ามเนื้อด้านบนลำตัว (epaxial musculature)' is a loose rendering; 'กล้ามเนื้อเหนือแนวกลางลำตัว' would be more precise.",
+      "Item 6: 'เคยถูกจัดไว้ในวงศ์ของตัวเอง' fine, but 'ไม่มีเครา' for 'beardless' and 'ซี่กรองเหงือก' are acceptable; 'กลุ่มที่เป็นกังวลน้อยที่สุด' is a stiff rendering of Least Concern (use 'ถูกคุกคามน้อย/กังวลน้อยที่สุด (LC)').",
+      "Item 5: 'ก้านครีบหลังจะมีส่วนที่ยื่นยาวออกมา ขยายใหญ่และโค้งงอ' word order slightly awkward; 'ส่วนต่อของก้านครีบหลังขยายใหญ่และโค้ง'."
     ],
     "parts": {
       "quickFacts:glaser": "a3729af1fd28",
-      "beforeYouBuy:glaser": "9a05c78ffa4c"
+      "beforeYouBuy:glaser": "9a05c78ffa4c",
+      "distribution:scotcat": "a6443db29dce",
+      "maintenance:scotcat": "675f89937b82",
+      "waterConditions:scotcat": "6b6865ccbe7a",
+      "diet:scotcat": "66d2f107caae",
+      "dimorphism:scotcat": "139d344acaab",
+      "notes:scotcat": "e818b1f60683",
+      "references:scotcat": "dde46bbbbb4d"
     }
   },
   "ageneiosus-magoi": {
@@ -1343,7 +1352,6 @@
       "beforeYouBuy:aquariumcoop": "98f34f64e4bb",
       "distribution:seriouslyfish": "d5e1b53f5136",
       "distribution:aquariumcoop": "e77e421fa1a7",
-      "habitat:seriouslyfish": "c134fae0f50c",
       "habitat:aquariumcoop": "bed4e08c866e",
       "aquariumSize:seriouslyfish": "17a10b7f15dc",
       "aquariumSize:aquariumcoop": "5649c81002f6",
@@ -2288,6 +2296,19 @@
     "parts": {
       "maintenance:glaser": "91259ab1b8f9",
       "notes:glaser": "e8a82ee903b7"
+    },
+    "failed": {
+      "at": "2026-11-20T23:37:59.742Z",
+      "parts": {
+        "quickFacts:scotcat": "11a40f081654",
+        "distribution:scotcat": "a0c8197e16d1",
+        "habitat:scotcat": "8cccab7059eb",
+        "maintenance:scotcat": "a56757c83f04",
+        "diet:scotcat": "7170014871c9",
+        "reproduction:scotcat": "bd8b46da5eed",
+        "notes:scotcat": "d5e6bcddedef",
+        "references:scotcat": "b4649de98556"
+      }
     }
   },
   "ancistrus-pirareta": {
@@ -3053,15 +3074,22 @@
     ]
   },
   "apistogramma-atahualpa": {
-    "at": "2026-11-06",
-    "from": "2026-11-02",
-    "name": "อพิสโต อาตาฮวลปา",
-    "confidence": "medium",
-    "score": 0.9,
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "อพิสโต อาตาวัลปา",
+    "confidence": "low",
+    "score": 0.85,
     "notes": [
-      "\"Sunset-Apistogramma\" is left in English inside quotes; fine as a trade name, but you could add a Thai rendering such as \"อะพิสโตแกรมมาซันเซ็ต\" for readability.",
-      "\"ปลาหมอแคระสายพันธุ์สวย\" is slightly awkward. Prefer \"ปลาหมอแคระที่สวยงามชนิดนี้\", and use \"ชนิด\" rather than \"สายพันธุ์\" for species."
-    ]
+      "\"ปลาหมอแคระชนิดสวยงามจากเปรูชนิดนี้\" is a bit clunky with the repeated \"ชนิด\"; consider \"ปลาหมอแคระสายพันธุ์สวยจากเปรูนี้\".",
+      "\"Sunset-Apistogramma\" is left in English; this is acceptable as a trade name, but consider adding a Thai gloss such as \"(อะพิสโตแกรมมาซันเซ็ต)\" for readability.",
+      "\"ปีซาร์โร (Pizarro) ชาวสเปนจับตัวไว้\" is slightly awkward; consider \"ฟรันซิสโก ปีซาร์โร นักสำรวจชาวสเปนจับกุมพระองค์\".",
+      "\"เข้ามาในวงการ\" is vague; \"เข้ามาในตลาดปลาสวยงาม\" is more natural."
+    ],
+    "parts": {
+      "quickFacts:glaser": "0df3cca30bb5",
+      "beforeYouBuy:glaser": "499307afe4ef",
+      "notes:glaser": "666d95a6c498"
+    }
   },
   "apistogramma-baenschi": {
     "at": "2026-11-09",
@@ -3102,15 +3130,34 @@
     ]
   },
   "apistogramma-bitaeniata": {
-    "at": "2026-11-06",
-    "from": "2026-10-29",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "อพิสโต ไบทีเนียตา",
     "confidence": "medium",
     "score": 0.9,
-    "notes": [
-      "Item 2: \"แม่น้ำ Río Ucayali\" and \"แม่น้ำ rio Solimões/rio Madeira/rio Tapajós\" repeat the word for river, since Río and rio already mean river. Write \"แม่น้ำ Ucayali\" and so on, in one consistent form. Item 2 also writes \"แม่น้ำ Madeira\" in one place, so the river names are not consistent.",
-      "Item 11: \"แม้ว่าจะยังไม่พบสถานที่ใดที่ตรงกับชื่อหลังสุดนี้\" is a little stiff. The \"though\" clause could read more naturally, for example \"แต่ไม่พบสถานที่ที่ชื่อตรงกับ 'Purutu' ...\"."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "047302ce1fef",
+      "distribution:seriouslyfish": "229398ab07d5",
+      "habitat:seriouslyfish": "3425a9296838",
+      "aquariumSize:seriouslyfish": "bbf292ce44c2",
+      "maintenance:seriouslyfish": "b30fe5513b82",
+      "waterConditions:seriouslyfish": "469c8778d477",
+      "diet:seriouslyfish": "b62a7d1b482f",
+      "behaviour:seriouslyfish": "58c74a6a0932",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "5f44423142fb",
+      "references:seriouslyfish": "f4173b9c3a77"
+    },
+    "failed": {
+      "at": "2026-11-20T23:52:28.823Z",
+      "parts": {
+        "quickFacts:glaser": "ec3c47a12bef",
+        "distribution:glaser": "3e78ae5e94ba",
+        "notes:glaser": "e312f338a4cc"
+      }
+    }
   },
   "apistogramma-borellii": {
     "at": "2026-11-09",
@@ -3412,18 +3459,31 @@
     ]
   },
   "apistogramma-nijsseni": {
-    "at": "2026-11-06",
-    "from": "2026-10-29",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "อพิสโตแพนด้า",
     "confidence": "medium",
     "score": 0.85,
-    "notes": [
-      "Item 7: 'ลูกน้ำริ้น (หนอนแดง)' for 'chironomid larvae (bloodworm)' is imprecise, because chironomids are not ริ้น. Use 'ตัวอ่อนแมลงหวี่น้ำ/ไคโรโนมิด (หนอนแดง)' or just 'หนอนแดง'.",
-      "Item 10: 'substrate spawner' became 'วางไข่บนวัสดุ', which is vague and reads oddly next to 'lays eggs in crevices or cavities'. Use a clearer term, e.g. 'ปลาวางไข่ติดพื้นผิว/วางไข่ในโพรง'.",
-      "Item 5: 'most populations will appreciate' became 'ปลาส่วนใหญ่ก็ชอบ', which changes populations into fish in general. Use something like 'ปลาหลายประชากร/หลายแหล่งที่มา'. Also, 'เน่าเปื่อย' is a bit harsh for leaf decomposition.",
-      "Item 8: 'dither fish' is left in English inside quotes. Add a Thai explanation, e.g. 'ปลาเล็กที่ช่วยให้ปลาหลักกล้าออกมาว่าย'.",
-      "Item 11: 'sister group relationship' is translated as 'กลุ่มพี่น้อง', which is fine but stiff. The word order 'ซึ่งมีหลักฐานสนับสนุนไม่หนักแน่น' is slightly awkward."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "5b236392bf1b",
+      "distribution:seriouslyfish": "f04760931e59",
+      "habitat:seriouslyfish": "268c9698ebc1",
+      "aquariumSize:seriouslyfish": "6ac63195ad2a",
+      "maintenance:seriouslyfish": "a3371c497f00",
+      "waterConditions:seriouslyfish": "096341cccafb",
+      "diet:seriouslyfish": "60b70b0af893",
+      "behaviour:seriouslyfish": "c2f915c208d4",
+      "dimorphism:seriouslyfish": "2f33cd628a0c",
+      "reproduction:seriouslyfish": "485dd2f2b3c1",
+      "notes:seriouslyfish": "533a9f012a86"
+    },
+    "failed": {
+      "at": "2026-11-20T23:54:45.563Z",
+      "parts": {
+        "quickFacts:glaser": "42ac1b299e54"
+      }
+    }
   },
   "apistogramma-norberti": {
     "at": "2026-11-06",
@@ -3640,16 +3700,34 @@
     "notes": []
   },
   "aplocheilus-lineatus": {
-    "at": "2026-11-06",
-    "from": "2026-10-29",
-    "name": "สไตรป์แพนแชกซ์",
-    "confidence": "low",
-    "score": 0.7,
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "ปลาแพนแชคส์ลายทาง",
+    "confidence": "medium",
+    "score": 0.88,
     "notes": [
-      "Item 3: 'มีการนำไปปล่อยและแพร่พันธุ์ในสิงคโปร์และฮ่องกง' adds a fact. The English says only 'introduced', not that the fish established populations. Use 'มีการนำเข้าไปในสิงคโปร์และฮ่องกง' and drop 'และแพร่พันธุ์'.",
-      "Item 12: 'อีก 2-3 แบบ' for 'a couple of type locality forms' is a bit more specific than the English. Use 'อีกสองสามแบบ' or 'อีกไม่กี่แบบ'.",
-      "Item 9: 'ปลาแพะ Corydoras' is redundant. Write 'ปลาแพะ (Corydoras)' in brackets, and give a Thai term for loricariids in the same way."
-    ]
+      "Item 14: \"striped panchax หรือ sparkling panchax\" is left in English; give Thai names, or put the English in brackets after a Thai name.",
+      "Item 12: \"แถบสีเข้ม...จะเล็กกว่า\" for \"thinner\" is vague; \"บางกว่า\" or \"แคบกว่า\" is clearer.",
+      "Item 2, 4, 11 and 15: \"แพนแชคส์\" is a transliteration, not an established Thai hobby name. Use the common Thai trade name, or add (striped panchax) in brackets on first use."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "9152716c0f7f",
+      "beforeYouBuy:seriouslyfish": "026b42e30c9f",
+      "distribution:seriouslyfish": "0e284569209c",
+      "distribution:glaser": "cfd35fe2f170",
+      "habitat:seriouslyfish": "4690c322864c",
+      "aquariumSize:seriouslyfish": "1ef0f56008bf",
+      "maintenance:seriouslyfish": "94572340955f",
+      "waterConditions:seriouslyfish": "cbf118b77832",
+      "diet:seriouslyfish": "0005eaa027c9",
+      "behaviour:seriouslyfish": "d92bd3b1a445",
+      "behaviour:glaser": "a6695908b7b9",
+      "dimorphism:seriouslyfish": "3645be8237fe",
+      "reproduction:seriouslyfish": "5b1a942b3c1d",
+      "notes:seriouslyfish": "e74766984098",
+      "notes:glaser": "42987d2d381a",
+      "references:seriouslyfish": "60c8f9bda6b5"
+    }
   },
   "aplocheilus-panchax": {
     "at": "2026-11-16",
@@ -4470,17 +4548,30 @@
     ]
   },
   "astyanax-jordani": {
-    "at": "2026-11-06",
-    "from": "2026-11-03",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "ปลาเตตร้าตาบอด",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "\"ปลาเตตร้าตาบอด\" is acceptable, but Thai hobbyists commonly write \"เตตร้า\" as \"เทตร้า\"; consider standardising (or add the English name in brackets, e.g. Blind Cave Tetra) at first mention.",
-      "\"ไม่ได้เป็นอุปสรรคต่อตัวปลาเลย\" is slightly stiff; more natural: \"ตาบอดไม่เป็นอุปสรรคต่อปลาเลย\".",
-      "\"ปลาไร้ตาของ Jordan\" leaves the name in Latin script; consider adding the Thai transliteration (จอร์แดน) at first mention.",
-      "\"ผสมข้ามกับ...ได้ต่อเนื่องหลายรุ่น\" has clumsy word order; better: \"ผสมข้ามพันธุ์กับ... ได้หลายรุ่น\"."
-    ]
+      "#8: \"อาหารสด\" for \"live\" foods is ambiguous (it can mean fresh/raw food); \"อาหารมีชีวิต\" is clearer for hobbyists."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "38c6861b6007",
+      "distribution:glaser": "8e3edac68dd4",
+      "distribution:seriouslyfish": "f5a270099075",
+      "habitat:seriouslyfish": "94059354a9cb",
+      "aquariumSize:seriouslyfish": "a17ca46c8d11",
+      "maintenance:seriouslyfish": "8adab01569b8",
+      "waterConditions:seriouslyfish": "5fd407dd09c5",
+      "diet:seriouslyfish": "9f461ae6fc33",
+      "behaviour:glaser": "445258e11dde",
+      "behaviour:seriouslyfish": "798bdea78593",
+      "dimorphism:seriouslyfish": "a1ecfb85ad20",
+      "reproduction:seriouslyfish": "e0ba389e69ce",
+      "notes:glaser": "ed8a00565c59",
+      "notes:seriouslyfish": "f09888958289"
+    }
   },
   "astyanax-kennedyi": {
     "at": "2026-11-07",
@@ -5637,12 +5728,35 @@
     ]
   },
   "barbucca-diabolica": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
-    "name": "ปลาค้อตาแดง",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "สกู๊ตเตอร์โลช",
     "confidence": "low",
-    "score": 0.9,
-    "notes": []
+    "score": 0.85,
+    "notes": [
+      "Item 15: 'dorso-laterally orientated eyes' became 'หันไปทางด้านบนค่อนข้าง', which is awkward and drops the lateral part. Use 'หันขึ้นด้านบนและออกด้านข้าง'.",
+      "Item 9: 'small crustaceans' became 'สัตว์พวกกุ้งกั้งปูขนาดเล็ก'. This reads as shrimp, lobster and crab. Use 'สัตว์จำพวกครัสเตเชียนขนาดเล็ก' or 'crustacean ขนาดเล็ก' instead.",
+      "Item 11: 'characins' became 'ปลาเตตร้า', which is loose. 'ปลาคาราซิน' or 'ปลาเตตร้าและปลาในกลุ่มคาราซิน' would be more accurate."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "83895e182f58",
+      "quickFacts:glaser": "14eecf03f71f",
+      "distribution:seriouslyfish": "b4540607ea6e",
+      "distribution:glaser": "060467d914ce",
+      "habitat:seriouslyfish": "28f9a561c379",
+      "aquariumSize:seriouslyfish": "ec399ac9e543",
+      "maintenance:seriouslyfish": "9565ec2487b8",
+      "waterConditions:seriouslyfish": "1522604acd67",
+      "diet:seriouslyfish": "c941d452efce",
+      "diet:glaser": "833a607b10a6",
+      "behaviour:seriouslyfish": "344378c1cbce",
+      "behaviour:glaser": "8a4c51a78f9d",
+      "dimorphism:seriouslyfish": "fd3c43a3b74d",
+      "reproduction:seriouslyfish": "1340393f530a",
+      "notes:seriouslyfish": "5071d9db4c4c",
+      "notes:glaser": "69ad5ad51845",
+      "references:seriouslyfish": "95e3bf19e4ed"
+    }
   },
   "barbus-barbus": {
     "at": "2026-11-17",
@@ -6124,7 +6238,7 @@
     "from": "2026-10-31",
     "name": "ปลาเรนโบว์มาดากัสการ์",
     "confidence": "medium",
-    "score": 0.6,
+    "score": 0.85,
     "notes": [
       "Item 2: \"ซึ่งศัพท์เทคนิคเรียกว่า \\\"submarginal\\\" และในตัวผู้จะอยู่ถัดเข้ามาจากโซนสีแดงด้วย\" — the English says the band lies clearly in front of the caudal edge AND the red zone in the male. The Thai is roughly right, but the bracket is clumsy. Restructure it so the red zone is clearly something the band sits inside of.",
       "Item 2: \"ปลาตู้ชนิดเดียวที่มาจากเกาะมาดากัสการ์ ... ที่แทบจะหาซื้อได้ตลอด\" — the relative clause is separated from \"ปลาตู้\", so it reads awkwardly. Rephrase as \"เป็นปลาตู้ชนิดเดียวจากเกาะมาดากัสการ์ที่หาซื้อได้เกือบตลอดเวลา\".",
@@ -6261,16 +6375,23 @@
     }
   },
   "benitochromis-riomuniensis": {
-    "at": "2026-11-10",
-    "from": "2026-11-09",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "เบนิโตโครมิส ริโอมูนิเอนซิส",
     "confidence": "low",
     "score": 0.8,
-    "notes": [
-      "Item 3: \"ovophilous mouthbrooder\" is left as untranslated English in brackets, and the \"(ovophilous)\" gloss is unexplained; it would read better as e.g. \"อมไข่ทันทีหลังวางไข่\" with the English term kept only once in brackets.",
-      "Item 4: \"Golden Throated King Cichlid\" is given only in English. Adding a Thai rendering or transliteration would help readers, though the English trade-style name is acceptable.",
-      "Item 2: \"ปลาหมอสีกลุ่มนี้\" is fine, but \"ใกล้ชิดกับ\" would be more natural as \"มีความใกล้ชิดกับ\" or \"มีเครือญาติใกล้ชิดกับ\"."
-    ]
+    "notes": [],
+    "parts": {
+      "distribution:glaser": "b559cda2cd89",
+      "reproduction:glaser": "44c27d283a0a",
+      "notes:glaser": "158c5cb87e25"
+    },
+    "failed": {
+      "at": "2026-11-21T00:01:52.666Z",
+      "parts": {
+        "quickFacts:glaser": "7e165900c750"
+      }
+    }
   },
   "benthochromis-tricoti": {
     "at": "2026-11-07",
@@ -6290,7 +6411,7 @@
     "from": "2026-10-31",
     "name": "เบตาเดวาริโอ",
     "confidence": "low",
-    "score": 0.6,
+    "score": 0.9,
     "notes": [
       "Item 11: 'เคลด Devario ... ใกล้ชิดที่สุดกับสองเคลด' is wrong. The English says the Devario clade is most closely related to a Danio clade plus an Esomus clade, which can be read as one larger group. This could change the phylogenetic meaning, so check it.",
       "Item 11: 'ตามแนวโน้ม'-type hedges are fine, but 'ไม่พบทั้งสองสกุลรวมกัน' is awkward. Better: 'แต่ไม่ได้มีครบทั้งสองสกุล'.",
@@ -6307,7 +6428,7 @@
     "from": "2026-11-01",
     "name": "เบตต้า อาคาเรนซิส",
     "confidence": "medium",
-    "score": 0.6,
+    "score": 0.85,
     "notes": [
       "Item 4: \"60 × 30 cm (about 54 litres)\" is kept unchanged, but the source was probably in inches or gallons and the figure should be checked. The Thai matches the English as given, so this is low confidence.",
       "Item 8: \"ปลาในวงศ์ปลาตะเพียนขนาดเล็ก\" for \"small cyprinids\" is imprecise. Use \"ปลากลุ่มปลาตะเพียน/ไซปรินิดขนาดเล็ก\", or \"ปลาในวงศ์ Cyprinidae\".",
@@ -6650,7 +6771,7 @@
     "from": "2026-11-01",
     "name": "Betta enisae",
     "confidence": "medium",
-    "score": 0.55,
+    "score": 0.8,
     "notes": [
       "Item 4: the English gives '45 × 30 cm (18 × 12 in)'. The Thai keeps '45 × 30 ซม.' and drops the inch figure. That is allowed, so it is fine. The real problem is the volume: '41 litres' is kept unchanged, which is correct, so there is no issue here.",
       "Item 5: 'Ketapang almond leaves' is translated 'ใบหูกวาง'. This is acceptable, but the common hobby term 'ใบหูกวาง (ketapang)' would be clearer.",
@@ -6774,7 +6895,7 @@
     "from": "2026-11-02",
     "name": "ปลากัดฮิปโปซิเดรอส",
     "confidence": "low",
-    "score": 0.6,
+    "score": 0.9,
     "notes": [
       "Item 2: 'Endangered' is rendered 'ใกล้สูญพันธุ์'. In IUCN Thai usage that means Near Threatened. Endangered is 'ใกล้สูญพันธุ์' only in some loose usage, but the standard term is 'ใกล้สูญพันธุ์ (EN)' or 'ถูกคุกคาม/ใกล้สูญพันธุ์อย่างยิ่ง'. Use the correct IUCN category wording.",
       "Item 6: 'Ketapang almond leaves' is rendered 'ใบหูกวาง'. This is fine, but 'Driftwood roots and branches' is rendered 'รากและกิ่งขอนไม้'. Use 'รากและกิ่งไม้流木 (ไม้流木)' style wording such as 'รากไม้และกิ่งไม้ที่เป็นขอนไม้'.",
@@ -7019,7 +7140,7 @@
     "from": "2026-11-01",
     "name": "ปลากัดป่ามันดอร์",
     "confidence": "low",
-    "score": 0.7,
+    "score": 0.85,
     "notes": [
       "Item 22: corrupted character (replacement glyph) in 'เป็นที่��อมรับโดยทั่วไป'. Restore it to 'เป็นที่ยอมรับโดยทั่วไป'.",
       "Item 16: 'แย่งอาหาร' for 'outcompete' narrows the meaning to food. Use a general wording such as 'เอาเปรียบ/แข่งขันสู้ไม่ได้'.",
@@ -7284,7 +7405,7 @@
     "from": "2026-11-01",
     "name": "ปลากัดพินกุยส์",
     "confidence": "low",
-    "score": 0.6,
+    "score": 0.8,
     "notes": [
       "Item 4: '(31 × 12 in)' dropped fine, but 72 litres kept; OK. However item 10: 'หลายคนจะนำตัวเมีย...ออกหลังวางไข่ไปได้ไม่กี่วัน' – 'but many remove the female' contrast is garbled; 'ไปได้ไม่กี่วัน' reads as 'after a few days have passed' awkward; rephrase as 'หลายคนจึงแยกตัวเมียออกหลังวางไข่ไม่กี่วัน'.",
       "Item 10: 'ตัวเมียจะอมไข่ไว้ในปากก่อนพ่นออกมา' and 'ไข่จะถูกปล่อยออกมาทีละชุดเล็ก ๆ' – fine, but 'หากไม่มี อวัยวะช่วยหายใจ...' has a misplaced space/clause break; the sentence 'without which' should read 'หากไม่มี ... อวัยวะ labyrinth อาจพัฒนาไม่สมบูรณ์' clearly.",
@@ -7341,17 +7462,46 @@
     ]
   },
   "betta-raja": {
-    "at": "2026-11-01",
-    "from": "2026-10-31",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "เบตต้า ราจา",
     "confidence": "medium",
     "score": 0.88,
     "notes": [
-      "Item 19: \"เลี้ยงปลาคู่นี้แยกไว้ตัวเดียวอยู่แล้ว\" is contradictory (a pair kept as a single fish). Rephrase along the lines of \"เลี้ยงปลาแยกไว้เฉพาะอยู่แล้ว\".",
-      "Item 19: \"หากไม่มี การพัฒนาของ...\" reads awkwardly. Smooth it, e.g. \"หากไม่มีอากาศชั้นนี้ อวัยวะเขาวงกตอาจพัฒนาผิดปกติ\".",
-      "Item 15: \"ข่มและแย่งอาหารได้ดีกว่า\" adds \"อาหาร\"; the source only says \"outcompete\". Use a more general \"แย่งชิงทรัพยากร/แข่งขันได้ดีกว่า\".",
-      "Item 12: \"ไส้เดือนน้ำ\" for blackworms is imprecise. Hobbyists usually say \"หนอนแดงดำ/ไส้เดือนน้ำดำ\" or give (blackworm) in brackets."
-    ]
+      "Item 24: \"เลี้ยงปลาคู่นี้แยกไว้ตัวเดียวอยู่แล้ว\" is contradictory (a pair kept as a single fish); say the fish are already kept alone, i.e. \"เลี้ยงปลาแยกจากปลาอื่นอยู่แล้ว\".",
+      "Item 19: \"สงบและรักสงบ\" is redundant; vary the wording, e.g. \"ปลาอื่นที่นิสัยสงบ\".",
+      "Item 25: \"authors\" was rendered as \"ผู้เชี่ยวชาญ\"; \"นักวิชาการ/ผู้เขียนบางท่าน\" is closer.",
+      "Item 25: \"harsher environments\" rendered as \"โหดร้าย\" is slightly odd; use \"สภาพแวดล้อมที่รุนแรง/ท้าทายกว่า\"."
+    ],
+    "parts": {
+      "quickFacts:bwaquatics": "786e9c7d784f",
+      "quickFacts:seriouslyfish": "e5e15fe96da8",
+      "quickFacts:glaser": "50f4ff8ed6b3",
+      "distribution:bwaquatics": "0471d87bef7b",
+      "distribution:seriouslyfish": "4c7b6175e846",
+      "distribution:glaser": "8248fb35bd03",
+      "habitat:bwaquatics": "5fb07178f81c",
+      "habitat:seriouslyfish": "b251aa507699",
+      "aquariumSize:bwaquatics": "730b5e114f37",
+      "aquariumSize:seriouslyfish": "03affe1fa8fa",
+      "maintenance:seriouslyfish": "0c1dfb7d40f8",
+      "waterConditions:bwaquatics": "984d32a5eb3a",
+      "waterConditions:seriouslyfish": "23b4521fbe16",
+      "waterConditions:glaser": "01b0a0293728",
+      "diet:bwaquatics": "3a2e4af2770e",
+      "diet:seriouslyfish": "ba61e023786b",
+      "behaviour:bwaquatics": "1dc00b0a90b0",
+      "behaviour:seriouslyfish": "de7ae550df8d",
+      "behaviour:glaser": "41372b4976bb",
+      "dimorphism:bwaquatics": "03094fe6f741",
+      "dimorphism:seriouslyfish": "f6b25897fc5c",
+      "dimorphism:glaser": "f04b6a722300",
+      "reproduction:bwaquatics": "c78563092692",
+      "reproduction:seriouslyfish": "2014cfdb7c6a",
+      "notes:seriouslyfish": "70c6c334e1cd",
+      "notes:glaser": "81b3dd119126",
+      "references:seriouslyfish": "179e174e87dd"
+    }
   },
   "betta-renata": {
     "at": "2026-11-04",
@@ -7443,15 +7593,36 @@
     }
   },
   "betta-simorum": {
-    "at": "2026-11-01",
-    "from": "2026-10-31",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "ปลากัดซิโมรัม",
-    "confidence": "low",
-    "score": 0.75,
-    "notes": [
-      "#5: \"พีททรัพย์ธรรมชาติ\" is a garbled word. Use \"พีทธรรมชาติ\" (or \"ถ่านพีท\"), and keep the spelling \"พีท\" consistent with the next sentence.",
-      "#16: \"ระบบนิเวศ\" for \"ecological niches\" is imprecise. \"แหล่งที่อยู่อาศัยแบบต่าง ๆ\" or \"นิเวศวิทยาเฉพาะถิ่น\" would be closer."
-    ]
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:bwaquatics": "865612e42a4e",
+      "quickFacts:glaser": "ac7b12fddec5",
+      "distribution:seriouslyfish": "4714831c5b3c",
+      "distribution:glaser": "b9bf11d0b9e5",
+      "habitat:seriouslyfish": "38fb14814774",
+      "aquariumSize:seriouslyfish": "83f4b1d587f9",
+      "maintenance:seriouslyfish": "07d7e535a0bf",
+      "waterConditions:seriouslyfish": "cfd9258fe586",
+      "waterConditions:glaser": "a0449d0c2f58",
+      "diet:bwaquatics": "3a2e4af2770e",
+      "diet:seriouslyfish": "27bb5eb60e27",
+      "behaviour:bwaquatics": "2f79250e2269",
+      "behaviour:seriouslyfish": "fb029446e2f4",
+      "behaviour:glaser": "cd99b0e0d009",
+      "dimorphism:bwaquatics": "ca7751b22ec2",
+      "dimorphism:seriouslyfish": "c635db13cc92",
+      "reproduction:bwaquatics": "c8579263ab33",
+      "reproduction:seriouslyfish": "464470f6a008",
+      "notes:bwaquatics": "54dc4d6d0bcd",
+      "notes:seriouslyfish": "1df80af17429",
+      "notes:glaser": "bd1dcdf2a642",
+      "references:seriouslyfish": "cd20f5802c24"
+    }
   },
   "betta-simplex": {
     "at": "2026-11-17",
@@ -7698,42 +7869,39 @@
     }
   },
   "betta-unimaculata": {
-    "at": "2026-11-19",
-    "from": "2026-11-19",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "ปลากัดยูนิมาคูลาต้า",
     "confidence": "medium",
     "score": 0.88,
-    "notes": [
-      "Item 23: 'ซี่เหงือกอันแรก' for 'first gill arch' should be 'โครงเหงือก/กระดูกค้ำเหงือกคู่แรก'. 'ซี่เหงือก' means gill rakers or filaments.",
-      "Item 17: 'ปลาซิวและปลาตะเพียน' for 'small cyprinids' is narrow. 'ปลาตระกูลปลาตะเพียน/ซิว (cyprinids)' would be safer.",
-      "Item 15: 'ในปริมาณมาก' sits oddly after 'เป็นประจำ', and it could be read as heavy feeding in one go. Use 'หลายชนิดอย่างสม่ำเสมอ' instead."
-    ],
+    "notes": [],
     "parts": {
-      "quickFacts:bwaquatics": "8c9ef803b962",
+      "quickFacts:bwaquatics": "9473166275b9",
       "quickFacts:seriouslyfish": "d919be8709cd",
       "quickFacts:glaser": "5c3a4f2aeee0",
-      "distribution:bwaquatics": "c264b0483bb6",
+      "distribution:bwaquatics": "ac6f2043808f",
       "distribution:seriouslyfish": "5d30f7c28743",
       "habitat:seriouslyfish": "f4fee26c5823",
-      "habitat:bwaquatics": "23b153e5788e",
+      "habitat:bwaquatics": "decd722b9564",
       "aquariumSize:seriouslyfish": "8868fb565fd5",
-      "aquariumSize:bwaquatics": "2a60381e50c2",
+      "aquariumSize:bwaquatics": "3e6720857e6b",
       "maintenance:seriouslyfish": "0c1dfb7d40f8",
       "maintenance:glaser": "a2e9947dea83",
-      "waterConditions:bwaquatics": "8fd3015b20cb",
+      "waterConditions:bwaquatics": "7da11eefb93a",
       "waterConditions:seriouslyfish": "f5875635f478",
-      "diet:bwaquatics": "48554d9bbafd",
+      "diet:bwaquatics": "3a2e4af2770e",
       "diet:seriouslyfish": "4a20465f1ff2",
-      "behaviour:bwaquatics": "ff4cd60be969",
+      "behaviour:bwaquatics": "8034bbc608ea",
       "behaviour:seriouslyfish": "98e437fae794",
-      "dimorphism:bwaquatics": "c8a8218c61df",
+      "dimorphism:bwaquatics": "5b7898791ae8",
       "dimorphism:seriouslyfish": "47fadaf8f7c9",
       "reproduction:bwaquatics": "2462d628ec9e",
       "reproduction:seriouslyfish": "54064ebaae9a",
       "reproduction:glaser": "48d582676d27",
       "notes:seriouslyfish": "fb43e16fac8e",
-      "notes:bwaquatics": "17b7c2a7d166",
-      "references:seriouslyfish": "c9259b8844ae"
+      "notes:bwaquatics": "1b4c2c285725",
+      "references:seriouslyfish": "c9259b8844ae",
+      "beforeYouBuy:bwaquatics": "0b2954a163db"
     }
   },
   "bhavania-australis": {
@@ -7865,7 +8033,7 @@
   },
   "boraras-brigittae": {
     "at": "2026-11-17",
-    "from": "2026-11-17",
+    "from": "2026-11-20",
     "name": "ชิลลี่ ราสบอร่า",
     "confidence": "high",
     "score": 0.55,
@@ -7898,7 +8066,6 @@
       "waterConditions:bwaquatics": "bb3ad5272ca8",
       "waterConditions:seriouslyfish": "d06e1276c65a",
       "waterConditions:aquariumcoop": "5760bd32be09",
-      "equipment:bwaquatics": "d0d7877872cb",
       "equipment:aquariumcoop": "3f9b43797e5f",
       "diet:bwaquatics": "b104df4f0db6",
       "diet:seriouslyfish": "fae8b5296145",
@@ -7915,6 +8082,20 @@
       "notes:seriouslyfish": "42fb7cabd319",
       "notes:glaser": "29ea8b03914f",
       "references:seriouslyfish": "a3d1ae54a685"
+    },
+    "failed": {
+      "at": "2026-11-20T23:39:34.296Z",
+      "parts": {
+        "quickFacts:bwaquatics": "8098e0b65cfa",
+        "distribution:bwaquatics": "0d44ba514070",
+        "habitat:bwaquatics": "7c30c2c6b740",
+        "maintenance:bwaquatics": "fdd45cf9797c",
+        "waterConditions:bwaquatics": "d5effe26bb4f",
+        "diet:bwaquatics": "0143fc9bf86f",
+        "behaviour:bwaquatics": "88119706b86f",
+        "dimorphism:bwaquatics": "6c540c5fc0d3",
+        "reproduction:bwaquatics": "b6aeca063714"
+      }
     }
   },
   "boraras-maculatus": {
@@ -8132,16 +8313,35 @@
     ]
   },
   "botia-striata": {
-    "at": "2026-11-08",
-    "from": "2026-10-29",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "ปลาหมูม้าลาย",
     "confidence": "medium",
     "score": 0.88,
-    "notes": [
-      "Item 9: \"ปลาแมว\" for catfishes is a literal calque. Hobbyists in Thailand usually say \"ปลาแคท\" or \"แคทฟิช\", or use a specific local name.",
-      "Item 8: \"ปลาจะกินอาหารอย่างกล้าหาญ\" for \"bold feeders\" is stiff. Something like \"กินอาหารอย่างไม่ตื่นกลัว\" would read more naturally.",
-      "Item 12: \"loachy dance\" and \"skinny disease\" are left only in English quotes. Add a short Thai gloss, e.g. \"โรคผอม (skinny disease)\", so readers get the meaning."
-    ]
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "88513fef7f09",
+      "beforeYouBuy:seriouslyfish": "2123631ca90d",
+      "distribution:seriouslyfish": "da712c49beaa",
+      "habitat:seriouslyfish": "5146db379173",
+      "aquariumSize:seriouslyfish": "f281e071b2c7",
+      "maintenance:seriouslyfish": "1a58f8138838",
+      "waterConditions:seriouslyfish": "9a7e298895c8",
+      "diet:seriouslyfish": "817b042cc55e",
+      "behaviour:seriouslyfish": "f1dab8b70977",
+      "dimorphism:seriouslyfish": "76b002f85d21",
+      "reproduction:seriouslyfish": "9055e0f6a0b7",
+      "notes:seriouslyfish": "9e2e97857682",
+      "references:seriouslyfish": "fbe2f2a32c66"
+    },
+    "failed": {
+      "at": "2026-11-21T00:09:29.660Z",
+      "parts": {
+        "quickFacts:glaser": "fa9944d9fb08",
+        "behaviour:glaser": "39eac7961f3c",
+        "notes:glaser": "fe42c04adf7a"
+      }
+    }
   },
   "botia-udomritthiruji": {
     "at": "2026-11-08",
@@ -8451,15 +8651,33 @@
     ]
   },
   "brachyplatystoma-platynemum": {
-    "at": "2026-11-08",
-    "from": "2026-10-29",
-    "name": "สลอบเบอริ่ง แคทฟิช",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "สโลเบอริ่งแคทฟิช",
     "confidence": "low",
     "score": 0.9,
     "notes": [
-      "Items 1 and 3: \"แม่น้ำ Madeira\" is left in Latin script. Use the Thai form \"แม่น้ำมาเดรา\" (rio Madeira), as done for แอมะซอน and โอรีโนโก.",
-      "Item 7: \"ปลาซิวขนาดเล็ก/ลูกปลาเล็ก\" for whitebait is vague. Use one clear term, such as \"ปลาไวต์เบต\" or \"ลูกปลาขนาดเล็ก\"."
-    ]
+      "Item 7: \"some large chunks of driftwood\" became \"ขอนไม้ชิ้นใหญ่ไม่กี่ชิ้น\" (a few pieces). \"Some\" is not \"few\", so use \"ขอนไม้ชิ้นใหญ่\" or \"หลายชิ้น\" instead.",
+      "Item 1: \"travels considerable distances\" and the opening \"migratory\" both use \"อพยพเป็นระยะทางไกล\", so the first paragraph repeats itself. Vary the wording, for example \"เดินทางไกล\" for the second one."
+    ],
+    "parts": {
+      "quickFacts:seriouslyfish": "ee73646e42bd",
+      "quickFacts:glaser": "c6108186f70b",
+      "distribution:seriouslyfish": "834e347b940b",
+      "distribution:glaser": "e4dc6cd31cd8",
+      "habitat:seriouslyfish": "c70938d38d76",
+      "aquariumSize:seriouslyfish": "959c872e5029",
+      "maintenance:seriouslyfish": "5b9e30fe98c0",
+      "waterConditions:seriouslyfish": "005ffa0219d1",
+      "waterConditions:glaser": "0c4902c71dc7",
+      "diet:seriouslyfish": "2ec251ef38e4",
+      "behaviour:seriouslyfish": "7393bb266cb8",
+      "behaviour:glaser": "3c506d206b3c",
+      "dimorphism:seriouslyfish": "f281e3421eeb",
+      "reproduction:seriouslyfish": "649d3f2a9075",
+      "notes:seriouslyfish": "9d56c9caf791",
+      "references:seriouslyfish": "3f28f09221c4"
+    }
   },
   "brachyplatystoma-rousseauxii": {
     "at": "2026-11-08",
@@ -8902,13 +9120,15 @@
   },
   "bunocephalus-coracoideus": {
     "at": "2026-11-20",
-    "from": "2026-11-19",
+    "from": "2026-11-20",
     "name": "Bunocephalus coracoideus",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.85,
     "notes": [
-      "#11: \"อาหารเม็ดชนิดแท็บเล็ตจม\" adds \"sinking\", which the English (\"tablet food\") does not say. Use \"อาหารเม็ดแท็บเล็ต\".",
-      "#11/#15: \"ไส้เดือนน้ำ\" for tubifex is fine, but \"หนอนแดง\" and \"ไส้เดือนน้ำ\" are easy to confuse. Consider \"หนอนแดง (bloodworm)\" and \"ทูบิเฟ็กซ์ (tubifex)\"."
+      "\"swarm of banjo catfish\" is rendered as \"ปลาแบนโจที่ขายเป็นฝูง\". This adds \"ที่ขาย\" (sold), which the source doesn't say. Prefer \"ฝูงปลาแบนโจ\".",
+      "\"พบมากในธรรมชาติ\" is acceptable. \"วางขาย\" for \"sold\" is slightly stiff, so \"จำหน่าย\" or \"ขาย\" is more natural.",
+      "\"ปลาแบนโจ\" is not the most common Thai hobby name. Consider adding \"ปลากดแบนโจ\" or \"(Banjo catfish)\" in brackets at first mention.",
+      "\"เลี้ยงปลากลุ่มนี้...ให้โตขึ้น\" is slightly awkward for \"raise\". Prefer \"เลี้ยงและสังเกตปลากลุ่มนี้\"."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "b7c2baf66153",
@@ -8929,7 +9149,10 @@
       "notes:seriouslyfish": "3a65fde090fd",
       "notes:scotcat": "d6a177d9b856",
       "references:seriouslyfish": "949c9c2fa8d4",
-      "references:scotcat": "dacc02ca0fd2"
+      "references:scotcat": "dacc02ca0fd2",
+      "beforeYouBuy:glaser": "72e87b90ff1e",
+      "distribution:glaser": "3562d053756c",
+      "behaviour:glaser": "c122ab100ab6"
     }
   },
   "bunocephalus-doriae": {
@@ -9799,6 +10022,36 @@
       "Item 7: \"ซึ่งหมายถึงครีบอกที่แหลมคม ซึ่งเป็นที่รู้กันว่า...\" repeats \"ซึ่ง\" and is clumsy. Rephrase, e.g. \"หมายถึงเงี่ยงครีบอกที่แหลมคม ซึ่งรู้กันว่าสามารถฆ่าเคแมนที่พยายามกินมันได้\". Also \"จระเข้\" for crocodile and \"เคแมน\" for caiman are used in the same sentence, which is fine, but \"เงี่ยงครีบอกที่ไม่มีก้านครีบ\" (unrayed) is stiff.",
       "Item 3: \"แม่น้ำมักดาเลนา\" appears twice, a literal repeat of the source. Merge the two mentions to keep the Thai natural."
     ]
+  },
+  "centrodoras-brachiatus": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "Centrodoras brachiatus",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 10: 'ที่ we have not yet observed' dropped the source citation '(Aquarium Glaser 2019)' — the translation omits the reference; restore it.",
+      "Item 9/10: 'ยังไม่เคยพบในปลาชนิดอื่น' — English says 'in fish' (any other fish, observed by authors), not 'other fish'; 'ปลาชนิดอื่น' adds meaning. Use 'ยังไม่เคยสังเกตพบในปลา'.",
+      "Item 12: 'มีกิ่งก้านเหมือนแขน' is a literal rendering; more natural: 'มีแขนงคล้ายแขน'; also 'ก้านครีบอกแข็ง' adds 'แข็ง' for pectoral spines (acceptable) but keep quotes consistent.",
+      "Item 6: 'ปลาในวงศ์ดอราส' — 'Dorad' is better rendered as 'ปลาดอรัด/ปลาแคทฟิชวงศ์ Doradidae'; 'ดอราส' is a non-standard transliteration.",
+      "Item 1 vs 2: the English source itself conflicts (40 cm vs 35 cm); translation preserves both numbers faithfully, so no change needed unless fixing the source.",
+      "Item 13: Reference line left untranslated is acceptable; no change."
+    ],
+    "parts": {
+      "quickFacts:glaser": "ac27e3172ad8",
+      "quickFacts:scotcat": "72e16f3058fb",
+      "distribution:scotcat": "fc4a1c0051dc",
+      "habitat:glaser": "cce0c948e5ac",
+      "habitat:scotcat": "320048886ffe",
+      "maintenance:scotcat": "8f9c0fe06081",
+      "diet:glaser": "971b90887d41",
+      "diet:scotcat": "971b90887d41",
+      "behaviour:glaser": "316613193965",
+      "behaviour:scotcat": "ac47a3bd2e9e",
+      "notes:glaser": "6bfb71ddb9fc",
+      "notes:scotcat": "3e809f2471ed",
+      "references:scotcat": "f4511b64579a"
+    }
   },
   "centromochlus-heckelii": {
     "at": "2026-11-08",
@@ -14158,17 +14411,35 @@
     }
   },
   "corydoras-sterbai": {
-    "at": "2026-11-02",
-    "from": "2026-11-02",
-    "name": "แพะสเตอร์ไบ",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "คอรี่สเตอร์ไบ",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.88,
     "notes": [
-      "Item 8: \"กิ่งขอนไม้สักสองสามกิ่ง\" is ambiguous because \"ไม้สัก\" reads as teak wood. Rephrase as \"ขอนไม้/กิ่งไม้流木 สัก 2–3 ชิ้น\", for example \"ใส่กิ่งไม้ขอนสองสามชิ้น\"; \"driftwood\" is usually ไม้流木/ขอนไม้.",
-      "Item 11: the brackets \"(ปลากัด ปลากระดี่)\" add examples that are not in the source. Remove them or keep only the term \"อนาบันทิด\".",
-      "Item 3: \"definitely worth a mention\" became \"น่าสนใจอย่างแน่นอน\", which is slightly off. Say that the fish are worth mentioning or noting, for example \"สมควรกล่าวถึง\".",
-      "Item 13: \"โดยจะไม่ปูพื้นหรือปูทรายหรือกรวดละเอียดก็ได้\" is hard to parse. Write \"จะไม่ปูวัสดุรองพื้น หรือปูทราย หรือกรวดละเอียดก็ได้\"."
-    ]
+      "#10: \"กิ่งขอนไม้สักสองสามกิ่ง\" can be misread as teak wood (ไม้สัก). Use \"ขอนไม้/กิ่งไม้ ... สองสามชิ้น\" instead.",
+      "#3: \"น่าสนใจเป็นอย่างยิ่ง\" is slightly stronger than the English \"definitely worth a mention\". Something like \"ควรค่าแก่การกล่าวถึง\" is closer."
+    ],
+    "parts": {
+      "quickFacts:glaser": "6cb400570fdd",
+      "quickFacts:seriouslyfish": "9ec1b903efc0",
+      "beforeYouBuy:glaser": "f16ff3271eaf",
+      "distribution:glaser": "e380de16b5e9",
+      "distribution:seriouslyfish": "8f7240d62ede",
+      "distribution:aquatome": "a6d64eaa7f27",
+      "habitat:seriouslyfish": "d11be8e97e55",
+      "habitat:aquatome": "5cfcb79b04df",
+      "aquariumSize:seriouslyfish": "132763618d8f",
+      "maintenance:seriouslyfish": "763dde63e56c",
+      "waterConditions:seriouslyfish": "3ec51aff6479",
+      "diet:seriouslyfish": "c3588abceed2",
+      "diet:aquatome": "b32eaabe192f",
+      "behaviour:seriouslyfish": "abe38b80b721",
+      "dimorphism:seriouslyfish": "c9cee6e23c7e",
+      "reproduction:seriouslyfish": "5c20659ea4c7",
+      "notes:seriouslyfish": "df351f2ff723",
+      "notes:aquatome": "2e10758b89f5"
+    }
   },
   "corydoras-trilineatus": {
     "at": "2026-11-13",
@@ -14677,7 +14948,7 @@
   },
   "crenicichla-regani": {
     "at": "2026-11-13",
-    "from": "2026-11-15",
+    "from": "2026-11-20",
     "name": "ไพค์ซิคลิด รีกานิ",
     "confidence": "low",
     "score": 0.7,
@@ -14694,16 +14965,16 @@
       "notes:glaser": "f73aeebf17f6"
     },
     "failed": {
-      "at": "2026-11-15T22:47:50.179Z",
+      "at": "2026-11-20T23:41:12.054Z",
       "parts": {
-        "quickFacts:glaser": "d401f2498a2b",
-        "distribution:glaser": "b37d46d74c12",
-        "habitat:glaser": "c08df7545d62",
-        "aquariumSize:glaser": "ab1ea75730dc",
-        "waterConditions:glaser": "b05a843669df",
-        "diet:glaser": "22b36f8e5be2",
-        "reproduction:glaser": "b917e94a9bec",
-        "notes:glaser": "3cfeb9e1564e"
+        "quickFacts:glaser": "aafacc1d5d9b",
+        "distribution:glaser": "b7b1c36aa44b",
+        "habitat:glaser": "28d2bdbfa9e1",
+        "aquariumSize:glaser": "c56f5ff587f4",
+        "waterConditions:glaser": "a9c8c4643e5a",
+        "diet:glaser": "bc2d8b287a11",
+        "reproduction:glaser": "ff873b9387b0",
+        "notes:glaser": "7e007b713473"
       }
     }
   },
@@ -16657,14 +16928,16 @@
     ]
   },
   "datnioides-microlepis": {
-    "at": "2026-11-14",
-    "from": "2026-11-13",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "ปลาเสือตออินโด",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "\"แถบสีอ่อน\" for \"light blaze\": a blaze is a pale marking/patch, usually on the head or forehead, so \"แถบ\" (stripe) may be slightly off. Consider \"จุด/แต้มสีอ่อน\" or \"แถบสีอ่อนบริเวณหัว\", whichever matches the source species.",
-      "\"ปลาเสือตอ\" for \"tiger fish\" is ambiguous. In Thailand it usually means Datnioides (Siamese tiger fish), which is a different fish from the African/South American tiger fish (Hydrocynus/Hoplias). Check the species context and use the right name."
+      "\"ปลาเสือตออินโด\" is a slightly clipped abbreviation; the fuller \"ปลาเสือตออินโดนีเซีย\" is more standard in a handbook.",
+      "\"มีสองประชากร\" / \"ประชากรหนึ่ง\" is a literal rendering of \"populations\" and reads stiffly; \"สองกลุ่มประชากร\" or \"สองถิ่นกำเนิด\" would be more natural.",
+      "\"ปลานักล่าตัวใหญ่ชนิดนี้\" is fine, but \"แถบ 5 แถบเสมอ\" repeats \"แถบ\"; \"มีลายแถบ 5 แถบเสมอ\" or \"มี 5 แถบเสมอ\" reads better.",
+      "\"ลักษณะร่วมกัน\" is a bit stiff; \"สิ่งที่เหมือนกันคือ\" would be more natural."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "52ded57c82e2",
@@ -16679,10 +16952,10 @@
       "reproduction:seriouslyfish": "397d35e041c5",
       "notes:seriouslyfish": "f06edce46bc5",
       "references:seriouslyfish": "d981080a5215",
-      "quickFacts:glaser": "e4089b32974b",
-      "distribution:glaser": "bfed65d44108",
-      "behaviour:glaser": "394d82a96471",
-      "notes:glaser": "13b3ca830a11",
+      "quickFacts:glaser": "cad03becb005",
+      "distribution:glaser": "8ac5e370436e",
+      "behaviour:glaser": "bbf3ba7e8662",
+      "notes:glaser": "68c4eb4ea32d",
       "diet:glaser": "9335441fc1a0"
     }
   },
@@ -17813,7 +18086,7 @@
   },
   "dianema-urostriatum": {
     "at": "2026-11-16",
-    "from": "2026-11-02",
+    "from": "2026-11-20",
     "name": "แคทหางธง",
     "confidence": "low",
     "score": 0.9,
@@ -17842,6 +18115,15 @@
       "reproduction:planetcatfish": "d591c51d7cac",
       "notes:seriouslyfish": "efe3b2064cd8",
       "references:planetcatfish": "af938ec10099"
+    },
+    "failed": {
+      "at": "2026-11-20T23:42:43.276Z",
+      "parts": {
+        "quickFacts:glaser": "756d4ee8de17",
+        "diet:glaser": "83099a2899c4",
+        "behaviour:glaser": "06143aeb6ee3",
+        "reproduction:glaser": "937def54b925"
+      }
     }
   },
   "dichotomyctere-fluviatilis": {
@@ -17923,37 +18205,33 @@
     }
   },
   "dicrossus-maculatus": {
-    "at": "2026-11-16",
-    "from": "2026-11-09",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "ปลาหมอหมากรุก มาคูลาตัส",
     "confidence": "low",
     "score": 0.6,
     "notes": [
-      "Item 7: \"less than 1 dH\" rendered as \"ต่ำกว่า 1 dH\" is fine, but the pH range and temperature are unchanged; no issue there.",
-      "Item 10: \"non conspecifics\" means fish of other species; \"รักสงบมากกับปลาต่างชนิด\" is acceptable but terse. Consider \"ปลาชนิดอื่น\".",
-      "Item 12: \"paternal care\" is translated as \"พฤติกรรมดูแลลูก\". It drops the paternal (male-parent) nuance, and item 13 says the female alone cares for the young. Check consistency with the source wording.",
-      "Item 14: \"พ่อแม่ปลา\" for \"mature adults' tank\" is fine, but \"ตัวเมียมาคูลาตัสที่กำลังเลี้ยงลูก อาจไม่สามารถวางไข่ได้สำเร็จอีก\" is hard to read. Rephrase to make clear it can't spawn again until the fry are removed.",
-      "Item 14: \"conceived\" is translated as \"ผสมพันธุ์\" and \"eggs laid\" as \"วางไข่\". This is acceptable, but the word order of the phrase \"ในช่วงผสมพันธุ์ วางไข่ ไข่ฟัก\" is awkward.",
-      "Item 14: \"generally more males than lower pH/higher temp\" was changed to \"ค่า pH ต่ำ/อุณหภูมิสูงจะได้ตัวผู้มากกว่า\". This is correct, but the source's \"more males\" comparison is ambiguous, so check the logic.",
-      "Item 5: \"SL\" is left as \"5.3 ซม. SL\"; consider writing \"ความยาวมาตรฐาน (SL)\" in full.",
-      "Item 8: \"white water\" is left in English, and \"gravel composed of fine sand\" is rendered as \"ทรายละเอียด\". Add \"น้ำขาว\" in brackets for \"white water\".",
-      "Item 1: \"Rio Tapajós\" and similar river names are left in Latin script, which is acceptable. \"แอมะซอน\" is fine."
+      "Item 2: \"เรื่องมากเรื่ององค์ประกอบ\" is colloquial and a bit awkward; use \"ค่อนข้างเลือกคุณภาพน้ำ/ต้องการองค์ประกอบทางเคมีของน้ำที่เฉพาะเจาะจงมาก\".",
+      "Item 2: \"ซึ่งต้องใช้น้ำ...\" merges the sentences. \"Then they need\" is attached oddly to \"at least breeding\", and the bacteria sentence is joined with \"และ\" so it reads as part of the water requirement. Split into a separate sentence.",
+      "Item 2: \"Any bacterial load\" is rendered as \"การปนเปื้อนของแบคทีเรีย\". \"ปริมาณแบคทีเรียในน้ำ\" is closer to the original.",
+      "Item 1: \"ปลาหมอแคระหมากรุก\" is not a well-established Thai hobby name. Consider adding the English name in brackets, e.g. (Checkerboard Dwarf Cichlid).",
+      "Item 3: \"แบบฮาเร็ม\" is fine, but \"harem association\" could read more naturally as \"เลี้ยงเป็นกลุ่มแบบฮาเร็ม\"."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "adc343191239",
-      "quickFacts:glaser": "e40039233247",
+      "quickFacts:glaser": "53274ecf64b6",
       "distribution:seriouslyfish": "a2f1e0d1b728",
-      "distribution:glaser": "5bb7cd3ad03a",
       "aquariumSize:seriouslyfish": "42dd41d826bd",
       "maintenance:seriouslyfish": "ff808568ad75",
       "waterConditions:seriouslyfish": "f082c5a93bae",
-      "waterConditions:glaser": "ea5176787eed",
+      "waterConditions:glaser": "58b8709ef886",
       "diet:seriouslyfish": "91dfa0f3c0f1",
       "behaviour:seriouslyfish": "ea6c0f0ac421",
       "dimorphism:seriouslyfish": "ba5c326e878f",
       "reproduction:seriouslyfish": "7d39700aaff8",
-      "reproduction:glaser": "93339fa1c2bb",
-      "notes:seriouslyfish": "141b85f43603"
+      "notes:seriouslyfish": "141b85f43603",
+      "behaviour:glaser": "52f6afb95fc4",
+      "dimorphism:glaser": "7e1eda70fb13"
     }
   },
   "dimidiochromis-compressiceps": {
@@ -20505,25 +20783,24 @@
     ]
   },
   "hemirhamphodon-tengah": {
-    "at": "2026-11-16",
-    "from": "2026-11-14",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "ปลาเข็มเทงกาห์",
     "confidence": "low",
     "score": 0.7,
     "notes": [
-      "Item 3: \"ไม่ได้พบในน้ำกร่อยอย่างที่คนส่วนใหญ่มักเข้าใจกัน\" weakens the English. Use \"ไม่พบในน้ำกร่อยเลย\" or \"ไม่ได้อาศัยในน้ำกร่อย\". \"strictly bound\" is rendered correctly as \"เฉพาะ...เท่านั้น\", but the contrast with \"widespread prejudice\" is lost.",
-      "Item 3: \"ปลาเข็ม\" for halfbeaks is fine, but \"ปลาซิวตัวเล็ก\" for \"small rasboras\" is too generic. Use \"ปลาแรสโบร่าขนาดเล็ก\" or \"ปลาซิวแรสโบร่า\".",
-      "Item 4: \"แต่จะไม่กินอาหารที่ตกถึงพื้นตู้เลย\" is acceptable. \"อาหารแผ่น\" is fine. \"เป็นอาหารโปรดของ Hemirhamphodon\" turns \"delicacy\" into \"favourite food\". Use \"เป็นอาหารชั้นเลิศ\" or \"ปลาชอบมาก\".",
-      "Item 5: \"ม็อบวางไข่ที่ทำจากไหมพรม\" is fine. \"พีท\" for peat is acceptable but should say that peat is used as a spawning substrate (\"พีทมอส\") for clarity. \"ส่วนใหญ่คล้ายกับ\" is slightly awkward. Use \"คล้ายกันในหลายๆ ด้าน\".",
-      "Item 6: \"Lexikon\" is translated as \"ที่มาของชื่อ\". This is acceptable. \"with teeth on the halfbeak\" became \"ปลาเข็มที่มีฟัน\", which changes the meaning slightly. Use \"ฟันบนปลาเข็ม\" or similar."
+      "Item 2: \"never take food from the bottom\" is translated as \"จะไม่กินอาหารที่ตกลงไปถึงพื้นตู้เลย\". This is acceptable, but \"ไม่กินอาหารจากพื้นตู้\" would be more natural.",
+      "Item 4: \"Lexikon\" is translated as \"ที่มาของชื่อ\", which narrows the label. It is fine, but \"ที่มาของชื่อวิทยาศาสตร์\" is clearer.",
+      "Item 4: \"province\" is translated as \"จังหวัด\". For Indonesia, \"จังหวัด\" is usable, but \"แคว้น\" or \"provinsi\" is also common. Consider \"ผิวน้ำ\" consistency in other places."
     ],
     "parts": {
       "quickFacts:glaser": "07cf66eaa32a",
-      "distribution:glaser": "fe73f8bf8b06",
+      "distribution:glaser": "888bec95efcb",
       "habitat:glaser": "2c8d3a74278e",
-      "diet:glaser": "6f2f6e97ca51",
+      "diet:glaser": "96912986e31e",
       "reproduction:glaser": "8c18cbc32263",
-      "notes:glaser": "49e3a3754624"
+      "notes:glaser": "9441f5496aec",
+      "behaviour:glaser": "f41b97767275"
     }
   },
   "hemisilurus-heterorhynchus": {
@@ -20925,40 +21202,31 @@
     }
   },
   "hyphessobrycon-megalopterus": {
-    "at": "2026-11-12",
+    "at": "2026-11-20",
     "from": "2026-11-13",
     "name": "เตตร้าแบล็คแฟนทอม",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "Item 6: \"ควรเป็นขนาดเล็กที่สุดที่พิจารณา\" is awkward. Use something like \"ควรใช้ตู้ขนาดนี้เป็นขนาดเล็กที่สุด\".",
-      "Item 14: \"ชนิดใกล้ชิดกันบางตัว\" attaches \"related\" to M. micropterus in an unclear way. Rephrase so it reads \"M. megalopterus และ M. micropterus ซึ่งเป็นชนิดใกล้ชิดกัน บางตัวมีฟันสองแถว\"."
+      "In item 3, 'ปลาคาดินัลเตตร้า' is a little awkward; the usual hobby name is 'ปลาคาร์ดินัลเตตร้า' (or 'เตตร้าคาร์ดินัล'), and the 'เตตร้า' in the name should be used consistently.",
+      "In item 3, 'แล่นใบวนรอบกันและกัน' is a literal rendering of 'sailing around each other'; it reads slightly stiff but the meaning is kept."
     ],
     "parts": {
       "quickFacts:seriouslyfish": "d021e456f444",
-      "quickFacts:glaser": "56c2e5af01cd",
+      "quickFacts:glaser": "335be1ed8587",
       "distribution:seriouslyfish": "f478b0f388cd",
-      "distribution:glaser": "0b078317b214",
+      "distribution:glaser": "62c52926625c",
       "habitat:seriouslyfish": "d14a9778629d",
       "aquariumSize:seriouslyfish": "c31d5e9cf181",
       "maintenance:seriouslyfish": "01f5e5cda5e6",
       "waterConditions:seriouslyfish": "470b72a6533a",
       "diet:seriouslyfish": "6e363e327cc9",
       "behaviour:seriouslyfish": "4a628d3a765a",
-      "behaviour:glaser": "a6aa0bf09de5",
+      "behaviour:glaser": "ec6ee29d7f76",
       "dimorphism:seriouslyfish": "b62be02d399f",
       "reproduction:seriouslyfish": "38e67075e043",
       "notes:seriouslyfish": "c4f698a2820b",
-      "notes:glaser": "85c9715666fc"
-    },
-    "failed": {
-      "at": "2026-11-13T22:50:46.682Z",
-      "parts": {
-        "quickFacts:glaser": "335be1ed8587",
-        "distribution:glaser": "62c52926625c",
-        "behaviour:glaser": "ec6ee29d7f76",
-        "notes:glaser": "ec80d6539d11"
-      }
+      "notes:glaser": "ec80d6539d11"
     }
   },
   "hyphessobrycon-pulchripinnis": {
@@ -22082,44 +22350,46 @@
     }
   },
   "microdevario-kubotai": {
-    "at": "2026-11-18",
-    "from": "2026-11-18",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
     "name": "ซิวคูโบไต",
     "confidence": "medium",
-    "score": 0.88,
+    "score": 0.75,
     "notes": [
-      "#24: \"absence of perforated scales\" became \"ไม่มีเกล็ดที่มีรูเส้นข้างลำตัว\". The words \"เส้นข้างลำตัว\" (lateral line) are not in the English. Use \"ไม่มีเกล็ดที่มีรู\" only.",
-      "#6: \"Burma\" became \"พม่า\", but the other items use \"เมียนมา\". Use one term throughout.",
-      "#4: \"(Mae Khlong และ Mae Klong)\" repeats one name in two spellings in brackets, which reads awkwardly. Write \"แม่กลอง (Mae Klong)\" and note the spelling variants once.",
-      "#11: \"water-worn boulders\" became \"ก้อนหินใหญ่ที่ถูกน้ำกัดเซาะ\". \"กัดเซาะ\" means eroded or cut away. Use \"ก้อนหินกลมมนที่ถูกน้ำพัด\" or similar."
+      "'ไม่ใช่ปลาน้ำดำ' is acceptable but 'น้ำใส' is repeated; merge to avoid redundancy (minor).",
+      "'ตู้ปลา: ควรปลูกไม้น้ำ...' is a bit stiff; 'ตู้ฮาร์ดสเคป' could be 'ตู้จัดหิน/ไม้ (hardscape)' for hobbyists (minor).",
+      "'น้ำอ่อนที่เป็นกรดอ่อน ๆ' is slightly awkward; consider 'น้ำอ่อน ค่า pH ต่ำเล็กน้อย'.",
+      "'ลูกไรทะเลแรกฟัก' is a little unnatural; use 'ไรทะเลแรกฟัก' or 'อาร์ทีเมียแรกฟัก'.",
+      "'ว่ายน้ำว่องไวอยู่ในระดับกลางน้ำถึงผิวน้ำ' is wordy; 'ว่ายน้ำคล่องแคล่วบริเวณกลางถึงบนของตู้' reads more naturally."
     ],
     "parts": {
       "quickFacts:bwaquatics": "4fdb19527bec",
       "quickFacts:seriouslyfish": "a9aa7b556a56",
       "quickFacts:glaser": "e2b7309cafb3",
-      "distribution:bwaquatics": "3719b730e4dd",
+      "distribution:bwaquatics": "c6e933e19025",
       "distribution:seriouslyfish": "e2bab901408e",
       "distribution:glaser": "215ea4ba953f",
-      "habitat:bwaquatics": "b9090c011003",
+      "habitat:bwaquatics": "220b055c5c28",
       "habitat:seriouslyfish": "e1afb76b9587",
       "habitat:glaser": "3c54f090a992",
       "aquariumSize:seriouslyfish": "054ccb86ec1b",
       "maintenance:seriouslyfish": "ecba7db5d5f4",
-      "waterConditions:bwaquatics": "0bc01a219baf",
+      "waterConditions:bwaquatics": "1b39f4fb3d27",
       "waterConditions:seriouslyfish": "2815dca16d29",
       "waterConditions:glaser": "c16a1f35f25e",
-      "equipment:bwaquatics": "21a95696ac3a",
       "equipment:glaser": "5f0650327a2f",
-      "diet:bwaquatics": "0af3c961c713",
+      "diet:bwaquatics": "de2e53897abf",
       "diet:seriouslyfish": "b96e276a64aa",
-      "behaviour:bwaquatics": "fbfb690d3dbd",
+      "behaviour:bwaquatics": "25a2716eeda6",
       "behaviour:seriouslyfish": "cf919e3e94ee",
       "dimorphism:seriouslyfish": "583a66bc0d7f",
-      "reproduction:bwaquatics": "fdf33f524270",
+      "reproduction:bwaquatics": "6f68e5e0a7ca",
       "reproduction:seriouslyfish": "7b053f6f2afe",
       "notes:seriouslyfish": "4d6dd186b453",
       "notes:glaser": "cd73d295e1f8",
-      "references:seriouslyfish": "bdd211706de8"
+      "references:seriouslyfish": "bdd211706de8",
+      "aquariumSize:bwaquatics": "06da26d398c4",
+      "maintenance:bwaquatics": "17998c0f8478"
     }
   },
   "mikrogeophagus-ramirezi": {
@@ -23530,7 +23800,7 @@
   },
   "parathelphusa-pantherina": {
     "at": "2026-11-18",
-    "from": "2026-11-17",
+    "from": "2026-11-20",
     "name": "ปูแพนเธอร์",
     "confidence": "medium",
     "score": 0.9,
@@ -23540,6 +23810,22 @@
       "maintenance:glaser": "d9c1f8772a95",
       "waterConditions:glaser": "852a76e2fd38",
       "diet:glaser": "ba1b217aa6a9"
+    },
+    "failed": {
+      "at": "2026-11-20T23:44:54.603Z",
+      "parts": {
+        "quickFacts:aquariumbreeder": "5657ee43d2f4",
+        "distribution:aquariumbreeder": "2137b68792ce",
+        "habitat:aquariumbreeder": "4a05aa76d242",
+        "aquariumSize:aquariumbreeder": "9264658a5210",
+        "maintenance:aquariumbreeder": "d378b7a62a4f",
+        "waterConditions:aquariumbreeder": "4c4f01c495ea",
+        "diet:aquariumbreeder": "506c557c81cd",
+        "behaviour:aquariumbreeder": "57d9daeb3135",
+        "dimorphism:aquariumbreeder": "4f4ed894f297",
+        "reproduction:aquariumbreeder": "5620f3900b43",
+        "notes:aquariumbreeder": "76209400b424"
+      }
     }
   },
   "parosphromenus-anjunganensis": {
@@ -24143,7 +24429,7 @@
   },
   "pseudomugil-furcatus": {
     "at": "2026-11-19",
-    "from": "2026-11-17",
+    "from": "2026-11-20",
     "name": "ปลาฟอร์คเทล บลูอาย",
     "confidence": "medium",
     "score": 0.95,
@@ -24192,9 +24478,14 @@
       "references:seriouslyfish": "bab8b9aaec4a"
     },
     "failed": {
-      "at": "2026-11-19T06:39:37.222Z",
+      "at": "2026-11-20T23:46:54.308Z",
       "parts": {
-        "equipment:aquariumcoop": "4de5b1e1de97"
+        "distribution:glaser": "d9f23e7e5651",
+        "habitat:glaser": "73eb329543c1",
+        "aquariumSize:glaser": "a727df470f4d",
+        "diet:glaser": "2a5c43d5125f",
+        "dimorphism:glaser": "3724e483233d",
+        "reproduction:glaser": "26f56f629cb9"
       }
     }
   },
@@ -24875,45 +25166,34 @@
     }
   },
   "sphaerichthys-osphromenoides": {
-    "at": "2026-11-11",
+    "at": "2026-11-20",
     "from": "2026-11-19",
     "name": "ปลากระดี่ช็อกโกแลต",
     "confidence": "high",
     "score": 0.85,
     "notes": [],
     "parts": {
-      "quickFacts:bwaquatics": "ede27c61cf10",
+      "quickFacts:bwaquatics": "1dfde49a0a90",
       "quickFacts:seriouslyfish": "a30a6780e6bd",
-      "distribution:bwaquatics": "9cc68fd68653",
+      "distribution:bwaquatics": "af45e05ef3fb",
       "distribution:seriouslyfish": "4425f4d288da",
-      "habitat:bwaquatics": "793ed40cc8c7",
+      "habitat:bwaquatics": "bd7ae633073a",
       "habitat:seriouslyfish": "79477995b60b",
       "aquariumSize:seriouslyfish": "8f00a096b2db",
       "maintenance:seriouslyfish": "6e5367d55247",
-      "waterConditions:bwaquatics": "bb4c34a460b3",
+      "waterConditions:bwaquatics": "44339bc88ef3",
       "waterConditions:seriouslyfish": "c5191e83facf",
-      "diet:bwaquatics": "4387e2a0b584",
+      "diet:bwaquatics": "b50d7091b075",
       "diet:seriouslyfish": "c165fe114e2b",
-      "behaviour:bwaquatics": "edbd77e38a6a",
+      "behaviour:bwaquatics": "bb0243ed3e92",
       "behaviour:seriouslyfish": "fbc5aeafabc3",
       "dimorphism:seriouslyfish": "8b6cf110aae1",
-      "reproduction:bwaquatics": "62d3234222b6",
+      "reproduction:bwaquatics": "2a76946872ac",
       "reproduction:seriouslyfish": "87b17707cc92",
-      "notes:bwaquatics": "c7dd2567d099",
+      "notes:bwaquatics": "cc510e354f38",
       "notes:seriouslyfish": "66db69385359",
-      "references:seriouslyfish": "54e79e0248c5"
-    },
-    "failed": {
-      "at": "2026-11-20T11:13:51.913Z",
-      "parts": {
-        "quickFacts:glaser": "29420880bb55",
-        "beforeYouBuy:glaser": "20aa8abbc8c5",
-        "distribution:glaser": "7ff25266a229",
-        "habitat:glaser": "1cbf57f0d287",
-        "waterConditions:glaser": "6d858aa29e6f",
-        "diet:glaser": "e58f40b0be0a",
-        "reproduction:glaser": "a74d9319b1cf"
-      }
+      "references:seriouslyfish": "54e79e0248c5",
+      "maintenance:bwaquatics": "bf82259e9991"
     }
   },
   "sphaerichthys-selatanensis": {
@@ -25641,7 +25921,7 @@
   },
   "trigonostigma-heteromorpha": {
     "at": "2026-11-19",
-    "from": "2026-11-19",
+    "from": "2026-11-20",
     "name": "ปลาซิวข้างขวาน",
     "confidence": "high",
     "score": 0.9,
@@ -25692,25 +25972,36 @@
       "notes:aquariumbreeder": "f6d60398b5d9",
       "references:sprucepets": "878e34fd589a",
       "references:seriouslyfish": "96a404778ea6"
+    },
+    "failed": {
+      "at": "2026-11-20T23:48:05.799Z",
+      "parts": {
+        "notes:glaser": "c2ca0215b064"
+      }
     }
   },
   "tropheus-duboisi": {
-    "at": "2026-10-31",
-    "from": "2026-10-31",
-    "name": "โทรเฟียส ดูบอยซี่",
+    "at": "2026-11-20",
+    "from": "2026-11-20",
+    "name": "ทรอเฟียส ดูบอยซี่",
     "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "Item 1: \"ปลาหมอจุดขาว\" is an invented common name for T. duboisi, and ปลาหมอ usually means climbing perch/Anabas. Use Tropheus duboisi or the trade name \"โทรเฟอุส ดูบัวซี\".",
-      "Item 4: \"110 ลิตร\" is kept but the 48\" x 12\" x 12\" tank is only about 43 L. This is a source inconsistency; consider flagging it. The translation is faithful.",
-      "Item 10: \"2 feet (60cm)\" was rendered as \"ประมาณ 60 ซม.\", which is fine. However, \"ผ้าห่ม\" (blanket) for covering the tank is odd. Use \"ผ้าคลุม\" or \"ผ้าผืนหนา\".",
-      "Item 8: \"ฝูงเดี่ยวชนิดให้อยู่กันอย่างสงบ\" is awkward and unclear. Use \"ฝูงปลาชนิดเดียวกันที่อยู่กันอย่างสงบ\".",
-      "Item 8: \"ปลาว่ายน้ำปราดเปรียว\" is fine. But \"in smaller groups ... do not settle easily\" was rendered correctly. \"ปลาจะปรับตัวเข้าหากันได้ยาก\" is acceptable.",
-      "Item 1: \"ปลาชนิดนี้เป็นโรคท้องบวม (bloat) ได้ง่ายมาก\" is correct but loses the quotes around 'bloat'. This is minor.",
-      "Item 1: the \"(5 in SL)\" bracket was dropped. Max size \"120 มม. SL\" is correct, but \"ซม.\" (12 cm SL) would be more natural.",
-      "Item 10: \"เขี่ยลูกปลาออกจากปากแม่ปลา\" is fine. But \"ปลาจะวางไข่กลางน้ำ\" is OK too. \"ลูกไรทะเลแรกฟัก\" is acceptable. Tropheus duboisi should read \"T. duboisi\" consistently.",
-      "Item 9: the \"genital papillae is pointed in the male\" translation is correct. No change needed beyond consistency."
-    ]
+    "score": 0.95,
+    "notes": [],
+    "parts": {
+      "quickFacts:seriouslyfish": "8bf7b9b89389",
+      "quickFacts:glaser": "c92fc9586f35",
+      "distribution:seriouslyfish": "34b4dce98a73",
+      "distribution:glaser": "3ee74a65bec6",
+      "habitat:seriouslyfish": "73a662903ea5",
+      "aquariumSize:seriouslyfish": "e208ce94c04f",
+      "maintenance:seriouslyfish": "f7e6c298ea9a",
+      "waterConditions:seriouslyfish": "88ab951fdccd",
+      "diet:seriouslyfish": "13f939d1b873",
+      "behaviour:seriouslyfish": "ef03c71508d5",
+      "dimorphism:seriouslyfish": "73fc5a0853e5",
+      "reproduction:seriouslyfish": "380924abe93b",
+      "notes:seriouslyfish": "bc7002e033fc"
+    }
   },
   "vittina-waigiensis": {
     "at": "2026-10-31",

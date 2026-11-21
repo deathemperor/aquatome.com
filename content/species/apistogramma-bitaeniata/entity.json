@@ -22,46 +22,40 @@
         "BR"
       ],
       "regions": [
+        "Amazon",
         "Marañón",
+        "Tapajós",
         "Ucayali",
         "Solimões",
-        "Madeira",
-        "Tapajós",
-        "Amazon"
+        "Madeira"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
+          "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
           "countries": [
             "PE",
+            "CO",
             "BR"
           ],
           "regions": [
+            "Amazon",
             "Marañón",
-            "Ucayali",
-            "Solimões",
-            "Madeira",
             "Tapajós"
           ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "The existence of A. bitaeniata in the rio Madeira drainage is a relatively recent discovery and actually calls into question its identity since the original type locality of \"rio Madeira\" given by Pellegrin was amended to \"Colombia (Amazonas), environments of Leticia\" by Kullander (1980) because the species wasn't known to occur in the Madeira at that time.",
-          "countries": [
-            "CO"
-          ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
+          "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
           "countries": [],
           "regions": [
-            "Amazon"
+            "Ucayali",
+            "Solimões",
+            "Madeira"
           ]
         }
       ]
