@@ -8,11 +8,11 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 1098 | 780 (vi 780) | 780 |
+| video-guide | 1100 | 780 (vi 780) | 780 |
 | translation | 2320 | 349 (vi 349) | 349 |
 | vi-rewrite | 425 | 43 (vi 43) | 43 |
 | reader-rewrite | 48 | 0 | 0 |
-| title | 26 | 0 | 0 |
+| title | 27 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 134 | 7 (id 1, ms 1, th 5) | 7 |
 | product | 30 | 2 (vi 2) | 2 |
@@ -28,7 +28,7 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-780 of 1098 pages under the bar.
+780 of 1100 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -308,7 +308,7 @@ under `<lang>/<path>`.
 
 ## title: titles rewritten to promise only what the text has
 
-0 of 26 pages under the bar.
+0 of 27 pages under the bar.
 
 ## breed: breed pages, against their research
 

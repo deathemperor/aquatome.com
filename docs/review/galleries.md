@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gall
 | covered | 30 | 846 | 32 | 9 | 28 | 859 |
 | rest | 20 | 1931 | 81 | 0 | 118 | 1894 |
 
-## Short of target: every source read (720)
+## Short of target: every source read (738)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -43,6 +43,24 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/aspistor-luniscutis | rest | 0 | 20 |
 | species/aspredo-aspredo | rest | 0 | 20 |
 | species/cathorops-arenatus | rest | 0 | 20 |
+| species/congoglanis-alula | rest | 0 | 20 |
+| species/corydoras-lacrimostigmata | rest | 0 | 20 |
+| species/cyclocheilos-enoplos | rest | 0 | 20 |
+| species/danio-flagrans | rest | 0 | 20 |
+| species/eirmotus-insignis | rest | 0 | 20 |
+| species/eutropiichthys-vacha | rest | 1 | 20 |
+| species/garra-nambulica | rest | 0 | 20 |
+| species/gastromyzon-aeroides | rest | 0 | 20 |
+| species/hoplomyzon-papillatus | rest | 0 | 20 |
+| species/hoplomyzon-sexpapilostoma | rest | 0 | 20 |
+| species/hyphessobrycon-acaciae | rest | 0 | 20 |
+| species/hyphessobrycon-compressus | rest | 1 | 20 |
+| species/labiobarbus-fasciatus | rest | 0 | 20 |
+| species/lepidocephalichthys-zeppelini | rest | 0 | 20 |
+| species/liobagrus-chengduensis | rest | 0 | 20 |
+| species/neoarius-pectoralis | rest | 0 | 20 |
+| species/pangasius-conchophilus | rest | 0 | 20 |
+| species/peckoltia-bachi | rest | 0 | 20 |
 | species/polypterus-retropinnis | covered | 0 | 30 |
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
 | species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |

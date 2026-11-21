@@ -221,7 +221,6 @@ borrow one from a species or plant they mention on the site.
 - species/clupisoma-bastari — Cá da trơn Bastar
 - species/clupisoma-garua — Cá garua
 - species/clupisoma-montana — Cá da trơn Clupisoma montanum
-- species/colomesus-tocantinensis — Cá nóc Tocantins
 - species/compsaraia-samueli — Cá dao mõm bồ nông
 - species/congoglanis-alula — Cá nheo Congoglanis alula
 - species/copadichromis-chrysonotus — Cá Copadichromis chrysonotus
@@ -519,7 +518,6 @@ borrow one from a species or plant they mention on the site.
 - species/luciosoma-bleekeri — Cá cháy Luciosoma bleekeri
 - species/luciosoma-pellegrinii — Cá Luciosoma pellegrinii
 - species/luciosoma-spilopleura — Cá Luciosoma spilopleura
-- species/lymnaea-stagnalis — Ốc ao lớn
 - species/macrobrachium-idae — Tôm càng tay dài
 - species/macrognathus-aral — Cá chạch sông Aral
 - species/macrognathus-taeniagaster — Cá chạch sông Macrognathus taeniagaster
@@ -1726,6 +1724,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-SXZ7LUPIFAk — Đèn RGB cho bể thủy sinh: chọn đèn, chỉnh phổ màu và giờ chiếu
 - guides/youtube-SZMCesATJ-8 — Bể thủy sinh low-tech 1000 lít: nền, đèn, lọc, thay nước, CO2
 - guides/youtube-SdInuxeH8a8 — Set bể thủy sinh 60 cm có CO2: trồng cây, bố trí lọc và dòng chảy
+- guides/youtube-Shhe4SNvXpY — Các loại cá nuôi chung được với cá oscar
 - guides/youtube-Siun2vEDvh0 — Set bể bố cục hang đá bằng đá Seiryu lớn: xếp đá, rải nền, trồng cây
 - guides/youtube-SjnaZ9ciCJk — Bể rẻ tiền và bể đắt tiền sau 3 tuần: rêu hại bùng phát và cây lên ra sao
 - guides/youtube-SkR_Mbh3qzE — Cần chuẩn bị gì trước khi mua cá betta
@@ -2151,6 +2150,7 @@ borrow one from a species or plant they mention on the site.
 - guides/youtube-qImy1PXdkvU — Cách vệ sinh lọc bio (lọc mút) bằng túi nilon, không làm bẩn bể
 - guides/youtube-qJAUu-YLvjQ — Tự làm lọc vách mút Hamburg chạy sủi khí cho bể nhỏ
 - guides/youtube-qL-OMw9pvJs — Tự làm hồ sinh thái ngoài vườn có thác nước từ A đến Z
+- guides/youtube-qMgSEhoBfPM — Nuôi cá Oscar: bể, thức ăn, cá nuôi chung và những điều cần biết
 - guides/youtube-qWK5E1c6qak — Cách thay nước bể cá nhanh gọn: hút cặn, châm nước, thay bông lọc
 - guides/youtube-qWNzwIvN-94 — Set lại bể cá bảy màu hỏng vì rêu hại theo kiểu đá lũa đơn giản
 - guides/youtube-qaow2ai3eZM — Tự dán bể cá acrylic: cách dùng kim ghim và dung môi Weld-On 4
@@ -2295,7 +2295,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (1058)
+## Only one photo (no pictures inside the text) (1061)
 
 - species/aborichthys-elongatus — Cá chạch sóc đuôi đỏ
 - species/acanthocobitis-rubidipinnis — Cá chạch Paracanthocobitis rubidipinnis
@@ -2520,6 +2520,7 @@ borrow one from a species or plant they mention on the site.
 - species/clypeobarbus-congicus — Cá barb Congo
 - species/cobitis-macrostigma — Cá chạch gai đốm lớn
 - species/colomesus-psittacus — Cá nóc vằn
+- species/colomesus-tocantinensis — Cá nóc Tocantins
 - species/copeina-guttata — Cá tetra đốm đỏ
 - species/copella-carsevennensis — Cá Copella carsevennensis
 - species/copella-eigenmanni — Cá Copella eigenmanni
@@ -2678,6 +2679,7 @@ borrow one from a species or plant they mention on the site.
 - species/hemiodus-unimaculatus — Cá hemiodus một chấm
 - species/hemirhamphodon-pogonognathus — Cá kìm rừng than bùn
 - species/hemisilurus-heterorhynchus — Cá Hemisilurus heterorhynchus
+- species/henicorhynchus-siamensis — Cá linh ống
 - species/heros-efasciatus — Cá severum
 - species/herotilapia-multispinosa — Cá rainbow cichlid
 - species/heterandria-formosa — Cá bảy màu lùn
@@ -2778,6 +2780,7 @@ borrow one from a species or plant they mention on the site.
 - species/lucania-goodei — Cá killi vây xanh
 - species/luciosoma-setigerum — Cá apollo shark
 - species/lybia-tessellata — Cua boxer
+- species/lymnaea-stagnalis — Ốc ao lớn
 - species/lysmata-amboinensis — Tép dọn vệ sinh Lysmata amboinensis
 - species/lysmata-debelius — Tép lửa đỏ
 - species/lysmata-wurdemanni — Tôm peppermint
@@ -3402,8 +3405,8 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Oryzias setnai — named on 12 pages (species/oryzias-asinua, species/oryzias-celebensis, species/oryzias-dancena, species/oryzias-eversi, species/oryzias-javanicus, …)
 - Pontederia crassipes — named on 12 pages (guides/youtube-0EqLihKj8os, guides/youtube-7gf1xIZTJRg, guides/youtube-8SCxf-L1Nww, guides/youtube-8qCMy4BnnDI, guides/youtube-Asi_tzpiHxM, …)
 - Channa striata — named on 11 pages (guides/sprucepets-common-fish-names-beginning-with-s-1378555, species/akysis-maculipinnis, species/betta-mahachaiensis, species/channa-asiatica, species/dawkinsia-arulius, …)
+- Hypostomus plecostomus — named on 11 pages (guides/aquariumcoop-blogs-aquarium-pleco-care-guide, guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish, guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-large-fish-for-freshwater-aquariums-7570272, guides/sprucepets-lifespans-of-aquarium-fish-1378340, …)
 - Syngonium podophyllum — named on 11 pages (guides/youtube-1weSZQGGs2k, guides/youtube-HK0vWQGwNOE, guides/youtube-HUa1u8usS5w, guides/youtube-PVRlXXhdD7U, guides/youtube-Pc-uoB80jyk, …)
-- Hypostomus plecostomus — named on 10 pages (guides/aquariumcoop-blogs-aquarium-pleco-care-guide, guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish, guides/sprucepets-aquarium-catfish-breeds-5115234, guides/sprucepets-large-fish-for-freshwater-aquariums-7570272, guides/sprucepets-lifespans-of-aquarium-fish-1378340, …)
 - Nephrolepis exaltata — named on 10 pages (guides/youtube-54hYFlHTSOs, guides/youtube-BV0J8fUMceU, guides/youtube-EReEvfJgglY, guides/youtube-UkkP80wMn_s, guides/youtube-Xb3Trilltik, …)
 - Strobilanthes sinuata — named on 10 pages (guides/youtube-HK0vWQGwNOE, guides/youtube-KsmBRW22jiQ, guides/youtube-N3uNPHmKkjc, guides/youtube-NnedKiWs71U, guides/youtube-Pc-uoB80jyk, …)
 - Adrianichthys roseni — named on 9 pages (species/oryzias-celebensis, species/oryzias-dancena, species/oryzias-javanicus, species/oryzias-latipes, species/oryzias-mekongensis, …)
