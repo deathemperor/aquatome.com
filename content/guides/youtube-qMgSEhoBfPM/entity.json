@@ -1,0 +1,95 @@
+{
+  "id": "youtube-qMgSEhoBfPM",
+  "kind": "care",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=qMgSEhoBfPM",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "astronotus-ocellatus",
+    "amphilophus-labiatus",
+    "parachromis-managuensis",
+    "rocio-octofasciata",
+    "hoplarchus-psittacus"
+  ],
+  "updatedAt": "2026-11-21",
+  "video": {
+    "youtubeId": "qMgSEhoBfPM",
+    "title": "Don't Buy An Oscar Fish Unless You Watch This First!  10 Things You Should Know About Oscar Fish!",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 976,
+    "publishedAt": "2019-01-27",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D2lA1BX4k_44WWkMx1vfpk7",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/qMgSEhoBfPM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Astronotus ocellatus",
+      "Amphilophus labiatus",
+      "Parachromis managuensis",
+      "Rocio octofasciata",
+      "Hoplarchus psittacus"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Seachem",
+        "model": "Tidal",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "brand": "Sicce",
+        "model": "Shark ADV",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Guard",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Complete",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Dark Water",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Betta Guard",
+        "t": 0
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 500
+      },
+      {
+        "category": "thuc-an",
+        "type": "dong-lanh",
+        "t": 560
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 640
+      }
+    ]
+  }
+}

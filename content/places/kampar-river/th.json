@@ -1,8 +1,13 @@
 {
   "slug": "kampar-river",
-  "name": "กัมปาร์",
+  "name": "แม่น้ำกัมปาร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T12:45:26.698Z"
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

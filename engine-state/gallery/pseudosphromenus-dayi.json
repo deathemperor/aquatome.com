@@ -9,12 +9,17 @@
   "inat:57431087",
   "inat:57431079",
   "inat:667502553",
-  "inat:228885773"
+  "inat:228885773",
+  "flickr:13380524633",
+  "flickr:13380525043"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/2d29bfc8622cfbb8.webp": "01311d8fa6130900",
   "https://media.aquatome.com/commons/a8300f0efd7f73f8.webp": "66a73f4f97c3c361",
-  "https://media.aquatome.com/inaturalist/65031110.webp": "cc4c0c0d386c664c"
+  "https://media.aquatome.com/inaturalist/65031110.webp": "cc4c0c0d386c664c",
+  "https://media.aquatome.com/glaser/5aa2de36c1101d0f.webp": "38313d3b363e3f3e",
+  "https://media.aquatome.com/glaser/24e57efa54837669.webp": "b638b8f8f2fe74ee",
+  "https://media.aquatome.com/glaser/2777b586d9719314.webp": "fdd9bd3c70784f0f"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -24,5 +29,12 @@
    "research": 365593991,
    "agree": 351982393
   }
+ },
+ "gbif": {
+  "key": 2394090,
+  "next": null
+ },
+ "openverse": {
+  "next": null
  }
 }

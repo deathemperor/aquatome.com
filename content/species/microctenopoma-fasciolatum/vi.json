@@ -3,7 +3,8 @@
   "name": "Cá ctenopoma sọc",
   "altNames": [
     "Banded ctenopoma",
-    "Striped bushfish"
+    "Striped bushfish",
+    "Banded bushfish"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá ctenopoma sọc (Microctenopoma fasciolatum) thuộc nhóm anabantoid, sống ở lưu vực sông Congo và vài con sông ở Cameroon. Ngoài tự nhiên, nó ở vùng nước trong, có nhiều cây nổi trên mặt và cây rủ xuống nước. Loài này bạo dạn hơn M. ansorgei nhưng vẫn bơi chậm, và dễ bị các loài náo động giành mất phần. Con đực hay giành chỗ. Đây là loài làm tổ bọt và đã được cho đẻ trong bể.</p>",
@@ -17,13 +18,14 @@
     "dimorphism:seriouslyfish": "<p>Con đực có vây lưng và vây hậu môn kéo dài thành sợi, màu cũng tươi hơn con cái.</p>",
     "reproduction:seriouslyfish": "<p>Loài này đã được cho đẻ trong bể. Nó là loài làm tổ bọt. Muốn cá đẻ thì cần bể đèn tối, trồng nhiều cây, nhiều cây nổi, nước mềm và có tính axit. Cho cá bố mẹ ăn đồ tươi sống để vỗ béo. Con đực sẽ xây một tổ bọt khá cầu kỳ giữa đám cây nổi hoặc dưới một chiếc lá to. Cặp cá đẻ ngay dưới tổ, quấn lấy nhau theo kiểu quen thuộc của nhóm anabantoid. Trứng nở sau khoảng 24 giờ, và 2–3 ngày sau thì cá bột tự bơi được. Sau khi trứng nở, tốt nhất là vớt cá bố mẹ ra. Cá bột rất nhỏ, tuần đầu cho ăn infusoria (trùng cỏ), sau đó chúng ăn được Artemia mới nở.</p>",
     "notes:seriouslyfish": "<p>Ngoài tự nhiên, M. fasciolatum sống ở vùng nước trong, có nhiều cây nổi trên mặt và cây rủ xuống nước.</p>",
-    "quickFacts:glaser": "<p>Microctenopoma fasciolatum, hay cá bụi sọc (Striped bushfish), là một loài cá bụi lùn rất hiếm gặp ở tiệm cá. Cá bán ra là cá nhập từ CHDC Congo. Loài này dài tối đa khoảng 8–9 cm.</p>",
-    "distribution:glaser": "<p>CHDC Congo.</p>",
-    "behaviour:glaser": "<p>Cách nuôi và tập tính của loài này giống nhất với các loài cá sặc thuộc giống Colisa và Trichogaster. Nó là cá hiền. Chỉ đến mùa sinh sản, lúc làm tổ bọt và giữ tổ, nó mới hơi gây gổ một chút.</p>",
-    "diet:glaser": "<p>Ngoài tự nhiên, cá bụi sọc ăn côn trùng nhỏ, giáp xác và những thứ tương tự. Nuôi trong bể thì nó ăn được hết các loại thức ăn khô, đông lạnh và tươi sống.</p>",
-    "dimorphism:glaser": "<p>Cách dễ nhất để phân biệt đực cái là nhìn màu vây: con đực có vây lốm đốm, còn vây con cái thì trơn. Màu của loài này đổi rất mạnh theo tâm trạng. Có lúc trên thân hiện một sọc ngang màu trắng kem, nhưng sang kiểu màu khác thì sọc này biến mất hẳn, không thấy chút nào.</p>",
-    "reproduction:glaser": "<p>Cá dài khoảng 5 cm, tính cả đuôi, là đủ lớn để đẻ. Con đực làm tổ bọt và giữ tổ.</p>",
-    "notes:glaser": "<p>Giải nghĩa tên: Microctenopoma nghĩa là \"Ctenopoma nhỏ\", còn Ctenopoma là tên một giống cá bụi khác. fasciolatum nghĩa là \"có sọc\".</p>"
+    "distribution:glaser": "<p>Microctenopoma fasciolatum sống rải rác khắp lưu vực sông Congo. Gần đây có cá bắt ngoài tự nhiên về từ vùng quanh hồ Mai Ndombe ở miền Trung Congo.</p>",
+    "notes:glaser": "<p>Bushfish là tên gọi các loài cá thở khí trời bằng mê lộ ở châu Phi. Có thể tạm chia chúng làm hai nhóm. Nhóm đầu không chăm con. Ở nhóm còn lại, con đực làm tổ bọt, cá đẻ trứng vào tổ và con đực canh tổ đến khi cá con tự lo được. Nhóm thứ hai đã được tách khỏi chi Ctenopoma thành một chi riêng là Microctenopoma. Hiện khoa học biết 12 loài trong chi này, nhưng chỉ bốn loài thỉnh thoảng có người nuôi trong bể, trong đó có Microctenopoma fasciolatum.</p>",
+    "quickFacts:glaser": "<p>Loài bushfish đẹp này dài khoảng 8 cm.</p>",
+    "dimorphism:glaser": "<p>Muốn phân biệt đực cái thì chủ yếu nhìn màu vây. Con đực có đốm trên vây đuôi, vây lưng và vây hậu môn, con cái thì không có.</p>",
+    "behaviour:glaser": "<p>Nuôi riêng một loài trong bể thì chúng thường nhát và ít khi ra mặt.</p>",
+    "aquariumSize:glaser": "<p>Nên nuôi bushfish trong bể nhiều cây, bày biện nhiều ngóc ngách. Tốt nhất là thả chung với cá barb cỡ vừa hoặc cá tetra Congo.</p>",
+    "waterConditions:glaser": "<p>Nhiệt độ nuôi không nên quá cao, tốt nhất là 22–26 °C. Khi cho đẻ thì nâng nhiệt lên thêm 2–3 °C.</p>",
+    "diet:glaser": "<p>Chúng ăn được mọi loại thức ăn cá thông thường, nhưng thích đồ đông lạnh và đồ tươi sống hơn. Bushfish không đụng tới cây.</p>"
   },
   "quality": {
     "score": 0.82,

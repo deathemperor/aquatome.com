@@ -1,0 +1,99 @@
+{
+  "id": "astroblepus-mindoensis",
+  "scientificName": "Astroblepus mindoensis",
+  "order": "Siluriformes",
+  "family": "Astroblepidae",
+  "genus": "Astroblepus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 15,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
+      "html": "<ul><li>Common name: Mindo Climbing Catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
+      "html": "<p>South America: Pacific coastal drainages (Ecuador). Type locality: Mindo, western Ecuador.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
+      "html": "<p>Not an easy family of catfishes to keep so they would have to have a large tank with rocks and some appropriate vegetation. The water would need to be fast flowing and provided with extra oxygen via an air tube fed into the powerhead flow. The tank should be set up with rocks so as to provide an area where the water current will be slower.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
+      "html": "<p>It feeds primarily on insects, but can also eat phytoplancton, detritus and seeds. In the aquarium invertebrates, insect larvae, spirulina tablets or paste, algae based foods and live bloodworm would probably be the staple diet but you may wish to try glassworm and blackworm (although these won't tend to stay on the substrate unless the current takes them there).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
+      "html": "<p>Astroblepids are closely related to the Loricariids, and in fact one genus of fish (Lithogenes Eigenman, 1909) seems intermediate between the two families, having the shape and form of an Astroblepid, but some plates on the body and other morphological characters closer to Loricariids. At the time of writing, Lithogenes is currently placed in Loricariidae.</p><p>Etymology: The specific name mindoensis: –ensis, Latin suffix denoting place: Mindo, western Ecuador, type locality.</p><p>IUCN Red List: This species, endemic to Ecuador, has a restricted distribution (EOO = 2,000 km2) and parts of its distribution are potentially impacted by the introduction of alien species (trouts) that could be causing continuing decline in the number of mature individuals. However, given the uncertainty regarding the impact of potential threats and the lack of precise distribution information, the number of locations and whether the population is severely fragmented cannot be determined. Therefore, it is listed as Near Threatened but needs updating (IUCN 2016).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Chugá-Puetate KP, Peñaranda-Valla M, Escobar-Camacho D, Valdiviezo-Rivera J, Rivadeneira JF (2026) Cryptic diversity in Astroblepus (Siluriformes: Astroblepidae): Integrative taxonomy reveals evolutionary complexity in the Esmeraldas River Basin, Ecuador. PLoS One 21(4): e0343879.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2026. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 5/2026 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "máy bơm dòng bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "sủi khí bể cá",
+        "ống dẫn khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "xiphophorus-xiphidium",
+  "native": {
+    "input": "48c9960d4858b2e8",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species is found on the headwaters of the Soto La Marina River and its tributaries, Tamaulipas State, on the Atlantic side of Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Soto La Marina River",
+        "source": "glaser",
+        "quote": "The species is found on the headwaters of the Soto La Marina River and its tributaries, Tamaulipas State, on the Atlantic side of Mexico.",
+        "country": "MX",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Xiphophorus xiphidium",
+    "status": "ACCEPTED",
+    "taxonKey": 2350182,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        3
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        1
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        1
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

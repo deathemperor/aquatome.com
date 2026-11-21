@@ -1,0 +1,118 @@
+{
+  "id": "chaetostoma-joropo",
+  "scientificName": "Chaetostoma joropo",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Chaetostoma",
+  "group": "catfish",
+  "lNumber": "L445",
+  "places": [
+    "south-america",
+    "colombia",
+    "rio-meta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "html": "<p>It originates from creeks in the catchment area of the Rio Meta in Colombia.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "html": "<p>It does not need to be kept as warm as many other L-numbers, 23-27°C are just right.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "html": "<p>Juveniles may arrive with such a strong metallic-green shimmer that the species-typical spots are not visible. This phenomenon is also known from Corydoras catfish. In the aquarium this green shimmer disappears after a while.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/fbd55c79727cb080.webp",
+      "thumb": "https://media.aquatome.com/glaser/fbd55c79727cb080-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/ad6c99ecd9ba9d34.webp",
+      "thumb": "https://media.aquatome.com/glaser/ad6c99ecd9ba9d34-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a2cc2bc1e9bb2e3a.webp",
+      "thumb": "https://media.aquatome.com/glaser/a2cc2bc1e9bb2e3a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a4152bf7504b3a8c.webp",
+      "thumb": "https://media.aquatome.com/glaser/a4152bf7504b3a8c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/chaetostoma-joropo-l445-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rong chìm cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

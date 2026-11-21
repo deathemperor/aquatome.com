@@ -3,6 +3,12 @@
   "name": "Casiquiare",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:08:13.789Z",
+    "why": "The Casiquiare is a river/canal (Venezuela, linking Orinoco and Rio Negro), so Indonesian atlases would write \"Sungai Casiquiare\" or \"Terusan Casiquiare\" with a kind word, and the bare name omits it."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

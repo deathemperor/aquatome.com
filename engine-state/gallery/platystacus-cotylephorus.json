@@ -3,14 +3,18 @@
  "judged": [
   "File:An acetabulated platystacus. Engraving by Hill. Wellcome V0022056.jpg",
   "File:Platystacus cotylephorus - Peitschenschwanz Bratpfannenwels Bauchseite.jpg",
-  "File:Platystacus cotylephorus - Peitschenwels Portrait.jpg"
+  "File:Platystacus cotylephorus - Peitschenwels Portrait.jpg",
+  "flickr:50640677922"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/084583952c57c175.webp": "9321624379e1b040",
   "https://media.aquatome.com/commons/767f9302aa7f5180.webp": "5b3025679eddea79",
   "https://media.aquatome.com/scotcat/aad4d627a498ef54.webp": "76676763230717b7",
   "https://media.aquatome.com/scotcat/e10b6f3eb2df12ba.webp": "431218110e232607",
-  "https://media.aquatome.com/scotcat/fbf3a06c748f064e.webp": "258f8d9c97b3ff0f"
+  "https://media.aquatome.com/scotcat/fbf3a06c748f064e.webp": "258f8d9c97b3ff0f",
+  "https://media.aquatome.com/glaser/7229babe2119e52e.webp": "06475c3272e3d01b",
+  "https://media.aquatome.com/glaser/a5a05848ef659434.webp": "d9193cf9dcf2c4fc",
+  "https://media.aquatome.com/glaser/b775cbc3e0f4e0c4.webp": "93cf5e4f4df6833b"
  },
  "inat": {
   "taxon": 608668,
@@ -23,6 +27,9 @@
  "commons": "2026-11-06",
  "gbif": {
   "key": 2340512,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

@@ -17,7 +17,8 @@
     "peru",
     "bolivia",
     "brazil",
-    "amazon"
+    "amazon",
+    "tocantins"
   ],
   "range": {
     "native": {
@@ -36,10 +37,12 @@
         "Amazon",
         "Orinoco",
         "Xingú",
-        "Araguia"
+        "Araguia",
+        "Rio Tocantins"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -61,6 +64,14 @@
             "Orinoco",
             "Xingú",
             "Araguia"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Wonderful Serrasalmus rhombeus, 11–14 cm long, were received from the Rio Tocantins in Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Tocantins"
           ]
         }
       ]
@@ -1664,7 +1675,7 @@
       },
       {
         "source": "glaser",
-        "value": 50
+        "value": 35
       }
     ],
     "tankCm": [
@@ -1690,14 +1701,20 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
-      "html": "<p>Serrasalmus rhombeus attains a maximum length of about 50 cm and is thus one of the largest species of piranha. Specimens of 12-15 cm in length have been imported from Brazil.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "html": "<p>This species grows to 35 cm, maybe even 50 cm long, making it one of the largest piranha species of all.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-rhombeus",
       "html": "<p>This species is widespread in nature although the true extent of its range is an issue for debate. Officially it's been recorded from Venezuela, Guyana, Suriname, French Guiana, Colombia, Ecuador, Peru, Bolivia and Brazil in various rivers including the rios Amazon, Orinoco, Negro, Xingú and Araguia. However there is evidence to suggest that it may be confined to Guyana with collections at other localities perhaps comprising other species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "html": "<p>Wonderful Serrasalmus rhombeus, 11–14 cm long, were received from the Rio Tocantins in Brazil. The population from the Rio Tocantins is particularly colourful. In contrast to many other piranha populations, which are currently still assigned to Serrasalmus rhombeus, these animals have a beautiful red band on the gill cover.</p>"
     },
     {
       "key": "habitat",
@@ -1732,8 +1749,8 @@
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
-      "html": "<p>In its natural habitat it feeds preferably on the fins of other fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "html": "<p>In nature these piranhas feed mainly on fins of other fish.</p>"
     },
     {
       "key": "behaviour",
@@ -1744,8 +1761,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
-      "html": "<p>This species of piranha is a solitary fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "html": "<p>These piranhas are solitary fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -1768,50 +1785,80 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/piranhas_serrasalmus_niger_en/",
-      "html": "<p>Specimens with a very dark and dull coloration sometimes occur. This variant was formerly thought to be a different species, which was described as S. niger. The ruby red eye is a quite good identification mark for S. rhombeus.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "html": "<p>Juvenile and sub-adult S. rhombeus can be recognised quite well by the combination of a ruby red eye, a shoulder spot not substantially larger than the eye diameter, a yellow anal fin and two dark bands in the tail fin, one at the tail root and one limiting the fin at its rear edge. Adult animals are uniformly black.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/5380ddb9c08116d0.webp",
+      "thumb": "https://media.aquatome.com/commons/5380ddb9c08116d0-480.webp",
       "width": 960,
       "height": 720,
-      "licence": "CC BY-SA 4.0",
-      "author": "Sakura1994",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Srhombreus.jpg",
-      "caption": "Black piranha (Serrasalmus rhombeus) at Huachipa Zoo in Lima, Peru.",
-      "thumb": "https://media.aquatome.com/commons/5380ddb9c08116d0-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/5380ddb9c08116d0-large.webp",
         "width": 1600,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Sakura1994",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Srhombreus.jpg",
+      "caption": "Black piranha (Serrasalmus rhombeus) at Huachipa Zoo in Lima, Peru."
     },
     {
       "url": "https://media.aquatome.com/commons/d429dd4e995cdcf3.webp",
+      "thumb": "https://media.aquatome.com/commons/d429dd4e995cdcf3-480.webp",
       "width": 960,
       "height": 688,
-      "licence": "CC BY-SA 3.0",
-      "author": "Ltshears",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_Louisville_Zoo.jpg",
-      "caption": "Black Pirahna Serrasalmus rhombeus at the Louisville Zoo",
-      "thumb": "https://media.aquatome.com/commons/d429dd4e995cdcf3-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/d429dd4e995cdcf3-large.webp",
         "width": 1674,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Ltshears",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_Louisville_Zoo.jpg",
+      "caption": "Black Pirahna Serrasalmus rhombeus at the Louisville Zoo"
     },
     {
       "url": "https://media.aquatome.com/commons/fd369850ce809f0d.webp",
+      "thumb": "https://media.aquatome.com/commons/fd369850ce809f0d-480.webp",
       "width": 960,
       "height": 670,
       "licence": "CC BY-SA 3.0",
       "author": "Ltshears",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:BlackPirahna2010.jpg",
-      "caption": "Black Pirahna Serrasalmus rhombeus at the Louisville Zoo",
-      "thumb": "https://media.aquatome.com/commons/fd369850ce809f0d-480.webp"
+      "caption": "Black Pirahna Serrasalmus rhombeus at the Louisville Zoo"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b25edc252f3718d1.webp",
+      "thumb": "https://media.aquatome.com/glaser/b25edc252f3718d1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a02175097f335dbe.webp",
+      "thumb": "https://media.aquatome.com/glaser/a02175097f335dbe-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6b48f146df821f65.webp",
+      "thumb": "https://media.aquatome.com/glaser/6b48f146df821f65-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-rhombeus-tocantins-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -1867,5 +1914,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }

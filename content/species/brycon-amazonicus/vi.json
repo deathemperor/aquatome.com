@@ -1,0 +1,20 @@
+{
+  "slug": "ca-brycon-amazonicus",
+  "name": "Cá Brycon amazonicus",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>B. amazonicus sống rộng khắp hệ thống sông Amazon và sông Orinoco.</p>",
+    "aquariumSize:glaser": "<p>Loài này lớn tới khoảng 50 cm và rất thích bơi, nên cần bể lớn.</p>",
+    "maintenance:glaser": "<p>Nuôi Brycon về cơ bản không khó. Chỉ có điều đừng tiết kiệm thức ăn.</p>",
+    "behaviour:glaser": "<p>Chúng rất háu ăn. Thả một viên thức ăn xuống là cả đám xông vào giành, như bầy chó con giành nhau khúc xương.</p>",
+    "references:glaser": "<p>Lima, F. C. T. (2017): A revision of the cis-andean species of the genus Brycon Müller &amp; Troschel (Characiformes: Characidae). Zootaxa 4222 (no. 1): 1-189.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

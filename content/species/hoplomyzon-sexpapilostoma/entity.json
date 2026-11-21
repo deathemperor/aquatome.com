@@ -1,0 +1,171 @@
+{
+  "id": "hoplomyzon-sexpapilostoma",
+  "scientificName": "Hoplomyzon sexpapilostoma",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Hoplomyzon",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "colombia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Masparro",
+        "Ariari",
+        "Guaviare",
+        "Apure"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Orinoco River basin of Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "In Colombia it occurs in rivers Ariari, Caja, Upamena, Cusiana, and Cravo Norte.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Ariari"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Hoplomyzon sexpapilostoma was described from Masparro river at Masparro dam, Barinas state (Taphorn and Marrero 1990).",
+          "countries": [],
+          "regions": [
+            "Masparro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "It is widely distributed in Western Andean tributaries of the Orinoco basin, along the piedmont region from the river Ariari (Guaviare drainage) to the Guache river in Portuguesa drainage (Taphorn and Marrero 1990).",
+          "countries": [],
+          "regions": [
+            "Guaviare"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "In Venezuela the species is reported from rivers Torbes, Bumbum, La Yuca, Masparro, Boconó, Guanare, Las Marías and Guache, all in Apure drainage.",
+          "countries": [],
+          "regions": [
+            "Apure"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340538,
+      "total": 34,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "VE",
+          34
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          8.4375,
+          24,
+          24
+        ],
+        [
+          -60.46875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
+      "html": "<ul><li>Described by Taphorn &amp; Marrero, 1990</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
+      "html": "<p>South America: Orinoco River basin of Venezuela. Type locality: Río Masparro at site of Masparro Dam, Barinas, Venezuela, 8º50'40\"N, 70º06'00\"W.</p><p>Hoplomyzon sexpapilostoma was described from Masparro river at Masparro dam, Barinas state (Taphorn and Marrero 1990). It is widely distributed in Western Andean tributaries of the Orinoco basin, along the piedmont region from the river Ariari (Guaviare drainage) to the Guache river in Portuguesa drainage (Taphorn and Marrero 1990). In Colombia it occurs in rivers Ariari, Caja, Upamena, Cusiana, and Cravo Norte. In Venezuela the species is reported from rivers Torbes, Bumbum, La Yuca, Masparro, Boconó, Guanare, Las Marías and Guache, all in Apure drainage. The species has an elevational distribution ranges from 59-1,406 m above sea level.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
+      "html": "<p>It is presumed to feed on benthic aquatic invertebrates.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
+      "html": "<p>Etymology: The genus name Hoplomyzon: hoplo-, armed, referring to body “armed with six longitudinal series of bony bucklers”; myzon, to suck, presumably referring to resemblance to Asian (Exostoma) and neotropical (Astroblepus) catfishes (as noted by Myers) that have sucker mouths (a resemblance mainly due to adnate maxillary barbels in Hoplomyzon. The specific name sexpapilostoma: sex, six; papilla, tubercle; stoma, mouth, referring to six buccal papillae (four on upper lip, one at each corner of mouth).</p><p>Remarks: This species is widespread, occurring in some protected/conservation areas and remote regions. The data in biological collections and different regional reports do not suggest a perceptible reduction in the populations of the species. Therefore, it is evaluated as Least Concern (IUCN 2021).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Friel, J.P., 2003. Aspredinidae (Banjo catfishes). p. 261-267. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, version (10/2022).</p><p>Mojica, J.I., DoNascimiento, C., Taphorn, D.C., Usma, S., Villa-Navarro, F. &amp; Herrera-Collazos, E.E. 2021. Hoplomyzon sexpapilostoma. The IUCN Red List of Threatened Species 2021.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-19"
+}

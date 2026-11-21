@@ -3,6 +3,12 @@
   "name": "Amazonas",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T12:49:34.938Z",
+    "why": "The source's sentence lists Amazonas among rivers, so it means the Amazon River, which Indonesian writes as \"Sungai Amazon\"; the bare \"Amazonas\" fits the Brazilian state, not the river."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

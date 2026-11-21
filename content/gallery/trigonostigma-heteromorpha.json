@@ -203,64 +203,7 @@
       "caption": "Cá tam giác đực với mảng đen rõ trong bể chụp ảnh",
       "best": true,
       "kind": "male",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/100111739.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/100111739-480.webp",
-      "width": 847,
-      "height": 1024,
-      "licence": "CC BY-NC",
-      "author": "Martin Kennewell",
-      "sourceUrl": "https://www.inaturalist.org/photos/100111739",
-      "caption": "Cá tam giác bơi trong môi trường tự nhiên gần rễ cây",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/358133948.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/358133948-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "sharkdevotee",
-      "sourceUrl": "https://www.inaturalist.org/photos/358133948",
-      "caption": "Cá tam giác trưởng thành chụp cận cảnh trong bể chụp ảnh nhỏ",
-      "best": true,
-      "kind": "other",
-      "setup": true,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/396862191.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/396862191-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-NC",
-      "author": "Tse Chung Yi",
-      "sourceUrl": "https://www.inaturalist.org/photos/396862191",
-      "caption": "Cá tam giác bơi trên nền cát trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/396862133.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/396862133-480.webp",
-      "width": 1024,
-      "height": 765,
-      "licence": "CC BY-NC",
-      "author": "Tse Chung Yi",
-      "sourceUrl": "https://www.inaturalist.org/photos/396862133",
-      "caption": "Cá tam giác với đốm tam giác đen rõ, ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/396862148.webp",
@@ -273,8 +216,59 @@
       "caption": "Cá tam giác nhìn nghiêng, vây đuôi đỏ cam, trong suối",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/358133948.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/358133948-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-NC",
+      "author": "sharkdevotee",
+      "sourceUrl": "https://www.inaturalist.org/photos/358133948",
+      "caption": "Cá tam giác trưởng thành chụp cận cảnh trong bể chụp ảnh nhỏ",
+      "best": true,
+      "kind": "other",
+      "setup": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/100111739.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/100111739-480.webp",
+      "width": 847,
+      "height": 1024,
+      "licence": "CC BY-NC",
+      "author": "Martin Kennewell",
+      "sourceUrl": "https://www.inaturalist.org/photos/100111739",
+      "caption": "Cá tam giác bơi trong môi trường tự nhiên gần rễ cây",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/396862191.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/396862191-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/396862191",
+      "caption": "Cá tam giác bơi trên nền cát trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/396862133.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/396862133-480.webp",
+      "width": 1024,
+      "height": 765,
+      "licence": "CC BY-NC",
+      "author": "Tse Chung Yi",
+      "sourceUrl": "https://www.inaturalist.org/photos/396862133",
+      "caption": "Cá tam giác với đốm tam giác đen rõ, ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/619266920.webp",
@@ -287,22 +281,7 @@
       "caption": "Cá tam giác trong môi trường tự nhiên, nước đục",
       "best": true,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/742172373.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/742172373-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY-NC",
-      "author": "Rui",
-      "sourceUrl": "https://www.inaturalist.org/photos/742172373",
-      "caption": "Cá tam giác bơi trên nền sỏi đá đỏ",
-      "best": true,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/720019887.webp",
@@ -315,8 +294,7 @@
       "caption": "Đàn cá tam giác trong hộp nhựa cạnh thước đo",
       "best": false,
       "kind": "group",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/482036680.webp",
@@ -329,8 +307,7 @@
       "caption": "Cá tam giác bơi trên nền cát đỏ ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     }
   ],
   "seen": 97,

@@ -1,0 +1,80 @@
+{
+  "id": "gambusia-hurtadoi",
+  "native": {
+    "input": "c7da855741e957f4",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Unfortunately, it belongs to the endangered fish species, because it only exists in a single area of less than 4 km2 in Mexico.",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gambusia hurtadoi",
+    "status": "ACCEPTED",
+    "taxonKey": 2350565,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        6
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        6
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        4
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        4
+      ],
+      [
+        "727b83c1-e8a7-4dd9-a9a2-4c4a9ea9636c",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        1
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        1
+      ]
+    ],
+    "native": [
+      "MX"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

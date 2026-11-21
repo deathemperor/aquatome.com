@@ -1,45 +1,59 @@
 {
   "id": "serrasalmus-sanchezi",
   "native": {
-    "input": "c0f242fec38e3123",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "288fbb285924f720",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Sanchez's piranha, Serrasalmus sanchezi, is a small piranha endemic to Peru, collected from rivers including the Ucayali, Itayi and Pacaya.",
+        "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
         "words": "Peru",
         "ok": true
       },
       {
         "code": "PE",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+        "source": "glaser",
+        "quote": "The type was found in Peru (\"Caño yarina\", on the bank of the River Pacaya, tributary of the Puinahua Canal, arm of the lower Rio Ucayali).",
         "words": "Peru",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Ucayali",
+        "name": "Rio Ucayali",
         "source": "seriouslyfish",
         "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
         "country": "PE",
         "ok": true
       },
       {
-        "name": "Itayi",
+        "name": "Rio Itayi",
         "source": "seriouslyfish",
         "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
         "country": "PE",
         "ok": true
       },
       {
-        "name": "Pacaya",
+        "name": "Rio Pacaya",
         "source": "seriouslyfish",
         "quote": "Endemic to Peru where it's been collected from several rivers including the Rio Ucayali, Rio Itayi and Rio Pacaya.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Rio Ucayali",
+        "source": "glaser",
+        "quote": "The type was found in Peru (\"Caño yarina\", on the bank of the River Pacaya, tributary of the Puinahua Canal, arm of the lower Rio Ucayali).",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "River Pacaya",
+        "source": "glaser",
+        "quote": "The type was found in Peru (\"Caño yarina\", on the bank of the River Pacaya, tributary of the Puinahua Canal, arm of the lower Rio Ucayali).",
         "country": "PE",
         "ok": true
       }
@@ -47,7 +61,9 @@
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "BR"
+      ],
       "sourcesOnly": []
     }
   },

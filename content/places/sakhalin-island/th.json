@@ -1,8 +1,13 @@
 {
   "slug": "sakhalin-island",
-  "name": "ซาฮาลิน",
+  "name": "เกาะซาฮาลิน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-19T07:52:27.285Z"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

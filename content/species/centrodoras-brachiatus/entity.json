@@ -1,0 +1,354 @@
+{
+  "id": "centrodoras-brachiatus",
+  "scientificName": "Centrodoras brachiatus",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Centrodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon",
+    "brazil",
+    "colombia"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazon River basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344076,
+      "total": 57,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "BR",
+          56
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -5.625,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1
+        ],
+        [
+          -68.90625,
+          -4.21875,
+          2
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          2
+        ],
+        [
+          -66.09375,
+          -2.8125,
+          1
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          3
+        ],
+        [
+          -61.875,
+          -4.21875,
+          9
+        ],
+        [
+          -60.46875,
+          -5.625,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          6
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          12
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          6
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          3
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1
+        ],
+        [
+          -53.4375,
+          -2.8125,
+          2
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1
+        ],
+        [
+          -50.625,
+          -2.8125,
+          3
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 35
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "html": "<p>Centrodoras brachiatus is a catfish that grows up to 40 cm long. It was described scientifically in 1872.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>Family: Doradidae. Synonym: Doras brachiatus. Maximum size 35 cm. Temperature 22–26°C, pH 6.0–7.5.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>South America: Amazon River basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "html": "<p>Although the species has a large distribution area, practically nothing is known about its wild life.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>Although the species was described scientifically as early as 1872 and has a large distribution area, practically nothing is known about its wild life.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>Quite rare in imports but should be treated the same as with any other large Dorad. Can be kept with other large or medium sized tankmates.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "html": "<p>The large tooth cushion in the lower jaw indicates that the animals may graze on growth.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>The large tooth cushion in the lower jaw indicates that the animals may graze on growth.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "html": "<p>The specimens often \"hold their breath\": after strong breathing movements they stop breathing again and again for a longer time (at least nothing can be seen of it). This is a behaviour that has not yet been observed in other fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>What is striking about them is that they often \"hold their breath\". After strong breathing movements they stop breathing again and again for a longer time (at least you don't see anything of it). This is a behaviour that we have not yet observed in fish (Aquarium Glaser 2019).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "html": "<p>Typical is the form of the lateral bone row, whose shields are very big directly under the dorsal fin and then quickly become much smaller towards the tail. The species is only extremely rarely imported.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>Etymology: The specific name brachiatus: Latin for having branches like arms, presumably referring to its \"very large\" pectoral spines.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "html": "<p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. www.aquariumglaser.de</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c4ed350bb3384f9d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c4ed350bb3384f9d-480.webp",
+      "width": 500,
+      "height": 244,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "caption": "Centrodoras brachiatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4ce2428d7854ef90.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4ce2428d7854ef90-480.webp",
+      "width": 500,
+      "height": 266,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm",
+      "caption": "Centrodoras brachiatus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0aa0bbd8a6234fc7.webp",
+      "thumb": "https://media.aquatome.com/glaser/0aa0bbd8a6234fc7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4c12c3887072aa96.webp",
+      "thumb": "https://media.aquatome.com/glaser/4c12c3887072aa96-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/261db53eca1878b7.webp",
+      "thumb": "https://media.aquatome.com/glaser/261db53eca1878b7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/centrodoras-brachiatus-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "CmgLOtWUW9E",
+      "title": "Centrodoras Brachiatus",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Dqf6vGvizz4",
+      "title": "Centrodoras Brachiatus--",
+      "durationSec": 134,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "gcDooWTFxzA",
+      "title": "Centrodoras brachiatus 白銀鐵甲武士",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wjS1aiSvNh0",
+      "title": "Centrodoras Brachiatus",
+      "durationSec": 155,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200 lít",
+        "bể cá lớn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-20"
+}

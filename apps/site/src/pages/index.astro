@@ -40,13 +40,13 @@ const equipment = c.equipment.filter(e => paged.has(e.category)).sort((a, b) => 
 const tools = toolCards(t).filter(x => ['/vi/cong-cu/nuoi-chung/', '/vi/cong-cu/the-tich-be/', '#phan-bon', '/vi/cong-cu/den-chihiros/'].includes(x.href)).map(x => ({ ...x, href: x.href.startsWith('#') ? `/vi/cong-cu/${x.href}` : x.href }))
 const native = nativeSpecies(lang, c)
 // The country's own fish, besides those already featured above.
-const nativeShown = nativeCards(lang, c, featured)
+const nativeShown = nativeCards(lang, c, featured, 4, avoid)
 // Every picture once, chosen in page order (lib/pictures.ts): a group's tile takes its next fish's photo when the
 // cards above show its best one.
 const pics = pagePictures(c)
 pics.add(HERO.url)
-const featuredPhotos = takeEach(pics, featured, s => tilePhotos(s.photos))
-const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => tilePhotos(s.photos)) : []
+const featuredPhotos = takeEach(pics, featured, s => tilePhotos(s.photos, avoid))
+const nativePhotos = native.place?.parent && nativeShown.length === 4 ? takeEach(pics, nativeShown, s => tilePhotos(s.photos, avoid)) : []
 const groups = groupTiles(lang, c, pics, avoid)
 // The guide and video rows: four each, at most one drawing a cover for want of a picture (takeRow).
 const { items: guides, photos: guidePhotos } = takeRow(pics, leadGuides(c).filter(g => g !== cycle && g !== water), g => guideImages(c, g))

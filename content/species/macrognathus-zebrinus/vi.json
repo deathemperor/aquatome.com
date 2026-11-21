@@ -3,7 +3,8 @@
   "name": "Cá chạch sông vằn",
   "altNames": [
     "Cá chạch vằn ngựa vằn",
-    "Zebra Spiny Eel"
+    "Zebra spiny eel",
+    "Cá chạch sông zebrinus"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<ul><li>Cần nắp đậy thật kín vì loài này có tiếng hay nhảy. Nắp kín là chuyện bắt buộc, vì hễ có chỗ hở là mấy con chạch này sẽ tìm đường chui ra.</li></ul><p>Cá chạch sông vằn (Macrognathus zebrinus) là một loài chạch gai ở Myanmar. Ngoài tự nhiên, nó sống ở sông và đầm lầy mọc nhiều cây thủy sinh. Trước đây người ta xếp loài này vào chi Mastacembelus, một chi rất gần với nó. Chạch gai có tên như vậy là do các tia vây lưng sắc nhọn, dễ đâm thủng da người. Nó hiền với những con cá nó không nuốt được, nhưng hay giành chỗ với đồng loại. Cá dài tới 46 cm, dù nuôi trong bể thường nhỏ hơn.</p>",
@@ -16,13 +17,19 @@
     "behaviour:seriouslyfish": "<p>Cá hiền với những loài không nhét vừa miệng nó, nên thả chung với các loài cá lớn hiền lành thì hợp. Tuy nhiên nó hơi hay giành chỗ với đồng loại. Muốn nuôi từ hai con trở lên thì phải có bể thật lớn.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa biết cách nào phân biệt đực cái qua hình dáng bên ngoài, nhưng con cái đủ lớn thường có thân dày hơn con đực.</p>",
     "reproduction:seriouslyfish": "<p>Đến nay chưa ai cho loài này đẻ thành công trong bể.</p>",
-    "notes:seriouslyfish": "<p>M. zebrinus là một trong những loài chạch gai mới có mặt ở tiệm cá, và đẹp hơn các loài khác. Trước đây người ta xếp nó vào chi Mastacembelus, một chi rất gần. Cầm chạch gai phải cẩn thận, vì cái tên của chúng là do các tia vây lưng sắc nhọn, dễ đâm thủng da người.</p>"
+    "notes:seriouslyfish": "<p>M. zebrinus là một trong những loài chạch gai mới có mặt ở tiệm cá, và đẹp hơn các loài khác. Trước đây người ta xếp nó vào chi Mastacembelus, một chi rất gần. Cầm chạch gai phải cẩn thận, vì cái tên của chúng là do các tia vây lưng sắc nhọn, dễ đâm thủng da người.</p>",
+    "quickFacts:glaser": "<p>Chi Macrognathus hiện có 24 loài cá lươn gai, và loài nào cũng đáng nuôi trong bể. So với các loài lươn gai khác thì chúng khá nhỏ, chỉ 10-15 cm, rất hiếm khi nghe có con lớn hơn. Chúng hiền với những cá không vừa miệng chúng. Thêm nữa, hầu hết các loài trong chi này còn có màu khá đẹp.</p>",
+    "distribution:glaser": "<p>Đẹp nhất có lẽ là Macrognathus zebrinus ở Myanmar. Loài này sống ở lưu vực các sông lớn Irrawaddy, Sittang và Salween. Ngoài ra, nó còn có ở Nepal và nghe nói có cả ở Indonesia. Nhưng cá bán ra là cá nhập từ Myanmar hoặc cá trại.</p>",
+    "dimorphism:glaser": "<p>Con lớn nhất từng đo được dài khoảng 17 cm, nhưng đó là ngoại lệ. Cá nhập về hiện nay dài 10-12 cm và đã phân biệt được đực cái. Con cái tròn bụng hơn hẳn và màu hơi nhạt hơn.</p>",
+    "maintenance:glaser": "<p>Nuôi cá lươn gai thì nền phải có ít nhất một phần là cát, vì chúng thích vùi mình xuống đó. Bể phải đậy thật kín, không chừa một khe nào cho cá trốn ra. Các cửa hút của lọc cũng phải bịt chắn để cá không chui vào, nếu không cá có thể chết.</p>",
+    "diet:glaser": "<p>Thức ăn đông lạnh hay đồ tươi sống loại nào cũng cho ăn được, miễn là vừa với cỡ miệng cá. Cá đã quen bể cũng thường chịu ăn cám viên.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.75
+      "seriouslyfish": 0.75,
+      "glaser": 0.9
     }
   }
 }

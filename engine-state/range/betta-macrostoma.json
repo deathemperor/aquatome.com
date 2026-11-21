@@ -1,8 +1,8 @@
 {
   "id": "betta-macrostoma",
   "native": {
-    "input": "b96f515179831a22",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "ea86bab31a01210c",
+    "at": "2026-11-20T12:03:34.993Z",
     "claims": [
       {
         "code": "BN",
@@ -10,14 +10,6 @@
         "source": "seriouslyfish",
         "quote": "The Brunei beauty, Betta macrostoma, is a large paternal mouthbrooding labyrinth fish endemic to Brunei and the northern tip of Sarawak, Borneo.",
         "words": "Brunei",
-        "ok": true
-      },
-      {
-        "code": "BN",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Endemic to Borneo where it's known only from Brunei Darussalam and the northern tip of the Malaysian state of Sarawak.",
-        "words": "Brunei Darussalam",
         "ok": true
       },
       {
@@ -41,6 +33,12 @@
         "source": "seriouslyfish",
         "quote": "In Brunei there exist a number of known localities along the Mendarem River and in Labi rainforest, all in the administrative area of Labi which borders Sarawak to the south.",
         "country": "BN",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Northern Borneo.",
         "ok": true
       }
     ],

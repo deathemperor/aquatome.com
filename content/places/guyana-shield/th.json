@@ -3,6 +3,12 @@
   "name": "โล่กิอานา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-19T07:51:36.729Z",
+    "why": "โล่ translates 'Shield' word by word and กิอานา is not the usual Thai spelling, so this is not how a Thai atlas writes it; Thai sources use กายอานา, as in ที่ราบสูงกายอานา."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

@@ -1,8 +1,8 @@
 {
   "id": "betta-raja",
   "native": {
-    "input": "e0a9c323a8fd581d",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "5c3bdbe5f40b0e29",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "ID",
@@ -16,7 +16,7 @@
         "code": "ID",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Endemic to parts of the island of Sumatra, Indonesia.",
+        "quote": "Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins.",
         "words": "Indonesia",
         "ok": true
       }
@@ -25,7 +25,7 @@
       {
         "name": "Sumatra",
         "source": "seriouslyfish",
-        "quote": "Endemic to parts of the island of Sumatra, Indonesia.",
+        "quote": "Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins.",
         "country": "ID",
         "ok": true
       },
@@ -33,13 +33,22 @@
         "name": "Batang Hari",
         "source": "seriouslyfish",
         "quote": "Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins.",
+        "country": "ID",
         "ok": true
       },
       {
         "name": "Indragiri",
         "source": "seriouslyfish",
         "quote": "Betta raja is a mouthbrooding labyrinth fish endemic to Sumatra, Indonesia, found in the Batang Hari and Indragiri river basins.",
+        "country": "ID",
         "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "So-far Betta raja has been confirmed on Sumatra by the following sites: lowland swamp forests of the Batang Hari Basin in Jambi, the northern part of Sumatra Selatan, the Indragiri Basin in Riau and the eastern part of Sumatra Barat in Sijunjung.",
+        "ok": false,
+        "why": "not in the source's text"
       }
     ],
     "disputed": [],

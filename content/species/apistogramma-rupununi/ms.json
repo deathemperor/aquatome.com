@@ -1,0 +1,25 @@
+{
+  "slug": "apistogramma-rupununi",
+  "name": "Apistogramma rupununi",
+  "altNames": [
+    "Apisto rupununi",
+    "Rupununi dwarf cichlid",
+    "Rupununi apisto"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Cichlid kerdil ini akhirnya diimport semula selepas tempoh yang agak lama. Kemungkinan besar spesimen ini berasal dari Amapá di Brazil. Agak sukar untuk membezakan A. rupununi daripada A. steindachneri pada spesimen liar yang masih kecil. Namun, ikan yang baru diimport ini sudah agak besar (sesetengah jantan sudah sekitar 5 cm panjang). Tiada spesimen yang menunjukkan sebarang pemanjangan pada jejari paling atas dan paling bawah sirip ekor. Ekor berbentuk lira (lyretail) pada jantan A. steindachneri yang matang ialah ciri terbaik untuk membezakan kedua-dua spesies ini; oleh itu, ikan yang baru diimport ini dianggap tergolong dalam A. rupununi.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-20"
+  }
+}

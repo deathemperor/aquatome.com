@@ -3,6 +3,12 @@
   "name": "กะนันแหม่ชอง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T12:45:30.019Z",
+    "why": "The name transliterates the Burmese generic word 'chaung' (stream) as ชอง instead of using the Thai word ลำธาร, so it keeps a kind word in another language."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

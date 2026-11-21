@@ -1,22 +1,22 @@
 {
   "id": "sphaerichthys-selatanensis",
   "native": {
-    "input": "0327bfdfaecaabe0",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "d66eac68927168cb",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "ID",
         "status": "native",
-        "source": "bwaquatics",
-        "quote": "Native to southern Borneo (Indonesia).",
+        "source": "seriouslyfish",
+        "quote": "The crossband chocolate gourami, Sphaerichthys selatanensis, is a small labyrinth fish from southern Borneo, Indonesia.",
         "words": "Indonesia",
         "ok": true
       },
       {
         "code": "ID",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from close to the city of Banjarmasin in South Kalimantan (Kalimantan Selatan), Borneo, Indonesia, and appears well distributed in southern Borneo, having also been recorded from close to the settlement of Sampit several hundred kilometres east in Central Kalimantan (Kalimantan Tengah) province.",
+        "source": "bwaquatics",
+        "quote": "It occurs in peat swamp forest in Kalimantan, Indonesia.",
         "words": "Indonesia",
         "ok": true
       }
@@ -24,15 +24,15 @@
     "regions": [
       {
         "name": "Borneo",
-        "source": "bwaquatics",
-        "quote": "Native to southern Borneo (Indonesia).",
+        "source": "seriouslyfish",
+        "quote": "The crossband chocolate gourami, Sphaerichthys selatanensis, is a small labyrinth fish from southern Borneo, Indonesia.",
         "country": "ID",
         "ok": true
       },
       {
-        "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Described from close to the city of Banjarmasin in South Kalimantan (Kalimantan Selatan), Borneo, Indonesia, and appears well distributed in southern Borneo, having also been recorded from close to the settlement of Sampit several hundred kilometres east in Central Kalimantan (Kalimantan Tengah) province.",
+        "name": "Kalimantan",
+        "source": "bwaquatics",
+        "quote": "It occurs in peat swamp forest in Kalimantan, Indonesia.",
         "country": "ID",
         "ok": true
       },

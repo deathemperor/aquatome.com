@@ -15,7 +15,8 @@
     "native": {
       "countries": [
         "JP",
-        "TW"
+        "TW",
+        "KR"
       ],
       "regions": [],
       "sources": [
@@ -27,7 +28,8 @@
           "quote": "They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.",
           "countries": [
             "JP",
-            "TW"
+            "TW",
+            "KR"
           ],
           "regions": []
         }
@@ -36,7 +38,7 @@
     "records": {
       "taxonKey": 5863054,
       "total": 143,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-19",
       "countries": [
         [
           "JP",
@@ -234,7 +236,7 @@
       "key": "quickFacts",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
-      "html": "<p>Caridina multidentata (formerly Caridina japonica) is an algae-eating dwarf shrimp that grows to about 4–5 cm, slightly bigger than the average Neocaridina cherry shrimp. It is clear-colored with a tan or gray-blue tint (sometimes affected by diet) and a solid stripe down the back.</p>"
+      "html": "<p><em>Caridina multidentata</em> (formerly <em>Caridina japonica</em>) is an algae-eating dwarf shrimp that grows to about 4–5 cm, slightly bigger than the average Neocaridina cherry shrimp. It is clear-colored with a tan or gray-blue tint (sometimes affected by diet) and a solid stripe down the back.</p><p>Amano shrimp won't crossbreed with cherry or crystal shrimp. They are not capable of reproducing in regular freshwater tanks, since their larvae require highly brackish or salt water to survive.</p>"
     },
     {
       "key": "distribution",
@@ -252,7 +254,7 @@
       "key": "aquariumSize",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
-      "html": "<p>They have a low bioload and do not need to be kept in groups, so they can live in most nano tanks (or larger), as long as there is a tight-fitting lid. Amano shrimp are expert escapers, so cover any openings where power cords or airline tubing leave the tank.</p>"
+      "html": "<p>They have a low bioload and do not need to be kept in groups, so they can live in most nano tanks (or larger), as long as there is a tight-fitting lid. Amano shrimp are expert escapers, so cover any openings where power cords or airline tubing come out of the tank.</p>"
     },
     {
       "key": "maintenance",
@@ -264,13 +266,13 @@
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
-      "html": "<p>Their hardiness makes them adaptable to a wide range of water parameters: 18–28°C, pH 6–8, and moderate to hard GH. As with most crustaceans, they need at least some minerals to promote healthy exoskeleton molts, so add Wonder Shell or Seachem Equilibrium if you have soft water.</p>"
+      "html": "<p>Their hardiness makes them adaptable to a wide range of water parameters: 18–28°C, pH 6–8, and moderate to hard GH. As with most crustaceans, they need at least some minerals to promote healthy exoskeleton molts, so add a mineral supplement such as Easy Shrimp and Snail Shell or Seachem Equilibrium if you have soft water.</p>"
     },
     {
       "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
-      "html": "<p>They would love to live in a jungle of live aquarium plants and decorations, where they can graze all day long and hide when molting.</p>"
+      "html": "<p>They would love a jungle of live aquarium plants and decorations, where they can graze all day and hide when molting.</p>"
     },
     {
       "key": "diet",
@@ -282,7 +284,7 @@
       "key": "diet",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
-      "html": "<p>These scavengers will eat anything they can get their little hands on: all types of fish foods, blanched vegetables, biofilm, rotting leaves, and algae. They prefer not to eat algae if tastier options are available, so limit feedings for a few days if you want them to work on an algae problem.</p><p>Unlike snails, they aren't as good at eating flat algae growing on surfaces, but they will go after hair algae, thread algae, and even black beard algae if you have a group of hungry shrimp. They are also great at picking leftover crumbs from tight corners and small crevices.</p><p>Feed foods with added calcium, like shrimp foods and Hikari Crab Cuisine, to help them molt successfully. If you see an empty, clear (not solid-colored) exoskeleton, leave it in the tank so the shrimp can consume it for extra minerals. A molted exoskeleton looks like a dead shrimp but is empty inside and clear in color.</p>"
+      "html": "<p>These scavengers will eat anything they can get their little hands on: all types of fish foods, blanched vegetables, biofilm, rotting leaves and algae. They prefer not to eat algae if tastier options are available, so limit feedings for a few days if you want them to work on an algae problem.</p><p>Unlike snails, they aren't as good at eating flat algae that grows on surfaces, but they will go after hair algae, thread algae and even black beard algae if you have a large group of hungry shrimp. They are also great at picking out leftover crumbs from tight corners and small crevices.</p><p>Foods with added calcium, like shrimp foods and Hikari Crab Cuisine, help make sure they can molt successfully. If you see an empty exoskeleton that is clear (not solid-colored), leave the molt in the tank so the shrimp can consume it for extra minerals. A molted exoskeleton looks like a dead shrimp but is empty inside and clear in color.</p>"
     },
     {
       "key": "behaviour",
@@ -294,7 +296,7 @@
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
-      "html": "<p>While they aren't the most attractive shrimp, they have lots of interesting behaviors. They constantly graze for food with their front legs, climb plant leaves, and swipe food from bigger fish.</p><p>Because of their outgoing nature, they can be kept with many similar-sized, peaceful community animals like tetras, Endler's livebearers, corydoras catfish, bristlenose plecos, kuhli loaches, other shrimp, and snails. Stay away from any fish big enough to eat them, like medium to large cichlids, barbs, and goldfish.</p><p>They have bottomless stomachs and will happily steal fish food from tank mates, so don't keep too many with smaller dwarf shrimp and other slower eaters. Amano shrimp are larger than cherry shrimp and may outcompete them for food if there isn't plenty to go around.</p>"
+      "html": "<p>While not the most attractive shrimp, they show many interesting behaviors: constantly grazing for food with their front legs, climbing plant leaves and swiping food from bigger fish.</p><p>Because of their outgoing nature and lack of breeding, they can be kept with many similar-sized, peaceful community animals like tetras, Endler's livebearers, corydoras catfish, bristlenose plecos, kuhli loaches, other shrimp and snails. Avoid fish big enough to eat them, like medium to large cichlids, barbs and goldfish. They will happily steal fish food from tank mates, so don't keep too many with smaller dwarf shrimp and other slower eaters. They are larger than cherry shrimp and may outcompete them for food if there isn't plenty.</p>"
     },
     {
       "key": "dimorphism",
@@ -318,7 +320,7 @@
       "key": "reproduction",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
-      "html": "<p>They won't crossbreed with cherry or crystal shrimp. They are not capable of reproducing in regular freshwater tanks, since their larvae require highly brackish or salt water to survive. If you see a female fanning eggs under her tail, don't expect baby shrimp.</p>"
+      "html": "<p>They are not capable of reproducing in regular freshwater tanks, since their larvae require highly brackish or salt water to survive. If you see a female fanning eggs under her tail, don't expect baby shrimp.</p>"
     }
   ],
   "photos": [
@@ -354,9 +356,45 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
       "caption": "female berried amano shrimp",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/ba52a174aab3fd14.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/ba52a174aab3fd14-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "caption": "cherry vs amano shrimp",
+      "source": "aquariumcoop"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "WGKzPnZjVuE",
+      "title": "The ULTIMATE Amano Shrimp Care Guide For Beginners!",
+      "durationSec": 833,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PGWnClqbTIE",
+      "title": "2025 How to *ACTUALLY* Breed Amano Shrimp",
+      "durationSec": 689,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "z4QLl7XqCd8",
+      "title": "Amano shrimp caridina multidentata - @aquarium.as",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jQezWdq1D2M",
+      "title": "Added my first Amano Shrimp (Caridina multidentata) to my 140 Liter Aquarium.",
+      "durationSec": 31,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -387,5 +425,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-18"
 }

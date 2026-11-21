@@ -72,56 +72,6 @@
       "caption": "Cá cánh buồm với vây dài trong bể trồng cây"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/319667313.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/319667313-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Igor Balashov",
-      "sourceUrl": "https://www.inaturalist.org/photos/319667313",
-      "caption": "Cá tetra góa phụ dạng nhuộm màu xanh lam trong bể thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/357931521.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/357931521-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Gannu03",
-      "sourceUrl": "https://www.inaturalist.org/photos/357931521",
-      "caption": "Cá tetra góa phụ dạng nhuộm màu đỏ cam trong bể"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/601260498.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/601260498-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Oz Perkins",
-      "sourceUrl": "https://www.inaturalist.org/photos/601260498",
-      "caption": "Cá tetra góa phụ trắng bạc cận cảnh trong bể thủy sinh"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/556431489.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/556431489-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY-SA",
-      "author": "Lena Struwe",
-      "sourceUrl": "https://www.inaturalist.org/photos/556431489",
-      "caption": "Cá tetra góa phụ hồng nhạt cận cảnh trong bể có gỗ lũa"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/459009497.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/459009497-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Ding Lang Reyes",
-      "sourceUrl": "https://www.inaturalist.org/photos/459009497",
-      "caption": "Cá tetra góa phụ màu vàng neon bơi trong bể"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/552749084.webp",
       "thumb": "https://media.aquatome.com/inaturalist/552749084-480.webp",
       "width": 1024,
@@ -306,6 +256,56 @@
       "author": "Fernandograu",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:BlackTetras.JPG",
       "caption": "Cá tetra góa phụ trưởng thành bơi giữa cây thủy sinh trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/319667313.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/319667313-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Igor Balashov",
+      "sourceUrl": "https://www.inaturalist.org/photos/319667313",
+      "caption": "Cá tetra góa phụ dạng nhuộm màu xanh lam trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/357931521.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/357931521-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Gannu03",
+      "sourceUrl": "https://www.inaturalist.org/photos/357931521",
+      "caption": "Cá tetra góa phụ dạng nhuộm màu đỏ cam trong bể"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/601260498.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/601260498-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Oz Perkins",
+      "sourceUrl": "https://www.inaturalist.org/photos/601260498",
+      "caption": "Cá tetra góa phụ trắng bạc cận cảnh trong bể thủy sinh"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/556431489.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/556431489-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY-SA",
+      "author": "Lena Struwe",
+      "sourceUrl": "https://www.inaturalist.org/photos/556431489",
+      "caption": "Cá tetra góa phụ hồng nhạt cận cảnh trong bể có gỗ lũa"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/459009497.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/459009497-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Ding Lang Reyes",
+      "sourceUrl": "https://www.inaturalist.org/photos/459009497",
+      "caption": "Cá tetra góa phụ màu vàng neon bơi trong bể"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/340343084.webp",
@@ -520,7 +520,7 @@
       "kind": "group"
     }
   ],
-  "seen": 133,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 149,
+  "updatedAt": "2026-11-20",
+  "builtAt": "2026-11-20"
 }

@@ -20,7 +20,8 @@
   "File:Polypterus ornatipinnis VA 01.jpg",
   "inat:319646045",
   "inat:505901507",
-  "inat:625518862"
+  "inat:625518862",
+  "inat:744399584"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/24e3739ae989c261.webp": "746c4e5d5f4ffff7",
@@ -38,9 +39,9 @@
   "https://media.aquatome.com/inaturalist/641717346.webp": "0707474fcdc3d2b2",
   "https://media.aquatome.com/inaturalist/337737043.webp": "1818498a0b434341",
   "https://media.aquatome.com/inaturalist/346194835.webp": "21001a1e0e442003",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/319646045/large.jpg": "a286fa1a6a367a5e",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/505901507/large.jpg": "1e3e3e7b69b5978b",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/625518862/large.jpg": "07078e063303230f"
+  "https://media.aquatome.com/inaturalist/625518862.webp": "070706063b03030f",
+  "https://media.aquatome.com/inaturalist/319646045.webp": "b286fa1a22327aae",
+  "https://media.aquatome.com/inaturalist/505901507.webp": "1e3e3e7b79b5978b"
  },
  "inat": {
   "taxon": 109271,
@@ -57,6 +58,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 405285380,
+  "done": true
  },
  "exhausted": "2026-10-31"
 }

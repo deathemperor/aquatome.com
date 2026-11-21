@@ -1,0 +1,93 @@
+{
+  "id": "youtube-HrKxhPEA1q4",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=HrKxhPEA1q4",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "pterophyllum-scalare",
+    "danio-rerio",
+    "poecilia-reticulata"
+  ],
+  "updatedAt": "2026-11-20",
+  "video": {
+    "youtubeId": "HrKxhPEA1q4",
+    "title": "EASY Mode Aquarium, The Most Important Decisions",
+    "channel": "KGTropicals",
+    "channelUrl": "https://www.youtube.com/channel/UCyyGJeKITfR7Y5cq2zX4-oQ",
+    "durationSec": 487,
+    "publishedAt": "2024-08-04",
+    "chapters": [],
+    "series": {
+      "id": "PLbk3wN8TF_D0fcW8MGtEZGIz4a9vteoHg",
+      "position": 4
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/HrKxhPEA1q4/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Pterophyllum scalare",
+      "Danio rerio",
+      "Poecilia reticulata"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "t": 120
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 150
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Vì sao phải chọn cá trước khi chọn bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HrKxhPEA1q4/p0-ZWxmaXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/HrKxhPEA1q4/p0-ZWxmaXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 686,
+          "licence": "CC BY-SA 4.0",
+          "author": "Julia Sumangil",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_angelfishes.jpg",
+          "caption": "Ba con cá ông tiên bơi giữa cây thủy sinh và lũa trong bể."
+        }
+      },
+      {
+        "heading": "Sàn nhà có chịu nổi sức nặng của bể không",
+        "moments": [
+          {
+            "t": 285,
+            "url": "https://media.aquatome.com/video/HrKxhPEA1q4/at285-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá dài, lớn đặt trên giá đỡ, đèn tím chiếu sáng.",
+            "sharpness": 1101.3,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Mua bể ở đâu",
+        "moments": [
+          {
+            "t": 380,
+            "url": "https://media.aquatome.com/video/HrKxhPEA1q4/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các bể trưng bày xếp trên kệ trong tiệm cá, nhìn rõ từng bể.",
+            "sharpness": 1731.4,
+            "person": false
+          }
+        ]
+      }
+    ]
+  }
+}

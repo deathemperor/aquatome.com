@@ -1346,6 +1346,22 @@
     ],
     "ruled": "e71d57cb9291add7"
   },
+  "vi/guides/aquariumbreeder-anubias-care-guide-planting-growing-and-propagation": {
+    "at": "2026-11-20",
+    "hash": "b947a9f4cf43e568",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chi này có nhiều loại, dưới đây là một số loại đáng chú ý:",
+        "problem": "The variety headings (Anubias gigantea, coffeefolia and the rest) sit at the same level as \"Các loại Anubias\" when they should be subheadings under it, so the list of varieties reads as a run of separate top-level sections. The same flattening happens under \"Thông số nước\" and \"Những vấn đề hay gặp\".",
+        "rule": "A heading whose section is only an intro sentence ending in a colon, followed by headings at the same level.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b947a9f4cf43e568"
+  },
   "vi/guides/aquariumbreeder-aquarium-crabs-and-tankmates-possible-or-not": {
     "at": "2026-11-17",
     "hash": "a7c2a15c6ddaeb4a",
@@ -1855,6 +1871,12 @@
     "findings": [],
     "ruled": "03361a6f4f0e2c14"
   },
+  "vi/guides/aquariumbreeder-can-you-keep-crayfish-with-other-fish": {
+    "at": "2026-11-21",
+    "hash": "a3f717d356e937f3",
+    "findings": [],
+    "ruled": "a3f717d356e937f3"
+  },
   "vi/guides/aquariumbreeder-co2-in-planted-tank": {
     "at": "2026-11-18",
     "hash": "c7d4ebfe8e213c60",
@@ -2073,6 +2095,12 @@
     ],
     "ruled": "9e8cf3d0c4a2bf2e"
   },
+  "vi/guides/aquariumbreeder-difference-between-aquarium-terrarium-riparium-and-paludarium": {
+    "at": "2026-11-20",
+    "hash": "0f643a78146d4d8e",
+    "findings": [],
+    "ruled": "0f643a78146d4d8e"
+  },
   "vi/guides/aquariumbreeder-diy-root-tabs-pros-and-cons": {
     "at": "2026-11-08",
     "hash": "138fe45c4ebaa5ee",
@@ -2249,6 +2277,32 @@
       }
     ],
     "ruled": "4468ab7ceaa2bc3d"
+  },
+  "vi/guides/aquariumbreeder-dry-start-method": {
+    "at": "2026-11-19",
+    "hash": "ab12299f5716ffcd",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Ít phải chăm.\n| Không phải thay nước.\n| Không cần châm phân.",
+        "problem": "The comparison table alternates cells between the two columns, but the source's last four items are all Dry Start advantages, so \"Ít phải chăm\" and \"Không cần châm phân\" end up in the column for drawbacks of a normal setup.",
+        "fix": "Đưa \"Ít phải chăm\", \"Không phải thay nước\", \"Không cần châm phân\", \"Làm được cả trong hộp nhỏ để nhân giống cây\" vào cột Ưu điểm của Dry Start và để trống ô tương ứng ở cột bên kia.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lúc này phải bù bằng lượng CO2 cao (8 – 12 bọt), rồi giảm dần trong vài tuần.",
+        "problem": "The CO2 rate is given as a number of bubbles with no time unit, so a reader can't tell how much CO2 to add.",
+        "fix": "Lúc này phải bù bằng lượng CO2 cao (8 – 12 bọt/giây), rồi giảm dần trong vài tuần.",
+        "rule": "A CO2 dose given as a count of 'bọt' with no 'mỗi giây'/'/giây' after it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ab12299f5716ffcd"
   },
   "vi/guides/aquariumbreeder-dwarf-shrimp-and-breeding-facts": {
     "at": "2026-11-10",
@@ -3082,6 +3136,12 @@
     "findings": [],
     "ruled": "5f8e97e3c782ce7f"
   },
+  "vi/guides/aquariumbreeder-how-to-quarantine-and-disinfect-aquarium-plants": {
+    "at": "2026-11-20",
+    "hash": "035ae1a9f66a797f",
+    "findings": [],
+    "ruled": "035ae1a9f66a797f"
+  },
   "vi/guides/aquariumbreeder-how-to-remove-algae-with-plants": {
     "at": "2026-11-19",
     "hash": "e39229023a9589c9",
@@ -3796,6 +3856,12 @@
     "findings": [],
     "ruled": "9b75bfc1341a29f9"
   },
+  "vi/guides/aquariumbreeder-how-to-use-pothos-plants-in-a-shrimp-tank": {
+    "at": "2026-11-20",
+    "hash": "d29b32e95d6e4998",
+    "findings": [],
+    "ruled": "d29b32e95d6e4998"
+  },
   "vi/guides/aquariumbreeder-importance-of-surface-agitation-in-aquariums": {
     "at": "2026-11-13",
     "hash": "6431fde972d5ae15",
@@ -3857,6 +3923,39 @@
       }
     ],
     "ruled": "515cf4bbec73a79f"
+  },
+  "vi/guides/aquariumbreeder-introduction-to-the-crayfish-care-setup-diet-and-facts": {
+    "at": "2026-11-21",
+    "hash": "4dc383392f787031",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tôm hùm đất người ta hay nuôi chủ yếu không cần bể paludarium",
+        "problem": "The sentence is garbled: the subject 'tôm hùm đất người ta hay nuôi' is followed by a misplaced 'chủ yếu', which reads like a word-for-word translation of 'most crayfish species in our hobby'.",
+        "fix": "Các loài tôm hùm đất hay nuôi thường không cần bể paludarium",
+        "field": "body"
+      }
+    ],
+    "ruled": "4dc383392f787031"
+  },
+  "vi/guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew": {
+    "at": "2026-11-19",
+    "hash": "b21639fe94012c24",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-19",
+        "field": "body",
+        "score": 0.92,
+        "kept": true,
+        "problems": [
+          "The qualifier 'không ăn phù du' squeezed in after 'cá bướm' reads as a separate claim in a list, so the sentence is garbled and confusing."
+        ]
+      }
+    ],
+    "ruled": "b21639fe94012c24"
   },
   "vi/guides/aquariumbreeder-is-my-snail-alive-or-dead": {
     "at": "2026-11-17",
@@ -3943,6 +4042,22 @@
       }
     ],
     "ruled": "09546c3edab09e8a"
+  },
+  "vi/guides/aquariumbreeder-list-of-freshwater-aquarium-snails-pros-and-cons": {
+    "at": "2026-11-21",
+    "hash": "1a5dcfce971554e2",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ốc nước ngọt là những \"hàng xóm\" dễ chịu. Chúng rất hiền và không làm phiền con nào trong bể.",
+        "problem": "The source's \"in general\" is dropped, so this flat claim clashes with later sections: assassin snails eat other snails, and Colombian ramshorns can eat eggs and small snails.",
+        "fix": "Ốc nước ngọt thường là những \"hàng xóm\" dễ chịu. Phần lớn loài rất hiền và không làm phiền con nào trong bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1a5dcfce971554e2"
   },
   "vi/guides/aquariumbreeder-live-plants-and-fake-plants-pros-and-cons": {
     "at": "2026-11-16",
@@ -4169,6 +4284,40 @@
       }
     ],
     "ruled": "8f1c582e8e604239"
+  },
+  "vi/guides/aquariumbreeder-no-water-change-tank-top-offs-vs-water-change": {
+    "at": "2026-11-19",
+    "hash": "f138a4e2593e0c3e",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Có hai nhóm cây:\n- Mọc nhanh.",
+        "problem": "The page says there are two groups of plants but drops both group names (main and secondary) and their examples (Hornwort, Duckweed, Anubias, Monte Carlo…), so the traits of the two groups run together in one list and contradict each other ('mọc nhanh' and 'mọc khá chậm').",
+        "fix": "Có hai nhóm cây:\n- Cây chính (làm phần lớn việc), ví dụ rong đuôi chồn, bèo tấm, dương xỉ Ấn Độ, cây Thủy La Bạc, bèo Nhật: mọc nhanh, rất khỏe, chủ yếu trôi nổi nên hút dinh dưỡng thẳng từ nước.\n- Cây phụ (giữ hệ ổn định), ví dụ ráy, Monte Carlo, các loại rêu: không cần nhiều sáng, mọc khá chậm, lọc thêm cho bể.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Vi khuẩn Nitrosomonas làm bước đầu (nitrat hóa): chuyển amoni thành nitrit trong điều kiện hiếu khí (có oxy).",
+        "problem": "Earlier the page says nitrification also needs Nitrospira to turn nitrite into nitrate, and its summary lists three kinds of bacteria. This section says only two kinds do the whole job and stops at nitrite.",
+        "fix": "Vi khuẩn nitrat hóa (Nitrosomonas, Nitrospira) làm bước đầu: chuyển amoni thành nitrit rồi thành nitrat trong điều kiện có oxy.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Châm nước bù thường không thay được thay nước",
+        "problem": "Repeating 'thay' ('thay được thay nước') is clumsy and hard to read.",
+        "fix": "Châm nước bù thường không thay cho việc thay nước được",
+        "field": "body"
+      }
+    ],
+    "ruled": "f138a4e2593e0c3e"
   },
   "vi/guides/aquariumbreeder-old-tank-syndrome": {
     "at": "2026-11-10",
@@ -4587,6 +4736,12 @@
     ],
     "ruled": "d06bcedb2923432e"
   },
+  "vi/guides/aquariumbreeder-saltwater-aquarium-snails-pros-and-cons": {
+    "at": "2026-11-19",
+    "hash": "0b669969e3ea84df",
+    "findings": [],
+    "ruled": "0b669969e3ea84df"
+  },
   "vi/guides/aquariumbreeder-science-of-substrate-siphoning-in-aquaria-siphon-or-not": {
     "at": "2026-11-16",
     "hash": "0ca354e48a2e8a61",
@@ -4787,6 +4942,12 @@
     ],
     "ruled": "f84cd8447d49b55d"
   },
+  "vi/guides/aquariumbreeder-shrimp-safe-plant-fertilizers": {
+    "at": "2026-11-20",
+    "hash": "5e8158d7ac919dc2",
+    "findings": [],
+    "ruled": "5e8158d7ac919dc2"
+  },
   "vi/guides/aquariumbreeder-snail-sleep-a-closer-look-at-their-resting-behavior": {
     "at": "2026-11-05",
     "hash": "ef62cfc52778fa72",
@@ -4981,6 +5142,57 @@
     ],
     "ruled": "d19d5f5a1fdf8c5f"
   },
+  "vi/guides/aquariumbreeder-top-10-corals-for-beginners": {
+    "at": "2026-11-19",
+    "hash": "c4987b82babf5b32",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chịu được đèn yếu hơn và dòng chảy mạnh hơn, nên là một trong những loài san hô khỏe",
+        "problem": "The text says Palythoa tolerates weaker light, but its parameter list says it needs strong light ('Ánh sáng: mạnh').",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "ưa đèn sáng hơn và dòng chảy chậm",
+        "problem": "The text says Folded Brain prefers brighter light, but its parameter list gives 'yếu đến trung bình' (weak to medium).",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chỉ cần rất ít ánh sáng, vì gần như loại đèn nào, mạnh hay yếu, nó cũng sống tốt",
+        "problem": "The text says bubble coral needs very little light, but its parameter list says medium light ('Ánh sáng: trung bình').",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nó nhạy với oxit kim loại, nhất là iot và nhôm",
+        "problem": "Iodine is not a metal or a metal oxide, so this example is wrong.",
+        "fix": "nó nhạy với kim loại như nhôm, và cả iot",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-19",
+        "field": "body",
+        "score": 0.8,
+        "kept": true,
+        "problems": [
+          "This sentence is garbled. It reads as a broken literal translation of 'offer a rewarding display for any novice coral grower'."
+        ]
+      }
+    ],
+    "ruled": "c4987b82babf5b32"
+  },
   "vi/guides/aquariumbreeder-top-10-low-light-aquarium-plants": {
     "at": "2026-11-18",
     "hash": "c68c195ec2774785",
@@ -5100,6 +5312,119 @@
       }
     ],
     "ruled": "c56861bc6c5c8de7"
+  },
+  "vi/guides/aquariumbreeder-top-7-floating-plants-for-beginners": {
+    "at": "2026-11-20",
+    "hash": "ac901ec3035af647",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Thủy cúc (Hygrophila difformis)\n- Dương xỉ nước (Ceratopteris thalictroides)",
+        "problem": "The overview list puts Thủy cúc 6th and Dương xỉ nước 7th, but the numbered headings put Dương xỉ nước at 6 and Thủy cúc at 7.",
+        "fix": "- Dương xỉ nước (Ceratopteris thalictroides)\n- Thủy cúc (Hygrophila difformis)",
+        "rule": "The order of names in a list of species differs from the order of the numbered headings that follow it.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bèo tấm sinh sản hữu tính bằng cách mọc ra chuỗi thân mới từ các chồi sinh dưỡng",
+        "problem": "The sentence calls budding from vegetative buds sexual reproduction. It is asexual, so the sentence contradicts itself.",
+        "fix": "bèo tấm sinh sản vô tính bằng cách mọc ra chuỗi thân mới từ các chồi sinh dưỡng",
+        "field": "body"
+      }
+    ],
+    "ruled": "ac901ec3035af647"
+  },
+  "vi/guides/aquariumbreeder-top-7-nano-aquarium-plants": {
+    "at": "2026-11-20",
+    "hash": "734a069b0c8d633e",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Chúng cần nhiệt độ nước 22 – 25°C, nên giữ bể ở mức này.",
+        "problem": "Marimo's care section asks for 22–25°C, but its data card gives 18–22°C as optimal and 25°C as the upper limit it can tolerate.",
+        "fix": "Chúng ưa nước mát, khoảng 18 – 22°C, nên giữ bể ở mức này.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Nhân giống\n| Tách củ hoặc gieo hạt",
+        "problem": "The Contortion Val card copies the lotus propagation method (bulbs or seeds), but the Val section itself says the plant spreads by runners.",
+        "fix": "Tách cây con mọc từ ngó bò",
+        "rule": "Two plant data cards on the same page with identical propagation values for different genera.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trồng ở tiền cảnh và hậu cảnh là hợp nhất.",
+        "problem": "The Val section recommends the foreground, but the card gives a height of 15–60 cm and the planting section says the tall plant usually goes in the background.",
+        "fix": "Cây cao nên trồng ở hậu cảnh là hợp nhất.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đầu lá tròn, trông giống cỏ biển.",
+        "problem": "The round-tipped, seagrass-like leaf description is copied from Cryptocoryne parva and does not describe the twisted, ribbon-like leaves of Contortion Val.",
+        "rule": "The same descriptive sentence appearing under two different plant headings.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Java Fern Windelov không chịu được bị vùi rễ. Vùi xuống nền thì rễ sẽ thối",
+        "problem": "Java fern rots when its rhizome is buried, not its roots, so readers may wrongly avoid burying the roots.",
+        "fix": "Java Fern Windelov không chịu được bị vùi thân rễ. Vùi thân rễ xuống nền thì nó sẽ thối và cây tàn dần.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sen hổ đỏ mọc nhanh và chiếm nhiều chỗ trong bể.",
+        "problem": "The care section says the lotus grows fast, but its card says the growth rate is medium.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là cây đẹp và mọc nhanh, trải thảm cho bể nano thì hợp nhất.",
+        "problem": "The text calls Monte Carlo fast-growing, but its card gives a medium growth rate.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây mọc rất lâu, nên có thể phải mua nhiều cây",
+        "problem": "\"Mọc rất lâu\" reads as \"lives a long time\" rather than \"grows slowly\".",
+        "fix": "Cây mọc rất chậm, nên có thể phải mua nhiều cây mới lấp kín chỗ trong bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây chịu được nước khá rộng nhiệt nên sống tốt cả ở nơi nhiệt độ cao.",
+        "problem": "The word order in \"nước khá rộng nhiệt\" is garbled.",
+        "fix": "Cây chịu được khoảng nhiệt độ nước khá rộng nên sống tốt cả ở nơi nóng.",
+        "field": "body"
+      }
+    ],
+    "ruled": "734a069b0c8d633e"
   },
   "vi/guides/aquariumbreeder-top-8-carpeting-plants-for-planted-tanks": {
     "at": "2026-11-17",
@@ -5264,6 +5589,32 @@
     "findings": [],
     "ruled": "4dfe6944bfe076f2"
   },
+  "vi/guides/aquariumbreeder-vermetid-snails-how-to-remove-them": {
+    "at": "2026-11-19",
+    "hash": "7cd4735d0966062e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có bể san hô SPS còn mọc trùm lên, bịt kín miệng ống, làm ốc chết ngạt.",
+        "problem": "The sentence makes 'bể' the thing that grows over the tube; it should be the SPS coral, and the object (the tube) is missing.",
+        "fix": "Có bể, san hô SPS còn mọc trùm lên ống, bịt kín miệng ống làm ốc chết ngạt.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Gỡ bằng tay",
+        "problem": "The seven numbered removal methods are at the same heading level as their parent section 'Cách dọn ốc Vermetid khỏi bể' instead of sitting under it.",
+        "fix": "### 1. Gỡ bằng tay",
+        "rule": "Numbered headings that follow an unnumbered heading at the same level, with no sub-level, are probably sub-items that lost a heading level.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7cd4735d0966062e"
+  },
   "vi/guides/aquariumbreeder-vinegar-eels-profile-and-culture-guide-3-methods": {
     "at": "2026-11-05",
     "hash": "9556f5d7a6559d5e",
@@ -5370,6 +5721,41 @@
     "hash": "f623a87130d4cf4a",
     "findings": [],
     "ruled": "f623a87130d4cf4a"
+  },
+  "vi/guides/aquariumbreeder-what-is-the-difference-between-crab-crayfish-lobster-and-dwarf-shrimp": {
+    "at": "2026-11-21",
+    "hash": "29e01734cc4d72f0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bị tôm hùm đất kẹp tay thì không sao",
+        "problem": "The sentence before says crayfish claws are often dangerous, and the source also calls them potentially dangerous, but this line says a pinch on the hand is harmless.",
+        "fix": "Bị tôm hùm đất kẹp tay thì chỉ đau thôi, nhưng cú kẹp đó có thể giết chết một số loài cá trong bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cũng khá nhiều người chơi thấy nó làm một chiếc bể hợp với nó thú vị hơn hẳn",
+        "problem": "\"nó\" is used twice and the sentence is built awkwardly, so it reads like a word-for-word translation.",
+        "fix": "nhưng cũng khá nhiều người chơi thấy thả tôm hùm vào đúng loại bể thì bể thú vị hơn hẳn.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Tép\n| Tôm hùm đất\n| Tôm hùm\n| Cua",
+        "problem": "The comparison table's header row has 4 cells but every data row has 5, because there is no empty corner cell. The columns don't line up, so the figures can be read against the wrong animal.",
+        "fix": "Thêm một ô trống ở đầu hàng tiêu đề: | | Tép | Tôm hùm đất | Tôm hùm | Cua",
+        "rule": "A table whose header row has fewer cells than its data rows.",
+        "field": "body"
+      }
+    ],
+    "ruled": "29e01734cc4d72f0"
   },
   "vi/guides/aquariumbreeder-what-is-this-thing-in-my-tank": {
     "at": "2026-11-16",
@@ -9406,6 +9792,68 @@
     ],
     "ruled": "ea6c44ee79b9aba0"
   },
+  "vi/guides/aquatome-ca-bi-nam-dom-trang-benh-thuong-gap-va-thuoc-tri": {
+    "at": "2026-11-20",
+    "hash": "521918a57ef50633",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L2",
+        "quote": "vì thuốc chỉ diệt được ký sinh lúc nó đang bơi ngoài nước",
+        "problem": "\"Ngoài nước\" means out of the water, but the parasite is only killed while it swims free in the water. This also clashes with \"trong nước\" in the body text.",
+        "fix": "vì thuốc chỉ diệt được ký sinh lúc nó đang bơi trong nước",
+        "field": "summary.1"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L6",
+        "quote": "Vì thuốc chỉ diệt được ký sinh lúc nó đang bơi ngoài nước.",
+        "problem": "\"Ngoài nước\" means out of the water. It should say the free-swimming stage in the water.",
+        "fix": "Vì thuốc chỉ diệt được ký sinh lúc nó đang bơi tự do trong nước.",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Loài ký sinh này sống trọn vòng đời trên cá mà không cần vật chủ thứ hai.",
+        "problem": "The page says the parasite lives its whole life cycle on the fish, but the next sentence says the adult leaves the fish and forms a cyst in the tank. The intended point is only that it needs no second host.",
+        "fix": "Loài ký sinh này chỉ cần cá làm vật chủ, không cần vật chủ thứ hai.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mà người ta quen gọi là \\\"nấm cá\\\" thật ra",
+        "problem": "Escape backslashes were left in front of the quotation marks.",
+        "fix": "mà người ta quen gọi là \"nấm cá\" thật ra",
+        "rule": "A backslash directly before a quotation mark in the page text.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ở đây Ich thường gọi là bệnh đốm trắng, \\\"cá bị đốm trắng\\\".",
+        "problem": "Escape backslashes were left in front of the quotation marks.",
+        "fix": "Ở đây Ich thường gọi là bệnh đốm trắng, \"cá bị đốm trắng\".",
+        "rule": "A backslash directly before a quotation mark in the page text.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mấy bệnh khác hay gặp:",
+        "problem": "Septicaemia, fish TB and Spironucleus are listed under the \"Chữa\" section of a page about white spot and fungus. That section does not promise them, and they don't belong there.",
+        "field": "body"
+      }
+    ],
+    "ruled": "521918a57ef50633"
+  },
   "vi/guides/aquatome-ca-bi-nam-nam-thuy-mi-nhan-biet-cach-chua-va-phong": {
     "at": "2026-11-01",
     "hash": "658a5f2d923fb321",
@@ -9546,6 +9994,43 @@
       }
     ],
     "ruled": "ba57c10a484e717f"
+  },
+  "vi/guides/aquatome-ca-koi-thuc-an-cho-an-sinh-san-dieu-kien-nuoi": {
+    "at": "2026-11-21",
+    "hash": "c0e1b1f524d745a4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L1",
+        "quote": "nên việc đầu tiên mỗi ngày là đo nước",
+        "problem": "This is translation-style phrasing ('nên việc đầu tiên là') that the site's style guide lists to avoid.",
+        "fix": "Mỗi ngày, đo nhiệt độ nước trước rồi mới cho ăn.",
+        "rule": "The phrase 'việc đầu tiên là' appears in the text.",
+        "field": "summary.0"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một chất phụ gia họ astaxanthin",
+        "problem": "'Chất phụ gia họ astaxanthin' is an unnatural, literal rendering.",
+        "fix": "chất tạo màu astaxanthin",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-21",
+        "field": "body",
+        "score": 0.95,
+        "kept": true,
+        "problems": [
+          "The sentence is garbled: 'thức ăn' is the subject of 'cho koi ăn', which makes no sense."
+        ]
+      }
+    ],
+    "ruled": "c0e1b1f524d745a4"
   },
   "vi/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": {
     "at": "2026-11-01",
@@ -9747,6 +10232,22 @@
       }
     ],
     "ruled": "e61d6f3928b7bce6"
+  },
+  "vi/guides/aquatome-cach-tang-cuong-he-mien-dich-va-phong-benh-cho-ca-canh-vitamin-toi-muoi": {
+    "at": "2026-11-21",
+    "hash": "9b37baaabca1e29c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Thay nước hai lần một tuần. Bài ghi mức 20%, nhưng cũng dặn mỗi lần đừng thay quá 15%.",
+        "problem": "The page gives two conflicting water-change amounts (20% and no more than 15% per change) and doesn't say which one to use.",
+        "fix": "Thay nước hai lần một tuần, mỗi lần không quá 15%.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9b37baaabca1e29c"
   },
   "vi/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": {
     "at": "2026-11-06",
@@ -10124,6 +10625,22 @@
     ],
     "ruled": "b92fd7b708fe13a5"
   },
+  "vi/guides/aquatome-lam-trong-nuoc-be-ca-bi-duc-va-xu-ly-nuoc-be": {
+    "at": "2026-11-19",
+    "hash": "d85ed4cb4bfbf383",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Clo thường có thể bay đi nếu để nước 1 đến 5 ngày",
+        "problem": "The sentence uses two hedges in a row (\"thường có thể\"), which reads as a stacked translation.",
+        "fix": "Clo sẽ bay đi nếu để nước 1 đến 5 ngày",
+        "field": "body"
+      }
+    ],
+    "ruled": "d85ed4cb4bfbf383"
+  },
   "vi/guides/aquatome-loc-thung-loc-treo-loc-tran-chon-va-lap-dat": {
     "at": "2026-11-19",
     "hash": "583f96a8955aabb8",
@@ -10178,6 +10695,32 @@
       }
     ],
     "ruled": "cceabaf542befbaa"
+  },
+  "vi/guides/aquatome-may-sui-oxy-dung-bao-duong-va-co-ton-dien-khong": {
+    "at": "2026-11-20",
+    "hash": "56618364fdca6fb9",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "còn chỉ gắn bơm tạo dòng thì oxy không tăng rõ",
+        "problem": "Uses a translated term for a wave maker instead of the hobby term 'thổi luồng' the site uses.",
+        "fix": "còn chỉ gắn thổi luồng thì oxy không tăng rõ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L1",
+        "quote": "Bọt khí làm mặt nước gợn lên, nhờ vậy CO2 thoát ra và oxy hòa vào nước.",
+        "problem": "'nhờ vậy' reads as translated connective, listed as a phrase to avoid.",
+        "fix": "Bọt khí làm mặt nước gợn lên, CO2 thoát ra và oxy hòa vào nước.",
+        "rule": "the phrase 'nhờ vậy' appearing anywhere on a Vietnamese page",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "56618364fdca6fb9"
   },
   "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon": {
     "at": "2026-11-17",
@@ -10923,6 +11466,12 @@
     ],
     "ruled": "2b16143d26f588ef"
   },
+  "vi/guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-paedocypris-the-smallest-fish-in-the-world": {
+    "at": "2026-11-20",
+    "hash": "294a77507019814b",
+    "findings": [],
+    "ruled": "294a77507019814b"
+  },
   "vi/guides/glaser-en-08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc-small-goldfish-ranchu-mixed-colours": {
     "at": "2026-11-01",
     "hash": "68a0622768320100",
@@ -10965,6 +11514,22 @@
       }
     ],
     "ruled": "68a0622768320100"
+  },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-a-new-little-tetra-from-peru": {
+    "at": "2026-11-20",
+    "hash": "294fccf5d42b03d1",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "mấy con cá lùn mới về này",
+        "problem": "'Cá lùn' is a word-for-word rendering of 'dwarfs' and reads oddly in Vietnamese for tiny fish.",
+        "fix": "mấy con cá tí hon mới về này",
+        "field": "body"
+      }
+    ],
+    "ruled": "294fccf5d42b03d1"
   },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-a-new-species-of-crenuchus-en": {
     "at": "2026-11-14",
@@ -11439,6 +12004,28 @@
     ],
     "ruled": "f089ab1ed3b3aac8"
   },
+  "vi/guides/glaser-en-10-catfishes-corydoras-crypticus-and-corydoras-cf-crypticus-cw-157": {
+    "at": "2026-11-20",
+    "hash": "4b832b2bb408963b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một dạng mõm hình yên ngựa, thân hơi thon hơn.",
+        "problem": "\"Saddle-nosed\" is the hobby term for the short, rounded snout type of Corydoras. Translating it word for word as \"mõm hình yên ngựa\" means nothing to a Vietnamese reader, and it gets lost next to the contrast with the long snout (\"mõm dài\").",
+        "fix": "Một dạng mõm ngắn, thân hơi thon hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4b832b2bb408963b"
+  },
+  "vi/guides/glaser-en-10-catfishes-corydoras-cw-89-cw-91-cw-106-cw-107-2": {
+    "at": "2026-11-19",
+    "hash": "c9066c8d29843805",
+    "findings": [],
+    "ruled": "c9066c8d29843805"
+  },
   "vi/guides/glaser-en-10-catfishes-corydoras-orcesi-and-c-pastazensis": {
     "at": "2026-11-18",
     "hash": "b7d52932040179a1",
@@ -11456,6 +12043,53 @@
     ],
     "ruled": "b7d52932040179a1"
   },
+  "vi/guides/glaser-en-10-catfishes-corydoras-polystictus-and-c-albolineatus": {
+    "at": "2026-11-20",
+    "hash": "71dcfba58d1b71e7",
+    "findings": [],
+    "ruled": "71dcfba58d1b71e7"
+  },
+  "vi/guides/glaser-en-10-catfishes-corydoras-venezuelanus-orange-and-c-sp-venezuela-black": {
+    "at": "2026-11-20",
+    "hash": "6719ee064669c771",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Có một cái tên đúng khoa học thì tốt, nhất là khi chưa có tên nào đúng",
+        "problem": "The source says that knowing what you are ordering matters more than a correct scientific name, especially when none exists. The page's version reverses this into an illogical claim.",
+        "fix": "Quan trọng hơn một cái tên đúng khoa học, nhất là khi chưa có tên nào đúng, là người mua biết mình đang đặt con gì.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rắc rối lớn nhất là khi đặt hàng xong lại nhận về loài \"sai\".",
+        "problem": "The source says only 'great trouble', not the biggest trouble. The superlative is added.",
+        "fix": "Rắc rối nhiều khi đặt hàng xong lại nhận về loài \"sai\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "6719ee064669c771"
+  },
+  "vi/guides/glaser-en-10-catfishes-hey-hey-hey-hey-little-pirate": {
+    "at": "2026-11-20",
+    "hash": "8452282e32cd2cf9",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đây là điệp khúc một bài hát của ban nhạc Rodgau Monotones.",
+        "problem": "The page opens by pointing to a song chorus that it never quotes, so readers can't tell what 'this' refers to.",
+        "fix": "Câu chuyện làm nhớ tới một bài hát của ban nhạc Rodgau Monotones.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8452282e32cd2cf9"
+  },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-beautiful-new-varieties-of-liverbearers-arrived-en": {
     "at": "2026-11-17",
     "hash": "305c57c33f0b7498",
@@ -11472,6 +12106,12 @@
       }
     ],
     "ruled": "305c57c33f0b7498"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-black-molly-black-molly-2": {
+    "at": "2026-11-19",
+    "hash": "7e6470ce90b160be",
+    "findings": [],
+    "ruled": "7e6470ce90b160be"
   },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-double-sword-guppys-en": {
     "at": "2026-11-08",
@@ -11531,6 +12171,12 @@
     "hash": "bebc7b73bc412139",
     "findings": [],
     "ruled": "bebc7b73bc412139"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-oryzias-latipes-medaka-breeding-forms": {
+    "at": "2026-11-19",
+    "hash": "be7c5690555da83e",
+    "findings": [],
+    "ruled": "be7c5690555da83e"
   },
   "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-procatopus-aberrans-and-p-nototaenia-en": {
     "at": "2026-11-08",
@@ -11873,6 +12519,18 @@
     "findings": [],
     "ruled": "343b27a4129473d3"
   },
+  "vi/guides/glaser-en-25-perchlike-fishes-new-bettas-1-spade-tail": {
+    "at": "2026-11-20",
+    "hash": "0532937ad00f061c",
+    "findings": [],
+    "ruled": "0532937ad00f061c"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-new-bettas-2-alien-blue-alien-steel-blue-and-alien-green": {
+    "at": "2026-11-20",
+    "hash": "d4df3b858b63d366",
+    "findings": [],
+    "ruled": "d4df3b858b63d366"
+  },
   "vi/guides/glaser-en-25-perchlike-fishes-the-total-ban-of-channa-in-the-eu-is-off-the-table": {
     "at": "2026-11-18",
     "hash": "6d9b9cf638041fbd",
@@ -11902,6 +12560,38 @@
     "hash": "6c74aab39adf4c82",
     "findings": [],
     "ruled": "6c74aab39adf4c82"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-colombia-a-journey-to-the-habitats-of-our-fish-part-2": {
+    "at": "2026-11-20",
+    "hash": "ac5580b653be187b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Xem mẻ cá của một người đánh cá trên Caño Bocón",
+        "problem": "The photo caption opens with \"Xem\", so it reads like an instruction to the reader (\"See the catch…\"). The source means the catch is being examined.",
+        "fix": "Kiểm tra mẻ cá của một người đánh cá trên Caño Bocón",
+        "field": "body"
+      }
+    ],
+    "ruled": "ac5580b653be187b"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-colombia-a-journey-to-the-habitats-of-our-fishes": {
+    "at": "2026-11-20",
+    "hash": "feacedf4ddd7e7af",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có lúc cả bầy Myleus cf. torquatus (Kner, 1858) bị một trái bắp dụ tới.",
+        "problem": "The source only says Myleus cf. torquatus was attracted by a corn cob; it never mentions a whole school ('cả bầy').",
+        "fix": "Có lúc một trái bắp dụ được cả Myleus cf. torquatus (Kner, 1858) tới.",
+        "field": "body"
+      }
+    ],
+    "ruled": "feacedf4ddd7e7af"
   },
   "vi/guides/glaser-en-32-all-the-rest-congo-importation-arrived-en": {
     "at": "2026-11-10",
@@ -12019,6 +12709,22 @@
     "hash": "2324c015aef79969",
     "findings": [],
     "ruled": "2324c015aef79969"
+  },
+  "vi/guides/glaser-en-general-corydoras-rarities": {
+    "at": "2026-11-19",
+    "hash": "a2733c5151e6c4af",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhưng có lẽ đây là một loài khoa học chưa mô tả",
+        "problem": "'một loài khoa học chưa mô tả' is a word-for-word rendering of 'scientifically undescribed species' and reads awkwardly in Vietnamese.",
+        "fix": "nhưng có lẽ đây là một loài chưa được mô tả khoa học",
+        "field": "body"
+      }
+    ],
+    "ruled": "a2733c5151e6c4af"
   },
   "vi/guides/loachesonline-articles-a-river-runs-through-it": {
     "at": "2026-11-05",
@@ -15351,6 +16057,40 @@
     ],
     "ruled": "0b4676a52eed3a92"
   },
+  "vi/guides/youtube-_6k5YEYOcRQ": {
+    "at": "2026-11-21",
+    "hash": "16ea7427ad26ec55",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "L11",
+        "quote": "Có nuôi chung cá xiêm đực với cá xiêm cái thành đàn được không?",
+        "problem": "The question asks about keeping a male with females, but the answer only covers two males together and all-female groups, so the question is never answered.",
+        "fix": "Có nuôi chung nhiều cá xiêm trong một bể được không?",
+        "field": "faq.2.q"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Câu này đúng phần lớn.",
+        "problem": "The heading is a question and no myth is stated, so the reader can't tell which claim is 'mostly true'.",
+        "fix": "Có sao. Cá đực nhìn thấy nhau qua vách bể là chuyện đáng lo.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Câu trả lời là vừa sai vừa đúng.",
+        "problem": "Calling the answer to a yes/no question 'both false and true' reads awkwardly. It should be 'yes and no'.",
+        "fix": "Câu trả lời là có mà cũng không.",
+        "field": "body"
+      }
+    ],
+    "ruled": "16ea7427ad26ec55"
+  },
   "vi/guides/youtube-_6NIHP9P5jw": {
     "at": "2026-11-07",
     "hash": "86e26f83b06851ea",
@@ -15362,6 +16102,22 @@
     "hash": "524a2c5b77b55f7a",
     "findings": [],
     "ruled": "524a2c5b77b55f7a"
+  },
+  "vi/guides/youtube-_7R9wbaPu3A": {
+    "at": "2026-11-20",
+    "hash": "3db87db145b2ada3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có thể làm bể ikebana gọn gàng hơn kiểu bố cục tự nhiên để bát cây và tép nổi bật.",
+        "problem": "This sentence about the overall layout style sits under the heading about scattering sand around the bowl, where it doesn't belong and reads as a stray line.",
+        "fix": "Chuyển câu này lên đoạn mở đầu hoặc phần chuẩn bị bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3db87db145b2ada3"
   },
   "vi/guides/youtube-_AfM2Mwdig4": {
     "at": "2026-11-01",
@@ -15403,6 +16159,31 @@
       }
     ],
     "ruled": "885d5ea49cfd0812"
+  },
+  "vi/guides/youtube-_BR9FrQgEx8": {
+    "at": "2026-11-19",
+    "hash": "0ccd298a0d36621e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dán dây vào khối đá bằng cách keo 502 rắc bột đá như trên",
+        "problem": "The sentence is missing its verb after \"bằng cách\", so it reads as broken.",
+        "fix": "Dán dây vào khối đá bằng keo 502 rắc bột đá như trên",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nước đi qua mút thô để giữ lại cặn mịn",
+        "problem": "Coarse sponge traps larger debris, not fine particles, so saying it catches fine sediment does not hold up.",
+        "fix": "nước đi qua mút thô để giữ lại cặn bẩn",
+        "field": "body"
+      }
+    ],
+    "ruled": "0ccd298a0d36621e"
   },
   "vi/guides/youtube-_ByGYB5GtLo": {
     "at": "2026-11-18",
@@ -15478,6 +16259,59 @@
     ],
     "ruled": "22f0f57816d1917b"
   },
+  "vi/guides/youtube-_EYC3obFY4w": {
+    "at": "2026-11-19",
+    "hash": "10255a5839f8c3cb",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| 4 nắp bịt ống PVC cỡ phi 27\n| Giữ đầu ống trong nắp máng\n| Bu lông, đai ốc",
+        "problem": "The materials table has three columns, but the end-cap and bolt rows have only two cells each, so every cell after them lands in the wrong column.",
+        "fix": "| 4 nắp bịt ống PVC cỡ phi 27 | Giữ đầu ống trong nắp máng | Đã tính chung với ống",
+        "rule": "A table row with fewer cells than the table's header row.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cách đặt mua và thông số chi tiết của loại dây LED này giống với bản đèn một dây làm trước đó.",
+        "problem": "This sends readers to the source's earlier one-strip build for strip details, but this page doesn't include that build, so they have nothing to check.",
+        "fix": "Chọn dây LED RGB dài 5 m, có kèm adapter nguồn và remote để chỉnh màu và độ sáng.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L14",
+        "quote": "Thông tin chi tiết về loại dây này giống với bản đèn một dây làm trước đó.",
+        "problem": "This FAQ answer also points to the source's earlier build, which the page doesn't have.",
+        "field": "faq.3.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cắt lấy đoạn đầu ở chỗ đã xé rời",
+        "problem": "'Xé rời' (torn off) is the wrong verb for a PVC gutter, which gets cut, so readers can't tell which piece to use.",
+        "fix": "cắt lấy đoạn ở đầu máng (đầu cắt sẵn từ xưởng)",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đèn nhiều khả năng đủ cho mấy loại cây ưa sáng yếu",
+        "problem": "'Nhiều khả năng' reads like a translation. The site's style list replaces it with 'có lẽ' or 'chắc là'.",
+        "fix": "đèn có lẽ đủ cho mấy loại cây ưa sáng yếu",
+        "rule": "The phrase 'nhiều khả năng' appears in the text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "10255a5839f8c3cb"
+  },
   "vi/guides/youtube-_je30CT1MVw": {
     "at": "2026-11-10",
     "hash": "937c7eaf9419e47d",
@@ -15524,6 +16358,31 @@
       }
     ],
     "ruled": "78ead2cd23b6c5af"
+  },
+  "vi/guides/youtube-_XgI31yjUi4": {
+    "at": "2026-11-20",
+    "hash": "e76ca8cee89a6853",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổ nước vào rồi xả ra, nước sẽ đục và bẩn.",
+        "problem": "Coming right after 'no need to wash the sand', the instruction to fill and drain is unclear: readers can't tell whether to rinse the sand or simply fill the tank.",
+        "fix": "Đổ nước vào thì nước sẽ đục và bẩn lúc đầu.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chất thải của axolotl và cá sẽ thành thức ăn cho cây",
+        "problem": "The page mentions fish waste, but the setup describes only a single axolotl and never says fish live in the tank.",
+        "fix": "chất thải của axolotl sẽ thành thức ăn cho cây",
+        "field": "body"
+      }
+    ],
+    "ruled": "e76ca8cee89a6853"
   },
   "vi/guides/youtube-_ZxeBxNRdPU": {
     "at": "2026-11-01",
@@ -15612,6 +16471,41 @@
       }
     ]
   },
+  "vi/guides/youtube--kWRT3X_uPE": {
+    "at": "2026-11-19",
+    "hash": "ea10327c92a6318e",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "số càng thấp thì càng ngả vàng hoặc xanh lục",
+        "problem": "Lower colour temperature makes light warmer (yellow/orange), not green, so this misleads readers choosing a bulb.",
+        "fix": "số càng thấp thì càng ngả vàng cam",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "L14",
+        "quote": "số càng thấp càng ngả vàng hoặc xanh lục",
+        "problem": "Lower Kelvin gives warmer yellow/orange light, not green.",
+        "fix": "số càng thấp càng ngả vàng cam",
+        "field": "faq.3.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Để nguyên như mẫu thì nhiều khả năng là không.",
+        "problem": "Uses the listed stiff phrase 'nhiều khả năng' (also in L6, L16) instead of natural 'có lẽ/chắc là'.",
+        "fix": "Để nguyên như mẫu thì chắc là không trồng được.",
+        "rule": "The phrase 'nhiều khả năng' appears in page text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ea10327c92a6318e"
+  },
   "vi/guides/youtube--LWDlOsd634": {
     "at": "2026-11-10",
     "hash": "c16fdd4fe12b0ef7",
@@ -15674,6 +16568,22 @@
       }
     ],
     "ruled": "2d28fe16a2353f3f"
+  },
+  "vi/guides/youtube--Vah5qCPGqo": {
+    "at": "2026-11-20",
+    "hash": "5a34f3413a6a7ac3",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ý này chỉ là nghe nói, cứ coi như được thêm nếu có.",
+        "problem": "This reads like a word-for-word translation, and a Vietnamese reader would stumble over \"cứ coi như được thêm nếu có\".",
+        "fix": "Chuyện này chỉ là nghe nói, nếu đúng thì coi như được lợi thêm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5a34f3413a6a7ac3"
   },
   "vi/guides/youtube--Vx8LD5r_Zs": {
     "at": "2026-11-11",
@@ -15830,6 +16740,63 @@
       }
     ],
     "ruled": "9494c68b973bc3f6"
+  },
+  "vi/guides/youtube-0i9qSwTrXIc": {
+    "at": "2026-11-20",
+    "hash": "dad8a952e20605f6",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể mẫu nhét tới sáu rọ, tức là vượt mức khuyến nghị, và đây là một thử nghiệm.",
+        "problem": "\"khuyến nghị\" is on the house list of stiff words; rewrite plainly.",
+        "fix": "Bể mẫu nhét tới sáu rọ, nhiều hơn mức nên trồng, và đây chỉ là làm thử.",
+        "rule": "The page contains the listed word \"khuyến nghị\".",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L15",
+        "quote": "Với diện tích khoảng 0,37 m² thì khuyến nghị là bốn rọ",
+        "problem": "\"khuyến nghị\" is on the house list of stiff words.",
+        "fix": "Thùng khoảng 0,37 m² thì chỉ nên trồng bốn rọ",
+        "rule": "The page contains the listed word \"khuyến nghị\".",
+        "field": "faq.4.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chân đèn làm từ chậu cây nhựa úp ngược, nhờ vậy có thể nâng lên hạ xuống khi cây lớn.",
+        "problem": "\"nhờ vậy\" is a listed connector to avoid.",
+        "fix": "Chân đèn làm từ chậu cây nhựa úp ngược, cây lớn thì nâng đèn lên được.",
+        "rule": "The page contains the listed word \"nhờ vậy\".",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nếu mới làm lần đầu, bạn nên theo đúng mức bốn rọ.",
+        "problem": "\"bạn nên\" should be stated directly per house style.",
+        "fix": "Mới làm lần đầu thì cứ trồng bốn rọ thôi.",
+        "rule": "The page contains the listed phrase \"bạn nên\".",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách đơn giản nhất mà dân chơi cá làm từ lâu là cắm vài nhánh trầu bà",
+        "problem": "\"dân chơi\" is a listed word that can usually be dropped.",
+        "fix": "Cách đơn giản nhất, làm từ lâu rồi, là cắm vài nhánh trầu bà",
+        "rule": "The page contains the listed word \"dân chơi\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "dad8a952e20605f6"
   },
   "vi/guides/youtube-0kgXMVQ7o0A": {
     "at": "2026-11-13",
@@ -16367,6 +17334,42 @@
     ],
     "ruled": "9f8e0565de04ef20"
   },
+  "vi/guides/youtube-2cJXsJUdOfk": {
+    "at": "2026-11-19",
+    "hash": "44931790bb64229c",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hạt bio pellet là hạt polymer phân hủy sinh học, đóng vai trò nguồn carbon.",
+        "problem": "'đóng vai trò' is a calqued English structure the site's style avoids, and here it is also missing 'là'.",
+        "fix": "Hạt bio pellet là hạt polymer phân hủy sinh học, làm nguồn carbon cho vi khuẩn.",
+        "rule": "The phrase 'đóng vai trò' appears anywhere in the text.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chỗ đặt bình và những gì cần chờ đợi sau khi chạy",
+        "problem": "'những gì cần chờ đợi' translates 'what to expect' word for word and reads unnaturally in Vietnamese.",
+        "fix": "chỗ đặt bình và bao lâu thì thấy kết quả sau khi chạy",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bio pellet đã có mặt trong giới chơi cá biển nhiều năm",
+        "problem": "'giới chơi' is on the site's list of words to avoid.",
+        "fix": "Người chơi cá biển đã dùng bio pellet nhiều năm",
+        "rule": "The phrase 'giới chơi' appears anywhere in the text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "44931790bb64229c"
+  },
   "vi/guides/youtube-2cQKwuP8G8I": {
     "at": "2026-11-15",
     "hash": "ab7a970e0c459ffb",
@@ -16658,11 +17661,33 @@
     ],
     "ruled": "99e180f39b2f07d8"
   },
+  "vi/guides/youtube-3DsCnBa9360": {
+    "at": "2026-11-20",
+    "hash": "ab0f4e95fa28c366",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nếu thích thì chọn bóng 6500 K, ánh sáng này làm màu xanh của cây trông xanh hơn.",
+        "problem": "The page first names a 4 W, 6500 K bulb as what is enough, then the next sentence presents 6500 K as an optional extra, so readers can't tell whether 6500 K is needed.",
+        "fix": "Chỉ một chiếc đèn bàn lắp bóng LED khoảng 4 W là đủ cho bể cỡ này. Nếu thích thì chọn bóng 6500 K, ánh sáng này làm màu xanh của cây trông xanh hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ab0f4e95fa28c366"
+  },
   "vi/guides/youtube-3ghYi_liXK0": {
     "at": "2026-11-18",
     "hash": "d385b0c15a27d08a",
     "findings": [],
     "ruled": "d385b0c15a27d08a"
+  },
+  "vi/guides/youtube-3GQOKsu0QYA": {
+    "at": "2026-11-21",
+    "hash": "3bc5c8d4b515dc57",
+    "findings": [],
+    "ruled": "3bc5c8d4b515dc57"
   },
   "vi/guides/youtube-3jqe5KGD9lI": {
     "at": "2026-11-10",
@@ -16729,6 +17754,12 @@
     "findings": [],
     "ruled": "b84d8c547d18a297"
   },
+  "vi/guides/youtube-3yhE0AuuWsM": {
+    "at": "2026-11-20",
+    "hash": "9be8551f6ad1fa18",
+    "findings": [],
+    "ruled": "9be8551f6ad1fa18"
+  },
   "vi/guides/youtube-43bSNzlX9Fo": {
     "at": "2026-11-05",
     "hash": "54ad3f4a3b4d0964",
@@ -16756,6 +17787,22 @@
       }
     ],
     "ruled": "1dc5c4c48c382d1c"
+  },
+  "vi/guides/youtube-4bS6KCUkD08": {
+    "at": "2026-11-19",
+    "hash": "99a1d00c379a6923",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nhiệt chỉ làm nước trong đất bay hơi thôi, có điều sẽ hơi bốc mùi.",
+        "problem": "This says heat only evaporates the water, but the same section just said heating kills the things in the soil that could harm fish.",
+        "fix": "Sấy bằng lò vi sóng không hại gì, chỉ hơi bốc mùi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "99a1d00c379a6923"
   },
   "vi/guides/youtube-4EkqRWcCjk0": {
     "at": "2026-11-18",
@@ -16814,6 +17861,50 @@
       }
     ],
     "ruled": "c14cc77769b73745"
+  },
+  "vi/guides/youtube-4lG_4wSx_bQ": {
+    "at": "2026-11-20",
+    "hash": "e18f64bf904bd6ad",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lưới giữ hạt đất lại, chỉ rễ cây chui vào lấy được, nên hồ dễ đoán hơn.",
+        "problem": "'hồ dễ đoán hơn' is a word-for-word rendering of 'more predictable' and makes no sense to a Vietnamese reader.",
+        "fix": "Lưới giữ hạt đất lại, chỉ rễ cây chui vào được, nên đất nằm yên một chỗ.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có thể thả thêm vài con ốc cho cá đỡ lạ chỗ.",
+        "problem": "The reason given makes no sense: adding snails doesn't help new fish settle in.",
+        "fix": "Có thể thả thêm vài con ốc.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L8",
+        "quote": "Đổ thẳng rồi phủ cát lên cũng được, nhưng đất có thể trôi xuống dưới viên gạch",
+        "problem": "The FAQ says pouring soil straight in is fine, but the body treats that as the approach that failed and replaces it with mesh bags.",
+        "fix": "Không nên, vì đất dễ trôi xuống dưới viên gạch và bị cục sủi thổi tung.",
+        "field": "faq.0.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L12",
+        "quote": "nên có châm thêm vi sinh để nước an toàn cho cá ngay từ đầu",
+        "problem": "'nên có châm' is ungrammatical. It should be just 'nên châm'.",
+        "fix": "nên châm thêm vi sinh để nước an toàn cho cá ngay từ đầu",
+        "rule": "The phrase 'nên có châm' appears in the text.",
+        "field": "faq.2.a"
+      }
+    ],
+    "ruled": "e18f64bf904bd6ad"
   },
   "vi/guides/youtube-4LpldhD2JHU": {
     "at": "2026-11-10",
@@ -16882,6 +17973,12 @@
       }
     ],
     "ruled": "769e5615886e405f"
+  },
+  "vi/guides/youtube-4vXSRdoeZAA": {
+    "at": "2026-11-20",
+    "hash": "f976b249240d6cc3",
+    "findings": [],
+    "ruled": "f976b249240d6cc3"
   },
   "vi/guides/youtube-4WD_WU536g8": {
     "at": "2026-11-17",
@@ -17007,11 +18104,42 @@
     ],
     "ruled": "2886fe52c6f6da37"
   },
+  "vi/guides/youtube-54hYFlHTSOs": {
+    "at": "2026-11-20",
+    "hash": "2f69736e23d56b34",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trên lớp tảo phủ kính còn thấy rõ cả vết ốc bò.",
+        "problem": "This sentence stands alone after the paragraph on telling whether the algae has stopped spreading. It has nothing to do with that section and reads like a leftover note about a video frame.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2f69736e23d56b34"
+  },
   "vi/guides/youtube-5ajPkl9rhKQ": {
     "at": "2026-11-07",
     "hash": "3583581ecf34d7ea",
     "findings": [],
     "ruled": "3583581ecf34d7ea"
+  },
+  "vi/guides/youtube-5d5rctP_vtk": {
+    "at": "2026-11-20",
+    "hash": "630eb054a95c6abd",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ví dụ mẫu dùng 5 khung ảnh mua ở tiệm đồng giá, 1 USD được 2 cái.",
+        "problem": "\"Ví dụ mẫu dùng\" is an awkward, translated-sounding subject that a Vietnamese reader would stumble on.",
+        "fix": "Hộp trong bài dùng kính của 5 khung ảnh mua ở tiệm đồng giá, 1 USD được 2 cái.",
+        "field": "body"
+      }
+    ],
+    "ruled": "630eb054a95c6abd"
   },
   "vi/guides/youtube-5GfRTHTv5ZM": {
     "at": "2026-11-06",
@@ -17330,6 +18458,39 @@
     ],
     "ruled": "dc5d2e5edfe19846"
   },
+  "vi/guides/youtube-6MVlcgTchtE": {
+    "at": "2026-11-19",
+    "hash": "f32c6f9985fba616",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Silicone trong\n| Silicone đen\n| Độ giữ kính\n| Tốt",
+        "problem": "The silicone comparison table has broken into one cell per line, and the header row has no empty first cell, so readers cannot tell which values go with clear or black silicone.",
+        "rule": "Lines that start with '|' and hold only one cell each, so a table has collapsed into separate lines.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Chọn cây gì cho phần nước",
+        "problem": "The heading asks which plants to choose, but the section names none. It only gives criteria (undemanding, low care, any light, floating plants).",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lượng cây nhiều thì khoảng cách giữa các lần thay nước giãn ra đáng kể mà không có tiếng ồn của lọc.",
+        "problem": "Two unrelated ideas, fewer water changes and no filter noise, are joined with 'mà', so the sentence reads awkwardly.",
+        "fix": "Nhiều cây thì các lần thay nước giãn ra đáng kể. Bể cũng yên tĩnh vì không có tiếng lọc chạy.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f32c6f9985fba616"
+  },
   "vi/guides/youtube-6mYLnYSWKWE": {
     "at": "2026-11-10",
     "hash": "d3ad9e8dcf25da9f",
@@ -17350,6 +18511,12 @@
     "hash": "34615646d8a96187",
     "findings": [],
     "ruled": "34615646d8a96187"
+  },
+  "vi/guides/youtube-6R-aFWdSN6Y": {
+    "at": "2026-11-20",
+    "hash": "97a3706c380b88a8",
+    "findings": [],
+    "ruled": "97a3706c380b88a8"
   },
   "vi/guides/youtube-6rXHkX20hqA": {
     "at": "2026-11-06",
@@ -17392,6 +18559,12 @@
       }
     ],
     "ruled": "8395cdae30a88f36"
+  },
+  "vi/guides/youtube-79gKSribYmk": {
+    "at": "2026-11-20",
+    "hash": "a8ec705ab5d8f448",
+    "findings": [],
+    "ruled": "a8ec705ab5d8f448"
   },
   "vi/guides/youtube-7detxox6fXc": {
     "at": "2026-11-04",
@@ -17467,6 +18640,31 @@
     "hash": "a79b96c073c711a1",
     "findings": [],
     "ruled": "a79b96c073c711a1"
+  },
+  "vi/guides/youtube-7kDO92rirUI": {
+    "at": "2026-11-20",
+    "hash": "3cf3aa90caa861f2",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Vì sao nên để bể mới tự lên cây",
+        "problem": "The heading promises reasons for letting the new tank grow in, but the section only describes the method, says it is optional and gives no reason.",
+        "fix": "## Để bể mới tự lên cây",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chuyện kính bị lóa thì lúc này chưa quan trọng.",
+        "problem": "'Kính bị lóa' (glare on the glass) is an odd phrase here. It is probably a mistranslation of the glass being dirty or fogged.",
+        "fix": "Kính có bẩn, có mờ thì lúc này cũng chưa cần lau.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3cf3aa90caa861f2"
   },
   "vi/guides/youtube-7l1Ja0NL_UQ": {
     "at": "2026-11-06",
@@ -17972,6 +19170,33 @@
     ],
     "ruled": "bdb793007c7d29a8"
   },
+  "vi/guides/youtube-9QSxJymRBak": {
+    "at": "2026-11-19",
+    "hash": "3f073716cd253f01",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể dài thì đèn chuyên dụng cũng dài theo",
+        "problem": "The opening point should be that lights for long tanks cost more, but it only says they get longer, which is obvious and doesn't explain why to build one.",
+        "fix": "Bể càng dài thì đèn chuyên dụng càng đắt",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-19",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The opening point should be that lights for long tanks cost more, but it only says they get longer, which is obvious and doesn't explain why to build one."
+        ]
+      }
+    ],
+    "ruled": "3f073716cd253f01"
+  },
   "vi/guides/youtube-9S0ed5N8yoo": {
     "at": "2026-11-08",
     "hash": "8b8051f3fc59f05f",
@@ -18165,6 +19390,22 @@
     ],
     "ruled": "f5513987943897e9"
   },
+  "vi/guides/youtube-a-kB3RGtE2Y": {
+    "at": "2026-11-19",
+    "hash": "7b18e7e2ba3d892e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L2",
+        "quote": "Đá xếp thành một bờ chắn, viên lớn đặt trước.",
+        "problem": "\"đặt trước\" reads as placing the big stones at the front, while the body means placing them first in order.",
+        "fix": "Đá xếp thành một bờ chắn, đặt những viên lớn nhất trước rồi mới xếp các viên khác quanh chúng.",
+        "field": "summary.1"
+      }
+    ],
+    "ruled": "7b18e7e2ba3d892e"
+  },
   "vi/guides/youtube-a0VXTk-GF_I": {
     "at": "2026-11-05",
     "hash": "13d07e8a15deb8e6",
@@ -18314,6 +19555,22 @@
     "findings": [],
     "ruled": "10ed593883e280b2"
   },
+  "vi/guides/youtube-aED7TUlUTkY": {
+    "at": "2026-11-21",
+    "hash": "0c4589c571710aae",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên càng thêm hiệu ứng",
+        "problem": "The phrase is awkward and unnatural in Vietnamese: 'thêm hiệu ứng' has no object and reads like a literal translation.",
+        "fix": "nên bể càng thêm rực",
+        "field": "body"
+      }
+    ],
+    "ruled": "0c4589c571710aae"
+  },
   "vi/guides/youtube-AEMv84NfI4o": {
     "at": "2026-11-17",
     "hash": "c1d7eedbe1d739b2",
@@ -18398,6 +19655,22 @@
     ],
     "ruled": "4a17584e4f853ced"
   },
+  "vi/guides/youtube-Ajr1tozLqDQ": {
+    "at": "2026-11-21",
+    "hash": "def0f5dd7634923f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá cũng giống người bị táo bón, cần thêm chất xơ",
+        "problem": "The comparison is awkward: it reads as 'fish resemble constipated people' rather than 'fish get constipated like people do'.",
+        "fix": "Cá cũng bị táo bón như người, nên cần thêm chất xơ",
+        "field": "body"
+      }
+    ],
+    "ruled": "def0f5dd7634923f"
+  },
   "vi/guides/youtube-Ak-uEluqWlo": {
     "at": "2026-11-10",
     "hash": "d6df9c7cbe4e48f0",
@@ -18470,6 +19743,12 @@
     "findings": [],
     "ruled": "2c8c9efe2ee61d2d"
   },
+  "vi/guides/youtube-arwgrqnRe-o": {
+    "at": "2026-11-20",
+    "hash": "81529730c6725264",
+    "findings": [],
+    "ruled": "81529730c6725264"
+  },
   "vi/guides/youtube-Asi_tzpiHxM": {
     "at": "2026-11-13",
     "hash": "c9b3b80a67929df9",
@@ -18509,6 +19788,12 @@
       }
     ],
     "ruled": "39a5b12942019158"
+  },
+  "vi/guides/youtube-avxOsXarRig": {
+    "at": "2026-11-21",
+    "hash": "be438803a15305e2",
+    "findings": [],
+    "ruled": "be438803a15305e2"
   },
   "vi/guides/youtube-awbC9AkUd6A": {
     "at": "2026-11-08",
@@ -18853,6 +20138,22 @@
     ],
     "ruled": "ed6ed10afdb07e94"
   },
+  "vi/guides/youtube-bd01CGGWwiE": {
+    "at": "2026-11-19",
+    "hash": "0629abe52d7e6532",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tháo đầu sục khí (aerator) đang gắn ở miệng vòi bồn rửa",
+        "problem": "The faucet aerator is called 'đầu sục khí', which to aquarium keepers means an air stone or air pump, so readers may look for the wrong part.",
+        "fix": "Tháo đầu lọc vòi (đầu tạo bọt) đang gắn ở miệng vòi bồn rửa",
+        "field": "body"
+      }
+    ],
+    "ruled": "0629abe52d7e6532"
+  },
   "vi/guides/youtube-BDqjtjoLvUM": {
     "at": "2026-11-17",
     "hash": "e9ef13633643e46e",
@@ -18895,6 +20196,22 @@
     "findings": [],
     "ruled": "1925b49cdae812b0"
   },
+  "vi/guides/youtube-bhJ_FFL7ORw": {
+    "at": "2026-11-21",
+    "hash": "dcc44e01034e23e4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có ý tưởng rồi thì việc đầu tiên khi đi mua là chọn nền.",
+        "problem": "The phrase 'việc đầu tiên … là' is on the site's list of wordings to avoid and reads like a translation.",
+        "fix": "Có ý tưởng rồi thì đi mua, và thứ chọn trước tiên là nền.",
+        "field": "body"
+      }
+    ],
+    "ruled": "dcc44e01034e23e4"
+  },
   "vi/guides/youtube-BhXty76I-ss": {
     "at": "2026-11-09",
     "hash": "b50dee23474069a8",
@@ -18912,6 +20229,22 @@
     "hash": "2106e49b61681632",
     "findings": [],
     "ruled": "2106e49b61681632"
+  },
+  "vi/guides/youtube-BJY96DTBbUo": {
+    "at": "2026-11-19",
+    "hash": "71ed649329e1e21b",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chuyện bắt cá bảy màu ra",
+        "problem": "The intro says the page covers catching out the guppies, but no section mentions guppies again.",
+        "fix": "Bài này lấy ví dụ một bể nuôi chung cá đĩa với cá chuột gấu trúc, cá neon và cá đầu đỏ. Nội dung gồm cách tỉa từng loại cây, cách giữ ánh sáng xuống tới tầng dưới và cách thả thêm một đàn cá đầu đỏ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "71ed649329e1e21b"
   },
   "vi/guides/youtube-BKdHgA1uO2E": {
     "at": "2026-11-10",
@@ -19034,6 +20367,33 @@
     "findings": [],
     "ruled": "a06d673ce4833953"
   },
+  "vi/guides/youtube-BV0J8fUMceU": {
+    "at": "2026-11-20",
+    "hash": "db23c5e39173f171",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có thể là do đèn sáng so với lượng cây đang có",
+        "problem": "\"Đèn sáng so với lượng cây\" leaves out \"quá\", so the comparison doesn't read naturally. The same wording appears in L4 and L12.",
+        "fix": "có thể là do đèn quá sáng so với lượng cây đang có",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-20",
+        "field": "body",
+        "score": 0.86,
+        "kept": true,
+        "problems": [
+          "This sentence is garbled: \"những thứ đó\" seems to be the subject of \"để yên\", so it reads as if the algae and dirt themselves should leave the tank alone."
+        ]
+      }
+    ],
+    "ruled": "db23c5e39173f171"
+  },
   "vi/guides/youtube-bWmyz67XkT4": {
     "at": "2026-11-11",
     "hash": "f9020b593f5e45ee",
@@ -19081,6 +20441,49 @@
     ],
     "ruled": "e39f0222b70a4a7f"
   },
+  "vi/guides/youtube-c_ZRJG6WbLE": {
+    "at": "2026-11-20",
+    "hash": "75056c6062ac800d",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "một bể 150 lít nuôi riêng khoảng 50–70 con tứ vân",
+        "problem": "Putting 50–70 tiger barbs in 150 litres goes against the page's own advice that 80 litres is too small for a group of 10–12 and a 120 cm tank is better. The figure is probably 150 gallons (about 570 litres) misread as litres.",
+        "fix": "Ví dụ, một bể khoảng 570 lít (150 gallon) nuôi riêng khoảng 50–70 con tứ vân.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "Có ý kiến cho rằng bể 80 lít còn nhỏ",
+        "problem": "The body says one view treats 80 litres as the minimum and another prefers a much bigger tank. The summary turns this into a single view that 80 litres is too small.",
+        "fix": "Có ý kiến cho rằng 80 lít là mức tối thiểu, nhưng cho chúng bể lớn hơn hẳn thì tốt hơn, chẳng hạn bể dài 120 cm.",
+        "field": "summary.3"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bể 80 lít chỉ làm vấn đề nặng thêm",
+        "problem": "The 80-litre tank appears here before it has been mentioned, so a reader doesn't know why this size is singled out. The sentence reads like a translation.",
+        "fix": "Do phải nuôi đàn đông, lại hay thả thêm cá khác, bể nhỏ cỡ 80 lít càng dễ sinh chuyện.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tứ vân thường có lẽ nổi màu hơn cả",
+        "problem": "Putting \"thường\" (the regular variety) right next to the hedge \"có lẽ\" makes the sentence read like a double hedge, and readers will stumble over it.",
+        "fix": "Trong bể thủy sinh, dòng tứ vân thường (cam đen) có lẽ nổi màu nhất.",
+        "field": "body"
+      }
+    ],
+    "ruled": "75056c6062ac800d"
+  },
   "vi/guides/youtube-C-PWOYSvjlc": {
     "at": "2026-11-11",
     "hash": "83592b0a50a6b5f5",
@@ -19121,6 +20524,12 @@
       }
     ],
     "ruled": "127d861c77865497"
+  },
+  "vi/guides/youtube-C2Miod2l9Q8": {
+    "at": "2026-11-21",
+    "hash": "573f7bc4e712a9b0",
+    "findings": [],
+    "ruled": "573f7bc4e712a9b0"
   },
   "vi/guides/youtube-c2RrfFVcJew": {
     "at": "2026-11-08",
@@ -19377,6 +20786,39 @@
       }
     ],
     "ruled": "7724674b85ba98c4"
+  },
+  "vi/guides/youtube-CGBA4x51scg": {
+    "at": "2026-11-19",
+    "hash": "ba4f685be3b74068",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cắt một tấm nhựa dài bằng chiều cao mong muốn của ngăn lọc, một tấm lớn làm mặt trước",
+        "problem": "The build steps continue straight on from the materials list, so they read as one list mixing materials and actions under a heading that only promises 'what you need'.",
+        "fix": "Thêm dòng 'Cách làm:' trước bước 'Cắt một tấm nhựa…'",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cắt một tấm nhựa dài bằng chiều cao mong muốn của ngăn lọc, một tấm lớn làm mặt trước và bốn tấm giống nhau làm vách ngăn.",
+        "problem": "This sentence is garbled: it says to cut 'one sheet' and then lists five pieces, so the cutting instruction is unclear.",
+        "fix": "Cắt tấm nhựa thành một tấm lớn làm mặt trước và bốn tấm giống nhau làm vách ngăn, tất cả cao bằng chiều cao muốn làm ngăn lọc.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì chúng có nhiều lợi ích với những loài như betta",
+        "problem": "This is a vague, translated-sounding justification that tells the reader nothing concrete.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ba4f685be3b74068"
   },
   "vi/guides/youtube-cGTFcYJ_BQs": {
     "at": "2026-11-08",
@@ -19725,6 +21167,29 @@
     "findings": [],
     "ruled": "8378cbcb39e245c5"
   },
+  "vi/guides/youtube-D_yIwhL7XdE": {
+    "at": "2026-11-20",
+    "hash": "51d12ab827621d3d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L3",
+        "quote": "nhờ vậy chỉ đáy cốc ngập nước",
+        "problem": "\"Nhờ vậy\" is a translated connector that the house style tells writers to avoid.",
+        "fix": "Khi xoay co ở đầu ra lên hay xuống, mực nước trong ống thay đổi theo, chỉnh sao cho chỉ đáy cốc ngập nước.",
+        "rule": "The phrase \"nhờ vậy\" appears in the text.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "51d12ab827621d3d"
+  },
+  "vi/guides/youtube-d1IqnjVMBnI": {
+    "at": "2026-11-21",
+    "hash": "d9e35d9cf3b9c74c",
+    "findings": [],
+    "ruled": "d9e35d9cf3b9c74c"
+  },
   "vi/guides/youtube-D4_yBawlkJY": {
     "at": "2026-11-18",
     "hash": "b2765b96be4bc2c7",
@@ -19868,6 +21333,32 @@
     ],
     "ruled": "4a78bba81ec8dddc"
   },
+  "vi/guides/youtube-djrJP16R1DE": {
+    "at": "2026-11-20",
+    "hash": "121b97ad3c081312",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "Châm nước vào một phần rồi mới trồng cây cắt cắm",
+        "problem": "The summary says to fill the tank only partly, but the body text and the FAQ say to fill it almost to the top before planting stem plants.",
+        "fix": "Châm nước vào gần đầy bể rồi mới trồng cây cắt cắm, để cây đứng thẳng và dễ nhìn bố cục.",
+        "field": "summary.4"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L3",
+        "quote": "ít nhất 2,5–4 cm phân nền",
+        "problem": "Putting 'at least' in front of a range muddles the advice; the body says at least 2.5 cm, and about 4 cm is better.",
+        "fix": "Ở mép trước nên có ít nhất 2,5 cm phân nền, tốt hơn là khoảng 4 cm, để cây tiền cảnh không bị nổi lên.",
+        "rule": "'ít nhất' placed directly before a numeric range.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "121b97ad3c081312"
+  },
   "vi/guides/youtube-dkLOgcPoYuE": {
     "at": "2026-11-13",
     "hash": "c2709f080b44b0d9",
@@ -19930,6 +21421,22 @@
       }
     ],
     "ruled": "d556076b2f57ccb0"
+  },
+  "vi/guides/youtube-dNMQlFf2HKc": {
+    "at": "2026-11-21",
+    "hash": "e810e7a3c8a56b21",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cá xiêm ít bị vi khuẩn, nấm hay ký sinh trùng tấn công hơn và có cơ hội không bị bệnh cao hơn",
+        "problem": "The phrase 'có cơ hội không bị bệnh cao hơn' reads like a literal translation and repeats the idea from the first half of the sentence.",
+        "fix": "Ở khoảng 26–27 °C, cá xiêm ít bị vi khuẩn, nấm hay ký sinh trùng tấn công, nên ít bệnh hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e810e7a3c8a56b21"
   },
   "vi/guides/youtube-DRlTmK7l0uo": {
     "at": "2026-11-10",
@@ -20035,6 +21542,40 @@
     "findings": [],
     "ruled": "a4d578b940c3b5ea"
   },
+  "vi/guides/youtube-DXDzgM9x3tc": {
+    "at": "2026-11-20",
+    "hash": "4fd56f264b575e01",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chọn sứ hạt nhỏ là một lựa chọn vì nó dễ đổ vào và dễ lấy ra.",
+        "problem": "The phrase \"là một lựa chọn\" is a literal translation of \"is an option\" and reads awkwardly in Vietnamese.",
+        "fix": "Nên chọn sứ hạt nhỏ vì dễ đổ vào và dễ lấy ra.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L13",
+        "quote": "vì vậy để nắp chai lại để rút mút ra mà sứ không rơi",
+        "problem": "This copies the English \"so…\" pattern and repeats \"để\", so the sentence stumbles.",
+        "fix": "Nắp chai giữ lại là để lúc rút mút ra vệ sinh, sứ không rơi ra ngoài.",
+        "field": "faq.3.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "còn bọt khí giữ cho mặt nước nhiều oxy để trao đổi khí",
+        "problem": "The logic is muddled: the bubbles stir the water surface, and that stirring brings in oxygen. The surface does not \"hold oxygen in order to exchange gas\".",
+        "fix": "còn bọt khí khuấy mặt nước nên nước luôn đủ oxy.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4fd56f264b575e01"
+  },
   "vi/guides/youtube-dXwybqRdgUk": {
     "at": "2026-11-12",
     "hash": "c60c0d2415d10c8c",
@@ -20108,6 +21649,32 @@
       }
     ],
     "ruled": "d830d72f63a85458"
+  },
+  "vi/guides/youtube-e5tjn3Tm2fQ": {
+    "at": "2026-11-20",
+    "hash": "eda15b7f37a6f911",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây cắt cắm dễ tính thì có loại lúc nào cũng xanh, không cần nhiều đèn, cắt ngọn cắm lại thoải mái.",
+        "problem": "The sentence is awkward and reads like a translation. The next sentence piles three ideas together around 'dù cây nào có CO2 cũng lên tốt hơn'.",
+        "fix": "Có những loại cây cắt cắm dễ tính, lúc nào cũng xanh, không cần đèn mạnh và cắt ngọn cắm lại thoải mái. Chúng không cần CO2, dù có CO2 thì cây nào cũng lên tốt hơn. Trồng loại này thì bể nào cũng trông tươi, rậm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách trộn nền như vậy có thể góp phần giúp cây trong bể lên tốt.",
+        "problem": "'Có thể góp phần giúp' is a calque of English sentence structure that the house style bans.",
+        "fix": "Trộn nền như vậy thì cây trong bể lên tốt hơn.",
+        "rule": "Flag the phrase 'có thể góp phần giúp' or 'có thể giúp' anywhere in the body text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "eda15b7f37a6f911"
   },
   "vi/guides/youtube-e7czDMttN4Q": {
     "at": "2026-11-10",
@@ -20415,6 +21982,12 @@
     ],
     "ruled": "c8136e2f5a2695b6"
   },
+  "vi/guides/youtube-eSOzDN6wfk8": {
+    "at": "2026-11-20",
+    "hash": "5f0b69799ad24890",
+    "findings": [],
+    "ruled": "5f0b69799ad24890"
+  },
   "vi/guides/youtube-esteJB9Ji0Y": {
     "at": "2026-11-11",
     "hash": "e3e9b07d35934f32",
@@ -20684,6 +22257,22 @@
     ],
     "ruled": "2b7ff097936890f0"
   },
+  "vi/guides/youtube-fjwsU2kmv2o": {
+    "at": "2026-11-19",
+    "hash": "1f5f969377a3a6c6",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "bể kính siêu trong 16 lít, kích thước khoảng 45 × 30 × 25 cm",
+        "problem": "A 45 × 30 × 25 cm tank holds about 34 litres, not 16, so the volume and the dimensions don't match.",
+        "rule": "Multiply the tank dimensions in cm and compare the result with the stated litres.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1f5f969377a3a6c6"
+  },
   "vi/guides/youtube-FL7P3A4MdIY": {
     "at": "2026-11-14",
     "hash": "bf0b59db5bb02436",
@@ -20745,6 +22334,60 @@
     "hash": "ce5920da23b4fabb",
     "findings": [],
     "ruled": "ce5920da23b4fabb"
+  },
+  "vi/guides/youtube-FQzWS0GwGvM": {
+    "at": "2026-11-20",
+    "hash": "82a7d033a71815a1",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ví dụ hai bể 100 lít là 190 lít tổng, cần bơm khoảng 760 đến 1.135 lít/giờ.",
+        "problem": "Two 100 L tanks make 200 L, not 190 L. The 760–1,135 L/h range is 4–6 times 190 L, so the per-tank figure is the one that is wrong.",
+        "fix": "Ví dụ hai bể khoảng 95 lít, tổng 190 lít, thì cần bơm khoảng 760 đến 1.135 lít/giờ.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "L10",
+        "quote": "Hai bể 100 lít thì cần khoảng 760 đến 1.135 lít/giờ.",
+        "problem": "Four to six times the 200 L of two 100 L tanks is 800–1,200 L/h, so this example doesn't match the rule in the sentence before it.",
+        "fix": "Hai bể khoảng 95 lít (tổng 190 lít) thì cần khoảng 760 đến 1.135 lít/giờ.",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tức một đoạn ống đầy nước bắc qua thành hai bể, nhưng làm bằng ống PVC",
+        "problem": "\"nhưng\" contrasts with nothing in the sentence, so it reads like a leftover from a comparison (probably \"like a siphon, but made of PVC\").",
+        "fix": "tức một đoạn ống PVC đầy nước bắc qua thành hai bể",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thông số nước hai bể giống hệt nhau, điều này có thể rất quan trọng với cá con nhạy cảm.",
+        "problem": "\"điều này\" is an English-style connector that the site's style guide avoids.",
+        "fix": "Thông số nước hai bể giống hệt nhau, rất có lợi cho cá con nhạy cảm.",
+        "rule": "the phrase \"điều này\" anywhere in Vietnamese body text",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bể này có mầm bệnh thì nhiều khả năng sẽ lây sang bể kia",
+        "problem": "\"nhiều khả năng\" is on the site's list of phrases to avoid, and it sounds more certain than the summary's \"có thể lây\".",
+        "fix": "bể này có mầm bệnh thì dễ lây sang bể kia",
+        "rule": "the phrase \"nhiều khả năng\" in Vietnamese body text",
+        "field": "body"
+      }
+    ],
+    "ruled": "82a7d033a71815a1"
   },
   "vi/guides/youtube-fR-INyQXdPM": {
     "at": "2026-11-01",
@@ -20882,6 +22525,48 @@
     "hash": "bd0080969595f9bb",
     "findings": [],
     "ruled": "bd0080969595f9bb"
+  },
+  "vi/guides/youtube-G2BKVhFgpVU": {
+    "at": "2026-11-19",
+    "hash": "f2d7fdcac379725d",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Vị trí này có lý do riêng, nhưng phần hướng dẫn hiện có dừng lại trước khi giải thích, nên mình không đoán thay.",
+        "problem": "This is the writer's note about the incomplete source, left in the steps. It tells the reader nothing about how to place the bottles.",
+        "fix": "Các vị trí này nằm lệch về phía sau thay vì ở giữa.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Giữ lại các phần đáy đã cắt vì chúng sẽ được dùng ở bước sau.",
+        "problem": "The page promises a later step that uses the cut-off bottoms, but no such step ever comes.",
+        "fix": "Cắt bỏ phần đáy mỗi chai và giữ lại các phần đáy đã cắt.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Phần lắp dây khí vào chai và cách đặt chai lên giá không được trình bày, nên tùy bộ đồ của bạn mà bố trí.",
+        "problem": "The title promises building the hatchery, but the page openly stops before the air lines are connected and the bottles are set on the stand, so the build is never finished.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thứ hai, mẻ ấp có thể sập, để lại bạn không có gì cho cá ăn.",
+        "problem": "\"để lại bạn không có gì\" is a word-for-word copy of the English \"leaving you with nothing\".",
+        "fix": "Thứ hai, mẻ ấp có thể hỏng, lúc đó không còn gì cho cá ăn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "f2d7fdcac379725d"
   },
   "vi/guides/youtube-G2iSTDzETi0": {
     "at": "2026-11-17",
@@ -21115,6 +22800,22 @@
     "findings": [],
     "ruled": "4804a7259ce85734"
   },
+  "vi/guides/youtube-Gk88H137s8I": {
+    "at": "2026-11-20",
+    "hash": "7ba96cb557cb09a5",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "mấy việc chăm định kỳ: thêm cây phía sau bể, cắt tỉa, lau kính và cho ăn ít đi",
+        "problem": "The intro promises a section on adding plants at the back of the tank, but the page has no such section, only pruning, glass cleaning and feeding.",
+        "fix": "Các phần dưới đây là mấy việc chăm định kỳ: cắt tỉa, lau kính và cho ăn ít đi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7ba96cb557cb09a5"
+  },
   "vi/guides/youtube-GKB2uxcmJ2g": {
     "at": "2026-11-17",
     "hash": "b4e368f1e26d8625",
@@ -21161,6 +22862,12 @@
       }
     ],
     "ruled": "dfae2a05c78b7f85"
+  },
+  "vi/guides/youtube-GMAu_upVyVw": {
+    "at": "2026-11-21",
+    "hash": "e1ea5d6be4d7e1b2",
+    "findings": [],
+    "ruled": "e1ea5d6be4d7e1b2"
   },
   "vi/guides/youtube-gMyhZZKGrNQ": {
     "at": "2026-11-06",
@@ -21322,6 +23029,31 @@
     "findings": [],
     "ruled": "1c95fd1e15e045a6"
   },
+  "vi/guides/youtube-gxAOSUOjveA": {
+    "at": "2026-11-21",
+    "hash": "14c534650776517d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "để bạn tự chọn bạn cho con cá xiêm của mình",
+        "problem": "The word \"bạn\" is used twice in one clause, once for the reader and once for \"tank mate\", which reads awkwardly.",
+        "fix": "để tự chọn cá nuôi chung cho con cá xiêm của mình",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đi khắp bể tìm thứ để gặm, không đụng tới cá khác",
+        "problem": "In a table about numbers and tank sizes, the 'Cách nuôi' cell for Ancistrus describes behaviour instead of how many to keep.",
+        "fix": "1 con | Không đụng tới cá khác, không thay được việc vệ sinh bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "14c534650776517d"
+  },
   "vi/guides/youtube-GZPSghtqMKk": {
     "at": "2026-11-03",
     "hash": "15920e6f5cc977fa",
@@ -21349,6 +23081,43 @@
       }
     ],
     "ruled": "f9c8ab0a017de31f"
+  },
+  "vi/guides/youtube-H-0_W0Kagf8": {
+    "at": "2026-11-19",
+    "hash": "b342cf021e8b7369",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Keo siêu dính dạng lỏng",
+        "problem": "Vietnamese hobbyists call superglue 'keo 502', not 'keo siêu dính'; the same wording appears again in the cap section.",
+        "fix": "Keo 502 loại lỏng",
+        "rule": "The page uses the listed phrase 'keo siêu dính'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì nhiều khả năng chúng sẽ không chịu nổi mức đó",
+        "problem": "'nhiều khả năng' is a translated-sounding hedge. Native writers would say 'chắc là'.",
+        "fix": "vì chắc là chúng không chịu nổi mức CO2 đó",
+        "rule": "The page uses the listed phrase 'nhiều khả năng'.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khi đó bọt CO2 ở trong cột nước lâu nhất có thể trước khi lên mặt nước.",
+        "problem": "'cột nước' is a calque of 'water column'. Hobbyists would just say 'trong nước'.",
+        "fix": "Bọt CO2 nhờ vậy ở trong nước lâu hơn trước khi nổi lên mặt.",
+        "rule": "The page uses the listed phrase 'cột nước'.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b342cf021e8b7369"
   },
   "vi/guides/youtube-H-A6KwMSa9s": {
     "at": "2026-11-01",
@@ -21592,6 +23361,31 @@
     "findings": [],
     "ruled": "59f19a470910b4dd"
   },
+  "vi/guides/youtube-HLrQzpFLI5U": {
+    "at": "2026-11-19",
+    "hash": "1a9c4885c3915c85",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Những chỗ dễ dùng tới",
+        "problem": "This heading reads awkwardly; the section is about situations where the alarm is useful, not places.",
+        "fix": "## Những lúc nên dùng còi báo mực nước",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đi dây sao cho chuông báo khói nằm ngoài bể và chỗ khô ráo.",
+        "problem": "The word \"ở\" is missing before \"chỗ khô ráo\", so the sentence reads as broken.",
+        "fix": "Đi dây sao cho chuông báo khói nằm ngoài bể, ở chỗ khô ráo.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1a9c4885c3915c85"
+  },
   "vi/guides/youtube-HlXrfMjRcQI": {
     "at": "2026-11-18",
     "hash": "02355a4ba01b4d64",
@@ -21660,6 +23454,30 @@
     "hash": "31174e65ba3c9287",
     "findings": [],
     "ruled": "31174e65ba3c9287"
+  },
+  "vi/guides/youtube-hnlsQyeldDs": {
+    "at": "2026-11-21",
+    "hash": "51fd0c5de8ae92f9",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Bệnh bong bóng: nhận biết và chữa",
+        "problem": "Swim bladder disease is usually called 'bệnh bóng hơi'; 'bệnh bong bóng' can be misread as gas bubble disease.",
+        "fix": "## Bệnh bóng hơi: nhận biết và chữa",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "rồi dùng thuốc như Maracyn của Fritz hoặc Fungus Cure của API",
+        "problem": "Maracyn is an antibacterial (erythromycin), not an antifungal, so it is a poor example of a fungus treatment.",
+        "field": "body"
+      }
+    ],
+    "ruled": "51fd0c5de8ae92f9"
   },
   "vi/guides/youtube-hO_nLV0YpX8": {
     "at": "2026-11-11",
@@ -21844,6 +23662,46 @@
     ],
     "ruled": "c14ce1a9dc38cea3"
   },
+  "vi/guides/youtube-HRHGNurFb8Y": {
+    "at": "2026-11-19",
+    "hash": "251078d8f6b5b8cf",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L2",
+        "quote": "Lắp chỉ có ba bước: khoan lỗ, luồn đui đèn qua, vặn bóng vào.",
+        "problem": "The summary says assembly takes three steps, but the 'Lắp đèn thế nào' list gives five, including screwing in the hook, hanging the lamp and hiding the cable.",
+        "fix": "Lắp đèn rất nhanh: khoan lỗ, luồn đui đèn qua, vặn bóng vào rồi treo lên móc.",
+        "field": "summary.1"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Loại dimmer cắm điện thì không phải đi dây: khoan một lỗ qua tường để đặt công tắc, dán công tắc lên tường",
+        "problem": "The sentence says the plug-in dimmer needs no wiring, then says to drill a hole through the wall and also to stick the switch onto the wall, so the steps conflict.",
+        "field": "body"
+      }
+    ],
+    "ruled": "251078d8f6b5b8cf"
+  },
+  "vi/guides/youtube-HrKxhPEA1q4": {
+    "at": "2026-11-21",
+    "hash": "1f9471dba50f69b4",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "L3",
+        "quote": "Bể từ 200 lít trở lên khi đầy nước nặng khoảng 230–270 kg",
+        "problem": "The 230–270 kg figure is for a 200 L tank (as P-body and FAQ say), but the summary applies it to all tanks of 200 L or more, which weigh more.",
+        "fix": "Bể 200 lít đầy nước nặng khoảng 230–270 kg, nên từ cỡ này trở lên cần xem sàn có chịu nổi không.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "1f9471dba50f69b4"
+  },
   "vi/guides/youtube-hRNBUbqzzuw": {
     "at": "2026-11-06",
     "hash": "7a7cec16c8a7dfe6",
@@ -21940,6 +23798,49 @@
     ],
     "ruled": "1a7b58abe8c5399e"
   },
+  "vi/guides/youtube-Hup_8APVIhs": {
+    "at": "2026-11-20",
+    "hash": "2c57192927c0cd51",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Một số loài có thể rỉa cá con. Ví dụ, nuôi chung với cá tetra Moto Grosso mà bể vẫn còn cá con.",
+        "problem": "The example says fry survived alongside Moto Grosso tetras, so it doesn't back up the sentence before it about fish eating fry. The sentence is also broken: it has no main clause.",
+        "fix": "Một số loài có thể rỉa cá con, nhưng không phải loài nào cũng vậy. Chẳng hạn, nuôi chung với cá tetra Moto Grosso mà bể vẫn còn cá con.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "GH khoảng 10 đã là nước rất cứng",
+        "problem": "GH 10 is moderately hard water, not very hard. Calling it very hard also clashes with recommending 8–12 as the normal range.",
+        "fix": "GH khoảng 10 đã là nước khá cứng",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhiều loài cá trong nghề, như cá Nam Mỹ",
+        "problem": "'Trong nghề' reads as a literal translation of 'in the hobby'. Hobbyists don't talk about fishkeeping as a trade.",
+        "fix": "Nhiều loài cá cảnh, như cá Nam Mỹ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thức ăn dạng mảnh cho cá nuôi chung",
+        "problem": "This translates 'community flakes' literally. It reads as if the flakes are meant for the tank mates rather than being an ordinary flake food.",
+        "fix": "thức ăn dạng mảnh thông thường",
+        "field": "body"
+      }
+    ],
+    "ruled": "2c57192927c0cd51"
+  },
   "vi/guides/youtube-HuWHarbSQUk": {
     "at": "2026-11-05",
     "hash": "7f72237640161b62",
@@ -21951,6 +23852,40 @@
     "hash": "114da62f66bccd44",
     "findings": [],
     "ruled": "114da62f66bccd44"
+  },
+  "vi/guides/youtube-HwD_FoRC2Ig": {
+    "at": "2026-11-19",
+    "hash": "c4f9b55b8d49c305",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Lắp xong thì cứ cho bể chạy lọc khoảng 3 ngày. Bạn chỉ thả cá khi lọc đã ổn định, vi sinh ổn định",
+        "problem": "Three days of running the filter is not enough for the beneficial bacteria to establish, so readers may add fish to an uncycled tank and lose them to ammonia.",
+        "fix": "Lắp xong thì cho bể chạy lọc ít nhất vài tuần cho vi sinh lên. Chỉ thả cá khi test thấy amoniac và nitrit về 0 và pH đã ổn định.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "L6",
+        "quote": "Bể mới nên chạy lọc khoảng 3 ngày rồi mới thả cá",
+        "problem": "The summary repeats the 3-day wait, which is too short for a new tank to cycle.",
+        "fix": "Bể mới nên chạy lọc vài tuần cho vi sinh lên rồi mới thả cá, còn cá mới mua thì dưỡng riêng cho khỏe.",
+        "field": "summary.5"
+      },
+      {
+        "kind": "other",
+        "severity": "high",
+        "part": "L8",
+        "quote": "Nên chạy lọc khoảng 3 ngày.",
+        "problem": "The FAQ answer gives the same 3-day wait, which is too short for a new tank to cycle.",
+        "fix": "Nên chạy lọc vài tuần, đến khi amoniac và nitrit về 0 và pH ổn định rồi mới thả cá.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "c4f9b55b8d49c305"
   },
   "vi/guides/youtube-hX-kRoS7d8A": {
     "at": "2026-11-09",
@@ -22019,6 +23954,22 @@
     ],
     "ruled": "8c0d36e1be4667dc"
   },
+  "vi/guides/youtube-HyMh5Yav5Ko": {
+    "at": "2026-11-20",
+    "hash": "b85b49193428c98a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có khúc lũa juniper trông hơi mảnh và lơ thơ.",
+        "problem": "This sentence points to one particular piece of driftwood from the original, so a reader can't tell which piece is meant or why it matters.",
+        "fix": "Lũa juniper thường mảnh và lơ thơ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b85b49193428c98a"
+  },
   "vi/guides/youtube-i_juW-Tmwcs": {
     "at": "2026-11-09",
     "hash": "be0657bc99fa60fc",
@@ -22040,6 +23991,50 @@
       }
     ],
     "ruled": "030f6f8a73dcaf0e"
+  },
+  "vi/guides/youtube-i1ajPb5qWD4": {
+    "at": "2026-11-19",
+    "hash": "540cc6fcc1504349",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Crypt phía sau về sau cũng sẽ ngả nâu và đỏ nhẹ.",
+        "problem": "The page places the crypts in the middle of the tank everywhere else, but this line puts them at the back.",
+        "fix": "Crypt ở giữa về sau cũng sẽ ngả nâu và đỏ nhẹ.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ống thủy tinh để lâu ngoài bể thì bám bẩn và gỉ.",
+        "problem": "Glass doesn't rust, and these pipes sit in the tank, not outside it. The sentence reads as a garbled translation.",
+        "fix": "Ống thủy tinh dùng lâu trong bể sẽ bám bẩn và rêu.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Crypt cũng có thể nhét thẳng vào khe đá mà không trồng xuống nền.",
+        "problem": "The advice on planting crypts sits under the Java fern and Bucephalandra heading, not in the section on planting the middle and back.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-19",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "Glass doesn't rust, and these pipes sit in the tank, not outside it. The sentence reads as a garbled translation."
+        ]
+      }
+    ],
+    "ruled": "540cc6fcc1504349"
   },
   "vi/guides/youtube-i47RRyZxXGY": {
     "at": "2026-11-11",
@@ -22133,6 +24128,12 @@
     "hash": "7ae2aa78a62eeec2",
     "findings": [],
     "ruled": "7ae2aa78a62eeec2"
+  },
+  "vi/guides/youtube-Ig7niE0c78E": {
+    "at": "2026-11-21",
+    "hash": "c66115c0551caa53",
+    "findings": [],
+    "ruled": "c66115c0551caa53"
   },
   "vi/guides/youtube-igpCCJlHwb8": {
     "at": "2026-11-13",
@@ -22338,11 +24339,61 @@
     ],
     "ruled": "b1c1aa0bd9c6ecba"
   },
+  "vi/guides/youtube-IOT1NeQ6x7g": {
+    "at": "2026-11-20",
+    "hash": "3e632fe71a94e143",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổ nước tới mức nước dự định.",
+        "problem": "The test-run step says to fill to the planned water level, but summary L3 says to add only a little water, and the final step says to top up to the long-term level afterwards.",
+        "fix": "Đổ một ít nước vào, đủ ngập bơm để chạy thử.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3e632fe71a94e143"
+  },
   "vi/guides/youtube-ipTDkQsT6HQ": {
     "at": "2026-11-10",
     "hash": "4bca93139567b8a4",
     "findings": [],
     "ruled": "4bca93139567b8a4"
+  },
+  "vi/guides/youtube-iRBorq3ZSFE": {
+    "at": "2026-11-19",
+    "hash": "5956309bce167d0e",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "một bể 170 lít, kích thước 90 × 60 × 50 cm (dài × sâu × cao)",
+        "problem": "A 90 × 60 × 50 cm tank holds about 270 litres, not 170, so either the volume or the dimensions are wrong.",
+        "rule": "Check that a tank's stated length × depth × height roughly matches its stated volume in litres.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L6",
+        "quote": "đèn để thấp sáng để bớt rêu hại",
+        "problem": "\"đèn để thấp sáng\" is garbled. Readers could take it to mean \"hang the light low\", the opposite of the body text, which says to hang it higher.",
+        "fix": "để đèn bớt sáng cho đỡ rêu hại",
+        "field": "summary.5"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cát không rửa vì chưa thả cá sớm",
+        "problem": "\"vì chưa thả cá sớm\" reads oddly. The meaning is that fish would not be added soon, so the unwashed sand could settle first. The same wording appears in L10.",
+        "fix": "cát không rửa vì chưa định thả cá ngay",
+        "field": "body"
+      }
+    ],
+    "ruled": "5956309bce167d0e"
   },
   "vi/guides/youtube-iS01ihUInXE": {
     "at": "2026-11-10",
@@ -22571,6 +24622,12 @@
     ],
     "ruled": "c2aec1e3dd9eeb69"
   },
+  "vi/guides/youtube-iyzEQWLkQ1k": {
+    "at": "2026-11-19",
+    "hash": "a409a3cbd6cdba96",
+    "findings": [],
+    "ruled": "a409a3cbd6cdba96"
+  },
   "vi/guides/youtube-J_PR999bgtw": {
     "at": "2026-11-01",
     "hash": "bb9d783fd5f8c05c",
@@ -22603,6 +24660,30 @@
     ],
     "ruled": "5387aed51233afa4"
   },
+  "vi/guides/youtube-j6bhgN_CQSc": {
+    "at": "2026-11-20",
+    "hash": "711f6c9b46fc8ead",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "Vài ngày sau khi set, thay nhiều nước để vớt cặn từ nền nổi lên",
+        "problem": "The summary says to do the big water change a few days after setup, but the body says it can be done on the second day.",
+        "fix": "Ngày thứ hai sau khi set, thay nhiều nước để vớt cặn từ nền nổi lên",
+        "field": "summary.4"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể bát có hiệu ứng phóng to hình ảnh. Với cá nhỏ, như loại thả vào bể bát này",
+        "problem": "The paragraph about the bowl magnifying small fish sits under the heading about filling the bowl before planting stem plants. It doesn't belong to that step, and the page never says which fish to keep.",
+        "field": "body"
+      }
+    ],
+    "ruled": "711f6c9b46fc8ead"
+  },
   "vi/guides/youtube-j794dsqnNJI": {
     "at": "2026-11-08",
     "hash": "91452371244a0035",
@@ -22614,6 +24695,90 @@
     "hash": "42233d8e576f95c4",
     "findings": [],
     "ruled": "42233d8e576f95c4"
+  },
+  "vi/guides/youtube-J9EoNDNgJzQ": {
+    "at": "2026-11-21",
+    "hash": "93f311b4f5622640",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hỏi nuôi chung gì với betta là câu hỏi gặp rất thường.",
+        "problem": "The phrase 'câu hỏi gặp rất thường' is awkward and reads like a translation; a Vietnamese hobbyist would not phrase it this way.",
+        "fix": "Nuôi chung betta với con gì là câu hỏi rất hay gặp.",
+        "field": "body"
+      }
+    ],
+    "ruled": "93f311b4f5622640"
+  },
+  "vi/guides/youtube-jaO5A6TwX6g": {
+    "at": "2026-11-19",
+    "hash": "aedfbda5107f4813",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổ nước vào xi măng từng ít một, vừa đổ vừa khuấy cho an toàn.",
+        "problem": "\"cho an toàn\" is a word-for-word rendering of \"to be safe\". It wrongly suggests a safety hazard when the point is to avoid making the mix too runny.",
+        "fix": "Đổ nước vào xi măng từng ít một, vừa đổ vừa khuấy để hỗn hợp khỏi bị loãng.",
+        "field": "body"
+      }
+    ],
+    "ruled": "aedfbda5107f4813"
+  },
+  "vi/guides/youtube-JDp04T7W_QA": {
+    "at": "2026-11-19",
+    "hash": "5e2d864626075cce",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Để dành hai chai nước rỗng còn nguyên nắp",
+        "problem": "The materials list says to keep only one bottle's cap (the first bottle becomes the stand), but the start list asks for two bottles with caps.",
+        "fix": "Để dành hai chai nước rỗng, giữ lại nắp của một chai,",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhiều khả năng bạn sẽ đặt chai ở một khoang mặt nước tĩnh",
+        "problem": "\"nhiều khả năng\" reads as translated. The house style asks for \"có lẽ\" or \"chắc là\".",
+        "fix": "có lẽ nên đặt chai ở một khoang có mặt nước tĩnh",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có thật sự ít xao động không",
+        "problem": "\"xao động\" is bookish. A hobbyist would talk about the water surface rippling.",
+        "fix": "mặt nước ở khoang đó có thật sự êm không",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên dân chơi nước mặn hay dùng bộ châm nước tự động",
+        "problem": "The house style asks to drop \"dân chơi\" or replace it with \"người chơi\".",
+        "fix": "nên người chơi nước mặn hay dùng bộ châm nước tự động",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhờ có lớp keo này, giá đứng vững hơn nhiều khi bạn đặt chai nước lên.",
+        "problem": "This is the \"nhờ vậy\" pattern, a translated connector. The result should be stated directly.",
+        "fix": "Có lớp keo này thì giá đứng vững hơn nhiều khi đặt chai nước lên.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5e2d864626075cce"
   },
   "vi/guides/youtube-jdsDc8Cqtps": {
     "at": "2026-11-11",
@@ -22742,6 +24907,31 @@
     ],
     "ruled": "d7d51a91e435d739"
   },
+  "vi/guides/youtube-Jjbg-DFwfYU": {
+    "at": "2026-11-21",
+    "hash": "449f264b0dc6c71e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Thả cá phân tán sự chú ý trước",
+        "problem": "This heading is word-for-word English: it reads as 'release fish, distract attention first' instead of 'add dither fish first'.",
+        "fix": "## Thả trước một đàn cá bơi nhanh để đánh lạc hướng cá xiêm",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể cá xiêm cái không dễ như có thể tưởng",
+        "problem": "This copies the English 'not as easy as you might think' and leaves out who is doing the thinking, so it sounds like a translation.",
+        "fix": "Nuôi đàn cá xiêm cái khó hơn nhiều người nghĩ",
+        "field": "body"
+      }
+    ],
+    "ruled": "449f264b0dc6c71e"
+  },
   "vi/guides/youtube-jLaoKifwo1Y": {
     "at": "2026-11-09",
     "hash": "b3de0ed54bc3e51d",
@@ -22782,6 +24972,22 @@
       }
     ],
     "ruled": "2604d4d0107effa7"
+  },
+  "vi/guides/youtube-JLqSW36m2cI": {
+    "at": "2026-11-20",
+    "hash": "1d37fff9e073ccfe",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một bể dài 120 cm, khoảng 65 ngày tuổi",
+        "problem": "\"Ngày tuổi\" is used for animals, not tanks, so this phrase reads oddly for a tank's age since setup.",
+        "fix": "một bể dài 120 cm, set được khoảng 65 ngày",
+        "field": "body"
+      }
+    ],
+    "ruled": "1d37fff9e073ccfe"
   },
   "vi/guides/youtube-jmOoiLzV0Z8": {
     "at": "2026-11-03",
@@ -23383,6 +25589,12 @@
     ],
     "ruled": "d07139bac22219d9"
   },
+  "vi/guides/youtube-KFONbDKnLC8": {
+    "at": "2026-11-21",
+    "hash": "255f5156b56c20af",
+    "findings": [],
+    "ruled": "255f5156b56c20af"
+  },
   "vi/guides/youtube-KGII9S9qwDI": {
     "at": "2026-11-07",
     "hash": "5bb9f73a35efb8eb",
@@ -23466,6 +25678,61 @@
       }
     ],
     "ruled": "4c271ac8fc619fa6"
+  },
+  "vi/guides/youtube-kiDrZPqHKTs": {
+    "at": "2026-11-19",
+    "hash": "0bafc2302d683bdd",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "chỉ chứa khoảng một phần tư lít K1, tức là gánh được chừng nửa gam thức ăn mỗi ngày",
+        "problem": "At 3 g per litre per day, a quarter litre of K1 handles about 0.75 g, not half a gram.",
+        "fix": "chỉ chứa khoảng một phần tư lít K1, tức là gánh được chừng 0,75 g thức ăn mỗi ngày",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cắt bỏ khoảng 30% phần trên của chai.",
+        "problem": "The skimmer bottle is attached to the pump and set upside down, so the neck must stay on. That means the bottom of the bottle is cut off, not the top.",
+        "fix": "Cắt bỏ khoảng 30% phần đáy chai.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhờ vậy vật liệu này gần như không phải vệ sinh. Nó vốn dùng trong xử lý nước thải, rồi sang hồ koi, sau mới vào giới chơi cá cảnh.",
+        "problem": "\"Nhờ vậy\" and \"giới chơi\" are translated-sounding phrases from the site's list.",
+        "fix": "Thế nên vật liệu này hầu như không phải vệ sinh. Nó vốn dùng trong xử lý nước thải, rồi sang hồ koi, sau mới tới người chơi cá cảnh.",
+        "rule": "The phrases \"nhờ vậy\" or \"giới chơi\" appear in the text.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "miếng mút gắn dưới chai nhiều khả năng còn lọc được nhiều hơn chính lớp K1",
+        "problem": "\"nhiều khả năng\" is a translated hedge.",
+        "fix": "miếng mút gắn dưới chai có lẽ còn lọc được nhiều hơn chính lớp K1",
+        "rule": "The phrase \"nhiều khả năng\" appears in the text.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "làm xáo động mặt nước nên trao đổi oxy cũng tốt hơn",
+        "problem": "\"xáo động mặt nước\" is unnatural for hobbyists, who would say the water surface is stirred.",
+        "fix": "khuấy mặt nước nên trao đổi oxy cũng tốt hơn",
+        "rule": "The phrase \"xáo động\" or \"xao động\" appears in the text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0bafc2302d683bdd"
   },
   "vi/guides/youtube-KjUE_aid3BI": {
     "at": "2026-11-04",
@@ -23647,6 +25914,12 @@
     "findings": [],
     "ruled": "a68f2275299406f6"
   },
+  "vi/guides/youtube-Kt0zl0pJNzw": {
+    "at": "2026-11-19",
+    "hash": "f9d2ebf0dd9ca278",
+    "findings": [],
+    "ruled": "f9d2ebf0dd9ca278"
+  },
   "vi/guides/youtube-Kxx-gcrSqBw": {
     "at": "2026-11-18",
     "hash": "2501adb9d975f50f",
@@ -23658,6 +25931,12 @@
     "hash": "99b88e265695c3f7",
     "findings": [],
     "ruled": "99b88e265695c3f7"
+  },
+  "vi/guides/youtube-KYQc-uWNhEA": {
+    "at": "2026-11-21",
+    "hash": "3b4f865a2a3c757b",
+    "findings": [],
+    "ruled": "3b4f865a2a3c757b"
   },
   "vi/guides/youtube-kzwkw7Qw51c": {
     "at": "2026-11-16",
@@ -23770,6 +26049,22 @@
     ],
     "ruled": "5d576aea4de9b629"
   },
+  "vi/guides/youtube-L8MzUYnxXJ8": {
+    "at": "2026-11-20",
+    "hash": "b994bb45e31e7026",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khoảng 400 lít nước cho mỗi 0,45 kg cát",
+        "problem": "The table gives the usual rating as about 400 litres per 0.45 kg of sand, but the text below it says about 380 litres for the same rating.",
+        "fix": "Khoảng 380 lít nước cho mỗi 0,45 kg cát",
+        "field": "body"
+      }
+    ],
+    "ruled": "b994bb45e31e7026"
+  },
   "vi/guides/youtube-L8tiOsI7dyk": {
     "at": "2026-11-12",
     "hash": "a9da3016ad53c604",
@@ -23844,6 +26139,31 @@
     ],
     "ruled": "0b5099e3a6a6970d"
   },
+  "vi/guides/youtube-ld9WkDIP_o4": {
+    "at": "2026-11-20",
+    "hash": "6da731d7fe919d99",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây nổi làm mềm mép nước và tạo kết cấu.",
+        "problem": "'tạo kết cấu' and 'làm mềm mép nước' are word-for-word translations of 'add texture' and 'soften the edge', and a Vietnamese reader would find them odd.",
+        "fix": "Bèo nổi che bớt mép nước cho tự nhiên hơn, lại thêm nhiều dáng lá khác nhau.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sau cây lớn thì trồng cây nhỏ để tạo thêm kết cấu, cuối cùng là cây dương xỉ lớn.",
+        "problem": "'tạo thêm kết cấu' is a word-for-word translation of 'add texture', and it reads unnaturally for planting.",
+        "fix": "Sau cây lớn thì trồng cây nhỏ xen vào cho đa dạng dáng lá, cuối cùng là cây dương xỉ lớn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6da731d7fe919d99"
+  },
   "vi/guides/youtube-ldbE9N7RUTQ": {
     "at": "2026-11-09",
     "hash": "096311d4bdb30e65",
@@ -23886,6 +26206,22 @@
     ],
     "ruled": "bd6dfa5e3e8a55d7"
   },
+  "vi/guides/youtube-lduFPe31xYk": {
+    "at": "2026-11-20",
+    "hash": "9b73547b5c65c9c6",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L5",
+        "quote": "rồi thêm cành nhỏ và buộc rêu, ráy, Bucephalandra để che vết keo",
+        "problem": "The summary says Bucephalandra is tied on to hide glue marks, but the body says only moss or Anubias covers glue marks and Bucephalandra is tied to the front patches.",
+        "fix": "rồi thêm cành nhỏ, buộc rêu, ráy, Bucephalandra lên đá và lũa, chỗ nào lộ vết keo thì phủ rêu hoặc ráy lên để che.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "9b73547b5c65c9c6"
+  },
   "vi/guides/youtube-LdxHhMZxX_w": {
     "at": "2026-11-11",
     "hash": "ca4228dbecdb6722",
@@ -23907,6 +26243,12 @@
       }
     ],
     "ruled": "68b77675e264a0b0"
+  },
+  "vi/guides/youtube-leYo0CPNe-g": {
+    "at": "2026-11-20",
+    "hash": "1844c9a17bc5bd61",
+    "findings": [],
+    "ruled": "1844c9a17bc5bd61"
   },
   "vi/guides/youtube-lF8pam4eLMc": {
     "at": "2026-11-10",
@@ -24182,6 +26524,12 @@
     "hash": "28f0e94032330f7b",
     "findings": [],
     "ruled": "28f0e94032330f7b"
+  },
+  "vi/guides/youtube-los9CtgfKXI": {
+    "at": "2026-11-20",
+    "hash": "96ec8d38f3eca5b9",
+    "findings": [],
+    "ruled": "96ec8d38f3eca5b9"
   },
   "vi/guides/youtube-lRF7KD1VMYA": {
     "at": "2026-11-18",
@@ -24462,6 +26810,33 @@
     ],
     "ruled": "81d4327afb4cffba"
   },
+  "vi/guides/youtube-lYyEHHmeZY0": {
+    "at": "2026-11-21",
+    "hash": "2257577d14180266",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "miệng chai nhô hơi cao hơn mặt nước để vật liệu lọc không tràn ra",
+        "problem": "Here too, \"miệng chai\" means the cut-off end, which clashes with the capped mouth that sits underwater.",
+        "fix": "đầu chai vừa cắt nhô hơi cao hơn mặt nước để vật liệu lọc không tràn ra",
+        "field": "summary.3"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-21",
+        "field": "body",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "The page uses \"miệng chai\" (the bottle's mouth) for the open, cut-off bottom end. But the real mouth, with its cap and sponge, sits at the bottom underwater, so readers will be confused about which end should stick out above the water."
+        ]
+      }
+    ],
+    "ruled": "2257577d14180266"
+  },
   "vi/guides/youtube-m-uLNI5xx2Y": {
     "at": "2026-11-02",
     "hash": "36475e02d8dc52b5",
@@ -24494,6 +26869,21 @@
     ],
     "ruled": "1041f0afad999dfe"
   },
+  "vi/guides/youtube-M3-MiQ22hY4": {
+    "at": "2026-11-20",
+    "hash": "2dc15fdb7d307a53",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đèn của bể mà khá mạnh so với lượng cây thì rêu hại có thể mọc.",
+        "problem": "This paragraph is about light strength, planting density and algae, but it sits under the floating-plants heading, which it does not answer.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2dc15fdb7d307a53"
+  },
   "vi/guides/youtube-M3sSLf31zso": {
     "at": "2026-11-06",
     "hash": "c3abfb68fcdb272f",
@@ -24518,6 +26908,12 @@
       }
     ],
     "ruled": "c3abfb68fcdb272f"
+  },
+  "vi/guides/youtube-m72wqXnyMsM": {
+    "at": "2026-11-19",
+    "hash": "fd9f110aaaa0b54e",
+    "findings": [],
+    "ruled": "fd9f110aaaa0b54e"
   },
   "vi/guides/youtube-M7UJiUpPX08": {
     "at": "2026-11-13",
@@ -24570,6 +26966,12 @@
     "hash": "08f67507ab1069ea",
     "findings": [],
     "ruled": "08f67507ab1069ea"
+  },
+  "vi/guides/youtube-MA5D5sRPaDk": {
+    "at": "2026-11-21",
+    "hash": "366bb3747609d5e9",
+    "findings": [],
+    "ruled": "366bb3747609d5e9"
   },
   "vi/guides/youtube-mB3je2t-Bo8": {
     "at": "2026-11-12",
@@ -24640,6 +27042,57 @@
     ],
     "ruled": "e7e406fd15b2235a"
   },
+  "vi/guides/youtube-mdW19245Utg": {
+    "at": "2026-11-20",
+    "hash": "999652aad9d66f76",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Khi hai bể cùng cỡ, bể trên không lọt gọn dưới bể khác được nên sẽ có phần chìa ra.",
+        "problem": "This sentence is garbled: it talks about the top tank fitting 'under' another tank, when the real point is that the tank is deeper than the rack.",
+        "fix": "Bể sâu hơn kệ nên sẽ có một phần chìa ra ngoài.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhiều khi thủ phạm chỉ là đất cát dính dưới đáy, lau sạch là hết lắc.",
+        "problem": "'thủ phạm' is on the site's list of words to avoid. Hobbyists would just say what the cause is.",
+        "fix": "Nhiều khi gạch lắc chỉ do đất cát dính dưới đáy, lau sạch là hết.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách để mút xa vách hơn một chút sẽ cho ngăn sau rộng hơn.",
+        "problem": "The sentence is awkward and reads like a literal translation. 'Cách' is used where an instruction is meant.",
+        "fix": "Đặt mút lùi xa vách thêm một chút thì ngăn sau sẽ rộng hơn.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-20",
+        "field": "body",
+        "score": 0.7,
+        "kept": false,
+        "problems": [
+          "This sentence is garbled: it talks about the top tank fitting 'under' another tank, when the real point is that the tank is deeper than the rack."
+        ]
+      }
+    ],
+    "ruled": "999652aad9d66f76"
+  },
+  "vi/guides/youtube-mfn_msd06Fo": {
+    "at": "2026-11-20",
+    "hash": "e0a9d8c488c45b02",
+    "findings": [],
+    "ruled": "e0a9d8c488c45b02"
+  },
   "vi/guides/youtube-mGmIvhtIM9k": {
     "at": "2026-11-09",
     "hash": "bd5d15dd19edd53f",
@@ -24697,6 +27150,12 @@
     "hash": "53211983a519b3c9",
     "findings": [],
     "ruled": "53211983a519b3c9"
+  },
+  "vi/guides/youtube-MHdRdN3t0i8": {
+    "at": "2026-11-19",
+    "hash": "4f97e01b5d86ffbc",
+    "findings": [],
+    "ruled": "4f97e01b5d86ffbc"
   },
   "vi/guides/youtube-MJ3fqxhMmxE": {
     "at": "2026-11-08",
@@ -24760,6 +27219,22 @@
     "hash": "e53c12be59db7534",
     "findings": [],
     "ruled": "e53c12be59db7534"
+  },
+  "vi/guides/youtube-mmg1EIMdbkU": {
+    "at": "2026-11-21",
+    "hash": "1dd1aaaf766d1709",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Loài này đã có trong nghề từ lâu, chỉ mới được nuôi nhiều vài năm gần đây.",
+        "problem": "\"Có trong nghề\" is unnatural Vietnamese for a fish that has long been available in the trade.",
+        "fix": "Loài này có bán từ lâu, nhưng vài năm gần đây mới được nuôi nhiều.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1dd1aaaf766d1709"
   },
   "vi/guides/youtube-mmND8O0j_Qo": {
     "at": "2026-11-04",
@@ -24884,6 +27359,22 @@
     ],
     "ruled": "595a2c592bb3ea53"
   },
+  "vi/guides/youtube-MzV5g3hZFzo": {
+    "at": "2026-11-20",
+    "hash": "ad1da485e338f6fc",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chấm lệch so với hàng trước để các lỗ không thẳng hàng ngang với nhau",
+        "problem": "Shifting each row's marks makes the holes stop lining up from one row to the next (vertically), so 'thẳng hàng ngang' (horizontally) is the wrong direction; holes in the same row are still in a horizontal line.",
+        "fix": "chấm lệch so với hàng trước để lỗ hàng này không thẳng hàng dọc với lỗ hàng kia",
+        "field": "body"
+      }
+    ],
+    "ruled": "ad1da485e338f6fc"
+  },
   "vi/guides/youtube-N_35ut9PWGM": {
     "at": "2026-11-18",
     "hash": "43869dad0d82f867",
@@ -24914,6 +27405,37 @@
     "hash": "dbef73c16ea35643",
     "findings": [],
     "ruled": "dbef73c16ea35643"
+  },
+  "vi/guides/youtube-N3uNPHmKkjc": {
+    "at": "2026-11-19",
+    "hash": "a5a1ded8ee3903cd",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Mặt sau bể dán đề can mờ, và nếu thích thì thêm một miếng decal trang trí.",
+        "problem": "The same word is spelled two ways in one sentence ('đề can' and 'decal'), which reads unevenly.",
+        "fix": "Mặt sau bể dán đề can mờ, và nếu thích thì thêm một miếng đề can trang trí.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a5a1ded8ee3903cd"
+  },
+  "vi/guides/youtube-n48zc1KSUx0": {
+    "at": "2026-11-19",
+    "hash": "261444e8d6dcf717",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nếu kính sau hay phông nền trầy xước lộ rõ, có thể lấy cọ sơn lại phông nền cho gọn mắt.",
+        "problem": "The tip about repainting the background sits under the heading about filling the tank with water, which it has nothing to do with.",
+        "field": "body"
+      }
+    ],
+    "ruled": "261444e8d6dcf717"
   },
   "vi/guides/youtube-N6OtIWIEQs4": {
     "at": "2026-11-15",
@@ -25576,6 +28098,12 @@
     ],
     "ruled": "ef7386550435029d"
   },
+  "vi/guides/youtube-nzNkqajWZ3s": {
+    "at": "2026-11-19",
+    "hash": "68cb1ea4f49a1bec",
+    "findings": [],
+    "ruled": "68cb1ea4f49a1bec"
+  },
   "vi/guides/youtube-O3u6GuClWi0": {
     "at": "2026-11-08",
     "hash": "553af900509ef410",
@@ -25607,6 +28135,22 @@
     "findings": [],
     "ruled": "b1f25d6b555d1a45"
   },
+  "vi/guides/youtube-O73wd99qDKI": {
+    "at": "2026-11-20",
+    "hash": "3bf77971d12f3301",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tiền mua ba lần ốc có khi đã đủ dựng một bể nhỏ như vậy",
+        "problem": "The page uses 'dựng' for setting up a tank, but the site's word list says hobbyists say 'set bể'.",
+        "fix": "Tiền mua ba lần ốc có khi đã đủ set một bể nhỏ như vậy",
+        "field": "body"
+      }
+    ],
+    "ruled": "3bf77971d12f3301"
+  },
   "vi/guides/youtube-o8olS_u-y3o": {
     "at": "2026-11-06",
     "hash": "2d9313370c604edc",
@@ -25628,6 +28172,92 @@
     "hash": "239ad489593e889e",
     "findings": [],
     "ruled": "239ad489593e889e"
+  },
+  "vi/guides/youtube-OBvaJ0FgHPI": {
+    "at": "2026-11-21",
+    "hash": "f20b12979de57abb",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tránh loại lũa giống lũa chìm còn mới.",
+        "problem": "Garbled sentence: unclear which driftwood to avoid; 'lũa chìm' normally means sinking wood, which makes the advice confusing.",
+        "fix": "Tránh lũa mới chưa ngâm, vì loại này ra màu nhiều.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L4",
+        "quote": "Thả 5–10 con tép Amano là dọn được tảo silic và rêu tóc.",
+        "problem": "The summary says Amanos clear hair algae too and gives 5–10 shrimp, but the body only credits them with clearing diatoms and suggests 10–15 for a fair-sized tank.",
+        "fix": "Thả khoảng 10 con tép Amano là dọn được tảo silic trong một đêm.",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "f20b12979de57abb"
+  },
+  "vi/guides/youtube-oc5mid3nQLY": {
+    "at": "2026-11-19",
+    "hash": "fdaccd102e0116de",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L3",
+        "quote": "Bóng hình đang chịu nén nên có thể nguy hiểm, phải xả khí",
+        "problem": "The summary repeats the wrong claim that the tube is under pressure, when it is a vacuum.",
+        "fix": "Bên trong bóng hình là chân không nên có thể nổ ụp vào trong, phải phá chân không ngoài trời",
+        "field": "summary.2"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L10",
+        "quote": "Bóng hình đang chịu nén nên phải xả khí",
+        "problem": "The FAQ answer repeats the wrong claim that the tube is under pressure, when it is a vacuum.",
+        "fix": "Bên trong bóng hình là chân không nên phải phá chân không",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhờ vậy bể trông vẫn như cái tivi thật",
+        "problem": "The page uses 'nhờ vậy', a stock connector that the site's style list says to avoid.",
+        "fix": "Bể nhìn vẫn y như một cái tivi thật.",
+        "rule": "Flag the phrase 'nhờ vậy' on any Vietnamese page.",
+        "field": "body"
+      }
+    ],
+    "ruled": "fdaccd102e0116de"
+  },
+  "vi/guides/youtube-OCqPnXpxHTU": {
+    "at": "2026-11-19",
+    "hash": "41f4876cd0517de4",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "Sợi xám: đấu vào cọc sưởi bên phải.",
+        "problem": "The page first says the grey wire in the cord is the ground wire. The steps then use a grey wire as the switched live wire from the heater terminal to the outlet, so a reader could connect the ground wire as the live wire.",
+        "fix": "Sợi thứ ba (lấy từ đoạn dây cắt ra, đánh dấu là dây nóng ra sưởi, không phải dây tiếp địa): đấu vào cọc sưởi bên phải.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lý do nhiều khả năng là nước sát sưởi nóng hơn phần còn lại của bể",
+        "problem": "\"Lý do nhiều khả năng là\" reads as translated wording. Both \"lý do là\" and \"nhiều khả năng\" are on the site's list of phrases to avoid.",
+        "fix": "Có lẽ là do nước sát sưởi nóng hơn phần còn lại của bể",
+        "rule": "Flag the phrase \"nhiều khả năng\" anywhere in Vietnamese page text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "41f4876cd0517de4"
   },
   "vi/guides/youtube-ogiCy6qvGUs": {
     "at": "2026-11-10",
@@ -25899,6 +28529,51 @@
     "findings": [],
     "ruled": "030d501580b81933"
   },
+  "vi/guides/youtube-oyoTrsauIgc": {
+    "at": "2026-11-20",
+    "hash": "3986479f61d19f46",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể cách ly chỉ dùng vài tuần thì khó mua một bộ lọc đắt tiền cho nó.",
+        "problem": "'khó mua' means 'hard to buy', but the meaning is that an expensive filter isn't worth buying.",
+        "fix": "Bể cách ly chỉ dùng vài tuần thì mua một bộ lọc đắt tiền cho nó không đáng.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "giữ sẵn vài miếng sponge lọc dư",
+        "problem": "'sponge lọc' leaves an English word where hobbyists say 'mút lọc'.",
+        "fix": "giữ sẵn vài miếng mút lọc dư",
+        "rule": "The phrase 'sponge lọc' appears in Vietnamese text.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hai lít vật liệu cho bể khoảng 227 lít nhiều khả năng gấp đôi mức cần thiết.",
+        "problem": "'nhiều khả năng' is a translated phrase the site lists for rewriting, and the sentence also lacks a verb before 'gấp đôi'.",
+        "fix": "Hai lít vật liệu cho bể khoảng 227 lít có lẽ là gấp đôi mức cần.",
+        "rule": "The phrase 'nhiều khả năng' appears in the text.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một cách là khoan lỗ nhỏ trước rồi nới dần cho vừa.",
+        "problem": "This tip belongs to the drilling step but is listed as a step of its own, and no step says to screw the cap onto the pump.",
+        "fix": "Khoan một lỗ trên nắp chai vừa khít đầu ra của bơm: khoan lỗ nhỏ trước rồi nới dần cho vừa, sau đó vặn nắp thẳng vào đầu ra của bơm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "3986479f61d19f46"
+  },
   "vi/guides/youtube-oysXCn_kNCQ": {
     "at": "2026-11-04",
     "hash": "515508fb83966606",
@@ -26009,6 +28684,31 @@
       }
     ],
     "ruled": "615a3bee3264a11d"
+  },
+  "vi/guides/youtube-P3d7DeNmiko": {
+    "at": "2026-11-20",
+    "hash": "2eff28e479f00086",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L5",
+        "quote": "Cho hồ chạy một hai ngày khi viền còn thô",
+        "problem": "The summary says to run the pond for one or two days, but the body and the FAQ both say about one day.",
+        "fix": "Cho hồ chạy khoảng một ngày khi viền còn thô",
+        "field": "summary.4"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rẻ lúc đầu nhưng có những thứ đáng bỏ tiền hơn.",
+        "problem": "The sentence is vague and reads like a literal translation. It should say plainly that the liner is worth spending more on.",
+        "fix": "Màng mỏng thì rẻ lúc đầu, nhưng màng lót là thứ đáng bỏ thêm tiền.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2eff28e479f00086"
   },
   "vi/guides/youtube-P6iATC1m448": {
     "at": "2026-11-17",
@@ -26194,6 +28894,12 @@
     ],
     "ruled": "642030fd9cdc71b3"
   },
+  "vi/guides/youtube-pIRgBwsDaps": {
+    "at": "2026-11-21",
+    "hash": "28d6d271c74458a0",
+    "findings": [],
+    "ruled": "28d6d271c74458a0"
+  },
   "vi/guides/youtube-pKQJjZ31RTQ": {
     "at": "2026-11-12",
     "hash": "bff76c41887ff600",
@@ -26281,6 +28987,12 @@
     ],
     "ruled": "b9812a47dd59d85d"
   },
+  "vi/guides/youtube-Pn0-xaW8S3w": {
+    "at": "2026-11-20",
+    "hash": "979bddb14e4a2eee",
+    "findings": [],
+    "ruled": "979bddb14e4a2eee"
+  },
   "vi/guides/youtube-PnLf3RxViMg": {
     "at": "2026-11-15",
     "hash": "d3529c122641a094",
@@ -26355,6 +29067,22 @@
     ],
     "ruled": "919e3e98326df022"
   },
+  "vi/guides/youtube-PQ_DmRR-I2A": {
+    "at": "2026-11-20",
+    "hash": "5d3d206b85fb5ede",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Nhận ra cá cái đang mang trứng",
+        "problem": "Endlers give birth to live young, and the section itself says \"mang con\", but the heading says the female is carrying eggs (\"mang trứng\").",
+        "fix": "## Nhận ra cá cái đang mang con",
+        "field": "body"
+      }
+    ],
+    "ruled": "5d3d206b85fb5ede"
+  },
   "vi/guides/youtube-pRIhyV1gwaw": {
     "at": "2026-11-06",
     "hash": "191e4c7d11371db8",
@@ -26417,6 +29145,12 @@
       }
     ],
     "ruled": "40b81ff30acb4782"
+  },
+  "vi/guides/youtube-pXgHpSWHzFE": {
+    "at": "2026-11-21",
+    "hash": "bbc67b32c9694456",
+    "findings": [],
+    "ruled": "bbc67b32c9694456"
   },
   "vi/guides/youtube-py-6gyQwVWU": {
     "at": "2026-11-06",
@@ -26587,6 +29321,12 @@
     "findings": [],
     "ruled": "60a7c56ab4398df3"
   },
+  "vi/guides/youtube-qGLnBvDkaO0": {
+    "at": "2026-11-19",
+    "hash": "58292f25fdcb43f5",
+    "findings": [],
+    "ruled": "58292f25fdcb43f5"
+  },
   "vi/guides/youtube-QhPgAnEku_o": {
     "at": "2026-11-09",
     "hash": "728fc10839ef13d0",
@@ -26676,6 +29416,22 @@
     "findings": [],
     "ruled": "690d5f05fb9759a2"
   },
+  "vi/guides/youtube-qL-OMw9pvJs": {
+    "at": "2026-11-20",
+    "hash": "372197cc24efc953",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cần chuẩn bị: vải địa kỹ thuật, bạt EPDM, hộp hút nước (overflow) có bơm, hộp lọc thác, ống và phụ kiện. Chỉ phải lo thêm:",
+        "problem": "The source's kit context was dropped, so \"chỉ phải lo thêm\" (only need additionally) follows a list that has no clear relation to what comes next, which confuses the reader.",
+        "fix": "Bộ kit làm hồ thường có sẵn vải địa kỹ thuật, bạt EPDM, hộp hút có bơm, hộp lọc thác, ống và phụ kiện. Ngoài bộ kit thì cần thêm:",
+        "field": "body"
+      }
+    ],
+    "ruled": "372197cc24efc953"
+  },
   "vi/guides/youtube-QoLZvjObqYM": {
     "at": "2026-11-07",
     "hash": "332fc06e40fbd210",
@@ -26691,6 +29447,12 @@
       }
     ],
     "ruled": "332fc06e40fbd210"
+  },
+  "vi/guides/youtube-QOxxBn84t7Y": {
+    "at": "2026-11-19",
+    "hash": "6a94697ef2fbff20",
+    "findings": [],
+    "ruled": "6a94697ef2fbff20"
   },
   "vi/guides/youtube-qqHJr-5enM8": {
     "at": "2026-11-01",
@@ -26716,6 +29478,12 @@
       }
     ],
     "ruled": "cec8ab7f2af4b477"
+  },
+  "vi/guides/youtube-QrEpwKvqF8M": {
+    "at": "2026-11-20",
+    "hash": "835c76565c3acec4",
+    "findings": [],
+    "ruled": "835c76565c3acec4"
   },
   "vi/guides/youtube-QRffuIKYrNg": {
     "at": "2026-11-03",
@@ -26813,6 +29581,75 @@
     "findings": [],
     "ruled": "8433fa00be20faa0"
   },
+  "vi/guides/youtube-R4CcI2Uemnk": {
+    "at": "2026-11-20",
+    "hash": "9f78007c4360b4e8",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L6",
+        "quote": "Bể mới chưa có vi sinh nên châm men vi sinh trước khi thả cá. Ngày hôm sau nước hơi đục.",
+        "problem": "The order makes it sound like dosing bacteria causes cloudy water the next day, and it says flatly that the water turns cloudy when the body text only says it may.",
+        "fix": "Ngày hôm sau nước có thể hơi đục. Bể mới chưa có vi sinh nên châm men vi sinh trước khi thả cá.",
+        "field": "summary.5"
+      }
+    ],
+    "ruled": "9f78007c4360b4e8"
+  },
+  "vi/guides/youtube-R9PxopftjaY": {
+    "at": "2026-11-19",
+    "hash": "03a9631d6c8d64ee",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Gắn chai vào đầu hút. Bơm không cần bám chặt.",
+        "problem": "The step means the bottle need not fit tightly on the pump, but the sentence says the pump need not hold firmly, which confuses the reader.",
+        "fix": "Gắn chai vào đầu hút. Chai không cần khít chặt với bơm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hít bơm vào thành bể bằng giác hút.",
+        "problem": "\"Hít bơm\" is an unnatural verb choice for attaching a pump with suction cups.",
+        "fix": "Gắn bơm vào thành bể bằng giác hút.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một chai nước nhựa loại thường.",
+        "problem": "The word order is awkward. It reads as \"a bottle of plastic water\".",
+        "fix": "Một chai nhựa đựng nước loại thường.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đã trong hơn thấy rõ",
+        "problem": "This table cell is clumsy, unnatural Vietnamese.",
+        "fix": "Nước đã trong lên thấy rõ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thủ phạm thường là bụi mịn từ nền.",
+        "problem": "\"Thủ phạm\" is on the site's list of words to avoid, and the cause should be stated directly.",
+        "fix": "Nước đục thường là do bụi mịn từ nền.",
+        "rule": "Flag the word \"thủ phạm\" in body text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "03a9631d6c8d64ee"
+  },
   "vi/guides/youtube-r9rJ8JljJC0": {
     "at": "2026-11-02",
     "hash": "30e739e9d0312d8f",
@@ -26828,6 +29665,22 @@
       }
     ],
     "ruled": "30e739e9d0312d8f"
+  },
+  "vi/guides/youtube-razEt0THqD4": {
+    "at": "2026-11-19",
+    "hash": "91c0e03625ea4273",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L14",
+        "quote": "Không bắt buộc.",
+        "problem": "The page body says a strong current everywhere leaves the fish nowhere to rest, but this FAQ answer only says it is \"not required\", which makes an even strong current sound acceptable.",
+        "fix": "Không nên. Nên chừa một bên nước êm cho cá nghỉ bằng cách đặt bơm mạnh ở một bên để dòng yếu dần về phía bên kia.",
+        "field": "faq.3.a"
+      }
+    ],
+    "ruled": "91c0e03625ea4273"
   },
   "vi/guides/youtube-RBtMtrL4tAQ": {
     "at": "2026-11-07",
@@ -26928,6 +29781,22 @@
       }
     ],
     "ruled": "2ec496d940ee067f"
+  },
+  "vi/guides/youtube-rHLy_nO3sgY": {
+    "at": "2026-11-20",
+    "hash": "209eee0a652092c6",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nếu chỉnh van cho nhỏ 2 giọt mỗi giây thì cần 400 ÷ 2 = 200 giây bơm. Bạn cài timer bật đúng khoảng đó",
+        "problem": "The parts list calls for a timer that can only be set in whole minutes, but the worked example needs 200 seconds (3 min 20 s), which that timer cannot be set to.",
+        "fix": "Nếu chỉnh van cho nhỏ 2 giọt mỗi giây thì cần 400 ÷ 2 = 200 giây bơm. Timer chỉ hẹn được theo phút thì cài 3 phút rồi chỉnh van cho nhỏ khoảng 2,2 giọt mỗi giây, hoặc dùng timer hẹn được theo giây.",
+        "field": "body"
+      }
+    ],
+    "ruled": "209eee0a652092c6"
   },
   "vi/guides/youtube-rho_cQXD7yA": {
     "at": "2026-11-05",
@@ -27031,6 +29900,30 @@
     ],
     "ruled": "569d711c6f995d9e"
   },
+  "vi/guides/youtube-rmzCn0C_BMU": {
+    "at": "2026-11-19",
+    "hash": "51094255ccd0dd38",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nước máy, một bể mới set và một bể đã chạy lâu, được thay nước đều",
+        "problem": "The page says three water sources are compared, but the results list gives only tap water and the new tank, so the long-running tank's readings are missing.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Những cây hay khó trồng như cỏ mái tóc (hair grass) nhờ vậy có thể lên mà gần như không tốn công.",
+        "problem": "The sentence leans on the stiff connector \"nhờ vậy\" and \"gần như không\", which reads as translated.",
+        "fix": "Thế là cả những cây hay khó trồng như cỏ mái tóc (hair grass) cũng có thể lên mà hầu như không tốn công.",
+        "field": "body"
+      }
+    ],
+    "ruled": "51094255ccd0dd38"
+  },
   "vi/guides/youtube-ROZPt7M2uIk": {
     "at": "2026-11-04",
     "hash": "6a22d3240cba72c2",
@@ -27042,6 +29935,18 @@
     "hash": "3c0fb33e703069bb",
     "findings": [],
     "ruled": "3c0fb33e703069bb"
+  },
+  "vi/guides/youtube-rPcqAAy890Y": {
+    "at": "2026-11-19",
+    "hash": "8c2ed8b96d383e38",
+    "findings": [],
+    "ruled": "8c2ed8b96d383e38"
+  },
+  "vi/guides/youtube-rrH5He5rjMw": {
+    "at": "2026-11-20",
+    "hash": "ac9e4e79f65562af",
+    "findings": [],
+    "ruled": "ac9e4e79f65562af"
   },
   "vi/guides/youtube-RSbUTX0qyzs": {
     "at": "2026-11-04",
@@ -27070,6 +29975,12 @@
     "hash": "beef015c7a2ab8bd",
     "findings": [],
     "ruled": "beef015c7a2ab8bd"
+  },
+  "vi/guides/youtube-rvteVZwamRw": {
+    "at": "2026-11-19",
+    "hash": "43d715e2858f57fc",
+    "findings": [],
+    "ruled": "43d715e2858f57fc"
   },
   "vi/guides/youtube-rWaSv_jw6Rs": {
     "at": "2026-11-13",
@@ -27218,6 +30129,33 @@
     ],
     "ruled": "7f96975831108869"
   },
+  "vi/guides/youtube-SAO9fY_5ATA": {
+    "at": "2026-11-19",
+    "hash": "a6350cb14bd35624",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L8",
+        "quote": "Thủ phạm thường là khe thoáng giữa mặt nước và nắp quá nhỏ.",
+        "problem": "'Thủ phạm' is on the house list of words to avoid. Hobbyists would just say 'là do'.",
+        "fix": "Thường là do khe thoáng giữa mặt nước và nắp quá nhỏ.",
+        "rule": "Flag any listed discouraged word such as 'thủ phạm', 'nhờ vậy', 'bắt buộc phải' or 'bạn nên' wherever it appears on the page.",
+        "field": "faq.0.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L5",
+        "quote": "nhưng bắt buộc phải lắp van một chiều cho dây sủi",
+        "problem": "'Bắt buộc phải' is on the house list of words to avoid. 'Phải' alone says the same thing.",
+        "fix": "nhưng phải lắp van một chiều cho dây sủi",
+        "rule": "Flag 'bắt buộc phải' anywhere on a page.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "a6350cb14bd35624"
+  },
   "vi/guides/youtube-SdInuxeH8a8": {
     "at": "2026-11-11",
     "hash": "9ad19bb13b0dbef8",
@@ -27249,6 +30187,12 @@
     ],
     "ruled": "82422c861d8b2045"
   },
+  "vi/guides/youtube-seBch2HWlZs": {
+    "at": "2026-11-19",
+    "hash": "6257aec966ee64be",
+    "findings": [],
+    "ruled": "6257aec966ee64be"
+  },
   "vi/guides/youtube-SEnv3QWLIMw": {
     "at": "2026-11-06",
     "hash": "b66ed63ec575bdb4",
@@ -27264,6 +30208,12 @@
       }
     ],
     "ruled": "b66ed63ec575bdb4"
+  },
+  "vi/guides/youtube-SF9pWfVUGjo": {
+    "at": "2026-11-19",
+    "hash": "226fb975cb5631bc",
+    "findings": [],
+    "ruled": "226fb975cb5631bc"
   },
   "vi/guides/youtube-sFCtqYbZQBg": {
     "at": "2026-11-03",
@@ -27318,6 +30268,33 @@
       }
     ],
     "ruled": "ab06800b7f45ab01"
+  },
+  "vi/guides/youtube-Siun2vEDvh0": {
+    "at": "2026-11-19",
+    "hash": "bc88ad2b69bae460",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "trồng vào là mong nó giữ nước tốt hơn chứ không phải để ngắm",
+        "problem": "\"Giữ nước tốt hơn\" doesn't make sense to a reader. It looks like a literal rendering of 'help water quality': the plant is there to soak up excess nutrients and keep the water clean.",
+        "fix": "trồng vào là để nó hút bớt dinh dưỡng thừa cho nước sạch hơn, chứ không phải để ngắm",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-19",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "\"Giữ nước tốt hơn\" doesn't make sense to a reader. It looks like a literal rendering of 'help water quality': the plant is there to soak up excess nutrients and keep the water clean."
+        ]
+      }
+    ],
+    "ruled": "bc88ad2b69bae460"
   },
   "vi/guides/youtube-SJ6LTc4VGy8": {
     "at": "2026-11-18",
@@ -27375,6 +30352,12 @@
       }
     ],
     "ruled": "3e492530a270f49b"
+  },
+  "vi/guides/youtube-SkR_Mbh3qzE": {
+    "at": "2026-11-21",
+    "hash": "a3632007b7175aea",
+    "findings": [],
+    "ruled": "a3632007b7175aea"
   },
   "vi/guides/youtube-SlmXdV5n3Hw": {
     "at": "2026-11-14",
@@ -27502,6 +30485,12 @@
       }
     ],
     "ruled": "75250b70521bbcf7"
+  },
+  "vi/guides/youtube-sV6LatlgWNg": {
+    "at": "2026-11-21",
+    "hash": "9e44d370da632442",
+    "findings": [],
+    "ruled": "9e44d370da632442"
   },
   "vi/guides/youtube-SVD46Uvw66A": {
     "at": "2026-11-04",
@@ -27744,6 +30733,37 @@
     ],
     "ruled": "6ed8265c85bd1574"
   },
+  "vi/guides/youtube-sYnfFd0i8Dk": {
+    "at": "2026-11-19",
+    "hash": "81c24741ef075723",
+    "findings": [],
+    "ruled": "81c24741ef075723"
+  },
+  "vi/guides/youtube-sZAb8NAcvEo": {
+    "at": "2026-11-21",
+    "hash": "8653e784020f716a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Xem cá ăn là một trong những cái thú nhất của chơi cá",
+        "problem": "\"cái thú nhất\" is ungrammatical Vietnamese, because \"thú\" can't take \"nhất\" this way, so a native reader stumbles on it.",
+        "fix": "Ngồi xem cá ăn là một trong những thú vui nhất khi chơi cá",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cứ để nó diễn ra là ổn hơn cả.",
+        "problem": "This is a word-for-word rendering of \"let it run its course\" and reads unnaturally in Vietnamese.",
+        "fix": "Cứ để mặc nó, tự khắc sẽ qua.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8653e784020f716a"
+  },
   "vi/guides/youtube-SZMCesATJ-8": {
     "at": "2026-11-14",
     "hash": "ec6fc276aa845aa7",
@@ -27826,6 +30846,32 @@
     "findings": [],
     "ruled": "8c067b384c9ede29"
   },
+  "vi/guides/youtube-tCBEjxXYv6o": {
+    "at": "2026-11-20",
+    "hash": "ce7a3f9ecbb3c991",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Ví dụ với hai ống xả phi 60: chiều dài là 3 × 2 × 5 cm",
+        "problem": "The example names a 60 mm (phi 60) pipe but uses 5 cm as its diameter, so a reader applying the rule to 6 cm gets different dimensions.",
+        "fix": "Ví dụ với hai ống xả cỡ 50 mm (phi 60), tính đường kính 5 cm: chiều dài là 3 × 2 × 5 cm",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đẩy tấm mica vào lưỡi cho tới khi chạm cữ, nhờ vậy khe nào cũng sâu bằng nhau.",
+        "problem": "Uses 'nhờ vậy', which the site's style list says to avoid.",
+        "fix": "Đẩy tấm mica vào lưỡi cho tới khi chạm cữ. Khe nào cũng sẽ sâu bằng nhau.",
+        "rule": "The phrase 'nhờ vậy' appears in the text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ce7a3f9ecbb3c991"
+  },
   "vi/guides/youtube-tcrd-3oG394": {
     "at": "2026-11-16",
     "hash": "930574c3da028a88",
@@ -27856,6 +30902,22 @@
     "hash": "9371f3c52c98eef4",
     "findings": [],
     "ruled": "9371f3c52c98eef4"
+  },
+  "vi/guides/youtube-TeHybQPz7RE": {
+    "at": "2026-11-20",
+    "hash": "0eca44299b61d1fe",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "Khung gỗ 4x4 xếp ba lớp, đóng sắt phi xuống đất",
+        "problem": "The summary says the frame has three layers, but the steps say the third layer is optional and only for a taller frame.",
+        "fix": "Khung gỗ 4x4 xếp hai đến ba lớp, đóng sắt phi xuống đất",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "0eca44299b61d1fe"
   },
   "vi/guides/youtube-TeiNFp4uDB4": {
     "at": "2026-11-03",
@@ -28272,6 +31334,31 @@
     ],
     "ruled": "033931ecd494e548"
   },
+  "vi/guides/youtube-tzhH9OPm0g8": {
+    "at": "2026-11-20",
+    "hash": "94dc5ea48b5ebcaf",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "là công thức để bùng rêu hại",
+        "problem": "This is a literal translation of the English idiom \"a recipe for\", which reads unnaturally in Vietnamese.",
+        "fix": "Đèn mạnh chiếu thẳng vào bể có cá, nhiều tép, nhiều ốc thải bẩn thì rất dễ bùng rêu hại.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây không thích: cây nào không hợp ý thì cắt hẳn xuống",
+        "problem": "The label \"Cây không thích\" is ambiguous: it can be read as \"a plant that dislikes\" rather than \"a plant you don't like\".",
+        "fix": "Cây không ưng ý: cây nào nhìn không vừa mắt thì cắt hẳn xuống",
+        "field": "body"
+      }
+    ],
+    "ruled": "94dc5ea48b5ebcaf"
+  },
   "vi/guides/youtube-U_2TYWQ_i3U": {
     "at": "2026-11-03",
     "hash": "646dd195b9a8ebd9",
@@ -28287,6 +31374,12 @@
       }
     ],
     "ruled": "646dd195b9a8ebd9"
+  },
+  "vi/guides/youtube-U1AEE3TGkQI": {
+    "at": "2026-11-19",
+    "hash": "4a2681ebc84e3131",
+    "findings": [],
+    "ruled": "4a2681ebc84e3131"
   },
   "vi/guides/youtube-u7kayU6-NGY": {
     "at": "2026-11-05",
@@ -28603,6 +31696,55 @@
     ],
     "ruled": "dc91773415757e91"
   },
+  "vi/guides/youtube-UNtXF-cdJxs": {
+    "at": "2026-11-20",
+    "hash": "7e683a8c2acf7243",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có thể dùng Tropica Aquarium Soil, vì loại này từng dùng và cho kết quả tốt.",
+        "problem": "The clause has no subject (\"loại này từng dùng\" means the soil itself used something), which is a garbled leftover of the source author's \"I've used it\".",
+        "fix": "Có thể dùng Tropica Aquarium Soil, loại này dùng cho kết quả tốt.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "có loại cây trải thảm lan rất nhanh và có thể lớn rất to, cắt tỉa ở đâu cũng được",
+        "problem": "The list item never names the plant, so the reader can't tell which plant should go in the wood's cracks.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "rồi đổ nước rót lên viên đá đó",
+        "problem": "\"đổ nước rót\" puts two verbs that mean the same thing side by side, which reads as garbled.",
+        "fix": "rồi rót nước lên viên đá đó",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy nên dồn bèo về phía sau mặt nước",
+        "problem": "\"Vì vậy nên\" stacks two connectors and copies the English sentence structure.",
+        "fix": "Nên dồn bèo về phía sau mặt nước cho đèn chiếu xuống được nhiều hơn.",
+        "rule": "The phrase \"Vì vậy nên\" appears anywhere in the text.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7e683a8c2acf7243"
+  },
+  "vi/guides/youtube-UOyTpympfAA": {
+    "at": "2026-11-20",
+    "hash": "070baf1277e5135a",
+    "findings": [],
+    "ruled": "070baf1277e5135a"
+  },
   "vi/guides/youtube-UUEH_Ewta2U": {
     "at": "2026-11-15",
     "hash": "2aea17e891c4d1b7",
@@ -28630,6 +31772,65 @@
       }
     ],
     "ruled": "b927836559461773"
+  },
+  "vi/guides/youtube-UZqvOZI6-pc": {
+    "at": "2026-11-20",
+    "hash": "ecffdfc478213046",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| 60 cm\n| 400–760 lít/giờ",
+        "problem": "At 190–400 L/h per 30 cm, a 60 cm tank works out to 380–800 L/h, so the table's 400–760 does not follow the stated rule. The 90 cm row (570–1,140) instead uses 190–380 per 30 cm.",
+        "fix": "| 60 cm\n| 380–760 lít/giờ",
+        "rule": "Multiply the per-30 cm rate by tank length and compare it with each table row.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Ống PVC phi 21, ở mình thường gọi là ống phi 21.",
+        "problem": "The sentence says phi 21 pipe is called phi 21 pipe, which is circular. It looks like a leftover from converting an imperial pipe size.",
+        "fix": "Ống PVC phi 21.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "L7",
+        "quote": "Hệ này dùng bơm đẩy nước từ ống đục lỗ ra, len ngang vào lớp nền",
+        "problem": "The FAQ asks how this system differs from a traditional undergravel filter, but the answer only describes this system and never states the difference.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "ecffdfc478213046"
+  },
+  "vi/guides/youtube-V0r5E1ctpow": {
+    "at": "2026-11-21",
+    "hash": "3f0363546d06bacc",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tất cả gói gọn trong tối đa 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "problem": "Putting 'tối đa' (at most) in front of a range reads awkwardly in Vietnamese.",
+        "fix": "Tất cả chỉ mất khoảng 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L6",
+        "quote": "Chăm bể đều đặn chỉ mất tối đa 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "problem": "The same awkward 'tối đa' in front of a range.",
+        "fix": "Chăm bể đều đặn chỉ mất khoảng 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "field": "summary.5"
+      }
+    ],
+    "ruled": "3f0363546d06bacc"
   },
   "vi/guides/youtube-v5nzl93fEXA": {
     "at": "2026-11-01",
@@ -28706,6 +31907,74 @@
     ],
     "ruled": "9d89812c75d2c14f"
   },
+  "vi/guides/youtube-VdIT8peLndI": {
+    "at": "2026-11-19",
+    "hash": "0202ce441937ed54",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Đã kiểm tra mà vẫn không kêu thì có thể bạn cắt nhầm sợi trên dây nối dài.",
+        "problem": "The relay clicks because of the 12V coil circuit (adapter and float), so which mains wire was cut on the extension cord cannot stop the click. This advice sends the reader to cut a second cord for nothing.",
+        "fix": "Đã kiểm tra mà vẫn không kêu thì xem lại phần 12V: adapter còn chạy không, dây phao và dây adapter đã vào đúng hai chân cuộn hút ở mặt trên đế relay chưa.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Không nghe tiếng tách thì nhiều khả năng bạn đấu sai, hãy kiểm tra lại toàn bộ mối nối.",
+        "problem": "\"nhiều khả năng\" and the \"hãy\" imperative read as translated.",
+        "fix": "Không nghe tiếng tách thì chắc là đấu sai ở đâu đó, kiểm tra lại toàn bộ mối nối.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dân chơi hay dùng thanh mica (acrylic) hoặc ống PVC làm giá đỡ. Bạn nên tìm hiểu thêm",
+        "problem": "\"Dân chơi\" and \"Bạn nên\" are on the site's list of overused phrasing.",
+        "fix": "Người ta hay dùng thanh mica hoặc ống PVC làm giá đỡ. Tìm hiểu thêm vài kiểu để chọn cái hợp với chỗ đặt của mình.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nếu chưa quen đấu dây, bạn nên nhờ người có kinh nghiệm điện xem lại trước khi cắm vào bể.",
+        "problem": "\"bạn nên\" is on the site's list of overused phrasing.",
+        "fix": "Nếu chưa quen đấu dây thì nhờ người rành điện xem lại trước khi cắm vào bể.",
+        "rule": "flag the phrase \"bạn nên\" in body text",
+        "field": "body"
+      }
+    ],
+    "ruled": "0202ce441937ed54"
+  },
+  "vi/guides/youtube-veeADYG5Eac": {
+    "at": "2026-11-20",
+    "hash": "418008f86ec4f09d",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "Anubias, ráy và các cây bám khác gắn lên sỏi bằng keo 502 dạng gel",
+        "problem": "The summary makes Cryptocoryne (ráy) an epiphyte to glue onto stones, but the body has it planted in the substrate and only glues Anubias and other epiphytes.",
+        "fix": "Anubias, Bucephalandra và các cây bám khác gắn lên sỏi bằng keo 502 dạng gel, loại cyanoacrylate.",
+        "field": "summary.3"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một loại cây kiếm lùn, trông như cây Amazon sword thu nhỏ, có lúc trổ ngồng hoa vươn lên mặt nước.",
+        "problem": "The paragraph on trimming the dwarf sword's flower stalk sits under the hair-algae heading, which has nothing to do with it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "418008f86ec4f09d"
+  },
   "vi/guides/youtube-vg0xJoA0Vj4": {
     "at": "2026-11-06",
     "hash": "eb14aac5b0ca1563",
@@ -28727,6 +31996,61 @@
     "hash": "8c04faadb4507db8",
     "findings": [],
     "ruled": "8c04faadb4507db8"
+  },
+  "vi/guides/youtube-vHAw3347CLE": {
+    "at": "2026-11-21",
+    "hash": "3292da3488a1da7a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nó cũng thân người, thấy chủ là bơi ra đón.",
+        "problem": "\"Thân người\" is not natural Vietnamese for \"friendly with people\", so a reader will stumble on it.",
+        "fix": "Nó cũng quen người, thấy chủ là bơi ra đón.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chúng to con, có bị động cũng chẳng sợ",
+        "problem": "\"Bị động\" reads as \"passive\". The intended meaning is \"being disturbed\".",
+        "fix": "Chúng to con, có bị động tới cũng chẳng sợ",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Dùng lá bàng đều đặn như vậy thì cá ít gặp vấn đề hơn hẳn, và cách này có lẽ đóng góp phần lớn vào đó.",
+        "problem": "The sentence goes in a circle: it first states the benefit as fact, then hedges that the same method \"probably contributes\" to it. It reads like a garbled translation of a first-person remark.",
+        "fix": "Dùng lá bàng đều đặn như vậy thì cá có lẽ sẽ ít gặp vấn đề hơn.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách bày tùy ý thích, chỉ có một điều phải giữ:",
+        "problem": "The sentence promises one rule, but the list has three items. Only the first is a rule; the other two are the reasons for it.",
+        "fix": "Cách bày tùy ý thích, chỉ cần nhớ một điều: nếu nuôi betta đuôi dài, đừng thả đá hay đồ trang trí có cạnh sắc.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-21",
+        "field": "body",
+        "score": 0.55,
+        "kept": false,
+        "problems": [
+          "\"Thân người\" is not natural Vietnamese for \"friendly with people\", so a reader will stumble on it.",
+          "The sentence goes in a circle: it first states the benefit as fact, then hedges that the same method \"probably contributes\" to it. It reads like a garbled translation of a first-person remark."
+        ]
+      }
+    ],
+    "ruled": "3292da3488a1da7a"
   },
   "vi/guides/youtube-viG-wVICUZo": {
     "at": "2026-11-06",
@@ -28775,6 +32099,12 @@
     "hash": "8491f489a82eac90",
     "findings": [],
     "ruled": "8491f489a82eac90"
+  },
+  "vi/guides/youtube-VJlpUJS1b3A": {
+    "at": "2026-11-19",
+    "hash": "72ed4a0e80c6b277",
+    "findings": [],
+    "ruled": "72ed4a0e80c6b277"
   },
   "vi/guides/youtube-vl1Lx9iWDYU": {
     "at": "2026-11-05",
@@ -28949,6 +32279,23 @@
     ],
     "ruled": "87bf8f10b3c4ec1a"
   },
+  "vi/guides/youtube-Wb9aj3MXwiQ": {
+    "at": "2026-11-20",
+    "hash": "6bc7afa65361f6d0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Có hai chi tiết bạn cần làm đúng:",
+        "problem": "The sentence announces two details, but the list that follows has four items.",
+        "fix": "Có mấy chi tiết cần làm đúng:",
+        "rule": "A sentence announcing a number of items (\"hai chi tiết\") followed by a list with a different item count.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6bc7afa65361f6d0"
+  },
   "vi/guides/youtube-wBmmyQRjsE0": {
     "at": "2026-11-16",
     "hash": "3c3f7d90948d1727",
@@ -29083,6 +32430,31 @@
     ],
     "ruled": "0eccd89951635e94"
   },
+  "vi/guides/youtube-Wn83YjGJhQg": {
+    "at": "2026-11-21",
+    "hash": "bfce4b312bace1ab",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hai loài crypt này có lá rất giống nhau, chỉ khác ở thân.",
+        "problem": "The page says the two crypts differ in their stems (\"thân\"), but the table and summary L4 say the difference is height, and crypts have no real stem.",
+        "fix": "Hai loài crypt này có lá rất giống nhau, chỉ khác chiều cao.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nuôi gần dễ như cây nhựa",
+        "problem": "The verb \"nuôi\" is used for raising fish; for a plant the natural verb is \"trồng\".",
+        "fix": "trồng gần dễ như cây nhựa",
+        "field": "body"
+      }
+    ],
+    "ruled": "bfce4b312bace1ab"
+  },
   "vi/guides/youtube-wPMn0xXjZF4": {
     "at": "2026-11-18",
     "hash": "caefca800d903dd2",
@@ -29098,6 +32470,12 @@
       }
     ],
     "ruled": "caefca800d903dd2"
+  },
+  "vi/guides/youtube-WS2ZDT7_lhU": {
+    "at": "2026-11-20",
+    "hash": "75bdde864ca915d2",
+    "findings": [],
+    "ruled": "75bdde864ca915d2"
   },
   "vi/guides/youtube-WTIWljtUFxc": {
     "at": "2026-11-16",
@@ -29573,11 +32951,33 @@
     ],
     "ruled": "5b4b8e4fde043d4e"
   },
+  "vi/guides/youtube-XQ6EWTvQeco": {
+    "at": "2026-11-20",
+    "hash": "5ae749e6159711dc",
+    "findings": [],
+    "ruled": "5ae749e6159711dc"
+  },
   "vi/guides/youtube-XR1LMoVU7CI": {
     "at": "2026-11-06",
     "hash": "f8fe40b8e35282fd",
     "findings": [],
     "ruled": "f8fe40b8e35282fd"
+  },
+  "vi/guides/youtube-xrNSdB-C2_0": {
+    "at": "2026-11-20",
+    "hash": "6eb0e1eb13c69b6c",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cách này mới chỉ là ý tưởng, chưa ai lắp thử thực tế.",
+        "problem": "This is probably the source author's own remark that they hadn't tried it yet, but the page turns it into a claim that nobody has ever built it.",
+        "fix": "Cách này mới chỉ là ý tưởng, chưa được lắp thử.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6eb0e1eb13c69b6c"
   },
   "vi/guides/youtube-XSNS68_iytQ": {
     "at": "2026-11-11",
@@ -29600,6 +33000,22 @@
       }
     ],
     "ruled": "7fa6400e5b84a496"
+  },
+  "vi/guides/youtube-XtekO7RRRcA": {
+    "at": "2026-11-20",
+    "hash": "b37757195fa49743",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tùy mỗi lần cài chạy bao lâu một lượt, việc còn lại chỉ là đổ đầy xô nước mới khi nó cạn.",
+        "problem": "The opening 'Tùy…' clause doesn't connect to the main clause, so the sentence reads as garbled. It also never says what the run time affects, which is how often the bucket needs refilling.",
+        "fix": "Việc còn lại chỉ là đổ đầy xô nước mới khi nó cạn. Bao lâu phải đổ một lần thì tùy timer cài cho mỗi lượt chạy bao lâu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b37757195fa49743"
   },
   "vi/guides/youtube-xU-Lb0cpV9U": {
     "at": "2026-11-16",
@@ -29699,6 +33115,51 @@
     "findings": [],
     "ruled": "8b89a3bccb2d6799"
   },
+  "vi/guides/youtube-XX61L_oweGg": {
+    "at": "2026-11-19",
+    "hash": "fe5f50a00d84768c",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Kiểu ván chìa ra hợp với bể đặt nhô ra khỏi tường. Bể kê sát tường có thể cần một kiểu đèn khác.",
+        "problem": "The intro recommends this shelf for tanks set against the wall, but this later section says such tanks may need a different kind of light.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "và nhiều khả năng ánh sáng tới bể còn yếu hơn",
+        "problem": "\"Nhiều khả năng\" is on the house list of phrases to avoid. It reads like a translation.",
+        "fix": "và có lẽ ánh sáng xuống tới bể còn yếu hơn",
+        "rule": "the phrase \"nhiều khả năng\" appears in the text",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L11",
+        "quote": "thì đèn này nhiều khả năng không đủ sáng",
+        "problem": "\"Nhiều khả năng\" is on the house list of phrases to avoid. It reads like a translation.",
+        "fix": "thì đèn này chắc là không đủ sáng",
+        "rule": "the phrase \"nhiều khả năng\" appears in the text",
+        "field": "faq.2.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy nên làm xong và dùng thử một phần trước",
+        "problem": "\"Vì vậy nên\" is a calque of the English \"so\" construction that the style guide warns against.",
+        "fix": "Làm xong một phần rồi dùng thử trước, thấy ổn mới làm tiếp phần còn lại.",
+        "rule": "the sequence \"Vì vậy nên\" appears in the text",
+        "field": "body"
+      }
+    ],
+    "ruled": "fe5f50a00d84768c"
+  },
   "vi/guides/youtube-XYjtpXJY_Hk": {
     "at": "2026-11-19",
     "hash": "17d95194b5fb84d3",
@@ -29731,6 +33192,12 @@
       }
     ],
     "ruled": "17d95194b5fb84d3"
+  },
+  "vi/guides/youtube-Y-TABrnd8aw": {
+    "at": "2026-11-20",
+    "hash": "7ffa964458cd9535",
+    "findings": [],
+    "ruled": "7ffa964458cd9535"
   },
   "vi/guides/youtube-Y2HmhlumTYU": {
     "at": "2026-11-10",
@@ -29819,6 +33286,12 @@
     "hash": "77cf97026ba57d38",
     "findings": [],
     "ruled": "77cf97026ba57d38"
+  },
+  "vi/guides/youtube-YFcioRUCa6c": {
+    "at": "2026-11-21",
+    "hash": "5ee83988d85957cc",
+    "findings": [],
+    "ruled": "5ee83988d85957cc"
   },
   "vi/guides/youtube-yfiUqZ8IZU4": {
     "at": "2026-11-07",
@@ -30063,6 +33536,22 @@
       }
     ],
     "ruled": "7219ebc219994202"
+  },
+  "vi/guides/youtube-yUH5sWOu4fI": {
+    "at": "2026-11-19",
+    "hash": "fd50d4d038d98bc8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cây này mọc khỏe cả khi trồng cạn nên có thể cho một góc.",
+        "problem": "The clause \"có thể cho một góc\" is missing a verb and reads as broken Vietnamese.",
+        "fix": "Cây này mọc khỏe, kể cả khi trồng cạn, nên có thể trồng nó ở một góc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "fd50d4d038d98bc8"
   },
   "vi/guides/youtube-Yv6gkqeQ0aE": {
     "at": "2026-11-03",
@@ -30488,6 +33977,108 @@
     ],
     "ruled": "eb3e9a6e028fcfd3"
   },
+  "vi/guides/youtube-zHy4CtmnzeA": {
+    "at": "2026-11-19",
+    "hash": "039e16e7aaf61548",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "high",
+        "part": "P1",
+        "quote": "1/8 thìa cà phê nước nóng trên 38°C",
+        "problem": "1/8 teaspoon of water is far too little to dissolve and activate the yeast, so the amount is clearly wrong (it looks copied from the yeast line above it).",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Khoan một lỗ khoảng 6 mm trên nắp mỗi chai. Lỗ phải nhỏ hơn đường kính ngoài của dây silicon một chút.",
+        "problem": "The hole is given as about 6 mm, the same as the tubing size in the materials list, but the next sentence says the hole must be a little smaller than the tubing.",
+        "fix": "Khoan một lỗ nhỏ hơn đường kính ngoài của dây silicon một chút, khoảng 5 mm.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Đổ đường vào chai, đổ nước lên trên rồi lắc cho tan.",
+        "problem": "The mixing steps run on in the same bullet list as the ingredients, so the reader can't tell where the ingredients end and the steps begin.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể trên khoảng 150 lít mà vẫn dùng men thì gầm tủ sẽ đầy chai",
+        "problem": "The table above and FAQ L9 say two 2-litre bottles cover tanks up to 150–190 litres, but this paragraph (and summary L5) puts the limit at about 150 litres.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "khoảng 1 lít hỗn hợp cho mỗi 38 lít nước",
+        "problem": "Elsewhere the page says one litre of mix serves about 40 litres; 38 is a leftover from converting 10 gallons and doesn't match.",
+        "fix": "khoảng 1 lít hỗn hợp cho mỗi 40 lít nước",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bộ này chạy tốt ngay cả với bể cây dễ như rêu Christmas",
+        "problem": "\"ngay cả\" (\"even\") makes no sense here, since easy plants are the ones that need CO2 the least.",
+        "fix": "Bộ này hợp với bể trồng cây dễ như rêu Christmas, ráy Anubias và dương xỉ Java.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "tự kín như một cái bulkhead",
+        "problem": "\"bulkhead\" is an English hobby term left untranslated, and Vietnamese hobbyists would not recognise it.",
+        "fix": "tự kín khít, không cần gioăng",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L13",
+        "quote": "Thủ phạm thường là bộ khuếch tán.",
+        "problem": "\"Thủ phạm\" (\"culprit\") is on the site's list of words to avoid and reads like a translation.",
+        "fix": "Thường là do bộ khuếch tán.",
+        "rule": "the word \"thủ phạm\" appears on the page",
+        "field": "faq.3.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nên đừng lo khi chưa thấy bọt ngay",
+        "problem": "\"nên đừng\" copies the English \"so don't\" sentence pattern.",
+        "fix": "Mới lắp xong chưa thấy bọt ngay là bình thường, men cần vài tiếng mới tạo đủ áp.",
+        "rule": "the phrase \"nên đừng\" appears on the page",
+        "field": "body"
+      }
+    ],
+    "ruled": "039e16e7aaf61548"
+  },
+  "vi/guides/youtube-zikyuEMALJE": {
+    "at": "2026-11-20",
+    "hash": "fabc2cc926307b05",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "L12",
+        "quote": "Lọc không có lớp lọc thô nên cần lấy vật liệu ra xả định kỳ để bỏ cặn bẩn.",
+        "problem": "The FAQ question asks how often to clean the filter, but the answer gives no frequency, only 'định kỳ'.",
+        "field": "faq.2.a"
+      }
+    ],
+    "ruled": "fabc2cc926307b05"
+  },
   "vi/guides/youtube-zJbjzGllWEk": {
     "at": "2026-11-11",
     "hash": "59dad8f1adcdec42",
@@ -30581,6 +34172,12 @@
     "findings": [],
     "ruled": "421950faddab921e"
   },
+  "vi/guides/youtube-ZJV8f7Ug0-M": {
+    "at": "2026-11-21",
+    "hash": "85bb4631a58e6116",
+    "findings": [],
+    "ruled": "85bb4631a58e6116"
+  },
   "vi/guides/youtube-Zl5gW-39XRE": {
     "at": "2026-11-14",
     "hash": "6d0b2657cb6ee1b1",
@@ -30635,6 +34232,22 @@
       }
     ],
     "ruled": "72979f8123817e1c"
+  },
+  "vi/guides/youtube-zrY1Uz_O_bA": {
+    "at": "2026-11-21",
+    "hash": "eb679b1e8bd92135",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cần biết rằng nó là cá ăn thịt, thích ăn đồ mặn, chứ không đơn thuần là cá ăn rêu.",
+        "problem": "The common pleco is an omnivore, not a carnivore, so calling it 'cá ăn thịt' misstates its diet.",
+        "fix": "Cần biết rằng nó là cá ăn tạp, thích cả đồ mặn, chứ không chỉ ăn rêu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "eb679b1e8bd92135"
   },
   "vi/guides/youtube-zSKCf5T45IM": {
     "at": "2026-11-03",
@@ -30774,6 +34387,12 @@
       }
     ],
     "ruled": "33fb88b30fd3c910"
+  },
+  "vi/guides/youtube-zYwObJhuJ5k": {
+    "at": "2026-11-21",
+    "hash": "cee1fa4662f3e633",
+    "findings": [],
+    "ruled": "cee1fa4662f3e633"
   },
   "vi/guides/youtube-ZYwZzYODC4Y": {
     "at": "2026-11-03",

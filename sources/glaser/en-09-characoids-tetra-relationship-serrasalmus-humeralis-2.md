@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/serrasalmus-humeralis-2/
+title: Serrasalmus humeralis - Aquarium Glaser GmbH
+fetchedAt: 2026-11-19T18:44:23.711Z
+hash: 71025aceb06db4196fda71461a20bce3fe02caffb2dbf1aeb9af65f5fd65380b
+---
+
+The identification of many Piranha species is difficult. One of the earliest described piranha species and therefore with many taxonomic problems is Serrasalmus humeralis. Valenciennes was the first descriptor in 1850, but there is no question that he had received the type specimen, for which he states “Amazon” as the type locality, from Castelnau. In Valenciennes ́ description no picture is provided. Castelnau made up for this in 1855 and at the same time corrected the type locality to “Araguaia”. It must therefore be assumed that S. humeralis is found in the Tocantins system. Castelnau’s drawing is very true to detail and there is no reason to assume that it does not correspond to nature in the essential details.
+The piranhas, which we now imported from the Tocantins as Serraslmus humeralis, correspond in all essential characteristics (shoulder spot, caudal fin pattern, body shape, coloration) to Castelnaus’ illustration, but have so far been identified in the aquaristic and scientific literature as S. eigenmanni. The latter species was described in 1929 on the basis of a specimen from Guyana. If S. humeralis and S. eigenmanni are identical, the valid name would be S. humeralis. However, we currently assume that both species are valid and only very similar.
+Serrasalmus humeralis grows about 20 cm long. It belongs to the group of fin-eating piranhas, which are best kept individually in the aquarium on a long-term basis, if one wants undamaged specimens. For unpredictable reasons, Piranhas of the fin-eating behavior type – often after months of living together – look out and mob an individual of the group. The mobbed individual becomes marked with a bite mark directly before the dorsal fin. Usually the mobbed fish is eaten after some days by the remaining herd, independently of the available food supply. The attempt of a group-attitude requires by the way really very big aquariums, in basins under 150 cm length, such attempts are hopeless from the outset.
+For our customers: the fish have code 292254 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photos: Frank Schäfer

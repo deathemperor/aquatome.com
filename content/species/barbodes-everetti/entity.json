@@ -24,7 +24,8 @@
         "Natuna Besar"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -104,6 +105,13 @@
           "min": 18,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -112,6 +120,13 @@
         "value": {
           "min": 6,
           "max": 7
+        }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
         }
       }
     ],
@@ -128,6 +143,10 @@
       {
         "source": "seriouslyfish",
         "value": 12
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -140,6 +159,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 1
       }
     ]
   },
@@ -151,10 +174,28 @@
       "html": "<p>Barbodes everetti is a cyprinid from Borneo, known from Sarawak and West Kalimantan, where it lives in clear forest streams in the foothills. Uncommon in the hobby, its name has been widely misapplied to the clown barb, B. dunckeri, from Peninsular Malaysia and Singapore. B. everetti is the less colourful of the two, with relatively small dark body markings, a dark blotch at the rear of the dorsal-fin base and 3½ scales above the lateral line.</p><ul><li>Max size: 120 mm SL (5 in)</li><li>Aquarium size: 120 × 45 cm (48 × 18 in)</li><li>Temperature: 18–28°C (64–82°F)</li><li>pH: 6.0–7.0</li><li>Hardness: 2–10 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_everetti_real__en/",
+      "html": "<ul><li>Likely size: 10–12 cm, similar to the close relative B. dunckeri</li><li>Sexual maturity at about 6–8 cm</li><li>Water: soft to medium hard</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_everetti_real__en/",
+      "html": "<p>Barbs sent under the name Barbus kuchingensis were found to look different: B. kuchingensis shows only two vertical bands on the anterior body and a black spot right above the anal fin, while these fish showed a much more contrasting pattern. All fish in the hobby termed \"B. everetti\" in reality belong to the species Barbus dunckeri. This correct name is only slowly adopted by hobbyists worldwide because the real B. everetti was not present in aquaria so far.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-everetti",
       "html": "<p>Type locality is 'Poeh, Sarawak state, Borneo, East Malaysia' and it may be endemic to Sarawak plus parts of Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.</p><p>It's said to occur on Sumatra but we've been unable to obtain any definitive records, and has been collected in the Natuna Besar archipelago, Riau Islands province, Indonesia, though not since the late 1980s.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_everetti_real__en/",
+      "html": "<p>The fish come from Kuching in the northwest of Borneo, in Sarawak (Malaysia). Ornamental fish are collected there only very occasionally.</p>"
     },
     {
       "key": "habitat",
@@ -175,6 +216,12 @@
       "html": "<p>Not difficult to keep in a well-maintained set-up, though we recommend aquascaping the tank to resemble a flowing stream or river with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders.</p><p>This can be further furnished with driftwood roots or branches, and while the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor.</p><p>Since it naturally occurs in relatively pristine habitats it's intolerant to accumulation of organic pollutants and requires more-or-less spotless water in order to thrive.</p><p>Though torrent-like conditions are unnecessary it also does best if there is a high proportion of dissolved oxygen and moderate water movement, and weekly water changes of 30-50% tank volume should be considered routine.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_everetti_real__en/",
+      "html": "<p>Keeping is totally problem free. The water should be soft to medium hard, pH between 6.5–7.5 and temperature between 24–28°C. Fish kept under these conditions are very lively and colourful.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-everetti",
@@ -185,6 +232,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-everetti",
       "html": "<p>A foraging omnivore likely to feed on a variety of worms, insects, crustaceans, plant material, and other organic debris in nature.</p><p>In the aquarium it's easily-fed but a balanced diet comprising regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules will bring about optimal condition and colours.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_everetti_real__en/",
+      "html": "<p>These barbs feed readily on any type of usual fish food.</p>"
     },
     {
       "key": "behaviour",
@@ -211,13 +264,30 @@
       "html": "<p>This species is uncommon in the aquarium hobby, although its scientific name has been widely misapplied to Barbodes dunckeri, a similar-looking species native to Peninsular Malaysia and Singapore commonly referred to as 'clown barb' and labelled as B. everetti in the majority of available literature.</p><p>The two are quite easy to tell apart, with B. everetti an overall less colourful fish possessing relatively small dark body markings, a distinctive dark blotch at the posterior base of the dorsal-fin, and 3½ scales above the lateral line.</p><p>In B. dunckeri the dark body markings are significantly larger, there is no blotch at the posterior of the dorsal-fin base, and there are 4½ scales above the lateral line.</p><p>This species was formerly included in the genus Puntius which was for a number of years viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia (subsequently amended to Haludaria), and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there could no longer be considered members.</p><p>Kottelat (2013) published a comprehensive nomenclatural update for Southeast Asian fishes in which this species was among a number of former Puntius transferred into the genus Barbodes. Members are told apart from related genera by the following aspects of ontogeny and colour pattern: small juveniles have 3-5 dots along the midlateral scale row, including one at middle of caudal-fin base, and an additional one at dorsal-fin origin; with increasing size, the spots on midlateral row may become more numerous and may fuse to form a stripe or broad band, and the spot at dorsal-fin origin may become a large blotch or a broad bar.</p><p>In addition, the following characters are useful in identification of Barbodes spp.: last simple dorsal-fin ray serrated posteriorly; rostral barbels present (except in B. aurotaeniatus); maxillary barbels present; lips smooth and thin, postlabial groove interrupted medially; lateral line complete or not, with 22–32 scales on lateral line row on body; ½4/1/4½ scale rows between dorsal-fin origin and ventral midline in front of pelvic-fin base; 12 circumpeduncular scale rows; 12–15 gill rakers on first gill arch.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_everetti_real__en/",
+      "html": "<p>Etymology: Barbus is Latin, meaning \"the bearded\". everetti is a dedication name for Alfred Hart Everett (1848–1898), the collector of the species. dunckeri is a dedication name for Georg Duncker (1870–1953), ichthyologist and former custos of the Naturhistorisches Museum Hamburg.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/barbodes-everetti",
       "html": "<ul><li>Boulenger, G. A. (1894). Descriptions of new freshwater fishes from Borneo. Annals and Magazine of Natural History (Series 6) v. 13 (no. 75), 245-251</li><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Doi, A., T. Iwata, M. Inoue, H. Miyasaka, M. S. Sabki and S. Nakano (2001). A collection of freshwater fishes from the Rayu Basin of western Sarawak, Malaysia. Raffles Bulletin of Zoology 49(1), 13-17</li><li>Tan, H. H. and K. K. P. Lim (2004). Inland fishes from the Anambas and Natuna Islands, South China Sea, with description of a new species of Betta (Teleostei: Osphronemidae). Raffles Bulletin of Zoology Supplement 11, 107-115</li><li>Ahl, E. (1929). Übersicht über die lebend eingeführten asiatischen Arten der Gattung Barbus. Teil 3. Das Aquarium Oct. 1929, 165-169</li><li>Alfred, E. R. (1966). Fresh-water Fishes of Singapore. Zoologische Verhandelingen 78, 1-68</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/70abe6f61fd396ec.webp",
+      "thumb": "https://media.aquatome.com/glaser/70abe6f61fd396ec-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbus_everetti_real__en/",
+      "source": "glaser"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "7N66O47eP1I",
@@ -273,5 +343,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-21"
 }

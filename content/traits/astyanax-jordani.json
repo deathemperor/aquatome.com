@@ -1,8 +1,13 @@
 {
   "id": "astyanax-jordani",
   "temperament": "peaceful",
-  "finNipper": false,
-  "schoolMin": null,
-  "speciesUpdatedAt": "2026-11-03",
-  "generatedAt": "2026-11-03T07:12:31.959Z"
+  "finNipper": true,
+  "schoolMin": 4,
+  "speciesUpdatedAt": "2026-11-20",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-20T19:48:28.479Z"
 }

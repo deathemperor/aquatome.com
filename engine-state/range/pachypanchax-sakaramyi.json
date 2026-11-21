@@ -1,14 +1,22 @@
 {
   "id": "pachypanchax-sakaramyi",
   "native": {
-    "input": "aca80be0504a5c2e",
-    "at": "2026-11-11T02:57:45.598Z",
+    "input": "375bca02dbccf6c6",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "MG",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Type locality is 'Sakaramy River at village of Sakaramy, about 30 kilometers south of Antsiranana (Diego Suarez), 12°27'S, 49°16'E, Madagascar, elevation 500 meters', the Sakaramy being a tributary of the Sahakazoambany River, at the northernmost extremity of Madagascar.",
+        "quote": "The Madagascar panchax, Pachypanchax sakaramyi, is a killifish from high-gradient forest streams around the Ambohitra Massif in northern Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Pachypanchax sakaramyi originates from the Sakaramy River on Madagascar.",
         "words": "Madagascar",
         "ok": true
       }
@@ -17,27 +25,28 @@
       {
         "name": "Sakaramy River",
         "source": "seriouslyfish",
-        "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+        "quote": "The only remaining riverine populations are in a short stretch of the Sakaramy River and the upper Antongombato River, most of the original populations having been lost to invasive species, deforestation and the diversion of the Sakaramy's source.",
         "ok": true
       },
       {
         "name": "Antongombato River",
         "source": "seriouslyfish",
-        "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+        "quote": "The only remaining riverine populations are in a short stretch of the Sakaramy River and the upper Antongombato River, most of the original populations having been lost to invasive species, deforestation and the diversion of the Sakaramy's source.",
         "ok": true
       },
       {
         "name": "Ambohitra Massif",
         "source": "seriouslyfish",
-        "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+        "quote": "The Madagascar panchax, Pachypanchax sakaramyi, is a killifish from high-gradient forest streams around the Ambohitra Massif in northern Madagascar.",
+        "country": "MG",
         "ok": true
       },
       {
-        "name": "Madagascar",
-        "source": "seriouslyfish",
-        "quote": "The genus Pachypanchax is endemic to Madagascar and the granitic Seychelles with one recently translocated population known from the island of Zanzibar.",
-        "ok": false,
-        "why": "a country"
+        "name": "Sakaramy River",
+        "source": "glaser",
+        "quote": "Pachypanchax sakaramyi originates from the Sakaramy River on Madagascar.",
+        "country": "MG",
+        "ok": true
       }
     ],
     "disputed": [],

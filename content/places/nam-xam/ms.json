@@ -3,6 +3,12 @@
   "name": "Nam Xam",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:06:25.385Z",
+    "why": "The source uses \"Nam Xam\" for a river basin in Laos, so a Malay atlas would write \"Sungai Nam Xam\" (or \"Lembangan Sungai Nam Xam\"), and the bare \"Nam Xam\" drops the Malay kind word."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

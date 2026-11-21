@@ -21,6 +21,11 @@ export type TropicaDeps = {
   sleep: (ms: number) => Promise<void>
   now: () => Date
 }
+/**
+ * Off until its fix (the owed read of 20 Nov: its photos go on a page without waiting for the photo check, and its
+ * requests don't stop at a refusal): no request to Tropica, from a cycle or by hand. The chief of staff, 20 Nov.
+ */
+export const TROPICA_OFF: string | undefined = 'off until its fix (the chief of staff, 20 Nov)'
 const DELAY = 5_000 // between requests to Tropica, as the engine reads its pages (sources.ts)
 const RETRY_MS = 30 * 86_400_000
 const MAX = 4 // photos a page; a page shows four at most
@@ -90,7 +95,9 @@ type Gallery = { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtA
  *
  * `engine-state/_photo-tropica.json`: plant page → when it was read. `--limit`: pages a run.
  */
-export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: number } = {}) {
+export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: number; off?: string | false } = {}) {
+  const off = o.off ?? TROPICA_OFF
+  if (off) return { added: [] as string[], skipped: [] as string[], failed: [] as string[], off }
   const dir = join(root, 'content/plants')
   const triedFile = join(root, 'engine-state/_photo-tropica.json')
   const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Record<string, string>

@@ -3,6 +3,12 @@
   "name": "Lereng Pasifik",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T07:07:42.261Z",
+    "why": "\"Lereng Pasifik\" is a plausible Malay rendering, but the Pacific slope of Costa Rica is more naturally \"Lereng Pasifik\" with \"Cerun\" being the standard Malaysian term for slope, so \"Lereng\" is less typical."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

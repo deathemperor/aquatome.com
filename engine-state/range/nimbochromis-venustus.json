@@ -1,14 +1,20 @@
 {
   "id": "nimbochromis-venustus",
   "native": {
-    "input": "acc859ede51f9e97",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "c0cca1c16262936f",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [],
     "regions": [
       {
         "name": "Lake Malawi",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "With almost 25 cm of final length, the giraffe cichlid belongs to the bigger cichlids from Lake Malawi and is one of the most aggressive.",
         "ok": true
       }
     ],

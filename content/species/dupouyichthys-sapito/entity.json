@@ -1,0 +1,223 @@
+{
+  "id": "dupouyichthys-sapito",
+  "scientificName": "Dupouyichthys sapito",
+  "order": "Siluriformes",
+  "family": "Aspredinidae",
+  "genus": "Dupouyichthys",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena",
+    "venezuela",
+    "maracaibo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Magdalena River",
+        "Lake Maracaibo"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Magdalena River and Lake Maracaibo basins: Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Magdalena River",
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340523,
+      "total": 38,
+      "fetched": "2026-11-20",
+      "countries": [
+        [
+          "CO",
+          35
+        ],
+        [
+          "VE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          1.40625,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -75.9375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          7.03125,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          9.84375,
+          5,
+          5
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 3
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm",
+      "html": "<p>South America: Magdalena River and Lake Maracaibo basins: Colombia and Venezuela. Type locality: Río Motatán, at the bridge 22 km north of Motatán, Venezuela.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm",
+      "html": "<p>D. sapito is a small, armored aspredinid, growing up to 27 millimetres SL, distinguished from all other aspredinids by having only one set of paired pre-anal-fin plates. Also, the bony ornamentation of its skull is better developed than its close relatives. Dupouyichthys sapito is the only species of banjo catfishes in the genus Dupouyichthys.</p><p>This species appears to be restricted to the Magdalena and Maracaibo basins. It is found in river banks with vegetation.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm",
+      "html": "<p>Prefers a secluded tank with non-aggressive tank mates.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm",
+      "html": "<p>Small invertebrates and tubifex. Tablet foods can also be taken.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm",
+      "html": "<p>Etymology: The genus name Dupouyichthys: In honour of Schultz' friend Walter Dupouy (1906-1978), director of the Museo de Ciencias Naturales (Caracas, Venezuela); ichthys, fish. The specific name sapito: The common name of this catfish in the Maracaibo Basin, Venezuela.</p><p>Remarks: Redescribed in Mojica et al. (2000).</p><p>IUCN Red List: This species is distributed in the upper part of the Magdalena River and Maracaibo Basin (Colombia and Venezuela) but occurs in very low densities. It is not targeted in any fishery, but may be susceptible to habitat loss. Biological information is scarce, which makes a more precise evaluation difficult, but given it is widely distributed, we consider that this species is not under threat in the short term. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm",
+      "html": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 06/2023 ). Perez, A. 2023. Dupouyichthys sapito. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4957dd805534d605.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4957dd805534d605-480.webp",
+      "width": 500,
+      "height": 280,
+      "licence": "dùng với sự cho phép",
+      "author": "/ / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm",
+      "caption": "Dupouyichthys sapito",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên chìm cho cá da trơn",
+        "trùng chỉ đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá đáy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini",
+        "máy sưởi điều chỉnh nhiệt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-19"
+}

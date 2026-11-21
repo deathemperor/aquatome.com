@@ -3,6 +3,12 @@
   "name": "Chantaburi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-20T01:52:14.408Z",
+    "why": "Malay atlases and Wikipedia write the Thai province as \"Chanthaburi\" (with \"h\" after \"Chan\"), and \"Chantaburi\" is a nonstandard spelling, and the Malay form would normally be \"Wilayah/Provinsi Chanthaburi\"; the name is recognisable but not the standard form."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

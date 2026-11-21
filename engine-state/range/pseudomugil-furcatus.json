@@ -1,8 +1,8 @@
 {
   "id": "pseudomugil-furcatus",
   "native": {
-    "input": "0034dd58333f814a",
-    "at": "2026-11-18T06:03:35.101Z",
+    "input": "ff4605108b24f599",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "PG",
@@ -31,6 +31,14 @@
       {
         "code": "PG",
         "status": "native",
+        "source": "glaser",
+        "quote": "The natural distribution area is relatively small; the species occurs, as far as known, exclusively in the Sufia Valley, Papua New Guinea.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "native",
         "source": "bwaquatics",
         "quote": "Pseudomugil furcatus is a small, darting rainbowfish native to rainforest streams and clearwater tributaries of Papua New Guinea.",
         "words": "Papua New Guinea",
@@ -46,28 +54,21 @@
         "ok": true
       },
       {
-        "name": "Peria Creek",
-        "source": "sprucepets",
-        "quote": "Forktailed rainbowfish are native to Peria Creek and the Kwagira River of eastern Papua New Guinea; they exist in the wild in only a very small geographic area in Milne Bay Province.",
-        "country": "PG",
-        "ok": true
-      },
-      {
         "name": "Musa",
         "source": "seriouslyfish",
         "quote": "It's been recorded in the Musa and Kwagila river basins which drain into Dyke Ackland Bay and Collingwood Bay, respectively, and presumably occurs in drainages between the two as well.",
         "ok": true
       },
       {
-        "name": "Kwagila",
-        "source": "seriouslyfish",
-        "quote": "It's been recorded in the Musa and Kwagila river basins which drain into Dyke Ackland Bay and Collingwood Bay, respectively, and presumably occurs in drainages between the two as well.",
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "The blue-eyes Pseudomugil furcatus, relatives of the rainbow fish, originate from the island of New Guinea.",
         "ok": true
       },
       {
-        "name": "Kwagira River",
-        "source": "seriouslyfish",
-        "quote": "Described from 'Peria Creek, Kwagira River, eastern Papua New Guinea' and despite its popularity in the aquarium hobby is endemic to a relatively small area in the country's Northern and Milne Bay provinces.",
+        "name": "Sufia Valley",
+        "source": "glaser",
+        "quote": "The natural distribution area is relatively small; the species occurs, as far as known, exclusively in the Sufia Valley, Papua New Guinea.",
         "country": "PG",
         "ok": true
       }

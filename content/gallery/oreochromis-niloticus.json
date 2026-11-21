@@ -2,18 +2,6 @@
   "id": "oreochromis-niloticus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/15755923.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/15755923-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC0",
-      "author": "Vijay Barve",
-      "sourceUrl": "https://www.inaturalist.org/photos/15755923",
-      "caption": "Đàn cá rô phi sống bơi trong ao nước",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/60109199.webp",
       "thumb": "https://media.aquatome.com/inaturalist/60109199-480.webp",
       "width": 1024,
@@ -38,18 +26,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/65469484.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/65469484-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "chiuluan",
-      "sourceUrl": "https://www.inaturalist.org/photos/65469484",
-      "caption": "Cá rô phi bơi trong nước đục nhìn nghiêng",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/81346586.webp",
       "thumb": "https://media.aquatome.com/inaturalist/81346586-480.webp",
       "width": 1024,
@@ -70,42 +46,6 @@
       "author": "Utain Pummarin",
       "sourceUrl": "https://www.inaturalist.org/photos/81346613",
       "caption": "Cá rô phi bơi gần đáy nước nông có rong",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/106740756.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/106740756-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Toby Y",
-      "sourceUrl": "https://www.inaturalist.org/photos/106740756",
-      "caption": "Cá rô phi có sọc thân bơi trong nước trong trên đá",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/106740760.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/106740760-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Toby Y",
-      "sourceUrl": "https://www.inaturalist.org/photos/106740760",
-      "caption": "Cá rô phi bơi gần đáy đá trong nước tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/159196489.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/159196489-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Suanne Pyle",
-      "sourceUrl": "https://www.inaturalist.org/photos/159196489",
-      "caption": "Cá rô phi bơi trong nước nông ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -144,18 +84,6 @@
       "caption": "Cá rô phi bơi gần đáy trong nước trong",
       "best": false,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/28649609.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/28649609-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Dr. Nasser Halaweh",
-      "sourceUrl": "https://www.inaturalist.org/photos/28649609",
-      "caption": "Đàn cá rô phi nhỏ bơi trong nước nông",
-      "best": false,
-      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/60533072.webp",
@@ -216,6 +144,30 @@
       "caption": "Cá rô phi bơi giữa các tảng đá ở suối nước nông",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/106740756.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/106740756-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Toby Y",
+      "sourceUrl": "https://www.inaturalist.org/photos/106740756",
+      "caption": "Cá rô phi có sọc thân bơi trong nước trong trên đá",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/28649609.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/28649609-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Dr. Nasser Halaweh",
+      "sourceUrl": "https://www.inaturalist.org/photos/28649609",
+      "caption": "Đàn cá rô phi nhỏ bơi trong nước nông",
+      "best": false,
+      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/28649605.webp",
@@ -384,6 +336,30 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/15755923.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/15755923-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Vijay Barve",
+      "sourceUrl": "https://www.inaturalist.org/photos/15755923",
+      "caption": "Đàn cá rô phi sống bơi trong ao nước",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/65469484.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/65469484-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/65469484",
+      "caption": "Cá rô phi bơi trong nước đục nhìn nghiêng",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/207594794.webp",
       "thumb": "https://media.aquatome.com/inaturalist/207594794-480.webp",
       "width": 1024,
@@ -394,6 +370,30 @@
       "caption": "Hai cá rô phi bơi trong vùng nước nông có cỏ",
       "best": true,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/106740760.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/106740760-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Toby Y",
+      "sourceUrl": "https://www.inaturalist.org/photos/106740760",
+      "caption": "Cá rô phi bơi gần đáy đá trong nước tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/159196489.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/159196489-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Suanne Pyle",
+      "sourceUrl": "https://www.inaturalist.org/photos/159196489",
+      "caption": "Cá rô phi bơi trong nước nông ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/194050540.webp",

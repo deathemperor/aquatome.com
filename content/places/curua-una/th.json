@@ -3,6 +3,12 @@
   "name": "กูรูอา-อูนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:48:55.470Z",
+    "why": "Curuá-Una (Brazilian Portuguese) would be transcribed in Thai as คูรูอา-อูนา, since Portuguese initial \"Cu\" is /ku/ and Thai atlases normally use คู rather than กู, so this spelling is only approximate."
+  },
   "quality": {
     "score": 0.74,
     "indexable": false

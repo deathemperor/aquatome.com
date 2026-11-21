@@ -1,14 +1,22 @@
 {
   "id": "satanoperca-lilith",
   "native": {
-    "input": "1a9927807c24661a",
-    "at": "2026-11-14T11:07:07.888Z",
+    "input": "6c20a37862a1e4cf",
+    "at": "2026-11-20T17:43:20.430Z",
     "claims": [
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Known only from Brazil, where it is widely distributed along the Solimões/Amazon main channel between the rio Japurá, upstream from Manaus, and the lower rio Tapajós at Santárem.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This beautiful cichlid from Brazil is only very rarely imported.",
         "words": "Brazil",
         "ok": true
       }
@@ -24,16 +32,9 @@
       {
         "name": "Rio Negro",
         "source": "seriouslyfish",
-        "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
-        "ok": false,
-        "why": "its name is not in the quote"
-      },
-      {
-        "name": "Rio Madeira",
-        "source": "seriouslyfish",
-        "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
-        "ok": false,
-        "why": "its name is not in the quote"
+        "quote": "Type locality is 'Urumari, Rio Negro drainage, Amazonas State, Brazil, 0°03'S, 63°30'W'.",
+        "country": "BR",
+        "ok": true
       },
       {
         "name": "Rio Tapajós",
@@ -43,14 +44,7 @@
         "ok": true
       },
       {
-        "name": "Rio Branco",
-        "source": "seriouslyfish",
-        "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
-        "ok": false,
-        "why": "its name is not in the quote"
-      },
-      {
-        "name": "Rio Trombetas",
+        "name": "Rio Madeira",
         "source": "seriouslyfish",
         "quote": "It tends to occur in the lower parts of tributaries but also ascends some of them, including the rios Negro (it has been recorded as far upstream as the rio Curucuriari near São Gabriel de Cachoeira), Branco, Madeira (including the Cãnuma and Aripuanã tributary systems), and Trombetas.",
         "ok": false,

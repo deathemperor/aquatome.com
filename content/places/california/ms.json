@@ -3,6 +3,11 @@
   "name": "California",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-19T18:54:50.277Z"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

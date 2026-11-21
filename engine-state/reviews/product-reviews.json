@@ -195,6 +195,28 @@
       "kept": true
     }
   ],
+  "vi/products/oase-biomaster-250": [
+    {
+      "at": "2026-11-20T01:50:02Z",
+      "model": "code",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/oase-biomaster-850": [
+    {
+      "at": "2026-11-19T06:41:41Z",
+      "model": "code",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/oase-filtosmart-100-thermo": [
     {
       "at": "2026-11-17T07:50:20Z",
@@ -206,11 +228,69 @@
       "kept": true
     }
   ],
+  "vi/products/seachem-fluorite": [
+    {
+      "at": "2026-11-19T19:48:20Z",
+      "model": "code",
+      "cli": "2.1.328",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/seachem-tidal": [
+    {
+      "at": "2026-11-21T01:48:34Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/sicce-shark-adv": [
+    {
+      "at": "2026-11-21T07:48:27Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T07:48:27Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 0,
+      "notes": [
+        "\"Một bài review lưu ý phải gắn dây oxy cho Venturi trước khi nhấn máy xuống nước, và đầu dây phải nằm trên mặt nước.\" names Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Hai bài review cùng thấy máy chạy êm, hầu như không nghe tiếng gì. Nếu bật Venturi thì chỉ có chút tiếng bọt lăn tăn.\" names Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Một bài review thấy Venturi chạy rất tốt, cho bọt và thêm oxy cho bể.\" names Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")",
+        "\"Bài kia cũng thấy Venturi cho bọt và làm mặt nước gợn tốt, nhưng thích bọt sủi từ đáy hơn và có thể sẽ tắt Venturi để dùng máy sủi riêng.\" names Venturi, Venturi: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/sunsun-hbl-802": [
     {
       "at": "2026-11-13T19:15:19Z",
       "model": "code",
       "cli": "2.1.323",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/tropica-aquarium-soil": [
+    {
+      "at": "2026-11-20T10:47:35Z",
+      "model": "code",
+      "cli": "2.1.329",
       "score": 1,
       "notes": [],
       "attempt": "first",
@@ -232,6 +312,28 @@
       "score": 0,
       "notes": [
         "\"Ổ chỉ chạy wifi 2.4 GHz. Sóng yếu thì khó cài, dùng cũng chập chờn.\" names GHz: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/products/twinstar-30b": [
+    {
+      "at": "2026-11-20T19:47:23Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-20T19:47:23Z",
+      "model": "code",
+      "cli": "2.1.329",
+      "score": 0,
+      "notes": [
+        "\"Một bài review xếp đèn này vào loại công suất thấp đến trung bình. Dùng sáu, bảy tháng thì thảm Monte CARLON và cây đỏ vẫn lên tốt, còn loại trải thảm khó như HC Cuba thì sẽ không lên.\" names Monte, HC, Cuba: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
       ],
       "attempt": "first",
       "kept": false

@@ -1,0 +1,127 @@
+{
+  "id": "xiphophorus-montezumae",
+  "scientificName": "Xiphophorus montezumae",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Xiphophorus",
+  "group": "livebearers",
+  "places": [
+    "north-america",
+    "mexico",
+    "san-luis-potosi"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 8,
+          "max": 8.5
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "html": "<p>With the swordtails (Xiphophorus), the males carry a sword-like extension at the low end of the tail fin in many species. This is a luxury structure that serves intraspecific communication. Sword-bearing males appear especially sexy to the females and especially intimidating to male conspecifics. The game \"who has the longest\", well known also among primates (the ape-like animals), is always won by Xiphophorus montezumae with its sword.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "html": "<p>This magnificent swordtail has a comparatively limited distribution area in nature (rivers in the state of San Luis Potosí, on the Atlantic side of Mexico).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "html": "<p>For the care it is important to pay attention to constantly good water quality. Generous weekly partial water changes are therefore absolutely necessary.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "html": "<p>The Montezuma swordtail prefers relatively low temperatures (18-22°C) for permanent keeping – it does no harm if the temperatures climb above 24°C in summer. The water should preferably be hard and the pH should be in the slightly alkaline range (8 – 8.5).</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "html": "<p>A good flake food can be the nutritional basis; in addition one feeds frozen and live food of all kinds. Regular feeding of Artemia nauplii (also to adult fish, 2-3 times a week) has proved very successful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "html": "<p>The species is by far not as productive as, for example, Green Swordtails (X. hellerii); the litters usually include much fewer than 20 young. Since it prefers low temperatures, it grows rather slowly. This explains why this beauty will always remain a rarity in the hobby.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/e161615f6eb8b656.webp",
+      "thumb": "https://media.aquatome.com/glaser/e161615f6eb8b656-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5f76cae523454667.webp",
+      "thumb": "https://media.aquatome.com/glaser/5f76cae523454667-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/436491195098b1b2.webp",
+      "thumb": "https://media.aquatome.com/glaser/436491195098b1b2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/xiphophorus-montezumae-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn mảnh cho cá",
+        "artemia"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

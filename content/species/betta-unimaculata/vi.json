@@ -6,17 +6,11 @@
     "Betta Unimaculata Mahakam",
     "Wild Type Betta",
     "Betta ocellata",
-    "Betta Unimaculata Tarakan Yellow"
+    "Betta unimaculata Tarakan Yellow",
+    "Cá betta unimaculata Ancam",
+    "Unimaculata betta"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<ul><li>Thuộc nhóm phức hợp Betta unimaculata.</li><li>Danh sách Đỏ IUCN: Thiếu dữ liệu.</li><li>Kích thước tối đa: 9 cm.</li><li>Sinh sản: ấp trứng trong miệng.</li></ul>",
-    "distribution:bwaquatics": "<p>Betta unimaculata đánh bắt ngoài tự nhiên từ đảo Tarakan.</p>",
-    "behaviour:bwaquatics": "<p>Giống nhiều loài trong nhóm này, với những loài betta lớn nhất, chúng có thể hung dữ. Nên nuôi riêng theo loài vì chúng có thể ăn bất cứ thứ gì vừa miệng lớn của chúng.</p>",
-    "waterConditions:bwaquatics": "<ul><li>TDS: khoảng 60–100</li><li>pH: 5,0–7,0</li><li>Nhiệt độ: 22–28°C. Chúng thích nhiệt độ mát hơn, nhưng nhiệt độ cao hơn kích thích lên màu và hành vi sinh sản.</li></ul>",
-    "diet:bwaquatics": "<p>Ăn thịt. Hiện được cho ăn thức ăn sống, đông lạnh và khô: giun đen, trùng huyết đông lạnh và cám viên.</p>",
-    "dimorphism:bwaquatics": "<p>Cá đực trưởng thành hoàn toàn có vây bụng dài hơn, thân lớn hơn và các mảng ánh cầu vồng trên má. Cá cái đôi khi cũng có ánh cầu vồng trên má.</p>",
-    "reproduction:bwaquatics": "<p>Loài ấp trứng trong miệng.</p>",
-    "notes:bwaquatics": "<p>Một dạng betta kiểu unimaculata lớn được tìm thấy trên đảo Tarakan, nổi bật với má ánh cầu vồng đầy màu sắc. Còn được gọi là Betta ocellata; chưa rõ chúng là cùng loài hay khác loài.</p>",
     "quickFacts:seriouslyfish": "<p>Betta unimaculata là một loài cá mê cung cỡ lớn, cá ấp trứng bằng miệng. Loài này sống ở vùng thượng nguồn hệ thống sông Kayan và Mahakam, thuộc Đông Kalimantan, đảo Borneo, Indonesia. Cá dài tới khoảng 115 mm SL. Người ta đã bắt được chúng ở suối nước trong có dòng chảy, ở các vũng nước nằm cao gần đầu nguồn, và cả ở những con suối rừng nước đục hơn. Mỗi quần thể có màu sắc và hoa văn khác nhau, lại dễ lai với nhau. Vì thế người chơi ghi tên cá theo địa điểm và tuyệt đối không nuôi chung các quần thể với nhau. Dòng cá 'Tawau' từng bị cho là loài này, nay đã được mô tả thành loài B. ocellata.</p>",
     "distribution:seriouslyfish": "<p>Loài này có nguồn gốc từ một phần lưu vực sông Kajan (thuộc thượng nguồn sông Kayan) và sông Howong (thuộc lưu vực sông Mahakam), tỉnh Kalimantan Timur (Đông Kalimantan), đảo Borneo, Indonesia. Đây là những vùng rất hẻo lánh, có nơi chỉ đi được bằng thuyền nhỏ.</p><p>Cá từ những địa điểm khác nhau có màu sắc và hoa văn khác nhau. Tuyệt đối không nuôi chung các quần thể này trong một bể, vì chắc chắn chúng sẽ lai với nhau.</p><p>Để giữ đúng nguồn gốc và giữ dòng thuần, người bắt cá và người chơi thường ghi kèm địa điểm thu thập vào tên cá, ví dụ Mahakam, Sandakan, v.v. Dòng cá 'Tawau' ban đầu được cho là B. unimaculata, nay đã được mô tả và đặt tên là B. ocellata (Tan &amp; Ng 2005).</p>",
     "habitat:seriouslyfish": "<p>Người ta đã bắt được loài này ở nhiều kiểu môi trường. Có nơi là suối nước trong có dòng chảy, có nơi là những vũng nước biệt lập nằm trên cao quanh đầu nguồn, cũng có nơi là suối rừng nước đục hơn.</p><p>Ở vùng đầu nguồn và suối có dòng chảy, cá hay nấp trong các vũng nước chảy chậm hoặc nước đứng. Còn ở suối rừng, chúng sống giữa đám cây ven bờ, lớp lá mục và rễ cây ngập nước.</p><p>Có một quần thể sống trên đỉnh một thác nước trong rừng mưa, ở nơi gọi là Bahulak. Địa danh này không tìm thấy trên bản đồ. Đáy ở đó là đá sa thạch lộ ra.</p>",
@@ -31,7 +25,18 @@
     "references:seriouslyfish": "<ul><li>Tan, H. H. and P. K. L. Ng (2005). The fighting fishes (Teleostei: Osphronemidae: Genus Betta) of Singapore, Malaysia and Brunei. Raffles Bulletin of Zoology Supplement 13, 43-99</li><li>Witte, K.-E. and J. Schmidt (1992). Betta brownorum, a new species of anabantoids (Teleostei: Belontiidae) from northwestern Borneo, with a key to the genus. Ichthyological Exploration of Freshwaters 2(4), 305-330</li></ul>",
     "quickFacts:glaser": "<p>Cá trại cho đẻ ở Đức, lớn hết cỡ dài khoảng 8 cm. Đây là một loài betta hiền, ấp trứng trong miệng.</p>",
     "maintenance:glaser": "<p>Loài này nuôi không có gì khó. Có điều Betta unimaculata nhảy rất giỏi, vì ngoài tự nhiên nó sống ở các con suối nhỏ. Bể phải đậy nắp thật kỹ.</p>",
-    "reproduction:glaser": "<p>Loài betta này ấp trứng trong miệng.</p>"
+    "reproduction:glaser": "<p>Loài betta này ấp trứng trong miệng.</p>",
+    "quickFacts:bwaquatics": "<p>Betta unimaculata \"Sangkima\" là một dạng betta kiểu unimaculata ngậm trứng, thuộc nhóm Betta unimaculata. Danh sách Đỏ IUCN xếp nó vào mức Thiếu dữ liệu, tức là chưa đủ thông tin để đánh giá loài này có nguy cơ tới đâu.</p><p>Nhìn nó rất giống pallifina. So với các dạng unimaculata khác, thân nó dài và thon nhưng nhỏ hơn nhiều. Loài này sống tốt trong bể nuôi riêng, và là con hợp cho người mới tập chơi betta ngậm trứng.</p>",
+    "beforeYouBuy:bwaquatics": "<p>Cá trong nhóm này rất dễ dính đốm trắng và bệnh nhung (velvet) trong vài tuần đầu mới nhập về. Cá mới mua về cần được theo dõi sát.</p>",
+    "distribution:bwaquatics": "<p>Nguồn gốc: Sangkima, Đông Kalimantan (Indonesia). Đây là cá bắt ngoài tự nhiên.</p>",
+    "habitat:bwaquatics": "<p>Ngoài tự nhiên, Betta unimaculata sống ở các con suối rừng nước trong, có dòng chảy. Theo FishBase, nước ở đó có pH 6,5 đến 7,5 và nhiệt độ 21 đến 25°C.</p>",
+    "aquariumSize:bwaquatics": "<p>Nên nuôi 1 cặp trong bể 40 lít, còn muốn cho đẻ thì dùng bể 80 lít. Bày nhiều hang và vật che để hai con không lúc nào cũng nhìn thấy nhau.</p>",
+    "waterConditions:bwaquatics": "<ul><li>TDS: 60 đến 250 (cá chịu được khoảng rất rộng)</li><li>pH: 6,5 đến 7,5</li><li>Nhiệt độ: 22 đến 28°C (cá thích nước mát hơn, nhưng nước ấm thì cá lên màu đẹp hơn và dễ vào đẻ)</li></ul>",
+    "diet:bwaquatics": "<p>Đây là cá ăn thịt. Có thể cho ăn trùn chỉ đen sống, trùng huyết đông lạnh và cám viên.</p>",
+    "behaviour:bwaquatics": "<p>Tính cách: dữ. Con nào vừa miệng là nó ăn, nên tốt nhất là nuôi riêng một loài.</p>",
+    "dimorphism:bwaquatics": "<p>Màu sắc: thân nâu, má và hai bên thân ánh xanh dương đến xanh ngọc. Con cái ít ánh kim hơn con đực.</p>",
+    "reproduction:bwaquatics": "<p>Đây là loài cá bố ngậm trứng. Lúc đẻ, con cái gom trứng rồi chuyền sang cho con đực, và con đực ngậm trứng trong miệng khoảng 2 đến 3 tuần. Giữ bể yên tĩnh và đừng đụng tới con đực đang ngậm, vì bị quấy là nó có thể nuốt hoặc nhả cả ổ. Khi nhả ra, cá con đã thành hình đầy đủ và ăn được Artemia mới nở ngay.</p>",
+    "notes:bwaquatics": "<p>Đặc điểm ngoại hình:</p><ul><li>Dáng thân: dài và thon, nhỏ hơn đa số các dạng unimaculata.</li><li>Vây: màu xanh dương ngả xanh ngọc, phủ một lớp ánh đồng kim loại, ở cả con đực lẫn con cái.</li><li>Vảy: vảy ánh kim trên má và dọc hai bên thân, tùy ánh sáng mà trông xanh dương hay xanh ngọc.</li><li>Kích thước tối đa: khoảng 8 cm hoặc hơn.</li></ul>"
   },
   "nameFixed": true,
   "redirectFrom": [
@@ -44,7 +49,7 @@
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.82,
+      "bwaquatics": 0.95,
       "seriouslyfish": 0.82,
       "glaser": 0.8
     }

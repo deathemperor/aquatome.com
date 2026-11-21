@@ -3,6 +3,12 @@
   "name": "หลานชาง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:46:40.434Z",
+    "why": "หลานชาง is a fair Thai transliteration of the Chinese name Lancang, but it leaves out the kind word แม่น้ำ that a Thai atlas puts before a river name."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

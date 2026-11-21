@@ -6,7 +6,8 @@ import { join } from 'node:path'
 import { LANGS, RETIRED_HOLD, retiredTo, type Lang } from '@aq/schema'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
-import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
+import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, fitReport, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
+import fitFront from './fit-front.json'
 import { PRODUCTS } from './market'
 import { loadCards, loadPages, pageUrl, type Page } from './pages'
 import { norm } from './reader'
@@ -41,6 +42,12 @@ export const GATED_KINDS = [...GATE_KINDS, 'cards'] as const
  */
 export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
 /**
+ * The pages a person changed by hand that the read takes first (fit-front.json read): what their read finds stays in its
+ * record (engine-state/_fit.json), which the site lead brings to the chief of staff, and a kit found there holds none
+ * until the chief of staff says (the chief of staff, 20 Nov 2026). Off the list, a kit holds a page as it holds any.
+ */
+export const HAND_READ: ReadonlySet<string> = new Set(fitFront.read)
+/**
  * The checks a mender may be sent: a sentence that names a shop, a price or a product from abroad, talks about the source,
  * or is written for a reader elsewhere, which can go or be reworded with nothing else of the text changed. A list of what
  * is allowed, so a new check stays out: harm, a dose and what a dose lacks are never reworded by a writer alone, a kit
@@ -49,8 +56,8 @@ export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
 export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewhere', 'product']
 /**
  * Whether a page's checks are the video editor's to fix (the chief of staff, 14 Nov 2026): each one it mends, units beside
- * one of them (never alone, which is units-mend's), and a dose, which video-mend.ts takes only when it is the source's own
- * tank's and leaves a person otherwise. The editor writes, keeps or converts no figure: video-mend.ts holds them.
+ * one of them (whose sentence the mend leaves for units-mend.ts), and a dose, which video-mend.ts takes only when it is the
+ * source's own tank's and leaves a person otherwise. The editor writes or changes no amount (amount.ts, 19 Nov 2026).
  */
 export const editorMay = (checks: readonly FitCheck[]) =>
   checks.some(c => c !== 'units') && checks.every(c => MENDABLE.includes(c) || c === 'units' || c === 'dose')
@@ -70,7 +77,10 @@ export const heldMendsOf = (env: NodeJS.ProcessEnv = process.env) => Number(env.
  * for a page it sends to no editor (not one it mends, no transcript): the file as it was. A run's `mends` count the pages
  * an editor was called for, so not the last.
  */
-export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean | undefined | { refused: string }>
+export type Mend = ((p: Page, findings: FitFinding[]) => Promise<boolean | undefined | { refused: string }>) & {
+  /** What a mend leaves for once the gate keeps its text, and never when the text goes back (video-mend.ts: a guide's other languages let into the chat). */
+  kept?: (p: Page) => Promise<void>
+}
 /**
  * A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote.
  * `unread`: the page was not read (the accounts out), so there are no checks.
@@ -187,7 +197,7 @@ export const HELD_BY_HAND = 'engine-state/held-by-hand.json'
 export type HandHold = { checks: string[]; why: string; at: string }
 
 /** Every held page in the working tree, by its language file. */
-async function heldNow(root: string, pages: Page[]): Promise<Map<string, Held>> {
+export async function heldNow(root: string, pages: Page[]): Promise<Map<string, Held>> {
   const out = new Map<string, Held>()
   for (const p of pages) if ((GATED_KINDS as readonly string[]).includes(p.kind)) { const h = await heldOf(join(root, fileOf(p))); if (h) out.set(fileOf(p), h) }
   return out
@@ -207,9 +217,16 @@ export type GateReport = { pass: string[]; hold: string[]; release: string[]; re
  * for faults only its editor fixes goes to it first, and so do `heldMends` of the pages it holds already (the chief of
  * staff, 14 Nov 2026: a new video guide goes through its editor at birth, and the held ones, 12 a run).
  */
-export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: number; limit?: number; now?: () => Date; mend?: Mend; mends?: number; heldMends?: number }): Promise<{ report: GateReport; state: FitState; pages: Page[]; held: Map<string, Held> }> {
+export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: number; limit?: number; now?: () => Date; mend?: Mend; mends?: number; heldMends?: number; handRead?: ReadonlySet<string> }): Promise<{ report: GateReport; state: FitState; pages: Page[]; held: Map<string, Held> }> {
   const now = d.now ?? (() => new Date())
   const day = vnDay(now())
+  // On the read list (fit-front.json `read`), a kit holds no page: it stays in the page's record for the chief of staff, and
+  // harm alone holds it (20 Nov 2026). So its checks leave the kit out on every path: a cycle's change, a held page's read,
+  // a text put back, what a held page waits for and the last sweep (a reader of #1718: a guide held for harm and a kit
+  // stayed held for the kit once its harm was gone).
+  const listed = (p: Pick<Page, 'lang' | 'kind' | 'id'>) => (d.handRead ?? HAND_READ).has(fitKey(p as Page))
+  const unkit = (p: Pick<Page, 'lang' | 'kind' | 'id'>, checks: Iterable<FitCheck>) => [...checks].filter(c => c !== 'kit' || !listed(p))
+  const checksFor = (p: Page, e?: FitEntry) => new Set(unkit(p, gateChecks(p, e)))
   const statePath = join(root, 'engine-state/_fit.json')
   const state: FitState = (await json<FitState>(statePath)) ?? {}
   const pages = (await loadPages(join(root, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
@@ -269,7 +286,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   let harmed = new Map<string, Set<string>>()
   /** Harm in another of the page's language files, which holds this one too. */
   const harmedBeside = (p: Pick<Page, 'kind' | 'id' | 'lang'>) => [...(harmed.get(`${p.kind}/${p.id}`) ?? [])].some(f => f !== fileOf(p))
-  const checksOf = (p: Page, e?: FitEntry) => { const c = gateChecks(p, e); if (harmedBeside(p)) c.add('harm'); return c }
+  const checksOf = (p: Page, e?: FitEntry) => { const c = checksFor(p, e); if (harmedBeside(p)) c.add('harm'); return c }
   const apply = async (f: string, call: GateCall) => {
     if (call.action === 'hold' && held.get(f)?.checks.join() === call.checks.join()) return // held already, for the same checks
     const path = byFile.get(f)!.path
@@ -285,7 +302,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
    * it, whatever its read finds now, and it stays held for it (the chief of staff, 14 Nov 2026; Astra's read: a guide held
    * for harm, read now with a shop only, was mended and let out).
    */
-  const waitsFor = (f: string) => [...new Set([held.get(f), head.held.get(f)].flatMap(h => (h?.checks ?? []) as FitCheck[]).filter(c => WAITS.includes(c)))].sort()
+  const waitsFor = (f: string) => [...new Set(unkit(byFile.get(f)!, [held.get(f), head.held.get(f)].flatMap(h => (h?.checks ?? []) as FitCheck[])).filter(c => WAITS.includes(c)))].sort()
   /**
    * A page worse only on sentences a mender may fix: they are sent to it (the faults of the checks it is worse on, not
    * the ones the old text has too), and the mended text is read and decided on again, against what the old text's reads
@@ -295,6 +312,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     // A page held already takes one of the run's `heldMends`; a new one, or a live one going back, one of its `mends`.
     const fromHeld = o.wasHeld && !o.isNew
     if (!d.mend || (fromHeld ? heldMends : mends) <= 0 || !editorMay(worse)) return undefined
+    // A live page's new text worse for units: the mend converts none (video-mend.ts), so the text would still be worse
+    // once mended, and goes back now, with no editor paid for. A new or held page is held for them, for units-mend.ts.
+    if (!o.isNew && !o.wasHeld && worse.includes('units')) return undefined
     // Held for what waits for a person: never to the editor. A dose is the editor's when it is the source's own tank's
     // (video-mend.ts decides), so only while the read still finds it, to be sent.
     if (o.wasHeld && waitsFor(f).some(c => c !== 'dose' || !worse.includes('dose'))) return undefined
@@ -325,8 +345,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     const next = (p.kind === 'cards' ? await loadCards(join(root, 'content'), [p.lang]) : await loadPages(join(root, 'content'), [p.lang])).find(x => fileOf(x) === f)
     const read2 = next && await read(next)
     if (!next || !read2) return await undo()
-    const call = gateCall(gateChecks(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, ...(old ? { before: new Set([...o.oldChecks, ...carried(next, read2, old)]) } : {}) })
+    const call = gateCall(checksFor(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, ...(old ? { before: new Set(unkit(p, [...o.oldChecks, ...carried(next, read2, old)])) } : {}) })
     if (call.action === 'revert') return await tried()
+    await d.mend.kept?.(p)
     // The mended text is the page's from here on: its read, and what the steps below and the report count.
     state[fitKey(p)] = fromHeld && call.action === 'hold' ? { ...read2, mendTried: day } : read2
     byFile.set(f, next)
@@ -350,7 +371,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     if (again) redo.push(f)
     // The text put back is held if its own saved read, or the rules, find a fault that holds a page.
     const old = head.pages.get(fitKey(p)), e = state[fitKey(p)]
-    const back = old ? [...gateChecks(old, e?.hash === fitText(old).hash ? e : undefined)].sort() : []
+    const back = old ? [...checksFor(old, e?.hash === fitText(old).hash ? e : undefined)].sort() : []
     if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
   }
   const pending: string[] = []
@@ -372,8 +393,8 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
           continue
         }
         if (entry) state[fitKey(p)] = entry
-        const nowChecks = gateChecks(p, entry)
-        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: new Set([...gateChecks(old, oldSaved), ...carried(p, entry, old)]) } : {}) })
+        const nowChecks = checksFor(p, entry)
+        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: new Set(unkit(p, [...gateChecks(old, oldSaved), ...carried(p, entry, old)])) } : {}) })
         if (call.action === 'revert' && old) {
           // Worse than its old text's saved read, or the old text was never read: read the old text now, and compare with both.
           const fresh = await read(old)
@@ -384,8 +405,8 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
             unread(f, p, false)
             continue
           }
-          const oldChecks = [...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh)]
-          const before = new Set([...oldChecks, ...carried(p, entry, old)])
+          const oldChecks = [...(oldSaved ? checksFor(old, oldSaved) : []), ...checksFor(old, fresh)]
+          const before = new Set(unkit(p, [...oldChecks, ...carried(p, entry, old)]))
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
             // What goes back if it does: the text as the cycle wrote it, before any mend.
@@ -405,10 +426,16 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         // for what waits for a person: held for that still, and not sent.
         const waits = wasHeld ? waitsFor(f) : []
         const keep = (c: GateCall): GateCall => (c.action === 'hold' && waits.length ? { action: 'hold', checks: [...new Set([...c.checks, ...waits])].sort() } : c)
+        // On the read list a kit its read still finds holds it no more, but the page isn't clean: what else it waits for a
+        // person for keeps it held, harm and a dose aside, which its read decides (#1718's third read: a guide held for a kit
+        // and a dose's caution was let out on a read that found the kit alone).
+        // Those reasons are all it is held for: `keep` would add back the harm and the dose this leaves to the read.
+        const rest = call.action === 'release' && listed(p) && gateChecks(p, entry).has('kit') ? waits.filter(c => c !== 'harm' && c !== 'dose') : []
+        if (rest.length) call = { action: 'hold', checks: rest }
         // A held dose goes to the editor only with the read finding it now (`mended`), and stays a reason until it's gone.
-        if (call.action === 'hold' && waits.some(c => c !== 'dose' || !call.checks.includes('dose'))) call = keep(call)
+        else if (call.action === 'hold' && waits.some(c => c !== 'dose' || !call.checks.includes('dose'))) call = keep(call)
         else if (call.action === 'hold' && entry && (isNew || wasHeld)) {
-          const fixed = await mended(f, p, entry, call.checks, old, { isNew, wasHeld, oldChecks: old && oldSaved ? [...gateChecks(old, oldSaved)] : [] })
+          const fixed = await mended(f, p, entry, call.checks, old, { isNew, wasHeld, oldChecks: old && oldSaved ? [...checksFor(old, oldSaved)] : [] })
           call = fixed ?? keep(call)
         }
         // Put back now, so the texts the run ends with are known; the rest once harm beside them is.
@@ -469,6 +496,14 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   }
   await writeFile(statePath, `${JSON.stringify(Object.fromEntries(Object.entries(state).sort(([a], [b]) => a.localeCompare(b))), null, 1)}\n`)
   return { report, state, pages, held }
+}
+
+/**
+ * docs/review/fit.md after a gate, on the pages as the run ends with them: gate() returns the pages it read, and a text it
+ * put back is the committed one again, which has its own read (a reader of #1731).
+ */
+export async function gateFitReport(root: string, state: FitState, held: ReadonlyMap<string, unknown>): Promise<string> {
+  return fitReport((await loadPages(join(root, 'content'))).filter(p => FIT_KINDS.includes(p.kind)), state, held)
 }
 
 /**

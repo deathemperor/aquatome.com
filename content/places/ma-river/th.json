@@ -3,6 +3,12 @@
   "name": "หม่า",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T12:49:06.467Z",
+    "why": "The name หม่า is only the bare river name and omits the kind word แม่น้ำ that Thai atlases use (แม่น้ำมา, the usual Thai form for Sông Mã), and the vowel and tone spelling also differs."
+  },
   "quality": {
     "score": 0.74,
     "indexable": false

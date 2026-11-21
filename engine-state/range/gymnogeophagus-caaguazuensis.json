@@ -1,0 +1,53 @@
+{
+  "id": "gymnogeophagus-caaguazuensis",
+  "native": {
+    "input": "1134abf692bef220",
+    "at": "2026-11-20T17:43:20.430Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Gymnogeophagus caaguazuensis is a larvophile maternal mouthbrooding cichlid from Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Paraguay.",
+        "words": "Paraguay",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Gymnogeophagus caaguazuensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2371126,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        27
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ]
+    ],
+    "native": [
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

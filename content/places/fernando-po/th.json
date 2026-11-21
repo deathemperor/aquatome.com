@@ -3,6 +3,12 @@
   "name": "เฟร์นันโดโป",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.72,
+    "at": "2026-11-19T18:48:15.403Z",
+    "why": "The Thai is a reasonable transliteration of Fernando Po, but it lacks the word \"เกาะ\" (island) and uses the old name where Thai atlases usually write the current name, Bioko."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

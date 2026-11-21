@@ -147,6 +147,20 @@
       "kept": false
     }
   ],
+  "vi/guides/aquariumbreeder-invertebrates-best-reef-safe-clean-up-crew#body": [
+    {
+      "at": "2026-11-19T13:00:04Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.92,
+      "notes": [
+        "Minor: \"ăn luôn cả cá nhỏ trong bể reef\" adds slight emphasis (\"luôn cả\") not in BEFORE's \"còn ăn cá nhỏ\"; content is otherwise preserved."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
     {
       "at": "2026-11-10T21:53:32Z",
@@ -177,6 +191,33 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/aquariumbreeder-top-10-corals-for-beginners#body": [
+    {
+      "at": "2026-11-19T13:01:26Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.8,
+      "notes": [
+        "\"một góc bể\" is dropped: BEFORE says the coral is worth it for a beginner's corner of the tank, but AFTER only says it is worth keeping for beginners.",
+        "\"tưởng như không gì giết nổi\" (seemingly unkillable) became \"hầu như nuôi không chết\" (almost impossible to kill). The meaning shifts slightly, from an apparent trait to a stated one."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquatome-ca-koi-thuc-an-cho-an-sinh-san-dieu-kien-nuoi#body": [
+    {
+      "at": "2026-11-21T01:34:08Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/aquatome-may-sui-oxy-suc-khi-cho-be-ca-cong-dung-va-cach-chon#body": [
@@ -501,6 +542,21 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-9QSxJymRBak#body": [
+    {
+      "at": "2026-11-19T19:02:41Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"Bể càng dài thì đèn chuyên dụng càng đắt\" adds a claim about price. BEFORE only says the specialised light is also long (\"đèn chuyên dụng cũng dài theo\").",
+        "\"tự làm\" is added, though it is implied by BEFORE. This is a small nuance."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-AAjZ3Ldk4go#body": [
     {
       "at": "2026-11-09T06:27:20Z",
@@ -529,6 +585,21 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/youtube-BV0J8fUMceU#body": [
+    {
+      "at": "2026-11-20T02:06:40Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.86,
+      "notes": [
+        "\"Rêu hại (algae)\" -> \"Rêu hại\": the English gloss is dropped, which is minor.",
+        "\"là một phần của quá trình\" -> \"là chuyện bình thường của giai đoạn này\": this adds a mild \"normal\" judgement and shifts \"process\" to \"stage\"."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/guides/youtube-BsRyej3Zte8#body": [
@@ -768,6 +839,23 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-Siun2vEDvh0#body": [
+    {
+      "at": "2026-11-19T08:09:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "Said more surely than before: \"nếu thấy dán rêu bằng keo trông không đẹp thì quấn rêu lên mấy viên đá nhỏ rồi đặt vào các khe đá.\" (was: \"nếu thấy dán rêu bằng keo trông không đẹp thì có thể quấn rêu lên mấy viên đá nhỏ rồi đặt vào các khe đá.\")",
+        "Changed content: \"mong nó giữ nước tốt hơn\" became \"để nó hút bớt dinh dưỡng thừa cho nước sạch hơn\"; this adds a mechanism (absorbing excess nutrients) and turns a hope into a stated purpose.",
+        "Hedge dropped: \"thì có thể quấn rêu lên mấy viên đá nhỏ\" became \"thì quấn rêu lên mấy viên đá nhỏ\"; an optional suggestion became an instruction.",
+        "\"ban đầu không thấy\" became \"Lúc đầu sẽ không thấy nó\"; this is a minor nuance change."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-U8S5XWnXsi4#body": [
     {
       "at": "2026-11-08T14:25:48Z",
@@ -962,6 +1050,23 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-i1ajPb5qWD4#body": [
+    {
+      "at": "2026-11-19T13:01:48Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "\"ngoài bể\" changed to \"trong bể\": location of the tube is reversed",
+        "\"gỉ\" (rust/scale) changed to \"rêu\" (algae): a different substance",
+        "\"Không có cọ rửa ống\" became \"Nếu không có cọ rửa ống\": fine, just a natural-style change",
+        "\"để thông\" became \"để thông ống\": fine"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-iS8fJvjUa1Q#body": [
     {
       "at": "2026-11-07T17:02:10Z",
@@ -1049,6 +1154,21 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-lYyEHHmeZY0#body": [
+    {
+      "at": "2026-11-21T07:26:24Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.9,
+      "notes": [
+        "AFTER adds 'vừa cắt' to 'đầu chai' (the bottle top is described as freshly cut), which is not in BEFORE; 'miệng chai' became 'đầu chai vừa cắt', a small change in meaning.",
+        "'tràn ra ngoài theo miệng chai' became 'tràn theo nước ra ngoài', so the overflow path is slightly changed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-lnOzt5QoSzY#body": [
     {
       "at": "2026-11-16T17:46:43Z",
@@ -1059,6 +1179,21 @@
       "notes": [
         "\"bắt vít cho ốp chặt vào máng\": BEFORE says \"vặn ốp vào\" (twist/screw it on). AFTER specifies screws (\"bắt vít\") and adds \"chặt vào máng\", which is a small addition.",
         "\"Mặt sau lưng máng gắn 4 quạt\": \"ốp\" (mount/attach onto) became \"gắn\". This is acceptable."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-mdW19245Utg#body": [
+    {
+      "at": "2026-11-20T17:53:15Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.7,
+      "notes": [
+        "The opening condition \"Khi hai bể cùng cỡ, bể trên không lọt gọn dưới bể khác được\" is dropped. AFTER gives a different cause, \"Bể sâu hơn kệ\", so the same-size-tanks context is lost.",
+        "\"nhưng không bắt buộc\" became \"nhưng không làm cũng được\". This is a small nuance shift but acceptable."
       ],
       "attempt": "first",
       "kept": false
@@ -1132,6 +1267,24 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/youtube-vHAw3347CLE#body": [
+    {
+      "at": "2026-11-21T07:25:21Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Item 2: dropped \"và cách này có lẽ đóng góp phần lớn vào đó\" (hedged claim that leaf use contributes most) - content lost.",
+        "Item 2: \"cá ít gặp vấn đề hơn hẳn\" (definite, strong) became \"cá có lẽ sẽ ít gặp vấn đề hơn\" - certainty turned into hedge, strength of claim reduced.",
+        "Item 1: \"thân người\" -> \"quen người\" minor nuance shift; acceptable.",
+        "Item 1: \"nó sẽ tìm chỗ chạy trốn\" -> \"hễ có gì ... là nó đi tìm chỗ trốn\" slightly stronger generalization (hễ), minor.",
+        "Item 1: added \"Betta cũng vậy.\" is a small restructure, no new fact."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/youtube-xBtOIR5wt6k#body": [

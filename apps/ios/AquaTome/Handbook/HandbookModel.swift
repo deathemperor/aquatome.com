@@ -429,6 +429,13 @@ final class HandbookModel {
       }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
+      // `-no-chips`: an index from before the site's chips, as a phone's kept one can be (Khám phá with no row).
+      if args.contains("-no-chips") { home?.chips = [] }
+      // `-breeds`: Dĩa's photo is the pigeon blood's, a breed with its own page, as the site's Dĩa has it (Design, 17 Nov).
+      if args.contains("-breeds"), let i = home?.chips.firstIndex(where: { $0.id == "dia" }) {
+        home?.chips[i] = .init(id: "dia", name: "Dĩa", order: 1, count: 2, members: ["symphysodon-aequifasciatus", "pigeon-blood-discus"],
+                               img: "https://media.aquatome.com/a/dia-large.webp", imgOf: "pigeon-blood-discus")
+      }
       // `-wide-pictures`: each fish and plant has a photo (a wide stand-in, `-fixed-pictures`) with its fish's box across
       // nearly all of it, and each group one: a photo the frame rule shows whole wherever it goes (WholePhotoFlowTests).
       if args.contains("-wide-pictures") {
@@ -442,6 +449,17 @@ final class HandbookModel {
         }
         if let groups = home?.groups {
           home?.groups = groups.map { .init(id: $0.id, img: "https://aquatome.com/img/wide-\($0.id)-480.webp", imgBox: box) }
+        }
+      }
+      // `-square-pictures`: each fish but the Cá thử has a photo, square (a stand-in, `-fixed-pictures`) and with no box, which
+      // a 3:2 card covers with some of it laid out above and below the card (Design, 17 Nov: the first card's took the taps
+      // of the photo line above it).
+      if args.contains("-square-pictures") {
+        items = items.map { i in
+          guard i.kind == .fish, i.img == nil, !(i.contentId ?? "").hasPrefix("ca-thu"),
+                var o = (try? JSONSerialization.jsonObject(with: JSONEncoder().encode(i))) as? [String: Any] else { return i }
+          o["img"] = "https://aquatome.com/img/square-\(i.contentId ?? i.name)-480.webp"
+          return (try? JSONSerialization.data(withJSONObject: o)).flatMap { try? JSONDecoder().decode(HandbookIndex.Item.self, from: $0) } ?? i
         }
       }
       // `-familiar N`: Khám phá's fish shelf runs long, N fish after the fixture's own, as the hobbyists' list does.
@@ -524,6 +542,19 @@ extension HandbookIndex {
                        dek: "Đèn bật 6 đến 8 tiếng, trồng dày cây mọc nhanh ngay từ đầu, thay nước đều mỗi tuần và cho ăn vừa đủ cá ăn hết")),
   ]
 
+  /// UI tests' chips on Khám phá: one page alone (it opens that page), one with a guide and a video guide (a wide card and
+  /// both lists), two pages (wide cards), and the kit's many fish (`-equipment`: the grid; left out without them).
+  static let fixtureChips: [Home.Chip] = [
+    .init(id: "dia", name: "Dĩa", order: 1, count: 1, members: ["symphysodon-aequifasciatus"], img: "https://media.aquatome.com/a/dia-large.webp",
+          imgOf: "symphysodon-aequifasciatus"),
+    .init(id: "tetra", name: "Tetra", order: 2, count: 1, members: ["paracheirodon-innesi"], img: "https://media.aquatome.com/a/neon-large.webp", imgOf: "paracheirodon-innesi",
+          guides: ["/vi/huong-dan/nuoi-ca-neon/"], videos: ["/vi/huong-dan/cach-han-che-reu-hai/"]),
+    // Cá thử 1 has no photo: its wide card is its row alone (Design, 17 Nov).
+    .init(id: "nho", name: "Cá nhỏ", order: 3, count: 3, members: ["paracheirodon-innesi", "danio-rerio", "ca-thu-1"], img: "https://media.aquatome.com/a/danio-large.webp",
+          imgOf: "danio-rerio"),
+    .init(id: "ca-thu", name: "Cá thử", order: 4, count: 8, members: (1...8).map { "ca-thu-\($0)" }),
+  ]
+
   /// UI tests' index: a few pages of each kind, as the site writes them.
   static let fixture = HandbookIndex(lang: "vi", items: [
     .init(kind: .fish, contentId: "symphysodon-aequifasciatus", name: "Cá đĩa", sub: "Symphysodon aequifasciatus", aka: ["Discus"], path: "/vi/ca/ca-dia/",
@@ -556,7 +587,7 @@ extension HandbookIndex {
           words: ["Dự toán chi phí set bể thủy sinh: tiền mua đồ và tiền nuôi mỗi tháng"], short: "Dự toán chi phí"),
     .init(kind: .tool, name: "Đây là cá gì?", path: "/vi/cong-cu/nhan-dien-ca/", words: ["Nhận diện cá qua ảnh"], short: "Nhận diện cá"),
   ], home: .init(groups: [.init(id: "cichlids"), .init(id: "tetras"), .init(id: "danios")], fish: ["/vi/ca/ca-neon/", "/vi/ca/ca-dia/"],
-                 plants: [], guides: ["/vi/huong-dan/nuoi-ca-neon/"]),
+                 plants: [], guides: ["/vi/huong-dan/nuoi-ca-neon/"], chips: fixtureChips),
   labels: .init([
     "group": ["cichlids": "Cichlid", "tetras": "Cá tetra", "danios": "Danio", "other": "Loài khác"],
     "placement": ["foreground": "Tiền cảnh", "midground": "Trung cảnh", "background": "Hậu cảnh", "epiphyte": "Bám đá, lũa", "floating": "Thả nổi"],

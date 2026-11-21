@@ -3,6 +3,12 @@
   "name": "Bahama",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:36:11.213Z",
+    "why": "Indonesian atlases and Wikipedia write the country as \"Bahama\" (the official Indonesian form is \"Bahama\"), but \"Bahamas\" is also common, so this is plausible yet uncertain."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

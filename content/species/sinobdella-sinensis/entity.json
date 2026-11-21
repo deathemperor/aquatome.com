@@ -1,0 +1,256 @@
+{
+  "id": "sinobdella-sinensis",
+  "scientificName": "Sinobdella sinensis",
+  "order": "Synbranchiformes",
+  "family": "Mastacembelidae",
+  "genus": "Sinobdella",
+  "group": "other",
+  "places": [
+    "asia",
+    "china",
+    "vietnam"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species inhabits China and parts of Vietnam.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204044,
+      "total": 22,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CN",
+          19
+        ],
+        [
+          "TW",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          26.71875,
+          4,
+          4
+        ],
+        [
+          111.09375,
+          28.125,
+          2,
+          2
+        ],
+        [
+          112.5,
+          33.75,
+          4,
+          4
+        ],
+        [
+          115.3125,
+          39.375,
+          2,
+          2
+        ],
+        [
+          118.125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          118.125,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          23.90625,
+          2,
+          0
+        ],
+        [
+          120.9375,
+          29.53125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "html": "<p>A small spiny eel that rarely grows larger than 20 cm. It is the only species in its genus.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "html": "<p>The species inhabits China and parts of Vietnam.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "html": "<p>According to its origin, care in unheated aquariums is recommended. Choose soft sand as substrate, in which the spiny eels like to dig themselves in. If this possibility is missing, the spiny eels tend to get skin infections.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "html": "<p>Frozen and live food of suitable size is taken, especially worm food. It is assumed that settled animals also feed on granules, but there is still a lack of experience.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "html": "<p>Among each other, the animals are peaceful, as is known from spiny eels generally. Small fishes are potential prey; other, bigger species are not considered further.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "html": "<p>In Sinobdella the dorsal, caudal and anal fins are fused together, which in Asian spiny eels is otherwise a sign of large species. The animals differ from all other spiny eels in the peculiar nose/nozzle region. The shining white edge of the anal fin is an eye-catching characteristic. The coloration is individually very variable.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/cd6670aa1fdc195c.webp",
+      "thumb": "https://media.aquatome.com/glaser/cd6670aa1fdc195c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e8e9e947777584d2.webp",
+      "thumb": "https://media.aquatome.com/glaser/e8e9e947777584d2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1e5565ad948b3c0c.webp",
+      "thumb": "https://media.aquatome.com/glaser/1e5565ad948b3c0c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f826c218f9bc3652.webp",
+      "thumb": "https://media.aquatome.com/glaser/f826c218f9bc3652-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/sinobdella-sinensis-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "3v6m0lkM250",
+      "title": "翩若惊鸿，婉若游龙——中华刺鳅",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "c29B2pSEIcQ",
+      "title": "【微泩记20】白眉小龙：中华刺鳅",
+      "durationSec": 85,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JKDheqQhup8",
+      "title": "原生鱼中华刺鳅这么有意思，鱼缸内如何饲养",
+      "durationSec": 132,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "RED9p5CkPmk",
+      "title": "【鸫龟先生】当齐白石的虾遇见带刺的泥鳅，谁会是鱼缸里的王者？中华刺鳅吃什么食物？爱吃活食和小鲜肉，刺鳅喂食视频。中华刺鳅怎么养？小刀鳅鱼饲养方法，古法养鱼视频",
+      "durationSec": 111,
+      "lang": "zh-CN"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nuôi cá lươn",
+        "nền cát mềm thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "giun cho cá cảnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

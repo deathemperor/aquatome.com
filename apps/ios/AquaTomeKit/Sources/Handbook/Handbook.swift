@@ -310,6 +310,46 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       }
     }
 
+    /// One chip of Khám phá's row, whole as the site writes it (`AppChip`, apps/site/src/lib/app-index.ts; Design's
+    /// spec-chips.md): the app sorts and works out none of it.
+    public struct Chip: Codable, Sendable, Hashable, Identifiable {
+      public let id: String
+      /// The keepers' word for the group, in this index's language.
+      public let name: String
+      /// Its place in the row, from 1.
+      public let order: Int
+      /// How many fish and breed pages it holds.
+      public let count: Int
+      /// Those pages, by content id (`Item.contentId`), breeds included, in the site's order.
+      public let members: [String]
+      /// A member's photo whose fish a 3:2 frame keeps, and where the fish is in it.
+      public let img: String?
+      public let imgBox: PhotoBox?
+      /// The member whose photo `img` is, by content id: the chip's page names and links that fish, whose page credits the
+      /// photo. Nil from a site before it, or with no photo.
+      public let imgOf: String?
+      /// The guides about the group, written and on video, by index path in the index's order: empty where it has none.
+      public let guides: [String]
+      public let videos: [String]
+
+      public init(id: String, name: String, order: Int, count: Int, members: [String], img: String? = nil, imgBox: PhotoBox? = nil,
+                  imgOf: String? = nil, guides: [String] = [], videos: [String] = []) {
+        self.id = id; self.name = name; self.order = order; self.count = count; self.members = members; self.img = img
+        self.imgBox = imgBox; self.imgOf = imgOf; self.guides = guides; self.videos = videos
+      }
+
+      enum CodingKeys: String, CodingKey { case id, name, order, count, members, img, imgBox, imgOf, guides, videos }
+      public init(from decoder: any Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
+        id = try c.decode(String.self, forKey: .id); name = try c.decode(String.self, forKey: .name)
+        order = try c.decode(Int.self, forKey: .order); count = try c.decode(Int.self, forKey: .count)
+        members = try c.decode([String].self, forKey: .members)
+        img = read(.img); imgBox = (read(.imgBox) as PhotoBox?)?.valid; imgOf = read(.imgOf)
+        guides = read(.guides) ?? []; videos = read(.videos) ?? []
+      }
+    }
+
     public var groups: [Group]
     public var fish: [String]
     public var plants: [String]
@@ -317,12 +357,16 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     /// Nil from a site before it: Khám phá shows `fish`, `plants` and `guides`.
     public var browse: Browse?
     public var days: [Day]
+    /// Khám phá's chips row, in its `order`; none from a site before it.
+    public var chips: [Chip]
 
-    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = [], browse: Browse? = nil, days: [Day] = []) {
+    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = [], browse: Browse? = nil, days: [Day] = [],
+                chips: [Chip] = []) {
       self.groups = groups; self.fish = fish; self.plants = plants; self.guides = guides; self.browse = browse; self.days = days
+      self.chips = chips
     }
 
-    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides, browse, days }
+    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides, browse, days, chips }
 
     public init(from decoder: any Decoder) throws {
       let c = try decoder.container(keyedBy: CodingKeys.self)
@@ -331,6 +375,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       browse = read(.browse)
       // Day by day: one this app can't read costs only that day, which goes to the app's own picks.
       days = (read(.days) as [Lenient<Day>]?)?.compactMap(\.value) ?? []
+      // Chip by chip, likewise: one this app can't read costs only that chip.
+      chips = ((read(.chips) as [Lenient<Chip>]?)?.compactMap(\.value) ?? []).sorted { $0.order < $1.order }
     }
   }
 

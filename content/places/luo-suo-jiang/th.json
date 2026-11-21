@@ -3,6 +3,12 @@
   "name": "หลัวสั่วเจียง",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T18:50:14.140Z",
+    "why": "The Thai name is a transliteration of Luo Suo Jiang (Luosuo River) but lacks the river word \"แม่น้ำ\" that Thai atlases use for rivers, and \"เจียง\" is attached instead of being treated as the kind word."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

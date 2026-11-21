@@ -1,9 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/scotcat/5b9874ed96e96319.webp": "406060e09ac44002"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1439782,
   "pass": "done",
@@ -12,5 +10,9 @@
    "agree": 0
   }
  },
- "commons": "2026-11-17"
+ "commons": "2026-11-17",
+ "gbif": {
+  "key": 2344897,
+  "next": null
+ }
 }

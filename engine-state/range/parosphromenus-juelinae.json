@@ -1,10 +1,27 @@
 {
   "id": "parosphromenus-juelinae",
   "native": {
-    "input": "eaae939eb79b6b28",
-    "at": "2026-11-12T13:29:05.219Z",
-    "claims": [],
-    "regions": [],
+    "input": "1ecd19bfbb762387",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "It is known only from a few forest streams and swamps in a single river system on Bangka Island, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bangka Island",
+        "source": "bwaquatics",
+        "quote": "It is known only from a few forest streams and swamps in a single river system on Bangka Island, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -17,8 +34,10 @@
     "status": "ACCEPTED",
     "taxonKey": 11372239,
     "datasets": [],
-    "native": [],
+    "native": [
+      "ID"
+    ],
     "requests": 2,
-    "at": "2026-11-12T13:29:05.219Z"
+    "at": "2026-11-21T01:22:16.258Z"
   }
 }

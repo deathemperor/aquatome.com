@@ -3,6 +3,12 @@
   "name": "ซูวานี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:53:49.060Z",
+    "why": "ซูวานี is a fine Thai transliteration of Suwannee, but the place is a region/drainage (the Suwannee River basin), and Thai atlases usually write the river as แม่น้ำซูวานี with the kind word, so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

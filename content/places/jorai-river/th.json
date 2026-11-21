@@ -3,6 +3,12 @@
   "name": "โชไร",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-19T07:48:21.776Z",
+    "why": "\"โชไร\" is Thai script and plausibly transliterates \"Jorai\", but it omits the Thai kind word \"แม่น้ำ\" (river) that an atlas would write, so it is incomplete."
+  },
   "quality": {
     "score": 0.62,
     "indexable": false

@@ -3,6 +3,12 @@
   "name": "อาไนมาลัย",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.45,
+    "at": "2026-11-20T07:09:51.748Z",
+    "why": "\"อาไนมาลัย\" is a transliteration of Anaimalai but omits the Thai kind word for hills (เทือกเขา/เนินเขา), so it names the place incompletely."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

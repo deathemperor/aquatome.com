@@ -17,7 +17,10 @@
       ],
       "regions": [
         "Rakhine Yoma",
-        "Arakan"
+        "Arakan",
+        "Rakhine mountain range",
+        "Kamyit Chaung",
+        "Baw Di Chaung"
       ],
       "sources": [
         "glaser",
@@ -40,6 +43,30 @@
           "regions": [
             "Rakhine Yoma",
             "Arakan"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "The Panda Garra is native to the Rakhine mountain range in Western Myanmar.",
+          "countries": [],
+          "regions": [
+            "Rakhine mountain range"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kamyit Chaung river it was collected alongside Opsarius barna, Rasbora daniconius, R. rasbora, Aplocheilus panchax, Lepidocephalichthys berdmorei, Batasio elongatus, Awaous personatus, Sicyopterus punctatus plus unidentified Danio, Eleotris, Redigobius, Mastacembelus and Microphis species as well as G. propulvinus, another previously unknown congener.",
+          "countries": [],
+          "regions": [
+            "Kamyit Chaung"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Baw Di Chaung is the third locality covered in the paper.",
+          "countries": [],
+          "regions": [
+            "Baw Di Chaung"
           ]
         }
       ]
@@ -336,12 +363,6 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/panda-garra-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Panda Garra are easy to keep but very hard to breed. They are seasonal breeders and need special conditions. In nature they breed from May to July (rainy season), so the water should be highly oxygenated with neutral pH, and low TDS (40–60) or conductivity of 80 µS.</p><p>After sexing, choose a male and a female and prepare a tank for them during breeding. Feeding the pair protein-rich foods can help.</p><p>If successful, the pair completes the mating ritual. The female normally lays eggs in the morning, and eggs hatch within 24–36 hours.</p><p>Panda Garra have no parental instinct and should be removed immediately after the eggs are laid, otherwise they can eat all of them.</p><p>The rearing tank should follow the usual conditions for the species. A sponge filter is a good idea to prevent fry being sucked into the filter.</p><p>Fry do not need feeding initially; they live off their egg sacs for the first 3 days. They are then fed yolk particles and move on to artemia within a week.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/garra_flavatra_en/",
-      "html": "<p>Lexicon: Garra: an indigenous name for those fishes in Bengal. flavatra: Latin, means “yellow-black”, referring to the coloration.</p><p>Text &amp; photos: Frank Schäfer</p>"
     },
     {
       "key": "notes",

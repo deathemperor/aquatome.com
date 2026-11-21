@@ -1,8 +1,8 @@
 {
   "id": "cyprinodon-variegatus",
   "native": {
-    "input": "7dbcd939f0a25dca",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "6bc66617baecb16f",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "US",
@@ -35,14 +35,6 @@
         "quote": "Type locality is given as 'Carolinas, U.S.A.', but this species has a huge distribution extending southwards from Massachusetts state, northeastern U.S.A. along the Atlantic coast as far as northeastern Mexico, the Bahamas and Antilles, with a handful of records from northeastern South America (Venezuela).",
         "words": "Venezuela",
         "ok": true
-      },
-      {
-        "code": "BS",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "On San Salvador Island, Bahamas, it appears to be the parent of a species group occurring in sympatry and exploiting diverse but specific resources with some spectacular morphological adaptations.",
-        "words": "Bahamas",
-        "ok": true
       }
     ],
     "regions": [
@@ -51,6 +43,12 @@
         "source": "seriouslyfish",
         "quote": "On San Salvador Island, Bahamas, it appears to be the parent of a species group occurring in sympatry and exploiting diverse but specific resources with some spectacular morphological adaptations.",
         "country": "BS",
+        "ok": true
+      },
+      {
+        "name": "Antilles",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Carolinas, U.S.A.', but this species has a huge distribution extending southwards from Massachusetts state, northeastern U.S.A. along the Atlantic coast as far as northeastern Mexico, the Bahamas and Antilles, with a handful of records from northeastern South America (Venezuela).",
         "ok": true
       }
     ],

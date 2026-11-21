@@ -3,6 +3,12 @@
   "name": "Bondele",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:49:25.546Z",
+    "why": "\"Bondele\" is a proper name that stays unchanged in Indonesian, but the place is a region and Indonesian atlases would write the kind word, so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

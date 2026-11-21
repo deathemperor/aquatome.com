@@ -1,8 +1,13 @@
 {
   "slug": "trang",
-  "name": "Trang",
+  "name": "Provinsi Trang",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-19T07:51:06.701Z"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

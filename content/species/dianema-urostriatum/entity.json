@@ -16,8 +16,7 @@
         "BR"
       ],
       "regions": [
-        "Amazon",
-        "Amazon River"
+        "Amazon"
       ],
       "sources": [
         "seriouslyfish",
@@ -26,20 +25,12 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Parts of the Brazilian Amazon basin.",
+          "quote": "The flagtail catfish, Dianema urostriatum, is a peaceful callichthyid catfish from parts of the Brazilian Amazon basin.",
           "countries": [
             "BR"
           ],
           "regions": [
             "Amazon"
-          ]
-        },
-        {
-          "source": "planetcatfish",
-          "quote": "South America: Amazon River basin.",
-          "countries": [],
-          "regions": [
-            "Amazon River"
           ]
         }
       ]
@@ -178,6 +169,10 @@
       {
         "source": "planetcatfish",
         "value": 8.4
+      },
+      {
+        "source": "glaser",
+        "value": 10
       }
     ],
     "tankCm": [
@@ -205,6 +200,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
       "html": "<p>Size: 84 mm SL. Identification: horizontal black and white alternating stripes on the tail fin; the only other member of the genus has a clear caudal fin and is generally smaller.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/dianema-urostriatum-2/",
+      "html": "<p>The most beautiful species of the Callichthyinae relationship is undoubtedly Dianema urostriatum. The striking black and white striped caudal fin indicates its origin: water coloured dark brown by humic substances. Here, fish that prefer to live in groups need signals that allow them to recognize themselves even in poor visibility. Cardinal tetras, which live in the same biotope, have their neon stripe, Dianema urostriatum the striped tail fin.</p>"
     },
     {
       "key": "distribution",
@@ -267,6 +268,12 @@
       "html": "<p>Will take a variety of prepared foods, flake and frozen, for maintenance.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/dianema-urostriatum-2/",
+      "html": "<p>They feed on every usual dry, frozen and live food for ornamental fish; plants are not bothered.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dianema-urostriatum",
@@ -277,6 +284,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
       "html": "<p>Very docile fish, mid-water swimmer; an ideal larger catfish for the community aquarium.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/dianema-urostriatum-2/",
+      "html": "<p>They are peaceful journeymen that hardly become dangerous to other fish despite the stately size (over 10 cm); they have only a small mouth. In contrast to most other related species, D. urostriatum is much on the move in the free water.</p>"
     },
     {
       "key": "dimorphism",
@@ -301,6 +314,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=124",
       "html": "<p>Possible. Must feed live foods and run through dry season / wet season cycle. Eggs attached to floating cover, placed in circular grouping similar to Corys with similarly sized eggs. No bubble nest was present at time of spawning.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/dianema-urostriatum-2/",
+      "html": "<p>The males build a foam nest in the breeding season, similar to the labyrinth fish, and guard the spawn until the young are free-swimming.</p>"
     },
     {
       "key": "notes",
@@ -337,6 +356,36 @@
       "sourceUrl": "https://www.scotcat.com/callichthyidae/dianema_urostriatum.htm",
       "caption": "Dianema urostriatum: showing head profile",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/89fdf0a7e564480b.webp",
+      "thumb": "https://media.aquatome.com/glaser/89fdf0a7e564480b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/dianema-urostriatum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/820f17c77938d8d1.webp",
+      "thumb": "https://media.aquatome.com/glaser/820f17c77938d8d1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/dianema-urostriatum-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/42116188002e0ee8.webp",
+      "thumb": "https://media.aquatome.com/glaser/42116188002e0ee8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/dianema-urostriatum-2/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -392,5 +441,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-20"
 }

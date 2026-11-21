@@ -1,0 +1,107 @@
+{
+  "id": "hoplomyzon-sexpapilostoma",
+  "native": {
+    "input": "8d497bc4a6aa690c",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Orinoco River basin of Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "In Colombia it occurs in rivers Ariari, Caja, Upamena, Cusiana, and Cravo Norte.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "In Venezuela the species is reported from rivers Torbes, Bumbum, La Yuca, Masparro, Boconó, Guanare, Las Marías and Guache, all in Apure drainage.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "scotcat",
+        "quote": "South America: Orinoco River basin of Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Masparro",
+        "source": "scotcat",
+        "quote": "Hoplomyzon sexpapilostoma was described from Masparro river at Masparro dam, Barinas state (Taphorn and Marrero 1990).",
+        "ok": true
+      },
+      {
+        "name": "Ariari",
+        "source": "scotcat",
+        "quote": "In Colombia it occurs in rivers Ariari, Caja, Upamena, Cusiana, and Cravo Norte.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Guaviare",
+        "source": "scotcat",
+        "quote": "It is widely distributed in Western Andean tributaries of the Orinoco basin, along the piedmont region from the river Ariari (Guaviare drainage) to the Guache river in Portuguesa drainage (Taphorn and Marrero 1990).",
+        "ok": true
+      },
+      {
+        "name": "Apure",
+        "source": "scotcat",
+        "quote": "In Venezuela the species is reported from rivers Torbes, Bumbum, La Yuca, Masparro, Boconó, Guanare, Las Marías and Guache, all in Apure drainage.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hoplomyzon sexpapilostoma",
+    "status": "ACCEPTED",
+    "taxonKey": 2340538,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        21
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        8
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

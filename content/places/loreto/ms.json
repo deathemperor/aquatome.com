@@ -3,6 +3,12 @@
   "name": "Loreto",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T17:34:30.337Z",
+    "why": "The name \"Loreto\" keeps the Spanish spelling with no kind word, but a Malaysian atlas would write the region as \"Wilayah Loreto\" or \"Wilayah Loreto\" (Peru's regions are usually called wilayah), so the bare name is incomplete."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

@@ -3,25 +3,29 @@
   "name": "Cá lau kiếng LDA31",
   "altNames": [
     "Cá tỳ bà LDA 31",
-    "LDA 31"
+    "LDA 31",
+    "Cá tỳ bà chấm cam",
+    "Orange Spot Pleco",
+    "LDA031"
   ],
   "sections": {
     "distribution:glaser": "<p>LDA 31 \"điển hình\" có nguồn gốc từ Peru, đốm thường hơi ngả trắng. Cá từ Venezuela có đốm màu cam rất sáng, nhưng người ta cũng đã xác định chúng là LDA 31.</p>",
     "diet:glaser": "<p>Đây là loài ăn gỗ. Chỉ cần nhìn hàm răng hình thìa của chúng là thấy ngay. (Hypancistrus thì khác: răng nhọn và ăn thịt.)</p>",
-    "notes:glaser": "<p>Tạp chí Datz số 3/2018 đã công bố một mã L mới là L501. Đây là một loài Hypancistrus từ Venezuela, họ hàng gần với Hypancistrus inspector/L201/L339. Điểm khác với các họ hàng đã biết là vây hầu như không có đốm, còn đốm trên thân ngả hồng hoặc cam chứ không trắng.</p><p>Panaqolus albomaculatus/LDA 31 từ Venezuela cũng có đốm màu cam rất sáng. Những con được xem xét dài 9–12 cm, gần như đã lớn hết cỡ. Từ lâu người ta đã biết LDA 31 là loài rất nhiều biến thể (xem Wels Atlas tập 2).</p><p>Không còn nghi ngờ gì nữa, chúng là loài ăn gỗ. Vậy những con cá từ Venezuela này chỉ đơn giản là LDA 31 rất đẹp.</p>"
+    "notes:glaser": "<p>Tạp chí Datz số 3/2018 đã công bố một mã L mới là L501. Đây là một loài Hypancistrus từ Venezuela, họ hàng gần với Hypancistrus inspector/L201/L339. Điểm khác với các họ hàng đã biết là vây hầu như không có đốm, còn đốm trên thân ngả hồng hoặc cam chứ không trắng.</p><p>Panaqolus albomaculatus/LDA 31 từ Venezuela cũng có đốm màu cam rất sáng. Những con được xem xét dài 9–12 cm, gần như đã lớn hết cỡ. Từ lâu người ta đã biết LDA 31 là loài rất nhiều biến thể (xem Wels Atlas tập 2).</p><p>Không còn nghi ngờ gì nữa, chúng là loài ăn gỗ. Vậy những con cá từ Venezuela này chỉ đơn giản là LDA 31 rất đẹp.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: LDA031, Orange Spot Pleco</li><li>Danh sách đỏ IUCN: Ít quan ngại (Least Concern), vì loài này phân bố rộng và các mối đe dọa chỉ có ở từng vùng nhỏ, nhưng kết quả đánh giá này cần được cập nhật lại (IUCN 2016).</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ. Ở Ecuador, loài này sống trong một nhánh của sông Rio Suno. Ở Peru, chúng có ở vùng thượng nguồn các sông Napo, Marañon và Ucayali.</p>",
+    "diet:scotcat": "<p>Mọi loài Panaque và Panaqolus đều ăn gỗ, nên bể nuôi chúng phải có lũa. Ngoài ra, cho ăn thêm rau như dưa chuột, bí ngòi và thức ăn viên chìm.</p>",
+    "behaviour:scotcat": "<p>Loài này hiền, nhưng không hợp với bể thủy sinh vì chúng ăn cây.</p>",
+    "dimorphism:scotcat": "<p>Con đực có gai nắp mang (interopercular) dài, và trên thân mọc nhiều gai nhỏ như lông.</p>",
+    "notes:scotcat": "<p>Panaque và Panaqolus khác nhau ở chỗ này: Panaque có miệng hình bầu dục, hàm mang những chiếc răng hình thìa rất lớn, mỗi chiếc chỉ có một mấu, xếp thành hình chữ V. Panaqolus thì có ít răng hình thìa hơn, và các loài trong chi này cũng nhỏ con hơn. Cá P. albomaculatus ở những vùng khác nhau có thể khác nhau về kích thước và màu chấm. Cá có lẽ đến từ Ecuador có kiểu hoa văn khác với cá từ Peru.</p><p>Nguồn gốc tên gọi: albomaculatus ghép từ albo-, gốc là albus (tiếng La-tinh), nghĩa là trắng, và maculatus (tiếng La-tinh), nghĩa là có đốm. Tên này chỉ những chấm nhỏ, tròn, màu sáng trên đầu, thân và vây cá.</p>",
+    "references:scotcat": "<p>All L-Numbers Datz Special. Habitat, Care &amp; Diet. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p. The ETYFish Project Fish Name Etymology Database. Velasquez, M., Chocano, L. &amp; Arguello, P. 2016. Panaqolus albomaculatus. The IUCN Red List of Threatened Species 2016.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
-  },
-  "held": {
-    "checks": [
-      "source"
-    ],
-    "at": "2026-11-19"
+      "glaser": 0.85,
+      "scotcat": 0.9
+    }
   }
 }

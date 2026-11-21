@@ -3,6 +3,12 @@
   "name": "La Plata",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T17:38:05.666Z",
+    "why": "The place is the La Plata drainage basin (Río de la Plata system), which Indonesian atlases call \"Cekungan La Plata\" or \"Daerah Aliran Sungai La Plata\", and bare \"La Plata\" is also the Argentine city, so the name is ambiguous."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

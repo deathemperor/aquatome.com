@@ -3,6 +3,12 @@
   "name": "Fianarantsoa",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:50:19.688Z",
+    "why": "Fianarantsoa is a region of Madagascar, and Indonesian atlases would write \"Daerah Fianarantsoa\" or similar with the kind word, but the bare proper name is acceptable as a spelling though the region kind word is missing."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

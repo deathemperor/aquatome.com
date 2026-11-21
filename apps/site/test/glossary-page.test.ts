@@ -46,6 +46,25 @@ test('a term\'s other names never repeat its English line, nor print its link ph
   expect(glossaryParts('vi', withPhrase, term(ph, { definition: 'pH khác với độ cứng của nước.' })).definition).toContain('<a href="/vi/thuat-ngu/gh/" class="gl"')
 })
 
+// The chief of staff, 19 Nov 2026: "Oxy hoà tan" printed as Oxy hòa tan's other name, its own name with the tone mark on the
+// other vowel. A name is one name in either placing (toneKey; its cases: packages/schema/test/text.test.ts).
+test('a term\'s other names never repeat its name, nor each other, with a tone mark on another vowel', async () => {
+  const c = await getContent('vi')
+  const gh = c.glossary.find(x => x.id === 'gh')!
+  const p = glossaryParts('vi', c, term(gh, { name: 'Oxy hòa tan', altNames: ['Oxy hoà tan', 'thuỷ sinh', 'thủy sinh', 'Ôxy hòa tan'] }, 'Dissolved oxygen'))
+  expect(p.otherNames).toEqual(['thuỷ sinh', 'Ôxy hòa tan'])
+  // The engine keeps a name's other placing as a link phrase (Codex, 19 Nov 2026): another term's page links it, it counts
+  // toward the term, and its own page doesn't link it to itself.
+  const variant = 'độ cứng tổng hoà tan'
+  const withVariant = { ...c, glossary: c.glossary.map(x => (x.id === 'gh' ? term(x, { linkNames: [variant] }) : x)) }
+  const ph = c.glossary.find(x => x.id === 'ph')!
+  expect(glossaryParts('vi', withVariant, term(ph, { definition: `pH khác với ${variant}.` })).definition).toContain('<a href="/vi/thuat-ngu/gh/" class="gl"')
+  expect(nameCount([variant])(`Đo ${variant} mỗi tuần.`)).toBe(1)
+  const self = glossaryParts('vi', withVariant, term(withVariant.glossary.find(x => x.id === 'gh')!, { definition: `GH là ${variant}.` }))
+  expect(self.definition).not.toContain('/vi/thuat-ngu/gh/')
+  expect(self.otherNames).not.toContain(variant)
+})
+
 test('a page\'s link to a term is found however it is written: either quote, a #part; never another address', () => {
   expect(linkedTermPaths('<a href="/vi/thuat-ngu/ph/" class="gl">pH</a> <a href=\'/vi/thuat-ngu/gh/\'>GH</a> <a href="/vi/thuat-ngu/lua/#loai">lũa</a>')).toEqual(['/vi/thuat-ngu/ph/', '/vi/thuat-ngu/gh/', '/vi/thuat-ngu/lua/'])
   expect(linkedTermPaths('<a href="/vi/thuat-ngu/">Thuật ngữ</a> <a href="/vi/huong-dan/ph/">pH</a> <a href="/vi/thuat-ngu/ph/x/">x</a> data-href="/vi/thuat-ngu/kh/"')).toEqual([])
@@ -128,7 +147,15 @@ test('a term with a fuller entry shows its photo, its text under headings, the t
   expect(dom.querySelectorAll('.body h2').map(h => h.textContent.trim())).toEqual(['Các loại', 'Trong bể của bạn'])
   expect(dom.querySelector('.body a[href="/thuat-ngu/ph/"]')).toBeTruthy()
   expect(dom.querySelectorAll('.related a').map(a => a.getAttribute('href'))).toEqual(['/thuat-ngu/chu-trinh-nito/', '/thuat-ngu/ph/'])
-  expect(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href'))).toEqual(['https://www.seriouslyfish.com/glossary/shoal'])
+  expect(dom.querySelectorAll('.refs a').map(a => a.getAttribute('href'))).toEqual(['https://www.seriouslyfish.com/glossary/shoal', 'https://example.com/ca-dan'])
+})
+
+// A source titled in Vietnamese is marked as Vietnamese, and a page in another language says it is, as a guide's and a
+// breed's do: on 19 Nov 2026 the live checks found three term pages in Indonesian, Thai and Malay printing one bare.
+test('a source titled in Vietnamese is marked as Vietnamese, and an Indonesian, Thai or Malay term page says so', () => {
+  const refs = (path: string) => page(path).dom.querySelectorAll('.refs li').map(li => [li.textContent.trim(), li.querySelector('a')?.getAttribute('lang') ?? null])
+  expect(refs('/thuat-ngu/ca-dan/')).toEqual([['Shoal', null], ['Cá bầy đàn: nuôi bao nhiêu con là đủ', 'vi']])
+  expect(refs('/ms/istilah/istilah-uji-melayu/')).toEqual([['Shoal', null], ['Cá bầy đàn: nuôi bao nhiêu con là đủ (bahasa Vietnam)', 'vi']])
 })
 
 // Every term page as the Design Lead's board has it (14 Nov 2026): a long term's parts in the fish page's jump row with

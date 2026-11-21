@@ -3,6 +3,12 @@
   "name": "โซลิมอยส์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:58:00.002Z",
+    "why": "The Thai transliteration of Solimões is plausible, but it leaves out the kind word แม่น้ำ that Thai uses for a river, and the source uses the name for the river."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

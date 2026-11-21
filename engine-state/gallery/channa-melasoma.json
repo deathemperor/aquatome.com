@@ -2,7 +2,10 @@
  "queue": [],
  "judged": [],
  "hashes": {
-  "https://media.aquatome.com/seriouslyfish/ce476ece616866fa.webp": "68421e074768f0f8"
+  "https://media.aquatome.com/seriouslyfish/ce476ece616866fa.webp": "68421e074768f0f8",
+  "https://media.aquatome.com/glaser/240ba2d030100a19.webp": "72430f732f149c40",
+  "https://media.aquatome.com/glaser/b2a45ecfa78fcbba.webp": "c91f1f47317cb18b",
+  "https://media.aquatome.com/glaser/409e027d7a8d6498.webp": "8b8a0b4f62e30c73"
  },
  "commons": "2026-11-06",
  "inat": {
@@ -15,6 +18,9 @@
  },
  "gbif": {
   "key": 2391562,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

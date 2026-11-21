@@ -3,6 +3,12 @@
   "name": "กาตังกา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:45:38.604Z",
+    "why": "Thai atlases write Katanga as \"กาตางกา\" or \"คาตังกา\"; the Royal Institute spelling is \"กาตังกา\" and is acceptable as a transliteration, but a region would usually carry the word \"แคว้น\" or \"จังหวัด\", which is missing here."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

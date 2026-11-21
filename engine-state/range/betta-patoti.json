@@ -1,8 +1,8 @@
 {
   "id": "betta-patoti",
   "native": {
-    "input": "8ab113a43c183dd0",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "6dce76011bc7c68a",
+    "at": "2026-11-19T12:55:32.239Z",
     "claims": [
       {
         "code": "ID",
@@ -26,6 +26,18 @@
         "source": "seriouslyfish",
         "quote": "Type locality is the Mangar River some 25 km from the seaport of Balikpapan City, East Kalimantan (Kalimantan Timur) province, Indonesian Borneo but the species apparently ranges into Kutai Kartanegara Regency to the north.",
         "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mangar River",
+        "source": "bwaquatics",
+        "quote": "Betta patoti was described in 1922 from the Mangar River near Balikpapan, East Kalimantan, Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "bwaquatics",
+        "quote": "Betta patoti was described in 1922 from the Mangar River near Balikpapan, East Kalimantan, Borneo.",
         "ok": true
       }
     ],

@@ -5,7 +5,8 @@ name: Auto-fix from an issue
 #
 # Three jobs keep the agent's work away from write access: `agent` holds only the Claude token and hands over a patch;
 # `verify` runs the patched code with no secrets; `publish` holds the write token but runs no repository code, only the
-# publish script as it is on main, and refuses patches to the workflows or to the fix and watch scripts. While
+# publish script as it is on main, and refuses patches to the workflows or to the fix and watch scripts. `stopped` holds
+# only the issues token and runs no repository code: it tells the issue when no fix came. While
 # CLAUDE_ON_CI is off, none of those three run: the run stays green and says Claude is paused.
 #
 # Two more keep the auto-fix to its line in the daily ceilings (packages/engine/src/ceilings.json): `budget` counts what
@@ -77,6 +78,10 @@ jobs:
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright, and Claude
         run: scripts/install-browser.sh chromium && npm install -g @anthropic-ai/claude-code
+      # The agent's every command runs in the CLI's sandbox, never outside it: its packages, and a sandbox started
+      # before any session is paid for (from 12 Nov 2026 none could start, and the agent could only read).
+      - name: The shell sandbox the agent works in
+        run: scripts/sandbox-ready.sh
       - name: Read the issue
         env:
           GH_TOKEN: ${{ github.token }}
@@ -121,12 +126,19 @@ jobs:
             budget=(--max-budget-usd "$LEFT")
           fi
           schema='{"type":"object","required":["status","summary"],"additionalProperties":false,"properties":{"status":{"enum":["fixed","not-reproduced","needs-person"]},"summary":{"type":"string"},"check":{"type":"string"}}}'
+          # The sandbox is said here, not left to the defaults of whichever CLI was installed above: on; no command let
+          # outside it, the model's own ask to leave it ignored; and if the CLI can't start one, it stops before the
+          # session, where by default it would run every command unsandboxed. --settings applies with no settings
+          # file read (--setting-sources '').
+          sandbox='{"sandbox":{"enabled":true,"failIfUnavailable":true,"allowUnsandboxedCommands":false}}'
           claude -p --model "${FIX_MODEL:-opus}" --output-format json --tools 'Read,Edit,Write,Bash,Glob,Grep' --allowedTools 'Read,Edit,Write,Bash,Glob,Grep' \
-            --setting-sources '' --strict-mcp-config "${budget[@]}" --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
+            --setting-sources '' --settings "$sandbox" --strict-mcp-config "${budget[@]}" --json-schema "$schema" < scripts/site-fix-prompt.md > /tmp/agent.json || true
       - name: Turn the agent's work into a patch
         run: |
           mkdir -p /tmp/fix
-          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:r.subtype==="error_max_budget_usd"?"The agent stopped before it finished: it had spent what was left of the auto-fix ceiling for today (packages/engine/src/ceilings.json).":"The agent did not finish: "+String(r.result??"no output").slice(0,500)};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
+          # A session that didn't finish says so in our words, never the CLI's, as this log and the issue are public (the
+          # chief of staff, 19 Nov 2026): the usage limit with its reset, or an error by a hash of what the CLI said.
+          node -e 'let r={};try{r=JSON.parse(require("fs").readFileSync("/tmp/agent.json","utf8"))}catch{};const o=r.structured_output??{status:"needs-person",summary:r.subtype==="error_max_budget_usd"?"The agent stopped before it finished: it had spent what was left of the auto-fix ceiling for today (packages/engine/src/ceilings.json).":(()=>{const t=String(r.result??"");if(/hit your .*limit|usage limit|limit reached|rate.?limit/i.test(t)){const at=/resets ((?:[A-Z][a-z]{2} \d{1,2}, )?\d{1,2}(?::\d\d)?[ap]m \(UTC\))/.exec(t);return "The agent did not finish: the Claude usage limit"+(at?", until "+at[1]:"")+". Start it again after that."}return t?"The agent did not finish: an error ("+require("crypto").createHash("sha256").update(t).digest("hex").slice(0,8)+").":"The agent did not finish: no output."})()};require("fs").writeFileSync("/tmp/fix/result.json",JSON.stringify(o));console.log(o.status+": "+o.summary)'
           # What the session says it cost, for the job that keeps the cost line (`cost`, below). A file beside the
           # patch, in the artifact this job hands on anyway: as one of this job's outputs it would be an input of that
           # job's step, and a step's inputs are printed in its public log before the step runs.
@@ -206,6 +218,27 @@ jobs:
           name: cost-log-autofix-${{ github.run_attempt }}
           path: ${{ runner.temp }}/aquatome-cost-autofix.jsonl
           if-no-files-found: ignore
+  # The day's count or the agent's job ended without handing on a fix (its sandbox couldn't start, an install failed,
+  # the session ran out of time), so `publish` doesn't run: the issue is told so in fixed words, with the run's link, and
+  # waits for a person. Nothing that job made is read here.
+  stopped:
+    name: Say on the issue that no fix came
+    needs: [budget, agent]
+    if: always() && vars.CLAUDE_ON_CI != 'off' && (needs.budget.result == 'failure' || needs.agent.result == 'failure' || needs.agent.result == 'cancelled')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Comment on the issue and ask for a person
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          [[ "$ISSUE" =~ ^[0-9]+$ ]] || { echo "not an issue number: $ISSUE"; exit 1; }
+          gh issue comment "$ISSUE" -R "$GITHUB_REPOSITORY" --body "The auto-fix stopped before it handed on a fix, so none was tried here. Where it stopped is in the run: $RUN"
+          gh label create needs-person -R "$GITHUB_REPOSITORY" --color 5319E7 --description 'The automatic fix could not handle it' 2>/dev/null || true
+          gh issue edit "$ISSUE" -R "$GITHUB_REPOSITORY" --add-label needs-person
   # watch.yml starts this workflow for a new problem. While the switch is off that run stays green and says why it did nothing.
   paused:
     name: Claude is paused

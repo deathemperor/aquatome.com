@@ -1,8 +1,13 @@
 {
   "slug": "river-patuca",
-  "name": "ปาตูกา",
+  "name": "แม่น้ำปาตูกา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-19T18:53:06.128Z"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

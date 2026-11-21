@@ -1,9 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/38b89a1ede1e5f7b.webp": "084c6c71793d4d18"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1642921,
   "pass": "done",
@@ -19,6 +17,10 @@
  },
  "openverse": {
   "next": null
+ },
+ "inatNc": {
+  "after": 0,
+  "done": true
  },
  "exhausted": "2026-11-18"
 }

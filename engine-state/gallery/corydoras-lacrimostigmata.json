@@ -3,11 +3,7 @@
  "judged": [
   "File:FozIvai.png"
  ],
- "hashes": {
-  "https://media.aquatome.com/seriouslyfish/cf97d9825f52f0e3.webp": "4c0c1c0f0f0f9b48",
-  "https://media.aquatome.com/seriouslyfish/6db687b0655ae163.webp": "98343e5f7d349490",
-  "https://media.aquatome.com/seriouslyfish/d768237585d27c50.webp": "90341e2f3c349490"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1567643,
   "pass": "done",
@@ -19,6 +15,9 @@
  "commons": "2026-11-08",
  "gbif": {
   "key": 8161736,
+  "next": null
+ },
+ "openverse": {
   "next": null
  }
 }

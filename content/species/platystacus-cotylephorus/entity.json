@@ -29,7 +29,8 @@
       "regions": [],
       "sources": [
         "planetcatfish",
-        "seriouslyfish"
+        "seriouslyfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -64,7 +65,7 @@
     "records": {
       "taxonKey": 2340512,
       "total": 97,
-      "fetched": "2026-11-12",
+      "fetched": "2026-11-20",
       "countries": [
         [
           "GF",
@@ -230,6 +231,13 @@
           "min": 22,
           "max": 25
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
       }
     ],
     "ph": [
@@ -246,6 +254,13 @@
           "min": 6,
           "max": 8.2
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
       }
     ],
     "sizeCm": [
@@ -256,6 +271,14 @@
       {
         "source": "seriouslyfish",
         "value": 32
+      },
+      {
+        "source": "glaser",
+        "value": 30
+      },
+      {
+        "source": "scotcat",
+        "value": 30
       }
     ],
     "gh": [
@@ -294,6 +317,18 @@
       "html": "<p>The banded banjo catfish, Platystacus cotylephorus, is an aspredinid catfish from estuarine and coastal waters of northern South America and Trinidad. Largely inactive and secretive, it is camouflaged to resemble a dead leaf and emerges only after dark, often lying buried in muddy substrates of fresh or brackish mangroves. During the spawning season females develop fleshy stalks called cotylephores on the belly, to which the eggs are attached until they hatch.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>This banjo catfish is by far the most desirable member of its family. It grows to approximately 30 cm and should be kept in larger tanks. In contrast to most other banjo catfishes, which usually do not move if possible, this species is comparatively lively.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern, due to its wide range, despite limited information available on the species (IUCN 2021).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
@@ -306,10 +341,22 @@
       "html": "<p>French Guiana, Guyana, Suriname, Venezuela, Brazil, Trinidad and Tobago.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<p>South America: coastal waters and lower portions of rivers of northern South America, from Venezuela to northern Brazil.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
       "html": "<p>Inhabits estuarine and coastal waters, where it occurs in both fresh and brackish conditions, particularly silt-laden mangroves. It's often found buried in muddy substrates.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>Platystacus cotylephorus inhabits the lower reaches of rivers and even tolerates brackish water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -324,6 +371,12 @@
       "html": "<p>Requires plenty of hiding places and dim lighting. Use sand as substrate, as the fish will partially bury themselves during daylight hours. Provide cover in the form of bogwood, branches and smooth rocks. The addition of some non-toxic, dried leaves (beech works well) would replicate the natural environment of the fish. The addition of salt is not essential, but it can be kept under brackish conditions if you wish.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<p>Very peaceful species which will do well in a quiet community tank where the tank mates are non-aggressive. Spends most of the day buried in the sand substrate. Provide sand as a substrate and a planted dark area to make them feel more secure in their surroundings. Can be kept in fresh or brackish water systems.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
@@ -334,6 +387,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
       "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 6.0–8.2, preferably around neutral. It won't do well in very acidic water.</li><li>Hardness: 12–30 dGH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>It can also be kept in pure freshwater, but the pH should then be neutral or slightly alkaline and the water should be medium hard, not soft.</p>"
     },
     {
       "key": "equipment",
@@ -354,6 +413,18 @@
       "html": "<p>Not a fussy feeder, and readily takes most foods that sink to the bottom. It relishes live and frozen foods such as bloodworm, earthworms etc., as well as sinking dried foods. Add food after lights out to ensure it receives its share.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>The banjo cats readily accept any type of frozen food, and most also feed on granulated dry food. Tubifex are regarded as a delicacy.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<p>Live and frozen foods such as mosquito larvae, tubifex, earthworms, whiteworms and small crustacea. Tablet foods and sunken flake that lies on the bottom is also taken.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
@@ -364,6 +435,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
       "html": "<p>It will eat small fish, but is peaceful with anything too large to be considered food. Tankmates that enjoy similar water conditions should be selected, such as livebearers, Central American cichlids and rainbowfish. In the brackish community it can be kept with archerfish, scats, monos, gobies and chromides. It's very peaceful towards its own kind, and can be kept both singly or in groups.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>The species is very peaceful, although very small tank inhabitants may be eaten.</p>"
     },
     {
       "key": "dimorphism",
@@ -378,6 +455,18 @@
       "html": "<p>Mature males have a much longer dorsal fin spine and larger pectoral fins than females. Colour is not a reliable guide.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>No differences between the sexes are known for sure, but it is said that females have a rather brown basic coloration while males have a black one. Quite different shapes of the dorsal fin can also be observed, which may possibly prove to be a way of sexing the fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<p>The males are more colourful than the females and also possess longer dorsal and pectoral fins.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=108",
@@ -390,10 +479,34 @@
       "html": "<p>Not yet fully achieved in aquaria, although the occasional egg-carrying female has been imported, and fry subsequently raised. Thought to spawn in brackish water, although some reports suggest it migrates into freshwater at some stage in the breeding cycle. It has a very interesting form of brood care. During the spawning season females develop a large number of fleshy stalks, known as cotylephores, on their bellies. The eggs are attached to these until they hatch, and it's thought that they may act in a similar way to the umbilical cord in mammals, providing the developing embryos with nutrients or oxygen. This would make sense given the oxygen and nutrient-deprived habitats in which the fish are often found.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>The species has not been bred successfully in aquaria so far, but it is known that the female attaches the eggs to the underside of her belly until they hatch. This is a unique case of brood care in fishes.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<p>The eggs stick to the female's abdomen after spawning. Short stalks appear with the eggs attached and only disappear when the eggs hatch.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
       "html": "<p>Not a particularly good catfish for the general community tank, as it's a largely inactive, secretive species that will only emerge and become active under cover of darkness. It is, nonetheless, an interesting aquarium subject for the enthusiast, exhibiting an incredible degree of camouflage. It's designed to resemble a dead leaf, and usually will not even swim to escape a net. When released into the aquarium will simply drift in the current until it hits the bottom. All members of the family occasionally shed their skins, although the exact reasons for this aren't known. They also have a novel method of propulsion, taking in water through the mouth and expelling it through the gills to provide thrust.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "html": "<p>No two specimens have exactly the same coloration.</p><p>Lexicon: Platystacus: ancient Greek, combines the words \"broad\" and \"needle\", referring to the shape of the body. cotylephorus: ancient Greek, means \"bearing cups\", referring to the honeycomb-like skin structure on the belly of the females, in which the eggs are deposited.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<p>Etymology: the genus name Platystacus: Platys = broad; acus = needle. The specific name cotylephorus means sites for the attachment of developing embryos, referring to the eggs hanging from the ventral area.</p>"
     },
     {
       "key": "references",
@@ -406,6 +519,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/platystacus-cotylephorus",
       "html": "<ul><li>Schäfer, F. (2019). Platystacus cotylephorus Aquarium Glaser. aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3 accessed 10 October 2026</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. Catfish Study Group; Information Sheet no.97. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Frederico, R.G. 2021. Platystacus cotylephorus. The IUCN Red List of Threatened Species 2021.</p>"
     }
   ],
   "photos": [
@@ -414,15 +533,15 @@
       "thumb": "https://media.aquatome.com/commons/084583952c57c175-480.webp",
       "width": 960,
       "height": 540,
-      "licence": "CC0",
-      "author": "5snake5",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platystacus_cotylephorus_-_Peitschenwels.jpg",
-      "caption": "Banded banjo",
       "large": {
         "url": "https://media.aquatome.com/commons/084583952c57c175-large.webp",
         "width": 2132,
         "height": 1200
-      }
+      },
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Platystacus_cotylephorus_-_Peitschenwels.jpg",
+      "caption": "Banded banjo"
     },
     {
       "url": "https://media.aquatome.com/scotcat/aad4d627a498ef54.webp",
@@ -456,9 +575,52 @@
       "sourceUrl": "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm",
       "caption": "Platystacus cotylephorus",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/7229babe2119e52e.webp",
+      "thumb": "https://media.aquatome.com/glaser/7229babe2119e52e-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a5a05848ef659434.webp",
+      "thumb": "https://media.aquatome.com/glaser/a5a05848ef659434-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b775cbc3e0f4e0c4.webp",
+      "thumb": "https://media.aquatome.com/glaser/b775cbc3e0f4e0c4-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/platystacus-cotylephorus-3/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "QU1KJePB9vo",
+      "title": "AQUAPUNK - Banjo Catfish - Platystacus cotylephorus pair feeding",
+      "durationSec": 144,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "d7H-PPkS2ic",
+      "title": "Solving the eel-tailed banjo catfish, Platystacus cotylephorus within the aquarium.",
+      "durationSec": 1427,
+      "lang": "en-GB"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -488,5 +650,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-19"
 }

@@ -3,6 +3,12 @@
   "name": "วากาแซสซา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T12:48:36.233Z",
+    "why": "The Thai is a plausible transliteration of Waccasassa, but the place is a region and the source describes the Waccasassa River as its eastern boundary. The name has no kind word, and \"วากาแซสซา\" is a guess at the spelling, not an attested atlas form."
+  },
   "quality": {
     "score": 0.72,
     "indexable": false

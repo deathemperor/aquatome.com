@@ -1,0 +1,41 @@
+{
+ "at": "2026-11-21T08:00:21Z",
+ "checks": [
+  "source"
+ ],
+ "findings": [
+  {
+   "check": "source",
+   "quote": "Một người nuôi kể lại: \"Nó mê bí ngòi và thức ăn viên cho cá da trơn.",
+   "why": "Quotes an unnamed keeper's first-person experience from the source site, a person the reader doesn't know."
+  }
+ ],
+ "text": {
+  "slug": "ca-lau-kieng-panaque-schaeferi",
+  "name": "Cá lau kiếng Panaque schaeferi L203",
+  "altNames": [
+   "Cá tỳ bà Panaque schaeferi",
+   "L203",
+   "L90c",
+   "LDA 65"
+  ],
+  "sections": {
+   "quickFacts:glaser": "<p>Vài loài Panaque ăn gỗ thuộc hàng lớn nhất trong các loài cá lau kiếng. Panaque schaeferi là một trong số đó, và loài này chắc chắn sẽ lớn tới khoảng 60 cm.</p>",
+   "notes:glaser": "<p>P. schaeferi được mô tả từ mẫu cá lớn, nên chưa bao giờ có xác nhận khoa học rằng cá non nào thuộc loài này. Nhưng người ta vẫn tạm coi con Panaque từ Peru, lúc đầu mang mã L90c rồi sau đổi thành L203, là cá non của P. schaeferi. Còn cá lớn P. schaeferi thì mang mã LDA 65.</p><p>Cá non L203/L90c thường không có hoa văn gì nổi bật. Nét đặc trưng của nhóm họ hàng L90 là một \"ô cửa sổ\" sáng màu ở gốc vây đuôi. Nhiều con non có ô này, nhưng nó mất đi khi cá lớn. L90 có lẽ chính là loài Panaque bathyphilus. Khác với L90, L203/L90c không có tia vây đuôi kéo dài.</p>",
+   "quickFacts:scotcat": "<ul><li>Mã L: L203, LDA065</li></ul>",
+   "distribution:scotcat": "<p>Nam Mỹ: Peru, từ lưu vực sông Ucayali đến Colombia (Leticia). Nơi thu mẫu chuẩn là sông Santa Ana thuộc lưu vực sông Aguaytia, trong Vườn quốc gia Cordillera Azul, tỉnh Padre Abad, vùng Ucayali, Peru, ở độ cao 250 m.</p>",
+   "maintenance:scotcat": "<p>Loài này ăn kiểu đó nên thải ra rất nhiều chất bẩn. Bể cần một lọc ngoài lớn, đủ sức lọc toàn bộ nước trong bể khoảng sáu lần mỗi giờ và tạo dòng chảy mạnh. Một con lớn hết cỡ cần bể dài từ 210 cm trở lên thì mới sống khỏe. Phải có lũa hoặc thứ gì tương tự trong bể, vì con cá da trơn này thích gặm gỗ và nó có sống lâu được hay không là nhờ vào đó. Ban ngày nó hay trốn, đến đêm mới ra ngoài đi tìm thức ăn.</p>",
+   "diet:scotcat": "<p>Mọi loài Panaque (Panaqolus) đều ăn gỗ, nên trong bể phải có gỗ. Ngoài ra, nên cho chúng ăn thêm rau như dưa chuột, bí ngòi và thức ăn viên chìm. Một người nuôi kể lại: \"Nó mê bí ngòi và thức ăn viên cho cá da trơn. Con này rất bạo, lúc nào cũng ra ngoài kiếm ăn, chẳng nhút nhát chút nào\".</p>",
+   "notes:scotcat": "<p>Hai giống Panaqolus và Panaque khác nhau ở chỗ này: Panaque có miệng hình bầu dục, hàm mang những chiếc răng hình thìa rất lớn, mỗi răng chỉ một mấu, xếp thành hình chữ V. Còn Panaqolus có ít răng hình thìa hơn, và các loài trong giống này cũng nhỏ hơn. Panaque schaeferi khác mọi loài Panaque (Panaque) còn lại ở hai điểm. Thứ nhất là màu thân, gồm những đốm đen đậm rõ hoặc đen mờ rải đều trên nền xám nhạt đến nâu. Thứ hai là cỡ con trưởng thành tối đa khoảng 600 mm SL, trong khi các loài kia không quá khoảng 400 mm SL.</p><p>Nguồn gốc tên gọi: tên loài schaeferi đặt theo tên Scott A. Schaefer. Ông là nhà ngư học, biên tập viên tạp chí Copeia và người phụ trách bộ sưu tập cá tại Bảo tàng Lịch sử Tự nhiên Hoa Kỳ. Ông có nhiều đóng góp cho ngư học, nhất là giúp hiểu rõ hơn về nhóm Loricarioidea, và loài được đặt tên ông để tôn vinh những đóng góp đó.</p><p>Sách Đỏ IUCN: thông tin về loài này còn ít, nhưng nó phân bố rộng và không thấy mối đe dọa rõ ràng nào. Vì vậy loài được xếp vào mức Ít quan tâm (IUCN 2023).</p>",
+   "references:scotcat": "<p>Lujan, NK, M Hidalgo &amp; DJ Stewart, 2010. Revision of Panaque (Panaque), with descriptions of three new species from the Amazon basin (Siluriformes, Loricariidae). Copeia 2010: 676–704. Salvador, G.N. 2023. Panaque schaeferi. The IUCN Red List of Threatened Species 2023. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
+  },
+  "quality": {
+   "score": 0.82,
+   "indexable": true,
+   "bySource": {
+    "glaser": 0.9,
+    "scotcat": 0.82
+   }
+  }
+ }
+}

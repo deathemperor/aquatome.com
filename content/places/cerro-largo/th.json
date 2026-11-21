@@ -1,8 +1,13 @@
 {
   "slug": "cerro-largo",
-  "name": "เซร์โรลาร์โก",
+  "name": "จังหวัดเซร์โรลาร์โก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-20T07:10:11.175Z"
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

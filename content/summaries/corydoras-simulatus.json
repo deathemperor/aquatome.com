@@ -1,13 +1,16 @@
 {
   "id": "corydoras-simulatus",
-  "summary": "Cá chuột Corydoras simulatus hợp với người mới: độ khó 2/8, hiền, cỡ trưởng thành 5,3 cm. Nuôi nhóm ít nhất 4–6 con trong nước 20–25 °C, pH 6–7, độ cứng 2–12 dGH, nền cát mịn và có chỗ trú. Khó nhất là cho ăn đủ thức ăn chìm và giữ nền thật sạch; hồ sơ cũng nói màu cá khác nhau tùy nơi bắt, nên khó nhận đúng loài.",
+  "summary": "Cá chuột Corydoras simulatus hợp người mới nuôi (độ khó 2/8), cỡ nhỏ chỉ 5,3 cm, ưa nước 20–25 °C, pH 6–7, độ cứng 2–12 dGH. Cần nuôi đàn ít nhất 4–6 con, nền cát mịn hoặc sỏi tròn cạnh và có chỗ trú ẩn. Điểm khó nhất là giữ nền thật sạch và cho ăn đủ, vì cá không sống nhờ thức ăn thừa. Màu cá khác nhau khá nhiều tùy nơi bắt, nên khó chọn được cá màu đồng nhất.",
   "mistakes": [
-    "Đừng để cá sống nhờ thức ăn thừa của cá khác hay coi chúng là cá dọn bể; hãy cho thức ăn chìm riêng và đổi món, như trùng huyết, trùng chỉ.",
-    "Đừng nuôi lẻ vài con; hãy nuôi nhóm ít nhất 4–6 con vì loài này thích sống đàn.",
-    "Nếu dùng sỏi thì đừng để nền bẩn; ưu tiên cát mịn, hoặc giữ sỏi tròn cạnh thật sạch."
+    "Nuôi lẻ vài con: nên nuôi đàn ít nhất 4–6 con vì cá thích sống thành đàn.",
+    "Trông vào cá để dọn bể hoặc để chúng ăn thức ăn thừa: nên cho thức ăn chìm riêng, đa dạng, gồm thức ăn khô, trùng huyết, trùng chỉ.",
+    "Dùng sỏi tròn cạnh mà không giữ nền sạch: nên chọn cát mịn, còn dùng sỏi thì phải giữ nền thật sạch."
   ],
-  "speciesUpdatedAt": "2026-11-06",
-  "generatedAt": "2026-11-09T06:46:14.349Z",
-  "review": "approved",
-  "writtenFrom": "bf14c7a520936193"
+  "speciesUpdatedAt": "2026-11-19",
+  "writtenFrom": "5b3522cead1d02e0",
+  "generatedAt": "2026-11-19T20:01:42.328Z",
+  "review": "pending",
+  "problems": [
+    "\"nên khó chọn được cá màu đồng nhất\": the page says only that colour varies by collection locality. It never says it is hard to pick uniformly coloured fish, so this is an unsupported inference presented as a difficulty."
+  ]
 }

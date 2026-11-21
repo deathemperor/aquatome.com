@@ -3,6 +3,12 @@
   "name": "อิสลาเดลาฆูเบนตุด",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T07:11:30.899Z",
+    "why": "The Thai is a transliteration of the Spanish \"Isla de la Juventud\" in Thai script, but an atlas in Thailand would normally write \"เกาะ\" for \"island\" (e.g. เกาะฮูเวนตุด) and would not keep \"อิสลา\" untranslated, so the name is not in the usual form."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

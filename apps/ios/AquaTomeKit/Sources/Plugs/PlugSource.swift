@@ -9,8 +9,10 @@ public protocol PlugSource: Sendable {
   /// The plugs as they are now. Read when the reader opens or refreshes a screen, never on a timer.
   func list() async throws -> PlugList
   /// Sets one outlet once (never toggles, never retried, never queued), then reads it back: what the plug then
-  /// reports, and whether that is the state asked for. Refused for a plug the last list didn't have online.
-  func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched
+  /// reports, and whether that is the state asked for. Refused for a plug the last list didn't have online. `allowed` is
+  /// asked right before the command goes (after any wait for a token, and again before a command sent once more for a
+  /// stale one): no, and nothing goes (`Withdrawn`).
+  func set(provider: String, device: String, outlet code: String, on: Bool, allowed: @escaping @Sendable () async -> Bool) async throws -> Switched
   /// The timers set on one plug in its maker's app, as they are now. Read only, when a screen that shows them opens;
   /// never kept, never written.
   func timers(provider: String, device: String) async throws -> [PlugTimer]
@@ -18,6 +20,18 @@ public protocol PlugSource: Sendable {
   /// the outlet the other way by itself, with or without the phone. 0 ends one. Sent once, never retried; then read back:
   /// whether the plug reports it. The master button's alone (docs/smart-plugs.md), on the reader's tap.
   func countdown(provider: String, device: String, outlet code: String, seconds: Int) async throws -> Bool
+}
+
+extension PlugSource {
+  public func set(provider: String, device: String, outlet code: String, on: Bool) async throws -> Switched {
+    try await set(provider: provider, device: device, outlet: code, on: on, allowed: { true })
+  }
+}
+
+/// A command the app withdrew as it was about to go (`allowed` said no: the master button's outlet made CO2 or a
+/// heater, or the owner signed out, while it waited): nothing was sent.
+public struct Withdrawn: Error, Equatable {
+  public init() {}
 }
 
 /// An outlet as the plug reports it now.

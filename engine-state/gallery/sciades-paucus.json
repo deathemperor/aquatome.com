@@ -1,12 +1,7 @@
 {
  "queue": [],
  "judged": [],
- "hashes": {
-  "https://media.aquatome.com/scotcat/338772d78324dd8d.webp": "1c1965737e5e0e1f",
-  "https://media.aquatome.com/scotcat/788d593d157fbbd1.webp": "3a5c0c0e0e5e4911",
-  "https://media.aquatome.com/scotcat/95594eb95188659d.webp": "7bef9b0f0f070d14",
-  "https://media.aquatome.com/scotcat/518096786e4b26f1.webp": "06763f07071f0f36"
- },
+ "hashes": {},
  "inat": {
   "taxon": 1315115,
   "pass": "done",
@@ -15,5 +10,12 @@
    "agree": 0
   }
  },
- "commons": "2026-11-18"
+ "commons": "2026-11-18",
+ "gbif": {
+  "key": 5202932,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ }
 }

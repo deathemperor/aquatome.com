@@ -1,0 +1,104 @@
+{
+  "id": "hemiodus-thayeria",
+  "native": {
+    "input": "ed4e1ab4b7bb0dd1",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Hemiodus thayeria comes from the border area of Brazil and Colombia at the Rio Negro.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Hemiodus thayeria comes from the border area of Brazil and Colombia at the Rio Negro.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "Hemiodus thayeria comes from the border area of Brazil and Colombia at the Rio Negro.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiodus thayeria",
+    "status": "ACCEPTED",
+    "taxonKey": 2354899,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        12
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        11
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        5
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-20T17:43:20.430Z"
+  }
+}

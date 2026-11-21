@@ -3,6 +3,12 @@
   "name": "แม่น้ำดุลเซ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T11:56:26.404Z",
+    "why": "The name is written in Thai and uses the correct kind word แม่น้ำ, but \"ดุลเซ\" is a weak transliteration of Dulce, since Thai atlases would write ดุลเซ or ดูลเซ and the Spanish \"Río\" is not kept, so it is acceptable but uncertain."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

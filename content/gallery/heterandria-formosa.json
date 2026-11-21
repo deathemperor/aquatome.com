@@ -38,54 +38,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/commons/d8ac8c40cb3b9bf2.webp",
-      "thumb": "https://media.aquatome.com/commons/d8ac8c40cb3b9bf2-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY 2.0",
-      "author": "Brian Gratwicke",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_Livebearer_or_Least_Killifish_(Heterandria_formosa).jpg",
-      "caption": "Cá bảy màu lùn đực có sọc đen và đuôi vàng",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/714759357.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/714759357-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Tayton Alvis",
-      "sourceUrl": "https://www.inaturalist.org/photos/714759357",
-      "caption": "Cá bảy màu lùn cái bơi trong bể kính",
-      "best": true,
-      "kind": "female"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d7dd72ccb5ef70ff.webp",
-      "thumb": "https://media.aquatome.com/commons/d7dd72ccb5ef70ff-480.webp",
-      "width": 1200,
-      "height": 776,
-      "licence": "CC BY 2.0",
-      "author": "Brian Gratwicke",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Least_killifish_female_Heterandria_formosa.jpg",
-      "caption": "Cá bảy màu lùn bơi giữa cây thủy sinh xanh",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/632948018.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/632948018-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "rainbowkitten",
-      "sourceUrl": "https://www.inaturalist.org/photos/632948018",
-      "caption": "Cá bảy màu lùn đực có sọc ngang trong hộp ảnh",
-      "best": true,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/445551248.webp",
       "thumb": "https://media.aquatome.com/inaturalist/445551248-480.webp",
       "width": 724,
@@ -94,30 +46,6 @@
       "author": "David Emmanuel",
       "sourceUrl": "https://www.inaturalist.org/photos/445551248",
       "caption": "Cá bảy màu lùn trong môi trường tự nhiên giữa cỏ",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/77858646.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/77858646-480.webp",
-      "width": 887,
-      "height": 539,
-      "licence": "CC BY",
-      "author": "Tyler Bishop",
-      "sourceUrl": "https://www.inaturalist.org/photos/77858646",
-      "caption": "Cá bảy màu lùn trưởng thành bơi trong nước nông",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/445551306.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/445551306-480.webp",
-      "width": 687,
-      "height": 916,
-      "licence": "CC0",
-      "author": "David Emmanuel",
-      "sourceUrl": "https://www.inaturalist.org/photos/445551306",
-      "caption": "Cá bảy màu lùn có sọc đen dọc thân ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -134,6 +62,54 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/632948018.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/632948018-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "rainbowkitten",
+      "sourceUrl": "https://www.inaturalist.org/photos/632948018",
+      "caption": "Cá bảy màu lùn đực có sọc ngang trong hộp ảnh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/714759357.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/714759357-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Tayton Alvis",
+      "sourceUrl": "https://www.inaturalist.org/photos/714759357",
+      "caption": "Cá bảy màu lùn cái bơi trong bể kính",
+      "best": true,
+      "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/445551306.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/445551306-480.webp",
+      "width": 687,
+      "height": 916,
+      "licence": "CC0",
+      "author": "David Emmanuel",
+      "sourceUrl": "https://www.inaturalist.org/photos/445551306",
+      "caption": "Cá bảy màu lùn có sọc đen dọc thân ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d8ac8c40cb3b9bf2.webp",
+      "thumb": "https://media.aquatome.com/commons/d8ac8c40cb3b9bf2-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_Livebearer_or_Least_Killifish_(Heterandria_formosa).jpg",
+      "caption": "Cá bảy màu lùn đực có sọc đen và đuôi vàng",
+      "best": true,
+      "kind": "male"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/445553665.webp",
       "thumb": "https://media.aquatome.com/inaturalist/445553665-480.webp",
       "width": 734,
@@ -144,6 +120,18 @@
       "caption": "Cá bảy màu lùn vằn rõ giữa thảm thực vật",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d7dd72ccb5ef70ff.webp",
+      "thumb": "https://media.aquatome.com/commons/d7dd72ccb5ef70ff-480.webp",
+      "width": 1200,
+      "height": 776,
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Least_killifish_female_Heterandria_formosa.jpg",
+      "caption": "Cá bảy màu lùn bơi giữa cây thủy sinh xanh",
+      "best": false,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/207091427.webp",
@@ -298,6 +286,18 @@
       "author": "Jade Fortnash",
       "sourceUrl": "https://www.inaturalist.org/photos/68596435",
       "caption": "Cá bảy màu lùn có vằn sọc trong nước, chụp ngoài tự nhiên",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/77858646.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/77858646-480.webp",
+      "width": 887,
+      "height": 539,
+      "licence": "CC BY",
+      "author": "Tyler Bishop",
+      "sourceUrl": "https://www.inaturalist.org/photos/77858646",
+      "caption": "Cá bảy màu lùn trưởng thành bơi trong nước nông",
       "best": true,
       "kind": "other"
     },

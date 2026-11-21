@@ -3,6 +3,12 @@
   "name": "กวายาส",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T18:48:38.905Z",
+    "why": "กวายาส is a plausible sound-based transliteration of Guayas, but Thai atlases usually write กัวยาส, and the source sentence means the Guayas River (แม่น้ำกัวยาส), so the bare name has no kind word."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

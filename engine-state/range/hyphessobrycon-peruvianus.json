@@ -1,8 +1,8 @@
 {
   "id": "hyphessobrycon-peruvianus",
   "native": {
-    "input": "d70790e0b8fdd893",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "e63f9aa0731651cf",
+    "at": "2026-11-20T07:13:45.828Z",
     "claims": [
       {
         "code": "PE",
@@ -17,6 +17,14 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Known only from the upper Amazon basin in Peru including the ríos Amazonas-Solimões, Marañón, Napo, Itaya, Tigre, Corrientes, and Ucayali.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Three species of tetra in northern South America are obviously close relatives to each other and often confused: Hyphessobrycon loretoensis from Peru, H. metae from Colombia, and H. peruvianus, again from Peru.",
         "words": "Peru",
         "ok": true
       }
@@ -45,20 +53,6 @@
       },
       {
         "name": "Ucayali",
-        "source": "seriouslyfish",
-        "quote": "Known only from the upper Amazon basin in Peru including the ríos Amazonas-Solimões, Marañón, Napo, Itaya, Tigre, Corrientes, and Ucayali.",
-        "country": "PE",
-        "ok": true
-      },
-      {
-        "name": "Itaya",
-        "source": "seriouslyfish",
-        "quote": "Known only from the upper Amazon basin in Peru including the ríos Amazonas-Solimões, Marañón, Napo, Itaya, Tigre, Corrientes, and Ucayali.",
-        "country": "PE",
-        "ok": true
-      },
-      {
-        "name": "Tigre",
         "source": "seriouslyfish",
         "quote": "Known only from the upper Amazon basin in Peru including the ríos Amazonas-Solimões, Marañón, Napo, Itaya, Tigre, Corrientes, and Ucayali.",
         "country": "PE",

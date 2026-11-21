@@ -1,8 +1,13 @@
 {
   "slug": "rio-tocantins",
-  "name": "Rio Tocantins",
+  "name": "Sungai Tocantins",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-20T01:49:08.927Z"
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

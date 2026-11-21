@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { isVietnamese, langOf, LINK_MARK, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
+import { isVietnamese, isVietnameseTitle, langOf, LINK_MARK, localizeLinks, localizePath, routeIn, translator } from '../src/lib/i18n'
 import { OTHER_LANGS } from '@aq/schema/langs'
 
 test('a page file mounted in each language', () => {
@@ -202,4 +202,13 @@ test('language menu: this page in that language, else the nearest page the langu
   expect(switchTo('vi', '/vi/ca/ca-neon-vua/', undefined, true)).toBe('/ca/')
   expect(switchTo('id', '/404', undefined, false)).toBe('/id/') // not a /vi/…/ path (the 404 page)
   expect(switchTo('th', '/vi/ca', undefined, false)).toBe('/th/')
+})
+
+// A source's title or name is Vietnamese when it's written in Vietnamese, not when it names a Vietnamese place: the
+// reader's find on #1681, an English article about Sóc Trăng's brine shrimp that a Malay page would have called Vietnamese.
+test('a source titled in Vietnamese is Vietnamese; one that only names a Vietnamese place or fish isn\'t', () => {
+  for (const s of ['Thức Ăn Cá Cảnh - Vi Sinh Cá Cảnh Aquarium Care', 'Cách Nuôi Ấu Trùng Artemia Làm Thức ăn Cho Cá', 'Chợ Thủy Sinh', 'Diễn Đàn Cá Cảnh', 'Cá bầy đàn: nuôi bao nhiêu con là đủ', 'Cá Betta Dạ Quang GloFish – Betta\'s House', 'Tép ong đỏ (Crystal Red Bee – CRS) – Shrimp Touch', 'Halfmoon Việt Nam: Betta Halfmoon', 'Cá Koi – Mytour'])
+    expect(isVietnameseTitle(s), s).toBe(true)
+  for (const s of ['Sóc Trăng farmers reap bumper crop of brine shrimp eggs', 'Shoal', 'Seriously Fish', 'Frozen Fish Food Guide: Types, Storage and Feeding Tips', 'Pakan beku untuk ikan hias'])
+    expect(isVietnameseTitle(s), s).toBe(false)
 })

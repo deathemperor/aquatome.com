@@ -3,6 +3,12 @@
   "name": "Atsinanana",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T12:49:44.031Z",
+    "why": "Indonesian atlases and Wikipedia write the Malagasy region as \"Region Atsinanana\" or \"Atsinanana\", but the bare name leaves out the kind word \"Region\" that Indonesian usually adds, so it is only moderately right."
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

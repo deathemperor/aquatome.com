@@ -86,18 +86,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/173629767.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/173629767-480.webp",
-      "width": 1024,
-      "height": 732,
-      "licence": "CC BY",
-      "author": "Carlos Otávio Gussoni",
-      "sourceUrl": "https://www.inaturalist.org/photos/173629767",
-      "caption": "Cá Geophagus brasiliensis có đốm đen bên thân trong suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/298336111.webp",
       "thumb": "https://media.aquatome.com/inaturalist/298336111-480.webp",
       "width": 1024,
@@ -120,18 +108,6 @@
       "caption": "Cá rô phi ngọc trai đực nhìn chéo, vây lưng cam",
       "best": true,
       "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/251509540.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/251509540-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Bruno Luka de Souza Bambirra Silveira",
-      "sourceUrl": "https://www.inaturalist.org/photos/251509540",
-      "caption": "Cá rô phi ngọc trai cận cảnh ngoài tự nhiên, nước đục",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/298336138.webp",
@@ -384,6 +360,30 @@
       "caption": "Cá rô phi ngọc trai trưởng thành xòe vây lưng",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/251509540.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/251509540-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Bruno Luka de Souza Bambirra Silveira",
+      "sourceUrl": "https://www.inaturalist.org/photos/251509540",
+      "caption": "Cá rô phi ngọc trai cận cảnh ngoài tự nhiên, nước đục",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/173629767.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/173629767-480.webp",
+      "width": 1024,
+      "height": 732,
+      "licence": "CC BY",
+      "author": "Carlos Otávio Gussoni",
+      "sourceUrl": "https://www.inaturalist.org/photos/173629767",
+      "caption": "Cá Geophagus brasiliensis có đốm đen bên thân trong suối",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/295632865.webp",

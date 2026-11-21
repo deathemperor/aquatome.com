@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
+import { glossaryKinds, GlossarySchema, metricPage, QUALITY_THRESHOLD, toneKey, TranslationSchema, type GlossaryEntity, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
 import { VI_STYLE as STYLE } from './phrases'
 import { refusedSite } from './cycle-only'
@@ -10,9 +10,10 @@ import { isMarketplace } from './marketplaces'
 import { logReviews, readReviews } from './review-log'
 import { withTanks } from './round'
 import { sanitizeHtml, unescapePlain } from './sanitize'
-import { checkSentences, droppedInRewrite, rewordLoose, stopNote } from './glossary-facts'
+import { guideNotes, houseForm, openDiseaseGuides, pointerForm } from './glossary-dose'
+import { checkSentences, droppedInRewrite, rewordLoose, sentences, stopNote } from './glossary-facts'
 import { genera, judgeKindNames, kindNames } from './glossary-names'
-import { FACTS_SCHEMA, researchPrompt, viFacts, type TopicFacts } from './topics'
+import { FACTS_SCHEMA, researchPrompt, siteOf, type TopicFacts, viFacts } from './topics'
 import { withoutRefused } from './refused-sources'
 import { givenAsName } from './glossary-other-names'
 
@@ -53,9 +54,15 @@ type Asks = {
   /**
    * Other names the entry no longer lists, as the saved entry writes them: other names are otherwise only added, so a
    * wrong one stayed (the chief of staff, 16 Nov 2026: "dGH" under GH is its unit; "thức ăn viên" under dry food names
-   * one form, pellets).
+   * one form, pellets). A link phrase they name goes too: "lớp nền" and "vật liệu nền" name any bed, not sand (the chief
+   * of staff, 20 Nov 2026, of Nền cát).
    */
   notNames?: string[]
+  /**
+   * Link phrases the term carries, besides those it has: a page that writes one links the term (the chief of staff, 20 Nov
+   * 2026: "lớp nền" and "vật liệu nền" are Nền bể's, the whole bed's).
+   */
+  linkNames?: string[]
 }
 const ASKS = JSON.parse(readFileSync(new URL('./glossary-asks.json', import.meta.url), 'utf8')) as Record<string, Asks>
 const ENTRY_SCHEMA = {
@@ -83,6 +90,9 @@ const RULES = `GLOSSARY RULES. Below are a Vietnamese glossary ENTRY about a fis
 10. A comparison the FACTS don't make ("it lowers pH more than other woods").
 11. "Rêu" (moss) is used for algae, which is "tảo", as the TERMS have it.
 12. A line under THIS TERM is not followed.
+13. An amount is given for a medicine: a dose, a part or a multiple of one ("nửa liều", "gấp đôi"), or how long a course lasts. A medicine is a drug or a treatment for a disease or a pest: an antibiotic, a parasite treatment, aquarium salt used as a treatment, an algaecide. A fertiliser, a water conditioner (thiosulfate) and the water values a keeper aims for (nitrate, phosphate, pH, a water change's share) are not. Note the amount wherever it stands. Don't note a sentence for where it sends the reader (a guide under OPEN GUIDES, or the label): those are checked apart. Don't note an entry for lacking a dose line.
+14. Under a heading, the first sentence that goes back to a source already named calls it "… này" ("tiệm này", "hội này") while two sources of its kind are named before it: it should say which one ("Tiệm thứ nhất", "Tiệm thứ hai").
+15. A section holds what its heading doesn't say: under "Trong bể của bạn", anything but what the thing does in the tank, its numbers and its signs there; under "Nên làm gì", anything but what the reader does; or mistakes stand under "Sai lầm hay gặp" where no fact calls them common. It should be headed by what it holds, in two to five words, or "Sai lầm cần tránh".
 Start each note with the number of the rule it breaks, as "Rule 4: …" or "Rules 4 and 12: …". Reply {"notes": [...]}, empty if the entry keeps every rule.`
 const RULES_SCHEMA = { type: 'object', required: ['notes'], properties: { notes: { type: 'array', items: { type: 'string' } } } }
 
@@ -100,9 +110,11 @@ export type Draft = { score: number; broken: number; notes: string[]; entry: Ent
  * What each house rule's break does (the chief of staff, 14 Nov 2026: "which notes stop a save (facts, names,
  * contradictions) and which are advice (repetition, order, a length within about 15 percent)"). A stop keeps the entry
  * from the reader until a rewrite clears it; advice goes to the rewrite and never stops a save. Chemicals, terms used
- * against their definitions, brands, safety, comparisons the facts don't make and "rêu" for algae stop, as facts do.
+ * against their definitions, brands, safety, comparisons the facts don't make and "rêu" for algae stop, as facts do. So
+ * does an amount for a medicine (the chief of staff, 20 Nov 2026); a credit after a heading that doesn't say which source,
+ * and a heading that doesn't say what its section holds, are advice.
  */
-export const RULE_SIDE: Record<number, 'stop' | 'advice'> = { 1: 'stop', 2: 'stop', 3: 'stop', 4: 'advice', 5: 'stop', 6: 'stop', 7: 'advice', 8: 'stop', 9: 'stop', 10: 'stop', 11: 'stop', 12: 'advice' }
+export const RULE_SIDE: Record<number, 'stop' | 'advice'> = { 1: 'stop', 2: 'stop', 3: 'stop', 4: 'advice', 5: 'stop', 6: 'stop', 7: 'advice', 8: 'stop', 9: 'stop', 10: 'stop', 11: 'stop', 12: 'advice', 13: 'stop', 14: 'advice', 15: 'advice' }
 /** A rules note stops a save when a rule it names stops, or when it names none. */
 export const stops = (note: string) => { const r = ruleNumbers(note); return !r.length || r.some(x => RULE_SIDE[x] !== 'advice') }
 
@@ -245,6 +257,21 @@ export function addResearch(a: TopicFacts, b: TopicFacts): TopicFacts {
 }
 
 /**
+ * The writer is given each source's site (the chief of staff, 20 Nov 2026), and the prompt says never to name a source by
+ * it. A sentence that writes one of those sites anyway stops the save with a note back to the writer, as a rule's note
+ * does (the writer change's reader, 21 Nov 2026: nothing after the writer caught "Theo seriouslyfish.com, …"). It finds
+ * the site as the writer was given it, alone or in a longer address; a site's name written as words ("Seriously Fish")
+ * is the rules read's, as before.
+ */
+export function siteNotes(e: { definition: string; body: string }, sites: string[]): string[] {
+  const all = [...new Set(sites)].filter(x => /\p{L}/u.test(x)) // a source on a bare address ("10.1.2.3") has no site to name
+  return sentences(e).flatMap(s => {
+    const named = all.filter(x => new RegExp(`(?<![\\p{L}\\p{N}-])${x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}-])`, 'iu').test(s.text))
+    return named.length ? [`"${s.text}" names a source by its site (${named.join(', ')}): call it by what it is (a shop, a journal, a keeper's page), as the sources' kinds give it, never by its site.`] : []
+  })
+}
+
+/**
  * A glossary term's fuller Vietnamese entry, written by AquaTome from web research as its own guides are (topics.ts): the
  * research's cited facts (kept in engine-state/glossary/<id>.json, reused with `reuse`), an entry written from them only
  * (meaning, other names, what it means in a tank and what to do, related terms), checked against them and the house rules,
@@ -342,8 +369,14 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   }
   // Any other page research may not read goes the same way, with the facts that cite it, before the writer sees them: no
   // address, no source (viFacts).
-  const { facts, refs, sources } = viFacts({ ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) })
+  const usable = { ...researched, sources: researched.sources.map(x => (offLimits(x.url) ? { ...x, url: '' } : x)) }
+  const { facts, refs, sources } = viFacts(usable)
   if (!facts.length) return { id, skipped: 'no cited facts' }
+  // The fact check reads what the writer reads, with each source's site and each fact's other sources ("also"), so it can
+  // count a claim's sites: two pages of one site are one source, and a claim only one site gives is that site's and is
+  // credited (the chief of staff, 19 Nov 2026). A site as topics.ts counts one (siteOf): its registered domain, so a shop's
+  // blog on a subdomain is the shop (Codex, 19 Nov 2026). The writer's own facts don't change.
+  const checked = viFacts(usable, { also: true })
 
   // The other terms: what `related` may name, and the names an added other name may not take.
   const others: { id: string; name: string; altNames: string[]; linkNames: string[]; definition: string }[] = []
@@ -352,9 +385,17 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     const t = await read<Translation>(join(dir, x, 'vi.json')).catch(() => null)
     if (t) others.push({ id: x, name: t.name, altNames: t.altNames, linkNames: t.linkNames ?? [], definition: t.definition ?? '' })
   }
-  const forWriter = { term: vi.name, english: entity.en, sources, facts }
+  // Each source with its site, so the writer can keep the Writing Lead's standing line, "One site is one source, however
+  // many of its pages the facts come from" (the chief of staff, 20 Nov 2026: it can't, seeing pages only).
+  const forWriter = { term: vi.name, english: entity.en, sources: sources.map(x => ({ ...x, site: siteOf(refs[x.source]!.url) })), facts }
+  const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)
+  // The house form for a medicine's dose, and the pointer to another of the site's terms, are the site's own sentences, not
+  // the facts' claims: the fact check passes them whole.
+  const guides = await openDiseaseGuides(root)
+  const entries = others.map(x => x.name)
+  const pass = (text: string) => houseForm(text, guides) || pointerForm(text, entries)
   const terms = others.map(x => `${x.id}: ${x.name}: ${x.definition}`).join('\n')
   const kinds = [
     asks.local?.length ? `--- LOẠI BÁN Ở VIỆT NAM ---\n${asks.local.join('\n')}` : '',
@@ -371,15 +412,16 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // for word (the chief of staff, 14 Nov 2026: Lũa's three whole rewrites each brought fresh notes and didn't converge).
   const write = (notes?: string[], before?: Entry) => d.llm<Entry>({
     system: 'You write Vietnamese aquarium glossary entries from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: ENTRY_SCHEMA,
-    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác. Quá dài thì bỏ hoặc rút gọn câu, không viết lại câu khác. Chỉ thêm câu khi ghi chú nói thiếu, và chỉ viết điều dữ kiện có. Các ghi chú:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
+    prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện, phạm quy tắc hoặc quá dài. Sửa bản trước, không viết lại: chỉ sửa, gộp hay bỏ những câu mà ghi chú trích hoặc chỉ tới, và giữ nguyên từng chữ mọi câu khác. Quá dài thì bỏ hoặc rút gọn câu, không viết lại câu khác. Chỉ thêm câu khi ghi chú nói thiếu, và chỉ viết điều dữ kiện có. Các ghi chú:\n${notes.map(n => `- ${n}`).join('\n')}${before ? `\n\n--- BẢN TRƯỚC ---\n${JSON.stringify(before)}` : ''}` : ''}${kinds}\n\n--- TRANG CỦA AQUATOME (tên trang | tên khác) ---\n${pages.join('\n')}\n\n--- BÀI CHỮA BỆNH ĐANG MỞ (tên bài) ---\n${guides.map(g => g.title).join('\n') || '(không có bài nào)'}\n\n--- CÁC THUẬT NGỮ KHÁC (id: tên: định nghĩa) ---\n${terms}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter)}`,
   })
   const rules = async (e: Entry) => {
     const k = kindNames(e, taxa)
     const notes = (await d.llm<{ notes?: string[] }>({
       system: 'You check a Vietnamese glossary entry against house rules. Reply only with JSON.', model: 'opus', schema: RULES_SCHEMA,
-      prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- KIND WORDS ---\n${k.fit.map(x => x.name).join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
+      prompt: `${RULES}\n\n--- KINDS ---\nlocal: ${(asks.local ?? []).join('; ') || '(none named)'}\nforeign: ${(asks.foreign ?? []).join('; ') || '(none named)'}\n\n--- THIS TERM ---\n${(asks.write ?? []).join('\n') || '(nothing more)'}\n\n--- PAGES ---\n${pages.join('\n') || '(none)'}\n\n--- OPEN GUIDES ---\n${guides.map(g => g.title).join('\n') || '(none)'}\n\n--- KIND WORDS ---\n${k.fit.map(x => x.name).join('\n') || '(none)'}\n\n--- TERMS ---\n${terms}\n\n--- FACTS ---\n${JSON.stringify(forWriter)}\n\n--- ENTRY ---\n${JSON.stringify(e)}`,
     })).notes ?? []
-    return judgeKindNames(notes, k, ruleNumbers)
+    // Rule 13's pointers are checked in code: a sentence that sends the reader to a guide is the house form by an open one.
+    return [...judgeKindNames(notes, k, ruleNumbers), ...guideNotes(e, guides), ...siteNotes(e, forWriter.sources.map(x => x.site))]
   }
   // The length is counted before any paid read (the chief of staff, 15 Nov 2026: dry food and Artemia each paid about $3 of
   // reads to stop on a word count). An entry past its stop can't be saved, so it isn't read: its length notes go back to the
@@ -389,7 +431,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const check = async (e: Entry): Promise<Checked> => {
     const long = size(e)
     if (long.stop) return { score: 0, notes: long.notes, broken: long.notes.length, stops: 1, unread: true }
-    const [f, r] = await Promise.all([checkSentences(d.llm, forWriter, e), rules(e)])
+    const [f, r] = await Promise.all([checkSentences(d.llm, forCheck, e, pass), rules(e)])
     const unborne = f.stops.map(stopNote)
     return { score: f.score, notes: [...unborne, ...r, ...long.notes], broken: r.length + long.notes.length, stops: unborne.length + r.filter(stops).length + (long.stop ? 1 : 0), loose: f.loose, stopped: f.stops }
   }
@@ -427,7 +469,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   const heldTo = async (base: Entry, e: Entry, freed: NonNullable<Checked['stopped']>) => {
     const lost = dropsFrom(base, e, freed)
     if (o.revise || !lost.length) return lost
-    savedStops ??= (await checkSentences(d.llm, forWriter, base)).stops
+    savedStops ??= (await checkSentences(d.llm, forCheck, base, pass)).stops
     return dropsFrom(base, e, [...freed, ...savedStops])
   }
   if (o.accept) {
@@ -476,7 +518,7 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
       // Its rewordings may not take the entry past its length, or make one already past it longer (the chief of staff, 15 Nov
       // 2026: Artemia's took 455 words to 480, past its stop): an entry with no note on its length keeps none, or is no longer.
       const before = words(w.body), fits = (e: Entry) => words(e.body) <= before || !size(e).notes.some(n => n.startsWith('The entry is'))
-      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forWriter, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)], fits })
+      const m = await rewordLoose(d.llm, o.writeModel ?? 'opus', forCheck, w, review.loose, { rules, names: [...pages.flatMap(l => l.split(' | ').slice(0, 2)), ...kindNames(w, taxa).fit.map(k => k.name)], fits, pass })
       w = m.entry
       review.notes = [...m.stops.map(stopNote), ...m.log, ...review.notes]
       review.stops = stopping(review) + m.stops.length
@@ -495,18 +537,37 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
     }
   }
 
-  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames, ...x.linkNames]).map(n => n.toLowerCase()))
+  // A name is the same whichever vowel its tone mark sits on (toneKey): "Oxy hoà tan" is Oxy hòa tan's own.
+  const taken = new Set(others.flatMap(x => [x.name, ...x.altNames, ...x.linkNames]).map(toneKey))
   // Written whole in one fact, as its own word: "gỗ lũ" is not in "gỗ lũa".
   const quoted = (n: string) => {
     const re = new RegExp(`(?<![\\p{L}\\p{N}])${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu')
     return facts.some(f => re.test(f.fact))
   }
-  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(n.toLowerCase()) && quoted(n)
+  const linkable = (n: string) => (/\s/.test(n) || /[A-Z].*[A-Z0-9]|\d/.test(n)) && !taken.has(toneKey(n)) && quoted(n)
   // A link phrase is never one of its names again; a name the writer adds stays only when it is the term's English name or
   // a fact gives it as the term's name (glossary-other-names.ts; the chief of staff, 18 Nov 2026: "Tên khác" holds only what a keeper calls the thing).
-  const own = new Set([vi.name, ...(vi.linkNames ?? []), ...(asks.notNames ?? [])].map(n => n.toLowerCase()))
   const isName = (n: string) => n.toLowerCase() === entity.en.toLowerCase() || givenAsName(n, facts.map(f => f.fact))
-  const altNames = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))].filter(n => n && !own.has(n.toLowerCase()) && own.add(n.toLowerCase()))
+  const offered = [...vi.altNames, ...w.altNames.map(n => unescapePlain(n).trim()).filter(n => linkable(n) && isName(n))]
+  // Each other name once, in either tone placing (toneKey). One the term already has in the other placing, its name or an
+  // other name kept before it ("Oxy hoà tan" beside "Oxy hòa tan"), stays a link phrase: a page that writes it so still links
+  // the term and counts toward it (Codex, 19 Nov 2026). A link phrase in the other placing turns only a name the writer adds
+  // into one, never a saved other name: that phrase may be a saved name's own other placing, kept by an earlier save. A name
+  // its notes take off isn't added back, in either placing, as an other name or a link phrase, and a saved link phrase they
+  // take off goes. A link phrase the notes give is added once.
+  const off = new Set((asks.notNames ?? []).map(toneKey))
+  const stays = (vi.linkNames ?? []).filter(n => !off.has(toneKey(n)))
+  const given: string[] = []
+  for (const n of asks.linkNames ?? []) if (!off.has(toneKey(n)) && ![...stays, ...given].some(x => toneKey(x) === toneKey(n))) given.push(n)
+  const otherKeys = new Set([toneKey(vi.name)]), linked = new Set([...stays, ...given].map(toneKey))
+  const literal = new Set([vi.name, ...stays, ...given].map(n => n.toLowerCase()))
+  const altNames: string[] = [], variants: string[] = []
+  offered.forEach((n, i) => {
+    if (!n || off.has(toneKey(n))) return
+    const fresh = !literal.has(n.toLowerCase())
+    literal.add(n.toLowerCase())
+    if (otherKeys.has(toneKey(n)) || (i >= vi.altNames.length && linked.has(toneKey(n)))) { if (fresh) variants.push(n) } else if (fresh) { otherKeys.add(toneKey(n)); altNames.push(n) }
+  })
   const ids = new Set(others.map(x => x.id))
   const next: GlossaryEntity = GlossarySchema.parse({ ...entity, refs, related: [...new Set(w.related)].filter(r => ids.has(r)).slice(0, 6) })
   // A body cut by hand (bodyFixed: what rested on a refused site alone, the chief of staff, 16 Nov 2026) is the step's
@@ -514,8 +575,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // live. So the mark goes with the save and doesn't outlive the cut. Not with an accepted draft: it is saved as it was
   // kept, perhaps written while the writer still saw a refused site's facts, and nothing has read it against them since.
   const { bodyFixed: _cut, ...unmarked } = vi
+  const links = [...stays, ...given, ...variants]
   const t = TranslationSchema.parse(metricPage({
-    ...(o.accept ? vi : unmarked), altNames, definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
+    ...(o.accept ? vi : unmarked), altNames, ...(links.length || vi.linkNames ? { linkNames: links } : {}), definition: unescapePlain(w.definition).replace(/<[^>]+>/g, '').trim(), body: sanitizeHtml(w.body),
     quality: { score: review.score, indexable: true },
   }, 'vi'))
   // Each kind's photo stays with the term (the spread above keeps it). One whose kind the new text no longer lists is named,

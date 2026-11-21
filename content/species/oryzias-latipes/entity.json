@@ -26,8 +26,8 @@
         "VN"
       ],
       "regions": [
-        "Hainan",
         "Honshu",
+        "Hainan",
         "Ryuku Islands"
       ],
       "sources": [
@@ -52,8 +52,8 @@
           "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
           "countries": [],
           "regions": [
-            "Hainan",
             "Honshu",
+            "Hainan",
             "Ryuku Islands"
           ]
         }
@@ -535,11 +535,11 @@
         "value": 3.6
       },
       {
-        "source": "aquariumcoop",
+        "source": "glaser",
         "value": 4
       },
       {
-        "source": "glaser",
+        "source": "aquariumcoop",
         "value": 4
       }
     ],
@@ -580,19 +580,13 @@
       "key": "quickFacts",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>Oryzias latipes is commonly known as the Medaka or Japanese ricefish. The genus name comes from the Greek word for \"rice\" because these fish are frequently found in rice paddies. This torpedo-shaped fish grows up to 4 cm and often has a blue or silvery eye. Hundreds of colours and varieties have been line bred, such as gold, pearl galaxy, Yokihi orange, Orochi black, blue, Tancho red cap, Miyuki blue and platinum white.</p><p>They are incredibly hardy, peaceful and energetic, which makes them one of the most beginner-friendly fish. In the wild they live only 1–2 years, but in captivity their lifespan can reach up to 5 years.</p>"
+      "html": "<p>Oryzias latipes is commonly known as the Medaka or Japanese ricefish. The genus name comes from the Greek word for \"rice\" because they are frequently found in rice paddies. This torpedo-shaped fish grows up to 4 cm and often has a blue or silvery eye. Hundreds of colours and varieties have been line bred, such as gold, pearl galaxy, Yokihi orange, Orochi black, blue, Tancho red cap, Miyuki blue and platinum white.</p><p>They are incredibly hardy, peaceful and energetic, which makes them one of the most beginner-friendly fish for a first aquarium or outdoor pond. In the wild they live for only 1–2 years, but their lifespan can reach up to 5 years in captivity.</p>"
     },
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_latipes_en/",
       "html": "<p>The Japanese Ricefish or Medaka is the typical pet of the Japanese scientists that work on genetics. Uncountable numbers of scientific papers exist about this fish. Nevertheless the wild type of Medaka is a top rarity in the ornamental fish trade. The glittering scales of the fish are very obvious. O. latipes can reach a maximum length of about 4 cm and can be even kept in garden ponds in mild climates.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>Medaka usually sell for a few dollars per fish, but for very rare and desirable strains a clutch of eggs may cost much more. Hobbyists report that ricefish are quite friendly and will come to the front of the tank to beg for food. They have been raised as pet fish in Japan for hundreds of years. In 1994 they became the first vertebrate to mate and lay eggs that hatched in space.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -622,7 +616,7 @@
       "key": "habitat",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>They prefer rice paddy fields, marshes and other slow-moving waterways. They can live in both freshwater and strongly brackish water, and will often travel between streams and the ocean for non-breeding purposes.</p>"
+      "html": "<p>They prefer rice paddy fields, marshes and other slow-moving waterways. They can live in both freshwater and strongly brackish water and will often travel between streams and the ocean for non-breeding purposes.</p>"
     },
     {
       "key": "aquariumSize",
@@ -634,7 +628,7 @@
       "key": "aquariumSize",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>Medaka can live in a 40-litre tank (or mini pond) with a sponge filter for a slower current. Keep them in a school of six or more.</p>"
+      "html": "<p>Medaka can live in a 40-litre tank (or mini pond) with a sponge filter for slower current. They may jump out of the water, so consider using a lid or lots of floating plants to cover the surface.</p>"
     },
     {
       "key": "maintenance",
@@ -652,13 +646,7 @@
       "key": "waterConditions",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>They tolerate temperatures of 16–24°C, pH 6.5–8.5, and moderately soft to very hard GH. They can live in hotter (and colder) temperatures, but unheated tanks and outdoor ponds are preferred since warmer water can increase their metabolism and shorten their lifespan.</p>"
-    },
-    {
-      "key": "equipment",
-      "source": "aquariumcoop",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>Use a sponge filter for slower current. They may jump out of the water, so consider an aquarium lid or plenty of floating plants to cover the surface and help keep the water clean.</p>"
+      "html": "<p>They tolerate temperatures of 16–24°C, pH 6.5–8.5, and moderately soft to very hard GH. While they can live in hotter (and colder) temperatures, unheated tanks and outdoor ponds are preferred, since warmer water can increase their metabolism and shorten their lifespan.</p>"
     },
     {
       "key": "diet",
@@ -670,7 +658,7 @@
       "key": "diet",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>Rice fish prefer tiny foods that float on the surface. They are not picky eaters, but should be fed a varied diet of many different foods to avoid nutrient deficiencies. Medaka love crushed flakes, freeze-dried tubifex worms, fry and small-fish foods, and live mosquito larvae that hatch naturally in the pond.</p>"
+      "html": "<p>Rice fish prefer tiny foods that float on the surface. They are not picky eaters, but should be fed a varied diet to avoid nutrient deficiencies. Medaka love crushed flakes, freeze-dried tubifex worms, small fry and small-fish foods, and any live mosquito larvae that hatch naturally in the pond.</p>"
     },
     {
       "key": "behaviour",
@@ -682,7 +670,7 @@
       "key": "behaviour",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>Keep them in a school of six or more in a species-only breeding tank or a community tank. They get along with similar-sized, peaceful tank mates that also enjoy cooler temperatures, such as white cloud mountain minnows, hillstream loaches, shiners, amano shrimp and snails. They can also live with adult Neocaridina cherry shrimp, but Medaka may eat baby shrimp and adult shrimp may eat rice fish eggs.</p><p>If the males chase each other excessively, add more plants to block line of sight, increase the number of females, or remove some males.</p>"
+      "html": "<p>Hobbyists report that ricefish are quite friendly and will come to the front of the tank to beg for food. Keep them in a group of six or more, in a species-only tank or a community tank. They get along with similar-sized, peaceful tank mates that enjoy cooler temperatures, such as white cloud mountain minnows, hillstream loaches, shiners, amano shrimp and snails. They can also live with adult Neocaridina cherry shrimp, but Medaka may eat baby shrimp and adult shrimp may eat rice fish eggs.</p><p>If males chase each other excessively, add more plants to block line of sight, increase the number of females, or remove some males.</p>"
     },
     {
       "key": "dimorphism",
@@ -694,7 +682,7 @@
       "key": "dimorphism",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>Females are generally bigger and plumper, with a shorter, triangular anal fin (wider near the abdomen and narrower near the tail). Males have a slender body with a wider, parallelogram-shaped anal fin.</p>"
+      "html": "<p>Females are generally bigger and plumper with a shorter, triangle-shaped anal fin (wider near the abdomen and narrower near the tail). Males have a slender body with a wider anal fin shaped like a parallelogram.</p>"
     },
     {
       "key": "reproduction",
@@ -706,7 +694,7 @@
       "key": "reproduction",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "html": "<p>To breed them you need at least one male and one female. If the fish are too young to sex, get a group of six or more to improve your chances of getting both genders. They are very easy to breed as long as they are fed plenty and the temperature isn't too cold.</p><p>For colony breeding, where the fry grow up with the adults, set up a species-only 40-litre tank or pond with slow flow and lots of floating plants with long roots (e.g. dwarf water lettuce and water hyacinth). A DIY spawning mop that can be easily removed can increase the yield.</p><p>Fish in breeding mode have males chasing each other and females carrying a cluster of sticky eggs in front of the anal fin. They can lay eggs daily, depositing them on plants, spawning mops and even sponge filters. To avoid predation, move the eggs to a separate container, either by removing the whole spawning mop or picking them up by hand.</p><p>The eggs are fairly large (1.5 mm), clear, and gradually darken as the fry develop. Solid white eggs are no longer viable and should be removed to prevent fungus spreading. At 25°C the eggs can start hatching in a little under a week, and take longer if cooler.</p><p>Once the fry are free swimming, feed them newly hatched baby brine shrimp, powdered fry food, vinegar eels and paramecium. To make sure they can reach their food, keep them in a small container for a while with frequent water changes. Eventually they should move to a bigger rearing tank with lots of plants, mulm and microfauna to snack on. Within 3–4 months they should be large enough to sell.</p>"
+      "html": "<p>You need at least one male and one female. If the fish are too young to sex, get a group of six or more. Rice fish are very easy to breed as long as they are fed plenty and the temperature isn't too cold.</p><p>To colony breed them so that fry grow up with the adults, set up a species-only 40-litre tank or pond with slow flow and lots of floating plants with long roots (e.g. dwarf water lettuce and water hyacinth). A spawning mop that can be easily removed can increase yield.</p><p>Fish in breeding mode: males chase each other and females carry a cluster of sticky eggs in front of the anal fin. They can lay eggs daily, depositing them on plants, spawning mops and even sponge filters. To avoid predation, eggs can be moved to a separate container by removing the whole spawning mop or picking them up by hand.</p><p>Eggs are fairly large (1.5 mm), clear, and darken gradually as the fry develop. Solid white eggs are no longer viable and should be removed to prevent fungus spreading. At 25°C the eggs start hatching in a little under a week, and take longer if cooler.</p><p>Once free swimming, feed the fry newly hatched baby brine shrimp, powdered fry food, vinegar eels and paramecium. They can be kept in a small container for a while to ensure they reach food, as long as water is changed frequently. Eventually move them to a bigger rearing tank with lots of plants, mulm and microfauna. Within 3–4 months they should be large enough to sell.</p>"
     },
     {
       "key": "notes",
@@ -743,7 +731,7 @@
       "width": 794,
       "height": 528,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Seotaro / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "caption": "Specimen from Hamamatsu, western Shizuoka Prefecture, Japan.",
       "source": "seriouslyfish"
@@ -754,7 +742,7 @@
       "width": 794,
       "height": 528,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Seotaro / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "caption": "Another individual from Hamamatsu.",
       "source": "seriouslyfish"
@@ -765,7 +753,7 @@
       "width": 622,
       "height": 577,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Kiyoshi Naruse / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "caption": "This image shows a selectively-bred 'golden' fish (top), transgenically modifed 'glowing' form (middle) and albino (bottom).",
       "source": "seriouslyfish"
@@ -780,9 +768,56 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
       "caption": "Care Guide for Medaka Rice Fish — Best Cool Water Fish for Beginners - Aquarium Co-Op",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/a568484d43a43b1c.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/a568484d43a43b1c-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "caption": "Platinum white Medaka",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/e431abda7fb9b3b8.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/e431abda7fb9b3b8-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "caption": "Medaka living in outdoor mini pond",
+      "source": "aquariumcoop"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "uv6l9Q4SwVs",
+      "title": "Youkihi Medaka Japanese Ricefish Eating Flake (Oryzias latipes / メダカ )",
+      "durationSec": 33,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wi03GMtsPTw",
+      "title": "Hatching and Raising JAPANESE RICEFISH! | How To Breed Medaka-Oryzias Latipes",
+      "durationSec": 299,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8g6I8Wn7C08",
+      "title": "Medaka / Japanischer Reisfisch \"BLACK LAME\" - Oryzias latipes",
+      "durationSec": 49,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vogEuCaYrmE",
+      "title": "How To Care For Japanese Rice Fish - Everything You Need To Know About Medaka Fish",
+      "durationSec": 815,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -813,5 +848,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-18"
 }

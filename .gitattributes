@@ -28,6 +28,7 @@ content/plants/*/*.json merge=entity
 content/places/*/*.json merge=entity
 engine-state/_topic-check.json merge=jsonmap
 engine-state/_reader.json merge=jsonmap
+engine-state/_priority-emptied.json merge=jsonmap
 engine-state/_depth-search.json merge=jsonmap
 engine-state/_product-reviews.json merge=jsonmap
 engine-state/_video-stills.json merge=jsonmap

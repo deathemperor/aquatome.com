@@ -16,10 +16,12 @@
         "ID"
       ],
       "regions": [
-        "Lake Matano"
+        "Lake Matano",
+        "Sulawesi"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "aquariumbreeder"
       ],
       "quotes": [
         {
@@ -36,6 +38,14 @@
           "countries": [],
           "regions": [
             "Lake Matano"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "In the wild, the Panther Crab is found on the Indonesian island of Sulawesi.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
           ]
         }
       ]
@@ -74,6 +84,58 @@
           "min": 25,
           "max": 29
         }
+      },
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 7.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 4,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "aquariumbreeder",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquariumbreeder",
+        "value": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumbreeder",
+        "value": {
+          "min": 3,
+          "max": 5
+        }
       }
     ]
   },
@@ -85,10 +147,40 @@
       "html": "<p>Origin: Indonesia. Panther crabs were received from Lake Matano in Indonesia.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<ul><li>Name: Panther Crab (also Leopard Crab)</li><li>Scientific name: Parathelphusa pantherine</li><li>Type: fully aquatic crab</li><li>Minimum tank: 90 litres</li><li>Breeding: very difficult</li><li>Carapace size: 4–7 cm</li><li>Leg span: 7–12 cm</li><li>KH: 4–12</li><li>TDS: 100–200</li><li>Nitrate: less than 20 ppm</li><li>Diet: omnivore / carnivore</li><li>Temperament: aggressive / territorial</li><li>Colour: yellow, light orange with brown spots</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>In the wild, the Panther Crab is found on the Indonesian island of Sulawesi. Populations are concentrated in and around Lake Matano, though they have also been found in areas south of the lake.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Panther Crab is listed as endangered in its natural habitat due to human encroachment and, in particular, nickel mining practices that harm the water quality of the lake. In the wild these crabs are shore dwellers.</p><p>Water parameters in the shallows of Lake Matano:</p><ul><li>Temperature: 28.7°C</li><li>pH: 8.5</li><li>GH: 7</li><li>KH: 5</li><li>Conductance: 175 μS</li><li>TDS: 87.5 ppm</li><li>Oxygen: 6.93 mg/l</li></ul>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Being rather large for a freshwater crab, the Panther Crab needs a substantial amount of space: approximately 80 cm of tank length per animal. A large tank also helps reduce aggression, especially when housing multiple males. Covered tanks are highly recommended, as Panther Crabs are known to escape from uncovered tanks.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/parathelphusa-pantherina/",
       "html": "<p>Since they live nearly totally under water, they need only a small terrestrial part in their tank. Make sure the tank is closed properly, because they are real jailbreakers!</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Many sources indicate that Panther Crabs are fully aquatic, but it is still a good idea to provide some land area, such as rocks or wood jutting out of the water, so they can emerge if they choose. An amphibious setup suits them best, though it is not mandatory.</p><p>Hiding places are extremely important so the crabs feel safe. They are very vulnerable during molting and can be territorial, so a safe retreat is essential. They do not dig deep burrows; they usually prefer small holes under stones, driftwood and similar.</p><p>Panther Crabs view plants as food and are highly skilled at uprooting and eating them. Tough plants such as Java fern can withstand them, but most others will be destroyed. They are less destructive than crayfish, so some plants may be left alone. Floating plants can also be used.</p>"
     },
     {
       "key": "waterConditions",
@@ -97,10 +189,46 @@
       "html": "<p>Hard water with a temperature of 25–29°C is preferred.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>An ideal, well-cycled tank should mimic Lake Matano as closely as possible. pH should be at or near 8.0 and temperature should range between 27 and 31°C. Careful acclimation is needed, as with all invertebrates.</p><p>To replicate Lake Matano and control water quality, RO/DI water and remineralizers (Salty Shrimp Sulawesi Mineral 8.5 and Salty Shrimp Mineral 7.5) are needed. Not doing so is the major mistake in keeping Panther Crabs: they can live in tap water, but their lifespan will be reduced drastically.</p><p>Medication containing a lot of copper should be avoided, as copper is deadly to invertebrates.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/parathelphusa-pantherina/",
       "html": "<p>They can be fed easily with all kinds of food; from pellets to frozen food they eat nearly everything.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Panther Crab is an omnivore and eats a widely varied diet. It makes a good \"janitor\", consuming leftover food, algae and detritus.</p><p>Frozen brine shrimp, algae wafers, fish or shrimp pills and flakes are good supplements. Because wild Panther Crabs have some plant matter in their diet and prepared foods offer little of it, carrots and zucchini or cucumber slices are a good choice.</p><p>Panther Crabs need calcium to mineralize (harden) the shell, which is key to the molting process. Calcium-rich foods such as whole lancefish and unshelled shrimp are a good natural source.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>The Panther Crab has a somewhat aggressive temperament, which matters especially when keeping several crabs together. They are very territorial and need a lot of space to reduce aggression. Captive-bred generations are likely to be milder than wild ones. They are nocturnal and considerably more active at night.</p><p>Crabs: males in particular are very likely to fight and eventually kill each other. Ideally they are kept alone; multiple crabs should be kept as one male with several females. Do not keep them with other Lake Matano crabs (for example Matano crab). Make sure there is plenty of food to reduce competition.</p><p>Fish: Panther Crabs are opportunistic scavengers and will eat small, defenseless or weak fish, while larger fish may damage the crab during molting. Fish are most vulnerable at night near the substrate, exactly when the crabs are most active. It is best to keep them in a species-specific tank.</p><p>Crayfish: crayfish and crabs are aggressive and either can become a snack for the other; keeping them together is not recommended.</p><p>Shrimp and snails: shrimp such as Cardinal shrimp (also from Lake Matano) will be OK as long as they are fast enough to stay away from the crab. Crabs should not be trusted with anything smaller that they can catch.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Sexing Panther Crabs can be difficult for the untrained eye; the crab must be handled carefully to see its underside. Males have a thin flap on the underside of the belly, while females have a larger, rounder flap. The male's abdomen plate is generally much narrower than the female's.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Breeding Panther Crabs can be tricky because of their territorial nature, but it is doable in a home aquarium. It is important to keep a good ratio of males to females for their safety. They mature at about 5 cm. When females release pheromones, males can go into a frenzy and endanger the female if there are too many males.</p><p>An extremely clean tank is especially important, as it minimizes opportunistic bacteria and makes the eggs easy to observe. Some breeders add a deep sand bed so females can lay eggs safely.</p><p>After hatching, baby crabs should be separated from adults because of cannibalism. The berried female can also be moved to a rearing tank and returned after hatching.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "html": "<p>Panther Crabs were officially named in 1902. They reach up to about 8 cm across the carapace (not including legs). They can live up to 10 years according to a study, but in captivity they barely live 3–5 years.</p>"
     }
   ],
   "photos": [
@@ -110,9 +238,19 @@
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/panther_crabs_from_sulawesi_en/",
       "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/8c5d941b66e1bfec.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/8c5d941b66e1bfec-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/panther-crab-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
     }
   ],
   "videos": [
@@ -145,8 +283,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể nuôi cua cảnh",
-        "bể cua có nắp"
+        "bể cá 80cm"
       ]
     },
     {
@@ -163,5 +300,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-17"
+  "updatedAt": "2026-11-20"
 }

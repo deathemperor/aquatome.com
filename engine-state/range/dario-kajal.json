@@ -1,8 +1,8 @@
 {
   "id": "dario-kajal",
   "native": {
-    "input": "e0b4c443c1b7e187",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "3f1609df7c7b97a9",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "IN",
@@ -17,6 +17,14 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Dario kajal is a tiny badid from the Meghna drainage, described from the Jaintia Hills of Meghalaya, India, and also found in Bangladesh.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Nonn Panitvong, an enthusiastic Thai aquarist, had found the animals in Bangladesh.",
         "words": "Bangladesh",
         "ok": true
       }

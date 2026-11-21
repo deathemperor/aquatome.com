@@ -1,8 +1,13 @@
 {
   "slug": "seling-river",
-  "name": "Seling",
+  "name": "Sungai Seling",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.96,
+    "at": "2026-11-19T07:50:49.930Z"
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

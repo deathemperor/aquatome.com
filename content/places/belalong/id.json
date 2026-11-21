@@ -3,6 +3,12 @@
   "name": "Belalong",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.5,
+    "at": "2026-11-19T07:49:24.416Z",
+    "why": "The source sentence is about the Belalong River (Sungai Belalong) in Brunei, so the bare \"Belalong\" drops the Indonesian kind word \"Sungai\" and doesn't name the river."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

@@ -15,30 +15,38 @@
   ],
   "range": {
     "native": {
-      "countries": [],
+      "countries": [
+        "VE",
+        "PE",
+        "BR"
+      ],
       "regions": [
         "Amazon River",
-        "Rio Negro"
+        "Lake Tefé"
       ],
       "sources": [
-        "sprucepets",
-        "glaser"
+        "sprucepets"
       ],
       "quotes": [
         {
           "source": "sprucepets",
           "quote": "Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins.",
-          "countries": [],
+          "countries": [
+            "VE",
+            "PE"
+          ],
           "regions": [
             "Amazon River"
           ]
         },
         {
-          "source": "glaser",
-          "quote": "The name Tumbira refers to a Tukano community on the bank of the Rio Negro, below Sao Gabriel de Cachoeira.",
-          "countries": [],
+          "source": "sprucepets",
+          "quote": "A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus.",
+          "countries": [
+            "BR"
+          ],
           "regions": [
-            "Rio Negro"
+            "Lake Tefé"
           ]
         }
       ]
@@ -46,7 +54,7 @@
     "records": {
       "taxonKey": 5208131,
       "total": 17,
-      "fetched": "2026-11-18",
+      "fetched": "2026-11-20",
       "countries": [
         [
           "BR",
@@ -65,62 +73,74 @@
         [
           -74.53125,
           -4.21875,
+          1,
           1
         ],
         [
           -64.6875,
           -7.03125,
+          1,
           1
         ],
         [
           -61.875,
           -4.21875,
+          1,
           1
         ],
         [
           -61.875,
           -1.40625,
+          1,
           1
         ],
         [
           -60.46875,
           -4.21875,
+          4,
           4
         ],
         [
           -59.0625,
           -4.21875,
+          1,
           1
         ],
         [
           -57.65625,
           -2.8125,
+          3,
           3
         ],
         [
           -57.65625,
           -1.40625,
+          1,
           1
         ],
         [
           -56.25,
           1.40625,
+          1,
           1
         ],
         [
           -49.21875,
           -2.8125,
+          1,
           1
         ],
         [
           -47.8125,
           -23.90625,
+          1,
           1
         ],
         [
           71.71875,
           18.28125,
-          1
+          1,
+          0
         ]
       ]
     }
@@ -180,16 +200,22 @@
       "html": "<p>Discus are among the most stunning of all aquarium fish and remain a beautiful addition to any large show aquarium. They were first introduced to aquarists in 1933 and were made internationally popular by Dr. Herbert R. Axelrod. Fully grown, an adult can reach about 15 cm (6 inches). They are regarded as one of the most challenging freshwater tropical fish to keep.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-2/",
+      "html": "<p>The Heckel is just as colour-variable as the other discus types; basically it looks like a Royal Blue with a broad vertical bar in the centre. The animals are not beginner fish, but do not pose any unsolvable problems for advanced aquarists.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-2/",
+      "html": "<p>The real or Heckel discus is kept considerably more rarely in the aquarium than brown, blue or green discus and their sports, and it is hardly ever bred. It is therefore only regularly available as a wild-caught fish.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/discus-symphysodon-3988902",
       "html": "<p>Like the Angelfish (Pterophyllum) and Cichlasoma festivum, the Discus inhabits the vast Amazon region, extending from the middle reaches of the Amazon River far into the jungles of the Venezuelan and Peruvian flood basins.</p>"
-    },
-    {
-      "key": "distribution",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
-      "html": "<p>The name Tumbira refers to a Tukano community on the bank of the Rio Negro, below Sao Gabriel de Cachoeira. These are still wild-collected discus.</p>"
     },
     {
       "key": "habitat",
@@ -210,6 +236,18 @@
       "html": "<p>The Discus needs very pure, clean water filtered through peat, in a well-established planted aquarium. Temperature should be a steady 28°C (82°F), pH 6.5–7.5, 1–12 dGH.</p><p>For breeding: 30°C (86°F), pH 6–6.5, 0–5 dGH.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-2/",
+      "html": "<p>Humic substances from peat, alder cones, dead leaves etc. are very important, as they greatly strengthen the fish's immune defence.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-2/",
+      "html": "<p>The aquarium must not be too brightly lit and should have fine sandy substrate at least in places, so that the discus can pursue their typical search for food, the \"blowing out\" of food animals from the sand.</p>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/discus-symphysodon-3988902",
@@ -220,6 +258,12 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/discus-symphysodon-3988902",
       "html": "<p>Very peaceful; it does not burrow in the substrate like many cichlids and does not dig up or tear up plants. The Discus lives in harmony with other fish, except at spawning time, when it vigorously defends its young.</p><p>It is best to get a group of young Discus and let them pair off; a Discus mates for life. It is obvious when mates have found each other: they no longer stay with the group but stake out their own portion of the aquarium as a territory. Only one pair should be left in any one aquarium if successful breeding is wanted. The rest of the young can be moved to another aquarium, where another pair may find each other.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-2/",
+      "html": "<p>They should be kept in shoals of at least six, better eight to twelve animals.</p>"
     },
     {
       "key": "dimorphism",
@@ -238,12 +282,6 @@
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/discus-symphysodon-3988902",
       "html": "<p>Viewed from the front, Discus are extremely thin for their size, but from the side they are nearly round, hence the name discus, Latin for plate or dish. Their basic body colour in nature is brown. Brilliant blue bars cover both the dorsal and anal fins and extend onto the back and belly. The dorsal, ventral and anal fins are edged in bright red.</p><p>A variety from Lake Tefé, Brazil, has bright metallic green or blue bars all over its fins and body and is occasionally called the Royal Discus.</p><p>Over the decades many varieties have appeared, such as red, yellow, and orange to yellow forms like the Sunset Discus. These varieties do not occur in nature; they have been developed over many years of careful breeding.</p>"
-    },
-    {
-      "key": "notes",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
-      "html": "<p>Blue Head Tumbira is a remarkable Heckel discus variety. Not every specimen has a solid blue opercle: as these are wild-collected discus, each individual fish has its own pattern. However, the number of Blue Heads among Blue Head Tumbira is very high.</p><p>Another typical feature of this variety is the broad \"Heckel bar\", the vertical bar in the middle of the body.</p>"
     }
   ],
   "photos": [
@@ -253,7 +291,7 @@
       "width": 850,
       "height": 907,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
       "source": "glaser"
     },
@@ -263,7 +301,7 @@
       "width": 850,
       "height": 907,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
       "source": "glaser"
     },
@@ -273,7 +311,7 @@
       "width": 850,
       "height": 907,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
       "source": "glaser"
     },
@@ -283,7 +321,7 @@
       "width": 850,
       "height": 907,
       "licence": "dùng với sự cho phép",
-      "author": "Aquarium Glaser",
+      "author": "Frank Schäfer / Aquarium Glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-discus-blue-head-tumbira-2/",
       "source": "glaser"
     }
@@ -343,5 +381,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-18"
+  "updatedAt": "2026-11-20"
 }

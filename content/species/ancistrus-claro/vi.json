@@ -3,7 +3,10 @@
   "name": "Cá lau kính claro LDA8",
   "altNames": [
     "Cá bristlenose claro",
-    "Gold marble bristlenose catfish"
+    "Gold marble bristlenose catfish",
+    "Cá ancistrus lùn",
+    "LDA 8",
+    "Dwarf ancistrus"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Ancistrus claro (LDA 008), tên tiếng Anh là gold marble bristlenose catfish, là một loài cá lau kính, tức cá da trơn có miệng giác hút. Cá có nguồn gốc từ sông Claro và sông Coxipó ở bang Mato Grosso, Brazil. Ngoài tự nhiên, chúng sống ở những con suối nước chảy, nền toàn đá tảng và đá gốc. Loài này đôi khi bị nhầm với vài loài chưa định danh như A. sp. 'L352'. Muốn nhận ra nó, bạn nhìn râu hàm dài và các đốm nhỏ trên đầu. Con đực có những đường vằn ngoằn ngoèo như giun trên thân, còn con cái thì có đốm khắp người. Đây là loài hiền, đẻ trong hang. Người nuôi đã cho chúng sinh sản trong bể nhiều lần.</p>",
@@ -17,13 +20,17 @@
     "dimorphism:seriouslyfish": "<p>Con đực trưởng thành có các gai nhỏ (odontode) mọc dày trên vây ngực và nắp mang. Trên đầu con đực còn có các xúc tu. Con cái thì không có những đặc điểm này.</p>",
     "reproduction:seriouslyfish": "<p>Loài này đẻ trong hang. Con đực là bên trông trứng và cá con.</p><p>Người nuôi đã cho chúng sinh sản trong bể nhiều lần. Trong những bể lâu năm, chăm sóc tốt, cá con có thể tự xuất hiện mà bạn không cần làm gì.</p>",
     "notes:seriouslyfish": "<p>Loài này đôi khi bị nhầm với vài loài chưa định danh như A. sp. 'L352'.</p><p>Bạn có thể phân biệt nó với các loài họ hàng gần trong cùng chi qua hai điểm. Thứ nhất, râu hàm của nó tương đối dài và tách rời khỏi môi dưới. Thứ hai là kiểu màu. Con đực có đốm nhỏ trên đầu và những đường vằn ngoằn ngoèo như giun trên thân. Con cái có đốm nhỏ khắp đầu và thân.</p><p>Ancistrus là một chi rất đa dạng, hiện có hơn 60 loài hợp lệ. Các loài trong chi phân bố từ Panama ở Trung Mỹ xuống tới lưu vực Río de la Plata ở Argentina.</p><p>Các loài Ancistrus khác những loài loricariid còn lại ở chỗ có gai gian nắp mang phát triển mạnh. Mép trước mõm của chúng không có tấm xương hay odontode. Thay vào đó, vùng này phủ đầy các xúc tu thịt.</p>",
-    "references:seriouslyfish": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Bifi, A. G., C. S. Pavanelli and C. H. Zawadzki (2009). Three new species of Ancistrus Kner, 1854 (Siluriformes: Loricariidae) from the Rio Iguaçu basin, Paraná State, Brazil. Zootaxa 2275, 41-59</li></ul>"
+    "references:seriouslyfish": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Bifi, A. G., C. S. Pavanelli and C. H. Zawadzki (2009). Three new species of Ancistrus Kner, 1854 (Siluriformes: Loricariidae) from the Rio Iguaçu basin, Paraná State, Brazil. Zootaxa 2275, 41-59</li></ul>",
+    "quickFacts:glaser": "<p>Ancistrus claro là một trong những loài Ancistrus nhỏ nhất. Trước khi có tên khoa học, nó mang mã LDA 8. Cá lớn tối đa chỉ 6–8 cm.</p>",
+    "habitat:glaser": "<p>Loài cá da trơn này sống ở các con suối nước trong, chảy mạnh, thuộc thượng nguồn lưu vực sông Rio Paraguay-Paraná.</p>",
+    "dimorphism:glaser": "<p>Phân biệt đực cái ở loài này không dễ như ở các loài Ancistrus khác. Giống các nữ người lùn trong \"Chúa tể những chiếc nhẫn\" của Tolkien, con cái của loài ancistrus lùn này cũng có \"bộ râu\" rậm.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.85
     }
   }
 }

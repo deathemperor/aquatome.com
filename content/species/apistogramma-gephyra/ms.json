@@ -1,0 +1,27 @@
+{
+  "slug": "apistogramma-gephyra",
+  "name": "Apistogramma gephyra",
+  "altNames": [
+    "Apisto gephyra",
+    "Gephyra dwarf cichlid"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Apistogramma air hitam (blackwater) yang cantik dan sangat jarang diimport. Rupanya agak mirip A. agassizii dan cara penjagaannya dalam akuarium boleh dikatakan sama dengan spesies yang terkenal itu. Saiz yang boleh didapati: 3-5 cm.</p>",
+    "distribution:glaser": "<p>Ikan ini berasal dari Brazil, iaitu di lembangan Rio Negro bahagian tengah dan lembangan Rio Branco bahagian hilir.</p>",
+    "dimorphism:glaser": "<p>Topeng muka kuning pada ikan jantan sangat ketara pada populasi yang ada di pasaran sekarang. Ikan betina kekal jauh lebih kecil berbanding ikan jantan, seperti biasa bagi Apistogramma.</p>",
+    "notes:glaser": "<p>Apistogramma: daripada bahasa Yunani kuno, bermaksud \"dengan garisan yang tidak menentu\". Tidak diketahui sama ada yang dimaksudkan ialah organ garisan sisi (lateral line) atau coraknya. gephyra: daripada perkataan Yunani kuno untuk \"jambatan\", merujuk kepada kedudukan spesies ini yang berada di pertengahan antara Apistogramma agassizii dan A. pertensis.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-19"
+  }
+}

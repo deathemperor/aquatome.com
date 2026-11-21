@@ -1,8 +1,13 @@
 {
   "slug": "phong-nha-river",
-  "name": "Phong Nha",
+  "name": "Sungai Phong Nha",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.95,
+    "at": "2026-11-20T01:50:13.263Z"
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

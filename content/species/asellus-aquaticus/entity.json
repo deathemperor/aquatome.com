@@ -10,6 +10,35 @@
     "north-america"
   ],
   "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "quần đảo Anh",
+        "Scandinavia"
+      ],
+      "sources": [
+        "aquariumbreeder",
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Ngoài châu Âu và Bắc Mỹ, loài này còn có ở Trung Mỹ, Trung Đông, Bắc Á, quần đảo Anh, cả Iceland, và ở nhiều vùng của Trung Quốc và Nhật Bản.",
+          "countries": [],
+          "regions": [
+            "quần đảo Anh"
+          ]
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is associated with a temperate climate and has been recorded from the Mediterranean in the south to Scandinavia in the north.",
+          "countries": [],
+          "regions": [
+            "Scandinavia"
+          ]
+        }
+      ]
+    },
     "records": {
       "taxonKey": 2206247,
       "total": 77388,

@@ -9,7 +9,7 @@
     "habitat:seriouslyfish": "<p>Chưa ai xác nhận, nhưng có lẽ đây là loài chạch sống ở sông, ưa nước chảy, trong, nhiều oxy, nền đá hoặc sỏi, hoặc cả hai.</p><p>Các loài khác cùng chi sống ở suối đầu nguồn nền đá liền, nhiều đá tảng. Tùy mùa trong năm, chúng cũng xuống các dòng sông lớn hơn, nước đục.</p>",
     "aquariumSize:seriouslyfish": "<p>Đáy bể nên rộng ít nhất 120 × 30 cm.</p>",
     "maintenance:seriouslyfish": "<p>Nên set bể giống một con suối chảy, nền gồm đá to nhỏ đủ cỡ, sỏi và vài tảng đá cuội nước mài nhẵn.</p><p>Có thể thêm rễ và cành lũa, xếp sao cho có vài chỗ râm. Mấy đoạn ống PVC hay thứ tương tự cũng dùng làm chỗ trốn được.</p><p>Bể kiểu này thì hầu hết cây đều khó lên, nhưng mấy chi cây khỏe như Microsorum, Bolbitis hay Anubias vẫn trồng được nếu buộc lên đá, lũa. Đèn mạnh thì aufwuchs (lớp rêu và sinh vật nhỏ bám trên đá) mọc nhiều hơn.</p><p>Giống nhiều loài cá sống ở nước chảy, loài này không chịu được chất thải hữu cơ tích lại trong bể. Muốn cá khỏe thì nước lúc nào cũng phải thật sạch.</p><p>Cá cũng khỏe nhất khi nước nhiều oxy hòa tan và bể có dòng chảy kha khá. Muốn được vậy thì dùng lọc ngoài, thổi luồng và các thiết bị tương tự.</p><p>Loài này cần nước ổn định mới khỏe, nên tuyệt đối không thả vào bể mới set, vi sinh chưa ổn.</p>",
-    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: nuôi thông thường thì 15,5–21°C là đủ. Ở xứ nóng, mấy tháng hè có thể phải dùng máy làm lạnh nước.</li><li>pH: 6,5–7,5</li><li>Độ cứng: 5–20 dGH</li></ul>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: nuôi thông thường thì 15,5–21°C là đủ.</li><li>pH: 6,5–7,5</li><li>Độ cứng: 5–20 dGH</li></ul>",
     "diet:seriouslyfish": "<p>Ngoài tự nhiên, có lẽ đây là loài săn mồi ở đáy, ăn côn trùng, giáp xác và cá nhỏ.</p><p>Vì thế, nuôi trong bể nên cho ăn đa dạng: trùng huyết tươi hoặc đông lạnh, trùng chỉ, thịt sò hến thái nhỏ, giun đất và thức ăn khô loại chìm, chất lượng tốt.</p>",
     "behaviour:seriouslyfish": "<p>Loài này chắc không dữ. Nhưng đừng nuôi chung với cá nhỏ hơn nó nhiều, vì cá nhỏ có thể sợ con to, lại có lúc bơi rất hăng như nó.</p><p>Cũng nên tránh các loài bơi chậm, vây dài như cá xiêm cảnh, cá bảy màu và nhiều loài cichlid. Hợp hơn là các loài cá họ chép hiền, bơi ở vùng nước thoáng.</p><p>Với các loài sống ở đáy, loài này chắc sống ổn với hầu hết các loài Botia. Cũng có thể thử nuôi chung một số loài chạch họ Cobitidae, Nemacheilidae và Balitoridae, các loài thuộc Epalzeorhynchos, Crossocheilus và Garra, cùng nhiều loài cá da trơn.</p><p>Như mọi khi, tìm hiểu kỹ trước khi chọn cá nuôi chung là cách tốt nhất để tránh rắc rối.</p><p>Các loài Leptobotia thích sống theo đàn, và trong đàn hình như có thứ bậc khá phức tạp. Vì vậy nên mua ít nhất 3–4 con.</p><p>Nuôi một con thì cá có thể nhút nhát, ít ra ngoài, hoặc trở nên dữ với cá có dáng giống nó. Nếu chỉ mua hai hay ba con, con đầu đàn có thể ép những con còn lại đến mức chúng bỏ ăn.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa ai xác nhận, nhưng có lẽ khi đủ lớn để đẻ thì cá cái sẽ to bụng, chắc người hơn.</p>",
@@ -23,11 +23,5 @@
     "bySource": {
       "seriouslyfish": 0.78
     }
-  },
-  "held": {
-    "checks": [
-      "elsewhere"
-    ],
-    "at": "2026-11-09"
   }
 }

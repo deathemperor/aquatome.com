@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import { checkedPage, checks, merged, prComment, sitemapPages, lateDeploy, goesLive, DEPLOY_PATHS, waitingCommits } from '../../../scripts/site-watch.mjs'
 
 // One page's review in Playwright's JSON report, shaped as a real run writes it (ci.yml runs the phone project only).
-const LIMIT = "Claude usage limit: You've hit your weekly limit · resets Nov 5, 6am (UTC)"
+const LIMIT = 'Claude usage limit' // e2e/claude-limit.ts: none of the CLI's words
 type Note = { type: string; description: string }
 const review = (path: string, status: 'expected' | 'unexpected' | 'skipped', annotations: Note[] = [], error?: string) => ({
   title: `review ${path}`, file: 'review.spec.ts', tags: ['review'],

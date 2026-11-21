@@ -14,7 +14,8 @@
     "kapuas",
     "endau",
     "singapore",
-    "malay-peninsula"
+    "malay-peninsula",
+    "peninsular-malaysia"
   ],
   "range": {
     "native": {
@@ -26,8 +27,7 @@
       "regions": [
         "Sumatra",
         "Borneo",
-        "Malay Peninsula",
-        "Kalimantan"
+        "Malay Peninsula"
       ],
       "sources": [
         "bwaquatics",
@@ -37,7 +37,7 @@
       "quotes": [
         {
           "source": "bwaquatics",
-          "quote": "Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.",
+          "quote": "Native to Peninsular Malaysia, Sumatra and Borneo.",
           "countries": [
             "MY"
           ],
@@ -52,9 +52,7 @@
           "countries": [
             "ID"
           ],
-          "regions": [
-            "Kalimantan"
-          ]
+          "regions": []
         },
         {
           "source": "seriouslyfish",
@@ -147,30 +145,30 @@
   "dataCard": {
     "tempC": [
       {
-        "source": "bwaquatics",
-        "value": {
-          "min": 25,
-          "max": 29
-        }
-      },
-      {
         "source": "seriouslyfish",
         "value": {
           "min": 26,
           "max": 31
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
       }
     ],
     "ph": [
       {
-        "source": "bwaquatics",
+        "source": "seriouslyfish",
         "value": {
           "min": 4,
           "max": 6.5
         }
       },
       {
-        "source": "seriouslyfish",
+        "source": "bwaquatics",
         "value": {
           "min": 4,
           "max": 6.5
@@ -178,13 +176,6 @@
       }
     ],
     "gh": [
-      {
-        "source": "bwaquatics",
-        "value": {
-          "min": 0,
-          "max": 4
-        }
-      },
       {
         "source": "seriouslyfish",
         "value": {
@@ -195,19 +186,15 @@
     ],
     "sizeCm": [
       {
-        "source": "bwaquatics",
-        "value": 6
-      },
-      {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "bwaquatics",
+        "value": 6
       }
     ],
     "difficulty": [
-      {
-        "source": "bwaquatics",
-        "value": 7
-      },
       {
         "source": "seriouslyfish",
         "value": 4
@@ -229,7 +216,7 @@
       "key": "quickFacts",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>IUCN Red List: Data Deficient (threatened by ongoing peat-swamp habitat destruction).</p><p>Important note: Chocolate Gouramis are highly sensitive blackwater specialists recommended for experienced aquarists.</p><p>The Chocolate Gourami is a beautiful and unusual labyrinth fish. Its deep, laterally compressed body features a rich chocolate-brown base color crossed by pale cream or golden vertical bands. Subtle red, blue, or cream edging may develop on the fins depending on the population and condition of the fish.</p><p>Size: Adults typically reach 5–6 cm (approximately 2–2.4″) total length.</p>"
+      "html": "<ul><li>IUCN Red List: Data Deficient (threatened by ongoing peat swamp habitat destruction)</li><li>Maximum size: about 5–6 cm total length</li><li>TDS: below 100 ppm</li><li>Recommended for experienced aquarists; not a general community fish.</li></ul>"
     },
     {
       "key": "quickFacts",
@@ -253,7 +240,7 @@
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>Native to the peat swamps and blackwater streams of Malaysia, Sumatra, and Borneo.</p>"
+      "html": "<p>Native to Peninsular Malaysia, Sumatra and Borneo.</p>"
     },
     {
       "key": "distribution",
@@ -271,7 +258,7 @@
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>These gouramis naturally inhabit warm, extremely soft, acidic water beneath dense forest canopy. Their habitats contain abundant leaf litter, submerged branches, tannins, and humic substances.</p>"
+      "html": "<p>The Chocolate Gourami is a labyrinth fish restricted to peat swamps and blackwater streams. Its home water is warm, extremely soft and acidic, under dense forest canopy with deep leaf litter, submerged branches and tannins. It lives in warm, shaded peat swamp streams and pools.</p>"
     },
     {
       "key": "habitat",
@@ -298,10 +285,16 @@
       "html": "<p>Provided adequate cover and structure is available this species is unfussy with regards to décor, with ceramic flowerpots, lengths of plastic piping and other artificial materials all useful additions. A more natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed in such a way that plenty of shady spots and caves are formed.</p><p>The addition of dried leaf litter (beech, oak or Ketapang almond leaves are all suitable) would further emphasise the natural feel and with it the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in the simulation of a blackwater environment. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under fairly dim lighting and plant species from genera such as Microsorum, Taxiphyllum, Cryptocoryne, and Anubias are recommended since they will grow under such conditions. A few patches of floating vegetation to diffuse the light even further may also prove effective.</p><p>It naturally inhabits sluggish or still environments therefore filtration, or at least water flow, should not be very strong. Very large water changes are best avoided if the parameters are not close, with 10-15% weekly adequate provided the tank is lightly stocked.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
+      "html": "<p>Use leaf litter, botanicals, driftwood, floating plants, dim light and gentle filtration. Use a tight lid to keep warm, humid air above the water for its labyrinth breathing. Add only to a biologically mature aquarium. Avoid rearranging the tank, strong current and bright light.</p><p>The species is very sensitive to ammonia, nitrite, high nitrate and sudden changes in pH, hardness or temperature. Watch each fish for feeding, body condition, odd coloring or hiding.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>Very soft, acidic water is strongly recommended.</p><ul><li>pH 4.0–6.5</li><li>GH 0–4 °d</li><li>KH 0–1 °d</li><li>TDS preferably below 100 ppm</li><li>Temperature: 25–29 °C (77–84 °F)</li></ul><p>These fish are highly sensitive to ammonia, nitrite, elevated nitrate, and sudden changes in water chemistry. Add them only to a biologically mature aquarium.</p>"
+      "html": "<ul><li>TDS: below 100 ppm</li><li>pH: 4.0–6.5</li><li>Temperature: 25–29°C</li></ul>"
     },
     {
       "key": "waterConditions",
@@ -316,16 +309,10 @@
       "html": "<p>As a typical blackwater fish it needs acidic, soft water. Because the natural habitat of such extreme blackwater fish is very poor in bacteria, their ability to adapt to the high bacteria density in the aquarium is very low.</p>"
     },
     {
-      "key": "equipment",
-      "source": "bwaquatics",
-      "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>Provide leaf litter, botanicals (dried leaves, fruits and bark used in aquariums), driftwood, floating plants, and subdued lighting. Filtration should be gentle, with minimal current and no accumulation of organic waste.</p><p>Maintain a warm, humid layer of air above the water by using a tightly fitted aquarium lid. This is especially important because Chocolate Gouramis possess a labyrinth organ and regularly breathe atmospheric air.</p>"
-    },
-    {
       "key": "diet",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>Primarily a micropredator that may initially refuse prepared foods. Offer a varied diet including:</p><ul><li>Live or frozen daphnia</li><li>Cyclops</li><li>Baby brine shrimp</li><li>Mosquito larvae</li><li>Grindal worms and small bloodworms</li><li>High-quality soft micro-granules</li></ul><p>Live and frozen foods are particularly important during acclimation. Feed small portions once or twice daily and ensure shy individuals are not being outcompeted.</p>"
+      "html": "<p>A micro-predator that may refuse prepared foods at first. Offer live or frozen daphnia, cyclops, baby brine shrimp, mosquito larvae, grindal worms, small bloodworms and soft micro granules. Feed small portions once or twice daily and make sure shy fish eat.</p>"
     },
     {
       "key": "diet",
@@ -343,7 +330,7 @@
       "key": "behaviour",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>A peaceful but timid species best kept in a group of approximately 4–6+ individuals, provided the aquarium offers sufficient space and cover.</p><p>Suitable tankmates include:</p><ul><li>Boraras</li><li>Sundadanio</li><li>Small peaceful rasboras</li><li>Kuhli loaches</li><li>Gentle Parosphromenus</li><li>Small, peaceful blackwater fish</li></ul><p>Avoid large, aggressive, highly active, or competitive feeders. Fin-nippers and territorial gouramis should also be avoided. A species-focused aquarium is preferred, especially when acclimating newly acquired fish or attempting to breed them.</p>"
+      "html": "<p>Peaceful but timid. Keep in a group of about 4 to 6 or more with plenty of cover. Good with Boraras, Sundadanio, small rasboras, kuhli loaches and gentle Parosphromenus. Avoid large, aggressive, very active or competitive feeders, fin-nippers and territorial gouramis. A species-focused tank is best for acclimating or breeding.</p>"
     },
     {
       "key": "behaviour",
@@ -361,7 +348,7 @@
       "key": "reproduction",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>A mouthbrooding species with an unusual reproductive strategy. Following courtship and spawning, approximately 20–40 eggs may be collected and incubated inside the male’s mouth for around two weeks. Older aquarium references frequently describe the female as the mouthbrooder, but current FishBase information identifies the male as the brooding parent.</p><p>The brooding fish becomes reclusive and normally refuses food. It should not be chased, netted, or otherwise disturbed, as stress may cause the eggs to be swallowed or released prematurely. Fully developed fry are released from the mouth and can be offered appropriately sized live foods, including microworms and newly hatched baby brine shrimp. Warm, extremely soft, acidic water and a quiet environment are important for successful reproduction.</p>"
+      "html": "<p>Mouthbrooder. About 20 to 40 eggs are incubated in the male's mouth for around two weeks. Older references often name the female as the brooder, but FishBase identifies the male. The brooding fish hides and refuses food; do not chase or net it, or it may swallow or spit the eggs. Released fry take microworms and newly hatched baby brine shrimp.</p>"
     },
     {
       "key": "reproduction",
@@ -379,7 +366,7 @@
       "key": "notes",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
-      "html": "<p>Important note: Chocolate Gouramis require careful acclimation and exceptionally stable conditions. Sudden increases in pH, hardness, temperature, or dissolved waste can result in rapid deterioration. Avoid frequent rearrangement, excessive current, bright lighting, and boisterous tankmates. Observe each fish closely for feeding response, body condition, abnormal coloration, or isolation from the group.</p><p>This is not a general community fish. Chocolate Gouramis are best kept by experienced aquarists capable of providing mature, warm, extremely soft blackwater conditions and a consistent supply of small live or frozen foods.</p>"
+      "html": "<p>Physical characteristics: deep, laterally compressed body with a pointed head. Fins are rounded; red, blue or cream edging may develop depending on population and condition. Coloration is rich chocolate-brown with pale cream to golden vertical bands.</p>"
     },
     {
       "key": "notes",
@@ -401,7 +388,7 @@
       "width": 720,
       "height": 478,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Beta Maharatvaraj / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-osphromenoides",
       "caption": "Specimen from the Indian aquarium trade.",
       "source": "seriouslyfish"
@@ -475,5 +462,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-19"
 }

@@ -3,6 +3,12 @@
   "name": "มาฮาวาวีดูซูด",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T01:51:04.445Z",
+    "why": "The name is a Thai transliteration of \"Mahavavy du Sud\" and does name the right place, but it leaves out the river word แม่น้ำ and keeps the French \"du Sud\" as sounds (ดูซูด) instead of using Thai ใต้."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

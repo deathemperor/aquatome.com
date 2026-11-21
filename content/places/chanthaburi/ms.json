@@ -3,6 +3,12 @@
   "name": "Chanthaburi",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.55,
+    "at": "2026-11-20T01:52:16.002Z",
+    "why": "Malaysian atlases write the Thai province as \"Wilayah Chanthaburi\" (or \"Chanthaburi\" for the city), so the bare name omits the Malay region word for a province."
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

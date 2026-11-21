@@ -1,8 +1,13 @@
 {
   "slug": "jambi",
-  "name": "จัมบี",
+  "name": "จังหวัดจัมบี",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-19T18:49:09.049Z"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

@@ -3,6 +3,12 @@
   "name": "อันดามัน",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-19T07:51:23.978Z",
+    "why": "อันดามัน is the standard Thai spelling of Andaman, but the place is the Andaman Islands region in India, which an atlas would write as หมู่เกาะอันดามัน, so the bare name leaves out the kind word."
+  },
   "quality": {
     "score": 0.7,
     "indexable": false

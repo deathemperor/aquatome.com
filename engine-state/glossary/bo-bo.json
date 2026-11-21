@@ -1,0 +1,463 @@
+{
+  "found": true,
+  "species": [
+    "Moina",
+    "Daphnia",
+    "Daphnia magna",
+    "Betta"
+  ],
+  "sources": [
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA024",
+      "title": "Culture Techniques of Moina: The Ideal Daphnia for Feeding Freshwater Fish Fry",
+      "kind": "university"
+    },
+    {
+      "url": "https://aquatechvn.com/cach-nuoi-bo-bo-cho-ca-an-don-gian-tai-nha.html",
+      "title": "Cách nuôi bo bo cho cá ăn đơn giản tại nhà - Aquatech",
+      "kind": "shop"
+    },
+    {
+      "url": "http://bettavietnam.blogspot.com/2014/10/huong-dan-cach-nuoi-bobo.html",
+      "title": "Halfmoon Việt Nam: Hướng dẫn cách nuôi bobo",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://tepbac.com/tin-tuc/full/cho-ca-con-an-bobo-va-artemia-37979.html",
+      "title": "Cho cá con ăn bobo và artemia",
+      "kind": "magazine"
+    },
+    {
+      "url": "https://www.aquariumcoop.com/blogs/aquarium/daphnia-culturing-how-to-raise-daphnia",
+      "title": "Daphnia Culturing – How to Raise Daphnia",
+      "kind": "shop"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Name for the term: \"bo bo\"",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Moina\"",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Daphnia\"",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"trứng nước\"",
+      "source": 1
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"bobo\"",
+      "source": 2
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"BoBo\"",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"bọ nước\"",
+      "source": 3
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"water flea\"",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"water fleas\"",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Moina is a small freshwater crustacean closely related to Daphnia and also called a water flea; its brood pouch is open, while Daphnia's is closed.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Adult Moina are 700–1,000 µm long; young Moina are under 400 µm, about the size of adult rotifers.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Newly hatched fry of most freshwater fish species can eat young Moina as their first food.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Brine shrimp (Artemia) nauplii of 500 µm die quickly in freshwater, which makes Moina well suited to freshwater fry.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "In Singapore, Moina were the sole food for fry of many ornamental species, with 95–99% survival to ¾ inch (20 mm) common.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Moina protein averages about 50% of dry weight; fat is 20–27% of dry weight in adult females and 4–6% in juveniles.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Bo bo are tiny freshwater crustaceans of the order Cladocera, about 0.2–3.0 mm, living in ponds, marshes and still water and eating algae, bacteria and suspended debris.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "The page gives bo bo a protein content of 50–70% of dry weight, plus omega-3 and omega-6 fatty acids.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Bo bo's live movement triggers hunting and can help picky fish eat; its soft shell and small size suit fry.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Bo bo suit fry and small-mouthed ornamental fish such as guppies (Poecilia), bettas (Betta) and neon tetras (Paracheirodon).",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "BoBo are small crustaceans mainly of the genera Moina or Daphnia, about 0.3–1 mm long, that swim jerkily and gather in clusters.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "BoBo protein can reach about 60%, but quality depends on the water and environment they come from.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Daphnia grow up to about 3 mm long and are fed to fish, tadpoles, salamanders, newts and aquatic insects.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Daphnia eat algae and help clear water; green water is not required to culture them.",
+      "source": 4
+    },
+    {
+      "section": "signs",
+      "fact": "Healthy Moina are green or brown-red, with full guts and active movement.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Pale Moina with empty guts, or Moina producing resting eggs, signal poor conditions or too little food.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Choose bo bo starter stock that looks light brown or slightly greenish; pale, whitish stock is weak.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "A pale bo bo colony is underfed and should get food right away.",
+      "source": 2
+    },
+    {
+      "section": "signs",
+      "fact": "Bo bo are ready to harvest when they form reddish-orange or pink clouds in the water.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "A Moina culture is ready for harvest at 45–75 Moina per 1-teaspoon (3–5 ml) sample; the water should look slightly cloudy and tea-coloured or green.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "An abrupt drop in food makes Moina switch to sexual reproduction and resting eggs (ephippia).",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "Poor food or temperature changes trigger males and sexual reproduction in bo bo, which is slow and yields little.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Daphnia cultures crash from rapid breeding in small tanks and from waste building up in small volumes of water.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Use a few dozen litres of container (cement tank, glass tank or plastic basin) to culture bo bo.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "About 3 days before stocking bo bo, spread a 1–2 cm layer of rotted cow or pig manure on the container bottom.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Stock roughly one glass of bo bo starter per 20 liters of water.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Around 4–5 days after stocking, once bo bo are multiplying, start feeding finely crushed dried cow dung strained through mesh and stirred into the water.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Harvest bo bo after about 7–10 days, when numbers are high, with a fine net or thin cloth, and rinse them in clean water before feeding.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Culture bo bo in a 20 L or larger foam box, basin or small tank with a wide surface and 20–30 cm of dechlorinated water.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "To seed a bo bo culture, add dried banana leaves, dried Terminalia catappa (lá bàng) leaves or a few pieces of treated dried cow dung, and wait for the water to turn pale green before adding bo bo.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Clear water in a bo bo culture means the algae is eaten and more food is needed; baker's yeast mixed in water until slightly milky, rice-washing water, powdered milk or soy flour can be used in very small amounts.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Replace about 20–30% of a bo bo culture's water weekly.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Skim bo bo gently with a fine net without stirring the bottom, and harvest a moderate amount daily so the population recovers.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Moina feed per 100 gal (379 L) to start: 0.3–0.5 oz (8.5–14.2 g) yeast, or 6 oz (170 g) dried chicken or hog manure, or 20 oz (567 g) dried cow or horse manure; add 50–100% of the initial amount about 5 days later.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Inoculate with about 100 Moina per gallon (25/L), 24 hours or more after fertilizing; with yeast a few hours of aeration is enough.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Keep Moina culture pH at 7–8; if pH exceeds 9.5, adjust it with vinegar.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Keep Moina culture depth at or below 3 ft (0.9 m), with 16–20 in (0.4–0.5 m) optimal, and shade it with 50–80% light reduction.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Use gentle aeration for Moina; very small bubbles can get trapped under the carapace.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "In semi-continuous Moina culture, harvest no more than 20–25% per day; in batch culture, harvest completely after about 5–10 days and restart.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Stir Moina culture bottom sediments daily to prevent anaerobic conditions.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Daphnia do well at around 68°F (20°C) in wide, shallow tanks.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Feed Daphnia active dry yeast blended with water, or spirulina powder, when the culture water is clear.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Harvested Daphnia should be fed right away or kept in a jar for about an hour.",
+      "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Moina tolerate 5–31°C daily swings, with an optimum of 24–31°C (75–88°F); they survive short periods above 32°C (90°F), and low temperatures reduce production.",
+      "source": 0
+    },
+    {
+      "section": "treatment",
+      "fact": "Moina are highly sensitive to pesticides, metals such as copper and zinc, detergents and bleach.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "If Hydra, back-swimmers, diving beetles or dragonfly larvae appear in a Moina culture, discard the culture and disinfect the tank.",
+      "source": 0
+    },
+    {
+      "section": "firstAid",
+      "fact": "Disinfect Moina culture containers with a 30% muriatic acid solution or by sun-drying.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Aerate municipal water at least two days to remove chlorine, or use a chlorine neutralizer, before culturing Moina.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Chlorine kills Daphnia, so dechlorinate culture water first.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Protect outdoor Moina cultures from rain and screen out predatory insects.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Always keep several Moina cultures in case one dies off.",
+      "source": 0
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep at least two bo bo containers so you don't lose your whole supply.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Cover bo bo containers with mesh so insects like bọ gạo and mosquito larvae (lăng quăng) cannot get in.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Cover bo bo tanks with mosquito netting to keep out mosquitoes and dragonflies that lay eggs in the water.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Don't add aquatic plants to a bo bo culture, as they make harvesting difficult.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep filamentous algae out of bo bo cultures.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Frequent harvesting helps prevent Daphnia culture crashes.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep Daphnia cultures indoors to avoid temperature swings, mosquito larvae and invading copepods (Cyclops).",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "Wild-caught BoBo can carry bacteria; rinse them in clean water several times, and the page suggests soaking them in dilute salt water or a small amount of gentian violet before feeding.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overly large, dense Moina can harass or damage fry, so feeding rates should be watched.",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Feeding too many bo bo leaves uneaten ones to decay and raise ammonia and nitrite; feed only what fish finish in 2–3 minutes.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Strong direct sun can heat a bo bo culture fast and kill the bo bo.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Overfeeding a bo bo culture with yeast, milk or other supplements fouls the water quickly, shown by a bad smell or scum.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using bo bo only for betta fry at least one week old, when their mouths are large enough.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Feeding dead or smelly BoBo causes disease in fry.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Wild-caught BoBo live only a few hours out of the water without aeration.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Daphnia keepers often underestimate food needs and growth: Daphnia mature in about eight days and each produces about ten young.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Passing Moina through 500 µm mesh fragments them so they are no longer usable as live food.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Live Moina can be kept refrigerated in clean water for several days; enrich them with algae and yeast before feeding.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Freezing or freeze-drying Moina kills them, lowers nutritional value, makes fry less willing to eat them, and nutrients leach fast into water.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Moina routinely reach 19,000 per gallon (5,000/L), while Daphnia magna egg output drops at 95–115 per gallon (25–30/L).",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Bo bo females reproduce asexually from about 3–4 days old, producing broods every 1–2 days of roughly 4–22 young.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "BoBo (bọ nước) is the common name in Vietnam for these small freshwater crustaceans.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam BoBo are cheap and easy to buy locally or culture in plastic tubs, suiting keepers on a budget or raising many fry.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "For expensive ornamental fish, the page suggests Artemia for the first 5–7 days, then switching to BoBo.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "Bo bo starter stock can be wild-caught or bought from aquarium food sellers.",
+      "source": 2
+    }
+  ]
+}

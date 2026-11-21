@@ -591,7 +591,7 @@
     "entityIds": [
       "species/amphilius-atesuensis"
     ],
-    "updatedAt": "2026-11-13T04:50:30.279Z",
+    "updatedAt": "2026-11-20T08:51:51.343Z",
     "hash": "812ce4418542d7a965de764ac985b122bedd022358925b086626d92df8c6f83e",
     "processedHash": "812ce4418542d7a965de764ac985b122bedd022358925b086626d92df8c6f83e",
     "status": "processed",
@@ -671,7 +671,7 @@
     "entityIds": [
       "species/amphilius-rheophilus"
     ],
-    "updatedAt": "2026-11-16T12:01:41.095Z",
+    "updatedAt": "2026-11-20T08:52:56.282Z",
     "hash": "c2866eed79f2ed3f7d178739c1e9024433957272b97159f87800744500463414",
     "processedHash": "c2866eed79f2ed3f7d178739c1e9024433957272b97159f87800744500463414",
     "status": "processed",
@@ -701,7 +701,7 @@
     "entityIds": [
       "species/belonoglanis-brieni"
     ],
-    "updatedAt": "2026-11-16T17:59:16.371Z",
+    "updatedAt": "2026-11-20T08:54:04.114Z",
     "hash": "198fa121fdb3e0b22f46d3d9f8b5d1d9708f0c9ef8bdf16c4248160b2ee10e07",
     "processedHash": "198fa121fdb3e0b22f46d3d9f8b5d1d9708f0c9ef8bdf16c4248160b2ee10e07",
     "status": "processed",
@@ -1073,7 +1073,7 @@
     "entityIds": [
       "species/arius-venosus"
     ],
-    "updatedAt": "2026-11-17T17:47:08.771Z",
+    "updatedAt": "2026-11-20T08:55:12.072Z",
     "hash": "0dee38fda4e2f8c6b6e161eec3d41add4943953fea7e96ac080addbdcb58d880",
     "processedHash": "0dee38fda4e2f8c6b6e161eec3d41add4943953fea7e96ac080addbdcb58d880",
     "status": "processed",
@@ -1283,7 +1283,7 @@
     "entityIds": [
       "species/cephalocassis-borneensis"
     ],
-    "updatedAt": "2026-11-18T05:57:48.342Z",
+    "updatedAt": "2026-11-20T08:55:52.202Z",
     "hash": "a5efa8e5054c90463ec7b922f0e1a7b653ef3ba4b3b13f65520e483affad315c",
     "processedHash": "a5efa8e5054c90463ec7b922f0e1a7b653ef3ba4b3b13f65520e483affad315c",
     "status": "processed",
@@ -1323,7 +1323,7 @@
     "entityIds": [
       "species/nemapteryx-nenga"
     ],
-    "updatedAt": "2026-11-18T06:03:36.874Z",
+    "updatedAt": "2026-11-20T08:56:32.441Z",
     "hash": "2df477015dd9598098f6488493bfb228862dcc2c477d6678c885fbc74f913f88",
     "processedHash": "2df477015dd9598098f6488493bfb228862dcc2c477d6678c885fbc74f913f88",
     "status": "processed",
@@ -1343,7 +1343,7 @@
     "entityIds": [
       "species/neoarius-graeffei"
     ],
-    "updatedAt": "2026-11-18T17:47:26.601Z",
+    "updatedAt": "2026-11-20T08:57:39.043Z",
     "hash": "564cf91ac99b4ed3c9221a129b57048b6c5bb0c5508a7bd247b0bf9f6f67ae4c",
     "processedHash": "564cf91ac99b4ed3c9221a129b57048b6c5bb0c5508a7bd247b0bf9f6f67ae4c",
     "status": "processed",
@@ -1429,6 +1429,116 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/ariidae/osteogeneiosus_militaris.htm": {
+    "entityIds": [
+      "species/osteogeneiosus-militaris"
+    ],
+    "updatedAt": "2026-11-19T00:07:59.441Z",
+    "hash": "2e070bafe5d166493002d0c6c53070174791be57972d546edb8e86e3a3439e50",
+    "processedHash": "2e070bafe5d166493002d0c6c53070174791be57972d546edb8e86e3a3439e50",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/pararius_mastersi.htm": {
+    "entityIds": [
+      "species/hexanematichthys-mastersi"
+    ],
+    "updatedAt": "2026-11-19T00:11:05.994Z",
+    "hash": "10c258a375b25a0e61438f88125c05156d2d45da5c911aae0ec9c5a78ae3ce91",
+    "processedHash": "10c258a375b25a0e61438f88125c05156d2d45da5c911aae0ec9c5a78ae3ce91",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/pararius_proximus.htm": {
+    "entityIds": [
+      "species/netuma-proxima"
+    ],
+    "updatedAt": "2026-11-19T00:11:57.862Z",
+    "hash": "cffacebb8100227a87f7f6e06dc8cd8a1bda5b7c6de5de1cabfd00903ff1e7cd",
+    "processedHash": "cffacebb8100227a87f7f6e06dc8cd8a1bda5b7c6de5de1cabfd00903ff1e7cd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/plicofollis_argyropleuron.htm": {
+    "entityIds": [
+      "species/plicofollis-argyropleuron"
+    ],
+    "updatedAt": "2026-11-19T00:12:58.694Z",
+    "hash": "24eedbeca3fd00b538ed0460c4adcb21477b2f07e683783c41f63ccf3bcddf4f",
+    "processedHash": "24eedbeca3fd00b538ed0460c4adcb21477b2f07e683783c41f63ccf3bcddf4f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/plicofollis_dussumieri.htm": {
+    "entityIds": [
+      "species/plicofollis-dussumieri"
+    ],
+    "updatedAt": "2026-11-19T00:14:16.057Z",
+    "hash": "07199bbd8d10204e25a070b90e1b11f4adc64ce18f33a4a129c77b5074515a17",
+    "processedHash": "07199bbd8d10204e25a070b90e1b11f4adc64ce18f33a4a129c77b5074515a17",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/plicofollis_nella.htm": {
+    "entityIds": [
+      "species/plicofollis-nella"
+    ],
+    "updatedAt": "2026-11-19T00:17:41.350Z",
+    "hash": "de6c753daa8d46b2a49f8f5c4323c68b6d892928ada907c46753804ab2c52a3c",
+    "processedHash": "de6c753daa8d46b2a49f8f5c4323c68b6d892928ada907c46753804ab2c52a3c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/plicofollis_platystomus.htm": {
+    "entityIds": [
+      "species/plicofollis-platystomus"
+    ],
+    "updatedAt": "2026-11-19T05:48:55.190Z",
+    "hash": "892f9e749df5ca61670b4c3869de4855bf57c4b613bb69c9bac7b03b55512eb6",
+    "processedHash": "892f9e749df5ca61670b4c3869de4855bf57c4b613bb69c9bac7b03b55512eb6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/sciades_couma.htm": {
+    "entityIds": [
+      "species/sciades-couma"
+    ],
+    "updatedAt": "2026-11-19T05:51:18.066Z",
+    "hash": "699b927bb4eba2bbc01c6ae3e4c9506140b5e11391b3842137054079a189e3f7",
+    "processedHash": "699b927bb4eba2bbc01c6ae3e4c9506140b5e11391b3842137054079a189e3f7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/sciades_herzbergii.htm": {
+    "entityIds": [
+      "species/sciades-herzbergii"
+    ],
+    "updatedAt": "2026-11-19T05:53:15.489Z",
+    "hash": "be72ba1761baab3341c48aefad4a7efdea9a7125c05b34b690efd3e04ce369b8",
+    "processedHash": "be72ba1761baab3341c48aefad4a7efdea9a7125c05b34b690efd3e04ce369b8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/sciades_parkeri.htm": {
+    "entityIds": [
+      "species/sciades-parkeri"
+    ],
+    "updatedAt": "2026-11-19T05:57:01.288Z",
+    "hash": "9f1a9bc5f724c03886092b6bf4e418e335194ef5289a1bfe1d3dc48823d9e5ae",
+    "processedHash": "9f1a9bc5f724c03886092b6bf4e418e335194ef5289a1bfe1d3dc48823d9e5ae",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/ariidae/sciades_proops.htm": {
+    "entityIds": [
+      "species/sciades-proops"
+    ],
+    "updatedAt": "2026-11-19T05:59:14.952Z",
+    "hash": "ca762e2df043cbc6de6d2546e8e901c8bd5d6c678f98d90691f782865bd2b163",
+    "processedHash": "ca762e2df043cbc6de6d2546e8e901c8bd5d6c678f98d90691f782865bd2b163",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/amaralia_hypsiura.htm": {
     "entityIds": [
       "species/amaralia-hypsiura"
@@ -1436,6 +1546,56 @@
     "updatedAt": "2026-11-06T03:44:59.610Z",
     "hash": "c708c603bbb6f8e047707a1dc3b44f2696ff02b9aa0a59c0ff4901f9487f10c6",
     "processedHash": "c708c603bbb6f8e047707a1dc3b44f2696ff02b9aa0a59c0ff4901f9487f10c6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/aspredinichthys_filamentosus.htm": {
+    "entityIds": [
+      "species/aspredinichthys-filamentosus"
+    ],
+    "updatedAt": "2026-11-19T06:02:26.208Z",
+    "hash": "a991922147d8ed23edaa6789e7e950454f083a422649cfa05726a5b54922d90d",
+    "processedHash": "a991922147d8ed23edaa6789e7e950454f083a422649cfa05726a5b54922d90d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/aspredinichthys_tibicen.htm": {
+    "entityIds": [
+      "species/aspredinichthys-tibicen"
+    ],
+    "updatedAt": "2026-11-19T06:04:30.118Z",
+    "hash": "7ef0482b60a243c4a9219c078d8f5728d0d485126c7136266a3bc03bfe496fa9",
+    "processedHash": "7ef0482b60a243c4a9219c078d8f5728d0d485126c7136266a3bc03bfe496fa9",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/aspredo_aspredo.htm": {
+    "entityIds": [
+      "species/aspredo-aspredo"
+    ],
+    "updatedAt": "2026-11-19T06:06:17.878Z",
+    "hash": "92330c749d1789dbcba51bce7f0eb9637bc3ae9f5604330424cbdd873e164eaa",
+    "processedHash": "92330c749d1789dbcba51bce7f0eb9637bc3ae9f5604330424cbdd873e164eaa",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_amaurus.htm": {
+    "entityIds": [
+      "species/bunocephalus-amaurus"
+    ],
+    "updatedAt": "2026-11-19T17:42:53.562Z",
+    "hash": "833979847e0a1d17ceb774a13e870e8dbc1ee247e1919cbb185086723ed20e5b",
+    "processedHash": "833979847e0a1d17ceb774a13e870e8dbc1ee247e1919cbb185086723ed20e5b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_chamaizelus.htm": {
+    "entityIds": [
+      "species/bunocephalus-chamaizelus"
+    ],
+    "updatedAt": "2026-11-19T17:45:26.554Z",
+    "hash": "633e6cb4ed0b11ba2bd22f3f32f02b1226bc0264d667356b6d110db8ed14eb57",
+    "processedHash": "633e6cb4ed0b11ba2bd22f3f32f02b1226bc0264d667356b6d110db8ed14eb57",
     "status": "processed",
     "attempts": 0
   },
@@ -1449,6 +1609,74 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_coracoideus.htm": {
+    "entityIds": [
+      "species/bunocephalus-coracoideus"
+    ],
+    "updatedAt": "2026-11-19T17:46:32.472Z",
+    "hash": "bd55f414ea455e6e36e9cdd55d935de1f3c755d5cbd0a533e043eab90afadff5",
+    "processedHash": "bd55f414ea455e6e36e9cdd55d935de1f3c755d5cbd0a533e043eab90afadff5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_doriae.htm": {
+    "entityIds": [
+      "species/bunocephalus-doriae"
+    ],
+    "updatedAt": "2026-11-19T17:48:38.050Z",
+    "hash": "40a3a7f3c6a1d671fa6a49416ce88735442927aad90d01443aba1584c6da911e",
+    "processedHash": "40a3a7f3c6a1d671fa6a49416ce88735442927aad90d01443aba1584c6da911e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_knerii.htm": {
+    "entityIds": [
+      "species/bunocephalus-knerii"
+    ],
+    "updatedAt": "2026-11-19T17:51:23.789Z",
+    "hash": "7c87ef25b4535c8fa3737026da0067a7ed085f1298219bc93fb8fb0b55c4efd1",
+    "processedHash": "7c87ef25b4535c8fa3737026da0067a7ed085f1298219bc93fb8fb0b55c4efd1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_larai.htm": {
+    "entityIds": [
+      "species/bunocephalus-larai"
+    ],
+    "updatedAt": "2026-11-19T17:53:30.591Z",
+    "hash": "3301e32734850b84179edd51b714e970e849b6ed1d81620858336c48cd9944ec",
+    "processedHash": "3301e32734850b84179edd51b714e970e849b6ed1d81620858336c48cd9944ec",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/bunocephalus_verrucosus.htm": {
+    "entityIds": [
+      "species/bunocephalus-verrucosus"
+    ],
+    "updatedAt": "2026-11-19T17:55:58.008Z",
+    "hash": "ea7c9670a40028a34265d5155c9d128bfefd07f9a3ee3aa89dc4589a6527d46f",
+    "processedHash": "ea7c9670a40028a34265d5155c9d128bfefd07f9a3ee3aa89dc4589a6527d46f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/dupouyichthys_sapito.htm": {
+    "entityIds": [
+      "species/dupouyichthys-sapito"
+    ],
+    "updatedAt": "2026-11-19T17:58:23.958Z",
+    "hash": "0c1d4474dd46203d9349bf172b239eb855314f3a05d9280734dfca5bdf847c62",
+    "processedHash": "0c1d4474dd46203d9349bf172b239eb855314f3a05d9280734dfca5bdf847c62",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/ernstichthys_casalinuovoi.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-19T18:01:33.470Z",
+    "hash": "c12cf8ba4a8a2f956241d55f6b26620f997138f145ef13d77e210fd582d573fc",
+    "processedHash": "c12cf8ba4a8a2f956241d55f6b26620f997138f145ef13d77e210fd582d573fc",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/ernstichthys_megistus.htm": {
     "entityIds": [
       "species/ernstichthys-megistus"
@@ -1457,6 +1685,84 @@
     "hash": "60d1ae2a91f54b646539f8c525b6070ba5cb47cc0d243d3c834b9d8b5982c5ff",
     "processedHash": "60d1ae2a91f54b646539f8c525b6070ba5cb47cc0d243d3c834b9d8b5982c5ff",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/hoplomyzon_papillatus.htm": {
+    "entityIds": [
+      "species/hoplomyzon-papillatus"
+    ],
+    "updatedAt": "2026-11-19T18:02:55.257Z",
+    "hash": "9a2447c630bcd224ad519e8dfc2ce8b71960e6f7e4b42ad08bdc50948cf68950",
+    "processedHash": "9a2447c630bcd224ad519e8dfc2ce8b71960e6f7e4b42ad08bdc50948cf68950",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/hoplomyzon_sexpapilostoma.htm": {
+    "entityIds": [
+      "species/hoplomyzon-sexpapilostoma"
+    ],
+    "updatedAt": "2026-11-20T08:58:46.440Z",
+    "hash": "e5cce54913b22fd0354db53d8000f03bdd40f7960c2411e3dc625623eea05461",
+    "processedHash": "e5cce54913b22fd0354db53d8000f03bdd40f7960c2411e3dc625623eea05461",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/platystacus_cotylephorus.htm": {
+    "entityIds": [
+      "species/platystacus-cotylephorus"
+    ],
+    "updatedAt": "2026-11-19T23:44:56.073Z",
+    "hash": "5e86e920d7443fd4ec01b81401cb29443dd4a938919fd95bddcf9b4f1107b4db",
+    "processedHash": "5e86e920d7443fd4ec01b81401cb29443dd4a938919fd95bddcf9b4f1107b4db",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_bifidus.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-bifidus"
+    ],
+    "updatedAt": "2026-11-19T23:46:23.728Z",
+    "hash": "9d9492ff80de34b264b20c136aac1589ee9717cbd33c3792912701a77f4d4af7",
+    "processedHash": "9d9492ff80de34b264b20c136aac1589ee9717cbd33c3792912701a77f4d4af7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_iheringii.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-iheringii"
+    ],
+    "updatedAt": "2026-11-19T23:48:22.135Z",
+    "hash": "f20c2e6c99fadca49cf682d840426fbfb23f09d47a9debc6beaedb18efb9c61e",
+    "processedHash": "f20c2e6c99fadca49cf682d840426fbfb23f09d47a9debc6beaedb18efb9c61e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_quadriradiatus.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-quadriradiatus"
+    ],
+    "updatedAt": "2026-11-19T23:50:16.526Z",
+    "hash": "691a76b6f0170eda54b9e60eee44b9cf283d25ba87db0b08e4019641e31591b1",
+    "processedHash": "691a76b6f0170eda54b9e60eee44b9cf283d25ba87db0b08e4019641e31591b1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pseudobunocephalus_timbira.htm": {
+    "entityIds": [
+      "species/pseudobunocephalus-timbira"
+    ],
+    "updatedAt": "2026-11-19T23:52:16.309Z",
+    "hash": "f0728efbf0936f3f5142eabd0e90c68acf006c0db65bb0804e0a169877c90afe",
+    "processedHash": "f0728efbf0936f3f5142eabd0e90c68acf006c0db65bb0804e0a169877c90afe",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/pterobunocephalus_carvalhoi.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-19T23:54:44.666Z",
+    "hash": "9fa748bed162b9bee02065084ad29891b3cab6628bb38afda604b8436e5f5935",
+    "processedHash": "9fa748bed162b9bee02065084ad29891b3cab6628bb38afda604b8436e5f5935",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm": {
@@ -1469,6 +1775,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/pterobunocephalus_dolichurus.htm": {
+    "entityIds": [
+      "species/pterobunocephalus-dolichurus"
+    ],
+    "updatedAt": "2026-11-19T23:56:17.879Z",
+    "hash": "0b60b3aea97c0472b6c8b77e2f1b08fdaeca87f1cb08f300f97a2527f8cba1b2",
+    "processedHash": "0b60b3aea97c0472b6c8b77e2f1b08fdaeca87f1cb08f300f97a2527f8cba1b2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/xyliphius_barbatus.htm": {
+    "entityIds": [
+      "species/xyliphius-barbatus"
+    ],
+    "updatedAt": "2026-11-19T23:59:44.392Z",
+    "hash": "1736ce9e37b7ac05cd7f465664079400dae7b6b4fcbfd3474c6a87438f6edc22",
+    "processedHash": "1736ce9e37b7ac05cd7f465664079400dae7b6b4fcbfd3474c6a87438f6edc22",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm": {
     "entityIds": [
       "species/xyliphius-lepturus"
@@ -1476,6 +1802,236 @@
     "updatedAt": "2026-11-11T02:48:32.119Z",
     "hash": "f9dd4916c7d617e9f799cc49f1e10e9390a640ebedf085cfdddec4b9cbe6fc98",
     "processedHash": "f9dd4916c7d617e9f799cc49f1e10e9390a640ebedf085cfdddec4b9cbe6fc98",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/xyliphius_melanopterus.htm": {
+    "entityIds": [
+      "species/xyliphius-melanopterus"
+    ],
+    "updatedAt": "2026-11-20T00:03:23.518Z",
+    "hash": "caee81c30d752c2ae79eb565fb4610e08ec8eea43a28614e837c35f1d076b0b4",
+    "processedHash": "caee81c30d752c2ae79eb565fb4610e08ec8eea43a28614e837c35f1d076b0b4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/xyliphius_sofiae.htm": {
+    "entityIds": [
+      "species/xyliphius-sofiae"
+    ],
+    "updatedAt": "2026-11-20T08:59:53.590Z",
+    "hash": "51334533b93973121ec8066d3eed436977a0eb842b57927534bb7b344f27821a",
+    "processedHash": "51334533b93973121ec8066d3eed436977a0eb842b57927534bb7b344f27821a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_ardiladuartei.htm": {
+    "entityIds": [
+      "species/astroblepus-ardiladuartei"
+    ],
+    "updatedAt": "2026-11-20T09:01:45.641Z",
+    "hash": "2b05f2a603e2614675992506c5505ec634295b318801a0161a6cdf376b74417b",
+    "processedHash": "2b05f2a603e2614675992506c5505ec634295b318801a0161a6cdf376b74417b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_bellezaensis.htm": {
+    "entityIds": [
+      "species/astroblepus-bellezaensis"
+    ],
+    "updatedAt": "2026-11-20T17:56:00.294Z",
+    "hash": "22112385cd77fa3b10c46e4ee7e17134d588115cef8c05d6759cb88210385ac5",
+    "processedHash": "22112385cd77fa3b10c46e4ee7e17134d588115cef8c05d6759cb88210385ac5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_cacharas.htm": {
+    "entityIds": [
+      "species/astroblepus-cacharas"
+    ],
+    "updatedAt": "2026-11-20T17:58:42.698Z",
+    "hash": "d2511c6fd5f42711a35beb1ea9536d4b8904feb6d6a3dbfbaac57effd39b5049",
+    "processedHash": "d2511c6fd5f42711a35beb1ea9536d4b8904feb6d6a3dbfbaac57effd39b5049",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_caquetae.htm": {
+    "entityIds": [
+      "species/astroblepus-caquetae"
+    ],
+    "updatedAt": "2026-11-20T18:01:27.359Z",
+    "hash": "84f0a6baae663b185deec4539c5bd55b5cff56c6008b1221c4e648fe236efaf4",
+    "processedHash": "84f0a6baae663b185deec4539c5bd55b5cff56c6008b1221c4e648fe236efaf4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_curitiensis.htm": {
+    "entityIds": [
+      "species/astroblepus-curitiensis"
+    ],
+    "updatedAt": "2026-11-20T18:03:42.032Z",
+    "hash": "b0d41d205b114345cc13d92c6262d3fd61b9d3efe7896d0d784a58ac207d0909",
+    "processedHash": "b0d41d205b114345cc13d92c6262d3fd61b9d3efe7896d0d784a58ac207d0909",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_cyclopus.htm": {
+    "entityIds": [
+      "species/astroblepus-cyclopus"
+    ],
+    "updatedAt": "2026-11-20T18:05:54.121Z",
+    "hash": "b567f5a8def7b577c356ea579ef01cd1e16138443f8a272e4ae01224940bda5d",
+    "processedHash": "b567f5a8def7b577c356ea579ef01cd1e16138443f8a272e4ae01224940bda5d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_eigenmanni.htm": {
+    "entityIds": [
+      "species/astroblepus-eigenmanni"
+    ],
+    "updatedAt": "2026-11-20T18:09:22.914Z",
+    "hash": "a809b16e9b106c381b5122422d927f417ce990120079683c33b02d6b32ae5800",
+    "processedHash": "a809b16e9b106c381b5122422d927f417ce990120079683c33b02d6b32ae5800",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_fissidens.htm": {
+    "entityIds": [
+      "species/astroblepus-fissidens"
+    ],
+    "updatedAt": "2026-11-20T23:44:46.434Z",
+    "hash": "db1a43339a8046c62623a77bf9bae3935749aa51a211351c283c7e86b9d03613",
+    "processedHash": "db1a43339a8046c62623a77bf9bae3935749aa51a211351c283c7e86b9d03613",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_grixalvii.htm": {
+    "entityIds": [
+      "species/astroblepus-grixalvii"
+    ],
+    "updatedAt": "2026-11-20T23:47:18.452Z",
+    "hash": "7d7e3108aeb73c0997f764e35d8b96a9da2c2e0cda5d48e93aef7f22349439c1",
+    "processedHash": "7d7e3108aeb73c0997f764e35d8b96a9da2c2e0cda5d48e93aef7f22349439c1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_homodon.htm": {
+    "entityIds": [
+      "species/astroblepus-homodon"
+    ],
+    "updatedAt": "2026-11-20T23:50:32.016Z",
+    "hash": "30189eb92e6ad9346e883e5b3f45319023875329c21f9125335104f3cb628a17",
+    "processedHash": "30189eb92e6ad9346e883e5b3f45319023875329c21f9125335104f3cb628a17",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm": {
+    "entityIds": [
+      "species/astroblepus-huallagaensis"
+    ],
+    "updatedAt": "2026-11-20T23:53:35.860Z",
+    "hash": "2eb49f28081eeaa1f1305100c3db09475f9bfe901e4bca98714208a181c9f143",
+    "processedHash": "2eb49f28081eeaa1f1305100c3db09475f9bfe901e4bca98714208a181c9f143",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_itae.htm": {
+    "entityIds": [
+      "species/astroblepus-itae"
+    ],
+    "updatedAt": "2026-11-20T23:56:36.917Z",
+    "hash": "32dbbf865884b3238d07be7e661ca75610c8ba1133160210f2df33f0b8b46f7f",
+    "processedHash": "32dbbf865884b3238d07be7e661ca75610c8ba1133160210f2df33f0b8b46f7f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm": {
+    "entityIds": [
+      "species/astroblepus-latidens"
+    ],
+    "updatedAt": "2026-11-20T23:59:30.133Z",
+    "hash": "13295acd86b15ff42f99a6ab54a55a58e5202a15d7f905b24e76033b4128546b",
+    "processedHash": "13295acd86b15ff42f99a6ab54a55a58e5202a15d7f905b24e76033b4128546b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm": {
+    "entityIds": [
+      "species/astroblepus-mancoi"
+    ],
+    "updatedAt": "2026-11-21T00:01:46.880Z",
+    "hash": "2a993c5851bfdb1074cf9f77291616486863641263a44f06882f31360cb171ba",
+    "processedHash": "2a993c5851bfdb1074cf9f77291616486863641263a44f06882f31360cb171ba",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_mindoensis.htm": {
+    "entityIds": [
+      "species/astroblepus-mindoensis"
+    ],
+    "updatedAt": "2026-11-21T05:49:25.660Z",
+    "hash": "265836439a4adc24a6a49b00ddf1a63765b1d3ded15a2cdb49ae0afa8e0f84e2",
+    "processedHash": "265836439a4adc24a6a49b00ddf1a63765b1d3ded15a2cdb49ae0afa8e0f84e2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_mojicai.htm": {
+    "entityIds": [
+      "species/astroblepus-mojicai"
+    ],
+    "updatedAt": "2026-11-21T05:52:24.589Z",
+    "hash": "32d7882eb7c1bfa4dc82f80cd57b732ba03b0bc368c45177ff6a70a8e69b5333",
+    "processedHash": "32d7882eb7c1bfa4dc82f80cd57b732ba03b0bc368c45177ff6a70a8e69b5333",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_nettoferreirai.htm": {
+    "entityIds": [
+      "species/astroblepus-nettoferreirai"
+    ],
+    "updatedAt": "2026-11-21T05:55:22.446Z",
+    "hash": "75738a6d0bd7bb1489b29ca7b6cf747eceb9f27537ec5a07557880e309eb3d93",
+    "processedHash": "75738a6d0bd7bb1489b29ca7b6cf747eceb9f27537ec5a07557880e309eb3d93",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_onzagaensis.htm": {
+    "entityIds": [
+      "species/astroblepus-onzagaensis"
+    ],
+    "updatedAt": "2026-11-21T05:57:45.595Z",
+    "hash": "63643eaefa58d50730617b7bb743ac98ebcbf9fd28a0f6bca6682b7227cc3fe4",
+    "processedHash": "63643eaefa58d50730617b7bb743ac98ebcbf9fd28a0f6bca6682b7227cc3fe4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_pradai.htm": {
+    "entityIds": [
+      "species/astroblepus-pradai"
+    ],
+    "updatedAt": "2026-11-21T06:00:30.125Z",
+    "hash": "721459e24369d712fc654ccf5026541105a744df65be7b93199f4ca7eb44f2ea",
+    "processedHash": "721459e24369d712fc654ccf5026541105a744df65be7b93199f4ca7eb44f2ea",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_putumayoensis.htm": {
+    "entityIds": [
+      "species/astroblepus-putumayoensis"
+    ],
+    "updatedAt": "2026-11-21T06:02:51.810Z",
+    "hash": "1b660c15f500dcd588b507ad1d9c95e8ef8b63ef54faad6e8399202c40e66fa0",
+    "processedHash": "1b660c15f500dcd588b507ad1d9c95e8ef8b63ef54faad6e8399202c40e66fa0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm": {
+    "entityIds": [
+      "species/ageneiosus-lineatus"
+    ],
+    "updatedAt": "2026-11-20T08:42:36.945Z",
+    "hash": "9adb0d062f3336fb6f6f3b4dde6927098281f189820b1ad2b4854e9ec5dbd87f",
+    "processedHash": "9adb0d062f3336fb6f6f3b4dde6927098281f189820b1ad2b4854e9ec5dbd87f",
     "status": "processed",
     "attempts": 0
   },
@@ -1579,6 +2135,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/trachelyopterichthys_taeniatus.htm": {
+    "entityIds": [
+      "species/trachelyopterichthys-taeniatus"
+    ],
+    "updatedAt": "2026-11-20T08:49:24.356Z",
+    "hash": "7fda6e75b815ebe075ba6f79dd8093502d6d98e84827f1ade2cf638aa1a5e791",
+    "processedHash": "7fda6e75b815ebe075ba6f79dd8093502d6d98e84827f1ade2cf638aa1a5e791",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/trachelyopterus_galeatus.htm": {
     "entityIds": [
       "species/trachelyopterus-galeatus"
@@ -1616,6 +2182,16 @@
     "updatedAt": "2026-11-11T02:45:17.462Z",
     "hash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
     "processedHash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenoglanididae/auchenoglanis_biscutatus.htm": {
+    "entityIds": [
+      "species/auchenoglanis-biscutatus"
+    ],
+    "updatedAt": "2026-11-19T05:44:43.714Z",
+    "hash": "b894f7c477c794ea560944c4a844508f60b6377ca3b2ff2f87b21b66a26c8972",
+    "processedHash": "b894f7c477c794ea560944c4a844508f60b6377ca3b2ff2f87b21b66a26c8972",
     "status": "processed",
     "attempts": 0
   },
@@ -1699,6 +2275,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/bagridae/pseudomystus_funebris.htm": {
+    "entityIds": [
+      "species/pseudomystus-funebris"
+    ],
+    "updatedAt": "2026-11-19T05:46:41.056Z",
+    "hash": "44ff81bba4acd150a652b84dc80d68b373640376ee23f41b9e4544c9ea390650",
+    "processedHash": "44ff81bba4acd150a652b84dc80d68b373640376ee23f41b9e4544c9ea390650",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm": {
     "entityIds": [
       "species/pseudomystus-heokhuii"
@@ -1706,6 +2292,16 @@
     "updatedAt": "2026-11-09T14:52:45.534Z",
     "hash": "618d423d2146c4f0bbb3bb7487bae8425cfc03f974368c772feff0e6d9bbd78f",
     "processedHash": "618d423d2146c4f0bbb3bb7487bae8425cfc03f974368c772feff0e6d9bbd78f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/bagridae/sperata_acicularis.htm": {
+    "entityIds": [
+      "species/sperata-acicularis"
+    ],
+    "updatedAt": "2026-11-19T00:04:40.908Z",
+    "hash": "f62c064df6da9d3cb1f0312d80fdab8a3387088391f701e6d85d6a5a71683be2",
+    "processedHash": "f62c064df6da9d3cb1f0312d80fdab8a3387088391f701e6d85d6a5a71683be2",
     "status": "processed",
     "attempts": 0
   },
@@ -1766,6 +2362,16 @@
     "updatedAt": "2026-11-04T22:11:17.367Z",
     "hash": "8f7764f64facbfd24e088a4235e7eae1b0f8be2893b5a4fcd262440af59a02eb",
     "processedHash": "8f7764f64facbfd24e088a4235e7eae1b0f8be2893b5a4fcd262440af59a02eb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/callichthyidae/corydoras_geoffroy.htm": {
+    "entityIds": [
+      "species/corydoras-geoffroy"
+    ],
+    "updatedAt": "2026-11-18T23:59:27.230Z",
+    "hash": "b107a5f60aa9a21431f1a94d5c5de90d9a74a60eae685c85d08eec8a4ba7b3dc",
+    "processedHash": "b107a5f60aa9a21431f1a94d5c5de90d9a74a60eae685c85d08eec8a4ba7b3dc",
     "status": "processed",
     "attempts": 0
   },
@@ -1959,6 +2565,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/doradidae/centrodoras_brachiatus.htm": {
+    "entityIds": [
+      "species/centrodoras-brachiatus"
+    ],
+    "updatedAt": "2026-11-20T08:47:06.718Z",
+    "hash": "499d6c9c06e78334cabcc780628f463d6648f34976c427368808246100f2dcae",
+    "processedHash": "499d6c9c06e78334cabcc780628f463d6648f34976c427368808246100f2dcae",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/doradidae/leptodoras_cataniai.htm": {
     "entityIds": [
       "species/leptodoras-cataniai"
@@ -2139,6 +2755,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/ancistrus_leucostictus.htm": {
+    "entityIds": [
+      "species/ancistrus-leucostictus"
+    ],
+    "updatedAt": "2026-11-20T17:51:41.835Z",
+    "hash": "24da9b1170452f1bdc288fdce6313075f7598523e35ad96388c176470dfcdbd6",
+    "processedHash": "24da9b1170452f1bdc288fdce6313075f7598523e35ad96388c176470dfcdbd6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/ancistrus_macrophthalmus.htm": {
     "entityIds": [
       "species/ancistrus-macrophthalmus"
@@ -2146,6 +2772,16 @@
     "updatedAt": "2026-11-02T18:09:48.684Z",
     "hash": "396be8d7cfe0d269969de085f8a87b15dd7ebc7182db0571fb703f16be9cc1dd",
     "processedHash": "396be8d7cfe0d269969de085f8a87b15dd7ebc7182db0571fb703f16be9cc1dd",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/ancistrus_patronus.htm": {
+    "entityIds": [
+      "species/ancistrus-patronus"
+    ],
+    "updatedAt": "2026-11-20T08:45:30.084Z",
+    "hash": "3d81f886b9b36e411d56bfcb3bab29fa059506d98516e78616265b01bd00b4f7",
+    "processedHash": "3d81f886b9b36e411d56bfcb3bab29fa059506d98516e78616265b01bd00b4f7",
     "status": "processed",
     "attempts": 0
   },
@@ -2449,6 +3085,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hypostomus_rhantos.htm": {
+    "entityIds": [
+      "species/hypostomus-rhantos"
+    ],
+    "updatedAt": "2026-11-19T23:43:03.631Z",
+    "hash": "f7eb362c561901d06cdced4dac0096dec2b85cc7e878feb2a6b516e5bbfb6b16",
+    "processedHash": "f7eb362c561901d06cdced4dac0096dec2b85cc7e878feb2a6b516e5bbfb6b16",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/hypostomus_roseopunctatus.htm": {
     "entityIds": [
       "species/hypostomus-roseopunctatus"
@@ -2639,6 +3285,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/panaqolus_albomaculatus.htm": {
+    "entityIds": [
+      "species/panaqolus-albomaculatus"
+    ],
+    "updatedAt": "2026-11-19T00:02:17.583Z",
+    "hash": "28bec9e3bcf6c0ce132edf52d3e9715c96715423c2af02712e93ac232b6b626b",
+    "processedHash": "28bec9e3bcf6c0ce132edf52d3e9715c96715423c2af02712e93ac232b6b626b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm": {
     "entityIds": [
       "species/panaque-bathyphilus"
@@ -2667,6 +3323,16 @@
     "status": "skipped",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm": {
+    "entityIds": [
+      "species/panaque-schaeferi"
+    ],
+    "updatedAt": "2026-11-21T05:42:31.152Z",
+    "hash": "dbacf9f576666769d270d23910eb9f95455a0eb844c90f159ff7df9c4c8c88c5",
+    "processedHash": "dbacf9f576666769d270d23910eb9f95455a0eb844c90f159ff7df9c4c8c88c5",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm": {
     "entityIds": [
       "species/panaque-suttonorum"
@@ -2674,6 +3340,16 @@
     "updatedAt": "2026-11-09T05:44:48.193Z",
     "hash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
     "processedHash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/panaque_titan.htm": {
+    "entityIds": [
+      "species/panaque-titan"
+    ],
+    "updatedAt": "2026-11-21T05:46:25.348Z",
+    "hash": "12d7580928afc4065c6c4c0e7df667dbfa62590a1552b3632fa1c36301ec80e3",
+    "processedHash": "12d7580928afc4065c6c4c0e7df667dbfa62590a1552b3632fa1c36301ec80e3",
     "status": "processed",
     "attempts": 0
   },
@@ -2884,6 +3560,16 @@
     "updatedAt": "2026-11-15T08:58:22.543Z",
     "hash": "753a2bf302f3a5272d1055189a52162b9b13ac2217568f0cb19e51f7db971b81",
     "processedHash": "753a2bf302f3a5272d1055189a52162b9b13ac2217568f0cb19e51f7db971b81",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm": {
+    "entityIds": [
+      "species/rineloricaria-formosa"
+    ],
+    "updatedAt": "2026-11-20T23:42:13.603Z",
+    "hash": "a09c7c7a6109a44668574fef4c55531aca726317453f7b3883264f791a6bc0ab",
+    "processedHash": "a09c7c7a6109a44668574fef4c55531aca726317453f7b3883264f791a6bc0ab",
     "status": "processed",
     "attempts": 0
   },
@@ -3134,6 +3820,16 @@
     "updatedAt": "2026-11-02T12:19:34.312Z",
     "hash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
     "processedHash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/pseudopimelodidae/microglanis_carlae.htm": {
+    "entityIds": [
+      "species/microglanis-carlae"
+    ],
+    "updatedAt": "2026-11-20T17:53:40.394Z",
+    "hash": "06842d3733a7caf6fbb0beddd03e3690d603bc29f2ffb7148c3f8012f3f9d336",
+    "processedHash": "06842d3733a7caf6fbb0beddd03e3690d603bc29f2ffb7148c3f8012f3f9d336",
     "status": "processed",
     "attempts": 0
   },

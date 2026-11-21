@@ -40,8 +40,7 @@
       "sourceCaption": "Frogspawn coral (Euphyllia divisa) at the Scarborough SEA LIFE Sanctuary in England.",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/0393dc9d131d3b25.webp",
@@ -68,23 +67,7 @@
       "caption": "San hô frogspawn màu vàng nhạt ngoài tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/commons/88a4d4be3c9765b2.webp",
-      "thumb": "https://media.aquatome.com/commons/88a4d4be3c9765b2-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 4.0",
-      "author": "Emőke Dénes",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Euphyllia_divisa_01.jpg",
-      "caption": "San hô frogspawn màu hồng nhạt trong bể san hô",
-      "sourceCaption": "Frogspawn coral (Euphyllia divisa) at the Blue Reef Aquarium in Newquay, Cornwall, England.",
-      "best": false,
-      "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/f94ff42330fc4240.webp",
@@ -98,8 +81,7 @@
       "sourceCaption": "Colonia de Euphyllia divisa, de 60 cm de ancho, isla Lizard, Australia.",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/56cec85c0feea584.webp",
@@ -113,8 +95,7 @@
       "sourceCaption": "Euphyllia divisa, vista de tentáculos ramificados distintivos. Isla Lizard, Australia.",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/commons/681a904a1b23c3b7.webp",
@@ -127,6 +108,20 @@
       "caption": "San hô frogspawn màu xanh lá trong bể rạn",
       "sourceCaption": "Frogspawn coral (Euphyllia divisa) in Southend-on-Sea aquarium, England.",
       "best": true,
+      "kind": "other",
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/commons/88a4d4be3c9765b2.webp",
+      "thumb": "https://media.aquatome.com/commons/88a4d4be3c9765b2-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 4.0",
+      "author": "Emőke Dénes",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Euphyllia_divisa_01.jpg",
+      "caption": "San hô frogspawn màu hồng nhạt trong bể san hô",
+      "sourceCaption": "Frogspawn coral (Euphyllia divisa) at the Blue Reef Aquarium in Newquay, Cornwall, England.",
+      "best": false,
       "kind": "other",
       "setup": false
     },

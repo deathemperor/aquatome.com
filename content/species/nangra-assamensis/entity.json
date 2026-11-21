@@ -1,0 +1,85 @@
+{
+  "id": "nangra-assamensis",
+  "scientificName": "Nangra assamensis",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Nangra",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 9.2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1415",
+      "html": "<p>Nangra assamensis Sen &amp; Biswas, 1994. Family Sisoridae. Maximum size 92 mm SL. IUCN status: Least Concern (last assessed 2009).</p><p>Type locality: Brahmaputra River at Neematighat, 14 kilometres from Jorhat, Assam, India.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1415",
+      "html": "<p>Asia: India. Found in North Eastern India waters (Padma, Jamuna, Brahmaputra), the Ganges and Bengal waters including West Bengal.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1415",
+      "html": "<p>Breeding: unreported.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1415",
+      "html": "<p>Records of the Zoological Survey of India v. 94 (nos 2-4), pp 441, Fig 1; Pl. 1.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/eead5b007a434926.webp",
+      "thumb": "https://media.aquatome.com/scotcat/eead5b007a434926-480.webp",
+      "width": 500,
+      "height": 316,
+      "licence": "dùng với sự cho phép",
+      "author": "Beta Mahatvaraj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "caption": "Nangra assamensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8df138a0771edea1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8df138a0771edea1-480.webp",
+      "width": 500,
+      "height": 280,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "caption": "Nangra assamensis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/de55da553c196a55.webp",
+      "thumb": "https://media.aquatome.com/scotcat/de55da553c196a55-480.webp",
+      "width": 500,
+      "height": 284,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/nangra_assamensis.htm",
+      "caption": "Nangra assamensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

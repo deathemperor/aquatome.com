@@ -146,7 +146,7 @@ const isDose = (fact: string) => (AMOUNT.test(fact) && (NAMES_TREATMENT.test(fac
  * site's short links (redd.it, fb.com) as the site.
  */
 const SHORT: Record<string, string> = { 'redd.it': 'reddit.com', 'fb.com': 'facebook.com', 'fb.me': 'facebook.com', 'youtu.be': 'youtube.com' }
-const siteOf = (url: string) => {
+export const siteOf = (url: string) => {
   let host: string
   try { host = new URL(url).hostname } catch { host = url.replace(/^\w+:\/\//, '').replace(/[/?#:].*$/, '') }
   const labels = host.toLowerCase().replace(/\.$/, '').split('.')
@@ -241,10 +241,13 @@ export async function checkGuide(llm: Llm, lang: string, forWriter: object, x: W
  * (a fact citing a page listed twice cites its first listing); a fact whose source was dropped goes with it, and the rest
  * are renumbered.
  */
-export function viFacts(researched: TopicFacts) {
+export function viFacts(researched: TopicFacts, o: { also?: boolean } = {}) {
   const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
   const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
-  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))
+  // `also`, renumbered as the facts cite their sources, for a reader that counts a claim's pages (glossary-facts.ts); the
+  // writers get none, as before.
+  const also = (f: TopicFacts['facts'][number]) => [...new Set((f.also ?? []).map(at))].filter(i => i >= 0 && i !== at(f.source))
+  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source), ...(o.also && also(f).length ? { also: also(f) } : {}) }))
   const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
   return { facts, refs, sources: kindsOf(researched, refs) }
 }
@@ -441,7 +444,7 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     // of them kept (Astra's read).
     const prev = JSON.parse(await readFile(file, 'utf8').catch(() => 'null')) as Translation | null
     const said = (x: Written) => {
-      const text = savedText(prev?.bodyFixed ? { ...x, body: '' } : x)
+      const text = savedText({ ...x, ...(prev?.bodyFixed ? { body: '' } : {}), ...(prev?.faqFixed ? { faq: [] } : {}) })
       return { seasons: foreignSeasons(text, lang), numbers: sourceNumbers(text) }
     }
     const found = said(w)
@@ -470,11 +473,15 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
     const name = unescapePlain(w.name).trim()
     const slug = prev?.slug ?? pickSlug(lang === 'th' || !slugify(name) ? w.slug : name.replace(/:.*$/, ''), T.slugWords.guide, taken)
     // A body a person fixed (bodyFixed) is theirs, as in Vietnamese above: a redo keeps it and its mark (the chief of
-    // staff, 16 Nov 2026: the popeye guide's day count went by hand in every language, and its facts still hold it).
+    // staff, 16 Nov 2026: the popeye guide's day count went by hand in every language, and its facts still hold it). So is
+    // an FAQ a person fixed (faqFixed; the chief of staff, 21 Nov 2026: the live-food guide's Malay allergy answer).
+    const parts = plainParts(w.summary, w.faq)
     const t = TranslationSchema.parse(metricPage({
-      slug, name, altNames: [], sections: {}, body: prev?.bodyFixed ? prev.body : sanitizeHtml(w.body), ...plainParts(w.summary, w.faq),
+      slug, name, altNames: [], sections: {}, body: prev?.bodyFixed ? prev.body : sanitizeHtml(w.body), ...parts,
+      ...(prev?.faqFixed ? { faq: prev.faq } : {}),
       refs, quality: { score: review.score, indexable: review.score >= QUALITY_THRESHOLD },
       ...(prev?.bodyFixed ? { bodyFixed: true } : {}),
+      ...(prev?.faqFixed ? { faqFixed: true } : {}),
     }, lang))
     await writeFile(file, `${JSON.stringify(t, null, 2)}\n`)
     await logReviews(root, 'topic', { id: `guides/${id}`, lang }, tries, review)

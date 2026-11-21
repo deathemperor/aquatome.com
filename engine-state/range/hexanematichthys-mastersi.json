@@ -1,0 +1,77 @@
+{
+  "id": "hexanematichthys-mastersi",
+  "native": {
+    "input": "46dbfa869c6648c4",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [
+      {
+        "code": "PG",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-west Pacific: Papua New Guinea and Australia.",
+        "words": "Papua New Guinea",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Indo-west Pacific: Papua New Guinea and Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hexanematichthys mastersi",
+    "status": "ACCEPTED",
+    "taxonKey": 2344940,
+    "datasets": [
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        43
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        5
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "PG",
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

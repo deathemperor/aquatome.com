@@ -1,8 +1,13 @@
 {
   "slug": "gui-river",
-  "name": "Gui",
+  "name": "Sungai Gui",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.9,
+    "at": "2026-11-20T01:49:44.337Z"
+  },
   "quality": {
     "score": 0.88,
     "indexable": true

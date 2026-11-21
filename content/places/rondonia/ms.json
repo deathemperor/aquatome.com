@@ -3,6 +3,12 @@
   "name": "Rondônia",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-19T07:49:11.448Z",
+    "why": "Malay atlases in Malaysia typically write the state as \"Rondonia\" (Portuguese diacritic dropped) and may add \"Negeri\"; the Portuguese spelling \"Rondônia\" is usually accepted but is not the common Malay form."
+  },
   "quality": {
     "score": 0.68,
     "indexable": false

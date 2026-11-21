@@ -1,8 +1,8 @@
 {
   "id": "anentome-helena",
   "native": {
-    "input": "c572d2c792ab9a64",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "d69161e3bc1501a8",
+    "at": "2026-11-19T07:58:14.453Z",
     "claims": [
       {
         "code": "TH",
@@ -27,6 +27,32 @@
         "quote": "This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.",
         "words": "Indonesia",
         "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Người ta đã thu được ốc thuộc giống này ở cả Việt Nam.",
+        "words": "Việt Nam",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "introduced",
+        "source": "aquatome",
+        "quote": "Ấn Độ và Mỹ đang để mắt tới loài này vì sợ nó lan ra ngoài tự nhiên và ăn các loài ốc bản địa, và có vẻ nó đã có mặt ở đó.",
+        "words": "Ấn Độ",
+        "ok": false,
+        "why": "\"Ấn Độ\" is not IN"
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "aquatome",
+        "quote": "Ấn Độ và Mỹ đang để mắt tới loài này vì sợ nó lan ra ngoài tự nhiên và ăn các loài ốc bản địa, và có vẻ nó đã có mặt ở đó.",
+        "words": "Mỹ",
+        "ok": false,
+        "why": "\"Mỹ\" is not US"
       }
     ],
     "regions": [
@@ -36,10 +62,22 @@
         "quote": "This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.",
         "country": "ID",
         "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "aquatome",
+        "quote": "Mẫu gốc dùng để mô tả loài lấy ở đảo Java.",
+        "ok": true
       }
     ],
     "disputed": [],
-    "outranked": [],
+    "outranked": [
+      {
+        "code": "VN",
+        "source": "aquatome",
+        "quote": "Người ta đã thu được ốc thuộc giống này ở cả Việt Nam."
+      }
+    ],
     "origin": {
       "pagesOnly": [],
       "sourcesOnly": []

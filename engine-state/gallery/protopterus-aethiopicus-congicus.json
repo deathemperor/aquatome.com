@@ -5,9 +5,7 @@
   "inat:527524483",
   "inat:527524867"
  ],
- "hashes": {
-  "https://media.aquatome.com/inaturalist/527524483.webp": "5f99beb343751f38"
- },
+ "hashes": {},
  "inat": {
   "taxon": 371437,
   "pass": "done",
@@ -16,5 +14,12 @@
    "agree": 0
   }
  },
- "commons": "2026-11-17"
+ "commons": "2026-11-17",
+ "gbif": {
+  "key": 4287144,
+  "next": null
+ },
+ "openverse": {
+  "next": null
+ }
 }

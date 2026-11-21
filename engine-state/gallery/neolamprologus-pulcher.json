@@ -6,11 +6,27 @@
   "File:Neolamprologus pulcher - aquarium 1.jpg",
   "File:Neolamprologus pulcher - aquarium 2.jpg",
   "File:Neolamprologus brichardi in Ouwehands Dierenpark.jpg",
-  "File:Обитатели петербургского Океанариума 03.jpg"
+  "File:Обитатели петербургского Океанариума 03.jpg",
+  "inat:116477937",
+  "inat:116477943",
+  "inat:116732798",
+  "inat:116733078",
+  "inat:180640541",
+  "inat:343451416",
+  "inat:343451428",
+  "inat:343451437",
+  "inat:635045638",
+  "inat:635045651",
+  "inat:635045744",
+  "inat:635045754",
+  "inat:635045764"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/6127dca546ef6793.webp": "602120008c8d90f8",
-  "https://media.aquatome.com/commons/82b4328bc658958b.webp": "c94753b73732322c"
+  "https://media.aquatome.com/commons/82b4328bc658958b.webp": "c94753b73732322c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/116477937/large.jpg": "00000008242420c0",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/116477943/large.jpg": "0040a0d0d0d8c8f0",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/635045744/large.jpg": "7ab8c4edf3f7c7cf",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/635045754/large.jpg": "9c9fe33186ce9c9d"
  },
  "commons": "2026-11-09",
  "inat": {
@@ -27,5 +43,10 @@
  },
  "openverse": {
   "next": null
- }
+ },
+ "inatNc": {
+  "after": 348221920,
+  "done": true
+ },
+ "exhausted": "2026-11-20"
 }

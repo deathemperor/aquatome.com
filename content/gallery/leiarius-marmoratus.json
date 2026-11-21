@@ -2,20 +2,6 @@
   "id": "leiarius-marmoratus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/flickr/5807047612.webp",
-      "thumb": "https://media.aquatome.com/flickr/5807047612-480.webp",
-      "width": 1024,
-      "height": 680,
-      "licence": "CC BY 2.0",
-      "author": "Charles & Clint",
-      "sourceUrl": "https://www.flickr.com/photos/20087733@N00/5807047612",
-      "caption": "Cá da trơn Achara con với râu dài, chụp nền trắng",
-      "best": true,
-      "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
-    },
-    {
       "url": "https://media.aquatome.com/commons/ff572107e005b396.webp",
       "thumb": "https://media.aquatome.com/commons/ff572107e005b396-480.webp",
       "width": 1200,
@@ -26,6 +12,19 @@
       "caption": "Cá da trơn Achara con với hoa văn sọc nâu trắng",
       "best": true,
       "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/5807047612.webp",
+      "thumb": "https://media.aquatome.com/flickr/5807047612-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY 2.0",
+      "author": "Charles & Clint",
+      "sourceUrl": "https://www.flickr.com/photos/20087733@N00/5807047612",
+      "caption": "Cá da trơn Achara con với râu dài, chụp nền trắng",
+      "best": true,
+      "kind": "juvenile",
+      "setup": true
     }
   ],
   "seen": 11,

@@ -1,0 +1,163 @@
+{
+  "id": "aspredinichthys-filamentosus",
+  "native": {
+    "input": "d7a4e0a8b1bc9ad2",
+    "at": "2026-11-19T12:55:32.239Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "TT",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: lower portions of coastal rivers and coastal waters of Venezuela and northern Brazil (Brazil, French Guiana, Guyana, Suriname, Trinidad and Tobago, and Venezuela).",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon River",
+        "source": "scotcat",
+        "quote": "It occurs from the eastern coast of Venezuela and Trinidad, and from Guyana to the mouth of the Amazon River in Brazil and the north coast of Brazil up to Maranhão state.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Trinidad",
+        "source": "scotcat",
+        "quote": "It occurs from the eastern coast of Venezuela and Trinidad, and from Guyana to the mouth of the Amazon River in Brazil and the north coast of Brazil up to Maranhão state.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Aspredinichthys filamentosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340554,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        14
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        2
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c0cd2d7a-1afb-432b-b2d0-832d0d69a8d6",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "GF",
+      "GY",
+      "SR",
+      "TT",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-19T12:55:32.239Z"
+  }
+}

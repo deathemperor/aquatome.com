@@ -1,7 +1,11 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:537486858"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/537486858/large.jpg": "b0988c0707274cbe"
+ },
  "commons": "2026-11-03",
  "inat": {
   "taxon": 618903,
@@ -14,5 +18,13 @@
  "gbif": {
   "key": 2394189,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 298394819,
+  "done": true
+ },
+ "exhausted": "2026-11-20"
 }

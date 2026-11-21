@@ -42,7 +42,10 @@ struct HandbookView: View {
       .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
       // Placed, not left to iOS: iOS 27 keeps a search tab's field out of sight until the page is pulled down.
       .searchable(text: $handbook.query, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Tìm loài cá, cây, hướng dẫn"))
-      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
+      // The band once the big title has gone up, as Bể của tôi's and Đèn's: shown at rest it stood over the title, which
+      // was there and not drawn (Design, 17 Nov).
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
+      .background(OpensAtTop())
       .navigationTitle("Tìm")
       .profileButton()
       .navigationDestination(for: HandbookIndex.Item.self) { item in
@@ -70,6 +73,80 @@ struct HandbookView: View {
       #endif
       .task { await handbook.appear() }
       .refreshable { await handbook.load() }
+    }
+  }
+}
+
+/// Tìm opens with its title big at the left, as the other tabs (Design's spec-titles.md, 12 Nov). 27.2 shows the search
+/// tab's list first a little scrolled, past where iOS draws the big title, with its field always shown; pulled down and back
+/// it draws it big (10 Nov). So the first time the list is shown, it's set at its very top and the bar measures itself
+/// again, which is when it draws its title big; setting the list's place alone left it small (15 Nov). Nothing else is
+/// touched. And back from a page pushed over it, a screen left at its top comes back there with its title big, as it was
+/// left: iOS brought a group's page back 55 points up, its title folded into the bar (Design, 17 Nov).
+struct OpensAtTop: UIViewControllerRepresentable {
+  func makeUIViewController(context: Context) -> Holder { Holder() }
+  func updateUIViewController(_ holder: Holder, context: Context) {}
+
+  final class Holder: UIViewController {
+    private var first = true
+    /// The list's top inset when it was left at its top: the bar's height with its title big.
+    private var leftAt: CGFloat?
+
+    override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      guard let list = list() else { return }
+      leftAt = list.contentOffset.y <= -list.adjustedContentInset.top + 1 ? list.adjustedContentInset.top : nil
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+      if first {
+        first = false
+        top()
+        // Again once iOS has laid the bar out after its own appearance.
+        DispatchQueue.main.async { [weak self] in self?.top() }
+      } else if let inset = leftAt {
+        leftAt = nil
+        back(to: inset)
+        // Again once iOS has laid the bar out, and once its title has grown.
+        DispatchQueue.main.async { [weak self] in self?.back(to: inset) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in self?.back(to: inset) }
+      }
+    }
+
+    /// Back at the top it was left at. Folded, the list is pulled down past the folded bar's top by what the big title
+    /// takes, where iOS grows the title, and the bar measures itself again; grown, the list has moved down with the bar
+    /// (55 points), so it's set at the grown bar's top.
+    private func back(to inset: CGFloat) {
+      guard let bar = navigationController?.navigationBar, let list = list(), !list.isTracking else { return }
+      if list.adjustedContentInset.top < inset - 1 {
+        list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -inset), animated: false)
+        bar.sizeToFit()
+      }
+      if list.adjustedContentInset.top >= inset - 1, list.contentOffset.y < -list.adjustedContentInset.top - 1 {
+        list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -list.adjustedContentInset.top), animated: false)
+      }
+    }
+
+    private func top() {
+      guard let bar = navigationController?.navigationBar, let list = list() else { return }
+      list.setContentOffset(CGPoint(x: list.contentOffset.x, y: -list.adjustedContentInset.top), animated: false)
+      bar.sizeToFit()
+    }
+
+    /// The screen's own list, the tallest of its scroll views (a group's grid has a sideways row of filters in it): from
+    /// the screen this sits in, not the stack's top, which is the page pushed over it by the time this one goes.
+    private func list() -> UIScrollView? {
+      var screen: UIViewController = self
+      while let up = screen.parent, !(up is UINavigationController) { screen = up }
+      return Self.scrolls(in: screen.view).max { $0.bounds.height < $1.bounds.height }
+    }
+
+    private static func scrolls(in v: UIView) -> [UIScrollView] {
+      var found = [UIScrollView]()
+      if let s = v as? UIScrollView { found.append(s) }
+      for sub in v.subviews { found += scrolls(in: sub) }
+      return found
     }
   }
 }

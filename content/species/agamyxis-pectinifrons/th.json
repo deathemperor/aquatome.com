@@ -23,10 +23,10 @@
     "references:seriouslyfish": "<ul><li>Cope, E. D. (1870). Contribution to the ichthyology of the Marañon. Proceedings of the American Philosophical Society v. 11, 559-570</li><li>Correa, S. B., W. G. R. Crampton, L. J. Chapman and J. S. Albert (2008). A comparison of flooded forest and floatingmeadow fish assemblages in an upper Amazon floodplain. Journal of Fish Biology 72, 629–644</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Ortega, H. and R. P. Vari (1986). Annotated checklist of the freshwater fishes of Peru. Smithsonian Contributions to Zoology No. 437, iii + 1-25</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (2003). Doradidae (Thorny catfishes). In, Checklist of the Freshwater Fishes of South and Central America</li><li>Swedish Museum of Natural History (1999). NRM Ichthyology collection database. Ichthyology Section, Department of Vertebrate Zoology, Swedish Museum of Natural History, Stockholm, Sweden.</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6
+      "seriouslyfish": 0.85
     }
   }
 }

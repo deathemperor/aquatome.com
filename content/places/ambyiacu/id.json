@@ -3,6 +3,12 @@
   "name": "Ambyiacu",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-20T01:46:03.702Z",
+    "why": "Ambyiacu is a Peruvian place name (likely Quechua-derived); Indonesian atlases would keep the source spelling, but this is unverified and the record is \"region\" with no clear kind word, so confidence is moderate."
+  },
   "quality": {
     "score": 0.86,
     "indexable": true

@@ -1,0 +1,42 @@
+{
+  "id": "neritona-juttingae",
+  "native": {
+    "input": "c03c056b4953f46c",
+    "at": "2026-11-19T07:58:14.453Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "Neritina juttingae from Borneo is an unmistakable species with numerous horns on its shell.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neritona juttingae",
+    "status": "ACCEPTED",
+    "taxonKey": 9957427,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-19T07:58:14.453Z"
+  }
+}

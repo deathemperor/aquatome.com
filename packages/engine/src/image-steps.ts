@@ -193,7 +193,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       if (!result) {
         if (c.photo.source === 'glaser' && marks.every(m=>m.owner === 'source')) {
           const file = join(root, 'engine-state/_photo-watermarks.json'), cache = await json<Record<string, object>>(file, {})
-          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source' } }; await writePhotoState(file, cache)
+          cache[c.photo.url] = { ...cache[c.photo.url], retainedOwnMark: { source: 'glaser', sourceUrl: c.photo.sourceUrl, owner: 'source', by: 'image' } }; await writePhotoState(file, cache)
         }
         await save(workFile, { key, status: 'refused', reason: 'no-trace check' }); finishRealCandidate(name,pageKey)
         report.waiting.push(`${pageKey}: no clean removal; original retained`); continue

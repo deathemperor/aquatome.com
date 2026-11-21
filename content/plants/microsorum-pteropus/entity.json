@@ -6,11 +6,12 @@
   ],
   "difficulty": 1,
   "light": "low",
-  "co2": "optional",
+  "co2": "none",
   "growth": "slow",
   "placement": [
-    "epiphyte",
-    "midground"
+    "midground",
+    "background",
+    "epiphyte"
   ],
   "sections": [
     {
@@ -26,6 +27,30 @@
       "html": "<ul><li>Origin: cultivar</li><li>Growth rate: slow</li><li>Height: 10-20+ cm (average height after two months in the tank)</li><li>Light demand: low</li><li>CO2 demand: low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Difficulty: easy</li><li>Lighting: low to moderate</li><li>pH: 6.0–8.0</li><li>Water hardness: soft to hard (2–15 dKH)</li><li>Temperature: 20–28°C</li><li>Substrate: not needed, can float</li><li>Growth rate: slow to moderate</li><li>Placement: mid to background</li><li>Height: 15–35 cm</li><li>CO2: not needed to low</li><li>Propagation: adventitious plantlets, rhizome division</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java fern is an epiphytic plant that grows attached to rocks, ground and tree trunks. It originates from the island of Java (Indonesia) and is widely distributed in tropical Southeast Asia (Philippines, Thailand, Malaysia and parts of China).</p><p>It is a highly variable species with many geographical varieties that differ in leaf size and shape. It is found in tropical rainforests, coastal brackish regions, and on the banks of freshwater streams and rivers, where it grows fully or partially submerged.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java fern has an overall green coloration and consists of three main parts:</p><ul><li><strong>Roots:</strong> dark brown, hair-like strings growing out of the rhizomes that act as an anchor, attaching the plant to hardscape so it is not carried away by water current.</li><li><strong>Rhizomes:</strong> they look like dark green roots but are actually stems. Leaves grow from the top of the rhizomes, which also serve for propagation.</li><li><strong>Leaves:</strong> leaf form and structure vary. Black veins are present and the colour ranges from medium to dark green. The leaves are hardy and leathery, in shapes ranging from bushy to spiky.</li></ul><p>Leaf colour depends on lighting intensity: the stronger the light, the darker the green. Nutrients are absorbed through the leaves; the roots serve only as an anchor.</p><p>The plant grows up to about 30 cm in height and 15–20 cm in width. It suits many tanks, from large community tanks to heavily planted aquariums.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The recommended minimum tank size is 40 litres. Mature Java fern can fill a tank easily, so a tank larger than 40 litres is advisable, otherwise it will compete with and choke other inhabitants.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
@@ -38,10 +63,28 @@
       "html": "<p>A hardy and easy plant for both beginners and the more experienced. Best results are obtained by planting it on a stone or tree root. If planted in the bottom the horizontal rhizome must not be covered. This plant is not eaten by herbivorous fish.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Planting:</strong> attach the rhizome to hardscape such as driftwood or rocks. Never bury the rhizome in the substrate or it will rot. Choose rough surfaces over smooth ones, because roots take longer to anchor on smooth surfaces. Fasten the plant with tape, adhesive or fishing line; after a while the roots attach firmly and growth continues. Because the mature plant forms a large mass of wide leaves, plant it in the centre or at the back of the tank. It can also be floated on the surface; prune it when needed.</p><p><strong>Nutrients:</strong> Java fern can survive without fertilisers, but since it is a slow grower, dosing fertiliser can improve its growth rate. Liquid fertiliser also helps with melting.</p><p><strong>CO2:</strong> not necessary, but extra CO2 makes the fern grow faster than normal.</p><p><strong>Propagation:</strong> very easy. The rhizome grows horizontally, sprouting leaves and roots. To propagate by rhizome, split the rhizome into the desired sizes and attach each piece to a surface. Java fern also produces tiny plantlets on leaf tips, with a few small leaves and a little root system. These can be detached and tied to driftwood or other hardscape, where they grow as independent plants.</p><p><strong>Black lines and dots:</strong> small black bumps on the leaves are normal and are one way the plant propagates; black lines are just veins. They do not mean the plant is sick.</p><p><strong>Melting:</strong> leaves turn yellow and brown, shrink and die off, usually after a move to a new tank or a change in water parameters. Prune discoloured leaves down to the rhizome; the plant will adapt and sprout new leaves. Nutrient supplementation can mitigate melting.</p><p><strong>Brown spots on leaves:</strong> strong light can burn the leaves and cause brown spots. Do not confuse this with black spots beneath the leaves, which show the plant is about to grow plantlets.</p><p><strong>Quarantine:</strong> quarantine any new plants before adding them to the tank. They can carry parasites, pests such as snails or even predators (dragonfly and damselfly nymphs), or be treated with pesticides that are extremely poisonous to shrimp and other invertebrates.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>pH: 6.0–8.0; slightly above that will probably not harm the plant. It tolerates a wide pH range.</li><li>Hardness: soft to moderately hard, it can also thrive in hard water (2–15 dKH).</li><li>Temperature: 20–28°C.</li><li>Lighting: low light is preferred.</li></ul>"
+    },
+    {
       "key": "equipment",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
       "html": "<p>Almost any light will do, and the spectrum or wattage is not important. It does best with a 6700K bulb. Low to medium-high light is perfect. At the very high end of light it can burn or melt. It can survive on so little light that aquarists have forgotten it for several weeks in a bucket and it still lived.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Java fern is compatible with a huge variety of fish. It is tough, which makes it difficult for herbivorous or nippy fish to eat it. It can withstand cichlids, oscars and goldfish that normally eat aquatic plants, as they find its hard leaves unappetising. It also suits small fish and fry: its dense bushy mats give hiding places. Avoid pairing it with large crayfish, which are known to destroy the plant.</p><p>It is also one of the best plants for shrimp and snail tanks, alongside any freshwater shrimp with the same water requirements (such as cherry shrimp, snowball shrimp, ghost shrimp, Amano shrimp, vampire shrimp, blue tiger shrimp, blue velvet shrimp) and snails such as ramshorn, nerite, Malaysian trumpet, Japanese trapdoor and mystery snails.</p>"
     },
     {
       "key": "reproduction",
@@ -60,6 +103,12 @@
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Microsorumpteropus'Windel%C3%B8v'(008BTC)/31249",
       "html": "<p>Microsorum pteropus 'Windeløv' is a patented variety of Microsorum pteropus, named after Tropica's founder Holger Windeløv. Its finely branched leaf tips make it one of the most beautiful aquarium plants. The Microsorum variety becomes 15-20 cm tall and wide.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Varieties:</strong></p><ul><li><strong>Narrow Leaf:</strong> thinner leaves that twist slightly as they mature; leaves about 10–20 cm, up to 30 cm tall.</li><li><strong>Needle Leaf:</strong> long, thin leaves, thinner than Narrow Leaf; about 15 cm tall.</li><li><strong>Trident:</strong> grows faster, with feathery-lobed, forked leaves resembling a trident; shorter than Narrow Leaf.</li><li><strong>Windelov:</strong> grows up to 20 cm tall, similar to regular Java fern but with finely branched leaf tips.</li></ul><p><strong>Aquascaping:</strong> Java fern is popular for aquascaping and is often used as a mid or background plant, depending on tank size. For a Java fern tree, attach the plant to branched driftwood; Windelov is the favourite choice. For a jungle effect, make a Java fern wall at the back of the tank: black out the back pane, break the fern into small pieces to cover a mesh, and fix the structure to the back wall so no fish gets hurt. Plantlets will sprout after some time.</p><p><strong>Benefits:</strong> the full-grown plant forms a bush that gives shade and cover for small fish, shrimp and fry. It also absorbs ammonia, nitrates and phosphates from the water, which helps keep the tank stable. It can live up to 2 years.</p>"
     }
   ],
   "photos": [
@@ -73,6 +122,16 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/java-fern-microsorum-pteropus-an-easy-aquatic-plant",
       "caption": "Java Fern (Microsorum pteropus) an Easy Aquatic Plant. - Aquarium Co-Op",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/e5705eec64a2f5cb.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/e5705eec64a2f5cb-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/java-fern-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
     }
   ],
   "productSlots": [
@@ -98,5 +157,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-20"
 }

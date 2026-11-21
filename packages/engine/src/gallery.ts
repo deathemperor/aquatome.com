@@ -11,8 +11,9 @@ import { inatNcPage, inatPage, inatTaxon, newInatCursor, type InatCursor, type I
 import { openversePage } from './openverse'
 import { cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { namedOn, namedOrder, SPECIES, type Named } from './photo-named'
-import { keptMarks } from './own-mark'
+import { keptCap, keptMarks } from './own-mark'
 import { isRejected, unfitCommons } from './photos'
+import { CLEARED_VERDICT, looks, readSecondLook } from './last-photo'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
 import { WikimediaRefused } from './wikimedia-rest'
@@ -299,25 +300,26 @@ function byKind(photos: GalleryPhoto[], at: ScreenedAt): GalleryPhoto[] {
  * wherever six others show (the chief of staff, 2026-11-14: a measuring board led the green swordtail's 60), ordered the
  * same way among themselves. Then, whatever their rank, the photos the photo check could not tell show the page's subject
  * (`cantTell`: photo-check.ts cantTellOn), so a later run keeps the place the check gave them; then the photos with a
- * cleared shop's own mark kept (`kept`, own-mark.ts), ordered the same way among themselves (the chief of staff, 15 Nov);
- * AI pictures last. Each part is ordered on its own, so ordering an album twice changes nothing: the sweep orders every
+ * cleared shop's own mark kept (`kept`, own-mark.ts), ordered the same way among themselves (the chief of staff, 15 Nov),
+ * after every other real photo, a non-commercial one too (below); AI pictures last. Each part is ordered on its own, so ordering an album twice changes nothing: the sweep orders every
  * album so each cycle (orderAlbums), with the same `looks` as the album step, so the two agree. A photo its source names
  * only with "cf.", to its genus or as another fish (`named`, photo-named.ts) goes behind those it names better, among
  * the photos the check is sure of and among those it can't tell alike, so the photo check's moving the latter last keeps
  * the order (the chief of staff, 2026-11-14). A non-commercial photo (isNonCommercial: iNaturalist's CC BY-NC and CC
- * BY-NC-SA, behind their switch) comes after every open one, before the AI pictures, those ordered the same way among
- * themselves (the owner's yes, 10 Nov).
+ * BY-NC-SA, behind their switch) comes after every open one with no mark, those ordered the same way among themselves
+ * (the owner's yes, 10 Nov), and before the kept-mark photos: the owner was told a banner photo sits below the clean
+ * ones, and a non-commercial photo is a clean one (the chief of staff, 19 Nov).
  */
 export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false, at: ScreenedAt = () => undefined, looks: Looks = () => ({}), named: (p: GalleryPhoto) => Named = () => SPECIES, kept: (url: string) => boolean = () => false): GalleryPhoto[] {
-  const nc = photos.filter(p => !isGenerated(p) && isNonCommercial(p.licence))
-  if (nc.length && nc.length < photos.length) {
-    const rest = rankGallery(photos.filter(p => !nc.includes(p)), cantTell, at, looks, named, kept)
-    return [...rest.filter(p => !isGenerated(p)), ...rankGallery(nc, cantTell, at, looks, named, kept), ...rest.filter(isGenerated)]
-  }
   const marked = photos.filter(p => !isGenerated(p) && kept(p.url))
   if (marked.length) {
     const rest = rankGallery(photos.filter(p => !marked.includes(p)), cantTell, at, looks, named)
     return [...rest.filter(p => !isGenerated(p)), ...rankGallery(marked, cantTell, at, looks, named), ...rest.filter(isGenerated)]
+  }
+  const nc = photos.filter(p => !isGenerated(p) && isNonCommercial(p.licence))
+  if (nc.length && nc.length < photos.length) {
+    const rest = rankGallery(photos.filter(p => !nc.includes(p)), cantTell, at, looks, named)
+    return [...rest.filter(p => !isGenerated(p)), ...rankGallery(nc, cantTell, at, looks, named), ...rest.filter(isGenerated)]
   }
   const real = photos.filter(p => !isGenerated(p))
   const sure = real.filter(p => !cantTell(p.url)), unsure = real.filter(p => cantTell(p.url))
@@ -498,7 +500,15 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // judged off Heckel's discus by eye, and the gallery's own screening put it back (2026-11-08).
   const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
   const offBy = new Map<string, Record<string, string>>()
-  for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
+  // One a second look cleared isn't off on that verdict on the pages its record names, so their albums may take it again
+  // (last-photo.ts); another page's verdict still keeps it off that page (the chief of staff, 20 Nov 2026). For one marked
+  // off at its first verdict, the clear answers only the dead fish there: another fish, nothing of the subject or "no" on
+  // its own page still keeps it out, as in the put-back (CLEARED_VERDICT; the chief of staff, 21 Nov). The record names
+  // pages as kind/id, the verdicts by id.
+  const sl = await readSecondLook(root)
+  const cleared = looks(sl).cleared
+  const clearedOn = (url: string, id: string, ok: PhotoVerdict['ok']) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id) && (sl[url]!.off !== true || ok === CLEARED_VERDICT)
+  for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id, v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const looksOn = await albumLooks(root, subjects)
   const on = await namedOn(content)
@@ -543,6 +553,10 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
     if ((e.photos ?? []).some(p => !isGenerated(p))) ownPhoto.add(t.id)
   }
   const ncPlan = [...plan.filter(t => !ownPhoto.has(t.id)), ...plan.filter(t => ownPhoto.has(t.id))]
+  // A page with no photo of its own reads that pass right after iNaturalist's open passes, where one of its photos may
+  // be the one way to show that fish (lead-photo.ts); a page with one, once every open source is read to its end (the
+  // chief of staff's rule, 17 Nov).
+  const ncReady = (t: PlanItem, st: GalleryState) => (ownPhoto.has(t.id) ? openDry(st) : st.inat?.pass === 'done')
   for (const ncRound of nc ? [false, true] : [false]) for (const t of ncRound ? ncPlan : plan) {
     if (left.sheets <= 0 || report.stopped || (ncRound && !ncRoom())) break
     const gfile = join(content, 'gallery', `${t.id}.json`)
@@ -561,7 +575,7 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
     // A pass read to its end can still leave candidates queued (the waiting limit, the run's sheets or its bytes stopped
     // its round): its round screens them in a later run, and the page runs dry once they're judged.
     const ncQueued = st.queue.some(c => isNonCommercial(c.licence))
-    if (ncRound && (t.kind === 'breeds' || (st.inatNc?.done && !ncQueued) || !openDry(st))) continue
+    if (ncRound && (t.kind === 'breeds' || (st.inatNc?.done && !ncQueued) || !ncReady(t, st))) continue
     // A page dry before the non-commercial switch went on has never read that pass: it is read now, not in a month.
     const ncUnread = ncRound && !st.inatNc
     const due = !st.exhausted || !!o.only || days(st.exhausted) >= RETRY_DAYS
@@ -612,7 +626,8 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
       const seen = new Set([...[...e.photos, ...gallery].flatMap(p => [p.url, p.sourceUrl]), ...other.urls])
       const judged = new Set(st.judged)
       const offHere = isRejected(offBy.get(t.id) ?? {})
-      st.queue = st.queue.filter(c => !offHere(c.url))
+      // A candidate queued before it joined the never-again list (by any address) never reaches the screen.
+      st.queue = st.queue.filter(c => !offHere(c.url) && !rejectedPhoto(c.url))
       // Its switch off, a non-commercial candidate queued while it was on is never screened.
       if (!nc) st.queue = st.queue.filter(c => !isNonCommercial(c.licence))
       const isNew = (c: Candidate) => !rejectedPhoto(c.url) && !offHere(c.url) && !seen.has(c.url) && !seen.has(c.sourceUrl) && !judged.has(c.key) && !st.queue.some(q => q.key === c.key)
@@ -635,6 +650,18 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
             st.inat ??= newInatCursor(await inatTaxon(names, inat))
             const p = await inatPage(st.inat, inat)
             st.inat = p.cursor
+            return p.cands
+          })
+          if (r) return r
+        }
+        // iNaturalist's CC BY-NC and CC BY-NC-SA photos, its switch on: in their own round, so they fill only what no open
+        // photo can; on a page with a photo of its own once every open source is read to its end (one out of requests this
+        // run is not), on a page with none right after iNaturalist's open passes (`ncReady`).
+        if (ncRound && !breed && !skip.has('inat') && !st.inatNc?.done && ncReady(t, st) && ncRoom()) {
+          const r = await attempt('inat', async () => {
+            st.inat ??= newInatCursor(await inatTaxon(names, inat))
+            const p = await inatNcPage(st.inat.taxon, st.inatNc ?? { after: 0 }, inat)
+            st.inatNc = p.cursor
             return p.cands
           })
           if (r) return r
@@ -667,17 +694,6 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
             const p = await openversePage(sci, st.openverse?.next ?? 1, api)
             st.openverse = { next: p.next }
             if (p.remaining < 10) left.openverse = 0 // leave the day's last requests alone
-            return p.cands
-          })
-          if (r) return r
-        }
-        // iNaturalist's CC BY-NC and CC BY-NC-SA photos, its switch on: last, so they fill only what no open photo can,
-        // and only once every open source is read to its end (one out of requests this run is not).
-        if (ncRound && !breed && !skip.has('inat') && !st.inatNc?.done && openDry(st) && ncRoom()) {
-          const r = await attempt('inat', async () => {
-            st.inat ??= newInatCursor(await inatTaxon(names, inat))
-            const p = await inatNcPage(st.inat.taxon, st.inatNc ?? { after: 0 }, inat)
-            st.inatNc = p.cursor
             return p.cands
           })
           if (r) return r
@@ -736,12 +752,14 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
 /**
  * Every album in rankGallery's order, each cycle (the sweep): the album step ranks only an album it adds to, so the rest
  * kept the order an older rule left them (by stored size, with no rule for photo-tank photos, until 14 Nov). Each album's
- * screening order is its state's (`judged`); the photo check's verdicts say which photos it can't tell. The files
- * changed, and the albums whose lead photo changed (`id: old -> new`).
+ * screening order is its state's (`judged`); the photo check's verdicts say which photos it can't tell. Then no more
+ * Aquarium Glaser kept-mark photos than an album shows, the first in that order (own-mark.ts keptCap; the chief of staff,
+ * 16 Nov). The files changed, the albums whose lead photo changed (`id: old -> new`), and the kept-mark photos left out
+ * of an album (`id: url`).
  */
-export async function orderAlbums(root: string, subjects: Record<string, Record<string, PhotoVerdict>>): Promise<{ files: string[]; leads: string[] }> {
+export async function orderAlbums(root: string, subjects: Record<string, Record<string, PhotoVerdict>>): Promise<{ files: string[]; leads: string[]; keptOut: string[] }> {
   const dir = join(root, 'content', 'gallery')
-  const out = { files: [] as string[], leads: [] as string[] }
+  const out = { files: [] as string[], leads: [] as string[], keptOut: [] as string[] }
   const lead = (ps: GalleryPhoto[]) => ps.find(p => !p.unchecked && !isGenerated(p))?.url
   const looksOn = await albumLooks(root, subjects)
   const on = await namedOn(join(root, 'content'))
@@ -752,13 +770,25 @@ export async function orderAlbums(root: string, subjects: Record<string, Record<
     const g = JSON.parse(raw) as { photos?: GalleryPhoto[] }
     if (!g.photos?.length) continue
     const st = JSON.parse(await readFile(join(root, 'engine-state', 'gallery', f), 'utf8').catch(() => '{}')) as Partial<GalleryState>
-    const ranked = rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id), markKept)
-    if (ranked.every((p, i) => p === g.photos![i])) continue
+    const own = await pageOf(root, id)
+    const capped = keptCap(rankGallery(g.photos, cantTellOn(subjects, id), screenedAt(st.judged ?? []), looksOn(id), on(id), markKept), own, markKept)
+    const ranked = capped.album
+    out.keptOut.push(...capped.out.map(p => `${id}: ${p.url}`))
+    if (ranked.length === g.photos.length && ranked.every((p, i) => p === g.photos![i])) continue
     if (lead(g.photos) !== lead(ranked)) out.leads.push(`${id}: ${lead(g.photos)} -> ${lead(ranked)}`)
     await writeFile(file, `${JSON.stringify({ ...g, photos: ranked }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
     out.files.push(`gallery/${f}`)
   }
   return out
+}
+
+/** The own photos of the page an album belongs to: a species', a plant's or a breed's. */
+async function pageOf(root: string, id: string): Promise<Photo[]> {
+  for (const kind of ['species', 'plants', 'breeds']) {
+    const raw = await readFile(join(root, 'content', kind, id, 'entity.json'), 'utf8').catch(() => null)
+    if (raw) return (JSON.parse(raw) as { photos?: Photo[] }).photos ?? []
+  }
+  return []
 }
 
 /** Photos the owner rejected (engine-state/_photo-rejected.json) leave every gallery, the next run after they are listed. */
@@ -788,7 +818,10 @@ export async function dropNonCommercial(content: string, switches: Readonly<Imag
     const data = JSON.parse(raw) as { photos?: Photo[] }
     if (!Array.isArray(data.photos)) continue
     const album = f.startsWith('gallery/')
-    const off = data.photos.filter(p => !p.source && isNonCommercial(p.licence) && !(album && switches.inatNonCommercial && isInatNonCommercial(p)))
+    // A fish's page keeps one only as its head with no other real photo, where it's the one way to show that fish (the
+    // chief of staff's rule, 17 Nov; lead-photo.ts puts it there); a guide never. With the switch off, heads go too.
+    const head = (i: number) => i === 0 && !f.startsWith('guides/') && data.photos!.every((x, j) => j === 0 || x.generated)
+    const off = data.photos.filter((p, i) => !p.source && isNonCommercial(p.licence) && !((album || head(i)) && switches.inatNonCommercial && isInatNonCommercial(p)))
     if (!off.length) continue
     await writeFile(join(content, f), `${JSON.stringify({ ...data, photos: data.photos.filter(p => !off.includes(p)) }, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`)
     out.files.push(f)

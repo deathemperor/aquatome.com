@@ -1,0 +1,60 @@
+{
+  "id": "hoplomyzon-papillatus",
+  "native": {
+    "input": "07b14f46bd0baa08",
+    "at": "2026-11-20T01:55:49.831Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Ecuador, Napo Province, Rio Aguarico, about 1 km upstream from confluence with Rio Shushufindi, lat. 0°17'S, long. 76°25.4'W.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Napo",
+        "source": "scotcat",
+        "quote": "South America: Napo and Portuguesa River basins.",
+        "ok": true
+      },
+      {
+        "name": "Portuguesa",
+        "source": "scotcat",
+        "quote": "South America: Napo and Portuguesa River basins.",
+        "ok": true
+      },
+      {
+        "name": "Rio Aguarico",
+        "source": "scotcat",
+        "quote": "Ecuador, Napo Province, Rio Aguarico, about 1 km upstream from confluence with Rio Shushufindi, lat. 0°17'S, long. 76°25.4'W.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hoplomyzon papillatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340539,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 11,
+    "at": "2026-11-20T01:55:49.831Z"
+  }
+}

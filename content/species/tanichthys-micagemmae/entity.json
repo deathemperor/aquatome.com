@@ -19,22 +19,16 @@
         "Ben Hai"
       ],
       "sources": [
-        "glaser",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "The Jewel minnow was discovered in 2001 in Central Vietnam.",
+          "source": "seriouslyfish",
+          "quote": "To date known only from the Ben Hai river system in north central Vietnam which flows chiefly through the province of Quang Tri.",
           "countries": [
             "VN"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "To date known only from the Ben Hai river system in north central Vietnam which flows chiefly through the province of Quang Tri.",
-          "countries": [],
           "regions": [
             "Ben Hai"
           ]
@@ -64,11 +58,11 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
+        "source": "seriouslyfish",
         "value": 3
       },
       {
-        "source": "seriouslyfish",
+        "source": "glaser",
         "value": 3
       }
     ],
@@ -115,21 +109,27 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
-      "html": "<p>Currently two species of the genus Tanichthys are known in the hobby: the White Cloud Mountain minnow Tanichthys albonubes and the Jewel Minnow, T. micagemmae. The White Cloud is available exclusively as bred specimens, whereas the Jewel minnow is also imported as wild-collected fish. The Jewel minnow was discovered in 2001 in Central Vietnam.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
       "html": "<p>Tanichthys micagemmae is a small cyprinid from the Ben Hai river system in north central Vietnam. Sold under trade names such as 'Vietnamese minnow', 'cardinal minnow' and 'royal white cloud', it is smaller than T. albonubes, lacks that species' reddish-brown body colour and has reddish ventral and anal fins. At the type locality it was found only in the margins of a fast-flowing, shallow stream where the flow was much reduced.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>Currently three species of the genus Tanichthys are known in the hobby: the White Cloud Mountain minnow Tanichthys albonubes, the Jewel Minnow, T. micagemmae, and T. kuehnei, which was termed T. sp. „Vietnam“ prior to its scientific description. The White Cloud is available exclusively as bred specimens, whereas the Jewel minnow is also imported as wild collected fish.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
       "html": "<p>To date known only from the Ben Hai river system in north central Vietnam which flows chiefly through the province of Quang Tri.</p><p>The type specimens were collected from neighbouring Quang Binh province with the locality given as 'Stream Bau Dung, a tributary of River Ben Hai, 17°07'24\"N, 106°58'12\"E, Quang Binh Province, Vietnam'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>The Jewel minnow was discovered in 2001 in Central Vietnam.</p>"
     },
     {
       "key": "habitat",
@@ -140,8 +140,8 @@
     {
       "key": "aquariumSize",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
-      "html": "<p>The maximum size of the Jewel minnow is less than 3 cm, so the species is an ideal fish for so-called nano aquariums.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>The maximum size of the Jewel minnow is less than 3 cm, so the species is an ideal fish for the so-called nano-aquaria.</p>"
     },
     {
       "key": "aquariumSize",
@@ -164,8 +164,8 @@
     {
       "key": "equipment",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
-      "html": "<p>If they are kept in a single-species tank, no additional heater is necessary in indoor aquariums.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>If they are kept in a one-species tank no additional heater is necessary in indoor aquaria.</p>"
     },
     {
       "key": "diet",
@@ -176,8 +176,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
-      "html": "<p>The Jewel minnow should be kept and bred in schools. The fish are completely peaceful with any other fish.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>The Jewel minnow should be kept and bred in schools. The fish are completely peaceful among any other fish.</p>"
     },
     {
       "key": "behaviour",
@@ -188,8 +188,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
-      "html": "<p>Males and females can easily be distinguished by the shape and colour of the dorsal and anal fins, which are much larger and more colourful in males.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>Males and females can easily be distinguished by the shape and colour of the dorsal and anal fin, which are much larger and more colourful in males.</p>"
     },
     {
       "key": "dimorphism",
@@ -200,8 +200,8 @@
     {
       "key": "reproduction",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
-      "html": "<p>The species spawns in fine plant material. The offspring swim close under the water surface. If the parents are fed properly and with a good variety of food, usually some of the young survive even in a community tank (surface plants are necessary, especially Riccia).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>The species spawns in fine plant material. The offspring swims close under the water surface. If the parents are fed properly and with a good variety of food, usually some of the young survive even in the community tank (surface plants are necessary, especially Riccia).</p>"
     },
     {
       "key": "reproduction",
@@ -212,8 +212,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys_micagemmae_jewel_minnow_en/",
-      "html": "<p>Tanichthys micagemmae is a real gem and every fishkeeper should have tried it.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "html": "<p>Tanichthys micagemmae is a real jewel and every fishkeeper should have tried it.</p>"
     },
     {
       "key": "notes",
@@ -235,7 +235,7 @@
       "width": 800,
       "height": 601,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
       "caption": "The colour pattern of adult males intensifies during aggressive interactions with other males.",
       "source": "seriouslyfish"
@@ -246,7 +246,7 @@
       "width": 800,
       "height": 599,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
       "caption": "Adult male; aggressive mood.",
       "source": "seriouslyfish"
@@ -257,10 +257,40 @@
       "width": 800,
       "height": 600,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Peter Macguire / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tanichthys-micagemmae",
       "caption": "Adult female.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/bada8e0dd5b7fa51.webp",
+      "thumb": "https://media.aquatome.com/glaser/bada8e0dd5b7fa51-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4341030fcd14d3ec.webp",
+      "thumb": "https://media.aquatome.com/glaser/4341030fcd14d3ec-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2fd090d1b395548d.webp",
+      "thumb": "https://media.aquatome.com/glaser/2fd090d1b395548d-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/tanichthys-micagemmae-jewel-minnow/",
+      "source": "glaser"
     }
   ],
   "videos": [
@@ -311,5 +341,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-20"
 }

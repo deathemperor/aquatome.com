@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { holdForSecondLook, lastPhotos, looks, pagesShowing, readSecondLook } from './last-photo'
+import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
@@ -35,7 +35,7 @@ export const DEAD_SCREEN_SCHEMA = {
   properties: { tiles: { type: 'array', items: { type: 'object', required: ['n', 'dead', 'note'], properties: { n: { type: 'number' }, dead: { type: 'boolean' }, note: { type: 'string' } } } } },
 }
 export const DEAD_SCREEN_PROMPT = `Each numbered tile is what an aquarium handbook's fish or plant page shows: a video, as four pictures two by two (its thumbnail and three frames from through it), or the page's photo. Look at every picture on a tile. For each tile:
-- dead: true if any picture on it shows a dead fish or other dead animal, or fish as food: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a fish lying on the ground, a road, a floor, a board, a tray, a mesh, a ruler or a tape measure; a big catch hung up or held up by an angler; a preserved, mounted, museum or lab specimen, in a jar, on a specimen plate, or laid out flat on a plain or gridded background for a photo (for a snail, an empty shell; for a plant, a pressed herbarium sheet). When you can't tell whether a fish lying out of the water is alive, it is dead. Not dead: a live fish in water (a tank, a pond, a river, a tub, a cup, a bag, a photo tank), a small live fish held in a hand or a net for a moment, a drawing, painting or graphic.
+- dead: true if any picture on it shows a dead fish or other dead animal, or fish as food: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a fish lying on the ground, a road, a floor, a board, a tray, a mesh, a ruler or a tape measure; a big catch hung up or held up by an angler; a preserved, mounted, museum or lab specimen, in a jar, on a specimen plate, or laid out flat on a plain or gridded background for a photo (for a snail, an empty shell; for a plant, a pressed herbarium sheet). A fish on a hook or a line, in the water or not, is a catch: dead. When you can't tell whether a fish lying out of the water is alive, it is dead. Not dead: a live fish in water, on no hook or line (a tank, a pond, a river, a tub, a cup, a bag, a photo tank), a small live fish on no hook or line, held in a hand or a net for a moment, a drawing, painting or graphic.
 - note: a few words on what it shows (for dead: what makes it so, e.g. "fish on a tape measure on a road").
 Answer every tile, by its number.`
 const PER_SHEET = 12
@@ -73,7 +73,8 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   for (const [u, v] of Object.entries(legacy)) if ('logo' in v) asked.add(u)
   const subjects = (await readJson<Record<string, Record<string, { logo?: boolean }>>>(state('_photo-subjects.json'))) ?? {}
   for (const [u, by] of Object.entries(subjects)) if (Object.values(by).some(v => 'logo' in v)) asked.add(u)
-  const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], failed: [] as string[], left: 0, stopped: '' }
+  // `firstOff`: a page's last photo the hold doesn't keep, its first verdict on a photo that never passed the check (last-photo.ts).
+  const report = { sheets: 0, judged: 0, dead: [] as string[], held: [] as string[], firstOff: [] as string[], failed: [] as string[], left: 0, stopped: '' }
 
   // Videos first (the owner's find), then main photos; each picture once, with every page that shows it.
   const videos = new Map<string, Item>()
@@ -142,19 +143,30 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   // Off the lists and off the pages that show them. A photo whose going would leave a page with nothing stays, held for
   // a second look (last-photo.ts); one the second look cleared stays too.
   const sl = looks(await readSecondLook(root))
-  const going = new Set(off.filter(x => !x.video && sl.open(x.url)).map(x => x.url))
+  // A hold on another reason doesn't keep a photo that never passed from this, its first verdict (photo-check.ts spared).
+  const passed = off.some(x => !x.video) ? await readPassedBefore(root) : new Set<string>()
+  const going = new Set(off.filter(x => !x.video && (sl.open(x.url) || (sl.waiting(x.url) && !passed.has(x.url)))).map(x => x.url))
   // Photos already listed never-again leave every page anyway (the sweep), so they count as going.
-  const held = going.size ? new Map([...lastPhotos(await pagesShowing(content), u => going.has(u) || u in photoRejected)].filter(([u]) => going.has(u))) : new Map<string, string[]>()
-  const holding = new Map<string, { why: string; pages: string[] }>()
+  const last = going.size ? new Map([...lastPhotos(await pagesShowing(content), u => going.has(u) || u in photoRejected)].filter(([u]) => going.has(u))) : new Map<string, string[]>()
+  // Only one that passed the check before is held; this verdict, on one that never did, takes it off, marked (last-photo.ts).
+  const held = new Map([...last].filter(([u]) => passed.has(u)))
+  const firstOff = new Map([...last].filter(([u]) => !passed.has(u)))
+  const holding = new Map<string, { why: string; pages: string[]; off?: true }>()
   for (const it of off) {
     const why = `dead: ${cache[it.key]!.note} (the dead-fish screen)`
     if (!it.video && (!going.has(it.url) || held.has(it.url))) {
       if (held.has(it.url)) { holding.set(it.url, { why, pages: held.get(it.url)! }); report.held.push(`${it.key}: ${held.get(it.url)!.join(', ')}`) }
       continue
     }
-    report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
-    if (it.video) videoRejected[it.video] ??= why
-    else photoRejected[it.url] ??= why
+    if (!it.video && firstOff.has(it.url)) {
+      holding.set(it.url, { why, pages: firstOff.get(it.url)!, off: true })
+      report.firstOff.push(`${it.key}: ${firstOff.get(it.url)!.join(', ')}`)
+      photoRejected[it.url] ??= waitingEntry(why)
+    } else {
+      report.dead.push(`${it.key}: ${cache[it.key]!.note}`)
+      if (it.video) videoRejected[it.video] ??= why
+      else photoRejected[it.url] ??= why
+    }
     for (const file of it.files) {
       const raw = await readFile(file, 'utf8')
       const e = JSON.parse(raw) as { photos?: { url: string }[]; videos?: { youtubeId: string }[] }

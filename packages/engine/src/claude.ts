@@ -3,6 +3,7 @@ import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { failureDetail, failureMessage } from './call-failure'
 import { ceilingMessage, costLog, inPiece, stepName } from './ceiling'
 import { envFor, NotTheAccount, onAccounts, tokenHash } from './claude-accounts'
 import { cycleOnlyHosts } from './cycle-only'
@@ -59,13 +60,16 @@ type RunOpts = {
  * Before each try, the step's ceiling for the day (ceiling.ts): the engine's own limit, so a step at it fails here with
  * no call made, no account set aside and the next account not tried.
  */
-const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => onAccounts(token => {
-  const capped = ceilingMessage(stepName(), costLog())
-  if (capped) return Promise.reject(new NotTheAccount(capped))
-  return once<T>(system, prompt, schema, opts, token)
-}, m => new LlmError(m))
+const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => {
+  let attempt = 0 // each account tried is one
+  return onAccounts(token => {
+    const capped = ceilingMessage(stepName(), costLog())
+    if (capped) return Promise.reject(new NotTheAccount(capped))
+    return once<T>(system, prompt, schema, opts, token, ++attempt)
+  }, m => new LlmError(m))
+}
 
-function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string): Promise<T> {
+function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string, attempt = 1): Promise<T> {
   return new Promise<T>((resolve, reject) => {
     const allow = opts.allow ?? opts.tools
     const args = ['-p', '--model', modelOf(opts.model), ...(opts.onEvent ? ['--output-format', 'stream-json', '--verbose', '--include-partial-messages'] : ['--output-format', 'json']),
@@ -75,7 +79,10 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     const child = spawn('claude', args, { cwd: opts.cwd, stdio: ['pipe', 'pipe', 'pipe'], env: envFor(token) })
     let out = ''
     let err = ''
-    const timer = setTimeout(() => child.kill('SIGTERM'), opts.timeoutMs ?? 10 * 60_000)
+    // The engine's own timer: a call it stops says so, whatever the stopped process printed.
+    const ms = opts.timeoutMs ?? 10 * 60_000
+    let timedOut = false
+    const timer = setTimeout(() => { timedOut = true; child.kill('SIGTERM') }, ms)
     // Decoded across chunks: the pipe cuts a long answer at any byte, and a chunk decoded by itself turns a character cut
     // in two into U+FFFD (a Thai letter is three bytes: 38 Thai pages had one, 2026-11-10).
     child.stdout.setEncoding('utf8')
@@ -91,8 +98,14 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     })
     child.stderr.on('data', d => (err += d))
     child.on('error', e => reject(new LlmError(e.message)))
-    child.on('close', code => {
+    child.on('close', (code, signal) => {
       clearTimeout(timer)
+      // On GitHub, a line of ours beside the failure for whoever debugs a cloud run (call-failure.ts failureDetail).
+      const failed = (message: string, text?: string, result?: { subtype?: unknown; stop_reason?: unknown }) => {
+        if (process.env.GITHUB_ACTIONS) console.log(failureDetail({ message, text, result, model: modelOf(opts.model), step: stepName(), page: inPiece.getStore(), attempt, code, signal }))
+        return new LlmError(message)
+      }
+      if (timedOut) return reject(failed(`claude timed out after ${Math.round(ms / 1000)} s`))
       try {
         const r = opts.onEvent ? JSON.parse(out.trim().split('\n').reverse().find(l => l.includes('"type":"result"')) ?? '') : JSON.parse(out)
         opts.onResult?.(r)
@@ -109,10 +122,15 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }
         }
-        if (r.is_error || code !== 0) return reject(new LlmError(`claude failed (${code}): ${r.result ?? err}`.slice(0, 500)))
+        // On GitHub, whose logs are public, what failed is said in our words and none of the CLI's (call-failure.ts).
+        if (r.is_error || code !== 0) {
+          const text = String(r.result ?? err)
+          return reject(failed(failureMessage(`claude failed (${code})`, text, r).slice(0, 500), text, r))
+        }
         resolve(r.structured_output as T)
       } catch {
-        reject(new LlmError(`claude returned non-JSON (${code}): ${(out || err).slice(0, 300)}`))
+        const text = (out || err).slice(0, 300)
+        reject(failed(failureMessage(`claude returned non-JSON (${code})`, text), text))
       }
     })
     child.stdin.end(prompt)

@@ -1,0 +1,97 @@
+{
+  "id": "astroblepus-fissidens",
+  "native": {
+    "input": "76634aefffdac1c8",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Andes of Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "This species is only known from the Mataje and Santiago basins in northwestern Ecuador (Jiménez-Prado et al. 2015).",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "doubtful",
+        "source": "scotcat",
+        "quote": "It does not appear to have been conclusively recorded from nearby Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Mataje",
+        "source": "scotcat",
+        "quote": "South America: Río Mataje, Río Guayas, Río Esmeraldas basin.",
+        "ok": true
+      },
+      {
+        "name": "Río Guayas",
+        "source": "scotcat",
+        "quote": "South America: Río Mataje, Río Guayas, Río Esmeraldas basin.",
+        "ok": true
+      },
+      {
+        "name": "Río Esmeraldas",
+        "source": "scotcat",
+        "quote": "South America: Río Mataje, Río Guayas, Río Esmeraldas basin.",
+        "ok": true
+      },
+      {
+        "name": "Santiago",
+        "source": "scotcat",
+        "quote": "This species is only known from the Mataje and Santiago basins in northwestern Ecuador (Jiménez-Prado et al. 2015).",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Andes",
+        "source": "scotcat",
+        "quote": "Its type locality is the Andes of Ecuador (Regan 1904).",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus fissidens",
+    "status": "ACCEPTED",
+    "taxonKey": 2342150,
+    "datasets": [
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        9
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

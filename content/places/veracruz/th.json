@@ -3,6 +3,12 @@
   "name": "เวรากรุซ",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-20T11:59:32.227Z",
+    "why": "Thai atlases write Veracruz as เบรากรุซ (รัฐเบรากรุซ); เวรากรุซ is a nonstandard transliteration, and it lacks the region word รัฐ (\"state\")."
+  },
   "quality": {
     "score": 0.9,
     "indexable": true

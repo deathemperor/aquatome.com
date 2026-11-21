@@ -1,0 +1,139 @@
+{
+  "id": "astroblepus-grixalvii",
+  "native": {
+    "input": "8dc55c2230ee1c2f",
+    "at": "2026-11-21T07:12:58.512Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Cauca and Magdalena River basins, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cauca",
+        "source": "scotcat",
+        "quote": "South America: Cauca and Magdalena River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Magdalena",
+        "source": "scotcat",
+        "quote": "South America: Cauca and Magdalena River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus grixalvii",
+    "status": "ACCEPTED",
+    "taxonKey": 2342069,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        263
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        60
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        40
+      ],
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        34
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        19
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        17
+      ],
+      [
+        "28965184-3e9f-432f-8898-780e9183d526",
+        10
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "b4cfbb59-5194-4e1a-aa55-fcc5e1d1e69f",
+        7
+      ],
+      [
+        "35397e95-b688-4305-91f9-44d24535e27d",
+        6
+      ],
+      [
+        "8240bd81-c05f-45d6-a1bd-f65393035392",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        3
+      ],
+      [
+        "c74b948e-eab9-4a6e-8ed3-5ffe49bc4895",
+        3
+      ],
+      [
+        "5d70097b-804b-4eef-bc67-f0be4d088ecb",
+        2
+      ],
+      [
+        "c2b6a9e7-e2a4-4172-b089-08e92fd1c9d4",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5fb7b99b-4340-438f-801e-2bd6162d03f7",
+        1
+      ],
+      [
+        "9cc67633-537a-4acc-8d37-92feeaddb2cd",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T07:12:58.512Z"
+  }
+}

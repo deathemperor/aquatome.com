@@ -1,8 +1,13 @@
 {
   "slug": "selangor",
-  "name": "สลังงอร์",
+  "name": "รัฐสลังงอร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": true,
+    "score": 0.93,
+    "at": "2026-11-19T18:53:26.070Z"
+  },
   "quality": {
     "score": 0.8,
     "indexable": true

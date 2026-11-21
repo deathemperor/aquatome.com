@@ -51,7 +51,9 @@
   "inat:740787571",
   "inat:740904698",
   "File:Neoarius graeffei.jpg",
-  "File:Neoarius graeffei 22674828.jpg"
+  "File:Neoarius graeffei 22674828.jpg",
+  "gbif:1456452557:bcf0f6ad351b379e",
+  "gbif:1456452557:e4d7552ba7ccd5f9"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/f14547d82bd6a345.webp": "e2e32561c1869604",
@@ -61,9 +63,7 @@
   "https://media.aquatome.com/inaturalist/671840717.webp": "1b4f0f1717793138",
   "https://media.aquatome.com/inaturalist/191005071.webp": "06d8c9f0f95a5251",
   "https://media.aquatome.com/inaturalist/312814635.webp": "27044266c2c0b91c",
-  "https://media.aquatome.com/inaturalist/539501889.webp": "22484dcdc6e5e5ad",
   "https://media.aquatome.com/commons/ad0f98c4bb194fc4.webp": "0327030b272a1a12",
-  "https://media.aquatome.com/commons/4871cc2e584712ed.webp": "310b0f1f17060607",
   "https://media.aquatome.com/inaturalist/740787571.webp": "d9e0c373988686c6"
  },
  "inat": {
@@ -74,5 +74,9 @@
    "agree": 253814359
   }
  },
- "commons": "2026-11-18"
+ "commons": "2026-11-18",
+ "gbif": {
+  "key": 2345449,
+  "next": null
+ }
 }

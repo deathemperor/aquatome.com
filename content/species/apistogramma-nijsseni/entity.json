@@ -16,9 +16,7 @@
         "PE"
       ],
       "regions": [
-        "Río Ucayali",
-        "Río Carahuayte",
-        "Río Yavarí"
+        "Río Ucayali"
       ],
       "sources": [
         "seriouslyfish"
@@ -26,20 +24,12 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Known in the trade as the 'panda dwarf cichlid', Apistogramma nijsseni is from tributaries of the Río Ucayali in Loreto Region, northern Peru.",
+          "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
           "countries": [
             "PE"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Known only from tributaries of the Río Ucayali in Loreto Region, northern Peru including the Río Carahuayte and Río Yavarí.",
-          "countries": [],
           "regions": [
-            "Río Ucayali",
-            "Río Carahuayte",
-            "Río Yavarí"
+            "Río Ucayali"
           ]
         }
       ]
@@ -131,6 +121,12 @@
       "html": "<p>Known in the trade as the 'panda dwarf cichlid', Apistogramma nijsseni is from tributaries of the Río Ucayali in Loreto Region, northern Peru. Coded A180 under the DATZ system, it inhabits slow-moving blackwater streams and creeks where the pH can drop as low as 4.0 or 5.0 and the substrate is littered with branches and a deep layer of rotting leaves.</p><ul><li>Max size: male 85 mm SL, female 70 mm SL</li><li>Aquarium size: 60 × 30 cm</li><li>Temperature: 24–28°C</li><li>pH: 5.0–6.5</li><li>Hardness: 0–4 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-nijsseni-2/",
+      "html": "<p>The Panda Dwarf Cichlid (Apistogramma nijsseni) was an absolute sensation when it was first introduced at the end of the 1970s. The breeding was successful right away, but it took several years before it was understood that the – often extreme – male surplus observed in the offspring came from too high water temperatures during breeding.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
@@ -194,28 +190,83 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/380c70c466d7e866.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/380c70c466d7e866-480.webp",
       "width": 1200,
       "height": 840,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Brett Ramsey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
       "caption": "Adult male specimen; neutral mood.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/380c70c466d7e866-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/27a201a2e68f9bbd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/27a201a2e68f9bbd-480.webp",
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
+      "author": "Brett Ramsey / Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-nijsseni",
       "caption": "Adult female.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/27a201a2e68f9bbd-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e094e39c28b19cad.webp",
+      "thumb": "https://media.aquatome.com/glaser/e094e39c28b19cad-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-nijsseni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d1400c7fd28de5fc.webp",
+      "thumb": "https://media.aquatome.com/glaser/d1400c7fd28de5fc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-nijsseni-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/aa64534c666f92c8.webp",
+      "thumb": "https://media.aquatome.com/glaser/aa64534c666f92c8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-nijsseni-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "a6UZ6t39K1A",
+      "title": "Apistogramma nijsseni with fry",
+      "durationSec": 99,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7ZV5TOP58UY",
+      "title": "Apistogramma nijsseni Balz #Apistogramma #Scape #nijsseni #Balz",
+      "durationSec": 557,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8h7qCaJBxdc",
+      "title": "Apisto Nijsseni fry!!! #babyfish #fishtank #fish #aquarium #aquariumfish #plantedtank #aquascape",
+      "durationSec": 47,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "G7INMT0uq_g",
+      "title": "Beautiful #Apistogramma Nijsseni! #aquarium #fishtank #aquascape #aquascaping #beautiful #fish",
+      "durationSec": 57,
+      "lang": "hi"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -246,5 +297,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-20"
 }

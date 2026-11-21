@@ -1,0 +1,382 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Max flow rate",
+      "value": "900 L/h (250 GPH)",
+      "source": 0
+    },
+    {
+      "key": "Power consumption",
+      "value": "15 W",
+      "source": 0
+    },
+    {
+      "key": "Max head height",
+      "value": "1.7 m (5.6 ft) per Oase; a Vietnamese shop lists 1.3 m",
+      "source": 0
+    },
+    {
+      "key": "Recommended tank size",
+      "value": "up to 250 L (about 70 US gal)",
+      "source": 0
+    },
+    {
+      "key": "Filter media volume",
+      "value": "4.4 L",
+      "source": 1
+    },
+    {
+      "key": "Pre-filter volume",
+      "value": "0.4 L",
+      "source": 1
+    },
+    {
+      "key": "Hose size",
+      "value": "16/22 mm",
+      "source": 1
+    },
+    {
+      "key": "Dimensions",
+      "value": "24 × 24 × 37 cm",
+      "source": 3
+    },
+    {
+      "key": "Power supply",
+      "value": "230 V / 50 Hz (VN distributor version)",
+      "source": 3
+    },
+    {
+      "key": "Water type",
+      "value": "Freshwater and saltwater",
+      "source": 2
+    },
+    {
+      "key": "Warranty (manufacturer)",
+      "value": "3 years, plus 1 extra year if registered online (Oase US)",
+      "source": 2
+    },
+    {
+      "key": "Warranty (Vietnam shop)",
+      "value": "3 years official from date of receipt, not covering removable parts (Thủy Sinh Bích Phương)",
+      "source": 3
+    },
+    {
+      "key": "Filtration",
+      "value": "4 filter stages, plus a removable EasyClean pre-filter; Hel-X bio media and foams included",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "BioMaster 250",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "900 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "15 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×37 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "4.4 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 250 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 350",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "1,100 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "18 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×43 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "5.6 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 350 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 600",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "1,250 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "22 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×48 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "6.8 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 600 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster 850",
+      "specs": [
+        {
+          "key": "Flow",
+          "value": "1,550 L/h",
+          "source": 3
+        },
+        {
+          "key": "Power",
+          "value": "32 W",
+          "source": 3
+        },
+        {
+          "key": "Dimensions",
+          "value": "24×24×54 cm",
+          "source": 3
+        },
+        {
+          "key": "Media volume",
+          "value": "8 L",
+          "source": 3
+        },
+        {
+          "key": "Tank",
+          "value": "under 800 L",
+          "source": 3
+        }
+      ]
+    },
+    {
+      "name": "BioMaster Thermo 250 (BioMaster² Thermo 250)",
+      "specs": [
+        {
+          "key": "Heater",
+          "value": "Built-in heater, 150 W, adjustable roughly 66–90 °F",
+          "source": 2
+        },
+        {
+          "key": "Base filter",
+          "value": "Same filter as the 250 with an integrated heater",
+          "source": 2
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "variant": "BioMaster 250",
+      "vnd": 6480000,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "variant": "BioMaster 350",
+      "vnd": 7440000,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "variant": "BioMaster 600",
+      "vnd": 9200000,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Bích Phương",
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "variant": "BioMaster 850",
+      "vnd": 12000000,
+      "source": 3
+    },
+    {
+      "shop": "Mỹ Đình Aquarium (out of stock)",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-250/",
+      "variant": "BioMaster 250",
+      "vnd": 5550000,
+      "source": 4
+    },
+    {
+      "shop": "Mỹ Đình Aquarium (out of stock)",
+      "url": "https://mdaqua.com.vn/san-pham/loc-oase-biomaster-thermo-350/",
+      "variant": "BioMaster Thermo 350",
+      "vnd": 7100000,
+      "source": 4
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Rated for tanks up to about 250 L (70 gal); bigger tanks need the 350, 600 or 850.",
+      "source": 0
+    },
+    {
+      "fact": "Works in both freshwater and marine tanks.",
+      "source": 2
+    },
+    {
+      "fact": "The Thermo version suits keepers who want the heater inside the filter. The plain version suits those who may add a HeatUp heater later.",
+      "source": 6
+    },
+    {
+      "fact": "Because some units hum, owners with the filter in a living area may want to put it on foam inside a cabinet.",
+      "source": 5
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Soften the hoses in hot water before fitting them, and leave some slack so you can rock the canister at startup. The In and Out fittings are labeled.",
+      "source": 6
+    },
+    {
+      "fact": "Priming: submerge the intake and outlet, open the valves, then press the priming button repeatedly until water stops rushing in and no more bubbles come out of the outlet.",
+      "source": 6
+    },
+    {
+      "fact": "After plugging in, rock the canister side to side to release trapped air. The manual gives the same advice for air or noise problems.",
+      "source": 5
+    },
+    {
+      "fact": "On the Thermo model, only switch on the heater once the filter is full and running.",
+      "source": 6
+    },
+    {
+      "fact": "Rinse the pre-filter foams about weekly, in dechlorinated or tank water. The 250 has 4 pre-filter foams.",
+      "source": 6
+    },
+    {
+      "fact": "Open the main canister roughly every 3–6 weeks to rinse the media and clean the impeller and shaft. The pre-filter keeps the main chamber clean for longer.",
+      "source": 6
+    },
+    {
+      "fact": "Flow can be adjusted, and the in/out connections have check valves and locks to limit spills during maintenance.",
+      "source": 3
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Noise is the most common complaint: some owners hear a hum or impeller rattle, often caused by trapped air. Other owners say theirs runs almost silently.",
+      "source": 5
+    },
+    {
+      "fact": "Oase reportedly changed the pump head design, adding a bar that presses on the impeller mount, after complaints about impeller noise.",
+      "source": 5
+    },
+    {
+      "fact": "Leaks are mostly reported right after maintenance, often from a badly seated main gasket or pre-filter seal. Check the gasket first.",
+      "source": 5
+    },
+    {
+      "fact": "Some new units are hard to prime, and the head can trap air.",
+      "source": 5
+    },
+    {
+      "fact": "Some owners find the flow weaker than the rating. Figures also vary by listing: one Vietnamese shop gives a 1.3 m head, while Oase states 1.7 m.",
+      "source": 3
+    },
+    {
+      "fact": "The current version is sold as BioMaster² (250). Product codes and specs differ by market (US/AU/CN/EU), so check which version you are buying.",
+      "source": 2
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Eheim",
+      "model": "Classic 350 (2215)",
+      "why": "Simple, reliable and quiet canister for similar tank sizes, at a much lower price (about 3.6 million VND at Mỹ Đình Aquarium). It has no pre-filter or priming button.",
+      "source": 4
+    },
+    {
+      "brand": "Oase",
+      "model": "FiltoSmart 300",
+      "why": "Cheaper, compact Oase canister (about 4.1 million VND at Mỹ Đình Aquarium, out of stock) for smaller tanks. It has no EasyClean pre-filter.",
+      "source": 4
+    },
+    {
+      "brand": "Oase",
+      "model": "BioMaster Thermo 350",
+      "why": "Step up with more flow and a built-in heater, so no heater sits in the tank. Listed at about 7.1 million VND at Mỹ Đình Aquarium (out of stock).",
+      "source": 4
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://us.oase.com/products/oase-biomaster-250",
+      "title": "OASE BioMaster 250 – Oase US store",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://oase.com/en/products-a-z/family/product/p/54717-biomaster-250-au.html",
+      "title": "BioMaster 250 [AU] Technical Data – OASE",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.oase.com/en-US/aquarium/biomaster-2-250",
+      "title": "BioMaster² 250 – OASE US",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://thuysinhbichphuong.vn/oase-biomaster-filter-loc-thung-cao-cap",
+      "title": "OASE BIOMASTER FILTER – Lọc thùng cao cấp – Thủy Sinh Bích Phương",
+      "kind": "shop"
+    },
+    {
+      "url": "https://mdaqua.com.vn/danh-muc-san-pham/thiet-bi-phu-kien/he-thong-loc/loc-thung/",
+      "title": "Lọc thùng – Mỹ Đình Aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.ukaps.org/forum/threads/how-noisy-should-a-biomaster-thermo-250-be.67290",
+      "title": "How noisy should a BioMaster Thermo 250 be – UKAPS forum (and related BioMaster threads)",
+      "kind": "forum"
+    },
+    {
+      "url": "https://natureaquariums.com/blogs/tank-talk-by-nature-aquariums/oase-biomaster-canister-filter-full-setup-unboxing-maintenance-guide",
+      "title": "Oase BioMaster canister filter full setup, unboxing & maintenance guide – Nature Aquariums",
+      "kind": "review"
+    }
+  ]
+}

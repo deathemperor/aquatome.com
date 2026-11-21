@@ -1,5 +1,5 @@
 {
- "day": "2026-11-19",
+ "day": "2026-11-21",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 4748,
-   "read": 4048,
-   "wrong": 1606,
-   "pct": 40,
-   "held": 571
+   "pages": 5029,
+   "read": 4347,
+   "wrong": 1592,
+   "pct": 37,
+   "held": 590
   },
   "id": {
-   "pages": 1594,
-   "read": 1431,
-   "wrong": 407,
+   "pages": 1680,
+   "read": 1534,
+   "wrong": 423,
    "pct": 28,
-   "held": 151
+   "held": 172
   },
   "th": {
-   "pages": 1585,
-   "read": 1396,
-   "wrong": 370,
-   "pct": 27,
-   "held": 132
+   "pages": 1671,
+   "read": 1513,
+   "wrong": 393,
+   "pct": 26,
+   "held": 153
   },
   "ms": {
-   "pages": 462,
-   "read": 419,
-   "wrong": 121,
-   "pct": 29,
-   "held": 79
+   "pages": 542,
+   "read": 501,
+   "wrong": 140,
+   "pct": 28,
+   "held": 94
   }
  },
  "labels": {
@@ -58,48 +58,43 @@
  },
  "sample": [
   {
-   "lang": "th",
-   "path": "/th/fish/trigonopoma-gracile/",
-   "url": "https://aquatome.com/th/fish/trigonopoma-gracile/",
-   "title": "ซิวกราซิลิส",
+   "lang": "vi",
+   "path": "/vi/ca/ca-hemibagrus-microphthalmus/",
+   "url": "https://aquatome.com/ca/ca-hemibagrus-microphthalmus/",
+   "title": "Cá Hemibagrus microphthalmus",
    "wrong": [
     {
-     "check": "source",
-     "quote": "ได้รับการนำเข้ามาอีกครั้งผ่านทางสิงคโปร์ แหล่งที่มา: สิงคโปร์ ขนาดที่มีจำหน่าย: 3–4 ซม."
+     "check": "words",
+     "quote": "Nhiều khả năng"
+    },
+    {
+     "check": "words",
+     "quote": "giữ lãnh thổ"
+    },
+    {
+     "check": "words",
+     "quote": "ghi nhận"
     }
    ]
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
-   "url": "https://aquatome.com/huong-dan/pha-be-cu-chuan-bi-set-be-biotope-song-rio-negro/",
-   "title": "Phá bể cũ, chuẩn bị set bể biotope sông Rio Negro",
+   "path": "/vi/ca/ca-oto-peppermint/",
+   "url": "https://aquatome.com/ca/ca-oto-peppermint/",
+   "title": "Cá oto peppermint",
    "wrong": [
     {
-     "check": "elsewhere",
-     "quote": "Phòng có sưởi sẵn thì không cần lo khoản này."
-    },
-    {
-     "check": "source",
-     "quote": "Bể cũ có một khối lũa lớn chìa từ trên xuống, che thành một vùng tối ở phía sau."
-    },
-    {
-     "check": "source",
-     "quote": "Nước bể cũ nhìn qua thì trong, nhưng múc ra soi lên mới thấy có khá nhiều tannin"
+     "check": "words",
+     "quote": "chúng được bên nước xuất xử lý khéo đến đâu"
     }
    ]
   },
   {
-   "lang": "id",
-   "path": "/id/ikan/betta-pallifina/",
-   "url": "https://aquatome.com/id/ikan/betta-pallifina/",
-   "title": "Betta pallifina",
-   "wrong": [
-    {
-     "check": "elsewhere",
-     "quote": "kayu beech atau oak biasa aman dipakai asalkan benar-benar kering dan kulit kayunya sudah dikupas"
-    }
-   ]
+   "lang": "th",
+   "path": "/th/fish/corydoras-paleatus/",
+   "url": "https://aquatome.com/th/fish/corydoras-paleatus/",
+   "title": "แพะพริกไทย",
+   "wrong": []
   }
  ]
 }

@@ -1,34 +1,9 @@
 {
   "id": "corydoras-aeneus",
   "native": {
-    "input": "5f060c3b24ea6b91",
-    "at": "2026-11-05T06:42:12.410Z",
+    "input": "7eea3f215412f638",
+    "at": "2026-11-20T01:55:49.831Z",
     "claims": [
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "glaser",
-        "quote": "This morph comes from Peru (Puerto Maldonado).",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "TT",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Trinidad Island, West Indies', and it still occurs in some river systems of central and southern parts of the island.",
-        "words": "Trinidad",
-        "ok": false,
-        "why": "\"Trinidad\" is not TT"
-      },
-      {
-        "code": "UY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Currently it's accepted to occur throughout much of South America from Colombia and Trinidad in the north as far south as the Río de la Plata drainage at the border of Uruguay and Argentina.",
-        "words": "Uruguay",
-        "ok": true
-      },
       {
         "code": "AR",
         "status": "native",
@@ -102,11 +77,35 @@
         "ok": true
       },
       {
+        "code": "TT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Records exist from Argentina, Bolivia, Brazil, Colombia, French Guiana, Guyana, Paraguay, Peru, Suriname, Trinidad and Tobago and Venezuela, but this gigantic range seems more akin to that of a complex of similar-looking, distinct taxa rather than a single species.",
+        "words": "Trinidad and Tobago",
+        "ok": true
+      },
+      {
         "code": "VE",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Records exist from Argentina, Bolivia, Brazil, Colombia, French Guiana, Guyana, Paraguay, Peru, Suriname, Trinidad and Tobago and Venezuela, but this gigantic range seems more akin to that of a complex of similar-looking, distinct taxa rather than a single species.",
         "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently it's accepted to occur throughout much of South America from Colombia and Trinidad in the north as far south as the Río de la Plata drainage at the border of Uruguay and Argentina.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This morph comes from Peru (Puerto Maldonado).",
+        "words": "Peru",
         "ok": true
       }
     ],
@@ -128,8 +127,7 @@
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "EC",
-        "TT"
+        "EC"
       ],
       "sourcesOnly": []
     }
@@ -172,10 +170,6 @@
         29
       ],
       [
-        "640ae8b7-14b9-4188-894a-a2bc3821c752",
-        23
-      ],
-      [
         "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
         22
       ],
@@ -216,6 +210,10 @@
         4
       ],
       [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
         "a9317b52-6c43-452c-87d5-ea43e4773058",
         4
       ],
@@ -225,10 +223,6 @@
       ],
       [
         "6424b95e-eee2-41fc-9450-bac5d6767525",
-        3
-      ],
-      [
-        "96582dc4-f762-11e1-a439-00145eb45e9a",
         3
       ],
       [
@@ -293,19 +287,20 @@
       ]
     ],
     "native": [
-      "PE",
-      "CO",
-      "UY",
       "AR",
       "BO",
       "BR",
+      "CO",
       "GF",
       "GY",
       "PY",
+      "PE",
       "SR",
-      "VE"
+      "TT",
+      "VE",
+      "UY"
     ],
     "requests": 14,
-    "at": "2026-11-05T00:41:00.281Z"
+    "at": "2026-11-20T01:55:49.831Z"
   }
 }

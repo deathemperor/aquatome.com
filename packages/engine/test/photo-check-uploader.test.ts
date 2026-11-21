@@ -4,7 +4,8 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { afterEach, expect, test } from 'vitest'
 import { nameStep } from '../src/ceiling'
-import { checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { LlmError } from '../src/claude'
+import { ASIDE_FILE, checkPagePhotos, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 
 // An album photo the check answers "another fish": the same run judges that album's other photos from the same uploader
 // that have no verdict for the page, and nothing else (the chief of staff, 2026-11-16).
@@ -23,6 +24,8 @@ const photo = (n: string, p: P = {}) => ({
 const seen: Partial<PhotoVerdict> = { ok: 'yes', typical: true, note: '', logo: false, person: false }
 /** Five photos by another uploader, so a page's first sheet is full and its photos that wait are left for later. */
 const five = (id: string) => [1, 2, 3, 4, 5].map(i => photo(`${id}-f${i}`))
+/** Six album photos readers see, so the page shows a strip and its photos that wait keep their turn (photo-check.ts `short`). */
+const strip = (id: string) => [1, 2, 3, 4, 5, 6].map(i => photo(`${id}-s${i}`))
 
 type Page = { id: string; own?: ReturnType<typeof photo>[]; album: ReturnType<typeof photo>[] }
 /** Each page has a lead the check has passed; `verdicts`: photo name → page → verdict already recorded. */
@@ -85,7 +88,7 @@ test('"another fish" for an album photo: the same run judges that album\'s photo
         photo('judged-before', { author: ANGLER, waits: true }),
       ],
     },
-    { id: 'bbb-fish', album: [photo('other-album', { author: ANGLER, waits: true })] },
+    { id: 'bbb-fish', album: [...strip('bbb-fish'), photo('other-album', { author: ANGLER, waits: true })] },
     {
       id: 'ccc-fish',
       album: [
@@ -96,7 +99,7 @@ test('"another fish" for an album photo: the same run judges that album\'s photo
         photo('name-only', { author: ANGLER, waits: true }),
       ],
     },
-  ], { 'judged-before': { 'aaa-fish': seen } })
+  ], { 'judged-before': { 'aaa-fish': seen }, ...Object.fromEntries(strip('bbb-fish').map(x => [name(x.url), { 'bbb-fish': seen }])) })
   const d = model({ trig: { ok: 'other', note: 'a guppy' }, 'trig-page': { ok: 'other', note: 'a platy' } })
   const out = await checkPagePhotos(r, d, { limit: 2 })
   expect(d.seen).toEqual([
@@ -108,7 +111,7 @@ test('"another fish" for an album photo: the same run judges that album\'s photo
   expect(out.uploaderPhotos).toBe(4)
   expect(await judged(r, 'aaa-fish')).not.toContain('other-site')
   expect(await judged(r, 'aaa-fish')).not.toContain('other-author')
-  expect(await judged(r, 'bbb-fish')).toEqual(['bbb-fish-lead'])
+  expect(await judged(r, 'bbb-fish')).toEqual(['bbb-fish-lead', ...strip('bbb-fish').map(x => name(x.url))].sort())
   expect(await judged(r, 'ccc-fish')).not.toContain('other-page')
 })
 
@@ -174,7 +177,7 @@ test('"another fish" for a page\'s own photo starts nothing, for its other own p
   // bbb-fish's own photos fill two sheets; the run's limit leaves the second, with `own-sib`, for later.
   const r = await pair({
     own: [photo('own-trig', { author: ANGLER }), ...five('bbb-fish'), photo('own-sib', { author: ANGLER })],
-    album: [photo('album-sib', { author: ANGLER, waits: true })],
+    album: [...strip('bbb-album'), photo('album-sib', { author: ANGLER, waits: true })],
   })
   const d = model({ 'aaa-trig': { ok: 'other' }, 'own-trig': { ok: 'other' } })
   await checkPagePhotos(r, d, { limit: 2, emptyCap: 99 })
@@ -215,4 +218,27 @@ test("the step's daily line stops the second round like any sheet: no call past 
   expect(out.uploaderPhotos).toBe(0)
   expect(out.stopped).toBeTruthy()
   expect(await judged(r, 'aaa-fish')).toEqual(['aaa-fish-f1', 'aaa-fish-f2', 'aaa-fish-f3', 'aaa-fish-f4', 'aaa-fish-f5', 'aaa-fish-lead', 'trig'])
+})
+
+test('a sheet the model failed on, set aside, and then judged in the uploader round of the same run leaves the list', async () => {
+  // The first sheet: five photos and one by the angler the check calls another fish; the second, the angler's other photo,
+  // which the model fails on three times and which is set aside; the uploader round then judges it.
+  const r = await root([{ id: 'bbb-fish', album: [...[1, 2, 3, 4, 5].map(i => photo(`bbb-fish-f${i}`, { waits: true })), photo('bbb-trig', { author: ANGLER, waits: true }), photo('bbb-sib', { author: ANGLER, waits: true })] }])
+  let pending: string[] = [], fails = 0
+  const answer = (photos: string[]) => ({ photos: photos.map((p, i) => ({ n: i + 1, ok: p === 'bbb-trig' ? 'other' : 'yes', typical: false, note: p }) as { n: number } & PhotoVerdict) })
+  const d: PhotoCheckDeps = {
+    get: async u => { pending.push(name(u)); return new Uint8Array(await jpeg) },
+    look: async () => {
+      if (pending.includes('bbb-sib') && fails < 2) { fails++; throw new LlmError('claude failed (1): API Error: 500') }
+      const photos = pending
+      pending = []
+      return answer(photos)
+    },
+    lookNext: async () => { throw new LlmError('claude failed (1): API Error: 500') },
+  }
+  const x = await checkPagePhotos(r, d, { limit: 2, emptyCap: 99, retryAfterMs: 0 })
+  expect(x.aside).toEqual(['bbb-fish: server error (500)'])
+  expect(await judged(r, 'bbb-fish')).toContain('bbb-sib')
+  // Nothing left set aside: no list, or an empty one.
+  expect(JSON.parse(await readFile(join(r, 'engine-state', ASIDE_FILE), 'utf8').catch(() => '{}'))).toEqual({})
 })
