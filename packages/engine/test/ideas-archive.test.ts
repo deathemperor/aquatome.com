@@ -302,6 +302,8 @@ test("the day's magazine guide gets its one post from the Archive's newest good 
   expect(asked).toHaveLength(1)
   const id = topicId('Nước bể cá bị đục')
   expect(r.written).toEqual([id])
+  // Printed with the guide: how many of the facts its writer was given came from the post (the chief of staff, 21 Nov 2026).
+  expect(r.posts).toEqual([`Nước bể cá bị đục: ${POST}: cited; 2 of the 5 facts the writer was given came from it`])
   // The post's text is in no file the run leaves (the chief of staff, 21 Nov 2026: the magazine has given no permission to
   // republish, and the repository is public): no source copy, and nowhere else.
   expect((await files(root)).filter(([, text]) => text.includes('Placeholder text about cloudy water')).map(([f]) => f)).toEqual([])
@@ -376,7 +378,8 @@ test("during the Archive's rest the day's magazine guide waits, its idea untouch
 test(`no whole-post rewrite: the post may give at most ${POST_SHARE * 100}% of the facts, beside ${POST_OTHER_SITES} other sites, in every language's facts, or the guide is written without it`, async () => {
   // Four of the six facts from the post: too much of one source. The guide goes on with the other sites' facts alone.
   const root = await waiting([magazineIdea('Nước bể cá bị đục')])
-  await write(root, researchCiting(4, 2, []), (await archive(article())).reader)
+  const r = await write(root, researchCiting(4, 2, []), (await archive(article())).reader)
+  expect(r.posts).toEqual([`Nước bể cá bị đục: ${POST}: too much of one source; 0 of the 2 facts the writer was given came from it`])
   const id = topicId('Nước bể cá bị đục')
   const refs = (JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(x => x.url)
   expect(refs).not.toContain(POST)

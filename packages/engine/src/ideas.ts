@@ -607,7 +607,9 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
       const skipped = 'skipped' in r && r.skipped ? r.skipped : undefined
       m.guides[key] = { ...(skipped ? { skipped } : { guide: r.id }), at: d.now().toISOString(), ...(record ? { post: record } : {}) }
       if (skipped) report.skipped.push(skipped); else report.written.push(r.id)
-      if (record) report.posts.push(`${idea.topic}: ${record.url}: ${record.result}`)
+      // With how many of the facts its writer was given came from the post (the chief of staff, 21 Nov 2026).
+      const share = 'given' in r && r.given ? `; ${r.given.from} of the ${r.given.of} facts the writer was given came from it` : ''
+      if (record) report.posts.push(`${idea.topic}: ${record.url}: ${record.result}${share}`)
       await save()
     } catch (err) {
       if (err instanceof LlmError) { report.stopped = clean(err); break }

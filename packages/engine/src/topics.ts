@@ -432,7 +432,7 @@ export const topicId = (topic: string) => `aquatome-${slugify(topic)}`.slice(0, 
 /**
  * `leads`: more lines for the research, after the forum's (shops' posts on the topic, ideas.ts). `given`: a page the engine
  * read itself, given research as text and cited by its own address (GivenPage); `post` in the result says whether it
- * stood (givenUse).
+ * stood (givenUse), and `given` how many of the facts the writer had came from it.
  */
 export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a: TopicAsk, o: { researchModel?: string; writeModel?: string; reuse?: boolean; now?: () => Date; leads?: string; given?: GivenPage } = {}) {
   const content = join(root, 'content')
@@ -454,6 +454,9 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   if (post === 'too much of one source') cited = await citedFacts(root, researched, { archived: false })
   const { facts, refs, sources } = cited
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts`, ...(post ? { post } : {}) }
+  // How many of the facts the writer is given come from the given page (the chief of staff, 21 Nov 2026: printed with each
+  // magazine guide).
+  const given = o.given ? { from: facts.filter(f => givenPages(researched).includes(refs[f.source]?.url ?? '')).length, of: facts.length } : undefined
 
   const forWriter = { topic: a.topic, kind: a.kind, sources, facts }
   const write = (notes?: string[]) => d.llm<Written>({
@@ -504,7 +507,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
   await logReviews(root, 'topic', { id: `guides/${id}`, lang: 'vi' }, tries, review, o.now ? { now: o.now() } : {})
-  return { id, slug, score: review.score, notes: review.notes, refs: refs.length, ...(post ? { post } : {}) }
+  return { id, slug, score: review.score, notes: review.notes, refs: refs.length, ...(post ? { post } : {}), ...(given ? { given } : {}) }
 }
 
 /**
