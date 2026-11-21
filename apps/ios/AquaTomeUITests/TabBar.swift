@@ -11,17 +11,22 @@ extension XCUIApplication {
 
   /// Flung to the end of the screen, until its lowest words stop moving, then whether they end above the tab bar.
   func endsAboveTheTabBar(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
-    var low = -1.0
+    // At the end once two flings in a row leave the lowest words where they were. With one, a kind of kit's page stopped
+    // after its second fling (main's run, 21 Nov): 877.7 read after both, under the screen's foot, though its recording shows
+    // the page moving between them; the retry flung five times and passed. The failure names what it read.
+    var low = -1.0, still = 0
     for _ in 0..<30 {
       swipeUp()
       _ = XCTWaiter.wait(for: [XCTestExpectation(description: "still")], timeout: 0.8)
-      let now = lowestWords()
-      if abs(now - low) < 0.5 { break }
+      let now = lowestWords().y
+      still = abs(now - low) < 0.5 ? still + 1 : 0
+      if still == 2 { break }
       low = now
     }
     let bar = tabBars.firstMatch
     XCTAssertTrue(bar.exists, "\(screen): no tab bar", file: file, line: line)
-    XCTAssertLessThanOrEqual(lowestWords(), bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar", file: file, line: line)
+    let lowest = lowestWords()
+    XCTAssertLessThanOrEqual(lowest.y, bar.frame.minY + 0.5, "\(screen): its last words end under the tab bar: \(lowest.what)", file: file, line: line)
   }
 
   /// Whether what scrolls under the title stays out of sight behind it, the clock and the title.
@@ -143,18 +148,21 @@ extension XCUIApplication {
 
   /// The bottom of the lowest words on screen, but the tab bar's own: read from one snapshot of the app, not a query a
   /// text (a fish's page has hundreds, and the screen may change between two).
-  private func lowestWords() -> CGFloat {
-    guard let snap = try? snapshot() else { return 0 }
+  private func lowestWords() -> (y: CGFloat, what: String) {
+    guard let snap = try? snapshot() else { return (0, "no snapshot") }
     let screen = snap.frame
-    var low: CGFloat = 0
+    var low: CGFloat = 0, what = "no words"
     func walk(_ e: XCUIElementSnapshot) {
       if e.elementType == .tabBar { return }
       let f = e.frame
-      if e.elementType == .staticText, !f.isEmpty, f.minY < screen.maxY, f.maxY > screen.minY { low = max(low, f.maxY) }
+      if e.elementType == .staticText, !f.isEmpty, f.minY < screen.maxY, f.maxY > screen.minY, f.maxY > low {
+        low = f.maxY
+        what = "“\(e.label)” at \(f)"
+      }
       for c in e.children { walk(c) }
     }
     walk(snap)
-    return low
+    return (low, what)
   }
 
   /// The Tài khoản sheet, from the open tab's profile button (top right of its first screen), unless it's open already.

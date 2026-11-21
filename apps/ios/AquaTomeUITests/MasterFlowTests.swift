@@ -295,19 +295,27 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testSigningOutMidPressSendsNoMoreSteps() {
-    // The fan's step waits 30 s before it goes (a debug launch argument): the owner signs out meanwhile.
-    let app = launch(["-master-steps-wait", "30"])
+    // The fan's step waits a minute and a half before it goes (a debug launch argument): the owner signs out meanwhile. At
+    // 30 s, on GitHub's Mac (main, 21 Nov, both tries) the sign-out landed 31 and 33 s after the press: the step went while
+    // still signed in, as it should, and the flow failed though nothing went signed out. It now says so if the sign-out
+    // lands that late; the time is read after the signed-out check, which can take a while longer (scrolled back up).
+    let stepWait: TimeInterval = 90
+    let app = launch(["-master-steps-wait", "\(Int(stepWait))"])
     tap(app, "master-create")
     add(app, "master-add-Quạt")
     expect(app, "master-step-Quạt", contains: "Ổ cắm · Tắt")
     tap(app, "master-end-60")
     tap(app, "master-done")
+    // The step's wait starts after this.
+    let tapped = Date()
     tap(app, "master-start")
     app.openAccount()
     app.scrollToAndTap("sign-out")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 10), "still signed in")
     // Past the step's turn, signed out; then the owner again, to read the card.
-    RunLoop.current.run(until: Date().addingTimeInterval(35))
+    let out = Date().timeIntervalSince(tapped)
+    XCTAssertLessThan(out, stepWait, "signed out \(Int(out)) s after the press, the step due at \(Int(stepWait)) s: the step went signed in, and this proves nothing")
+    RunLoop.current.run(until: tapped.addingTimeInterval(stepWait + 10))
     app.signInWithStandInApple()
     app.openTab("Đèn")
     expect(app, "master-problems", contains: "Chưa gửi vì bạn đã đăng xuất.", timeout: 40)
