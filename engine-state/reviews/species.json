@@ -2122,6 +2122,42 @@
       "kept": false
     }
   ],
+  "vi/species/pethia-nigrofasciata#W780ni6bKgw": [
+    {
+      "at": "2026-11-21T09:32:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.86,
+      "notes": [
+        "Minor: \"Loài này ăn nhanh và giành ăn dữ\" is stated as a general rule, while the video gives it as the keeper's own observation.",
+        "Minor: \"Con đực nào trội nhất thì màu cũng rực nhất\" has no keeper attribution of its own, though the sentence before it does.",
+        "Minor: the colour-change-through-the-day point sits under [notes] and would fit [dimorphism] or [behaviour] better.",
+        "Minor: \"có lẽ là lúc chúng đẻ\" is hedged correctly, matching the video's \"might be spawning\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T09:32:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.6,
+      "notes": [
+        "\"Mua về thấy cá xỉn thì cũng không cần lo\" is advice the video doesn't give as such. It is stated as a general rule, not as one keeper's experience.",
+        "\"Một người nuôi loài này thấy chúng khỏe\" is vague. The video says \"hearty\", but the sentence is a stiff paraphrase.",
+        "\"Cá thích bể trồng nhiều cây\" repeats the page's maintenance text (dense planting, floating plants, driftwood).",
+        "\"nhưng chúng ở ngoài vùng nước trống là chính\" is garbled Vietnamese. The video says they spend most of their time in open water.",
+        "\"Lúc cho ăn, cá hăng đến mức đã hơn một lần nhảy ra khỏi bể\" is not attributed to one keeper. It reads as a species rule, but it was only the video maker's experience.",
+        "\"Chúng cũng rỉa rêu tóc\" is stated as a fact about the species. The video only says they look for hair algae to nibble on.",
+        "\"cá chuột, cá otto và tép Amano\" says the fish ignore these tankmates. This is attributed to one keeper, so it is acceptable, but \"cá chuột\" for corydoras reads as a mistranslation.",
+        "\"có lẽ là lúc chúng đẻ\" is fine as hedged. \"Con cái thân màu nâu vàng nhạt\" overlaps the page's dimorphism text. Male head colour and the three bars are already on the page."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/pethia-nigrofasciata#iWF4XFUHuD8": [
     {
       "at": "2026-11-17T02:47:36Z",
