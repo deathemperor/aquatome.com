@@ -26,6 +26,15 @@
       "reason": "lowered 2026-11-07 from 84,100 kB: the app no longer links PhotosUI, which loaded the Photos frameworks at every launch (#666). CI read 79,797 kB on #666, against 83,303–84,384 kB on main's code just before; on one Mac, 83.1 → 79.0 MB with PhotosUI stood in for. Budget: that reading, plus #523's measured 737 kB (its taxa and places on the 800 fish; #523 had raised the budget to 84,900 kB for them, and this replaces that), plus 2.5 MB for the hosted runners' spread (one app has read up to 2.2 MB apart: 83.0 and 85.2 MB on #530). Before that: raised 2026-11-01 from 75,500 kB for the Tìm tab's home of shelves (#316), CI median 76,438 kB ×1.1. Between them, about 1.2 MB came with the shelves' filters (e19aa434e), measured on one Mac."
     },
     {
+      "name": "Memory the flings themselves keep, through 800 fish",
+      "test": "PerformanceTests/testFlingingThroughTheFish()",
+      "metric": "com.apple.dt.XCTMetric_Memory-com.aquatome.app.physical",
+      "unit": "kB",
+      "max": 1500,
+      "signed": true,
+      "reason": "new 2026-11-17, the chief of staff's yes to the v2 Lab's proposal: what each fling's three swipes leave in memory (XCTest's Memory Physical, the change across the measured swipes), the median of the five. The peak above doesn't tell a slip from the level a run lands on: the app's memory steps up 6–10 MB once, at a time that varies, and GitHub's 33 runs of this test from 12 to 17 Nov read 71.2–73.9 MB below the step and 80.1–84.4 MB above it; in 10 of them the step came between one fling and the next, always upward. The change across a fling doesn't carry the level: those runs' medians read 98–967 kB on both sides. A step inside a fling reads in that one fling (3.7–8.0 MB), not the median; in 3 of the 33 runs two flings read over 1,500 kB (6,439 and 2,163 in one), one fling from failing. Budget: the most read, 967 kB, ×1.5, rounded up to 100 kB. Signed: memory let go during the swipes reads below 0, a measurement, not a missing counter."
+    },
+    {
       "name": "App size, as archived for the App Store (all files, before Apple's encryption and thinning)",
       "test": "bundle",
       "metric": "AquaTome.app",

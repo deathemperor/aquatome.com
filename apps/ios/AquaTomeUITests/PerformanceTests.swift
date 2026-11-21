@@ -25,6 +25,13 @@ final class PerformanceTests: XCTestCase {
     app.homeRow("all-fish").tap()
     let list = app.scrollViews["shelf-pages"]
     XCTAssertTrue(list.waitForExistence(timeout: 5))
+    // Once down and back before measuring: the app's memory steps up 6–10 MB once, at a time that varies (GitHub's runs of
+    // 12–17 Nov: before the first fling, between two, or not within the five), so the peak read whichever side of it a
+    // run happened to be. An attempt to bring the step before the five: XCTest's own unrecorded first pass already
+    // flings once, and 8 of those 33 runs stayed below the step through all six. It comes out if one Mac's ten runs
+    // don't all land above the step (scripts/check-perf.py says a run that lands below).
+    for _ in 0..<3 { list.swipeUp(velocity: .fast) }
+    for _ in 0..<3 { list.swipeDown(velocity: .fast) }
     let options = XCTMeasureOptions()
     options.invocationOptions = [.manuallyStop]
     measure(metrics: [XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
