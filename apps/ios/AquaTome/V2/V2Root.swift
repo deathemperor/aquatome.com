@@ -288,7 +288,8 @@ struct FootGround: Equatable {
 /// A page a Hôm nay card opens: a post, as the App Store's Today stories (the owner, 12 Nov: "for today posts they only
 /// support left edge swipe and close button"). It zooms out of its card, with no back button and a ✕ that closes it, and
 /// iOS's swipe from the left edge takes it back. A page opened from inside it pushes with iOS's own back button, and has
-/// the ✕ too, which closes the whole post.
+/// the ✕ too, which closes the whole post. One on another stack (handed to the old look's Tìm by its switch, then back to
+/// Khám phá, which shares Tìm's) is a page as any other, with iOS's back button: no ✕ closes it there.
 struct Post: Hashable {
   let item: HandbookIndex.Item
 }
@@ -311,12 +312,16 @@ private struct Destinations: ViewModifier {
       // Pushed with iOS's own push and back button: its swipe from the left edge follows the finger, as in Settings.
       .navigationDestination(for: HandbookIndex.Item.self) { page($0).modifier(ClosesPost(posts: posts, always: false, own: true)) }
       .navigationDestination(for: Post.self) { post in
-        page(post.item)
-          .navigationBarBackButtonHidden(true)
-          .environment(\.v2IsPost, true)
-          .modifier(ClosesPost(posts: posts, always: true, own: true))
-          .onAppear { posts?.open.wrappedValue = true }
-          .navigationTransition(.zoom(sourceID: post.item.path, in: zoom))
+        if posts == nil {
+          page(post.item)
+        } else {
+          page(post.item)
+            .navigationBarBackButtonHidden(true)
+            .environment(\.v2IsPost, true)
+            .modifier(ClosesPost(posts: posts, always: true, own: true))
+            .onAppear { posts?.open.wrappedValue = true }
+            .navigationTransition(.zoom(sourceID: post.item.path, in: zoom))
+        }
       }
       .navigationDestination(for: FullPage.self) {
         PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade().modifier(ClosesPost(posts: posts, always: false, own: true))
