@@ -709,6 +709,59 @@ test('a plant\'s row 700 or 740 px wide that runs past the edge shows "Xem tất
   await expect(see).toBeHidden()
 })
 
+// The strip's fourth read, 21 Nov: a row's edge read in whole pixels let a thumbnail cut by under two pixels count as
+// seen. The plant's strip is set to 766.625 px from the page's left, so its row of seven (720 px) has 718.625: the seventh
+// is cut by 1.375 px, and a width rounded up to 767 would make it 1, inside the 1 px allowance.
+test('a plant\'s row whose seventh thumbnail is cut by under two pixels shows "Xem tất cả"', async ({ page, request, isMobile }) => {
+  test.skip(isMobile, 'a screen of one pixel to the pixel, as the fractions are counted')
+  const found = await albumPage(request, 'cay', (a, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) === 7 && a.photos.length === 7)
+  test.skip(!found, 'no plant whose strip is its whole album of seven in this build')
+  await page.setViewportSize({ width: 800, height: 900 })
+  await page.goto(found!.path)
+  await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+  const see = page.locator('section.strip [data-all]')
+  await expect(see, 'the row fits at 800 px').toBeHidden()
+  const cut = await page.locator('section.strip').evaluate(box => {
+    Object.assign(box.style, { width: '766.625px', maxWidth: 'none', marginInline: '0' })
+    const ul = box.querySelector('ul')!, v = ul.getBoundingClientRect()
+    return Math.max(...[...ul.querySelectorAll('a[data-i]')].map(a => a.getBoundingClientRect().right)) - v.right
+  })
+  expect(cut, 'the seventh thumbnail is cut by 1.375 px').toBeCloseTo(1.375, 3)
+  await expect(see).toBeVisible()
+})
+
+// The strip's fourth read, 21 Nov: on a phone the column's row is the thumbnails and the button's place, with a gap
+// between them that stays when the button is hidden. Measured to the strip's edge, a thumbnail ending in that gap counted
+// as seen though the row cuts it. The album is cut to the strip's own photos, so only the row's measure decides.
+test('a fish\'s column row whose last thumbnail ends in the gap before the button\'s place shows "Xem tất cả"', async ({ page, request, isMobile }) => {
+  test.skip(isMobile, 'a screen of one pixel to the pixel, as the gap is counted')
+  const found = await albumPage(request, 'ca', (_, html) => /<section class="strip column\b[\s\S]*?<button type="button" class="all"/.test(html))
+  test.skip(!found, 'no fish page whose photo column has a strip with its button in this build')
+  const { path, html } = found!
+  const strip = /<section class="strip column\b[\s\S]*?<\/ul>/.exec(html)![0]
+  const n = Math.max(...[...strip.matchAll(/data-i="(\d+)"/g)].map(m => Number(m[1]))) + 1
+  const body = html.replace(/(<section[^>]*data-album[\s\S]*?<script type="application\/json"[^>]*>)([\s\S]*?)(<\/script>)/, (_, a, j, b) => {
+    const album = JSON.parse(j) as { photos: unknown[] }
+    return a + JSON.stringify({ ...album, photos: album.photos.slice(0, n) }).replace(/</g, '\\u003c') + b
+  })
+  await page.route(u => u.pathname === path, route => route.fulfill({ contentType: 'text/html; charset=utf-8', body }))
+  await page.setViewportSize({ width: 800, height: 900 })
+  await page.goto(path)
+  await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+  const all = page.locator('section.strip .all')
+  const ends = await page.locator('section.strip').evaluate(box => {
+    const ul = box.querySelector('ul')!, left = ul.getBoundingClientRect().left
+    const last = Math.max(...[...ul.querySelectorAll<HTMLElement>('a[data-i]')].filter(a => a.checkVisibility()).map(a => a.getBoundingClientRect().right + ul.scrollLeft))
+    const gap = parseFloat(getComputedStyle(box).columnGap)
+    // The strip as wide as its thumbnails and half its gap: hidden, the button leaves the row that half a gap short.
+    box.style.width = `${last - left + gap / 2}px`
+    return { gap, cut: last - ul.getBoundingClientRect().right }
+  })
+  expect(ends.gap, 'the column row has a gap').toBeGreaterThan(2)
+  expect(ends.cut, 'the row cuts its last thumbnail').toBeGreaterThan(1)
+  await expect(all).toBeVisible()
+})
+
 test('a lead-only album has no strip', async ({ page }) => {
   test.skip(LIVE, 'uses the lead-only fixture')
   await page.goto('/ca/ca-boraras-do/')
