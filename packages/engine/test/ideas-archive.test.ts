@@ -1,12 +1,12 @@
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises'
 import { readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { ARCHIVE_POLITE, ArchiveFetcher, ArchiveRefused, type ArchiveReader } from '../src/archive'
-import type { Llm } from '../src/claude'
+import { ARCHIVE_POLITE, ArchiveFetcher } from '../src/archive'
+import { LlmError, type Llm } from '../src/claude'
 import { cycleOnlyHosts } from '../src/cycle-only'
-import { ListingRefused, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
+import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, ListingRefused, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
 import { POST_OTHER_SITES, POST_SHARE, siteOf, topicId } from '../src/topics'
 
 // The owner, 20 Nov 2026: "Pratical fishkeeping: use internet archive" (and 9 Nov: "any site that are often blocked should
@@ -43,6 +43,12 @@ async function archive(answer: (url: string) => ReturnType<typeof res>, now = '2
   const reader = new ArchiveFetcher({ fetch: async u => { asked.push(u); return answer(u) }, now: () => new Date(now), sleep: async ms => { slept.push(ms) }, ua: 'AquaTome test', restFile: rest })
   return { reader, asked, slept, rest }
 }
+/** Every file under `dir`, with its text. */
+async function files(dir: string): Promise<[string, string][]> {
+  const out: [string, string][] = []
+  for (const e of await readdir(dir, { withFileTypes: true, recursive: true })) if (e.isFile()) { const f = join(e.parentPath, e.name); out.push([f, await readFile(f, 'utf8')]) }
+  return out
+}
 const CDX = {
   features: [`http://www.practicalfishkeeping.co.uk:80/features/cloudy-water-explained/`, `https://www.practicalfishkeeping.co.uk/features/something-else/`],
   'fishkeeping-answers': [],
@@ -65,7 +71,7 @@ async function site(blocked = true) {
   await writeFile(join(root, 'engine-state/_sources.json'), JSON.stringify(blocked ? { practicalfishkeeping: { blockedAt: '2026-11-18T12:30:07.863Z' } } : {}))
   return root
 }
-const ideasOf = (llm: Llm, get: (u: string) => Promise<string>, a: ArchiveReader | undefined, now = '2026-11-21T06:00:00Z') =>
+const ideasOf = (llm: Llm, get: (u: string) => Promise<string>, a: ArchiveFetcher | undefined, now = '2026-11-21T06:00:00Z') =>
   ({ get, llm, sleep: async () => {}, now: () => new Date(now), ...(a ? { archive: a } : {}) })
 const noIdeas: Llm = async <T>() => ({ ideas: [] }) as T
 
@@ -170,6 +176,32 @@ test("the week's wait doesn't hold back a site read through the Archive that has
   expect(third.asked).toEqual([])
 })
 
+test(`the magazine's listing asks the Archive at most ${ARCHIVE_LISTING_WEEK} times in seven days, the daily try included, counted as each ask is made`, async () => {
+  // Every copy of the sitemap a browser check: each day's try searches older copies until the week's asks are spent.
+  const root = await site()
+  await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ readAt: '2026-11-18T12:30:33.269Z', posts: {}, ideas: [] }))
+  const checks = (u: string) => (u.includes('/cdx/') ? res(200, '20250101000000\n20250201000000\n20250301000000\n20250401000000\n') : res(200, CHALLENGE))
+  let total = 0
+  for (const d of ['21', '22', '23', '24', '25']) {
+    const a = await archive(checks, `2026-11-${d}T06:00:00Z`)
+    await refreshIdeas(root, ideasOf(noIdeas, web(SHOPS).get, a.reader, `2026-11-${d}T06:00:00Z`))
+    total += a.asked.length
+  }
+  expect(total).toBe(ARCHIVE_LISTING_WEEK)
+  // Seven days after the first asks, the week has room again.
+  const later = await archive(checks, '2026-11-28T06:00:00Z')
+  await refreshIdeas(root, ideasOf(noIdeas, web(SHOPS).get, later.reader, '2026-11-28T06:00:00Z'))
+  expect(later.asked.length).toBeGreaterThan(0)
+  // Eight asks made this week: the sitemap's copy is read, the index isn't asked, and the posts stand unmarked.
+  const eight = await site()
+  await writeFile(join(eight, 'engine-state/_ideas.json'), JSON.stringify({ posts: {}, ideas: [], archiveAsks: { '2026-11-18': { listing: 8 } } }))
+  const a8 = await archive(holding)
+  const r8 = await refreshIdeas(eight, ideasOf(noIdeas, web(SHOPS).get, a8.reader), { force: true })
+  expect(a8.asked).toHaveLength(1)
+  expect(r8.archived.practicalfishkeeping).toEqual({ listed: 3 })
+  expect((await readIdeas(eight)).posts.practicalfishkeeping!.some(p => p.held)).toBe(false)
+})
+
 // ---- The day's magazine guide, from its one post ----
 
 const POST = `${PF}features/cloudy-water-explained/`
@@ -194,7 +226,7 @@ const researchCiting = (from: number, others: number, asked: string[], sites = [
 const writer: Llm = async <T>({ schema }: { schema: { required?: string[] } }) =>
   (schema.required?.includes('body') ? { name: 'Nước bể cá bị đục', summary: ['Một ý.'], body: '<h3>Vì sao</h3><p>Nước đục.</p>', faq: [] } : { score: 0.95, notes: [] }) as T
 
-test("the day's magazine guide gets its one post from the Archive's newest good copy: kept as a source copy, given to research, cited by the magazine's own address", async () => {
+test("the day's magazine guide gets its one post from the Archive's newest good copy: held for that run alone, given to research, cited by the magazine's own address; the repository keeps its record, never its text", async () => {
   const root = await waiting([magazineIdea('Nước bể cá bị đục'), shopIdea])
   const a = await archive(u => (u.endsWith(`id_/${POST}`) ? res(200, ARTICLE, 'Sat, 01 Nov 2026 09:00:00 GMT') : res(404, '')))
   const asked: string[] = []
@@ -202,12 +234,9 @@ test("the day's magazine guide gets its one post from the Archive's newest good 
   // One request to the Archive for the day: the post's newest copy. Nothing for the shops' guide, nothing for its photo.
   expect(a.asked).toEqual([`https://web.archive.org/web/20261121id_/${POST}`])
   expect(r.magazine).toEqual(['Nước bể cá bị đục'])
-  // The copy, kept as the archived sites' are: the magazine's own address, the Archive's date, the text alone.
-  const copy = await readFile(join(root, 'sources/practicalfishkeeping/features-cloudy-water-explained.md'), 'utf8')
-  expect(copy).toContain(`url: ${POST}\n`)
-  expect(copy).toContain('capturedAt: 2026-11-01T09:00:00.000Z\n')
-  expect(copy).toContain('Placeholder text about cloudy water')
-  expect(copy).not.toContain('photo.jpg')
+  // The post's text is in no file the run leaves (the chief of staff, 21 Nov 2026: the magazine has given no permission to
+  // republish, and the repository is public): no source copy, and nowhere else.
+  expect((await files(root)).filter(([, text]) => text.includes('Placeholder text about cloudy water')).map(([f]) => f)).toEqual([])
   // Research is given it in its prompt, as content, by the magazine's address; the shops' guide is not.
   const magazinePrompt = asked.find(p => p.includes('"Nước bể cá bị đục"'))!
   expect(magazinePrompt).toContain(`Address: ${POST}`)
@@ -225,7 +254,8 @@ test("the day's magazine guide gets its one post from the Archive's newest good 
   expect(JSON.stringify(entity)).not.toContain('archive.org')
   // The idea says what came of its post.
   const idea = (await readIdeas(root)).ideas.find(i => i.topic === 'Nước bể cá bị đục')!
-  expect(idea.post).toEqual({ url: POST, capturedAt: '2026-11-01T09:00:00.000Z', result: 'cited' })
+  // Its record: the post's own address and title, the copy's date, a hash of its text, and that the Archive was how it was read.
+  expect(idea.post).toEqual({ url: POST, title: 'Cloudy water explained | Practical Fishkeeping', capturedAt: '2026-11-01T09:00:00.000Z', hash: expect.stringMatching(/^[0-9a-f]{64}$/), via: 'archive', result: 'cited' })
   // The magazine counts as its own site, as any archived site does: an Archive address would fold them into one.
   expect(siteOf(POST)).toBe('practicalfishkeeping.co.uk')
   expect(siteOf('https://www.2hraquarist.com/blogs/articles/x')).toBe('2hraquarist.com')
@@ -241,21 +271,46 @@ test("a post the Archive doesn't hold, or holds only as a browser check: the gui
   expect(asked).toHaveLength(1)
   expect(asked[0]).not.toContain('Address: ')
   const idea = (await readIdeas(root)).ideas[0]!
-  expect(idea.post).toEqual({ url: POST, result: 'no copy' })
+  expect(idea.post).toEqual({ url: POST, via: 'archive', result: 'no copy' })
   expect(idea.guide).toBe(topicId('Nước bể cá bị đục'))
 })
 
-test("during the Archive's rest the day's magazine guide waits, its idea untouched, and the shops' guide is written", async () => {
+/** The Archive resting until `until`, as a refusal leaves it (archive.ts). */
+async function resting(until: string, now: string) {
+  const file = await restFile()
+  await writeFile(file, JSON.stringify({ until, waitMs: 43_200_000, got: 'HTTP 429', at: now }))
+  return archive(u => (u.endsWith(`id_/${POST}`) ? res(200, ARTICLE) : res(404, '')), now, file)
+}
+
+test("during the Archive's rest the day's magazine guide waits, its idea untouched, and the shops' guide is written; the days it waits are counted, three running said", async () => {
   const root = await waiting([magazineIdea('Nước bể cá bị đục'), shopIdea])
-  const resting: ArchiveReader = { get: async () => { throw new ArchiveRefused('2026-11-21T12:21:46.773Z') }, text: async () => { throw new ArchiveRefused('2026-11-21T12:21:46.773Z') } }
+  const a = await resting('2026-11-21T12:21:46.773Z', '2026-11-21T06:00:00Z')
   const asked: string[] = []
-  const r = await writeIdeas(root, { research: researchCiting(0, 3, asked), llm: writer, now: () => new Date('2026-11-21T06:00:00Z'), archive: resting }, { perDay: 2 })
+  const r = await writeIdeas(root, { research: researchCiting(0, 3, asked), llm: writer, now: () => new Date('2026-11-21T06:00:00Z'), archive: a.reader }, { perDay: 2 })
+  expect(a.asked).toEqual([])
   expect(r.stopped).toContain('the archive refused this Mac: no request before 2026-11-21T12:21:46.773Z')
   expect(r.magazine).toEqual([])
+  expect(r.waited).toBe(1)
   expect(asked).toHaveLength(1)
   const [magazine, shop] = (await readIdeas(root)).ideas
   expect(magazine).toEqual(magazineIdea('Nước bể cá bị đục'))
   expect(shop!.guide).toBeDefined()
+  // The same day again: still one day. Then two more days in a rest: three running.
+  const day = async (now: string, until: string) => (await writeIdeas(root, { research: researchCiting(0, 3, []), llm: writer, now: () => new Date(now), archive: (await resting(until, now)).reader }, { perDay: 2 })).waited
+  expect(await day('2026-11-21T09:00:00Z', '2026-11-22T00:00:00Z')).toBe(1)
+  expect(await day('2026-11-22T06:00:00Z', '2026-11-23T00:00:00Z')).toBe(2)
+  expect(await day('2026-11-23T06:00:00Z', '2026-11-24T00:00:00Z')).toBe(3)
+  expect((await readIdeas(root)).archiveWaits).toEqual(['2026-11-21', '2026-11-22', '2026-11-23'])
+  // The Archive answers on the fourth: the guide is written and the count ends.
+  const done = await writeIdeas(root, { research: researchCiting(1, 3, []), llm: writer, now: () => new Date('2026-11-24T06:00:00Z'), archive: (await resting('2026-11-24T00:00:00Z', '2026-11-24T06:00:00Z')).reader }, { perDay: 2 })
+  expect(done.magazine).toEqual(['Nước bể cá bị đục'])
+  expect(done.waited).toBeUndefined()
+  expect((await readIdeas(root)).archiveWaits).toBeUndefined()
+  // A day with no wait between two rests starts the count again.
+  const gap = await waiting([magazineIdea('Một'), magazineIdea('Hai', [`${PF}features/second/`])])
+  const once = async (now: string) => (await writeIdeas(gap, { research: researchCiting(0, 3, []), llm: writer, now: () => new Date(now), archive: (await resting('2026-12-31T00:00:00Z', now)).reader }, { perDay: 2 })).waited
+  expect(await once('2026-11-21T06:00:00Z')).toBe(1)
+  expect(await once('2026-11-23T06:00:00Z')).toBe(1)
 })
 
 test(`no whole-post rewrite: the post may give at most ${POST_SHARE * 100}% of the facts, beside ${POST_OTHER_SITES} other sites, or the guide is written without it`, async () => {
@@ -278,7 +333,7 @@ test(`no whole-post rewrite: the post may give at most ${POST_SHARE * 100}% of t
   expect((await readIdeas(ok)).ideas[0]!.post).toMatchObject({ result: 'cited' })
 })
 
-test('one post a day, never a crawl: two magazine ideas waiting, a worst case of browser checks, at most six requests a day; a copy already kept is never asked for again', async () => {
+test(`one post a day, never a crawl: two magazine ideas waiting, a worst case of browser checks, at most ${ARCHIVE_POST_DAY} requests a day, counted as they are made`, async () => {
   const root = await waiting([magazineIdea('Tạp chí một'), magazineIdea('Tạp chí hai', [`${PF}features/second/`])])
   const answer = (u: string) => (u.includes('/cdx/') ? res(200, '20250101000000\n20250201000000\n20250301000000\n20250401000000\n') : res(200, CHALLENGE))
   const day = async (d: string) => {
@@ -289,15 +344,30 @@ test('one post a day, never a crawl: two magazine ideas waiting, a worst case of
   expect(await day('2026-11-21')).toBe(6)
   expect(await day('2026-11-21')).toBe(0)
   expect(await day('2026-11-22')).toBe(6)
-  // A copy the engine already keeps (an earlier try that stopped before research): read from there, nothing asked.
-  const kept = await waiting([magazineIdea('Nước bể cá bị đục')])
-  await mkdir(join(kept, 'sources/practicalfishkeeping'), { recursive: true })
-  await writeFile(join(kept, 'sources/practicalfishkeeping/features-cloudy-water-explained.md'), `---\nurl: ${POST}\ntitle: Cloudy water explained\nfetchedAt: 2026-11-20T00:00:00.000Z\ncapturedAt: 2026-11-01T09:00:00.000Z\nhash: x\n---\n\nKept placeholder text.\n`)
-  const a = await archive(() => res(500, ''))
-  const asked: string[] = []
-  await writeIdeas(kept, { research: researchCiting(1, 3, asked), llm: writer, now: () => new Date('2026-11-21T06:00:00Z'), archive: a.reader }, { perDay: 2 })
-  expect(a.asked).toEqual([])
-  expect(asked[0]).toContain('Kept placeholder text.')
+  // A guide the model's quota stopped after its post was read: the asks stand, so the day's next run asks nothing more,
+  // and the guide waits for the next day, its idea untouched. No copy is kept to read again.
+  const quota = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const stop: Llm = async () => { throw new LlmError('the model refused: usage limit') }
+  const run = async (now: string, research: Llm) => {
+    const a = await archive(answer, now)
+    const r = await writeIdeas(quota, { research, llm: writer, now: () => new Date(now), archive: a.reader }, { perDay: 2 })
+    return { asked: a.asked.length, r }
+  }
+  expect((await run('2026-11-21T06:00:00Z', stop)).asked).toBe(6)
+  const again = await run('2026-11-21T09:00:00Z', researchCiting(0, 3, []))
+  expect(again.asked).toBe(0)
+  expect(again.r.stopped).toContain(`the day's ${ARCHIVE_POST_DAY} requests to the archive for the magazine's post are spent`)
+  expect((await readIdeas(quota)).ideas[0]).toEqual(magazineIdea('Nước bể cá bị đục'))
+  expect((await run('2026-11-22T06:00:00Z', researchCiting(0, 3, []))).asked).toBe(6)
+  // Asks already made today count: four made, so the search for a good copy stops after two more, and the guide is
+  // written from other sources, its post counted as no copy.
+  const four = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const s = await readIdeas(four)
+  await writeFile(join(four, 'engine-state/_ideas.json'), JSON.stringify({ ...s, archiveAsks: { '2026-11-21': { post: 4 } } }))
+  const b4 = await archive(answer)
+  await writeIdeas(four, { research: researchCiting(0, 3, []), llm: writer, now: () => new Date('2026-11-21T06:00:00Z'), archive: b4.reader }, { perDay: 2 })
+  expect(b4.asked).toHaveLength(2)
+  expect((await readIdeas(four)).ideas[0]!.post).toEqual({ url: POST, via: 'archive', result: 'no copy' })
   // The post picked is the first of the idea's the index holds.
   const second = await waiting([magazineIdea('Hai bài', [`${PF}features/not-held/`, POST])], { practicalfishkeeping: [{ url: `${PF}features/not-held/`, title: 'not held' }, { url: POST, title: 'cloudy water explained', held: true }] })
   const b = await archive(u => (u.endsWith(`id_/${POST}`) ? res(200, ARTICLE) : res(404, '')))
@@ -305,20 +375,13 @@ test('one post a day, never a crawl: two magazine ideas waiting, a worst case of
   expect(b.asked).toEqual([`https://web.archive.org/web/20261121id_/${POST}`])
 })
 
-// The order of asks on the Archive, whose rest is one for the whole Mac (archive.ts, ~/.cache/aquatome/archive-rest.json):
-// in each pages cycle the three sources read through it (The Spruce Pets, Planet Catfish, 2Hr Aquarist) go first, in the
-// engine's run; then the magazine's listing, a week apart; then its one post, in the last step. So the magazine asks only
-// after the others have read in that cycle, and a refusal it meets rests them only from the next cycle, as theirs rest it.
-test("the magazine asks the Archive after the three sites read through it, in every cycle, through the same reader with the same rest", () => {
-  const cycle = readFileSync(new URL('../../../scripts/engine-cycle.sh', import.meta.url), 'utf8')
-  const run = cycle.indexOf('pnpm engine run --max-minutes'), ideas = cycle.indexOf('pnpm engine ideas'), write = cycle.indexOf('pnpm engine write-ideas')
-  expect(run).toBeGreaterThan(0)
-  expect(ideas).toBeGreaterThan(run)
-  expect(write).toBeGreaterThan(ideas)
+test('one reader for every step that reads the Archive: the same name, pace and rest file, and the magazine\'s only on the Mac', () => {
   const cli = readFileSync(new URL('../src/cli.ts', import.meta.url), 'utf8')
   // One reader, made one way: the same name, pace and rest file for every step that reads the Archive.
   expect(cli.match(/new ArchiveFetcher\(/g)).toHaveLength(1)
   expect(cli).toContain("restFile: join(homedir(), '.cache/aquatome/archive-rest.json')")
-  expect(cli).toMatch(/refreshIdeas\(ROOT, \{[^}]*archive: archiveReader\(\)/)
-  expect(cli).toMatch(/writeIdeas\(ROOT, \{[^}]*archive: archiveReader\(\)/)
+  // The magazine's steps get it on the Mac alone, whose rest it is: never from a GitHub runner, another address.
+  expect(cli).toContain("const magazineReader = () => (machine() === 'mac' ? archiveReader() : undefined)")
+  expect(cli).toMatch(/refreshIdeas\(ROOT, \{[^}]*archive: magazineReader\(\)/)
+  expect(cli).toMatch(/writeIdeas\(ROOT, \{[^}]*archive: magazineReader\(\)/)
 })

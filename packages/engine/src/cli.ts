@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { LANGS, type Lang, WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
-import { nameStep } from './ceiling'
+import { machine, nameStep } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, credentialRejected, onNextAccount, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
@@ -144,6 +144,12 @@ const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
  * listing and its day's post): one name, one pace, and one rest for the whole Mac, kept outside any checkout (archive.ts).
  */
 const archiveReader = () => new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json') })
+/**
+ * The magazine's reader: the Mac's alone. Its rest is the Mac's, so a GitHub runner asking would be a second address asking
+ * while the Mac rests, with a rest file gone after each run (the Writing Lead, 21 Nov 2026). Elsewhere the steps get none:
+ * the magazine's listing waits, and its guide is written as before.
+ */
+const magazineReader = () => (machine() === 'mac' ? archiveReader() : undefined)
 // Every Wikimedia read in this process asks as the engine and rests after a refusal (wikimedia-rest.ts).
 globalThis.fetch = restingFetch(globalThis.fetch, { restFile: join(homedir(), '.cache/aquatome/wikimedia-rest.json'), now: () => new Date(), ua: UA })
 const http = async (url: string) => {
@@ -1230,7 +1236,7 @@ if (cmd === 'photo-privacy') {
   // topics the handbook has no guide on, most asked first, in engine-state/_ideas.json. pnpm engine ideas [--force]
   // [--retry-blocked]: a site that refused us its listing is fetched again only with --retry-blocked.
   const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
-  const r = await refreshIdeas(ROOT, { get, archive: archiveReader(), llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
+  const r = await refreshIdeas(ROOT, { get, archive: magazineReader(), llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
   const s = await readIdeas(ROOT)
   console.log(r.fresh ? `ideas: read ${s.readAt}, still fresh` : `ideas: ${r.posts} posts, ${r.ideas} new ideas${r.failed.length ? `; failed: ${r.failed.join('; ')}` : ''}`)
   // Each rule's count and the posts kept: the owner's figure for the magazine; and each title a rule left out (the chief of
@@ -1247,10 +1253,11 @@ if (cmd === 'photo-privacy') {
   for (const i of s.ideas.filter(x => !x.guide && !x.skipped).slice(0, 15)) console.log(`${i.sites} sites, ${i.posts.length} posts: ${i.topic} (${i.kind})`)
 } else if (cmd === 'write-ideas') {
   // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (Vietnam's).
-  const r = await writeIdeas(ROOT, { archive: archiveReader(), research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  const r = await writeIdeas(ROOT, { archive: magazineReader(), research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(`write-ideas: ${r.written.length} written, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.written, ...r.skipped, ...r.failed].join('\n')}`)
   if (r.magazine.length) console.log(`write-ideas: on the magazine's ideas: ${r.magazine.join('; ')}`)
   for (const p of r.posts) console.log(`write-ideas: the magazine's post, read through the Internet Archive: ${p}`)
+  if (r.waited) console.log(`write-ideas: the magazine's guide has waited ${r.waited} day${r.waited > 1 ? 's' : ''} running for the Internet Archive's rest${r.waited >= 3 ? ': three or more, for the chief of staff' : ''}`)
 } else if (cmd === 'topic') {
   // A guide AquaTome writes itself from web research: pnpm engine topic "<chủ đề tiếng Việt>" --kind disease|care|setup|plantCare|breeding|aquascaping|discovery [--redo]
   // --redo: rewrite the guide from the research already kept (engine-state/topics), no new searching.

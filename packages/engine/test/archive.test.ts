@@ -2,7 +2,7 @@ import { mkdtempSync, readFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
-import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, errorGot } from '../src/archive'
+import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot } from '../src/archive'
 import { discover } from '../src/discover'
 import { sourceById } from '../src/sources'
 
@@ -111,6 +111,26 @@ function refusals(file = restFile()) {
   const make = () => new ArchiveFetcher({ restFile: file, fetch: async () => { t.asked++; return t.answer() }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
   return { t, make, f: make() }
 }
+
+test('a capped reader makes its requests and no more: past them it stops before asking, which is no refusal, so no rest follows', async () => {
+  const calls: string[] = []
+  const file = restFile()
+  const checks = (u: string) => (u.includes('/cdx/') ? res(200, '20250101000000\n20250201000000\n20250301000000\n20250401000000\n') : res(200, '<html><head><title>Just a moment...</title></head><body></body></html>'))
+  const f = new ArchiveFetcher({ restFile: file, fetch: async u => { calls.push(u); return checks(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  const three = f.capped(3)
+  // The newest copy, the index, one older copy: the next older one is not asked for.
+  await expect(three.get('https://www.example.org/post/')).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(3)
+  expect(three.asked).toBe(3)
+  await expect(three.text('https://web.archive.org/cdx/search/cdx?url=example.org*')).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(3)
+  expect(() => readFileSync(file, 'utf8')).toThrow()
+  // A reader with none left asks nothing; the reader it was made from keeps no count of its own.
+  const none = f.capped(0)
+  await expect(none.get('https://www.example.org/post/')).rejects.toBeInstanceOf(AsksSpent)
+  expect(calls).toHaveLength(3)
+  expect(f.asked).toBe(0)
+})
 
 test('a refusal asks nothing more: no retry in the run, and none for 12 hours', async () => {
   const { t, f } = refusals()

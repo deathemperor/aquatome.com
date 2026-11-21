@@ -41,9 +41,24 @@ export function errorGot(e: unknown): string {
 }
 type Fetch = (url: string, init?: { headers?: Record<string, string>; signal?: AbortSignal }) => Promise<{ ok: boolean; status: number; headers: { get(name: string): string | null }; text(): Promise<string>; arrayBuffer(): Promise<ArrayBuffer> }>
 
+/** A capped reader has made the requests it was allowed (ArchiveFetcher.capped): none was made, and it is no refusal. */
+export class AsksSpent extends Error {
+  constructor(readonly cap: number) { super(`the ${cap} requests allowed of the archive here are spent`) }
+}
+
 export class ArchiveFetcher {
+  /** Requests this reader has made: each try counts, a retry after a network failure too. */
+  asked = 0
+  private cap = Number.POSITIVE_INFINITY
   /** `restFile`: where the wait is kept, outside any checkout, since it's this Mac the archive refuses. */
   constructor(private d: { fetch: Fetch; now: () => Date; sleep: (ms: number) => Promise<void>; ua: string; restFile: string }) {}
+
+  /** The same reader (name, pace, rest) allowed `n` requests at most: the next throws AsksSpent before it is made. */
+  capped(n: number): ArchiveFetcher {
+    const r = new ArchiveFetcher(this.d)
+    r.cap = Math.max(0, n)
+    return r
+  }
 
   /** Latest copy: the Wayback Machine serves the capture nearest the stamp, and today is after every capture. */
   private today() { return this.d.now().toISOString().slice(0, 10).replace(/-/g, '') }
@@ -63,6 +78,8 @@ export class ArchiveFetcher {
     const rest = JSON.parse(await readFile(this.d.restFile, 'utf8').catch(() => 'null')) as Rest | null
     if (rest && this.d.now().getTime() < new Date(rest.until).getTime()) throw new ArchiveRefused(rest.until)
     for (let attempt = 0; ; attempt++) {
+      if (this.asked >= this.cap) throw new AsksSpent(this.cap)
+      this.asked++
       let r
       try {
         r = await this.d.fetch(url, { headers: { 'user-agent': this.d.ua }, signal: AbortSignal.timeout(90_000) })
@@ -134,8 +151,8 @@ export class ArchiveFetcher {
   }
 }
 
-/** What a step needs of the reader: a page's newest good copy, and the archive's own text (its capture index). */
-export type ArchiveReader = Pick<ArchiveFetcher, 'get' | 'text'>
+/** What a step needs of the reader: a page's newest good copy, the archive's own text (its capture index), and a cap on its requests. */
+export type ArchiveReader = Pick<ArchiveFetcher, 'get' | 'text' | 'capped' | 'asked'>
 
 /** Capture-index query: every URL archived under `prefix` with a good capture, one row per URL. */
 export const cdxQuery = (prefix: string) => `${WAYBACK}/cdx/search/cdx?${new URLSearchParams({ url: `${prefix}*`, fl: 'original', filter: 'statuscode:200', collapse: 'urlkey' })}`
