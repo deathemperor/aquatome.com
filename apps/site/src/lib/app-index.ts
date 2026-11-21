@@ -6,7 +6,7 @@ import { photoCredit } from './cite'
 import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
 import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
-import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
+import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder, type OffCards } from './home'
 import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { termListing } from './glossary-page'
@@ -322,7 +322,7 @@ const foundBox = (p: Photo) => !!p.subject && !(p.subject.x0 <= 0 && p.subject.y
  * member's photo whose fish a 3:2 crop keeps (a box the engine found, and frameOf covers), no banner, none another chip
  * shows, 640 px wide or more first.
  */
-export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'], chips: Chip[], listed: { species: Content['species']; breeds: Content['breeds'] }): AppChip[] {
+export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'], chips: Chip[], listed: { species: Content['species']; breeds: Content['breeds'] }, avoid: OffCards = {}): AppChip[] {
   const byId = new Map(everySpecies.map(s => [s.id, s])), breedById = new Map(c.breeds.map(b => [b.id, b]))
   const baseOf = (b: BreedEntity) => {
     if (b.kind === 'hybrid') return undefined
@@ -349,8 +349,9 @@ export function chipsFor(lang: Lang, c: Content, everySpecies: Content['species'
     const ranked = [...x.members].sort((a, b) => at(a.id) - at(b.id) || Math.min(b.photos.length, 3) - Math.min(a.photos.length, 3) || a.t.name.localeCompare(b.t.name, lang))
     // The members' heads first, the photo each card leads with and the engine ranked best; then their other photos, so a
     // head that doesn't qualify leaves the member's next photo in the running. 640 px wide or more first, within each.
-    // No non-commercial photo: a chip stands for many fish (the chief of staff's rule, 17 Nov).
-    const fits = (p: Photo) => !p.generated && unmarked(p) && !isNonCommercial(p.licence ?? '') && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
+    // No non-commercial photo: a chip stands for many fish (the chief of staff's rule, 17 Nov). None the calendar keeps off
+    // cards (`avoid`), as with the featured fish and the group tiles.
+    const fits = (p: Photo) => !p.generated && unmarked(p) && !isNonCommercial(p.licence ?? '') && !Object.hasOwn(avoid, p.url) && !refusedByCards(p) && foundBox(p) && frameOf(p.width / p.height, boxFractions(p), CHIP_RATIO).fit === 'cover'
     // Whose each photo is, the first member to show it: a head, or a photo from a member's page text (Cá chuột's).
     const owner = new Map<Photo, string>()
     const own = (p: Photo, id: string) => { if (!owner.has(p)) owner.set(p, id); return p }
@@ -525,7 +526,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     }
     const boxAt = (u: string) => (own.has(u) ? own.get(u) : copies.get(u) ?? undefined)
     Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt, ref => guideLead.get(ref)))
-    const chips = chipsFor(lang, c, everySpecies, cur.calendar.chips, { species: appSpecies(lang, c), breeds: appBreeds(lang, c) })
+    const chips = chipsFor(lang, c, everySpecies, cur.calendar.chips, { species: appSpecies(lang, c), breeds: appBreeds(lang, c) }, cur.calendar.avoid)
     const guidePath = new Map(appGuides(lang, c).map(g => [g.id, at(`/vi/huong-dan/${g.t.slug}/`)]))
     const hand = (ids: string[] = []) => ids.flatMap(id => guidePath.get(id) ?? [])
     const byId = new Map(cur.calendar.chips.map(ch => [ch.id, ch.guides]))
