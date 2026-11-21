@@ -2929,5 +2929,57 @@
       "attempt": "rewrite",
       "kept": false
     }
+  ],
+  "vi/glossary/nuoc-den": [
+    {
+      "at": "2026-11-21T19:50:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Lũa nhả tanin làm nước ngả vàng hoặc nâu như nước trà, và làm pH hạ.\" (not \"Một bài tạp chí ghi: lũa nhả tanin làm nước ngả vàng hoặc nâu như nước trà.\": Rule 12: \"Một tạp chí ghi:\" (under \"Nên làm gì\") credits a second page of tfhmagazine.com, the same site as the earlier \"Một bài tạp chí ghi:\". The hous…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Muốn set bể biotope nước đen thật, bắt đầu bằng nước RO hoặc nước cất, nâng TDS bằng natri clorua, rồi thêm than bùn đen đựng trong túi lưới.\" (not \"Muốn set bể biotope nước đen thật, bắt đầu bằng nước RO hoặc nước cất, nâng TDS lên 40–50 bằng natri clorua, rồi thêm than bùn đen đựng trong túi lưới.\": Rul…",
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Không nên dùng một số loại than bùn hạt bán sẵn, vì chúng thực ra là peat moss, chứa nhiều carbohydrate.\" (not \"Không nên dùng Fluval Aquatic Peat Granules, Sera Super Peat và Eheim \"Torf\", vì chúng thực ra là peat moss, chứa nhiều carbohydrate.\": it drops the advice \"Không nên dùng một số loại than bùn h…",
+        "Rule 12: THIS TERM says Bể biotope's term is linked where a fact ties it. The fact on recreating a real blackwater biotope ties it, and the body sends the reader there (\"Bể mô phỏng một con sông như vậy: xem mục Bể biotope và mục Lưu vực.\"). But \"biotope\" is missing from the entry's related list, which has only \"tanin\", \"nuoc-mem\", \"la-bang\", \"la-kho\", \"lua\" and \"luu-vuc\".",
+        "Rule 15: The heading \"Cá hợp nước này\" promises fish suited to blackwater. Its only sentence, \"Một tiệm ghi Betta, cá tetra và cá rasbora hợp với nước ngả màu tanin.\", is about tannin-stained water instead. The entry itself says tannin-coloured water is not real blackwater (\"Thả lá hay dùng tanin cho nước ngả màu không tạo lại được nước đen thật.\"). The section should be headed by what it holds, …"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T19:50:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [
+        "\"Lá bàng khô cũng làm nước ngả màu và hạ pH.\": the facts don't carry it (loose, uncredited, supported, uncredited, uncredited, supported): joins leaf tint (Gensou) and pH drop (TFH) / leaves lowering pH comes only from tfhmagazine / Only tfhmagazine.com says the leaves lower pH. Gensou backs the colour, but the pH part is stated as plain fact with no credit. / Only tfhmagazine.com says dried almo…",
+        "Rule 12: The entry credits four pages: \"Một tiệm ghi\" (Gensou), \"Một tiệm khác ghi\" (Chợ Thủy Sinh), \"Một nguồn người nuôi ghi\" (aquariumscience.org) and \"Một tạp chí ghi\" (TFH Magazine). The limit is three. One-page claims a keeper can't act on, such as the background in \"Nước đen ngoài tự nhiên\" or the one-shop fish line \"Một tiệm khác ghi pH hạ do lũa hợp với những loài như cá đĩa, cá neon đen…",
+        "Rule 12: In \"Nitrat và axit hữu cơ tích lại, nước không có đệm thì pH có thể tụt nhanh, thường xuống khoảng 4,0 đến 6,0\" the fact's limit is missing. The fact says this pH crash happens in acid tanks (\"bể nước chua\"), and that limit should stand beside the claim.",
+        "Rule 4: The entry says twice that driftwood lowers pH: \"Lũa nhả tanin ... và làm pH hạ\" under \"Trong bể của bạn\", and again \"pH hạ do lũa\" under \"Cá hợp nước này\". It should be said once.",
+        "The entry is 514 words: hold it to about 500, and leave what is left out to the pages that use the term."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T19:50:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.87,
+      "notes": [
+        "\"Người nuôi hay tạo kiểu nước này trong bể bằng lũa, lá khô hoặc than bùn, và cần biết nó làm pH thay đổi ra sao.\": the facts don't carry it (unsupported, loose, unsupported): 'often' and the need-to-know-pH advice not in facts / 'hay' frequency and pH-awareness need generalised from facts / 'often' (hay) frequency and pH-awareness advice not in facts",
+        "\"Muốn nước bớt màu thì thay nhiều nước hơn, hoặc cho than hoạt tính vào lọc.\": the facts don't carry it (unsupported, loose, loose, unsupported, loose, unsupported): source pairs larger water changes with Purigen, not water changes alone / joins water changes (with Purigen) and carbon from several sources / joins sources; drops the Purigen pairing with water changes / The facts never give water c…",
+        "\"Trong bể nước đen, pH có thể tụt nhanh.\": the facts don't carry it (uncredited, supported, loose, unsupported, loose, unsupported): pH crash in acid tanks from aquariumscience.org only, stated before the credit / generalizes from unbuffered acid tanks to blackwater tanks / The sentence drops the fact's \"with no buffer\" condition (source 0, acid tanks). It is also from one site and uncredited. / …",
+        "\"Khi đó thay nhiều nước ngay, và vớt hết lá rời hoặc sợi than bùn.\": the facts don't carry it (uncredited, uncredited, uncredited): remedy from TFH only; credit ended at previous full stop / remedy only from tfhmagazine; credit ended at prior full stop / only TFH Magazine gives this remedy; credit ended at previous sentence",
+        "Rules 1 and 12: The definition says \"Người nuôi hay tạo kiểu nước này trong bể bằng lũa, lá khô hoặc than bùn\". The credited list later says \"Thả lá hay dùng tanin cho nước ngả màu không tạo lại được nước đen thật\", so the two contradict each other. No fact says keepers commonly (\"hay\") do this either, so the claim stands plain without a source. The clause \"và cần biết nó làm pH thay đổi ra sao\" …",
+        "Rule 4: The entry says driftwood lowers pH twice. It states it plainly in \"Lũa nhả tanin làm nước ngả vàng hoặc nâu như nước trà, và làm pH hạ\" and again under a shop's credit in \"Một tiệm ghi lũa làm hạ pH\". It should be said once, in one place.",
+        "Rule 12: \"Nước ngả màu tanin hợp với cá betta, cá tetra và cá rasbora\" comes from a single shop (Gensou) but is written as plain fact. It needs that shop's credit (\"Một tiệm ghi …\").",
+        "Rule 6: \"cá betta\" in \"Nước ngả màu tanin hợp với cá betta, cá tetra và cá rasbora\": this is the genus as a group, so it should be named by the scientific name the facts write, \"Betta\". It is also not the page name \"Cá betta (cá xiêm)\".",
+        "Rule 15: Under \"Trong bể của bạn\", the sentences on which fish suit the water (\"Nước ngả màu tanin hợp với cá betta…\" and \"Một tiệm ghi lũa làm hạ pH, hợp với những loài như cá đĩa…\") say which fish it suits, not what the water does in the tank. They need a heading of their own.",
+        "Rule 15: The heading \"Nước đen thật ngoài tự nhiên\" (blackwater in the wild) covers tank items that aren't about the wild. These are \"Muốn set bể biotope nước đen thật, bắt đầu bằng nước RO…\", \"Tránh các loại than bùn làm từ peat moss…\" and \"Axit tanic có thể hại cá ở mức 40 ppm\". Each needs a heading that says what it holds."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
