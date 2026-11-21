@@ -1,43 +1,74 @@
 import XCTest
 
 /// The owner's dashboard, against the stand-in server serving protocols/owner-dashboard-vectors.json
-/// (`-fake-owner <account>`): the row only for the owner's account; the overview's parts, its tiles scrolling to them and
-/// its charts read by touch; sections drawn by the app, with their period menu, folded tables and long ones read 50 rows
+/// (`-fake-owner <account>`): the row only for the owner's account; the overview's cards, each opening its page, and
+/// the sections' charts read by touch; sections drawn by the app, with their period menu, folded tables and long ones read 50 rows
 /// at a time; Comments shown, hidden and shown again; the buttons' requests and the section read again after each; the
 /// daily report's delivery from the bell; the server's own message for a refusal, a session that ends while the
 /// dashboard is open, and the server's storage down for a moment.
 final class OwnerFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
 
-  func testTheOverviewShowsItsPartsAndATileGoesToItsPart() {
+  /// The first screen as Design's board has it (14-15 Nov): five cards, each one tap into its page, then every page.
+  func testTheOverviewShowsItsCardsAndEachOpensItsPage() {
     let app = launch()
     signIn(app)
     open(app, "owner-dashboard")
     XCTAssertTrue(app.navigationBars["Dashboard"].waitForExistence(timeout: 10), "not the dashboard")
-    for key in ["needs", "answers", "shipped", "cost"] { XCTAssertTrue(app.buttons["owner-tile-" + key].exists, "no \(key) tile") }
-    XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, 10"), app.buttons["owner-tile-needs"].label)
     XCTAssertTrue(app.staticTexts["Wednesday 4 Nov · figures as of 16:00"].exists, "when the figures were read")
+    // What needs the owner, counted: the first three, said whole, and how many more.
+    let needs = card(app, "needs")
+    XCTAssertTrue(needs.label.hasPrefix("Needs you, 5, needs fixing, Fish ID and chat are down, Every key resting, the first until Wed 4 Nov, 16:30., needs fixing, "), needs.label)
+    XCTAssertTrue(needs.label.hasSuffix(", No new video guides, Since Tue 27 Oct, 3:17, needs fixing, 2 more"), needs.label)
+    // New pages: the kinds' totals added up and what today added so far, then a line a kind.
+    XCTAssertEqual(card(app, "pages").label, "New pages, 1,132 pages, 0 today, Species pages, 730, 0 today, Guides, 310, 0 today, "
+                   + "Video guides, 0, 0 today, Plant pages, 92, 0 today")
+    XCTAssertEqual(card(app, "readers").label, "Readers, 21, this week, −12% vs the same point last week, needs fixing")
+    XCTAssertEqual(card(app, "shipped").label, "Shipped in 24 hours, 3, 1 site · 1 app · 1 engine, Comments held for review now show on the owner's dashboard.")
+    XCTAssertEqual(card(app, "cost").label, "Fish ID cost, this week, $0.63, 58 Claude calls")
+
+    // The Needs card opens every one of them; the keys' opens their section at its heading.
+    needs.tap()
+    XCTAssertTrue(app.navigationBars["Needs you"].waitForExistence(timeout: 10), "the Needs card opened nothing")
     XCTAssertEqual(app.buttons.matching(identifier: "owner-need").count, 5, "a line each of what needs the owner")
-    // Each line its title and the line under it, as the site draws them; the count is the tile's, not the heading's.
     let key = app.buttons.matching(identifier: "owner-need").firstMatch
     XCTAssertTrue(key.label.hasPrefix("Fish ID and chat are down, Every key resting, the first until Wed 4 Nov, 16:30."), key.label)
-    XCTAssertFalse(app.staticTexts["Needs you · 5"].exists, "a count beside the heading")
-
-    // The cost tile scrolls to the costs, far down; the keys' line opens their section at its heading.
-    app.buttons["owner-tile-cost"].tap()
-    let keys = app.buttons["owner-keys"]
-    XCTAssertTrue(becomesHittable(keys), "the cost tile didn't go to the costs")
-    XCTAssertTrue(keys.label.hasPrefix("Anthropic keys, 2 of 2 resting"), keys.label)
-    keys.tap()
+    key.tap()
     let heading = app.staticTexts["Anthropic keys"]
     XCTAssertTrue(heading.waitForExistence(timeout: 10), "the section didn't open")
     XCTAssertTrue(becomesHittable(heading), "not at its heading")
     back(app)
+    back(app)
+    // Each other card opens its page.
+    for (name, title) in [("pages", "Content and engine"), ("readers", "Readers"), ("shipped", "Changelog"), ("cost", "Fish ID")] {
+      let c = card(app, name)
+      repeatUntil(c.isHittable, times: 4) { app.swipeUp() }
+      c.tap()
+      XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 10), "the \(name) card didn't open \(title)")
+      back(app)
+      XCTAssertTrue(app.navigationBars["Dashboard"].waitForExistence(timeout: 10), "not back on the dashboard")
+    }
 
     // Every page, grouped, each with its figure.
     let comments = page(app, "Comments")
     XCTAssertTrue(comments.label.hasPrefix("Comments, 5 held, waiting for you"), comments.label)
     XCTAssertEqual(app.buttons.matching(identifier: "owner-page").count, 15, "every page")
+  }
+
+  /// The cards from the overview's other replies: the readers' beacon down says so on the Readers card, and the engine
+  /// quiet is the one thing that needs the owner.
+  func testTheCardsSayWhatTheirPartCouldntRead() {
+    var app = launch("-owner-overview", "dashboard: the readers' beacon down")
+    signIn(app)
+    open(app, "owner-dashboard")
+    XCTAssertEqual(card(app, "readers").label, "Readers, —, Couldn’t load the readers’ beacon, needs fixing")
+    XCTAssertTrue(card(app, "needs").label.hasPrefix("Needs you, 6, needs fixing, "), card(app, "needs").label)
+    app.terminate()
+    app = launch("-owner-overview", "dashboard: the engine quiet")
+    signIn(app)
+    open(app, "owner-dashboard")
+    XCTAssertEqual(card(app, "needs").label, "Needs you, 1, needs fixing, Nothing new published, Since Tue 3 Nov, 3:17, needs fixing")
+    XCTAssertTrue(card(app, "pages").label.hasPrefix("New pages, 1,132 pages, 0 today, "), card(app, "pages").label)
   }
 
   /// v2, the app's look (the owner, 8 Nov): the dashboard opens from its profile button, as from v1's.
@@ -46,9 +77,9 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     open(app, "owner-dashboard")
     XCTAssertTrue(app.navigationBars["Dashboard"].waitForExistence(timeout: 10), "not the dashboard")
-    for key in ["needs", "answers", "shipped", "cost"] { XCTAssertTrue(app.buttons["owner-tile-" + key].exists, "no \(key) tile") }
-    app.buttons["owner-tile-cost"].tap()
-    XCTAssertTrue(becomesHittable(app.buttons["owner-keys"]), "the cost tile didn't go to the costs")
+    for name in ["needs", "pages", "readers", "shipped", "cost"] { XCTAssertTrue(card(app, name).exists, "no \(name) card") }
+    card(app, "cost").tap()
+    XCTAssertTrue(app.navigationBars["Fish ID"].waitForExistence(timeout: 10), "the cost card didn't open its page")
   }
 
   /// The report button floats over every screen of the owner's: the overview's last row ends above it.
@@ -56,7 +87,7 @@ final class OwnerFlowTests: XCTestCase {
     let app = launch()
     signIn(app)
     open(app, "owner-dashboard")
-    XCTAssertTrue(app.buttons["owner-tile-needs"].waitForExistence(timeout: 10), "the overview didn't load")
+    XCTAssertTrue(app.buttons["owner-card-needs"].waitForExistence(timeout: 10), "the overview didn't load")
     let button = app.buttons["owner-report"]
     XCTAssertTrue(button.waitForExistence(timeout: 10), "no report button")
     for _ in 0..<12 { app.swipeUp() }
@@ -69,9 +100,11 @@ final class OwnerFlowTests: XCTestCase {
     let app = launch("-owner-overview", "dashboard: nothing needs you")
     signIn(app)
     open(app, "owner-dashboard")
-    XCTAssertTrue(app.buttons["owner-tile-needs"].waitForExistence(timeout: 10), "the overview didn't load")
-    XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, All clear"), app.buttons["owner-tile-needs"].label)
-    XCTAssertTrue(app.descendants(matching: .any)["owner-needs-empty"].exists, "not said in one line")
+    let needs = card(app, "needs")
+    XCTAssertEqual(needs.label, "Needs you, Nothing needs you right now, good")
+    // Its page: the line in one.
+    needs.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["owner-needs-empty"].waitForExistence(timeout: 10), "not said in one line")
     XCTAssertFalse(app.buttons["owner-need"].exists)
     // Under it, the owner's last action, which opens the section it was in.
     let last = app.buttons["owner-last-action"]
@@ -115,33 +148,6 @@ final class OwnerFlowTests: XCTestCase {
     // A finger pressed there and dragged to the second: the column under it.
     at(0).press(forDuration: 0.1, thenDragTo: at(1))
     XCTAssertTrue(reads(day, "16 named", "Tue 3 Nov"), day.label)
-  }
-
-  /// The overview's chart and its tile's small columns: a tap reads that day, and a tap on the tile's columns neither
-  /// scrolls to its part nor opens anything.
-  func testTheOverviewsChartAndATilesColumnsReadTheirDay() {
-    let app = launch()
-    signIn(app)
-    open(app, "owner-dashboard")
-    let bars = app.descendants(matching: .any)["owner-bars"].firstMatch
-    XCTAssertTrue(bars.waitForExistence(timeout: 10), "no columns on the found-an-answer tile")
-    XCTAssertFalse(app.staticTexts["owner-bars-day"].exists, "a day read before any tap")
-    bars.coordinate(withNormalizedOffset: CGVector(dx: 1.5 / 7, dy: 0.7)).tap()
-    let read = app.staticTexts["owner-bars-day"]
-    XCTAssertTrue(read.waitForExistence(timeout: 5), "the tap read nothing")
-    XCTAssertEqual(read.label, "4 found an answer · Tue 3 Nov · 8 readers · 1 shop click")
-    XCTAssertTrue(app.buttons["owner-tile-needs"].isHittable, "the tap scrolled away")
-
-    let columns = app.descendants(matching: .any).matching(identifier: "owner-chart-columns").firstMatch
-    let day = app.descendants(matching: .any)["owner-chart-day"].firstMatch
-    let screen = app.windows.firstMatch.frame
-    let shown = { columns.isHittable && columns.frame.maxY < screen.maxY - 60 }
-    repeatUntil(shown(), times: 6) { app.swipeUp(velocity: .slow) }
-    XCTAssertTrue(shown(), "the chart isn't on screen")
-    // Untouched: today, Wednesday, so far.
-    XCTAssertTrue(reads(day, "5 found an answer", "Wed 4 Nov, so far"), day.label)
-    columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5 / 7, dy: 0.8)).tap()
-    XCTAssertTrue(reads(day, "3 found an answer", "Mon 2 Nov · 6 readers · 0 shop clicks"), day.label)
   }
 
   /// A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
@@ -640,6 +646,12 @@ final class OwnerFlowTests: XCTestCase {
   private func signIn(_ app: XCUIApplication) { app.signInWithStandInApple() }
   private func open(_ app: XCUIApplication, _ id: String) { app.scrollToAndTap(id) }
   private func section(_ app: XCUIApplication, _ name: String) { app.openOwnersSection(name) }
+  /// A card of the first screen's, by its name, once it's there.
+  private func card(_ app: XCUIApplication, _ name: String) -> XCUIElement {
+    let c = app.buttons["owner-card-" + name]
+    XCTAssertTrue(c.waitForExistence(timeout: 10), "no \(name) card")
+    return c
+  }
   /// A page of "Every page", by its name, scrolled to.
   private func page(_ app: XCUIApplication, _ name: String) -> XCUIElement {
     let row = app.buttons.matching(NSPredicate(format: "identifier == 'owner-page' AND label BEGINSWITH %@", name + ",")).firstMatch
@@ -738,7 +750,7 @@ extension XCUIApplication {
 
   /// A section, from the overview's "Every page", at its end, by its name there.
   func openOwnersSection(_ name: String, file: StaticString = #filePath, line: UInt = #line) {
-    XCTAssertTrue(buttons["owner-tile-needs"].waitForExistence(timeout: 10), "the overview didn't load", file: file, line: line)
+    XCTAssertTrue(buttons["owner-card-needs"].waitForExistence(timeout: 10), "the overview didn't load", file: file, line: line)
     let row = buttons.matching(NSPredicate(format: "identifier == 'owner-page' AND label BEGINSWITH %@", name + ",")).firstMatch
     // Slowly, and back if it's gone by: a fling can carry the row past the screen, and at the largest text "Every page" is
     // many screens down.

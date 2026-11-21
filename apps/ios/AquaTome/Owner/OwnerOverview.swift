@@ -1,36 +1,36 @@
 import AccountSync
 import SwiftUI
 
-/// The overview, as the site lead's reply has it: when the figures were read, four tiles (each scrolls to its part),
-/// what needs the owner, readers who found an answer, what shipped, the costs, the last three days, and every page,
-/// grouped. Its own words in English, as the dashboard's are.
+/// The overview's first screen, as Design's board has it (board2, 14 Nov; the cards' parts, 15 Nov): when the figures were
+/// read, then five cards, each one tap into its page: Needs you, New pages, Readers and Shipped side by side, the cost;
+/// then every page, grouped. Drawn from the overview's reply as it is: what the board shows and the server doesn't send
+/// yet (countries, pages held, the day's spend against its cap) isn't drawn. Its own words in English, as the
+/// dashboard's are.
 struct OwnerOverview: View {
   let dashboard: Owner.Dashboard
   let draw: OwnerDraw
-  /// Scrolls the screen to a part: "needs", "answers", "shipped", "cost".
-  let scroll: (String) -> Void
   @Environment(\.dynamicTypeSize) private var size
+
+  /// The rows of what needs the owner the card shows; the rest are on its page.
+  static let needsShown = 3
 
   var body: some View {
     let d = dashboard
     VStack(alignment: .leading, spacing: 10) {
       if let at = d.asOf { Text(verbatim: Self.read(at, tz: d.tz)).font(.subheadline).foregroundStyle(.secondary).padding(.horizontal, 4) }
-      tiles(d.tiles)
-      // Its count is the tile's (the Design Lead, 8 Nov).
-      header(d.tiles.first { $0.key == "needs" }?.label ?? "Needs you").id("needs")
-      needs(d)
-      if let a = d.answers { answers(a) }
-      if let s = d.shipped { shipped(s) }
-      if let c = d.costs { costs(c) }
-      if let log = d.log, !log.days.isEmpty {
-        header(log.title)
-        list(log.days.indices.map { i in
-          let day = log.days[i]
-          return draw.go(day.to, AnyView(OwnerRow(title: day.title, text: day.text, figure: day.figure, tone: day.tone, chevron: day.to != nil)), "owner-day")
-        })
+      needsCard(d)
+      if let p = d.publishing { pagesCard(p, d) }
+      if size.isAccessibilitySize {
+        readersCard(d)
+        shippedCard(d)
+      } else {
+        Grid(horizontalSpacing: 10) { GridRow { readersCard(d); shippedCard(d) } }
       }
+      costCard(d)
       if !d.pages.isEmpty {
-        header("Every page")
+        Text(verbatim: "Everything else".uppercased()).font(.footnote).foregroundStyle(.secondary)
+          .padding(.horizontal, 16).padding(.top, 8)
+          .accessibilityAddTraits(.isHeader)
         VStack(alignment: .leading, spacing: 0) {
           ForEach(d.pages.indices, id: \.self) { g in
             Text(verbatim: d.pages[g].name.uppercased()).font(.footnote).foregroundStyle(.secondary)
@@ -60,81 +60,295 @@ struct OwnerOverview: View {
     return day + " · figures as of " + f.string(from: at)
   }
 
-  // MARK: The tiles
+  // MARK: The cards
 
-  /// Two to a row; one to a row, with no small columns, at the largest text.
-  @ViewBuilder private func tiles(_ tiles: [Owner.Tile]) -> some View {
-    if size.isAccessibilitySize {
-      VStack(spacing: 10) { ForEach(tiles.indices, id: \.self) { tile(tiles[$0]) } }
-    } else {
-      Grid(horizontalSpacing: 10, verticalSpacing: 10) {
-        ForEach(Array(stride(from: 0, to: tiles.count, by: 2)), id: \.self) { i in
-          GridRow {
-            tile(tiles[i])
-            if i + 1 < tiles.count { tile(tiles[i + 1]) } else { Color.clear }
-          }
-        }
+  /// A card: its name and a chevron, then what it shows; the whole card one tap into its page (`needs`: the needs' own),
+  /// said as one.
+  private func card<Content: View>(_ name: Text, _ id: String, said: String, to: Owner.Destination?, needs: Bool = false,
+                                   @ViewBuilder _ content: () -> Content) -> AnyView {
+    let v = VStack(alignment: .leading, spacing: 4) {
+      HStack(alignment: .firstTextBaseline) {
+        name.font(.subheadline.weight(.semibold))
+        Spacer(minLength: 4)
+        if to != nil || needs { OwnerRow.chevron }
       }
-    }
-  }
-
-  /// Its label, its figure, then its small columns, its change or what it counts. The words scroll to its part; the small
-  /// columns sit outside that button, so a tap on one reads it instead.
-  private func tile(_ t: Owner.Tile) -> some View {
-    let big = size.isAccessibilitySize
-    var head = Text(verbatim: "")
-    if t.key == "needs", t.tone != .plain { head = head + Text(Image(systemName: t.tone == .good ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")).foregroundStyle(t.tone.color) + Text(verbatim: " ") }
-    head = head + Text(verbatim: t.label).foregroundStyle(.secondary)
-    let value = Text(verbatim: t.value).font(big ? .largeTitle.bold() : .title.bold()).monospacedDigit()
-    let words = OwnerDraw.said(t.label, t.value, t.delta?.text, t.delta?.tone.said, t.sub, t.key == "needs" ? t.tone.said : nil)
-    return VStack(alignment: .leading, spacing: 6) {
-      Button { scroll(t.key) } label: {
-        HStack(alignment: .top) {
-          VStack(alignment: .leading, spacing: 6) { head.font(.subheadline); value }
-          Spacer(minLength: 4)
-          OwnerRow.chevron
-        }
-        .contentShape(.rect)
-      }
-      .buttonStyle(.plain)
-      .accessibilityLabel(Text(verbatim: words))
-      .accessibilityIdentifier("owner-tile-" + t.key)
-      if let b = t.bars, !big { OwnerBars(label: t.label, bars: b) }
-      Group {
-        if let d = t.delta {
-          Text(verbatim: d.text).foregroundStyle(d.tone == .plain || d.tone == .muted ? Color.secondary : d.tone.color)
-        } else if let s = t.sub {
-          Text(verbatim: s).foregroundStyle(.secondary)
-        }
-      }
-      .font(.footnote)
-      .accessibilityHidden(true)
+      content()
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     .ownerCard()
+    .contentShape(.rect)
+    .accessibilityElement(children: .ignore)
+    .accessibilityLabel(Text(verbatim: said))
+    guard needs else { return draw.go(to, AnyView(v), id) }
+    return AnyView(NavigationLink(value: OwnerRoute(key: "", anchor: OwnerNeeds.anchor)) { v }.buttonStyle(.plain).accessibilityIdentifier(id))
   }
 
-  // MARK: The parts
+  private func figure(_ value: String) -> Text { Text(verbatim: value).font(.title.bold()).monospacedDigit() }
 
-  private func header(_ s: String) -> some View {
-    Text(verbatim: s).font(.headline).foregroundStyle(.secondary).padding(.top, 12).padding(.horizontal, 4).accessibilityAddTraits(.isHeader)
+  /// A change: its figure ("+12%", the words' first) in its tone (plain or muted: secondary), the rest secondary.
+  private func change(_ c: Owner.Chip) -> Text {
+    let figure = c.text.prefix { $0 != " " }, rest = c.text.dropFirst(figure.count)
+    return Text(verbatim: String(figure)).foregroundStyle(c.tone == .plain || c.tone == .muted ? Color.secondary : c.tone.color)
+      + Text(verbatim: String(rest)).foregroundStyle(.secondary)
   }
 
-  /// Rows on one card, a line between each two.
-  private func list(_ rows: [AnyView]) -> some View {
-    VStack(alignment: .leading, spacing: 0) {
-      ForEach(rows.indices, id: \.self) { i in
-        if i > 0 { Divider().padding(.leading, 16) }
-        rows[i]
+  /// What the Readers card's figure counts, as the contract's `answers.figures` do.
+  static let thisWeek = "this week"
+
+  /// What needs the owner, most pressing first, each a dot in its tone over its line; the rest counted. Nothing: the
+  /// all-clear line, and the owner's last action under it. Opens every one of them on a page of its own.
+  private func needsCard(_ d: Owner.Dashboard) -> AnyView {
+    let tile = d.tiles.first { $0.key == "needs" }
+    let label = tile?.label ?? "Needs you", tone = d.needs.isEmpty ? Owner.Tone.good : tile?.tone ?? .plain
+    // The board's name is in the text's colour, its triangle too; all clear, a green tick.
+    var name = Text(verbatim: "")
+    if tone == .good { name = Text(Image(systemName: "checkmark.circle.fill")).foregroundStyle(Owner.Tone.good.color) + Text(verbatim: " ") }
+    else if tone != .plain { name = Text(Image(systemName: "exclamationmark.triangle.fill")) + Text(verbatim: " ") }
+    name = name + Text(verbatim: label)
+    if !d.needs.isEmpty { name = name + Text(verbatim: " · \(d.needs.count)").foregroundStyle(.secondary) }
+    let shown = d.needs.prefix(Self.needsShown), more = d.needs.count - shown.count
+    let head: String = OwnerDraw.said(label, d.needs.isEmpty ? d.needsEmpty : String(d.needs.count), tone.said)
+    let lines: [String] = shown.map { OwnerDraw.said($0.text, $0.sub, $0.tone.said) }
+    let rest: String? = more > 0 ? "\(more) more" : nil
+    let said = ([head] + lines + [rest].compactMap { $0 }).joined(separator: ", ")
+    return card(name, "owner-card-needs", said: said, to: nil, needs: true) {
+      if d.needs.isEmpty {
+        Text(verbatim: d.needsEmpty).font(.subheadline)
+        if let a = d.lastAction { Text(verbatim: a.title + (a.figure.map { " · " + $0 } ?? "")).font(.footnote).foregroundStyle(.secondary) }
+      } else {
+        VStack(alignment: .leading, spacing: 0) {
+          ForEach(Array(shown.enumerated()), id: \.offset) { i, n in
+            if i > 0 { Divider() }
+            HStack(alignment: .firstTextBaseline, spacing: 10) {
+              Image(systemName: "circle.fill").font(.system(size: 8)).foregroundStyle(n.tone.color).frame(width: 12)
+              VStack(alignment: .leading, spacing: 1) {
+                Text(verbatim: n.text).font(.subheadline.weight(.semibold)).lineLimit(size.isAccessibilitySize ? 3 : 1)
+                if let sub = n.sub { Text(verbatim: sub).font(.footnote).foregroundStyle(.secondary).lineLimit(size.isAccessibilitySize ? nil : 1) }
+              }
+            }
+            .padding(.vertical, 6)
+          }
+          if more > 0 { Text(verbatim: "\(more) more").font(.footnote).foregroundStyle(.secondary).padding(.leading, 22).padding(.top, 2) }
+        }
       }
     }
-    .ownerCard(padded: false)
   }
 
-  /// Its icon by kind, level with its title on one line (up to three at the largest text), the line under it (the pages,
-  /// or the source) and the readers' photos waiting as thumbnails, as the site draws them (the Design Lead, 9 Nov).
-  /// Nothing: one line that says so, and the owner's last action under it, opening the section it was in.
-  @ViewBuilder private func needs(_ d: Owner.Dashboard) -> some View {
+  /// New pages by kind: the four kinds' totals added up, what today has added so far, then a line a kind: its name, its
+  /// last seven days as small bars, its total and today's.
+  private func pagesCard(_ p: Owner.Publishing, _ d: Owner.Dashboard) -> AnyView {
+    let totals = p.kinds.map { Self.count($0.total) }
+    let total: Int? = totals.contains(nil) ? nil : totals.compactMap { $0 }.reduce(0, +)
+    let todays = p.kinds.compactMap(Self.today)
+    let today: Int? = todays.isEmpty ? nil : todays.reduce(0, +)
+    let window = p.kinds.compactMap(\.bars).first.map(Self.week)
+    let head: String = OwnerDraw.said(p.title, total.map { Self.written($0) + " pages" }, today.map { Self.signed($0) + " today" })
+    let lines: [String] = p.kinds.map { k in OwnerDraw.said(k.label, k.total, Self.today(k).map { Self.signed($0) + " today" }) }
+    let said = ([head] + lines).joined(separator: ", ")
+    return card(Text(verbatim: p.title), "owner-card-pages", said: said, to: section("noi-dung", d)) {
+      HStack(alignment: .firstTextBaseline) {
+        if let total { figure(Self.written(total)) + Text(verbatim: " pages").font(.subheadline.weight(.semibold)).foregroundStyle(.secondary) }
+        Spacer(minLength: 4)
+        if let today { (Text(verbatim: Self.signed(today)).foregroundStyle(today > 0 ? Owner.Tone.good.color : .secondary) + Text(verbatim: " today").foregroundStyle(.secondary)).font(.footnote) }
+      }
+      if size.isAccessibilitySize {
+        VStack(alignment: .leading, spacing: 10) {
+          ForEach(p.kinds.indices, id: \.self) { i in
+            let k = p.kinds[i]
+            VStack(alignment: .leading, spacing: 4) {
+              HStack(alignment: .firstTextBaseline) { kindName(k); Spacer(); kindTotal(k); kindToday(k) }
+              kindBars(k)
+            }
+          }
+          if let window {
+            days(window)
+            Text(verbatim: Self.written).font(.caption2).foregroundStyle(.secondary).accessibilityHidden(true)
+          }
+        }
+        .padding(.top, 4)
+      } else {
+        Grid(alignment: .bottomLeading, horizontalSpacing: 8, verticalSpacing: 6) {
+          ForEach(p.kinds.indices, id: \.self) { i in
+            let k = p.kinds[i]
+            GridRow {
+              kindName(k)
+              kindBars(k)
+              kindTotal(k).gridColumnAlignment(.trailing)
+              kindToday(k).gridColumnAlignment(.trailing)
+            }
+          }
+          if let window {
+            GridRow {
+              Text(verbatim: Self.written).font(.caption2).foregroundStyle(.secondary).lineLimit(1).accessibilityHidden(true)
+              days(window)
+            }
+          }
+        }
+        .padding(.top, 4)
+      }
+    }
+  }
+
+  private func kindName(_ k: Owner.PublishingKind) -> some View {
+    Text(verbatim: k.label).font(.footnote).foregroundStyle(.secondary).lineLimit(1)
+  }
+
+  private func kindBars(_ k: Owner.PublishingKind) -> some View {
+    let r: Range<Int> = k.bars.map(Self.week) ?? 0..<0
+    var open: Int?
+    if let t = k.bars?.today, r.contains(t) { open = t - r.lowerBound }
+    return OwnerSmallBars(values: k.bars.map { Array($0.values[r]) } ?? [], open: open)
+      .frame(maxWidth: .infinity)
+  }
+
+  private func kindTotal(_ k: Owner.PublishingKind) -> some View {
+    Text(verbatim: k.total).font(.subheadline.weight(.semibold)).monospacedDigit()
+  }
+
+  private func kindToday(_ k: Owner.PublishingKind) -> some View {
+    let t = Self.today(k)
+    return Text(verbatim: t.map(Self.signed) ?? "").font(.footnote).monospacedDigit()
+      .foregroundStyle((t ?? 0) > 0 ? Owner.Tone.good.color : .secondary)
+      .frame(minWidth: 28, alignment: .trailing)
+  }
+
+  /// The week's first day and its last, under the bars.
+  private func days(_ r: Range<Int>) -> some View {
+    let all = dashboard.publishing?.kinds.compactMap(\.bars).first?.days ?? []
+    return HStack {
+      Text(verbatim: all.indices.contains(r.lowerBound) ? Self.day(all[r.lowerBound]) : "")
+      Spacer()
+      Text(verbatim: all.indices.contains(r.upperBound - 1) ? Self.day(all[r.upperBound - 1]) : "")
+    }
+    .font(.caption2).foregroundStyle(.secondary)
+    .accessibilityHidden(true)
+  }
+
+  /// Readers this week against the same point last week; without them, why not.
+  private func readersCard(_ d: Owner.Dashboard) -> AnyView {
+    let f = d.answers?.figures.first { $0.label == "Readers" }, tile = d.tiles.first { $0.key == "answers" }
+    let name = f?.label ?? "Readers", value = f?.value ?? tile?.value ?? "—"
+    // Without the figure, the tile's line says why (the readers' beacon didn't load).
+    let line: String? = f == nil ? tile?.sub : f?.delta?.text
+    let tone: String? = f == nil ? tile?.tone.said : f?.delta?.tone.said
+    let said = OwnerDraw.said(name, value, f == nil ? nil : Self.thisWeek, line, tone)
+    return card(Text(verbatim: name), "owner-card-readers", said: said, to: section("doc-gia", d)) {
+      figure(value)
+      Group {
+        if let f {
+          // The contract's readers are this week's so far; the change's figure in its tone, its words grey (the board).
+          Text(verbatim: Self.thisWeek + (f.delta == nil ? "" : " · ")).foregroundStyle(.secondary) + (f.delta.map(change) ?? Text(verbatim: ""))
+          if let s = f.sub { Text(verbatim: s).foregroundStyle(.secondary) }
+        } else if let tile, let s = tile.sub {
+          Text(verbatim: s).foregroundStyle(tile.tone == .plain || tile.tone == .muted ? Color.secondary : tile.tone.color)
+        }
+      }
+      .font(.footnote)
+    }
+  }
+
+  /// Changes shipped in the last 24 hours, by where, and the newest in its words.
+  private func shippedCard(_ d: Owner.Dashboard) -> AnyView {
+    let tile = d.tiles.first { $0.key == "shipped" }, newest = d.shipped?.lines.first?.text
+    let name = tile?.label ?? d.shipped?.title ?? "Shipped"
+    return card(Text(verbatim: name), "owner-card-shipped", said: OwnerDraw.said(name, tile?.value, tile?.sub, newest), to: d.shipped?.more?.to) {
+      if let v = tile?.value { figure(v) }
+      if let s = tile?.sub { Text(verbatim: s).font(.footnote).foregroundStyle(.secondary) }
+      if let newest {
+        Text(verbatim: newest).font(.footnote).lineLimit(size.isAccessibilitySize ? nil : 2).padding(.top, 2)
+      }
+    }
+  }
+
+  /// What the server counts of the cost, on one row: its figure and what it's made of. Opens the keys' page.
+  private func costCard(_ d: Owner.Dashboard) -> AnyView {
+    let tile = d.tiles.first { $0.key == "cost" }
+    var to: Owner.Destination?
+    if case .section(let k, _)? = d.costs?.keys?.to { to = .section(k, anchor: nil) }
+    guard let tile else { return AnyView(EmptyView()) }
+    let said = OwnerDraw.said(tile.label, tile.value, tile.sub)
+    let row = HStack(alignment: .firstTextBaseline, spacing: 10) {
+      Text(verbatim: tile.label).font(.subheadline.weight(.semibold))
+      Text(verbatim: tile.value).font(.subheadline.weight(.semibold)).monospacedDigit()
+      if let s = tile.sub { Text(verbatim: s).font(.footnote).foregroundStyle(.secondary) }
+      Spacer(minLength: 4)
+      if to != nil { OwnerRow.chevron }
+    }
+    let v = ViewThatFits(in: .horizontal) {
+      row
+      HStack(alignment: .top) {
+        VStack(alignment: .leading, spacing: 2) {
+          Text(verbatim: tile.label).font(.subheadline.weight(.semibold))
+          (Text(verbatim: tile.value).font(.subheadline.weight(.semibold)).monospacedDigit()
+            + Text(verbatim: tile.sub.map { "  " + $0 } ?? "").font(.footnote).foregroundStyle(.secondary))
+        }
+        Spacer(minLength: 4)
+        if to != nil { OwnerRow.chevron }
+      }
+    }
+    .ownerCard()
+    .contentShape(.rect)
+    .accessibilityElement(children: .ignore)
+    .accessibilityLabel(Text(verbatim: said))
+    return draw.go(to, AnyView(v), "owner-card-cost")
+  }
+
+  /// A section the overview lists, by its key.
+  private func section(_ key: String, _ d: Owner.Dashboard) -> Owner.Destination? {
+    d.sections.contains { if case .section(key, _)? = $0.to { true } else { false } } ? .section(key, anchor: nil) : nil
+  }
+
+  // MARK: Figures
+
+  /// What a day's bar counts (the board's words): that night's count less the night before, held pages too.
+  static let written = "written a day"
+
+  /// The last seven days of a kind's bars, up to today (or the last).
+  static func week(_ b: Owner.Bars) -> Range<Int> {
+    let end = (b.today ?? b.values.count - 1) + 1
+    return max(0, end - 7)..<end
+  }
+
+  /// What a kind has added today so far; nil when today isn't among its bars, or wasn't counted.
+  static func today(_ k: Owner.PublishingKind) -> Int? {
+    k.bars.flatMap { b in b.today.flatMap { b.values[$0] } }.map { Int($0) }
+  }
+
+  /// A count the server wrote as a tile's value ("2,503"); nil for anything else.
+  static func count(_ s: String) -> Int? {
+    let digits = s.replacingOccurrences(of: ",", with: "")
+    return !digits.isEmpty && digits.allSatisfy(\.isASCII) ? Int(digits) : nil
+  }
+
+  static func written(_ n: Int) -> String { n.formatted(.number.locale(Locale(identifier: "en_US"))) }
+  static func signed(_ n: Int) -> String { n > 0 ? "+" + written(n) : written(n) }
+
+  /// A bar's day, "2026-11-08", as "Sun 8".
+  static func day(_ s: String) -> String {
+    let f = DateFormatter()
+    f.locale = Locale(identifier: "en_GB")
+    f.timeZone = TimeZone(identifier: "UTC")
+    f.dateFormat = "yyyy-MM-dd"
+    guard let d = f.date(from: s) else { return "" }
+    f.dateFormat = "EEE d"
+    return f.string(from: d)
+  }
+}
+
+/// Every thing that needs the owner, on a page of its own (from the Needs card): its icon by kind, level with its title
+/// on one line (up to three at the largest text), the line under it (the pages, or the source) and the readers' photos
+/// waiting as thumbnails, as the site draws them (the Design Lead, 9 Nov), each opening where it's dealt with.
+/// Nothing: one line that says so, and the owner's last action under it, opening the section it was in.
+struct OwnerNeeds: View {
+  let dashboard: Owner.Dashboard
+  let draw: OwnerDraw
+  @Environment(\.dynamicTypeSize) private var size
+
+  /// Its route's anchor on the overview's key.
+  static let anchor = "needs"
+
+  var body: some View {
+    let d = dashboard
     if d.needs.isEmpty {
       VStack(alignment: .leading, spacing: 8) {
         Label { Text(verbatim: d.needsEmpty) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(.green) }
@@ -150,27 +364,32 @@ struct OwnerOverview: View {
         }
       }
     } else {
-      list(d.needs.map { n in
-        draw.go(n.to, AnyView(HStack(spacing: 12) {
-          HStack(alignment: .firstTextBaseline, spacing: 12) {
-            Image(systemName: Self.icon(n.kind)).font(.title3).foregroundStyle(n.tone.color).frame(width: 28).accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 2) {
-              Text(verbatim: n.text).lineLimit(size.isAccessibilitySize ? 3 : 1)
-              if let sub = n.sub { Text(verbatim: sub).font(.subheadline).foregroundStyle(.secondary) }
-              if !size.isAccessibilitySize, !n.photos.isEmpty {
-                HStack(spacing: 4) { ForEach(n.photos.prefix(2).indices, id: \.self) { OwnerImage(src: n.photos[$0]).frame(width: 36, height: 36) } }
-                  .padding(.top, 4)
+      VStack(alignment: .leading, spacing: 0) {
+        ForEach(d.needs.indices, id: \.self) { i in
+          let n = d.needs[i]
+          if i > 0 { Divider().padding(.leading, 16) }
+          draw.go(n.to, AnyView(HStack(spacing: 12) {
+            HStack(alignment: .firstTextBaseline, spacing: 12) {
+              Image(systemName: Self.icon(n.kind)).font(.title3).foregroundStyle(n.tone.color).frame(width: 28).accessibilityHidden(true)
+              VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: n.text).lineLimit(size.isAccessibilitySize ? 3 : 1)
+                if let sub = n.sub { Text(verbatim: sub).font(.subheadline).foregroundStyle(.secondary) }
+                if !size.isAccessibilitySize, !n.photos.isEmpty {
+                  HStack(spacing: 4) { ForEach(n.photos.prefix(2).indices, id: \.self) { OwnerImage(src: n.photos[$0]).frame(width: 36, height: 36) } }
+                    .padding(.top, 4)
+                }
               }
+              .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            if n.to != nil { OwnerRow.chevron }
           }
-          if n.to != nil { OwnerRow.chevron }
+          .padding(.horizontal, 16).padding(.vertical, 11)
+          .contentShape(.rect)
+          .accessibilityElement(children: .ignore)
+          .accessibilityLabel(Text(verbatim: OwnerDraw.said(n.text, n.sub, n.tone.said)))), "owner-need")
         }
-        .padding(.horizontal, 16).padding(.vertical, 11)
-        .contentShape(.rect)
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(verbatim: OwnerDraw.said(n.text, n.sub, n.tone.said)))), "owner-need")
-      })
+      }
+      .ownerCard(padded: false)
     }
   }
 
@@ -183,64 +402,6 @@ struct OwnerOverview: View {
     case "moderation": "checkmark.shield.fill"
     case "failed": "xmark.octagon.fill"
     default: "exclamationmark.triangle.fill"
-    }
-  }
-
-  /// This week's figure against the same point last week, the week by day, and readers, sessions and shop clicks.
-  private func answers(_ a: Owner.Answers) -> some View {
-    VStack(alignment: .leading, spacing: 10) {
-      header(a.title).id("answers")
-      VStack(alignment: .leading, spacing: 12) {
-        if let f = a.figure {
-          VStack(alignment: .leading, spacing: 2) {
-            (Text(verbatim: f.value).font(.largeTitle.bold()).monospacedDigit() + Text(verbatim: f.sub.map { "  " + $0 } ?? "").foregroundStyle(.secondary))
-            if let d = f.delta { Text(verbatim: d.text).font(.footnote).foregroundStyle(d.tone == .plain || d.tone == .muted ? Color.secondary : d.tone.color) }
-          }
-          .accessibilityElement(children: .combine)
-        }
-        if let c = a.chart { OwnerChart(chart: c, titled: false) }
-        if !a.figures.isEmpty { OwnerFigures(items: a.figures) }
-      }
-      .ownerCard()
-      if let n = a.note { Text(verbatim: n).font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4) }
-    }
-  }
-
-  /// The changelog's lines of the last 24 hours, each tagged with where it shipped, then the whole changelog.
-  private func shipped(_ s: Owner.Shipped) -> some View {
-    VStack(alignment: .leading, spacing: 10) {
-      header(s.title).id("shipped")
-      list((s.lines.isEmpty ? [AnyView(Text(verbatim: s.empty ?? "").foregroundStyle(.secondary).padding(16))] : s.lines.map { l in
-        AnyView(HStack(alignment: .firstTextBaseline, spacing: 10) {
-          Text(verbatim: l.label).font(.caption.weight(.semibold)).foregroundStyle(Self.tag(l.area))
-            .padding(.horizontal, 6).padding(.vertical, 2).background(Self.tag(l.area).opacity(0.14), in: .rect(cornerRadius: 5))
-          Text(verbatim: l.text).frame(maxWidth: .infinity, alignment: .leading)
-        }
-        .padding(.horizontal, 16).padding(.vertical, 11)
-        .accessibilityElement(children: .combine)
-        .accessibilityIdentifier("owner-shipped"))
-      }) + (s.more.map { m in [draw.go(m.to, AnyView(OwnerRow(title: m.title, figure: nil, tone: .plain, chevron: true)), "owner-changelog")] } ?? []))
-      if let n = s.note { Text(verbatim: n).font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4) }
-    }
-  }
-
-  /// Where a change shipped, by colour: never orange or red, which mean waiting on the owner and a fault.
-  static func tag(_ area: String) -> Color {
-    switch area {
-    case "site": .teal
-    case "app": .blue
-    default: .gray
-    }
-  }
-
-  /// What the server counts, the keys' state (opening them), then what it doesn't count.
-  private func costs(_ c: Owner.Costs) -> some View {
-    VStack(alignment: .leading, spacing: 10) {
-      header(c.title).id("cost")
-      list(c.lines.map { AnyView(OwnerRow(title: $0.label, text: $0.sub, figure: $0.value, tone: .plain)) }
-        + (c.keys.map { k in [draw.go(k.to, AnyView(OwnerRow(title: k.title, figure: k.figure, tone: k.tone, chevron: k.to != nil)), "owner-keys")] } ?? [])
-        + c.fixed.map { AnyView(OwnerRow(title: $0, figure: nil, tone: .plain)) })
-      if let n = c.note { Text(verbatim: n).font(.footnote).foregroundStyle(.secondary).padding(.horizontal, 4) }
     }
   }
 }
