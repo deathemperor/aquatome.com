@@ -90,6 +90,24 @@ export function refused(hosts: readonly string[], url: string): boolean {
 }
 
 /**
+ * A fetch whose redirects are followed by hand, each a request, never to a copy site (the Internet Archive's is asked only
+ * through its reader, on the Mac, under its rest: Codex, 21 Nov 2026), nor where `off` says (its reason).
+ */
+export const byHand = (get: typeof fetch, ua: string, off: (url: string) => string | undefined = () => undefined) => async (u: string): Promise<Response> => {
+  for (let hop = 0, url = u; hop <= 5; hop++) {
+    if (refused(COPY_HOSTS, url)) throw new Error(`it points to a copy site, not followed: ${url}`)
+    const why = off(url)
+    if (why) throw new Error(why)
+    const res = await get(url, { redirect: 'manual', headers: { 'user-agent': ua }, signal: AbortSignal.timeout(60_000) })
+    const next = res.status >= 300 && res.status < 400 ? res.headers.get('location') : null
+    if (!next) return res
+    await res.body?.cancel().catch(() => undefined)
+    url = new URL(next, url).href
+  }
+  throw new Error('more than 5 redirects')
+}
+
+/**
  * A page a step's research named (a shop's page with a price), fetched by the engine itself, which no WebFetch rule sees:
  * never a marketplace's nor one `cycleOnlyHosts` names, at every redirect, each followed by hand.
  */
