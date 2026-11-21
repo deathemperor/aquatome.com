@@ -149,12 +149,16 @@ async function commentsAdmin(req: Request, url: URL, env: FullEnv): Promise<Resp
 const isPage = (path: string) => isViPage(path) || !!prefixedLang(path)
 
 /**
- * Keep the reader's query and let the browser carry any #aN through the redirect. An `album` the query has already goes:
- * the page's script reads the first, so "?album=0" would win over ours and the viewer wouldn't open (the strip's reader,
- * 21 Nov).
+ * Keep the reader's query and let the browser carry any #aN through the redirect. An `album` the query has already goes,
+ * however its name is written ("%61lbum" is "album" to the page): the page's script reads the first, so "?album=0" would
+ * win over ours and the viewer wouldn't open (the strip's readers, 21 Nov).
  */
+const queryName = (part: string) => {
+  const name = part.split('=')[0]!.replace(/\+/g, ' ')
+  try { return decodeURIComponent(name) } catch { return name }
+}
 function albumLocation(path: string, search: string) {
-  const kept = search.replace(/^\?/, '').split('&').filter(part => part && !/^album(=|$)/.test(part)).join('&')
+  const kept = search.replace(/^\?/, '').split('&').filter(part => part && queryName(part) !== 'album').join('&')
   return `${path}?${kept ? `${kept}&` : ''}album=1`
 }
 

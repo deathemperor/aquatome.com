@@ -272,26 +272,28 @@ test('album, a tall computer screen: closed on a photo the column clips, focus g
   expect(errors).toEqual([])
 })
 
-// A strip that shows every photo has no "Xem tất cả"; a phone's wrapped strip shows 6 of its thumbs, so one of 7 or 8
-// keeps it there alone (the Design Lead, 18 Nov).
+// A strip that shows every photo has no "Xem tất cả" while every thumb is in view, and a row that runs past the screen's
+// edge has it (the Design Lead, 18 Nov; the strip's readers, 20 and 21 Nov: a phone keeps every thumb, in one sideways
+// row, and the row measures itself at any width). Its strip is "strip wrap row": this looked for "strip wrap" alone, and
+// skipped from 20 Nov.
 test('album: "Xem tất cả" only where the strip doesn\'t show every photo', async ({ page, request, errors }, info) => {
-  // Found by its thumbs, not by the button: a wrapped strip (a breed's, or a fish's with no photo) of 7 or 8, whole.
+  // Found by its thumbs, not by the button: a strip outside the photo column (a breed's, or a fish's with no photo) of 7
+  // or 8, whole.
   const found = await albumPage(request, 'ca', (a, html) => {
-    const strip = /<section class="strip wrap"[\s\S]*?<\/ul>/.exec(html)?.[0] ?? ''
+    const strip = /<section class="strip wrap\b[^"]*"[\s\S]*?<\/ul>/.exec(html)?.[0] ?? ''
     const n = strip.match(/<li\b/g)?.length ?? 0
     return n >= 7 && n === a.photos.length
   })
-  test.skip(!found, 'no wrapped strip of 7 or 8 photos, all of its album, in this build')
+  test.skip(!found, 'no strip of 7 or 8 photos outside the photo column, all of its album, in this build')
   await page.goto(found!.path)
-  const seen = page.locator('section.strip li a[data-i]:visible')
+  await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+  const thumbs = page.locator('section.strip li a[data-i]')
+  await expect(page.locator('section.strip li a[data-i]:visible')).toHaveCount(await thumbs.count())
   const all = page.locator('section.strip [data-all]:visible')
-  if (info.project.name === 'phone') {
-    await expect(seen).toHaveCount(6)
-    await expect(all).toHaveText(`Xem tất cả ${found!.album.photos.length} ảnh`)
-  } else {
-    await expect(seen).toHaveCount(await page.locator('section.strip li a[data-i]').count())
-    await expect(all).toHaveCount(0)
-  }
+  const past = await page.locator('section.strip ul').evaluate(ul => ul.scrollWidth > ul.clientWidth)
+  if (info.project.name === 'phone') expect(past, "a phone's row of seven runs past its edge").toBe(true)
+  if (past) await expect(all).toHaveText(`Xem tất cả ${found!.album.photos.length} ảnh`)
+  else await expect(all).toHaveCount(0)
   expect(errors).toEqual([])
 })
 

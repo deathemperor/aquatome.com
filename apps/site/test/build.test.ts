@@ -889,12 +889,13 @@ describe('photo gallery', () => {
     const { dom } = page('/cay/cryptocoryne-wendtii/')
     const strip = dom.querySelector('section.strip')!
     // iNaturalist's CC BY-NC photo is in, its switch on (IMAGE_SWITCHES.inatNonCommercial): 7 photos, all in the strip, so
-    // "Xem tất cả" shows on a phone only, where the strip shows two rows of three (seeAll; the Design Lead, 18 Nov).
+    // "Xem tất cả" shows only while its row runs past the screen's edge, at any width: hidden (data-fits) until the album's
+    // script measures it (seeAll; the Design Lead, 18 Nov; the strip's reader, 21 Nov).
     const album = albumOf(dom)
     expect(album.photos).toHaveLength(7)
     expect(strip.querySelectorAll('li a[data-i]')).toHaveLength(7)
     const all = strip.querySelector('.head [data-all]')!
-    expect([all.tagName, all.classList.contains('phone'), all.textContent!.trim()]).toEqual(['BUTTON', true, 'Xem tất cả 7 ảnh'])
+    expect([all.tagName, all.classList.contains('phone'), all.hasAttribute('data-fits'), all.textContent!.trim()]).toEqual(['BUTTON', false, true, 'Xem tất cả 7 ảnh'])
     // Its credit names its licence and the licence's own page.
     expect(album.photos.find(p => p.s === 'https://www.inaturalist.org/photos/107')).toMatchObject({ l: 'CC BY-NC 4.0', lu: 'https://creativecommons.org/licenses/by-nc/4.0/' })
     expect(dom.querySelector('#photo-credits')!.innerHTML).toContain('https://www.flickr.com/photos/1@N00/102')
@@ -934,10 +935,14 @@ describe('man-made fish (breeds)', () => {
     expect(p.querySelector('a')!.textContent).toMatch(/^Cá đĩa \(Symphysodon/)
     expect(p.textContent).toContain('chưa chắc chắn')
     expect(dom.querySelector('meta[name="robots"]')!.getAttribute('content')).toContain('noindex')
-    // All 7 of its photos are thumbs, but a phone's wrapped strip shows 6: its "Xem tất cả" is the phone's alone.
+    // All 7 of its photos are thumbs, in a row that measures itself at any width (the strip's reader, 21 Nov): its "Xem tất
+    // cả" is there, hidden (data-fits) until a thumb is out of view, and no phone's alone.
     expect(dom.querySelectorAll('section.strip li a[data-i]')).toHaveLength(7)
     expect(albumOf(dom).photos).toHaveLength(7)
-    expect(dom.querySelector('section.strip .head [data-all]')!.getAttribute('class')).toMatch(/\bsee phone\b/)
+    const see = dom.querySelector('section.strip .head [data-all]')!
+    expect(see.classList.contains('see')).toBe(true)
+    expect(see.classList.contains('phone')).toBe(false)
+    expect(see.hasAttribute('data-fits')).toBe(true)
   })
   test('the species page lists its lines and hybrids, crediting their pictures; the species list shows them', () => {
     const { dom } = page('/ca/ca-dia/')
