@@ -762,7 +762,8 @@ test('a fish\'s column row whose last thumbnail ends in the gap before the butto
     return { run: right - ul.getBoundingClientRect().left, gap: parseFloat(getComputedStyle(el).columnGap) }
   })
   expect(gap, 'the column row has a gap').toBeGreaterThan(2)
-  const width = (w: number) => box.evaluate((el, w) => { el.style.width = `${w}px` }, w)
+  // Two frames after each width, so the strip is laid out and the measure has had it before anything is asserted.
+  const width = (w: number) => box.evaluate((el, w) => new Promise<void>(done => { el.style.width = `${w}px`; requestAnimationFrame(() => requestAnimationFrame(() => done())) }), w)
   // Each width waits for the measure's answer before the next: half a gap short first, the button shown; then room for
   // every thumbnail and the gap, all of the album seen, no button; then half a gap short again.
   await width(run + gap / 2)
