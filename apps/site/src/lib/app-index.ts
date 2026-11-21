@@ -39,7 +39,11 @@ export type AppItem = {
   sub?: string
   /** Other names, for search. */
   aka?: string[]
-  /** A tool page's own title, the line under its heading and its description, for search. */
+  /**
+   * Words a search finds the page by and the page never shows as a name: a tool page's own title, the line under its
+   * heading and its description; a glossary term's link phrases ("sống theo đàn" for Cá đàn), which its other names
+   * don't list (linkNames).
+   */
   words?: string[]
   /** A tool's short name, as its card on the tools page (/vi/cong-cu/) has it: what the app's tiles say. */
   short?: string
@@ -460,8 +464,15 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     home.guides = leadGuides(c).filter(g => appGuideImage(c, g)).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
-    // A term's English name is among its other names: the chat's search and the app's read them from here.
-    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', id: g.id, name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
+    // A term's English name is among its other names, and its link phrases are words to find it by: the chat's search and
+    // the app's read both from here, and neither shows a link phrase as a name (the glossary's split, 18 Nov 2026).
+    for (const g of appGlossary(lang, c)) {
+      const names = [g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]
+      // Each once, in any case, and none that is already one of its names.
+      const seen = new Set([g.t.name, ...names].map(n => n.trim().toLowerCase()))
+      const words = (g.t.linkNames ?? []).map(n => n.trim()).filter(n => n && !seen.has(n.toLowerCase()) && Boolean(seen.add(n.toLowerCase())))
+      items.push(clean({ kind: 'glossary', id: g.id, name: g.t.name, aka: aka(names), words: words.length ? words : undefined, path: at(`/vi/thuat-ngu/${g.t.slug}/`), ...termListing(lang, c, g) }))
+    }
   }
   // Vietnamese pilot pages stay out of Google. No native page shards yet: an app opens them on the web once it knows the
   // kind, and today's skips them, as it does any kind it doesn't know (AquaTomeKit's Handbook.swift).
