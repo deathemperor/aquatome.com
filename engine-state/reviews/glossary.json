@@ -2679,6 +2679,70 @@
   ],
   "vi/glossary/nuoc-mem": [
     {
+      "at": "2026-11-21T18:22:25Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T18:22:25Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Nước mềm là nước có ít khoáng hòa tan như canxi và magie, tức GH thấp.\" must be written word for word as \"Nước mềm là nước có ít khoáng hòa tan như canxi và magie hơn bình thường, tức GH thấp.\" Fact 3 says the water has fewer minerals than normal.",
+        "Rules 12 and 15: The heading \"Trong bể của bạn\" covers a pointer and three sources' figures, not what soft water does in the tank. It must be written \"Thế nào là nước mềm\".",
+        "Rule 12: The list opening \"Mỗi nguồn đặt mốc nước mềm một khác:\" must be written \"Ba nguồn đặt mốc nước mềm khác nhau:\".",
+        "Rule 12: The second item \"Một tiệm khác ghi: dưới 8,4 °dH là nước mềm, 8,4–14 °dH là cứng vừa, trên 14 °dH là nước cứng.\" leaves out the limit fact 7 gives. It must be written word for word as \"Một tiệm khác ghi, theo một luật của Đức năm 2007: dưới 8,4 °dH là nước mềm, 8,4–14 °dH là cứng vừa, trên 14 °dH là nước cứng.\"",
+        "Rule 12: Under \"Làm mềm và pha nước\", the list under \"Tiệm thứ nhất cũng ghi:\" still has the old items \"Thay nước ít cũng là một cách làm mềm nước.\" and \"Với tép, nên dùng nền có tính đệm và thêm khoáng dành riêng cho tép vào nước RODI (RO khử ion).\" They must be written word for word as \"Muốn làm mềm nước thì pha nước RODI (RO khử ion) vào từ từ, thay nước ít, hoặc thêm lá bàng.\" and \"Với tép, n…",
+        "Rule 12: \"Công ty xử lý nước ở Việt Nam ghi cách dùng than bùn: …\" must open word for word \"Công ty xử lý nước ở Việt Nam ghi cách dùng than bùn cho nước bể: …\", with the rest of the sentence as saved."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:52:39Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Tiệm thứ hai ghi: pha nước mưa vào nước cứng cũng làm nước mềm đi.\" the advice \"Tiệm thứ hai ghi\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:52:39Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "The rewrite dropped from \"Tiệm thứ hai ghi: pha nước mưa vào nước cứng cũng làm nước mềm đi.\" the advice \"Tiệm thứ hai ghi\", and nothing lets that sentence go: write it as it was, word for word."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T17:52:39Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Nước mềm là nước có ít khoáng hòa tan như canxi và magie, tức GH thấp.\" leaves out \"hơn bình thường\". The line of Sun 22 Nov requires the exact wording \"Nước mềm là nước có ít khoáng hòa tan như canxi và magie hơn bình thường, tức GH thấp.\" because fact 3 says the water has fewer minerals than normal.",
+        "Rules 12 and 15: The heading \"Trong bể của bạn\" must be written \"Thế nào là nước mềm\". The section holds only a pointer to GH and three sources' figures, not what the water does in the tank.",
+        "Rule 12: The list opening \"Mỗi nguồn đặt mốc nước mềm một khác:\" must be written \"Ba nguồn đặt mốc nước mềm khác nhau:\".",
+        "Rule 12: The second item \"Một tiệm khác ghi: dưới 8,4 °dH là nước mềm, 8,4–14 °dH là cứng vừa, trên 14 °dH là nước cứng.\" leaves out the limit that fact 7 gives. It must read \"Một tiệm khác ghi, theo một luật của Đức năm 2007: dưới 8,4 °dH là nước mềm, 8,4–14 °dH là cứng vừa, trên 14 °dH là nước cứng.\"",
+        "Rule 12: Under \"Làm mềm và pha nước\", the list under \"Tiệm thứ nhất cũng ghi:\" still has \"Thay nước ít cũng là một cách làm mềm nước.\" and the shrimp item with the gloss \"nước RODI (RO khử ion)\". The line requires these two items word for word: \"Muốn làm mềm nước thì pha nước RODI (RO khử ion) vào từ từ, thay nước ít, hoặc thêm lá bàng.\" and \"Với tép, nên dùng nền có tính đệm và thêm khoáng dành …",
+        "Rule 12: The sentence \"Tiệm thứ hai ghi: pha nước mưa vào nước cứng cũng làm nước mềm đi.\" must be cut. The caution for rainwater (fact 38) comes from a fourth site, which the entry can't name.",
+        "Rule 12: \"Công ty xử lý nước ở Việt Nam ghi cách dùng than bùn: …\" must open \"Công ty xử lý nước ở Việt Nam ghi cách dùng than bùn cho nước bể: …\", with the rest of the sentence as saved."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
       "at": "2026-11-21T17:40:07Z",
       "model": "sonnet",
       "cli": "2.1.329",
@@ -2688,26 +2752,6 @@
       ],
       "attempt": "rewrite",
       "kept": true
-    },
-    {
-      "at": "2026-11-21T17:40:07Z",
-      "model": "sonnet",
-      "cli": "2.1.329",
-      "score": 0.93,
-      "notes": [
-        "\"KH thấp thì nước đệm kém và pH dễ dao động hoặc tụt mạnh.\": the facts don't carry it (uncredited, uncredited, supported): buffering/pH swing claim only from aquariumcoop.com, no credit / buffering/pH swing claim only from aquariumcoop.com, uncredited",
-        "\"Cây thì thiếu khoáng, tép khó lột xác, còn vỏ ốc mỏng, bong hoặc rỗ.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge on effects / drops 'can' hedge; stated as certain effects / drops 'can' hedge",
-        "Rule 4: \"Nước mềm là nước có ít khoáng hòa tan, chủ yếu là canxi và magie\" under \"Trong bể của bạn\" repeats the definition (\"Nước mềm là nước có ít khoáng hòa tan như canxi và magie\"). It should be said in one place only.",
-        "Rule 12: \"chủ yếu là canxi và magie\" changes the fact's \"such as calcium and magnesium\" into a claim the fact doesn't make, that these are the main minerals. A fact's hedges and amounts must stay as it gives them.",
-        "Rule 12: \"Người nuôi cần nắm khi chọn nước cho các loài ưa nước mềm và khi pha nước RO cho bể\" is a claim no fact gives. It also uses \"các loài\", which widens the fact. The line bans this: groups take a page name, the scientific name or the fact's own word.",
-        "Rule 15: under \"Trong bể của bạn\", \"Nước mềm là nước có ít khoáng hòa tan...\" says what soft water is, not what it does in the tank. That belongs in the definition, not this section.",
-        "Rule 15: the heading \"Loài ưa nước mềm và dấu hiệu GH thấp\" also holds \"GH thấp hay đi kèm KH thấp\" and \"Thông số nước đổi đột ngột có thể hại cá, nhất là cá chuột lùn\". Neither is about which animals prefer soft water or about signs of low GH, so the heading doesn't cover what the section holds.",
-        "Rule 12: \"Cây thì thiếu khoáng, tép khó lột xác, còn vỏ ốc mỏng, bong hoặc rỗ\" drops the fact's hedge (\"Low GH can cause...\"). The effects on plants, shrimp and snails are stated as certain.",
-        "Rule 12: \"Nước RO dùng riêng thì nghèo khoáng, nên thêm muối khoáng hoặc pha với nước cứng hơn, như nước máy đã xử lý\" stands plain, but \"nước máy đã xử lý\" comes from only one site (chamca.vn). A one-site part needs its own sentence under that site's credit, not a place inside a plain two-site sentence.",
-        "Rule 4: \"Tiệm này khuyên pha nước RODI (RO khử ion) vào từ từ\" repeats the step already given plainly in \"Pha nước RO vào nước cứng thì nước mềm đi\". The step should be said once."
-      ],
-      "attempt": "first",
-      "kept": false
     }
   ]
 }
