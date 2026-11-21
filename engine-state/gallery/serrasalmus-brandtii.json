@@ -2,9 +2,27 @@
  "queue": [],
  "judged": [
   "File:Johann Natterer - pirambeba (Serrasalmus elongatus).jpg",
-  "inat:610540938"
+  "inat:610540938",
+  "flickr:52852118003",
+  "inat:118837449",
+  "inat:552305199",
+  "inat:554921994",
+  "inat:628204756",
+  "inat:642167163",
+  "inat:641851282",
+  "inat:690201100",
+  "inat:692328727",
+  "inat:692328831",
+  "inat:692328964",
+  "inat:722422824",
+  "inat:722422962",
+  "inat:722423310"
  ],
- "hashes": {},
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/722422824/large.jpg": "7f5f5e3f7fc7777f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/722422962/large.jpg": "e8c8a40c4dc7a1c9",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/722423310/large.jpg": "b0b6b0e0c8f8638b"
+ },
  "commons": "2026-11-09",
  "inat": {
   "taxon": 513676,
@@ -17,5 +35,13 @@
  "gbif": {
   "key": 2354138,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "inatNc": {
+  "after": 394091270,
+  "done": true
+ },
+ "exhausted": "2026-11-21"
 }

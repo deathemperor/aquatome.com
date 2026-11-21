@@ -5,7 +5,7 @@ the site serves (`packages/engine/src/content-rules.ts`, docs/governance.md). A 
 a rule can fix safely is fixed whenever the engine writes a page, and on every page each cycle before the build
 (`pnpm engine sweep`; the real-content test holds those rules at zero); the rest is listed here, each page once per rule.
 
-Pages checked: 9137 (Vietnamese 5062, Indonesian 1745, Thai 1733, Malay 597). Imperial units
+Pages checked: 9138 (Vietnamese 5063, Indonesian 1745, Thai 1733, Malay 597). Imperial units
 beside a metric figure: feet 1, gallon 20, inch 1.
 
 ## Numbered headings broken or miscounted (2)
@@ -132,11 +132,11 @@ A Loricariidae fish with an L or LDA number on record whose name in a language g
 
 - none
 
-## Words hobbyists rarely write (2990)
+## Words hobbyists rarely write (2991)
 
 Words and turns the engine writes far more often than the language's hobbyists do, each with what they write instead (packages/engine/src/phrases.ts; docs/review/phrases.md has the counts). The writers' prompts carry the list, and the style rewrite takes the pages that have them up a batch a cycle. Counted, never held: only a model can mend one in its sentence.
 
-- vi · "dù vậy" → "nhưng", "tuy nhiên": 1671 pages, 3913 times
+- vi · "dù vậy" → "nhưng", "tuy nhiên": 1672 pages, 3914 times
 - vi · "phần lớn" → "thường", "chủ yếu", hoặc bỏ: 1648 pages, 3702 times
 - vi · "bạn nên" → "nên", "cần", hoặc nói thẳng việc cần làm ("Thay 30% nước mỗi tuần"): 1588 pages, 3962 times
 - vi · "ghi nhận" → "có ở", "gặp ở", "thấy ở" (nguồn nói chưa ai thấy thì giữ ý đó): 1097 pages, 2134 times
