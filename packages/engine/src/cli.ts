@@ -139,6 +139,11 @@ import { abNamespace, listReaderWants } from './readers-wanted'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const UA = 'aquatome-engine/0.1 (https://aquatome.com)'
+/**
+ * The one way the engine reads the Internet Archive, for every step that does (the sources read through it, the magazine's
+ * listing and its day's post): one name, one pace, and one rest for the whole Mac, kept outside any checkout (archive.ts).
+ */
+const archiveReader = () => new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json') })
 // Every Wikimedia read in this process asks as the engine and rests after a refusal (wikimedia-rest.ts).
 globalThis.fetch = restingFetch(globalThis.fetch, { restFile: join(homedir(), '.cache/aquatome/wikimedia-rest.json'), now: () => new Date(), ua: UA })
 const http = async (url: string) => {
@@ -258,7 +263,7 @@ if (cmd === 'photo-privacy') {
   await fetcher.open()
   try {
     const report = await runEngine(
-      { fetcher, archive: new ArchiveFetcher({ fetch, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), ua: UA, restFile: join(homedir(), '.cache/aquatome/archive-rest.json') }), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), readersWanted },
+      { fetcher, archive: archiveReader(), llm: claudeCli, http, media: media(), root: ROOT, now: () => new Date(), sleep: ms => new Promise(r => setTimeout(r, ms)), readersWanted },
       // card-fill: CARD_FILL_LIMIT (engine-cycle.sh) pages a source, 10 by default.
       { sources, limit: values.limit ? Number(values.limit) : cmd === 'card-fill' ? 10 : undefined, maxMinutes: values['max-minutes'] ? Number(values['max-minutes']) : undefined, only: values.only ? new RegExp(values.only) : undefined, retryBlocked: values['retry-blocked'], force: values.force, cardFill: cmd === 'card-fill' },
     )
@@ -1225,7 +1230,7 @@ if (cmd === 'photo-privacy') {
   // topics the handbook has no guide on, most asked first, in engine-state/_ideas.json. pnpm engine ideas [--force]
   // [--retry-blocked]: a site that refused us its listing is fetched again only with --retry-blocked.
   const get = async (u: string) => listingText(await fetch(u, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(60_000) }))
-  const r = await refreshIdeas(ROOT, { get, llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
+  const r = await refreshIdeas(ROOT, { get, archive: archiveReader(), llm: claudeCli, sleep: ms => new Promise(res => setTimeout(res, ms)), now: () => new Date() }, { force: values.force, retryBlocked: values['retry-blocked'] })
   const s = await readIdeas(ROOT)
   console.log(r.fresh ? `ideas: read ${s.readAt}, still fresh` : `ideas: ${r.posts} posts, ${r.ideas} new ideas${r.failed.length ? `; failed: ${r.failed.join('; ')}` : ''}`)
   // Each rule's count and the posts kept: the owner's figure for the magazine; and each title a rule left out (the chief of
@@ -1236,13 +1241,16 @@ if (cmd === 'photo-privacy') {
     for (const [rule, titles] of Object.entries(l.titles)) for (const t of titles) console.log(`ideas: ${id}: left out (${rule}): ${t}`)
   }
   const refused = [...r.needsHuman, ...r.blocked]
+  // The owner's count (the chief of staff, 21 Nov 2026): posts kept from the Archive's copy of the listing, and those its index holds.
+  for (const [id, x] of Object.entries(r.archived)) console.log(`ideas: ${id}: read through the Internet Archive: ${x.listed} posts kept, ${x.held === undefined ? "its index didn't answer" : `${x.held} with a good capture in its index (a capture that is a browser check shows only when that post is read)`}`)
   if (refused.length) console.log(`ideas: needs-human: ${refused.join(', ')} refused us its listing (a 403 or a 429, or an answer that isn't its listing); its last titles stand and it isn't fetched again. Once the owner has looked: pnpm engine ideas --force --retry-blocked`)
   for (const i of s.ideas.filter(x => !x.guide && !x.skipped).slice(0, 15)) console.log(`${i.sites} sites, ${i.posts.length} posts: ${i.topic} (${i.kind})`)
 } else if (cmd === 'write-ideas') {
   // AquaTome's own guides on the most asked ideas (engine ideas), researched as pnpm engine topic is: --limit a day (Vietnam's).
-  const r = await writeIdeas(ROOT, { research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
+  const r = await writeIdeas(ROOT, { archive: archiveReader(), research: claudeResearch, llm: claudeCli, now: () => new Date() }, { perDay: Number(values.limit ?? 2), researchModel: process.env.RESEARCH_MODEL ?? 'opus' })
   console.log(`write-ideas: ${r.written.length} written, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}\n${[...r.written, ...r.skipped, ...r.failed].join('\n')}`)
   if (r.magazine.length) console.log(`write-ideas: on the magazine's ideas: ${r.magazine.join('; ')}`)
+  for (const p of r.posts) console.log(`write-ideas: the magazine's post, read through the Internet Archive: ${p}`)
 } else if (cmd === 'topic') {
   // A guide AquaTome writes itself from web research: pnpm engine topic "<chủ đề tiếng Việt>" --kind disease|care|setup|plantCare|breeding|aquascaping|discovery [--redo]
   // --redo: rewrite the guide from the research already kept (engine-state/topics), no new searching.

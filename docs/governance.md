@@ -929,6 +929,18 @@ The layers above still check the result.
     rewrite job: the research of `pnpm engine topic`, with the shops' posts on the topic as leads it is told never to
     copy, to check elsewhere (shops sell what they write about), and to cite only for a Vietnamese name or what is sold
     in Vietnam. An idea written or found to have nothing reliable is not tried again.
+  - **Practical Fishkeeping, through the Internet Archive.** The magazine's site answers the engine with a challenge
+    page, and the owner said "use internet archive" (20 Nov 2026; 9 Nov: "any site that are often blocked should use
+    the same way"). While the site refuses, its list is read from the Archive's copy of its sitemap, at most once a day
+    until titles come, and three capture-index asks mark which posts the Archive holds. The day's one magazine guide
+    gets its post from the Archive's newest good copy (an archived challenge page is no copy), kept as a stored source
+    copy and given to research as a page to take facts from, never instructions. It is cited by its own address and
+    site, with the Archive as how it was read (`via: "archive"`), so sites are still counted by a source's address. One
+    post a day, never a crawl. A guide that takes more than half its facts from the post, or has fewer than two other
+    sites beside it, drops the post's facts and is written from the others. No photo is read (stored copies hold text
+    only), and the writer sees facts, not the post. A post the Archive lacks is counted and the guide written as before.
+    The Archive's reader, name, pace (10 s) and rest are the ones the archived sources use, and they ask first in the
+    cycle. Research still opens neither the magazine's hosts nor the Archive's.
   - Chợ Thủy Sinh's fish, shrimp and snails go into the private Vietnamese shop list (`engine-state/shop-lists/vi.json`:
     which species come first, and the names shops use) by a seeded run, `pnpm engine shop-list --lang vi --seed`. A
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,

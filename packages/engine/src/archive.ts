@@ -134,6 +134,9 @@ export class ArchiveFetcher {
   }
 }
 
+/** What a step needs of the reader: a page's newest good copy, and the archive's own text (its capture index). */
+export type ArchiveReader = Pick<ArchiveFetcher, 'get' | 'text'>
+
 /** Capture-index query: every URL archived under `prefix` with a good capture, one row per URL. */
 export const cdxQuery = (prefix: string) => `${WAYBACK}/cdx/search/cdx?${new URLSearchParams({ url: `${prefix}*`, fl: 'original', filter: 'statuscode:200', collapse: 'urlkey' })}`
 /** Capture-index query: the last few good captures of one URL, oldest first. */
