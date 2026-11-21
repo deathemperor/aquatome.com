@@ -274,9 +274,15 @@ function asksLeft(l: MagazineLedger, kind: 'listing' | 'post', now: Date) {
   const made = Object.entries(l.asks ?? {}).reduce((n, [day, a]) => n + (days.has(day) ? a[kind] ?? 0 : 0), 0)
   return (kind === 'post' ? ARCHIVE_POST_DAY : ARCHIVE_LISTING_WEEK) - made
 }
-/** A capped reader for the magazine: each request counted under the day it is made, and written down before it is made. */
-const magazineReader = (reader: ArchiveReader, l: MagazineLedger, file: string, kind: 'listing' | 'post', now: () => Date) =>
-  reader.capped(asksLeft(l, kind, now()), async () => {
+/**
+ * A capped reader for the magazine: each request counted under the day it is made, and written down before it is made. Its
+ * first request waits the reader's pace (ARCHIVE_POLITE), after whatever asked the Archive before it: the sources' run
+ * just ahead of the step, or the list's last index query (the chief of staff, 21 Nov 2026).
+ */
+const magazineReader = (reader: ArchiveReader, l: MagazineLedger, file: string, kind: 'listing' | 'post', now: () => Date, sleep: (ms: number) => Promise<void>) => {
+  let first = true
+  return reader.capped(asksLeft(l, kind, now()), async () => {
+    if (first) { first = false; await sleep(ARCHIVE_POLITE) }
     const asks = (l.asks ??= {})
     const today = (asks[vnDay(now())] ??= {})
     today[kind] = (today[kind] ?? 0) + 1
@@ -284,6 +290,7 @@ const magazineReader = (reader: ArchiveReader, l: MagazineLedger, file: string, 
     for (const day of Object.keys(asks)) if (!week.has(day)) delete asks[day]
     await saveLedger(file, l)
   })
+}
 
 /**
  * A site's listing from the Archive's copy of its sitemap (the newest that isn't a browser check: archive.ts get), read
@@ -363,7 +370,7 @@ async function listSite(root: string, s: IdeaSource, before: Post[] | undefined,
       if (asksLeft(l, 'listing', d.now()) <= 0) throw new Error(`the week's ${ARCHIVE_LISTING_WEEK} requests to the archive are spent`)
       ;(l.tried ??= {})[s.id] = d.now().toISOString()
       await saveLedger(file, l)
-      reader = magazineReader(archive!.reader, l, file, 'listing', d.now)
+      reader = magazineReader(archive!.reader, l, file, 'listing', d.now, d.sleep)
     }
     const { kept, dropped, titles } = dropPosts(listed ?? await archivedListing(s, reader!), s.drop ?? [])
     report.listed[s.id] = { kept: kept.length, dropped, titles }
@@ -571,7 +578,9 @@ export async function writeIdeas(root: string, d: { research: Llm; llm: Llm; now
  * rests, or the day's requests are spent, the guide waits, its idea untouched; `waited`: the days in a row it has waited
  * for a rest, kept in the record.
  */
-export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; now: () => Date; archive: ArchiveReader; ledger: string }, o: { researchModel?: string } = {}) {
+export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; now: () => Date; archive: ArchiveReader; ledger: string; sleep?: (ms: number) => Promise<void> }, o: { researchModel?: string } = {}) {
+  // The wait before the post's first request: the clock's own unless a test gives one.
+  const sleep = d.sleep ?? ((ms: number) => new Promise<void>(r => setTimeout(r, ms)))
   const ideas = await readIdeas(root)
   const m = await readMagazine(root)
   const l = await readLedger(d.ledger, m)
@@ -595,7 +604,7 @@ export async function writeMagazine(root: string, d: { research: Llm; llm: Llm; 
       // The post is read inside the piece, so a day's line that won't cover the guide asks the Archive nothing. Each request
       // is written down before it is made: a guide the model stops later asks no more of the Archive that day.
       const { r, post } = await piece(id, async () => {
-        const post = await magazinePost(idea, m.posts, magazineReader(d.archive, l, d.ledger, 'post', d.now))
+        const post = await magazinePost(idea, m.posts, magazineReader(d.archive, l, d.ledger, 'post', d.now, sleep))
         held = post?.page?.text
         // The Archive answered: the wait for its rest is over.
         if (l.waits) { delete l.waits; await saveLedger(d.ledger, l) }

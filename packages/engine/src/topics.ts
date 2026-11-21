@@ -111,7 +111,7 @@ export function copiesGiven(s: string, text: string): boolean {
   return false
 }
 /** Research's facts without those that copy the given page's text (copiesGiven), whichever source they cite. */
-const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => (g ? { ...r, facts: r.facts.filter(f => !copiesGiven(f.fact, g.text.slice(0, GIVEN_MAX))) } : r)
+const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => (g && r.facts ? { ...r, facts: r.facts.filter(f => !copiesGiven(f.fact, g.text.slice(0, GIVEN_MAX))) } : r)
 /** One page, however research writes its address ("http:", "www.", a closing slash). */
 /** A page on the host of a site the engine reads through the Archive itself (idea-sources.ts `viaArchive`): the only kind a `via` may mark. */
 const viaArchiveHost = (url: string) => {
@@ -125,7 +125,7 @@ const samePage = (a: string, b: string) => {
  * Research's sources as the engine records them: a `via` only the engine sets, on the given page alone, which keeps its own
  * address and title, and its kind, magazine.
  */
-const recordGiven = (r: TopicFacts, g?: GivenPage): TopicFacts => ({
+const recordGiven = (r: TopicFacts, g?: GivenPage): TopicFacts => (!r.sources ? r : {
   ...r,
   sources: r.sources.map(s => {
     const { via: _via, capturedAt: _at, ...own } = s

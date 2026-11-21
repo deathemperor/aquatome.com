@@ -1,4 +1,6 @@
 import { mkdtempSync, readFileSync } from 'node:fs'
+import { createServer } from 'node:http'
+import type { AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
@@ -168,6 +170,32 @@ test("the Archive's redirects are followed one by one, each a request counted ag
   t.answer = () => (first ? ((first = false), at('/web/2025id_/x')) : capture(429, ''))
   await expect(r.get(article)).rejects.toBeInstanceOf(ArchiveRefused)
   expect(t.asked).toBe(2)
+})
+
+// The chief of staff, 21 Nov 2026: the three archived sites' reading now follows the Archive's redirects by hand, so Node's
+// own fetch must give a 302's status and Location under `redirect: 'manual'`, or their reading breaks at the first cycle.
+// A server on this Mac stands in for the Archive: nothing of the Archive's is asked.
+test("with Node's own fetch, the Archive's 302 is read under `redirect: 'manual'`, its Location followed by hand and counted", async () => {
+  const seen: string[] = []
+  const server = createServer((q, r) => {
+    seen.push(q.url ?? '')
+    if (q.url === `/web/20261121id_/${article}`) { r.writeHead(302, { location: `/web/20251017040955id_/${article}` }); r.end(); return }
+    if (q.url === `/web/20251017040955id_/${article}`) { r.writeHead(200, { 'content-type': 'text/html', 'memento-datetime': 'Fri, 17 Oct 2025 04:09:55 GMT' }); r.end('<title>Best temperature</title>'); return }
+    r.writeHead(404)
+    r.end()
+  })
+  await new Promise<void>(ok => server.listen(0, '127.0.0.1', ok))
+  const local = `http://127.0.0.1:${(server.address() as AddressInfo).port}`
+  try {
+    const f = new ArchiveFetcher({ restFile: restFile(), fetch: (u, init) => fetch(u.replace('https://web.archive.org', local), init), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+    const two = f.capped(2)
+    expect(await two.get(article)).toMatchObject({ finalUrl: article, html: '<title>Best temperature</title>', capturedAt: '2025-10-17T04:09:55.000Z' })
+    expect(two.asked).toBe(2)
+    // Two requests reached the server, one a hop: fetch followed nothing by itself.
+    expect(seen).toEqual([`/web/20261121id_/${article}`, `/web/20251017040955id_/${article}`])
+  } finally {
+    await new Promise(ok => server.close(ok))
+  }
 })
 
 test('a refusal asks nothing more: no retry in the run, and none for 12 hours', async () => {

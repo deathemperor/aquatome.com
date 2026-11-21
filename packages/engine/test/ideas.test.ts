@@ -385,7 +385,7 @@ test("the magazine's ideas are listed behind the shops', a shop's idea ranks by 
     await writeIdeas(root, { research, llm: research, now }, { perDay: 2 })
     const github = topics(from)
     const mac = asked.length
-    await writeMagazine(root, { research, llm: research, now, archive: await emptyArchive(`${d}T05:00:00Z`), ledger: `${root}.ledger.json` })
+    await writeMagazine(root, { research, llm: research, now, archive: await emptyArchive(`${d}T05:00:00Z`), ledger: `${root}.ledger.json`, sleep: async () => {} })
     return { github, mac: topics(mac) }
   }
   // The first day: the two most asked shop ideas on GitHub, and the magazine's first on the Mac, though four shop ideas

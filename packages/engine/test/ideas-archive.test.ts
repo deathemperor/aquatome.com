@@ -97,10 +97,11 @@ test("while the magazine's own site refuses, its list is read from the Archive's
   const a = await archive(holding)
   const r = await refreshMagazine(root, macOf(root, nowhere, a.reader, '2026-11-21T06:00:00Z', slept))
   // The site itself is never asked while its block stands. The Archive: the sitemap's newest copy, then the index once for
-  // each of the three sections, 10 s apart (the step's own waits, as the archived sources' run keeps).
+  // each of the three sections, each 10 s after the last request (the step's own waits, as the archived sources' run keeps),
+  // the first after the sources' run's last.
   expect(a.asked[0]).toBe('https://web.archive.org/web/20261121id_/https://www.practicalfishkeeping.co.uk/sitemap-1.xml')
   expect(a.asked.slice(1).map(u => decodeURIComponent(u).replace(/^.*url=|\*.*$/g, ''))).toEqual(['www.practicalfishkeeping.co.uk/features/', 'www.practicalfishkeeping.co.uk/fishkeeping-answers/', 'www.practicalfishkeeping.co.uk/beginners-hub/'])
-  expect(slept).toEqual([ARCHIVE_POLITE, ARCHIVE_POLITE, ARCHIVE_POLITE])
+  expect(slept).toEqual([ARCHIVE_POLITE, ARCHIVE_POLITE, ARCHIVE_POLITE, ARCHIVE_POLITE])
   // The posts are the sitemap's, through the same parser and the same rules: the visit is still left out. Kept in the
   // magazine's own record, with when they were read.
   const m = await readMagazine(root)
@@ -288,7 +289,7 @@ const researchCiting = (from: number, others: number, asked: string[], sites = [
 }
 const writer: Llm = async <T>({ schema }: { schema: { required?: string[] } }) =>
   (schema.required?.includes('body') ? { name: 'Nước bể cá bị đục', summary: ['Một ý.'], body: '<h3>Vì sao</h3><p>Nước đục.</p>', faq: [] } : { score: 0.95, notes: [] }) as T
-const write = (root: string, research: Llm, a: ArchiveFetcher, now = '2026-11-21T06:00:00Z', llm: Llm = writer) => writeMagazine(root, { research, llm, now: () => new Date(now), archive: a, ledger: ledgerOf(root) })
+const write = (root: string, research: Llm, a: ArchiveFetcher, now = '2026-11-21T06:00:00Z', llm: Llm = writer) => writeMagazine(root, { research, llm, now: () => new Date(now), archive: a, ledger: ledgerOf(root), sleep: async () => {} })
 const guideOf = async (root: string, topic: string) => (await readMagazine(root)).guides[slugify(topic)]
 
 test("the day's magazine guide gets its one post from the Archive's newest good copy: held for that run alone, given to research, cited by the magazine's own address; the repository keeps its record, never its text", async () => {
@@ -546,4 +547,19 @@ test("a failure's reason that repeats the post is kept and printed without its w
   const r = await write(root, researchCiting(1, 3, []), (await archive(article())).reader, '2026-11-21T06:00:00Z', broken)
   expect(r.failed).toEqual(['Nước bể cá bị đục: failed: Error: its message repeats the post'])
   expect((await files(root)).filter(([, text]) => text.includes('Placeholder text about cloudy water')).map(([f]) => f)).toEqual([])
+})
+
+// The chief of staff, 21 Nov 2026: on a day the list is read, the post's first request followed the list's last index query
+// with no wait, and the step's first could follow the sources' run's last by seconds.
+test("the magazine's first request of each kind waits the reader's pace after the last request before it: the list's after the sources' run, the post's after the list", async () => {
+  const root = await site()
+  await writeFile(ideasFile(root), JSON.stringify({ readAt: '2026-11-21T00:00:00Z', posts: {}, ideas: [magazineIdea('Nước bể cá bị đục')] }))
+  const events: string[] = []
+  const answer = (u: string) => (u.endsWith(`id_/${POST}`) ? article()(u) : holding(u))
+  const a = new ArchiveFetcher({ fetch: async u => { events.push(u.includes('/cdx/') ? 'index' : u.endsWith(`id_/${POST}`) ? 'post' : 'sitemap'); return answer(u) }, now: () => new Date('2026-11-21T06:00:00Z'), sleep: async ms => { events.push(`archive waits ${ms}`) }, ua: 'AquaTome test', restFile: await restFile() })
+  const sleep = async (ms: number) => { events.push(`waits ${ms}`) }
+  await refreshMagazine(root, { ...macOf(root, nowhere, a), sleep })
+  await writeMagazine(root, { research: researchCiting(1, 3, []), llm: writer, now: () => new Date('2026-11-21T06:00:00Z'), archive: a, ledger: ledgerOf(root), sleep })
+  const w = `waits ${ARCHIVE_POLITE}`
+  expect(events).toEqual([w, 'sitemap', w, 'index', w, 'index', w, 'index', w, 'post'])
 })
