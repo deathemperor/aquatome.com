@@ -82,13 +82,14 @@ export function nativeSpecies(lang: Lang, c: Content) {
 
 /**
  * The home page's native fish: those often recorded there first, full data cards first within each; none featured above,
- * none with only strip photos, none kept in brackish or sea water (a reader's fresh-water tank can't hold it).
+ * none with only strip photos, none kept in brackish or sea water (a reader's fresh-water tank can't hold it), none whose
+ * head is kept off cards (`avoid`), as with the featured fish.
  */
-export function nativeCards(lang: Lang, c: Content, featured: Localized<SpeciesEntity>[], n = 4) {
+export function nativeCards(lang: Lang, c: Content, featured: Localized<SpeciesEntity>[], n = 4, avoid: OffCards = {}) {
   const { species, local } = nativeSpecies(lang, c)
   // A fish whose photos are all strips would show as a headless slice of body: it waits for a photo. One led by a
   // non-commercial photo waits for an open one: the row features fish (the chief of staff's rule, 17 Nov).
-  const left = species.filter(s => !featured.includes(s) && !s.water && s.photos.some(fitsCard) && !s.photos.some(p => isNonCommercial(p.licence ?? '')))
+  const left = species.filter(s => !featured.includes(s) && !s.water && s.photos.some(fitsCard) && !s.photos.some(p => isNonCommercial(p.licence ?? '')) && !Object.hasOwn(avoid, s.photos.find(p => !p.generated)?.url ?? ''))
   return [...completeFirst(left.filter(local)), ...completeFirst(left.filter(s => !local(s)))].slice(0, n)
 }
 
