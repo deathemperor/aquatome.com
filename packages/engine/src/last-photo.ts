@@ -199,27 +199,50 @@ export async function unlistCleared(root: string): Promise<string[]> {
  */
 export type LeftPlace = { file: string; index: number; photo: Record<string, unknown>; times: number }
 /**
- * The repository's history, as the put-back reads it: each page, album or guide file a photo left since the start of
- * `since` (a day, UTC, as records are dated), with its place and its entry as they were just before it last left, file
- * by file. Undefined where there's no history to read here (not a repository, or a shallow clone): nothing is put back,
- * and a full clone does it later.
+ * The repository's history, as the put-back reads it: each page, album or guide file a photo left from the commit that
+ * marked it off on, the first since the start of `since` (its record's day, UTC, as records are dated) whose record has
+ * it `off`, with its place and its entry as they were just before it last left, file by file. None if no commit since
+ * marked it. Undefined where there's no history to read here (not a repository, or a shallow clone): nothing is put
+ * back, and a full clone does it later.
  */
 export type History = (url: string, since: string) => Promise<LeftPlace[] | undefined>
 
 /** The pages, albums and guides a photo shows on. */
 const PLACE = /^content\/(?:(?:species|plants|breeds|guides)\/[^/]+\/entity\.json|gallery\/[^/]+\.json)$/
 
-/** `History` from git in `root`: the commits since the start of `since` that changed how often the address appears. */
+/**
+ * `History` from git in `root`, along main's own line (the independent reader, 21 Nov): from the commit that marked the
+ * photo off, so a removal earlier that day, another reason's, stays; a branch merged in counts as the merge's change to
+ * main, so a removal made on both sides is one, and one made in the merge itself counts; a page renamed in the commit
+ * it left keeps its old file, which the put-back reports gone.
+ */
 export function gitHistory(root: string): History {
   const git = (...args: string[]) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+  const line = ['--first-parent', '--diff-merges=first-parent', '--no-renames']
+  // The record as each commit had it, read once for every photo the sweep asks about.
+  const records = new Map<string, SecondLooks | undefined>()
+  const recordAt = (sha: string) => {
+    if (!records.has(sha)) {
+      const r = git('show', `${sha}:engine-state/${SECOND_LOOK_FILE}`)
+      let v: unknown
+      try { v = r.status === 0 ? JSON.parse(r.stdout) : undefined } catch { v = undefined }
+      records.set(sha, object(v) ? (v as SecondLooks) : undefined)
+    }
+    return records.get(sha)
+  }
   return async (url, since) => {
     const shallow = git('rev-parse', '--is-shallow-repository')
     if (shallow.status !== 0 || shallow.stdout.trim() !== 'false') return undefined
-    const log = git('log', '--format=%H', `--since=${since}T00:00:00Z`, '-S', url, '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
+    const marks = git('log', ...line, '--reverse', '--format=%H', `--since=${since}T00:00:00Z`, '--', `engine-state/${SECOND_LOOK_FILE}`)
+    if (marks.status !== 0) return undefined
+    const mark = marks.stdout.split('\n').filter(Boolean).find(sha => recordAt(sha)?.[url]?.off === true)
+    if (!mark) return []
+    const parent = git('rev-parse', '--verify', '-q', `${mark}^`).stdout.trim()
+    const log = git('log', ...line, '--format=%H', '-S', url, parent ? `${parent}..HEAD` : 'HEAD', '--', 'content/species', 'content/plants', 'content/breeds', 'content/gallery', 'content/guides')
     if (log.status !== 0) return undefined
     const out = new Map<string, LeftPlace>()
     for (const sha of log.stdout.split('\n').filter(Boolean)) {
-      const files = git('show', '--format=', '--name-only', sha, '--', 'content').stdout.split('\n').filter(f => PLACE.test(f))
+      const files = git('diff', '--name-only', '--no-renames', `${sha}^`, sha, '--', 'content').stdout.split('\n').filter(f => PLACE.test(f))
       for (const file of files) {
         const at = (rev: string) => { const r = git('show', `${rev}:${file}`); try { return r.status === 0 ? JSON.parse(r.stdout) as { photos?: unknown } : undefined } catch { return undefined } }
         const urls = (d: { photos?: unknown } | undefined) => (Array.isArray(d?.photos) ? d.photos as Record<string, unknown>[] : [])
@@ -238,13 +261,14 @@ export function gitHistory(root: string): History {
 
 /**
  * The sweep's part, before anything else reads a page: each photo off at its first verdict that the look cleared goes
- * back where it was, once (the chief of staff, 20 Nov 2026). Every page, album and guide it left since its record's day,
- * at its place there and as its entry was, from the repository's history; one that already shows it is left as it is.
+ * back where it was, once (the chief of staff, 20 Nov 2026). Every page, album and guide it left from the commit that
+ * marked it off, at its place there and as its entry was, from the repository's history; one that already shows it is
+ * left as it is.
  * Its own waiting entry leaves the never-again list with it, so nothing later in the pass takes it off on that.
  *
  * Only the removal its mark made comes back, and nothing another reason took off (the independent reader, 21 Nov):
  * - a photo on the never-again list for anything else stays off everywhere;
- * - a place it left more than once since its record's day, so it came back and left again, keeps that later removal;
+ * - a place it left before its mark, or more than once since, so it came back and left again, keeps that removal;
  * - a page or album of a page its record doesn't name stays without it where `refused` says the check refused it there
  *   for itself (on its record's pages, the clear sets the check's verdict aside, as the album step does);
  * - a file that's gone (a page renamed or folded) is passed over and reported.
@@ -270,7 +294,7 @@ export async function putBackCleared(root: string, history: History, at = today(
     }
     const places = await history(u, sl[u]!.at)
     if (!places) { out.unread.push(u); continue }
-    if (!places.length) out.off.push(`${u}: it left no page or album since ${sl[u]!.at}`)
+    if (!places.length) out.off.push(`${u}: it left no page or album since it was marked off`)
     const named = new Set(sl[u]!.pages.map(x => x.split('/')[1]))
     for (const p of places) {
       if (p.times > 1) { out.off.push(`${u}: it left ${p.file} again after it came back, and that removal stands`); continue }

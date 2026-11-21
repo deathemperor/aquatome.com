@@ -47,6 +47,17 @@ const left: LeftPlace[] = [
   { file: 'content/species/aaa/entity.json', index: 1, photo: photo('a-dead'), times: 1 },
   { file: 'content/gallery/aaa.json', index: 0, photo: photo('a-dead'), times: 1 },
 ]
+const SL = 'engine-state/_photo-second-look.json'
+const ent = (ns: string[]) => ({ photos: ns.map(photo) })
+/** g-dead's record, marked off at its first verdict. */
+const marked = (o: object = {}) => ({ [url('g-dead')]: { why, step: 'the photo check', pages: ['species/aaa'], at: new Date().toISOString().slice(0, 10), off: true, ...o } })
+async function repo(prefix: string) {
+  const r = await mkdtemp(join(tmpdir(), prefix))
+  const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
+  const put = async (f: string, d: object) => { await mkdir(join(r, f, '..'), { recursive: true }); await writeFile(join(r, f), `${JSON.stringify(d, null, 2)}\n`) }
+  return { r, git, put }
+}
 const counting = (places: LeftPlace[] | undefined) => { const calls: string[] = []; const h: History = async u => { calls.push(u); return places }; return { h, calls } }
 async function clearedStore(entry: string | undefined = waitingEntry(why)) {
   const r = await store({ aaa: ['a-fish', 'a-other'] }, { aaa: ['a-album'] })
@@ -155,17 +166,14 @@ test('a guide it left takes it back too', async () => {
   expect(((await json(r, 'content/guides/ggg/entity.json')).photos as { url: string }[]).map(p => name(p.url))).toEqual(['a-dead', 'g-1'])
 })
 
-test('the history from git: each page, album and guide file the photo left since the start of its record\'s day, its place and entry just before it last left, and how often it left', async () => {
-  const r = await mkdtemp(join(tmpdir(), 'aq-put-back-git-'))
-  const git = (...a: string[]) => execFileSync('git', a, { cwd: r, encoding: 'utf8' })
-  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@example.org'); git('config', 'user.name', 'Sample Tester')
-  const ent = (ns: string[]) => ({ photos: ns.map(photo) })
-  const put = async (f: string, d: object) => { await mkdir(join(r, f, '..'), { recursive: true }); await writeFile(join(r, f), `${JSON.stringify(d, null, 2)}\n`) }
+test('the history from git: each page, album and guide file the photo left since the commit that marked it off, its place and entry just before it last left, and how often it left', async () => {
+  const { r, git, put } = await repo('aq-put-back-git-')
   await put('content/species/ggg/entity.json', ent(['g1', 'g-dead', 'g2'])); await put('content/gallery/ggg.json', ent(['g-dead'])); await put('content/species/hhh/entity.json', ent(['h1']))
   await put('content/guides/care/entity.json', ent(['c1', 'g-dead']))
+  await put(SL, {})
   git('add', '.'); git('commit', '-qm', 'pages')
-  // Off its page and album at its first verdict; back on the page by a step, and off it again later.
-  await put('content/species/ggg/entity.json', ent(['g1', 'g2'])); await put('content/gallery/ggg.json', ent([])); await put('content/guides/care/entity.json', ent(['c1'])); git('commit', '-qam', 'off')
+  // Off its page and album at its first verdict, marked in the same commit; back on the page by a step, and off it again later.
+  await put('content/species/ggg/entity.json', ent(['g1', 'g2'])); await put('content/gallery/ggg.json', ent([])); await put('content/guides/care/entity.json', ent(['c1'])); await put(SL, marked()); git('commit', '-qam', 'off')
   await put('content/species/ggg/entity.json', ent(['g-dead', 'g1', 'g2'])); git('commit', '-qam', 'back by a step')
   await put('content/species/ggg/entity.json', ent(['g1', 'g2'])); await put('content/species/hhh/entity.json', ent(['h1', 'h2'])); git('commit', '-qam', 'off again')
   const places = await gitHistory(r)(url('g-dead'), new Date().toISOString().slice(0, 10))
@@ -174,15 +182,61 @@ test('the history from git: each page, album and guide file the photo left since
     { file: 'content/guides/care/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
     { file: 'content/species/ggg/entity.json', index: 0, photo: photo('g-dead'), times: 2 },
   ])
-  // A removal before its record's day isn't read: records are dated by the day in UTC, and the day before is another's.
+  // A mark before its record's day isn't read: records are dated by the day in UTC, and the day before is another's.
   const d = await mkdtemp(join(tmpdir(), 'aq-put-back-day-'))
   const at = (when: string, ...a: string[]) => execFileSync('git', a, { cwd: d, encoding: 'utf8', env: { ...process.env, GIT_AUTHOR_DATE: when, GIT_COMMITTER_DATE: when } })
   at('2026-11-18T12:00:00Z', 'init', '-q', '-b', 'main'); at('2026-11-18T12:00:00Z', 'config', 'user.email', 't@example.org'); at('2026-11-18T12:00:00Z', 'config', 'user.name', 'Sample Tester')
-  const putIn = async (ns: string[]) => { await mkdir(join(d, 'content/species/ddd'), { recursive: true }); await writeFile(join(d, 'content/species/ddd/entity.json'), `${JSON.stringify(ent(ns), null, 2)}\n`) }
-  await putIn(['d1', 'g-dead']); at('2026-11-18T12:00:00Z', 'add', '.'); at('2026-11-18T12:00:00Z', 'commit', '-qm', 'page')
-  await putIn(['d1']); at('2026-11-19T23:30:00Z', 'commit', '-qam', 'off the day before')
+  const putIn = async (ns: string[], sl: object) => { await mkdir(join(d, 'content/species/ddd'), { recursive: true }); await mkdir(join(d, 'engine-state'), { recursive: true }); await writeFile(join(d, 'content/species/ddd/entity.json'), `${JSON.stringify(ent(ns), null, 2)}\n`); await writeFile(join(d, SL), JSON.stringify(sl)) }
+  await putIn(['d1', 'g-dead'], {}); at('2026-11-18T12:00:00Z', 'add', '.'); at('2026-11-18T12:00:00Z', 'commit', '-qm', 'page')
+  await putIn(['d1'], marked({ at: '2026-11-19' })); at('2026-11-19T23:30:00Z', 'commit', '-qam', 'off the day before')
   expect(await gitHistory(d)(url('g-dead'), '2026-11-20')).toEqual([])
   expect(await gitHistory(d)(url('g-dead'), '2026-11-19')).toEqual([{ file: 'content/species/ddd/entity.json', index: 1, photo: photo('g-dead'), times: 1 }])
   // Not a repository: nothing to read.
   expect(await gitHistory(await mkdtemp(join(tmpdir(), 'aq-put-back-none-')))(url('g-dead'), '2026-11-20')).toBeUndefined()
+})
+
+test("the history reads main's own line from the commit that marked it off: not a removal before the mark, a parallel removal once, a removal made in a merge, and a renamed page's old file", async () => {
+  const today = new Date().toISOString().slice(0, 10)
+  const sorted = (p: LeftPlace[] | undefined) => p?.sort((a, b) => a.file.localeCompare(b.file))
+  // Taken off bbb by hand in the morning, then off aaa at its first verdict: only aaa's removal is the mark's.
+  const one = await repo('aq-put-back-before-')
+  await one.put('content/species/aaa/entity.json', ent(['a1', 'g-dead'])); await one.put('content/species/bbb/entity.json', ent(['b1', 'g-dead'])); await one.put(SL, {})
+  one.git('add', '.'); one.git('commit', '-qm', 'pages')
+  await one.put('content/species/bbb/entity.json', ent(['b1'])); one.git('commit', '-qam', 'off bbb by hand')
+  await one.put('content/species/aaa/entity.json', ent(['a1'])); await one.put(SL, marked()); one.git('commit', '-qam', 'off at its first verdict')
+  expect.soft(await gitHistory(one.r)(url('g-dead'), today)).toEqual([{ file: 'content/species/aaa/entity.json', index: 1, photo: photo('g-dead'), times: 1 }])
+  // Not marked off at all: nothing of its history is the mark's.
+  expect.soft(await gitHistory(one.r)(url('b1'), today)).toEqual([])
+
+  // The same removal on a branch merged in, each side with a page of its own: it left aaa once.
+  const two = await repo('aq-put-back-parallel-')
+  await two.put('content/species/aaa/entity.json', ent(['a1', 'g-dead', 'a2'])); await two.put(SL, {})
+  two.git('add', '.'); two.git('commit', '-qm', 'pages'); two.git('branch', 'side')
+  await two.put('content/species/aaa/entity.json', ent(['a1', 'a2'])); await two.put('content/species/yyy/entity.json', ent(['y1'])); await two.put(SL, marked()); two.git('add', '.'); two.git('commit', '-qm', 'off at its first verdict')
+  two.git('checkout', '-q', 'side')
+  await two.put('content/species/aaa/entity.json', ent(['a1', 'a2'])); await two.put('content/species/zzz/entity.json', ent(['z1'])); two.git('add', '.'); two.git('commit', '-qm', 'the same removal elsewhere')
+  two.git('checkout', '-q', 'main'); two.git('merge', '-q', '--no-edit', 'side')
+  expect.soft(await gitHistory(two.r)(url('g-dead'), today)).toEqual([{ file: 'content/species/aaa/entity.json', index: 1, photo: photo('g-dead'), times: 1 }])
+
+  // Off aaa at the mark, then off bbb in the merge that brought a branch in.
+  const three = await repo('aq-put-back-merge-')
+  await three.put('content/species/aaa/entity.json', ent(['a1', 'g-dead'])); await three.put('content/species/bbb/entity.json', ent(['b1', 'g-dead'])); await three.put(SL, {})
+  three.git('add', '.'); three.git('commit', '-qm', 'pages')
+  await three.put('content/species/aaa/entity.json', ent(['a1'])); await three.put(SL, marked()); three.git('commit', '-qam', 'off at its first verdict')
+  three.git('checkout', '-q', '-b', 'side')
+  await three.put('content/species/zzz/entity.json', ent(['z1'])); three.git('add', '.'); three.git('commit', '-qm', 'a page elsewhere')
+  three.git('checkout', '-q', 'main'); three.git('merge', '-q', '--no-ff', '--no-commit', 'side')
+  await three.put('content/species/bbb/entity.json', ent(['b1'])); three.git('add', '.'); three.git('commit', '-qm', 'merge, off bbb')
+  expect.soft(sorted(await gitHistory(three.r)(url('g-dead'), today))).toEqual([
+    { file: 'content/species/aaa/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
+    { file: 'content/species/bbb/entity.json', index: 1, photo: photo('g-dead'), times: 1 },
+  ])
+
+  // Its page renamed in the commit that took it off: the old file is the place it left (the put-back reports it gone).
+  const four = await repo('aq-put-back-rename-')
+  await four.put('content/species/aaa/entity.json', ent(['a1', 'a2', 'a3', 'g-dead'])); await four.put(SL, {})
+  four.git('add', '.'); four.git('commit', '-qm', 'pages')
+  four.git('mv', 'content/species/aaa', 'content/species/aab')
+  await four.put('content/species/aab/entity.json', ent(['a1', 'a2', 'a3'])); await four.put(SL, marked()); four.git('add', '.'); four.git('commit', '-qm', 'renamed, and off at its first verdict')
+  expect.soft(await gitHistory(four.r)(url('g-dead'), today)).toEqual([{ file: 'content/species/aaa/entity.json', index: 3, photo: photo('g-dead'), times: 1 }])
 })
