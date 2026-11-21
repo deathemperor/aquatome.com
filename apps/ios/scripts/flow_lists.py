@@ -239,7 +239,8 @@ REACH = {
     APP + 'Telemetry/TelemetrySwitch.swift': ACCOUNT_SHEET,
     APP + 'Lights/': ['LightFlowTests', CONNECT_SENT],
     # The Love Ecology light's card sends through the broadcaster it shares with the master button.
-    APP + 'Lights/LoveEcology.swift': ['LightFlowTests', CONNECT_SENT] + MASTER_LAMP,
+    APP + 'Lights/LoveEcology.swift': ['LightFlowTests', CONNECT_SENT] + MASTER_LAMP + [
+                                       'LanguageFlowTests/testTheLampsColourOnAirEndsAtItsTimeAcrossASwitch'],
     # The light's card, which the page shots also take (with its outlet's warning), for a change's before and after.
     APP + 'Lights/LightsView.swift': ['LightFlowTests', CONNECT_SENT] + shots('light') + [
                                       'AccountFlowTests/testTheAccountIsInTheProfileSheetFromEveryTab'],
@@ -373,7 +374,8 @@ def check(runs, left, reached, ran):
                   ['apps/ios/scripts/a-new-script.sh', 'apps/ios/design/at-1024.png']):
         assert runs(paths) == [] and left(paths) == '', paths
     assert reached([KIT + 'Sources/FishLamp/love-ecology.json']) == set(LOVE_ECOLOGY)
-    assert reached([APP + 'Lights/LoveEcology.swift']) == {'LightFlowTests', CONNECT_SENT, *MASTER_LAMP}
+    assert reached([APP + 'Lights/LoveEcology.swift']) == {'LightFlowTests', CONNECT_SENT, *MASTER_LAMP,
+                                                           'LanguageFlowTests/testTheLampsColourOnAirEndsAtItsTimeAcrossASwitch'}
     # What it leaves to main: the classes of the flows it reaches that it doesn't run.
     assert left([APP + 'Handbook/HomeList.swift']) == ' '.join(sorted(set(HANDBOOK_FLOWS + ['TankVolumeFlowTests', 'ViAtRootFlowTests'])))
     assert left([APP + 'Lights/Radio.swift']) == 'LightFlowTests TelemetryFlowTests'

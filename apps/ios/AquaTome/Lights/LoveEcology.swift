@@ -770,7 +770,8 @@ struct LoveEcologyCard: View {
   @ScaledMetric(relativeTo: .caption) private var dot: CGFloat = 32
   /// Five swatches a row at the default size and four from XL, so no name wraps below the accessibility sizes.
   @ScaledMetric(relativeTo: .caption) private var cell: CGFloat = 66
-  @State private var lamp = LoveEcologyModel()
+  /// The app's (AquaTomeApp), above what a language picked draws again: one on air ends at its time across a switch.
+  @Environment(LoveEcologyModel.self) private var lamp
   @State private var wheel = false
 
   /// The owner's account alone.

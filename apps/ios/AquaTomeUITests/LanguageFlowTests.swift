@@ -180,6 +180,30 @@ final class LanguageFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "frames").label, sent, "the switch back sent the light something")
   }
 
+  /// The Love Ecology light's colour on air (40 s here, `-lamp-on-air`) as a language is picked: it ends at its time, as
+  /// without the switch. The card's sends were drawn again with the tabs, and the one on air was left broadcasting with
+  /// nothing to end it.
+  func testTheLampsColourOnAirEndsAtItsTimeAcrossASwitch() {
+    let onAir: TimeInterval = 40
+    let app = launch(.v2, "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple", "-lamp-on-air", "\(Int(onAir))")
+    app.openAccount()
+    app.signInWithStandInApple()
+    app.openTab("Đèn")
+    tap(app, "lamp-red")
+    let red = Date()
+    XCTAssertTrue(waitFor { self.element(app, "lamp-starts").label == "1" }, "red never went on air")
+    app.openAccount()
+    pickInSheet(app, "ภาษาไทย")
+    XCTAssertTrue(app.navigationBars[Self.th.sheet].waitForExistence(timeout: 5), "the sheet isn't in Thai")
+    let picked = Date().timeIntervalSince(red)
+    XCTAssertLessThan(picked, onAir, "Thai picked \(Int(picked)) s after red went on air, past its \(Int(onAir)) s: this proves nothing")
+    app.closeAccount()
+    XCTAssertEqual(element(app, "lamp-stops").label, "0", "red stopped at the switch, before its time")
+    // Past red's time on air: stopped once, then.
+    _ = XCTWaiter.wait(for: [XCTestExpectation(description: "red's time passes")], timeout: max(0, onAir + 5 - Date().timeIntervalSince(red)))
+    XCTAssertEqual(element(app, "lamp-stops").label, "1", "red still on air past its time, after the switch")
+  }
+
   /// The sheet and a tab's first screen in each language at the largest text, Thai and Malay among them: shots kept with
   /// the run (`language-<code>-sheet`, `language-<code>-tab`).
   func testEachLanguageAtTheLargestText() {

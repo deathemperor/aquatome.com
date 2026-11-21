@@ -15,6 +15,9 @@ struct AquaTomeApp: App {
   @State private var telemetry: TelemetryModel
   /// Whether the chat is on (its entries), and the conversation kept.
   @State private var chat = ChatStore()
+  /// The Love Ecology light's card's sends (LoveEcologyCard), here above the tabs a language picked draws again (`.id`):
+  /// the card's own, drawn again with them, left a broadcast on air with nothing to end it.
+  @State private var loveEcology = LoveEcologyModel()
   @State private var tab = Tab.handbook
   /// v2's tab in front (V2Root), kept here so a language picked while the app runs leaves it in front.
   @State private var v2Tab = V2Tab.today
@@ -142,6 +145,7 @@ struct AquaTomeApp: App {
       .environment(account)
       .environment(plugs)
       .environment(master)
+      .environment(loveEcology)
       .environment(telemetry)
       .environment(chat)
       .environment(language)
