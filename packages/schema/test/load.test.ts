@@ -2,8 +2,8 @@ import { copyFile, cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promi
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
-import { cardShownIn, loadAll, type Section, type Translation } from '../src/index'
+import { expect, test, vi } from 'vitest'
+import { cardShownIn, loadAll, UNREAD_FACES_LIMIT, type Section, type Translation } from '../src/index'
 import { oneVoice, withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
@@ -294,6 +294,77 @@ test("a public build shows no new photo the dead-fish screen still owes a look: 
   // Off the list (a faces step found it judged by the screen or the check): each shows by itself in the next build.
   await writeFile(owedFile, '{}')
   expect(await shown(true)).toEqual({ own: ['commons/judged', 'commons/owed'], album: ['commons/album-owed', 'commons/album'] })
+})
+
+test("a public build shows no own photo of a species, plant or guide page the face finder has never read: it waits there, in an album and by address, shows once read, and the site's build counts them and fails past the limit", async () => {
+  const { mkdir } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-unread-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const write = (file: string, x: unknown) => writeFile(join(store, file), JSON.stringify(x))
+  const alphaFile = join(store, 'species', 'alpha', 'entity.json')
+  const alpha = JSON.parse(await readFile(alphaFile, 'utf8'))
+  const alphaVi = JSON.parse(await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread')] })
+  await mkdir(join(store, 'gallery'))
+  // An album's own photos aren't the face finder's (they wait for the photo check): only a page's own copy makes one wait.
+  await write('gallery/alpha.json', { id: 'alpha', seen: 2, updatedAt: '2026-11-21', photos: [photo('fish-unread'), photo('album')] })
+  for (const [kind, id, e] of [
+    ['plants', 'moss', { id: 'moss', scientificName: 'Mossus testus', difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['foreground'], sections: alpha.sections, photos: [photo('plant-unread')], productSlots: [], updatedAt: '2026-11-21' }],
+    ['guides', 'g', { id: 'g', kind: 'care', source: alpha.sections[0].source, sourceUrl: 'https://x/g', html: '<p>x</p>', photos: [photo('guide-read'), photo('guide-unread')], mentions: [], updatedAt: '2026-11-21' }],
+    // The face finder doesn't read a breed's photos: they don't wait for it.
+    ['breeds', 'b', { id: 'b', kind: 'hybrid', parents: [], care: {}, photos: [photo('breed')], sources: [], updatedAt: '2026-11-21' }],
+  ] as const) {
+    await mkdir(join(store, kind, id), { recursive: true })
+    await write(`${kind}/${id}/entity.json`, e)
+    await write(`${kind}/${id}/vi.json`, { ...alphaVi, slug: `trang-${id}` })
+  }
+  // The watermark screen has read every one, with no text: only the face finder's record holds them. A record of no
+  // face is a read.
+  const all = ['fish-read', 'fish-unread', 'album', 'plant-unread', 'guide-read', 'guide-unread', 'breed']
+  await mkdir(join(site, 'engine-state'))
+  await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries(all.map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+  const facesFile = join(site, 'engine-state', '_photo-faces.json')
+  await writeFile(facesFile, JSON.stringify({ 'https://media.test/fish-read.webp': 0, 'https://media.test/guide-read.webp': 0 }))
+  const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+  const shown = async (publicBuild: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild })
+    const own = (xs: { id: string; photos: { url: string }[] }[], id: string) => xs.find(x => x.id === id)!.photos.map(p => short(p.url))
+    return { fish: own(c.species, 'alpha'), album: (c.galleries.alpha ?? []).map(p => short(p.url)), plant: own(c.plants, 'moss'), guide: own(c.guides, 'g'), breed: own(c.breeds, 'b') }
+  }
+  expect(await shown(true)).toEqual({ fish: ['fish-read'], album: ['album'], plant: [], guide: ['guide-read'], breed: ['breed'] })
+  // The engine's own reads see every photo.
+  expect(await shown(false)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
+  // By address too (the calendar), a thumb's and a larger copy's.
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  expect(['fish-unread', 'fish-unread-480', 'fish-unread-large', 'fish-read', 'breed'].filter(n => c.photoWaits!(`https://media.test/${n}.webp`)))
+    .toEqual(['fish-unread', 'fish-unread-480', 'fish-unread-large'])
+  // The site's build (the real content) says how many wait.
+  const said = vi.spyOn(console, 'log').mockImplementation(() => {})
+  try {
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+    expect(said.mock.calls.map(a => String(a[0])).filter(l => l.includes('face finder'))).toEqual(['vi: 3 own photos of species, plant and guide pages wait, the face finder has never read them'])
+    // Past the limit it is a lost or damaged record: the site's build fails. An engine step's public read still hides them.
+    const many = Array.from({ length: UNREAD_FACES_LIMIT - 2 }, (_, i) => photo(`many-${i}`))
+    await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread'), ...many] })
+    await writeFile(join(site, 'engine-state', '_photo-watermarks.json'), JSON.stringify(Object.fromEntries([...all, ...many.map(p => short(p.url))].map(n => [`https://media.test/${n}.webp`, { ocr: [] }]))))
+    await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(`vi: ${UNREAD_FACES_LIMIT + 1} own photos of species, plant and guide pages the face finder has never read`)
+    expect((await shown(true)).fish).toEqual(['fish-read'])
+    // At the limit it builds.
+    await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread'), ...many.slice(1)] })
+    await loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })
+  } finally {
+    said.mockRestore()
+  }
+  // Read (a faces step has run): each shows by itself in the next build.
+  await write('species/alpha/entity.json', { ...alpha, photos: [photo('fish-read'), photo('fish-unread')] })
+  await writeFile(facesFile, JSON.stringify(Object.fromEntries(['fish-read', 'fish-unread', 'plant-unread', 'guide-read', 'guide-unread'].map(n => [`https://media.test/${n}.webp`, n === 'fish-unread' ? 2 : 0]))))
+  expect(await shown(true)).toEqual({ fish: ['fish-read', 'fish-unread'], album: ['fish-unread', 'album'], plant: ['plant-unread'], guide: ['guide-read', 'guide-unread'], breed: ['breed'] })
+  // With no record beside the real content, the site's build fails: it can't tell a read photo from one never read.
+  const { rm } = await import('node:fs/promises')
+  await rm(facesFile)
+  await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow("the face finder's record is missing")
 })
 
 test('a public build shows no photo the watermark screen still owes a look: it waits, and shows by itself once judged', async () => {

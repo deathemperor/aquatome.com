@@ -51,3 +51,17 @@ export const awaitsScreen = (url: string, entry: PhotoScreenEntry | undefined): 
  * off the list. The chief of staff told the owner the screen sees every new photo before it can show (21 Nov 2026).
  */
 export const DEAD_OWED_FILE = '_photo-dead-owed.json'
+
+/**
+ * The face finder's record, in engine-state (address → faces found): every own photo of a species, plant or guide page
+ * it has read (the engine's faces.ts `dropFacePhotos`). A public build shows no such photo it hasn't read, whatever put it
+ * there: a faces step that failed, a job with no faces step, a step after it, a hand run, the image step (load.ts; the
+ * chief of staff, 21 Nov 2026). It shows by itself once a faces step reads it. A breed's photos aren't the face finder's.
+ */
+export const FACES_FILE = '_photo-faces.json'
+/**
+ * More own photos than this that the face finder hasn't read is a lost or damaged record, not a run's new photos: the
+ * site's build fails rather than publish its pages without them. A normal run leaves 0 to 2 (main, 19 to 21 Nov); a
+ * pages run whose faces step failed, 128 to 138; a lost record, about 7,100.
+ */
+export const UNREAD_FACES_LIMIT = 50
