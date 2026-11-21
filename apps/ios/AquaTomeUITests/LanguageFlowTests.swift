@@ -223,7 +223,8 @@ final class LanguageFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "notice").label, trial, "not the trial colour's notice after the switch")
 
     tap(app, "try")
-    XCTAssertTrue(waitFor { !element(app, "try").isSelected }, "the trial didn't end")
+    // Its notice changed too: set as the light's write ends, when "Bật với màu của lịch" takes a tap again (Fable, 21 Nov).
+    XCTAssertTrue(waitFor { !element(app, "try").isSelected && element(app, "notice").label != trial }, "the trial didn't end")
     tap(app, "quick-as-scheduled")
     let confirm2 = app.alerts.buttons["Bật với màu của lịch"]
     XCTAssertTrue(confirm2.waitForExistence(timeout: 5), "no confirmation of today's colour")
