@@ -26,14 +26,15 @@ const shown = Astro.props.shown ?? photos.slice(0, GALLERY_STRIP)
 // "Xem tất cả": a button opening the viewer on the first photo, with no arrow (it said "to another page"), and none when
 // the strip shows every photo (the Design Lead, 18 Nov; lib/gallery.ts seeAll).
 const { all, phone, fit } = seeAll(photos.length, shown, more, !!column)
-// A short strip outside the photo column can reuse the same thumbnail row while keeping its heading visible.
+// A strip outside the photo column is the same thumbnail row on a phone, its heading kept (the strip's reader, 20 Nov:
+// in a grid of three a phone showed six of eight thumbnails and hid the rest).
 const count = shown.filter(Boolean).length
-const short = !column && count <= 6
-const measure = (column || short) && (all || count > 1)
+const row = !column
+const measure = (column || row) && (all || count > 1)
 const see = t('Xem tất cả {n} ảnh', { n: photos.length })
 const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đã chỉnh sửa'), photos: albumPhotos(photos) })
 ---
-<section class:list={count ? ['strip', column ? 'column' : 'wrap', short && 'short'] : []} hidden={!count} aria-labelledby={count ? 'gal-h' : undefined} data-album data-fit={fit ?? (measure ? shown.flatMap((p, i) => p ? [] : [i]).join(' ') : undefined)}>
+<section class:list={count ? ['strip', column ? 'column' : 'wrap', row && 'row'] : []} hidden={!count} aria-labelledby={count ? 'gal-h' : undefined} data-album data-fit={fit ?? (measure ? shown.flatMap((p, i) => p ? [] : [i]).join(' ') : undefined)}>
   {count > 0 && <>
   <div class="head"><h2 id="gal-h">{t('Ảnh {name}', { name })}</h2>{(all || measure) && <button type="button" class:list={['see', phone && 'phone']} data-all data-fits={!all ? '' : undefined} aria-haspopup="dialog">{see}</button>}</div>
   <ul style={column ? `--rows: ${Math.ceil(count / 4)}` : undefined}>
@@ -93,7 +94,6 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
     .column li { align-self: end; }
     .column .more { display: block; }
   }
-  @media (max-width: 640px) { .wrap ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } .wrap li:nth-child(n + 7) { display: none; } }
   /* The fish page's row on a phone: thumbnails 4.5rem high, cut at the screen's edge so it shows they go on, and the
      gallery's link at the row's end, never taller than they are (contain: size), its longest words (Malay's "Lihat
      kesemua 145 foto →") in four lines at most. Its heading is for screen readers. */
@@ -101,13 +101,13 @@ const data = albumJson({ name, ai: t('Ảnh do AI tạo'), altered: t('Ảnh đ�
     .column { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2); padding-top: var(--space-2); }
     .column .head { position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
     .column .see { display: none; }
-    .column ul, .short ul {
+    .column ul, .row ul {
       grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 6rem;
       overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none;
     }
-    .column ul::-webkit-scrollbar, .short ul::-webkit-scrollbar { display: none; }
-    .column li, .short li { scroll-snap-align: start; }
-    .column li a, .short li a { height: 4.5rem; }
+    .column ul::-webkit-scrollbar, .row ul::-webkit-scrollbar { display: none; }
+    .column li, .row li { scroll-snap-align: start; }
+    .column li a, .row li a { height: 4.5rem; }
     .column .all { display: flex; align-items: center; justify-content: center; width: 5.5rem; contain: size; padding: 0 var(--space-2); border: 1px solid var(--c-rule); font-size: 0.8rem; line-height: 1.2; text-align: center; text-wrap: balance; }
   }
 </style>

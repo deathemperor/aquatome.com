@@ -661,6 +661,26 @@ test('a short album adds one thumbnail beside the lead and opens it over the pag
   await expect(page.locator('dialog.lb').getByRole('status')).toHaveText('2/2')
 })
 
+// The photo strip's reader, 20 Nov 2026: a plant's strip on a phone was a grid of three that hid its thumbnails past the
+// sixth. Every strip outside the fish page's photo column is now the column's sideways row: each thumbnail it carries in
+// one row that swipes, none hidden.
+test('a plant\'s strip on a phone 360 px wide: every thumbnail in one sideways row, none hidden', async ({ page, request, isMobile }) => {
+  test.skip(!isMobile, 'a phone\'s row')
+  const found = await albumPage(request, 'cay', (_, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) >= 7)
+  test.skip(!found, 'no plant whose strip carries seven thumbnails or more in this build')
+  await page.setViewportSize({ width: 360, height: 800 })
+  await page.goto(found!.path)
+  const thumbs = page.locator('section.strip li:has(a[data-i])')
+  const n = await thumbs.count()
+  expect(n).toBeGreaterThanOrEqual(7)
+  const boxes = await thumbs.evaluateAll(els => els.map(el => ({ shown: getComputedStyle(el).display !== 'none', top: (el as HTMLElement).offsetTop })))
+  expect(boxes.filter(b => !b.shown), 'hidden thumbnails').toEqual([])
+  expect(new Set(boxes.map(b => b.top)).size, 'rows').toBe(1)
+  const ul = page.locator('section.strip ul')
+  expect(await ul.evaluate(el => el.scrollWidth > el.clientWidth), 'swipes sideways').toBe(true)
+  expect(await sideways(page), 'the page itself scrolls sideways').toBeNull()
+})
+
 test('a lead-only album has no strip', async ({ page }) => {
   test.skip(LIVE, 'uses the lead-only fixture')
   await page.goto('/ca/ca-boraras-do/')
