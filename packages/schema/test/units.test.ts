@@ -140,6 +140,9 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(id('Pipa PVC panjang 2 inci.')).toBe('Pipa PVC panjang 5 cm.')
   expect(th('ท่อ PVC ยาว 1–2 นิ้ว')).toBe('ท่อ PVC ยาว 2.5–5 ซม.')
   expect(th('ท่อ PVC ยาว 2 นิ้ว')).toBe('ท่อ PVC ยาว 5 ซม.')
+  // Only a pipe's length and cut: "high" names a pressure rating as often (the re-check, 21 Nov).
+  expect(id('Pipa PVC bertekanan tinggi ¾ inci')).toBe('Pipa PVC bertekanan tinggi 27 mm')
+  expect(th('ท่อ PVC แรงดันสูง ¾ นิ้ว')).toBe('ท่อ PVC แรงดันสูง 27 มม.')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })
