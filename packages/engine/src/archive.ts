@@ -147,8 +147,9 @@ export class ArchiveFetcher {
       }
       if (REDIRECTS.has(r.status)) {
         const to = r.headers.get('location')
-        // A redirect to nowhere is no answer of the page's: no copy, and the rest stands (Codex, 21 Nov 2026).
-        if (!to) throw new Error(`no archived copy (HTTP ${r.status} to no address)`)
+        // A redirect to nowhere is no answer, and the rest stands (Codex, 21 Nov 2026): on a page's copy, no copy of it; from
+        // the index, the index not answering, as any of its failures but a 4xx (get).
+        if (!to) throw new Error(copyPage(at) ? `no archived copy (HTTP ${r.status} to no address)` : `HTTP ${r.status} to no address from ${new URL(at).host}`)
         const next = new URL(to, at)
         if (next.hostname !== new URL(WAYBACK).hostname) throw new Error(`no archived copy (the archive points off itself, to ${next.hostname})`)
         if (++hops > MAX_HOPS) throw new Error(`no archived copy (more than ${MAX_HOPS} redirects)`)

@@ -827,13 +827,31 @@ test("an address that repeats the post is no source, an escape in it that isn't 
   const root = await waiting([magazineIdea('Nước bể cá bị đục')])
   const naming: Llm = async <T>() => {
     const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' })),
-      { url: 'https://d.example/Placeholder%20text%20about%20cloudy%20water%20and%20bacterial%20blooms?x=%ZZ', title: 'D', kind: 'vet' }]
-    const facts = [{ section: 'causes', fact: 'A bloom clears in days.', source: 0 }, ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i })), { section: 'prevention', fact: 'D fact.', source: 4 }]
+      { url: 'https://d.example/Placeholder%20text%20about%20cloudy%20water%20and%20bacterial%20blooms?x=%ZZ', title: 'D', kind: 'vet' },
+      { url: 'https://f.example/Placeholder%2520text%2520about%2520cloudy%2520water%2520and%2520bacterial%2520blooms', title: 'F', kind: 'vet' }]
+    const facts = [{ section: 'causes', fact: 'A bloom clears in days.', source: 0 }, ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i })), { section: 'prevention', fact: 'D fact.', source: 4 }, { section: 'prevention', fact: 'F fact.', source: 5 }]
     return { found: true, facts, species: [], sources } as T
   }
   await write(root, naming, (await archive(article())).reader)
   const facts = JSON.parse(await readFile(join(root, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts
   expect(facts.sources[4]).toMatchObject({ url: '' })
+  // Escaped twice ("%2520"): undone until none is left.
+  expect(facts.sources[5]).toMatchObject({ url: '' })
+  expect(quoted(await files(root))).toEqual([])
+})
+
+// Words between angle brackets, or in a tag's attribute, were read as a tag and so as nothing, and the file kept them.
+test("the post's words between angle brackets or in a tag's attribute are found: a fact holding them is dropped", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const bracketing: Llm = async <T>() => {
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' }))]
+    const facts = [{ section: 'causes', fact: 'A level < Placeholder text about cloudy water and bacterial blooms > another.', source: 0 }, { section: 'causes', fact: '<p title="Placeholder text about cloudy water and bacterial blooms">A bloom clears.</p>', source: 0 },
+      { section: 'causes', fact: 'A bloom clears in days.', source: 0 }, ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i }))]
+    return { found: true, facts, species: [], sources } as T
+  }
+  await write(root, bracketing, (await archive(article())).reader)
+  const facts = JSON.parse(await readFile(join(root, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts
+  expect(facts.facts.map(f => f.fact)).toEqual(['A bloom clears in days.', 'Other fact 1.', 'Other fact 2.', 'Other fact 3.'])
   expect(quoted(await files(root))).toEqual([])
 })
 

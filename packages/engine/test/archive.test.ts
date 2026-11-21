@@ -4,7 +4,7 @@ import type { AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test, vi } from 'vitest'
-import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot, MAX_HOPS } from '../src/archive'
+import { ARCHIVE_POLITE, ARCHIVE_REST_MAX_MS, ARCHIVE_REST_MS, ArchiveFetcher, ArchiveRefused, AsksSpent, errorGot, MAX_HOPS, noCopy } from '../src/archive'
 import { discover } from '../src/discover'
 import { sourceById } from '../src/sources'
 
@@ -329,6 +329,15 @@ test('after the wait, a redirect to no address is no copy and ends nothing: the 
   expect(JSON.parse(readFileSync(file, 'utf8'))).toMatchObject({ waitMs: ARCHIVE_REST_MS })
   t.answer = () => capture(429, '')
   await expect(make().get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MAX_MS).toISOString()))
+})
+
+// From the index, a redirect to no address is the index not answering, as its other failures but a 4xx: past a browser
+// check it stops the search, never "no copy".
+test('past a browser check, the index redirecting to no address stops the search: not "no copy"', async () => {
+  const f = new ArchiveFetcher({ restFile: restFile(), fetch: async u => (u.includes('/cdx/') ? capture(302, '') : capture(200, '<html><head><title>Just a moment...</title></head><body></body></html>')), now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test' })
+  const e = await f.get(article).then(() => undefined, (x: unknown) => x as Error)
+  expect(e?.message).toMatch(/302/)
+  expect(noCopy(e)).toBe(false)
 })
 
 test("a 403 on a second page's copy in the same run is the reader shut out: a refusal, said in the log with both pages", async () => {
