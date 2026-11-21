@@ -11,7 +11,8 @@
     "parana",
     "paraguay",
     "argentina",
-    "uruguay"
+    "uruguay",
+    "la-plata"
   ],
   "range": {
     "native": {
@@ -460,6 +461,10 @@
       {
         "source": "seriouslyfish",
         "value": 6
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -483,10 +488,28 @@
       "html": "<p>The Buenos Aires tetra, Psalidodon anisitsi, is a characid from the Paraná and Uruguay river systems in Brazil, Paraguay, Argentina and Uruguay. A popular and hardy aquarium fish, it is also available as a line-bred albino strain, sometimes traded as 'golden'. It has a reputation for fin-nipping, though mostly when too few are kept or space is limited, and a group of at least 8-10 is the minimum. It is still often sold as Hyphessobrycon anisitsi.</p><p>This species is not strictly a tropical fish despite usually being sold as such.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "html": "<p>One of the oldest aquarium fishes is the Buenos Aires tetra, of which the correct scientific name was only recently determined: Psalidodon anisitsi. To most aquarists, however, the species is probably still known as Hemigrammus caudovittatus (or Hyphessobrycon anisitsi), and it is under this name that it is found in most aquarium books.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "html": "<p>It is almost never imported from South America, all animals in the trade are captive-bred offspring. Also an albino breeding form of the Buenos Aires tetra has been created and enjoys a certain popularity among albino fans.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/psalidodon-anisitsi",
       "html": "<p>Widely-distributed throughout much of the Paraná river system in Brazil, Paraguay, and Argentina, plus the Uruguay watershed in Uruguay and Brazil.</p><p>Type locality is given simply as 'Villa Rica, Paraguay', this referring to the city of Villarrica in Guairá Department, central Paraguay, with some of the type series also deriving from Estancia la Armonia in President Hayes Department.</p><p>Some records from Buenos Aires province, Argentina are now considered to refer to the similar-looking congener H. togoi (Miquelarena and López, 2006) so the common vernacular name 'Buenos Aires tetra' may in fact be somewhat misleading.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "html": "<p>Since its first importation in 1922 from a tributary of the La Plata River (Argentina/Uruguay) this fish, up to 7 cm long, has not disappeared from the hobby.</p>"
     },
     {
       "key": "habitat",
@@ -507,6 +530,12 @@
       "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a well-structured, ideally planted, set-up.</p><p>Filtration does not need to be particularly strong though it does seem to appreciate a degree of water movement.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "html": "<p>It is quite fond of aquatic plants, which is not appreciated by most aquarists. But its beauty and unpretentiousness – especially with regard to the water temperature, which can drop to 14°C, which used to be an important criterion – let it find new friends again and again.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/psalidodon-anisitsi",
@@ -519,10 +548,22 @@
       "html": "<p>Probably a foraging omnivore feeding primarily on worms, insects and other zooplankton, as well as smaller amounts of plant material and organic detritus in nature.</p><p>In the aquarium it is easily-fed but the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "html": "<p>Supplemental feeding of plant-based flake food can at least somewhat curb the cravings for aquatic plants.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/psalidodon-anisitsi",
       "html": "<p>Has a reputation for nipping the fins of tankmates though this behaviour only tends to be pronounced when insufficient numbers are purchased or space is limited.</p><p>It is a gregarious species forming loose hierarchies, with rival males continually battling with each other for female attention and positioning within the group.</p><p>A group of at least 8-10 specimens should be considered the minimum requirement since this increases the likelihood that the fish will be distracted by each other rather than their tankmates but will result in a more effective, natural-looking display. Males will also show better colouration in the presence of conspecific rivals.</p><p>That said it is relatively boisterous and does not make an ideal companion for very shy, slow-moving, or long-finned fishes such as many livebearers, cichlids, and anabantoids.</p><p>Robust fishes inhabiting similar biotopes in nature, especially comparably-sized, open water-dwelling characids perhaps constitute the best choices but other potential options include callichthyid, loricariid and doradid catfishes or benthic anostomids and curimatids from genera such as Schizothorax and Characidium.</p><p>If geography is not an issue many rainbowfishes and cyprinids are also suitable, but be sure to research your choices thoroughly before purchase.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "html": "<p>It is important to keep this fish in a group (from 10 specimens upwards) in aquariums as large as possible with plenty of free swimming space, then it comes into its own best. The robust species can be kept very well as a by-fish to cichlids of this region (Gymnogeophagus, Geophagus of the brasiliensis group and Australoheros).</p>"
     },
     {
       "key": "dimorphism",
@@ -582,9 +623,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/psalidodon-anisitsi",
       "caption": "Specimen from the Singapore aquarium trade with slight damage to lower caudal-fin lobe.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/53bfa55cd4291092.webp",
+      "thumb": "https://media.aquatome.com/glaser/53bfa55cd4291092-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f274937c52a57e47.webp",
+      "thumb": "https://media.aquatome.com/glaser/f274937c52a57e47-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0b54bef9f9edaafc.webp",
+      "thumb": "https://media.aquatome.com/glaser/0b54bef9f9edaafc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/psalidodon-anisitsi-hyphessobrycon-a-hemigrammus-caudovittatus-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "GisYyvoyXhw",
+      "title": "Hyphessobrycon anisitsi (Buenos aires tetra) Blacwater Aquarium",
+      "durationSec": 66,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2Ge2L4oDhr0",
+      "title": "Hyphessobrycon anisitsi, tetra de Buenos Aires",
+      "durationSec": 72,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "FoR5YtrkOnU",
+      "title": "Albino Buenos Aires Tetra: Tips & Tricks (Hyphessobrycon anisitsi)",
+      "durationSec": 319,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "8I-lmj2quSM",
+      "title": "Buenos Aires Tetras",
+      "durationSec": 152,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -608,5 +704,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-21"
 }

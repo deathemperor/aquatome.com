@@ -7,7 +7,8 @@
   "group": "cichlids",
   "places": [
     "africa",
-    "democratic-republic-of-the-congo"
+    "democratic-republic-of-the-congo",
+    "congo"
   ],
   "range": {
     "native": {
@@ -111,6 +112,10 @@
       {
         "source": "seriouslyfish",
         "value": 8.5
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -134,10 +139,22 @@
       "html": "<p>Pseudocrenilabrus nicholsi is a small mouth-brooding cichlid from the Democratic Republic of Congo, found in ponds, creeks and drainage ditches. Rarely seen in the hobby, it is a pugnacious little fish, and males are very aggressive towards one another, so a single male is best kept with several females. Some males develop long extensions to the ventral fins.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pseudocrenilabrus-nicholsi-2/",
+      "html": "<p>This dwarf mouth-breeder comes from the middle and upper Congo. The maximum length is about 7 cm, but this size is reached rather rarely.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudocrenilabrus-nicholsi",
       "html": "<p>Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pseudocrenilabrus-nicholsi-2/",
+      "html": "<p>Middle and upper Congo.</p>"
     },
     {
       "key": "habitat",
@@ -182,6 +199,12 @@
       "html": "<p>Male fish are slightly larger and far more colourful than females.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pseudocrenilabrus-nicholsi-2/",
+      "html": "<p>The males are beautiful, the females are rather plain colored. The photographed, sexually mature animals are 3-4 cm long.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudocrenilabrus-nicholsi",
@@ -197,16 +220,71 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/085f8fbab2fec0dc.webp",
+      "thumb": "https://media.aquatome.com/commons/085f8fbab2fec0dc-480.webp",
       "width": 960,
       "height": 721,
       "licence": "CC BY-SA 3.0",
       "author": "Dave Hallam",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudocrenilabrus_nicholsi_female.JPG",
-      "caption": "Female Pseuducrenliabrus nicholsi, mouthbrooding eggs.",
-      "thumb": "https://media.aquatome.com/commons/085f8fbab2fec0dc-480.webp"
+      "caption": "Female Pseuducrenliabrus nicholsi, mouthbrooding eggs."
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/a9efab0b3d02dadf.webp",
+      "thumb": "https://media.aquatome.com/glaser/a9efab0b3d02dadf-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pseudocrenilabrus-nicholsi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/2543ed36e300a3e2.webp",
+      "thumb": "https://media.aquatome.com/glaser/2543ed36e300a3e2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pseudocrenilabrus-nicholsi-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/0266abafcf8dae6f.webp",
+      "thumb": "https://media.aquatome.com/glaser/0266abafcf8dae6f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/pseudocrenilabrus-nicholsi-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "engy1PLnN-k",
+      "title": "Pseudocrenilabrus nicholsi in a Planted Tank",
+      "durationSec": 31,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "NvPQGt_qPjQ",
+      "title": "Pseudocrenilabrus nicholsi (Katwe Soma) breeding in the aquarium!",
+      "durationSec": 139,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "02IU3VUnQTA",
+      "title": "Psedocrenilabrus Nicolasi Care Guide",
+      "durationSec": 386,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AIaz4g1O9ag",
+      "title": "Biotop Pseudocrenilabrus nicholsi",
+      "durationSec": 30,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -236,5 +314,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

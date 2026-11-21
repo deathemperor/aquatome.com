@@ -1,0 +1,27 @@
+{
+  "slug": "ca-da-tron-gai-lithodoras",
+  "name": "Cá da trơn gai Lithodoras",
+  "altNames": [
+    "Cá da trơn Lithodoras",
+    "Thorny catfish"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Chi Lithodoras thuộc họ cá da trơn gai (Doradidae). Chi này mới có một loài được mô tả khoa học là L. dorsalis, sống ở lưu vực Amazon, Nam Mỹ. Ngoài ra còn có báo cáo gặp loài này ở một con suối gần Cayenne (Guiana thuộc Pháp), nhưng chuyện này vẫn chưa được xác nhận. L. dorsalis dài tối đa khoảng 100 cm, thuộc hàng lớn nhất trong cả họ cá da trơn gai.</p>",
+    "dimorphism:glaser": "<p>Hai con trong ảnh có gai vây lưng khác dáng nhau, nên có thể chúng bị bắt đúng lúc đang di cư đi đẻ. Con có vẻ là con đực mang gai vây lưng trông giống gai vây lưng của cá da trơn Ageneiosus và các loài gần nó lúc con đực vào mùa sinh sản. Nhưng những dấu hiệu kiểu này vốn chỉ là phỏng đoán.</p>",
+    "diet:glaser": "<p>Thức ăn chính là cám khô dạng hạt, chúng ăn rất hăng. Thỉnh thoảng cho thêm trùn chỉ (Tubifex).</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-21"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "id": "pseudolithoxus-kelsorum",
+  "scientificName": "Pseudolithoxus kelsorum",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudolithoxus",
+  "group": "catfish",
+  "lNumber": "L189",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>This interesting catfish from Venezuela is offered only very rarely. With a maximum length of 10 cm (only very rarely do some specimens reach this size; the normal size is 6-7 cm) the species remains relatively small.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>It lives in the tributaries of the middle Orinoco in Venezuela.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>The flat body structure indicates that this species is adapted to stronger water currents. They should be offered temperatures in the range of 26-30°C, whereby one must pay attention to good oxygen saturation.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>They are typical Aufwuchs feeders.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>Pseudolithoxus species are all quite flat, but P. kelsorum especially. Besides the flat shape and appealing pattern, L189 has another characteristic that makes it particularly suitable for the aquarium: it is also very active during the day and by far not as addicted to hiding as many other L-catfish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>The sex differences are well pronounced at 5-6 cm length; the males can be recognized by the strong bristling (see photos).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "html": "<p>No successful breeding of this species has been reported yet, but this is surely only due to the rare imports.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/5218015b00a043bc.webp",
+      "thumb": "https://media.aquatome.com/glaser/5218015b00a043bc-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4dd13703d7349d6b.webp",
+      "thumb": "https://media.aquatome.com/glaser/4dd13703d7349d6b-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/1e0292ae9065f200.webp",
+      "thumb": "https://media.aquatome.com/glaser/1e0292ae9065f200-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e52607f1c25e71ce.webp",
+      "thumb": "https://media.aquatome.com/glaser/e52607f1c25e71ce-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudolithoxus-kelsorum-l189-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "Ene59bsDQ7k",
+      "title": "Pseudolithoxus kelsorum (L189 pleco) released in stream tank",
+      "durationSec": 104,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HSQLcXq_bd0",
+      "title": "Pseudolithoxus kelsorum",
+      "durationSec": 103,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "aTguTFjPCFk",
+      "title": "Pseudolithoxus kelsorum (L189 pleco)",
+      "durationSec": 90,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá",
+        "sục khí bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn dạng viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

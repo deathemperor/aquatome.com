@@ -17,6 +17,28 @@
       {
         "source": "planetcatfish",
         "value": 8.5
+      },
+      {
+        "source": "scotcat",
+        "value": 8.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -32,6 +54,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1408",
       "html": "<p>Asia: Sumatra, Indonesia. Also Pacific, Greater Sunda Island Rivers, Sumatra Waters, and Pacific, Malaysia Waters, Peninsular Malaysia Waters.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/glyptothorax_schmidti.htm",
+      "html": "<p>Asia: Sumatra, Indonesia. This species is reported from river drainages in northern Sumatra and the northern Malay Peninsula.</p>"
     },
     {
       "key": "habitat",
@@ -58,10 +86,22 @@
       "html": "<p>Sisorid catfishes of the genus Glyptothorax Blyth are benthic inhabitants of torrential waters of rivers and streams in montane and submontane parts of tropical Asia. The members of the genus are adapted to attach themselves to rocks and boulders against strong currents by means of a thoracic adhesive apparatus comprising grooves and folded pleats of skin parallel or oblique to the longitudinal axis of the body. The genus has a wide distribution, ranging from Turkey and Syria in the west, to India and China in the east, and extending further southeastward to Indonesia. With 84 nominal species, Glyptothorax are the most speciose genus of catfishes in Asia (Eschmeyer et al., 1998, Ng, 2005); 67 species were treated as valid by Thomson &amp; Page (2006).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/glyptothorax_schmidti.htm",
+      "html": "<p>Can be differentiated from all members of the genus Glyptothorax except Glyptothorax indicus in having the unculiferous ridges of the thoracic adhesive apparatus extending anteriorly onto the gular region. Differs from Glyptothorax indicus in having a wider head, larger eye, shorter nasal barbels, a narrower thoracic adhesive apparatus, and the presence of light and dark vertical bands on the caudal peduncle.</p><p>Dorsal spines (total): 1; dorsal soft rays (total): 6; anal soft rays: 10–11; vertebrae: 35–38.</p><p>Etymology: the specific name schmidti honours geologist Carl Schmidt (1862–1923), Basel University (Switzerland), to whom Volz owed his \"trip around the world\".</p><p>According to Eschmeyer's Catalog of Fishes, G. siamensis is now a synonym of G. schmidti (2021).</p><p>Although there is no detailed information on the population status, survey data indicates that it is still abundant in many parts of its known distribution and the population trend is suspected to be stable or declining at a rate that precludes it from a threatened category. It is assessed as Least Concern (IUCN 2019).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1408",
       "html": "<p>Revue Suisse de Zoologie v. 12 (no. 2)</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/glyptothorax_schmidti.htm",
+      "html": "<p>Ng, H.H. 2019. Glyptothorax schmidti. The IUCN Red List of Threatened Species 2019. Ng, H.H. and I. Rachmatika 2005 Glyptothorax exodon, a new species of rheophilic catfish from Borneo (Teleostei: Sisoridae). Raffles Bull. Zool. 53(2):251-255. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf. Thomson, A.W. and L.M. Page, 2006. Genera of the Asian catfish families Sisoridae and Erethistidae (Teleostei: Siluriformes). Zootaxa 1345:1-96.</p>"
     }
   ],
   "photos": [
@@ -77,8 +117,30 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
-  "productSlots": [],
+  "videos": [
+    {
+      "youtubeId": "9ywOPXJJZac",
+      "title": "Glyptothorax schmidti @ Kenerak Palsu (Malaysia)",
+      "durationSec": 61,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-21",
   "range": {
     "native": {

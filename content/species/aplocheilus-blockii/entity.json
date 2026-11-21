@@ -161,6 +161,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 3
       }
     ],
     "tankCm": [
@@ -184,10 +188,22 @@
       "html": "<p>The green panchax, Aplocheilus blockii, is a small killifish from Sri Lanka and southern India, growing to around 45 mm SL. Euryhaline, it mostly inhabits lowland, often coastal, still or slow-moving brackish or fresh water with surface vegetation or overhanging cover, and is commonly found in mangrove swamps and rice paddies.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "html": "<p>The Green panchax (Aplocheilus blockii) is one of the tiniest and most beautiful species of panchax in Asia. Its maximum length is around 3 cm, at least as far as wild collected specimens are concerned. Aquarium specimens may become a bit larger due to the paradise-like aquarium conditions. The absolutely peaceful animals are ideally suited for the so called nano-aquaria.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-blockii",
       "html": "<p>Native to Sri Lanka and southern India with records in the latter existing from the states of Goa, Kerala, Tamil Nadu, and more recently, Karnataka.</p><p>Reports from Pakistan may be erroneous while the species's distribution in certain parts of the Western Ghats mountains in India requires confirmation.</p><p>Type locality is given simply as 'Sri Lanka'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "html": "<p>The species was imported from Kerala (South India).</p>"
     },
     {
       "key": "habitat",
@@ -208,16 +224,40 @@
       "html": "<ul><li>Temperature: 20–28°C (68–82°F)</li><li>pH: 6.0–8.5</li><li>Hardness: 5–20 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "html": "<p>Regarding water chemistry the species is not demanding at all, but very soft or very acidic water should be avoided. If such water runs out of the tap, one should add a teaspoon of salt (for reef aquaria) per 10 litres of water.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-blockii",
       "html": "<p>Aplocheilus spp. are surface-dwelling predators preying on both aquatic and terrestrial invertebrates.</p><p>In the aquarium they will learn to accept dried foods in most cases but should also be offered regular meals of small live or frozen fare such as Artemia, Daphnia, chironomid larvae (bloodworm), etc.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "html": "<p>Live food is very much wanted, but the fish also feed readily on frozen or dried food items.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/aplocheilus-blockii",
       "html": "<p>Not difficult. This species will deposit eggs in woollen mops, fine-leaved plants or mosses, or filamentous algae depending on what is available.</p><p>Incubation is 10-15 days and the fry will initially require infusoria-grade food until large enough to accept Artemia nauplii, microworm, etc.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "html": "<p>The Green panchax ignores plants with the exception of spawning. Here the fish prefers the roots of small floating plants like Salvinia.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "html": "<p>Aplocheilus: means \"with a simple lip\", refers to the mouth structure. blockii: dedication name.</p>"
     },
     {
       "key": "references",
@@ -232,18 +272,73 @@
       "thumb": "https://media.aquatome.com/inaturalist/68014555-480.webp",
       "width": 1024,
       "height": 625,
-      "licence": "CC BY",
-      "author": "Christopher",
-      "sourceUrl": "https://www.inaturalist.org/photos/68014555",
-      "caption": "Cá killi xanh lá đực nhìn nghiêng, thân ánh xanh",
       "large": {
         "url": "https://media.aquatome.com/inaturalist/68014555-large.webp",
         "width": 1966,
         "height": 1200
-      }
+      },
+      "licence": "CC BY",
+      "author": "Christopher",
+      "sourceUrl": "https://www.inaturalist.org/photos/68014555",
+      "caption": "Cá killi xanh lá đực nhìn nghiêng, thân ánh xanh"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b7342e05a87eea9a.webp",
+      "thumb": "https://media.aquatome.com/glaser/b7342e05a87eea9a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/6b1938cd94218038.webp",
+      "thumb": "https://media.aquatome.com/glaser/6b1938cd94218038-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/609f7b9ccb2272ca.webp",
+      "thumb": "https://media.aquatome.com/glaser/609f7b9ccb2272ca-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aplocheilus-blockii-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "zZw_BbKAKTg",
+      "title": "Aplocheilus Blockii",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "5IdVlY7L12k",
+      "title": "Madrashechtling - Aplocheilus blockii",
+      "durationSec": 15,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "uX3GwRjYH0o",
+      "title": "Aplocheilus blockii Killifish - Species Profile",
+      "durationSec": 590,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "_26eE_D1OjE",
+      "title": "Aplocheilus blockii (wild) bij Aquarium Speciaalzaak Utaka",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -273,5 +368,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-21"
 }

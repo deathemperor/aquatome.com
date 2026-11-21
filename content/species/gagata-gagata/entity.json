@@ -10,13 +10,36 @@
     "india",
     "bangladesh",
     "bengal",
-    "myanmar"
+    "myanmar",
+    "ganges"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 30.5
+      },
+      {
+        "source": "scotcat",
+        "value": 31
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -28,10 +51,22 @@
       "html": "<ul><li>Scientific name: Gagata gagata (Hamilton, 1822)</li><li>Sometimes inhabits brackish water.</li><li>Breeding: unreported in the aquarium.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_gagata.htm",
+      "html": "<ul><li>Synonyms: Pimelodus gagata, Gagata typus</li><li>Size: 31 cm total length</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
       "html": "<p>Asia: India, Bangladesh and Myanmar. Type locality: fresh water rivers and estuaries of Bengal.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_gagata.htm",
+      "html": "<p>Asia: Ganges River basin, India and Bangladesh. Type locality: fresh water rivers and estuaries of Bengal.</p>"
     },
     {
       "key": "habitat",
@@ -58,10 +93,22 @@
       "html": "<p>Etymology: the generic name comes from the local name of the fish (keyakatta). IUCN Red List: Least Concern (last assessed 2009).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_gagata.htm",
+      "html": "<p>Most similar to G. melanopterus in colouration and having the highest gill raker counts among its congeners. Description: dorsal spines (total): 1; dorsal soft rays (total): 6; vertebrae: 38–39. Head and body silvery, without pattern. Fins, except the caudal fin, are black distally, with clear basal portions; the caudal fin is entirely clear. The dorsal spine extends well past the adipose-fin origin when adpressed. Anal fin with 5–6 simple rays and 11 branched rays. Premaxilla with 4 rows of teeth.</p><p>Etymology: the specific name gagata is the local Bengali name for this catfish in India.</p><p>IUCN Red List: although there is insufficient information on the distribution, population (and its trends), and biology of Gagata gagata, it is inferred to have a wide distribution; hence Least Concern. Data to verify its supposed decline since the 1800s is badly needed (IUCN 2010).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
       "html": "<p>An account of the fishes found in the river Ganges, pp 197, 379, Pl. 39 (fig. 65).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_gagata.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2008. FishBase. World Wide Web electronic publication. www.fishbase.org, version (09/2008). Ng, H.H. 2010. Gagata gagata. The IUCN Red List of Threatened Species 2010.</p>"
     }
   ],
   "photos": [
@@ -89,17 +136,72 @@
     },
     {
       "url": "https://media.aquatome.com/commons/6b004d0da9c58441.webp",
+      "thumb": "https://media.aquatome.com/commons/6b004d0da9c58441-480.webp",
       "width": 857,
       "height": 347,
       "licence": "Public domain",
       "author": "Nilesh Heda",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nangra_ichthya.jpg",
-      "caption": "A fresh water fish species from Kathani river of Wainganga basin from the Gadchiroli district of Maharashtra state India. Nangra ichthya is a mispelling of Nangra itchteea (Sykes, 1839) which is a syn",
-      "thumb": "https://media.aquatome.com/commons/6b004d0da9c58441-480.webp"
+      "caption": "A fresh water fish species from Kathani river of Wainganga basin from the Gadchiroli district of Maharashtra state India. Nangra ichthya is a mispelling of Nangra itchteea (Sykes, 1839) which is a syn"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6d28207d6852579e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6d28207d6852579e-480.webp",
+      "width": 500,
+      "height": 292,
+      "licence": "dùng với sự cho phép",
+      "author": "Andrew Rao / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/sisoridae/gagata_gagata.htm",
+      "caption": "Gagata gagata",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6ca6790fcd3852b7.webp",
+      "thumb": "https://media.aquatome.com/commons/6ca6790fcd3852b7-480.webp",
+      "width": 803,
+      "height": 385,
+      "licence": "Public domain",
+      "author": "R. Mintern",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gagata_itchkeea_Mintern_115.jpg",
+      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Gagata itchkeea"
     }
   ],
-  "videos": [],
-  "productSlots": [],
+  "videos": [
+    {
+      "youtubeId": "ssVCiC_cHTU",
+      "title": "Osteobrama bakeri, Pethia shalynius, Gagata gagata, Gagata cenia",
+      "durationSec": 37,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PpK57rSjyng",
+      "title": "Gagata gagata feeding",
+      "durationSec": 51,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng",
+        "máy lọc bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
   "updatedAt": "2026-11-21",
   "range": {
     "native": {

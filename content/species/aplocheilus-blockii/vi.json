@@ -2,8 +2,9 @@
   "slug": "ca-killi-xanh-la",
   "name": "Cá killi xanh lá",
   "altNames": [
-    "Green Panchax",
-    "Cá panchax xanh"
+    "Green panchax",
+    "Cá panchax xanh",
+    "Cá kìm xanh"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Cá killi xanh lá (green panchax), Aplocheilus blockii, là một loài cá killi nhỏ đến từ Sri Lanka và miền nam Ấn Độ, đạt kích thước khoảng 45 mm SL. Là loài chịu được nhiều độ mặn (euryhaline), chúng chủ yếu sống ở vùng đất thấp, thường là ven biển, trong nước lợ hoặc nước ngọt tĩnh hoặc chảy chậm, có thảm thực vật mặt nước hoặc vật che phủ phía trên, và thường gặp ở các đầm ngập mặn và ruộng lúa.</p>",
@@ -13,13 +14,21 @@
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–28°C</li><li>pH: 6,0–8,5</li><li>Độ cứng: 5–20 dGH</li></ul>",
     "diet:seriouslyfish": "<p>Các loài Aplocheilus là những kẻ săn mồi sống ở tầng mặt, ăn cả động vật không xương sống dưới nước lẫn trên cạn.</p><p>Trong bể, phần lớn chúng sẽ học cách ăn thức ăn khô, nhưng cũng nên cho ăn đều đặn các loại thức ăn sống hoặc đông lạnh cỡ nhỏ như Artemia, Daphnia, ấu trùng muỗi lắc (trùng huyết), v.v.</p>",
     "reproduction:seriouslyfish": "<p>Không khó. Loài này sẽ đẻ trứng vào búi len, cây lá nhỏ hoặc rêu, hoặc tảo sợi tùy theo thứ có sẵn.</p><p>Thời gian ấp là 10–15 ngày và cá bột ban đầu cần thức ăn cỡ trùng infusoria cho đến khi đủ lớn để ăn ấu trùng Artemia mới nở, giun vi mô (microworm), v.v.</p>",
-    "references:seriouslyfish": "<ul><li>Riehl, R. and H.A. Baensch (1997). Aquarium Atlas. Volume 1, 6th Edition. Microcosm, 1-992</li></ul>"
+    "references:seriouslyfish": "<ul><li>Riehl, R. and H.A. Baensch (1997). Aquarium Atlas. Volume 1, 6th Edition. Microcosm, 1-992</li></ul>",
+    "quickFacts:glaser": "<p>Cá panchax xanh (Aplocheilus blockii) là một trong những loài panchax nhỏ nhất và đẹp nhất châu Á. Cá bắt ngoài tự nhiên dài tối đa khoảng 3 cm. Cá nuôi trong bể có thể lớn hơn một chút, vì điều kiện trong bể sung sướng hơn ngoài tự nhiên nhiều. Loài này rất hiền, hợp nhất với bể nano.</p>",
+    "distribution:glaser": "<p>Cá nhập về từ Kerala (Nam Ấn Độ).</p>",
+    "waterConditions:glaser": "<p>Loài này không kén nước, chỉ cần tránh nước quá mềm hoặc quá chua. Nếu nước máy nhà bạn như vậy thì cho thêm một thìa cà phê muối pha nước biển (loại dùng cho bể san hô) vào mỗi 10 lít nước.</p>",
+    "diet:glaser": "<p>Cá rất thích đồ tươi, nhưng thức ăn đông lạnh hay thức ăn khô chúng cũng ăn ngay.</p>",
+    "reproduction:glaser": "<p>Cá panchax xanh không đụng tới cây, trừ lúc đẻ. Khi đẻ, chúng thích gửi trứng vào rễ của các loại cây nổi nhỏ như Salvinia.</p>",
+    "notes:glaser": "<p>Aplocheilus nghĩa là \"môi đơn giản\", đặt theo hình dạng miệng cá. Còn blockii là tên đặt để vinh danh một người.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": true,
+    "score": 0.7,
+    "indexable": false,
     "bySource": {
-      "seriouslyfish": 0.85
-    }
+      "seriouslyfish": 0.85,
+      "glaser": 0.7
+    },
+    "reason": "score"
   }
 }

@@ -12,12 +12,20 @@
     "uruguay",
     "uruguay-river",
     "brazil",
-    "pelotas"
+    "pelotas",
+    "rio-de-la-plata"
   ],
   "dataCard": {
     "tempC": [
       {
         "source": "planetcatfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      },
+      {
+        "source": "scotcat",
         "value": {
           "min": 18,
           "max": 24
@@ -30,6 +38,13 @@
         "value": {
           "min": 6,
           "max": 8
+        }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
         }
       }
     ],
@@ -46,6 +61,10 @@
       {
         "source": "planetcatfish",
         "value": 21
+      },
+      {
+        "source": "scotcat",
+        "value": 9
       }
     ]
   },
@@ -79,6 +98,42 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1416",
       "html": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (figs. 1-4).</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/heptapterus_mustelinus.htm",
+      "html": "<p>There are at present (2010) nine species in this genus, and they used to all be placed in the Pimelodidae. Family: Heptapteridae. Size: 9 cm. Temperature: 18–24°C. pH: 6.5–7.2.</p><p>Description: the body is long and slender with a depressed head. The head is covered dorsally with a layer of thick skin. The occipital process is short and does not meet the predorsal plate, and the fontanel is narrow and usually extends to the occipital base, with or without an interruption behind the eyes. The dorsal and pectoral fins lack spines. The skin is usually naked (scaleless) and the fish have three pairs of barbels.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/heptapterus_mustelinus.htm",
+      "html": "<p>South America: La Plata and Uruguay River basins and coastal drainages of southern Brazil. Type locality: Rio de la Plata.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/heptapterus_mustelinus.htm",
+      "html": "<p>In its natural habitat there is a report of H. armillatus seeming to prefer sand and a gravel bottom with a relatively fast flow of water, or sluggish waters of the same stream where aquatic vegetation was lacking.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/heptapterus_mustelinus.htm",
+      "html": "<p>Not usually kept in aquaria, but there is a report that H. leptos was kept on a soft substrate with subdued lighting, as they are quite secretive.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/heptapterus_mustelinus.htm",
+      "html": "<p>Most prepared foods, but prefers live.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/heptapteridae/heptapterus_mustelinus.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
     }
   ],
   "photos": [
@@ -95,23 +150,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/a91ecbbee935caa2.webp",
+      "thumb": "https://media.aquatome.com/commons/a91ecbbee935caa2-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 4.0",
       "author": "Tomás Carranza Perales",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heptapterus_mustelinus_397078175.jpg",
-      "caption": "Heptapterus mustelinus in Argentina",
-      "thumb": "https://media.aquatome.com/commons/a91ecbbee935caa2-480.webp"
+      "caption": "Heptapterus mustelinus in Argentina"
     },
     {
       "url": "https://media.aquatome.com/commons/d2153f6599ab4c7f.webp",
+      "thumb": "https://media.aquatome.com/commons/d2153f6599ab4c7f-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 4.0",
       "author": "Tomás Carranza Perales",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heptapterus_mustelinus_397078307.jpg",
-      "caption": "Heptapterus mustelinus in Argentina",
-      "thumb": "https://media.aquatome.com/commons/d2153f6599ab4c7f-480.webp"
+      "caption": "Heptapterus mustelinus in Argentina"
     },
     {
       "url": "https://media.aquatome.com/scotcat/335939519fe89adf.webp",
@@ -136,7 +191,26 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ZdU7RUHVaeg",
+      "title": "Heptapterus mustelinus - Weasel Catfish",
+      "durationSec": 39,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4_JY_lNQD2g",
+      "title": "BAGRE ANGUILA Heptaterus mustelinus",
+      "durationSec": 98,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "6WakGMKpHxs",
+      "title": "Chroncicles of Catfishes #28 Weasel Catfish",
+      "durationSec": 313,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

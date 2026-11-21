@@ -10,14 +10,20 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông La Plata, sông Uruguay và các sông đổ ra biển ở miền nam Brazil.</p>",
     "waterConditions:planetcatfish": "<ul><li>pH: 6,0–8,0</li><li>Nhiệt độ: 18–24 °C</li><li>dH: 6–10</li></ul>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào nói về sinh sản của loài này. Cũng chưa ai báo cáo đã cho chúng đẻ.</p>",
-    "references:planetcatfish": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (figs. 1-4).</p>"
+    "references:planetcatfish": "<p>Voyage dans l'Amérique méridionale, pp Pl. 2 (figs. 1-4).</p>",
+    "quickFacts:scotcat": "<p>Tính đến năm 2010, chi này có chín loài. Trước đây cả chín loài đều được xếp vào họ Pimelodidae. Họ: Heptapteridae. Kích thước: 9 cm. Nhiệt độ: 18–24°C. pH: 6,5–7,2.</p><p>Mô tả: thân cá dài và thon, đầu dẹt. Mặt trên của đầu có một lớp da dày phủ kín. Mấu chẩm ngắn, không chạm tới tấm xương trước vây lưng. Thóp hẹp và thường kéo dài tới gốc chẩm, có loài bị ngắt quãng ở sau mắt, có loài không. Vây lưng và vây ngực không có gai. Da thường trơn, không vảy, và cá có ba cặp râu.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông La Plata, sông Uruguay và các sông ven biển ở miền nam Brazil. Nơi thu mẫu chuẩn: Rio de la Plata.</p>",
+    "habitat:scotcat": "<p>Có một báo cáo về H. armillatus ngoài tự nhiên. Theo báo cáo này, loài này có vẻ ưa nền cát lẫn sỏi ở chỗ nước chảy khá xiết. Nó cũng có ở những đoạn nước chảy chậm của cùng con suối, nơi không có cây thủy sinh.</p>",
+    "maintenance:scotcat": "<p>Chi này ít khi được nuôi trong bể. Có một báo cáo cho biết H. leptos từng được nuôi trên nền mềm, đèn để dịu, vì loài này khá nhát và hay lẩn trốn.</p>",
+    "diet:scotcat": "<p>Cá ăn được hầu hết thức ăn chế biến sẵn, nhưng thích đồ tươi sống hơn.</p>",
+    "references:scotcat": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
   },
   "quality": {
     "score": 0.88,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.88
-    },
-    "reason": "thin"
+      "planetcatfish": 0.88,
+      "scotcat": 0.93
+    }
   }
 }

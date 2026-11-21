@@ -300,14 +300,8 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
-      "html": "<p>Several species of Corydoras cannot be distinguished even by pronounced specialists. In such cases it might be useful to speak of species groups instead of species. One such example is the species group around Corydoras elegans in the narrower sense, which includes C. elegans, C. napoensis, C. nanus and several C- and CW-numbers. What they all have in common is that males and females are completely different in colour during the breeding season. In addition, these species swim more frequently in open water than other Corydoras.</p>"
-    },
-    {
-      "key": "beforeYouBuy",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
-      "html": "<p>In wild catches, a distinction is usually made between Corydoras elegans (widespread in Amazonia), in which the sexually active males have bands in the dorsal fin, and C. napoensis (Peru, Rio Napo), in which the sexually active males have a black dot in the dorsal fin; there are usually no imports from the distribution area of C. nanus (Suriname) and the various C- and CW-numbers. Based on the characteristic of the dorsal fin coloration, the Corydoras from Peru are C. elegans.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
+      "html": "<p>The armored catfishes of the closer relationship around Corydoras elegans belong to the most interesting species of this huge genus. They do not live as strongly bottom-bound as most other armored catfishes and are very nicely colored.</p>"
     },
     {
       "key": "distribution",
@@ -320,6 +314,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
       "html": "<p>This species is fairly widespread in the western Amazon basin and has been recorded in the Ríos Yavarí (Javary), Itaya, Nanay, Carahuayte, Tamaya, Ampiyacu, and Ucayali in Peru, the Ríos Aguarico and Napo in Ecuador, and the rio Solimões in Brazil.</p><p>Type locality is 'Amazon River at Tefé, Amazonas, Brazil'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
+      "html": "<p>The species is known from Peru; a Brazilian variant is also currently available.</p>"
     },
     {
       "key": "habitat",
@@ -388,6 +388,12 @@
       "html": "<p>Females tend to grow larger, and sexually mature individuals are noticeably rounder and broader-bodied than males, especially when gravid. Males possess a more intense colour pattern than females, with a greater proportion of dark markings on the body and dorsal-fin.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
+      "html": "<p>Males and females differ relatively clearly in coloration. However, it is not easy to provide a color description of these extremely variable colored animals because coloration changes with sexual activity. Animals ready to spawn are the most colorful and contrasting in coloration, the males also more intense than the females. Outside the spawning period the color intensity decreases.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gastrodermus-elegans",
@@ -450,28 +456,28 @@
       "caption": "The Elegant corydoras (Corydoras elegans)."
     },
     {
+      "url": "https://media.aquatome.com/glaser/c18981a9bbc6699a.webp",
+      "thumb": "https://media.aquatome.com/glaser/c18981a9bbc6699a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/5b811089cec0980c.webp",
+      "thumb": "https://media.aquatome.com/glaser/5b811089cec0980c-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-2/",
+      "source": "glaser"
+    },
+    {
       "url": "https://media.aquatome.com/glaser/c95411c654ed9c34.webp",
       "thumb": "https://media.aquatome.com/glaser/c95411c654ed9c34-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/249e59bbac7c682a.webp",
-      "thumb": "https://media.aquatome.com/glaser/249e59bbac7c682a-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-elegans-peru-4/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/a5c426a62e31cbd3.webp",
-      "thumb": "https://media.aquatome.com/glaser/a5c426a62e31cbd3-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
@@ -529,5 +535,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-21"
 }

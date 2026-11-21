@@ -1,0 +1,134 @@
+{
+  "id": "rineloricaria-heteroptera",
+  "scientificName": "Rineloricaria heteroptera",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Rineloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "brazil",
+    "manaus"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "html": "<p>Rineloricaria heteroptera grows to about 13-15 cm in length and is very suitable for aquarium care and breeding.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "html": "<p>The water temperature should be between 24 and 30°C. Without breeding intentions the water values are of secondary importance.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "html": "<p>They appreciate free bottom areas with sand and gravel.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "html": "<p>Rineloricaria are mixed feeders, eating both plant and animal foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "html": "<p>The clutches are relatively small with 40-60 eggs. They breed in relatively narrow burrows (bamboo tubes or the like); the male guards the spawn and larvae until they swim free. For breeding, soft and slightly acidic water (pH 5.5-6.5) is usually necessary.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "html": "<p>Whiptail catfishes were received from Brazil and at first sight thought to be Rineloricaria lanceolata, a species with a very wide distribution. The high proportion of reddish animals was striking. The majority of the fish were small, 3-4 cm long and marked like R. lanceolata, but there were a few adult specimens among them. These fish have a conspicuous dot pattern on the head. Consultation with loricariid specialist Ingo Seidel and review of the original description showed that it is probably Rineloricaria heteroptera. This whiptail catfish was described from the Manaus area in 1976; the paratype shown in the original description is spotted exactly like the adult fish.</p><p>According to Evers &amp; Seidel (Welsatlas Vol.1), R. heteroptera was often bred in the former GDR, but was later displaced by the similar and more productive R. lanceolata. The popular Red Whiptail Catfish, a breeding form, probably originates from the old strains of R. heteroptera.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/2b9a470716efd556.webp",
+      "thumb": "https://media.aquatome.com/glaser/2b9a470716efd556-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/32eac5c8a846ced7.webp",
+      "thumb": "https://media.aquatome.com/glaser/32eac5c8a846ced7-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/559625e27549bd48.webp",
+      "thumb": "https://media.aquatome.com/glaser/559625e27549bd48-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/906d7e45d7bcfb38.webp",
+      "thumb": "https://media.aquatome.com/glaser/906d7e45d7bcfb38-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/rineloricaria-heteroptera-2/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát bể cá",
+        "sỏi nền mịn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

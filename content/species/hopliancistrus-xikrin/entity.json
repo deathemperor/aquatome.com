@@ -9,13 +9,36 @@
   "places": [
     "south-america",
     "brazil",
-    "xingu"
+    "xingu",
+    "rio-xingu"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 15
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -27,10 +50,40 @@
       "html": "<ul><li>Scientific name: Hopliancistrus xikrin Oliveira, Zuanon, Rapp Py-Daniel, Birindelli &amp; Sousa, 2021</li><li>Common names: LDA015, L171, Greyspotted Hook Pleco</li><li>IUCN Red List: Not Evaluated</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<ul><li>L-number: L171, LDA015</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1401",
       "html": "<p>Rio Iriri, Amazon, Lower Amazon, Xingu. Type locality: Rio Bacajá, about 2 km upstream from the confluence with Rio Xingu, Rio Xingu basin, Altamira, Pará, Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<p>South America: Brazil, Rio Iriri.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<p>Hopliancistrus xikrin is known from small to medium-sized tributaries of the middle portion of Rio Xingu, like Rio Bacaja' and Rio Bacajai', at the Volta Grande area.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<p>Likes a current in the aquarium and is a peaceful inhabitant. Likes a higher temperature and needs frequent water changes to keep it in good health.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<p>Omnivore; vegetable foods such as lettuce, spinach, cucumber and vegetable tablets. Live and frozen foods such as Cyclops, Daphnia and brine shrimp.</p>"
     },
     {
       "key": "dimorphism",
@@ -39,10 +92,28 @@
       "html": "<p>Male Hopliancistrus develop very stout recurved odontodes at the corners of the snout. The presence of three stout, strongly recurved odontodes in the cheek mass putatively separate Hopliancistrus from all other Ancistrini; however, the actual number of hypertrophied cheek odontodes is 1-16, with 1-5 of those being stout and recurved. The only other ancistrin that develops hypertrophied odontodes just in the corners of the snout is Lasiancistrus, but Lasiancistrus have the odontodes very thin, like long whiskers; also, Lasiancistrus has three rows of plates on the caudal peduncle vs. five in Hopliancistrus.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<p>Males possess a broad head region and more prominent bristling on the edge of the snout.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1401",
       "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<p>This genus is similar to Ancistrus in appearance. They possess three stout odontodes concealed beneath the gill covers which act as a defence mechanism. Hopliancistrus xikrin is distinguished from its congeners by a brown ground body colour with faint whitish-yellow spots of moderate size (usually smaller than the pupil) on the posterior portion of the body. The pectoral-fin spine is 32.1–35.7% of SL. It differs from H. xavante by having dorsal, caudal and anal fins covered by dark brown to black spots, and by having five branched rays on the anal fin (vs. four in H. tricornis).</p><p>Etymology: The species is named after the Xikrin, an indigenous ethnic group inhabiting the margins of the Rio Bacaja'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hopliancistrus_xikrin.htm",
+      "html": "<p>de Oliveira RR, Zuanon J, Py-Daniel LHR, Birindelli JLO, Sousa LM (2021) Taxonomic revision of Hopliancistrus Isbrücker &amp; Nijssen, 1989 (Siluriformes, Loricariidae) with redescription of Hopliancistrus tricornis and description of four new species. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
   "photos": [
@@ -58,7 +129,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "tn279fOkdM4",
+      "title": "CASCUDO-WOLVERINE! Descoberta de novas espécies de Hopliancistrus!",
+      "durationSec": 661,
+      "lang": "pt-BR"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

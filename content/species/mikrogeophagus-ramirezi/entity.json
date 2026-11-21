@@ -225,10 +225,6 @@
       {
         "source": "seriouslyfish",
         "value": 4
-      },
-      {
-        "source": "glaser",
-        "value": 5
       }
     ],
     "tankCm": [
@@ -252,16 +248,10 @@
       "html": "<p>The ram, Mikrogeophagus ramirezi, is a dwarf cichlid from the llanos of the Rio Orinoco drainage in Venezuela and Colombia. Among the more popular dwarf cichlids in the hobby, it is produced commercially in huge numbers, and ornamental strains such as 'gold', 'long-finned' and 'balloon' tend to be genetically weak and short-lived. Wild fish are of superior stock but more demanding, and it requires pristine water quality.</p><ul><li>Max size: 40 mm SL (1.6 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 27–30°C (81–86°F)</li><li>pH: 4.0–7.0</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
     },
     {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild_rams_en/",
-      "html": "<p>Wild collected Rams (Mikrogeophagus ramirezi) only reach about 5 cm in length (males); females stay even smaller, so this species is definitely a dwarf cichlid.</p>"
-    },
-    {
       "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild_rams_en/",
-      "html": "<p>Due to the regularly offered, amazing bred sports of the Ram (Mikrogeophagus ramirezi) one tends to forget how breathtakingly beautiful the wild collected fish is already.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mikrogeophagus-ramirezi-wild-2/",
+      "html": "<p>Because of the enormous popularity of the butterfly cichlid or blue ram (Mikrogeophagus ramirezi), there are mainly offspring and breeding forms on the market. Also the wild-colored offspring differ clearly from the wild species: they are considerably larger (4-5 cm body length without caudal fin compared to 2-3 cm with wild-caught fish) and at the same time twice as heavy!</p><p>The wild cousins appear more colorless and inconspicuous at first glance, which is why offspring sell much better in the trade. The wild cousins are rather something for connoisseurs and experts.</p>"
     },
     {
       "key": "distribution",
@@ -272,8 +262,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild_rams_en/",
-      "html": "<p>Currently fully grown, wild collected Rams from Venezuela are on offer.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mikrogeophagus-ramirezi-wild-2/",
+      "html": "<p>The original home of the blue ram is in the hot Llanos in the Orinoco basin of Colombia and Venezuela. They are obtained fairly regularly from there, although in much smaller numbers than the offspring.</p>"
     },
     {
       "key": "habitat",
@@ -312,6 +302,12 @@
       "html": "<p>Despite normally being sold as such M. ramirezi is not recommended for the general community aquarium since it requires pristine water quality and is a poor competitor, although that is not to say it must be maintained alone.</p><p>Groups of peaceful, open water-dwelling characids or similar are particularly recommended tankmates, since the presence of small schooling or shoaling fishes appears to be used as an indicator that there is no immediate threat in the vicinity and therefore can help reduce shyness.</p><p>Be sure to research your potential choices in depth and avoid territorial or otherwise aggressive fishes, including most other cichlids, and those requiring harder water. Tankmates must also be able to manage in the warmer water that this species requires. Paracheirodon axelrodi and P. simulans are two species that meet this requirement.</p><p>Juveniles are gregarious but once they reach sexual maturity will begin to form pairs of which each will command a territory a couple of feet across when breeding.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mikrogeophagus-ramirezi-wild-2/",
+      "html": "<p>When jumbo offspring and wild-caught males were to be photographed together, the offspring – probably due to their body mass – intimidated the wild-caught fish so much that they did not approach each other: the offspring dominated in the tank, the wild-caught hid. Once the offspring had moved out, the wild fish soon marked out territories and showed a lively nature and beautiful colour.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi",
@@ -342,15 +338,15 @@
       "thumb": "https://media.aquatome.com/commons/77efa1b146855ade-480.webp",
       "width": 1200,
       "height": 1003,
-      "licence": "CC BY-SA 3.0",
-      "author": "Zaire",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microgeophagus_ramirezi_2011.jpg",
-      "caption": "Cận cảnh cá phượng hoàng đực màu sắc rực rỡ, vây lưng đen",
       "large": {
         "url": "https://media.aquatome.com/commons/77efa1b146855ade-large.webp",
         "width": 1435,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Zaire",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microgeophagus_ramirezi_2011.jpg",
+      "caption": "Cận cảnh cá phượng hoàng đực màu sắc rực rỡ, vây lưng đen"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/a5d2711d9349d433.webp",
@@ -362,9 +358,64 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/mikrogeophagus-ramirezi",
       "caption": "Adult pair in courtship display; female at front, two competing males behind.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/4ebe1ec846b6e7db.webp",
+      "thumb": "https://media.aquatome.com/glaser/4ebe1ec846b6e7db-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mikrogeophagus-ramirezi-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/486479c0f1b266e2.webp",
+      "thumb": "https://media.aquatome.com/glaser/486479c0f1b266e2-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mikrogeophagus-ramirezi-wild-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/dd0077a88a7e2465.webp",
+      "thumb": "https://media.aquatome.com/glaser/dd0077a88a7e2465-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/mikrogeophagus-ramirezi-wild-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "seIeCo9kSWs",
+      "title": "Ramirezi - Mikrogeophagus Ramirezi ✔",
+      "durationSec": 188,
+      "lang": "fr"
+    },
+    {
+      "youtubeId": "s2J8nCfj3hk",
+      "title": "Blue Ram Care Guide | Acclimating Mikrogeophagus ramirezi to a Biotope Inspired Aquarium",
+      "durationSec": 662,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "WmXxm7k30Z4",
+      "title": "MIKROGEOPHAGUS RAMIREZI GERMAN Blue",
+      "durationSec": 545,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "9hb-T7M9mZs",
+      "title": "How To Raise German Blue Rams: A Complete Tutorial",
+      "durationSec": 882,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -395,5 +446,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }
