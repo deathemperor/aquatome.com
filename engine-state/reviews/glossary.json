@@ -2676,5 +2676,42 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/dong-danh": [
+    {
+      "at": "2026-11-21T17:14:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, rewording broke a house rule or dropped a specific, old wording kept for the reader: \"Tên công bố sớm nhất được ưu tiên và gọi là đồng nghĩa sớm (senior synonym).\" (not \"Tên công bố sớm nhất được ưu tiên.\": it drops the advice \"gọi là đồng nghĩa sớm (senior synonym)\")",
+        "Rule 4: \"Một loài hay một nhóm sinh vật có thể mang hai tên khoa học trở lên ở cùng bậc phân loại.\" repeats what the definition already says (\"một trong hai hay nhiều tên khoa học cùng bậc phân loại dùng cho cùng một loài hay nhóm sinh vật\"). It should be said only once.",
+        "Rule 12: \"Tên công bố sớm nhất được ưu tiên và gọi là đồng nghĩa sớm (senior synonym)\" is written as plain fact with no limit. One fact gives priority generally (calacademy.org). The other limits it to zoology (\"In zoology, the senior synonym takes priority…\", wikipedia.org). The sentence must either say \"trong động vật học\" or carry calacademy.org's credit, since that is the site that gives it b…",
+        "Rule 12: \"bộ luật danh pháp liên quan quyết định tên nào là tên chính thức của một loài với định nghĩa, vị trí và bậc phân loại xác định\" changes the fact's \"taxon\" to \"một loài\", which narrows it. The entry elsewhere renders taxon as \"loài hay nhóm sinh vật\". The sentence also drops the fact's \"only one official name at any one time\".",
+        "Rule 12: \"biết chi của một con cá thì đoán được cá có lẽ lớn cỡ nào…\" drops the fact's hedge \"helps predict\". The sentence makes a firm claim that knowing the genus lets you predict, while the fact only says it helps."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T17:14:32Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.78,
+      "notes": [
+        "\"Tên đồng nghĩa là một tên khoa học khác của cùng một loài hay nhóm sinh vật, thường là tên cũ mà nay loài đó mang tên khác.\": the facts don't carry it (unsupported, loose, loose, unsupported, loose, unsupported): adds 'usually' hedge; 'old name' not stated / 'usually an old name' blends two sources' definitions loosely / Joins two sources' definitions; 'usually an old name' generalizes source 4 …",
+        "\"Wilhelm Peters đã mô tả loài này từ năm 1859, nên tên sớm hơn được ưu tiên.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia; credit ended previous sentence / only wikipedia; credit ended at previous sentence / Only wikipedia gives this; the sentence has no credit",
+        "\"Tên hợp lệ bây giờ là Poecilia reticulata.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia, uncredited / only wikipedia, stated as plain fact / Only wikipedia gives this; the sentence has no credit",
+        "\"Tên thường gọi \"guppy\" vẫn còn dùng, dù Girardinus guppii nay chỉ là tên đồng nghĩa.\": the facts don't carry it (uncredited, uncredited, uncredited): only wikipedia, uncredited / only wikipedia, stated as plain fact / Only wikipedia gives this; the sentence has no credit",
+        "Rule 4: The entry says three times that only one name is official. The definition says \"thường chỉ một tên được dùng làm tên chính thức\". The first paragraph of the body says it again: \"Thường chỉ một trong các tên đó được dùng làm tên chính thức\". The list item \"chỉ có một tên chính thức\" says it a third time. It should be said once, in one place.",
+        "Rule 12: The definition says \"thường là tên cũ mà nay loài đó mang tên khác\". This adds a hedge (\"thường\") that the fact does not give. The fact says plainly that a synonym is a name for a taxon that now goes by a different name. A hedge is never added.",
+        "Rule 12: Under \"Ví dụ ở cá bảy màu\", the entry says \"Tài liệu tham khảo này ghi rằng…\". This credits the guppy facts to the Wikipedia page already quoted (source 4). They actually come from a different page of the same site (source 3). A second page of one site must be credited apart, as \"Một bài khác ghi:\".",
+        "Rule 12: Two sentences give claims that only one site's page (source 3) makes, but they stand as plain fact outside the opening: \"Wilhelm Peters đã mô tả loài này từ năm 1859, nên tên sớm hơn được ưu tiên. Tên hợp lệ bây giờ là Poecilia reticulata.\" and \"Tên thường gọi \\\"guppy\\\" vẫn còn dùng, dù Girardinus guppii nay chỉ là tên đồng nghĩa.\" Claims in a row from one page belong under one opening, …",
+        "Rule 12: \"các loài cá họ chép mới phát hiện ở Myanmar và Trung Quốc\" uses \"các loài\", which widens the fact. The fact speaks of the group (\"newly discovered cyprinids\"), so the sentence should use the fact's own word for the group, without \"các loài\".",
+        "Rule 15: The heading \"Vì sao tên cá thay đổi\" sits over two items that are not about why names change: \"tên khoa học giúp người chơi khắp thế giới nói về một loài mà không bị rối…\" and \"biết chi của một con cá thì đoán được cá có lẽ lớn cỡ nào…\". The section should be headed by what it holds."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
