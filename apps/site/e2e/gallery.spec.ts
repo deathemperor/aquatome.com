@@ -684,19 +684,24 @@ test('a plant\'s strip on a phone 360 px wide: every thumbnail in one sideways r
 })
 
 // The strip's reader, 21 Nov: the row runs up to 860 px, and its "Xem tất cả" showed only up to 640, so at 700 px a row of
-// seven or eight ran past the screen's edge with no button. The row measures itself at every width now.
-test('a plant\'s row 700 px wide that runs past the edge shows "Xem tất cả", and one that fits doesn\'t', async ({ page, request, isMobile }) => {
+// seven or eight ran past the screen's edge with no button. The row measures itself at every width now. Its second read,
+// 21 Nov: measured against the strip's whole width, its side margins counted as room, so at 740 px the seventh thumbnail
+// was cut by 28 px and the button stayed hidden. The row is measured inside those margins.
+test('a plant\'s row 700 or 740 px wide that runs past the edge shows "Xem tất cả", and one that fits doesn\'t', async ({ page, request, isMobile }) => {
   test.skip(isMobile, 'a width between a phone and a computer')
   // Seven or eight thumbnails that are the whole album (GALLERY_STRIP), so only the row's own measure decides.
   const found = await albumPage(request, 'cay', (a, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) >= 7 && a.photos.length <= 8)
   test.skip(!found, 'no plant whose strip is its whole album of seven or eight in this build')
-  await page.setViewportSize({ width: 700, height: 900 })
-  await page.goto(found!.path)
   const ul = page.locator('section.strip ul')
   const see = page.locator('section.strip [data-all]')
-  await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
-  expect(await ul.evaluate(el => el.scrollWidth > el.clientWidth), 'the row runs past the edge').toBe(true)
-  await expect(see).toBeVisible()
+  // Each width loaded afresh, so the button is the page's first measure, not one left from the width before.
+  for (const width of [700, 740]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto(found!.path)
+    await expect(page.locator('section.strip[data-ready]')).toHaveCount(1)
+    expect(await ul.evaluate(el => el.scrollWidth > el.clientWidth), `the row runs past the edge at ${width} px`).toBe(true)
+    await expect(see, `"Xem tất cả" at ${width} px`).toBeVisible()
+  }
   // Wide enough for the row's four columns, every thumb in view: no button.
   await page.setViewportSize({ width: 1280, height: 900 })
   await expect(see).toBeHidden()
