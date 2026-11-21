@@ -52631,6 +52631,22 @@
   "findings": [],
   "products": []
  },
+ "vi/guides/aquariumbreeder-50-frequently-asked-questions-about-dwarf-shrimp": {
+  "at": "2026-11-21",
+  "hash": "9ffa1f6e771f08b8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "có câu do người chơi gửi qua email",
+    "why": "Refers to the original writer's own inbox and readers, whom this reader doesn't know.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/aquariumbreeder-50-underwater-red-plants-for-your-tank": {
   "at": "2026-11-08",
   "hash": "80bd961afdcdcae3",
@@ -53500,6 +53516,58 @@
     "use": "water",
     "method": "other",
     "quote": "Liều dùng là 5 ml cho 40 lít nước."
+   }
+  ],
+  "sourceRead": true
+ },
+ "vi/guides/aquariumbreeder-driftwood-in-shrimp-tank": {
+  "at": "2026-11-21",
+  "hash": "8ab204a10207d706",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Tìm các loại gỗ như balsa, phong, óc chó, sồi, dẻ gai...",
+    "why": "These are European and American trees that keepers in Vietnam don't gather wood from.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Lá sồi và lá dẻ gai là hai loại người chơi hay dùng nhất",
+    "why": "Oak and beech leaves are what keepers abroad gather, not keepers in Vietnam.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Seachem Purigen"
+  ],
+  "doses": [
+   {
+    "treatment": "bleach",
+    "strength": "5%",
+    "amount": 5,
+    "amountMax": 0,
+    "unit": "%",
+    "per": 0,
+    "perUnit": "",
+    "use": "disinfecting",
+    "method": "bath",
+    "quote": "ngâm trong dung dịch thuốc tẩy 5% chừng 10–20 phút"
+   },
+   {
+    "treatment": "tannin extract",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 2,
+    "unit": "drop",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "water",
+    "method": "wholeTank",
+    "quote": "mỗi lần thay nước thì nhỏ 1–2 giọt cho mỗi lít nước"
    }
   ],
   "sourceRead": true
@@ -55758,6 +55826,22 @@
    "Tropic Marin Pro-coral cure"
   ]
  },
+ "vi/guides/aquariumbreeder-red-cherry-shrimp-grading-with-pictures": {
+  "at": "2026-11-21",
+  "hash": "30179253366d4079",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Chủy khác nhau trong những ảnh đó có thể là do đột biến ở riêng dòng tép ấy",
+    "why": "Refers to photos from the source article that this page does not contain.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/aquariumbreeder-rotifers-profile-and-culture-guide": {
   "at": "2026-11-08",
   "hash": "85e06e4e28f2e4b0",
@@ -56201,6 +56285,29 @@
    "Seachem Purigen"
   ]
  },
+ "vi/guides/aquariumbreeder-the-best-filtration-system-for-breeding-shrimp": {
+  "at": "2026-11-21",
+  "hash": "55b6dc2a4253ba9c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "price",
+    "part": "P1",
+    "quote": "Chỉ tốn thêm vài đô mà không bao giờ phải hối hận!",
+    "why": "Cost given in US dollars, which only makes sense for a reader abroad.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Aquaneat Small Bio Sponge Filter",
+   "Huijukon Air Pump Double Sponge Filter",
+   "MarineLand Penguin Power Filter",
+   "Aqua Clear – Fish Tank Filter",
+   "Fluval External Filter",
+   "Penn Plax Cascade Canister Aquarium Filter"
+  ]
+ },
  "vi/guides/aquariumbreeder-the-ideal-water-parameters-for-fish-and-shrimp-keeping": {
   "at": "2026-11-17",
   "hash": "b3e5f9f20e1744fb",
@@ -56338,6 +56445,32 @@
   ],
   "products": [
    "Tetramin"
+  ]
+ },
+ "vi/guides/aquariumbreeder-types-of-algae-best-algae-eating-team": {
+  "at": "2026-11-21",
+  "hash": "c543f9eb2141dbb4",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "xin nhắc lại là lần này mình đang lập một đội dọn bể",
+    "why": "First-person voice of the original writer and their own project, unknown to the reader.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P29",
+    "quote": "Cỡ khi lớn: 3,8 – 5 cm",
+    "why": "3,8 cm is a converted 1.5 inch figure.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Bacter AE",
+   "Flourish Excel"
   ]
  },
  "vi/guides/aquariumbreeder-understanding-dwarf-shrimp-diseases-and-parasites": {
@@ -66655,6 +66788,22 @@
   ],
   "products": []
  },
+ "vi/guides/glaser-en-09-characoids-tetra-relationship-which-semaprochilodus-comes-from-indonesia": {
+  "at": "2026-11-21",
+  "hash": "1e0727d4de42dc04",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "nên phải đợi lô cá nhập từ Indonesia lớn tới khoảng 6 cm mới xem được",
+    "why": "Refers to the source's own imported batch of fish as if the reader knew it.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-cochui-and-c-habrosus-en": {
   "at": "2026-11-10",
   "hash": "c5408f8ec9e18a2b",
@@ -67930,6 +68079,22 @@
     "part": "P1",
     "quote": "Đến khi chúng lên lại màu bình thường thì mới thấy trong đàn có một con rất đặc biệt",
     "why": "Refers to the source's own batch of fish as if the reader already knew about it.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "vi/guides/glaser-en-25-perchlike-fishes-bright-blue-maylandia-from-thailand": {
+  "at": "2026-11-21",
+  "hash": "551c67733f3d6104",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "cá trại ở Viễn Đông là lựa chọn tốt",
+    "why": "\"Far East\" is a European way to place Thailand; for a keeper in Vietnam these farms are in their own region.",
     "by": "model"
    }
   ],
@@ -114377,6 +114542,47 @@
   "findings": [],
   "products": []
  },
+ "vi/species/astroblepus-rosei": {
+  "at": "2026-11-21",
+  "hash": "1f72f61a681787d5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/astroblepus-sabalo": {
+  "at": "2026-11-21",
+  "hash": "0a11208153a257c0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P4",
+    "quote": "cắm dây oxy vào luồng nước của bơm thổi luồng",
+    "why": "\"Bơm thổi luồng\" is a word-for-word translation of \"powerhead\"; keepers in Vietnam don't call it that.",
+    "by": "model",
+    "fix": "máy tạo sóng"
+   }
+  ],
+  "products": []
+ },
+ "vi/species/astroblepus-taczanowskii": {
+  "at": "2026-11-21",
+  "hash": "82dc9c2296824a30",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P3",
+    "quote": "Lúc bài này được viết, Lithogenes đang được xếp vào họ Loricariidae.",
+    "why": "Refers to when the source article was written, a time the reader cannot know.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "vi/species/astronotus-crassipinnis": {
   "at": "2026-11-21",
   "hash": "00a3b5ccb4233281",
@@ -119577,8 +119783,8 @@
   "products": []
  },
  "vi/species/channa-micropeltes": {
-  "at": "2026-11-11",
-  "hash": "074970c7d19c5070",
+  "at": "2026-11-21",
+  "hash": "1d65cc8600e1e3d3",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -131370,6 +131576,14 @@
   "findings": [],
   "products": []
  },
+ "vi/species/leporinus-ortomaculatus": {
+  "at": "2026-11-21",
+  "hash": "bec464b59ea28936",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "vi/species/leporinus-steyermarki": {
   "at": "2026-11-17",
   "hash": "c9a38493290c61c5",
@@ -131718,15 +131932,15 @@
  },
  "vi/species/lithodoras-dorsalis": {
   "at": "2026-11-21",
-  "hash": "e9989ff56f7da978",
+  "hash": "94951b5e9dda0a81",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P3",
+    "part": "P6",
     "quote": "Hai con trong ảnh có gai vây lưng khác dáng nhau",
-    "why": "Refers to a photo from the original source that the page does not have.",
+    "why": "Refers to a photo from the source that the page does not have.",
     "by": "model"
    }
   ],
@@ -132853,17 +133067,25 @@
   "products": []
  },
  "vi/species/melanotaenia-praecox": {
-  "at": "2026-11-15",
-  "hash": "385713685a4bd3dd",
+  "at": "2026-11-21",
+  "hash": "e44143bf50793b81",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P7",
-    "quote": "hoặc một bể khoảng 110 lít",
-    "why": "110 litres is a converted 29-gallon US tank size, not a size keepers in Vietnam use.",
+    "part": "P10",
+    "quote": "Tối thiểu là một bể dài khoảng 76 lít, hoặc một bể khoảng 110 lít.",
+    "why": "76 and 110 litres are US 20- and 29-gallon tank sizes converted, not sizes keepers in Vietnam use.",
     "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P21",
+    "quote": "giun siêu nhỏ (microworm)",
+    "why": "Literal rendering of 'microworm'; Vietnamese keepers call this culture by its own name.",
+    "by": "model",
+    "fix": "trùn vi sinh"
    }
   ],
   "products": []
@@ -137754,7 +137976,7 @@
   "products": []
  },
  "vi/species/parotocinclus-jumbo": {
-  "at": "2026-11-16",
+  "at": "2026-11-21",
   "hash": "fd17ad1527e07b7a",
   "model": "opus",
   "checklist": 3,
@@ -138637,15 +138859,22 @@
  },
  "vi/species/pimelodina-flavipinnis": {
   "at": "2026-11-21",
-  "hash": "a98ec42edf5b9215",
+  "hash": "6529ea4d3ce34645",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P5",
+    "part": "P3",
+    "quote": "Con cá nhập về có nguồn gốc từ Rio Negro ở Brazil",
+    "why": "Refers to the source's own imported specimen as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P8",
     "quote": "Chỉ biết con cá nhập về khá điềm tĩnh và không hay quẫy loạn.",
-    "why": "Refers to the source shop's own imported specimen as if the reader knew it.",
+    "why": "Describes the source's own imported fish, a stock story the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -139206,6 +139435,16 @@
   "checklist": 3,
   "findings": [],
   "products": []
+ },
+ "vi/species/pomacea-bridgesii": {
+  "at": "2026-11-21",
+  "hash": "537eaedbc60f4c32",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "wonder shell"
+  ]
  },
  "vi/species/poptella-paraguayensis": {
   "at": "2026-11-16",
@@ -140091,15 +140330,22 @@
  },
  "vi/species/pseudolithoxus-kelsorum": {
   "at": "2026-11-21",
-  "hash": "8bea9e215db229ed",
+  "hash": "99fd8b9e1622d019",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "units",
+    "part": "P5",
+    "quote": "bể ít nhất 122 x 46 x 46 cm",
+    "why": "Tank sides converted from 48 x 18 x 18 inches; no keeper in Vietnam sizes a tank this way.",
+    "by": "model"
+   },
+   {
     "check": "source",
-    "part": "P6",
+    "part": "P12",
     "quote": "nhìn là nhận ra (xem ảnh)",
-    "why": "It refers to a photo from the original source, and this page has no pictures.",
+    "why": "Points to a photo the page does not have.",
     "by": "model"
    }
   ],
@@ -140508,8 +140754,8 @@
   "products": []
  },
  "vi/species/pseudotropheus-johannii": {
-  "at": "2026-11-13",
-  "hash": "8bdc7fc1405bdf3a",
+  "at": "2026-11-21",
+  "hash": "2ab9d1953db7794f",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -140932,16 +141178,16 @@
   "products": []
  },
  "vi/species/pygocentrus-nattereri": {
-  "at": "2026-11-07",
-  "hash": "b871823ca9667744",
+  "at": "2026-11-21",
+  "hash": "85b740478cb8376d",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "words",
     "part": "P9",
     "quote": "lăng quăng chironomid (trùng huyết)",
-    "why": "Literal rendering of 'chironomid larvae'; 'lăng quăng' means mosquito larvae, and Vietnamese keepers simply say 'trùng huyết'.",
+    "why": "Chironomid larvae are midge larvae, not 'lăng quăng' (mosquito larvae); this reads like a translation, and keepers just say trùng huyết.",
     "by": "model",
     "fix": "trùng huyết"
    }
@@ -143571,8 +143817,8 @@
   "products": []
  },
  "vi/species/squaliforma-emarginata": {
-  "at": "2026-11-18",
-  "hash": "f54c2e75fd295a37",
+  "at": "2026-11-21",
+  "hash": "7593d2be1b51629a",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -145001,7 +145247,7 @@
   "products": []
  },
  "vi/species/thorichthys-meeki": {
-  "at": "2026-11-18",
+  "at": "2026-11-21",
   "hash": "08dd6d642e0b0210",
   "model": "opus",
   "checklist": 3,
@@ -145821,10 +146067,19 @@
  },
  "vi/species/tympanopleura-cryptica": {
   "at": "2026-11-21",
-  "hash": "9909b5098db4baa2",
+  "hash": "a39ab6d16bd46072",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Đây là một loài cá da trơn dolphin nhỏ",
+    "why": "Leaves the English word 'dolphin' untranslated, but the page's own title says 'cá da trơn cá heo'.",
+    "by": "model",
+    "fix": "cá da trơn cá heo"
+   }
+  ],
   "products": []
  },
  "vi/species/tyrannochromis-macrostoma": {
@@ -146330,7 +146585,7 @@
   "products": []
  },
  "vi/species/xiphophorus-variatus": {
-  "at": "2026-11-20",
+  "at": "2026-11-21",
   "hash": "779cf45f96985988",
   "model": "opus",
   "checklist": 3,
@@ -146339,9 +146594,9 @@
     "check": "words",
     "part": "P10",
     "quote": "lên màu vàng như quả mộc qua",
-    "why": "A literal rendering of the German colour term 'quittengelb'; quince is not a familiar fruit to Vietnamese keepers.",
+    "why": "Calque of the German colour term 'quittengelb'; quince is not a familiar fruit or colour reference for keepers in Vietnam.",
     "by": "model",
-    "fix": "lên màu vàng chanh / vàng tươi"
+    "fix": "lên màu vàng tươi"
    }
   ],
   "products": []

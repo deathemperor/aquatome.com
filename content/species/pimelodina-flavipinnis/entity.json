@@ -11,13 +11,36 @@
     "rio-negro",
     "peru",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "amazon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 40
+      },
+      {
+        "source": "scotcat",
+        "value": 39
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -29,16 +52,34 @@
       "html": "<p>Pimelodina flavipinnis grows to a length of about 40 cm. The genus Pimelodina is monotypic, so this is the only scientifically accepted species.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "html": "<p>Pimelodina flavipinnis is the only species of the genus Pimelodina. Family: Pimelodidae. Size: 39 cm. Temperature: 22–25°C. pH: 6.0–7.0.</p><p>Etymology: the specific name flavipinnis comes from flavus (Latin, yellow) and pinnis (Neo-Latin adjective of pinna, fin, i.e. finned), referring to the reddish-yellow fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodina-flavipinnis-2/",
       "html": "<p>The species was scientifically described as early as 1876 and is widespread: the imported animal comes from the Rio Negro in Brazil, but it also exists in the Rio Madeira, in Peru and in the llanos of Venezuela and other areas of the Orinoco. It is a popular and frequently traded food fish. However, the high color variability described in scientific papers suggests that several unrecognized species are involved.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins. Type locality: Amazonenstrom bei Para [Brazil].</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodina-flavipinnis-2/",
       "html": "<p>The preferred habitat of this species is riverine lagoons. In June and July the animals perform spawning migrations. In Brazil, professional fishermen catch this species for food using long seines.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "html": "<p>Found in shallow lagoons and feeds on benthic organisms.</p>"
     },
     {
       "key": "diet",
@@ -51,9 +92,54 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodina-flavipinnis-2/",
       "html": "<p>Not much can be said yet about aquarium life, except that the imported animal behaves relatively calmly and does not tend to frolic; this is a feared phenomenon in larger fish, because panic reactions are naturally associated with a high risk of injury. The slight injuries the animal showed after importation are therefore probably due to the catch.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "html": "<p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 01/2016 ). Salvador, G.N. 2023. Pimelodina flavipinnis. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/9b8029dbcbb99cd8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/9b8029dbcbb99cd8-480.webp",
+      "width": 500,
+      "height": 366,
+      "licence": "dùng với sự cho phép",
+      "author": "Steven Grant / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "caption": "Pimelodina flavipinnis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/07fee2136e7494f1.webp",
+      "thumb": "https://media.aquatome.com/scotcat/07fee2136e7494f1-480.webp",
+      "width": 500,
+      "height": 320,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "caption": "Pimelodina flavipinnis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/08fd369204b84e5c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/08fd369204b84e5c-480.webp",
+      "width": 500,
+      "height": 308,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pimelodina_flavipinnis.htm",
+      "caption": "Pimelodina flavipinnis",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/a2eb9eec8a671ae4.webp",
       "thumb": "https://media.aquatome.com/glaser/a2eb9eec8a671ae4-480.webp",
@@ -77,16 +163,6 @@
     {
       "url": "https://media.aquatome.com/glaser/18187e29820f4d20.webp",
       "thumb": "https://media.aquatome.com/glaser/18187e29820f4d20-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pimelodina-flavipinnis-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/eb5b44f36999c5e5.webp",
-      "thumb": "https://media.aquatome.com/glaser/eb5b44f36999c5e5-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

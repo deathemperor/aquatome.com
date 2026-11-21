@@ -23180,6 +23180,7 @@
     "genus": "Oscura",
     "matchType": "EXACT"
   },
+  "Osphromenus exodon": null,
   "Osphronemus exodon": {
     "canonicalName": "Osphronemus exodon",
     "order": "Perciformes",
@@ -25855,6 +25856,14 @@
     "matchType": "EXACT"
   },
   "Platy leopard": null,
+  "Platycephalus indicus": {
+    "canonicalName": "Platycephalus indicus",
+    "phylum": "Chordata",
+    "order": "Scorpaeniformes",
+    "family": "Platycephalidae",
+    "genus": "Platycephalus",
+    "matchType": "EXACT"
+  },
   "Platydoras armatulus": {
     "canonicalName": "Platydoras armatulus",
     "order": "Siluriformes",
@@ -29362,6 +29371,15 @@
     "matchType": "EXACT"
   },
   "Rotala hra": null,
+  "Rotala indica": {
+    "canonicalName": "Rotala indica",
+    "phylum": "Tracheophyta",
+    "class": "Magnoliopsida",
+    "order": "Myrtales",
+    "family": "Lythraceae",
+    "genus": "Rotala",
+    "matchType": "EXACT"
+  },
   "Rotala macrandra": {
     "canonicalName": "Rotala macrandra",
     "order": "Myrtales",

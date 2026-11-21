@@ -9,22 +9,57 @@
     "south-america",
     "brazil",
     "amazon",
-    "french-guiana"
+    "french-guiana",
+    "cayenne"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 100
+      },
+      {
+        "source": "scotcat",
+        "value": 90
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "html": "<p>Family: Doradidae. Common name: Rock-bacu. Size: 90 cm. Temperature: 22–26°C. pH: 6.0–7.2.</p><p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 6; anal soft rays: 13–14. Body elongated, without scales, almost covered with bony plaques, ventrally flattened in adults. Terminal mouth with three pairs of barbels. Lower jaw shorter than the upper jaw. Eyes small.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lithodoras-dorsalis-2/",
       "html": "<p>The genus Lithodoras belongs to the thorny catfishes (Doradidae). There is only one species scientifically described, which has its distribution in South America: L. dorsalis, which inhabits the Amazon basin; in addition, the species was reported from a creek near Cayenne (French Guiana), but the latter occurrence still needs confirmation. The maximum length of L. dorsalis is given with about 100 cm, it is one of the largest thorny catfish species at all.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "html": "<p>South America: Amazon River basin and estuary near Cayenne, French Guiana.</p>"
     },
     {
       "key": "diet",
@@ -33,13 +68,81 @@
       "html": "<p>Mainly fed with dry food (granules), which is eagerly accepted, plus Tubifex from time to time.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "html": "<p>Feeds on fruits when the forests are flooded and on the blades of macrophytes (aquatic plants growing in or near water that are either emergent, submergent, or floating). Acts as a seed dispersal agent.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lithodoras-dorsalis-2/",
       "html": "<p>Possibly they were caught on spawning migration, because the two photographed animals differ in the shape of the dorsal fin spine. The possible male has a dorsal spine whose shape is reminiscent of the shape of the dorsal fin spines of sexually active male dolphin catfish (Ageneiosus &amp; Co.). But such indications are, by their nature, speculative.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "html": "<p>Occurs once a year and juveniles are often seen in large numbers in the estuary of the Amazon, in the region of Mario.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "html": "<p>Etymology: The specific name dorsalis is Latin for \"of the back\", presumably referring to the 5–6 oblong plates between the dorsal and adipose fins.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "html": "<p>Burgess, W.E. 1989 An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2009). Le Bail, P.-Y., P. Keith and P. Planquette 2000 Atlas des poissons d'eau douce de Guyane (tome 2, fascicule II). Publications scientifiques du Muséum national d'Histoire naturelle, Paris: 307 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/703a6c2be065a8a8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/703a6c2be065a8a8-480.webp",
+      "width": 500,
+      "height": 282,
+      "licence": "dùng với sự cho phép",
+      "author": "Robin Warne / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "caption": "Lithodoras dorsalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/452726494b59ba87.webp",
+      "thumb": "https://media.aquatome.com/scotcat/452726494b59ba87-480.webp",
+      "width": 500,
+      "height": 237,
+      "licence": "dùng với sự cho phép",
+      "author": "Robin Warne / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "caption": "Lithodoras dorsalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d9cb85ab10475a2b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d9cb85ab10475a2b-480.webp",
+      "width": 500,
+      "height": 219,
+      "licence": "dùng với sự cho phép",
+      "author": "Graham Layley / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "caption": "Lithodoras dorsalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7d29bd8bbaf35579.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7d29bd8bbaf35579-480.webp",
+      "width": 500,
+      "height": 280,
+      "licence": "dùng với sự cho phép",
+      "author": "Graham Layley / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/lithodoras_dorsalis.htm",
+      "caption": "Lithodoras dorsalis",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/d3db7b68b916c066.webp",
       "thumb": "https://media.aquatome.com/glaser/d3db7b68b916c066-480.webp",
@@ -63,16 +166,6 @@
     {
       "url": "https://media.aquatome.com/glaser/934b47a7b2e4807a.webp",
       "thumb": "https://media.aquatome.com/glaser/934b47a7b2e4807a-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lithodoras-dorsalis-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/47462a60bbf5c111.webp",
-      "thumb": "https://media.aquatome.com/glaser/47462a60bbf5c111-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

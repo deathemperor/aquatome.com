@@ -9,7 +9,8 @@
     "oceania",
     "indonesia",
     "mamberamo",
-    "new-guinea"
+    "new-guinea",
+    "irian-jaya"
   ],
   "range": {
     "native": {
@@ -100,6 +101,10 @@
       {
         "source": "aquariumcoop",
         "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tankCm": [
@@ -133,6 +138,18 @@
       "html": "<p>The neon dwarf rainbowfish is an almond-shaped fish with an iridescent blue sheen. It is a hardy, active species with a mild disposition that suits many peaceful and semi-aggressive tank mates. It is beginner-friendly and one of the smallest Melanotaenia species.</p><p>Males have a shiny blue body with red-orange fins, whereas females have a silvery body with yellow fins.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "html": "<p>The Diamond Rainbowfish – Melanotaenia praecox – is one of the smallest species of the actual rainbowfishes and grows only 6-7 cm long. It shows already from 3 cm length its splendid iridescent body coloration. That is why it is one of the most popular species in the trade. With age the males become high-backed and then the red in the vertical fins develops even more intensively.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "html": "<p>All Diamond Rainbowfishes in the trade are descended from a few animals. Carelessly raised animals are susceptible to disease, well raised ones are not.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/melanotaenia-praecox",
@@ -143,6 +160,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
       "html": "<p>Melanotaenia praecox is found in streams and tributaries of the New Guinea rainforest.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "html": "<p>Melanotaenia praecox is only found on the island of New Guinea and there only in a small area in the western half of the island called Irian Jaya.</p>"
     },
     {
       "key": "habitat",
@@ -242,60 +265,15 @@
       "thumb": "https://media.aquatome.com/commons/c815fb8a7fdb6337-480.webp",
       "width": 960,
       "height": 611,
-      "licence": "CC BY-SA 3.0",
-      "author": "Anandarajkumar at en.wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_neon_rainbows.jpg",
-      "caption": "A pair of male dwarf neon rainbows in a home aquarium.",
       "large": {
         "url": "https://media.aquatome.com/commons/c815fb8a7fdb6337-large.webp",
         "width": 1885,
         "height": 1200
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
-      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
-      "width": 960,
-      "height": 745,
-      "licence": "CC BY-SA 4.0",
-      "author": "Raimond Spekking",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
-      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg",
-      "large": {
-        "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17-large.webp",
-        "width": 1024,
-        "height": 795
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/0d0275362610aa62.webp",
-      "thumb": "https://media.aquatome.com/commons/0d0275362610aa62-480.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "Public domain",
-      "author": "MELANOTAENIA_PRAECOX.JPG: Leo-nie-weh-oh derivative work: Der Regenbogenfisch",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MELANOTAENIA_PRAECOX_cropped.JPG",
-      "caption": "Melanotaenia praecox",
-      "large": {
-        "url": "https://media.aquatome.com/commons/0d0275362610aa62-large.webp",
-        "width": 1000,
-        "height": 667
-      }
-    },
-    {
-      "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017.webp",
-      "thumb": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-480.webp",
-      "width": 960,
-      "height": 638,
-      "licence": "CC BY-SA 4.0",
-      "author": "7TP (Krzysztof Bartosik)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_praecox.jpg",
-      "caption": "Tęczanka neonowa (Melanotaenia praecox)",
-      "large": {
-        "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-large.webp",
-        "width": 1805,
-        "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Anandarajkumar at en.wikipedia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dwarf_neon_rainbows.jpg",
+      "caption": "A pair of male dwarf neon rainbows in a home aquarium."
     },
     {
       "url": "https://media.aquatome.com/aquariumcoop/d14a75aafd9844d5.webp",
@@ -318,9 +296,99 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/dwarf-neon-rainbowfish",
       "caption": "dwarf neon rainbowfish in community tank",
       "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
+      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
+      "width": 960,
+      "height": 745,
+      "large": {
+        "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17-large.webp",
+        "width": 1024,
+        "height": 795
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "Raimond Spekking",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
+      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0d0275362610aa62.webp",
+      "thumb": "https://media.aquatome.com/commons/0d0275362610aa62-480.webp",
+      "width": 960,
+      "height": 640,
+      "large": {
+        "url": "https://media.aquatome.com/commons/0d0275362610aa62-large.webp",
+        "width": 1000,
+        "height": 667
+      },
+      "licence": "Public domain",
+      "author": "MELANOTAENIA_PRAECOX.JPG: Leo-nie-weh-oh derivative work: Der Regenbogenfisch",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:MELANOTAENIA_PRAECOX_cropped.JPG",
+      "caption": "Melanotaenia praecox"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017.webp",
+      "thumb": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-480.webp",
+      "width": 960,
+      "height": 638,
+      "large": {
+        "url": "https://media.aquatome.com/commons/22dbf5e2ea7aa017-large.webp",
+        "width": 1805,
+        "height": 1200
+      },
+      "licence": "CC BY-SA 4.0",
+      "author": "7TP (Krzysztof Bartosik)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_praecox.jpg",
+      "caption": "Tęczanka neonowa (Melanotaenia praecox)"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d64c0ea30909dac8.webp",
+      "thumb": "https://media.aquatome.com/glaser/d64c0ea30909dac8-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/068143de9ce89474.webp",
+      "thumb": "https://media.aquatome.com/glaser/068143de9ce89474-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "ckJfaRfNlSg",
+      "title": " Dwarf Neon Rainbowfish (Melanotaenia praecox) Schooling in the Community Planted Aquarium",
+      "durationSec": 309,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "eZMO0NYgEFg",
+      "title": "Dwarf Neon Rainbowfish (Melanotaenia praecox) Freshwater Aquarium Fish Species Profile & Care Guide",
+      "durationSec": 244,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "t23qMirFecs",
+      "title": "Neon Dwarf Rainbow Care Guide - Aquarium Co-Op",
+      "durationSec": 185,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "D6ozUIceTcU",
+      "title": "Poisson arc en ciel nain (Melanotaenia Praecox), Corydoras, Tetra Amande, Cardinalis, crevettes...",
+      "durationSec": 181,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -349,5 +417,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-21"
 }
