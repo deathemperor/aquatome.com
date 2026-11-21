@@ -157,7 +157,7 @@ export class ArchiveFetcher {
     if (!r.ok) throw new Error(`no archived copy (HTTP ${r.status})`)
     const date = r.headers.get('memento-datetime')
     const m = /^\/web\/(\d+)[a-z_]*\/(.+)$/.exec(new URL(at).pathname + new URL(at).search)
-    const s = m?.[1]?.length === 14 ? m[1] : undefined
+    const s = m?.[1]?.length === 14 ? m?.[1] : undefined
     const capturedAt = date ? new Date(date).toISOString() : s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}T${s.slice(8, 10)}:${s.slice(10, 12)}:${s.slice(12, 14)}.000Z` : undefined
     return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, copyOf: m?.[2] ?? url, ...(capturedAt ? { capturedAt } : {}) } }
   }
