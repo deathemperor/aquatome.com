@@ -93,6 +93,48 @@
       "setup": false
     },
     {
+      "url": "https://media.aquatome.com/gbif/4034578816-8e2ef09aa47ccf94.webp",
+      "thumb": "https://media.aquatome.com/gbif/4034578816-8e2ef09aa47ccf94-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Albert Chakona; J. Merron",
+      "sourceUrl": "https://www.gbif.org/occurrence/4034578816",
+      "caption": "Cá kurper Cape thân sẫm, chụp nghiêng trong khay ảnh",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/4034578816-07698b656ea5dbca.webp",
+      "thumb": "https://media.aquatome.com/gbif/4034578816-07698b656ea5dbca-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Albert Chakona; J. Merron",
+      "sourceUrl": "https://www.gbif.org/occurrence/4034578816",
+      "caption": "Cá kurper Cape trưởng thành có vằn sẫm, trong khay ảnh",
+      "best": true,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/4034578816-319f8ec140f13b89.webp",
+      "thumb": "https://media.aquatome.com/gbif/4034578816-319f8ec140f13b89-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Albert Chakona; J. Merron",
+      "sourceUrl": "https://www.gbif.org/occurrence/4034578816",
+      "caption": "Cá kurper Cape chụp nghiêng trong khay ảnh nền trắng",
+      "best": false,
+      "kind": "other",
+      "setup": true,
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/15663037.webp",
       "thumb": "https://media.aquatome.com/inaturalist/15663037-480.webp",
       "width": 1024,
@@ -158,7 +200,7 @@
       "setup": false
     }
   ],
-  "seen": 48,
-  "updatedAt": "2026-11-14",
-  "builtAt": "2026-11-14"
+  "seen": 52,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

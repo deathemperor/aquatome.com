@@ -272,18 +272,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/2610794.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/2610794-480.webp",
-      "width": 1024,
-      "height": 715,
-      "licence": "CC BY",
-      "author": "Nicolas Olejnik",
-      "sourceUrl": "https://www.inaturalist.org/photos/2610794",
-      "caption": "Cá chuột paleatus vàng ánh xanh trong vợt bắt cá",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/218595337.webp",
       "thumb": "https://media.aquatome.com/inaturalist/218595337-480.webp",
       "width": 1024,
@@ -304,18 +292,6 @@
       "author": "Luciano Massa",
       "sourceUrl": "https://www.inaturalist.org/photos/218595379",
       "caption": "Cá chuột paleatus kiếm ăn trên nền rêu xanh",
-      "best": false,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/271031195.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/271031195-480.webp",
-      "width": 1024,
-      "height": 846,
-      "licence": "CC BY",
-      "author": "Julien Lepage",
-      "sourceUrl": "https://www.inaturalist.org/photos/271031195",
-      "caption": "Cá chuột paleatus bơi trong bể có sỏi",
       "best": false,
       "kind": "other"
     },
@@ -342,6 +318,30 @@
       "caption": "Cá chuột paleatus ngoài tự nhiên trong suối đáy sỏi",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/2610794.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/2610794-480.webp",
+      "width": 1024,
+      "height": 715,
+      "licence": "CC BY",
+      "author": "Nicolas Olejnik",
+      "sourceUrl": "https://www.inaturalist.org/photos/2610794",
+      "caption": "Cá chuột paleatus vàng ánh xanh trong vợt bắt cá",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/271031195.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/271031195-480.webp",
+      "width": 1024,
+      "height": 846,
+      "licence": "CC BY",
+      "author": "Julien Lepage",
+      "sourceUrl": "https://www.inaturalist.org/photos/271031195",
+      "caption": "Cá chuột paleatus bơi trong bể có sỏi",
+      "best": false,
+      "kind": "other"
     }
   ],
   "seen": 82,

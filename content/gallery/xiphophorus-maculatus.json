@@ -461,8 +461,7 @@
       "caption": "Cá mún màu cam đỏ, dạng nuôi lai tạo",
       "best": true,
       "kind": "form",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/192701267.webp",
@@ -475,18 +474,17 @@
       "caption": "Đàn cá mún cam trong bể thủy sinh có cây",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/120987935.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/120987935-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/126763273.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/126763273-480.webp",
       "width": 1024,
-      "height": 721,
+      "height": 768,
       "licence": "CC BY-NC",
-      "author": "blackdogto",
-      "sourceUrl": "https://www.inaturalist.org/photos/120987935",
-      "caption": "Cá mún cái ngoài tự nhiên, bơi gần đáy bùn",
+      "author": "Jens Sommer-Knudsen",
+      "sourceUrl": "https://www.inaturalist.org/photos/126763273",
+      "caption": "Cá mún đỏ bơi dưới nước trong môi trường tự nhiên",
       "best": true,
       "kind": "habitat",
       "setup": false,
@@ -503,8 +501,7 @@
       "caption": "Cá mún đốm trong túi nhựa trong suốt",
       "best": true,
       "kind": "other",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/246740660.webp",
@@ -517,8 +514,7 @@
       "caption": "Cá mún đực màu cam đỏ, nền xám",
       "best": true,
       "kind": "form",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/267491291.webp",
@@ -535,14 +531,14 @@
       "unchecked": true
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/126763273.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/126763273-480.webp",
+      "url": "https://media.aquatome.com/inaturalist/126764446.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/126764446-480.webp",
       "width": 1024,
-      "height": 768,
+      "height": 769,
       "licence": "CC BY-NC",
       "author": "Jens Sommer-Knudsen",
-      "sourceUrl": "https://www.inaturalist.org/photos/126763273",
-      "caption": "Cá mún đỏ bơi dưới nước trong môi trường tự nhiên",
+      "sourceUrl": "https://www.inaturalist.org/photos/126764446",
+      "caption": "Cá mún màu cam đốm đen bơi ngoài tự nhiên",
       "best": true,
       "kind": "habitat",
       "setup": false,
@@ -573,20 +569,6 @@
       "caption": "Cá mún thân đen vàng trong bể thủy sinh",
       "best": true,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/126764446.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/126764446-480.webp",
-      "width": 1024,
-      "height": 769,
-      "licence": "CC BY-NC",
-      "author": "Jens Sommer-Knudsen",
-      "sourceUrl": "https://www.inaturalist.org/photos/126764446",
-      "caption": "Cá mún màu cam đốm đen bơi ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat",
       "setup": false,
       "unchecked": true
     },
@@ -701,6 +683,19 @@
       "kind": "other",
       "setup": true,
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/120987935.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/120987935-480.webp",
+      "width": 1024,
+      "height": 721,
+      "licence": "CC BY-NC",
+      "author": "blackdogto",
+      "sourceUrl": "https://www.inaturalist.org/photos/120987935",
+      "caption": "Cá mún cái ngoài tự nhiên, bơi gần đáy bùn",
+      "best": true,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 320,
