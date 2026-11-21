@@ -2679,6 +2679,35 @@
   ],
   "vi/glossary/dong-danh": [
     {
+      "at": "2026-11-21T17:28:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T17:28:26Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Rule 12: The definition \"Tên đồng nghĩa là một trong hai hay nhiều tên khoa học cùng bậc phân loại dùng cho cùng một loài hay nhóm sinh vật. Thường chỉ một tên trong số đó được dùng làm tên.\" does not match the required wording. It must read word for word: \"Tên đồng nghĩa là một tên khoa học khác của cùng một loài hay nhóm sinh vật. Thường chỉ một trong các tên ấy được dùng làm tên chính thức.\"",
+        "Rules 4 and 12: The body's first sentence \"Một loài hay một nhóm sinh vật có thể mang hai tên khoa học trở lên ở cùng bậc phân loại.\" says the meaning again and was supposed to be cut.",
+        "Rule 12: \"Tên công bố sớm nhất được ưu tiên và gọi là đồng nghĩa sớm (senior synonym).\" must read word for word \"Tên công bố sớm nhất được ưu tiên.\" No fact calls the earliest name the senior synonym, and only one site names the senior synonym.",
+        "Rule 12: The list under \"Một tài liệu tham khảo ghi thêm:\" is missing its required first item, word for word: \"trong động vật học, đồng nghĩa sớm (senior synonym) được ưu tiên hơn đồng nghĩa muộn, và đồng nghĩa muộn chỉ được dùng trong trường hợp ngoại lệ;\"",
+        "Rule 12: The item \"bộ luật danh pháp liên quan quyết định tên nào là tên chính thức của một loài với định nghĩa, vị trí và bậc phân loại xác định.\" must read word for word \"mỗi loài hay nhóm sinh vật với định nghĩa, vị trí và bậc phân loại xác định chỉ có một tên chính thức tại một thời điểm, và bộ luật danh pháp liên quan quyết định tên nào là tên đó.\" Fact 4 speaks of a taxon, not a species, an…",
+        "Rule 12: \"tên thường gọi \\\"guppy\\\" vẫn còn dùng, dù <em>Girardinus guppii</em> nay chỉ là tên đồng nghĩa.\" adds \"chỉ\", which fact 23 does not have. It must read \"… nay là tên đồng nghĩa.\"",
+        "Rule 12: The heading \"Tên định danh nhầm và tên lỗi thời\" must be written \"Định danh nhầm và tên lỗi thời\". Fact 13 gives a misidentification, not a name.",
+        "Rule 12: The item \"tên định danh nhầm nằm trong danh sách đồng nghĩa không thật sự là tên khác của loài, nó có mặt ở đó là do hai loài từng bị nhầm với nhau;\" must read word for word \"một trường hợp định danh nhầm nằm trong danh sách đồng nghĩa không thật sự là tên khác của loài, nó có mặt ở đó là do hai loài từng bị nhầm với nhau;\"",
+        "Rule 12: \"khoảng 10% tên cá trong một tài liệu trở nên lỗi thời sau 10 năm.\" uses \"tài liệu\" for fact 16's \"a given work\", but the entry already uses \"tài liệu\" for the source in its credits. It must read \"… trong một công trình …\".",
+        "Rule 12: \"biết chi của một con cá thì đoán được cá có lẽ lớn cỡ nào, tính nết ra sao, ăn gì và cần gì để đẻ.\" overstates fact 20, which only says knowing the genus helps predict these things. It must read word for word \"biết chi của một con cá giúp đoán cá có lẽ lớn cỡ nào, tính nết ra sao, ăn gì và cần gì để đẻ.\""
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
       "at": "2026-11-21T17:14:32Z",
       "model": "sonnet",
       "cli": "2.1.329",
