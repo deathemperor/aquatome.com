@@ -1,0 +1,327 @@
+{
+  "found": true,
+  "species": [
+    "Symphysodon",
+    "Caridina cantonensis",
+    "Mikrogeophagus ramirezi",
+    "Corydoras pygmaeus",
+    "Betta macrostoma"
+  ],
+  "sources": [
+    {
+      "url": "https://aquariumcoop.com/blogs/aquarium/soft-water-fish",
+      "title": "Top 5 Aquarium Fish That Love Soft Water",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumcoop.com/blogs/aquarium/ph-gh-kh",
+      "title": "The Fish Keeper’s Guide to pH, GH, and KH",
+      "kind": "shop"
+    },
+    {
+      "url": "https://aquariumscience.org/4-5-water-hardness/",
+      "title": "Water Hardness",
+      "kind": "keeper"
+    },
+    {
+      "url": "https://www.aquasabi.de/aquascaping-wiki-en_aquarium_total-hardness-in-the-aquarium",
+      "title": "Total hardness in the aquarium",
+      "kind": "shop"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/nuoc-van-de-can-suy-nghi-cho-viec-nuoi-ca.69806/",
+      "title": "Nước, vấn đề cần suy nghĩ cho việc nuôi cá",
+      "kind": "forum"
+    },
+    {
+      "url": "https://chamca.vn/chon-nuoc-cho-ho-ca/",
+      "title": "Chọn Nước Cho Hồ Cá Chuẩn Để Cá Phát Triển Tốt Nhất",
+      "kind": "shop"
+    },
+    {
+      "url": "https://kinetico.com.vn/lam-the-nao-de-dieu-chinh-do-cung-cua-nuoc-trong-be-ca/",
+      "title": "LÀM THẾ NÀO ĐỂ ĐIỀU CHỈNH ĐỘ CỨNG CỦA NƯỚC TRONG BỂ CÁ",
+      "kind": "maker"
+    },
+    {
+      "url": "https://sinhvatcanh.org/do-cung-va-tac-hai-cua-nuoc-cung/",
+      "title": "Độ cứng và tác hại của nước cứng",
+      "kind": "keeper"
+    }
+  ],
+  "facts": [
+    {
+      "section": "other",
+      "fact": "Name for the term: \"soft water\"",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"nước mềm\"",
+      "source": 5,
+      "also": [
+        4,
+        7
+      ]
+    },
+    {
+      "section": "other",
+      "fact": "Name for the term: \"Mềm\" (with \"Rất mềm\" for very soft), used as hardness grades in a Vietnamese water-treatment company's table",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "Soft water has fewer dissolved minerals such as calcium and magnesium than normal.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "A GH of 4 degrees (75 ppm) or lower indicates soft water.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "GH (general hardness) measures calcium and magnesium ions and shows how hard or soft the water is.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "KH (carbonate hardness) measures carbonates and bicarbonates; low KH means less buffering, so pH swings easily.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Water below 8.4 °dH is classed as soft, 8.4 to 14 °dH as medium-hard and above 14 °dH as hard; the page traces this to Germany's 2007 WRMG law.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "1 °dH comes from 7.144 mg/l calcium or 4.346 mg/l magnesium.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "A Vietnamese water-treatment company grades 0–50 ppm as very soft and 50–100 ppm as soft.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "The same company gives 80 to 120 ppm as a suitable general hardness for fish-tank water.",
+      "source": 6
+    },
+    {
+      "section": "what",
+      "fact": "A Vietnamese forum post counts water with more than 65 mg/l of carbonate as hard and below that as soft, and says most ornamental fish like soft, neutral water.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "A Vietnamese article treats water with temporary hardness above 100 ppm as hard water.",
+      "source": 7
+    },
+    {
+      "section": "what",
+      "fact": "Soft water is typical of South American and Southeast Asian habitats.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Many aquarium plants, ornamental fish and invertebrates come from soft, acidic habitats.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Calcium and magnesium are macronutrients for plants, and calcium builds the outer skeletons of snails, crabs and shrimp.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "The bacteria that break down pollutants need some minerals, so tank water cannot be completely mineral-free.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Discus (Symphysodon) and crystal shrimp (Caridina) setups may need 0-3 dKH (0-50 ppm).",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Soft-water fish such as discus (Symphysodon) may need 3 dGH (50 ppm) or less, while general tanks run 4-8 dGH (70-140 ppm).",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Crystal or bee shrimp (Caridina cantonensis) are listed for 4–7° GH (70–130 ppm), pH below 6.8 and low KH.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Ram cichlids (Mikrogeophagus ramirezi), pygmy cories (Corydoras pygmaeus) and Betta macrostoma are listed as soft-water fish; wild Betta macrostoma live at pH 4–6, while captive-bred ones usually take pH 6–7.",
+      "source": 0
+    },
+    {
+      "section": "signs",
+      "fact": "Low GH can cause poor appetite, slow growth, lethargy or faded colour in fish, mineral deficiency in plants, molting trouble in shrimp, and thin, flaking or pitted shells in snails.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "Stress from a pH crash shows as frantic swimming, lethargy, rapid breathing and erratic behaviour.",
+      "source": 1
+    },
+    {
+      "section": "signs",
+      "fact": "A forum post suggests a kettle test: white scale in the kettle shows the water source is hard.",
+      "source": 4
+    },
+    {
+      "section": "causes",
+      "fact": "Low GH often comes with low KH, and low KH can cause pH swings or crashes that harm fish.",
+      "source": 0
+    },
+    {
+      "section": "causes",
+      "fact": "In low-KH water a tank can drift into 'old tank syndrome', becoming very acidic, and very acidic water stops the nitrogen cycle.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Water changes or filtering done too often can push hardness too low.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "To soften water, gradually mix in RODI (reverse osmosis deionized) water, do minimal water changes, or add catappa leaves.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "steps",
+      "fact": "Calcium and magnesium cannot be removed from water already in the tank; remove them by treating the water first with reverse osmosis or a softening system.",
+      "source": 2
+    },
+    {
+      "section": "steps",
+      "fact": "Hard water can be softened by mixing it with rainwater or osmosis water; nearly mineral-free 'zero water' should be remineralized by blending with harder water or adding hardening salts.",
+      "source": 3
+    },
+    {
+      "section": "steps",
+      "fact": "For shrimp, use an active buffering substrate and add shrimp-specific minerals to RODI water.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "A Vietnamese water-treatment company suggests soaking peat in a cloth bag in the tank, or boiling water with peat and cooling it before use.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "To lower alkalinity, use catappa leaves or dilute with RO water, and make changes gradually over 2-3 days.",
+      "source": 5
+    },
+    {
+      "section": "steps",
+      "fact": "To harden soft water, crushed coral can be mixed into the substrate at about 1 lb per 10 gallons or put in a filter media bag, and replaced every 6-12 months.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "A Vietnamese forum post suggests charcoal filtering or Tetra 'black water' to soften tank water, and coral or limestone to harden it.",
+      "source": 4
+    },
+    {
+      "section": "steps",
+      "fact": "Sodium-type ion exchange resin can bring hardness below 10 ppm and is regenerated with table salt.",
+      "source": 7
+    },
+    {
+      "section": "prevention",
+      "fact": "Test pH and GH (for example with multi-test strips) before choosing or changing water, and test regularly rather than assuming the values are fine.",
+      "source": 0,
+      "also": [
+        1
+      ]
+    },
+    {
+      "section": "prevention",
+      "fact": "Keep KH from dropping to 2 dKH or below, except for animals that prefer low pH.",
+      "source": 1
+    },
+    {
+      "section": "prevention",
+      "fact": "Rainwater and spring water should be filtered with activated carbon, UV-treated and tested for pH, GH and KH; beginners should avoid outdoor sources.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Using RO or bottled purified water alone leaves the water poor in minerals; add mineral salts or blend it with treated tap water, but overdosing minerals makes it too hard.",
+      "source": 5,
+      "also": [
+        3
+      ]
+    },
+    {
+      "section": "mistakes",
+      "fact": "Limestone raises both GH and KH; to raise GH only, add calcium and magnesium without carbonates.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Sudden changes in water values can harm fish, especially pygmy cories (Corydoras pygmaeus).",
+      "source": 0
+    },
+    {
+      "section": "mistakes",
+      "fact": "Confusing GH with KH: KH is only part of GH and is usually lower.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Mixing up °dH and ppm when comparing hardness values.",
+      "source": 3
+    },
+    {
+      "section": "mistakes",
+      "fact": "Ask shrimp sellers what water their bee shrimp (Caridina cantonensis) were kept in, because they are sensitive to water conditions.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Aquarium Science's author says hardness (GH and KH) matters little for nearly all fish with decent water changes, and that most fish survive well outside their native hardness ranges.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "The same author says fish do fine at pH 6.5 to 8.5 and TDS above 50, which rules out only distilled and RO water.",
+      "source": 2
+    },
+    {
+      "section": "myths",
+      "fact": "The same author says GH and KH are not as closely linked as many hobbyists assume.",
+      "source": 2
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese forum post says tap water is mostly neutral in pH, with some places slightly alkaline.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese keeper on the forum says ordinary filters cannot remove hardness and RO is too costly, so he puts stable pH and good oxygen first.",
+      "source": 4
+    },
+    {
+      "section": "vietnam",
+      "fact": "A Vietnamese shop article lists low hardness needs for neon tetras (KH 1-3) and bettas (KH 3-5).",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Seachem Discus Buffer and Acid Regulator are described as softening water because calcium and magnesium precipitate out with them.",
+      "source": 3
+    }
+  ]
+}

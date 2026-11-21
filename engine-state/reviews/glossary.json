@@ -2676,5 +2676,38 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/glossary/nuoc-mem": [
+    {
+      "at": "2026-11-21T17:40:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 1,
+      "notes": [
+        "Loose, reworded: \"Thay nước ít cũng là một cách giữ nước mềm.\" → \"Thay nước ít cũng là một cách làm mềm nước.\" (supported)"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T17:40:07Z",
+      "model": "sonnet",
+      "cli": "2.1.329",
+      "score": 0.93,
+      "notes": [
+        "\"KH thấp thì nước đệm kém và pH dễ dao động hoặc tụt mạnh.\": the facts don't carry it (uncredited, uncredited, supported): buffering/pH swing claim only from aquariumcoop.com, no credit / buffering/pH swing claim only from aquariumcoop.com, uncredited",
+        "\"Cây thì thiếu khoáng, tép khó lột xác, còn vỏ ốc mỏng, bong hoặc rỗ.\": the facts don't carry it (unsupported, unsupported, unsupported): drops 'can' hedge on effects / drops 'can' hedge; stated as certain effects / drops 'can' hedge",
+        "Rule 4: \"Nước mềm là nước có ít khoáng hòa tan, chủ yếu là canxi và magie\" under \"Trong bể của bạn\" repeats the definition (\"Nước mềm là nước có ít khoáng hòa tan như canxi và magie\"). It should be said in one place only.",
+        "Rule 12: \"chủ yếu là canxi và magie\" changes the fact's \"such as calcium and magnesium\" into a claim the fact doesn't make, that these are the main minerals. A fact's hedges and amounts must stay as it gives them.",
+        "Rule 12: \"Người nuôi cần nắm khi chọn nước cho các loài ưa nước mềm và khi pha nước RO cho bể\" is a claim no fact gives. It also uses \"các loài\", which widens the fact. The line bans this: groups take a page name, the scientific name or the fact's own word.",
+        "Rule 15: under \"Trong bể của bạn\", \"Nước mềm là nước có ít khoáng hòa tan...\" says what soft water is, not what it does in the tank. That belongs in the definition, not this section.",
+        "Rule 15: the heading \"Loài ưa nước mềm và dấu hiệu GH thấp\" also holds \"GH thấp hay đi kèm KH thấp\" and \"Thông số nước đổi đột ngột có thể hại cá, nhất là cá chuột lùn\". Neither is about which animals prefer soft water or about signs of low GH, so the heading doesn't cover what the section holds.",
+        "Rule 12: \"Cây thì thiếu khoáng, tép khó lột xác, còn vỏ ốc mỏng, bong hoặc rỗ\" drops the fact's hedge (\"Low GH can cause...\"). The effects on plants, shrimp and snails are stated as certain.",
+        "Rule 12: \"Nước RO dùng riêng thì nghèo khoáng, nên thêm muối khoáng hoặc pha với nước cứng hơn, như nước máy đã xử lý\" stands plain, but \"nước máy đã xử lý\" comes from only one site (chamca.vn). A one-site part needs its own sentence under that site's credit, not a place inside a plain two-site sentence.",
+        "Rule 4: \"Tiệm này khuyên pha nước RODI (RO khử ion) vào từ từ\" repeats the step already given plainly in \"Pha nước RO vào nước cứng thì nước mềm đi\". The step should be said once."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }
