@@ -1,10 +1,10 @@
 import { mkdir, readdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { slugify, type GuideEntity, type SourceId } from '@aq/schema'
-import { ARCHIVE_POLITE, ArchiveRefused, AsksSpent, cdxQuery, type ArchiveReader } from './archive'
+import { ARCHIVE_POLITE, ArchiveRefused, AsksSpent, cdxQuery, noCopy, type ArchiveReader } from './archive'
 import { vnDay } from './ceiling'
 import { LlmError, type Llm } from './claude'
-import { COPY_HOSTS, cycleOnlyHosts, refused } from './cycle-only'
+import { byHand, cycleOnlyHosts, refused } from './cycle-only'
 import { IDEA_SOURCES, ideaHost, NEVER_RESEARCHED, type Drop, type IdeaSource, type Listing } from './idea-sources'
 import { isMarketplace } from './marketplaces'
 import { htmlToOutline, isChallenge } from './outline'
@@ -128,17 +128,23 @@ function mirror(m: MagazineState, l: MagazineLedger) {
 }
 /** A lock older than this is a step that died: none runs so long. */
 const LOCK_STALE_MS = 6 * 3_600_000
+/** How long a step that has taken the lock waits before it reads the lock again, to be sure it is still its own. */
+export const LOCK_SETTLE_MS = 2_000
 /**
  * One magazine step at a time on the Mac, since its ledger is read and then written at each request: a step that finds
  * another running fails, naming it, so the cycle logs it. A lock whose step has died, or older than LOCK_STALE_MS, is
- * taken over. The release removes it.
+ * taken over. Two steps taking over the same one may each remove it in turn (Codex, 21 Nov 2026), so a step that has taken
+ * it reads it again LOCK_SETTLE_MS on, and goes on only if it still holds its own number. The release removes only its own.
  */
-export async function holdMagazine(file: string, now: () => Date, pid = process.pid): Promise<() => Promise<void>> {
+export async function holdMagazine(file: string, now: () => Date, pid = process.pid, sleep = (ms: number) => new Promise<void>(res => setTimeout(res, ms))): Promise<() => Promise<void>> {
   await mkdir(dirname(file), { recursive: true })
+  const mine = async () => Number((await readFile(file, 'utf8').catch(() => '')).trim()) === pid
   for (let tries = 0; ; tries++) {
     try {
       await writeFile(file, `${pid}\n`, { flag: 'wx' })
-      return () => rm(file, { force: true })
+      await sleep(LOCK_SETTLE_MS)
+      if (!(await mine())) throw new Error(`another magazine step took the lock at the same time (${file})`)
+      return async () => { if (await mine()) await rm(file, { force: true }) }
     } catch (e) {
       if ((e as NodeJS.ErrnoException).code !== 'EEXIST' || tries > 0) throw e
       const held = Number((await readFile(file, 'utf8').catch(() => '')).trim())
@@ -178,18 +184,8 @@ export async function listingText(res: Response): Promise<string> {
  * A site's listing, its redirects followed by hand (Codex, 21 Nov 2026): never to a copy site (the Internet Archive's is read
  * only through its reader, on the Mac, under its rest), nor from a shop's listing to the magazine's site.
  */
-export const fetchListing = (get: typeof fetch, ua: string) => async (u: string): Promise<string> => {
-  for (let hop = 0, url = u; hop <= 5; hop++) {
-    if (refused(COPY_HOSTS, url)) throw new Error(`its listing points to a copy site, not followed: ${url}`)
-    if (isMagazinePost(url) && bareHost(url) !== bareHost(u)) throw new Error(`its listing points to the magazine's site, not followed: ${url}`)
-    const res = await get(url, { redirect: 'manual', headers: { 'user-agent': ua }, signal: AbortSignal.timeout(60_000) })
-    const next = res.status >= 300 && res.status < 400 ? res.headers.get('location') : null
-    if (!next) return listingText(res)
-    await res.body?.cancel().catch(() => undefined)
-    url = new URL(next, url).href
-  }
-  throw new Error('its listing: more than 5 redirects')
-}
+export const fetchListing = (get: typeof fetch, ua: string) => async (u: string): Promise<string> =>
+  listingText(await byHand(get, ua, url => (isMagazinePost(url) && bareHost(url) !== bareHost(u) ? `its listing points to the magazine's site, not followed: ${url}` : undefined))(u))
 /** An answer of 200 that isn't the listing asked for: a refusal. */
 const notA = (what: string) => new ListingRefused(`refused, not ${what}`)
 function json<T>(body: string, what: string): T {
@@ -301,19 +297,22 @@ function asksLeft(l: MagazineLedger, kind: 'listing' | 'post', now: Date) {
 /**
  * A capped reader for the magazine: each request counted under the day it is made, and written down before it is made. Its
  * first request waits the reader's pace (ARCHIVE_POLITE), after whatever asked the Archive before it: the sources' run
- * just ahead of the step, or the list's last index query (the chief of staff, 21 Nov 2026).
+ * just ahead of the step, or the list's last index query (the chief of staff, 21 Nov 2026). What is left is reckoned again
+ * at each request, on its own day (Codex, 21 Nov 2026: a run that passes Vietnam's midnight), and a request the rest stops
+ * is not counted (archive.ts `capped`).
  */
 const magazineReader = (reader: ArchiveReader, l: MagazineLedger, file: string, kind: 'listing' | 'post', now: () => Date, sleep: (ms: number) => Promise<void>) => {
   let first = true
-  return reader.capped(asksLeft(l, kind, now()), async () => {
-    if (first) { first = false; await sleep(ARCHIVE_POLITE) }
+  const most = kind === 'post' ? ARCHIVE_POST_DAY : ARCHIVE_LISTING_WEEK
+  return reader.capped(most, async () => {
+    if (asksLeft(l, kind, now()) <= 0) throw new AsksSpent(most)
     const asks = (l.asks ??= {})
     const today = (asks[vnDay(now())] ??= {})
     today[kind] = (today[kind] ?? 0) + 1
     const kept = lastDays(now(), LISTING_DAYS)
     for (const day of Object.keys(asks)) if (!kept.has(day)) delete asks[day]
     await saveLedger(file, l)
-  })
+  }, async () => { if (first) { first = false; await sleep(ARCHIVE_POLITE) } })
 }
 
 /**
@@ -449,7 +448,16 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
   const report = { fresh: false, posts: 0, ideas: 0, ...listedReport() }
   const fresh = !o.force && !!state.readAt && d.now().getTime() - Date.parse(state.readAt) < FRESH_DAYS * 86_400_000
   const magazineAt = magazineRead(magazine)
-  if (fresh && magazineAt === state.magazineAt) return { ...report, fresh: true }
+  // What the Mac made of the magazine's ideas, as each idea's own: written or skipped, it never comes back. Taken at every
+  // run, fresh or not (Codex, 21 Nov 2026: a guide written within the week was otherwise seen only a week on).
+  let took = false
+  for (const i of state.ideas) {
+    const g = i.fromMagazine ? magazine.guides[slugify(i.topic)] : undefined
+    if (!g || !(g.guide || g.skipped)) continue
+    const now = { ...i, ...(g.guide ? { guide: g.guide } : {}), ...(g.skipped ? { skipped: g.skipped } : {}), ...(g.at ? { at: g.at } : {}), ...(g.post ? { post: g.post } : {}) }
+    if (JSON.stringify(now) !== JSON.stringify(i)) { Object.assign(i, now); took = true }
+  }
+  if (fresh && magazineAt === state.magazineAt) { if (took) await save(root, state); return { ...report, fresh: true } }
   if (!fresh) {
     let first = true
     const get = async (url: string) => { if (!first) await d.sleep(DELAY); first = false; return d.get(url) }
@@ -460,12 +468,7 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
     }
   }
   const posts = IDEA_SOURCES.flatMap(s => ((s.viaArchive ? magazine.posts[s.id] : state.posts[s.id]) ?? []).map(p => ({ ...p, site: s.id })))
-  if (!posts.length) return report
-  // What the Mac made of the magazine's ideas, as each idea's own: written or skipped, it never comes back.
-  for (const i of state.ideas) {
-    const g = i.fromMagazine ? magazine.guides[slugify(i.topic)] : undefined
-    if (g && (g.guide || g.skipped)) Object.assign(i, { ...(g.guide ? { guide: g.guide } : {}), ...(g.skipped ? { skipped: g.skipped } : {}), ...(g.at ? { at: g.at } : {}), ...(g.post ? { post: g.post } : {}) })
-  }
+  if (!posts.length) { if (took) await save(root, state); return report }
   const guides = await guideNames(root)
   const r = await d.llm<{ ideas: { topic: string; kind: GuideKind; posts: number[] }[] }>({
     system: 'You plan an aquarium handbook\'s guides. Reply only with JSON.', schema: SCHEMA,
@@ -539,8 +542,11 @@ async function magazinePost(idea: Idea, posts: MagazineState['posts'], archive: 
   } catch (e) {
     if (e instanceof ArchiveRefused) throw e
     console.warn(`magazine: ${url}: ${(e as Error).message.slice(0, 120)}`)
-    return { url, unread: !(e instanceof AsksSpent) && /^no archived copy/.test((e as Error).message) ? 'no copy' : 'not reached' }
+    return { url, unread: !(e instanceof AsksSpent) && noCopy(e) ? 'no copy' : 'not reached' }
   }
+  // A copy of another page, a redirect's (Codex, 21 Nov 2026: the post moved, or the Archive sent the site's home page): no
+  // copy of this one.
+  if (placeOf(got.copyOf) !== placeOf(url)) return { url, unread: 'no copy' }
   const o = htmlToOutline(got.html)
   if (!o.outline.trim() || isChallenge(o.title, o.outline)) return { url, unread: 'no copy' }
   return { url, page: { url, title: o.title, text: o.outline, hash: snapshotHash({ title: o.title, outline: o.outline }), ...(got.capturedAt ? { capturedAt: got.capturedAt } : {}) } }

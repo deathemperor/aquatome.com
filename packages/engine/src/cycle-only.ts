@@ -11,7 +11,7 @@ import { SOURCES, type SourceConfig } from './sources'
  * archive.fo, and the bare or sub-hosts of the proxies, were missing (Codex, 17 Nov 2026). refused-sources.ts reads the
  * archives' copies and names the proxies' addresses, and its test holds every one of its hosts to this list.
  */
-export const COPY_HOSTS = [
+const COPY_HOSTS = [
   'archive.org', '*.archive.org',
   ...['archive.ph', 'archive.is', 'archive.today', 'archive.li', 'archive.md', 'archive.vn', 'archive.fo'].flatMap(h => [h, `*.${h}`]),
   ...['webcache.googleusercontent.com', 'translate.goog', 'r.jina.ai'].flatMap(h => [h, `*.${h}`]),
@@ -87,6 +87,24 @@ export function refused(hosts: readonly string[], url: string): boolean {
   let h: string
   try { h = new URL(url).hostname.toLowerCase().replace(/\.$/, '') } catch { return true }
   return hosts.some(r => (r.startsWith('*.') ? h.endsWith(r.slice(1)) : h === r))
+}
+
+/**
+ * A fetch whose redirects are followed by hand, each a request, never to a copy site (the Internet Archive's is asked only
+ * through its reader, on the Mac, under its rest: Codex, 21 Nov 2026), nor where `off` says (its reason).
+ */
+export const byHand = (get: typeof fetch, ua: string, off: (url: string) => string | undefined = () => undefined) => async (u: string): Promise<Response> => {
+  for (let hop = 0, url = u; hop <= 5; hop++) {
+    if (refused(COPY_HOSTS, url)) throw new Error(`it points to a copy site, not followed: ${url}`)
+    const why = off(url)
+    if (why) throw new Error(why)
+    const res = await get(url, { redirect: 'manual', headers: { 'user-agent': ua }, signal: AbortSignal.timeout(60_000) })
+    const next = res.status >= 300 && res.status < 400 ? res.headers.get('location') : null
+    if (!next) return res
+    await res.body?.cancel().catch(() => undefined)
+    url = new URL(next, url).href
+  }
+  throw new Error('more than 5 redirects')
 }
 
 /**

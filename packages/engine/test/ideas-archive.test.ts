@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { ARCHIVE_POLITE, ArchiveFetcher } from '../src/archive'
 import { LlmError, type Llm } from '../src/claude'
 import { cycleOnlyHosts } from '../src/cycle-only'
-import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, holdMagazine, ListingRefused, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState, type MagazineState } from '../src/ideas'
+import { ARCHIVE_LISTING_WEEK, ARCHIVE_POST_DAY, holdMagazine, ListingRefused, LOCK_SETTLE_MS, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState, type MagazineState } from '../src/ideas'
 import { COPY_WORDS, makeTopic, POST_OTHER_SITES, POST_SHARE, siteOf, topicId } from '../src/topics'
 
 // The owner, 20 Nov 2026: "Pratical fishkeeping: use internet archive" (and 9 Nov: "any site that are often blocked should
@@ -507,23 +507,35 @@ test('one magazine step at a time on the Mac: another one running fails, naming 
   const dir = await mkdtemp(join(tmpdir(), 'magazine-lock-'))
   const file = join(dir, 'magazine.lock')
   const now = () => new Date()
-  const release = await holdMagazine(file, now)
-  await expect(holdMagazine(file, now, 12345)).rejects.toThrow(`another magazine step is running (pid ${process.pid}, ${file})`)
+  const quick = async () => {}
+  const release = await holdMagazine(file, now, undefined, quick)
+  await expect(holdMagazine(file, now, 12345, quick)).rejects.toThrow(`another magazine step is running (pid ${process.pid}, ${file})`)
   await release()
-  await (await holdMagazine(file, now))()
+  await (await holdMagazine(file, now, undefined, quick))()
   // A step that died: its number is no process's now.
   await writeFile(file, '2147483646\n')
-  await (await holdMagazine(file, now))()
+  await (await holdMagazine(file, now, undefined, quick))()
   // A step's lock left from more than six hours ago.
   await writeFile(file, `${process.pid}\n`)
   const old = new Date(Date.now() - 7 * 3_600_000)
   await utimes(file, old, old)
-  await (await holdMagazine(file, now))()
+  await (await holdMagazine(file, now, undefined, quick))()
   // A lock with no number yet: a step that has just taken it (Codex, 21 Nov 2026). Left so for six hours, it gives way.
   await writeFile(file, '')
-  await expect(holdMagazine(file, now)).rejects.toThrow(`another magazine step is starting (${file})`)
+  await expect(holdMagazine(file, now, undefined, quick)).rejects.toThrow(`another magazine step is starting (${file})`)
   await utimes(file, old, old)
-  await (await holdMagazine(file, now))()
+  await (await holdMagazine(file, now, undefined, quick))()
+  // Two steps taking over the same dead lock (Codex, 21 Nov 2026): the other removes this one's new lock and takes it. This one,
+  // finding its number gone LOCK_SETTLE_MS on, goes no further; and a release removes only its own.
+  await writeFile(file, '2147483646\n')
+  const slept: number[] = []
+  await expect(holdMagazine(file, now, undefined, async ms => { slept.push(ms); await writeFile(file, '2147483645\n') })).rejects.toThrow(`another magazine step took the lock at the same time (${file})`)
+  expect(slept).toEqual([LOCK_SETTLE_MS])
+  await rm(file, { force: true })
+  const release2 = await holdMagazine(file, now, undefined, quick)
+  await writeFile(file, '2147483645\n')
+  await release2()
+  expect(await readFile(file, 'utf8')).toBe('2147483645\n')
 })
 
 test(`a fact research copied out of the post (${COPY_WORDS} words of it in a row, whatever their case or marks) is dropped before anything keeps or reads it, and research keeps no session of the post`, async () => {
@@ -612,6 +624,117 @@ test("the Archive not answering for an older copy, past a browser check: the pos
   })
   await write(root, researchCiting(0, 3, []), a.reader)
   expect(await guideOf(root, 'Nước bể cá bị đục')).toMatchObject({ post: { url: POST, result: 'not reached' } })
+  // A 5xx on the post's own copy is the Archive down, not its holding nothing (Codex, 21 Nov 2026).
+  const down = await waiting([magazineIdea('Nước bể cá bị đục')])
+  await write(down, researchCiting(0, 3, []), (await archive(u => (u.endsWith(`id_/${POST}`) ? res(502, '') : res(404, '')))).reader)
+  expect(await guideOf(down, 'Nước bể cá bị đục')).toMatchObject({ post: { url: POST, result: 'not reached' } })
+})
+
+/** The Archive's redirect, to `location`. */
+const to = (location: string) => ({ ...res(302, ''), headers: { get: (n: string) => (n === 'location' ? location : null) } })
+const isBody = (x: Parameters<Llm>[0]) => !!(x.schema as { required?: string[] }).required?.includes('body')
+const quoted = (files: [string, string][]) => files.filter(([, t]) => /placeholder(?: |%20)text(?: |%20)about(?: |%20)cloudy/i.test(t)).map(([f]) => f)
+
+// Codex's fresh read of f4e7985fae: research's halves of the post's sentence, apart, put back together by the writer, or
+// quoted by the checker into the review log.
+test("a guide whose writer puts the post's own sentence back together is not kept; a checker's note that quotes it is kept without its words", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const joining: Llm = async <T>(x: Parameters<Llm>[0]) => (isBody(x) ? { name: 'Nước bể cá bị đục', summary: ['Một ý.'], body: '<h3>Vì sao</h3><p>Placeholder <b>text</b> about cloudy water and bacterial blooms.</p>', faq: [] } : { score: 0.95, notes: [] }) as T
+  const r = await write(root, researchCiting(2, 3, []), (await archive(article())).reader, undefined, joining)
+  expect(r.written).toEqual([])
+  expect(r.skipped).toEqual(['Nước bể cá bị đục: the guide repeats the post'])
+  expect(quoted(await files(root))).toEqual([])
+  const notes = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const quoting: Llm = async <T>(x: Parameters<Llm>[0]) => (isBody(x) ? writer<T>(x) : { score: 0.95, notes: ['It says "placeholder text about cloudy water and bacterial blooms", as the post does.'] } as T)
+  const w = await write(notes, researchCiting(2, 3, []), (await archive(article())).reader, undefined, quoting)
+  expect(w.written).toEqual([topicId('Nước bể cá bị đục')])
+  expect(quoted(await files(notes))).toEqual([])
+  expect((await files(notes)).some(([, t]) => t.includes('a note that repeats the post'))).toBe(true)
+})
+
+// Codex's fresh read of f4e7985fae: a copy with no title took research's, and an address with its spaces escaped passed.
+test("an untitled copy is named by its site, never by research; an address that repeats the post with its spaces escaped is no source", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const untitled = '<!DOCTYPE html><html><head></head><body><main><p>Placeholder text about cloudy water and bacterial blooms.</p></main></body></html>'
+  const naming: Llm = async <T>() => {
+    const sources = [{ url: POST, title: 'Placeholder text about cloudy water and bacterial blooms', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' })),
+      { url: 'https://d.example/Placeholder%20text%20about%20cloudy%20water%20and%20bacterial%20blooms', title: 'D', kind: 'vet' }]
+    const facts = [{ section: 'causes', fact: 'A bloom clears in days.', source: 0 }, ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i })), { section: 'prevention', fact: 'D fact.', source: 4 }]
+    return { found: true, facts, species: [], sources } as T
+  }
+  await write(root, naming, (await archive(article(untitled))).reader)
+  const facts = JSON.parse(await readFile(join(root, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts
+  expect(facts.sources[0]).toMatchObject({ url: POST, title: 'practicalfishkeeping.co.uk', via: 'archive' })
+  expect(facts.sources[4]).toMatchObject({ url: '' })
+  expect(quoted(await files(root))).toEqual([])
+})
+
+// Codex's fresh read of f4e7985fae: the post cited with a tracking query was taken for another page, refused, and the facts
+// leaning on it not counted.
+test("research citing the post with a tracking query is citing the post: the facts leaning on it count, and go with it", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const tracked: Llm = async <T>() => {
+    const sources = [{ url: `${POST}?utm_source=example`, title: 'the post', kind: 'magazine' }, ...['https://a.example/x', 'https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' }))]
+    const facts = [...[1, 2, 3].map(i => ({ section: 'causes', fact: `Leaning fact ${i}.`, source: i, also: [0] })), ...[1, 2].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i }))]
+    return { found: true, facts, species: [], sources } as T
+  }
+  const prompts: string[] = []
+  const recording: Llm = async <T>(x: Parameters<Llm>[0]) => { prompts.push(x.prompt); return writer<T>(x) }
+  const r = await write(root, tracked, (await archive(article())).reader, undefined, recording)
+  expect(r.posts).toEqual([`Nước bể cá bị đục: ${POST}: too much of one source; 0 of the 2 facts the writer was given came from it`])
+  expect(prompts[0]).not.toContain('Leaning fact')
+})
+
+// Codex's fresh read of f4e7985fae: a redirect to another page's copy was taken as the post's.
+test("a copy the Archive sends of another page (the post moved, or the site's home page) is no copy of the post", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const asked: string[] = []
+  const a = await archive(u => (u.endsWith(`20261121id_/${POST}`) ? to(`/web/20250101000000id_/${PF}`) : u.endsWith(`20250101000000id_/${PF}`) ? res(200, '<title>Practical Fishkeeping</title><p>Home page text.</p>') : res(404, '')))
+  await write(root, researchCiting(0, 3, asked), a.reader)
+  expect(a.asked).toHaveLength(2)
+  expect(asked[0]).not.toContain('Address: ')
+  expect(await guideOf(root, 'Nước bể cá bị đục')).toMatchObject({ post: { url: POST, result: 'no copy' } })
+})
+
+// Codex's fresh read of f4e7985fae: a rest written during the pace wait stopped the request, but it was counted.
+test("a rest another job writes while the magazine waits its pace stops the request, which is not counted", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const a = await archive(article())
+  const r = await writeMagazine(root, { research: researchCiting(2, 3, []), llm: writer, now: () => new Date('2026-11-21T06:00:00Z'), archive: a.reader, ledger: ledgerOf(root),
+    sleep: async () => { await writeFile(a.rest, JSON.stringify({ until: '2026-11-21T18:00:00.000Z', waitMs: 43_200_000, got: 'HTTP 429', at: '2026-11-21T06:00:00.000Z' })) } })
+  expect(a.asked).toEqual([])
+  expect(r.stopped).toMatch(/no request before 2026-11-21T18:00:00.000Z/)
+  expect((await ledger(root)).asks?.['2026-11-21']?.post ?? 0).toBe(0)
+})
+
+// Codex's fresh read of f4e7985fae: what was left was fixed when the reader was made, so a read passing Vietnam's midnight
+// had the old day's allowance.
+test("a read that passes Vietnam's midnight counts each request on its own day, with that day's allowance", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  await writeFile(ledgerOf(root), JSON.stringify({ asks: { '2026-11-21': { post: ARCHIVE_POST_DAY - 1 } } }))
+  // 16:59:55 UTC is 23:59:55 in Vietnam; the first answer comes after midnight.
+  let clock = Date.parse('2026-11-21T16:59:55Z')
+  const asked: string[] = []
+  const reader = new ArchiveFetcher({ restFile: await restFile(), ua: 'test', sleep: async () => {}, now: () => new Date(clock),
+    fetch: async u => { asked.push(u); clock = Date.parse('2026-11-21T17:00:05Z'); return u.endsWith(`20261121id_/${POST}`) ? to(`/web/20261101090000id_/${POST}`) : u.endsWith(`20261101090000id_/${POST}`) ? res(200, ARTICLE) : res(404, '') } })
+  const r = await writeMagazine(root, { research: researchCiting(2, 3, []), llm: writer, now: () => new Date(clock), archive: reader, ledger: ledgerOf(root), sleep: async () => {} })
+  expect(asked).toHaveLength(2)
+  expect((await ledger(root)).asks).toEqual({ '2026-11-21': { post: ARCHIVE_POST_DAY }, '2026-11-22': { post: 1 } })
+  expect(r.posts).toEqual([`Nước bể cá bị đục: ${POST}: cited; 2 of the 5 facts the writer was given came from it`])
+})
+
+// Codex's fresh read of f4e7985fae: with the magazine's titles as they were, GitHub's step stopped before taking what the Mac
+// had made of its ideas.
+test("GitHub's ideas step takes what the Mac made of the magazine's ideas at every run, its titles fresh or not, asking nothing and planning nothing", async () => {
+  const root = await site(false)
+  await writeFile(ideasFile(root), JSON.stringify({ readAt: '2026-11-21T00:00:00Z', magazineAt: '2026-11-21T05:00:00.000Z', posts: {}, ideas: [magazineIdea('Nước bể cá bị đục')] }))
+  await setMagazine(root, { posts: { practicalfishkeeping: [{ url: POST, title: 'cloudy water explained', held: true }] }, readAt: { practicalfishkeeping: '2026-11-21T05:00:00.000Z' }, guides: { [slugify('Nước bể cá bị đục')]: { guide: 'aquatome-nuoc-be-ca-bi-duc', at: '2026-11-21T06:00:00.000Z' } } })
+  const { get, asked } = web({})
+  let planned = 0
+  const r = await refreshIdeas(root, ideasOf(async <T>() => { planned++; return { ideas: [] } as T }, get, '2026-11-21T08:00:00Z'))
+  expect(r.fresh).toBe(true)
+  expect([asked, planned]).toEqual([[], 0])
+  expect((await readIdeas(root)).ideas[0]).toMatchObject({ topic: 'Nước bể cá bị đục', guide: 'aquatome-nuoc-be-ca-bi-duc', at: '2026-11-21T06:00:00.000Z' })
 })
 
 test("a failure's reason that repeats the post is kept and printed without its words", async () => {

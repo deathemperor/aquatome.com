@@ -55,23 +55,30 @@ export class AsksSpent extends Error {
   constructor(readonly cap: number) { super(`the ${cap} requests allowed of the archive here are spent`) }
 }
 
+/** A copy the Archive has nothing for: no copy, unlike its being down (a 5xx) or not answering. */
+export const noCopy = (e: unknown) => /^no archived copy/.test((e as Error).message) && !/\(HTTP 5\d\d\)/.test((e as Error).message)
+
 export class ArchiveFetcher {
   /** Requests this reader has made: each try counts, a retry after a network failure and each redirect followed too. */
   asked = 0
   private cap = Number.POSITIVE_INFINITY
   /** Called before each request is made, after the cap and the rest let it: where a capped reader's requests are kept. */
   private onAsk?: () => Promise<void>
+  /** Called before each request, before the rest is read again: a capped reader's own pace. */
+  private pace?: () => Promise<void>
   /** `restFile`: where the wait is kept, outside any checkout, since it's this Mac the archive refuses. */
   constructor(private d: { fetch: Fetch; now: () => Date; sleep: (ms: number) => Promise<void>; ua: string; restFile: string }) {}
 
   /**
-   * The same reader (name, pace, rest) allowed `n` requests at most: the next throws AsksSpent before it is made. `onAsk`
-   * runs before each one is made, so a request is counted even if the run dies while it is out.
+   * The same reader (name, pace, rest) allowed `n` requests at most: the next throws AsksSpent before it is made. `pace`
+   * runs first, then the rest is read again, then `onAsk`, just before the request is made, so a request is counted even if
+   * the run dies while it is out, and one the rest stops is never counted (Codex, 21 Nov 2026).
    */
-  capped(n: number, onAsk?: () => Promise<void>): ArchiveFetcher {
+  capped(n: number, onAsk?: () => Promise<void>, pace?: () => Promise<void>): ArchiveFetcher {
     const r = new ArchiveFetcher(this.d)
     r.cap = Math.max(0, n)
     r.onAsk = onAsk
+    r.pace = pace
     return r
   }
 
@@ -101,12 +108,13 @@ export class ArchiveFetcher {
     let at = url
     for (let attempt = 0, hops = 0; ; attempt++) {
       if (this.asked >= this.cap) throw new AsksSpent(this.cap)
-      await this.onAsk?.()
+      await this.pace?.()
       // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this
       // one waited its pace, or had the one answer that ends a wait.
       const now = await resting()
       if (now && this.d.now().getTime() < new Date(now.until).getTime()) throw new ArchiveRefused(now.until)
       rest = now
+      await this.onAsk?.()
       this.asked++
       let r
       try {
@@ -130,23 +138,28 @@ export class ArchiveFetcher {
       }
       if (rest) {
         console.log(`archive: answered after the wait, at ${this.d.now().toISOString()}, with HTTP ${r.status}: reading carries on`)
-        await rm(this.d.restFile, { force: true })
+        // Only the wait this request was the one after (Codex, 21 Nov 2026): another job refused meanwhile wrote a new one.
+        if ((await resting())?.until === rest.until) await rm(this.d.restFile, { force: true })
         rest = null
       }
       return { r, at }
     }
   }
 
-  /** `id_` is the page as it was captured, without the archive's toolbar or rewritten links. */
-  /** The copy's date: the Archive's own header, else the capture's stamp in the address that answered. */
+  /**
+   * `id_` is the page as it was captured, without the archive's toolbar or rewritten links. The copy's date: the Archive's
+   * own header, else the capture's stamp in the address that answered. `copyOf`: the page that address is a copy of, which a
+   * redirect may have made another (the page itself moved, or the Archive sent its home page).
+   */
   private async capture(stamp: string, url: string) {
     const { r, at } = await this.call(`${WAYBACK}/web/${stamp}id_/${url}`)
     const html = await r.text()
     if (!r.ok) throw new Error(`no archived copy (HTTP ${r.status})`)
     const date = r.headers.get('memento-datetime')
-    const s = /\/web\/(\d{14})[a-z_]*\//.exec(at)?.[1]
+    const m = /^\/web\/(\d+)[a-z_]*\/(.+)$/.exec(new URL(at).pathname + new URL(at).search)
+    const s = m?.[1]?.length === 14 ? m[1] : undefined
     const capturedAt = date ? new Date(date).toISOString() : s ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}T${s.slice(8, 10)}:${s.slice(10, 12)}:${s.slice(12, 14)}.000Z` : undefined
-    return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, ...(capturedAt ? { capturedAt } : {}) } }
+    return { challenge: isChallenge(html.match(/<title>([^<]*)/i)?.[1]?.trim() ?? '', html), page: { status: r.status, html, finalUrl: url, copyOf: m?.[2] ?? url, ...(capturedAt ? { capturedAt } : {}) } }
   }
 
   /**
@@ -154,15 +167,16 @@ export class ArchiveFetcher {
    * over (one with no copy of its own). Anything else stops it there, a refusal, the requests allowed spent, the Archive
    * not answering: what it hasn't asked is not "no copy".
    */
-  async get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> {
+  async get(url: string): Promise<{ status: number; html: string; finalUrl: string; copyOf: string; capturedAt?: string }> {
     const newest = await this.capture(this.today(), url)
     if (!newest.challenge) return newest.page
     await this.d.sleep(ARCHIVE_POLITE)
-    const stop = (e: unknown) => e instanceof ArchiveRefused || e instanceof AsksSpent
-    const stamps = (await this.text(capturesQuery(url)).catch(e => { if (stop(e)) throw e; return '' })).split('\n').filter(Boolean).reverse()
+    // The index's answer that it holds nothing (a 4xx) is no copies; its being down, or not answering, stops it (Codex, 21
+    // Nov 2026), as a copy's 5xx does: the Archive not answering is not "no copy".
+    const stamps = (await this.text(capturesQuery(url)).catch(e => { if (!/^HTTP 4\d\d from /.test((e as Error).message)) throw e; return '' })).split('\n').filter(Boolean).reverse()
     for (const stamp of stamps) {
       await this.d.sleep(ARCHIVE_POLITE)
-      const older = await this.capture(stamp, url).catch(e => { if (!/^no archived copy/.test((e as Error).message)) throw e; return undefined })
+      const older = await this.capture(stamp, url).catch(e => { if (!noCopy(e)) throw e; return undefined })
       if (older && !older.challenge) return older.page
     }
     throw new Error('no archived copy (the archive holds a browser-check page)')

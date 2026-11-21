@@ -104,6 +104,8 @@ const words = (s: string) => s.normalize('NFC').toLowerCase().split(/[^\p{L}\p{N
 export function copiesGiven(s: string, text: string): boolean {
   return copying([s], runsOf(text)).size > 0
 }
+/** An address as it reads, its escapes undone ("%20" a space). */
+const decoded = (u: string) => { try { return decodeURIComponent(u) } catch { return u } }
 /** Every run of COPY_WORDS words in a text. */
 const runsOf = (text: string) => {
   const t = words(text)
@@ -134,7 +136,7 @@ const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => {
   return {
     ...r,
     ...(r.facts ? { facts: r.facts.filter((_, i) => !out.has(i)) } : {}),
-    ...(r.sources ? { sources: r.sources.map(s => (s.via === 'archive' ? s : copying([s.url], runs).size ? { ...s, url: '', title: '' } : copying([s.title], runs).size ? { ...s, title: siteOf(s.url) } : s)) } : {}),
+    ...(r.sources ? { sources: r.sources.map(s => (s.via === 'archive' ? s : copying([decoded(s.url)], runs).size ? { ...s, url: '', title: '' } : copying([s.title], runs).size ? { ...s, title: siteOf(s.url) } : s)) } : {}),
     ...(r.species ? { species: r.species.filter(s => !copying([s], runs).size) } : {}),
   }
 }
@@ -143,8 +145,9 @@ const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => {
 const viaArchiveHost = (url: string) => {
   try { const h = new URL(url).hostname.toLowerCase().replace(/^www\./, ''); return IDEA_SOURCES.some(s => s.viaArchive && ideaHost(s) === h) } catch { return false }
 }
+/** The given page, its query aside (Codex, 21 Nov 2026: research citing the post with a tracking query is citing the post). */
 const samePage = (a: string, b: string) => {
-  const at = (u: string) => { try { const x = new URL(u); return `${x.hostname.toLowerCase().replace(/^www\./, '')}${x.pathname.replace(/\/+$/, '')}${x.search}` } catch { return u } }
+  const at = (u: string) => { try { const x = new URL(u); return `${x.hostname.toLowerCase().replace(/^www\./, '')}${x.pathname.replace(/\/+$/, '')}` } catch { return u } }
   return at(a) === at(b)
 }
 /**
@@ -155,7 +158,8 @@ const recordGiven = (r: TopicFacts, g?: GivenPage): TopicFacts => (!r.sources ? 
   ...r,
   sources: r.sources.map(s => {
     const { via: _via, capturedAt: _at, ...own } = s
-    return g && samePage(s.url, g.url) ? { ...own, url: g.url, title: g.title || own.title, kind: 'magazine' as const, via: 'archive' as const, ...(g.capturedAt ? { capturedAt: g.capturedAt } : {}) } : own
+    // A copy with no title of its own takes its site's name, never research's (Codex, 21 Nov 2026: research's could quote it).
+    return g && samePage(s.url, g.url) ? { ...own, url: g.url, title: g.title || siteOf(g.url), kind: 'magazine' as const, via: 'archive' as const, ...(g.capturedAt ? { capturedAt: g.capturedAt } : {}) } : own
   }),
 })
 
@@ -515,6 +519,17 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     const r = await check(again)
     tries.push(r)
     if (r.score > review.score) { w = again; review = r }
+  }
+  // With a page given, the guide itself and the checker's notes, which the review log keeps, are held to it too (Codex, 21
+  // Nov 2026): a writer may join two facts back into the page's own sentence. A guide that repeats it is not kept.
+  if (o.given) {
+    const runs = runsOf(o.given.text.slice(0, GIVEN_MAX))
+    if (copying([w.name, ...w.summary, sanitizeHtml(w.body).replace(/<[^>]+>/g, ' '), ...w.faq.flatMap(f => [f.q, f.a])], runs).size) return { id, skipped: `${a.topic}: the guide repeats the post`, ...(post ? { post } : {}) }
+    const unquoted = (x: (typeof tries)[number]) => ({ ...x, notes: x.notes.map(n => (copying([n], runs).size ? 'a note that repeats the post' : n)) })
+    // The review log tells the kept try by its object: the same one, its notes unquoted.
+    const at = tries.indexOf(review)
+    tries.splice(0, tries.length, ...tries.map(unquoted))
+    review = tries[at]!
   }
 
   const dir = join(content, 'guides', id)

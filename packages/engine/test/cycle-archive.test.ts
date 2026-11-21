@@ -112,6 +112,8 @@ test("the magazine's step is the pages part's, right after the sources' run, and
   // Its listing, and the shops' (GitHub's ideas step), follow redirects by hand, never to the Archive (ideas.ts fetchListing).
   for (const cmd of ['ideas', 'magazine']) expect(BRANCHES.get(cmd), cmd).toMatch(/\bconst get = fetchListing\(fetch, UA\)/)
   expect(CLI).not.toMatch(/listingText\(await fetch\(/)
+  // GitHub's forum step too (Codex, 21 Nov 2026): its redirects by hand, never to a copy site (cycle-only.ts byHand).
+  expect(BRANCHES.get('forum')).toMatch(/\bbyHand\(fetch, UA\)/)
 })
 
 test("the magazine's record is written by its step alone: no other command reaches its writers, nor any other code its file", () => {
