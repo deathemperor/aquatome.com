@@ -216,6 +216,8 @@ test('the stage-owned empty screen record lands before content admission and pre
   await writeFile(f.file,JSON.stringify({...f.e,photos:[p,s.old]}));added++
  },new AbortController().signal,approvals)
  expect(result).toMatchObject({published:1,failed:[]});expect(added).toBe(1);expect(f.forbidden).not.toHaveBeenCalled()
+ // The site's build shows a page's own photo only once the face finder has read it (a faces step after this hand run).
+ await writeFile(join(f.root,'engine-state/_photo-faces.json'),JSON.stringify({[f.p.url]:0,[s.old.url]:0}))
  const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,photoScreen:'required'})
  expect(c.species[0]!.photos[0]!.url).toBe(f.p.url)
 })

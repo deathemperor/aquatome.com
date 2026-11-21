@@ -1,9 +1,12 @@
 import { execFile } from 'node:child_process'
-import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
+import { DEAD_OWED_FILE } from '@aq/schema'
+import { askedByCheck, screenDead, type DeadScreenDeps } from './dead-screen'
+import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
 
@@ -29,7 +32,7 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  * Runs each cycle, so a re-picked photo never publishes. `root`: where engine-state is, for the second look
  * (last-photo.ts).
  */
-export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
+export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; fresh: string[]; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
@@ -102,5 +105,58 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
   }
   await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
-  return { checked: todo.length - failed.length, removed, held, firstOff: offFirst, failed }
+  return { checked: todo.length - failed.length, fresh: todo, screened: [...screened], removed, held, firstOff: offFirst, failed }
+}
+
+/** Sheets of 12 the dead-fish screen takes in one faces step: a pages run's new photos made 11 or 12 (20 to 21 Nov 2026). */
+export const NEW_PHOTO_SHEETS = 14
+
+/**
+ * What the dead-fish screen still owes, from `owed` (address → the day first owed), in its order: a photo a fish or
+ * plant page shows that neither the screen nor the photo check has judged and the never-again list doesn't have.
+ */
+async function stillOwed(root: string, contentRoot: string, owed: Record<string, string>): Promise<Record<string, string>> {
+  if (!Object.keys(owed).length) return {}
+  const shown = new Set<string>()
+  for (const kind of ['species', 'plants']) {
+    for (const id of await readdir(join(contentRoot, kind)).catch(() => [] as string[])) {
+      const e = JSON.parse(await readFile(join(contentRoot, kind, id, 'entity.json'), 'utf8').catch(() => '{}')) as { photos?: { url: string }[] }
+      for (const p of e.photos ?? []) shown.add(p.url)
+    }
+  }
+  const read = async (f: string) => JSON.parse(await readFile(join(root, 'engine-state', f), 'utf8').catch(() => '{}')) as Record<string, unknown>
+  const [judged, rejected, asked] = [await read('_dead-screen.json'), await read('_photo-rejected.json'), await askedByCheck(root)]
+  return Object.fromEntries(Object.entries(owed).filter(([u]) => shown.has(u) && !(u in judged) && !(u in rejected) && !asked.has(u)))
+}
+
+/**
+ * The faces step (cli.ts `faces`, in every pages, sf and photos run before the push): faces first, then the dead-fish
+ * screen (dead-screen.ts) on what it owes on species and plant pages: the photos it was owed before, in the order they
+ * came, then those new to the face finder in this run, whether or not the face finder could read them. It comes after every write
+ * of the face pass, since both rewrite the pages.
+ *
+ * Each owed photo is on a list (DEAD_OWED_FILE in engine-state), and a public build doesn't show it (the schema's
+ * load.ts), until the screen or the photo check has judged it, the never-again list has it or no fish or plant page shows
+ * it. One past the sheets, on a sheet that failed or after a stop (the step's daily line in ceilings.json is `faces`)
+ * stays on the list for the next run. The list is written before the screen runs, so a screen that fails leaves it in
+ * force; the screen failing leaves the face pass as written (the chief of staff, 21 Nov 2026: the screen sees every new
+ * photo before it can show).
+ */
+export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string; owed: number }> {
+  const owedFile = join(root, 'engine-state', DEAD_OWED_FILE)
+  const before = JSON.parse(await readFile(owedFile, 'utf8').catch(() => '{}')) as Record<string, string>
+  const faces = await dropFacePhotos(contentRoot, cacheFile, d, rejectedFile, root)
+  const today = new Date().toISOString().slice(0, 10)
+  const write = async (x: Record<string, string>) => { await mkdir(join(root, 'engine-state'), { recursive: true }); await writeFile(owedFile, `${JSON.stringify(x, null, 2)}\n`) }
+  const owed = await stillOwed(root, contentRoot, { ...before, ...Object.fromEntries(faces.fresh.filter(u => !(u in before)).map(u => [u, today])) })
+  await write(owed)
+  if (!Object.keys(owed).length) return { faces, owed: 0 }
+  try {
+    const dead = await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(Object.keys(owed)) })
+    const left = await stillOwed(root, contentRoot, owed)
+    await write(left)
+    return { faces, dead, owed: Object.keys(left).length }
+  } catch (err) {
+    return { faces, deadFailed: photoFailure(err), owed: Object.keys(owed).length }
+  }
 }
