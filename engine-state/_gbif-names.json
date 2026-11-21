@@ -997,6 +997,7 @@
   "Amano sau": null,
   "Amano shrimp": null,
   "Amano thay": null,
+  "Amano thu": null,
   "Amaralia hypsiura": {
     "canonicalName": "Amaralia hypsiura",
     "order": "Siluriformes",
@@ -1042,6 +1043,7 @@
   },
   "Amazon frogbit": null,
   "Amazonbium laevigatum": null,
+  "Amazonenstrom bei": null,
   "Amazonia trong": null,
   "Amazonie occidentale": null,
   "Ambassis miops": {
@@ -2861,6 +2863,14 @@
     "genus": "Astroblepus",
     "matchType": "EXACT"
   },
+  "Arges taczanowskii": {
+    "canonicalName": "Astroblepus taczanowskii",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
   "Argonectes longiceps": {
     "canonicalName": "Argonectes longiceps",
     "order": "Characiformes",
@@ -3188,6 +3198,22 @@
   },
   "Astroblepus quispei": {
     "canonicalName": "Astroblepus quispei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus rosei": {
+    "canonicalName": "Astroblepus rosei",
+    "phylum": "Chordata",
+    "order": "Siluriformes",
+    "family": "Astroblepidae",
+    "genus": "Astroblepus",
+    "matchType": "EXACT"
+  },
+  "Astroblepus taczanowskii": {
+    "canonicalName": "Astroblepus taczanowskii",
     "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Astroblepidae",
@@ -13741,6 +13767,7 @@
     "matchType": "EXACT"
   },
   "Guyane fran": null,
+  "Guyane thu": null,
   "Gymnallabes typus": {
     "canonicalName": "Gymnallabes typus",
     "order": "Siluriformes",
@@ -16946,6 +16973,7 @@
   "Kamphol ghi": null,
   "Kanchanaburi provinces": null,
   "Kani magur": null,
+  "Kanoko ngh": null,
   "Kaoping drainages": null,
   "Kapuas mainstream": null,
   "Kapuas tributaries": null,
@@ -18190,6 +18218,14 @@
     "matchType": "EXACT"
   },
   "Leporinus originates": null,
+  "Leporinus ortomaculatus": {
+    "canonicalName": "Leporinus ortomaculatus",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Anostomidae",
+    "genus": "Leporinus",
+    "matchType": "EXACT"
+  },
   "Leporinus reticulatus": {
     "canonicalName": "Leporinus reticulatus",
     "order": "Characiformes",
@@ -19679,12 +19715,21 @@
     "genus": "Pseudotropheus",
     "matchType": "EXACT"
   },
+  "Melanochromis has": null,
   "Melanochromis johanni": {
     "canonicalName": "Pseudotropheus johannii",
     "order": "Perciformes",
     "family": "Cichlidae",
     "genus": "Pseudotropheus",
     "matchType": "EXACT"
+  },
+  "Melanochromis johannii": {
+    "canonicalName": "Pseudotropheus johannii",
+    "phylum": "Chordata",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Pseudotropheus",
+    "matchType": "FUZZY"
   },
   "Melanochromis lepidiadaptes": {
     "canonicalName": "Melanochromis lepidiadaptes",
@@ -23033,6 +23078,7 @@
   "Orinoco colour": null,
   "Orinoco drainages": null,
   "Orinoco eartheater": null,
+  "Orinoco has": null,
   "Orinoco including": null,
   "Orinoco lies": null,
   "Orinoco mainstream": null,
@@ -26066,6 +26112,14 @@
     "genus": "Poecilia",
     "matchType": "EXACT"
   },
+  "Poecilia formosa": {
+    "canonicalName": "Poecilia formosa",
+    "phylum": "Chordata",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Poecilia",
+    "matchType": "EXACT"
+  },
   "Poecilia latipinna": {
     "canonicalName": "Poecilia latipinna",
     "order": "Cyprinodontiformes",
@@ -26289,6 +26343,15 @@
   },
   "Pomacea diffusa": {
     "canonicalName": "Pomacea diffusa",
+    "order": "Architaenioglossa",
+    "family": "Ampullariidae",
+    "genus": "Pomacea",
+    "matchType": "EXACT"
+  },
+  "Pomacea insularum": {
+    "canonicalName": "Pomacea maculata",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
     "order": "Architaenioglossa",
     "family": "Ampullariidae",
     "genus": "Pomacea",
@@ -27203,6 +27266,14 @@
   },
   "Pseudolithoxus dumus": {
     "canonicalName": "Pseudolithoxus dumus",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Pseudolithoxus",
+    "matchType": "EXACT"
+  },
+  "Pseudolithoxus kelsorum": {
+    "canonicalName": "Pseudolithoxus kelsorum",
+    "phylum": "Chordata",
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Pseudolithoxus",
@@ -30229,6 +30300,14 @@
     "genus": "Semaprochilodus",
     "matchType": "EXACT"
   },
+  "Semaprochilodus kneri": {
+    "canonicalName": "Semaprochilodus kneri",
+    "phylum": "Chordata",
+    "order": "Characiformes",
+    "family": "Prochilodontidae",
+    "genus": "Semaprochilodus",
+    "matchType": "EXACT"
+  },
   "Semaprochilodus laticeps": {
     "canonicalName": "Semaprochilodus laticeps",
     "order": "Characiformes",
@@ -33049,6 +33128,7 @@
   "Trong nghi": null,
   "Trong nhi": null,
   "Trong paludarium": null,
+  "Trong tanin": null,
   "Trong thi": null,
   "Tropheops macrophthalmus": {
     "canonicalName": "Tropheops macrophthalmus",

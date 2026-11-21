@@ -11407,6 +11407,45 @@
   "https://media.aquatome.com/aquariumbreeder/27eb34725a3c1c4a.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquariumbreeder/2816e412057c6ec2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 2,
+        "mark": false,
+        "hash": "1a6562590ef19d1045d06c4055742d38288e9e6dcd71ccde5cee80f1d5a774eb"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 10,
+        "mark": false,
+        "hash": "66b51bbb80f8952d428917589eded9a2894c9fd42cfc9198eefe992c5db19ee5"
+      },
+      {
+        "c": 1,
+        "at": "middle left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "61778fd2941ae733f9bd979e84ae635f98e0bbf556e43ec95a85b90df0f025a0"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "630566fcded49a20bd04c83382eef0788a93b9419cdfea17f6bcf3e000791fab"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "top left",
+      "middle left",
+      "bottom centre"
+    ]
+  },
   "https://media.aquatome.com/aquariumbreeder/2838b8c75bd2dfd4.webp": {
     "ocr": [
       {
@@ -12173,6 +12212,22 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/aquariumbreeder/4fbb42d694db9815.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 22,
+        "mark": false,
+        "hash": "67c531d3592c911570db0dbe751103ea154083fc432ba1b4df12f03764974622"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "top centre"
+    ]
+  },
   "https://media.aquatome.com/aquariumbreeder/50652379183eb02f.webp": {
     "ocr": []
   },
@@ -12896,6 +12951,22 @@
   "https://media.aquatome.com/aquariumbreeder/7dd87f75d4cf8237.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/aquariumbreeder/7e661592eddf3c2d.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "afbb4c4dcbb8808563a5c6bd1afe4dcf54c80f31bbde9e4421669e8a5a59ec9d"
+      }
+    ],
+    "watermark": true,
+    "kind": "caption",
+    "locations": [
+      "top centre"
+    ]
+  },
   "https://media.aquatome.com/aquariumbreeder/7ee5356aa42d43dd.webp": {
     "ocr": [
       {
@@ -13467,6 +13538,9 @@
       "middle centre",
       "middle right"
     ]
+  },
+  "https://media.aquatome.com/aquariumbreeder/9891faa03158ae36.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/aquariumbreeder/991c162706df6d08.webp": {
     "ocr": []
@@ -69429,6 +69503,18 @@
   "https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/gbif/4034578816-07698b656ea5dbca.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/4034578816-319f8ec140f13b89.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/4034578816-8e2ef09aa47ccf94.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/gbif/4034583722-ca12c466cdba6a77.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp": {
     "ocr": []
   },
@@ -70130,6 +70216,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/00d89551289e6cdc.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/00df0ec684d72eae.webp": {
     "ocr": [
       {
@@ -70388,6 +70505,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/01610abbd32c77db.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/017b4c04b1923d58.webp": {
@@ -71010,6 +71158,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/0255393e5b142127.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "773901904b66a03d645bb89dea4f928dea763f521b7743e88cfa550cc1ac0284"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/025612b9f75a8571.webp": {
@@ -73818,6 +73997,41 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/068143de9ce89474.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "174edc6e259ed6deec260645e3f94f32161f6436e5e0c396c87036cb1e7f2605"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right",
+      "middle left",
+      "middle centre",
+      "bottom left",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/06a0d095c920a271.webp": {
     "ocr": [
       {
@@ -74527,6 +74741,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/07d5f6da4d5d7f33.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/07dfc307bebe431f.webp": {
@@ -76247,6 +76492,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/09e3b8b20615bae3.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/09ece448876ae507.webp": {
     "ocr": [
@@ -80996,6 +81272,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/10095463e2df0cb8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 51,
+        "mark": false,
+        "hash": "03b43722cf10d1ba6cf38a06b36cd5bfab81c32a2e836acdd65b70e62b449b92"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/101973957ac44d81.webp": {
     "ocr": [
@@ -91412,6 +91719,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/1fcf0495cc8a969e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "ac17ce31e2ad2714457c5fc6a0f0fcd73a8e9847bb0b4e8f5e8ea79d6158d4a1"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/1fd92713384d0ba4.webp": {
     "ocr": [],
     "watermark": false,
@@ -91790,6 +92128,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/2045042a87054538.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 15,
+        "mark": false,
+        "hash": "a2646aa3631cb31db0a9a68313e538f5f7ef87e34a74996315c136a9c116fbb7"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "53d7e55eb2a1c7a3cf36434e934f4c92b9de09e5495ad2b0aa4c97dad993a488"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/206ae70243410b7a.webp": {
     "ocr": [
@@ -97857,6 +98226,44 @@
       "bottom right"
     ]
   },
+  "https://media.aquatome.com/glaser/29488acade8af0cd.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "ab42ec6a95356015b7b883cfd3a61802a3a3bcf5c8eeea08d3f0e960f9ae1164"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/2955408f878508da.webp": {
     "ocr": [
       {
@@ -98141,6 +98548,37 @@
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lamontichthys-filamentosus-2/",
       "owner": "source",
       "by": "return"
+    }
+  },
+  "https://media.aquatome.com/glaser/298ee7144146b8ae.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "89b2b625e6fe1eceddf49b98a53425313243cefee2147ea788e5c5c13b53d069"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/2998efb6f5797844.webp": {
@@ -100830,6 +101268,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/2cb93f72eaf20221.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "998553b7e6bdc35f6b97b12ac5241ddd533f95a7527f25e0439e233f79e4f668"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 12,
+        "mark": false,
+        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "bottom right"
+    ]
+  },
   "https://media.aquatome.com/glaser/2cbad94fb6c4973f.webp": {
     "ocr": [
       {
@@ -102010,6 +102479,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/2e9160eac0b0df71.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/2e9485c12aa2f86a.webp": {
@@ -104617,6 +105117,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/324ec35df7080310.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/32545f01606662c7.webp": {
@@ -111114,6 +111645,44 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/3b98523a558d012a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "4e975a97b3f63ad17d187963adbbc0d7c96ccd2e5b5a2d58b3626b8ba23c691c"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "ad6731798c7c788c21e90bf0a2a2a7505874d2900e848f462005103f8b85f3a7"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/3ba71b190645b227.webp": {
     "ocr": [
       {
@@ -115745,6 +116314,51 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/microglanis-carlae-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/40ff791457c2cc4c.webp": {
+    "ocr": [
+      {
+        "c": 0.3,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "f686d83c8e1d67bc3d722378089d931dd92d221314b82ee551ffef7dcfcd24ca"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 21,
+        "mark": false,
+        "hash": "fa6b9420dd956032964fcf3be365dcd420a69f5c8cf487d280d0520837adc681"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -122919,6 +123533,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/4aeddc12d096a9a2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/4aee9cb1670f72be.webp": {
     "ocr": [
       {
@@ -129906,6 +130551,44 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/phenacogrammus-interruptus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/53baa0d4457cbd45.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "40c1a227b154ceed7a6960b8b73f1bc79323915b7e586282f54902cdaff714a5"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 24,
+        "mark": false,
+        "hash": "6be91401ba006b69869f31c287c8717d7b4885ec1ccc6aa4f379e1d6365fd714"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 26,
+        "mark": false,
+        "hash": "5f79e846621c28ba211db119fcf14f567e3f590bd3c78e2b11e0cfe0a4a02ec8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
       "owner": "source",
       "by": "screen"
     }
@@ -149593,6 +150276,44 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/73323021fb6fd4b1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 38,
+        "mark": false,
+        "hash": "36575b590cf7bf2de742d8358e0a72bbcd499f014d1477142acfd20bdf45e099"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/7340586f0beb9b18.webp": {
     "ocr": [
       {
@@ -154731,6 +155452,35 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/7a4d1f49f970b35d.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 16,
+        "mark": false,
+        "hash": "25c966daf557ec7e085523532307f5f498e6cc90a3a3f6fc723773a062f1c09b"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 36,
+        "mark": false,
+        "hash": "7bd2f73a70f2e0a41a8349d3c66f7884af60a29bd54553b514a9da84902f02b4"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/7a4fec37c10dcd77.webp": {
     "ocr": [
       {
@@ -155556,6 +156306,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/barbodes-dunckeri-barbus-everetti-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/7bc44fe7f0e219af.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -165998,6 +166779,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/8a1b1a57b59e47a2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/8a3035e822e150c6.webp": {
     "ocr": [
       {
@@ -167989,6 +168801,44 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/8d6a513c7e6d7864.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "6294b27f585d16841bf6c77e4535d495e8189120298322cfad3867695d49afd0"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/8d7ab6b976beacde.webp": {
     "ocr": [
       {
@@ -168204,6 +169054,44 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/general/hemimyzon-nanensis-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/8db7471124591dbf.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "ad6731798c7c788c21e90bf0a2a2a7505874d2900e848f462005103f8b85f3a7"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
       "owner": "source",
       "by": "screen"
     }
@@ -172995,6 +173883,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/950bcf274517b2b2.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "e921090b892949cb37be7ca986efdeb3aca506c5079f9519dacbb8ed30399674"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/950fa729ae9c27f1.webp": {
     "ocr": [
       {
@@ -175700,6 +176619,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/99ad6574a83384b1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/99ade96a97edce2a.webp": {
     "ocr": [
       {
@@ -176514,6 +177464,37 @@
       "top left",
       "top right",
       "middle right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/9b2231fd02df9bb8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "48dd8fc835999013cce5bdaf248653e62c900b9a691d3dec8e35fade41af4ebd"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 12,
+        "mark": false,
+        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "bottom right"
     ]
   },
   "https://media.aquatome.com/glaser/9b2a80cc651bddfe.webp": {
@@ -183749,6 +184730,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/a4fbe5073f8fee1f.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/a5072e364d89386e.webp": {
     "ocr": [
       {
@@ -187385,6 +188397,37 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/apistogramma-nijsseni-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/aa7254e7593c4b91.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "ef86ccf50207940437cbab66859d282632bf7189b5f7cb273cb500f2abe3e92e"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
       "owner": "source",
       "by": "screen"
     }
@@ -194671,6 +195714,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/b3bc965f027bacd1.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "e4f515ee944993c846c891bc7563266ec2cbe6f6e641ce11cd30f74b6429a707"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/b3ca28120b7f7dc5.webp": {
     "ocr": [
       {
@@ -194766,6 +195840,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/b3dca8bd71c5e25b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/b3e255a885d5eed3.webp": {
     "ocr": [
@@ -197320,6 +198425,37 @@
       "by": "return"
     }
   },
+  "https://media.aquatome.com/glaser/b71e284f90e25630.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "39a81177dd02789893d921d6957e337dae7679a58f1338be656c85d66fc8f85e"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/b7227fe94c7e30ce.webp": {
     "ocr": [
       {
@@ -198431,6 +199567,35 @@
     "retainedOwnMark": {
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-cf-crassipinnis-bumble-bee-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/b8b85145639b8a90.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "a2d1bbc5c2abba0b1438224a5a574d1fce7afcc35eaabfa0523e8bfea209a78f"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom centre"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
       "owner": "source",
       "by": "screen"
     }
@@ -199561,6 +200726,37 @@
       "owner": "source",
       "by": "screen"
     }
+  },
+  "https://media.aquatome.com/glaser/ba2741daa091da02.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f0a632ea755bac37731e72d8dfa312ea6fca665ef597114b73072b5214b79efe"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 12,
+        "mark": false,
+        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
+      "bottom left"
+    ]
   },
   "https://media.aquatome.com/glaser/ba2b0ca1355e6747.webp": {
     "ocr": [
@@ -210815,6 +212011,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/c864ceb8598c2b86.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/c8686d35ef40a177.webp": {
     "ocr": [
       {
@@ -213450,6 +214677,37 @@
       "top centre",
       "top right"
     ]
+  },
+  "https://media.aquatome.com/glaser/cc0144b55256191d.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "2dd025c494639e5d79b3cb25074b092d1cd6dfceed8ed87d87ee6a90e3bfaae7"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/cc05adee41ec1f85.webp": {
     "ocr": [
@@ -217256,6 +218514,37 @@
       "by": "return"
     }
   },
+  "https://media.aquatome.com/glaser/d23ccdcbbdd429f6.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/d2473134b96db5b0.webp": {
     "ocr": [
       {
@@ -219934,6 +221223,75 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/d64c0ea30909dac8.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "74306408d63ab9a4c981138a9ac290f2b5850bebc52548c113864b260ea6fcfa"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 39,
+        "mark": false,
+        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
+  "https://media.aquatome.com/glaser/d64d03773238f79a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "64a5b92d548ce02995508291df71916a1e3a8da2480d9c0a94b526e1d5959ffd"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/d6586261681f3f27.webp": {
@@ -227056,6 +228414,44 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/e02f30eed0144f7a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "b22b982926fce3d187078ac7ae7ba1dedcec3613c2de21d03c130956797447f1"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 35,
+        "mark": false,
+        "hash": "de59a69c395b42cf9a90f9404112053425aea1e7fcff9f88aa3e04f5cd1563ac"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 18,
+        "mark": false,
+        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/e0434be375ec15d2.webp": {
     "ocr": [
       {
@@ -228231,6 +229627,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/e1e6823831c7fb72.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "f8627592f5e779a0a00679b2d04df3878137c19bd521534f897390b29691ad78"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "bottom left",
+      "bottom centre",
+      "bottom right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/e1eaaff174221c3b.webp": {
@@ -230821,6 +232248,37 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/glaser/e61807bfd9a7bea7.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "f8627592f5e779a0a00679b2d04df3878137c19bd521534f897390b29691ad78"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/e61c337fec2994b7.webp": {
     "ocr": [
       {
@@ -233315,6 +234773,37 @@
       "top left",
       "top centre",
       "top right",
+      "bottom right"
+    ]
+  },
+  "https://media.aquatome.com/glaser/e9919619c09e03bb.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "174edc6e259ed6deec260645e3f94f32161f6436e5e0c396c87036cb1e7f2605"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
+      },
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 12,
+        "mark": false,
+        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top centre",
       "bottom right"
     ]
   },
@@ -237022,6 +238511,37 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/ee898e7b47b5ed32.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 52,
+        "mark": false,
+        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/ee95df444da225a4.webp": {
     "ocr": [
       {
@@ -238281,6 +239801,44 @@
       "middle right",
       "bottom left"
     ]
+  },
+  "https://media.aquatome.com/glaser/f059150a97b1245a.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
+      "owner": "source",
+      "by": "screen"
+    }
   },
   "https://media.aquatome.com/glaser/f0660827c590988a.webp": {
     "ocr": [
@@ -242333,6 +243891,44 @@
       "top right"
     ]
   },
+  "https://media.aquatome.com/glaser/f611240ff45dfd1e.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 18,
+        "mark": false,
+        "hash": "82466aea17f74ebaecb666bea937d400768222272eb4c3c2c0f2b5b1406de42d"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 14,
+        "mark": false,
+        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 40,
+        "mark": false,
+        "hash": "6a0e2669a7213dfa69a3412a4f6d17e2834bfb0a625f9af5fb077cc94fac7cef"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/f61dfb169bde0434.webp": {
     "ocr": [
       {
@@ -246046,6 +247642,44 @@
       "by": "screen"
     }
   },
+  "https://media.aquatome.com/glaser/fc2f99450a85e0b4.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 17,
+        "mark": false,
+        "hash": "127bce2e6670c22cb4b692223d3cfe1916831baee97f3f6fa719c94417ae556e"
+      },
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 15,
+        "mark": false,
+        "hash": "06b6ed9f96bda49e78636a603e4f26a3a79bdbe30723f91759fca5a4634f43ad"
+      },
+      {
+        "c": 1,
+        "at": "top right",
+        "alnum": 41,
+        "mark": false,
+        "hash": "a24bd8f5e982f05e1ce014a8098aca8881fd8452f91b27f0d080acb0956b583e"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/fc30120cfaf3ead6.webp": {
     "ocr": [
       {
@@ -247041,6 +248675,37 @@
       "bottom right"
     ]
   },
+  "https://media.aquatome.com/glaser/fdaf4f693be19b5b.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 19,
+        "mark": false,
+        "hash": "c51502b3956f04b0458dc86084f5dacdc8a561cf5b4d486c9ae5253dfa5e310c"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "0e4f4fe796a751edb4e167f96bafeee680fc0e48e04af21843fe5bfdc766eb7b"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
+      "owner": "source",
+      "by": "screen"
+    }
+  },
   "https://media.aquatome.com/glaser/fdd425430ee01880.webp": {
     "ocr": [
       {
@@ -247230,6 +248895,37 @@
     "hints": {
       "dead": false,
       "people": false
+    }
+  },
+  "https://media.aquatome.com/glaser/fe02600b31b9bba9.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
+      },
+      {
+        "c": 1,
+        "at": "top centre",
+        "alnum": 53,
+        "mark": false,
+        "hash": "f8627592f5e779a0a00679b2d04df3878137c19bd521534f897390b29691ad78"
+      }
+    ],
+    "watermark": true,
+    "kind": "logo",
+    "locations": [
+      "top left",
+      "top centre",
+      "top right"
+    ],
+    "retainedOwnMark": {
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
+      "owner": "source",
+      "by": "screen"
     }
   },
   "https://media.aquatome.com/glaser/fe119e0078b77344.webp": {
@@ -249877,6 +251573,9 @@
   "https://media.aquatome.com/inaturalist/11697784.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/117171783.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/11721259.webp": {
     "ocr": []
   },
@@ -249959,6 +251658,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/118719241.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/118752774.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/118752790.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/119109719.webp": {
@@ -250283,6 +251988,22 @@
   },
   "https://media.aquatome.com/inaturalist/125611833.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/12562688.webp": {
+    "ocr": [
+      {
+        "c": 0.5,
+        "at": "middle right",
+        "alnum": 4,
+        "mark": false,
+        "hash": "77005cd75a771d57c536632e291ac7d2d7a2992b3ae28983518c0646f90bc8e4"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "middle right"
+    ]
   },
   "https://media.aquatome.com/inaturalist/125635087.webp": {
     "ocr": []
@@ -251305,6 +253026,12 @@
   "https://media.aquatome.com/inaturalist/150631735.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/150667808.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/150668804.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/150790004.webp": {
     "ocr": []
   },
@@ -252305,6 +254032,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/164083379.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/164158425.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/164179070.webp": {
@@ -255061,6 +256791,9 @@
   "https://media.aquatome.com/inaturalist/19948315.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/199710469.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/200136678.webp": {
     "ocr": []
   },
@@ -257373,6 +259106,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/239432527.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/239456985.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/239816016.webp": {
@@ -260392,6 +262128,9 @@
   "https://media.aquatome.com/inaturalist/271031195.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/2710690.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/271233049.webp": {
     "ocr": []
   },
@@ -260964,6 +262703,15 @@
     "locations": [
       "bottom right"
     ]
+  },
+  "https://media.aquatome.com/inaturalist/28384257.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/28384263.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/28384278.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/inaturalist/283912297.webp": {
     "ocr": []
@@ -263679,6 +265427,9 @@
   "https://media.aquatome.com/inaturalist/306779742.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/306793453.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/306989322.webp": {
     "ocr": []
   },
@@ -264442,6 +266193,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/320546226.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/320749645.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/32075373.webp": {
@@ -271628,6 +273382,9 @@
   "https://media.aquatome.com/inaturalist/431651325.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/431845588.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/43184783.webp": {
     "ocr": []
   },
@@ -272057,6 +273814,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/444713412.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/444793626.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/444944904.webp": {
@@ -273277,6 +275037,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/469852828.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/469859119.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/4699229.webp": {
@@ -275995,6 +277758,9 @@
   "https://media.aquatome.com/inaturalist/53363645.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/533747619.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/53392028.webp": {
     "ocr": []
   },
@@ -276428,6 +278194,74 @@
     "kind": "credit",
     "locations": [
       "bottom left"
+    ]
+  },
+  "https://media.aquatome.com/inaturalist/546830588.webp": {
+    "ocr": [
+      {
+        "c": 0.3,
+        "at": "top centre",
+        "alnum": 5,
+        "mark": false,
+        "hash": "bf5f25c078067737b47d606b27873cf7fbd1c11b8b7e6d53e6ec405f226c3009"
+      },
+      {
+        "c": 0.5,
+        "at": "middle centre",
+        "alnum": 9,
+        "mark": false,
+        "hash": "c615491188e6197db6cbb0ab6808df8f60fe4821781421824a259611cd66cdb8"
+      },
+      {
+        "c": 0.3,
+        "at": "bottom centre",
+        "alnum": 4,
+        "mark": false,
+        "hash": "35fab7343db140ed2ae9e5db20a51fa7e3100dc79d8eabc38877ad21e8955d3c"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 8,
+        "mark": false,
+        "hash": "5196dca8723c52fab0bd9613da8c05b712c93cb9e53dbf4234000691441cbd55"
+      },
+      {
+        "c": 0.5,
+        "at": "bottom centre",
+        "alnum": 11,
+        "mark": false,
+        "hash": "f592ba16d920803a83747ba7b4555ce3d134e943ca3dd93477ba32c57f06569b"
+      },
+      {
+        "c": 0.3,
+        "at": "middle centre",
+        "alnum": 7,
+        "mark": false,
+        "hash": "2669775e8adb240daaa7384b4522d704da21bb7351081d8974066234350fbfba"
+      },
+      {
+        "c": 1,
+        "at": "bottom centre",
+        "alnum": 14,
+        "mark": false,
+        "hash": "7be13a9d78de41dcc680d3f26ed087b1f8c385eb3afbab5e5115f86975f339f6"
+      },
+      {
+        "c": 0.3,
+        "at": "middle right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "7559ca4a957c8c82ba04781cd66a68d6022229fca0e8e88d8e487c96ee4446d0"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "top centre",
+      "middle centre",
+      "bottom centre",
+      "middle right"
     ]
   },
   "https://media.aquatome.com/inaturalist/546933472.webp": {
@@ -278902,6 +280736,9 @@
   "https://media.aquatome.com/inaturalist/58908759.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/589258911.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/58937852.webp": {
     "ocr": []
   },
@@ -279812,6 +281649,22 @@
   },
   "https://media.aquatome.com/inaturalist/602746814.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/603046333.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom right",
+        "alnum": 3,
+        "mark": false,
+        "hash": "b79f6c641c3b7609764bd8d4b552b3b7002b0203f9dd55263f368f4f8d4a0642"
+      }
+    ],
+    "watermark": false,
+    "kind": "none",
+    "locations": [
+      "bottom right"
+    ]
   },
   "https://media.aquatome.com/inaturalist/603056247.webp": {
     "ocr": []
@@ -281306,6 +283159,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/63176567.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/631794620.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/6318780.webp": {
@@ -283020,6 +284876,9 @@
       "middle left"
     ]
   },
+  "https://media.aquatome.com/inaturalist/699559001.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/700030957.webp": {
     "ocr": []
   },
@@ -283157,6 +285016,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/704438905.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/70502488.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/70515599.webp": {
@@ -283355,6 +285217,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/71494325.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/714957745.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/71509644.webp": {
@@ -284449,6 +286314,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/79500950.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/796830.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/79867752.webp": {
@@ -285600,6 +287468,9 @@
   "https://media.aquatome.com/inaturalist/97245193.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/9730754.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/97336555.webp": {
     "ocr": []
   },
@@ -285746,6 +287617,9 @@
     "locations": [
       "bottom left"
     ]
+  },
+  "https://media.aquatome.com/inaturalist/995310.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/inaturalist/9956402.webp": {
     "ocr": []
@@ -287685,6 +289559,11 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/07fee2136e7494f1.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/080765d96e840ba8.webp": {
     "ocr": [],
     "watermark": false,
@@ -287787,6 +289666,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/08fd369204b84e5c.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/098db927413d1992.webp": {
     "ocr": [],
@@ -288381,6 +290265,22 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/1436c34cf7d73205.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "top left",
+        "alnum": 20,
+        "mark": true,
+        "hash": "5c99ad562c6c5fadc4599c5d6e0c66d70a1c21625ae502a97edacfdbfd4f20f7"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "locations": [
+      "top left"
+    ]
   },
   "https://media.aquatome.com/scotcat/1444d318b2c1d98f.webp": {
     "ocr": [
@@ -289280,6 +291180,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/1f1233a515e75e2d.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/1f4b4a2cdd6c3c45.webp": {
     "ocr": [],
     "watermark": false,
@@ -289484,6 +291389,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/228d0f446a803021.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/231118991af5ddc0.webp": {
     "ocr": [],
@@ -290069,6 +291979,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/2bc81b5fad7c1a6c.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/2bf3456985c166e0.webp": {
     "ocr": [
@@ -291468,6 +293383,11 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/3e684fad6775f011.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/3f0aa360ee207f7e.webp": {
     "ocr": [],
     "watermark": false,
@@ -291964,6 +293884,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/452726494b59ba87.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/4540729622fa7bf6.webp": {
     "ocr": [],
@@ -293700,6 +295625,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/585db507eacc72b8.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/585f652ab8e50013.webp": {
     "ocr": [],
@@ -295521,6 +297451,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/703a6c2be065a8a8.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/704cd52e0bcd9e6b.webp": {
     "ocr": [],
     "watermark": false,
@@ -296435,6 +298370,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/7d29bd8bbaf35579.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/7d5c3b1d13865c76.webp": {
     "ocr": [],
@@ -297564,6 +299504,11 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/8b50dd3bba2f7e93.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
   },
   "https://media.aquatome.com/scotcat/8b94cb681ce7756c.webp": {
     "ocr": [],
@@ -298776,6 +300721,11 @@
     "kind": "none"
   },
   "https://media.aquatome.com/scotcat/9b05e3abeafa5d88.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/scotcat/9b8029dbcbb99cd8.webp": {
     "ocr": [],
     "watermark": false,
     "kind": "none"
@@ -301133,6 +303083,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/b95d25308734cbee.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/b9ada3b6dd35d8c9.webp": {
     "ocr": [],
     "watermark": false,
@@ -301817,6 +303772,11 @@
     "watermark": false,
     "kind": "none"
   },
+  "https://media.aquatome.com/scotcat/c45f5340257d4bd2.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/c47f6d4458d45170.webp": {
     "ocr": [],
     "watermark": false,
@@ -302062,6 +304022,11 @@
     }
   },
   "https://media.aquatome.com/scotcat/c62b8ba666572973.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
+  "https://media.aquatome.com/scotcat/c6393be8e85ecdb7.webp": {
     "ocr": [],
     "watermark": false,
     "kind": "none"
@@ -303563,6 +305528,11 @@
       "people": false
     }
   },
+  "https://media.aquatome.com/scotcat/d9cb85ab10475a2b.webp": {
+    "ocr": [],
+    "watermark": false,
+    "kind": "none"
+  },
   "https://media.aquatome.com/scotcat/d9e9273460c1be77.webp": {
     "ocr": [],
     "watermark": false,
@@ -304722,6 +306692,29 @@
     "kind": "credit",
     "locations": [
       "top left"
+    ]
+  },
+  "https://media.aquatome.com/scotcat/eaefaa58325a7e85.webp": {
+    "ocr": [
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 23,
+        "mark": false,
+        "hash": "5fbbea0039f7b85c56279af52ef6d56e82a91460929854bc1d222b9164f762ba"
+      },
+      {
+        "c": 1,
+        "at": "bottom left",
+        "alnum": 8,
+        "mark": false,
+        "hash": "69521e6fd075266712824420dfefda2cf6281e81b173dc3b8868f374d51c61e1"
+      }
+    ],
+    "watermark": true,
+    "kind": "name",
+    "locations": [
+      "bottom left"
     ]
   },
   "https://media.aquatome.com/scotcat/eb276feb98cbf168.webp": {
@@ -306142,6 +308135,14 @@
       "dead": false,
       "people": false
     }
+  },
+  "https://media.aquatome.com/scotcat/fd60866e0574b8d1.webp": {
+    "ocr": [],
+    "watermark": true,
+    "kind": "name",
+    "locations": [
+      "top left"
+    ]
   },
   "https://media.aquatome.com/scotcat/fd69d5234a9b6c10.webp": {
     "ocr": [],
@@ -487572,2007 +489573,6 @@
     "ocr": []
   },
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/Midorifugu1.JPG": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/aquariumbreeder/2816e412057c6ec2.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 2,
-        "mark": false,
-        "hash": "1a6562590ef19d1045d06c4055742d38288e9e6dcd71ccde5cee80f1d5a774eb"
-      },
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 10,
-        "mark": false,
-        "hash": "66b51bbb80f8952d428917589eded9a2894c9fd42cfc9198eefe992c5db19ee5"
-      },
-      {
-        "c": 1,
-        "at": "middle left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "61778fd2941ae733f9bd979e84ae635f98e0bbf556e43ec95a85b90df0f025a0"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 16,
-        "mark": false,
-        "hash": "630566fcded49a20bd04c83382eef0788a93b9419cdfea17f6bcf3e000791fab"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "top left",
-      "middle left",
-      "bottom centre"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/4fbb42d694db9815.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 22,
-        "mark": false,
-        "hash": "67c531d3592c911570db0dbe751103ea154083fc432ba1b4df12f03764974622"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "top centre"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/7e661592eddf3c2d.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 19,
-        "mark": false,
-        "hash": "afbb4c4dcbb8808563a5c6bd1afe4dcf54c80f31bbde9e4421669e8a5a59ec9d"
-      }
-    ],
-    "watermark": true,
-    "kind": "caption",
-    "locations": [
-      "top centre"
-    ]
-  },
-  "https://media.aquatome.com/aquariumbreeder/9891faa03158ae36.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/glaser/00d89551289e6cdc.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/01610abbd32c77db.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/0255393e5b142127.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 15,
-        "mark": false,
-        "hash": "773901904b66a03d645bb89dea4f928dea763f521b7743e88cfa550cc1ac0284"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/068143de9ce89474.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "174edc6e259ed6deec260645e3f94f32161f6436e5e0c396c87036cb1e7f2605"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right",
-      "middle left",
-      "middle centre",
-      "bottom left",
-      "bottom right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/07d5f6da4d5d7f33.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/09e3b8b20615bae3.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/10095463e2df0cb8.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 51,
-        "mark": false,
-        "hash": "03b43722cf10d1ba6cf38a06b36cd5bfab81c32a2e836acdd65b70e62b449b92"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/1fcf0495cc8a969e.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "ac17ce31e2ad2714457c5fc6a0f0fcd73a8e9847bb0b4e8f5e8ea79d6158d4a1"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/2045042a87054538.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 15,
-        "mark": false,
-        "hash": "a2646aa3631cb31db0a9a68313e538f5f7ef87e34a74996315c136a9c116fbb7"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "53d7e55eb2a1c7a3cf36434e934f4c92b9de09e5495ad2b0aa4c97dad993a488"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/29488acade8af0cd.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "ab42ec6a95356015b7b883cfd3a61802a3a3bcf5c8eeea08d3f0e960f9ae1164"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/298ee7144146b8ae.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "89b2b625e6fe1eceddf49b98a53425313243cefee2147ea788e5c5c13b53d069"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/2cb93f72eaf20221.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "998553b7e6bdc35f6b97b12ac5241ddd533f95a7527f25e0439e233f79e4f668"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      },
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 12,
-        "mark": false,
-        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre",
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/glaser/2e9160eac0b0df71.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/324ec35df7080310.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/3b98523a558d012a.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "4e975a97b3f63ad17d187963adbbc0d7c96ccd2e5b5a2d58b3626b8ba23c691c"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "ad6731798c7c788c21e90bf0a2a2a7505874d2900e848f462005103f8b85f3a7"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/40ff791457c2cc4c.webp": {
-    "ocr": [
-      {
-        "c": 0.3,
-        "at": "top centre",
-        "alnum": 16,
-        "mark": false,
-        "hash": "f686d83c8e1d67bc3d722378089d931dd92d221314b82ee551ffef7dcfcd24ca"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 21,
-        "mark": false,
-        "hash": "fa6b9420dd956032964fcf3be365dcd420a69f5c8cf487d280d0520837adc681"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 18,
-        "mark": false,
-        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/4aeddc12d096a9a2.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/53baa0d4457cbd45.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "40c1a227b154ceed7a6960b8b73f1bc79323915b7e586282f54902cdaff714a5"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 24,
-        "mark": false,
-        "hash": "6be91401ba006b69869f31c287c8717d7b4885ec1ccc6aa4f379e1d6365fd714"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 26,
-        "mark": false,
-        "hash": "5f79e846621c28ba211db119fcf14f567e3f590bd3c78e2b11e0cfe0a4a02ec8"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/73323021fb6fd4b1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 38,
-        "mark": false,
-        "hash": "36575b590cf7bf2de742d8358e0a72bbcd499f014d1477142acfd20bdf45e099"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/7a4d1f49f970b35d.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 16,
-        "mark": false,
-        "hash": "25c966daf557ec7e085523532307f5f498e6cc90a3a3f6fc723773a062f1c09b"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 36,
-        "mark": false,
-        "hash": "7bd2f73a70f2e0a41a8349d3c66f7884af60a29bd54553b514a9da84902f02b4"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/7bc44fe7f0e219af.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "bottom left",
-      "bottom centre",
-      "bottom right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/8a1b1a57b59e47a2.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/8d6a513c7e6d7864.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "6294b27f585d16841bf6c77e4535d495e8189120298322cfad3867695d49afd0"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 4,
-        "mark": false,
-        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/8db7471124591dbf.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "6694a02e448fe53401bccde73a8f26c1c12ab2f7f4370211fcf8f9a838e9dafd"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "ad6731798c7c788c21e90bf0a2a2a7505874d2900e848f462005103f8b85f3a7"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/950bcf274517b2b2.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "e921090b892949cb37be7ca986efdeb3aca506c5079f9519dacbb8ed30399674"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/99ad6574a83384b1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/9b2231fd02df9bb8.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "48dd8fc835999013cce5bdaf248653e62c900b9a691d3dec8e35fade41af4ebd"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      },
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 12,
-        "mark": false,
-        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre",
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/glaser/a4fbe5073f8fee1f.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/aa7254e7593c4b91.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "ef86ccf50207940437cbab66859d282632bf7189b5f7cb273cb500f2abe3e92e"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/b3bc965f027bacd1.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "e4f515ee944993c846c891bc7563266ec2cbe6f6e641ce11cd30f74b6429a707"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/b3dca8bd71c5e25b.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/b71e284f90e25630.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "39a81177dd02789893d921d6957e337dae7679a58f1338be656c85d66fc8f85e"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/aphanotorulus-sp-l11-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/b8b85145639b8a90.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "a2d1bbc5c2abba0b1438224a5a574d1fce7afcc35eaabfa0523e8bfea209a78f"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "bottom centre"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/ba2741daa091da02.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f0a632ea755bac37731e72d8dfa312ea6fca665ef597114b73072b5214b79efe"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 12,
-        "mark": false,
-        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre",
-      "bottom left"
-    ]
-  },
-  "https://media.aquatome.com/glaser/c864ceb8598c2b86.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/cc0144b55256191d.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "2dd025c494639e5d79b3cb25074b092d1cd6dfceed8ed87d87ee6a90e3bfaae7"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/d23ccdcbbdd429f6.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "f8165835bd17b20f69d919525d235985697f63295dab0998e1e86baa84114587"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/d64c0ea30909dac8.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "74306408d63ab9a4c981138a9ac290f2b5850bebc52548c113864b260ea6fcfa"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 39,
-        "mark": false,
-        "hash": "44991ba03c391799629d7182831add7470928b1183bceb2d611a1cae1766f071"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/17-rainbow-fishes-and-co/melanotaenia-praecox-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/d64d03773238f79a.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "64a5b92d548ce02995508291df71916a1e3a8da2480d9c0a94b526e1d5959ffd"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/melanochromis-johannii-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/e02f30eed0144f7a.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "b22b982926fce3d187078ac7ae7ba1dedcec3613c2de21d03c130956797447f1"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 35,
-        "mark": false,
-        "hash": "de59a69c395b42cf9a90f9404112053425aea1e7fcff9f88aa3e04f5cd1563ac"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 18,
-        "mark": false,
-        "hash": "c025de4e3556cdac4a3709454afaaabb2fe8507d4d05fcf7d248928c4b7874d8"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/bright-blue-maylandia-from-thailand/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/e1e6823831c7fb72.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "475a175e963b5b10f9c64f84fd6260c4b40810c746788eb33eabbaa5e8ba642c"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "f8627592f5e779a0a00679b2d04df3878137c19bd521534f897390b29691ad78"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "bottom left",
-      "bottom centre",
-      "bottom right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/e61807bfd9a7bea7.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "35f4a93f2b56f4920cd1795073b845d3e6a4516795f182ed48f54c18b0345a06"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "f8627592f5e779a0a00679b2d04df3878137c19bd521534f897390b29691ad78"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pygocentrus-nattereri/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/e9919619c09e03bb.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "174edc6e259ed6deec260645e3f94f32161f6436e5e0c396c87036cb1e7f2605"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "893a5c827cd94fdba0fc4c177e74e7309f689d2624663dcafc4c1a165d99059a"
-      },
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 12,
-        "mark": false,
-        "hash": "1a0c31dce88df6e48c6960778c82ada6aba0174a9a23e23bfe410c9c7f78d4cc"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top centre",
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/glaser/ee898e7b47b5ed32.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "782d6a970ef0b4f70b07fbf710eb433e7c90d63291d38512d741a6d9946c6598"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 52,
-        "mark": false,
-        "hash": "5baba4fe5958e28e8d4f4ad002bb8ec677ed8dd260a76e7a32b4b990cbc8f7e6"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/leporinus-ortomaculatus-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/f059150a97b1245a.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 4,
-        "mark": false,
-        "hash": "52c92238af4c99684f5bd6863fabfcab5df3111945f5faa372e83a4bd31cc879"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "c464b891d0e8bbd428713dc697a8bdc44c1cadb968a0dab9d3d8a338c7405ffa"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/thorichthys-meeki-rio-candelaria-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/f611240ff45dfd1e.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 18,
-        "mark": false,
-        "hash": "82466aea17f74ebaecb666bea937d400768222272eb4c3c2c0f2b5b1406de42d"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 14,
-        "mark": false,
-        "hash": "9dbcec44466953a49daa44fe1524f496e0445b88cc2d683732afcd4327c1f8b9"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 40,
-        "mark": false,
-        "hash": "6a0e2669a7213dfa69a3412a4f6d17e2834bfb0a625f9af5fb077cc94fac7cef"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/channa-micropeltes-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/fc2f99450a85e0b4.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 17,
-        "mark": false,
-        "hash": "127bce2e6670c22cb4b692223d3cfe1916831baee97f3f6fa719c94417ae556e"
-      },
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 15,
-        "mark": false,
-        "hash": "06b6ed9f96bda49e78636a603e4f26a3a79bdbe30723f91759fca5a4634f43ad"
-      },
-      {
-        "c": 1,
-        "at": "top right",
-        "alnum": 41,
-        "mark": false,
-        "hash": "a24bd8f5e982f05e1ce014a8098aca8881fd8452f91b27f0d080acb0956b583e"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/fdaf4f693be19b5b.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 19,
-        "mark": false,
-        "hash": "c51502b3956f04b0458dc86084f5dacdc8a561cf5b4d486c9ae5253dfa5e310c"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "0e4f4fe796a751edb4e167f96bafeee680fc0e48e04af21843fe5bfdc766eb7b"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/which-semaprochilodus-comes-from-indonesia/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/glaser/fe02600b31b9bba9.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "784dc20bdafc9dda3882ffd6dc72f0adeb4b8d2381b1461c1572041f4ebb9df2"
-      },
-      {
-        "c": 1,
-        "at": "top centre",
-        "alnum": 53,
-        "mark": false,
-        "hash": "f8627592f5e779a0a00679b2d04df3878137c19bd521534f897390b29691ad78"
-      }
-    ],
-    "watermark": true,
-    "kind": "logo",
-    "locations": [
-      "top left",
-      "top centre",
-      "top right"
-    ],
-    "retainedOwnMark": {
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/lda25-parotocinclus-jumbo-2/",
-      "owner": "source",
-      "by": "screen"
-    }
-  },
-  "https://media.aquatome.com/scotcat/07fee2136e7494f1.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/08fd369204b84e5c.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/1436c34cf7d73205.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "top left",
-        "alnum": 20,
-        "mark": true,
-        "hash": "5c99ad562c6c5fadc4599c5d6e0c66d70a1c21625ae502a97edacfdbfd4f20f7"
-      }
-    ],
-    "watermark": true,
-    "kind": "credit",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/1f1233a515e75e2d.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/228d0f446a803021.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/2bc81b5fad7c1a6c.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/3e684fad6775f011.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/452726494b59ba87.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/585db507eacc72b8.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/703a6c2be065a8a8.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/7d29bd8bbaf35579.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/8b50dd3bba2f7e93.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/9b8029dbcbb99cd8.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/b95d25308734cbee.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/c45f5340257d4bd2.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/c6393be8e85ecdb7.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/d9cb85ab10475a2b.webp": {
-    "ocr": [],
-    "watermark": false,
-    "kind": "none"
-  },
-  "https://media.aquatome.com/scotcat/eaefaa58325a7e85.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 23,
-        "mark": false,
-        "hash": "5fbbea0039f7b85c56279af52ef6d56e82a91460929854bc1d222b9164f762ba"
-      },
-      {
-        "c": 1,
-        "at": "bottom left",
-        "alnum": 8,
-        "mark": false,
-        "hash": "69521e6fd075266712824420dfefda2cf6281e81b173dc3b8868f374d51c61e1"
-      }
-    ],
-    "watermark": true,
-    "kind": "name",
-    "locations": [
-      "bottom left"
-    ]
-  },
-  "https://media.aquatome.com/scotcat/fd60866e0574b8d1.webp": {
-    "ocr": [],
-    "watermark": true,
-    "kind": "name",
-    "locations": [
-      "top left"
-    ]
-  },
-  "https://media.aquatome.com/gbif/4034578816-07698b656ea5dbca.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/gbif/4034578816-319f8ec140f13b89.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/gbif/4034578816-8e2ef09aa47ccf94.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/gbif/4034583722-ca12c466cdba6a77.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/117171783.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/118752774.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/118752790.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/12562688.webp": {
-    "ocr": [
-      {
-        "c": 0.5,
-        "at": "middle right",
-        "alnum": 4,
-        "mark": false,
-        "hash": "77005cd75a771d57c536632e291ac7d2d7a2992b3ae28983518c0646f90bc8e4"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "middle right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/150667808.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/150668804.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/164158425.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/199710469.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/239456985.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/2710690.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/28384257.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/28384263.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/28384278.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/306793453.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/320749645.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/431845588.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/444793626.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/469859119.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/533747619.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/546830588.webp": {
-    "ocr": [
-      {
-        "c": 0.3,
-        "at": "top centre",
-        "alnum": 5,
-        "mark": false,
-        "hash": "bf5f25c078067737b47d606b27873cf7fbd1c11b8b7e6d53e6ec405f226c3009"
-      },
-      {
-        "c": 0.5,
-        "at": "middle centre",
-        "alnum": 9,
-        "mark": false,
-        "hash": "c615491188e6197db6cbb0ab6808df8f60fe4821781421824a259611cd66cdb8"
-      },
-      {
-        "c": 0.3,
-        "at": "bottom centre",
-        "alnum": 4,
-        "mark": false,
-        "hash": "35fab7343db140ed2ae9e5db20a51fa7e3100dc79d8eabc38877ad21e8955d3c"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 8,
-        "mark": false,
-        "hash": "5196dca8723c52fab0bd9613da8c05b712c93cb9e53dbf4234000691441cbd55"
-      },
-      {
-        "c": 0.5,
-        "at": "bottom centre",
-        "alnum": 11,
-        "mark": false,
-        "hash": "f592ba16d920803a83747ba7b4555ce3d134e943ca3dd93477ba32c57f06569b"
-      },
-      {
-        "c": 0.3,
-        "at": "middle centre",
-        "alnum": 7,
-        "mark": false,
-        "hash": "2669775e8adb240daaa7384b4522d704da21bb7351081d8974066234350fbfba"
-      },
-      {
-        "c": 1,
-        "at": "bottom centre",
-        "alnum": 14,
-        "mark": false,
-        "hash": "7be13a9d78de41dcc680d3f26ed087b1f8c385eb3afbab5e5115f86975f339f6"
-      },
-      {
-        "c": 0.3,
-        "at": "middle right",
-        "alnum": 3,
-        "mark": false,
-        "hash": "7559ca4a957c8c82ba04781cd66a68d6022229fca0e8e88d8e487c96ee4446d0"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "top centre",
-      "middle centre",
-      "bottom centre",
-      "middle right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/589258911.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/603046333.webp": {
-    "ocr": [
-      {
-        "c": 1,
-        "at": "bottom right",
-        "alnum": 3,
-        "mark": false,
-        "hash": "b79f6c641c3b7609764bd8d4b552b3b7002b0203f9dd55263f368f4f8d4a0642"
-      }
-    ],
-    "watermark": false,
-    "kind": "none",
-    "locations": [
-      "bottom right"
-    ]
-  },
-  "https://media.aquatome.com/inaturalist/631794620.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/699559001.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/70502488.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/714957745.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/796830.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/9730754.webp": {
-    "ocr": []
-  },
-  "https://media.aquatome.com/inaturalist/995310.webp": {
     "ocr": []
   }
 }
