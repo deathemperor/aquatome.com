@@ -6,7 +6,7 @@ import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
 import { paged, tablePage, type Action, type Block, type FormField, type Section } from '../admin/blocks'
 import { chatReportsPage, chatReportsSection } from '../admin/chat-reports'
-import { scoreboardPage, scoreboardSection, summariseScoreboard } from '../admin/scoreboard'
+import { scoreboardPage, scoreboardSection, summariseScoreboard, weekByDay } from '../admin/scoreboard'
 import { ICON } from '../admin/shell'
 import { NEEDS_SHOWN, smallBars, todayJson, todayPage, PAGE_GROUPS, type OwnerAct } from '../admin/today'
 import { CHANGE_COLUMN, changelogPage, changelogSection } from '../daily/changelog'
@@ -411,6 +411,7 @@ const placeHref = (p: { section?: string; anchor?: string; url?: string }) => p.
 // Design's answers of 18 Nov: the web takes the app's first screen (board2, 14 Nov; the app's OwnerOverview), its cards in
 // the same order, words and figures, in the web's own frame and colours; two columns on a desktop; "Every page" stays.
 test('the web first screen is the app\'s five cards, from what the app gets: Needs you, New pages, Readers beside Shipped, the cost; then every page', () => {
+  let boardForm = 0
   for (const t of [S.TODAY, S.CALM, S.SPENDING, { ...S.TODAY, beacon: F }, { ...S.CALM, tz: 'America/New_York' }, { ...S.TODAY, changes: F }]) {
     const j = todayJson(t)
     const page = dom(todayPage(t))
@@ -451,16 +452,25 @@ test('the web first screen is the app\'s five cards, from what the app gets: Nee
       expect(content!.querySelectorAll('.kinds .n').map(txt)).toEqual(rows.map(([key]) => j.publishing!.kinds.find(k => k.key === key)!.total))
       expect(content!.querySelector('h2 a')!.getAttribute('href')).toBe('/_ab/noi-dung/')
     } else expect(content).toBeNull()
-    // Readers: this week's, and its change against the same point last week; without the beacon, why not.
+    // Readers: this week's, and its change against last week's readers by now, in the board's words ("+100% vs 7 by now
+    // last week", the Design Lead, 20 Nov); with none by now last week, the plain change; without the beacon, why not.
     const readers = page.querySelector('section.card[aria-labelledby="readers"]')!
     const rf = j.answers.figures?.find(f => f.label === 'Readers')
+    const before = rf ? weekByDay(t.now, t.beacon as never, t.countingFrom).lastSoFar?.readers : undefined
+    const change = rf?.delta && before ? rf.delta.text.replace('the same point last week', `${before.toLocaleString('en-US')} by now last week`) : rf?.delta?.text
     expect(txt(readers.querySelector('.fig'))).toBe(rf?.value ?? tile('answers').value)
-    expect(txt(readers.querySelector('.line'))).toBe(norm(rf ? `this week${rf.delta ? ` · ${rf.delta.text}` : ''}` : tile('answers').sub))
+    expect(txt(readers.querySelector('.line'))).toBe(norm(rf ? `this week${change ? ` · ${change}` : ''}` : tile('answers').sub))
+    if (before) {
+      boardForm++
+      expect(readers.querySelector('.line')!.text).toMatch(/^this week · [+−±][\d,]+% vs [\d,]+ by now last week$/)
+    }
     expect(readers.querySelector('h2 a')!.getAttribute('href')).toBe('/_ab/doc-gia/')
-    // Shipped: the count, by where, and the newest change in its words.
+    // Shipped: the count, by where in the board's name and words ("Shipped, 24 h", "site 32 · app 9 · engine 38"), and the
+    // newest change in its words; the app's tile keeps its own ("32 site · 9 app · 38 engine").
     const shipped = page.querySelector('section.card[aria-labelledby="shipped"]')!
+    const areas = (['site', 'app', 'engine'] as const).map(x => [x, j.shipped.lines.filter(l => l.area === x).length] as const).filter(([, k]) => k)
     expect([txt(shipped.querySelector('h2')), txt(shipped.querySelector('.fig')), txt(shipped.querySelector('.line')), txt(shipped.querySelector('.newest'))])
-      .toEqual([tile('shipped').label, tile('shipped').value, norm(tile('shipped').sub), norm(j.shipped.lines[0]?.text ?? '')])
+      .toEqual(['Shipped, 24 h', tile('shipped').value, norm(tile('shipped').tone !== 'bad' && areas.length ? areas.map(([x, k]) => `${x} ${k}`).join(' · ') : tile('shipped').sub), norm(j.shipped.lines[0]?.text ?? '')])
     expect(shipped.querySelector('h2 a')!.getAttribute('href')).toBe('/_ab/thay-doi/')
     // The cost: one row, opening the keys' page.
     const cost = page.querySelector('section.cost h2 a')!
@@ -469,6 +479,7 @@ test('the web first screen is the app\'s five cards, from what the app gets: Nee
     expect(page.querySelectorAll('section[aria-labelledby="pages"] section').map(g => [txt(g.querySelector('h3')), g.querySelectorAll('a').map(a => [a.getAttribute('href'), ...a.querySelectorAll('span').map(txt)])]))
       .toEqual(j.pages.map(g => [g.name, g.pages.map(p => [`/_ab/${p.key}/`, p.name, norm(p.figure.text)])]))
   }
+  expect(boardForm).toBeGreaterThan(0)
   expect(dom(todayPage(S.CALM)).querySelector('p.last')!.text).toBe('You hid a comment on Ikan neon (Indonesian) · Wed 4 Nov, 8:00')
 })
 

@@ -423,16 +423,23 @@ export function todayPage(t: Today): string {
     const axis = first ? `<span class="k cap" aria-hidden="true">written a day</span><span class="days" aria-hidden="true"><span>${esc(barDay(first.days[from]!))}</span><span>${esc(barDay(first.days[to - 1]!))}</span></span>` : ''
     return card('content', 'Content · pages written', '/_ab/noi-dung/', `<p class="top">${total === undefined ? '' : `<b class="fig">${esc(fmt(total))}</b> written`}${today === undefined ? '' : ` <span class="today">${plus(today)} today</span>`}</p><div class="kinds">${rows}${axis}</div>`)
   })()
-  // Readers this week against the same point last week; without them, why not.
+  // Readers this week against the same point last week, in the board's words (the Design Lead, 20 Nov): "+100% vs 7 by
+  // now last week". The app's JSON keeps its own. With none by now last week, the plain change; without them, why not.
   const rf = j.answers.figures?.find(f => f.label === 'Readers')
   const at = tile('answers')
+  const w = isFailed(t.beacon) ? undefined : weekByDay(t.now, t.beacon, t.countingFrom)
+  const before = w?.lastSoFar?.readers
+  const rd = rf?.delta && w && before ? deltaJson({ now: w.now.readers, before, vs: `${fmt(before)} by now last week`, good: 'up' }) : rf?.delta
   const readers = card('readers', esc(rf?.label ?? 'Readers'), '/_ab/doc-gia/', `<p class="fig">${esc(rf?.value ?? at?.value ?? '—')}</p>${rf
-    ? `<p class="line">this week${rf.delta ? ` · ${changeHtml(rf.delta)}` : ''}</p>${rf.sub ? `<p class="line">${esc(rf.sub)}</p>` : ''}`
+    ? `<p class="line">this week${rd ? ` · ${changeHtml(rd)}` : ''}</p>${rf.sub ? `<p class="line">${esc(rf.sub)}</p>` : ''}`
     : at ? `<p class="line${at.tone === 'bad' || at.tone === 'wait' ? ` ${at.tone}` : ''}">${esc(at.sub)}</p>` : ''}`)
-  // Changes shipped in the last 24 hours, by where, and the newest in its words.
+  // Changes shipped in the last 24 hours, by where, and the newest in its words. The board's name and split (the Design
+  // Lead, 20 Nov): "Shipped, 24 h", "site 32 · app 9 · engine 38". The app's tile keeps its own.
   const st = tile('shipped')
   const newest = j.shipped.lines[0]?.text
-  const shipped = card('shipped', esc(st?.label ?? j.shipped.title), `/_ab/${j.shipped.section}/`, `${st ? `<p class="fig">${esc(st.value)}</p><p class="line${st.tone === 'bad' ? ' bad' : ''}">${esc(st.sub)}</p>` : ''}${newest ? `<p class="newest">${esc(newest)}</p>` : ''}`)
+  const areas = (['site', 'app', 'engine'] as const).map(x => [x, j.shipped.lines.filter(l => l.area === x).length] as const).filter(([, k]) => k)
+  const split = st && st.tone !== 'bad' && areas.length ? areas.map(([x, k]) => `${x} ${fmt(k)}`).join(' · ') : st?.sub
+  const shipped = card('shipped', 'Shipped, 24 h', `/_ab/${j.shipped.section}/`, `${st ? `<p class="fig">${esc(st.value)}</p><p class="line${st.tone === 'bad' ? ' bad' : ''}">${esc(split ?? '')}</p>` : ''}${newest ? `<p class="newest">${esc(newest)}</p>` : ''}`)
   // What the server counts of the cost, on one row: its figure and what it's made of. Opens the keys' page.
   const ct = tile('cost')
   const cost = ct ? `<section class="card cost" aria-labelledby="cost"><h2 id="cost"><a href="/_ab/${j.costs.keys.section}/"><span>${esc(ct.label)}</span> <b class="${ct.tone === 'bad' ? 'bad' : ''}">${esc(ct.value)}</b> <span class="line">${esc(ct.sub)}</span></a>${ICON.chevron}</h2></section>` : ''
