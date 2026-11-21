@@ -90,13 +90,13 @@ struct FactsCard: View {
     if let r = facts.ph { out.append(Item(label: "pH", value: HandbookIndex.Facts.range(r, locale))) }
     if let r = facts.gh { out.append(Item(label: "Độ cứng (dGH)", value: HandbookIndex.Facts.range(r, locale))) }
     if let v = facts.sizeCm { out.append(Item(label: "Kích thước", value: "\(HandbookIndex.Facts.number(v, locale)) cm")) }
-    if !v2, let r = facts.lifeYears { out.append(Item(label: "Tuổi thọ", value: "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))")) }
+    if !v2, let r = facts.lifeYears { out.append(Item(label: "Tuổi thọ", value: "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm", bundle: .app))")) }
     if let v = facts.tankCm { out.append(Item(label: "Bể tối thiểu", value: "\(HandbookIndex.Facts.number(v, locale)) cm")) }
     if let d = facts.difficulty {
       // The word in its level's colour, "6/8" beside it; read as the site's badge is: "Độ khó 6/8: khó".
       let word = Self.level(d), n = HandbookIndex.Facts.number(d, locale)
       out.append(Item(label: "Độ khó", value: word, level: HandbookIndex.Facts.level(d), outOf: "\(n)/8",
-                      spoken: String(localized: "Độ khó \(n)/8: \(word.lowercased())")))
+                      spoken: String(localized: "Độ khó \(n)/8: \(word.lowercased())", bundle: .app)))
     }
     return out
   }
@@ -113,8 +113,8 @@ struct FactsCard: View {
       v.font = font.weight(.semibold)
       return l + v
     }
-    if let t = facts.temperament.flatMap(temperament) { parts.append(pair(String(localized: "Tính cách"), t)) }
-    if let n = facts.schoolMin { parts.append(pair(String(localized: "Đàn tối thiểu"), String(localized: "\(n) con"))) }
+    if let t = facts.temperament.flatMap(temperament) { parts.append(pair(String(localized: "Tính cách", bundle: .app), t)) }
+    if let n = facts.schoolMin { parts.append(pair(String(localized: "Đàn tối thiểu", bundle: .app), String(localized: "\(n) con", bundle: .app))) }
     guard var line = parts.first else { return nil }
     var dot = AttributedString(" · ")
     dot.font = font
@@ -141,19 +141,19 @@ struct FactsCard: View {
   /// The site's words for each temperament (TEMPERAMENT_LABELS).
   static func temperament(_ t: String) -> String? {
     switch t {
-    case "peaceful": String(localized: "Hiền")
-    case "semi-aggressive": String(localized: "Hơi dữ")
-    case "aggressive": String(localized: "Hung dữ")
-    case "predator": String(localized: "Săn mồi")
+    case "peaceful": String(localized: "Hiền", bundle: .app)
+    case "semi-aggressive": String(localized: "Hơi dữ", bundle: .app)
+    case "aggressive": String(localized: "Hung dữ", bundle: .app)
+    case "predator": String(localized: "Săn mồi", bundle: .app)
     default: nil
     }
   }
 
   static func level(_ d: Double) -> String {
     switch HandbookIndex.Facts.level(d) {
-    case .easy: String(localized: "Dễ")
-    case .mid: String(localized: "Vừa")
-    case .hard: String(localized: "Khó")
+    case .easy: String(localized: "Dễ", bundle: .app)
+    case .mid: String(localized: "Vừa", bundle: .app)
+    case .hard: String(localized: "Khó", bundle: .app)
     }
   }
 }

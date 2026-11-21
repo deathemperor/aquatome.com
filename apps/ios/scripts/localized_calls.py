@@ -21,9 +21,7 @@ CALL = re.compile(r'\b(Attributed)?String\(localized:')
 # Labels after the key, in the order the initializers take them.
 ORDER = ('defaultValue', 'options', 'table', 'bundle', 'locale', 'comment', 'including')
 # Files the edit and the check leave alone, each with why. Take a line out when its file is ready: --apply then edits it.
-LEFT = {
-    'AquaTome/Lights/LoveEcology.swift': "the Love Ecology light's own part, which the iOS lead makes next",
-}
+LEFT = {}
 
 
 def skip_string(src, i):

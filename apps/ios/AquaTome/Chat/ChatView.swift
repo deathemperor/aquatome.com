@@ -204,10 +204,10 @@ private struct ChatThread: View {
   private var starters: [String] {
     let s = model.route.subject
     if s.plant {
-      return [String(localized: "Có cần CO₂ không?"), String(localized: "Trồng ở đâu trong bể?"), String(localized: "Có dễ trồng không?")]
+      return [String(localized: "Có cần CO₂ không?", bundle: .app), String(localized: "Trồng ở đâu trong bể?", bundle: .app), String(localized: "Có dễ trồng không?", bundle: .app)]
     }
-    let third = s.second.map { String(localized: "Làm sao phân biệt với \(ChatNames.inSentence($0))?") } ?? String(localized: "Có dễ nuôi không?")
-    return [String(localized: "Nuôi chung với cá gì được?"), String(localized: "Bể bao nhiêu lít là đủ?"), third]
+    let third = s.second.map { String(localized: "Làm sao phân biệt với \(ChatNames.inSentence($0))?", bundle: .app) } ?? String(localized: "Có dễ nuôi không?", bundle: .app)
+    return [String(localized: "Nuôi chung với cá gì được?", bundle: .app), String(localized: "Bể bao nhiêu lít là đủ?", bundle: .app), third]
   }
 
   // MARK: A question and its answer
@@ -329,10 +329,10 @@ private struct ChatThread: View {
 
   static func label(_ fold: Chat.Fold) -> String {
     switch fold {
-    case .pages(let n): String(localized: "Đã đọc \(n) trang trong cẩm nang")
-    case .searched: String(localized: "Đã tìm trong cẩm nang")
-    case .tanks: String(localized: "Đã xem bể của bạn")
-    case .mates: String(localized: "Đã kiểm tra nuôi chung")
+    case .pages(let n): String(localized: "Đã đọc \(n) trang trong cẩm nang", bundle: .app)
+    case .searched: String(localized: "Đã tìm trong cẩm nang", bundle: .app)
+    case .tanks: String(localized: "Đã xem bể của bạn", bundle: .app)
+    case .mates: String(localized: "Đã kiểm tra nuôi chung", bundle: .app)
     }
   }
 
@@ -505,7 +505,7 @@ private struct Waiting: View {
     .accessibilityElement(children: .combine)
     .accessibilityIdentifier("chat-wait")
     .transition(.opacity)
-    .onAppear { AccessibilityNotification.Announcement(String(localized: "Đang soạn câu trả lời")).post() }
+    .onAppear { AccessibilityNotification.Announcement(String(localized: "Đang soạn câu trả lời", bundle: .app)).post() }
   }
 }
 
@@ -850,7 +850,7 @@ private struct ReportSheet: View {
           .disabled(sending)
         }
       }
-      TextField(size.isAccessibilitySize ? String(localized: "Sai ở đâu?") : String(localized: "Sai ở đâu? (không bắt buộc)"), text: $reason)
+      TextField(size.isAccessibilitySize ? String(localized: "Sai ở đâu?", bundle: .app) : String(localized: "Sai ở đâu? (không bắt buộc)", bundle: .app), text: $reason)
         .submitLabel(.send)
         .onSubmit(go)
         .padding(12)
@@ -897,7 +897,7 @@ private struct ReportSheet: View {
       if result == .failed {
         failed = true
         // Under "Gửi", out of VoiceOver's way: said too.
-        AccessibilityNotification.Announcement(String(localized: "Chưa gửi được. Bấm Gửi lần nữa.")).post()
+        AccessibilityNotification.Announcement(String(localized: "Chưa gửi được. Bấm Gửi lần nữa.", bundle: .app)).post()
       } else {
         dismiss()
       }

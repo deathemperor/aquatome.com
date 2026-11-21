@@ -55,7 +55,7 @@ struct BrowseHome: View {
           if !top.isEmpty { featured(top) }
           if !saved.isEmpty { columns("Đã lưu để đọc sau", saved, more: Browse.saved) }
           if !recent.isEmpty { columns("Đọc gần đây", recent, more: recentMore ? Browse.recent : nil) }
-          if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline"), handbook.keptItems.count, Browse.kept)]) }
+          if !handbook.keptItems.isEmpty { chips([(String(localized: "Đã tải để đọc offline", bundle: .app), handbook.keptItems.count, Browse.kept)]) }
           if handbook.keptElsewhere || handbook.savedElsewhere { ElsewhereNote().padding(.horizontal, 20) }
           // Each shelf its count after what's shown above it, from its own list only (HandbookShelves.shelf).
           let fish = HandbookShelves.shelf(s.browseFish, showing: HandbookShelves.Shown.fish, after: onTop)

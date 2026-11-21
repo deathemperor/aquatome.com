@@ -23,12 +23,12 @@ struct PlugSetup: View {
             .foregroundStyle(.secondary)
         }
         Section("Các bước, làm một lần trên máy tính") {
-          step(1, String(localized: "Tạo tài khoản nhà phát triển Tuya (miễn phí) tại platform.tuya.com."))
+          step(1, String(localized: "Tạo tài khoản nhà phát triển Tuya (miễn phí) tại platform.tuya.com.", bundle: .app))
           Link("Mở platform.tuya.com", destination: URL(string: "https://platform.tuya.com")!)
-          step(2, String(localized: "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center cùng vùng với tài khoản Smart Life của bạn."))
-          step(3, String(localized: "Bật gói dùng thử IoT Core (Cloud → Cloud Services → IoT Core). Gói miễn phí phải gia hạn trong console khoảng mỗi tháng: hết hạn thì AquaTome không bật tắt được, còn hẹn giờ trên ổ cắm vẫn chạy."))
-          step(4, String(localized: "Trong dự án: Devices → Link App Account → Add App Account. Mở Smart Life, bấm Tôi → biểu tượng quét ở góc trên, rồi quét mã QR trên màn hình."))
-          step(5, String(localized: "Ở trang Overview của dự án, sao chép Access ID và Access Secret vào ô dưới đây."))
+          step(2, String(localized: "Cloud → Development → Create Cloud Project: Industry “Smart Home”, Development Method “Smart Home”, Data Center cùng vùng với tài khoản Smart Life của bạn.", bundle: .app))
+          step(3, String(localized: "Bật gói dùng thử IoT Core (Cloud → Cloud Services → IoT Core). Gói miễn phí phải gia hạn trong console khoảng mỗi tháng: hết hạn thì AquaTome không bật tắt được, còn hẹn giờ trên ổ cắm vẫn chạy.", bundle: .app))
+          step(4, String(localized: "Trong dự án: Devices → Link App Account → Add App Account. Mở Smart Life, bấm Tôi → biểu tượng quét ở góc trên, rồi quét mã QR trên màn hình.", bundle: .app))
+          step(5, String(localized: "Ở trang Overview của dự án, sao chép Access ID và Access Secret vào ô dưới đây.", bundle: .app))
         }
         Section {
           Picker("Trung tâm dữ liệu", selection: $dataCenter) {
@@ -60,7 +60,7 @@ struct PlugSetup: View {
             // Not while keys are being checked: the check would keep them again after.
             Button("Xóa khóa", role: .destructive) { confirmRemove = true }.disabled(checking).accessibilityIdentifier("remove-keys")
               // On the button: iOS shows the question as a popover from the view it's on.
-              .confirmationDialog(String(localized: "Xóa khóa Tuya trên máy này?"), isPresented: $confirmRemove, titleVisibility: .visible) {
+              .confirmationDialog(String(localized: "Xóa khóa Tuya trên máy này?", bundle: .app), isPresented: $confirmRemove, titleVisibility: .visible) {
                 Button("Xóa khóa", role: .destructive) { Task { result = nil; removeFailed = await !plugs.removeKeys() } }.accessibilityIdentifier("confirm-remove-keys")
               }
             if removeFailed { Text("Không xóa được khóa khỏi Keychain: thử lại.").foregroundStyle(.red) }
@@ -98,22 +98,22 @@ struct PlugSetup: View {
 
   private func text(_ r: PlugsModel.Check) -> String {
     switch r {
-    case .ok(let l) where l.plugs.isEmpty: String(localized: "Khóa đúng. \(PlugProblem.empty(l))")
-    case .ok(let l): String(localized: "Đã kết nối: \(l.plugs.count) ổ cắm.")
+    case .ok(let l) where l.plugs.isEmpty: String(localized: "Khóa đúng. \(PlugProblem.empty(l))", bundle: .app)
+    case .ok(let l): String(localized: "Đã kết nối: \(l.plugs.count) ổ cắm.", bundle: .app)
     case .failed(let e): PlugProblem.text(e)
-    case .notKept: String(localized: "Khóa đúng nhưng chưa lưu được trên máy này: thử lại.")
+    case .notKept: String(localized: "Khóa đúng nhưng chưa lưu được trên máy này: thử lại.", bundle: .app)
     }
   }
 
   /// As Tuya's console names them, after the Vietnamese.
   static func name(_ dc: TuyaDataCenter) -> String {
     switch dc {
-    case .westernAmerica: String(localized: "Tây Mỹ (Western America)")
-    case .easternAmerica: String(localized: "Đông Mỹ (Eastern America)")
-    case .centralEurope: String(localized: "Trung Âu (Central Europe)")
-    case .westernEurope: String(localized: "Tây Âu (Western Europe)")
-    case .india: String(localized: "Ấn Độ (India)")
-    case .china: String(localized: "Trung Quốc (China)")
+    case .westernAmerica: String(localized: "Tây Mỹ (Western America)", bundle: .app)
+    case .easternAmerica: String(localized: "Đông Mỹ (Eastern America)", bundle: .app)
+    case .centralEurope: String(localized: "Trung Âu (Central Europe)", bundle: .app)
+    case .westernEurope: String(localized: "Tây Âu (Western Europe)", bundle: .app)
+    case .india: String(localized: "Ấn Độ (India)", bundle: .app)
+    case .china: String(localized: "Trung Quốc (China)", bundle: .app)
     }
   }
 }

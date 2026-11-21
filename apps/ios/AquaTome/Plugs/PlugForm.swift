@@ -24,8 +24,8 @@ struct AddPlug: View {
           ForEach(all) { p in
             if let on = tanks.tankOf(plug: p.provider, p.id) {
               VStack(alignment: .leading, spacing: 2) {
-                Text(p.name.isEmpty ? String(localized: "Ổ cắm") : p.name).foregroundStyle(.secondary)
-                Text(on == tankId ? String(localized: "Đã ở bể này") : String(localized: "Đang ở bể “\(tanks.store.tank(on)?.name ?? "")”"))
+                Text(p.name.isEmpty ? String(localized: "Ổ cắm", bundle: .app) : p.name).foregroundStyle(.secondary)
+                Text(on == tankId ? String(localized: "Đã ở bể này", bundle: .app) : String(localized: "Đang ở bể “\(tanks.store.tank(on)?.name ?? "")”", bundle: .app))
                   .font(.caption).foregroundStyle(.secondary)
               }
               .accessibilityElement(children: .combine)
@@ -33,8 +33,8 @@ struct AddPlug: View {
             } else {
               Button { add(p) } label: {
                 VStack(alignment: .leading, spacing: 2) {
-                  Text(p.name.isEmpty ? String(localized: "Ổ cắm") : p.name)
-                  Text(p.online ? String(localized: "\(p.outlets.count) ổ") : String(localized: "\(p.outlets.count) ổ · Mất kết nối"))
+                  Text(p.name.isEmpty ? String(localized: "Ổ cắm", bundle: .app) : p.name)
+                  Text(p.online ? String(localized: "\(p.outlets.count) ổ", bundle: .app) : String(localized: "\(p.outlets.count) ổ · Mất kết nối", bundle: .app))
                     .font(.caption).foregroundStyle(.secondary)
                 }
               }
@@ -93,7 +93,7 @@ struct PlugForm: View {
         Section {
           // On the button: iOS shows the question as a popover from the view it's on.
           Button("Gỡ khỏi bể", role: .destructive) { confirmRemove = true }.accessibilityIdentifier("remove-plug")
-            .confirmationDialog(String(localized: "Gỡ “\(d.nickname ?? String(localized: "Ổ cắm"))” khỏi bể?"), isPresented: $confirmRemove, titleVisibility: .visible) {
+            .confirmationDialog(String(localized: "Gỡ “\(d.nickname ?? String(localized: "Ổ cắm", bundle: .app))” khỏi bể?", bundle: .app), isPresented: $confirmRemove, titleVisibility: .visible) {
               Button("Gỡ khỏi bể", role: .destructive) {
                 do { try tanks.removePlug(deviceId); done() } catch { failed = true }
               }
@@ -104,7 +104,7 @@ struct PlugForm: View {
         }
       }
       .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
-      .navigationTitle(d.nickname ?? String(localized: "Ổ cắm"))
+      .navigationTitle(d.nickname ?? String(localized: "Ổ cắm", bundle: .app))
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarBackButtonHidden()
       .toolbar {
@@ -119,7 +119,7 @@ struct PlugForm: View {
   /// The outlet's number on the strip, and the maker's name for it when it has one.
   private func header(_ i: Int, _ o: PlugOutlet, _ d: Device) -> String {
     let name = plugs.board.list?.plug(provider: d.brand ?? "", id: d.remoteId ?? "")?.outlets.first { $0.code == o.code }?.name
-    return name.map { String(localized: "Ổ \(i + 1) · \($0)") } ?? String(localized: "Ổ \(i + 1)")
+    return name.map { String(localized: "Ổ \(i + 1) · \($0)", bundle: .app) } ?? String(localized: "Ổ \(i + 1)", bundle: .app)
   }
 
   private func role(_ i: Int, _ d: Device) -> Binding<String?> {

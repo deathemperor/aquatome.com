@@ -69,7 +69,7 @@ final class MasterModel {
   }
 
   /// The reader's own name for it, or the drawing's.
-  static var defaultName: String { String(localized: "Ngắm bể") }
+  static var defaultName: String { String(localized: "Ngắm bể", bundle: .app) }
 
   func save(_ b: MasterButton) {
     button = b
@@ -175,7 +175,7 @@ final class MasterModel {
       await switcher.plugs.refresh()
       for s in r.steps { if let key = switcher.outlet(s)?.key, let on = switcher.plugs.board.on(key) { after[s.target] = on } }
     }
-    let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.")) }
+    let refusals = refused.map { MasterRun.Failed(target: $0.target, line: String(localized: "Nút không bật tắt ổ \(switcher.name($0)) được trong bản này.", bundle: .app)) }
     // A lamp step that failed after one of its recordings went out, or may have ("on", then not its colour; one cut as
     // it began), may have changed the lamp: it goes back at the end.
     let halfSent = switcher.lamp.mayHaveGone > lampSent ? Set(lampSteps.map(\.target)) : []
@@ -200,7 +200,7 @@ final class MasterModel {
   }
 
   /// A step or a put-back not sent because the owner signed out since it began.
-  static var signedOut: String { String(localized: "Chưa gửi vì bạn đã đăng xuất.") }
+  static var signedOut: String { String(localized: "Chưa gửi vì bạn đã đăng xuất.", bundle: .app) }
 
   /// Ends it and puts back what it changed: "Kết thúc", "Trả lại" (`byReader`), or the clock (while the app is open, or
   /// when it next opens). An outlet no longer as the button left it (its schedule or a hand switched it during the run)
@@ -247,20 +247,20 @@ final class MasterModel {
       }
       if c.isLamp {
         if away && !byReader {
-          r.back[i].failed(String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại."), mayHaveSent: false,
+          r.back[i].failed(String(localized: "Đèn chưa về như cũ: đứng gần đèn rồi bấm Trả lại.", bundle: .app), mayHaveSent: false,
                            notKnown: switcher.notKnown(c), before: r.back[i].earlier)
           continue
         }
       } else if let key = switcher.outlet(c)?.key {
         // Whether the step went isn't known (its answer lost or not reported, the outlet not read after it as switched):
         // said so, not that a hand changed it (Codex, 17 Nov).
-        let unknown = String(localized: "Không rõ lệnh đã tới ổ \(name) chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.")
+        let unknown = String(localized: "Không rõ lệnh đã tới ổ \(name) chưa, nên AquaTome để nguyên. Bạn xem lại ổ này.", bundle: .app)
         let changed = b.guessed == true
           ? unknown
-          : String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.")
+          : String(localized: "Ổ \(name) đã đổi trong lúc chạy nên AquaTome để nguyên.", bundle: .app)
         // Only guessed, found back after a put-back try of its own that may have gone: that try may be what put it back,
         // or a hand did, so it says it may have, not that AquaTome left it nor that it put it back (Fable, Codex, 18 Nov).
-        let maybePutBack = String(localized: "Ổ \(name) đã về như cũ, có thể do lệnh trả lại của AquaTome. Bạn xem lại ổ này.")
+        let maybePutBack = String(localized: "Ổ \(name) đã về như cũ, có thể do lệnh trả lại của AquaTome. Bạn xem lại ổ này.", bundle: .app)
         // Back already; switched since the last press left it (a hand, its schedule): left; made a heater: left, and said
         // so (Fable, 18 Nov); CO2: never on; not read: stays owed, for Trả lại.
         let end = MasterRun.end(b, now: read ? board.on(key) : nil, left: b.left ?? kept[c.target], role: role(c))
@@ -277,8 +277,8 @@ final class MasterModel {
           // step went, and AquaTome left it. Else, after a try of its own that may have gone: that try may be what put it
           // back, so no word that something else changed it and AquaTome left it.
           case .already: if b.guessed == true { tell(b.earlier ? maybePutBack : changed) } else if !b.earlier, let l = b.left ?? kept[c.target], l != c.on { tell(changed) }
-          case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi."))
-          case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là cắm sưởi nên AquaTome để nguyên. Bạn xem lại ổ này."))
+          case .hold: tell(String(localized: "AquaTome không tự bật lại CO2. Cần thì bật ổ CO2 trong Bể của tôi.", bundle: .app))
+          case .heater: tell(String(localized: "Ổ \(name) giờ được ghi là cắm sưởi nên AquaTome để nguyên. Bạn xem lại ổ này.", bundle: .app))
           // Made a heater after a put-back try that may have gone: that try could still land (the chief, 18 Nov).
           case .heaterAfterTry: tell(unknown)
           case .leave: tell(changed)
@@ -300,7 +300,7 @@ final class MasterModel {
         r.back[i].done = true
         r.back[i].problem = nil
         // Whether the press's step went wasn't known: what the end did, and to look (the chief, 18 Nov).
-        if b.guessed == true { tell(String(localized: "AquaTome đã trả ổ \(name) về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.")) }
+        if b.guessed == true { tell(String(localized: "AquaTome đã trả ổ \(name) về như cũ: lúc bấm, ổ chưa báo đã đổi. Bạn xem lại ổ này.", bundle: .app)) }
         // Kept as each goes back: the app closed meanwhile doesn't send it again when it next opens.
         var kept = r
         kept.ended = endedBefore
@@ -380,7 +380,7 @@ enum EndNotice {
     guard await center.notificationSettings().authorizationStatus == .authorized else { return }
     let c = UNMutableNotificationContent()
     c.title = title
-    c.body = String(localized: "Đã hết giờ. Mở AquaTome cạnh bể để trả đèn và ổ cắm về như cũ.")
+    c.body = String(localized: "Đã hết giờ. Mở AquaTome cạnh bể để trả đèn và ổ cắm về như cũ.", bundle: .app)
     c.sound = .default
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, ends.timeIntervalSinceNow), repeats: false)
     try? await center.add(UNNotificationRequest(identifier: id, content: c, trigger: trigger))

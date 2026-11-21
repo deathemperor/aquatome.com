@@ -290,7 +290,7 @@ struct PutOnTank: View {
         try tanks.change(target, put)
       } else {
         let typed = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        target = try tanks.add(named: typed.isEmpty ? String(localized: "Bể mới") : typed, put).id
+        target = try tanks.add(named: typed.isEmpty ? String(localized: "Bể mới", bundle: .app) : typed, put).id
       }
       failed = false
     } catch {

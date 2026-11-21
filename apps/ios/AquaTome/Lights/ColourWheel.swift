@@ -123,11 +123,11 @@ struct ColourWheel: View {
   }
 
   private static let names = [
-    String(localized: "đỏ"), String(localized: "đỏ cam"), String(localized: "cam"), String(localized: "cam vàng"),
-    String(localized: "vàng"), String(localized: "vàng chanh"), String(localized: "xanh nõn chuối"), String(localized: "xanh cốm"),
-    String(localized: "xanh lá"), String(localized: "xanh lá tươi"), String(localized: "xanh bạc hà"), String(localized: "xanh ngọc"),
-    String(localized: "xanh lơ"), String(localized: "xanh da trời"), String(localized: "xanh biển"), String(localized: "xanh coban"),
-    String(localized: "xanh dương"), String(localized: "chàm"), String(localized: "tím"), String(localized: "tím hoa cà"),
-    String(localized: "hồng tím"), String(localized: "hồng sen"), String(localized: "hồng"), String(localized: "đỏ hồng"),
+    String(localized: "đỏ", bundle: .app), String(localized: "đỏ cam", bundle: .app), String(localized: "cam", bundle: .app), String(localized: "cam vàng", bundle: .app),
+    String(localized: "vàng", bundle: .app), String(localized: "vàng chanh", bundle: .app), String(localized: "xanh nõn chuối", bundle: .app), String(localized: "xanh cốm", bundle: .app),
+    String(localized: "xanh lá", bundle: .app), String(localized: "xanh lá tươi", bundle: .app), String(localized: "xanh bạc hà", bundle: .app), String(localized: "xanh ngọc", bundle: .app),
+    String(localized: "xanh lơ", bundle: .app), String(localized: "xanh da trời", bundle: .app), String(localized: "xanh biển", bundle: .app), String(localized: "xanh coban", bundle: .app),
+    String(localized: "xanh dương", bundle: .app), String(localized: "chàm", bundle: .app), String(localized: "tím", bundle: .app), String(localized: "tím hoa cà", bundle: .app),
+    String(localized: "hồng tím", bundle: .app), String(localized: "hồng sen", bundle: .app), String(localized: "hồng", bundle: .app), String(localized: "đỏ hồng", bundle: .app),
   ]
 }
