@@ -24731,15 +24731,22 @@
  },
  "ms/plants/nymphoides-aquatica": {
   "at": "2026-11-21",
-  "hash": "737180c45b319459",
+  "hash": "0f5d8055b7a095f2",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P3",
-    "quote": "tanam kira-kira 0.6 cm ke dalam substrat",
-    "why": "0.6 cm is a converted quarter inch; keepers would say about half a centimetre.",
+    "quote": "malah sebagai tumbuhan latar belakang dalam tangki nano 19 liter",
+    "why": "19 litres is a converted 5-gallon tank size that no keeper in Malaysia would use.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P3",
+    "quote": "atau tanam kira-kira 0.6 cm ke dalam substrat",
+    "why": "0.6 cm is a converted quarter inch, not a length a keeper here would write.",
     "by": "model"
    }
   ],

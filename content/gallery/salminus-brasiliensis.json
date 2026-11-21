@@ -38,18 +38,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/88f9f1fc1316d6d6.webp",
-      "thumb": "https://media.aquatome.com/commons/88f9f1fc1316d6d6-480.webp",
-      "width": 1200,
-      "height": 928,
-      "licence": "CC BY-SA 3.0",
-      "author": "Felipe cancian",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonito-2.JPG",
-      "caption": "Cá dorado vàng bơi trên đáy sông trong vắt",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/386614412.webp",
       "thumb": "https://media.aquatome.com/inaturalist/386614412-480.webp",
       "width": 1024,
@@ -58,18 +46,6 @@
       "author": "R Vasconcellos",
       "sourceUrl": "https://www.inaturalist.org/photos/386614412",
       "caption": "Cá dorado vàng bơi trên nền cát trong nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/513809444.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/513809444-480.webp",
-      "width": 1024,
-      "height": 611,
-      "licence": "CC BY",
-      "author": "PampaSorro",
-      "sourceUrl": "https://www.inaturalist.org/photos/513809444",
-      "caption": "Cá dorado bơi trong dòng nước trong vắt giữa đàn cá",
       "best": true,
       "kind": "habitat"
     },
@@ -96,6 +72,46 @@
       "caption": "Cá dorado giữa rong thủy sinh xanh trong suối",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/88f9f1fc1316d6d6.webp",
+      "thumb": "https://media.aquatome.com/commons/88f9f1fc1316d6d6-480.webp",
+      "width": 1200,
+      "height": 928,
+      "licence": "CC BY-SA 3.0",
+      "author": "Felipe cancian",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonito-2.JPG",
+      "caption": "Cá dorado vàng bơi trên đáy sông trong vắt",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/29ee331d850992c7.webp",
+      "thumb": "https://media.aquatome.com/commons/29ee331d850992c7-480.webp",
+      "width": 800,
+      "height": 450,
+      "licence": "CC0",
+      "author": "Papa Pic from Eldorado, Argentina",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DSC1052_(9272147265).jpg",
+      "caption": "Cá dorado bơi trong nước xanh, thân vàng ánh sọc",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/223170603.webp",
+      "thumb": "https://media.aquatome.com/flickr/223170603-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "treez44est",
+      "sourceUrl": "https://www.flickr.com/photos/26359577@N00/223170603",
+      "caption": "Cá dorado bơi trong dòng nước trong ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "setup": false,
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/651006204.webp",
@@ -362,7 +378,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 140,
-  "updatedAt": "2026-11-04",
-  "builtAt": "2026-11-04"
+  "seen": 150,
+  "updatedAt": "2026-11-21",
+  "builtAt": "2026-11-21"
 }

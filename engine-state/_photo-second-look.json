@@ -1334,6 +1334,14 @@
     ],
     "at": "2026-11-14"
   },
+  "https://media.aquatome.com/glaser/3441fc45c42e281c.webp": {
+    "why": "rejected: withheld [sha256:d956543869f886d1fea9c3b46f75b152420867497275c3d1a156728ef393cf44]",
+    "step": "the photo check",
+    "pages": [
+      "species/centromochlus-schultzi"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/glaser/34c23df1d49df049.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -3907,15 +3915,6 @@
     ],
     "at": "2026-11-19"
   },
-  "https://media.aquatome.com/seriouslyfish/7c56ace857fadf4f.webp": {
-    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
-    "step": "the chief of staff's look",
-    "pages": [
-      "species/hyphessobrycon-auca"
-    ],
-    "at": "2026-11-21",
-    "off": true
-  },
   "https://media.aquatome.com/glaser/97089e274c118765.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -4806,6 +4805,14 @@
       "by": "the chief of staff",
       "on": "2026-11-21"
     }
+  },
+  "https://media.aquatome.com/glaser/afb86a8e3a642bea.webp": {
+    "why": "rejected: withheld [sha256:d956543869f886d1fea9c3b46f75b152420867497275c3d1a156728ef393cf44]",
+    "step": "the photo check",
+    "pages": [
+      "species/centromochlus-schultzi"
+    ],
+    "at": "2026-11-21"
   },
   "https://media.aquatome.com/glaser/b04a5d5f4fd82a9b.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -5928,6 +5935,14 @@
     ],
     "at": "2026-11-15"
   },
+  "https://media.aquatome.com/glaser/d7183871a3398f19.webp": {
+    "why": "rejected: withheld [sha256:d956543869f886d1fea9c3b46f75b152420867497275c3d1a156728ef393cf44]",
+    "step": "the photo check",
+    "pages": [
+      "species/centromochlus-schultzi"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/glaser/d752175f21b40b3a.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -6665,6 +6680,14 @@
     ],
     "at": "2026-11-16"
   },
+  "https://media.aquatome.com/glaser/f180d6ccc3b2fe36.webp": {
+    "why": "rejected: withheld [sha256:d956543869f886d1fea9c3b46f75b152420867497275c3d1a156728ef393cf44]",
+    "step": "the photo check",
+    "pages": [
+      "species/centromochlus-schultzi"
+    ],
+    "at": "2026-11-21"
+  },
   "https://media.aquatome.com/glaser/f1a93dd62c2843ca.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -7155,6 +7178,15 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/18cad38bd5d1b4d0.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-huallagaensis"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/scotcat/237a09d82de4045a.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
@@ -7251,12 +7283,13 @@
     "off": true
   },
   "https://media.aquatome.com/scotcat/5c05b98d3200f362.webp": {
-    "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
-    "step": "the watermark screen",
+    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
+    "step": "the photo check",
     "pages": [
       "species/astroblepus-grixalvii"
     ],
-    "at": "2026-11-21"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/5c1c2c44e80b7d1a.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7382,6 +7415,15 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/98a1cee426ed5f82.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-huallagaensis"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/scotcat/98e503ab81d979fd.webp": {
     "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
     "step": "the watermark screen",
@@ -7444,12 +7486,13 @@
     "at": "2026-11-15"
   },
   "https://media.aquatome.com/scotcat/bc63afb4c600838d.webp": {
-    "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
-    "step": "the watermark screen",
+    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
+    "step": "the photo check",
     "pages": [
       "species/astroblepus-grixalvii"
     ],
-    "at": "2026-11-21"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/c49afb16d11f99cc.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7514,12 +7557,13 @@
     "at": "2026-11-19"
   },
   "https://media.aquatome.com/scotcat/e0ab171a4f9d8a7a.webp": {
-    "why": "watermark: withheld [sha256:19ec490da7c9b39f357cad6cc56d86f22e3e1c9183ea605cc70b6682425754b9]",
-    "step": "the watermark screen",
+    "why": "dead: withheld [sha256:531bebed563b5535edd913ef3bb8c69b4fd70a03bb9748a1a1fa0841c28b995d]",
+    "step": "the photo check",
     "pages": [
       "species/astroblepus-grixalvii"
     ],
-    "at": "2026-11-21"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/e2cbcf021d362ff3.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7548,6 +7592,15 @@
     "at": "2026-11-21",
     "off": true
   },
+  "https://media.aquatome.com/scotcat/f306ea9220b8ca5a.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-fissidens"
+    ],
+    "at": "2026-11-21",
+    "off": true
+  },
   "https://media.aquatome.com/scotcat/f4f72c3c3df65cc0.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
     "step": "the watermark screen",
@@ -7555,6 +7608,15 @@
       "species/tachysurus-argentivittatus"
     ],
     "at": "2026-11-15"
+  },
+  "https://media.aquatome.com/scotcat/f7590029396b0372.webp": {
+    "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
+    "step": "the photo check",
+    "pages": [
+      "species/astroblepus-latidens"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/scotcat/f7be80717d0bd741.webp": {
     "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
@@ -7611,6 +7673,15 @@
       "species/homalopteroides-stephensoni"
     ],
     "at": "2026-11-16"
+  },
+  "https://media.aquatome.com/seriouslyfish/7c56ace857fadf4f.webp": {
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
+    "step": "the chief of staff's look",
+    "pages": [
+      "species/hyphessobrycon-auca"
+    ],
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/seriouslyfish/84d0dde3b67efcfb.webp": {
     "why": "rejected: withheld [sha256:83fa9bd0c4530bb5e9bd37b02b4d5c6a02acf6c4899256db728ebc7ed39faac0]",
