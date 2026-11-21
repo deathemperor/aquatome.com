@@ -17,10 +17,10 @@
     "reproduction:glaser": "<p>ปลาจะเริ่มเข้าสู่วัยเจริญพันธุ์ก่อนอายุครบหนึ่งปี ซึ่งตอนนั้นมักมีความยาว 4-6 ซม.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.85,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.6
+      "glaser": 0.85
     }
   }
 }

@@ -15,12 +15,13 @@
   "range": {
     "native": {
       "countries": [
+        "CM",
         "CG",
-        "CD",
-        "CM"
+        "CD"
       ],
       "regions": [
-        "Congo basin"
+        "Congo basin",
+        "Lac Mai Ndombe"
       ],
       "sources": [
         "seriouslyfish",
@@ -29,14 +30,29 @@
       "quotes": [
         {
           "source": "seriouslyfish",
+          "quote": "The banded ctenopoma, Microctenopoma fasciolatum, is an anabantoid from the Congo basin and a handful of rivers in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
           "quote": "Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.",
           "countries": [
             "CG",
-            "CD",
-            "CM"
+            "CD"
           ],
           "regions": [
             "Congo basin"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Wild catches have recently been received from the area around Lac Mai Ndombe in Central Congo.",
+          "countries": [],
+          "regions": [
+            "Lac Mai Ndombe"
           ]
         }
       ]

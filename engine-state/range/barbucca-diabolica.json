@@ -1,8 +1,8 @@
 {
   "id": "barbucca-diabolica",
   "native": {
-    "input": "1d211a29d92b0185",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "12ffcb61f309cbf1",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "ID",
@@ -42,6 +42,18 @@
         "source": "seriouslyfish",
         "quote": "Most of the type series was collected from a series of tributaries between the settlements of Sintang and Putussibau in the upper-middle Sungai (river) Kapuas basin, Kalimantan Barat (West Kalimantan), Indonesian Borneo, although a single specimen originated from Johor state, Peninsular Malaysia.",
         "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "glaser",
+        "quote": "In nature it lives in small forest streams in the Kapuas system on Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "In nature it lives in small forest streams in the Kapuas system on Borneo.",
         "ok": true
       }
     ],

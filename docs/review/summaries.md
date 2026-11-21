@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (163)
+# Tóm tắt chờ duyệt (166)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -1172,17 +1172,6 @@ Hợp với người nuôi bể toàn mbuna và chịu được cá dữ, hay gi
 Kiểm tra:
 - "chỉ nuôi chung với các mbuna khác": the page only says not to keep it with gentle species (peacock, utaka) and that other mbuna are fine. It never says mbuna are the only acceptable tank mates, and it says other-species fish dilute the aggression. The word "chỉ" (only) turns a limited caution into a stricter rule than the page gives. The same overreach appears in "Hợp với người nuôi bể toàn mbuna".
 
-## Cá cichlid Cichlasoma ornatum (Mesoheros ornatus)
-id: `mesoheros-ornatus`
-
-Cá cichlid Cichlasoma ornatum (Mesoheros ornatus) hợp với người chơi cichlid thích loài hiền và muốn thử một loài rất hiếm, vì tính nó cực kỳ hiền, cả đàn bơi chung một bể mà không con nào gây sự đáng kể. Trưởng thành 30 cm, còn cá đang có trên thị trường thì nhỏ hơn nhiều nên cần tính bể cho cỡ lớn. Hồ sơ không có số liệu về nước hay bể tối thiểu. Điểm khó nhất là loài này quá hiếm, chưa rõ vì sao, và phân biệt đực cái cũng không rõ ràng.
-
-- Đừng thấy cá đang bán còn nhỏ rồi chọn bể nhỏ; loài này lớn tới 30 cm nên hãy tính chỗ cho cỡ đó ngay từ đầu.
-- Đừng chắc mẩm đã có cặp chỉ nhờ nhìn màu; đực cái không khác nhau rõ, con nhạt hơn, thân cao hơn, đầu ngắn hơn chỉ là dấu hiệu có vẻ là cái, nên nuôi một đàn rồi để cá tự ghép cặp.
-
-Kiểm tra:
-- "nên nuôi một đàn rồi để cá tự ghép cặp": the page gives no advice to keep a group and let the fish pair off. It only says the sexes are not clearly different and describes fish living together peacefully. This fix is invented.
-
 ## Cá ctenopoma hoa văn (Microctenopoma ansorgii)
 id: `microctenopoma-ansorgii`
 
@@ -1208,6 +1197,17 @@ Kiểm tra:
 - "nên chuẩn bị bể nền đá và sỏi, có dòng chảy": the page only describes the wild habitat (fast stream, rock and gravel bottom). It gives no tank setup advice, so this is invented.
 - Mistake 1, "Để cá trong bể nước tĩnh, nền mịn: nên bố trí nền đá và sỏi, tạo dòng chảy": the page says nothing about still water or fine substrate being wrong, and the fix is not on the page.
 - "hợp với người thích cá lạ từ Gabon": the page does not say who the species suits. This is an invented suitability claim.
+
+## Cá mochokus sông Nile (Mochokus niloticus)
+id: `mochokus-niloticus`
+
+Cá da trơn tầng đáy nhỏ, lớn tới 6,5 cm, sống ở sông Nile và sông Niger, hợp người muốn nuôi một loài cá đáy ít gặp. Nước cần 18–28 °C, pH 6,5–7,5, độ cứng 15 dGH. Khó nhất là gai sắc đến mức ngư dân địa phương phải tránh. Hồ sơ cũng chưa có báo cáo nuôi hay sinh sản trong bể, và thức ăn trong tự nhiên mới chỉ là phỏng đoán.
+
+- Cho ăn như cá đáy thông thường: hồ sơ ghi cá có lẽ ăn động vật thân mềm và ấu trùng côn trùng, nên ưu tiên thức ăn gần với hai nhóm này.
+
+Kiểm tra:
+- Mistake/fix "nên ưu tiên thức ăn gần với hai nhóm này": the page gives no feeding advice for the tank. It only says the wild diet is probably ("Có lẽ") molluscs and insect larvae. Turning that guess into a feeding instruction is advice the page doesn't give. The mistake "Cho ăn như cá đáy thông thường" has no basis on the page either.
+- "hợp người muốn nuôi một loài cá đáy ít gặp": the page never says the fish is rare or uncommon. It says the species is widespread and Least Concern, and it says nothing about who the fish suits. "ít gặp" is invented.
 
 ## Cá killi Moema hellneri (Moema hellneri)
 id: `moema-hellneri`
@@ -1416,6 +1416,18 @@ Hợp với người có bể dài từ 120 cm và muốn nuôi đàn cá chạc
 Kiểm tra:
 - "vì cá thích sống theo đàn": the page hedges this as "chúng có vẻ thích sống theo đàn" (they seem to prefer living in groups). The summary states it as certain.
 - "cá bảy màu hay cichlid": the page says "nhiều loài cichlid" (many cichlid species), not all cichlids. The summary generalises it to every cichlid.
+
+## Cá cichlid vàng giả (Parachromis motaguensis)
+id: `parachromis-motaguensis`
+
+Cá cichlid vàng giả (Parachromis motaguensis) hợp với người đã quen cichlid Trung và Bắc Mỹ, muốn một bể riêng cho cá lớn và dữ. Cá dài tới 30,5 cm, cần bể dài tối thiểu 120 cm, nước 20–30 °C, pH 6–8, độ cứng 6–16 dGH, độ khó 2/8. Khó nhất là chọn bạn cùng bể, vì cá coi thứ vừa miệng là mồi và rất hung dữ khi đẻ.
+
+- Nuôi chung với cá nhỏ hoặc cá hiền thì chúng thành mồi; chỉ ghép với các loài cichlid lớn và dữ khác, trong bể lớn.
+- Giữ cá khác trong bể lúc cặp đang đẻ thì cá kia bị cắn bị thương, kể cả con to hơn hẳn; hãy tính trước chỗ riêng cho cá khác.
+- Vệ sinh bể khi cá bột đã nở thì dễ bị bố mẹ cắn đứt thịt tay; giai đoạn này tốt nhất là đừng đụng tay vào bể.
+
+Kiểm tra:
+- "hợp với người đã quen cichlid Trung và Bắc Mỹ": the page never says the species suits keepers who already have experience. It only says the fish is a good choice in a large tank of Central and North American cichlids and similar aggressive species. The card also rates difficulty 2/8, which is easy, so the experience requirement is invented.
 
 ## Cá nheo Tachysurus intermedius (Pelteobagrus intermedius)
 id: `pelteobagrus-intermedius`
@@ -1729,6 +1741,17 @@ Kiểm tra:
 - "Để sưởi và thiết bị trong bể không bảo vệ thì cá cắn phá": the page only says Serrasalmidae "có tiếng hay cắn phá" (known for often biting them). The summary makes it certain.
 - "cá cùng loài đánh nhau tới khi chỉ còn một con": the page says "dễ đánh nhau" (readily fight). The summary drops that hedge and presents it as certain.
 
+## Cá đục Sillaginopsis panijus (Sillaginopsis panijus)
+id: `sillaginopsis-panijus`
+
+Cá đục Sillaginopsis panijus hợp với người đã có kinh nghiệm, thích loài lạ, bơi liên tục và chịu nuôi nước lợ hoặc nước mặn. Cá dài tối đa 40 cm, hiền, ăn tạp, nên nuôi đàn từ 5 con trở lên, sống ở vùng nước đáy bùn. Điểm khó nhất là cá chỉ sống nước ngọt hẳn khi còn nhỏ, lớn lên phải chuyển sang nước lợ hoặc nước mặn, và loài này còn rất hiếm trong bể nhà.
+
+- Nuôi cá đã lớn trong nước ngọt mãi; nên chuyển sang nước lợ hoặc nước mặn khi cá đã lớn.
+- Nuôi lẻ một hai con; nên nuôi theo đàn từ 5 con trở lên.
+
+Kiểm tra:
+- "hợp với người đã có kinh nghiệm": the page and card never say the species needs an experienced keeper. The card gives no difficulty, and the page calls the fish "hoàn toàn không khó tính". This audience claim is invented.
+
 ## Cá trê lũa (Sorubimichthys planiceps)
 id: `sorubimichthys-planiceps`
 
@@ -1785,6 +1808,20 @@ Cá Synodontis cẩm thạch (Synodontis schoutedeni) hợp với người mới
 Kiểm tra:
 - Mistake 1, "Cho ăn nhiều thức ăn khô thì cá dễ sình bụng": the page says the cause of the bloating is unknown ("Chưa ai biết vì sao") and only advises feeding very little dry food. The summary turns that hedge into a stated cause-and-effect. It also contradicts the summary's own line "chưa rõ nguyên nhân".
 - Mistake 1, "xen đồ đông lạnh, đồ tươi sống hoặc rau như đậu Hà Lan bóc vỏ, dưa leo": the page does not offer these foods as a fix for bloating. It only says the fish eats them, so the fix is not stated by the page.
+
+## Cá Tatia dunni (Tatia dunni)
+id: `tatia-dunni`
+
+Hợp với người mới (độ khó 3/8, mức dễ) và người thích loài hay trốn, ít khi ra ngoài. Nuôi nước 22–26 °C, pH 6,5–7,5, cá trưởng thành 12 cm, bể nên có ống nhỏ và khe lũa để chui. Điểm khó nhất là ít thấy cá ngoài giờ ăn, và chúng có thể ăn cá bột của loài khác.
+
+- Không bày chỗ trốn thì cá không yên tâm, nên thả vài đoạn ống nhỏ và để khe lũa cho chúng chui.
+- Nuôi chung với cá bột của loài khác dễ bị ăn mất, nên tách cá bột ra nếu muốn giữ.
+- Cho giun trắng quá nhiều, nên cho ít thôi và xen trùng huyết đông lạnh hoặc viên chìm.
+
+Kiểm tra:
+- "nên tách cá bột ra nếu muốn giữ": the page only says they "có thể ăn cá bột của các loài khác" and never advises separating the fry, so this fix is advice the page doesn't give.
+- "dễ bị ăn mất": the page's hedge "có thể ăn cá bột" (may eat fry) becomes a stronger claim that fry are easily eaten.
+- "Không bày chỗ trốn thì cá không yên tâm": the page hedges with "Hình như chúng thấy yên tâm hơn" (they seem more secure), but the summary states it as a certainty.
 
 ## Cá mèo gỗ Tatia neivai (Tatia neivai)
 id: `tatia-neivai`

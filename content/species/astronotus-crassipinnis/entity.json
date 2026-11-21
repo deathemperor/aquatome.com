@@ -321,31 +321,98 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 24
+        "value": 30
       }
     ]
   },
   "sections": [
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-cf-crassipinnis-bumble-bee-2/",
+      "html": "<p>Oscars of this size upwards prefer to eat small fish themselves, but in the aquarium they also take any other kind of strong food of carnivorous nature.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-cf-crassipinnis-bumble-bee-2/",
+      "html": "<p>Young Oscars show the typical behaviour of all young Astronotus: they have a strong need to be with conspecifics. The conspicuous colouring of all young Oscars is in fact a camouflage. The animals form larger groups and swim so close together that they look like one big fish to a potential attacker.</p><p>The loss of the juvenile pattern is indicated by the development of the typical eye spot on the tail root. From then on, the young Oscars begin to live rather individually (or in small groups). The eye spot is used to mislead attackers, which orient themselves by the eye of the victim when preying.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_cf_crassipinnis_en/",
-      "html": "<p>There is no other genus of larger cichlids from South America that is so poorly understood as the oscars (Astronotus). Currently only two species are widely accepted, namely A. ocellatus and A. crassipinnis. However, there are many more species, as can easily be observed with the naked eye. One of them, A. zebra, has been imported repeatedly in recent times.</p><p>Oscars have now been imported from Paraguay (Rio Paraguay, near Asuncion). Most probably the specimens belong to the species A. crassipinnis. However, current knowledge only allows specimens from the Rio Guaporé to be named A. crassipinnis without any doubt. So these fish are named A. cf. crassipinnis. The \"cf.\" stands for the Latin word \"conferre\", which means \"(to) compare (with)\".</p><p>Despite great individual variability in pattern, these very attractive animals show some unique features. First, the basic colour of the body is very dark, almost black. Second, there are no ocellated spots in the region of the dorsal fin, which are so characteristic of A. ocellatus.</p><p>Astronotus crassipinnis seems to stay a bit smaller than A. ocellatus. The maximum length reported for A. crassipinnis is 24 cm standard length (without the tail fin). The imported specimens were 14-18 cm long (including the tail fin). Hopefully the few fish (only 7 specimens) will form pairs that breed.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-cf-crassipinnis-bumble-bee-2/",
+      "html": "<p>Very pretty young Oscars are currently imported from Brazil under the name \"Astronotus crassipinnis\". The species A. crassipinnis exists in Brazil, but there is no possibility to check whether the species identification is correct. It is suspected that the animals are bred ones.</p><p>How these Oscars look as adult fish is not known, therefore a safe scientific determination is not possible. However, it can be assumed with some certainty that this Astronotus species also grows to a length of about 25-30 cm.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/5f4043ad37841b5d.webp",
+      "thumb": "https://media.aquatome.com/commons/5f4043ad37841b5d-480.webp",
       "width": 960,
       "height": 752,
       "licence": "CC BY-SA 3.0",
       "author": "Sebastian jurado garcia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_chocolate_(pez_chocolate).jpg",
-      "caption": "imagen del pez chocolate o astronotus crassipinnis",
-      "thumb": "https://media.aquatome.com/commons/5f4043ad37841b5d-480.webp"
+      "caption": "imagen del pez chocolate o astronotus crassipinnis"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/e30d089c2c69a33f.webp",
+      "thumb": "https://media.aquatome.com/glaser/e30d089c2c69a33f-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-cf-crassipinnis-bumble-bee-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/c8c6d4e108227054.webp",
+      "thumb": "https://media.aquatome.com/glaser/c8c6d4e108227054-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-cf-crassipinnis-bumble-bee-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/b8b7d18c67b2353a.webp",
+      "thumb": "https://media.aquatome.com/glaser/b8b7d18c67b2353a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/astronotus-cf-crassipinnis-bumble-bee-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "jf3oacKkLC8",
+      "title": "My New Wild Caught Bumblebee Oscar Astronotus crassipinnis",
+      "durationSec": 19,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "pWFkVLCIw0g",
+      "title": "Astronotus Crassipinnis augustus 2016",
+      "durationSec": 59,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "Nt7Ru_SUVxA",
+      "title": "Large adult Oscars Astronotus crassipinis in natural habitat in the shallows of a Pantanal lake",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9WuM7cffvl8",
+      "title": "Astronotus Crassipinnis",
+      "durationSec": 25,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -375,5 +442,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

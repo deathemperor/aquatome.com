@@ -9922,6 +9922,43 @@
     ],
     "ruled": "ba57c10a484e717f"
   },
+  "vi/guides/aquatome-ca-koi-thuc-an-cho-an-sinh-san-dieu-kien-nuoi": {
+    "at": "2026-11-21",
+    "hash": "c0e1b1f524d745a4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L1",
+        "quote": "nên việc đầu tiên mỗi ngày là đo nước",
+        "problem": "This is translation-style phrasing ('nên việc đầu tiên là') that the site's style guide lists to avoid.",
+        "fix": "Mỗi ngày, đo nhiệt độ nước trước rồi mới cho ăn.",
+        "rule": "The phrase 'việc đầu tiên là' appears in the text.",
+        "field": "summary.0"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một chất phụ gia họ astaxanthin",
+        "problem": "'Chất phụ gia họ astaxanthin' is an unnatural, literal rendering.",
+        "fix": "chất tạo màu astaxanthin",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-21",
+        "field": "body",
+        "score": 0.95,
+        "kept": true,
+        "problems": [
+          "The sentence is garbled: 'thức ăn' is the subject of 'cho koi ăn', which makes no sense."
+        ]
+      }
+    ],
+    "ruled": "c0e1b1f524d745a4"
+  },
   "vi/guides/aquatome-ca-ngoi-len-mat-nuoc-tho-gap-nguyen-nhan-va-cach-xu-ly": {
     "at": "2026-11-01",
     "hash": "1538eb685a2ae3b5",
@@ -15931,6 +15968,40 @@
     ],
     "ruled": "0b4676a52eed3a92"
   },
+  "vi/guides/youtube-_6k5YEYOcRQ": {
+    "at": "2026-11-21",
+    "hash": "16ea7427ad26ec55",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "L11",
+        "quote": "Có nuôi chung cá xiêm đực với cá xiêm cái thành đàn được không?",
+        "problem": "The question asks about keeping a male with females, but the answer only covers two males together and all-female groups, so the question is never answered.",
+        "fix": "Có nuôi chung nhiều cá xiêm trong một bể được không?",
+        "field": "faq.2.q"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Câu này đúng phần lớn.",
+        "problem": "The heading is a question and no myth is stated, so the reader can't tell which claim is 'mostly true'.",
+        "fix": "Có sao. Cá đực nhìn thấy nhau qua vách bể là chuyện đáng lo.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Câu trả lời là vừa sai vừa đúng.",
+        "problem": "Calling the answer to a yes/no question 'both false and true' reads awkwardly. It should be 'yes and no'.",
+        "fix": "Câu trả lời là có mà cũng không.",
+        "field": "body"
+      }
+    ],
+    "ruled": "16ea7427ad26ec55"
+  },
   "vi/guides/youtube-_6NIHP9P5jw": {
     "at": "2026-11-07",
     "hash": "86e26f83b06851ea",
@@ -17522,6 +17593,12 @@
     "hash": "d385b0c15a27d08a",
     "findings": [],
     "ruled": "d385b0c15a27d08a"
+  },
+  "vi/guides/youtube-3GQOKsu0QYA": {
+    "at": "2026-11-21",
+    "hash": "3bc5c8d4b515dc57",
+    "findings": [],
+    "ruled": "3bc5c8d4b515dc57"
   },
   "vi/guides/youtube-3jqe5KGD9lI": {
     "at": "2026-11-10",
@@ -19473,6 +19550,22 @@
     ],
     "ruled": "4a17584e4f853ced"
   },
+  "vi/guides/youtube-Ajr1tozLqDQ": {
+    "at": "2026-11-21",
+    "hash": "def0f5dd7634923f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá cũng giống người bị táo bón, cần thêm chất xơ",
+        "problem": "The comparison is awkward: it reads as 'fish resemble constipated people' rather than 'fish get constipated like people do'.",
+        "fix": "Cá cũng bị táo bón như người, nên cần thêm chất xơ",
+        "field": "body"
+      }
+    ],
+    "ruled": "def0f5dd7634923f"
+  },
   "vi/guides/youtube-Ak-uEluqWlo": {
     "at": "2026-11-10",
     "hash": "d6df9c7cbe4e48f0",
@@ -19992,6 +20085,22 @@
     "findings": [],
     "ruled": "1925b49cdae812b0"
   },
+  "vi/guides/youtube-bhJ_FFL7ORw": {
+    "at": "2026-11-21",
+    "hash": "dcc44e01034e23e4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Có ý tưởng rồi thì việc đầu tiên khi đi mua là chọn nền.",
+        "problem": "The phrase 'việc đầu tiên … là' is on the site's list of wordings to avoid and reads like a translation.",
+        "fix": "Có ý tưởng rồi thì đi mua, và thứ chọn trước tiên là nền.",
+        "field": "body"
+      }
+    ],
+    "ruled": "dcc44e01034e23e4"
+  },
   "vi/guides/youtube-BhXty76I-ss": {
     "at": "2026-11-09",
     "hash": "b50dee23474069a8",
@@ -20304,6 +20413,12 @@
       }
     ],
     "ruled": "127d861c77865497"
+  },
+  "vi/guides/youtube-C2Miod2l9Q8": {
+    "at": "2026-11-21",
+    "hash": "573f7bc4e712a9b0",
+    "findings": [],
+    "ruled": "573f7bc4e712a9b0"
   },
   "vi/guides/youtube-c2RrfFVcJew": {
     "at": "2026-11-08",
@@ -21189,6 +21304,22 @@
       }
     ],
     "ruled": "d556076b2f57ccb0"
+  },
+  "vi/guides/youtube-dNMQlFf2HKc": {
+    "at": "2026-11-21",
+    "hash": "e810e7a3c8a56b21",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cá xiêm ít bị vi khuẩn, nấm hay ký sinh trùng tấn công hơn và có cơ hội không bị bệnh cao hơn",
+        "problem": "The phrase 'có cơ hội không bị bệnh cao hơn' reads like a literal translation and repeats the idea from the first half of the sentence.",
+        "fix": "Ở khoảng 26–27 °C, cá xiêm ít bị vi khuẩn, nấm hay ký sinh trùng tấn công, nên ít bệnh hơn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e810e7a3c8a56b21"
   },
   "vi/guides/youtube-DRlTmK7l0uo": {
     "at": "2026-11-10",
@@ -23176,6 +23307,30 @@
     "findings": [],
     "ruled": "31174e65ba3c9287"
   },
+  "vi/guides/youtube-hnlsQyeldDs": {
+    "at": "2026-11-21",
+    "hash": "51fd0c5de8ae92f9",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Bệnh bong bóng: nhận biết và chữa",
+        "problem": "Swim bladder disease is usually called 'bệnh bóng hơi'; 'bệnh bong bóng' can be misread as gas bubble disease.",
+        "fix": "## Bệnh bóng hơi: nhận biết và chữa",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "rồi dùng thuốc như Maracyn của Fritz hoặc Fungus Cure của API",
+        "problem": "Maracyn is an antibacterial (erythromycin), not an antifungal, so it is a poor example of a fungus treatment.",
+        "field": "body"
+      }
+    ],
+    "ruled": "51fd0c5de8ae92f9"
+  },
   "vi/guides/youtube-hO_nLV0YpX8": {
     "at": "2026-11-11",
     "hash": "e31b3dc8f61bb8cb",
@@ -23382,6 +23537,22 @@
       }
     ],
     "ruled": "251078d8f6b5b8cf"
+  },
+  "vi/guides/youtube-HrKxhPEA1q4": {
+    "at": "2026-11-21",
+    "hash": "1f9471dba50f69b4",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "L3",
+        "quote": "Bể từ 200 lít trở lên khi đầy nước nặng khoảng 230–270 kg",
+        "problem": "The 230–270 kg figure is for a 200 L tank (as P-body and FAQ say), but the summary applies it to all tanks of 200 L or more, which weigh more.",
+        "fix": "Bể 200 lít đầy nước nặng khoảng 230–270 kg, nên từ cỡ này trở lên cần xem sàn có chịu nổi không.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "1f9471dba50f69b4"
   },
   "vi/guides/youtube-hRNBUbqzzuw": {
     "at": "2026-11-06",
@@ -24371,6 +24542,22 @@
     "findings": [],
     "ruled": "42233d8e576f95c4"
   },
+  "vi/guides/youtube-J9EoNDNgJzQ": {
+    "at": "2026-11-21",
+    "hash": "93f311b4f5622640",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hỏi nuôi chung gì với betta là câu hỏi gặp rất thường.",
+        "problem": "The phrase 'câu hỏi gặp rất thường' is awkward and reads like a translation; a Vietnamese hobbyist would not phrase it this way.",
+        "fix": "Nuôi chung betta với con gì là câu hỏi rất hay gặp.",
+        "field": "body"
+      }
+    ],
+    "ruled": "93f311b4f5622640"
+  },
   "vi/guides/youtube-jaO5A6TwX6g": {
     "at": "2026-11-19",
     "hash": "aedfbda5107f4813",
@@ -25222,6 +25409,12 @@
       }
     ],
     "ruled": "d07139bac22219d9"
+  },
+  "vi/guides/youtube-KFONbDKnLC8": {
+    "at": "2026-11-21",
+    "hash": "255f5156b56c20af",
+    "findings": [],
+    "ruled": "255f5156b56c20af"
   },
   "vi/guides/youtube-KGII9S9qwDI": {
     "at": "2026-11-07",
@@ -26562,6 +26755,12 @@
     "findings": [],
     "ruled": "08f67507ab1069ea"
   },
+  "vi/guides/youtube-MA5D5sRPaDk": {
+    "at": "2026-11-21",
+    "hash": "366bb3747609d5e9",
+    "findings": [],
+    "ruled": "366bb3747609d5e9"
+  },
   "vi/guides/youtube-mB3je2t-Bo8": {
     "at": "2026-11-12",
     "hash": "ab11c2754eb2f54f",
@@ -26808,6 +27007,22 @@
     "hash": "e53c12be59db7534",
     "findings": [],
     "ruled": "e53c12be59db7534"
+  },
+  "vi/guides/youtube-mmg1EIMdbkU": {
+    "at": "2026-11-21",
+    "hash": "1dd1aaaf766d1709",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Loài này đã có trong nghề từ lâu, chỉ mới được nuôi nhiều vài năm gần đây.",
+        "problem": "\"Có trong nghề\" is unnatural Vietnamese for a fish that has long been available in the trade.",
+        "fix": "Loài này có bán từ lâu, nhưng vài năm gần đây mới được nuôi nhiều.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1dd1aaaf766d1709"
   },
   "vi/guides/youtube-mmND8O0j_Qo": {
     "at": "2026-11-04",
@@ -28442,6 +28657,12 @@
     ],
     "ruled": "642030fd9cdc71b3"
   },
+  "vi/guides/youtube-pIRgBwsDaps": {
+    "at": "2026-11-21",
+    "hash": "28d6d271c74458a0",
+    "findings": [],
+    "ruled": "28d6d271c74458a0"
+  },
   "vi/guides/youtube-pKQJjZ31RTQ": {
     "at": "2026-11-12",
     "hash": "bff76c41887ff600",
@@ -29889,6 +30110,12 @@
     ],
     "ruled": "3e492530a270f49b"
   },
+  "vi/guides/youtube-SkR_Mbh3qzE": {
+    "at": "2026-11-21",
+    "hash": "a3632007b7175aea",
+    "findings": [],
+    "ruled": "a3632007b7175aea"
+  },
   "vi/guides/youtube-SlmXdV5n3Hw": {
     "at": "2026-11-14",
     "hash": "0c2affa17335c08b",
@@ -30262,6 +30489,31 @@
     "hash": "81c24741ef075723",
     "findings": [],
     "ruled": "81c24741ef075723"
+  },
+  "vi/guides/youtube-sZAb8NAcvEo": {
+    "at": "2026-11-21",
+    "hash": "8653e784020f716a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Xem cá ăn là một trong những cái thú nhất của chơi cá",
+        "problem": "\"cái thú nhất\" is ungrammatical Vietnamese, because \"thú\" can't take \"nhất\" this way, so a native reader stumbles on it.",
+        "fix": "Ngồi xem cá ăn là một trong những thú vui nhất khi chơi cá",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cứ để nó diễn ra là ổn hơn cả.",
+        "problem": "This is a word-for-word rendering of \"let it run its course\" and reads unnaturally in Vietnamese.",
+        "fix": "Cứ để mặc nó, tự khắc sẽ qua.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8653e784020f716a"
   },
   "vi/guides/youtube-SZMCesATJ-8": {
     "at": "2026-11-14",
@@ -31306,6 +31558,31 @@
     ],
     "ruled": "ecffdfc478213046"
   },
+  "vi/guides/youtube-V0r5E1ctpow": {
+    "at": "2026-11-21",
+    "hash": "3f0363546d06bacc",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tất cả gói gọn trong tối đa 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "problem": "Putting 'tối đa' (at most) in front of a range reads awkwardly in Vietnamese.",
+        "fix": "Tất cả chỉ mất khoảng 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L6",
+        "quote": "Chăm bể đều đặn chỉ mất tối đa 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "problem": "The same awkward 'tối đa' in front of a range.",
+        "fix": "Chăm bể đều đặn chỉ mất khoảng 45 phút đến 1 giờ mỗi tuần, tùy cỡ bể.",
+        "field": "summary.5"
+      }
+    ],
+    "ruled": "3f0363546d06bacc"
+  },
   "vi/guides/youtube-v5nzl93fEXA": {
     "at": "2026-11-01",
     "hash": "a1c3a9d2755bff38",
@@ -31848,6 +32125,31 @@
       }
     ],
     "ruled": "0eccd89951635e94"
+  },
+  "vi/guides/youtube-Wn83YjGJhQg": {
+    "at": "2026-11-21",
+    "hash": "bfce4b312bace1ab",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hai loài crypt này có lá rất giống nhau, chỉ khác ở thân.",
+        "problem": "The page says the two crypts differ in their stems (\"thân\"), but the table and summary L4 say the difference is height, and crypts have no real stem.",
+        "fix": "Hai loài crypt này có lá rất giống nhau, chỉ khác chiều cao.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nuôi gần dễ như cây nhựa",
+        "problem": "The verb \"nuôi\" is used for raising fish; for a plant the natural verb is \"trồng\".",
+        "fix": "trồng gần dễ như cây nhựa",
+        "field": "body"
+      }
+    ],
+    "ruled": "bfce4b312bace1ab"
   },
   "vi/guides/youtube-wPMn0xXjZF4": {
     "at": "2026-11-18",
@@ -33615,6 +33917,22 @@
     ],
     "ruled": "72979f8123817e1c"
   },
+  "vi/guides/youtube-zrY1Uz_O_bA": {
+    "at": "2026-11-21",
+    "hash": "eb679b1e8bd92135",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cần biết rằng nó là cá ăn thịt, thích ăn đồ mặn, chứ không đơn thuần là cá ăn rêu.",
+        "problem": "The common pleco is an omnivore, not a carnivore, so calling it 'cá ăn thịt' misstates its diet.",
+        "fix": "Cần biết rằng nó là cá ăn tạp, thích cả đồ mặn, chứ không chỉ ăn rêu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "eb679b1e8bd92135"
+  },
   "vi/guides/youtube-zSKCf5T45IM": {
     "at": "2026-11-03",
     "hash": "ebd82fa17c420a0c",
@@ -33753,6 +34071,12 @@
       }
     ],
     "ruled": "33fb88b30fd3c910"
+  },
+  "vi/guides/youtube-zYwObJhuJ5k": {
+    "at": "2026-11-21",
+    "hash": "cee1fa4662f3e633",
+    "findings": [],
+    "ruled": "cee1fa4662f3e633"
   },
   "vi/guides/youtube-ZYwZzYODC4Y": {
     "at": "2026-11-03",

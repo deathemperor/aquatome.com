@@ -25,14 +25,23 @@
     "diet:bwaquatics": "<p>Stiphodon ornatus là một loài cá bống chuyên gặm rêu tảo.</p>",
     "behaviour:bwaquatics": "<p>Cá khá hiền. Tuy vậy, nó có thể giành lãnh thổ với các loài cá bống khác.</p>",
     "equipment:bwaquatics": "<p>Loài này thích nước chảy mạnh và giàu oxy. Một bể mô phỏng suối, sông là lý tưởng nhất cho nó. Dù vậy, nuôi trong các kiểu bể khác cá vẫn sống tốt.</p>",
-    "dimorphism:bwaquatics": "<p>Cá lên màu đẹp nhất khi thấy thoải mái nhất trong bể. Điều này thấy rõ nhất ở những con đực đầu đàn trong nhóm.</p>"
+    "dimorphism:bwaquatics": "<p>Cá lên màu đẹp nhất khi thấy thoải mái nhất trong bể. Điều này thấy rõ nhất ở những con đực đầu đàn trong nhóm.</p>",
+    "quickFacts:glaser": "<p>Loài cá bống nước ngọt đẹp này lúc đầu được mô tả là một phân loài của Stiphodon elegans. Con đực dài khoảng 6 cm, con cái nhỏ hơn một chút.</p>",
+    "distribution:glaser": "<p>Loài này có nguồn gốc từ Tây Sumatra (Indonesia).</p>",
+    "habitat:glaser": "<p>Chúng sống ở những con suối nước trong.</p>",
+    "diet:glaser": "<p>Ngoài tự nhiên, Stiphodon ornatus ăn Aufwuchs, tức là lớp tảo bám cùng các sinh vật nhỏ sống trong đó. Nuôi trong bể thì cám khô, đồ đông lạnh hay đồ tươi sống chúng đều ăn ngon lành.</p>",
+    "behaviour:glaser": "<p>Stiphodon sống thành đàn. Chỉ đến lúc đẻ, từng con đực mới tách ra, ở yên một chỗ và giữ chỗ đó làm của riêng.</p>",
+    "dimorphism:glaser": "<p>Ở Stiphodon ornatus (và hầu hết các loài Stiphodon khác), con đực và con cái trông khác nhau đến mức dễ tưởng là hai loài. Thực tế nhà cung cấp cũng hay bán chúng như hai loài riêng. Con cái của mọi loài Stiphodon đều trắng, có sọc đen chạy dọc thân. Vì vậy con cái của các loài Stiphodon khác nhau (có tất cả 37 loài) khó mà phân biệt được.</p>",
+    "reproduction:glaser": "<p>Cho đẻ trong bể hầu như không được. Cá con bé xíu phải lớn lên ở biển, mà nuôi cá biển con rất khó vì khó kiếm đúng loại thức ăn cho chúng. Cá đẻ trong hang, thường là dưới đá. Con đực canh ổ trứng cho tới khi ấu trùng nhỏ xíu nở ra. Dòng nước cuốn ấu trùng ra biển, và chúng sống ở đó vài tuần đầu đời. Sau đó chúng ngược lên nước ngọt và ở luôn đó đến hết đời.</p>",
+    "notes:glaser": "<p>Dù không cho đẻ được, Stiphodon vẫn có rất nhiều điều thú vị để ngồi ngắm.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
       "bwaquatics": 0.85,
-      "seriouslyfish": 0.9
+      "seriouslyfish": 0.9,
+      "glaser": 0.88
     }
   }
 }

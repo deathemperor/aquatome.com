@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, PHOTO_BOXES_FILE, retiredTo, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { LANGS, type Lang, WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
-import { machine, nameStep } from './ceiling'
+import { machine, nameStep, stepFor } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, credentialRejected, onNextAccount, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
@@ -37,7 +37,7 @@ import { videoCut, VIDEO_CUT_LIMIT } from './video-cut'
 import { recordSourceFigures, sourceFigures } from './source-figures'
 import fitFront from './fit-front.json'
 import { fitRewriteKinds, topicCheckLimit, videoCutOn } from './switches'
-import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, type FirstRun, type HeldMark } from './fit-front'
+import { firstRun, frontEarly, frontHeld, frontPlan, offLane, orderFront, readFirst, type FirstRun, type HeldMark } from './fit-front'
 import { candidates, cardPhotos, cardsOf, checkCalendar, demandByPath, handAvoid, headAvoid, heldBy, pagePhotos, plan, readCalendar, readVerdicts, withEngineAvoid, writeCalendar } from './curation'
 import { readSecondLook } from './last-photo'
 import { phraseRun } from './phrases'
@@ -212,8 +212,8 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 const cmd = positionals[0]
-// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts).
-nameStep(cmd)
+// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts stepFor).
+nameStep(stepFor(cmd))
 
 // At the end of every command that called Claude: what each account answered, and which were set aside and why
 // (claude-accounts.ts), in the log and on the GitHub run's summary page. 'exit': some commands end with process.exit().
@@ -663,6 +663,7 @@ if (cmd === 'photo-privacy') {
   if (r.noAnimal.length) console.log(`sweep: ${r.noAnimal.length} heads with no animal in them and no "yes" from the photo check (engine-state/_photo-no-animal-heads.json)`)
   for (const x of r.noAnimal) console.log(`no animal: ${x}`)
   for (const x of r.named) console.log(`head behind one named to the species: ${x}`)
+  for (const x of r.pickOverOrder) console.log(`head a person picked over a generated picture, which no step would choose: ${x}`)
   for (const x of [...r.dealer.map(x => `dealer notice off: ${x}`), ...r.dealerOnly.map(x => `dealer notice, its heading's only text (for the chief of staff): ${x}`)]) console.log(x)
   if (r.albums.length) console.log(`sweep: ${r.albums.length} albums with a new lead photo (gallery.ts orderAlbums)`)
   if (r.refused.length || r.refusedHeld.length || r.refusedPicked.length) console.log(`sweep: ${r.refused.length} refused photos kept off; ${r.refusedHeld.length} pages held; ${r.refusedPicked.length} picked heads the check calls "none" (photo-check.ts refusedOn)`)
@@ -736,13 +737,15 @@ if (cmd === 'photo-privacy') {
   if (values.front) {
     // runFit reads the pages it is given in its own order. One page a call keeps the front list's order under --limit.
     // A page not due a read (fitDue) is not passed, so it costs no call and does not use a place in the limit.
-    const want = new Set(fitFront.front)
+    // The pages a person changed by hand first (fit-front.json read), then the front list.
+    const first = readFirst(fitFront)
+    const want = new Set(first.front)
     const prior = JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}')) as FitState
     // Then the Vietnamese pages whose saved read found a foreign product still on them, read again once their text has
     // changed, so the rewrite can take them (the chief of staff, 17 Nov 2026: 11 of the 54 left had a read of older text).
     // Only the kinds the rewrite takes: a product or equipment page's read could lead to no rewrite.
     const products = values.lang || values.only ? [] : filtered.filter(p => p.lang === 'vi' && ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && !want.has(fitKey(p)) && !(p.kind === 'guides' && retiredTo(p.id)) && foreignProduct(p, prior[fitKey(p)]))
-    const chosen = [...orderFront(fitFront, filtered).filter(p => want.has(fitKey(p))), ...products]
+    const chosen = [...orderFront(first, filtered).filter(p => want.has(fitKey(p))), ...products]
     const stale = fitDue(chosen, prior)
     r = { read: 0, failed: [], left: 0 }
     state = prior

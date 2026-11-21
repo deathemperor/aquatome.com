@@ -3,6 +3,12 @@
   "name": "แคโรไลนา",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:18:11.626Z",
+    "why": "แคโรไลนา is a valid Thai transliteration of Carolina, but the place is a region (the Carolinas) and the usual Thai atlas form is แคโรไลนา with no kind word for a state, so the name is plausible, though the region type is ambiguous (it could be Puerto Rico's Carolina or the Carolinas)."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

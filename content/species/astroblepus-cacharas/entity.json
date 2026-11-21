@@ -103,5 +103,57 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Magdalena River",
+        "Cáchira River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper part of Cáchira River, Magdalena River basin in Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": [
+            "Magdalena River",
+            "Cáchira River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 6168111,
+      "total": 6,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "CO",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          7.03125,
+          5,
+          5
+        ]
+      ]
+    }
+  }
 }

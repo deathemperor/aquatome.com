@@ -2242,7 +2242,7 @@ borrow one from a species or plant they mention on the site.
 
 - none
 
-## Only one photo (no pictures inside the text) (1070)
+## Only one photo (no pictures inside the text) (1071)
 
 - species/aborichthys-elongatus — Cá chạch sóc đuôi đỏ
 - species/acanthocobitis-rubidipinnis — Cá chạch Paracanthocobitis rubidipinnis
@@ -2778,6 +2778,7 @@ borrow one from a species or plant they mention on the site.
 - species/micromussa-lordhowensis — San hô Acan
 - species/micropercops-swinhonis — Cá bống Swinhonis
 - species/micropterus-salmoides — Cá vược miệng rộng
+- species/microrasbora-rubescens — Cá rasbora lửa đỏ
 - species/mikrogeophagus-altispinosus — Cá phượng hoàng Bolivia
 - species/mimagoniates-barberi — Cá tetra xanh Paraguay
 - species/mithraculus-sculptus — Mithraculus sculptus
@@ -3336,7 +3337,7 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Barbodes snyderi — named on 1 page (species/barbodes-semifasciolatus) — queued first: https://www.seriouslyfish.com/species/puntius-snyderi
 - Nemachilichthys shimogensis — named on 1 page (species/garra-bicornuta) — queued first: https://www.seriouslyfish.com/species/nemachilichthys-shimogensis
 
-## Named on our pages, no page yet: no source has it (1105)
+## Named on our pages, no page yet: no source has it (1104)
 
 - Lemna minor — named on 55 pages (guides/youtube-34R1VF2bzmg, guides/youtube-3DsCnBa9360, guides/youtube-4a87l1r7_Yg, guides/youtube-7kDO92rirUI, guides/youtube-CuZeMDsjK70, …)
 - Cryptocoryne walkeri — named on 54 pages (guides/aquariumcoop-blogs-aquarium-cookie-cutter-for-10-gallon-aquarium, guides/aquariumcoop-blogs-aquarium-easy-aquarium-plants, guides/aquariumcoop-blogs-aquarium-foreground-plants, guides/aquariumcoop-blogs-aquarium-our-favorite-easy-low-light-plants-cryptocoryne-lutea-and-vallisneria, guides/youtube-0xEdMSmpNHo, …)
@@ -3625,7 +3626,6 @@ Each reader counted once a day. Queued names go before every other wanted page o
 - Lebiasina chocoensis — named on 2 pages (species/geophagus-pellegrini, species/nematobrycon-palmeri)
 - Lentipes armatus — named on 2 pages (species/sicyopus-cebuensis, species/sicyopus-zosterophorus)
 - Lepidiolamprologus profundicola — named on 2 pages (species/cyprichromis-leptosoma, species/cyprichromis-microlepidotus)
-- Leporinus granti — named on 2 pages (species/hemiancistrus-medians, species/leporinus-nijsseni)
 - Limatulichthys griseus — named on 2 pages (species/nannostomus-marginatus, species/nannostomus-trifasciatus)
 - Limbochromis robertsi — named on 2 pages (species/congochromis-dimidiatus, species/congochromis-sabinae)
 - Lithobates catesbeianus — named on 2 pages (guides/youtube-HUa1u8usS5w, guides/youtube-fV5MucIp1M8)

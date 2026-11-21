@@ -1,8 +1,8 @@
 {
   "id": "serrasalmus-rhombeus",
   "native": {
-    "input": "1d60985f71303fc5",
-    "at": "2026-11-15T00:17:46.244Z",
+    "input": "ea05086dd1c796b5",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "VE",
@@ -75,6 +75,14 @@
         "quote": "Officially it's been recorded from Venezuela, Guyana, Suriname, French Guiana, Colombia, Ecuador, Peru, Bolivia and Brazil in various rivers including the rios Amazon, Orinoco, Negro, Xingú and Araguia.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Wonderful Serrasalmus rhombeus, 11–14 cm long, were received from the Rio Tocantins in Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
@@ -107,6 +115,13 @@
         "name": "Araguia",
         "source": "seriouslyfish",
         "quote": "Officially it's been recorded from Venezuela, Guyana, Suriname, French Guiana, Colombia, Ecuador, Peru, Bolivia and Brazil in various rivers including the rios Amazon, Orinoco, Negro, Xingú and Araguia.",
+        "ok": true
+      },
+      {
+        "name": "Rio Tocantins",
+        "source": "glaser",
+        "quote": "Wonderful Serrasalmus rhombeus, 11–14 cm long, were received from the Rio Tocantins in Brazil.",
+        "country": "BR",
         "ok": true
       }
     ],

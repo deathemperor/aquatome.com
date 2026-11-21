@@ -32,13 +32,14 @@
       "regions": [
         "Borneo",
         "Sumatra",
+        "Malay Peninsula",
         "Kolok River",
         "Baram River",
-        "Moesi River",
-        "Bangka Island"
+        "Moesi River"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -71,8 +72,15 @@
           ],
           "regions": [
             "Baram River",
-            "Moesi River",
-            "Bangka Island"
+            "Moesi River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Rasbora cephalotaenia is quite widespread on the Malay Peninsula to southern Thailand and on the large Sunda Islands (Borneo, Sumatra).",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
           ]
         }
       ]

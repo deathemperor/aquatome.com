@@ -3,6 +3,12 @@
   "name": "ลาบุก",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.6,
+    "at": "2026-11-21T01:20:04.722Z",
+    "why": "The Thai transliteration ลาบุก is phonetically plausible for Labuk, but the place is a river basin/region and an atlas would normally add the kind word แม่น้ำ (Sungai Labuk), and the Thai spelling is likely ลาบุก only without a kind word, so it is incomplete."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

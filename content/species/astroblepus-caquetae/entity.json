@@ -92,5 +92,67 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-20"
+  "updatedAt": "2026-11-20",
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "EC"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper Amazon River basin, Colombia and Ecuador.",
+          "countries": [
+            "CO",
+            "EC"
+          ],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342108,
+      "total": 5,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          3
+        ],
+        [
+          "CO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -78.75,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  }
 }

@@ -10,6 +10,98 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Negro"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "These interesting, rarely traded characins come from the catchment area of the Rio Negro.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354254,
+      "total": 53,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          51
+        ],
+        [
+          "CO",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          1.40625,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          12
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          6
+        ],
+        [
+          -64.6875,
+          0,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          26
+        ],
+        [
+          -63.28125,
+          0,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          1
+        ],
+        [
+          -61.875,
+          2.8125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

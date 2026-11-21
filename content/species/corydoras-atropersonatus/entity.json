@@ -26,21 +26,15 @@
       ],
       "sources": [
         "planetcatfish",
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
-        {
-          "source": "planetcatfish",
-          "quote": "Type locality: Río Conambo at mouth of River Shione, Río Tigre system, Pastaza State, Ecuador.",
-          "countries": [
-            "EC"
-          ],
-          "regions": []
-        },
         {
           "source": "seriouslyfish",
           "quote": "The fairy cory, Hoplisoma atropersonatum, long known as Corydoras atropersonatus, is an armoured catfish known only from the Tigre and Nanay drainages in Ecuador and Peru.",
           "countries": [
+            "EC",
             "PE"
           ],
           "regions": [

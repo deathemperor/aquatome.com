@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-20). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 37 | 199 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 825 | 32 | 9 | 28 | 838 |
+| covered | 30 | 826 | 32 | 9 | 28 | 839 |
 | rest | 20 | 1894 | 81 | 0 | 114 | 1861 |
 
-## Short of target: every source read (709)
+## Short of target: every source read (710)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -698,7 +698,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/malapterurus-beninensis | covered | 0 | 30 |
 | species/malapterurus-oguensis | covered | 0 | 30 |
 | species/malpulutta-kretseri | covered | 0 | 30 |
-| species/marisa-cornuarietis | covered | 8 | 30 |
+| species/marisa-cornuarietis | covered | 7 | 30 |
 | species/maylandia-callainos | covered | 5 | 30 |
 | species/maylandia-greshakei | covered | 0 | 30 |
 | species/megalancistrus-barrae | covered | 0 | 30 |
@@ -725,3 +725,4 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/rhinodoras-boehlkei | covered | 0 | 30 |
 | species/rineloricaria-eigenmanni | covered | 0 | 30 |
 | species/rita-kuturnee | covered | 0 | 30 |
+| species/serrasalmus-brandtii | covered | 3 | 30 |

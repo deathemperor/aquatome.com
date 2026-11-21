@@ -1,40 +1,75 @@
 {
   "id": "apistogramma-bitaeniata",
   "native": {
-    "input": "cd2af4a2de45e238",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "31341fb99e53f51f",
+    "at": "2026-11-21T01:22:16.258Z",
     "claims": [
       {
         "code": "PE",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
-        "words": "Peru",
+        "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
+        "words": "Peruvian",
         "ok": true
       },
       {
         "code": "CO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The existence of A. bitaeniata in the rio Madeira drainage is a relatively recent discovery and actually calls into question its identity since the original type locality of \"rio Madeira\" given by Pellegrin was amended to \"Colombia (Amazonas), environments of Leticia\" by Kullander (1980) because the species wasn't known to occur in the Madeira at that time.",
-        "words": "Colombia",
+        "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
+        "words": "Colombian",
         "ok": true
       },
       {
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
+        "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is known from Colombia, Peru and Brazil.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is known from Colombia, Peru and Brazil.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It is known from Colombia, Peru and Brazil.",
         "words": "Brazil",
         "ok": true
       }
     ],
     "regions": [
       {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
+        "ok": true
+      },
+      {
         "name": "Marañón",
         "source": "seriouslyfish",
-        "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
-        "country": "PE",
+        "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
         "ok": true
       },
       {
@@ -54,19 +89,6 @@
         "name": "Madeira",
         "source": "seriouslyfish",
         "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
-        "ok": true
-      },
-      {
-        "name": "Tapajós",
-        "source": "seriouslyfish",
-        "quote": "Currently accepted to range over a wide area in parts of the Peruvian, Colombian, and Brazilian Amazon from the middle Marañón and lower Río Ucayali basins in Peru, continuing through the border region of 'Tres Fronteras' in downstream tributaries of the rio Solimões as far as Manaus and beyond the rio Madeira to the mouth of the rio Tapajós, Brazil.",
-        "country": "BR",
-        "ok": true
-      },
-      {
-        "name": "Amazon",
-        "source": "seriouslyfish",
-        "quote": "The two-striped dwarf cichlid, Apistogramma bitaeniata, ranges across the Peruvian, Colombian and Brazilian Amazon, from the Marañón to the Tapajós.",
         "ok": true
       }
     ],

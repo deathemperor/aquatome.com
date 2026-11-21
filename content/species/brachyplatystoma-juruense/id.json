@@ -26,11 +26,11 @@
     "references:seriouslyfish": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Lundberg, J. G. and A. Akama (2005). Brachyplatystoma capapretum: a new species of goliath catfish from the Amazon basin, with a reclassification of allied catfishes. Copeia 2005(3), 492-516</li><li>M. Petrere Jr., R. B. Barthem, E. A. Córdoba and B. Corrales Gómez (2004). Review of the large catfish fisheries in the upper Amazon and the stock depletion of piraíba (Brachyplatystoma filamentosum Lichtenstein). Reviews in Fish Biology and Fisheries 14, 403-414</li></ul>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.9,
+    "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.6,
-      "glaser": 0.6
+      "seriouslyfish": 0.9,
+      "glaser": 0.9
     }
   }
 }

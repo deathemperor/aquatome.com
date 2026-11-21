@@ -814,6 +814,46 @@
       "kept": true
     }
   ],
+  "vi/products/seachem-tidal": [
+    {
+      "at": "2026-11-21T01:44:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"vạch xanh trên nắp nhô lên\" / \"cửa bên\": facts say a blue indicator rises on top, which is roughly fine; minor.",
+        "\"Mút chặn đầu hút (nếu có lắp) và cánh quạt thì rửa thường xuyên\": the facts say the prefilter sponge, but the page recasts it as an optional add-on. This is a small stretch.",
+        "\"ống hút rút ngắn dài được\": awkward wording for the telescoping intake. It is not a fact error.",
+        "\"Cánh quạt và trục làm bằng vật liệu chống ăn mòn\": supported. The page does not say the 6-month impeller claim conflicts with the 3-year warranty, but it is mostly consistent.",
+        "\"điều khoản bảo hành 3 năm của Seachem không tính cánh quạt\" together with \"đăng ký thì lên 5 năm, nhưng không tính cánh quạt\": supported.",
+        "\"Giá có thể khác tùy nhà phân phối\" and the Fluval \"thường rẻ hơn\": both are in the facts.",
+        "\"Với bể san hô, có thể dùng nó làm chỗ chạy vật liệu lọc riêng (media reactor) luôn\": the facts say it \"could even work\" as a media reactor, so the page states it more firmly than the source."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-21T01:44:53Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.72,
+      "notes": [
+        "\"Cả bốn cỡ đều chỉnh được lưu lượng\": facts only say flow is adjustable generally (example Tidal 110); the claim for all four is an extrapolation, though mild.",
+        "\"vì máy càng to thì càng cần lùi xa tường\": a causal explanation not in the facts; the facts only give clearance by model.",
+        "\"Tidal 35 ... dành cho bể khoảng 130 L trở xuống\": facts say up to 35 gal (130 L), so this is roughly fine, but 'smallest size' is inferred.",
+        "\"nên không sợ dòng quá mạnh lúc bể cần dòng nhẹ\": an unsupported benefit claim about gentle flow.",
+        "\"Máy này thường rẻ hơn\" (Fluval): fine, but \"không có đầu hút mặt nước\" is stated as absolute; facts say 'no surface skimmer', which is okay.",
+        "\"Trước tiên vệ sinh mút chặn đầu hút và cánh quạt\": the facts say a prefilter sponge is a sensible add-on, and that the Matrix and sponge come with the unit. The page treats the sponge as an added 'mút chặn đầu hút' to install, which is a slight mismatch.",
+        "\"hai nguồn ghi khác nhau ... Điều khoản bảo hành 3 năm của Seachem không tính cánh quạt. Còn trang hỗ trợ ... 6 tháng\": the facts do contrast the two, but call it a 'two sources disagree' framing; the page also says 'Nhà phân phối ... bảo hành 3 năm' which is supported.",
+        "\"Giỏ lọc nhấc ra được mà không nhỏ nước, mang đi xả vật liệu cũng đỡ vất\": the 'dễ rửa' is supported, but the wording is loose embellishment.",
+        "\"có vài chiếc Tidal 110 vẫn ồn sau khi đã bảo hành\" in the intro and \"vì đồ bẩn hay gây ồn\": supported, minor."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/tropica-aquarium-soil": [
     {
       "at": "2026-11-20T10:45:56Z",

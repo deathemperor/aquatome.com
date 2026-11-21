@@ -1265,6 +1265,32 @@
       "kept": false
     }
   ],
+  "vi/species/glossolepis-pseudoincisus": [
+    {
+      "at": "2026-11-21T02:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.85,
+      "notes": [
+        "\"nhưng loài này hoạt động nhiều nên bể dài và rộng hơn thì tốt hơn\" — The facts give no advice to go bigger than the recommended tank. This is a small unsupported generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-21T02:47:09Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.92,
+      "notes": [
+        "\"cá táo đỏ\" is used as the Vietnamese name for G. incisus. The facts give no Vietnamese names, so this name is unsupported. It is a minor point."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/hemigrammus-erythrozonus#lmfsTkys5ZE": [
     {
       "at": "2026-11-19T02:47:21Z",

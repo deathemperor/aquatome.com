@@ -17,9 +17,9 @@
   "range": {
     "native": {
       "countries": [
+        "TH",
         "LA",
         "KH",
-        "TH",
         "VN"
       ],
       "regions": [
@@ -28,9 +28,18 @@
         "Dong Nai"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This beautiful and interesting loach, which can attain a maximum length of about 12 cm, originates from Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
         {
           "source": "seriouslyfish",
           "quote": "Described from the Nam Ngum river basin in Vientiane province, Laos, one of the major tributaries of the Mekong River.",
@@ -38,7 +47,6 @@
             "LA"
           ],
           "regions": [
-            "Mekong",
             "Nam Ngum"
           ]
         },
@@ -47,10 +55,10 @@
           "quote": "It has since been recorded from various localities within the middle and lower Mekong system in Laos, Cambodia, and Thailand, plus other drainages such as the Dong Nai in southern Vietnam.",
           "countries": [
             "KH",
-            "TH",
             "VN"
           ],
           "regions": [
+            "Mekong",
             "Dong Nai"
           ]
         }

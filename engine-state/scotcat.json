@@ -1895,6 +1895,76 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/astroblepidae/astroblepus_fissidens.htm": {
+    "entityIds": [
+      "species/astroblepus-fissidens"
+    ],
+    "updatedAt": "2026-11-20T23:44:46.434Z",
+    "hash": "db1a43339a8046c62623a77bf9bae3935749aa51a211351c283c7e86b9d03613",
+    "processedHash": "db1a43339a8046c62623a77bf9bae3935749aa51a211351c283c7e86b9d03613",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_grixalvii.htm": {
+    "entityIds": [
+      "species/astroblepus-grixalvii"
+    ],
+    "updatedAt": "2026-11-20T23:47:18.452Z",
+    "hash": "7d7e3108aeb73c0997f764e35d8b96a9da2c2e0cda5d48e93aef7f22349439c1",
+    "processedHash": "7d7e3108aeb73c0997f764e35d8b96a9da2c2e0cda5d48e93aef7f22349439c1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_homodon.htm": {
+    "entityIds": [
+      "species/astroblepus-homodon"
+    ],
+    "updatedAt": "2026-11-20T23:50:32.016Z",
+    "hash": "30189eb92e6ad9346e883e5b3f45319023875329c21f9125335104f3cb628a17",
+    "processedHash": "30189eb92e6ad9346e883e5b3f45319023875329c21f9125335104f3cb628a17",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_huallagaensis.htm": {
+    "entityIds": [
+      "species/astroblepus-huallagaensis"
+    ],
+    "updatedAt": "2026-11-20T23:53:35.860Z",
+    "hash": "2eb49f28081eeaa1f1305100c3db09475f9bfe901e4bca98714208a181c9f143",
+    "processedHash": "2eb49f28081eeaa1f1305100c3db09475f9bfe901e4bca98714208a181c9f143",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_itae.htm": {
+    "entityIds": [
+      "species/astroblepus-itae"
+    ],
+    "updatedAt": "2026-11-20T23:56:36.917Z",
+    "hash": "32dbbf865884b3238d07be7e661ca75610c8ba1133160210f2df33f0b8b46f7f",
+    "processedHash": "32dbbf865884b3238d07be7e661ca75610c8ba1133160210f2df33f0b8b46f7f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_latidens.htm": {
+    "entityIds": [
+      "species/astroblepus-latidens"
+    ],
+    "updatedAt": "2026-11-20T23:59:30.133Z",
+    "hash": "13295acd86b15ff42f99a6ab54a55a58e5202a15d7f905b24e76033b4128546b",
+    "processedHash": "13295acd86b15ff42f99a6ab54a55a58e5202a15d7f905b24e76033b4128546b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/astroblepidae/astroblepus_mancoi.htm": {
+    "entityIds": [
+      "species/astroblepus-mancoi"
+    ],
+    "updatedAt": "2026-11-21T00:01:46.880Z",
+    "hash": "2a993c5851bfdb1074cf9f77291616486863641263a44f06882f31360cb171ba",
+    "processedHash": "2a993c5851bfdb1074cf9f77291616486863641263a44f06882f31360cb171ba",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_lineatus.htm": {
     "entityIds": [
       "species/ageneiosus-lineatus"
@@ -3410,6 +3480,16 @@
     "updatedAt": "2026-11-15T08:58:22.543Z",
     "hash": "753a2bf302f3a5272d1055189a52162b9b13ac2217568f0cb19e51f7db971b81",
     "processedHash": "753a2bf302f3a5272d1055189a52162b9b13ac2217568f0cb19e51f7db971b81",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm": {
+    "entityIds": [
+      "species/rineloricaria-formosa"
+    ],
+    "updatedAt": "2026-11-20T23:42:13.603Z",
+    "hash": "a09c7c7a6109a44668574fef4c55531aca726317453f7b3883264f791a6bc0ab",
+    "processedHash": "a09c7c7a6109a44668574fef4c55531aca726317453f7b3883264f791a6bc0ab",
     "status": "processed",
     "attempts": 0
   },

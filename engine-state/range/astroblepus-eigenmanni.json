@@ -1,0 +1,44 @@
+{
+  "id": "astroblepus-eigenmanni",
+  "native": {
+    "input": "ede2c720c78b7f3e",
+    "at": "2026-11-21T01:22:16.258Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Pacific coastal drainages of Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astroblepus eigenmanni",
+    "status": "ACCEPTED",
+    "taxonKey": 2342061,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        1
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-21T01:22:16.258Z"
+  }
+}

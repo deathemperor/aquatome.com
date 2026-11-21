@@ -626,6 +626,24 @@
       "Item 3: \"Di daerah asalnya\" narrows \"locally\" a little. \"Secara lokal\" or \"Di beberapa daerah\" would be closer."
     ]
   },
+  "cabomba-furcata": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "Cabomba Furcata",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Pasokan nutrisi yang cukup\" fine, but \"pucuknya lebih kecil\" for \"smaller crowns\" is slightly vague; consider \"rumpun pucuk yang lebih kecil\".",
+      "\"tidak terlalu tinggi\" for \"not terribly high\" is fine, but \"toleran terhadap kesadahan tertentu\" is vague for \"some hardness\"; use \"kesadahan sedang\".",
+      "\"ini berarti tanaman harus dicabut cukup sering\" understates \"very regularly\"; use \"sangat sering\" or \"rutin\".",
+      "\"Cahaya yang sangat kuat\" for \"Aggressively high light levels\" is acceptable; \"Bisa juga memotong\" is slightly awkward, use \"Anda juga bisa memotong\" or passive \"Bagian pucuk juga bisa dipotong\"."
+    ],
+    "parts": {
+      "quickFacts:2hraquarist": "9c74b81d21a2",
+      "maintenance:2hraquarist": "1be9bcc7d10e",
+      "notes:2hraquarist": "79323d5a2ef5"
+    }
+  },
   "cabomba-sp": {
     "at": "2026-11-17",
     "from": "2026-11-17",
@@ -1975,20 +1993,39 @@
     ]
   },
   "microsorum-pteropus": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "Java Fern",
     "confidence": "high",
     "score": 0.7,
     "notes": [
-      "Item 5: \"It does best with a 6700K bulb. Low to medium-high light is perfect\" is fine, but \"Cahaya rendah sampai sedang-tinggi sudah ideal\" is awkward; use \"cahaya rendah hingga sedang-terang\".",
-      "Item 3: \"tekan tanaman ke lem selama 30 detik\" is fine, but \"oleskan setitik lem\" (bead of glue) is slightly off; \"teteskan sedikit lem\" is better.",
-      "Item 3: \"jangan sembarangan memulai akuarium dengan tanaman ini\" misses the meaning. It should say not to start a new tank with this plant alone, because algae can overwhelm it. As written, the advice is ambiguous.",
-      "Item 3: \"cabut beberapa helai daun\" and \"ambil tunasnya dan mulai tanam lagi\" are acceptable, but \"cabut\" (uproot) is less apt for leaves; use \"lepaskan\" or \"patahkan\".",
-      "Item 8: \"pendiri perusahaan yang mengembangkannya\" replaces the name \"Tropica\". Tropica is a trade name hobbyists know, so the source name was dropped without need. Use \"pendiri Tropica\".",
-      "Item 4: \"Tanaman ini tidak dimakan ikan herbivora\" is an absolute claim. Keep the original's sense, but \"biasanya tidak dimakan\" would be safer.",
-      "Item 5: \"lupa menyimpannya di ember\" is fine, but \"Hampir semua jenis lampu\" (almost any light) is acceptable. \"akuaris\" is an uncommon term in Indonesia; use \"aquascaper\" or \"hobiis akuarium\"."
-    ]
+      "Item 15: 'pendiri nurseri yang mengembangkannya' drops the name 'Tropica' (named after Tropica's founder). Restore it: 'pendiri Tropica'.",
+      "Item 11: 'ada akuaris yang lupa meninggalkannya di ember' is wrong. The English says aquarists forgot it in a bucket. Use 'melupakannya di dalam ember' or 'lupa mengangkatnya dari ember'.",
+      "Item 7: 'Salah satu cara favorit' drops 'The author's favourite'. Neutral wording is fine, but 'setetes lem' for 'a bead of glue' is slightly off. Use 'sedikit lem'.",
+      "Item 7: 'bisa kalah telak bersaing dengan alga' changes 'fight badly with algae'. 'Sulit melawan alga' would be more natural.",
+      "Item 12: 'burayak' is right for fry, but 'lobster air tawar' for crayfish is fine. 'rumpunnya yang lebat dan rimbun' for 'dense bushy mats' is slightly redundant.",
+      "Item 16: 'sampai 2 tahun' (can live up to 2 years) is kept as is. 'Narrow Leaf ... leaves about 10–20 cm, up to 30 cm tall' is fine.",
+      "Item 5: 'bentuknya mulai dari rimbun sampai runcing' is OK, but 'hardy and leathery' → 'liat seperti kulit' is awkward. Use 'kuat dan bertekstur seperti kulit'.",
+      "Item 9: 'lem' for adhesive and 'Tambahan nutrisi' are fine. 'Sulit dimakan' in item 12 is fine."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "6bcf2166a992",
+      "quickFacts:tropica": "a7149f4500ca",
+      "quickFacts:aquariumbreeder": "4b67a7e0bba1",
+      "distribution:aquariumbreeder": "35d0ed39deaa",
+      "habitat:aquariumbreeder": "2675f5165117",
+      "aquariumSize:aquariumbreeder": "1de66aed8c0e",
+      "maintenance:aquariumcoop": "052ba487355e",
+      "maintenance:tropica": "dc99c6df5692",
+      "maintenance:aquariumbreeder": "949d248a4a75",
+      "waterConditions:aquariumbreeder": "127cce48dcee",
+      "equipment:aquariumcoop": "5d2099ea38b1",
+      "behaviour:aquariumbreeder": "2f25ad2a6255",
+      "reproduction:aquariumcoop": "2e1f91cf5aa3",
+      "notes:aquariumcoop": "947a0d98f7a0",
+      "notes:tropica": "b734195ea119",
+      "notes:aquariumbreeder": "ce35473c445a"
+    }
   },
   "microsorum-pteropus-narrow": {
     "at": "2026-11-08",
@@ -2268,6 +2305,33 @@
       "maintenance:aquatome": "93eaabd38bf6"
     }
   },
+  "pistia-stratiotes": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "Kayu Apu Mini",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 3: \"akuarium 75 cm\" is fine, but item 5 \"kelembapan tinggi (70 atau lebih)\" drops the % unit that the source implies; write \"70% atau lebih\" (check the original).",
+      "Item 8: \"siput mystery (keong murbei)\" - \"keong murbei\" is a wrong/unclear local name for mystery snail; use \"siput mystery (mystery snail)\" or \"keong mistery\".",
+      "Item 8: inconsistent naming of snails: \"siput ramshorn\", \"Japanese trapdoor snail\" left in English while others are localised; make consistent, e.g. \"siput trapdoor Jepang\".",
+      "Item 8: \"burayak\" for fry is acceptable, but \"Akar ... menjadi tempat berkembang biak\" is fine; \"capung jarum\" for damselfly nymphs - write \"nimfa capung dan nimfa capung jarum\" (only the capung nymph is named, damselfly nymph omitted).",
+      "Item 5: \"air sadah (lebih dari 12)\" lacks the unit; add \"GH\" (\"lebih dari 12 GH\").",
+      "Item 8: \"Daun tertua ... bisa langsung dicabut\" - \"peeled off\" is better as \"dikupas/dilepas\"; minor.",
+      "Item 2: \"Nile Cabbage atau Water Cabbage\" left in English; add local equivalents such as \"Kubis Nil\" / \"Kubis Air\" or note them as English names.",
+      "Item 4: \"Tanamannya tetap akan hidup\" fine; but \"Atasi dengan penambah nutrisi alami\" is ok. \"tanaman... bisa menghabiskan nutrisi\" fine."
+    ],
+    "parts": {
+      "quickFacts:aquariumbreeder": "3eb80a8a1e48",
+      "distribution:aquariumbreeder": "db39b6147851",
+      "aquariumSize:aquariumbreeder": "663e05138600",
+      "maintenance:aquariumbreeder": "b42da1c29bf2",
+      "waterConditions:aquariumbreeder": "5ab34853ef5b",
+      "equipment:aquariumbreeder": "99af1c617753",
+      "reproduction:aquariumbreeder": "96034b16044b",
+      "notes:aquariumbreeder": "28b4fc2db8bc"
+    }
+  },
   "plagiomnium-sp-thyme-moss": {
     "at": "2026-11-05",
     "from": "2026-10-31",
@@ -2393,7 +2457,7 @@
       "notes:tropica": "d021ce008122"
     },
     "failed": {
-      "at": "2026-11-13T23:30:24.633Z",
+      "at": "2026-11-21T00:25:39.049Z",
       "parts": {
         "quickFacts:aquariumbreeder": "ec0d038e5db9",
         "beforeYouBuy:aquariumbreeder": "3603ce7f9742",

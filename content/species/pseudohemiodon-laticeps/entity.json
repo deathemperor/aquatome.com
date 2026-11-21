@@ -231,6 +231,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 35
       }
     ],
     "tankCm": [
@@ -252,6 +256,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
       "html": "<p>The giant whiptail catfish, Pseudohemiodon laticeps, is a loricariid from the rios Uruguay, Paraná and Paraguay in Brazil, Paraguay and Argentina. Growing to 300 mm, it stays buried in soft substrate by day and emerges to feed at night, so a sandy substrate and very clean, stable water matter most. The male is a paternal 'lip brooder', carrying the eggs on his labial barbels for 12-14 days, and the species has been bred in aquaria.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "html": "<p>Pseudohemiodon laticeps from Paraguay is one of the longest-known mouth-breeding Whiptail Catfish in the hobby. It is a large species (up to 35 cm) with a broad, triangular head.</p>"
     },
     {
       "key": "distribution",
@@ -284,16 +294,40 @@
       "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "html": "<p>Because of its southern origin, Pseudohemiodon laticeps can be kept in moderately heated aquariums, since in its home country the water temperature drops to around 16°C at least during certain seasons.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "html": "<p>These Whiptail Catfish require aquariums with the largest possible floor area, as little decoration as possible, a fine sandy bottom and good water hygiene.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
       "html": "<p>Likely to be an opportunistic omnivore by nature.</p><p>In captivity some sinking dried foods may be accepted but regular meals of live or frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), etc., are essential for the maintenance of good health.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "html": "<p>All common fish foods can be used, but large live bloodworms are an ideal food for the animals.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudohemiodon-laticeps",
       "html": "<p>A paternal 'lip brooder' which has been bred in aquaria.</p><p>Post-spawning the male carries the eggs attached to his labial barbels for a period of 12-14 days after which the fry hatch with a large yolk sac attached, this being absorbed over the next 48 hours or so.</p><p>During incubation the behaviour of the male is apparently unaffected and he may burrow into the substrate with the eggs attached.</p><p>Successful captive breeding has tended to involve removing the eggs to a separate aquarium just prior to hatching.</p><p>The fry are able to accept Artemia nauplii and suchlike as soon as the yolk sac has been fully-absorbed with a yield of 15-20 considered a good number.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "html": "<p>For a long time this species was confused with the very similar, narrow-headed P. platycephalus from Brazil. Mostly both species are seen in a fawn-brown colouring with a darker wormline pattern; there are actually no colour differences between the two species.</p><p>The imports of P. sp. \"Chamaeleon\" from Peru and P. apithanos from Venezuela drew attention to the wide colour spectrum that Whiptail Catfish can show. A consignment of wild-collected P. laticeps from Paraguay includes some specimens with a dark coloration not previously known in this species. It is possible that breeders will develop a contrast-coloured strain from such animals.</p>"
     },
     {
       "key": "references",
@@ -346,9 +380,64 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/pseudohemiodon_laticeps.htm",
       "caption": "Pseudohemiodon laticeps: head view",
       "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/646e4974426e4a1a.webp",
+      "thumb": "https://media.aquatome.com/glaser/646e4974426e4a1a-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/eb6c50b646d78c65.webp",
+      "thumb": "https://media.aquatome.com/glaser/eb6c50b646d78c65-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/f1ee395c9d2484dd.webp",
+      "thumb": "https://media.aquatome.com/glaser/f1ee395c9d2484dd-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/pseudohemiodon-laticeps-2/",
+      "source": "glaser"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Nc4uBRwTIb0",
+      "title": "Pseudohemiodon Laticeps - Criador Nacional",
+      "durationSec": 346,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "SVwTez-cB-Q",
+      "title": "Exhibit 29 Pseudohemiodon laticeps",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "GGvViUOwfTE",
+      "title": "Pseudohemiodon laticeps hatching new born babys",
+      "durationSec": 26,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "y3Neh0COmHk",
+      "title": "Pseudohemiodon laticeps 9 months",
+      "durationSec": 8,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -378,5 +467,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-21"
 }

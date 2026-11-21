@@ -20,6 +20,172 @@
     "comoros",
     "madagascar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW",
+        "CN",
+        "JP",
+        "NC",
+        "ID",
+        "PH",
+        "MY",
+        "IN",
+        "KM",
+        "MG"
+      ],
+      "regions": [],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "The species is found in Taiwan, China, Japan, New Caledonia, Indonesia, the Philippines, Malaysia, India, Comoros and Madagascar.",
+          "countries": [
+            "TW",
+            "CN",
+            "JP",
+            "NC",
+            "ID",
+            "PH",
+            "MY",
+            "IN",
+            "KM",
+            "MG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4382830,
+      "total": 22,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "PH",
+          6
+        ],
+        [
+          "ID",
+          4
+        ],
+        [
+          "NC",
+          3
+        ],
+        [
+          "WF",
+          3
+        ],
+        [
+          "YT",
+          3
+        ],
+        [
+          "JP",
+          2
+        ],
+        [
+          "TW",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -177.1875,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          45,
+          -14.0625,
+          3,
+          0
+        ],
+        [
+          104.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          120.9375,
+          22.5,
+          1,
+          1
+        ],
+        [
+          122.34375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          123.75,
+          0,
+          1,
+          1
+        ],
+        [
+          123.75,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          0,
+          1,
+          1
+        ],
+        [
+          126.5625,
+          25.3125,
+          2,
+          2
+        ],
+        [
+          164.53125,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          165.9375,
+          -22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

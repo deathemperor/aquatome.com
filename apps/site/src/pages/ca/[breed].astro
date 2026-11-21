@@ -14,6 +14,7 @@ import BreedList from '../../components/BreedList.astro'
 import GlossaryTip from '../../components/GlossaryTip.astro'
 import { getContent } from '../../lib/content'
 import { creditsFor, VIDEO_CARDS } from '../../lib/credits'
+import { shareImage } from '../../lib/gallery'
 import { breedIsFish, breedKind, type Breed } from '../../lib/breeds'
 import { breedParts } from '../../lib/breed-page'
 import { dmy } from '../../lib/products'
@@ -33,7 +34,7 @@ const url = new URL(`/vi/ca/${b.t.slug}/`, Astro.site).href
 const fish = breedIsFish(c, b)
 const list = t(fish ? 'Loài cá' : 'Loài')
 const jsonld = [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined, inLanguage: lang, dateModified: b.updatedAt, image: b.photos[0]?.url, mainEntityOfPage: url, description: b.t.summary?.join(' ') },
+  { '@context': 'https://schema.org', '@type': 'Article', headline: b.t.name, alternativeHeadline: b.t.altNames.slice(0, 3).join(', ') || undefined, inLanguage: lang, dateModified: b.updatedAt, image: shareImage(b.photos), mainEntityOfPage: url, description: b.t.summary?.join(' ') },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: list, item: new URL('/vi/ca/', Astro.site).href },
     ...(parent ? [{ '@type': 'ListItem', position: 2, name: parent.name, item: new URL(parent.href, Astro.site).href }] : []),
@@ -44,7 +45,7 @@ const jsonld = [
 const title = t('{name}: nguồn gốc, cách nuôi, chọn mua', { name: b.t.name })
 const alternates = await alternatesOf('breeds', b.id)
 ---
-<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={b.photos[0]?.url} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...linePhotos, ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
+<Base title={`${title} — AquaTome`} description={b.t.summary?.join(' ')} image={shareImage(b.photos)} noindex={!b.t.quality.indexable} jsonld={jsonld} alternates={alternates} credits={creditsFor([...strip, ...linePhotos, ...videoPhotos.slice(0, VIDEO_CARDS)].map(p => p ?? undefined))}>
   <Nav slot="header" />
   <nav class="wrap crumb" aria-label={t('Đường dẫn')}>
     <a href="/vi/ca/">{list}</a>{parent && <> / <a href={parent.href}>{parent.name}</a></>}

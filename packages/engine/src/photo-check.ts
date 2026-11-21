@@ -26,10 +26,12 @@ type Photo = { url: string; caption?: string; author?: string; authorUrl?: strin
  * Does the photo show its page's subject: yes (in the wild too, where it is clearly seen); another species, breed or
  * variety (`note` says which); not a photo of the subject at all (a map, chart, hands, a tank, a packshot, a landscape or
  * stream where it can't be picked out); a dead fish or fish as food (`dead`: a market, a plate, a catch landed or held, a
- * preserved or museum specimen); or can't tell. `no` is the first check's verdict (before 2026-11-02), which didn't tell
+ * fish on a hook or a line, in the water or not (the chief of staff, 20 Nov 2026), a preserved or museum specimen); or
+ * can't tell. `no` is the first check's verdict (before 2026-11-02), which didn't tell
  * the two apart; `habitat` is the check's before 2026-11-07, "its wild place, with or without it", kept on the page, so a
  * lake with no fish led the firemouth's page and cards. `logo`: a stamp, logo or mark added on the photo, which the
- * watermark step's text reader can miss (since 2026-11-05). `person`: a person or any part of one in the photo; every
+ * watermark step's text reader can miss (since 2026-11-05). `person`: a person or any part of one in the photo, or one
+ * seen reflected in the glass where a person can be made out (the chief of staff, 20 Nov 2026); every
  * verdict since 2026-11-07 has it, so one without it is from before the check asked about people, and is asked again.
  * `guide`: judged against a guide photo's caption, which lets other fish into the shot, so it doesn't stand for the page's
  * own stricter look. `file`: "other" from the photo's Commons file name, which names another species with a page
@@ -143,14 +145,14 @@ export const subjectPrompt = (s: Subject, captions: (string | undefined)[] = [])
     : 'its colour forms, sexes and young count as it')
   return `Numbered photos from the page about ${what} in an aquarium handbook.
 For each photo n:
-- ok: "dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up, a fish lying on a tray, a board or the floor; a preserved, mounted, museum or lab specimen (for a snail, an empty museum shell; for a plant, a pressed herbarium sheet). When you can't tell whether it is alive, it is "dead". Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.
+- ok: "dead" if it shows a dead fish or other animal, or fish as food, whatever the species: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a catch landed or held up, a fish lying on a tray, a board or the floor; a preserved, mounted, museum or lab specimen (for a snail, an empty museum shell; for a plant, a pressed herbarium sheet). A fish on a hook or a line, in the water or not, is a catch: dead. When you can't tell whether it is alive, it is "dead". Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish on no hook or line, held briefly in a net or a bag.
   "yes" if it clearly shows the page's subject as the main subject (a group of it counts, and so does it in the wild where it is clearly seen; ${form}).
   "other" if the main subject is a different species, breed or variety. Look-alikes count: tell them apart by their marks (neon tetra from green neon or cardinal tetra, cherry barb from rosy or tiger barb).
   "none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people, a landscape or wild place (a river, stream, lake, swamp or shore) where it can't be picked out, a tank or aquascape where it can't be picked out, equipment, a product packshot.
   "unsure" if you cannot tell (a species you do not know well, a poor or distant view, a look-alike you cannot rule out).
 - typical: true if it shows the ordinary look of the subject (adult, clear view; for a species, the wild type); false otherwise, and for "dead".
 - young: true if the main subject is young: fry, a juvenile, or one still in its young colours or shape, not yet grown; false if grown, if you cannot tell its age, and for a plant.
-- person: true if a person or any part of one is in the photo: a hand or fingers (holding it, planting it, in the shot), an arm, a foot, a face, a diver, even small, cut off at the edge, blurred or behind the glass; false if not.
+- person: true if a person or any part of one is in the photo: a hand or fingers (holding it, planting it, in the shot), an arm, a foot, a face, a diver, even small, cut off at the edge, blurred or behind the glass; a person seen reflected in the glass, where a person can be made out; false if not.
 - logo: true if a logo, stamp, watermark, signature or text was added on top of the photo after it was taken, even small or faint, round, in a corner, in any script, with or without readable letters; false if not. Text in the scene (a label on a tank, a specimen tag) is not added.
 - note: a few words on what it shows (for "other": what it is instead, e.g. "neon tetra: red stripe runs only half the body"; for "dead": what makes it so, e.g. "dead fish on ice at a market"; with a person, what of them, e.g. "fish held in a hand"; with a logo, what and where, e.g. "round logo bottom left").${captions.some(Boolean) ? `
 Some photos are from a guide, with this caption: ${captions.flatMap((c, i) => (c ? [`${i + 1}: "${c.slice(0, 160)}"`] : [])).join('; ')}. Judge these against their caption instead: "yes" if the photo shows what the caption says about the page's subject (any form of it counts, other fish or plants may be in the shot too); "other" only if it shows a different fish or plant where the caption names the subject; "unsure" if the caption is about something else. "dead", person and logo hold for these as for any photo.` : ''}`
@@ -378,8 +380,9 @@ const sameUploader = (a: Shown, b: Shown) =>
  * 2. photos that wait (`unchecked`) on a page with no photo of its own, which they would fill;
  * 3. the other photos that wait;
  * 4. non-commercial album photos that wait (iNaturalist's, IMAGE_SWITCHES.inatNonCommercial): they rank last in their
- *    album and never give a page its head, so they wait behind every other photo, a page with none too (the chief of
- *    staff, 2026-11-17, with up to 1,200 of them a cycle), but for those on a page that shows no strip (below).
+ *    album, so they wait behind every other photo (the chief of staff, 2026-11-17, with up to 1,200 of them a cycle), but
+ *    for those on a page with no photo of its own, which one may lead where it's the one way to show that fish, and
+ *    those on a page that shows no strip (below).
  *
  * Before all of them, a share of each run (`fill` sheets): a permitted source's own photos in the gallery of a page that
  * has none, which give that page its first photo once judged (Tropica's on the plant pages with none: the chief of
@@ -388,7 +391,8 @@ const sameUploader = (a: Shown, b: Shown) =>
  * And before the turns (the chief of staff, 2026-11-11, after the owner found a parasite paper's plate as a page's only
  * photo, which the check had not reached in three days): a page's lead that neither check has looked at, from Flickr and
  * Commons first, then from the other sources; then the gallery of a page with no photo of its own, which gives it one
- * once judged. A lead's sheet is filled with its page's other photos, as any sheet is.
+ * once judged, its open photos and then its non-commercial ones (the chief of staff's rule, 17 Nov: the first-photo
+ * turn). A lead's sheet is filled with its page's other photos, as any sheet is.
  *
  * Then, still before the turns (the chief of staff, 2026-11-19): the photos that wait on a page that shows no strip, its
  * album showing fewer than ALBUM photos, which may give it one once judged, the open ones first, then the non-commercial
@@ -435,11 +439,20 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source' | 'nc'>): 0 | 1 
  * out part empty.
  * `limit`: model calls this run, but for an uploader's album photos (above); stops on a model failure (usage limit, the
  * step's daily line), and the rest wait. `fill`: how many of them go
- * first to a source's photos that fill a page with none (`turn`).
+ * first to a source's photos that fill a page with none (`turn`). `ncShare`: at most this many of a run's sheets go to
+ * the non-commercial photos on pages with no photo of their own (`bareNc`, BARE_NC_SHARE).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
+/**
+ * A run's share for the non-commercial photos that wait on pages with no photo of their own (`bareNc`), built like the
+ * first-photo share: the rest of the run goes on to the strip pages and the turns. Each such page takes a sheet of its
+ * own, and the album step tops them up every cycle, so with no share they could take every sheet left, run after run
+ * (a reader's point; the chief of staff, 20 Nov).
+ */
+export const BARE_NC_SHARE = 20
+
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; ncShare?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string>; emptyCap?: number; retryAfterMs?: number }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
@@ -510,9 +523,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       let place = 0
       for (const [i, p] of photos.entries()) {
         const origin = p.source ?? site(p.sourceUrl)
-        // A non-commercial album photo fills no page that has none: it can't be a head (turn).
+        // A non-commercial album photo fills a page that has none only where it's the one way to show that fish
+        // (lead-photo.ts): it is judged in the first-photo turn, after that page's open ones (`bareNc`).
         const nc = file.includes('/gallery/') && isNonCommercial(p.licence ?? '')
-        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true, ...(short ? { short: true } : {}) } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') && !nc ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(origin ? { origin } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true, ...(short ? { short: true } : {}) } : {}), ...(nc ? { nc: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
         // A photo that waits is on no page, so it takes no place in the strip.
         if (p.unchecked !== true) place++
       }
@@ -572,26 +586,30 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
   const onPage = new Map<string, Shown[]>()
   for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
+  // Sheets this run has given the non-commercial photos on pages with no photo of their own, across both queues.
+  let ncTaken = 0
   const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
     // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
-    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), the photos
-    // that wait on a page with no strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in
-    // order.
-    const phase = (x: Shown, now: 'aside' | 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
+    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`: the open ones,
+    // `bareNc`: the non-commercial ones, the chief of staff's rule of 17 Nov), the photos that wait on a page with no
+    // strip (`short`: the open ones, `shortNc`: the non-commercial ones), and each turn in order.
+    const phase = (x: Shown, now: 'aside' | 'noAnimal' | 'first' | 'lead0' | 'lead1' | 'bare' | 'bareNc' | 'short' | 'shortNc' | 0 | 1 | 2 | 3 | 4) =>
       now === 'aside' ? `${x.page} ${x.url}` in asideBefore
       : now === 'noAnimal' ? noAnimal(x)
       : now === 'first' ? !!x.sourced
       : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
-      : now === 'bare' ? !!x.bare
-      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc')
+      : now === 'bare' || now === 'bareNc' ? !!x.bare && !!x.nc === (now === 'bareNc')
+      // A non-commercial photo on a page with no photo of its own is judged in its share (`bareNc`) or in the last turn,
+      // never here, past its share (a reader's point, 20 Nov).
+      : now === 'short' || now === 'shortNc' ? !!x.short && !!x.nc === (now === 'shortNc') && !(x.nc && x.bare)
       : turn(x) === now
     // A sheet set aside last run goes first (the chief of staff, 19 Nov); then a head with no animal in it, before the
     // rest: a page whose head is a river should not wait (the chief of staff, 2026-11-12). The source's share (`fill`) counts from where its own turn starts.
     let firstAt = from
-    for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
+    for (const now of ['aside', 'noAnimal', 'first', 'lead0', 'lead1', 'bare', 'bareNc', 'short', 'shortNc', 0, 1, 2, 3, 4] as const) for (const later of [false, true]) for (const s of all) {
       if (now === 'first' && !later && s === all[0]) firstAt = sheets.length
-      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill)) break
+      if (sheets.length >= o.limit || (now === 'first' && sheets.length - firstAt >= fill) || (now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE))) break
       if (only && !only.has(s.id)) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
@@ -609,8 +627,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const album = (x: Shown) => Number(!lead || !x.file.endsWith('entity.json'))
       const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => album(a) - album(b) || turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
       const todo = [...first, ...more]
-      for (const u of todo) queued.add(`${s.id}\n${u}`)
-      for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
+      // The share ends at its last sheet, a page's next sheets too. A photo is taken for this run only with its sheet, so
+      // one a share leaves out still comes in its later turn (a reader's point, 20 Nov).
+      for (let i = 0; i < todo.length && sheets.length < o.limit && !(now === 'bareNc' && ncTaken >= (o.ncShare ?? BARE_NC_SHARE)); i += PER_SHEET) {
+        const urls = todo.slice(i, i + PER_SHEET)
+        for (const u of urls) queued.add(`${s.id}\n${u}`)
+        sheets.push({ s, urls })
+        if (now === 'bareNc') ncTaken++
+      }
     }
     return sheets.slice(from).map((x, i) => ({ ...x, i: from + i }))
   }

@@ -3,6 +3,12 @@
   "name": "คืยซึลอุงกูกีร์",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.3,
+    "at": "2026-11-21T01:20:00.107Z",
+    "why": "The Thai name lacks the kind word \"แม่น้ำ\" (river), and \"คืยซึลอุงกูกีร์\" is an odd transliteration (Kyzyl is usually \"คึซึล/คิซิล\"), so it doesn't read as a proper atlas name."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true

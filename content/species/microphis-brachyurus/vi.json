@@ -1,0 +1,27 @@
+{
+  "slug": "ca-chia-voi-nuoc-ngot-duoi-ngan",
+  "name": "Cá chìa vôi nước ngọt đuôi ngắn",
+  "altNames": [
+    "Short-tailed freshwater pipefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá chìa vôi nước ngọt đuôi ngắn (Microphis brachyurus) được mô tả từ mẫu ở Indonesia. Suốt một thời gian dài, người ta tưởng đây là loài sống khắp thế giới, và quần thể ở mỗi vùng chỉ khác nhau chút ít, đủ để tách thành phân loài. Vì thế M. lineatus và M. aculeatus từng bị xếp làm phân loài của M. brachyurus. Ngày nay cả ba đều là loài riêng.</p><p>Có những con M. brachyurus mang một sọc đỏ đậm trên một phần ba thân phía trước. Sọc này có thể có ở cả con đực lẫn con cái, và đến nay vẫn chưa ai rõ nó mang ý nghĩa gì.</p>",
+    "dimorphism:glaser": "<p>Con đực dễ nhận ra nhờ túi ấp trứng ở bụng.</p>",
+    "reproduction:glaser": "<p>Cá lớn M. brachyurus sống trong nước ngọt, và cá con tí hon cũng nở ra ở đó. Nhưng chỉ trong 2–3 ngày, cá con đã trôi ra biển. Chúng sống lẫn trong sinh vật phù du một thời gian rồi mới bơi ngược về nước ngọt. Theo những gì đã biết, chưa ai cho loài này đẻ thành công trong nước ngọt.</p>",
+    "behaviour:glaser": "<p>Trong một đợt cá nhập gần đây, người ta đã thấy cá đực tán tỉnh cá cái. Lúc đó mõm và túi ấp trứng của nó đen kịt lại chỉ trong chớp mắt. Rồi cũng nhanh như vậy, con đực có thể tắt màu đen đó đi.</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.88
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-21"
+  }
+}

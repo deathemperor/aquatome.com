@@ -22,10 +22,12 @@
       ],
       "regions": [
         "Rio Negro",
-        "Casiquiare Canal"
+        "Casiquiare",
+        "Rio Casiquiare"
       ],
       "sources": [
         "planetcatfish",
+        "glaser",
         "scotcat"
       ],
       "quotes": [
@@ -38,7 +40,15 @@
           ],
           "regions": [
             "Rio Negro",
-            "Casiquiare Canal"
+            "Casiquiare"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Except for the area of origin, the appearance fits very well to L. cataniai, which was described from the Rio Casiquiare, the connecting river of Orinoco and Rio Negro.",
+          "countries": [],
+          "regions": [
+            "Rio Casiquiare"
           ]
         }
       ]

@@ -12,6 +12,70 @@
     "paraguacu-river-basin",
     "rio-pratinha-iraquara-bahia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraguaçu",
+        "Chapada Diamantina"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Loài này là cá bản địa vùng đông bắc Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquatome",
+          "quote": "Các mẫu đầu tiên được thu ở Rio Pratinha, một nhánh ngắn thuộc thượng nguồn lưu vực sông Paraguaçu, nằm trong vùng Chapada Diamantina ở miền đông bắc bán khô hạn của Brazil.",
+          "countries": [],
+          "regions": [
+            "Paraguaçu",
+            "Chapada Diamantina"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354535,
+      "total": 8,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "BR",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -42.1875,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -42.1875,
+          -12.65625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

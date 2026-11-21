@@ -1055,13 +1055,13 @@ test('the two kits and the quarantine video are off for good, each to the page i
 // test/fixtures/held-video-fixes.json: what went, and what stands in its place.
 const handFixesHold = (fixture: string, prefix = 'youtube-') => {
   const root = fileURLToPath(new URL('../../../content/guides', import.meta.url))
-  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL(`./fixtures/${fixture}`, import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq'; gone?: string; now?: string }[]>
+  const fixes = JSON.parse(readFileSync(fileURLToPath(new URL(`./fixtures/${fixture}`, import.meta.url)), 'utf8')) as Record<string, { in: 'body' | 'summary' | 'faq' | 'faqQ'; gone?: string; now?: string }[]>
   for (const [id, edits] of Object.entries(fixes)) {
     const t = JSON.parse(readFileSync(join(root, `${prefix}${id}`, 'vi.json'), 'utf8')) as { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; faqFixed?: boolean }
     expect(t.bodyFixed, id).toBe(true)
-    const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n') }
+    const text = { body: t.body, summary: (t.summary ?? []).join('\n'), faq: (t.faq ?? []).map(q => q.a).join('\n'), faqQ: (t.faq ?? []).map(q => q.q).join('\n') }
     for (const e of edits) {
-      if (e.in === 'faq') expect(t.faqFixed, id).toBe(true)
+      if (e.in === 'faq' || e.in === 'faqQ') expect(t.faqFixed, id).toBe(true)
       if (e.gone) expect(text[e.in], `${id}: ${e.gone}`).not.toContain(e.gone)
       if (e.now) expect(text[e.in], `${id}: ${e.now}`).toContain(e.now)
     }
@@ -1076,18 +1076,35 @@ test('the hand fixes to the 17 held video guides hold: each cut line is gone, ea
 // so no run takes them back (test/fixtures/mend-fixes-1120.json).
 test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", () => handFixesHold('mend-fixes-1120.json'))
 
-// The morning check of 20 Nov 2026: four things the night's steps took from guides, put back by hand as they stood (the
-// chief of staff): the Endlers guide's condition and another guide's hedge, which the cutter took; the rummynose guide's
-// warning, with its section and summary line, which the topic check took; the egg scatterers' frame step, which the
-// reader-fit rewrite took. Each guide is bodyFixed, which keeps its summary too, so no run takes them out again
-// (test/fixtures/net-putbacks-1120.json, by each guide's whole id).
-test('the four things the night of 19 Nov took from guides are back', () => handFixesHold('net-putbacks-1120.json', ''))
+// The morning check of 20 Nov 2026 found four things the night's steps took from guides (the Endlers guide's condition and
+// another's hedge, which the cutter took; the rummynose guide's warning, which the topic check took; the egg scatterers'
+// frame step, which the reader-fit rewrite took). They came back as they stood, then in the Writing Lead's words of the
+// same day, with its answer on every finding standing on each guide: what was done said as done with its condition, the
+// keeper's hedge kept as the keeper's, the shop's own captions and shopping out. Each guide is bodyFixed, and faqFixed
+// where its FAQ changed; each stays held until the gate's read lets it out (test/fixtures/guarded-four-1120.json, by each
+// guide's whole id).
+test("the Writing Lead's words hold on the four guides the night of 19 Nov cut", () => handFixesHold('guarded-four-1120.json', ''))
 
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
 // bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
 // the list of guides where a step the video took had become advice. Each guide is bodyFixed, and faqFixed where its FAQ
 // changed (test/fixtures/mend-fixes-1120-rest.json).
 test("the Writing Lead's lines of 20 Nov hold on eight more guides", () => handFixesHold('mend-fixes-1120-rest.json'))
+
+// The Writing Lead's answers of 20 Nov 2026 on two guides of ours and two video guides (the chief of staff): the live-food
+// guide's survey figure said whose it is, the substrate guide's 8 cm back as the maker's example, and two sections the
+// rewrite dropped back whole, the 24-hour light's warning with its question second in the FAQ, and the white clouds'
+// breeding (test/fixtures/held-dropped-1120.json). Each Vietnamese body guarded; the light guide's FAQ too.
+test("the Writing Lead's answers on two guides of ours and two video guides hold", () => {
+  handFixesHold('held-dropped-1120.json', '')
+  const light = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-FqNP9rxudYs/vi.json', import.meta.url)), 'utf8')) as { faq: { q: string; a: string }[] }
+  const fixture = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-dropped-1120.json', import.meta.url)), 'utf8')) as Record<string, { in: string; now?: string }[]>
+  const answer = fixture['youtube-FqNP9rxudYs']!.find(e => e.in === 'faq')?.now
+  // The question and its answer, as one pair, second in the FAQ: the helper reads all answers together.
+  expect(light.faq[1]?.q).toBe('Bể mới trồng cây để đèn sáng cả đêm có hại không?')
+  expect(answer).toBeTruthy()
+  expect(light.faq[1]?.a).toContain(answer)
+})
 
 // The Writing Lead, 15 Nov 2026, on the rainbowfish guide's label ("Bể cầu vồng của …"): no video guide's label, the
 // words over its thumbnail, names the person in the video or the channel.
@@ -1099,6 +1116,39 @@ test('no video guide\'s label names a person or the channel', () => {
     return cover && namesSomeone(cover, video?.channel) ? [id] : []
   })
   expect(named).toEqual([])
+})
+
+// The read of the cutter's 17 cuts (20 Nov 2026): five took something nothing else on the page carried. Each is back in
+// the Writing Lead's words, said as the keeper's, and the goldfish guide's summary and FAQ keep to what the keeper saw in
+// two tanks (test/fixtures/cutter-answers-1120.json). Each body guarded; the goldfish guide's FAQ too.
+test("the Writing Lead's answers to five of the cutter's cuts hold", () => {
+  handFixesHold('cutter-answers-1120.json')
+  // Each where the Lead put it (#1721's reader): the check above would pass a passage moved whole within its field.
+  const fixture = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/cutter-answers-1120.json', import.meta.url)), 'utf8')) as Record<string, { in: string; now?: string }[]>
+  const guide = (id: string) => JSON.parse(readFileSync(fileURLToPath(new URL(`../../../content/guides/youtube-${id}/vi.json`, import.meta.url)), 'utf8')) as { body: string; summary: string[]; faq: { q: string; a: string }[] }
+  // What stands just before each new body passage, in the fixture's order ('' = the page's opening).
+  const before: Record<string, string[]> = {
+    '3jqe5KGD9lI': ['Nếu ít tiền thì đèn LED loại dùng cho nhà xưởng cũng là một lựa chọn. '],
+    '6MVlcgTchtE': ['những cây không đòi nhiều dinh dưỡng, ít phải chăm và '],
+    'LiotY1HIneo': ['Có thể giữ nguyên cục chì ở gốc khi trồng, vì ráy kiếm có chì vẫn lên tốt. '],
+    'N_35ut9PWGM': ['Khi cây cao thì cắt tỉa rồi cắm lại ngọn ', 'Cây lên màu xanh tươi và mọc tốt. '],
+    '5yH835oMU04': [''],
+  }
+  for (const [id, entries] of Object.entries(fixture)) {
+    const g = guide(id)
+    const bodies = entries.filter(e => e.in === 'body' && e.now).map(e => e.now!)
+    const want = before[id] ?? []
+    expect(bodies.length, id).toBe(want.length)
+    bodies.forEach((now, i) => {
+      const at = g.body.indexOf(now), b = want[i] ?? ''
+      expect(g.body.slice(0, at).endsWith(b) && (b !== '' || at === 0), `${id}: ${now}`).toBe(true)
+    })
+  }
+  const goldfish = guide('N_35ut9PWGM')
+  const said = (where: string) => fixture['N_35ut9PWGM']!.find(e => e.in === where)!.now!
+  expect(goldfish.summary[3]).toContain(said('summary'))
+  expect(goldfish.faq[2]?.q).toBe('Nuôi cá vàng thì trồng cây gì để không bị phá?')
+  expect(goldfish.faq[2]?.a).toContain(said('faq'))
 })
 
 // The chief of staff, 15 Nov 2026: care facts the lane's whole-sentence cuts would take go on hand-fixed text first, so
@@ -1128,6 +1178,11 @@ test('the care facts the lane would cut whole are on hand-fixed text: a temperat
     for (const s of gone) expect(t.body, `${guide}: ${s}`).not.toContain(s)
   }
 })
+
+// The cutter's read of 20 Nov 2026 (the chief of staff): the Thai micro crab guide lost the one size it gives for the
+// unfiltered bowl the crabs live in, cut 15 Nov for the maker's voice. Back in the Writing Lead's house form, which
+// answers that source finding, the body guarded, the page open (test/fixtures/crab-bowl-1120.json).
+test("the crab bowl's 13 litres are back on the Thai micro crab guide", () => handFixesHold('crab-bowl-1120.json'))
 
 // Page Recovery, 16 Nov 2026 (the chief of staff): the leak-repair guide sent a keeper here to seven American silicones and
 // super glues by name, none in the market table, so no check of the gate saw them; it was held by hand. The Writing

@@ -586,6 +586,24 @@
       "\"ต้นไม้มาเป็นกำ\": \"มา\" is a small addition (it implies the plants are sold that way). Consider \"ไม้น้ำที่เป็นกำ...\"."
     ]
   },
+  "cabomba-furcata": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "คาบอมบ้าแดง",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"ข้อปล้อง\" is a bit stiff; hobbyists usually say \"ปล้อง\" or \"ระยะห่างระหว่างข้อ\" (minor).",
+      "\"ยอดเล็กลง\" for \"smaller crowns\" is slightly vague; \"ยอดมีขนาดเล็กลง/กอยอดเล็กลง\" would be clearer (minor).",
+      "\"ใบแยกเป็นแฉกเล็ก ๆ ละเอียด\" is acceptable but \"ใบแตกเป็นฝอยละเอียด\" is more natural (minor).",
+      "\"aggressive amount of light\" is rendered \"แสงจัดมาก\"; fine, but the 'umols' → 'µmol/m²/s' expansion adds unit detail not in the source (minor)."
+    ],
+    "parts": {
+      "quickFacts:2hraquarist": "9c74b81d21a2",
+      "maintenance:2hraquarist": "1be9bcc7d10e",
+      "notes:2hraquarist": "79323d5a2ef5"
+    }
+  },
   "cabomba-sp": {
     "at": "2026-11-17",
     "from": "2026-11-17",
@@ -1957,21 +1975,41 @@
     ]
   },
   "microsorum-pteropus": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-21",
+    "from": "2026-11-20",
     "name": "เฟิร์นชวา",
     "confidence": "high",
     "score": 0.6,
     "notes": [
-      "Item 5: 'aquarists have forgotten it for several weeks in a bucket and it still lived' is rendered as 'ลืมทิ้งไว้ในถังหลายสัปดาห์ก็ยังไม่ตาย', which loses 'it still lived'. 'คนเลี้ยงปลา' is also too narrow for 'aquarists'. Say 'นักเลี้ยงไม้น้ำ' and make clear the plant survived.",
-      "Item 5: 'Low to medium-high light is perfect' is rendered 'น้อยถึงค่อนข้างมากถือว่าเหมาะที่สุด'. 'ค่อนข้างมาก' is vague, so use 'ปานกลางถึงค่อนข้างสูง'. 'burn or melt' should be 'ใบไหม้หรือเน่าเละ/ละลาย'. 'ใบ' is added to the Thai, though it is acceptable.",
-      "Item 3: 'The author's favourite method' is rendered 'วิธีที่ชอบใช้กัน', which turns one person's preference into a general one. Use a neutral form such as 'วิธีที่แนะนำคือ'.",
-      "Item 3: 'a dish of water' is rendered 'ถาดน้ำ'. 'ภาชนะใส่น้ำตื้น ๆ' is more natural. 'tie it onto wood' is rendered 'ขอนไม้', which is fine. 'algae eaters' is rendered 'ปลาและสัตว์กินตะไคร่', where 'สัตว์' is added. 'Crew' loses the idea of a group of algae eaters.",
-      "Item 3: 'if algae wins' is rendered 'หากตะไคร่ชนะ', which is literal. Use 'หากตะไคร่เข้ายึดครอง/ลุกลามหนัก'.",
-      "Item 1: 'Other varieties' is rendered 'สายพันธุ์อื่น'. Use 'พันธุ์/วาไรตี้' for variety, and consider giving Thai names for Trident (เฟิร์นชวาทริเดนท์) and Narrow Leaf (เฟิร์นชวาใบเล็ก). 'Java Fern' is rendered 'เฟิร์นชวา' (fine).",
-      "Item 2: 'Origin: cultivar' is rendered 'แหล่งที่มา: พันธุ์ปลูกคัดเลือก'. 'ที่มา: พันธุ์ปลูกเลี้ยง (cultivar)' is more natural. The Thai also adds 'ลงตู้ได้สองเดือน', which is fine.",
-      "Item 4: 'herbivorous fish will not eat it' is translated correctly, but 'ปลากินพืชจะไม่กิน' is too absolute. Use 'ปลากินพืชมักไม่กิน'."
-    ]
+      "#12 'ปลาออสก้า' is fine, but 'หอยขมญี่ปุ่น' for Japanese trapdoor snail is questionable; use 'หอยฝาปิดญี่ปุ่น' or keep the English name.",
+      "#11 'ถัง' (bucket) is OK, but 'แสงน้อยถึงค่อนข้างมาก' for 'low to medium-high' is vague; use 'แสงน้อยถึงปานกลางค่อนสูง'.",
+      "#7 'สาหร่ายใบพาย (Vallisneria)' is wrong: Vallisneria is usually called 'วัลลิสเนเรีย' or 'ใบมีด/สาหร่ายหางกระรอก'; not 'ใบพาย'.",
+      "#7 'The author's favourite method' became 'อีกวิธีหนึ่งคือ': the 'favourite' nuance is lost; also 'ปลาที่ชอบตอด' for nippy fish is fine, but 'ทีมปลา' for 'crew of algae eaters' is awkward.",
+      "#9 Quarantine: 'หอย' as pest is OK, but 'ปรสิต ศัตรูพืช' is fine. 'ตัวอ่อนแมลงปอเข็ม' is fine. 'ผูกหรือติดเหง้า' is OK.",
+      "#16 'อายุได้ถึง 2 ปี' kept; 'ใบเว้าเป็นแฉกคล้ายขนนกและแยกเป็นง่ามคล้ายสามง่าม' is clumsy.",
+      "#1 'Needle Leaf', 'Narrow Leaf', 'Trident' left in English; use the established Thai trade forms like 'เฟิร์นชวาใบเข็ม/ใบแคบ' or add transliteration.",
+      "#3 'dKH' used for the hardness unit; the English also used it, so fine, but #3 'ต้นอ่อนที่งอกจากใบ' is OK.",
+      "#4 'พบกระจายอยู่ทั่วไปในเขตร้อนของเอเชียตะวันออกเฉียงใต้' is fine; but 'สายพันธุ์ตามถิ่นที่อยู่' for 'geographical varieties' is slightly loose.",
+      "#1 'สายพันธุ์อื่น ๆ' for 'varieties' and the claim 'one of the world's most widely used' reading 'แพร่หลายที่สุดในโลก' turns 'one of the most' into near-superlative; keep it softer."
+    ],
+    "parts": {
+      "quickFacts:aquariumcoop": "6bcf2166a992",
+      "quickFacts:tropica": "a7149f4500ca",
+      "quickFacts:aquariumbreeder": "4b67a7e0bba1",
+      "distribution:aquariumbreeder": "35d0ed39deaa",
+      "habitat:aquariumbreeder": "2675f5165117",
+      "aquariumSize:aquariumbreeder": "1de66aed8c0e",
+      "maintenance:aquariumcoop": "052ba487355e",
+      "maintenance:tropica": "dc99c6df5692",
+      "maintenance:aquariumbreeder": "949d248a4a75",
+      "waterConditions:aquariumbreeder": "127cce48dcee",
+      "equipment:aquariumcoop": "5d2099ea38b1",
+      "behaviour:aquariumbreeder": "2f25ad2a6255",
+      "reproduction:aquariumcoop": "2e1f91cf5aa3",
+      "notes:aquariumcoop": "947a0d98f7a0",
+      "notes:tropica": "b734195ea119",
+      "notes:aquariumbreeder": "ce35473c445a"
+    }
   },
   "microsorum-pteropus-narrow": {
     "at": "2026-11-08",
@@ -2251,6 +2289,24 @@
       "reproduction:aquariumbreeder": "298da21280b6",
       "notes:aquariumbreeder": "7d46c69258b3",
       "maintenance:aquatome": "93eaabd38bf6"
+    }
+  },
+  "pistia-stratiotes": {
+    "at": "2026-11-21",
+    "from": "2026-11-20",
+    "name": "จอกแคระ",
+    "confidence": "medium",
+    "score": 0.93,
+    "notes": [],
+    "parts": {
+      "quickFacts:aquariumbreeder": "3eb80a8a1e48",
+      "distribution:aquariumbreeder": "db39b6147851",
+      "aquariumSize:aquariumbreeder": "663e05138600",
+      "maintenance:aquariumbreeder": "b42da1c29bf2",
+      "waterConditions:aquariumbreeder": "5ab34853ef5b",
+      "equipment:aquariumbreeder": "99af1c617753",
+      "reproduction:aquariumbreeder": "96034b16044b",
+      "notes:aquariumbreeder": "28b4fc2db8bc"
     }
   },
   "plagiomnium-sp-thyme-moss": {

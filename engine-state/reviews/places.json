@@ -4131,6 +4131,18 @@
       "kept": true
     }
   ],
+  "id/places/eastern-africa": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/eastern-himalayas": [
     {
       "at": "2026-11-14T16:53:33Z",
@@ -10865,6 +10877,18 @@
       "kept": true
     }
   ],
+  "id/places/nam-theun": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nam-youan": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -11911,6 +11935,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/paraguacu-river-basin": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -13890,6 +13926,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-itayi": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "rio-itayi: \"Itaya\" differs from source \"Itayi\" (the Peruvian river is Itaya, but the name is inconsistent with the input)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-itenez": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -14375,6 +14425,20 @@
       "kept": true
     }
   ],
+  "id/places/rio-orteguasa": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "rio-orteguasa: \"Orteguaza\" differs from source \"Orteguasa\" (the Colombian river is spelled Orteguaza; the spelling is inconsistent with the input)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-orteguaza": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -14646,6 +14710,20 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-pratinha-iraquara-bahia": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "rio-pratinha-iraquara-bahia: \"Pratinha, Iraquara, Bahia\" lacks the Indonesian generic \"Sungai\" (should be \"Sungai Pratinha, Iraquara, Bahia\")"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -15319,6 +15397,20 @@
       "kept": true
     }
   ],
+  "id/places/river-pacaya": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "river-pacaya: \"Pacaya\" lacks the Indonesian generic \"Sungai\" (should be \"Sungai Pacaya\")"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/river-patuca": [
     {
       "at": "2026-11-09T00:08:05Z",
@@ -15978,6 +16070,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/santander": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -17027,6 +17131,18 @@
       "kept": true
     }
   ],
+  "id/places/sufia": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sulawesi-tenggara": [
     {
       "at": "2026-11-09T15:40:54Z",
@@ -17738,6 +17854,20 @@
       "score": 0.4,
       "notes": [
         "Ky Cung, Songhua, Thai Binh, Tra Khuc, Ve: river names lacking \"Sungai\"; Songhua should be \"Sungai Songhua\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/thai-malay-peninsula": [
+    {
+      "at": "2026-11-21T00:28:22Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.6,
+      "notes": [
+        "thai-malay-peninsula: \"Semenanjung Malaya\" is imprecise for this region; the Indonesian name for the Thai-Malay peninsula is \"Semenanjung Malaya\" but the Thai-Malay Peninsula is usually \"Semenanjung Malaya\" or \"Semenanjung Thai-Melayu\""
       ],
       "attempt": "first",
       "kept": true
@@ -23984,6 +24114,18 @@
       "notes": [
         "đảo Phục Sinh (Vietnamese, not Malay)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/eastern-africa": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -31097,6 +31239,18 @@
       "kept": true
     }
   ],
+  "ms/places/nam-theun": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/nam-youan": [
     {
       "at": "2026-11-08T12:45:45Z",
@@ -32094,6 +32248,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/paraguacu-river-basin": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -34494,6 +34660,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-itayi": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Itayi (for sông Itayi): river name lacks the Malay generic word; should be \"Sungai Itayi\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-itenez": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -35046,6 +35226,20 @@
       "kept": true
     }
   ],
+  "ms/places/rio-orteguasa": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Orteguasa (for sông Orteguasa): should be \"Sungai Orteguasa\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/rio-orteguaza": [
     {
       "at": "2026-11-08T12:46:22Z",
@@ -35348,6 +35542,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/rio-pratinha-iraquara-bahia": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Pratinha, Iraquara, Bahia (for sông Pratinha, Iraquara, Bahia): should be \"Sungai Pratinha, Iraquara, Bahia\""
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -36125,6 +36333,20 @@
       "kept": true
     }
   ],
+  "ms/places/river-pacaya": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Pacaya (for sông Pacaya): should be \"Sungai Pacaya\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/river-patuca": [
     {
       "at": "2026-11-09T00:52:35Z",
@@ -36863,6 +37085,18 @@
       "ran": "claude-sonnet-5-5",
       "cli": "2.1.322",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/santander": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -37852,6 +38086,18 @@
       "kept": true
     }
   ],
+  "ms/places/sufia": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "ms/places/sulawesi-tenggara": [
     {
       "at": "2026-11-10T10:08:07Z",
@@ -38540,6 +38786,20 @@
       "score": 0.3,
       "notes": [
         "'Ky Cung' and 'Thai Binh' are Vietnamese names without Sungai and lacking diacritics; Malay would be Sungai Ky Cung / Sungai Thai Binh"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "ms/places/thai-malay-peninsula": [
+    {
+      "at": "2026-11-21T01:01:57Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.55,
+      "notes": [
+        "Semenanjung Tanah Melayu for Thai-Malay Peninsula: acceptable but \"Semenanjung Tanah Melayu\" is OK; other items fine"
       ],
       "attempt": "first",
       "kept": true
@@ -44825,6 +45085,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/eastern-africa": [
+    {
+      "at": "2026-11-21T00:40:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
     }
   ],
   "th/places/eastern-himalayas": [
@@ -51946,6 +52223,25 @@
       "kept": true
     }
   ],
+  "th/places/nam-theun": [
+    {
+      "at": "2026-11-21T00:40:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "น้ำเทิน (Nam Theun): correct"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    }
+  ],
   "th/places/nam-youan": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -53063,6 +53359,23 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/paraguacu-river-basin": [
+    {
+      "at": "2026-11-21T00:40:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
     }
   ],
   "th/places/paraguay-parana": [
@@ -55177,6 +55490,25 @@
       "kept": true
     }
   ],
+  "th/places/rio-itayi": [
+    {
+      "at": "2026-11-21T00:40:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "อิตายี (Itayi): plausible transliteration, but not a standard attested form, and it omits a word for river"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    }
+  ],
   "th/places/rio-itenez": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -55680,6 +56012,23 @@
       "kept": true
     }
   ],
+  "th/places/rio-orteguasa": [
+    {
+      "at": "2026-11-21T00:40:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    }
+  ],
   "th/places/rio-orteguaza": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -55959,6 +56308,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/rio-pratinha-iraquara-bahia": [
+    {
+      "at": "2026-11-21T00:40:11Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "ปราตีญา, อิรากวารา, บาอีอา: ญ is odd for Portuguese nh (usually ปราตินยา), and บาอีอา is typically บาเยีย"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
     }
   ],
   "th/places/rio-preto": [
@@ -56687,6 +57055,23 @@
       "kept": true
     }
   ],
+  "th/places/river-pacaya": [
+    {
+      "at": "2026-11-21T00:40:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    }
+  ],
   "th/places/river-patuca": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -57384,6 +57769,25 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/santander": [
+    {
+      "at": "2026-11-21T00:40:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [
+        "ซันตันเดร์ (Santander): Thai usage is typically ซานตันเดร์ / ซานตานเดร์; ซันตันเดร์ is unusual"
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
     }
   ],
   "th/places/santarem": [
@@ -58484,6 +58888,23 @@
       "kept": true
     }
   ],
+  "th/places/sufia": [
+    {
+      "at": "2026-11-21T00:40:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
+    }
+  ],
   "th/places/sulawesi-tenggara": [
     {
       "at": "2026-11-09T15:46:43Z",
@@ -59235,6 +59656,23 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "th/places/thai-malay-peninsula": [
+    {
+      "at": "2026-11-21T00:40:12Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.322",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.72,
+        0.72
+      ]
     }
   ],
   "th/places/thai-nguyen": [
@@ -74236,6 +74674,17 @@
       "kept": true
     }
   ],
+  "vi/places/nam-theun": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nam-xam": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -75628,6 +76077,17 @@
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/paraguacu-river-basin": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -78003,6 +78463,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-itayi": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-itenez": [
     {
       "at": "2026-11-08T20:36:09Z",
@@ -78545,6 +79016,17 @@
       "kept": true
     }
   ],
+  "vi/places/rio-orteguasa": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-orteguaza": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -78869,6 +79351,17 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-pratinha-iraquara-bahia": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -79668,6 +80161,17 @@
       "model": "sonnet",
       "cli": "2.1.322",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/river-pacaya": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -80548,6 +81052,17 @@
       "notes": [
         "I found no wrong places. Most names either keep the source spelling or put the generic word into Vietnamese (bán đảo, quần đảo, rạn san hô, hồ, eo biển, sông, khu bảo tồn)."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/santander": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -81826,6 +82341,17 @@
       "kept": true
     }
   ],
+  "vi/places/sufia": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sulawesi": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -82773,6 +83299,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/thai-malay-peninsula": [
+    {
+      "at": "2026-11-21T00:21:00Z",
+      "model": "sonnet",
+      "cli": "2.1.322",
+      "score": 0.95,
+      "notes": [
+        "All names point to the right places. Proper names keep their source spelling, and generic words are in Vietnamese ('sông', 'lưu vực', 'bán đảo'). 'bán đảo Mã Lai' is the usual Vietnamese name for the Thai-Malay (Malay) Peninsula."
+      ],
       "attempt": "first",
       "kept": true
     }

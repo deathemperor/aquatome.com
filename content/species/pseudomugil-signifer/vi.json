@@ -10,8 +10,6 @@
     "Cá mắt xanh Úc"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<ul><li>Đây là loài cá cầu vồng sống theo đàn. Thân cá màu cam ngả vàng, vây có điểm trắng và mắt màu xanh.</li><li>Cá lên màu đẹp nhất vào mùa sinh sản.</li><li>Cá dài khoảng 4-6 cm.</li><li>Nhiệt độ nuôi khoảng 22-25°C, pH khoảng 6,5-7.</li></ul>",
-    "behaviour:bwaquatics": "<p>Các loài Pseudomugil có thể lai với nhau. Vì vậy, khi chọn cá nuôi chung, bạn có thể cân nhắc các dòng cá cầu vồng nhỏ khác, hoặc tetra và rasbora cỡ tương đương. Loài này cũng sống hợp với tép Neocaridina và Caridina.</p>",
     "quickFacts:seriouslyfish": "<p>Cá mắt xanh Thái Bình Dương (Pseudomugil signifer) là loài cá mắt xanh phân bố rộng nhất ở Úc. Chúng có mặt dọc gần hết bờ biển phía đông. Nơi sống của loài này rất đa dạng, từ nước biển hẳn cho tới nước ngọt hoàn toàn. Các quần thể phía bắc thường lớn con hơn hẳn quần thể phía nam. Một số phân tích gần đây chưa công bố có vẻ cho thấy loài này có thể gồm hai đơn vị phân loại riêng biệt trở lên. Khi thử ghép trong bể, cá hoang dã từ hai đầu bắc và nam của vùng phân bố cũng không lai với nhau.</p>",
     "distribution:seriouslyfish": "<p>Loạt mẫu chuẩn được thu quanh Sydney, bang New South Wales, miền đông Úc. Theo những gì biết đến nay, P. signifer là loài cá mắt xanh phân bố rộng nhất ở Úc.</p><p>Vùng phân bố của loài trải dọc phần lớn bờ biển phía đông nước này. Nó kéo dài từ bán đảo Cape York ở phía bắc bang Queensland xuống tận hồ Merimbula ở phía nam New South Wales, gần ranh giới với bang Victoria.</p><p>Một số đảo ngoài khơi cũng có quần thể của loài này, trong đó có các đảo ở eo biển Torres. Ở phía tây bán đảo Cape York, người ta cũng đã ghi nhận loài này trong hệ thống sông Embley và sông Mission.</p><p>Trong toàn vùng phân bố, loài này biến đổi rất nhiều. Nhiều quần thể có những nét khác biệt riêng theo từng vùng về hoa văn màu sắc, kích thước cơ thể và hình dạng vây.</p><p>Chẳng hạn, nhiều tác giả đã coi quần thể phía bắc và quần thể phía nam là hai dạng khác nhau. Ở Queensland, các dạng sống ở phía bắc và phía nam sông Herbert cũng trông khác nhau. Quanh vùng Townsville (sông Ross) dường như có một dạng trung gian là cá bản địa ở đó.</p>",
     "habitat:seriouslyfish": "<p>Loài này thường sống cách biển trong vòng 15-20 km, nhưng kiểu nơi sống thì cực kỳ đa dạng. Người ta đã gặp chúng ở cả nước biển hẳn lẫn nước ngọt hoàn toàn. Chúng hay sống ở các lạch rừng ngập mặn ven biển, đầm lầy và bãi lầy nước mặn.</p><p>Ở nước ngọt, nơi sống của chúng thường là đầm lầy vùng thấp hoặc suối rừng nước trong. Tuy vậy, cũng có quần thể sống ở vùng nước đen, có tính axit và ngả màu do tanin.</p><p>Chúng cũng rất nhiều trong các kênh đào nhân tạo, loại kênh hay gặp ở các khu dân cư vùng Gold Coast, phía nam Queensland.</p><p>Nhiệt độ nước ở nơi chúng sống dao động trong khoảng 15–28°C. Mức thấp chỉ gặp ở các quần thể phía nam vào mùa đông. pH đo được nằm trong khoảng 5,5-7,8, tùy từng nơi.</p>",
@@ -29,13 +27,21 @@
     "distribution:glaser": "<p>Vùng ven biển phía đông bang Queensland và New South Wales, Úc.</p>",
     "waterConditions:glaser": "<p>Loài này khá dễ tính về thông số nước, nhưng thích nước cứng hơn. Có thể cho thêm chút muối vào nước.</p>",
     "behaviour:glaser": "<p>Cá đực có thể khá dữ với nhau. Bể nhỏ hoặc bể cho đẻ thì chỉ thả một con đực, kèm theo vài con cái.</p>",
-    "reproduction:glaser": "<p>Cá thích đẻ vào đám cây lá mịn như rêu Java. Trứng mất 2–3 tuần mới nở. Cá con lúc nở đã dài 5–6 mm và ăn được ngay Artemia mới nở.</p>"
+    "reproduction:glaser": "<p>Cá thích đẻ vào đám cây lá mịn như rêu Java. Trứng mất 2–3 tuần mới nở. Cá con lúc nở đã dài 5–6 mm và ăn được ngay Artemia mới nở.</p>",
+    "quickFacts:bwaquatics": "<ul><li>Giống: Pseudomugil (cá mắt xanh)</li><li>Danh sách Đỏ IUCN: Ít quan tâm</li><li>Tính tình: hiền</li><li>Cỡ tối đa thường gặp: 3–4 cm, riêng cá đực ở một số quần thể lớn tới 5 cm hoặc hơn</li></ul>",
+    "distribution:bwaquatics": "<p>Pseudomugil signifer sống dọc bờ biển phía đông nước Úc, từ Cape York xuống New South Wales. Người ta đã phân biệt được ít nhất 15 dạng theo vùng, và mỗi dạng khác nhau khá nhiều về cỡ lẫn màu.</p>",
+    "habitat:bwaquatics": "<p>Loài này sống ở suối ven biển, đầm phá, rừng ngập mặn và cửa sông, cả nước ngọt lẫn nước lợ.</p>",
+    "waterConditions:bwaquatics": "<p>pH: hiện người nuôi giữ ở khoảng 6,5 đến 7,0.</p><p>Nhiệt độ: hiện người nuôi giữ ở khoảng 22 đến 25°C.</p>",
+    "behaviour:bwaquatics": "<p>Đây là một loài cá mắt xanh bơi đàn rất đẹp và hiền. Các loài Pseudomugil có thể lai với nhau, vì thế có thể chọn cá nuôi chung là các loại cá cầu vồng nhỏ khác, hoặc cá tetra, cá rasbora cỡ tương đương. Nuôi chung với tép Neocaridina và Caridina cũng ổn.</p>",
+    "diet:bwaquatics": "<p>Cho ăn cám vảy loại mịn, cám viên bóp nhỏ, Artemia mới nở, bo bo và các loại đồ tươi sống cỡ nhỏ khác.</p>",
+    "dimorphism:bwaquatics": "<p>Con đực có vây lưng và vây hậu môn to hơn, viền trắng và đen. Thân cá màu cam ngả vàng, mắt xanh lam sáng. Vào mùa đẻ, con đực ngả sang vàng kim nhiều hơn. Loài này thân thon, mắt to, và lên màu đẹp nhất lúc đẻ.</p>",
+    "reproduction:bwaquatics": "<p>Loài này đẻ liên tục. Trứng dính lên cây lá nhỏ, rêu hoặc búi len đẻ, rải ra trong nhiều ngày. Gom các búi len sang một thùng riêng. Cá bột lúc đầu cần ăn trùng cỏ hoặc nước xanh.</p>"
   },
   "quality": {
-    "score": 0.8,
+    "score": 0.9,
     "indexable": true,
     "bySource": {
-      "bwaquatics": 0.8,
+      "bwaquatics": 0.92,
       "seriouslyfish": 0.9,
       "glaser": 0.93
     }

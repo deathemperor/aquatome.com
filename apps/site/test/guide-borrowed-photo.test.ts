@@ -21,6 +21,18 @@ test('a guide with no photo of its own borrows the fish its title names, not the
   expect(guideImage(c2, plain)).toBeUndefined()
 }, 120_000)
 
+// A guide's card stands for more than one page, so it borrows no non-commercial head: a plant's neither, which the
+// engine's avoid list doesn't hold (a reader's point, 20 Nov; the chief of staff's rule, 17 Nov).
+test("a guide borrows no non-commercial head, a plant's as well as a fish's", async () => {
+  const vi = await getContent('vi')
+  const was = vi.guides.find(g => g.id === 'aquariumcoop-thay-nuoc')!
+  const plant = vi.plants.find(p => p.id === 'cryptocoryne-wendtii')!
+  const g = { ...was, photos: [], mentions: [plant.id], t: { ...was.t, name: `${plant.t.name}: cách trồng`, body: '' } }
+  const led = (licence: string) => ({ ...vi, plants: vi.plants.map(p => (p.id === plant.id ? { ...p, photos: [{ ...plant.photos[0]!, licence }] } : p)), guides: vi.guides.map(x => (x.id === g.id ? g : x)) })
+  expect(guideImage(led('CC BY 4.0'), g)?.url).toBe(plant.photos[0]!.url)
+  expect(guideImage(led('CC BY-NC 4.0'), g)).toBeUndefined()
+}, 120_000)
+
 // Grok's read of #1224, 13 Nov: titles list fish without their class word ("cupang, guppy, molly"), in the order the
 // guide means; Thai writes a name glued to the next word; and a one-word other name ("Betta") can stand where a longer,
 // more particular name does.

@@ -15,9 +15,12 @@
       "countries": [
         "PY"
       ],
-      "regions": [],
+      "regions": [
+        "Río Paraguay"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -27,6 +30,14 @@
             "PY"
           ],
           "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Río Paraguay basin.",
+          "countries": [],
+          "regions": [
+            "Río Paraguay"
+          ]
         }
       ]
     },

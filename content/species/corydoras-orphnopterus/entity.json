@@ -12,6 +12,73 @@
     "peru",
     "rio-tigre"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Rio Bobonaza",
+        "Rio Pastaza",
+        "Amazon",
+        "Rio Tigre"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Corydoras orphnopterus was described in 1970 on the basis of three specimens collected by an unknown collector at an undocumented time in Ecuador, in the lower Rio Bobonaza between Montalvo (2°06’S, 76°59’W) and Chicherota (2°22’S, 76°38’W), province of Pastaza.",
+          "countries": [
+            "EC"
+          ],
+          "regions": [
+            "Rio Bobonaza"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The Rio Bobonaza belongs to the catchment area of the Rio Pastaza, which in turn flows into the Amazon in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Rio Pastaza",
+            "Amazon"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Taking all the facts together, CW58 is, according to current knowledge, a variant of Corydoras orphnopterus originating from the Rio Tigre.",
+          "countries": [],
+          "regions": [
+            "Rio Tigre"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342739,
+      "total": 2,
+      "fetched": "2026-11-21",
+      "countries": [
+        [
+          "EC",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

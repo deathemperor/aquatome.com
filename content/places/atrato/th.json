@@ -3,6 +3,12 @@
   "name": "อาตราโต",
   "altNames": [],
   "sections": {},
+  "nameCheck": {
+    "ok": false,
+    "score": 0.7,
+    "at": "2026-11-21T01:16:59.785Z",
+    "why": "อาตราโต is a correct Thai transliteration of Atrato, but the source means the Atrato River basin, and a Thai atlas would add the kind word แม่น้ำ (or ลุ่มน้ำ), so the bare name is cut short."
+  },
   "quality": {
     "score": 0.93,
     "indexable": true
