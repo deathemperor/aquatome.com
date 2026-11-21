@@ -162,7 +162,9 @@ test('every /_ab route opens only to the owner\'s account signed in on the web: 
 test('dashboard: a part that can\'t load says why in its place; the rest of the page renders', async () => {
   const { vi } = await import('vitest')
   const db = testD1()
-  await db.prepare("INSERT INTO clicks_daily VALUES (?, 'shopee', 'thuc-an', 'species:x', 'search', 4)").bind(new Date().toISOString().slice(0, 10)).run()
+  // Yesterday's, in Vietnam: the first screen counts seven whole days.
+  const yesterday = new Date(Date.now() + 7 * 3600_000 - 86400_000).toISOString().slice(0, 10)
+  await db.prepare("INSERT INTO clicks_daily VALUES (?, 'shopee', 'thuc-an', 'species:x', 'search', 4)").bind(yesterday).run()
   const { owner } = await signedIn(db)
   const { e } = env({ DB: db, OWNER_ACCOUNTS: 'owner-1', AE_API_TOKEN: 'ae', CF_ACCOUNT_ID: 'acc' } as Partial<Env>)
   // Analytics Engine refuses every query; KV can't list.
@@ -172,10 +174,23 @@ test('dashboard: a part that can\'t load says why in its place; the rest of the 
     const r = await handle(get('/_ab/', { ...browser, cookie: owner }), e)
     expect(r.status).toBe(200)
     const html = await r.text()
-    expect(html).toContain('analytics engine sql 422: Unknown function')
-    expect(html).toContain('Readers didn’t load')
-    expect(html).toContain('4 shop clicks') // today's, from D1, in the last three days
+    // The first screen says a part didn't load, on its card and in Needs you, each a link to the part's page, and that
+    // page says why: Design's first screen is five cards, each a tap into its part, and a read that failed shows its
+    // words on its own page (docs/design dashboard-revamp, direction.md and pages-spec.md).
+    const readers = /<section class="card" aria-labelledby="readers">.*?<\/section>/s.exec(html)?.[0] ?? ''
+    // The card's figures are the beacon's: it opens the scoreboard, whose page has the beacon's error.
+    expect(readers).toContain('<a href="/_ab/thanh-cong/">Readers</a>')
+    expect(readers).toContain('Couldn’t load the readers’ beacon')
+    expect(html).toMatch(/<a href="\/_ab\/doc-gia\/">(?:(?!<\/a>).)*Readers didn’t load/s)
+    expect(html).not.toContain('analytics engine sql 422')
+    const why = await (await handle(get('/_ab/doc-gia/', { ...browser, cookie: owner }), e)).text()
+    expect(why).toContain('analytics engine sql 422: Unknown function')
+    // The rest renders: the shop clicks, from D1.
+    expect(html).toContain('<a href="/_ab/affiliate/"><span>Affiliate</span><span class="fig">4 · +4</span></a>')
     expect(fetch.mock.calls.every(([u]) => String(u).startsWith('https://api.cloudflare.com/client/v4/accounts/acc/analytics_engine/sql'))).toBe(true)
+    // The scoreboard, the Readers card's page while the beacon fails, says why too (it also reads the live checks).
+    const board = await (await handle(get('/_ab/thanh-cong/', { ...browser, cookie: owner }), e)).text()
+    expect(board).toContain('analytics engine sql 422: Unknown function')
     const fish = await (await handle(get('/_ab/nhan-dien-ca/', { ...browser, cookie: owner }), e)).text()
     expect(fish).toContain('Couldn’t load the fish ID log')
     expect(fish).toContain('Anthropic keys')
