@@ -19,8 +19,10 @@ final class HandbookModel {
   private(set) var status = Status.loading
   /// What waits for the index shown to be read (`settled`): let go once the status leaves `.loading`.
   @ObservationIgnored private var settling: [CheckedContinuation<Void, Never>] = []
-  /// Reads of the index on their way (`load`, and one of its own for what waits).
-  @ObservationIgnored private var reading = 0
+  /// The index's read on its way (`load`): one at a time, the app's own. A screen asking while it's on its way waits for
+  /// it, and a screen leaving doesn't stop it, as a tank's save may wait on it (Fable, Codex, 21 Nov). A language picked
+  /// stops the old language's.
+  @ObservationIgnored private var reading: Task<Void, Never>?
   private(set) var count = 0
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
@@ -287,10 +289,9 @@ final class HandbookModel {
   /// Decided on the index of the language shown once it's read, as a save made then would be.
   func settled() async {
     while status == .loading {
-      await withCheckedContinuation {
-        settling.append($0)
-        readForWaiters()
-      }
+      // None on its way (none begun yet, at launch): one of the app's.
+      if reading == nil { Task { await load() } }
+      await withCheckedContinuation { settling.append($0) }
     }
   }
 
@@ -298,18 +299,6 @@ final class HandbookModel {
     let waiting = settling
     settling = []
     for w in waiting { w.resume() }
-  }
-
-  /// What waits on the index with no read on its way (one left for another tab, as a screen's read stops with it, or
-  /// none begun): a read of its own, which no screen stops (Fable, 21 Nov).
-  private func readForWaiters() {
-    guard status == .loading, !settling.isEmpty, reading == 0 else { return }
-    reading += 1
-    Task {
-      await load()
-      reading -= 1
-      readForWaiters()
-    }
   }
 
   /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
@@ -369,6 +358,9 @@ final class HandbookModel {
     status = .loading
     fetched = false
     readAt = nil
+    // The old language's read lands nowhere (`generation`): stopped, not left to fetch.
+    reading?.cancel()
+    reading = nil
     Task { await load() }
   }
 
@@ -395,13 +387,17 @@ final class HandbookModel {
     await load()
   }
 
-  /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one.
+  /// The kept copy first (instant, offline) if nothing is shown yet, then the site's current one: the read on its way,
+  /// or a new one (`reading`).
   func load() async {
-    reading += 1
-    defer {
-      reading -= 1
-      readForWaiters()
-    }
+    if let r = reading { return await r.value }
+    let r = Task { await read() }
+    reading = r
+    await r.value
+    if reading == r { reading = nil }
+  }
+
+  private func read() async {
     let gen = generation, lang = lang
     if case .fixed(var ix) = source {
       #if DEBUG
@@ -425,13 +421,7 @@ final class HandbookModel {
       if ProcessInfo.processInfo.arguments.contains("-index-kept-only") { return use(ix, .offline) }
       // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
       // waits for it: AppLink). With `-test-gates`, when the test opens `index-later`.
-      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 {
-        do { try await TestGate.wait("index-later", or: .seconds(2)) } catch {
-          // Left for another tab while the test holds it: nothing lands, as with the site's read (Fable, 21 Nov). The 2 s
-          // stand-in lands at once, as it always has (the link flows).
-          if ProcessInfo.processInfo.arguments.contains("-test-gates") { return }
-        }
-      }
+      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await TestGate.wait("index-later", or: .seconds(2)) }
       guard gen == generation else { return }
       #endif
       use(ix, .ready)
@@ -467,7 +457,7 @@ final class HandbookModel {
       }
       fetched = true
     } catch {
-      // Left for another tab or page: tried again when the tab shows next, nothing to report.
+      // Stopped for a language picked: its own read shows it, nothing to report.
       if isInterruption(error) || gen != generation { return }
       if count == 0 { status = .failed; settle() }
     }

@@ -215,6 +215,9 @@ def scopes(src):
             continue
         r = regex_end(src, i) if c in '/#' else None
         if r is not None:
+            # Its lines counted, as a string's are (Codex, 21 Nov: a `#/…/#` over lines moved every scope after it).
+            for _ in range(src.count('\n', i, r)):
+                kinds.append(stack[-1] if stack else 'file')
             head.append('//')
             i = r
             continue
@@ -270,7 +273,8 @@ def code_only(text):
             continue
         r = regex_end(text, i) if c in '/#' else None
         if r is not None:
-            out.append('//')
+            # Kept whole: it's matched for a lookup as code is, and no string is read in it (Codex, 21 Nov).
+            out.append(text[i:r])
             i = r
             continue
         out.append(c)
@@ -307,10 +311,10 @@ def initializer(src, at):
         elif c == ';' and depth == 0:
             break
         elif c == '\n' and depth == 0 and seen:
-            # Goes on when the line ends with a binary operator (`+`, `??`, `&&`, `==`; Fable, 21 Nov), not a postfix `!`,
-            # or the next begins with one.
+            # Goes on when the line ends with a binary operator (`+`, `??`, `&&`, `==`, `>`; Fable, Codex, 21 Nov), not a
+            # postfix `!`, or the next begins with one.
             rest = src[i:].lstrip()
-            if last not in '+-*/%=&|?:,' and not re.match(r'(\.(?!\.)|\?\?|\?|:|&&|\|\||[-+*/%<>=!]=?)(?!/)', rest):
+            if last not in '+-*/%=&|?:,<>' and not re.match(r'(\.(?!\.)|\?\?|\?|:|&&|\|\||[-+*/%<>=!]=?)(?!/)', rest):
                 break
         if not c.isspace():
             seen, last = True, c
@@ -415,6 +419,12 @@ SAMPLE = '''struct S {
   static let w = "x" +
     String(localized: "Đèn", bundle: .app)
   static let v = /"{/
+  static let x = #/\\#(String(localized: "Đèn", bundle: .app))/#
+  static let y = "a" >
+    String(localized: "Đèn", bundle: .app)
+  static let z = #/
+    "{
+  /#
 }
 final class C {
   let m = String(localized: "Đèn", bundle: .app)
@@ -433,9 +443,9 @@ final class D: NSObject,
 def self_test():
     """The check fails on a bad line, names its line, and passes the same lines once the edit has made them."""
     found = problems_in(SAMPLE)
-    # Not 13 (computed), 15 (a struct's, made again with it), 18 (words in a string), 22 (a regex), 26 (a closure), 28
-    # (a local).
-    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 20, 25, 27, 33], found
+    # Not 13 (computed), 15 (a struct's, made again with it), 18 (words in a string), 22 and 26 (regexes without a
+    # lookup, the second over lines), 32 (a closure), 34 (a local).
+    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 20, 23, 24, 31, 33, 39], found
     fixed, made, skipped = apply_to(SAMPLE)
     assert made == 4 and skipped == [6, 7], (made, skipped)
     assert 'String(\n    localized: "Đèn", bundle: .app) }' in fixed, fixed
@@ -443,7 +453,7 @@ def self_test():
     assert 'AttributedString(localized: "**Đèn** \\(n) ổ", bundle: .app)' in fixed, fixed
     assert 'String(localized: "Đèn (\\(f(x, y)))", bundle: .app, comment: "x, y")' in fixed, fixed
     # Left for a person: the resource, the other bundle, the constant.
-    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 16, 19, 20, 25, 27, 33], problems_in(fixed)
+    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 16, 19, 20, 23, 24, 31, 33, 39], problems_in(fixed)
 
 
 def count(ref=None):

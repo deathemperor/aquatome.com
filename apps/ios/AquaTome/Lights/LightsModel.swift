@@ -16,10 +16,12 @@ final class LightsModel {
     var isError = false
     /// A button beside the text: put the last schedule back, or connect again to the light that dropped.
     var action: Action?
-    /// It says what the light is doing now (a trial colour, lit until a time): kept across a language picked.
-    var lasting = false
+    /// It says what the light is doing now (a trial colour, today's colour until a time): kept across a language picked
+    /// while it's still so (`noticeStillSo`).
+    var lasting: Lasting?
   }
   enum Action { case undo, reconnect }
+  enum Lasting { case trial, today }
   /// What the light card shows.
   enum Card { case unsupported, idle, connecting, ready }
   enum ClockState: Equatable {
@@ -76,6 +78,15 @@ final class LightsModel {
   private(set) var today: TodayMark?
   /// "Thử màu trên đèn": the light shows the colour being edited (manual mode) until the test ends.
   private(set) var trying = false
+  /// The notice says what the light is doing now, and it still is: the trial colour on, today's colour before its end
+  /// (Codex, 21 Nov: past it, the sentence no longer is).
+  var noticeStillSo: Bool {
+    switch notice?.lasting {
+    case .trial: trying
+    case .today: today.map { !$0.isOver(at: Date()) } ?? false
+    case nil: false
+    }
+  }
   /// "Xem thử cả ngày": the minute of the day shown, while the day plays.
   private(set) var playMinute: Double?
   /// A schedule handle is being dragged sideways: the page holds still under the finger until it lets go.
@@ -605,7 +616,7 @@ final class LightsModel {
     supersedeHeld()
     trying = true
     send(form.levels)
-    notice = Notice(text: String(localized: "Đèn đang hiện màu thử.", bundle: .app), lasting: true)
+    notice = Notice(text: String(localized: "Đèn đang hiện màu thử.", bundle: .app), lasting: .trial)
   }
 
   // MARK: "Bật với màu của lịch"
@@ -683,7 +694,7 @@ final class LightsModel {
         $0.clockSyncedAt = Timestamp.string(Date())
       }
       self.notice = Notice(text: String(localized: "Đèn sáng với màu của lịch tới \(p.ends.description), rồi tự chạy lại theo lịch.", bundle: .app),
-                           lasting: true)
+                           lasting: .today)
     }
     guard self.session === session else { return .cancelled }
     return failure.map { .failed($0) } ?? .done
