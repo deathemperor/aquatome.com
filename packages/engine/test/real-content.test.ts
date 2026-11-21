@@ -1085,6 +1085,14 @@ test("the Writing Lead's eight sentences of 20 Nov hold on their six guides", ()
 // guide's whole id).
 test("the Writing Lead's words hold on the four guides the night of 19 Nov cut", () => handFixesHold('guarded-four-1120.json', ''))
 
+// The Writing Lead's yes or no of 20 Nov 2026 on what that change left as it was, each checked against the saved source
+// or the video's transcript: three of the shop's photo captions out of the egg scatterers' body and the fourth moved to
+// the paragraph it belongs to; the keeper's own hedge on why the Endlers tank still needs water changes, and the snails
+// and shrimp as his tank's; the low-tech keeper's fertiliser, his two or three tanks and his water changes as his; the
+// small tanks' CO2 and the untrimmed Limnophila as the tanks in the video. Each guide stays held for the gate's read
+// (test/fixtures/left-as-they-are-1121.json, by each guide's whole id).
+test("the Writing Lead's yes or no on what the four guarded guides left as they were holds", () => handFixesHold('left-as-they-are-1121.json', ''))
+
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
 // bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
 // the list of guides where a step the video took had become advice. Each guide is bodyFixed, and faqFixed where its FAQ
