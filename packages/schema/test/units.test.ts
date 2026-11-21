@@ -132,6 +132,16 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(th('ท่อ PVC 1/2–3/4 นิ้ว')).toBe('ท่อ PVC 21–27 มม.')
   // A hose is its own size, a range too.
   expect(vi('ống mềm ½–¾ inch')).toBe('ống mềm 1,5–2 cm')
+  // Codex's read of this rule (21 Nov 2026): the unit said twice is the same range (main made it "phi 53 đến 2 cm"); a
+  // pipe's length is a length in Indonesian and Thai too, one size or two (main made "panjang 2 inci" 60 mm); tubing is a
+  // hose. A length word after the size is left alone: "ống PVC ¾ inch dài 1 m" is a ¾-inch pipe.
+  expect(vi('Dùng ống PVC ½ inch đến ¾ inch.')).toBe('Dùng ống PVC phi 21 đến phi 27.')
+  expect(id('Pipa PVC panjang 1–2 inci.')).toBe('Pipa PVC panjang 2,5–5 cm.')
+  expect(id('Pipa PVC panjang 2 inci.')).toBe('Pipa PVC panjang 5 cm.')
+  expect(th('ท่อ PVC ยาว 1–2 นิ้ว')).toBe('ท่อ PVC ยาว 2.5–5 ซม.')
+  expect(th('ท่อ PVC ยาว 2 นิ้ว')).toBe('ท่อ PVC ยาว 5 ซม.')
+  expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
+  expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })
 
 test('guides: a change of temperature, and the middle of a decade of °F', () => {
