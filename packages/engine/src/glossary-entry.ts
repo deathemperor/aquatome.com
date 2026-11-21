@@ -221,12 +221,13 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
  * The site's own names for the species and plants the facts name by their scientific name, for the fact check (the chief
  * of staff, 22 Nov 2026, after "Cá neon Việt Nam" for Tanichthys micagemmae stopped Đặc hữu twice: the writer is told to
  * call a fish by its page's name, and the check, never told it, read it as a name no fact gives). Each line is a page's
- * names, then "=" and the scientific name a fact writes whole. A page whose scientific name no fact writes isn't listed,
- * so a page name for a species no fact carries still stops, and a name two pages share ("Cá neon") is listed for neither.
- * A name is matched within one fact. A fact on a variety, a cultivar, a subspecies or a "group" lists neither its base
- * species' page nor another cultivar's, an unidentified "sp." page or an uncertain "cf." one is never listed, an other name
- * that may be a scientific name (another species', or an old one) isn't either, and "×" and "x" write one hybrid (the
- * outside reads of #1809).
+ * own name, the one it is titled by, then "=" and the scientific name a fact writes whole. Never its other names: the
+ * arowana page's are its forms' names, so a fact on one form would hand the check another form's name as the species'
+ * (the chief of staff, 22 Nov 2026). A sentence that uses another of a page's names still stops. A page whose scientific
+ * name no fact writes isn't listed, so a page name for a species no fact carries still stops, and a name two pages share
+ * is listed for neither. A name is matched within one fact. A fact on a variety, a cultivar, a subspecies or a "group"
+ * lists neither its base species' page nor another cultivar's, an unidentified "sp." page or an uncertain "cf." one is
+ * never listed, and "×" and "x" write one hybrid (the outside reads of #1809).
  */
 export async function factPageNames(root: string, text: string): Promise<string[]> {
   const pages: { sci?: string; names: string[] }[] = []
@@ -263,15 +264,7 @@ export async function factPageNames(root: string, text: string): Promise<string[
   }
   // An unidentified one names no species, a trade label after it ("Taxiphyllum sp. 'Flame Moss'") or not.
   const vague = (sci: string) => /\s(?:spp?)\.?(?=\s|$)/i.test(sci) || /\s(?:cf|aff)\.\s/i.test(sci)
-  // An other name that starts with a genus a page has and has no Vietnamese letter may be a scientific name ("Betta ocellata"
-  // or "Betta Ocellata" on Betta unimaculata's page: another species', or an old one), so it isn't the page's to give. A
-  // Vietnamese one after a genus ("Bucephalandra lá đậm") is.
-  const genera = new Set(pages.flatMap(p => (p.sci ? [p.sci.split(' ')[0]!.toLowerCase()] : [])))
-  const latin = (n: string) => genera.has(n.trim().split(/[\s-]+/)[0]!.toLowerCase()) && !/[^\x00-\x7f×]/.test(n)
-  return pages.filter(p => p.sci?.includes(' ') && !vague(p.sci) && named(p.sci)).flatMap(p => {
-    const own = p.names.filter(n => pagesOf.get(toneKey(n)) === 1 && !latin(n)).slice(0, 5)
-    return own.length ? [`${own.join(' | ')} = ${p.sci}`] : []
-  })
+  return pages.filter(p => p.sci?.includes(' ') && !vague(p.sci) && pagesOf.get(toneKey(p.names[0]!)) === 1 && named(p.sci)).map(p => `${p.names[0]} = ${p.sci}`)
 }
 
 /** Seriously Fish's glossary entry for a term, by its address there: a named source (their permission is on record). */

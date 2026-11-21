@@ -1302,12 +1302,16 @@ test('the fact check is told the site\'s names for the species the facts name by
     return root
   }
   expect(await factPageNames(await fish(), 'Tanichthys micagemmae is known only from the Ben Hai river system.')).toEqual(['Cá neon Việt Nam = Tanichthys micagemmae'])
-  // A "cf." name is the fact's own hedge, not the page's species; an other name two pages share names neither.
+  // A "cf." name is the fact's own hedge, not the page's species; only a page's own name is listed, never its other names
+  // (the chief of staff, 22 Nov 2026); and a page's own name another page also carries is listed for neither.
   const more = await fish()
   await page(more, 'annamia-thuathienensis', 'Annamia thuathienensis', 'Cá chạch suối Annamia thuathienensis')
   await writeFile(join(more, 'content/species/tanichthys-micagemmae/vi.json'), JSON.stringify({ name: 'Cá neon Việt Nam', altNames: ['Vietnamese minnow', 'Cá neon'] }))
   await writeFile(join(more, 'content/species/paracheirodon-innesi/vi.json'), JSON.stringify({ name: 'Cá neon xanh', altNames: ['Cá neon'] }))
-  expect(await factPageNames(more, 'Annamia cf. thuathienensis was described from the Bô River. Tanichthys micagemmae is sold as Vietnamese minnow.')).toEqual(['Cá neon Việt Nam | Vietnamese minnow = Tanichthys micagemmae'])
+  expect(await factPageNames(more, 'Annamia cf. thuathienensis was described from the Bô River. Tanichthys micagemmae is sold as Vietnamese minnow.')).toEqual(['Cá neon Việt Nam = Tanichthys micagemmae'])
+  await page(more, 'paracheirodon-simulans', 'Paracheirodon simulans', 'Cá neon xanh lá')
+  await writeFile(join(more, 'content/species/paracheirodon-simulans/vi.json'), JSON.stringify({ name: 'Cá neon xanh lá', altNames: ['Cá neon xanh'] }))
+  expect(await factPageNames(more, 'Paracheirodon innesi is a tetra. Paracheirodon simulans is smaller.')).toEqual(['Cá neon xanh lá = Paracheirodon simulans'])
   // Its outside reader's catches: a fact on a variety or a cultivar names neither the base species' page nor another
   // cultivar's, and a page for an unidentified "sp." is no species a fact can name.
   const plant = async (id: string, scientificName: string, name: string) => {
@@ -1320,16 +1324,16 @@ test('the fact check is told the site\'s names for the species the facts name by
   await plant('bucephalandra-sp', 'Bucephalandra sp.', 'Bucephalandra lá đậm')
   expect(await factPageNames(more, "Anubias barteri var. nana 'Pinto' grows slowly. Bucephalandra sp. grows on rocks.")).toEqual([])
   expect(await factPageNames(more, 'Anubias barteri var. nana grows slowly.')).toEqual(['Ráy nana lá lớn = Anubias barteri var. nana'])
-  expect(await factPageNames(more, "Tanichthys micagemmae's fins are red.")).toEqual(['Cá neon Việt Nam | Vietnamese minnow = Tanichthys micagemmae'])
-  // Its second read's: a subspecies or a group names neither its species' page; an other name that may be a scientific
-  // name (a genus a page has, and no Vietnamese letter) isn't the page's to give; and "×" and "x" write one hybrid.
+  expect(await factPageNames(more, "Tanichthys micagemmae's fins are red.")).toEqual(['Cá neon Việt Nam = Tanichthys micagemmae'])
+  // Its second read's: a subspecies or a group names neither its species' page; an other name, a scientific one among
+  // them, is never given; and "×" and "x" write one hybrid.
   await page(more, 'epiplatys-dageti', 'Epiplatys dageti', 'Cá sóc Epiplatys dageti')
   await page(more, 'epiplatys-dageti-monroviae', 'Epiplatys dageti monroviae', 'Cá sóc đuôi đỏ')
   await page(more, 'betta-unimaculata', 'Betta unimaculata', 'Cá betta đầu rắn')
   await writeFile(join(more, 'content/species/betta-unimaculata/vi.json'), JSON.stringify({ name: 'Cá betta đầu rắn', altNames: ['Betta ocellata', 'Betta Ocellata', 'Betta unimaculata Sabah', 'Betta đầu rắn'] }))
   await plant('cryptocoryne-willisii', 'Cryptocoryne x willisii', 'Ráy willisii')
   expect(await factPageNames(more, 'Epiplatys dageti monroviae lives in Liberia. The Betta unimaculata group is wide.')).toEqual(['Cá sóc đuôi đỏ = Epiplatys dageti monroviae'])
-  expect(await factPageNames(more, 'Epiplatys dageti lives in Ghana. Betta unimaculata is a mouthbrooder.')).toEqual(['Cá betta đầu rắn | Betta đầu rắn = Betta unimaculata', 'Cá sóc Epiplatys dageti = Epiplatys dageti'])
+  expect(await factPageNames(more, 'Epiplatys dageti lives in Ghana. Betta unimaculata is a mouthbrooder.')).toEqual(['Cá betta đầu rắn = Betta unimaculata', 'Cá sóc Epiplatys dageti = Epiplatys dageti'])
   for (const hybrid of ['Cryptocoryne × willisii', 'Cryptocoryne ×willisii', 'Cryptocoryne x willisii']) expect(await factPageNames(more, `${hybrid} grows slowly.`)).toEqual(['Ráy willisii = Cryptocoryne x willisii'])
   // Its third read's: a name is matched within one fact, never across two; a rank with no full stop or a hyphened group is
   // a longer name; and "xwillisii" is no hybrid's.
@@ -1343,6 +1347,14 @@ test('the fact check is told the site\'s names for the species the facts name by
   expect(await factPageNames(more, 'Epiplatys dageti dageti lacks a red throat. Epiplatys dageti kassiapleuensis lives in Liberia.')).toEqual([])
   expect(await factPageNames(more, 'Loaches listed as cf. Annamia thuathienensis were found in the Bô River.')).toEqual([])
   expect(await factPageNames(more, "Taxiphyllum sp. 'Flame Moss' grows upright.")).toEqual([])
+  // The chief of staff's two real ones (22 Nov 2026): a fact on the arowana's one form gives no other form's name, and the
+  // shrimp's bracketed fact gives none of its strain's names: only each page's own.
+  await page(more, 'scleropages-formosus', 'Scleropages formosus', 'Cá rồng châu Á')
+  await writeFile(join(more, 'content/species/scleropages-formosus/vi.json'), JSON.stringify({ name: 'Cá rồng châu Á', altNames: ['Cá rồng', 'Cá rồng huyết long', 'Cá rồng kim long'] }))
+  await page(more, 'caridina-logemanni', 'Caridina logemanni', 'Tép Caridina logemanni')
+  await writeFile(join(more, 'content/species/caridina-logemanni/vi.json'), JSON.stringify({ name: 'Tép Caridina logemanni', altNames: ['Tép Crystal Super Red dòng Cologne', 'Crystal Super Red Cologne Strain'] }))
+  expect(await factPageNames(more, 'A Vietnamese pet shop gives the Asian arowana (cá Rồng, Scleropages formosus Kim Long) 15–19 dorsal fin rays.')).toEqual(['Cá rồng châu Á = Scleropages formosus'])
+  expect(await factPageNames(more, 'Soil suits soft-water shrimp such as the Red Bee (Caridina logemanni).')).toEqual(['Tép Caridina logemanni = Caridina logemanni'])
   const withFish: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Tanichthys micagemmae is known only from the Ben Hai river system', source: 0 }] }
   // A check that knows a fish's name only from what it is given to read with the sentences.
   const names = ['Cá neon Việt Nam', 'Cá neon xanh']
