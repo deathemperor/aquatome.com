@@ -123,3 +123,35 @@ test("a read its step's line can't cover isn't started, and nothing is written",
     else process.env.ENGINE_COST_LOG = before.ENGINE_COST_LOG
   }
 })
+
+// #1775's reader, 21 Nov 2026: the pass checked only a hold written in a page's file. A page held by hand whose language
+// came in this cycle has none written yet; and a page this cycle changed is the gate's, which reads it against its saved
+// read, a read the pass's would replace.
+test('the pass reads no page held by hand, nor one this cycle changed', () => {
+  const byHandNew = page('th', 'guides', 'youtube-6R-aFWdSN6Y')
+  const changed = page('vi', 'guides', 'shop-edit')
+  const open = page('vi', 'guides', 'open')
+  const state: FitState = { [fitKey(changed)]: { ...readOf(changed), hash: 'older' } }
+  const pages = [byHandNew, changed, open]
+  expect(passOrder(pages, state, new Map(), { again: {} }).map(fitKey)).toEqual(['vi/guides/open', 'vi/guides/shop-edit', 'th/guides/youtube-6R-aFWdSN6Y'])
+  const skip = { byHand: { 'guides/youtube-6R-aFWdSN6Y': { checks: ['source'], at: '2026-11-21' } }, changed: new Set(['content/guides/shop-edit/vi.json']) }
+  expect(passOrder(pages, state, new Map(), { again: {} }, skip).map(fitKey)).toEqual(['vi/guides/open'])
+  // On the list too.
+  expect(passOrder(pages, state, new Map(), { again: { [fitKey(changed)]: '2026-11-08', [fitKey(byHandNew)]: '2026-11-08' } }, skip).map(fitKey)).toEqual(['vi/guides/open'])
+})
+
+// The same reader: the pass's hours were asked once, at its start, so a run admitted at 06:59 went on reading past 07:00.
+// It now starts no page once its hours are over, and says why it stopped.
+test('the pass starts no page once its hours are over', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'aq-fit-pass-'))
+  const statePath = join(dir, '_fit.json')
+  const pages = ['a', 'b', 'c'].map(id => page('vi', 'guides', id))
+  let clock = 0
+  const llm = (async () => { clock++; return { findings: [], products: [], doses: [] } }) as Llm
+  // In its hours for the first page's start alone: the clock moves past 07:00 while it reads.
+  const { report, state } = await runFit(pages, statePath, { llm, jobs: 1, given: true, mark: { pass: true }, until: () => clock < 1 })
+  expect(report.read).toBe(1)
+  expect(report.stopped).toBe('past its hours')
+  expect(Object.keys(state)).toEqual([fitKey(pages[0]!)])
+  expect(Object.keys(JSON.parse(await readFile(statePath, 'utf8')))).toEqual([fitKey(pages[0]!)])
+})

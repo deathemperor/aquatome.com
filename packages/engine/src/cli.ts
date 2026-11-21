@@ -29,7 +29,7 @@ import { checkPages, fixStored, rulesReport } from './content-rules'
 import { loadPages } from './pages'
 import { copiesToRedo, redoCopies, type Redone } from './seasons'
 import { FIT_KINDS, fitDue, fitFindings, fitKey, fitReport, runFit, type FitState } from './fit'
-import { gate, gateFitReport, heldMendsOf, heldNow, writeFitSummary } from './gate'
+import { changedFiles, gate, gateFitReport, HELD_BY_HAND, heldMendsOf, heldNow, writeFitSummary } from './gate'
 import { restingFetch } from './wikimedia-rest'
 import { fitRewrite, foreignProduct } from './fit-rewrite'
 import { unitsMend } from './units-mend'
@@ -777,12 +777,14 @@ if (cmd === 'photo-privacy') {
   const all = (await loadPages(join(ROOT, 'content'))).filter(p => FIT_KINDS.includes(p.kind))
   const statePath = join(ROOT, 'engine-state/_fit.json')
   const held = await heldNow(ROOT, all)
-  const order = passOrder(all, JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}')) as FitState, held, fitPass)
-  const { report, state } = await runFit(order, statePath, { llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 300), root: ROOT, given: true, mark: { pass: true } })
+  // Not a page held by hand, nor one this cycle changed: the gate's (fit-pass.ts passOrder).
+  const skip = { byHand: JSON.parse(await readFile(join(ROOT, HELD_BY_HAND), 'utf8').catch(() => '{}')) as Record<string, unknown>, changed: new Set(changedFiles(ROOT)) }
+  const order = passOrder(all, JSON.parse(await readFile(statePath, 'utf8').catch(() => '{}')) as FitState, held, fitPass, skip)
+  const { report, state } = await runFit(order, statePath, { llm: claudeCli, model: process.env.FIT_MODEL ?? 'opus', jobs: Number(values.jobs ?? 3), limit: Number(values.limit ?? 300), root: ROOT, given: true, mark: { pass: true }, until: () => passTonight(fitPass, new Date()) })
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
   await writeFile(join(ROOT, 'docs/review/fit.md'), fitReport(all, state, held))
   await writeFitSummary(ROOT, all, state)
-  console.log(`fit-pass: ${report.read} pages read, ${passOrder(all, state, held, fitPass).length} left, ${report.failed.length} failed${report.stopped ? ` (stopped: ${report.stopped})` : ''}`)
+  console.log(`fit-pass: ${report.read} pages read, ${passOrder(all, state, held, fitPass, skip).length} left, ${report.failed.length} failed${report.stopped ? ` (stopped: ${report.stopped})` : ''}`)
   for (const x of report.failed) console.log(`failed: ${x}`)
 } else if (cmd === 'fit-rewrite') {
   // The collection rewrite (fit-rewrite.ts): Vietnamese pages the reader-fit read found wrong for their reader, written

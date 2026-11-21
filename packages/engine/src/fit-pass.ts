@@ -31,10 +31,12 @@ const fileOf = (p: Pick<Page, 'kind' | 'id' | 'lang'>) => `content/${p.kind}/${p
  * What the pass reads, in its order. First the pages on `again`, read against a source that has changed since their read's
  * day: once more, unless the pass has read one already or a read since that day has. Then every open page whose text no
  * saved read is of, language by language (PASS_LANGS), guides first (PASS_KINDS). A held page is the gate's, and a guide
- * off the site for good is no page, so neither is read.
+ * off the site for good is no page, so neither is read. Nor a page held by hand (`byHand`, held-by-hand.json, by kind/id:
+ * a language added this cycle has no hold written in it yet), nor one this cycle changed (`changed`, its language files):
+ * the gate reads that against its saved read, which the pass's would replace (#1775's reader).
  */
-export function passOrder(pages: readonly Page[], state: FitState, held: ReadonlyMap<string, unknown>, list: Pick<PassList, 'again'>): Page[] {
-  const open = (p: Page) => !held.has(fileOf(p)) && !(p.kind === 'guides' && retiredTo(p.id))
+export function passOrder(pages: readonly Page[], state: FitState, held: ReadonlyMap<string, unknown>, list: Pick<PassList, 'again'>, skip: { byHand?: Readonly<Record<string, unknown>>; changed?: ReadonlySet<string> } = {}): Page[] {
+  const open = (p: Page) => !held.has(fileOf(p)) && !skip.changed?.has(fileOf(p)) && !skip.byHand?.[`${p.kind}/${p.id}`] && !(p.kind === 'guides' && retiredTo(p.id))
   const byKey = new Map(pages.map(p => [fitKey(p), p]))
   const again = Object.entries(list.again).flatMap(([key, day]) => {
     const p = byKey.get(key), e = state[key]
