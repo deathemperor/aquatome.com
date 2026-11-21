@@ -1088,8 +1088,10 @@ test("the Writing Lead's words hold on the four guides the night of 19 Nov cut",
 // The Writing Lead's yes or no of 20 Nov 2026 on what that change left as it was, each checked against the saved source
 // or the video's transcript: three of the shop's photo captions out of the egg scatterers' body and the fourth moved to
 // the paragraph it belongs to; the keeper's own hedge on why the Endlers tank still needs water changes, and the snails
-// and shrimp as his tank's; the low-tech keeper's fertiliser, his two or three tanks and his water changes as his; the
-// small tanks' CO2 and the untrimmed Limnophila as the tanks in the video. Each guide stays held for the gate's read
+// and shrimp as his tank's; the low-tech keeper's fertiliser, his two or three tanks and his water changes as his, and
+// his plants looking better the day after a water change as what he tells of his own tanks (the second read, 21 Nov); the
+// small tanks' CO2 and the untrimmed Limnophila as the tanks in the video. Three stay held for the gate's read; the gate
+// let the egg scatterers' guide out before this, and it is on the read list
 // (test/fixtures/left-as-they-are-1121.json, by each guide's whole id).
 test("the Writing Lead's yes or no on what the four guarded guides left as they were holds", () => handFixesHold('left-as-they-are-1121.json', ''))
 
