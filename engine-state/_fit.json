@@ -1523,19 +1523,11 @@
   "products": []
  },
  "id/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
-  "at": "2026-11-09",
-  "hash": "e7f0478694c1d9dd",
+  "at": "2026-11-21",
+  "hash": "0248d0cf2b778fcb",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Dalam survei informal tahun 2018 terhadap 445 pembaca",
-    "why": "Refers to the original publication's own readership survey, unknown to this reader.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "id/guides/aquatome-cach-chon-va-lap-may-loc-cho-be-ca-loc-thung-loc-treo-loc-tran-loc-day": {
@@ -22909,16 +22901,16 @@
   "products": []
  },
  "ms/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
-  "at": "2026-11-09",
-  "hash": "d251574375d51786",
+  "at": "2026-11-21",
+  "hash": "52a1fb35df606a6b",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Dalam satu tinjauan tidak rasmi pada tahun 2018 terhadap 445 pembaca",
-    "why": "Refers to the original source's own readers, whom this reader does not know.",
+    "quote": "seorang pemelihara memberi tubifex mulai umur kira-kira dua minggu",
+    "why": "An unnamed keeper from the source article is brought in, and the next tip refers back to them as 'the same keeper'.",
     "by": "model"
    }
   ],
