@@ -25,7 +25,9 @@ const MARK = (id: string) => `#glossary-link-check:${id}`
 export type Term = { id: string; name: string; altNames: string[]; linkNames?: string[]; text?: string }
 export type Page = { kind: string; id: string; html: string }
 export type Flagged = { page: string; phrase: string; flag: 'name' | 'longer'; next: string; around: string }
-export type PhraseReport = { term: string; phrase: string; links: number; longer: [string, number, number][]; ownCaps: boolean; flagged: Flagged[] }
+/** One linked place, flagged or not: what the cheap read samples (glossary-link-read.ts). */
+export type Place = { page: string; around: string; flagged: boolean }
+export type PhraseReport = { term: string; phrase: string; links: number; longer: [string, number, number][]; ownCaps: boolean; flagged: Flagged[]; places: Place[] }
 
 // A block's end is a stop: words in two paragraphs, items or headings don't make one phrase.
 const plain = (html: string) => html.replace(/<\/?(?:p|li|ul|ol|h[1-6]|br|div|tr|td|th|table|blockquote|dt|dd|section)\b[^>]*>/gi, ' ¶ ')
@@ -63,7 +65,7 @@ export function checkLinks(terms: Term[], pages: Page[], held: Set<string> = new
     // The entry itself writes it before a name ("lưu vực sông Amazon"): a name after it is the term's own use. The phrase is
     // matched in any case and the word after it tested apart: under the case-blind flag, \p{Lu} matches any letter.
     const ownCaps = [...plain(t.text ?? '').matchAll(new RegExp(`(?<![\\p{L}\\p{M}\\p{N}])${escape(n)} ([\\p{L}\\p{M}]+)`, 'giu'))].some(m => /^\p{Lu}\p{Ll}/u.test(m[1]!))
-    return reports.get(k) ?? reports.set(k, { term: t.id, phrase: n, links: 0, longer: longerOf(t, own.get(t.id)!.find(x => toneKey(x) === toneKey(n)) ?? n), ownCaps, flagged: [] }).get(k)!
+    return reports.get(k) ?? reports.set(k, { term: t.id, phrase: n, links: 0, longer: longerOf(t, own.get(t.id)!.find(x => toneKey(x) === toneKey(n)) ?? n), ownCaps, flagged: [], places: [] }).get(k)!
   }
   const byId = new Map(terms.map(t => [t.id, t]))
   pages.forEach(p => {
@@ -78,7 +80,9 @@ export function checkLinks(terms: Term[], pages: Page[], held: Set<string> = new
       const next = /^ ([\p{L}\p{M}\p{N}]+)/u.exec(rest)?.[1] ?? ''
       // A name after it, not before: a fish's name before a term is mostly its subject ("Corydoras ăn tạp").
       const flag = /^\p{Lu}\p{Ll}/u.test(next) && !r.ownCaps ? 'name' : r.longer.some(([w]) => w === next.toLowerCase()) ? 'longer' : undefined
-      if (flag) r.flagged.push({ page: `${p.kind}/${p.id}`, phrase: m, flag, next, around: `${before.slice(-70).trimStart()}[${m}]${rest.slice(0, 50).trimEnd()}` })
+      const around = `${before.slice(-70).trimStart()}[${m}]${rest.slice(0, 50).trimEnd()}`
+      if (flag) r.flagged.push({ page: `${p.kind}/${p.id}`, phrase: m, flag, next, around })
+      r.places.push({ page: `${p.kind}/${p.id}`, around, flagged: !!flag })
     }
   })
   return [...reports.values()].sort((a, b) => b.flagged.length - a.flagged.length || b.links - a.links)

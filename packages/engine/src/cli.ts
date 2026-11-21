@@ -112,6 +112,7 @@ import { localizeTopic, makeTopic } from './topics'
 import { makeMaterial, MATERIALS } from './materials'
 import { makeGlossaryEntry } from './glossary-entry'
 import { writeLinkCheck } from './glossary-link-check'
+import { writeLinkRead } from './glossary-link-read'
 import { CLASSIFICATION_THREAD, FORUM_SECTIONS, readForum } from './forum'
 import { listingText, readIdeas, refreshIdeas, writeIdeas } from './ideas'
 import { backfillVideoItems } from './video-items'
@@ -702,6 +703,14 @@ if (cmd === 'photo-privacy') {
   // staff to read in docs/review/glossary-link-check.md; it links and deletes nothing.
   const links = await writeLinkCheck(ROOT, join(ROOT, 'docs/review'), new Date().toISOString().slice(0, 10))
   console.log(`glossary links: ${links.flagged} of ${links.links} linked places flagged`)
+} else if (cmd === 'glossary-link-read') {
+  // The link check's cheap read (glossary-link-read.ts), by hand only, never in the cycle: up to 30 linked places a phrase,
+  // the flagged ones first, read by a model for whether the phrase there means its term; the share read as another meaning
+  // goes to docs/review/glossary-link-read.md for the chief of staff. It holds and links nothing.
+  // pnpm engine glossary-link-read [--limit N: the N most flagged phrases only]
+  await mkdir(join(ROOT, 'docs/review'), { recursive: true })
+  const { reads, file } = await writeLinkRead(ROOT, join(ROOT, 'docs/review'), claudeCli, new Date().toISOString().slice(0, 10), values.limit ? { limit: Number(values.limit) } : {})
+  console.log(`glossary link read: ${reads.length} phrases, ${reads.reduce((n, r) => n + r.read, 0)} places read, ${reads.reduce((n, r) => n + r.other, 0)} as another meaning, ${reads.filter(r => r.failed).length} not read; ${file}`)
 } else if (cmd === 'reader') {
   // A reader's eye on a few pages a cycle (reader.ts): the model reads each as a reader would, against a rubric; Vietnamese
   // wording it flags is rewritten, reviewer-gated, the rest goes to docs/review/reader.md. READER_MODEL: the reading model (default opus).
