@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 // @ts-expect-error plain .mjs git merge driver
 import { mergeMaps } from '../../../scripts/merge-json-map.mjs'
+import { mendWaiting, waitingEntry } from '../src/last-photo'
 
 test('keys added, changed or removed on either side all land; untouched keys stay', () => {
   const base = { a: 0, b: 0, c: 0 }
@@ -40,4 +41,32 @@ test('second-look records both sides changed: one taken out stays out, a person\
   // Both marked or neither: ours, as before. A plain map's keys: ours first, as before.
   expect(mergeMaps({ k: rec() }, { k: rec({ off: true, pages: ['species/a'] }) }, { k: rec({ off: true, pages: ['species/b'] }) })).toEqual({ k: rec({ off: true, pages: ['species/a'] }) })
   expect(mergeMaps({ k: { off: false } }, { k: { off: 1 } }, { k: { off: true } })).toEqual({ k: { off: 1 } })
+})
+
+test("20 Nov's race through git, as a run's push rebases on main: the record marked off keeps its waiting entry, and none stands alone", async () => {
+  // A run on the new rule marked a photo off at its first verdict and wrote its waiting entry. Main meanwhile had the same
+  // photo's record from a run on the old rule, unmarked. The push rebases the run on main, both files through the driver.
+  const dir = await mkdtemp(join(tmpdir(), 'jm-race-'))
+  const git = (...a: string[]) => execFileSync('git', a, { cwd: dir, encoding: 'utf8' })
+  const driver = fileURLToPath(new URL('../../../scripts/merge-json-map.mjs', import.meta.url))
+  git('init', '-q', '-b', 'main'); git('config', 'user.email', 't@t'); git('config', 'user.name', 't')
+  git('config', 'merge.jsonmap.driver', `node ${driver} %O %A %B`)
+  await writeFile(join(dir, '.gitattributes'), 'engine-state/_photo-*.json merge=jsonmap\n')
+  execFileSync('mkdir', ['-p', join(dir, 'engine-state')])
+  const url = 'https://media.aquatome.com/scotcat/race.webp'
+  const why = `dead: withheld [sha256:${'a'.repeat(64)}]`
+  const record = (o: object = {}) => ({ why, step: 'the photo check', pages: ['species/x'], at: '2026-11-20', ...o })
+  const write = async (sl: object, rejected: object) => {
+    await writeFile(join(dir, 'engine-state/_photo-second-look.json'), `${JSON.stringify(sl, null, 2)}\n`)
+    await writeFile(join(dir, 'engine-state/_photo-rejected.json'), `${JSON.stringify(rejected, null, 2)}\n`)
+  }
+  await write({ [url]: record({ why: `watermark: withheld [sha256:${'b'.repeat(64)}]`, step: 'the watermark screen', at: '2026-11-17' }) }, {})
+  git('add', '.'); git('commit', '-qm', 'base')
+  git('checkout', '-qb', 'run'); await write({ [url]: record({ off: true }) }, { [url]: waitingEntry(why) }); git('commit', '-qam', 'the new rule')
+  git('checkout', '-q', 'main'); await write({ [url]: record() }, {}); git('commit', '-qam', 'the old rule')
+  git('checkout', '-q', 'run'); git('rebase', '-q', 'main')
+  const sl = JSON.parse(await readFile(join(dir, 'engine-state/_photo-second-look.json'), 'utf8'))
+  expect(sl[url]).toEqual(record({ off: true }))
+  expect(JSON.parse(await readFile(join(dir, 'engine-state/_photo-rejected.json'), 'utf8'))).toEqual({ [url]: waitingEntry(why) })
+  expect(await mendWaiting(dir)).toEqual({ back: [], other: [], alone: [] })
 })
