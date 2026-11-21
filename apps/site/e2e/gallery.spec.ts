@@ -690,8 +690,10 @@ test('a plant\'s strip on a phone 360 px wide: every thumbnail in one sideways r
 test('a plant\'s row 700 or 740 px wide that runs past the edge shows "Xem tất cả", and one that fits doesn\'t', async ({ page, request, isMobile }) => {
   test.skip(isMobile, 'a width between a phone and a computer')
   // Seven or eight thumbnails that are the whole album (GALLERY_STRIP), so only the row's own measure decides.
-  const found = await albumPage(request, 'cay', (a, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) >= 7 && a.photos.length <= 8)
-  test.skip(!found, 'no plant whose strip is its whole album of seven or eight in this build')
+  // Seven exactly: eight thumbnails run past 740 px by more than the margins, so they would pass on the bug (the strip's
+  // third read, 21 Nov).
+  const found = await albumPage(request, 'cay', (a, html) => (/<section[^>]*\bdata-album\b[\s\S]*?<\/ul>/.exec(html)?.[0].match(/data-i=/g)?.length ?? 0) === 7 && a.photos.length === 7)
+  test.skip(!found, 'no plant whose strip is its whole album of seven in this build')
   const ul = page.locator('section.strip ul')
   const see = page.locator('section.strip [data-all]')
   // Each width loaded afresh, so the button is the page's first measure, not one left from the width before.

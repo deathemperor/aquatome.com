@@ -107,9 +107,10 @@ if (box && json) {
   if (mine()) void view().then(v => v.restore(), () => {})
   else if (at() !== null) openHere(() => (legacy || arrived() ? { under: location.pathname + location.search } : { adopt: true }))
   addEventListener('hashchange', () => { if (at() !== null && !mine()) openHere(() => ({ adopt: true })) })
-  // Measure against the full row width so showing or hiding its button cannot change the result: the strip's width inside
-  // its side margins (a strip outside the column has the page's; one in the column, none). The strip's second read, 21
-  // Nov: counted as room, those margins hid the button at 740 px with the seventh thumbnail cut.
+  // Measure against the full row width so showing or hiding its button cannot change the result: the strip's right edge
+  // inside its side margins (a strip outside the column has the page's; one in the column, none). The strip's second read,
+  // 21 Nov: counted as room, those margins hid the button at 740 px with the seventh thumbnail cut. Its third: the edge is
+  // read as the browser lays it out, fractions kept, since a width rounded to whole pixels could hide a cut thumbnail.
   const fit = box.dataset.fit, list = box.querySelector('ul')
   if (fit !== undefined && list) {
     const elsewhere = new Set(fit.split(' ').filter(Boolean).map(Number))
@@ -117,8 +118,7 @@ if (box && json) {
     const thumbs = [...list.querySelectorAll<HTMLAnchorElement>('a[data-i]')]
     const fits = () => {
       const v = list.getBoundingClientRect()
-      const s = getComputedStyle(box)
-      const right = v.left + box.clientWidth - parseFloat(s.paddingLeft) - parseFloat(s.paddingRight)
+      const right = box.getBoundingClientRect().right - parseFloat(getComputedStyle(box).paddingRight)
       const seen = new Set(thumbs.filter(a => shows(a, v) && (!mobile.matches ||
         a.getBoundingClientRect().right + list.scrollLeft <= right + 1)).map(a => Number(a.dataset.i)))
       const every = photos.every((_, i) => seen.has(i) || elsewhere.has(i))
