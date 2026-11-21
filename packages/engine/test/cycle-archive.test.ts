@@ -69,7 +69,7 @@ const workflowSteps = (): Step[] => readdirSync(join(REPO, '.github/workflows'))
   .flatMap(f => [...read(`.github/workflows/${f}`).matchAll(/pnpm engine ([\w-]+)/g)].map(m => ({ cmd: m[1]!, line: m[0], where: `GitHub (${f})` })))
 const STEPS = [...cycleSteps('scripts/engine-cycle.sh'), ...cycleSteps('scripts/cycle-checks.sh'), ...workflowSteps()]
 const onGitHub = (s: Step) => s.where === 'every part' || s.where.split(' ').includes('rewrite') || s.where.startsWith('GitHub')
-const ARCHIVED = new Set(SOURCES.filter(s => s.via === 'archive').map(s => s.id))
+const ARCHIVED = new Set<string>(SOURCES.filter(s => s.via === 'archive').map(s => s.id))
 
 test("the Archive's reader is made in cli.ts alone, and each command given it is found", () => {
   expect(READERS).toEqual(['archiveReader'])
