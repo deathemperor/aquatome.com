@@ -1336,6 +1336,13 @@ test('the fact check is told the site\'s names for the species the facts name by
   expect(await factPageNames(more, 'The genus is Tanichthys\nMicagemmae is the collection label.')).toEqual([])
   expect(await factPageNames(more, 'Epiplatys dageti subsp monroviae lives in Liberia. The Betta unimaculata-group is wide.')).toEqual([])
   expect(await factPageNames(more, 'Cryptocoryne xwillisii grows slowly.')).toEqual([])
+  // Its fourth read's: a "species group", a subspecies no page has (the nominate one too), a "cf." before the name and a
+  // "sp." page with a trade label list nothing.
+  await plant('taxiphyllum-flame', "Taxiphyllum sp. 'Flame Moss'", 'Rêu lửa')
+  expect(await factPageNames(more, 'The Betta unimaculata species group contains several mouthbrooders.')).toEqual([])
+  expect(await factPageNames(more, 'Epiplatys dageti dageti lacks a red throat. Epiplatys dageti kassiapleuensis lives in Liberia.')).toEqual([])
+  expect(await factPageNames(more, 'Loaches listed as cf. Annamia thuathienensis were found in the Bô River.')).toEqual([])
+  expect(await factPageNames(more, "Taxiphyllum sp. 'Flame Moss' grows upright.")).toEqual([])
   const withFish: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Tanichthys micagemmae is known only from the Ben Hai river system', source: 0 }] }
   // A check that knows a fish's name only from what it is given to read with the sentences.
   const names = ['Cá neon Việt Nam', 'Cá neon xanh']

@@ -247,17 +247,22 @@ export async function factPageNames(root: string, text: string): Promise<string[
     const ws = sci.replace(/×/g, ' x ').trim().split(/\s+/)
     return ws.map((w, i) => (hybrid(w) ? '(?:\\s*×\\s*|\\s+x\\s+)' : `${i && !hybrid(ws[i - 1]!) ? '\\s+' : ''}${esc(w)}`)).join('')
   }
-  // Whole, in one fact, and not the start of a longer name: a variety's, a cultivar's, a subspecies' or a group's
-  // ("Anubias barteri var. nana 'Pinto'" is no fact on "Anubias barteri var. nana", nor "Epiplatys dageti monroviae" on
-  // "Epiplatys dageti", nor "Betta unimaculata-group" on Betta unimaculata); a page for an unidentified or uncertain one
+  // Whole, in one fact, not after "cf." or "aff." (the fact's own hedge), and not the start of a longer name: a variety's,
+  // a cultivar's, a subspecies' or a group's ("Anubias barteri var. nana 'Pinto'" is no fact on "Anubias barteri var. nana",
+  // nor "Epiplatys dageti monroviae" or "dageti dageti" on "Epiplatys dageti", nor "unimaculata-group" or "species group"
+  // on Betta unimaculata). A lower-case word after it ending as an epithet does stops it, whether a page has that subspecies
+  // or not: a false stop costs a rerun, a false pass a wrong name live. A page for an unidentified or uncertain one
   // ("Bucephalandra sp.", "cf.") names no species.
   const facts = text.split('\n')
+  const hedged = /(?:^|[^\p{L}\p{N}])(?:cf|aff|nr)\.?\s*$/iu
+  const epithet = /^\s+\p{Ll}{2,}(?:i|ae|ensis|oides|orum|arum|us|um|a)(?![\p{L}\p{N}])/u
   const named = (sci: string) => {
     const longer = pages.flatMap(q => (q.sci?.toLowerCase().startsWith(`${sci.toLowerCase()} `) ? [words(q.sci.slice(sci.length))] : []))
-    const re = new RegExp(`(?<![\\p{L}\\p{N}])${words(sci)}(?![\\p{L}\\p{N}])(?!\\s+['"‘’“”])(?!\\s+(?:var|cv|subsp|ssp)\\.?(?![\\p{L}\\p{N}])|\\s+f\\.)(?!\\s*[-‐–]\\s*\\p{L})(?!\\s+(?:group|complex)(?![\\p{L}\\p{N}]))${longer.length ? `(?!\\s+(?:${longer.join('|')})(?![\\p{L}\\p{N}]))` : ''}`, 'iu')
-    return facts.some(f => re.test(f))
+    const re = new RegExp(`(?<![\\p{L}\\p{N}])${words(sci)}(?![\\p{L}\\p{N}])(?!\\s+['"‘’“”])(?!\\s+(?:var|cv|subsp|ssp)\\.?(?![\\p{L}\\p{N}])|\\s+f\\.)(?!\\s*[-‐–]\\s*\\p{L})(?!\\s+(?:species\\s+)?(?:group|complex)(?![\\p{L}\\p{N}]))${longer.length ? `(?!\\s+(?:${longer.join('|')})(?![\\p{L}\\p{N}]))` : ''}`, 'giu')
+    return facts.some(f => [...f.matchAll(re)].some(m => !hedged.test(f.slice(0, m.index)) && !epithet.test(f.slice(m.index + m[0].length))))
   }
-  const vague = (sci: string) => /\s(?:spp?)\.?$/i.test(sci) || /\s(?:cf|aff)\.\s/i.test(sci)
+  // An unidentified one names no species, a trade label after it ("Taxiphyllum sp. 'Flame Moss'") or not.
+  const vague = (sci: string) => /\s(?:spp?)\.?(?=\s|$)/i.test(sci) || /\s(?:cf|aff)\.\s/i.test(sci)
   // An other name that starts with a genus a page has and has no Vietnamese letter may be a scientific name ("Betta ocellata"
   // or "Betta Ocellata" on Betta unimaculata's page: another species', or an old one), so it isn't the page's to give. A
   // Vietnamese one after a genus ("Bucephalandra lá đậm") is.
