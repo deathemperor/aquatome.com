@@ -41,6 +41,15 @@ test('the units mender, the held video guides\' cut and the source figures run i
   for (const part of ['photos', 'pages', 'rewrite']) expect(stepsRun(part, part === 'rewrite')).toEqual(expect.arrayContaining(['metric', 'sweep']))
 })
 
+// The chief of staff, 21 Nov 2026: the pass over the open pages no read covers, on the Mac's second sign-in, which this
+// week's runs have left. One part of the Mac's, before the gate, which holds what its reads found harm on.
+test("the pass over the open pages runs in the Mac's photos part alone, on the second sign-in, before the gate", () => {
+  expect(stepsRun('photos', false)).toContain('fit-pass')
+  for (const [part, github] of [['pages', false], ['sf', false], ['rewrite', true]] as const) expect(stepsRun(part, github), part).not.toContain('fit-pass')
+  expect(script).toMatch(/^ {2}CLAUDE_FIRST_ACCOUNT=2 pnpm engine fit-pass --limit "\$\{FIT_PASS_LIMIT:-300\}"/m)
+  expect(script.indexOf('pnpm engine fit-pass')).toBeLessThan(script.indexOf('gate_or_keep "content: engine $PART"'))
+})
+
 test("the held video guides go to their editor in the Mac's videos part alone, at most 4 held and 2 new or live a run", () => {
   // The chief of staff, 15 Nov 2026: two rounds' 83 held mends from five parts went to 27 guides. 16 Nov 2026: 4 held and 2
   // new a run, in place of 24 and 20, as the editor's rewrites under the gate's name ended the Mac's day at 21:50.
