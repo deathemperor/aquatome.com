@@ -500,9 +500,13 @@ export async function galleries(root: string, deps: GalleryDeps, o: { sheets: nu
   // judged off Heckel's discus by eye, and the gallery's own screening put it back (2026-11-08).
   const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8').catch(() => '{}')) as Record<string, Record<string, PhotoVerdict>>
   const offBy = new Map<string, Record<string, string>>()
-  // One a second look cleared isn't off on that verdict, so the album may take it again (last-photo.ts).
-  const cleared = looks(await readSecondLook(root)).cleared
-  for (const [url, pages] of Object.entries(subjects)) if (!cleared(url)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
+  // One a second look cleared isn't off on that verdict on the pages its record names, so their albums may take it again
+  // (last-photo.ts); another page's verdict still keeps it off that page (the chief of staff, 20 Nov 2026). The record
+  // names pages as kind/id, the verdicts by id.
+  const sl = await readSecondLook(root)
+  const cleared = looks(sl).cleared
+  const clearedOn = (url: string, id: string) => cleared(url) && sl[url]!.pages.some(p => p.slice(p.indexOf('/') + 1) === id)
+  for (const [url, pages] of Object.entries(subjects)) for (const [id, v] of Object.entries(pages)) if (OFF.has(v.ok) && !clearedOn(url, id)) (offBy.get(id) ?? offBy.set(id, {}).get(id)!)[url] = v.ok
   const gbifNames = JSON.parse(await readFile(join(root, 'engine-state/_gbif-names.json'), 'utf8').catch(() => '{}')) as Record<string, { canonicalName: string } | null>
   const looksOn = await albumLooks(root, subjects)
   const on = await namedOn(content)

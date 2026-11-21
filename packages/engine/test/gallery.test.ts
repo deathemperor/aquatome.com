@@ -324,6 +324,23 @@ test("gallery: a photo the check called dead here that a second look cleared may
   expect(shown).not.toContain(kept.sourceUrl)
 })
 
+test("gallery: a clear sets aside a photo's off verdicts only on the pages its record names: another page's verdict still keeps it out of that page's album", async () => {
+  const r = await root()
+  const cand = (n: number) => ({ url: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/original.jpg`, thumb: `https://inaturalist-open-data.s3.amazonaws.com/photos/${n}/medium.jpg`, width: 1332, height: 1776, licence: 'CC BY', author: 'a', sourceUrl: `https://www.inaturalist.org/photos/${n}`, key: `inat:${n}` })
+  const here = cand(83), elsewhere = cand(84)
+  await mkdir(join(r, 'engine-state/gallery'), { recursive: true })
+  await writeFile(join(r, 'engine-state/gallery/betta-splendens.json'), JSON.stringify({ queue: [here, elsewhere], judged: [], hashes: {} }))
+  const other = { ok: 'other', typical: false, note: 'a betta of another species' }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [here.url]: { 'betta-splendens': other }, [elsewhere.url]: { 'betta-splendens': other } }))
+  const rec = (page: string) => ({ why: 'rejected: withheld [sha256:' + 'c'.repeat(64) + ']', step: 'the photo check', pages: [page], at: '2026-11-20', look: { said: 'clear', by: 'the chief of staff', on: '2026-11-21' } })
+  // Cleared here, it may come back to this album; cleared on another page, this page's own verdict still keeps it out.
+  await writeFile(join(r, 'engine-state/_photo-second-look.json'), JSON.stringify({ [here.url]: rec('species/betta-splendens'), [elsewhere.url]: rec('species/betta-imbellis') }))
+  await galleries(r, deps(), { sheets: 5 })
+  const shown = urls(await read(r, 'content/gallery/betta-splendens.json'))
+  expect(shown).toContain(here.sourceUrl)
+  expect(shown).not.toContain(elsewhere.sourceUrl)
+})
+
 test('gallery: the sheet budget stops the run; the next run continues from the queue and the cursor', async () => {
   const r = await root()
   await writeFile(join(r, 'content/species/betta-splendens/entity.json'), JSON.stringify({ scientificName: 'Betta splendens', photos: [] }))
