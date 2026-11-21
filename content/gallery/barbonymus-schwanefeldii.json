@@ -14,18 +14,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/471093579.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471093579-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "zr217",
-      "sourceUrl": "https://www.inaturalist.org/photos/471093579",
-      "caption": "Cá ngân hàng bơi một mình trong nước trong ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a4aeaae298759954.webp",
       "thumb": "https://media.aquatome.com/commons/a4aeaae298759954-480.webp",
       "width": 1200,
@@ -36,18 +24,6 @@
       "caption": "Cá ngân hàng với đuôi đỏ viền đen trong bể",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/607473209.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/607473209-480.webp",
-      "width": 771,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "engagenosey",
-      "sourceUrl": "https://www.inaturalist.org/photos/607473209",
-      "caption": "Đàn cá ngân hàng vây đỏ bơi gần mặt nước",
-      "best": true,
-      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/commons/d1f0a1dc27a6a792.webp",
@@ -70,18 +46,6 @@
       "author": "Tylwyth Eldar",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micro_Zoo_de_Saint_Malo_-_Barbonymus_schwanenfeldii_01.jpg",
       "caption": "Cá ngân hàng bơi trong bể, vây đuôi cam viền đen",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/251817972.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/251817972-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Zakqary Roy",
-      "sourceUrl": "https://www.inaturalist.org/photos/251817972",
-      "caption": "Cá ngân hàng thân bạc nhìn nghiêng sát kính bể",
       "best": true,
       "kind": "other"
     },
@@ -110,18 +74,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/461568556.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/461568556-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Vsevolod Rudyi",
-      "sourceUrl": "https://www.inaturalist.org/photos/461568556",
-      "caption": "Nhóm cá ngân hàng bơi gần mặt nước trong ao",
-      "best": false,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/461568568.webp",
       "thumb": "https://media.aquatome.com/inaturalist/461568568-480.webp",
       "width": 768,
@@ -130,6 +82,54 @@
       "author": "Vsevolod Rudyi",
       "sourceUrl": "https://www.inaturalist.org/photos/461568568",
       "caption": "Đàn cá ngân hàng bơi trong ao nước xanh",
+      "best": false,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/607473209.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/607473209-480.webp",
+      "width": 771,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "engagenosey",
+      "sourceUrl": "https://www.inaturalist.org/photos/607473209",
+      "caption": "Đàn cá ngân hàng vây đỏ bơi gần mặt nước",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/471093579.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471093579-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "zr217",
+      "sourceUrl": "https://www.inaturalist.org/photos/471093579",
+      "caption": "Cá ngân hàng bơi một mình trong nước trong ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/251817972.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/251817972-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Zakqary Roy",
+      "sourceUrl": "https://www.inaturalist.org/photos/251817972",
+      "caption": "Cá ngân hàng thân bạc nhìn nghiêng sát kính bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/461568556.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/461568556-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Vsevolod Rudyi",
+      "sourceUrl": "https://www.inaturalist.org/photos/461568556",
+      "caption": "Nhóm cá ngân hàng bơi gần mặt nước trong ao",
       "best": false,
       "kind": "group"
     }

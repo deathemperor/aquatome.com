@@ -9,18 +9,18 @@ under `<lang>/<path>`.
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
 | video-guide | 1098 | 780 (vi 780) | 780 |
-| translation | 2270 | 342 (vi 342) | 342 |
-| vi-rewrite | 420 | 41 (vi 41) | 41 |
-| reader-rewrite | 47 | 0 | 0 |
+| translation | 2320 | 349 (vi 349) | 349 |
+| vi-rewrite | 425 | 43 (vi 43) | 43 |
+| reader-rewrite | 48 | 0 | 0 |
 | title | 26 | 0 | 0 |
 | breed | 27 | 3 (ms 3) | 3 |
 | topic | 134 | 7 (id 1, ms 1, th 5) | 7 |
-| product | 29 | 2 (vi 2) | 2 |
-| product-reviews | 23 | 0 | 0 |
+| product | 30 | 2 (vi 2) | 2 |
+| product-reviews | 24 | 0 | 0 |
 | summary | 2709 | 153 (vi 153) | 153 |
-| localize | 2837 | 862 (id 372, ms 66, th 424) | 862 |
+| localize | 2855 | 848 (id 367, ms 66, th 415) | 848 |
 | glossary | 35 | 0 | 0 |
-| places | 7546 | 4589 (id 1573, ms 1565, th 1352, vi 99) | 1365 |
+| places | 7609 | 4637 (id 1589, ms 1581, th 1368, vi 99) | 1399 |
 | equipment | 5 | 0 | 0 |
 | planting | 32 | 0 | 0 |
 | species | 27 | 0 | 0 |
@@ -126,20 +126,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-342 of 2270 pages under the bar.
+349 of 2320 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 323 | 934 |
-| Says what the source doesn't (invented, added) | 288 | 548 |
-| Wording: unnatural, literal, stiff or chatty | 251 | 459 |
-| Meaning changed or wrong | 206 | 308 |
-| Hobby terms and names | 170 | 229 |
+| Other | 330 | 950 |
+| Says what the source doesn't (invented, added) | 294 | 563 |
+| Wording: unnatural, literal, stiff or chatty | 255 | 463 |
+| Meaning changed or wrong | 212 | 317 |
+| Hobby terms and names | 173 | 232 |
 | Leaves out what the source says | 115 | 154 |
 | Text left in another language | 115 | 142 |
-| States as certain what the source hedges, or what garbled captions only hint at | 93 | 109 |
-| A number, unit, dose or price | 78 | 101 |
-| Repeats itself (intro, summary, steps and FAQ) | 61 | 72 |
+| States as certain what the source hedges, or what garbled captions only hint at | 94 | 110 |
+| A number, unit, dose or price | 79 | 102 |
+| Repeats itself (intro, summary, steps and FAQ) | 63 | 74 |
 | Names or points to the video, channel, creator or source | 10 | 11 |
 | Copied from the transcript or source | 3 | 3 |
 | Off the title's topic | 1 | 1 |
@@ -222,19 +222,19 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-41 of 420 pages under the bar.
+43 of 425 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 39 | 105 |
-| Wording: unnatural, literal, stiff or chatty | 34 | 64 |
-| Says what the source doesn't (invented, added) | 33 | 77 |
-| Meaning changed or wrong | 25 | 41 |
+| Other | 41 | 111 |
+| Wording: unnatural, literal, stiff or chatty | 36 | 67 |
+| Says what the source doesn't (invented, added) | 34 | 78 |
+| Meaning changed or wrong | 26 | 43 |
 | Hobby terms and names | 24 | 35 |
-| Leaves out what the source says | 15 | 23 |
+| Leaves out what the source says | 16 | 24 |
 | A number, unit, dose or price | 15 | 17 |
 | Repeats itself (intro, summary, steps and FAQ) | 14 | 16 |
-| States as certain what the source hedges, or what garbled captions only hint at | 12 | 14 |
+| States as certain what the source hedges, or what garbled captions only hint at | 13 | 15 |
 | Text left in another language | 8 | 8 |
 | Names or points to the video, channel, creator or source | 1 | 1 |
 
@@ -290,7 +290,7 @@ under `<lang>/<path>`.
 
 - Omitted: the 'Esophagus' bullet in the digestive section lost the 'Alimentary canal' and 'Rectum' detail, which is fine. The 'swimmeret' row in the table dropped the statement that the nerve cord 'activates' the swimmeret system, which was… — vi/guides/aquariumbreeder-crayfish-internal-anatomy (aquariumbreeder), 0.70
 - "Khay sâu ít nhất 8–10 cm": the English reads '3 – 4 inches' (garbled with 'niches'). 3–4 in = 7.5–10 cm. Rounding to 8–10 cm is acceptable. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 4: "nghe nói trước đây còn tới 3 m" - the first "formerly" is garbled. Say "nghe nói trước đây có con dài tới 3 m". "ngày xưa cái gì cũng hơn" is clumsy; use "ngày xưa cái gì cũng tốt hơn". — vi/species/atractosteus-tristoechus (glaser), 0.70
+- Item 4: 'luồn dây oxy vào luồng nước ra của máy bơm' is unclear. Use 'ống dẫn khí' and name the powerhead as 'máy bơm tạo dòng'. 'a large tank' lost the sense of 'would have to'. The sentence structure is choppy. — vi/species/astroblepus-fissidens (scotcat), 0.70
 
 ### Text left in another language
 
@@ -304,7 +304,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 47 pages under the bar.
+0 of 48 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -391,7 +391,7 @@ under `<lang>/<path>`.
 
 ## product: product pages, against their research
 
-2 of 29 pages under the bar.
+2 of 30 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -431,7 +431,7 @@ under `<lang>/<path>`.
 
 ## product-reviews: product pages' review summaries (the code's checks: 1 pass, 0 fail)
 
-0 of 23 pages under the bar.
+0 of 24 pages under the bar.
 
 ## summary: species' quick summaries (the numbers and claims check: 1 pass, 0 fail)
 
@@ -505,21 +505,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-862 of 2837 pages under the bar.
+848 of 2855 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 780 | 2118 |
-| Wording: unnatural, literal, stiff or chatty | 709 | 1411 |
-| Says what the source doesn't (invented, added) | 487 | 687 |
-| Meaning changed or wrong | 477 | 722 |
-| A number, unit, dose or price | 471 | 606 |
-| Hobby terms and names | 424 | 559 |
-| Text left in another language | 296 | 380 |
-| Leaves out what the source says | 242 | 283 |
-| Repeats itself (intro, summary, steps and FAQ) | 225 | 247 |
-| States as certain what the source hedges, or what garbled captions only hint at | 175 | 197 |
-| Copied from the transcript or source | 19 | 19 |
+| Other | 768 | 2099 |
+| Wording: unnatural, literal, stiff or chatty | 702 | 1385 |
+| Says what the source doesn't (invented, added) | 480 | 676 |
+| Meaning changed or wrong | 469 | 712 |
+| A number, unit, dose or price | 462 | 592 |
+| Hobby terms and names | 417 | 549 |
+| Text left in another language | 292 | 373 |
+| Leaves out what the source says | 241 | 284 |
+| Repeats itself (intro, summary, steps and FAQ) | 228 | 250 |
+| States as certain what the source hedges, or what garbled captions only hint at | 172 | 193 |
+| Copied from the transcript or source | 17 | 17 |
 | Off the title's topic | 2 | 2 |
 
 ### Other
@@ -585,8 +585,8 @@ under `<lang>/<path>`.
 ### Copied from the transcript or source
 
 - Item 8: Thai adds a translator's note '(หมายเหตุ: ข้อมูลส่วนนี้ขัดกับ...21–24 °C)'. This fact is not in the source, so remove it. Also, 'ชอบอุณหภูมิค่อนข้างสูง' copies the source's contradictory statement; keep it faithful but without the … — th/species/corydoras-loxozonus, 0.40
-- Item 6: 'Lymnophila' was copied from the source spelling; the correct Latin name is Limnophila. — th/species/sphaerichthys-vaillanti, 0.40
 - Item 31: the English text is truncated ('known as sneakers,' / 'for months,'); the Indonesian copies the truncation and leaves unfinished sentences. Flag or complete them. — id/species/xiphophorus-hellerii, 0.50
+- Item 6: English says about 72 litres for 80 × 30 cm base; Thai copies 72 ลิตร, which is fine, so no change needed there. Skip. — th/species/corydoras-melini, 0.55
 
 ### Off the title's topic
 
@@ -599,15 +599,15 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-4589 of 7546 pages under the bar.
+4637 of 7609 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 1224 | 1318 |
+| Other | 1248 | 1344 |
+| Leaves out what the source says | 79 | 79 |
 | Meaning changed or wrong | 72 | 72 |
-| Leaves out what the source says | 63 | 63 |
 | Wording: unnatural, literal, stiff or chatty | 27 | 27 |
-| Hobby terms and names | 11 | 11 |
+| Hobby terms and names | 12 | 12 |
 | States as certain what the source hedges, or what garbled captions only hint at | 9 | 9 |
 | Text left in another language | 8 | 8 |
 | Repeats itself (intro, summary, steps and FAQ) | 4 | 4 |
@@ -618,17 +618,17 @@ under `<lang>/<path>`.
 - sông Cam → Cam (Vietnamese; should be Sungai Cam) — id/places/cam-river, 0.05
 - kênh Casiquiare → Casiquiare (Vietnamese 'kênh'; should be Kanal/Sungai Casiquiare) — id/places/canal-casiquiare, 0.05
 
+### Leaves out what the source says
+
+- The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries — ms/places/cachira-river, 0.30
+- 'เจ้าพระยา' for 'chao-praya': the region/river type is missing and the form is incomplete; 'แม่น้ำเจ้าพระยา' is standard. — th/places/chao-praya, 0.30
+- The source labels with Vietnamese text are not Malay; the target outputs given are mostly fine except missing 'Sungai' for river entries — ms/places/chapada-diamantina, 0.30
+
 ### Meaning changed or wrong
 
 - Source names are in Vietnamese (sông, đảo, dãy, lưu vực, bờ biển, Đông Nam Á), not Malay; only the arrow targets matter, and those are mostly wrong. — ms/places/southeast-asia, 0.10
 - "Amazons → Amazonas" is fine in Indonesian, but the source is wrong: the Indonesian atlas form is Amazonas, which is acceptable — id/places/amazons, 0.30
 - The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong: — id/places/apalachicola-river-basin, 0.30
-
-### Leaves out what the source says
-
-- 'เจ้าพระยา' for 'chao-praya': the region/river type is missing and the form is incomplete; 'แม่น้ำเจ้าพระยา' is standard. — th/places/chao-praya, 0.30
-- "Kayan" for kajan-river: the river is the Kajan/Kayan in Borneo. Indonesian atlases write Sungai Kayan, but the answer omits the 'Sungai' generic. — id/places/kajan-river, 0.30
-- "Manacapuru" (rio-manacapuru): drops the word for river; should be "Sungai Manacapuru" — ms/places/rio-manacapuru, 0.30
 
 ### Wording: unnatural, literal, stiff or chatty
 
@@ -638,9 +638,9 @@ under `<lang>/<path>`.
 
 ### Hobby terms and names
 
+- morocco: Maghribi (Malaysia atlases commonly use Maghribi, but Maroko is the common name; questionable) — ms/places/morocco, 0.30
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/rio-orinoco, 0.30
 - Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/river-congo, 0.30
-- Many entries omit the Malay generic term: Malay atlases write 'Sungai Orinoco' etc., but these are given as bare names for rivers (e.g. 'Orinoco', 'Sadong', 'Sambas', 'Tocantins', 'Congo') — missing 'Sungai' — ms/places/sadong-river, 0.30
 
 ### States as certain what the source hedges, or what garbled captions only hint at
 

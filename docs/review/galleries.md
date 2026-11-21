@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 37 | 199 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 833 | 32 | 9 | 28 | 846 |
-| rest | 20 | 1912 | 81 | 0 | 117 | 1876 |
+| covered | 30 | 846 | 32 | 9 | 28 | 859 |
+| rest | 20 | 1931 | 81 | 0 | 118 | 1894 |
 
-## Short of target: every source read (713)
+## Short of target: every source read (720)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -35,7 +35,14 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/neolamprologus-pulcher | covered | 3 | 30 |
 | species/amphilius-lujani | rest | 0 | 20 |
 | species/amphilius-zairensis | rest | 0 | 20 |
+| species/ariopsis-guatemalensis | rest | 0 | 20 |
 | species/arius-latiscutatus | covered | 0 | 30 |
+| species/arius-leptonotacanthus | rest | 0 | 20 |
+| species/arius-subrostratus | rest | 0 | 20 |
+| species/arius-venosus | rest | 0 | 20 |
+| species/aspistor-luniscutis | rest | 0 | 20 |
+| species/aspredo-aspredo | rest | 0 | 20 |
+| species/cathorops-arenatus | rest | 0 | 20 |
 | species/polypterus-retropinnis | covered | 0 | 30 |
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
 | species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
@@ -307,6 +314,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-splendens | covered | 4 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
 | species/dianema-urostriatum | covered | 0 | 30 |
+| species/erethistes-pusillus | covered | 1 | 30 |
 | species/farlowella-platorynchus | covered | 0 | 30 |
 | species/hisonotus-notatus | covered | 0 | 30 |
 | species/hoplosternum-punctatum | covered | 0 | 30 |
@@ -567,7 +575,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/enteromius-jae | covered | 1 | 30 |
 | species/entomocorus-benjamini | covered | 0 | 30 |
 | species/epiplatys-dageti | covered | 0 | 30 |
-| species/erethistes-pusillus | covered | 1 | 30 |
 | species/eretmodus-cyanostictus | covered | 0 | 30 |
 | species/ernstichthys-megistus | covered | 0 | 30 |
 | species/erythrinus-erythrinus | covered | 0 | 30 |
