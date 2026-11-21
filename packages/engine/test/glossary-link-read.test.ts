@@ -56,14 +56,18 @@ test('one call a phrase, its prompt carrying the term\'s meaning, the phrase and
 })
 
 test('a place the answer leaves out, numbers twice or numbers past the sample is not counted as read', async () => {
-  const r = await readPhrase(fake([], rs => [...rs.slice(1), rs[5]!, { n: 99, says: 'other' }]), term, report())
+  const r = await readPhrase(fake([], rs => [...rs.slice(1), rs[5]!, { n: 99, says: 'other', means: 'a place past the sample' }]), term, report())
   // Place 1 left out, place 6 twice (both "oxy già"): 28 read, 10 of the 12 others; place 99 isn't one.
   expect(r.read).toBe(28)
   expect(r.other).toBe(10)
+  // An "other" with no words on what it means isn't counted: place 2 blank, place 3 spaces.
+  const blank = await readPhrase(fake([], rs => rs.map(x => (x.n === 2 || x.n === 3 ? { ...x, means: x.n === 2 ? '' : '  ' } : x))), term, report())
+  expect(blank).toMatchObject({ read: 28, other: 10 })
+  expect(blank.examples.every(x => x.means)).toBe(true)
 })
 
 test('an answer not of the schema\'s shape leaves only that phrase unread', async () => {
-  for (const bad of [{ reads: null }, {}, { reads: [{ n: 1, says: 'maybe', means: '' }] }, { reads: [{ n: '1', says: 'term', means: '' }] }]) {
+  for (const bad of [{ reads: null }, {}, { reads: [{ n: 1, says: 'maybe', means: '' }] }, { reads: [{ n: '1', says: 'term', means: '' }] }, { reads: [{ n: 1, says: 'other' }] }]) {
     const llm: Llm = async <T>() => bad as T
     expect(await readPhrase(llm, term, report())).toMatchObject({ read: 0, other: 0, failed: 'the answer is not a list of reads' })
   }
@@ -76,19 +80,22 @@ test('a limit is a whole number of phrases, one or more, refused before any call
 })
 
 test('a call that fails leaves the phrase unread and says why; the page lists it apart', async () => {
-  const llm: Llm = async () => { throw new Error('the glossary-link-read ceiling is reached') }
+  // The command's own words can carry a path on this Mac: the page gets a fixed word for what failed, never them.
+  const llm: Llm = async () => { throw new Error('claude timed out after 600 s') }
   const r = await readPhrase(llm, term, report())
-  expect(r).toMatchObject({ read: 0, other: 0, failed: 'the glossary-link-read ceiling is reached' })
+  expect(r).toMatchObject({ read: 0, other: 0, failed: 'timed out' })
+  const path = await readPhrase(async () => { throw new Error('claude failed (1): cannot open /Users/someone/.claude/x.json') }, term, report())
+  expect(path.failed).not.toContain('/Users/')
   const ok = await readPhrase(fake([]), term, report())
   // By share, not count: 5 of 10 (50%) comes before 12 of 30 (40%), and 0 of 30 last.
   const text = linkReadText([r, { ...ok, phrase: 'oxy hòa tan', other: 0, examples: [] }, ok, { ...ok, phrase: 'oxy già', read: 10, other: 5, examples: [] }], '2026-11-22', 'claude-sonnet-5-5')
-  expect(text).toContain('Not read (1): "oxy" (the glossary-link-read ceiling is reached).')
+  expect(text).toContain('Not read (1): "oxy" (timed out).')
   // Most read as another meaning first, each with its share and its examples.
   const heads = text.split('\n').filter(l => l.startsWith('## '))
   expect(heads).toEqual([
-    '## oxy-hoa-tan: "oxy già", 5 of 10 answered read as another meaning (50% of the sample)',
-    '## oxy-hoa-tan: "oxy", 12 of 30 answered read as another meaning (40% of the sample)',
-    '## oxy-hoa-tan: "oxy hòa tan", 0 of 30 answered read as another meaning (0% of the sample)',
+    '## oxy-hoa-tan: "oxy già", 5 of 10 answered read as another meaning (50% of those answered)',
+    '## oxy-hoa-tan: "oxy", 12 of 30 answered read as another meaning (40% of those answered)',
+    '## oxy-hoa-tan: "oxy hòa tan", 0 of 30 answered read as another meaning (0% of those answered)',
   ])
   expect(text).toContain('37 linked places, 12 flagged; sampled 30, 12 of them flagged; 30 answered.')
   expect(text).toContain('sampled 30, 12 of them flagged; 10 answered.')

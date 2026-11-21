@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GLOSSARY_HELD, toneKey } from '@aq/schema'
+import { failureKind } from './call-failure'
 import { type Llm, modelRan } from './claude'
 import { glossaryLinkCheck, type Place, type PhraseReport } from './glossary-link-check'
 
@@ -69,24 +70,28 @@ export const READ_SCHEMA = {
 export async function readPhrase(llm: Llm, t: Term, r: PhraseReport, model = READ_MODEL): Promise<PhraseRead> {
   const places = sample(r)
   const base = { term: r.term, phrase: r.phrase, links: r.links, flagged: r.flagged.length, sampled: places.length, sampledFlagged: places.filter(p => p.flagged).length }
-  let reads: { n: number; says: Says; means?: string }[]
+  let reads: { n: number; says: Says; means: string }[]
+  const SHAPE = 'the answer is not a list of reads'
   try {
     const a = await llm<{ reads?: unknown }>({ system: SYSTEM, prompt: readPrompt(t, r.phrase, places), schema: READ_SCHEMA, model })
     // An answer not of the schema's shape leaves the phrase unread, as a failed call does, and the run goes on.
-    const ok = (x: unknown): x is { n: number; says: Says; means?: string } => typeof x === 'object' && x !== null && Number.isInteger((x as { n?: unknown }).n)
-      && ['term', 'other', 'unsure'].includes((x as { says?: unknown }).says as string) && ['string', 'undefined'].includes(typeof (x as { means?: unknown }).means)
-    if (!Array.isArray(a?.reads) || !a.reads.every(ok)) throw new Error('the answer is not a list of reads')
+    const ok = (x: unknown): x is { n: number; says: Says; means: string } => typeof x === 'object' && x !== null && Number.isInteger((x as { n?: unknown }).n)
+      && ['term', 'other', 'unsure'].includes((x as { says?: unknown }).says as string) && typeof (x as { means?: unknown }).means === 'string'
+    if (!Array.isArray(a?.reads) || !a.reads.every(ok)) throw new Error(SHAPE)
     reads = a.reads
   } catch (e) {
-    return { ...base, read: 0, other: 0, unsure: 0, examples: [], failed: (e as Error).message }
+    // A fixed word for what failed, never the command's own text, which can carry a path on this Mac (call-failure.ts).
+    const m = (e as Error).message
+    return { ...base, read: 0, other: 0, unsure: 0, examples: [], failed: m === SHAPE ? m : failureKind(m) }
   }
   const seen = new Map<number, number>()
   for (const x of reads) seen.set(x.n, (seen.get(x.n) ?? 0) + 1)
-  const said = reads.filter(x => x.n >= 1 && x.n <= places.length && seen.get(x.n) === 1)
+  // An "other" with no words on what it means there isn't counted: it would raise the share with nothing to show for it.
+  const said = reads.filter(x => x.n >= 1 && x.n <= places.length && seen.get(x.n) === 1 && (x.says !== 'other' || x.means.trim()))
   const others = said.filter(x => x.says === 'other').sort((a, b) => a.n - b.n)
   return {
     ...base, read: said.length, other: others.length, unsure: said.filter(x => x.says === 'unsure').length,
-    examples: others.slice(0, EXAMPLES).map(x => ({ ...places[x.n - 1]!, means: (x.means ?? '').trim() })),
+    examples: others.slice(0, EXAMPLES).map(x => ({ ...places[x.n - 1]!, means: x.means.trim() })),
   }
 }
 
@@ -122,7 +127,7 @@ export function linkReadText(reads: PhraseRead[], date: string, model: string): 
   if (failed.length) out.push(`Not read (${failed.length}): ${failed.map(r => `"${r.phrase}" (${r.failed})`).join('; ')}.`, '')
   const share = (r: PhraseRead) => (r.read ? r.other / r.read : 0)
   for (const r of reads.filter(x => !x.failed).sort((a, b) => share(b) - share(a) || b.other - a.other || b.links - a.links)) {
-    out.push(`## ${r.term}: "${r.phrase}", ${r.other} of ${r.read} answered read as another meaning (${pct(r.other, r.read)} of the sample)`)
+    out.push(`## ${r.term}: "${r.phrase}", ${r.other} of ${r.read} answered read as another meaning (${pct(r.other, r.read)} of those answered)`)
     out.push(`${r.links} linked places, ${r.flagged} flagged; sampled ${r.sampled}, ${r.sampledFlagged} of them flagged; ${r.read} answered${r.unsure ? `, ${r.unsure} unsure` : ''}.`)
     for (const x of r.examples) out.push(`- ${x.page}${x.means ? ` (${x.means})` : ''} | …${x.around}…`)
     out.push('')
