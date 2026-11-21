@@ -936,7 +936,7 @@ The layers above still check the result.
     (`engine-state/_magazine.json`), which only it writes; GitHub never asks the Archive, and its ideas step reads the
     magazine's titles and guides from that record (the chief of staff, 21 Nov 2026). While the site refuses, its list is
     read from the Archive's copy of its sitemap, tried once a day until titles come (forced or not), and the capture
-    index marks which posts it holds. The day's one magazine guide, on the Mac's $2 line beside GitHub's two shop
+    index marks which posts it holds. The day's one magazine guide, on the Mac's $3 line beside GitHub's two shop
     guides, gets its post from the Archive's newest good copy (an archived challenge page is no copy), given to research
     as a page to take facts from, never instructions. Its text is held for that run alone and written nowhere: the
     magazine has given no permission to republish and the repository is public (the chief of staff, 21 Nov 2026).

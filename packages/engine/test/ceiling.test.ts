@@ -269,8 +269,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-19T00:00:00+07:00', to: '2026-11-19T12:59:00+07:00', whole: true, steps: 521, backstop: 580, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 6 },
     { from: '2026-11-19T13:00:00+07:00', to: '2026-11-19T23:59:00+07:00', whole: true, steps: 540, backstop: 599, writer: 14, small: 4, run: 65, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 30, glossary: 100, material: 8, ask: 2, ideas: 4, judge: 24, photos: 12, recheck: 25 },
     { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 574, backstop: 633, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 115, material: 8, ask: 2, ideas: 4, judge: 24, photos: 35, recheck: 25 },
-    { from: '2026-11-21T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 524, backstop: 597, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 2, photos: 12, recheck: 25 },
-    { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 445, backstop: 518, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, magazine: 2, photos: 12, recheck: 6 },
+    { from: '2026-11-21T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 525, backstop: 598, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, recheck: 25 },
+    { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 446, backstop: 519, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, magazine: 3, photos: 12, recheck: 6 },
   ]
   const fresh = await logs({ 'aquatome-cost-hand.jsonl': [] }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
   for (const p of periods) for (const when of [p.from, p.to]) {
@@ -331,7 +331,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     // (the chief of staff, 14 Nov 2026).
     expect(cap(when, 'github', 'write-ideas')).toBe(p.ideas ?? 3)
     expect(cap(when, 'mac', 'write-ideas')).toBe(0)
-    // The magazine's guide: $2 on the Mac from 21 Nov, its Archive work the Mac's alone (the chief of staff, 21 Nov 2026).
+    // The magazine's guide: $3 on the Mac from 21 Nov, its Archive work the Mac's alone (the chief of staff, 21 Nov 2026).
     expect(cap(when, 'mac', 'magazine')).toBe(p.magazine ?? p.small)
     // The two-model recheck: $25 a day on GitHub, where the rewrite part runs, to its last day, 24 Nov, with GitHub's
     // backstop $25 higher, while the 699 pages out of search for their score have their reads; then $6 a day for the pages
