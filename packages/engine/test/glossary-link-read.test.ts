@@ -23,7 +23,7 @@ type Read = { n: number; says: string; means?: string }
 const fake = (calls: string[], edit: (r: Read[]) => Read[] = r => r): Llm => async <T>({ prompt }: { prompt: string }) => {
   calls.push(prompt)
   const places = prompt.split('\n').filter(l => /^\d+\. /.test(l))
-  return { reads: edit(places.map((l, i): Read => (l.includes('oxy] già') ? { n: i + 1, says: 'other', means: 'hydrogen peroxide' } : { n: i + 1, says: 'term' }))) } as T
+  return { reads: edit(places.map((l, i): Read => (l.includes('oxy] già') ? { n: i + 1, says: 'other', means: 'hydrogen peroxide' } : { n: i + 1, says: 'term', means: '' }))) } as T
 }
 
 test('a phrase\'s sample is its flagged places first, at most 30, the same whatever order the pages come in', () => {
@@ -49,7 +49,10 @@ test('one call a phrase, its prompt carrying the term\'s meaning, the phrase and
   expect(readPrompt(term, 'oxy', sample(report()))).toBe(calls[0])
   expect(r).toMatchObject({ term: 'oxy-hoa-tan', phrase: 'oxy', links: 37, flagged: 12, sampled: 30, sampledFlagged: 12, read: 30, other: 12, unsure: 0 })
   expect(r.examples).toHaveLength(3)
+  expect(new Set(r.examples.map(x => x.page)).size).toBe(3)
   expect(r.examples.every(x => x.around.includes('[oxy] già') && x.means === 'hydrogen peroxide')).toBe(true)
+  // A modifier or a name beside the phrase isn't "other" by itself: the prompt says so.
+  expect(calls[0]).toContain('A word or a name next to the phrase doesn\'t by itself make it "other"')
 })
 
 test('a place the answer leaves out, numbers twice or numbers past the sample is not counted as read', async () => {
@@ -59,17 +62,37 @@ test('a place the answer leaves out, numbers twice or numbers past the sample is
   expect(r.other).toBe(10)
 })
 
+test('an answer not of the schema\'s shape leaves only that phrase unread', async () => {
+  for (const bad of [{ reads: null }, {}, { reads: [{ n: 1, says: 'maybe', means: '' }] }, { reads: [{ n: '1', says: 'term', means: '' }] }]) {
+    const llm: Llm = async <T>() => bad as T
+    expect(await readPhrase(llm, term, report())).toMatchObject({ read: 0, other: 0, failed: 'the answer is not a list of reads' })
+  }
+})
+
+test('a limit is a whole number of phrases, one or more, refused before any call', async () => {
+  const calls: string[] = []
+  for (const limit of [0, -1, 1.5, Number.NaN]) await expect(writeLinkRead(tmpdir(), tmpdir(), fake(calls), '2026-11-22', { limit })).rejects.toThrow('a limit is a whole number')
+  expect(calls).toHaveLength(0)
+})
+
 test('a call that fails leaves the phrase unread and says why; the page lists it apart', async () => {
   const llm: Llm = async () => { throw new Error('the glossary-link-read ceiling is reached') }
   const r = await readPhrase(llm, term, report())
   expect(r).toMatchObject({ read: 0, other: 0, failed: 'the glossary-link-read ceiling is reached' })
   const ok = await readPhrase(fake([]), term, report())
-  const text = linkReadText([r, { ...ok, phrase: 'oxy hòa tan', other: 0, examples: [] }, ok], '2026-11-22', 'claude-sonnet-5-5')
+  // By share, not count: 5 of 10 (50%) comes before 12 of 30 (40%), and 0 of 30 last.
+  const text = linkReadText([r, { ...ok, phrase: 'oxy hòa tan', other: 0, examples: [] }, ok, { ...ok, phrase: 'oxy già', read: 10, other: 5, examples: [] }], '2026-11-22', 'claude-sonnet-5-5')
   expect(text).toContain('Not read (1): "oxy" (the glossary-link-read ceiling is reached).')
   // Most read as another meaning first, each with its share and its examples.
   const heads = text.split('\n').filter(l => l.startsWith('## '))
-  expect(heads).toEqual(['## oxy-hoa-tan: "oxy", 12 of 30 read as another meaning (40%)', '## oxy-hoa-tan: "oxy hòa tan", 0 of 30 read as another meaning (0%)'])
-  expect(text).toContain('37 linked places, 12 flagged; read 30, 12 of them flagged.')
+  expect(heads).toEqual([
+    '## oxy-hoa-tan: "oxy già", 5 of 10 answered read as another meaning (50% of the sample)',
+    '## oxy-hoa-tan: "oxy", 12 of 30 answered read as another meaning (40% of the sample)',
+    '## oxy-hoa-tan: "oxy hòa tan", 0 of 30 answered read as another meaning (0% of the sample)',
+  ])
+  expect(text).toContain('37 linked places, 12 flagged; sampled 30, 12 of them flagged; 30 answered.')
+  expect(text).toContain('sampled 30, 12 of them flagged; 10 answered.')
+  expect(text).toContain('the flagged ones first, so a phrase with many flagged places shows the flagged ones\' share')
   expect(text).toContain('- guides/rua-be-')
 })
 

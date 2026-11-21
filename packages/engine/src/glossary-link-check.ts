@@ -20,6 +20,14 @@ const STOP = new Set(('và của cho trong là có để khi thì ở với từ
   + 'xuống như hay hoặc nhưng mà nên vì do theo trên dưới sau trước giữa quá đến tới lại nữa luôn thường càng đều vẫn còn chỉ '
   + 'hết cả mỗi tại sẽ đang khá thêm bằng gì nào ấy kia đây thế vậy rồi lúc nếu dù tuy giúp gây làm cần phải nhé cỡ nhỏ lớn mới').split(' '))
 const KINDS = ['species', 'plants', 'breeds', 'guides'] as const
+/**
+ * The order a page shows its sections in (the site's DISPLAY_ORDER, apps/site/src/lib/sections.ts; a test holds the two
+ * equal). The linker links a term once a page, where it comes first as the page is read, so the check reads the
+ * sections in that order, not the file's: a fish page's habitat comes before its water in the file, after it on the page.
+ */
+export const READER_ORDER = ['quickFacts', 'beforeYouBuy', 'aquariumSize', 'waterConditions', 'maintenance', 'equipment', 'diet',
+  'behaviour', 'dimorphism', 'reproduction', 'distribution', 'habitat', 'notes', 'references']
+const shown = (key: string) => { const i = READER_ORDER.indexOf(key.split(':')[0]!); return i < 0 ? READER_ORDER.length : i }
 const MARK = (id: string) => `#glossary-link-check:${id}`
 
 export type Term = { id: string; name: string; altNames: string[]; linkNames?: string[]; text?: string }
@@ -64,7 +72,9 @@ export function checkLinks(terms: Term[], pages: Page[], held: Set<string> = new
     const k = `${t.id}\n${toneKey(n)}`
     // The entry itself writes it before a name ("lưu vực sông Amazon"): a name after it is the term's own use. The phrase is
     // matched in any case and the word after it tested apart: under the case-blind flag, \p{Lu} matches any letter.
-    const ownCaps = [...plain(t.text ?? '').matchAll(new RegExp(`(?<![\\p{L}\\p{M}\\p{N}])${escape(n)} ([\\p{L}\\p{M}]+)`, 'giu'))].some(m => /^\p{Lu}\p{Ll}/u.test(m[1]!))
+    // Every spelling of it the term has ("Thủy vực" and "Thuỷ vực"), so which one a page writes first doesn't decide it.
+    const spellings = [n, ...own.get(t.id)!.filter(x => toneKey(x) === toneKey(n))]
+    const ownCaps = spellings.some(sp => [...plain(t.text ?? '').matchAll(new RegExp(`(?<![\\p{L}\\p{M}\\p{N}])${escape(sp)} ([\\p{L}\\p{M}]+)`, 'giu'))].some(m => /^\p{Lu}\p{Ll}/u.test(m[1]!)))
     return reports.get(k) ?? reports.set(k, { term: t.id, phrase: n, links: 0, longer: longerOf(t, own.get(t.id)!.find(x => toneKey(x) === toneKey(n)) ?? n), ownCaps, flagged: [], places: [] }).get(k)!
   }
   const byId = new Map(terms.map(t => [t.id, t]))
@@ -105,7 +115,7 @@ export async function glossaryLinkCheck(root: string, held: Set<string> = new Se
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
       const v = await readJson<{ sections?: Record<string, unknown>; body?: string; quality?: { indexable?: boolean } }>(join(root, 'content', kind, id, 'vi.json'))
       if (!v || v.quality?.indexable === false) continue
-      const parts = [...Object.values(v.sections ?? {}).filter((x): x is string => typeof x === 'string'), v.body ?? '']
+      const parts = [...Object.entries(v.sections ?? {}).filter((e): e is [string, string] => typeof e[1] === 'string').sort(([a], [b]) => shown(a) - shown(b)).map(([, x]) => x), v.body ?? '']
       pages.push({ kind, id, html: parts.map(x => `<p>${x}</p>`).join('') })
     }
   }

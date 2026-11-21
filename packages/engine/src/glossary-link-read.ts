@@ -40,9 +40,10 @@ export function readPrompt(t: Term, phrase: string, places: Place[]): string {
     `THE PHRASE: "${phrase}". The site links it to this term in each place below, where it stands in [brackets].`,
     'For each place, say what the phrase means there, from the words shown:',
     '- "term": the term as its meaning says;',
-    '- "other": something else (part of a longer name or phrase, a place, another sense of the words);',
+    '- "other": something else: the words there name another thing, or are used in another sense;',
     '- "unsure": the words shown don\'t tell.',
-    'For "other", say in a few English words what it means there. Judge each place by itself.',
+    'A word or a name next to the phrase doesn\'t by itself make it "other": a phrase that names a particular case of the term still means the term. Say "other" only when, there, it stops meaning the term.',
+    'For "other", say in a few English words what it means there; leave "means" empty otherwise. Judge each place by itself.',
     '',
     'PLACES:',
     ...places.map((p, i) => `${i + 1}. …${p.around}…`),
@@ -57,7 +58,7 @@ export const READ_SCHEMA = {
       items: {
         type: 'object',
         properties: { n: { type: 'integer' }, says: { type: 'string', enum: ['term', 'other', 'unsure'] }, means: { type: 'string' } },
-        required: ['n', 'says'],
+        required: ['n', 'says', 'means'],
       },
     },
   },
@@ -70,13 +71,18 @@ export async function readPhrase(llm: Llm, t: Term, r: PhraseReport, model = REA
   const base = { term: r.term, phrase: r.phrase, links: r.links, flagged: r.flagged.length, sampled: places.length, sampledFlagged: places.filter(p => p.flagged).length }
   let reads: { n: number; says: Says; means?: string }[]
   try {
-    reads = (await llm<{ reads: { n: number; says: Says; means?: string }[] }>({ system: SYSTEM, prompt: readPrompt(t, r.phrase, places), schema: READ_SCHEMA, model })).reads
+    const a = await llm<{ reads?: unknown }>({ system: SYSTEM, prompt: readPrompt(t, r.phrase, places), schema: READ_SCHEMA, model })
+    // An answer not of the schema's shape leaves the phrase unread, as a failed call does, and the run goes on.
+    const ok = (x: unknown): x is { n: number; says: Says; means?: string } => typeof x === 'object' && x !== null && Number.isInteger((x as { n?: unknown }).n)
+      && ['term', 'other', 'unsure'].includes((x as { says?: unknown }).says as string) && ['string', 'undefined'].includes(typeof (x as { means?: unknown }).means)
+    if (!Array.isArray(a?.reads) || !a.reads.every(ok)) throw new Error('the answer is not a list of reads')
+    reads = a.reads
   } catch (e) {
     return { ...base, read: 0, other: 0, unsure: 0, examples: [], failed: (e as Error).message }
   }
   const seen = new Map<number, number>()
   for (const x of reads) seen.set(x.n, (seen.get(x.n) ?? 0) + 1)
-  const said = reads.filter(x => Number.isInteger(x.n) && x.n >= 1 && x.n <= places.length && seen.get(x.n) === 1)
+  const said = reads.filter(x => x.n >= 1 && x.n <= places.length && seen.get(x.n) === 1)
   const others = said.filter(x => x.says === 'other').sort((a, b) => a.n - b.n)
   return {
     ...base, read: said.length, other: others.length, unsure: said.filter(x => x.says === 'unsure').length,
@@ -91,6 +97,7 @@ async function readTerm(root: string, id: string): Promise<Term> {
 
 /** Every phrase that links, or the `limit` most flagged, read in that order. */
 export async function linkRead(root: string, llm: Llm, o: { limit?: number; model?: string } = {}): Promise<PhraseRead[]> {
+  if (o.limit !== undefined && !(Number.isInteger(o.limit) && o.limit >= 1)) throw new Error(`a limit is a whole number of phrases, 1 or more: ${o.limit}`)
   const { reports } = await glossaryLinkCheck(root, new Set(GLOSSARY_HELD.map(h => `${h.term}\n${toneKey(h.phrase)}`)))
   const out: PhraseRead[] = []
   const terms = new Map<string, Term>()
@@ -108,15 +115,15 @@ export function linkReadText(reads: PhraseRead[], date: string, model: string): 
   const read = reads.reduce((n, r) => n + r.read, 0), other = reads.reduce((n, r) => n + r.other, 0)
   const out = [
     `# The glossary's link phrases, read by a model, ${date}`, '',
-    `${reads.length} phrases, ${read} linked places read (up to ${SAMPLE} a phrase, the flagged ones first), ${other} read as another meaning; model ${model}.`,
+    `${reads.length} phrases, ${read} linked places answered, ${other} read as another meaning; model ${model}. Each phrase's share is of a sample: up to ${SAMPLE} of its places, the flagged ones first, so a phrase with many flagged places shows the flagged ones' share, not all its places'.`,
     'The model holds nothing: a phrase is held (glossary-held.ts) only by hand, on the chief of staff\'s word.', '',
   ]
   const failed = reads.filter(r => r.failed)
   if (failed.length) out.push(`Not read (${failed.length}): ${failed.map(r => `"${r.phrase}" (${r.failed})`).join('; ')}.`, '')
   const share = (r: PhraseRead) => (r.read ? r.other / r.read : 0)
   for (const r of reads.filter(x => !x.failed).sort((a, b) => share(b) - share(a) || b.other - a.other || b.links - a.links)) {
-    out.push(`## ${r.term}: "${r.phrase}", ${r.other} of ${r.read} read as another meaning (${pct(r.other, r.read)})`)
-    out.push(`${r.links} linked places, ${r.flagged} flagged; read ${r.sampled}, ${r.sampledFlagged} of them flagged${r.unsure ? `; ${r.unsure} unsure` : ''}${r.read < r.sampled ? `; ${r.sampled - r.read} left unread by the answer` : ''}.`)
+    out.push(`## ${r.term}: "${r.phrase}", ${r.other} of ${r.read} answered read as another meaning (${pct(r.other, r.read)} of the sample)`)
+    out.push(`${r.links} linked places, ${r.flagged} flagged; sampled ${r.sampled}, ${r.sampledFlagged} of them flagged; ${r.read} answered${r.unsure ? `, ${r.unsure} unsure` : ''}.`)
     for (const x of r.examples) out.push(`- ${x.page}${x.means ? ` (${x.means})` : ''} | …${x.around}…`)
     out.push('')
   }

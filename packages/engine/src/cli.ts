@@ -708,8 +708,11 @@ if (cmd === 'photo-privacy') {
   // the flagged ones first, read by a model for whether the phrase there means its term; the share read as another meaning
   // goes to docs/review/glossary-link-read.md for the chief of staff. It holds and links nothing.
   // pnpm engine glossary-link-read [--limit N: the N most flagged phrases only]
+  // A limit is a whole number of phrases, one or more, checked before any work.
+  const limit = values.limit === undefined ? undefined : Number(values.limit)
+  if (limit !== undefined && !(Number.isInteger(limit) && limit >= 1)) throw new Error(`--limit takes a whole number of phrases, 1 or more: ${values.limit}`)
   await mkdir(join(ROOT, 'docs/review'), { recursive: true })
-  const { reads, file } = await writeLinkRead(ROOT, join(ROOT, 'docs/review'), claudeCli, new Date().toISOString().slice(0, 10), values.limit ? { limit: Number(values.limit) } : {})
+  const { reads, file } = await writeLinkRead(ROOT, join(ROOT, 'docs/review'), claudeCli, new Date().toISOString().slice(0, 10), limit ? { limit } : {})
   console.log(`glossary link read: ${reads.length} phrases, ${reads.reduce((n, r) => n + r.read, 0)} places read, ${reads.reduce((n, r) => n + r.other, 0)} as another meaning, ${reads.filter(r => r.failed).length} not read; ${file}`)
 } else if (cmd === 'reader') {
   // A reader's eye on a few pages a cycle (reader.ts): the model reads each as a reader would, against a rubric; Vietnamese
