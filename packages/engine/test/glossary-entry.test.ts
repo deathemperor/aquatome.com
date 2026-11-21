@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { toneKey } from '@aq/schema'
 import type { Llm } from '../src/claude'
-import { LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, RULE_SIDE, ruleNumbers, sfGlossaryUrl, siteNotes, stops, type Draft } from '../src/glossary-entry'
+import { factPageNames, LEGACY_DRAFTS, lengthNotes, makeGlossaryEntry, offLimits, pageNames, refusals, RULE_SIDE, ruleNumbers, sfGlossaryUrl, siteNotes, stops, type Draft } from '../src/glossary-entry'
 import { logReviews } from '../src/review-log'
 import type { TopicFacts } from '../src/topics'
 
@@ -1284,4 +1284,38 @@ test('the writer and the rules read the open disease guides, and an entry that p
   expect((r as { notes: string[] }).notes.some(n => n.startsWith('Rule 13: ') && n.includes(toHeld))).toBe(true)
   const vi = JSON.parse(await readFile(join(root, 'content/glossary/lua/vi.json'), 'utf8'))
   expect(vi.body ?? '').not.toContain(toHeld)
+})
+
+// The chief of staff, 22 Nov 2026: the fact check stopped "Cá neon Việt Nam", the site's page name for Tanichthys
+// micagemmae, which the writer is told to use, as a name no fact gives (Đặc hữu, twice). It is told the site's names for the
+// species the facts name by their scientific name, and only those: a page name for a species no fact names still stops.
+test('the fact check is told the site\'s names for the species the facts name by their scientific name, and only those', async () => {
+  const page = async (root: string, id: string, scientificName: string, name: string) => {
+    await mkdir(join(root, 'content/species', id), { recursive: true })
+    await writeFile(join(root, 'content/species', id, 'entity.json'), JSON.stringify({ id, scientificName }))
+    await writeFile(join(root, 'content/species', id, 'vi.json'), JSON.stringify({ name, altNames: [] }))
+  }
+  const fish = async () => {
+    const root = await site()
+    await page(root, 'tanichthys-micagemmae', 'Tanichthys micagemmae', 'Cá neon Việt Nam')
+    await page(root, 'paracheirodon-innesi', 'Paracheirodon innesi', 'Cá neon xanh')
+    return root
+  }
+  expect(await factPageNames(await fish(), 'Tanichthys micagemmae is known only from the Ben Hai river system.')).toEqual(['Cá neon Việt Nam = Tanichthys micagemmae'])
+  const withFish: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Tanichthys micagemmae is known only from the Ben Hai river system', source: 0 }] }
+  // A check that knows a fish's name only from what it is given to read with the sentences.
+  const names = ['Cá neon Việt Nam', 'Cá neon xanh']
+  const run = async (body: string) => {
+    const llm: Llm = async ({ prompt }) => {
+      if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
+      if (isCheck(prompt)) {
+        const given = prompt.split(/\n\n(?:SENTENCES|HEADING):\n/)[0]!
+        return verdicts(prompt, t => (names.some(n => t.includes(n) && !given.includes(n)) ? 'unsupported: a name the facts don\'t give' : undefined)) as never
+      }
+      return { ...written, body } as never
+    }
+    return makeGlossaryEntry(await fish(), { research: async () => withFish as never, llm }, 'tanin', { kind: 'setup' })
+  }
+  expect(await run('<p>Cá neon Việt Nam chỉ được biết ở hệ sông Bến Hải.</p>')).toMatchObject({ id: 'tanin', score: 1 })
+  expect(await run('<p>Cá neon xanh chỉ được biết ở hệ sông Bến Hải.</p>')).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note' })
 })

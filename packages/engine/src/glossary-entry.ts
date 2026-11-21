@@ -217,6 +217,28 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
   return [...out].slice(0, 40)
 }
 
+/**
+ * The site's own names for the species and plants the facts name by their scientific name, for the fact check (the chief
+ * of staff, 22 Nov 2026, after "Cá neon Việt Nam" for Tanichthys micagemmae stopped Đặc hữu twice: the writer is told to
+ * call a fish by its page's name, and the check, never told it, read it as a name no fact gives). Each line is a page's
+ * names, then "=" and the scientific name a fact writes whole. A page whose scientific name no fact writes isn't listed,
+ * so a page name for a species no fact carries still stops.
+ */
+export async function factPageNames(root: string, text: string): Promise<string[]> {
+  const out: string[] = []
+  for (const kind of ['species', 'plants']) {
+    const base = join(root, 'content', kind)
+    for (const x of (await readdir(base).catch(() => [] as string[])).sort()) {
+      const e = await readFile(join(base, x, 'entity.json'), 'utf8').then(JSON.parse).catch(() => null) as { scientificName?: string } | null
+      const sci = e?.scientificName?.trim()
+      if (!sci?.includes(' ') || !new RegExp(`(?<![\\p{L}\\p{N}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu').test(text)) continue
+      const v = await readFile(join(base, x, 'vi.json'), 'utf8').then(JSON.parse).catch(() => null) as { name?: string; altNames?: string[] } | null
+      if (v?.name) out.push(`${[v.name, ...(v.altNames ?? [])].slice(0, 5).join(' | ')} = ${sci}`)
+    }
+  }
+  return out
+}
+
 /** Seriously Fish's glossary entry for a term, by its address there: a named source (their permission is on record). */
 export const sfGlossaryUrl = (slug: string) => `https://www.seriouslyfish.com/glossary/${slug}`
 
@@ -388,7 +410,9 @@ export async function makeGlossaryEntry(root: string, d: { research: Llm; llm: L
   // Each source with its site, so the writer can keep the Writing Lead's standing line, "One site is one source, however
   // many of its pages the facts come from" (the chief of staff, 20 Nov 2026: it can't, seeing pages only).
   const forWriter = { term: vi.name, english: entity.en, sources: sources.map(x => ({ ...x, site: siteOf(refs[x.source]!.url) })), facts }
-  const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts }
+  // The site's names for the species the facts name, so the check reads a page's name as that species (factPageNames).
+  const siteNames = await factPageNames(root, checked.facts.map(f => f.fact).join('\n'))
+  const forCheck = { ...forWriter, sources: checked.sources.map(x => ({ ...x, site: siteOf(checked.refs[x.source]!.url) })), facts: checked.facts, ...(siteNames.length ? { siteNames } : {}) }
   const pages = await pageNames(root, facts.map(f => f.fact).join('\n'))
   const taxa = await genera(root)
   // The house form for a medicine's dose, and the pointer to another of the site's terms, are the site's own sentences, not
