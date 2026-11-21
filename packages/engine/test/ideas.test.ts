@@ -2,10 +2,11 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { ArchiveFetcher } from '../src/archive'
 import { nameStep } from '../src/ceiling'
 import { LlmError, type Llm } from '../src/claude'
 import { cycleOnlyHosts } from '../src/cycle-only'
-import { dropPosts, IDEA_SOURCES, ListingRefused, listingText, listPosts, MAGAZINE_PER_DAY, readIdeas, refreshIdeas, writeIdeas, type IdeasState } from '../src/ideas'
+import { dropPosts, IDEA_SOURCES, ListingRefused, listingText, listPosts, MAGAZINE_PER_DAY, readIdeas, readMagazine, refreshIdeas, refreshMagazine, writeIdeas, writeMagazine, type IdeasState } from '../src/ideas'
 import { sourceBlockedSince } from '../src/state'
 
 // Shaped like the shops' own sitemaps and WordPress answers: placeholder titles, never the shops' text.
@@ -46,6 +47,17 @@ const deps = (get: (u: string) => Promise<string>, llm: Llm, now = '2026-11-03T0
   const slept: number[] = []
   return { d: { get, llm, sleep: async (ms: number) => { slept.push(ms) }, now: () => new Date(now) }, slept }
 }
+/** The engine's Archive reader over an Archive that holds nothing: what the magazine's step is given on the Mac. */
+async function emptyArchive(now = '2026-11-03T00:00:00Z') {
+  const restFile = join(await mkdtemp(join(tmpdir(), 'archive-rest-')), 'rest.json')
+  return new ArchiveFetcher({ fetch: async () => new Response('', { status: 404 }), now: () => new Date(now), sleep: async () => {}, ua: 'AquaTome test', restFile })
+}
+/**
+ * The Mac's magazine step (refreshMagazine) reading the magazine's own sitemap, which answers: its titles go in the
+ * magazine's record, which GitHub's ideas step reads and never writes (the chief of staff, 21 Nov 2026).
+ */
+const macReads = async (root: string, pages: Record<string, string> = PAGES, now = '2026-11-03T00:00:00Z') =>
+  refreshMagazine(root, { get: web(pages).get, sleep: async () => {}, now: () => new Date(now), archive: await emptyArchive(now) })
 
 test('a sitemap: the blog\'s posts only, titled by their address\'s words, with their date; a WordPress category: every page of 100, titles unescaped', async () => {
   const { get } = web(PAGES)
@@ -92,10 +104,13 @@ test('ideas: the shops\' titles and the handbook\'s guides go to the model; its 
       { topic: 'Nước bể cá bị đục trắng: nguyên nhân và cách xử lý', kind: 'care', posts: [5] }, // the same topic twice
     ] } as T
   }
+  await macReads(root)
   const { d, slept } = deps(get, llm)
   const r = await refreshIdeas(root, d)
   expect(r).toMatchObject({ fresh: false, posts: 8, ideas: 2, failed: [] })
   expect(slept).toEqual(Array(asked.length - 1).fill(5000))
+  // The magazine's titles are its record's, from the Mac: GitHub's step never asks the magazine.
+  expect(asked.filter(u => u.includes('practicalfishkeeping'))).toEqual([])
   expect(prompts[0]).toContain('1. nuoc be ca bi duc')
   expect(prompts[0]).toContain('Hồ cá bị tảo xanh – cách xử lý')
   expect(prompts[0]).toContain('- Chu trình nitơ cho bể mới')
@@ -262,7 +277,6 @@ test('a listing that is empty or not a listing keeps the saved titles; a refused
     aquazonefish: [{ url: `${AZ}nuoc-be-ca-bi-duc`, title: 'nuoc be ca bi duc' }],
     aquahouse: [{ url: `${AH}/ca-bi-tuot-nhot/`, title: 'Cá Bị Tuột Nhớt' }],
     cacanhtailoc: [{ url: `${TL}nuoc-be-ca-bi-duc-trang`, title: 'nuoc be ca bi duc trang' }],
-    practicalfishkeeping: [{ url: `${PF}features/cloudy-water-explained/`, title: 'cloudy water explained' }],
   }
   await writeFile(join(root, 'engine-state/_ideas.json'), JSON.stringify({ readAt: '2026-11-01T00:00:00Z', posts: saved, ideas: [], written: {} }))
   await writeFile(join(root, 'engine-state/_sources.json'), '{}')
@@ -271,27 +285,26 @@ test('a listing that is empty or not a listing keeps the saved titles; a refused
     'https://aquazonefish.vn/sitemap_blogs_1.xml': [200, CHALLENGE], // a browser check answered with 200
     [`${AH}/wp-json/wp/v2/categories?slug=tin-tuc-aqua&_fields=id`]: [200, '<html><body>Maintenance</body></html>'], // not a listing
     'https://cacanhtailoc.com/sitemap_blogs_1.xml': [200, sitemap([['https://cacanhtailoc.com/blogs/bao-gia/bao-gia']])], // its sitemap, nothing under its blog
-    [`${PF}sitemap-1.xml`]: [403, 'Forbidden'],
   })
   const r = await refreshIdeas(root, deps(web1.get, llm, '2026-11-14T00:00:00Z').d)
-  expect(r.needsHuman).toEqual(['aquazonefish', 'aquahouse', 'practicalfishkeeping'])
+  expect(r.needsHuman).toEqual(['aquazonefish', 'aquahouse'])
   expect(r.failed).toEqual([
     'aquazonefish: refused, not a sitemap of its own pages, its last titles kept',
     'aquahouse: refused, not a list of categories, its last titles kept',
     'cacanhtailoc: an empty listing, its last titles kept',
-    'practicalfishkeeping: refused, HTTP 403, its last titles kept',
   ])
+  // The magazine is the Mac's to read (refreshMagazine): never asked from here.
+  expect(web1.asked.filter(u => u.includes('practicalfishkeeping'))).toEqual([])
   expect((await readIdeas(root)).posts).toEqual(saved)
   expect(await sourceBlockedSince(root, 'aquazonefish')).toBe('2026-11-14T00:00:00.000Z')
   expect(await sourceBlockedSince(root, 'aquahouse')).toBe('2026-11-14T00:00:00.000Z')
-  expect(await sourceBlockedSince(root, 'practicalfishkeeping')).toBe('2026-11-14T00:00:00.000Z')
   expect(await sourceBlockedSince(root, 'cacanhtailoc')).toBeUndefined()
   // The dashboard's "needs you" reads that record; research keeps off a shop that refused us as it does off the cycle's.
   expect(await cycleOnlyHosts(root)).toEqual(expect.arrayContaining(['aquazonefish.vn', '*.aquazonefish.vn']))
   // Forced a day on: the refused sites aren't fetched, nor marked again.
   const web2 = answers(Object.fromEntries(Object.entries(PAGES).map(([u, b]) => [u, [200, b] as [number, string]])))
   const again = await refreshIdeas(root, deps(web2.get, llm, '2026-11-15T00:00:00Z').d, { force: true })
-  expect(again.blocked).toEqual(['aquazonefish', 'aquahouse', 'practicalfishkeeping'])
+  expect(again.blocked).toEqual(['aquazonefish', 'aquahouse'])
   expect(web2.asked.filter(u => u.includes('aquazonefish') || u.includes('aquahouse') || u.includes('practicalfishkeeping'))).toEqual([])
   expect((await readIdeas(root)).posts.aquazonefish).toEqual(saved.aquazonefish)
   expect(await sourceBlockedSince(root, 'aquazonefish')).toBe('2026-11-14T00:00:00.000Z')
@@ -301,7 +314,6 @@ test('a listing that is empty or not a listing keeps the saved titles; a refused
   expect(retried).toMatchObject({ needsHuman: [], blocked: [], failed: [] })
   expect(await sourceBlockedSince(root, 'aquazonefish')).toBeUndefined()
   expect(await sourceBlockedSince(root, 'aquahouse')).toBeUndefined()
-  expect(await sourceBlockedSince(root, 'practicalfishkeeping')).toBeUndefined()
   expect((await readIdeas(root)).posts.aquazonefish!.map(p => p.url)).toEqual([`${AZ}nuoc-be-ca-bi-duc`, `${AZ}cach-xu-ly-tao`])
   expect(await cycleOnlyHosts(root)).not.toContain('aquazonefish.vn')
   // A 5xx with a challenge page, or a time-out: the titles kept, nothing marked.
@@ -331,25 +343,30 @@ test("the magazine's word rules leave out posts about someone, not a topic, and 
   // Each post left out by its title, under its rule: the run prints them (cli.ts).
   expect(Object.values(r.titles).flat().sort()).toEqual(out.map(o => o.replace(/-/g, ' ')).sort())
   expect(r.titles['a visit']).toEqual(['a visit to a planted tank', 'visiting a breeder'])
-  // The shops have no rules. A refresh keeps what's left and reports each rule's count.
+  // The shops have no rules. The Mac's read of the magazine keeps what's left and reports each rule's count; GitHub's read
+  // of the shops lists the shops alone.
   expect(IDEA_SOURCES.filter(s => s.drop).map(s => s.id)).toEqual(['practicalfishkeeping'])
   const root = await site()
   const pages = { ...PAGES, [`${PF}sitemap-1.xml`]: sitemap([[`${PF}features/cloudy-water-explained/`], [`${PF}features/a-visit-to-a-planted-tank/`], [`${PF}fishkeeping-answers/a-filter-review/`], [`${PF}beginners-hub/your-first-tank/`]]) }
+  const mac = await macReads(root, pages)
+  expect(mac.listed.practicalfishkeeping).toEqual({ kept: 2, dropped: { ...Object.fromEntries(rules.map(([n]) => [n, 0])), 'a visit': 1, 'a review': 1 }, titles: { 'a visit': ['a visit to a planted tank'], 'a review': ['a filter review'] } })
+  expect((await readMagazine(root)).posts.practicalfishkeeping!.map(p => p.title)).toEqual(['cloudy water explained', 'your first tank'])
   const report = await refreshIdeas(root, deps(web(pages).get, async <T>() => ({ ideas: [] }) as T).d)
-  expect(report.listed.practicalfishkeeping).toEqual({ kept: 2, dropped: { ...Object.fromEntries(rules.map(([n]) => [n, 0])), 'a visit': 1, 'a review': 1 }, titles: { 'a visit': ['a visit to a planted tank'], 'a review': ['a filter review'] } })
-  expect((await readIdeas(root)).posts.practicalfishkeeping!.map(p => p.title)).toEqual(['cloudy water explained', 'your first tank'])
   expect(report.listed.aquazonefish).toEqual({ kept: 2, dropped: {}, titles: {} })
+  expect(report.listed.practicalfishkeeping).toBeUndefined()
 })
 
 // The chief of staff, 14 Nov 2026: the magazine's ideas are listed behind the shops', so its 1,365 titles never push the
-// shops' 61 out; and it gets one of the day's two guides from the start, at most one, the shops keeping the other.
-test("the magazine's ideas are listed behind the shops', a shop's idea ranks by the shops alone, and the magazine has one of a day's two guides", async () => {
+// shops' 61 out; and it gets one guide a day. 21 Nov 2026: that one is the Mac's, beside GitHub's two on the shops' ideas,
+// "so a day the Archive rests still has two guides, and a day it answers has three".
+test("the magazine's ideas are listed behind the shops', a shop's idea ranks by the shops alone; GitHub writes two shops' guides a day, the Mac one of the magazine's", async () => {
   const root = await site({})
   const llm: Llm = async <T>() => ({ ideas: [
     { topic: 'Ba bài của tạp chí', kind: 'care', posts: [6, 7, 8] }, // the magazine's only: last, whatever its count
     { topic: 'Một cửa hàng và tạp chí', kind: 'care', posts: [3, 6, 7] }, // one shop's post, and the magazine's
     { topic: 'Hai cửa hàng', kind: 'disease', posts: [1, 5] }, // two shops
   ] }) as T
+  await macReads(root)
   await refreshIdeas(root, deps(web(PAGES).get, llm).d)
   const s = await readIdeas(root)
   expect(s.ideas.map(i => [i.topic, i.fromMagazine ?? false])).toEqual([['Hai cửa hàng', false], ['Một cửa hàng và tạp chí', false], ['Ba bài của tạp chí', true]])
@@ -361,29 +378,31 @@ test("the magazine's ideas are listed behind the shops', a shop's idea ranks by 
   ] }))
   const asked: string[] = []
   const research: Llm = async <T>({ prompt }: { prompt: string }) => { asked.push(prompt); return { found: false, facts: [], species: [], sources: [] } as T }
+  const topics = (from: number) => asked.slice(from).map(a => /"((?:Cửa hàng|Tạp chí) [^"]+)"/.exec(a)?.[1])
   const day = async (d: string) => {
+    const now = () => new Date(`${d}T05:00:00Z`)
     const from = asked.length
-    const r = await writeIdeas(root, { research, llm: research, now: () => new Date(`${d}T05:00:00Z`) }, { perDay: 2 })
-    return { r, topics: asked.slice(from).map(a => /"((?:Cửa hàng|Tạp chí) [^"]+)"/.exec(a)?.[1]) }
+    await writeIdeas(root, { research, llm: research, now }, { perDay: 2 })
+    const github = topics(from)
+    const mac = asked.length
+    await writeMagazine(root, { research, llm: research, now, archive: await emptyArchive(`${d}T05:00:00Z`) })
+    return { github, mac: topics(mac) }
   }
-  // The first day: the most asked shop idea and the magazine's first, though four shop ideas wait ahead of it.
-  const one = await day('2026-11-14')
-  expect(one.topics).toEqual(['Cửa hàng 1', 'Tạp chí một'])
-  expect(one.r.magazine).toEqual(['Tạp chí một'])
-  expect((await readIdeas(root)).ideas.find(i => i.topic === 'Tạp chí một')!.at).toBe('2026-11-14T05:00:00.000Z')
-  // A run later the same day: the day's two are written.
-  expect((await day('2026-11-14')).topics).toEqual([])
-  expect((await day('2026-11-15')).topics).toEqual(['Cửa hàng 2', 'Tạp chí hai'])
-  // None of the magazine's left: the shops have both.
-  const three = await day('2026-11-16')
-  expect(three.topics).toEqual(['Cửa hàng 3', 'Cửa hàng 4'])
-  expect(three.r.magazine).toEqual([])
+  // The first day: the two most asked shop ideas on GitHub, and the magazine's first on the Mac, though four shop ideas
+  // wait ahead of it.
+  expect(await day('2026-11-14')).toEqual({ github: ['Cửa hàng 1', 'Cửa hàng 2'], mac: ['Tạp chí một'] })
+  expect((await readMagazine(root)).guides['tap-chi-mot']!.at).toBe('2026-11-14T05:00:00.000Z')
+  // A run later the same day: the day's three are written.
+  expect(await day('2026-11-14')).toEqual({ github: [], mac: [] })
+  expect(await day('2026-11-15')).toEqual({ github: ['Cửa hàng 3', 'Cửa hàng 4'], mac: ['Tạp chí hai'] })
+  // None left of either.
+  expect(await day('2026-11-16')).toEqual({ github: [], mac: [] })
 })
 
 // The chief of staff, 14 Nov 2026: the day was counted in UTC while the engine's ceilings count Vietnam's, and the count was
 // saved only once the run ended. Now one day, the ceilings' own, counted from the ideas research was spent on that day, each
-// saved as it is spent; and a model that stops for the shops' guide still lets the magazine's be tried.
-test("the day's guides are counted in Vietnam's day, from each idea's own time, saved as each is spent; a stop on one side leaves the other", async () => {
+// saved as it is spent. The magazine's guide is the Mac's step's (21 Nov 2026), so a model that stops here stops the shops'.
+test("the day's guides are counted in Vietnam's day, from each idea's own time, saved as each is spent; a model that stops leaves the ideas as they were", async () => {
   const root = await site({})
   const shop = (n: number) => ({ topic: `Cửa hàng ${n}`, kind: 'care', posts: [`${AZ}nuoc-be-ca-bi-duc`], sites: 1 })
   const magazine = { topic: 'Tạp chí một', kind: 'care', posts: [`${PF}features/cloudy-water-explained/`], sites: 1, fromMagazine: true }
@@ -407,24 +426,20 @@ test("the day's guides are counted in Vietnam's day, from each idea's own time, 
   // The same Vietnamese day, later: nothing more.
   await run('2026-11-15T10:00:00Z', 1)
   expect(asked).toHaveLength(2)
-  // The 16th, with one of the magazine's waiting: the shops' guide stops on the model's quota; the magazine's is still
-  // tried, and only it counts.
+  // The 16th, with one of the magazine's waiting: the shops' guide stops on the model's quota, the run with it; the
+  // magazine's idea is never tried here.
   const file = join(root, 'engine-state/_ideas.json')
   const before = JSON.parse(await readFile(file, 'utf8'))
   await writeFile(file, JSON.stringify({ ...before, ideas: [...before.ideas, magazine] }))
-  const shopsOut: Llm = async <T>(a: { prompt: string; system: string; schema: object; model?: string }) => {
-    if (a.prompt.includes('"Cửa hàng')) throw new LlmError('usage limit')
-    return research<T>(a)
-  }
-  const r = await run('2026-11-16T03:00:00Z', 2, shopsOut)
+  const out: Llm = async () => { throw new LlmError('usage limit') }
+  const r = await run('2026-11-16T03:00:00Z', 2, out)
   expect(r.stopped).toBe('usage limit')
-  expect(r.magazine).toEqual(['Tạp chí một'])
   const s = await readIdeas(root)
   expect(s.ideas.map(i => [i.topic, i.at ?? '', i.skipped ?? ''])).toEqual([
     ['Cửa hàng 1', '2026-11-14T16:00:00.000Z', expect.stringContaining('nothing reliable')],
     ['Cửa hàng 2', '2026-11-14T18:00:00.000Z', expect.stringContaining('nothing reliable')],
     ['Cửa hàng 3', '', ''],
-    ['Tạp chí một', '2026-11-16T03:00:00.000Z', expect.stringContaining('nothing reliable')],
+    ['Tạp chí một', '', ''],
   ])
 })
 
@@ -457,6 +472,7 @@ test("a refresh keeps a waiting idea the model leaves out; a shop's idea's ties 
     { topic: 'Một bài cửa hàng cũ, hai bài tạp chí', kind: 'care', posts: [2, 6, 7] }, // one shop's post (2024), the magazine's two newer
     { topic: 'Một bài cửa hàng mới', kind: 'care', posts: [5] }, // one shop's post (2026)
   ] }) as T
+  await macReads(root, PAGES, '2026-11-14T00:00:00Z')
   const r = await refreshIdeas(root, deps(web(PAGES).get, llm, '2026-11-14T00:00:00Z').d)
   expect(r.ideas).toBe(2)
   const s = await readIdeas(root)

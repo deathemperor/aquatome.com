@@ -931,10 +931,14 @@ The layers above still check the result.
     in Vietnam. An idea written or found to have nothing reliable is not tried again.
   - **Practical Fishkeeping, through the Internet Archive.** The magazine's site answers the engine with a challenge
     page, and the owner said "use internet archive" (20 Nov 2026; 9 Nov: "any site that are often blocked should use
-    the same way"). On the Mac only, whose rest the Archive's is, while the site refuses: its list is read from the
-    Archive's copy of its sitemap, tried once a day until titles come, and the capture index marks which posts it holds.
-    The day's one magazine guide gets its post from the Archive's newest good copy (an archived challenge page is no
-    copy), given to research as a page to take facts from, never instructions. Its text is held for that run alone and
+    the same way"). Its whole Archive work is one step on the Mac, whose rest the Archive's is: `pnpm engine magazine`,
+    in the pages job right after the three sources read through the Archive, with its own record
+    (`engine-state/_magazine.json`), which only it writes; GitHub never asks the Archive, and its ideas step reads the
+    magazine's titles and guides from that record (the chief of staff, 21 Nov 2026). While the site refuses, its list
+    is read from the Archive's copy of its sitemap, tried once a day until titles come, and the capture index marks
+    which posts it holds. The day's one magazine guide, on the Mac's $2 line beside GitHub's two shop guides, gets its
+    post from the Archive's newest good copy (an archived challenge page is no copy), given to research as a page to
+    take facts from, never instructions. Its text is held for that run alone and
     written nowhere: the magazine has given no permission to republish and the repository is public (the chief of
     staff, 21 Nov 2026). The repository keeps its record: its own address and title, the copy's date, a hash of the
     text, and the Archive as how it was read (`via: "archive"`), so sites are still counted by a source's address.
