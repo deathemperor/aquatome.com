@@ -1016,8 +1016,9 @@ final class LightFlowTests: XCTestCase {
     leaveAndComeBack(app)
     expect(app, "lamp-status", contains: "Gửi “Xanh lá”, \(level) bị ngắt vì bạn rời ứng dụng.")
     XCTAssertEqual(gap(app, "lamp-level", "lamp-trial-off"), under, accuracy: 0.5, "Gửi lại moved the trial row")
-    // Red alone went: green was still held when the app left. The hold let go, and past the gap (8 s from red's end, a
-    // second's look at the gate) green still doesn't go: leaving dropped it, not the hold.
+    // Red alone went: green hadn't gone when the app left (held, or still in its gap on a quick run; a hold that didn't
+    // hold fails here on a slow one, never passes). The hold let go, and past the gap (8 s from red's end, a second's look
+    // at the gate) green still doesn't go: leaving dropped it, not the hold.
     let n = level.dropLast()
     XCTAssertEqual(element(app, "lamp-sent").label, "red@\(n)", "green went before the app left: the flow proves nothing")
     gates.open("lamp-gap")
