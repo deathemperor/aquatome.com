@@ -34,7 +34,10 @@
   "inat:652743966",
   "inat:667613612",
   "inat:730608692",
-  "inat:458509014"
+  "inat:458509014",
+  "gbif:1317716210:1d3241325f00c924",
+  "gbif:1319326717:2b0bd91e8b5dc539",
+  "gbif:1319326717:0c24ca1a98196509"
  ],
  "hashes": {
   "https://media.aquatome.com/inaturalist/730608979.webp": "8ad6991d952e1c3c",
@@ -53,5 +56,9 @@
    "research": 398286048,
    "agree": 255812190
   }
+ },
+ "gbif": {
+  "key": 2394726,
+  "next": null
  }
 }

@@ -36,8 +36,7 @@
       "caption": "Cá trưởng thành sọc ngang đen, vây vàng, nhìn bên trong bể kính",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/118752774.webp",
@@ -50,8 +49,7 @@
       "caption": "Cá trưởng thành sọc ngang đen rõ nét trên nền cát sỏi",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/118752790.webp",
@@ -64,8 +62,7 @@
       "caption": "Cá trưởng thành bơi giữa nước, sọc đen và vây vàng",
       "best": true,
       "kind": "other",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/150667808.webp",
@@ -78,8 +75,7 @@
       "caption": "Hai cá bơi cạnh nhau trên đá ở suối",
       "best": false,
       "kind": "pair",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/164158425.webp",
@@ -92,8 +88,7 @@
       "caption": "Cá con có vằn dọc trong khay chụp ảnh nhỏ",
       "best": false,
       "kind": "juvenile",
-      "setup": true,
-      "unchecked": true
+      "setup": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/796830.webp",
@@ -106,22 +101,7 @@
       "caption": "Đàn cá Acrossocheilus parallens bơi trên đáy sỏi ở suối",
       "best": false,
       "kind": "group",
-      "setup": false,
-      "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/9730754.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/9730754-480.webp",
-      "width": 1024,
-      "height": 497,
-      "licence": "CC BY-NC",
-      "author": "H.T.Cheng",
-      "sourceUrl": "https://www.inaturalist.org/photos/9730754",
-      "caption": "Cá có vằn dọc sẫm bơi gần đáy đá ở suối",
-      "best": false,
-      "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/70502488.webp",
@@ -134,8 +114,7 @@
       "caption": "Cá bơi trên nền đá cát trong suối tự nhiên",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/117171783.webp",
@@ -148,8 +127,7 @@
       "caption": "Cá có sọc ngang đen bơi trên rêu ở suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
     },
     {
       "url": "https://media.aquatome.com/inaturalist/150668804.webp",
@@ -162,8 +140,20 @@
       "caption": "Cá nhỏ có vằn dọc giữa đá cuội trong suối",
       "best": false,
       "kind": "habitat",
-      "setup": false,
-      "unchecked": true
+      "setup": false
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/9730754.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/9730754-480.webp",
+      "width": 1024,
+      "height": 497,
+      "licence": "CC BY-NC",
+      "author": "H.T.Cheng",
+      "sourceUrl": "https://www.inaturalist.org/photos/9730754",
+      "caption": "Cá có vằn dọc sẫm bơi gần đáy đá ở suối",
+      "best": false,
+      "kind": "habitat",
+      "setup": false
     }
   ],
   "seen": 30,

@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 37 | 199 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 866 | 32 | 9 | 28 | 879 |
+| covered | 30 | 871 | 32 | 9 | 28 | 884 |
 | rest | 20 | 1926 | 81 | 0 | 120 | 1887 |
 
-## Short of target: every source read (774)
+## Short of target: every source read (785)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -90,10 +90,21 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/astroblepus-onzagaensis | rest | 0 | 20 |
 | species/astroblepus-pradai | rest | 0 | 20 |
 | species/astroblepus-quispei | rest | 0 | 20 |
+| species/bagre-bagre | rest | 0 | 20 |
 | species/bagre-panamensis | rest | 0 | 20 |
+| species/bagre-pinnimaculatus | rest | 0 | 20 |
 | species/bagrus-bajad | rest | 0 | 20 |
 | species/bunocephalus-chamaizelus | rest | 0 | 20 |
+| species/cathorops-dasycephalus | rest | 0 | 20 |
+| species/cathorops-fuerthii | rest | 0 | 20 |
+| species/cryptarius-daugueti | rest | 0 | 20 |
 | species/diplomystes-nahuelbutaensis | covered | 0 | 30 |
+| species/doumea-angolensis | rest | 0 | 20 |
+| species/doumea-chappuisi | rest | 0 | 20 |
+| species/doumea-typica | rest | 0 | 20 |
+| species/euchilichthys-guentheri | rest | 0 | 20 |
+| species/gogo-brevibarbis | rest | 0 | 20 |
+| species/gogo-ornatus | rest | 0 | 20 |
 | species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
 | species/hypostomus-isbrueckeri | covered | 0 | 30 |
 | species/leporinus-arcus | covered | 0 | 30 |
@@ -321,7 +332,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/datnioides-pulcher | popular | 2 | 40 |
 | species/pangasianodon-hypophthalmus | popular | 30 | 40 |
 | species/dichotomyctere-nigroviridis | popular | 12 | 40 |
-| species/pomacea-diffusa | popular | 16 | 40 |
+| species/pomacea-diffusa | popular | 15 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
 | breeds/glofish | covered | 12 | 30 |

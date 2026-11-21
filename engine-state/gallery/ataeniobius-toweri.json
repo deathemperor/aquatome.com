@@ -1,7 +1,15 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
+ "judged": [
+  "inat:567062511",
+  "inat:567062565",
+  "inat:762661526",
+  "inat:762661527"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/762661526/large.jpg": "0082581e07832002",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/762661527/large.jpg": "0004017e3f8f440b"
+ },
  "inat": {
   "taxon": 94776,
   "pass": "done",
@@ -14,5 +22,9 @@
  "gbif": {
   "key": 2347741,
   "next": null
+ },
+ "inatNc": {
+  "after": 414296879,
+  "done": true
  }
 }
