@@ -406,11 +406,13 @@ final class MasterFlowTests: XCTestCase {
   }
 
   func testAnEndDueWhileSignedOutWaitsForTheOwner() {
-    // Ends a minute after the press; the owner signs out well before then. Nothing goes back while signed out: the light's
-    // outlet goes back once they're signed in again (the master log notes each account change, "account"). At 25 s, on
-    // GitHub's Mac (main, 19 Nov, both tries) the sign-out landed after the end came due: the end went while still signed
-    // in, so the flow failed though the app had sent nothing signed out. It now says so if the sign-out lands that late.
-    let endsIn: TimeInterval = 60
+    // Ends two minutes after the press; the owner signs out well before then. Nothing goes back while signed out: the
+    // light's outlet goes back once they're signed in again (the master log notes each account change, "account"). At 25 s,
+    // on GitHub's Mac (main, 19 Nov, both tries) the sign-out landed after the end came due: the end went while still
+    // signed in, so the flow failed though the app had sent nothing signed out. It now says so if the sign-out lands that
+    // late. A minute then; two since 21 Nov, as the Lab's signed-out check (#1768) can take about 25 s longer, and the time
+    // is read after it.
+    let endsIn: TimeInterval = 120
     let app = launch(["-master-ends-in", "\(Int(endsIn))"])
     tap(app, "master-create")
     add(app, "master-add-Đèn")
