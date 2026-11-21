@@ -1089,6 +1089,21 @@ test('the four things the night of 19 Nov took from guides are back', () => hand
 // changed (test/fixtures/mend-fixes-1120-rest.json).
 test("the Writing Lead's lines of 20 Nov hold on eight more guides", () => handFixesHold('mend-fixes-1120-rest.json'))
 
+// The Writing Lead's answers of 20 Nov 2026 on two guides of ours and two video guides (the chief of staff): the live-food
+// guide's survey figure said whose it is, the substrate guide's 8 cm back as the maker's example, and two sections the
+// rewrite dropped back whole, the 24-hour light's warning with its question second in the FAQ, and the white clouds'
+// breeding (test/fixtures/held-dropped-1120.json). Each Vietnamese body guarded; the light guide's FAQ too.
+test("the Writing Lead's answers on two guides of ours and two video guides hold", () => {
+  handFixesHold('held-dropped-1120.json', '')
+  const light = JSON.parse(readFileSync(fileURLToPath(new URL('../../../content/guides/youtube-FqNP9rxudYs/vi.json', import.meta.url)), 'utf8')) as { faq: { q: string; a: string }[] }
+  const fixture = JSON.parse(readFileSync(fileURLToPath(new URL('./fixtures/held-dropped-1120.json', import.meta.url)), 'utf8')) as Record<string, { in: string; now?: string }[]>
+  const answer = fixture['youtube-FqNP9rxudYs']!.find(e => e.in === 'faq')?.now
+  // The question and its answer, as one pair, second in the FAQ: the helper reads all answers together.
+  expect(light.faq[1]?.q).toBe('Bể mới trồng cây để đèn sáng cả đêm có hại không?')
+  expect(answer).toBeTruthy()
+  expect(light.faq[1]?.a).toContain(answer)
+})
+
 // The Writing Lead, 15 Nov 2026, on the rainbowfish guide's label ("Bể cầu vồng của …"): no video guide's label, the
 // words over its thumbnail, names the person in the video or the channel.
 test('no video guide\'s label names a person or the channel', () => {
