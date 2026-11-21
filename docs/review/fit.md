@@ -6,12 +6,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Open, no read of its text | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 5030 | 4312 | 698 | 1591 | 38 | 44 | 197 | 44 | 1128 | 347 | 2698 | 449 | 9 | 13 | 0 | 3 | 5 | 4 | 0 |
-| Indonesian | 1689 | 1539 | 150 | 426 | 25 | 12 | 4 | 5 | 204 | 38 | 74 | 193 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
-| Thai | 1677 | 1513 | 164 | 395 | 21 | 3 | 5 | 4 | 190 | 43 | 96 | 180 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 541 | 499 | 42 | 140 | 14 | 3 | 0 | 2 | 72 | 17 | 28 | 50 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
+| Vietnamese | 5069 | 4362 | 687 | 1597 | 39 | 44 | 197 | 45 | 1134 | 347 | 2714 | 448 | 9 | 14 | 0 | 3 | 5 | 4 | 0 |
+| Indonesian | 1689 | 1543 | 146 | 423 | 25 | 12 | 4 | 5 | 200 | 37 | 73 | 193 | 0 | 2 | 0 | 3 | 2 | 0 | 0 |
+| Thai | 1680 | 1522 | 158 | 393 | 21 | 3 | 5 | 4 | 189 | 42 | 98 | 180 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 551 | 510 | 41 | 140 | 14 | 3 | 0 | 2 | 72 | 17 | 29 | 50 | 0 | 1 | 0 | 3 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 156, Indonesian 2 of 62, Thai 2 of 56, Malay 1 of 29.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 13 of 157, Indonesian 2 of 62, Thai 2 of 56, Malay 1 of 29.
 
 ## Doses on more than one page
 
@@ -77,17 +77,17 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 ## Products the market table has no row for, Vietnamese pages
 
 - repashy: 49
-- keo 502: 40
+- keo 502: 39
 - panacur: 34
 - ada: 26
 - tropica: 24
 - ada amazonia aqua soil: 22
 - ada amazonia: 21
 - fluval stratum: 19
-- dennerle: 17
+- dennerle: 18
+- hikari shrimp cuisine: 16
 - seachem fluorite: 16
-- hikari shrimp cuisine: 15
-- hikari first bites: 14
+- hikari first bites: 15
 - fluval fx6: 13
 - carib sea eco-complete: 12
 - caribsea eco-complete: 12
@@ -103,13 +103,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquaclear: 10
 - ge silicone 1: 10
 - jbl: 10
+- tetramin: 10
+- instant ocean: 9
 - reef roids: 9
 - repashy soilent green: 9
-- tetramin: 9
 - weld-on 4: 9
 - api leaf zone: 8
 - fluval: 8
-- instant ocean: 8
 - tropica specialised nutrition: 8
 - api: 7
 - easy shrimp and snail shells: 7
