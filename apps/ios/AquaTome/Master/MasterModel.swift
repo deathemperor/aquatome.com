@@ -345,10 +345,11 @@ final class MasterModel {
   /// A press starting sets its own, in the words of when it's set; an end going on cancels it.
   func speaks() async {
     guard let r = run, r.isRunning, !sending, let ends = r.ends, let name = button?.name, await EndNotice.waiting() else { return }
-    await EndNotice.schedule(at: ends, title: name)
-    // An end that began during the awaits (only an end sends while the press runs) cancelled the old words' notice
-    // already: the new words' would tell to put back a run that has ended (Fable, 21 Nov).
-    if sending || run?.isRunning != true { EndNotice.cancel() }
+    // Asked again as it's set, with nothing awaited between: still this press, running, and no end or press going on.
+    // An end that began during the awaits cancelled the old words' already, and the new words' would tell to put back a
+    // run that has ended (Fable, 21 Nov); a cancel after the set could take a newer press's (Codex, 21 Nov). An end that
+    // begins after it cancels it, as it cancels the old words'.
+    await EndNotice.schedule(at: ends, title: name) { self.run?.started == r.started && self.run?.isRunning == true && !self.sending }
   }
 
   /// Wakes at the end while it runs (the app open).
@@ -379,7 +380,9 @@ final class MasterModel {
 enum EndNotice {
   static let id = "master.end"
 
-  static func schedule(at ends: Date, title: String) async {
+  /// `still`, asked on the main actor just before it's set, with nothing awaited between: whether it's still wanted. The
+  /// set is the centre's completion form, called there, so a cancel after it (on the main actor too) comes after it.
+  @MainActor static func schedule(at ends: Date, title: String, still: () -> Bool = { true }) async {
     let center = UNUserNotificationCenter.current()
     guard await center.notificationSettings().authorizationStatus == .authorized else { return }
     let c = UNMutableNotificationContent()
@@ -387,7 +390,8 @@ enum EndNotice {
     c.body = String(localized: "Đã hết giờ. Mở AquaTome cạnh bể để trả đèn và ổ cắm về như cũ.", bundle: .app)
     c.sound = .default
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: max(1, ends.timeIntervalSinceNow), repeats: false)
-    try? await center.add(UNNotificationRequest(identifier: id, content: c, trigger: trigger))
+    guard still() else { return }
+    center.add(UNNotificationRequest(identifier: id, content: c, trigger: trigger)) { _ in }
   }
 
   static func cancel() { UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id]) }

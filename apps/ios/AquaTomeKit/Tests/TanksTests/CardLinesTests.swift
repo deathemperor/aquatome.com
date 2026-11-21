@@ -136,6 +136,7 @@ let masterCardList = #"""
 - store · `private func store(_ r: MasterRun)` · The one write of a run.
 - tell · `private func tell(` · A note, once.
 - schedule · `c.body = String(localized:` · The notification at the end time, where allowed: the time is up, open the app to put things back. Nothing on what went.
+- schedule · `guard still() else {` · Set only while still wanted, asked with nothing awaited before it's set: a language picked sets it again in the new words only for the same press, still running, with no end or press going on.
 
 ### AquaTome/Master/Switcher.swift
 - send · `return (.failed(words(why, c)), false)` · Withdrawn before any of it went (signed out, the role no longer allows it, the device no longer on a tank): said so, and nothing went.

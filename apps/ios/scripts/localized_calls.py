@@ -168,13 +168,14 @@ def rel(path):
 def scopes(src):
     """For each line, the kind of the innermost braces it starts in: 'file', 'class' (a class's or an actor's body),
     'type' (a struct's, an enum's, an extension's, a protocol's) or 'code'. Strings and comments skipped."""
-    kinds, stack, i, line = ['file'], [], 0, 0
+    kinds, stack, i, head = ['file'], [], 0, []
     while i < len(src):
         c = src[i]
         if c == '"' or (c == '#' and re.match(r'#+"', src[i:])):
             j = skip_string(src, i)
             for _ in range(src.count('\n', i, j)):
                 kinds.append(stack[-1] if stack else 'file')
+            head.append('""')
             i = j
             continue
         if src.startswith('//', i):
@@ -189,19 +190,92 @@ def scopes(src):
             i = j
             continue
         if c == '{':
-            head = src[src.rfind('\n', 0, i) + 1:i]
-            if re.search(r'\b(?:class|actor)\s+\w+', head) and not re.search(r'\bclass\s+(?:func|var|let)\b', head):
-                stack.append('class')
-            elif re.search(r'\b(?:struct|enum|extension|protocol)\s+\w+', head):
-                stack.append('type')
-            else:
-                stack.append('code')
-        elif c == '}' and stack:
-            stack.pop()
-        elif c == '\n':
-            kinds.append(stack[-1] if stack else 'file')
+            # What opens it: the last declaration word since the last brace or `;`, on its line or the lines before
+            # (a brace on a line of its own, an inheritance list over two; Codex, 21 Nov).
+            words = KEYWORD.findall(''.join(head))
+            last = words[-1] if words else ''
+            stack.append('class' if last in ('class', 'actor') else 'type' if last in ('struct', 'enum', 'extension', 'protocol')
+                         else 'code')
+            head = []
+        elif c in '};':
+            if c == '}' and stack:
+                stack.pop()
+            head = []
+        else:
+            head.append(c)
+            if c == '\n':
+                kinds.append(stack[-1] if stack else 'file')
         i += 1
     return kinds
+
+
+# The words that open braces: a type by its name after it (not `.class`, `class func`), else code's.
+KEYWORD = re.compile(r'\bclass\s+(?=func\b|var\b|let\b|subscript\b)|\b(class|actor|struct|enum|extension|protocol)\s+(?=[A-Za-z_])'
+                     r'|\b(?:func|init|deinit|subscript|var|let|if|guard|for|while|switch|do|else|catch|repeat|return|case|'
+                     r'default|get|set|willSet|didSet)\b')
+
+
+def code_only(text):
+    """`text` with its strings' words and its comments taken out: a string's interpolations stay, as they're code."""
+    out, i = [], 0
+    while i < len(text):
+        c = text[i]
+        if c == '"' or (c == '#' and re.match(r'#+"', text[i:])):
+            end = skip_string(text, i)
+            hashes = len(re.match(r'#*', text[i:]).group(0))
+            escape = '\\' + '#' * hashes + '('
+            j = text.find(escape, i, end)
+            while j >= 0:
+                close = skip_parens(text, j + len(escape) - 1)
+                out.append(' ' + code_only(text[j + len(escape):close - 1]) + ' ')
+                j = text.find(escape, close, end)
+            out.append('""')
+            i = end
+            continue
+        if text.startswith('//', i):
+            n = text.find('\n', i)
+            i = len(text) if n < 0 else n
+            continue
+        if text.startswith('/*', i):
+            i = text.index('*/', i) + 2
+            continue
+        out.append(c)
+        i += 1
+    return ''.join(out)
+
+
+def initializer(src, at):
+    """The expression from src[at] (just past a declaration's `=`) to its end: a line's end at its own level whose next
+    line doesn't go on with it (`.`, an operator), a `;`, or its scope's `}`. Strings and comments skipped."""
+    i, depth, seen = at, 0, False
+    while i < len(src):
+        c = src[i]
+        if c == '"' or (c == '#' and re.match(r'#+"', src[i:])):
+            i, seen = skip_string(src, i), True
+            continue
+        if src.startswith('//', i):
+            n = src.find('\n', i)
+            i = len(src) if n < 0 else n
+            continue
+        if src.startswith('/*', i):
+            i = src.index('*/', i) + 2
+            continue
+        if c in '([{':
+            depth += 1
+        elif c in ')]}':
+            depth -= 1
+            if depth < 0:
+                break
+        elif c == ';' and depth == 0:
+            break
+        elif c == '\n' and depth == 0 and seen:
+            rest = src[i:].lstrip()
+            if not re.match(r'(\.(?!\.)|\?\?|\?|:|&&|\|\||[-+*/%<>=!]=?)(?!/)', rest):
+                break
+        if not c.isspace():
+            seen = True
+        i += 1
+    return src[at:i]
 
 
 def cached_in(src):
@@ -211,6 +285,9 @@ def cached_in(src):
     Nov: a stored `static var`, a model's property, a formatter in the app's locale). A closure kept to call later isn't
     one: it looks up each time."""
     out, lines, kinds = [], src.split('\n'), scopes(src)
+    starts = [0]
+    for l in lines[:-1]:
+        starts.append(starts[-1] + len(l) + 1)
     for i, l in enumerate(lines):
         m = DECL.match(l)
         if not m:
@@ -221,16 +298,14 @@ def cached_in(src):
             continue  # computed: made at each reading
         if kind in ('let', 'var') and not (scope == 'file' and kind == 'let' or scope == 'class' and stored):
             continue  # a local, a struct's (made again with it), or a computed property
-        body, j = l, i
-        depth = sum(l.count(c) for c in '([{') - sum(l.count(c) for c in ')]}')
-        while depth > 0 and j + 1 < len(lines):
-            j += 1
-            body += '\n' + lines[j]
-            depth += sum(lines[j].count(c) for c in '([{') - sum(lines[j].count(c) for c in ')]}')
-        value = body.split('=', 1)[1].strip() if stored else ''
-        if value.startswith('{') and not value.rstrip().endswith('}()'):
+        if not stored:
+            continue  # a `static let` or a file's `let` without `=` on its line: none in the app
+        # The whole initializer, however many lines, read as code: a lookup on the line after `=` is one, words in a
+        # string aren't (Codex, 21 Nov).
+        value = code_only(initializer(src, starts[i] + m.end(4))).strip()
+        if value.startswith('{') and not value.endswith('}()'):
             continue
-        if CALL.search(body) or LOCALE.search(body):
+        if CALL.search(value) or LOCALE.search(value):
             out.append(i + 1)
     return out
 
@@ -293,6 +368,10 @@ SAMPLE = '''struct S {
   static var j: [String] { [String(localized: "Đèn", bundle: .app)] }
   static var k = String(localized: "Đèn", bundle: .app)
   let l = String(localized: "Đèn", bundle: .app)
+  static let r =
+    String(localized: "Đèn", bundle: .app)
+  static let s = "locale: .app"
+  static let t = "\\(String(localized: "Đèn", bundle: .app))"
 }
 final class C {
   let m = String(localized: "Đèn", bundle: .app)
@@ -300,14 +379,19 @@ final class C {
   static let o = Date.FormatStyle(locale: .app)
   func p() { let q = String(localized: "Đèn", bundle: .app); _ = q }
 }
+final class D: NSObject,
+  Sendable
+{
+  let u = String(localized: "Đèn", bundle: .app)
+}
 '''
 
 
 def self_test():
     """The check fails on a bad line, names its line, and passes the same lines once the edit has made them."""
     found = problems_in(SAMPLE)
-    # Not 13 (computed), 15 (a struct's, made again with it), 19 (a closure), 21 (a local).
-    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 18, 20], found
+    # Not 13 (computed), 15 (a struct's, made again with it), 18 (words in a string), 23 (a closure), 25 (a local).
+    assert [l for l, _ in found] == [2, 4, 5, 7, 9, 11, 12, 14, 16, 19, 22, 24, 30], found
     fixed, made, skipped = apply_to(SAMPLE)
     assert made == 4 and skipped == [6, 7], (made, skipped)
     assert 'String(\n    localized: "Đèn", bundle: .app) }' in fixed, fixed
@@ -315,7 +399,7 @@ def self_test():
     assert 'AttributedString(localized: "**Đèn** \\(n) ổ", bundle: .app)' in fixed, fixed
     assert 'String(localized: "Đèn (\\(f(x, y)))", bundle: .app, comment: "x, y")' in fixed, fixed
     # Left for a person: the resource, the other bundle, the constant.
-    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 18, 20], problems_in(fixed)
+    assert [l for l, _ in problems_in(fixed)] == [7, 11, 12, 14, 16, 19, 22, 24, 30], problems_in(fixed)
 
 
 def count(ref=None):

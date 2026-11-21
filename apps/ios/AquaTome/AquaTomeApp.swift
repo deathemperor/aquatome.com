@@ -80,11 +80,13 @@ struct AquaTomeApp: App {
     _lights = State(initialValue: lights)
     let (account, wanted) = AquaTomeApp.server(tanks)
     _account = State(initialValue: account)
-    // What a save puts on a tank without a page, that no page has, is sent as wanted. While the index is on its way (at
-    // launch, and after a language picked, whose first read can take the network's time) which pages there are isn't
-    // known: nothing is sent (Fable, 21 Nov).
+    // What a save puts on a tank without a page, that no page has, is sent as wanted: asked once the index is read (at
+    // launch, and after a language picked, whose first read can take the network's time; Fable, Codex, 21 Nov).
     tanks.wanted = wanted
-    tanks.hasPage = { handbook.status == .loading || handbook.page(for: $0) != nil }
+    tanks.hasPage = { e in
+      await handbook.settled()
+      return handbook.page(for: e) != nil
+    }
     let plugs = AquaTomeApp.plugs()
     _plugs = State(initialValue: plugs)
     let master = MasterModel(switcher: Switcher(tanks: tanks, plugs: plugs))

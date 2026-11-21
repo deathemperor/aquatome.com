@@ -17,6 +17,8 @@ final class HandbookModel {
   var language: SiteLanguage { SiteLanguage.served(lang) ?? .vietnamese }
   let site = URL(string: "https://aquatome.com")!
   private(set) var status = Status.loading
+  /// What waits for the index shown to be read (`settled`): let go once the status leaves `.loading`.
+  @ObservationIgnored private var settling: [CheckedContinuation<Void, Never>] = []
   private(set) var count = 0
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
@@ -277,6 +279,19 @@ final class HandbookModel {
   /// The page a tank's entry without a page is shown as, once the index has one with its scientific name (PageMatcher).
   func page(for e: UnlistedEntry) -> HandbookIndex.Item? { matcher.page(kind: e.kind, sci: e.sci).flatMap { pages[$0] } }
 
+  /// Once the index shown is read, or its read failed: until then which pages there are isn't known (at launch, and
+  /// after a language picked, whose first read can take the network's time). A tank's entry saved meanwhile asks this
+  /// before it's said to have no page (Fable, Codex, 21 Nov).
+  func settled() async {
+    while status == .loading { await withCheckedContinuation { settling.append($0) } }
+  }
+
+  private func settle() {
+    let waiting = settling
+    settling = []
+    for w in waiting { w.resume() }
+  }
+
   /// The saved pages and the ones read last, of `kind` (all kinds for nil), as the index has them now.
   func saved(_ kind: HandbookIndex.Kind?) -> [HandbookIndex.Item] { paths.saved(kind) }
   func recent(_ kind: HandbookIndex.Kind?, limit: Int = 5) -> [HandbookIndex.Item] { paths.recent(kind, limit: limit) }
@@ -384,8 +399,8 @@ final class HandbookModel {
       // slow site).
       if ProcessInfo.processInfo.arguments.contains("-index-kept-only") { return use(ix, .offline) }
       // `-index-later`: the index read a moment after the app opens, as the site's on a phone (a link opening the app
-      // waits for it: AppLink).
-      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await Task.sleep(for: .seconds(2)) }
+      // waits for it: AppLink). With `-test-gates`, when the test opens `index-later`.
+      if ProcessInfo.processInfo.arguments.contains("-index-later"), count == 0 { try? await TestGate.wait("index-later", or: .seconds(2)) }
       guard gen == generation else { return }
       #endif
       use(ix, .ready)
@@ -423,7 +438,7 @@ final class HandbookModel {
     } catch {
       // Left for another tab or page: tried again when the tab shows next, nothing to report.
       if isInterruption(error) || gen != generation { return }
-      if count == 0 { status = .failed }
+      if count == 0 { status = .failed; settle() }
     }
   }
 
@@ -442,6 +457,7 @@ final class HandbookModel {
     labels = ix.labels
     count = ix.items.count
     status = s
+    settle()
   }
 
   /// How many of its best a search lists at first, and then a page more: 200, except in UI tests (`-search-page N`),

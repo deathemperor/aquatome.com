@@ -21,9 +21,9 @@ final class TanksModel {
   private(set) var problem: Problem?
   private let file: URL
   /// Readers' demand (docs/my-tanks-sync.md): where a save sends what it put on a tank without a page, and whether the
-  /// handbook has a page for one (then it isn't sent). The app sets them.
+  /// handbook has a page for one (then it isn't sent), asked once its index is read. The app sets them.
   @ObservationIgnored var wanted: Wanted?
-  @ObservationIgnored var hasPage: (UnlistedEntry) -> Bool = { _ in false }
+  @ObservationIgnored var hasPage: @MainActor (UnlistedEntry) async -> Bool = { _ in false }
   /// The app's anonymous telemetry: a tank added, or not. The app sets it.
   @ObservationIgnored var telemetry: Telemetry?
   #if DEBUG
@@ -86,8 +86,11 @@ final class TanksModel {
   /// changed later isn't new). Only the reader's own saves: not a sync, nor a page's (it sends its own).
   private func saved(_ t: Tank?, before: Tank?) {
     guard let wanted, let t else { return }
-    for e in t.unlistedAdded(since: before) where !hasPage(e) {
+    for e in t.unlistedAdded(since: before) {
       Task {
+        // Once the index is read: while it reads, which pages there are isn't known, and an entry left then was never
+        // sent (Codex, 21 Nov).
+        guard await !hasPage(e) else { return }
         #if DEBUG
         if await wanted.send(e) { wantedForTests.append(String(decoding: wanted.request(e).httpBody ?? Data(), as: UTF8.self)) }
         #else
