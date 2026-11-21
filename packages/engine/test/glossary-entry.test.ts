@@ -1302,6 +1302,12 @@ test('the fact check is told the site\'s names for the species the facts name by
     return root
   }
   expect(await factPageNames(await fish(), 'Tanichthys micagemmae is known only from the Ben Hai river system.')).toEqual(['Cá neon Việt Nam = Tanichthys micagemmae'])
+  // A "cf." name is the fact's own hedge, not the page's species; an other name two pages share names neither.
+  const more = await fish()
+  await page(more, 'annamia-thuathienensis', 'Annamia thuathienensis', 'Cá chạch suối Annamia thuathienensis')
+  await writeFile(join(more, 'content/species/tanichthys-micagemmae/vi.json'), JSON.stringify({ name: 'Cá neon Việt Nam', altNames: ['Vietnamese minnow', 'Cá neon'] }))
+  await writeFile(join(more, 'content/species/paracheirodon-innesi/vi.json'), JSON.stringify({ name: 'Cá neon xanh', altNames: ['Cá neon'] }))
+  expect(await factPageNames(more, 'Annamia cf. thuathienensis was described from the Bô River. Tanichthys micagemmae is sold as Vietnamese minnow.')).toEqual(['Cá neon Việt Nam | Vietnamese minnow = Tanichthys micagemmae'])
   const withFish: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Tanichthys micagemmae is known only from the Ben Hai river system', source: 0 }] }
   // A check that knows a fish's name only from what it is given to read with the sentences.
   const names = ['Cá neon Việt Nam', 'Cá neon xanh']

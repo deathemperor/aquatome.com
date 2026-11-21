@@ -222,21 +222,25 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
  * of staff, 22 Nov 2026, after "Cá neon Việt Nam" for Tanichthys micagemmae stopped Đặc hữu twice: the writer is told to
  * call a fish by its page's name, and the check, never told it, read it as a name no fact gives). Each line is a page's
  * names, then "=" and the scientific name a fact writes whole. A page whose scientific name no fact writes isn't listed,
- * so a page name for a species no fact carries still stops.
+ * so a page name for a species no fact carries still stops, and a name two pages share ("Cá neon") is listed for neither.
  */
 export async function factPageNames(root: string, text: string): Promise<string[]> {
-  const out: string[] = []
+  const pages: { sci?: string; names: string[] }[] = []
   for (const kind of ['species', 'plants']) {
     const base = join(root, 'content', kind)
     for (const x of (await readdir(base).catch(() => [] as string[])).sort()) {
       const e = await readFile(join(base, x, 'entity.json'), 'utf8').then(JSON.parse).catch(() => null) as { scientificName?: string } | null
-      const sci = e?.scientificName?.trim()
-      if (!sci?.includes(' ') || !new RegExp(`(?<![\\p{L}\\p{N}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu').test(text)) continue
       const v = await readFile(join(base, x, 'vi.json'), 'utf8').then(JSON.parse).catch(() => null) as { name?: string; altNames?: string[] } | null
-      if (v?.name) out.push(`${[v.name, ...(v.altNames ?? [])].slice(0, 5).join(' | ')} = ${sci}`)
+      if (v?.name) pages.push({ sci: e?.scientificName?.trim(), names: [v.name, ...(v.altNames ?? [])] })
     }
   }
-  return out
+  const pagesOf = new Map<string, number>()
+  for (const p of pages) for (const n of new Set(p.names.map(toneKey))) pagesOf.set(n, (pagesOf.get(n) ?? 0) + 1)
+  const named = (sci: string) => new RegExp(`(?<![\\p{L}\\p{N}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu').test(text)
+  return pages.filter(p => p.sci?.includes(' ') && named(p.sci)).flatMap(p => {
+    const own = p.names.filter(n => pagesOf.get(toneKey(n)) === 1).slice(0, 5)
+    return own.length ? [`${own.join(' | ')} = ${p.sci}`] : []
+  })
 }
 
 /** Seriously Fish's glossary entry for a term, by its address there: a named source (their permission is on record). */
