@@ -9,7 +9,9 @@
   "places": [
     "south-america",
     "peru",
-    "ucayali"
+    "ucayali",
+    "colombia",
+    "leticia"
   ],
   "range": {
     "native": {
@@ -62,6 +64,34 @@
       {
         "source": "glaser",
         "value": 60
+      },
+      {
+        "source": "scotcat",
+        "value": 60
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 210
       }
     ]
   },
@@ -73,13 +103,71 @@
       "html": "<p>Among the largest loricariid catfish are some of the wood-eating Panaque species. Panaque schaeferi is one of them, the species will certainly grow to about 60 cm long.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "html": "<ul><li>L-number: L203, LDA065</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "html": "<p>South America: Peru, Ucayali drainage to Colombia (Leticia). Type locality: Peru, Ucayali Department, Padre Abad Province, Aguaytia River drainage, Santa Ana River, Cordillera Azul National Park, 250 m elevation.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "html": "<p>Bear in mind that this fish will produce a lot of waste due to its diet, so it will need a large external filter which will turn the tank contents around about six times in the hour and give it a good water flow. A fully grown individual would need a tank of 210 cm or over for it to function properly. You will need driftwood or similar, as this catfish likes to chew on it and its long-term survival depends on this. It will tend to hide during the day and come out at night and actively search out food.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "html": "<p>All Panaque (Panaqolus) are wood eaters, so they need wood in an aquarium set-up. Also feed vegetable foods such as cucumber, courgette (zucchini) and sinking tablets. Feeding information from image contributor Andy Watson: \"It loves courgette and catfish pellets and is very bold, always out looking for food and not shy at all\".</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/panaque-schaeferi-l203-l90c-2/",
       "html": "<p>Since P. schaeferi was described on the basis of adult specimens, the assignment to the young animals belonging to it has never been scientifically confirmed. However, it is assumed that the Panaque from Peru, first named as L90c and later as L203, is the juvenile form of P. schaeferi. The adult P. schaeferi has received the number LDA 65.</p><p>Usually the juveniles of L203/L90c do not exhibit a spectacular pattern. Typical for the L90 relationship is a bright \"window\" in the colouring at the base of the caudal fin, which many of the juveniles show, but which disappears in adult fish. L203/L90c has – in contrast to L90, which is probably identical with the species Panaque bathyphilus – no long extended caudal fin filaments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "html": "<p>The differences between the Panaqolus and Panaque genera: the latter has an oval-shaped mouth and jaws with very large spatulate teeth with a single cusp, arranged in a V form, while Panaqolus have a small number of spatulate teeth and are also a smaller genus. Panaque schaeferi is diagnosed from all other Panaque (Panaque) by body colour consisting of distinctly dark or faded black spots distributed evenly on a pale grey to brown base colour, and by a maximum adult body size of approximately 600 mm SL (vs. no greater than approximately 400 mm SL).</p><p>Etymology: the specific name schaeferi is a patronym honouring Scott A. Schaefer, ichthyologist, Editor of Copeia, and Curator of Fishes at the American Museum of Natural History, for his many contributions to ichthyology, and to our understanding of the Loricarioidea in particular.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "html": "<p>Lujan, NK, M Hidalgo &amp; DJ Stewart, 2010. Revision of Panaque (Panaque), with descriptions of three new species from the Amazon basin (Siluriformes, Loricariidae). Copeia 2010: 676–704. Salvador, G.N. 2023. Panaque schaeferi. The IUCN Red List of Threatened Species 2023. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/94e06738ed4cfb31.webp",
+      "thumb": "https://media.aquatome.com/scotcat/94e06738ed4cfb31-480.webp",
+      "width": 500,
+      "height": 309,
+      "licence": "dùng với sự cho phép",
+      "author": "Andy Watson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "caption": "Panaque schaeferi",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/56d78deacad538cc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/56d78deacad538cc-480.webp",
+      "width": 500,
+      "height": 322,
+      "licence": "dùng với sự cho phép",
+      "author": "Andy Watson / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_schaeferi.htm",
+      "caption": "Panaque schaeferi",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/bf105e0c6c478eef.webp",
       "thumb": "https://media.aquatome.com/glaser/bf105e0c6c478eef-480.webp",
@@ -103,16 +191,6 @@
     {
       "url": "https://media.aquatome.com/glaser/3f74967c55940c8d.webp",
       "thumb": "https://media.aquatome.com/glaser/3f74967c55940c8d-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/panaque-schaeferi-l203-l90c-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/ff251d142c240810.webp",
-      "thumb": "https://media.aquatome.com/glaser/ff251d142c240810-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",
@@ -151,8 +229,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá lớn 300 lít",
-        "bể cá 200cm"
+        "bể cá 210cm"
       ]
     },
     {

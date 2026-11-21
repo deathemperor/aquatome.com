@@ -1,0 +1,83 @@
+{
+  "id": "cephalosilurus-nigricaudus",
+  "scientificName": "Cephalosilurus nigricaudus",
+  "order": "Siluriformes",
+  "family": "Pseudopimelodidae",
+  "genus": "Cephalosilurus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "sipaliwini"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 35
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1393",
+      "html": "<p>Scientific name: Lophiosilurus nigricauda (Mees, 1974). Common name: Jelly Catfish. Family: Pseudopimelodidae. Type locality: Sipaliwini, Suriname.</p><p>Etymology: Greek, lophos = crest + Greek, silouros = cat fish, i.e. crested catfish.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1393",
+      "html": "<p>South America: Sipaliwini River basin, Suriname. Also listed for Guyana Waters, Coastal Rivers of Guyanas, Suriname Coastal Rivers and Corintijns.</p><p>IUCN Red List: Least Concern (last assessed 2021).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1393",
+      "html": "<p>Maximum size 350 mm (13.8 inches) SL.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1393",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1393",
+      "html": "<p>See also Ros, Wolfgang (2008): Cephalosilurus nigricaudus und seine Abgrenzung zu Cephalosilurus apurensis, \"Aquaristik Fachmaganzin &amp; Aquarium heute\" (AF) 40 (1), Nr. 199, 34-36.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1393",
+      "html": "<p>Zoologische Verhandelingen (Leiden) No. 132, pp 218, Figs. 37d, 38d; Pls. 11-12.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-21"
+}

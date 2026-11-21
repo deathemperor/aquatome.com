@@ -1,0 +1,102 @@
+{
+  "id": "gagata-gagata",
+  "scientificName": "Gagata gagata",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Gagata",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "bangladesh",
+    "bengal",
+    "myanmar"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 30.5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
+      "html": "<ul><li>Scientific name: Gagata gagata (Hamilton, 1822)</li><li>Sometimes inhabits brackish water.</li><li>Breeding: unreported in the aquarium.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
+      "html": "<p>Asia: India, Bangladesh and Myanmar. Type locality: fresh water rivers and estuaries of Bengal.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
+      "html": "<p>Sometimes inhabits brackish water.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
+      "html": "<p>Identification: head and body silvery, without pattern. Fins, except caudal fin, black distally, with clear basal portions; caudal fin entirely clear. Dorsal spine extending well past adipose-fin origin when adpressed. Anal fin with 5-6 simple rays, 11 branched rays. Premaxilla with 4 rows of teeth. Most similar to G. melanopterus in coloration and having the highest gill raker counts among its congeners.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
+      "html": "<p>Etymology: the generic name comes from the local name of the fish (keyakatta). IUCN Red List: Least Concern (last assessed 2009).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1420",
+      "html": "<p>An account of the fishes found in the river Ganges, pp 197, 379, Pl. 39 (fig. 65).</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/9e68946f3c961101.webp",
+      "width": 825,
+      "height": 301,
+      "licence": "CC BY 2.5",
+      "author": "Day, Francis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gagata_cenia.jpg",
+      "caption": "The fishes of India :London :B. Quaritch,[1875]-1878.https://www.biodiversitylibrary.org/page/5616125",
+      "thumb": "https://media.aquatome.com/commons/9e68946f3c961101-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6b004d0da9c58441.webp",
+      "width": 857,
+      "height": 347,
+      "licence": "Public domain",
+      "author": "Nilesh Heda",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nangra_ichthya.jpg",
+      "caption": "A fresh water fish species from Kathani river of Wainganga basin from the Gadchiroli district of Maharashtra state India. Nangra ichthya is a mispelling of Nangra itchteea (Sykes, 1839) which is a syn",
+      "thumb": "https://media.aquatome.com/commons/6b004d0da9c58441-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6ca6790fcd3852b7.webp",
+      "width": 803,
+      "height": 385,
+      "licence": "Public domain",
+      "author": "R. Mintern",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gagata_itchkeea_Mintern_115.jpg",
+      "caption": "The species names / identity need verification - original names from plate are included here. The original plates showed the fishes facing right and have been flipped here. Gagata itchkeea",
+      "thumb": "https://media.aquatome.com/commons/6ca6790fcd3852b7-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [],
+  "updatedAt": "2026-11-21"
+}

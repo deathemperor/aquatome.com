@@ -16,7 +16,8 @@
     "myanmar",
     "bago",
     "philippines",
-    "thailand"
+    "thailand",
+    "africa"
   ],
   "range": {
     "native": {
@@ -211,6 +212,13 @@
           "min": 20,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
       }
     ],
     "ph": [
@@ -235,6 +243,10 @@
       {
         "source": "seriouslyfish",
         "value": 60
+      },
+      {
+        "source": "glaser",
+        "value": 60
       }
     ],
     "tankCm": [
@@ -258,6 +270,12 @@
       "html": "<p>This species is not a true freshwater fish and should be maintained in brackish conditions.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "html": "<p>For many years the up to 60 cm long moray eel species Gymnothorax tile has been sold as “freshwater moray”. It is true that G. tile can live in pure fresh water for a while (a few months) without showing any discomfort. But practice shows that this moray eel species is much more persistent in brackish or sea water (15-30 grams of salt per liter), as known from other fish species of the tidal zone, such as Scats, Monos etc.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
@@ -268,6 +286,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
       "html": "<p>Widespread throughout coastal regions of the Indo-West Pacific from eastern India to the Philippines and southward to Indonesia.</p><p>Type locality is 'Ganges River estuaries near Calcutta, India'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "html": "<p>The species is distributed along large parts of the coasts of the Indian Ocean.</p>"
     },
     {
       "key": "aquariumSize",
@@ -288,16 +312,34 @@
       "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 7.5–9.0</li><li>Hardness: 10–30 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "html": "<p>When keeping the fish in fresh water, the pH-value should not drop below 8, otherwise the moray eels will stop eating. The water temperature can be between 22 and 30°C. As with all brackish and saltwater fish the oxygen demand is high.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
       "html": "<p>An obligate predator feeding on smaller fishes, crustaceans and suchlike in nature.</p><p>Newly-imported specimens often refuse to accept anything but live fishes but most can be weaned onto dead alternatives once recognised as edible.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat like beef heart or chicken, and similarly there is no benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction, and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "html": "<p>They are predatory fish that feed exclusively on carnivorous food: small fish, crabs and shrimps form their natural food. In the aquarium Frutti di Mare are an ideal substitute, frozen smelts and shrimps should be used as addition. It may take several weeks before these morays accept food. This is normal and not a cause for concern. The best thing is to put some live food fish in the aquarium; once they have disappeared, the spell is broken, the moray eel is accustomed and from now on it becomes a greedy eater.</p><p>You have to watch your fingers a little bit; the moray eels see badly and orientate themselves by their sense of smell. If the keeper’s fingers still smell of food, it can happen that the moray eel bites him. This is not poisonous, but it bleeds violently and is in danger of infection.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gymnothorax-tile",
       "html": "<p>Highly piscivorous and will even strike at much larger fishes on occasion so best-maintained alone in all but the very largest aquaria.</p><p>It can be maintained in a group provided the tank is sufficiently large and arranged in such a way that each individual has its own refuge.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "html": "<p>Gymnothorax tile is very tolerant against conspecifics, as well as other large fish.</p>"
     },
     {
       "key": "dimorphism",
@@ -324,7 +366,38 @@
       "html": "<ul><li>Tan, H. H. and M. Kottelat (2009). The fishes of the Batang Hari drainage, Sumatra, with description of six new species. Ichthyological Exploration of Freshwaters 20(1), 13-69</li><li>Smith, D. G. (2012). A checklist of the moray eels of the world (Teleostei: Anguilliformes: Muraenidae). Zootaxa 3474, 1-64</li><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Randall, J. E. and K. K. P. Lim (2000). A checklist of the fishes of the South China Sea. The Raffles Bulletin of Zoology Supplement 8, 569-667</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Ebner, B. C., B. Kroll, Paul Godfrey, P. A. Thuesen, T. Vallance, B. Pusey, G. R. Allen, T. S. Rayner, and C. N. Perna (2011). Is the elusive Gymnothorax polyuranodon really a freshwater moray? Journal of Fish Biology 79(1), 70-79</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/937a840f018f9ee1.webp",
+      "thumb": "https://media.aquatome.com/glaser/937a840f018f9ee1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/41c9e9963f93e7f1.webp",
+      "thumb": "https://media.aquatome.com/glaser/41c9e9963f93e7f1-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "source": "glaser"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/d24e5f75d67b9b60.webp",
+      "thumb": "https://media.aquatome.com/glaser/d24e5f75d67b9b60-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Frank Schäfer / Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/05-eels-en/gymnothorax-tile-2/",
+      "source": "glaser"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -355,5 +428,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-21"
 }
