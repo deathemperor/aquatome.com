@@ -51,7 +51,7 @@ struct V2Root: View {
           }
           .v2ClearUnderTabBar()
       }
-      // v1's screens: a fade of a set height, as their ends have no room for one that grows with the text.
+      // v1's screens: at the sizes that take the fade, one of a set height, as their ends have no room for one that grows.
       Tab("Bể của tôi", systemImage: "fish", value: Pick.tanks) {
         TanksView(path: $tanksPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
@@ -63,9 +63,6 @@ struct V2Root: View {
           .v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
     }
-    // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab), unless the
-    // owner is trying the page through it (TabBarGlass).
-    .v2NoBottomEdge()
     // A link opening a tab or a page (AquaTomeApp.open): its tab here. A page pushed on the handbook's stack shows on
     // Khám phá, whichever tab was in front; one on the tanks' stack, on Bể của tôi.
     .onChange(of: tab) { follow(tab) }
@@ -148,14 +145,9 @@ extension View {
 }
 
 private extension View {
-  /// iOS's own edge off, for the fade (ClearUnderTabBar). The bar stays whole by the app's Group (`tabBarNeverMinimizes`).
-  @ViewBuilder func v2NoBottomEdge() -> some View {
-    if #available(iOS 26, *) { scrollEdgeEffectHidden(true, for: .bottom) } else { self }
-  }
-
-  /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey), so the fade doesn't
-  /// show a lighter band.
-  /// `fade` shorter where a pinned footer of v1's ends just above the bar; otherwise it grows with the text.
+  /// `ground`: what the tab's pages stand on, if it isn't the screen's own (a grouped list's grey).
+  /// `fade`: at the sizes that take the fade, a set height where a pinned footer of v1's ends just above the bar;
+  /// otherwise it grows with the text.
   func v2ClearUnderTabBar(on ground: Color = .clear, fade: CGFloat? = nil) -> some View {
     modifier(ClearUnderTabBar(ground: ground, fade: fade))
   }
@@ -191,16 +183,18 @@ private struct ClearOfTheFade: ViewModifier {
   func body(content: Content) -> some View { content.safeAreaPadding(.bottom, fade) }
 }
 
-/// The owner's trial of the tab bar as the App Store's (11 Nov: "Try bottom bar glass effect like Appstore's"): the page
-/// runs under the bar and shows through its glass, with no edge and no fade. Theirs alone, on from the build it came in;
-/// off in Tài khoản → Ứng dụng brings the fade back at once. Everyone else keeps the fade.
-enum TabBarGlass {
-  static let key = "tabBarGlassTrial"
-}
-
-/// A tab's screens fade out just above the tab bar, so nothing shows through its glass or around it (the owner: words
-/// through the bar). For the owner trying it (TabBarGlass), the page passes under the bar instead, on its ground. iOS's own edges can't do it: the soft one leaves the words legible in the glass, and the hard one cuts
-/// them on a line with a band under it. A tab's own, not each page's: it holds for every page of the tab, v1's too.
+/// The tab bar as the App Store's (the owner, 14 Nov, of their trial since 11 Nov: "It works. Remove the option to enable
+/// it, make it default"): a tab's pages run on under the bar, on the tab's ground. What's under its glass doesn't read, by
+/// text size (Design's ladder, 15 Nov, a heading stopped at the bar on four screens, light and dark):
+/// - up to XL, iOS's soft edge blurs it into colour;
+/// - XXL to AX2, iOS's hard edge: the soft one's blur doesn't grow with the text, and body lines read below the bar;
+/// - AX3 and up, a fade above the bar, as tall as a line of the text: below the hard one's hairline letters that size
+///   could still be made out.
+/// On iOS 26 the fade at every size (Design, 20 Nov): 26's soft edge leaves the strip below the floating bar sharp, where a
+/// fish page's photo credit read (26.5), and its hard edge paints an opaque band across a coloured page's foot. The page
+/// doesn't run under the bar there, and a tap under it opens nothing, as at AX3.
+/// On 27.2 iOS draws no edge under a tab bar of its own accord: each is asked for. A tab's own, not each page's: it holds
+/// for every page of the tab, v1's too.
 private struct ClearUnderTabBar: ViewModifier {
   let ground: Color
   /// The fade's height, if it's a set one. Short: v1's pinned controls end just above it. v2's own pages end above it
@@ -213,16 +207,12 @@ private struct ClearUnderTabBar: ViewModifier {
   @State private var footGround: FootGround?
   /// The bar's height with what's under it. Not the keyboard's: above that, nothing is under a bar.
   @State private var bar: CGFloat = 0
-  @AppStorage(TabBarGlass.key) private var trial = true
-  @Environment(AccountModel.self) private var account
+  @Environment(\.dynamicTypeSize) private var size
+  /// iOS 27's soft edge blurs the strip below the floating bar too; 26's doesn't.
+  private var softHolds: Bool { if #available(iOS 27, *) { true } else { false } }
 
   func body(content: Content) -> some View {
-    if #available(iOS 26, *), trial, account.owner.isOwner == true, account.user != nil {
-      // Through the glass: no mask and nothing over the bar's place, the ground still behind it all.
-      content
-        .environment(\.v2FootGround, $footGround)
-        .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
-    } else if #available(iOS 26, *) {
+    if #available(iOS 26, *), size >= .accessibility3 || !softHolds {
       content
         .environment(\.v2FootGround, $footGround)
         .background {
@@ -251,6 +241,12 @@ private struct ClearUnderTabBar: ViewModifier {
             .ignoresSafeArea()
           }
         }
+        .scrollEdgeEffectHidden(true, for: .bottom)
+    } else if #available(iOS 26, *) {
+      content
+        .environment(\.v2FootGround, $footGround)
+        .background { (footGround?.colour ?? ground).ignoresSafeArea().animation(.easeInOut(duration: 0.2), value: footGround) }
+        .scrollEdgeEffectStyle(size >= .xxLarge ? .hard : .soft, for: .bottom)
     } else {
       content
     }

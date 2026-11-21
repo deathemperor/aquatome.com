@@ -239,7 +239,8 @@ final class TanksModel {
   #if DEBUG
   /// UI tests: no tanks (`-reset-defaults`), then maybe a store this app must leave alone (`-seed-tanks newer`,
   /// `unreadable`), a place it can't save to (`unwritable`), a tank another client gave litres of its own (`litres`),
-  /// one with fish and plants on it (`life`), one with 20 kinds of fish, longer than the screen (`many`), a 60 cm tank
+  /// one with fish and plants on it (`life`), one with 20 kinds of fish, longer than the screen, named in 12 letters or
+  /// more, which the words-under-the-tab-bar check takes for a page's line (`many`), a 60 cm tank
   /// with discus and neons, which don't go together (`clash`), or one with the stand-in Tuya cloud's first strip on it,
   /// its outlets named "Đèn" and "CO2" (`plug`), or a 120 cm tank with discus and a
   /// breed of the discus (`breed`, with `-breeds`).
@@ -250,7 +251,7 @@ final class TanksModel {
     guard let i = args.firstIndex(of: "-seed-tanks"), i + 1 < args.count else { return }
     switch args[i + 1] {
     case "newer", "unreadable", "litres", "life", "many", "clash", "plug", "breed", "two", "master":
-      let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
+      let many = (["paracheirodon-innesi"] + (1...19).map { "loai-thu-nghiem-\($0)" }).map { #"{"id":"\#($0)","count":2}"# }.joined(separator: ",")
       let store = [
         "newer": #"{"v":2,"tanks":[],"devices":[]}"#,
         "unreadable": "{not json",
