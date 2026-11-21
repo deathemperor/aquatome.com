@@ -228,9 +228,10 @@ async function archivedListing(s: IdeaSource, archive: ArchiveReader): Promise<P
 
 /**
  * Which posts the Archive's index holds a good capture of: one query for each of the listing's sections, ARCHIVE_POLITE
- * apart. `held` is undefined when the index didn't answer (a refusal stops it there): the posts stand unmarked.
+ * apart. A refusal is thrown, so the site's earlier titles and marks stand. `held` is undefined when the index didn't
+ * answer otherwise (offline, or the requests allowed spent): the posts keep the marks an earlier read gave them (`before`).
  */
-async function heldPosts(s: IdeaSource, posts: Post[], archive: ArchiveReader, sleep: (ms: number) => Promise<void>): Promise<{ posts: Post[]; held?: number }> {
+async function heldPosts(s: IdeaSource, posts: Post[], archive: ArchiveReader, sleep: (ms: number) => Promise<void>, before: Post[] = []): Promise<{ posts: Post[]; held?: number }> {
   if (s.list.kind !== 'sitemap') return { posts }
   const places = new Set<string>()
   try {
@@ -239,8 +240,10 @@ async function heldPosts(s: IdeaSource, posts: Post[], archive: ArchiveReader, s
       for (const line of (await archive.text(cdxQuery(prefix.replace(/^https?:\/\//, '')))).split('\n')) if (line.trim()) places.add(placeOf(line.trim()))
     }
   } catch (e) {
+    if (e instanceof ArchiveRefused) throw e
     console.warn(`ideas: ${s.id}: the archive's index: ${(e as Error).message.slice(0, 120)}`)
-    return { posts }
+    const marked = new Set(before.filter(p => p.held).map(p => p.url))
+    return { posts: posts.map(p => (marked.has(p.url) ? { ...p, held: true as const } : p)) }
   }
   const marked = posts.map(p => (places.has(placeOf(p.url)) ? { ...p, held: true as const } : p))
   return { posts: marked, held: marked.filter(p => p.held).length }
@@ -290,6 +293,8 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
       // Through the Archive, a reader capped at what's left of the week's requests, each counted as it is made.
       let reader: ArchiveReader | undefined
       if (fromArchive) {
+        // Once a day at most, on every path: a week overdue (its ideas not made) doesn't make it more often.
+        if (!o.force && tried(s) && d.now().getTime() - Date.parse(tried(s)!) < ARCHIVE_TRY_MS) throw new Error('read through the archive within a day')
         const left = asksLeft(state, 'listing', d.now())
         if (left <= 0) throw new Error(`the week's ${ARCHIVE_LISTING_WEEK} requests to the archive are spent`)
         reader = archive!.capped(left)
@@ -300,7 +305,7 @@ export async function refreshIdeas(root: string, d: IdeasDeps, o: { force?: bool
         report.listed[s.id] = { kept: kept.length, dropped, titles }
         if (!kept.length) throw new Error('an empty listing')
         if (reader) {
-          const r = await heldPosts(s, kept, reader, d.sleep)
+          const r = await heldPosts(s, kept, reader, d.sleep, state.posts[s.id])
           report.archived[s.id] = { listed: kept.length, ...(r.held === undefined ? {} : { held: r.held }) }
           state.posts[s.id] = r.posts
         } else {
