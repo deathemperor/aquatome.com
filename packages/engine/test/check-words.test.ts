@@ -10,8 +10,11 @@ test('a fish on a hook or a line is a catch, dead, for the check and the dead-fi
   const catchDead = 'A fish on a hook or a line, in the water or not, is a catch: dead.'
   expect(line(fish, '- ok:')).toContain(catchDead)
   expect(line(DEAD_SCREEN_PROMPT, '- dead:')).toContain(catchDead)
-  // The screen's live fish in water is one on no hook or line, so its exception doesn't take the hooked fish back.
+  // Every live fish the words let off is one on no hook or line, so no exception takes the hooked fish back: in water,
+  // or held in a hand, a net or a bag.
+  expect(line(fish, '- ok:')).toContain('a live fish on no hook or line, held briefly in a net or a bag.')
   expect(line(DEAD_SCREEN_PROMPT, '- dead:')).toContain('Not dead: a live fish in water, on no hook or line (')
+  expect(line(DEAD_SCREEN_PROMPT, '- dead:')).toContain('a small live fish on no hook or line, held in a hand or a net for a moment,')
 })
 
 test('a person seen reflected in the glass is a person, beside one behind it', () => {

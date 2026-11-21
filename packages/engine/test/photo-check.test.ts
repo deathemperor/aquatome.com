@@ -862,7 +862,7 @@ test('an engraved plate or an old drawing is "not a photo of it" as before, not 
   const r = await root([{ id: 'bagrus-bajad', sci: 'Bagrus bajad', photos: ['plate'] }])
   const d = model({ plate: { ok: 'none', typical: false, note: 'old engraved plate of two Bagrus catfish' } })
   await checkPagePhotos(r, d, { limit: 10, emptyCap: 99 })
-  expect(d.seen[0]!.prompt).toContain('Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish held briefly in a net or a bag.')
+  expect(d.seen[0]!.prompt).toContain('Not "dead": a drawing, painting or engraved plate (that is "none"; a photo of a preserved specimen is "dead", however old); a live fish on no hook or line, held briefly in a net or a bag.')
   expect(d.seen[0]!.prompt).toContain('"none" if it is not a photo of the subject at all: a map, chart, diagram or drawing, hands or people')
   expect(await urls(r, 'content/species/bagrus-bajad/entity.json')).toEqual([])
   expectControlledRejections(await json(r, 'engine-state/_photo-rejected.json'), { [url('plate')]: "rejected" })
