@@ -496,6 +496,14 @@
   "findings": [],
   "products": []
  },
+ "id/cards/trivia-glass-catfish-name": {
+  "at": "2026-11-21",
+  "hash": "b9d7fc4c14e0e169",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "id/cards/trivia-marimo-alga": {
   "at": "2026-11-14",
   "hash": "fc1e7adf8d4f283e",
@@ -24723,15 +24731,22 @@
  },
  "ms/plants/nymphoides-aquatica": {
   "at": "2026-11-21",
-  "hash": "737180c45b319459",
+  "hash": "0f5d8055b7a095f2",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P3",
-    "quote": "tanam kira-kira 0.6 cm ke dalam substrat",
-    "why": "0.6 cm is a converted quarter inch; keepers would say about half a centimetre.",
+    "quote": "malah sebagai tumbuhan latar belakang dalam tangki nano 19 liter",
+    "why": "19 litres is a converted 5-gallon tank size that no keeper in Malaysia would use.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P3",
+    "quote": "atau tanam kira-kira 0.6 cm ke dalam substrat",
+    "why": "0.6 cm is a converted quarter inch, not a length a keeper here would write.",
     "by": "model"
    }
   ],
@@ -29439,6 +29454,14 @@
  "th/cards/trivia-climbing-perch-land": {
   "at": "2026-11-08",
   "hash": "5832c3953926bfbd",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/cards/trivia-glass-catfish-name": {
+  "at": "2026-11-21",
+  "hash": "bfc215c9c894ed77",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -59640,34 +59663,11 @@
   "products": []
  },
  "vi/guides/aquariumcoop-blogs-aquarium-how-to-breed-egg-scatterers": {
-  "at": "2026-11-20",
-  "hash": "0056392270bc0ae1",
+  "at": "2026-11-21",
+  "hash": "1a8d62505965db5d",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "Lấy ống PVC đường kính 2,5–5 cm",
-    "why": "Pipe size converted from 1–2 inches; keepers in Vietnam buy pipe by millimetre size.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "tấm vỉ nhựa ô vuông dùng cho đèn trần, có bán ở tiệm vật liệu xây dựng",
-    "why": "An egg-crate ceiling-light diffuser from a hardware store is an American source of materials, not something keepers in Vietnam buy for this.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "giun đen (blackworm)",
-    "why": "A calque of 'blackworm'; keepers in Vietnam call this live food trùn chỉ.",
-    "by": "model",
-    "fix": "trùn chỉ"
-   }
-  ],
+  "findings": [],
   "products": []
  },
  "vi/guides/aquariumcoop-blogs-aquarium-how-to-care-for-aquarium-fish-while-on-vacation": {
@@ -76718,11 +76718,68 @@
   ]
  },
  "vi/guides/youtube-6R-aFWdSN6Y": {
-  "at": "2026-11-20",
-  "hash": "7f181744a42448dc",
+  "at": "2026-11-21",
+  "hash": "d32b48d586a8ee41",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Người nuôi trong bài để đèn mọi bể bật 12 tiếng, và thấy với bể low tech",
+    "why": "Introduces the original article's writer, whom the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Người nuôi trong bài chưa tự thử cách này, chỉ nêu như một lựa chọn.",
+    "why": "Refers to the source writer's own experience.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "thứ người nuôi trong bài tránh là lớp cát mịn dày",
+    "why": "Cites the source writer's personal practice.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "kể từng bị nhiều người chê là bật đèn quá lâu, dù cũng chính họ khen bể đẹp",
+    "why": "A first-person anecdote from the source writer.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "người nuôi trong bài từng thử lấy rêu cạn dạng gối (cushion moss) ngoài trời",
+    "why": "The source writer's personal experiment, told as if the reader knew them.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L2",
+    "quote": "Người nuôi trong bài để đèn yếu đến vừa nhưng bật lâu.",
+    "why": "The summary points to the source writer.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L4",
+    "quote": "Người nuôi trong bài tránh lót lớp cát mịn dày.",
+    "why": "The summary points to the source writer.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L10",
+    "quote": "Người nuôi trong bài để đèn yếu đến vừa, bật 12 tiếng mỗi ngày",
+    "why": "The FAQ answer points to the source writer.",
+    "by": "model"
+   }
+  ],
   "products": [
    "API Leaf Zone"
   ]
@@ -95159,40 +95216,66 @@
   ]
  },
  "vi/guides/youtube-ojUhcailsfc": {
-  "at": "2026-11-20",
-  "hash": "0bc57be7c43462d0",
+  "at": "2026-11-21",
+  "hash": "f15278f9c7841eda",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Sau đó bể này còn bị một đợt rêu bùng.",
-    "why": "Refers to the source's own tank as 'this tank' as if the reader knew it.",
+    "quote": "Bể suối trong bài mới set khoảng ba tuần",
+    "why": "Refers to the source video's own tank as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Trong bể suối kia, cây chỉ hơi đung đưa nên dòng chảy không quá mạnh.",
-    "why": "Points at the source's specific river tank the reader has not seen.",
+    "quote": "tới lúc quay video thì lớp này đã hết hẳn",
+    "why": "Points to the source video's filming.",
     "by": "model"
    },
    {
-    "check": "words",
-    "part": "L4",
-    "quote": "dưới 1 giọt mỗi giây",
-    "why": "CO2 rate is counted in bubbles, not drops; keepers say 'bọt/giây'.",
-    "by": "model",
-    "fix": "dưới 1 bọt mỗi giây"
+    "check": "source",
+    "part": "P1",
+    "quote": "ở một bể khác của người nuôi, nuôi đàn cá mù",
+    "why": "Introduces the source keeper's other tanks the reader doesn't know.",
+    "by": "model"
    },
    {
-    "check": "words",
+    "check": "source",
+    "part": "P1",
+    "quote": "Một bể của người nuôi đã chạy lâu, sạch rêu",
+    "why": "Narrates the source keeper's own tank.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Bể dưỡng cây của người nuôi châm CO2 rất ít",
+    "why": "Refers to the source keeper's own tank.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "người nuôi khen nó làm việc giỏi",
+    "why": "Source keeper's own voice.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L1",
+    "quote": "Bể suối trong bài, set được ba tuần",
+    "why": "Refers to the source's tank.",
+    "by": "model"
+   },
+   {
+    "check": "source",
     "part": "L7",
-    "quote": "Với mức dưới 1 giọt mỗi giây trong bể nhỏ",
-    "why": "CO2 rate is counted in bubbles, not drops; keepers say 'bọt/giây'.",
-    "by": "model",
-    "fix": "dưới 1 bọt mỗi giây"
+    "quote": "Người nuôi trong bài nói",
+    "why": "Refers to the person in the source article/video.",
+    "by": "model"
    }
   ],
   "products": []
@@ -96416,16 +96499,86 @@
   "products": []
  },
  "vi/guides/youtube-Pn0-xaW8S3w": {
-  "at": "2026-11-20",
-  "hash": "19fcfad21d5410e6",
+  "at": "2026-11-21",
+  "hash": "728cd60ed91adc69",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Đàn cá này được cho đẻ ở nước mát từ trước, và ít nhất một con cái đang mang bầu căng tròn.",
-    "why": "It tells the source video's own fish story as if the reader knew those fish.",
+    "quote": "Bể trong bài đã chạy hơn một tháng",
+    "why": "Refers to the source's own tank as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ở bể trong bài, người nuôi hay quên vớt nên bèo bắt đầu thành của nợ.",
+    "why": "The source keeper's own story about their tank.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Ở bể trong bài, người nuôi rút khoảng một nửa lượng nước đang có",
+    "why": "Describes the source's own tank and keeper.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Người nuôi trong bài chọn thả thêm ốc và tép.",
+    "why": "Introduces the article's keeper, a stranger to the reader.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Đàn cá này do người nuôi tự cho đẻ, ở nước mát từ trước",
+    "why": "The source keeper's personal story about their own fish.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L1",
+    "quote": "Bể trong bài không có lọc nên vẫn phải thay nước",
+    "why": "Refers to the source's tank.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L2",
+    "quote": "Người nuôi khuyên",
+    "why": "Attributes advice to the source's keeper, whom the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L3",
+    "quote": "Bể trong bài được thay chừng 30–40% nước so với bể đầy",
+    "why": "Refers to the source's tank.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L7",
+    "quote": "Lần này người nuôi rút khoảng một nửa lượng nước đang có",
+    "why": "A bare 'lần này' pointing to the source's session.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L11",
+    "quote": "Người nuôi trong bài khuyên",
+    "why": "Introduces the article's keeper.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L11",
+    "quote": "Ở bể trong bài, người nuôi hay quên vớt nên bèo bắt đầu thành của nợ.",
+    "why": "The source keeper's own story.",
     "by": "model"
    }
   ],
@@ -125842,6 +125995,14 @@
   "hash": "4953c23aa9fb831c",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "vi/species/glossolepis-pseudoincisus": {
+  "at": "2026-11-21",
+  "hash": "5210922425c62245",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },

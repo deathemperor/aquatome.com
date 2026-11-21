@@ -141,17 +141,12 @@
       "author": "Maciek Stanikowski (the base photo), and Arlo from JoeMonster",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rainbow_crab.jpg",
       "caption": "The rainbow crab, corrected version of that",
-      "thumb": "https://media.aquatome.com/commons/62f65c8dbd4c425c-480.webp"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/14204e19d481803c.webp",
-      "width": 960,
-      "height": 640,
-      "licence": "CC BY-SA 4.0",
-      "author": "Iwanjayz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_crab_by_the_lagoon.jpg",
-      "caption": "A crab by the lagoon",
-      "thumb": "https://media.aquatome.com/commons/14204e19d481803c-480.webp"
+      "thumb": "https://media.aquatome.com/commons/62f65c8dbd4c425c-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/62f65c8dbd4c425c-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/d60ff132972a0a13.webp",
@@ -164,14 +159,14 @@
       "thumb": "https://media.aquatome.com/commons/d60ff132972a0a13-480.webp"
     },
     {
-      "url": "https://media.aquatome.com/commons/4e9f3acf4e8956b9.webp",
+      "url": "https://media.aquatome.com/commons/14204e19d481803c.webp",
       "width": 960,
-      "height": 1451,
-      "licence": "CC0",
-      "author": "Daderot",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardisoma_armatum_-_Royal_Museum_for_Central_Africa_-_DSC06898.JPG",
-      "caption": "Exhibit in the Royal Museum for Central Africa, Tervuren, Belgium. Photography was permitted in the museum without restriction.",
-      "thumb": "https://media.aquatome.com/commons/4e9f3acf4e8956b9-480.webp"
+      "height": 640,
+      "licence": "CC BY-SA 4.0",
+      "author": "Iwanjayz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_crab_by_the_lagoon.jpg",
+      "caption": "A crab by the lagoon",
+      "thumb": "https://media.aquatome.com/commons/14204e19d481803c-480.webp"
     }
   ],
   "videos": [

@@ -1101,6 +1101,30 @@ test("the live-food guide's Indonesian and Malay survey lines hold", () => {
   expect(facts).not.toContain('445 readers')
 })
 
+// The Writing Lead's yes or no of 20 Nov 2026 on what that change left as it was, each checked against the saved source
+// or the video's transcript: three of the shop's photo captions out of the egg scatterers' body and the fourth moved to
+// the paragraph it belongs to; the keeper's own hedge on why the Endlers tank still needs water changes, and the snails
+// and shrimp as his tank's; the low-tech keeper's fertiliser, his two or three tanks and his water changes as his, and
+// his plants looking better the day after a water change as what he tells of his own tanks (the second read, 21 Nov); the
+// small tanks' CO2 and the untrimmed Limnophila as the tanks in the video. Three stay held for the gate's read; the gate
+// let the egg scatterers' guide out before this, and it is on the read list
+// (test/fixtures/left-as-they-are-1121.json, by each guide's whole id).
+test("the Writing Lead's yes or no on what the four guarded guides left as they were holds", () => handFixesHold('left-as-they-are-1121.json', ''))
+
+// The chief of staff, 21 Nov 2026: the ten-tips guide's third read found five more sentences telling what the keeper got
+// in his own tanks as what any tank does, for the Writing Lead's words. The gate lets a held page out on a clean read, so
+// the guide is held by hand until those words are in: the gate neither reads it nor lets it out while its line is there.
+test('the ten-tips low-tech guide is held by hand in every language it has', () => {
+  const id = 'youtube-6R-aFWdSN6Y'
+  const byHand = JSON.parse(readFileSync(fileURLToPath(new URL('../../../engine-state/held-by-hand.json', import.meta.url)), 'utf8')) as Record<string, { checks: string[]; at: string }>
+  const hold = { checks: ['source'], at: '2026-11-21' }
+  expect(byHand[`guides/${id}`]).toMatchObject(hold)
+  const dir = fileURLToPath(new URL(`../../../content/guides/${id}`, import.meta.url))
+  const langs = readdirSync(dir).filter(f => f !== 'entity.json' && f.endsWith('.json'))
+  expect(langs).toContain('vi.json')
+  for (const f of langs) expect((JSON.parse(readFileSync(join(dir, f), 'utf8')) as Translation).held, f).toEqual(hold)
+})
+
 // The Writing Lead's lines of 20 Nov 2026 on eight more video guides, in the house form (the maker's tank is "bể trong
 // bài", what was done is said as done, the maker's own hedge stays), each checked against the video's words: the rest of
 // the list of guides where a step the video took had become advice. Each guide is bodyFixed, and faqFixed where its FAQ

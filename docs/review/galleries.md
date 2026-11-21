@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-21). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 5 | 7 |
 | shop | 60 | 131 | 81 | 24 | 37 | 199 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 826 | 32 | 9 | 28 | 839 |
-| rest | 20 | 1894 | 81 | 0 | 114 | 1861 |
+| covered | 30 | 833 | 32 | 9 | 28 | 846 |
+| rest | 20 | 1912 | 81 | 0 | 117 | 1876 |
 
-## Short of target: every source read (710)
+## Short of target: every source read (711)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -20,7 +20,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ageneiosus-inermis | rest | 0 | 20 |
 | species/amphilius-frieli | rest | 0 | 20 |
 | species/amphilius-kivuensis | rest | 0 | 20 |
-| species/barbodes-dunckeri | rest | 4 | 20 |
+| species/barbodes-dunckeri | covered | 4 | 30 |
 | species/cryptarius-truncatus | covered | 0 | 30 |
 | species/hemiancistrus-landoni | covered | 0 | 30 |
 | species/hypostomus-hemicochliodon | covered | 0 | 30 |
@@ -281,6 +281,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-siamorientalis | covered | 0 | 30 |
 | species/betta-simorum | covered | 0 | 30 |
 | species/betta-unimaculata | covered | 1 | 30 |
+| species/boraras-maculatus | covered | 1 | 30 |
 | species/boraras-merah | covered | 3 | 30 |
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
 | species/brevibora-dorsiocellata | covered | 4 | 30 |
@@ -436,7 +437,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/biotodoma-cupido | covered | 1 | 30 |
 | species/biotodoma-wavrini | covered | 0 | 30 |
 | species/biotoecus-opercularis | covered | 0 | 30 |
-| species/boraras-maculatus | covered | 1 | 30 |
 | species/boraras-micros | covered | 1 | 30 |
 | species/boraras-naevus | covered | 2 | 30 |
 | species/botia-histrionica | covered | 1 | 30 |
@@ -624,7 +624,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hyphessobrycon-eschwartzae | covered | 0 | 30 |
 | species/hyphessobrycon-flammeus | covered | 8 | 30 |
 | species/hyphessobrycon-haraldschultzi | covered | 0 | 30 |
-| species/hyphessobrycon-heterorhabdus | covered | 1 | 30 |
+| species/hyphessobrycon-heterorhabdus | covered | 0 | 30 |
 | species/hyphessobrycon-loretoensis | covered | 1 | 30 |
 | species/hyphessobrycon-melanostichos | covered | 0 | 30 |
 | species/hyphessobrycon-pyrrhonotus | covered | 0 | 30 |
@@ -706,6 +706,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/melanotaenia-rubrostriata | covered | 0 | 30 |
 | species/metaloricaria-nijsseni | covered | 0 | 30 |
 | species/microctenopoma-fasciolatum | covered | 1 | 30 |
+| species/mochokus-niloticus | covered | 0 | 30 |
 | species/nannostomus-anduzei | covered | 0 | 30 |
 | species/neblinichthys-pilosus | covered | 0 | 30 |
 | species/nematogenys-inermis | covered | 1 | 30 |
