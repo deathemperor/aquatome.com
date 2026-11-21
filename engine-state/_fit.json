@@ -19745,19 +19745,11 @@
     ]
   },
   "id/species/parosphromenus-anjunganensis": {
-    "at": "2026-11-14",
-    "hash": "8cee3074865a35a6",
+    "at": "2026-11-21",
+    "hash": "6881f90c876bf070",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P5",
-        "quote": "akuarium sekitar 19–38 liter",
-        "why": "These volumes are converted from 5–10 US gallons; nobody in Indonesia sizes a tank this way.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "id/species/parosphromenus-bintan": {
@@ -109599,10 +109591,10 @@
     "products": []
   },
   "vi/species/acrossocheilus-paradoxus": {
-    "at": "2026-11-08",
+    "at": "2026-11-21",
     "hash": "3e2dcb81f06b8cf9",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -110792,27 +110784,11 @@
     "products": []
   },
   "vi/species/ancistrus-claro": {
-    "at": "2026-11-07",
-    "hash": "b0c4c540a31e7305",
+    "at": "2026-11-21",
+    "hash": "7766c8717abc303a",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P11",
-        "quote": "Cảm ơn L-Welse.com.",
-        "why": "Thanks a foreign site from the source article, unknown to the reader.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P9",
-        "quote": "Trên đầu con đực còn có các xúc tu.",
-        "why": "Dictionary translation of 'tentacles'; local keepers call a bristlenose's snout growths 'râu'.",
-        "by": "model",
-        "fix": "râu"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/ancistrus-cryptophthalmus": {
@@ -111867,16 +111843,16 @@
     "products": []
   },
   "vi/species/apistogramma-cacatuoides": {
-    "at": "2026-11-16",
-    "hash": "dcb860728fd2c8c8",
+    "at": "2026-11-21",
+    "hash": "7afc4b80dcb22198",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P7",
+        "part": "P6",
         "quote": "lá dẻ gai (beech), lá sồi (oak)",
-        "why": "Beech and oak leaves are European/North American tank additions that keepers in Vietnam don't buy or gather.",
+        "why": "Beech and oak leaves are European tree leaves that keepers in Vietnam don't buy or gather.",
         "by": "model"
       }
     ],
@@ -113143,23 +113119,23 @@
     "products": []
   },
   "vi/species/astronotus-crassipinnis": {
-    "at": "2026-11-09",
-    "hash": "79372f93611a0f6e",
+    "at": "2026-11-21",
+    "hash": "00a3b5ccb4233281",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P1",
-        "quote": "Mới đây có một lô cá oscar nhập từ Paraguay (Rio Paraguay, gần Asuncion).",
-        "why": "Announces the source importer's own new shipment as news to the reader.",
+        "part": "P3",
+        "quote": "Hiện có cá tai tượng non rất đẹp nhập từ Brazil, bán dưới tên \"Astronotus crassipinnis\".",
+        "why": "This is the source shop announcing its own new stock, which the reader can't buy.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lô này chỉ có 7 con, hy vọng là trong số ít ỏi đó sẽ có con bắt cặp và đẻ.",
-        "why": "Refers to the source shop's own stock, which the reader doesn't know.",
+        "quote": "Từ cỡ này trở lên, cá tai tượng thích ăn cá nhỏ.",
+        "why": "It points to a size the page never gives, probably one shown in the original source.",
         "by": "model"
       }
     ],
@@ -113477,10 +113453,10 @@
     "products": []
   },
   "vi/species/aulonocara-maylandi": {
-    "at": "2026-11-08",
-    "hash": "b0084f5821dd1dc7",
+    "at": "2026-11-21",
+    "hash": "73087a9d242e00f1",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -114159,18 +114135,18 @@
     "products": []
   },
   "vi/species/barbodes-dunckeri": {
-    "at": "2026-11-08",
-    "hash": "40985c2a5f879412",
+    "at": "2026-11-21",
+    "hash": "4d153efad1fd51b2",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
   "vi/species/barbodes-everetti": {
-    "at": "2026-11-07",
+    "at": "2026-11-21",
     "hash": "a6d675b0697d2cf7",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -114514,20 +114490,11 @@
     "products": []
   },
   "vi/species/baryancistrus-xanthellus": {
-    "at": "2026-11-08",
-    "hash": "313d962624772b0d",
+    "at": "2026-11-21",
+    "hash": "b69a134437daa67a",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P6",
-        "quote": "Loài này chủ yếu sống ở các ghềnh nước trắng.",
-        "why": "Literal calque of English 'whitewater rapids'; Vietnamese keepers don't say 'nước trắng'.",
-        "by": "model",
-        "fix": "ghềnh nước xiết"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/batasio-fasciolatus": {
@@ -116068,20 +116035,11 @@
     ]
   },
   "vi/species/boraras-maculatus": {
-    "at": "2026-11-20",
-    "hash": "846b6a145e00588f",
+    "at": "2026-11-21",
+    "hash": "f1f5f875ab5acf6e",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P18",
-        "quote": "giun vi (microworm)",
-        "why": "Vietnamese keepers call microworms 'trùn vi', not 'giun vi'.",
-        "by": "model",
-        "fix": "trùn vi"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/boraras-merah": {
@@ -123113,8 +123071,8 @@
     "products": []
   },
   "vi/species/discherodontus-ashmeadi": {
-    "at": "2026-11-17",
-    "hash": "9962f79ad550700a",
+    "at": "2026-11-21",
+    "hash": "22480fc6aafe7ddc",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -128975,8 +128933,8 @@
     "products": []
   },
   "vi/species/krobia-xinguensis": {
-    "at": "2026-11-19",
-    "hash": "cdb342585caf70f5",
+    "at": "2026-11-21",
+    "hash": "c11fab9fba00f6f3",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -134813,8 +134771,8 @@
     "products": []
   },
   "vi/species/osteoglossum-bicirrhosum": {
-    "at": "2026-11-18",
-    "hash": "14df0fe426e89e28",
+    "at": "2026-11-21",
+    "hash": "1c7faa72ade20d55",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -136047,32 +136005,17 @@
     "products": []
   },
   "vi/species/parosphromenus-anjunganensis": {
-    "at": "2026-11-15",
-    "hash": "7a8522074fe867e7",
+    "at": "2026-11-21",
+    "hash": "37d1c3a51e7cb67d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
-        "part": "P5",
-        "quote": "trong bể khoảng 19-38 lít",
-        "why": "19–38 litres is a conversion of 5–10 US gallons, not a tank size used in Vietnam.",
-        "by": "model"
-      },
-      {
         "check": "elsewhere",
-        "part": "P7",
+        "part": "P9",
         "quote": "Quả alder (alder cone) cũng dùng được cho mục đích này.",
-        "why": "Alder cones come from a temperate tree that keepers in Vietnam don't buy or gather.",
+        "why": "Alder cones come from a European tree that keepers in Vietnam don't gather; they use leaves gathered locally, such as Indian almond (bàng) leaves.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P11",
-        "quote": "giun vi mô (micro worm)",
-        "why": "A literal rendering of 'micro worm'; keepers in Vietnam call this live food something else.",
-        "by": "model",
-        "fix": "trùn vi sinh"
       }
     ],
     "products": []
@@ -136942,31 +136885,47 @@
     "products": []
   },
   "vi/species/phenacogrammus-interruptus": {
-    "at": "2026-11-15",
-    "hash": "6d143f38d4fc87ed",
+    "at": "2026-11-21",
+    "hash": "ae073054411e6f2f",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P2",
+        "part": "P3",
         "quote": "Bể tối thiểu: khoảng 114 lít",
-        "why": "114 litres is a 30-gallon tank converted to litres, a size nobody in Vietnam uses.",
+        "why": "114 litres is a converted 30-gallon tank, not a size keepers in Vietnam use.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P7",
+        "part": "P9",
+        "quote": "một đàn sáu đến tám con cần bể tối thiểu khoảng 114 lít",
+        "why": "114 litres is a converted 30-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P9",
         "quote": "bạn nên tính đến bể khoảng 208 lít",
-        "why": "208 litres is a 55-gallon tank converted to litres.",
+        "why": "208 litres is a converted 55-gallon tank.",
         "by": "model"
       },
       {
-        "check": "units",
-        "part": "P19",
-        "quote": "thành lớp nền xốp dày khoảng 2,5 cm",
-        "why": "A 2.5 cm substrate layer is a one-inch depth converted to centimetres.",
-        "by": "model"
+        "check": "words",
+        "part": "P23",
+        "quote": "giun vi sinh (microworm)",
+        "why": "Keepers in Vietnam call microworms trùn vi sinh, not giun vi sinh.",
+        "by": "model",
+        "fix": "trùn vi sinh"
+      },
+      {
+        "check": "words",
+        "part": "P20",
+        "quote": "Cá ngọc trai thiên hà (Danio margaritatus)",
+        "why": "A word-for-word translation of 'celestial pearl danio'; keepers in Vietnam call it cá thiên hà or cá galaxy.",
+        "by": "model",
+        "fix": "cá thiên hà (galaxy)"
       }
     ],
     "products": []
@@ -138511,8 +138470,8 @@
     "products": []
   },
   "vi/species/pseudohemiodon-laticeps": {
-    "at": "2026-11-09",
-    "hash": "680b2b2f2aeabbd4",
+    "at": "2026-11-21",
+    "hash": "a19f8eb475f5bb76",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -138691,8 +138650,8 @@
     "products": []
   },
   "vi/species/pseudomugil-signifer": {
-    "at": "2026-11-16",
-    "hash": "e18550477423714c",
+    "at": "2026-11-21",
+    "hash": "a704bfe97674c496",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -140257,8 +140216,8 @@
     "products": []
   },
   "vi/species/rineloricaria-formosa": {
-    "at": "2026-11-20",
-    "hash": "f0f0da02512fa46e",
+    "at": "2026-11-21",
+    "hash": "aa349d42f2a44d31",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -141373,18 +141332,18 @@
     "products": []
   },
   "vi/species/serrasalmus-elongatus": {
-    "at": "2026-11-09",
-    "hash": "e8bf932232029e26",
+    "at": "2026-11-21",
+    "hash": "9a3b1bd7d68f15a8",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P7",
+        "part": "P10",
         "quote": "mực cắt nhỏ, cá whitebait và giun đất",
-        "why": "Whitebait is an English food-shop term not used by Vietnamese keepers.",
+        "why": "'Whitebait' is left as the English word; keepers in Vietnam would name a local small fish such as anchovy.",
         "by": "model",
-        "fix": "cá cơm"
+        "fix": "cá cơm nhỏ"
       }
     ],
     "products": []
@@ -141951,16 +141910,16 @@
     "products": []
   },
   "vi/species/sphaerichthys-vaillanti": {
-    "at": "2026-11-18",
-    "hash": "cf64604eb5631906",
+    "at": "2026-11-21",
+    "hash": "628e5d3b072ba582",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
-        "part": "P12",
-        "quote": "lá dẻ gai, lá sồi",
-        "why": "Beech and oak leaves are European leaves that keepers in Vietnam don't buy or gather.",
+        "part": "P15",
+        "quote": "lá dẻ gai, lá sồi hay lá bàng đều được",
+        "why": "Beech and oak leaves are European/North American tank leaves that keepers in Vietnam don't buy or gather.",
         "by": "model"
       }
     ],
@@ -142128,8 +142087,8 @@
     "products": []
   },
   "vi/species/stiphodon-ornatus": {
-    "at": "2026-11-10",
-    "hash": "4f14dcfdd94011f7",
+    "at": "2026-11-21",
+    "hash": "32a9bd3c0cfeea3d",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -143430,19 +143389,11 @@
     "products": []
   },
   "vi/species/toxotes-blythii": {
-    "at": "2026-11-10",
-    "hash": "568b6df864023e03",
+    "at": "2026-11-21",
+    "hash": "9362f94a3743d0d1",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P2",
-        "quote": "Cá trong đợt nhập hiện nay có hoa văn rất đồng đều",
-        "why": "Refers to the source shop's current import batch, which the reader does not know about.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/toxotes-chatareus": {
@@ -143842,25 +143793,18 @@
     "products": []
   },
   "vi/species/trichopsis-pumila": {
-    "at": "2026-11-08",
-    "hash": "be4234e691e53cf5",
+    "at": "2026-11-21",
+    "hash": "1e26b15e113baf11",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
-      {
-        "check": "elsewhere",
-        "part": "P6",
-        "quote": "Lá dẻ gai (beech) là tốt nhất, nhưng lá bàng hay lá sồi cũng dùng được.",
-        "why": "Beech leaves are the European keeper's default and are not available to a hobbyist in Vietnam, where Indian almond leaves are the norm.",
-        "by": "model"
-      },
       {
         "check": "words",
         "part": "P15",
-        "quote": "cá bột cần thức ăn cỡ infusoria (vi sinh vật đơn bào li ti)",
-        "why": "English hobby term; Vietnamese keepers call this fry food 'trùng cỏ'.",
+        "quote": "giun vi (microworm)",
+        "why": "Vietnamese keepers call microworms \"trùn vi\", not \"giun vi\".",
         "by": "model",
-        "fix": "trùng cỏ"
+        "fix": "trùn vi"
       }
     ],
     "products": []
@@ -145251,6 +145195,303 @@
     "model": "opus",
     "checklist": 3,
     "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-introduction-to-the-crayfish-care-setup-diet-and-facts": {
+    "at": "2026-11-21",
+    "hash": "435b4d0c8e260bd5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Hikari Crab Cuisine Rapidly Sinking Sticks"
+    ]
+  },
+  "vi/species/anodus-orinocensis": {
+    "at": "2026-11-21",
+    "hash": "d6a2a034f66d62c2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-fissidens": {
+    "at": "2026-11-21",
+    "hash": "07b5bf6f79527bd8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "giun đen (blackworm)",
+        "why": "Literal translation of 'blackworm'; keepers in Vietnam call this live food trùn chỉ.",
+        "by": "model",
+        "fix": "trùn chỉ"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/astroblepus-grixalvii": {
+    "at": "2026-11-21",
+    "hash": "f23eb83a342013a6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-homodon": {
+    "at": "2026-11-21",
+    "hash": "f944101c724c96a5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-huallagaensis": {
+    "at": "2026-11-21",
+    "hash": "e7a94a4b856302e5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-itae": {
+    "at": "2026-11-21",
+    "hash": "5fb1dcfc0050e6a9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-latidens": {
+    "at": "2026-11-21",
+    "hash": "6ff16065cd5757b2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/astroblepus-mancoi": {
+    "at": "2026-11-21",
+    "hash": "2353e724d5951f46",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Người đóng góp ảnh chụp những bức ảnh này ngoài tự nhiên",
+        "why": "Refers to photos and a photo contributor from the source page; this page has no pictures.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Ở thời điểm bài này được viết",
+        "why": "Points to when the source article was written, which the reader cannot know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/cardisoma-armatum": {
+    "at": "2026-11-21",
+    "hash": "d7a5ce2ad07ab8f1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P8",
+        "quote": "Trong bể lúc nào cũng nên có sẵn lá sồi, lá bàng, lá óc chó v.v.",
+        "why": "Oak and walnut leaves are not something keepers in Vietnam buy or gather for tanks.",
+        "by": "model"
+      },
+      {
+        "check": "harm",
+        "part": "P5",
+        "quote": "Có thể dùng nước ngọt hoặc nước lợ (khoảng 5–10%).",
+        "why": "5–10% salt is far saltier than seawater (about 3.5%) and would kill the crab; the figure is meant as ‰.",
+        "by": "model"
+      },
+      {
+        "check": "harm",
+        "part": "P11",
+        "quote": "Độ mặn: 15–25%. Khi ấu trùng tới giai đoạn 4, độ mặn không nên quá 20%.",
+        "why": "Salinity of 15–25% is many times seawater and would kill the larvae; the source means ‰.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Instant Ocean",
+      "Seachem Prime",
+      "Hikari Tropical Crab Cuisine"
+    ]
+  },
+  "vi/species/centromochlus-schultzi": {
+    "at": "2026-11-21",
+    "hash": "068c43d00fea0615",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/corydoras-sipaliwini": {
+    "at": "2026-11-21",
+    "hash": "785c91f9bd6dca81",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/engina-mendicaria": {
+    "at": "2026-11-21",
+    "hash": "aeedcfeedf5f07c8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/geosesarma-dennerle": {
+    "at": "2026-11-21",
+    "hash": "d48666aeeed8f21c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Prime",
+      "Salty Shrimp GH/KH+",
+      "GH+"
+    ]
+  },
+  "vi/species/gymnochanda-flamea": {
+    "at": "2026-11-21",
+    "hash": "025d08b7a42eff7e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/microphis-brachyurus": {
+    "at": "2026-11-21",
+    "hash": "07968264ad7f7008",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Trong một đợt cá nhập gần đây, người ta đã thấy cá đực tán tỉnh cá cái.",
+        "why": "This refers to the source shop's own recent shipment of fish as if the reader knew about it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/microphysogobio-tafangensis": {
+    "at": "2026-11-21",
+    "hash": "93abee9ba4dbe1c5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Con cái thì đến giờ vẫn chưa nhập về được.",
+        "why": "The source importer is describing its own stock, which this reader knows nothing about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/panaque-schaeferi": {
+    "at": "2026-11-21",
+    "hash": "22aa2462327f46d4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/panaque-titan": {
+    "at": "2026-11-21",
+    "hash": "69edc49176ead1d5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parotocinclus-eppleyi": {
+    "at": "2026-11-21",
+    "hash": "1feb133d2e61278e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Lô cá nhập từ Venezuela hiện nay rất ổn định và không gặp vấn đề gì.",
+        "why": "This is the source wholesaler talking about its own current imports, as if the reader got fish from that same supply.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/percnon-gibbesi": {
+    "at": "2026-11-21",
+    "hash": "563362a696254ad0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "mai dài tới 3,8 cm",
+        "why": "3.8 cm is a converted 1.5 inch figure, not how a keeper in Vietnam would write it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/sinobdella-sinensis": {
+    "at": "2026-11-21",
+    "hash": "5970fc66e9c1cc3b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/stenopus-hispidus": {
+    "at": "2026-11-21",
+    "hash": "b4c3eae3a2aa4903",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/strombus-alatus": {
+    "at": "2026-11-21",
+    "hash": "d3c20a92f6bf0f15",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/xiphophorus-xiphidium": {
+    "at": "2026-11-21",
+    "hash": "262380c0f0505ef3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P4",
+        "quote": "Tốt nhất là nuôi ở nhiệt độ phòng, không cần sưởi.",
+        "why": "Assumes a cool room typical of the source's country; in much of Vietnam room temperature is around 30 °C, too warm for this fish.",
+        "by": "model",
+        "fix": "Give a target water temperature (about 20–24 °C) and advise keeping the tank cool, e.g. with a fan or chiller, rather than relying on room temperature."
+      }
+    ],
     "products": []
   }
 }

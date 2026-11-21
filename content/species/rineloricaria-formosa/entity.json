@@ -295,6 +295,28 @@
       {
         "source": "glaser",
         "value": 18
+      },
+      {
+        "source": "scotcat",
+        "value": 18
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -306,19 +328,83 @@
       "html": "<p>Among the small whiptail catfish (Rineloricaria), all of which are cave breeders, there is a group that is particularly well adapted to life on sandy bottoms in black water. They are particularly sought after by catfish specialists due to their attractive spot pattern. What they have in common is a circular, conspicuous spot on their front back.</p><p>The maximum length is about 18 cm. What is very interesting about this species (and looks almost frightening in close-up) is its ability to bend its head upwards. The purpose of this anatomical peculiarity is unknown.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "html": "<p>Family: Loricariidae. Size: 18 cm. Temperature: 26–29°C. pH: 6.0–7.5. Synonym: Hemiloricaria formosa.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rineloricaria-formosa-hemiloricaria-f-2/",
       "html": "<p>The animals come from the Rio Atabapo in Venezuela. Overall, this species is the most widespread of the group described above and colonizes the greater area of the western Orinoco catchment and the upper Amazon catchment in Brazil, Colombia and Venezuela.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "html": "<p>South America: Western Orinoco and upper Amazon River basins. Type locality: Colombia, Lagoon about 1 km upriver from Puerto Inírida, Río Orinoco basin.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "html": "<p>Not an easy species to keep with excessive demands on good water quality. Prefers water movement in the aquarium.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "html": "<p>Omnivore. Vegetable food such as cucumber and other various foods such as tablet, flake and frozen.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rineloricaria-formosa-hemiloricaria-f-2/",
       "html": "<p>Although there are hardly any problems in keeping these fish, breeding is unfortunately not very productive and the rearing process (compared to other witch catfish) is quite costly, which is why the few offspring usually remain among breeders.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "html": "<p>The Rineloricaria species are usually cave spawners, where the female will place their eggs after the male has cleaned inside. The male will then guard and fan the eggs until hatching. The eggs will hatch in 4-5 days whereas the male can now be removed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "html": "<p>This species is closely related to R. morrowi (remains smaller and does not have a dorsal spot) and R. melini (different colouration). These two species are slender and elongated.</p><p>Etymology: The genus name Rineloricaria: meaning rine-rasp, referring to sharp bristles on sides of snout (of males); Loricaria, genus in which type species, R. lima, had originally been described. The specific name of formosa meaning beautiful, which \"alludes to the whole fish\", presumably referring to colouration, stripes and numerous small brown spots.</p><p>IUCN Red List: Despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "html": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Rineloricaria formosa. The IUCN Red List of Threatened Species 2023.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/2a1d4c504d3ec41a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/2a1d4c504d3ec41a-480.webp",
+      "width": 500,
+      "height": 284,
+      "licence": "dùng với sự cho phép",
+      "author": "Haakon Haagensen / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "caption": "Hemiloricaria formosa",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b9ada3b6dd35d8c9.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b9ada3b6dd35d8c9-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Mitsuhiro Iwamoto / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_formosa.htm",
+      "caption": "Rineloricaria formosa: head view",
+      "source": "scotcat"
+    },
     {
       "url": "https://media.aquatome.com/glaser/9fddda71bcb4715e.webp",
       "thumb": "https://media.aquatome.com/glaser/9fddda71bcb4715e-480.webp",
@@ -342,16 +428,6 @@
     {
       "url": "https://media.aquatome.com/glaser/cd3e651de482c58a.webp",
       "thumb": "https://media.aquatome.com/glaser/cd3e651de482c58a-480.webp",
-      "width": 850,
-      "height": 567,
-      "licence": "dùng với sự cho phép",
-      "author": "Frank Schäfer / Aquarium Glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/rineloricaria-formosa-hemiloricaria-f-2/",
-      "source": "glaser"
-    },
-    {
-      "url": "https://media.aquatome.com/glaser/4541126c7aeba993.webp",
-      "thumb": "https://media.aquatome.com/glaser/4541126c7aeba993-480.webp",
       "width": 850,
       "height": 567,
       "licence": "dùng với sự cho phép",

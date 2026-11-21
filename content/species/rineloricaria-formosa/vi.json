@@ -7,14 +7,21 @@
   "sections": {
     "quickFacts:glaser": "<p>Cá lau kiếng đuôi roi nhỏ (Rineloricaria) đều đẻ trong hang. Trong số đó có một nhóm đặc biệt hợp với nền cát ở vùng nước đen. Người chuyên chơi cá da trơn đặc biệt săn nhóm này vì hoa văn đốm đẹp. Điểm chung của chúng là một đốm tròn, nổi rõ ở phần lưng phía trước.</p><p>Loài này dài tối đa khoảng 18 cm. Điểm rất thú vị ở nó là ngửa được đầu lên trên. Nhìn cận cảnh thì cảnh này trông gần như đáng sợ. Đến giờ vẫn chưa ai biết cấu tạo lạ này để làm gì.</p>",
     "distribution:glaser": "<p>Những con cá này có nguồn gốc từ Rio Atabapo ở Venezuela. Trong nhóm kể trên, loài này phân bố rộng nhất. Chúng sống khắp vùng rộng lớn thuộc lưu vực phía tây sông Orinoco và thượng lưu Amazon ở Brazil, Colombia và Venezuela.</p>",
-    "reproduction:glaser": "<p>Loài này nuôi hầu như không gặp trục trặc gì. Tiếc là cho đẻ thì không được nhiều con, còn ương cá con lại khá tốn kém so với các loài cá lau kiếng đuôi roi khác. Vì thế số cá con ít ỏi thường chỉ nằm trong tay người ép đẻ.</p>"
+    "reproduction:glaser": "<p>Loài này nuôi hầu như không gặp trục trặc gì. Tiếc là cho đẻ thì không được nhiều con, còn ương cá con lại khá tốn kém so với các loài cá lau kiếng đuôi roi khác. Vì thế số cá con ít ỏi thường chỉ nằm trong tay người ép đẻ.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Kích thước: 18 cm. Nhiệt độ: 26–29°C. pH: 6,0–7,5. Tên đồng nghĩa: Hemiloricaria formosa.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: phía tây lưu vực sông Orinoco và vùng thượng nguồn lưu vực sông Amazon. Nơi thu mẫu chuẩn: một đầm nước ở Colombia, cách Puerto Inírida khoảng 1 km ngược lên thượng nguồn, thuộc lưu vực sông Orinoco.</p>",
+    "maintenance:scotcat": "<p>Loài này không dễ nuôi vì nó rất kén chất lượng nước. Nó thích bể có dòng chảy.</p>",
+    "diet:scotcat": "<p>Cá ăn tạp. Cho ăn rau như dưa leo, kèm thêm các loại thức ăn khác như viên chìm, cám lá và đồ đông lạnh.</p>",
+    "reproduction:scotcat": "<p>Cá thuộc giống Rineloricaria thường đẻ trong hang. Cá đực dọn sạch bên trong hang trước, rồi cá cái mới vào đẻ trứng. Sau đó cá đực canh và quạt trứng đến khi nở. Trứng nở sau 4–5 ngày, lúc này có thể vớt cá đực ra.</p>",
+    "notes:scotcat": "<p>Loài này gần với R. morrowi (con này nhỏ hơn và không có đốm trên vây lưng) và R. melini (khác màu). Hai loài này có thân thon dài.</p><p>Từ nguyên: Tên giống Rineloricaria ghép từ rine, nghĩa là cái giũa, chỉ những lông cứng sắc ở hai bên mõm cá đực, và Loricaria, giống mà loài chuẩn R. lima được mô tả lúc đầu. Tên loài formosa nghĩa là đẹp, \"nói về toàn thân con cá\", có lẽ là chỉ màu sắc, các sọc và nhiều đốm nâu nhỏ trên mình nó.</p><p>Danh sách Đỏ IUCN: Thông tin về loài này còn ít, nhưng nó phân bố rộng và không gặp mối đe dọa nào rõ ràng, nên được xếp mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Rineloricaria formosa. The IUCN Red List of Threatened Species 2023.</p>"
   },
   "quality": {
     "score": 0.75,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.75
-    },
-    "reason": "thin"
+      "glaser": 0.75,
+      "scotcat": 0.85
+    }
   }
 }

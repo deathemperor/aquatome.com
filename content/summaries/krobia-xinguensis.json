@@ -1,9 +1,12 @@
 {
   "id": "krobia-xinguensis",
-  "summary": "Cá Krobia xinguensis hợp với người mới chơi, độ khó 2/8, thuộc nhóm cichlid lùn và là một trong những loài cichlid hiền nhất. Hồ sơ không nêu nhiệt độ, pH, độ cứng hay bể tối thiểu nên cần tra thêm trước khi dựng bể. Cá đẻ trứng lộ thiên, bố mẹ cùng giữ trứng và chăm con.",
-  "mistakes": [],
-  "speciesUpdatedAt": "2026-11-19",
-  "writtenFrom": "427388893615d21e",
-  "generatedAt": "2026-11-19T01:53:23.352Z",
+  "summary": "Cichlid lùn, hiền, hồ sơ xếp vào loại hợp với người mới chơi. Màu bắt mắt, cặp bố mẹ cùng giữ con như một gia đình. Hồ sơ chưa nêu cỡ bể hay thông số nước, nên cần tìm thêm trước khi setup. Điểm cần lưu ý nhất là cá nuôi lâu năm trong bể có thể lớn hơn cá ngoài tự nhiên.",
+  "mistakes": [
+    "Cho rằng cá luôn nhỏ như cá ngoài tự nhiên. Cá nuôi lâu năm trong bể có thể lớn hơn, nên đừng mặc định cá giữ nguyên cỡ nhỏ.",
+    "Đi tìm cá bắt ngoài tự nhiên. Hiện chỉ có cá trại để mua, nên chọn cá trại."
+  ],
+  "speciesUpdatedAt": "2026-11-21",
+  "writtenFrom": "b422164d1c06e92d",
+  "generatedAt": "2026-11-21T01:56:28.129Z",
   "review": "approved"
 }
