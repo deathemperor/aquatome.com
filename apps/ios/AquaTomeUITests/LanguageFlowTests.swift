@@ -215,14 +215,14 @@ final class LanguageFlowTests: XCTestCase {
     XCTAssertTrue(waitFor { self.element(app, "notice").label.contains("13:00") }, "the undo after the switch didn't put the first schedule back")
 
     let undone = element(app, "notice").label
-    tap(app, "try")
+    scrolledTo(app, "try").tap()
     XCTAssertTrue(waitFor { self.element(app, "try").isSelected && self.element(app, "notice").label != undone }, "no trial colour's notice")
     let trial = element(app, "notice").label
     pick(app, "Tiếng Việt", Self.vi)
     XCTAssertTrue(reached(app, "notice").exists, "the switch took the notice of the trial colour on")
     XCTAssertEqual(element(app, "notice").label, trial, "not the trial colour's notice after the switch")
 
-    tap(app, "try")
+    scrolledTo(app, "try").tap()
     // Its notice changed too: set as the light's write ends, when "Bật với màu của lịch" takes a tap again (Fable, 21 Nov).
     XCTAssertTrue(waitFor { !self.element(app, "try").isSelected && self.element(app, "notice").label != trial }, "the trial didn't end")
     tap(app, "quick-as-scheduled")
@@ -357,6 +357,38 @@ final class LanguageFlowTests: XCTestCase {
     let e = reached(app, id)
     repeatUntil(e.isHittable, times: 4) { app.swipeUp() }
     e.tap()
+  }
+
+  /// Scrolled until the element is clear of the bars, as LightFlowTests does (copied from LoveEcologyShotsFlowTests): for the
+  /// trial button, which `tap` once left under Đèn's pinned bars and the tab bar, reading as hittable, so the tap landed on
+  /// the tab bar's top edge (22 Nov).
+  private func scrolledTo(_ app: XCUIApplication, _ id: String) -> XCUIElement {
+    let e = element(app, id)
+    _ = e.waitForExistence(timeout: 2)
+    var downs = 0
+    let window = app.windows.firstMatch.frame
+    let pinned = ["notice", "summary", "write"].map { element(app, $0) }.filter { $0.exists }.map { $0.frame.minY }.min() ?? .infinity
+    let bar = app.navigationBars.firstMatch
+    let top = bar.exists ? bar.frame.maxY + 8 : window.minY
+    let bottom = min(window.maxY - window.height / 5, pinned - 16)
+    let third = window.height / 3
+    for _ in 0..<20 {
+      let f = e.exists ? e.frame : nil
+      if let f, f.minY > top, f.maxY < bottom { break }
+      if let f {
+        drag(app, by: max(-third, min(third, ((top + bottom) / 2 - f.midY) / 1.5)), above: bottom / window.height)
+      } else {
+        drag(app, by: downs < 8 ? -third : third, above: bottom / window.height)
+        downs += 1
+      }
+    }
+    return e
+  }
+
+  /// A drag of `dy` points (up when negative) at the screen's right edge, held before it lets go so the content settles.
+  private func drag(_ app: XCUIApplication, by dy: CGFloat, above: CGFloat) {
+    let a = app.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: dy < 0 ? min(0.65, above) : 0.3))
+    a.press(forDuration: 0.05, thenDragTo: a.withOffset(CGVector(dx: 0, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
   }
 
   private func openTank(_ app: XCUIApplication) {
