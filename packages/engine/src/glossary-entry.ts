@@ -223,6 +223,8 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
  * call a fish by its page's name, and the check, never told it, read it as a name no fact gives). Each line is a page's
  * names, then "=" and the scientific name a fact writes whole. A page whose scientific name no fact writes isn't listed,
  * so a page name for a species no fact carries still stops, and a name two pages share ("Cá neon") is listed for neither.
+ * A fact on a variety or cultivar lists neither its base species' page nor another cultivar's, and an unidentified "sp."
+ * page or an uncertain "cf." one is never listed (the outside read of #1809).
  */
 export async function factPageNames(root: string, text: string): Promise<string[]> {
   const pages: { sci?: string; names: string[] }[] = []
@@ -236,8 +238,11 @@ export async function factPageNames(root: string, text: string): Promise<string[
   }
   const pagesOf = new Map<string, number>()
   for (const p of pages) for (const n of new Set(p.names.map(toneKey))) pagesOf.set(n, (pagesOf.get(n) ?? 0) + 1)
-  const named = (sci: string) => new RegExp(`(?<![\\p{L}\\p{N}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`, 'iu').test(text)
-  return pages.filter(p => p.sci?.includes(' ') && named(p.sci)).flatMap(p => {
+  // Whole, and not the start of a variety's or a cultivar's name ("Anubias barteri var. nana 'Pinto'" is no fact on
+  // "Anubias barteri var. nana"); a page for an unidentified or uncertain one ("Bucephalandra sp.", "cf.") names no species.
+  const named = (sci: string) => new RegExp(`(?<![\\p{L}\\p{N}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])(?!\\s+['"‘’“”])(?!\\s+(?:var|cv|subsp|ssp|f)\\.)`, 'iu').test(text)
+  const vague = (sci: string) => /\s(?:spp?)\.?$/i.test(sci) || /\s(?:cf|aff)\.\s/i.test(sci)
+  return pages.filter(p => p.sci?.includes(' ') && !vague(p.sci) && named(p.sci)).flatMap(p => {
     const own = p.names.filter(n => pagesOf.get(toneKey(n)) === 1).slice(0, 5)
     return own.length ? [`${own.join(' | ')} = ${p.sci}`] : []
   })

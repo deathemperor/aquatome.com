@@ -1308,13 +1308,28 @@ test('the fact check is told the site\'s names for the species the facts name by
   await writeFile(join(more, 'content/species/tanichthys-micagemmae/vi.json'), JSON.stringify({ name: 'Cá neon Việt Nam', altNames: ['Vietnamese minnow', 'Cá neon'] }))
   await writeFile(join(more, 'content/species/paracheirodon-innesi/vi.json'), JSON.stringify({ name: 'Cá neon xanh', altNames: ['Cá neon'] }))
   expect(await factPageNames(more, 'Annamia cf. thuathienensis was described from the Bô River. Tanichthys micagemmae is sold as Vietnamese minnow.')).toEqual(['Cá neon Việt Nam | Vietnamese minnow = Tanichthys micagemmae'])
+  // Its outside reader's catches: a fact on a variety or a cultivar names neither the base species' page nor another
+  // cultivar's, and a page for an unidentified "sp." is no species a fact can name.
+  const plant = async (id: string, scientificName: string, name: string) => {
+    await mkdir(join(more, 'content/plants', id), { recursive: true })
+    await writeFile(join(more, 'content/plants', id, 'entity.json'), JSON.stringify({ id, scientificName }))
+    await writeFile(join(more, 'content/plants', id, 'vi.json'), JSON.stringify({ name, altNames: [] }))
+  }
+  await plant('anubias-barteri', 'Anubias barteri', 'Ráy Anubias barteri')
+  await plant('anubias-barteri-var-nana', 'Anubias barteri var. nana', 'Anubias nana Large')
+  await plant('bucephalandra-sp', 'Bucephalandra sp.', 'Bucephalandra lá đậm')
+  expect(await factPageNames(more, "Anubias barteri var. nana 'Pinto' grows slowly. Bucephalandra sp. grows on rocks.")).toEqual([])
+  expect(await factPageNames(more, 'Anubias barteri var. nana grows slowly.')).toEqual(['Anubias nana Large = Anubias barteri var. nana'])
+  expect(await factPageNames(more, "Tanichthys micagemmae's fins are red.")).toEqual(['Cá neon Việt Nam | Vietnamese minnow = Tanichthys micagemmae'])
   const withFish: TopicFacts = { ...facts, facts: [...facts.facts, { section: 'what', fact: 'Tanichthys micagemmae is known only from the Ben Hai river system', source: 0 }] }
   // A check that knows a fish's name only from what it is given to read with the sentences.
   const names = ['Cá neon Việt Nam', 'Cá neon xanh']
+  const checks: string[] = []
   const run = async (body: string) => {
     const llm: Llm = async ({ prompt }) => {
       if (prompt.startsWith('GLOSSARY RULES')) return { notes: [] } as never
       if (isCheck(prompt)) {
+        checks.push(prompt)
         const given = prompt.split(/\n\n(?:SENTENCES|HEADING):\n/)[0]!
         return verdicts(prompt, t => (names.some(n => t.includes(n) && !given.includes(n)) ? 'unsupported: a name the facts don\'t give' : undefined)) as never
       }
@@ -1323,5 +1338,7 @@ test('the fact check is told the site\'s names for the species the facts name by
     return makeGlossaryEntry(await fish(), { research: async () => withFish as never, llm }, 'tanin', { kind: 'setup' })
   }
   expect(await run('<p>Cá neon Việt Nam chỉ được biết ở hệ sông Bến Hải.</p>')).toMatchObject({ id: 'tanin', score: 1 })
+  // The check is told what the list is for, and only that, beside the list itself.
+  expect(checks.every(c => c.includes('FACTS may give "siteNames"') && c.includes('it is no fact and carries no claim') && c.includes('"siteNames":["Cá neon Việt Nam = Tanichthys micagemmae"]'))).toBe(true)
   expect(await run('<p>Cá neon xanh chỉ được biết ở hệ sông Bến Hải.</p>')).toMatchObject({ id: 'tanin', skipped: 'stopped by 1 note' })
 })
