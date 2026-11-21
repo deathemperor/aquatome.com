@@ -2,6 +2,13 @@
   {
     "date": "2026-11-21",
     "kind": "species",
+    "id": "glossolepis-pseudoincisus",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-21",
+    "kind": "species",
     "id": "xiphophorus-xiphidium",
     "source": "glaser",
     "action": "new"
@@ -3489,13 +3496,6 @@
     "date": "2026-11-18",
     "kind": "guide",
     "id": "youtube-fjwsU2kmv2o",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-18",
-    "kind": "guide",
-    "id": "youtube-Kt0zl0pJNzw",
     "source": "youtube",
     "action": "new"
   }

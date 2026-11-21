@@ -11,12 +11,5 @@
       "aquariumcoop": 0.72
     }
   },
-  "bodyFixed": true,
-  "held": {
-    "checks": [
-      "elsewhere",
-      "units"
-    ],
-    "at": "2026-11-20"
-  }
+  "bodyFixed": true
 }

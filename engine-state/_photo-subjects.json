@@ -18106,6 +18106,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/14204e19d481803c.webp": {
+    "cardisoma-armatum": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "1a52444b0f916ad369fb154caf4bee31e4e0ab6b167f152e1fba3d59a0f54596",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/14218153715d62eb.webp": {
     "potamon-potamios": {
       "ok": "yes",
@@ -38897,6 +38912,20 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/4e9f3acf4e8956b9.webp": {
+    "cardisoma-armatum": {
+      "ok": "dead",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject dead",
+      "noteHash": "ecc7d2e2eda0c5f61c3cd7f3edd743900509dd0bc55f5d50e26b8cb87b1186bd",
+      "hints": {
+        "dead": true,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/4e9fc06149b04a7e.webp": {
     "corydoras-panda": {
       "ok": "yes",
@@ -45750,6 +45779,21 @@
         "dead": false,
         "people": false,
         "artwork": true
+      }
+    }
+  },
+  "https://media.aquatome.com/commons/62f65c8dbd4c425c.webp": {
+    "cardisoma-armatum": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "f9f64b6810f431836d8853adbd1b894585358d91505e6d767f39267c423fd89f",
+      "hints": {
+        "dead": false,
+        "people": false
       }
     }
   },
@@ -84996,6 +85040,21 @@
       }
     }
   },
+  "https://media.aquatome.com/commons/d60ff132972a0a13.webp": {
+    "cardisoma-armatum": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "b3d6ebbf844e029a10d84c127513e7865a30a7fff3681646f547bbb58b8cb442",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/commons/d616d06592e71ad4.webp": {
     "anubias-barteri": {
       "ok": "yes",
@@ -109682,6 +109741,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/484031bb3382f175.webp": {
+    "anodus-orinocensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "2b6174c53f0ffbe1185db97d83c8cb0140d94201d74c7d3f959094ce805514bd",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/489f5d227bdba47d.webp": {
     "neolamprologus-tetracanthus": {
       "ok": "yes",
@@ -110612,6 +110686,21 @@
       "logo": true,
       "note": "subject yes; logo",
       "noteHash": "26eb50c8611da7d899eab13185a6facb81ca7a552c80a37dcc52027a59bb670c",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/537fbb1155148b6c.webp": {
+    "anodus-orinocensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "15008e445c50489c78cc00da4b4c80c26c33f3ea5618415fa316fec2abc9d355",
       "hints": {
         "dead": false,
         "people": false
@@ -112280,6 +112369,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/669721f13f0ec957.webp": {
+    "serrasalmus-elongatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "2e491e03a474aaa269d3bca53605ea8127b721e595181bb7801d50c1a4713dda",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/66ec10e26bdb96f3.webp": {
     "hisonotus-nigricauda": {
       "ok": "yes",
@@ -112468,6 +112572,21 @@
       "logo": true,
       "note": "subject unsure; logo",
       "noteHash": "d59730c79adbc85534f51549b134d41a50521c17cc3d6cef6ba17f5692ec5c19",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/6b9b8821bda2e58a.webp": {
+    "serrasalmus-elongatus": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "52a5c388040f4aa730e1a386d544c3ef196fbc70da30f73745ab7cd6cd87718c",
       "hints": {
         "dead": false,
         "people": false
@@ -112897,6 +113016,20 @@
       "logo": true,
       "note": "subject unsure; logo",
       "noteHash": "c44bbedce5d3d15858d707212ae8906c9359982a6eeee621b78991403db16e4f",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/70abe6f61fd396ec.webp": {
+    "barbodes-everetti": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": true,
+      "note": "subject unsure; logo",
+      "noteHash": "8e9dcc9368265793d02562348596d9ebad2b22de913a2d770c532cd9dc3ff7c5",
       "hints": {
         "dead": false,
         "people": false
@@ -119796,6 +119929,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/bb41689df602b4bd.webp": {
+    "anodus-orinocensis": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "2bcedfaacef2c211fa542af75557789bc6cb674aa61cdb2187b2821dae22a79b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/bb432829dffe2b2b.webp": {
     "teleocichla-proselytus": {
       "ok": "unsure",
@@ -123248,6 +123396,21 @@
       }
     }
   },
+  "https://media.aquatome.com/glaser/dde4d9204a90a0f8.webp": {
+    "serrasalmus-elongatus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "6a3fb809d78392f5f97c9bcc5d83b99b3caab49b2d0ccf391c248bc72724ea46",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/glaser/ddf3d5fae6799872.webp": {
     "liosomadoras-oncinus": {
       "ok": "yes",
@@ -124578,6 +124741,21 @@
       "logo": true,
       "note": "subject unsure; logo",
       "noteHash": "126517830d3e9886421d118dc29dd6895962ecd9b43c8cb60865bd0502e07bdb",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/glaser/ee37c501da0fe3c7.webp": {
+    "serrasalmus-elongatus": {
+      "ok": "yes",
+      "typical": false,
+      "young": false,
+      "person": false,
+      "logo": true,
+      "note": "subject yes; logo",
+      "noteHash": "f0638e0187e69c7436a31e977507f2197a8d47ff4f5c3c6df67e86e167dc6352",
       "hints": {
         "dead": false,
         "people": false
@@ -191941,6 +192119,21 @@
       }
     }
   },
+  "https://media.aquatome.com/panitvong/inat-208151746.webp": {
+    "terapon-jarbua": {
+      "ok": "yes",
+      "typical": false,
+      "young": true,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "8ddebb40c9d84706498c81c20634cd0d0eef47e406f2386c6501853dc08ccf7b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
   "https://media.aquatome.com/panitvong/inat-231304834.webp": {
     "oreochromis-niloticus": {
       "ok": "none",
@@ -196028,6 +196221,21 @@
       "logo": false,
       "note": "subject yes",
       "noteHash": "a1d4740b7822e2a4e094d130321dee0b1b10df4a8569122c2306f4289190120b",
+      "hints": {
+        "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/2a1d4c504d3ec41a.webp": {
+    "rineloricaria-formosa": {
+      "ok": "yes",
+      "typical": true,
+      "young": false,
+      "person": false,
+      "logo": false,
+      "note": "subject yes",
+      "noteHash": "7b046e6a65ef6bda2c72f3414449b3029656a28a1a768837e65808e14f46bc30",
       "hints": {
         "dead": false,
         "people": false
@@ -206257,6 +206465,20 @@
       "noteHash": "b2fdb2877c03a6814bbd3787090dc51b9119dfeb066c31ad53b32d063b63fbce",
       "hints": {
         "dead": false,
+        "people": false
+      }
+    }
+  },
+  "https://media.aquatome.com/scotcat/b9ada3b6dd35d8c9.webp": {
+    "rineloricaria-formosa": {
+      "ok": "unsure",
+      "typical": false,
+      "person": false,
+      "logo": false,
+      "note": "subject unsure",
+      "noteHash": "317c563775bb8bd6472f9709cfd53fdb4f4dd4f99efa6d34c84396e06c317817",
+      "hints": {
+        "dead": true,
         "people": false
       }
     }
