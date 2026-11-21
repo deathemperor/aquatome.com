@@ -24,6 +24,10 @@ import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, r
  * hand and passed, with fish gutted in a bowl three quarters through. So a video is its thumbnail and the frames YouTube
  * publishes from about a quarter, half and three quarters through, two by two on one tile. `frames` marks a verdict that
  * saw them. One from before stays until a `backCheck` run, which looks at each of those once.
+ *
+ * `photos`: these photos alone, wherever they stand on a page, and no videos. The faces step passes the photos its face
+ * finder judged in that run, so a dead fish new to a page is off it at that run's push, not hours later at the photo
+ * check's first verdict (faces.ts screenNewPhotos; the chief of staff, 21 Nov 2026).
  */
 export type DeadVerdict = { dead: boolean; note: string; frames?: boolean }
 export type DeadScreenDeps = {
@@ -61,7 +65,7 @@ async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
 }
 
 /** `backCheck`: also the videos judged from their thumbnail alone (the screen's verdicts from before it saw frames). */
-export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean }) {
+export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean; photos?: ReadonlySet<string> }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
   const oldCache = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
@@ -83,18 +87,20 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const file = join(content, kind, id, 'entity.json')
       const e = await readJson<{ photos?: { url: string }[]; videos?: { youtubeId: string }[] }>(file)
-      for (const v of e?.videos ?? []) {
+      for (const v of o.photos ? [] : e?.videos ?? []) {
         const key = `youtube:${v.youtubeId}`
         if (v.youtubeId in videoRejected || (key in cache && !(o.backCheck && !cache[key]!.frames))) continue
         const it = videos.get(key) ?? { key, url: thumbnail(v.youtubeId), files: [], video: v.youtubeId }
         it.files.push(file)
         videos.set(key, it)
       }
-      const main = e?.photos?.[0]?.url
-      if (!main || main in cache || main in photoRejected || asked.has(main)) continue
-      const it = photos.get(main) ?? { key: main, url: main, files: [] }
-      it.files.push(file)
-      photos.set(main, it)
+      const urls = o.photos ? (e?.photos ?? []).map(p => p.url).filter(u => o.photos!.has(u)) : [e?.photos?.[0]?.url]
+      for (const url of urls) {
+        if (!url || url in cache || url in photoRejected || asked.has(url)) continue
+        const it = photos.get(url) ?? { key: url, url, files: [] }
+        it.files.push(file)
+        photos.set(url, it)
+      }
     }
   }
   const todo = [...videos.values(), ...photos.values()]

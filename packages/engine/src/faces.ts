@@ -4,6 +4,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
+import { screenDead, type DeadScreenDeps } from './dead-screen'
+import { photoFailure } from './photo-observations'
 import { writePhotoState } from './photo-state'
 import { holdForSecondLook, lastPhotos, looks, pagesShowing, readPassedBefore, readSecondLook, waitingEntry } from './last-photo'
 
@@ -29,7 +31,7 @@ export async function visionFaces(files: string[]): Promise<number[]> {
  * Runs each cycle, so a re-picked photo never publishes. `root`: where engine-state is, for the second look
  * (last-photo.ts).
  */
-export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
+export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: FaceDeps, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ checked: number; screened: string[]; removed: string[]; held: string[]; firstOff: string[]; failed: string[] }> {
   const cache: Record<string, number> = JSON.parse(await readFile(cacheFile, 'utf8').catch(() => '{}'))
   const rejected: Record<string, string> = rejectedFile ? JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) : {}
   const pages: { file: string; e: { photos?: Photo[]; video?: { figures?: { photo?: Photo }[] } } }[] = []
@@ -102,5 +104,25 @@ export async function dropFacePhotos(contentRoot: string, cacheFile: string, d: 
     await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
   }
   await writeFile(cacheFile, `${JSON.stringify(Object.fromEntries(Object.entries(cache).sort()), null, 2)}\n`)
-  return { checked: todo.length - failed.length, removed, held, firstOff: offFirst, failed }
+  return { checked: todo.length - failed.length, screened: [...screened], removed, held, firstOff: offFirst, failed }
+}
+
+/** Sheets of 12 the dead-fish screen takes in one faces step: a pages run's new photos made 11 or 12 (20 to 21 Nov 2026). */
+export const NEW_PHOTO_SHEETS = 14
+
+/**
+ * The faces step (cli.ts `faces`, in every pages, sf and photos run before the push): faces first, then the dead-fish
+ * screen (dead-screen.ts) on the photos the face finder judged in this run, on species and plant pages. It comes after
+ * every write of the face pass, since both rewrite the pages. A photo past the sheets, on a sheet that failed or after a
+ * stop (the step's daily line in ceilings.json is `faces`) isn't asked again here: it waits for the photo check, as every
+ * new photo did before. The screen failing leaves the face pass as written.
+ */
+export async function screenNewPhotos(contentRoot: string, cacheFile: string, d: FaceDeps & { dead: DeadScreenDeps }, rejectedFile?: string, root = join(contentRoot, '..')): Promise<{ faces: Awaited<ReturnType<typeof dropFacePhotos>>; dead?: Awaited<ReturnType<typeof screenDead>>; deadFailed?: string }> {
+  const faces = await dropFacePhotos(contentRoot, cacheFile, d, rejectedFile, root)
+  if (!faces.screened.length) return { faces }
+  try {
+    return { faces, dead: await screenDead(root, d.dead, { limit: NEW_PHOTO_SHEETS * 12, photos: new Set(faces.screened) }) }
+  } catch (err) {
+    return { faces, deadFailed: photoFailure(err) }
+  }
 }
