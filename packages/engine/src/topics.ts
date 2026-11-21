@@ -123,8 +123,9 @@ function copying(texts: string[], runs: Set<string>): Set<number> {
 }
 /**
  * Research's answer without what repeats the given page's text (copiesGiven), whichever source it cites (Codex, 21 Nov 2026):
- * a fact, or the facts that repeat it between them, read in order (a run split across two); a source's title, which
- * becomes its site's name (the given page keeps its own); a species' name.
+ * a fact, or the facts that repeat it between them, read in order (a run split across two); a source's address, which
+ * leaves it no address, so the facts resting on it alone go (viFacts); a source's title, which becomes its site's name
+ * (the given page keeps its own); a species' name.
  */
 const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => {
   if (!g) return r
@@ -133,7 +134,7 @@ const withoutCopies = (r: TopicFacts, g?: GivenPage): TopicFacts => {
   return {
     ...r,
     ...(r.facts ? { facts: r.facts.filter((_, i) => !out.has(i)) } : {}),
-    ...(r.sources ? { sources: r.sources.map(s => (s.via !== 'archive' && copying([s.title], runs).size ? { ...s, title: siteOf(s.url) } : s)) } : {}),
+    ...(r.sources ? { sources: r.sources.map(s => (s.via === 'archive' ? s : copying([s.url], runs).size ? { ...s, url: '', title: '' } : copying([s.title], runs).size ? { ...s, title: siteOf(s.url) } : s)) } : {}),
     ...(r.species ? { species: r.species.filter(s => !copying([s], runs).size) } : {}),
   }
 }
@@ -371,6 +372,8 @@ type Citing = { url: string; also: string[] }
 const citing = (refs: { url: string }[], f: { source: number; also?: number[] }): Citing => ({ url: refs[f.source]?.url ?? '', also: (f.also ?? []).map(i => refs[i]?.url ?? '') })
 /** A fact from the given pages: one it cites, or cites also (Codex, 21 Nov 2026: a fact leaning on the post is the post's). */
 const fromGiven = (given: string[], c: Citing) => given.includes(c.url) || c.also.some(u => given.includes(u))
+/** Research's facts without the given pages' (fromGiven). */
+const withoutGiven = (r: TopicFacts): TopicFacts => ({ ...r, facts: r.facts.filter(f => !fromGiven(givenPages(r), citing(r.sources, f))) })
 /** The pages the engine gave research itself (`via`), on a host it reads that way. */
 const givenPages = (researched: TopicFacts) => researched.sources.filter(s => s.via === 'archive' && viaArchiveHost(s.url)).map(s => s.url)
 /**
@@ -397,8 +400,7 @@ function localFacts(researched: TopicFacts, entity: GuideEntity) {
   // The given page's share held again on these facts as they are now (Codex, 21 Nov 2026): a source refused since, or a
   // reference gone, can leave it too much of them; then they go without it.
   const given = givenPages(researched)
-  const urlOf = (f: TopicFacts['facts'][number]) => researched.sources[f.source]?.url ?? ''
-  if (given.length && tooMuchOfGiven(given, kept.map(f => citing(researched.sources, f)))) kept = kept.filter(f => !given.includes(urlOf(f)))
+  if (given.length && tooMuchOfGiven(given, kept.map(f => citing(researched.sources, f)))) kept = kept.filter(f => !fromGiven(given, citing(researched.sources, f)))
   const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
   const facts = kept.map(f => ({ section: f.section, fact: f.fact, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
   return { facts, refs, sources: kindsOf(researched, refs) }
@@ -486,8 +488,9 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   // The post's share counts a fact that cites it also (citedFacts `also`); the writer gets no `also`, as before.
   const withAlso = await citedFacts(root, researched, { also: true })
   const post = givenUse(researched, withAlso)
-  // Too much of one source: written as if the page hadn't been given, from the other sources' facts alone.
-  if (post === 'too much of one source') cited = await citedFacts(root, researched, { archived: false })
+  // Too much of one source: written as if the page hadn't been given, from the other sources' facts alone, none that cites
+  // it also (fromGiven).
+  if (post === 'too much of one source') cited = await citedFacts(root, withoutGiven(researched), { archived: false })
   const { facts, refs, sources } = cited
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts`, ...(post ? { post } : {}) }
   // How many of the facts the writer is given come from the given page, one it cites also counted (the chief of staff, 21 Nov

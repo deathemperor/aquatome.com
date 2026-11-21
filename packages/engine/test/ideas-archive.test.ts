@@ -556,18 +556,23 @@ test(`a fact research copied out of the post (${COPY_WORDS} words of it in a row
 test("the post's words pass in no title, no species' name and no run split between facts; the writer and checker keep no session of a guide given it", async () => {
   const root = await waiting([magazineIdea('Nước bể cá bị đục')])
   const echoing: Llm = async <T>() => {
-    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, { url: 'https://a.example/x', title: 'Placeholder text about cloudy water and bacterial blooms', kind: 'vet' }, ...['https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' }))]
+    const sources = [{ url: POST, title: 'the post', kind: 'magazine' }, { url: 'https://a.example/x', title: 'Placeholder text about cloudy water and bacterial blooms', kind: 'vet' }, ...['https://b.example/y', 'https://c.example/z'].map((url, i) => ({ url, title: `Other ${i}`, kind: 'vet' })),
+      { url: 'https://d.example/placeholder-text-about-cloudy-water-and-bacterial-blooms', title: 'D', kind: 'vet' }]
     const facts = [{ section: 'causes', fact: 'Placeholder text about cloudy', source: 0 }, { section: 'causes', fact: 'water and bacterial blooms.', source: 0 }, { section: 'causes', fact: 'A bloom clears in days.', source: 0 },
-      ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i }))]
+      ...[1, 2, 3].map(i => ({ section: 'prevention', fact: `Other fact ${i}.`, source: i })), { section: 'prevention', fact: 'D fact.', source: 4 }]
     return { found: true, facts, species: ['Placeholder text about cloudy water and bacterial blooms', 'Danio rerio'], sources } as T
   }
   const kept: (boolean | undefined)[] = []
   const recording: Llm = async <T>(x: Parameters<Llm>[0]) => { kept.push(x.unkept); return writer<T>(x) }
   await write(root, echoing, (await archive(article())).reader, undefined, recording)
   const facts = JSON.parse(await readFile(join(root, 'engine-state/topics', `${topicId('Nước bể cá bị đục')}.json`), 'utf8')) as Facts
-  expect(facts.facts.map(f => f.fact)).toEqual(['A bloom clears in days.', 'Other fact 1.', 'Other fact 2.', 'Other fact 3.'])
-  expect(facts.sources.map(x => x.title)).toEqual(['Cloudy water explained | Practical Fishkeeping', 'a.example', 'Other 0', 'Other 1'])
+  expect(facts.facts.map(f => f.fact)).toEqual(['A bloom clears in days.', 'Other fact 1.', 'Other fact 2.', 'Other fact 3.', 'D fact.'])
+  expect(facts.sources.map(x => x.title)).toEqual(['Cloudy water explained | Practical Fishkeeping', 'a.example', 'Other 0', 'Other 1', ''])
   expect(facts.species).toEqual(['Danio rerio'])
+  // An address that repeats it is no source: kept with no address, so the fact resting on it alone reaches no guide.
+  const refs = (JSON.parse(await readFile(join(root, 'content/guides', topicId('Nước bể cá bị đục'), 'entity.json'), 'utf8')) as { refs: { url: string }[] }).refs.map(x => x.url)
+  expect(refs).toEqual([POST, 'https://a.example/x', 'https://b.example/y', 'https://c.example/z'])
+  expect(JSON.stringify(facts)).not.toContain('placeholder-text')
   expect((await files(root)).filter(([, text]) => /placeholder text about cloudy/i.test(text)).map(([f]) => f)).toEqual([])
   // The writer, then the checker: neither keeps a session.
   expect(kept.length).toBeGreaterThanOrEqual(2)
@@ -592,7 +597,21 @@ test("a fact that cites the post also counts as the post's, in its share and in 
   expect((await write(one, leaning(1), (await archive(article())).reader)).posts).toEqual([`Nước bể cá bị đục: ${POST}: cited; 2 of the 5 facts the writer was given came from it`])
   // One from it and two leaning on it, of five: three, too much of one source.
   const two = await waiting([magazineIdea('Nước bể cá bị đục')])
-  expect((await write(two, leaning(2), (await archive(article())).reader)).posts).toEqual([`Nước bể cá bị đục: ${POST}: too much of one source; 0 of the 4 facts the writer was given came from it`])
+  // Then written from the others alone, none that leans on it: the two citing it also go with its own.
+  expect((await write(two, leaning(2), (await archive(article())).reader)).posts).toEqual([`Nước bể cá bị đục: ${POST}: too much of one source; 0 of the 2 facts the writer was given came from it`])
+})
+
+// The advisor's read of 21 Nov 2026: the Archive not answering for an older copy is "not reached", as the chief of staff
+// counts it, never "no copy".
+test("the Archive not answering for an older copy, past a browser check: the post is not reached, not \"no copy\"", async () => {
+  const root = await waiting([magazineIdea('Nước bể cá bị đục')])
+  const a = await archive(u => {
+    if (u.includes('/cdx/')) return res(200, '20250101000000\n')
+    if (u.includes('/web/20250101000000id_/')) throw new TypeError('fetch failed')
+    return res(200, '<html><head><title>Just a moment...</title></head></html>')
+  })
+  await write(root, researchCiting(0, 3, []), a.reader)
+  expect(await guideOf(root, 'Nước bể cá bị đục')).toMatchObject({ post: { url: POST, result: 'not reached' } })
 })
 
 test("a failure's reason that repeats the post is kept and printed without its words", async () => {

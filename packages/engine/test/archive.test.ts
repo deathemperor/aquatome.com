@@ -268,12 +268,18 @@ test('after the wait, a redirect ends nothing: refused on its request, the wait 
 // refused in it.
 test('a refusal written while a request waited its turn stops that request', async () => {
   const file = restFile()
-  const { t, f: other } = refusals(file)
+  const { t, f: other, make } = refusals(file)
   const f = new ArchiveFetcher({ restFile: file, fetch: async () => { t.asked++; return capture(200, '<title>ok</title>') }, now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
   const waiting = f.capped(5, async () => { await expect(other.get(article)).rejects.toBeInstanceOf(ArchiveRefused) })
   await expect(waiting.get(article)).rejects.toThrow(/no request before 2026-11-10T12:00:00.000Z/)
   expect(t.asked).toBe(1)
   expect(waiting.asked).toBe(0)
+  // The wait over, another job's one request is answered while this one waits its pace: refused after, this one starts at
+  // 12 hours, not a day.
+  t.clock = start + ARCHIVE_REST_MS
+  const answered = new ArchiveFetcher({ restFile: file, fetch: async () => capture(200, '<title>ok</title>'), now: () => new Date(t.clock), sleep: async () => {}, ua: 'test' })
+  const late = make().capped(5, async () => { await answered.get(article) })
+  await expect(late.get(article)).rejects.toThrow(new RegExp(new Date(t.clock + ARCHIVE_REST_MS).toISOString()))
 })
 
 // Codex's fresh read of 21 Nov 2026: past a browser check, the requests allowed ran out or one copy failed, and the post
@@ -297,6 +303,17 @@ test('past a browser check: requests spent stop the search, not "no copy"; an ol
   // And with no date in the answer, the copy's date is its stamp.
   expect(await g.get(article)).toMatchObject({ html: '<title>Best temperature</title>', capturedAt: '2024-01-01T00:00:00.000Z' })
   expect(calls).toHaveLength(4)
+  // An older copy the Archive doesn't answer for, twice: that stops it, not "no copy".
+  const h = new ArchiveFetcher({
+    restFile: restFile(),
+    fetch: async u => {
+      if (u.includes('/cdx/')) return capture(200, '20240101000000\n20250101000000\n')
+      if (u.includes('/web/20250101000000id_/')) throw new TypeError('fetch failed')
+      return check
+    },
+    now: () => new Date('2026-11-21T06:00:00Z'), sleep: async () => {}, ua: 'test',
+  })
+  await expect(h.get(article)).rejects.toThrow(/^the archive isn't answering/)
 })
 
 // Codex's fresh read of 21 Nov 2026: a copy reached through a redirect, with no Memento-Datetime, had no date.

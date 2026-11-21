@@ -103,10 +103,10 @@ export class ArchiveFetcher {
       if (this.asked >= this.cap) throw new AsksSpent(this.cap)
       await this.onAsk?.()
       // Read again just before the request (Codex, 21 Nov 2026): another job on this Mac may have been refused while this
-      // one waited its pace.
+      // one waited its pace, or had the one answer that ends a wait.
       const now = await resting()
       if (now && this.d.now().getTime() < new Date(now.until).getTime()) throw new ArchiveRefused(now.until)
-      rest ??= now
+      rest = now
       this.asked++
       let r
       try {
@@ -151,7 +151,8 @@ export class ArchiveFetcher {
 
   /**
    * The newest copy; if that is a browser check, the next newest of the last few that isn't, one that can't be read passed
-   * over. A refusal, or the requests allowed spent, stops it there: what it hasn't asked is not "no copy".
+   * over (one with no copy of its own). Anything else stops it there, a refusal, the requests allowed spent, the Archive
+   * not answering: what it hasn't asked is not "no copy".
    */
   async get(url: string): Promise<{ status: number; html: string; finalUrl: string; capturedAt?: string }> {
     const newest = await this.capture(this.today(), url)
@@ -161,7 +162,7 @@ export class ArchiveFetcher {
     const stamps = (await this.text(capturesQuery(url)).catch(e => { if (stop(e)) throw e; return '' })).split('\n').filter(Boolean).reverse()
     for (const stamp of stamps) {
       await this.d.sleep(ARCHIVE_POLITE)
-      const older = await this.capture(stamp, url).catch(e => { if (stop(e)) throw e; return undefined })
+      const older = await this.capture(stamp, url).catch(e => { if (!/^no archived copy/.test((e as Error).message)) throw e; return undefined })
       if (older && !older.challenge) return older.page
     }
     throw new Error('no archived copy (the archive holds a browser-check page)')

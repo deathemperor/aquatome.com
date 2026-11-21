@@ -211,7 +211,7 @@ test("another language's guide counts a fact that cites the post also as the pos
   const r0 = await makeTopic(root, { research, llm: llm0 }, { topic: 'Nước bể cá bị đục', kind: 'care' }, { given: { url: POST, title: 'Cloudy water explained', text: 'Placeholder.' } })
   // Two of four lean on the post: half, beside three other sites.
   expect(r0).toMatchObject({ post: 'cited', given: { from: 2, of: 4 } })
-  // C's reference gone: two of three would lean on it. The post's own fact goes; A's stands on A.
+  // C's reference gone: two of three would lean on it. The post's own fact goes, and A's, which leans on it.
   const file = join(root, 'content/guides', r0.id, 'entity.json')
   const entity = JSON.parse(await readFile(file, 'utf8')) as { refs: { url: string }[] }
   await writeFile(file, JSON.stringify({ ...entity, refs: entity.refs.filter(x => x.url !== 'https://c.example/z') }))
@@ -222,8 +222,9 @@ test("another language's guide counts a fact that cites the post also as the pos
     return { name: 'Air keruh', slug: 'air-keruh', summary: ['x'], body: '<p>x</p>', faq: [] } as never
   }
   await localizeTopic(root, llm, r0.id, 'id')
-  expect(prompts[0]).toContain('A fact.')
+  expect(prompts[0]).toContain('B fact.')
   expect(prompts[0]).not.toContain('Post fact')
+  expect(prompts[0]).not.toContain('A fact.')
 })
 
 // The chief of staff, 17 Nov 2026: the quarantine guide's Thai copy printed its facts' source numbers to readers 55 times.
