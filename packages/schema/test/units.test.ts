@@ -126,17 +126,23 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   // was fixed by hand. The one-size rule took the second figure alone, and the rest went to the length rule: the DIY gang
   // valve's "½ to ¾ inch PVC pipe" became "Ống PVC cỡ 13–19 mm".
   expect(vi('Ống PVC cỡ ½–¾ inch, loại thành dày Schedule 40')).toBe('Ống PVC cỡ phi 21 đến phi 27, loại thành dày Schedule 40')
-  expect(vi('ống PVC 1/2 đến 3/4 inch (khoảng 13–19 mm), đủ dài')).toBe('ống PVC phi 21 đến phi 27, đủ dài')
-  expect(vi('Lấy ống PVC 1 đến 2 inch, cắt bốn đoạn')).toBe('Lấy ống PVC phi 34 đến phi 60, cắt bốn đoạn')
-  expect(id('pipa PVC 1/2–3/4 inci')).toBe('pipa PVC 21–27 mm')
-  expect(th('ท่อ PVC 1/2–3/4 นิ้ว')).toBe('ท่อ PVC 21–27 มม.')
+  expect(vi('ống PVC cỡ 1/2 đến 3/4 inch (khoảng 13–19 mm), đủ dài')).toBe('ống PVC cỡ phi 21 đến phi 27, đủ dài')
+  expect(vi('Lấy ống PVC cỡ 1 đến 2 inch, cắt bốn đoạn')).toBe('Lấy ống PVC cỡ phi 34 đến phi 60, cắt bốn đoạn')
+  expect(id('pipa PVC ukuran 1/2–3/4 inci')).toBe('pipa PVC ukuran 21–27 mm')
+  expect(th('ท่อ PVC ขนาด 1/2–3/4 นิ้ว')).toBe('ท่อ PVC ขนาด 21–27 มม.')
+  // Without a size word a range stays a length, as before: right after the pipe's name it is as often what to cut off
+  // (Codex's ninth look); and the one-size rule no longer takes its second figure ("½–phi 27").
+  expect(id('Potong pipa PVC 1–2 inci dari ujungnya agar muat di dalam kotak filter.')).toBe('Potong pipa PVC 2,5–5 cm dari ujungnya agar muat di dalam kotak filter.')
+  expect(th('ตัดท่อ PVC 1–2 นิ้ว ออกจากปลายท่อ')).toBe('ตัดท่อ PVC 2.5–5 ซม. ออกจากปลายท่อ')
+  expect(vi('Cắt ống PVC 1–2 inch ở đầu dưới để ống không chạm đáy bể.')).toBe('Cắt ống PVC 2,5–5 cm ở đầu dưới để ống không chạm đáy bể.')
+  expect(vi('Ống PVC ½–¾ inch là đủ.')).toBe('Ống PVC 1,5–2 cm là đủ.')
   // A hose is its own size, a range too.
   expect(vi('ống mềm ½–¾ inch')).toBe('ống mềm 1,5–2 cm')
   // Codex's reads of this rule (21 Nov 2026): the unit said twice is the same range (main made it "phi 53 đến 2 cm"); a
   // range after a pipe's length word is a length in Indonesian and Thai too; tubing is a hose. A length word after the
   // size is left alone: "ống PVC ¾ inch dài 1 m" is a ¾-inch pipe. One size stays as it was: the same words also name a
   // long fitting's size.
-  expect(vi('Dùng ống PVC ½ inch đến ¾ inch.')).toBe('Dùng ống PVC phi 21 đến phi 27.')
+  expect(vi('Dùng ống PVC cỡ ½ inch đến ¾ inch.')).toBe('Dùng ống PVC cỡ phi 21 đến phi 27.')
   expect(id('Pipa PVC panjang 1–2 inci.')).toBe('Pipa PVC panjang 2,5–5 cm.')
   expect(th('ท่อ PVC ยาว 1–2 นิ้ว')).toBe('ท่อ PVC ยาว 2.5–5 ซม.')
   // Only a pipe's length and cut: "high" names a pressure rating as often (the re-check, 21 Nov).
@@ -176,7 +182,7 @@ test('guides: a pipe or fitting is the pipe shops sell (outside diameter); a hos
   expect(vi('Dùng ống PVC loại 1–2 inch (2,5–5 cm) chiều dài để làm chân kê.')).toBe('Dùng ống PVC loại 2,5–5 cm chiều dài để làm chân kê.')
   expect(th('ใช้ท่อ PVC ขนาด 1–2 นิ้ว ตามแนวยาวเป็นขารอง')).toBe('ใช้ท่อ PVC ขนาด 2.5–5 ซม. ตามแนวยาวเป็นขารอง')
   expect(vi('Ống PVC 1 đến 2 inch chiều dài.')).toBe('Ống PVC 2,5 đến 5 cm chiều dài.')
-  expect(vi('ống PVC ½–¾ inch dài 1 m')).toBe('ống PVC phi 21 đến phi 27 dài 1 m')
+  expect(vi('ống PVC cỡ ½–¾ inch dài 1 m')).toBe('ống PVC cỡ phi 21 đến phi 27 dài 1 m')
   expect(vi('Ống PVC tubing ½–¾ inch')).toBe('Ống PVC tubing 1,5–2 cm')
   expect(vi('ống PVC ¾ inch dài 1 m')).toBe('ống PVC phi 27 dài 1 m')
 })
