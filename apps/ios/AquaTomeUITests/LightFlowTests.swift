@@ -1003,7 +1003,7 @@ final class LightFlowTests: XCTestCase {
     // The light's gap made 8 s (`-lamp-gap`), and held past it until the test opens it (`-lamp-gap-held`): green still
     // waits when the app leaves the front, however slow the taps. On 21 Nov GitHub's Mac took 11 and 13 s from red's tap
     // to green's, past red's three seconds and the gap, so green had gone in full and the card rightly said so.
-    let gates = Gates()
+    let gates = LampGates()
     app = launch("-fake-accounts", "on", "-fake-owner", "ui-apple", "-lamp-gap", "8", "-lamp-gap-held", "-test-gates", gates.path,
                  reset: false)
     expect(app, "lamp-status", contains: "Lần cuối máy này gửi: “Trắng”, \(level) · ", timeout: 20)
@@ -1468,5 +1468,20 @@ final class LightFlowTests: XCTestCase {
     if XCTWaiter.wait(for: [expectation(for: p, evaluatedWith: e)], timeout: timeout) != .completed, !p.evaluate(with: e) {
       XCTFail("\(id): expected \(what), got “\(e.exists ? e.label : "(missing)")”\(e.exists ? " (value “\(e.value.map { "\($0)" } ?? "")”)" : "")", file: file, line: line)
     }
+  }
+}
+
+/// The app's waits this flow moves on itself (`TestGate`), as the fish-ID flows' `Gates`: a folder of its own, where
+/// opening one writes its file. This flow's own copy: to the flow lists a helper in a flow's file is that class's alone
+/// (flow_lists.py), so one shared by several flows needs a file and a row of its own, which come with the sign-out
+/// change, whose flows hold gates too. Kept here (21 Nov) so this change and language step one, which shares the fish-ID
+/// flows' own, merge in either order.
+private struct LampGates {
+  let path = FileManager.default.temporaryDirectory.appending(path: "gates-\(UUID().uuidString)").path
+
+  init() { try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true) }
+
+  func open(_ name: String) {
+    XCTAssertTrue(FileManager.default.createFile(atPath: (path as NSString).appendingPathComponent(name), contents: Data()), "gate \(name) not opened")
   }
 }
