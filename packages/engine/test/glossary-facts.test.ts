@@ -42,6 +42,17 @@ test('every fact read runs on Opus: the three reads, a lone stop\'s re-reads and
   expect(asked).toEqual(Array(9).fill('opus'))
 })
 
+// The chief of staff, 22 Nov 2026 (glossary-entry.ts factPageNames): the site's names for the facts' species reach every
+// read, a lone stop's re-reads among them, with what they are for.
+test('the site\'s names for the facts\' species reach every read, the three and a lone stop\'s re-reads', async () => {
+  const { llm, calls } = model([{ 'Lá bàng làm pH xuống.': 'unsupported: x' }, {}, {}], ['supported', 'supported', 'supported'])
+  await checkSentences(llm, { ...facts, siteNames: ['Cá neon Việt Nam = Tanichthys micagemmae'] }, entry)
+  expect(calls.filter(c => c.includes('\n\nSENTENCE:\n'))).toHaveLength(3)
+  expect(calls).toHaveLength(6)
+  for (const c of calls) expect(c).toContain('FACTS may give "siteNames"')
+  for (const c of calls) expect(c).toContain('"siteNames":["Cá neon Việt Nam = Tanichthys micagemmae"]')
+})
+
 // The measured run, 14 Nov 2026: "Thường dùng nguyên khúc cho bể nuôi Cá đĩa, Cá ông tiên" read supported three times, as
 // another wood's fact covered it, though its item was about lũa đỗ quyên, named three sentences before it.
 test('a kind\'s sentences are read under its name, as a section\'s are under its heading', async () => {

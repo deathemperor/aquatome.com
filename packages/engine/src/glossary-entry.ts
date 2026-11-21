@@ -223,8 +223,9 @@ export async function pageNames(root: string, text: string): Promise<string[]> {
  * call a fish by its page's name, and the check, never told it, read it as a name no fact gives). Each line is a page's
  * names, then "=" and the scientific name a fact writes whole. A page whose scientific name no fact writes isn't listed,
  * so a page name for a species no fact carries still stops, and a name two pages share ("Cá neon") is listed for neither.
- * A fact on a variety or cultivar lists neither its base species' page nor another cultivar's, and an unidentified "sp."
- * page or an uncertain "cf." one is never listed (the outside read of #1809).
+ * A fact on a variety, a cultivar, a subspecies or a "group" lists neither its base species' page nor another cultivar's,
+ * an unidentified "sp." page or an uncertain "cf." one is never listed, an other name that is a scientific name (another
+ * species', or an old one) isn't either, and "×" and "x" write one hybrid (the outside reads of #1809).
  */
 export async function factPageNames(root: string, text: string): Promise<string[]> {
   const pages: { sci?: string; names: string[] }[] = []
@@ -237,13 +238,28 @@ export async function factPageNames(root: string, text: string): Promise<string[
     }
   }
   const pagesOf = new Map<string, number>()
-  for (const p of pages) for (const n of new Set(p.names.map(toneKey))) pagesOf.set(n, (pagesOf.get(n) ?? 0) + 1)
-  // Whole, and not the start of a variety's or a cultivar's name ("Anubias barteri var. nana 'Pinto'" is no fact on
-  // "Anubias barteri var. nana"); a page for an unidentified or uncertain one ("Bucephalandra sp.", "cf.") names no species.
-  const named = (sci: string) => new RegExp(`(?<![\\p{L}\\p{N}])${sci.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])(?!\\s+['"‘’“”])(?!\\s+(?:var|cv|subsp|ssp|f)\\.)`, 'iu').test(text)
+  for (const p of pages) for (const n of new Set([...p.names, ...(p.sci ? [p.sci] : [])].map(toneKey))) pagesOf.set(n, (pagesOf.get(n) ?? 0) + 1)
+  // A scientific name's words, "×" or "x" between them for a hybrid ("Cryptocoryne × willisii" is "Cryptocoryne x willisii").
+  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const hybrid = (w: string) => w.toLowerCase() === 'x'
+  const words = (sci: string) => {
+    const ws = sci.replace(/×/g, ' x ').trim().split(/\s+/)
+    return ws.map((w, i) => (i ? (hybrid(w) || hybrid(ws[i - 1]!) ? '\\s*' : '\\s+') : '') + (hybrid(w) ? '(?:×|(?<!\\p{L})x)' : esc(w))).join('')
+  }
+  // Whole, and not the start of a longer name: a variety's, a cultivar's, a subspecies' or a group's ("Anubias barteri var.
+  // nana 'Pinto'" is no fact on "Anubias barteri var. nana", nor "Epiplatys dageti monroviae" on "Epiplatys dageti"); a page
+  // for an unidentified or uncertain one ("Bucephalandra sp.", "cf.") names no species.
+  const named = (sci: string) => {
+    const longer = pages.flatMap(q => (q.sci?.toLowerCase().startsWith(`${sci.toLowerCase()} `) ? [words(q.sci.slice(sci.length))] : []))
+    return new RegExp(`(?<![\\p{L}\\p{N}])${words(sci)}(?![\\p{L}\\p{N}])(?!\\s+['"‘’“”])(?!\\s+(?:var|cv|subsp|ssp|f)\\.)(?!\\s+(?:group|complex)(?![\\p{L}\\p{N}]))${longer.length ? `(?!\\s+(?:${longer.join('|')})(?![\\p{L}\\p{N}]))` : ''}`, 'iu').test(text)
+  }
   const vague = (sci: string) => /\s(?:spp?)\.?$/i.test(sci) || /\s(?:cf|aff)\.\s/i.test(sci)
+  // An other name written as a scientific name ("Betta ocellata" on Betta unimaculata's page) may be another species' or an
+  // old one, so it isn't the page's to give; a trade name after a genus ("Anubias nana Large") is.
+  const genera = new Set(pages.flatMap(p => (p.sci ? [p.sci.split(' ')[0]!.toLowerCase()] : [])))
+  const latin = (n: string) => { const [g, ...rest] = n.trim().split(/\s+/); return !!rest.length && genera.has(g!.toLowerCase()) && rest.every(w => /^(?:[a-z-]+\.?|×)$/.test(w)) }
   return pages.filter(p => p.sci?.includes(' ') && !vague(p.sci) && named(p.sci)).flatMap(p => {
-    const own = p.names.filter(n => pagesOf.get(toneKey(n)) === 1).slice(0, 5)
+    const own = p.names.filter(n => pagesOf.get(toneKey(n)) === 1 && !latin(n)).slice(0, 5)
     return own.length ? [`${own.join(' | ')} = ${p.sci}`] : []
   })
 }
