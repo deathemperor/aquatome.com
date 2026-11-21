@@ -7,12 +7,28 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'
 
+// A second-look record (engine-state/_photo-second-look.json, packages/engine/src/last-photo.ts), told by its shape since
+// the driver isn't told the file's name. Where both sides changed one: one taken out (an agree moves it to the never-again
+// list) stays out; else a person's answer (a well-formed look) is never dropped; else the record marked off at its first
+// verdict wins over one that isn't, so the waiting entry its run wrote on the never-again list keeps its record (two runs
+// met so on 20 Nov, and main's unmarked records won: the chief of staff, 20 Nov 2026); else ours.
+const record = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.why === 'string' && typeof v.step === 'string' && Array.isArray(v.pages) && typeof v.at === 'string'
+const answered = v => !!v.look && (v.look.said === 'agree' || v.look.said === 'clear') && typeof v.look.by === 'string' && v.look.by.trim() !== '' && /^\d{4}-\d{2}-\d{2}$/.test(v.look.on ?? '')
+function bothChanged(base, ours, theirs, k) {
+  if (!(k in ours) || !(k in theirs)) return k in base ? undefined : (k in ours ? ours : theirs)
+  const [o, t] = [ours[k], theirs[k]]
+  if (answered(o) !== answered(t)) return answered(o) ? ours : theirs
+  if ((o.off === true) !== (t.off === true)) return o.off === true ? ours : theirs
+  return ours
+}
+
 export function mergeMaps(base, ours, theirs) {
   const same = (side, k) => (k in side) === (k in base) && JSON.stringify(side[k]) === JSON.stringify(base[k])
   const out = {}
   for (const k of new Set([...Object.keys(ours), ...Object.keys(theirs), ...Object.keys(base)])) {
-    const side = !same(ours, k) ? ours : !same(theirs, k) ? theirs : base
-    if (k in side) out[k] = side[k]
+    const both = !same(ours, k) && !same(theirs, k) && [base[k], ours[k], theirs[k]].some(record) && [base[k], ours[k], theirs[k]].every(v => v === undefined || record(v))
+    const side = both ? bothChanged(base, ours, theirs, k) : !same(ours, k) ? ours : !same(theirs, k) ? theirs : base
+    if (side && k in side) out[k] = side[k]
   }
   return out
 }
