@@ -271,7 +271,7 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     { from: '2026-11-20T00:00:00+07:00', to: '2026-11-20T23:59:00+07:00', whole: true, steps: 574, backstop: 633, small: 4, run: 105, localize: 65, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 115, material: 8, ask: 2, ideas: 4, judge: 24, photos: 35, recheck: 25 },
     { from: '2026-11-21T00:00:00+07:00', to: '2026-11-21T23:59:00+07:00', whole: true, steps: 522, backstop: 595, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25 },
     { from: '2026-11-22T00:00:00+07:00', to: '2026-11-22T23:59:00+07:00', whole: true, steps: 527, backstop: 600, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25, read: 5, pass: 0 },
-    { from: '2026-11-23T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 582, backstop: 655, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25, read: 5, pass: 55 },
+    { from: '2026-11-23T00:00:00+07:00', to: '2026-11-24T23:59:00+07:00', whole: true, steps: 572, backstop: 645, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 100, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 25, read: 5, pass: 45 },
     { from: '2026-11-25T00:00:00+07:00', to: '2026-12-31T00:00:00+07:00', whole: true, steps: 448, backstop: 521, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 12, crops: 1, board: 4, glossary: 40, material: 8, ask: 2, ideas: 4, photos: 12, recheck: 6, read: 5, pass: 0 },
   ]
   const fresh = await logs({ 'aquatome-cost-hand.jsonl': [] }).then(d => join(d, 'aquatome-cost-hand.jsonl'))
@@ -346,8 +346,8 @@ test('ceilings.json: nothing until the third sign-in is back, then one, two and 
     expect(cap(when, 'mac', 'writer-evidence')).toBe(p.writer ?? p.small)
     expect(cap(when, 'github', 'writer-evidence')).toBe(p.small)
     if (p.recheck) expect(t.github.backstop).toBe(180 + p.recheck + (p.read ?? 0))
-    // The pass over the open pages no read covers (fit-pass.ts): $55 on the Mac on its two nights' days, 23 and 24 Nov, with
-    // the Mac's backstop $55 higher, and $0 from 22 Nov but for those; the reader-fit read's own line on GitHub, $5 a day from
+    // The pass over the open pages no read covers (fit-pass.ts): $45 on the Mac on its two nights' days, 23 and 24 Nov, with
+    // the Mac's backstop $45 higher, and $0 from 22 Nov but for those; the reader-fit read's own line on GitHub, $5 a day from
     // 22 Nov, with GitHub's backstop $5 higher (the chief of staff, 21 Nov 2026).
     expect(cap(when, 'mac', 'fit-pass')).toBe(p.pass ?? p.small)
     expect(cap(when, 'github', 'fit-pass')).toBe(p.small)

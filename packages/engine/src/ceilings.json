@@ -729,10 +729,10 @@
     },
     {
       "from": "2026-11-23T00:00:00+07:00",
-      "note": "From 23 Nov as from 22 Nov, with the pass over the open pages no read covers (fit-pass.ts): $55 a day on the Mac on 23 and 24 Nov, its two nights (00:00 to 07:00, the photos part's 02:10 and 05:10 starts), with the Mac's backstop $55 higher. About 1,140 pages, all read in the two nights: about $80 at this week's cost of a read, $110 at most (the chief of staff, 21 Nov 2026).",
+      "note": "From 23 Nov as from 22 Nov, with the pass over the open pages no read covers (fit-pass.ts): $45 a day on the Mac on 23 and 24 Nov, its two nights (00:00 to 07:00, the photos part's 02:10 and 05:10 starts), with the Mac's backstop $45 higher. About 1,140 pages, about $80 at this week's cost of a read, $90 at most (the chief of staff, 21 Nov 2026).",
       "mac": {
         "default": 4,
-        "backstop": 445,
+        "backstop": 435,
         "steps": {
           "gate": null,
           "moderate": null,
@@ -750,7 +750,7 @@
           "card-crops": 1,
           "glossary-entry": 100,
           "material": 8,
-          "fit-pass": 55,
+          "fit-pass": 45,
           "write-ideas": 0
         }
       },
