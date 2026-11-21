@@ -406,6 +406,23 @@ test('the overview before version 2: its to-dos, areas and last days each open a
   expect(j.log.entries.filter(e => e.section).length).toBeGreaterThan(2)
 })
 
+// Design's second read, 21 Nov: in dark the faults' red (#ff8a80) and a wait's rust (#ff9b7f) read as one coral at 8 px, so a
+// wait on the owner looked like a fault. Dark's red now reads apart from rust, and as text on the card (a fall's figure).
+test("in dark, the first screen's red reads apart from rust, and as text on the card", () => {
+  const css = String(todayPage(S.TODAY)).match(/<style>([\s\S]*?)<\/style>/)![1]!
+  const dark = css.slice(css.indexOf('@media (prefers-color-scheme:dark)'))
+  const tok = (name: string) => dark.match(new RegExp(`--${name}:(#[0-9a-f]{6})`))![1]!
+  const lum = (h: string) => {
+    const [r, g, b] = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255).map(c => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4))
+    return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!
+  }
+  const ratio = (a: string, b: string) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x! + 0.05) / (y! + 0.05) }
+  expect(ratio(tok('red'), tok('rust'))).toBeGreaterThanOrEqual(1.4)
+  expect(ratio(tok('red'), tok('plate'))).toBeGreaterThanOrEqual(4.5)
+  // The red is the first screen's alone: a fault's dot, a fall's figure, a zero day's tick.
+  expect(css.match(/var\(--red\)/g)).toHaveLength(3)
+})
+
 /** Where a need, a line or a tile leads on the web: its section's page (at its anchor), or its address. */
 const placeHref = (p: { section?: string; anchor?: string; url?: string }) => p.url ?? `/_ab/${p.section}/${p.anchor ? `#${p.anchor}` : ''}`
 // Design's answers of 18 Nov: the web takes the app's first screen (board2, 14 Nov; the app's OwnerOverview), its cards in

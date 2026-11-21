@@ -87,7 +87,7 @@ const CSS = `${FONTS}
 --s1:#0c6944;--s2:#2d76a3;--s3:#a6552d;--whole:#d9e2d5;--mute:#a19c8e;--good:var(--moss);--bad:var(--rust);
 --sans:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--serif:'Newsreader',Georgia,'Times New Roman',serif;--r:12px;color-scheme:light}
 @media (prefers-color-scheme:dark){:root{--paper:#0b1a1e;--plate:#11262b;--mat:#16302f;--ink:#e6efec;--ink-2:#c3d4cf;--muted:#94ada7;--rule:#24423f;--grid:#1a3335;--axis:#3d5d5a;
---moss:#6fd6be;--moss-wash:#123631;--rust:#ff9b7f;--rust-wash:#3b2119;--red:#ff8a80;--water:#061013;--on-dark:#e6efec;--on-dark-soft:#9db7b3;--select:#2e5a52;--focus:#6fd6be;
+--moss:#6fd6be;--moss-wash:#123631;--rust:#ff9b7f;--rust-wash:#3b2119;--red:#ff5f57;--water:#061013;--on-dark:#e6efec;--on-dark-soft:#9db7b3;--select:#2e5a52;--focus:#6fd6be;
 --s1:#36a980;--s2:#359bd9;--s3:#cb7a5b;--whole:#244a45;--mute:#5d7a75;color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;background:var(--paper);scrollbar-color:var(--axis) transparent}
