@@ -47,14 +47,6 @@
       "on": "2026-11-14"
     }
   },
-  "https://media.aquatome.com/commons/97136e5e9b861931.webp": {
-    "why": "rejected: withheld [sha256:ae92327df889fe34b9e1addaf721e8c54da9e2bbaab28492b3c45bee2f521881]",
-    "step": "the photo check",
-    "pages": [
-      "species/synodontis-robbianus"
-    ],
-    "at": "2026-11-17"
-  },
   "https://media.aquatome.com/commons/baa6f945cdbed569.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
     "step": "the photo check",
@@ -82,12 +74,13 @@
     }
   },
   "https://media.aquatome.com/commons/f994a48481d1a32f.webp": {
-    "why": "rejected: withheld [sha256:17bc5f0b69024e8ae89651e10c3a0d2bff14d3c4acc949fd875b5349c871310a]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the photo check",
     "pages": [
       "species/xenomystus-nigri"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/commons/fe3314ff68569901.webp": {
     "why": "dead: withheld [sha256:f8401d05eca36bf39f0040689c6e63f6a57a7d7b811d5db370aabd1be7ad185e]",
@@ -2933,12 +2926,13 @@
     "at": "2026-11-18"
   },
   "https://media.aquatome.com/glaser/72177aac9d5f1d29.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the watermark screen",
     "pages": [
       "species/schizolecis-guntheri"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/glaser/726161835b148595.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -4624,12 +4618,13 @@
     "at": "2026-11-15"
   },
   "https://media.aquatome.com/glaser/aa546d02e4abb3f6.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the watermark screen",
     "pages": [
       "species/pangio-shelfordii"
     ],
-    "at": "2026-11-14"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/glaser/aa5a43161aa51e85.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
@@ -4986,12 +4981,13 @@
     "at": "2026-11-17"
   },
   "https://media.aquatome.com/glaser/b5a7d7f7bd441445.webp": {
-    "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
+    "why": "rejected: withheld [sha256:27a911a9435820270b5d885c23d3cfc6343f2f2ba9bbcc0342af62ddae9cd690]",
     "step": "the watermark screen",
     "pages": [
       "species/schizolecis-guntheri"
     ],
-    "at": "2026-11-15"
+    "at": "2026-11-21",
+    "off": true
   },
   "https://media.aquatome.com/glaser/b5bb36cb568e1072.webp": {
     "why": "watermark: withheld [sha256:7233db0ecb46b23c89e4332d0f16f6b7a8124f3c3a798e7543f84227ad8111d5]",
