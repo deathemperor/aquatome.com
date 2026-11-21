@@ -220,6 +220,15 @@
       "html": "<p>Most importantly the water must be clean and well-oxygenated so we suggest the use of an over-sized filter as a minimum requirement. Turnover should ideally be 10-15 times per hour so additional powerheads, airstones, etc., should be employed as necessary to achieve the desired flow and oxygenation.</p><p>Base substrate can either be of gravel, sand or a mixture of both to which should be added a layer of water-worn rocks and pebbles of varying sizes.</p><p>Driftwood roots and branches are also suitable and although rarely a feature of the natural habitat aquatic plants from adaptable genera such as Microsorum, Crinum and Anubias spp. can also be added. The latter are particularly useful as Homaloptera spp. appear to enjoy resting on their leaves.</p><p>Since it needs stable water conditions and feeds on biofilm this species should never be added to a biologically immature set-up, and a tightly-fitting cover is necessary since it can literally climb glass. While regular partial water changes are essential aufwuchs can be allowed to grow on all surfaces except perhaps the viewing pane.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đèn nên để khá sáng để rêu mọc lên đá và lũa cho cá gặm. Bố trí nhiều hốc đá hoặc lũa làm chỗ trốn. Ráy (Anubias) và dương xỉ Microsorum chịu được dòng chảy mạnh, buộc lên đá hay lũa là chúng mọc tốt.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-orthogoniata",
@@ -232,16 +241,43 @@
       "html": "<p>Homaloptera spp. are specialised grazers feeding on biofilm, small crustaceans, insect larvae and other invertebrates.</p><p>In captivity some sinking dried foods may be accepted but regular meals of live or frozen Daphnia, Artemia, bloodworm, etc., are essential for the maintenance of good health, and it's highly preferable if the tank contains rock and other solid surfaces with growths of algae and other aufwuchs.</p><p>Balitorids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a continual, easily-obtainable source of suitable foods in the absence of competitors if they're to recover.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài màng sinh học và rêu, loài này còn ăn thức ăn khô cỡ nhỏ loại tốt như cám vảy, viên tảo và cám chìm. Trong thức ăn tươi sống hoặc đông lạnh có thể cho thêm tép mysis.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-orthogoniata",
       "html": "<p>Not an aggressive fish although its particular requirements limit the choice of suitable tankmates.</p><p>Species inhabiting similar environments include Barilius, Discherodontus, Garra, Devario, some Rasbora, gobies of the genera Rhinogobius, Sicyopterus and Stiphodon plus Glyptothorax, Akysis and Oreoglanis spp. catfishes.</p><p>Many loaches from the family Nemacheilidae and most from Balitoridae are also suitable although harmless squabbles may occur with the latter group in particular. Research your choices before purchase to be sure.</p><p>It's found living in aggregations in nature so buy six or more to see it at its best as when kept singly or smaller groups it tends to be less bold. The interaction between individuals is also interesting to watch and a group will typically arrange themselves close to one another facing directly into the water flow at certain times of day.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Nuôi riêng một loài là tốt nhất. Nếu muốn nuôi chung thì chọn các loài chạch khác, hoặc các loài cá hiền như cá barb hiền, cá bống, cá ngựa vằn, cá lòng tong và cá da trơn nhỏ.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/homaloptera-orthogoniata",
       "html": "<p>Sexually mature females are usually a little larger and fuller-bodied than males.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Phân biệt đực cái ở loài này khá khó.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "reproduction",
@@ -331,5 +367,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-20",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=PSy6YDg3fug",
+      "title": "Saddleback Loach - Homaloptera Orthogoniata - Rare Freshwater Loach Aquarium Fish Profile"
+    }
+  ]
 }

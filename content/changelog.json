@@ -2,6 +2,20 @@
   {
     "date": "2026-11-20",
     "kind": "species",
+    "id": "homaloptera-orthogoniata",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-20",
+    "kind": "species",
+    "id": "leporinus-granti",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-20",
+    "kind": "species",
     "id": "yasuhikotakia-eos",
     "source": "glaser",
     "action": "updated"
@@ -3484,19 +3498,5 @@
     "id": "sphaerichthys-vaillanti",
     "source": "glaser",
     "action": "updated"
-  },
-  {
-    "date": "2026-11-18",
-    "kind": "species",
-    "id": "distichodus-lusosso",
-    "source": "glaser",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-18",
-    "kind": "species",
-    "id": "synodontis-soloni",
-    "source": "glaser",
-    "action": "new"
   }
 ]

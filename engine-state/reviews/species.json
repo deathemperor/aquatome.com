@@ -1303,6 +1303,39 @@
       "kept": true
     }
   ],
+  "vi/species/homaloptera-orthogoniata#PSy6YDg3fug": [
+    {
+      "at": "2026-11-20T23:44:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.78,
+      "notes": [
+        "[diet] \"Ngoài bo bo, artemia và trùng huyết\" repeats foods the PAGE diet section already lists. Only the mysis shrimp is new.",
+        "[maintenance] \"Microsorum và Anubias\" are already named on the PAGE. Only the strong-current and rock/driftwood detail is new, so this partly repeats the page.",
+        "[behaviour] \"nó cũng sống hòa với các loài chạch khác\" overlaps the PAGE, which already says many loaches can be kept with it.",
+        "[behaviour] The opening \"Loài này hiền\" mostly restates the PAGE's \"không dữ\". The new facts are the neighbour list (barbs, gobies, zebrafish, rasboras, small catfish) and \"nuôi riêng một loài vẫn là tốt nhất\".",
+        "[maintenance] \"để cá có chỗ gặm\" is a loose link. The video ties bright light to algae growth on decorations, and the grazing surface is smooth pebbles. The sentence blends the two.",
+        "[dimorphism] \"khá khó phân biệt\" is supported by the video but very thin. It leaves out the video's point that mature females are fuller and larger, which the PAGE already says."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-20T23:44:55Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.8,
+      "notes": [
+        "\"buộc lên đá hay lũa là chúng mọc tốt\": the video only says the plants \"grow well on rocks and driftwood\". It never says to tie them on, so \"buộc\" is an added instruction.",
+        "\"cá lòng tong\" for rasboras: this is a loose Vietnamese equivalent. Hobbyists would more likely say \"rasbora\" or use another name.",
+        "\"Nuôi riêng một loài là tốt nhất\": the video does say this, and it is not on the page. But the video also calls the fish a good community resident, which NEW leaves out. The wording is a little flat as a result."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/hyphessobrycon-eschwartzae#4QNZbyXjZuI": [
     {
       "at": "2026-11-09T05:53:01Z",
@@ -1487,6 +1520,18 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/leporinus-granti": [
+    {
+      "at": "2026-11-20T23:43:39Z",
+      "model": "sonnet",
+      "ran": "claude-sonnet-5-5",
+      "cli": "2.1.329",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/leporinus-nijsseni": [
